@@ -81,16 +81,6 @@ export const FilterDateRangePicker = ({
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  const removableButtonRefs = useRef(
-    onRemoveFilter
-      ? {
-          triggerButtonRef: buttonRef,
-        }
-      : null
-  )
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
   const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
     disabledDates,
@@ -104,24 +94,48 @@ export const FilterDateRangePicker = ({
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""
 
-  const [inputRangeStartValue, setInputRangeStartValue] = useState<
-    InputRangeStartProps["value"]
-  >(transformDateToInputValue(selectedRange?.from))
-  const [inputRangeEndValue, setInputRangeEndValue] = useState<
-    InputRangeEndProps["value"]
-  >(transformDateToInputValue(selectedRange?.to))
+  const rangeStart = selectedRange?.from
+  const rangeEnd = selectedRange?.to
+  const transformedRangeStart = transformDateToInputValue(rangeStart)
+  const transformedRangeEnd = transformDateToInputValue(rangeEnd)
+
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const removableButtonRefs = useRef(
+    onRemoveFilter
+      ? {
+          triggerButtonRef: buttonRef,
+        }
+      : null
+  )
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [startMonth, setStartMonth] = useState<Date>(
+    rangeStart || defaultMonth || new Date()
+  )
 
   useEffect(() => {
-    const rangeStart = transformDateToInputValue(selectedRange?.from)
-    const rangeEnd = transformDateToInputValue(selectedRange?.to)
+    if (!isOpen) {
+      if (rangeStart !== startMonth) {
+        setStartMonth(rangeStart || defaultMonth || new Date())
+      }
+    }
+  }, [isOpen, rangeStart])
 
-    if (rangeStart !== inputRangeStartValue) {
-      setInputRangeStartValue(transformDateToInputValue(selectedRange?.from))
+  const [inputRangeStartValue, setInputRangeStartValue] = useState<
+    InputRangeStartProps["value"]
+  >(transformedRangeStart)
+  const [inputRangeEndValue, setInputRangeEndValue] =
+    useState<InputRangeEndProps["value"]>(transformedRangeEnd)
+
+  useEffect(() => {
+    if (!isOpen) {
+      if (transformedRangeStart !== inputRangeStartValue) {
+        setInputRangeStartValue(transformedRangeStart)
+      }
+      if (transformedRangeEnd !== inputRangeEndValue) {
+        setInputRangeEndValue(transformedRangeEnd)
+      }
     }
-    if (rangeEnd !== inputRangeEndValue) {
-      setInputRangeEndValue(transformDateToInputValue(selectedRange?.to))
-    }
-  }, [selectedRange?.from, selectedRange?.to])
+  }, [isOpen, rangeStart, rangeEnd])
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
@@ -131,8 +145,10 @@ export const FilterDateRangePicker = ({
     locale,
     disabledDays,
     setInputValue: setInputRangeStartValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: date, to: selectedRange?.to }),
+    onDateChange: date => {
+      handleDateRangeChange({ from: date, to: rangeEnd })
+      if (date) setStartMonth(date)
+    },
     ...inputRangeStartProps,
   })
 
@@ -140,8 +156,7 @@ export const FilterDateRangePicker = ({
     locale,
     disabledDays,
     setInputValue: setInputRangeEndValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: selectedRange?.from, to: date }),
+    onDateChange: date => handleDateRangeChange({ from: rangeStart, to: date }),
     ...inputRangeEndProps,
   })
 
@@ -214,11 +229,12 @@ export const FilterDateRangePicker = ({
               classNameOverride={styles.dateRangeInputField}
             />
             <CalendarRange
-              defaultMonth={defaultMonth}
               disabled={disabledDays}
               locale={locale}
               selected={selectedRange}
               onSelect={handleCalendarSelectRange}
+              month={startMonth}
+              onMonthChange={setStartMonth}
             />
           </FloatingCalendarWrapper>
         </FocusOn>

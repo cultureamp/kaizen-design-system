@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.18.1...@kaizen/date-picker@5.18.2) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+## [5.18.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.18.0...@kaizen/date-picker@5.18.1) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/date-picker
+
+
+
+
+
+# [5.18.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.11...@kaizen/date-picker@5.18.0) (2023-02-21)
+
+
+### Features
+
+* **filter-drp:** update the calendar when start input is changed ([#3301](https://github.com/cultureamp/kaizen-design-system/issues/3301)) ([f360fee](https://github.com/cultureamp/kaizen-design-system/commit/f360fee6d75c74e6b687882dc8b5aab6bddd4ddb))
+
+
+
+
+
 ## [5.17.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.17.10...@kaizen/date-picker@5.17.11) (2023-02-20)
 
 

@@ -13,9 +13,13 @@ $input-disabled-opacity: 0.3;
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 
+  // `postcss-preset-env` v8 has this style as a lower priority
+  // than what it wants to override so we must make everything important
   + [class*="focusRing"] {
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
+    /* stylelint-disable declaration-no-important */
+    border-start-end-radius: 0 !important;
+    border-end-end-radius: 0 !important;
+    /* stylelint-enable declaration-no-important */
   }
 }
 
@@ -26,17 +30,17 @@ $input-disabled-opacity: 0.3;
   border-start-start-radius: 0;
   border-end-start-radius: 0;
 
+  // `postcss-preset-env` v8 has this style as a lower priority
+  // than what it wants to override so we must make everything important
   + [class*="focusRing"] {
-    border-start-start-radius: 0;
-    border-end-start-radius: 0;
-
-    // Override position of focus ring
-
+    /* stylelint-disable declaration-no-important */
+    border-start-start-radius: 0 !important;
+    border-end-start-radius: 0 !important;
     inset-inline-start: calc(
       -1 * calc(2 * #{$border-solid-border-width} + 1px)
-    ) !important; /* stylelint-disable-line declaration-no-important */
-    /* stylelint-disable-next-line declaration-no-important */
+    ) !important;
     inset-inline-end: -1px !important;
+    /* stylelint-enable declaration-no-important */
   }
 }
 
