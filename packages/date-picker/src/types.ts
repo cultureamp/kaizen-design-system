@@ -1,6 +1,6 @@
 import { DateInterval, DateRange } from "react-day-picker"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { CommonDateRangeInputFieldProps } from "./FilterDateRangePicker/components/DateRangeInputField"
+import { CommonFilterDateRangePickerProps } from "./FilterDateRangePicker"
 import { DayOfWeek } from "./enums"
 
 export type { Matcher } from "react-day-picker"
@@ -69,16 +69,17 @@ export interface DisabledDayMatchers {
 }
 
 export type DateRangeValidationStatus = {
-  dateStart?: "default"
-  dateEnd?: "default"
+  dateStart?: FieldMessageStatus
+  dateEnd?: FieldMessageStatus
 }
+
 export type DateRangeValidationMessageType = {
   dateStart?: React.ReactNode
   dateEnd?: React.ReactNode
 }
 
 export type DateStartValidationProps = Omit<
-  CommonDateRangeInputFieldProps,
+  CommonFilterDateRangePickerProps,
   "status" | "validationMessage"
 > & {
   status: { dateStart: "success" | "error" | "caution"; dateEnd?: undefined }
@@ -86,7 +87,7 @@ export type DateStartValidationProps = Omit<
 }
 
 export type DateEndValidationProps = Omit<
-  CommonDateRangeInputFieldProps,
+  CommonFilterDateRangePickerProps,
   "status" | "validationMessage"
 > & {
   status: { dateStart?: undefined; dateEnd: "success" | "error" | "caution" }
@@ -94,7 +95,7 @@ export type DateEndValidationProps = Omit<
 }
 
 export type DateRangeValidationProps = Omit<
-  CommonDateRangeInputFieldProps,
+  CommonFilterDateRangePickerProps,
   "status" | "validationMessage"
 > & {
   status: {

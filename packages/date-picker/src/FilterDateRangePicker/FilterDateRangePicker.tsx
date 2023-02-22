@@ -7,7 +7,11 @@ import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapp
 import { useDateInputHandlers } from "../hooks/useDateInputHandlers"
 import {
   DataAttributes,
+  DateEndValidationProps,
   DateRange,
+  DateRangeValidationMessageType,
+  DateRangeValidationProps,
+  DateStartValidationProps,
   DisabledDayMatchers,
   SupportedLocales,
 } from "../types"
@@ -33,7 +37,7 @@ type InputRangeEndProps = DateRangeInputFieldProps["inputRangeEndProps"]
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
-export interface FilterDateRangePickerProps
+export interface CommonFilterDateRangePickerProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
     DisabledDayMatchers {
   id: string
@@ -62,12 +66,21 @@ export interface FilterDateRangePickerProps
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status?: DateRangeInputFieldProps["status"] | undefined
+  status?: {
+    dateStart?: "default"
+    dateEnd?: "default"
+  }
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage?: DateRangeInputFieldProps["validationMessage"] | undefined
+  validationMessage?: DateRangeValidationMessageType
 }
+
+export type FilterDateRangePickerProps =
+  | CommonFilterDateRangePickerProps
+  | DateStartValidationProps
+  | DateEndValidationProps
+  | DateRangeValidationProps
 
 export const FilterDateRangePicker = ({
   id,

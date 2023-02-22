@@ -9,17 +9,14 @@ import {
   DateInputDescriptionProps,
 } from "../../../_subcomponents/DateInputDescription"
 import {
-  DateEndValidationProps,
   DateRangeValidationMessageType,
-  DateRangeValidationProps,
   DateRangeValidationStatus,
-  DateStartValidationProps,
 } from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
 import { DateRangeValidationMessage } from "../DateRangeValidationMessage"
 import styles from "./DateRangeInputField.module.scss"
 
-export interface CommonDateRangeInputFieldProps
+export interface DateRangeInputFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   legend: string
@@ -43,12 +40,6 @@ export interface CommonDateRangeInputFieldProps
   validationMessage?: DateRangeValidationMessageType
   disabled?: boolean
 }
-
-export type DateRangeInputFieldProps =
-  | CommonDateRangeInputFieldProps
-  | DateStartValidationProps
-  | DateEndValidationProps
-  | DateRangeValidationProps
 
 export type DateRangeInputFieldRefs = {
   inputRangeStartRef?: React.RefObject<HTMLInputElement>

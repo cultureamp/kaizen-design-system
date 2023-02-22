@@ -1,12 +1,10 @@
 import React from "react"
-import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
-import { DateRangeValidationMessageType } from "../../../types"
+import { FieldMessage } from "@kaizen/draft-form"
+import {
+  DateRangeValidationMessageType,
+  DateRangeValidationStatus,
+} from "../../../types"
 import styles from "./DateRangeValidationMessage.module.scss"
-
-type DateRangeValidationStatus = {
-  dateStart?: FieldMessageStatus
-  dateEnd?: FieldMessageStatus
-}
 
 export type DateRangeValidationMessageProps = {
   /**
