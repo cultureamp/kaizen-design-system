@@ -5,13 +5,15 @@ import clipboard from "@kaizen/component-library/icons/surveys.icon.svg"
 
 type Props = {
   text: string
+  onCopy?: (text: string) => void
 }
 
-export const CodeSnippet = ({ text }: Props): React.ReactElement => {
+export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
   const [copyIconIsChecked, setCopyIconIsChecked] = useState(false)
   const handleCopy = (utilityClassNameName: string): void => {
     navigator.clipboard.writeText(text)
     setCopyIconIsChecked(true)
+    onCopy && onCopy(utilityClassNameName)
   }
 
   return (
