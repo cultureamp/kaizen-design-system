@@ -66,14 +66,16 @@ export interface CommonFilterDateRangePickerProps
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status?: {
-    dateStart?: "default"
-    dateEnd?: "default"
-  }
+  status?:
+    | {
+        dateStart?: "default"
+        dateEnd?: "default"
+      }
+    | undefined
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage?: DateRangeValidationMessageType
+  validationMessage?: DateRangeValidationMessageType | undefined
 }
 
 export type FilterDateRangePickerProps =
