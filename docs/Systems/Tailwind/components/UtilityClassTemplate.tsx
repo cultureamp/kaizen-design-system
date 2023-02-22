@@ -1,6 +1,8 @@
 import React, { useState } from "react"
+import { Divider } from "@kaizen/draft-divider"
 import { InlineNotification } from "@kaizen/notification"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../../storybook/components/StickerSheet"
+// import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 
 import { CodeSnippet } from "./CodeSnippet"
 
@@ -20,29 +22,31 @@ export const UtilityClassTemplate = ({
   const [copiedText, setCopiedText] = useState<null | string>(null)
 
   return (
-    <StoryWrapper hasRowDivider isReversed={isReversed}>
-      <StoryWrapper.RowHeader
+    <StickerSheet isReversed={isReversed} border={1} frame={false} rules="rows">
+      <StickerSheet.Header
         headings={["Utility Class", "Compiled CSS", "Example"]}
       />
       {classKeyValues.map((presetData, index) => {
         const { utilityClassName, cssProperty } = presetData
 
         return (
-          <StoryWrapper.Row rowTitle="">
-            <CodeSnippet
-              text={utilityClassName}
-              onCopy={(text: string): void => setCopiedText(text)}
-            />
-            <p className="font-family-paragraph">
+          <StickerSheet.Row rowTitle="">
+            <div className="mr-32">
+              <CodeSnippet
+                text={utilityClassName}
+                onCopy={(text: string): void => setCopiedText(text)}
+              />
+            </div>
+            <p className="font-family-paragraph mr-32 w-max">
               {compiledCssPropertyName}: {cssProperty}
             </p>
             <div className="font-family-paragraph">
               {renderExampleComponent(cssProperty)}
             </div>
-          </StoryWrapper.Row>
+          </StickerSheet.Row>
         )
       })}
-      <div className="absolute">
+      <div className="absolute top-0 right-0">
         {copiedText && (
           <InlineNotification
             type="positive"
@@ -55,6 +59,6 @@ export const UtilityClassTemplate = ({
           </InlineNotification>
         )}
       </div>
-    </StoryWrapper>
+    </StickerSheet>
   )
 }
