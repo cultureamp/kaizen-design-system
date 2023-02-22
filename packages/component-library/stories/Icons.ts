@@ -74,7 +74,8 @@ import connect from "../icons/connect.icon.svg"
 // INFORMATIONAL
 import success from "../icons/success.icon.svg"
 import information from "../icons/information.icon.svg"
-import warning from "../icons/exclamation.icon.svg"
+import error from "../icons/exclamation.icon.svg"
+import caution from "../icons/caution.icon.svg"
 import promotion from "../icons/promotion.icon.svg"
 import time from "../icons/time.icon.svg"
 import question from "../icons/question.icon.svg"
@@ -258,7 +259,8 @@ export const Actions = {
 export const Informational = {
   success,
   information,
-  warning,
+  error,
+  caution,
   promotion,
   time,
   question,
