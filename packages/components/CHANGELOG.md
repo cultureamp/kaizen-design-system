@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.8...@kaizen/components@1.4.9) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
 ## [1.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.7...@kaizen/components@1.4.8) (2023-02-22)
 
 **Note:** Version bump only for package @kaizen/components
