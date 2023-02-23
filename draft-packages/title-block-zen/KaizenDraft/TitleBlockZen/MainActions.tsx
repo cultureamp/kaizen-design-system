@@ -2,20 +2,24 @@ import React from "react"
 import { Button, IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-import { Menu, MenuItem, MenuList, MenuItemProps } from "@kaizen/draft-menu"
+import { Menu, MenuList } from "@kaizen/draft-menu"
 import {
-  TitleBlockButtonProps,
+  TitleBlockMenuItem,
+  TitleBlockMenuItemProps,
+} from "./TitleBlockMenuItem"
+import {
   isMenuGroupNotButton,
   PrimaryActionProps,
+  DefaultActionProps,
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 import styles from "./MainActions.module.scss"
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
+  defaultAction?: DefaultActionProps
   reversed?: boolean
-  overflowMenuItems?: MenuItemProps[]
+  overflowMenuItems?: TitleBlockMenuItemProps[]
   showOverflowMenu?: boolean
 }
 
@@ -25,11 +29,11 @@ const MainActions = ({
   reversed = false,
   overflowMenuItems,
   showOverflowMenu = false,
-}: MainActionsProps) => {
+}: MainActionsProps): JSX.Element => {
   let items
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = primaryAction.menuItems.map((item, idx) => (
-      <MenuItem
+      <TitleBlockMenuItem
         {...item}
         key={`main-action-primary-menu-item-${idx}`}
         automationId={`main-action-primary-menu-item-${idx}`}
@@ -161,7 +165,7 @@ const MainActions = ({
           >
             <MenuList>
               {overflowMenuItems.map((menuItem, idx) => (
-                <MenuItem
+                <TitleBlockMenuItem
                   {...menuItem}
                   key={`main-action-overflow-item-menu-item-${idx}`}
                 />

@@ -5,6 +5,19 @@
   gap: $spacing-xs;
 }
 
+.labelContainer {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
 .hasSelectedValues {
   font-weight: $typography-button-primary-font-weight;
+}
+
+.labelSeparator {
+  margin-inline-end: $spacing-xs;
+
+  [dir="ltr"] [dir="rtl"] & {
+    margin-right: 0;
+  }
 }

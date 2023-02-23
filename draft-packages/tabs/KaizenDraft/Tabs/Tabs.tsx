@@ -37,7 +37,7 @@ const Tabs = ({
   textDirection = "ltr",
   tabs,
   renderTab,
-}: TabsProps) => {
+}: TabsProps): JSX.Element => {
   if (orientation === "horizontal") {
     return (
       <RowTab textDirection={textDirection} tabs={tabs} renderTab={renderTab} />
@@ -53,7 +53,7 @@ const Tabs = ({
   )
 }
 
-const RowTab = ({ tabs, renderTab, textDirection }) => (
+const RowTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
   <div className={styles.container} dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (
@@ -84,7 +84,7 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
   </div>
 )
 
-const VerticalTab = ({ tabs, renderTab, textDirection }) => (
+const VerticalTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
   <div dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (

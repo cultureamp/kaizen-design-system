@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { HiddenSelect, useSelect } from "@react-aria/select"
-import { Item } from "@react-stately/collections"
+import { Item, Section } from "@react-stately/collections"
 import {
   useSelectState,
   SelectProps as AriaSelectProps,
@@ -11,33 +11,49 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { SingleItemType } from "../types"
 import { ListBox } from "./components/ListBox"
+import { ListBoxSection } from "./components/ListBoxSection"
 import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
 import { SelectContext } from "./context/SelectContext"
 import selectStyles from "./Select.module.scss"
 
-type SubComponentProps = {
-  TriggerButton: typeof TriggerButton
-  Option: typeof Option
-  ListBox: typeof ListBox
-}
-
 export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
 }
 
-export const getSelectChildren: CollectionChildren<SingleItemType> = item => (
-  <Item key={item.value}>{item.label}</Item>
-)
+export const getSelectChildren: CollectionChildren<SingleItemType> = item =>
+  Array.isArray(item.value) ? (
+    <Section key={item.label} title={item.label} items={item.value}>
+      {(child): JSX.Element => <Item key={child.value}>{child.label}</Item>}
+    </Section>
+  ) : (
+    <Item key={item.value}>{item.label}</Item>
+  )
 export interface SelectProps
-  extends OverrideClassName<Omit<AriaSelectProps<SingleItemType>, "children">> {
+  extends OverrideClassName<
+    Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
+  > {
+  /** The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. */
+  disabledValues?: React.Key[]
+  /**
+   * Use the `fullWidth` styles.
+   */
   isFullWidth?: boolean
+  /**
+   * Identifies the element that labels the current element.
+   */
   id: string
+  /**
+   * Replaces the trigger button
+   * Exposes the trigger properties and the ref to be used on the replacing trigger */
   trigger?: (
     triggerProps: TriggerButtonProps,
     ref: React.RefObject<HTMLButtonElement>
   ) => React.ReactNode
+  /**
+   * Replaces the contents of the Listbox and describes how the options are displayed
+   * Exposes the option properties which contains the items */
   children?: (optionsProps: SelectOptionsProps) => React.ReactNode
   /**
    * Updates the styling of the validation FieldMessage.
@@ -47,22 +63,31 @@ export interface SelectProps
    * A descriptive message for the 'status' states.
    */
   validationMessage?: React.ReactNode | undefined
+  /**
+   * Use the `reversed` styles.
+   */
+  isReversed?: boolean
 }
 
-export const Select: React.FC<SelectProps> & SubComponentProps = ({
+export const Select = ({
   id,
   label,
   description,
   isFullWidth,
   placeholder,
   isDisabled,
+  isReversed = false,
+  disabledValues,
   status,
+  defaultOpen,
   validationMessage,
   classNameOverride,
-  trigger = triggerProps => <TriggerButton {...triggerProps} ref={buttonRef} />,
+  trigger = (triggerProps): JSX.Element => (
+    <TriggerButton {...triggerProps} ref={buttonRef} />
+  ),
   children,
   ...restProps
-}) => {
+}: SelectProps): JSX.Element => {
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const invalidStatus = status === "error" ? "invalid" : "valid"
@@ -72,8 +97,10 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
     description,
     placeholder,
     isDisabled,
+    defaultOpen,
     validationState: invalidStatus,
     errorMessage: validationMessage,
+    disabledKeys: disabledValues,
     children: getSelectChildren,
     ...restProps,
   }
@@ -81,10 +108,14 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
   const state = useSelectState(ariaSelectProps)
   const renderChildren = children
     ? children
-    : ({ items }) =>
-        items.map((item: Node<SingleItemType>) => (
-          <Option key={item.key} item={item} />
-        ))
+    : ({ items }): JSX.Element =>
+        items.map((item: Node<SingleItemType>) =>
+          item.type === "section" ? (
+            <ListBoxSection key={item.key} section={item} />
+          ) : (
+            <Option key={item.key} item={item} />
+          )
+        )
 
   const {
     labelProps,
@@ -106,7 +137,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
 
   // Fix the issue when default open and close by keyboard, then focus is lost
   useEffect(() => {
-    if (state.isOpen === false) {
+    if (state.isOpen === false && defaultOpen) {
       buttonRef.current?.focus()
     }
   }, [state.isOpen])
@@ -123,7 +154,9 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
           classNameOverride
         )}
       >
-        <Label {...labelProps}>{label}</Label>
+        <Label {...labelProps} reversed={isReversed}>
+          {label}
+        </Label>
         <HiddenSelect
           label={label}
           name={id}
@@ -133,7 +166,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
 
         <div className={classnames([selectStyles.container])}>
           {trigger(
-            { placeholder, triggerProps, valueProps, status },
+            { placeholder, triggerProps, valueProps, status, isReversed },
             buttonRef
           )}
 
@@ -151,6 +184,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
             {...errorMessageProps}
             message={validationMessage}
             status={status}
+            reversed={isReversed}
           />
         )}
 
@@ -159,6 +193,7 @@ export const Select: React.FC<SelectProps> & SubComponentProps = ({
             {...descriptionProps}
             id={descriptionId}
             message={description}
+            reversed={isReversed}
           />
         )}
       </div>

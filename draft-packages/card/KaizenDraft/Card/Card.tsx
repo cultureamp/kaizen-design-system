@@ -40,7 +40,7 @@ export const Card = ({
   isElevated = false,
   classNameOverride,
   ...props
-}: CardProps) => {
+}: CardProps): JSX.Element => {
   const Tag = tag
   return (
     <Tag

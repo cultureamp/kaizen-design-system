@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { Slider } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
@@ -14,13 +14,22 @@ export default {
       },
     },
   },
-}
+  argTypes: {
+    readOnlyMessage: {
+      control: "text",
+    },
+    description: {
+      control: "text",
+    },
+  },
+} as ComponentMeta<typeof Slider>
 
-export const DefaultKaizenSiteDemo = args => (
-  <Slider id="make-me-unique-1" {...args} />
+export const DefaultKaizenSiteDemo: ComponentStory<typeof Slider> = args => (
+  <Slider {...args} />
 )
 DefaultKaizenSiteDemo.storyName = "Slider"
 DefaultKaizenSiteDemo.args = {
+  id: "make-me-unique-1",
   labelText: "Work overall",
   minLabel: "Awful",
   maxLabel: "Fantastic",

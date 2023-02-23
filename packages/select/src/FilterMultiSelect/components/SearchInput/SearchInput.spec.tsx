@@ -9,7 +9,7 @@ jest.mock("../../provider", () => ({
   useSelectionContext: jest.fn(),
 }))
 
-const SearchInputWrapper = () => <SearchInput label="label-mock" />
+const SearchInputWrapper = (): JSX.Element => <SearchInput label="label-mock" />
 
 describe("<SearchInput /> - interaction", () => {
   describe("Given searchQuery is provided", () => {

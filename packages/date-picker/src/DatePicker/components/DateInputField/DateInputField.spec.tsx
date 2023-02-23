@@ -13,9 +13,9 @@ const defaultProps: DateInputFieldProps = {
   locale: enUS,
 }
 
-const DateInputFieldWrapper = (props: Partial<DateInputFieldProps>) => (
-  <DateInputField {...defaultProps} {...props} />
-)
+const DateInputFieldWrapper = (
+  props: Partial<DateInputFieldProps>
+): JSX.Element => <DateInputField {...defaultProps} {...props} />
 
 describe("<DateInputField />", () => {
   describe("Input", () => {
@@ -24,7 +24,7 @@ describe("<DateInputField />", () => {
       expect(
         screen.getByRole("textbox", {
           name: "Bacon expiry",
-          description: "Input format: mm/dd/yyyy",
+          description: "Input format : mm/dd/yyyy",
         })
       ).toBeInTheDocument()
     })
@@ -40,7 +40,10 @@ describe("<DateInputField />", () => {
 
     it("has helpful label showing the current date when one is selected", () => {
       render(
-        <DateInputFieldWrapper value="Mar 1, 2022" onChange={() => undefined} />
+        <DateInputFieldWrapper
+          value="Mar 1, 2022"
+          onChange={(): void => undefined}
+        />
       )
       expect(
         screen.getByRole("button", { name: "Change date, Mar 1, 2022" })
@@ -90,12 +93,12 @@ describe("<DateInputField />", () => {
         [string | null | undefined, string | null | undefined]
       >()
 
-      const Wrapper = () => {
+      const Wrapper = (): JSX.Element => {
         const inputRef = useRef<HTMLInputElement>(null)
         const buttonRef = useRef<HTMLButtonElement>(null)
         const ref = useRef({ inputRef, buttonRef })
 
-        const handleClick = () =>
+        const handleClick = (): void =>
           onButtonClick(
             inputRef.current?.id,
             buttonRef.current?.getAttribute("aria-label")

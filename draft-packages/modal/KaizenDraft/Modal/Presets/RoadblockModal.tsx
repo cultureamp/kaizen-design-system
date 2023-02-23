@@ -21,8 +21,6 @@ export interface RoadblockModalProps {
   readonly children: React.ReactNode
 }
 
-type RoadblockModal = React.FunctionComponent<RoadblockModalProps>
-
 /**
  * @deprecated RoadblockModal is deprecated. Please use Confirmation Modal instead.
  */
@@ -34,7 +32,7 @@ const RoadblockModal = ({
   dismissLabel = "Back",
   automationId,
   children,
-}: RoadblockModalProps) => (
+}: RoadblockModalProps): JSX.Element => (
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
@@ -71,4 +69,5 @@ const RoadblockModal = ({
     </div>
   </GenericModal>
 )
+
 export default RoadblockModal

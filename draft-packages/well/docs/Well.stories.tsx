@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
@@ -8,7 +8,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
-const ExampleContent = () => (
+const ExampleContent = (): JSX.Element => (
   <div style={{ padding: "1rem" }}>
     <Heading tag="h3" variant="heading-3">
       Heading
@@ -23,7 +23,7 @@ const ExampleContent = () => (
       id="blerg"
       labelText="Example text field"
       inputValue=""
-      onChange={() => undefined}
+      onChange={(): void => undefined}
     />
   </div>
 )
@@ -44,7 +44,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultWithSolidBorderKaizenSiteDemo = args => (
+export const DefaultWithSolidBorderKaizenSiteDemo: ComponentStory<
+  typeof Well
+> = args => (
   <Well {...args}>
     <ExampleContent />
   </Well>

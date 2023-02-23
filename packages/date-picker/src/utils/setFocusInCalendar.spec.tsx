@@ -10,7 +10,7 @@ const CalendarWrapper = (props: Partial<CalendarSingleProps>): JSX.Element => (
     id="calendar-dialog"
     onDayClick={jest.fn<void, [Date]>()}
     locale={enUS}
-    onMount={calendarElement =>
+    onMount={(calendarElement): void =>
       setFocusInCalendar(calendarElement, props.selected)
     }
     {...props}

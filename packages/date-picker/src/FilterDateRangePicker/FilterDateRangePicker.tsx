@@ -1,8 +1,10 @@
-import React, { HTMLAttributes, useRef, useState } from "react"
+import React, { useEffect, HTMLAttributes, useRef, useState } from "react"
+import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
 import { CalendarRange, CalendarRangeProps } from "../_subcomponents/Calendar"
 import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapper"
+import { useDateInputHandlers } from "../hooks/useDateInputHandlers"
 import {
   DataAttributes,
   DateRange,
@@ -10,13 +12,26 @@ import {
   SupportedLocales,
 } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
+import { formatDateAsText } from "../utils/formatDateAsText"
 import { getLocale } from "../utils/getLocale"
+import { DateRangeDisplayLabel } from "./components/DateRangeDisplayLabel"
+import {
+  DateRangeInputField,
+  DateRangeInputFieldProps,
+} from "./components/DateRangeInputField"
 import {
   FilterTriggerButton,
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
-import { formatDateRange } from "./utils/formatDateRange"
+import { isCompleteDateRange } from "./utils/isCompleteDateRange"
+import styles from "./FilterDateRangePicker.module.scss"
+
+type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
+type InputRangeEndProps = DateRangeInputFieldProps["inputRangeEndProps"]
+
+type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
+  DataAttributes
 
 export interface FilterDateRangePickerProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
@@ -38,9 +53,15 @@ export interface FilterDateRangePickerProps
    */
   onRangeChange: (range: DateRange | undefined) => void
   onRemoveFilter?: () => void
+  inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
+  inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
+  /**
+   * Custom description to provide extra context (input format help text remains).
+   */
+  description?: DateRangeInputFieldProps["description"]
 }
 
-export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
+export const FilterDateRangePicker = ({
   id,
   label,
   locale: propsLocale,
@@ -54,17 +75,12 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
   disabledBefore,
   disabledAfter,
   onRemoveFilter,
-}) => {
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  const removableButtonRefs = useRef(
-    onRemoveFilter
-      ? {
-          triggerButtonRef: buttonRef,
-        }
-      : null
-  )
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
+  inputRangeStartProps,
+  inputRangeEndProps,
+  description,
+  classNameOverride,
+  ...restProps
+}: FilterDateRangePickerProps): JSX.Element => {
   const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
     disabledDates,
@@ -75,11 +91,78 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     disabledAfter,
   })
 
+  const transformDateToInputValue = (date: Date | undefined): string =>
+    date ? formatDateAsText(date, disabledDays, locale) : ""
+
+  const rangeStart = selectedRange?.from
+  const rangeEnd = selectedRange?.to
+  const transformedRangeStart = transformDateToInputValue(rangeStart)
+  const transformedRangeEnd = transformDateToInputValue(rangeEnd)
+
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const removableButtonRefs = useRef(
+    onRemoveFilter
+      ? {
+          triggerButtonRef: buttonRef,
+        }
+      : null
+  )
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [startMonth, setStartMonth] = useState<Date>(
+    rangeStart || defaultMonth || new Date()
+  )
+
+  useEffect(() => {
+    if (!isOpen) {
+      if (rangeStart !== startMonth) {
+        setStartMonth(rangeStart || defaultMonth || new Date())
+      }
+    }
+  }, [isOpen, rangeStart])
+
+  const [inputRangeStartValue, setInputRangeStartValue] = useState<
+    InputRangeStartProps["value"]
+  >(transformedRangeStart)
+  const [inputRangeEndValue, setInputRangeEndValue] =
+    useState<InputRangeEndProps["value"]>(transformedRangeEnd)
+
+  useEffect(() => {
+    if (!isOpen) {
+      if (transformedRangeStart !== inputRangeStartValue) {
+        setInputRangeStartValue(transformedRangeStart)
+      }
+      if (transformedRangeEnd !== inputRangeEndValue) {
+        setInputRangeEndValue(transformedRangeEnd)
+      }
+    }
+  }, [isOpen, rangeStart, rangeEnd])
+
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
   }
 
+  const inputRangeStartHandlers = useDateInputHandlers({
+    locale,
+    disabledDays,
+    setInputValue: setInputRangeStartValue,
+    onDateChange: date => {
+      handleDateRangeChange({ from: date, to: rangeEnd })
+      if (date) setStartMonth(date)
+    },
+    ...inputRangeStartProps,
+  })
+
+  const inputRangeEndHandlers = useDateInputHandlers({
+    locale,
+    disabledDays,
+    setInputValue: setInputRangeEndValue,
+    onDateChange: date => handleDateRangeChange({ from: rangeStart, to: date }),
+    ...inputRangeEndProps,
+  })
+
   const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
+    setInputRangeStartValue(transformDateToInputValue(range?.from))
+    setInputRangeEndValue(transformDateToInputValue(range?.to))
     handleDateRangeChange(range)
   }
 
@@ -89,17 +172,25 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
     "aria-haspopup": "dialog",
     onClick: () => setIsOpen(!isOpen),
     isOpen,
-    selectedValue: formatDateRange(selectedRange, locale),
+    selectedValue: isCompleteDateRange(selectedRange) ? (
+      <DateRangeDisplayLabel dateRange={selectedRange} locale={locale} />
+    ) : undefined,
   }
 
   return (
-    <>
+    <div
+      className={classnames(
+        styles.filterDateRangePickerContainer,
+        classNameOverride
+      )}
+      {...restProps}
+    >
       {onRemoveFilter ? (
         <RemovableFilterTriggerButton
           ref={removableButtonRefs}
           triggerButtonProps={triggerButtonProps}
           removeButtonProps={{
-            onClick: () => undefined,
+            onClick: onRemoveFilter,
           }}
         />
       ) : (
@@ -109,24 +200,46 @@ export const FilterDateRangePicker: React.VFC<FilterDateRangePickerProps> = ({
       {isOpen && (
         <FocusOn
           scrollLock={false}
-          onClickOutside={() => setIsOpen(false)}
-          onEscapeKey={() => setIsOpen(false)}
+          onClickOutside={(): void => setIsOpen(false)}
+          onEscapeKey={(): void => setIsOpen(false)}
         >
           <FloatingCalendarWrapper
             referenceElement={buttonRef.current}
             aria-label={label}
           >
+            <DateRangeInputField
+              id={`${id}--input`}
+              legend={label}
+              inputRangeStartProps={{
+                labelText: "Date from",
+                value: inputRangeStartValue,
+                ...inputRangeStartProps,
+                // The below props extend the values from inputRangeStartProps, therefore must be below the spread
+                ...inputRangeStartHandlers,
+              }}
+              inputRangeEndProps={{
+                labelText: "Date to",
+                value: inputRangeEndValue,
+                ...inputRangeEndProps,
+                // The below props extend the values from inputRangeEndProps, therefore must be below the spread
+                ...inputRangeEndHandlers,
+              }}
+              locale={locale}
+              description={description}
+              classNameOverride={styles.dateRangeInputField}
+            />
             <CalendarRange
-              defaultMonth={defaultMonth}
               disabled={disabledDays}
               locale={locale}
               selected={selectedRange}
               onSelect={handleCalendarSelectRange}
+              month={startMonth}
+              onMonthChange={setStartMonth}
             />
           </FloatingCalendarWrapper>
         </FocusOn>
       )}
-    </>
+    </div>
   )
 }
 

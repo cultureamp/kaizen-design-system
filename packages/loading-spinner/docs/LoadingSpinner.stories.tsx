@@ -1,4 +1,5 @@
 import React from "react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Box } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
@@ -24,7 +25,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => (
+export const DefaultStory: ComponentStory<typeof LoadingSpinner> = args => (
   <div
     style={{
       color: colorTokens.color.green["400"],
@@ -51,7 +52,7 @@ DefaultStory.args = {
   size: "sm",
 }
 
-export const StickerSheet = () => (
+export const StickerSheet: Story = () => (
   <>
     <div
       style={{

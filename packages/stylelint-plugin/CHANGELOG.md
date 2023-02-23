@@ -3,6 +3,132 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.42...@kaizen/stylelint-plugin@2.4.43) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.41...@kaizen/stylelint-plugin@2.4.42) (2023-02-17)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.40...@kaizen/stylelint-plugin@2.4.41) (2023-02-16)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.39...@kaizen/stylelint-plugin@2.4.40) (2023-02-12)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.38...@kaizen/stylelint-plugin@2.4.39) (2023-02-07)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.37...@kaizen/stylelint-plugin@2.4.38) (2023-02-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency nano-memoize to ^3.0.2 ([#3251](https://github.com/cultureamp/kaizen-design-system/issues/3251)) ([8af5d85](https://github.com/cultureamp/kaizen-design-system/commit/8af5d852f22f50d64f1eb99f8b5793d017cd9677))
+
+
+
+
+
+## [2.4.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.36...@kaizen/stylelint-plugin@2.4.37) (2023-01-31)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.35...@kaizen/stylelint-plugin@2.4.36) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.34...@kaizen/stylelint-plugin@2.4.35) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.33...@kaizen/stylelint-plugin@2.4.34) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.32...@kaizen/stylelint-plugin@2.4.33) (2023-01-06)
+
+
+### Bug Fixes
+
+* **deps:** upgrade stylelint to 14.x ([#3186](https://github.com/cultureamp/kaizen-design-system/issues/3186)) ([712bb81](https://github.com/cultureamp/kaizen-design-system/commit/712bb815ef534f3ad289dd96ea06e5954f3bd22c))
+
+
+
+
+
+## [2.4.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.31...@kaizen/stylelint-plugin@2.4.32) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.30...@kaizen/stylelint-plugin@2.4.31) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.29...@kaizen/stylelint-plugin@2.4.30) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.28...@kaizen/stylelint-plugin@2.4.29) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
 ## [2.4.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.27...@kaizen/stylelint-plugin@2.4.28) (2022-12-09)
 
 **Note:** Version bump only for package @kaizen/stylelint-plugin

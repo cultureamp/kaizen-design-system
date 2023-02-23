@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Button, IconButton } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
@@ -12,7 +13,6 @@ import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-
 import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
@@ -33,7 +33,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = args => (
+export const DefaultStory: ComponentStory<typeof Menu> = args => (
   <Menu
     {...args}
     button={
@@ -42,7 +42,7 @@ export const DefaultStory = args => (
   >
     <MenuList>
       <MenuItem
-        onClick={e => {
+        onClick={(e: React.MouseEvent): void => {
           e.preventDefault()
           alert("onClick function to duplicate content")
         }}
@@ -50,7 +50,7 @@ export const DefaultStory = args => (
         label="Duplicate item"
       />
       <MenuItem
-        onClick={e => {
+        onClick={(e: React.MouseEvent): void => {
           e.preventDefault()
           alert("onClick function to edit content")
         }}
@@ -58,7 +58,7 @@ export const DefaultStory = args => (
         label="Edit Item"
       />
       <MenuItem
-        onClick={e => {
+        onClick={(e: React.MouseEvent): void => {
           e.preventDefault()
           alert("onClick function to delete content")
         }}
@@ -69,10 +69,9 @@ export const DefaultStory = args => (
     </MenuList>
   </Menu>
 )
-
 DefaultStory.storyName = "Basic example"
 
-export const IconExample = () => (
+export const IconExample: Story = () => (
   <StoryWrapper>
     <StoryWrapper.RowHeader headings={["Default", "Primary", "Secondary"]} />
     <StoryWrapper.Row rowTitle="Variant">
@@ -94,10 +93,9 @@ export const IconExample = () => (
     </StoryWrapper.Row>
   </StoryWrapper>
 )
-
 IconExample.storyName = "Icon button menus"
 
-export const AutoHideBehaviours = () => (
+export const AutoHideBehaviours: Story = () => (
   <StoryWrapper>
     <StoryWrapper.RowHeader headings={["Default", "Primary", "Secondary"]} />
     <StoryWrapper.Row rowTitle="Behaviour">
@@ -155,19 +153,14 @@ export const AutoHideBehaviours = () => (
     </StoryWrapper.Row>
   </StoryWrapper>
 )
-
 AutoHideBehaviours.storyName = "Auto hide behaviors"
 
-export const DefaultStatelessMenu = () => {
+export const DefaultStatelessMenu: Story = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
 
-  const toggleMenu = () => {
-    setIsMenuVisible(!isMenuVisible)
-  }
+  const toggleMenu = (): void => setIsMenuVisible(!isMenuVisible)
 
-  const hideMenu = () => {
-    setIsMenuVisible(false)
-  }
+  const hideMenu = (): void => setIsMenuVisible(false)
 
   return (
     <>
@@ -175,18 +168,14 @@ export const DefaultStatelessMenu = () => {
         Menu status: {isMenuVisible ? "open" : "closed"}
       </Paragraph>
       <Box py={1}>
-        <Button
-          secondary={true}
-          onClick={() => toggleMenu()}
-          label="Toggle menu"
-        />
-        <Button secondary={true} onClick={() => hideMenu()} label="Hide menu" />
+        <Button secondary={true} onClick={toggleMenu} label="Toggle menu" />
+        <Button secondary={true} onClick={hideMenu} label="Hide menu" />
       </Box>
       <StatelessMenu
         isMenuVisible={isMenuVisible}
         toggleMenuDropdown={toggleMenu}
         hideMenuDropdown={hideMenu}
-        renderButton={buttonProps => (
+        renderButton={(buttonProps): JSX.Element => (
           <Button
             label="Label"
             icon={isMenuVisible ? chevronUp : chevronDown}
@@ -194,7 +183,7 @@ export const DefaultStatelessMenu = () => {
             {...buttonProps}
           />
         )}
-        onClick={e => e.stopPropagation()}
+        onClick={(e): void => e.stopPropagation()}
       >
         <MenuContentExample />
       </StatelessMenu>
@@ -222,11 +211,10 @@ export const DefaultStatelessMenu = () => {
     </>
   )
 }
-
 DefaultStatelessMenu.storyName =
   "Exposed menu state with <StatelessMenu/> component"
 
-export const DropdownWidthContain = () => (
+export const DropdownWidthContain: Story = () => (
   <Menu
     button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     dropdownWidth="contain"
@@ -237,11 +225,10 @@ export const DropdownWidthContain = () => (
     </div>
   </Menu>
 )
-
 DropdownWidthContain.storyName =
   "Flexible dropdown container width with dropdownWidth prop"
 
-export const MenuWithActiveItem = () => (
+export const MenuWithActiveItem: Story = () => (
   <>
     <Box mb={1}>
       <Paragraph variant="body">
@@ -265,10 +252,9 @@ export const MenuWithActiveItem = () => (
     </Menu>
   </>
 )
-
 MenuWithActiveItem.storyName = "Displaying active menu items in Menu"
 
-export const OverflowScroll = () => (
+export const OverflowScroll: Story = () => (
   <>
     <div style={{ overflowX: "scroll", width: "200px", height: "100px" }}>
       <div style={{ width: "500px", textAlign: "center" }}>
@@ -290,11 +276,10 @@ export const OverflowScroll = () => (
     </Paragraph>
   </>
 )
-
 OverflowScroll.storyName =
   "Menu behavior with overflow: scroll parent container"
 
-export const ContentAndList = () => (
+export const ContentAndList: Story = () => (
   <>
     <Menu
       button={<Button label="Label" icon={chevronDown} iconPosition="end" />}

@@ -15,14 +15,19 @@ export interface OptionProps
   extends OverrideClassName<HTMLAttributes<HTMLLIElement>> {
   item: Node<SingleItemType>
 }
-export const Option: React.VFC<OptionProps> = ({
+export const Option = ({
   item,
   classNameOverride,
   ...props
-}) => {
+}: OptionProps): JSX.Element => {
   const ref = React.useRef<HTMLLIElement>(null)
   const { state } = useSelectContext()
-  const { optionProps, isSelected } = useOption({ key: item.key }, state, ref)
+  const { optionProps, isSelected, isDisabled } = useOption(
+    { key: item.key },
+    state,
+    ref
+  )
+
   const { isFocusVisible, focusProps } = useFocusRing()
 
   return (
@@ -33,6 +38,7 @@ export const Option: React.VFC<OptionProps> = ({
         styles.option,
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
+        isDisabled && styles.disabled,
         classNameOverride,
       ])}
       aria-label={item.textValue}

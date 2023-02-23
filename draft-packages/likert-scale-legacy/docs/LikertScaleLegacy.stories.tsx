@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import {
   LikertScaleLegacy,
   Scale,
@@ -54,24 +54,22 @@ const scale: Scale = [
   },
 ]
 
-export const DefaultStory = args => {
+export const DefaultStory: ComponentStory<typeof LikertScaleLegacy> = args => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-  const labelId = "456"
 
   return (
     <>
-      <div style={{ marginBottom: "40px" }} id={labelId}>
+      <div style={{ marginBottom: "40px" }} id={args.labelId}>
         <Heading variant="heading-4" color="dark">
           How would you rate this survey?
         </Heading>
       </div>
       <LikertScaleLegacy
-        scale={scale}
-        automationId="123"
-        labelId={labelId} // Intended to match the id of the label
-        selectedItem={selectedItem}
-        onSelect={item => setSelectedItem(item)}
         {...args}
+        automationId="123"
+        scale={scale}
+        selectedItem={selectedItem}
+        onSelect={setSelectedItem}
       />
     </>
   )
@@ -80,11 +78,14 @@ DefaultStory.storyName = "Likert Scale"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
+DefaultStory.args = {
+  labelId: "456",
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const SectionHeading: React.VFC<{ heading: string }> = ({ heading }) => (
+  const SectionHeading = ({ heading }: { heading: string }): JSX.Element => (
     <Heading variant="heading-3" tag="h1" color={isReversed ? "white" : "dark"}>
       {heading}
     </Heading>
@@ -98,7 +99,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           scale={scale}
           labelId="1"
           selectedItem={scale[0]}
-          onSelect={() => undefined}
+          onSelect={(): void => undefined}
           reversed={isReversed}
         />
       </StoryWrapper.Row>
@@ -107,7 +108,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           scale={scale}
           labelId="1"
           selectedItem={scale[1]}
-          onSelect={() => undefined}
+          onSelect={(): void => undefined}
           reversed={isReversed}
         />
       </StoryWrapper.Row>
@@ -116,7 +117,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           scale={scale}
           labelId="2"
           selectedItem={scale[2]}
-          onSelect={() => undefined}
+          onSelect={(): void => undefined}
           reversed={isReversed}
         />
       </StoryWrapper.Row>
@@ -125,7 +126,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           scale={scale}
           labelId="3"
           selectedItem={scale[3]}
-          onSelect={() => undefined}
+          onSelect={(): void => undefined}
           reversed={isReversed}
         />
       </StoryWrapper.Row>
@@ -134,7 +135,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           scale={scale}
           labelId="4"
           selectedItem={scale[4]}
-          onSelect={() => undefined}
+          onSelect={(): void => undefined}
           reversed={isReversed}
         />
       </StoryWrapper.Row>
@@ -143,7 +144,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           scale={scale}
           labelId="5"
           selectedItem={scale[5]}
-          onSelect={() => undefined}
+          onSelect={(): void => undefined}
           reversed={isReversed}
         />
       </StoryWrapper.Row>
@@ -154,7 +155,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           scale={scale}
           labelId="Error state"
           selectedItem={scale[0]}
-          onSelect={() => undefined}
+          onSelect={(): void => undefined}
           reversed={isReversed}
           validationMessage="Error message here"
           status="error"

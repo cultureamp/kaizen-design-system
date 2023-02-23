@@ -22,7 +22,7 @@ export interface TextAreaFieldProps
  * {@link https://cultureamp.design/components/text-area-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-text-area-field--default-story Storybook}
  */
-export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
+export const TextAreaField = ({
   labelText,
   inline = false,
   validationMessage,
@@ -33,7 +33,7 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
   status = "default",
   disabled,
   ...restProps
-}) => {
+}: TextAreaFieldProps): JSX.Element => {
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
     : ""
@@ -44,7 +44,9 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
   )
 
   const renderDescriptionOnTop = variant === "prominent"
-  const renderDescription = (position: "top" | "bottom") => {
+  const renderDescription = (
+    position: "top" | "bottom"
+  ): JSX.Element | null => {
     if (!description) return null
     return (
       <div

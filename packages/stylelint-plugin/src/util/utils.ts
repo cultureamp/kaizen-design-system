@@ -20,8 +20,8 @@ type ParserAndStringifier = {
   parse: postcss.Parser<postcss.Root>
   stringify: postcss.Stringifier
 }
-export const getParser = (language: Language) =>
+export const getParser = (language: Language): ParserAndStringifier =>
   (language === "scss" ? postcssScss : postcssLess) as ParserAndStringifier
 
-export const variablePrefixForLanguage = (language: Language) =>
+export const variablePrefixForLanguage = (language: Language): "@" | "$" =>
   language === "less" ? "@" : "$"

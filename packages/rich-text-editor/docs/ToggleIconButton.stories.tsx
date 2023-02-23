@@ -1,5 +1,5 @@
-import React, { Children } from "react"
-import { Story } from "@storybook/react"
+import React from "react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -9,7 +9,7 @@ import {
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { ToggleIconButton, ToggleIconButtonProps } from "../"
+import { ToggleIconButton } from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/${SUB_COMPONENTS_FOLDER_NAME}/Toggle Icon Button`,
@@ -31,22 +31,23 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultStory = (args: ToggleIconButtonProps) => (
-  <ToggleIconButton {...args} />
-)
 const defaultButton = {
   label: "Bold",
   icon: boldIcon,
 }
-
+export const DefaultStory: ComponentStory<typeof ToggleIconButton> = args => (
+  <ToggleIconButton {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = { isActive: false, label: "Bold", icon: boldIcon }
 
 // This is used to showcase the toggle icon button within a sticker sheet
 // Implementation wise it is not required in a ToolbarSection
-const InlineWrapper: React.VFC<React.HTMLAttributes<HTMLDivElement>> = ({
+const InlineWrapper = ({
   children,
-}) => <div style={{ display: "inline-block" }}>{children}</div>
+}: React.HTMLAttributes<HTMLDivElement>): JSX.Element => (
+  <div style={{ display: "inline-block" }}>{children}</div>
+)
 
 const StickerSheetTemplate: Story = () => (
   <>

@@ -3,6 +3,129 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.13...@kaizen/draft-table@5.6.14) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.12...@kaizen/draft-table@5.6.13) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.11...@kaizen/draft-table@5.6.12) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.10...@kaizen/draft-table@5.6.11) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.9...@kaizen/draft-table@5.6.10) (2023-02-16)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.8...@kaizen/draft-table@5.6.9) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.7...@kaizen/draft-table@5.6.8) (2023-02-06)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.6...@kaizen/draft-table@5.6.7) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.5...@kaizen/draft-table@5.6.6) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.4...@kaizen/draft-table@5.6.5) (2023-01-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.3...@kaizen/draft-table@5.6.4) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.2...@kaizen/draft-table@5.6.3) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.1...@kaizen/draft-table@5.6.2) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.0...@kaizen/draft-table@5.6.1) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.5.0...@kaizen/draft-table@5.6.0) (2022-12-20)
+
+
+### Features
+
+* **Table:** Allow consumers to hide tooltip icon in table header cells ([#3176](https://github.com/cultureamp/kaizen-design-system/issues/3176)) ([bf94812](https://github.com/cultureamp/kaizen-design-system/commit/bf948124979cea72a0ef2949b41256185560e6e4))
+
+
+
+
+
 # [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.4.2...@kaizen/draft-table@5.5.0) (2022-12-12)
 
 

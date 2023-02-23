@@ -1,5 +1,5 @@
-import * as React from "react"
-import { Story } from "@storybook/react"
+import React from "react"
+import { ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
@@ -20,20 +20,18 @@ import styles from "./ToastNotification.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 
-const withNavigation = (StoryChild: React.FunctionComponent) => (
-  <>
-    <div style={{ margin: "-1rem", minHeight: "150px" }}>
-      <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
-      <StoryChild />
-    </div>
-  </>
+const withNavigation = (StoryChild: () => JSX.Element): JSX.Element => (
+  <div style={{ margin: "-1rem", minHeight: "150px" }}>
+    <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
+    <StoryChild />
+  </div>
 )
 
 const Triggers = ({
   notifications,
 }: {
   notifications: ToastNotificationWithOptionals[]
-}) => {
+}): JSX.Element => {
   const [local] = React.useState(notifications.map(n => ({ ...n, id: v4() })))
 
   return (
@@ -43,7 +41,7 @@ const Triggers = ({
           <Box mr={0.25}>
             <Button
               label={`Show notification${local.length > 1 ? "s" : ""}`}
-              onClick={() => {
+              onClick={(): void => {
                 local.forEach(addToastNotification)
               }}
             />
@@ -51,14 +49,14 @@ const Triggers = ({
           <Box mr={0.25}>
             <Button
               label="Remove"
-              onClick={() => {
+              onClick={(): void => {
                 local.forEach(({ id }) => removeToastNotification(id))
               }}
             />
           </Box>
           <Button
             label="Clear"
-            onClick={() => {
+            onClick={(): void => {
               clearToastNotifications()
             }}
           />
@@ -85,7 +83,9 @@ export default {
   decorators: [withDesign, withNavigation],
 }
 
-export const PositiveKaizenSiteDemo = args => {
+export const PositiveKaizenSiteDemo: Story<
+  ToastNotificationWithOptionals
+> = args => {
   React.useEffect(() => {
     addToastNotification({ ...args })
   })
@@ -107,7 +107,7 @@ PositiveKaizenSiteDemo.args = {
 
 PositiveKaizenSiteDemo.storyName = "Toast Notification"
 
-export const OverflowNotifications = () => {
+export const OverflowNotifications: ComponentStory<typeof Triggers> = () => {
   const seed = Math.random() * 1000
   return (
     <Triggers
@@ -128,14 +128,14 @@ export const OverflowNotifications = () => {
 }
 OverflowNotifications.storyName = "Overflow notifications"
 
-export const UpdatedNotification = () => (
+export const UpdatedNotification: Story = () => (
   <Container>
     <Content>
       <Box py={1} classNameOverride={styles.triggerContainer}>
         <Box mr={0.25}>
           <Button
             label={"Create initial notification"}
-            onClick={() => {
+            onClick={(): void => {
               addToastNotification({
                 id: "consistent-id",
                 automationId: "notification1",
@@ -153,7 +153,7 @@ export const UpdatedNotification = () => (
         </Box>
         <Button
           label={"Update initial notification"}
-          onClick={() => {
+          onClick={(): void => {
             addToastNotification({
               id: "consistent-id",
               automationId: "notification1",
@@ -223,6 +223,21 @@ const StickerSheetTemplate: Story = () => {
         </>
       ),
       autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "positive",
+      title:
+        "Very long Title Example Very long title Example VerylongTitleExampleVerylongtitleExample ",
+      automationId: "notification1",
+      message: (
+        <>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper
+          odio vitae sem gravida rutrum. Praesent vel sapien eget eros dictum
+          luctus scelerisque eu nibh. Etiam ullamcorper lobortis gravida.
+          Suspendisse massa tortor, ultricies et ipsum at, iaculis bibendum est.
+        </>
+      ),
+      autohide: false,
     })
   })
   return <></>

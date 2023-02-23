@@ -5,7 +5,9 @@ import {
   bulletListRule,
 } from "@cultureamp/rich-text-toolkit"
 
-export function buildInputRules(schema: ProseMirrorModel.Schema) {
+export function buildInputRules(
+  schema: ProseMirrorModel.Schema
+): ReturnType<(typeof ProseMirrorInputrules)["inputRules"]> {
   const { smartQuotes, ellipsis, emDash, inputRules } = ProseMirrorInputrules
   const rules = smartQuotes.concat(ellipsis, emDash)
 

@@ -7,7 +7,7 @@ import { ToggleIconButton } from "../ToggleIconButton"
 import { ToolbarSection } from "../ToolbarSection"
 import { Toolbar } from "./"
 
-const ExampleToolbar = () => (
+const ExampleToolbar = (): JSX.Element => (
   <Toolbar aria-label="Toolbar" aria-controls="editable-id">
     <ToolbarSection>
       <ToggleIconButton label="Bold" icon={boldIcon} />

@@ -1,10 +1,10 @@
-import * as React from "react"
+import React from "react"
 import styles from "./Menu.module.scss"
 
 /**
  * @deprecated MenuList is deprecated. Please use draft-menu instead.
  */
-const MenuList = (props: { children: React.ReactNode }) => (
+const MenuList = (props: { children: React.ReactNode }): JSX.Element => (
   <div className={styles.menuList}>{props.children}</div>
 )
 

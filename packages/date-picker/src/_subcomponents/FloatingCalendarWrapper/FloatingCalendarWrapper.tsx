@@ -12,15 +12,13 @@ export interface FloatingCalendarWrapperProps
   popperOptions?: Partial<Options>
 }
 
-export const FloatingCalendarWrapper: React.VFC<
-  FloatingCalendarWrapperProps
-> = ({
+export const FloatingCalendarWrapper = ({
   children,
   referenceElement,
   popperOptions,
   classNameOverride,
   ...restProps
-}) => {
+}: FloatingCalendarWrapperProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )

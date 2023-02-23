@@ -4,24 +4,39 @@
 $cell-border-radius: 3px;
 
 .month {
-  padding: $spacing-md calc(#{$spacing-md} / 2);
+  padding: 0 $spacing-sm;
 
   &:first-child {
-    padding-inline-start: $spacing-md;
+    padding-inline-start: 0;
   }
 
   &:last-child {
-    padding-inline-end: $spacing-md;
+    padding-inline-end: 0;
   }
 }
 
 .monthWithDivider {
-  padding: $spacing-md;
+  position: relative;
+  padding: 0 $spacing-md;
+
+  &:not(:first-child) {
+    &::before {
+      position: absolute;
+      content: "";
+      top: calc(-1 * #{$spacing-md});
+      bottom: calc(-1 * #{$spacing-md});
+      left: 0;
+      right: 0;
+      border-inline-start: 1px solid $color-gray-300;
+    }
+  }
 
   &:first-child {
-    border-right-style: solid;
-    border-right-width: 1px;
-    border-right-color: $color-gray-300;
+    padding-inline-start: 0;
+  }
+
+  &:last-child {
+    padding-inline-end: 0;
   }
 }
 

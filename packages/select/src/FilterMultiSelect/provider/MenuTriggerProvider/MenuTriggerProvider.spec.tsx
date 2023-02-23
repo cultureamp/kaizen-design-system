@@ -10,7 +10,7 @@ import {
 
 const MenuTriggerProviderWrapper = (
   props: Partial<MenuTriggerProviderProps>
-) => (
+): JSX.Element => (
   <MenuTriggerProvider {...props}>
     <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
     <MenuPopup>

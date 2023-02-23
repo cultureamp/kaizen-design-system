@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
 import { Avatar } from "@kaizen/draft-avatar"
 
@@ -7,7 +7,7 @@ import { Tag } from "."
 
 afterEach(cleanup)
 
-const renderTag = (props: TagProps) => {
+const renderTag = (props: TagProps): ReturnType<typeof render> => {
   const mergedTagProps = { ...props }
 
   return render(<Tag {...mergedTagProps}>Default</Tag>)

@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
@@ -21,9 +21,9 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof Card>
 
-export const DefaultStory = args => (
+export const DefaultStory: ComponentStory<typeof Card> = args => (
   <Card {...args}>This is a default container</Card>
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"

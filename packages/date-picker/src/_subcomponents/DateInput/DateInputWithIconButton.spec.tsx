@@ -15,7 +15,7 @@ const defaultProps: DateInputWithIconButtonProps = {
 
 const DateInputWithIconButtonWrapper = (
   props: Partial<DateInputWithIconButtonProps>
-) => <DateInputWithIconButton {...defaultProps} {...props} />
+): JSX.Element => <DateInputWithIconButton {...defaultProps} {...props} />
 
 describe("<DateInputWithIconButton />", () => {
   describe("Icon button", () => {
@@ -30,7 +30,7 @@ describe("<DateInputWithIconButton />", () => {
       render(
         <DateInputWithIconButtonWrapper
           value="Mar 1, 2022"
-          onChange={() => undefined}
+          onChange={(): void => undefined}
         />
       )
       expect(
@@ -56,12 +56,12 @@ describe("<DateInputWithIconButton />", () => {
         [string | null | undefined, string | null | undefined]
       >()
 
-      const Wrapper = () => {
+      const Wrapper = (): JSX.Element => {
         const inputRef = useRef<HTMLInputElement>(null)
         const buttonRef = useRef<HTMLButtonElement>(null)
         const ref = useRef({ inputRef, buttonRef })
 
-        const handleClick = () =>
+        const handleClick = (): void =>
           onButtonClick(
             inputRef.current?.id,
             buttonRef.current?.getAttribute("aria-label")

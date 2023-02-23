@@ -3,6 +3,153 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.5.55](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.54...@kaizen/draft-modal@10.5.55) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.54](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.53...@kaizen/draft-modal@10.5.54) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.53](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.52...@kaizen/draft-modal@10.5.53) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.52](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.51...@kaizen/draft-modal@10.5.52) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.50...@kaizen/draft-modal@10.5.51) (2023-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.49...@kaizen/draft-modal@10.5.50) (2023-02-16)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.48...@kaizen/draft-modal@10.5.49) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.47...@kaizen/draft-modal@10.5.48) (2023-02-06)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.47](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.46...@kaizen/draft-modal@10.5.47) (2023-02-03)
+
+
+### Bug Fixes
+
+* add box-sizing:content-box to modal to prevent incorrect sizing in environments that use a border-box default ([#3254](https://github.com/cultureamp/kaizen-design-system/issues/3254)) ([2f74819](https://github.com/cultureamp/kaizen-design-system/commit/2f74819e1c90864bdea7dd43f4dcb43074f10ebf))
+
+
+
+
+
+## [10.5.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.45...@kaizen/draft-modal@10.5.46) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.44...@kaizen/draft-modal@10.5.45) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.43...@kaizen/draft-modal@10.5.44) (2023-01-24)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.42...@kaizen/draft-modal@10.5.43) (2023-01-23)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.41...@kaizen/draft-modal@10.5.42) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.40...@kaizen/draft-modal@10.5.41) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.39...@kaizen/draft-modal@10.5.40) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.38...@kaizen/draft-modal@10.5.39) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [10.5.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.37...@kaizen/draft-modal@10.5.38) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [10.5.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@10.5.36...@kaizen/draft-modal@10.5.37) (2022-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-modal

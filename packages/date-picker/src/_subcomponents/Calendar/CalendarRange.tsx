@@ -17,7 +17,7 @@ export interface CalendarRangeProps
   hasDivider?: boolean
 }
 
-export const CalendarRange: React.VFC<CalendarRangeProps> = ({
+export const CalendarRange = ({
   id,
   onMount,
   hasDivider = false,
@@ -26,7 +26,7 @@ export const CalendarRange: React.VFC<CalendarRangeProps> = ({
   defaultMonth,
   locale = enAU,
   ...restProps
-}) => {
+}: CalendarRangeProps): JSX.Element => {
   const calendarRef = useRef<CalendarRangeElement>(null)
 
   useEffect(() => {

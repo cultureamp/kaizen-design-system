@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { SearchField } from "@kaizen/draft-form"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
@@ -17,57 +17,108 @@ export default {
     },
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof SearchField>
 
-export const DefaultKaizenDemo = args => {
+export const DefaultKaizenDemo: ComponentStory<typeof SearchField> = args => {
   const [value, setValue] = useState("Some value")
 
   return (
     <SearchField
-      id="search-field"
-      placeholder="Search…"
-      labelText="Label"
       value={value}
-      onChange={e => setValue(e.target.value)}
-      onClear={() => setValue("")}
+      onChange={(e): void => setValue(e.target.value)}
+      onClear={(): void => setValue("")}
       {...args}
     />
   )
 }
 DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
+DefaultKaizenDemo.args = {
+  id: "search-field",
+  placeholder: "Search…",
+  labelText: "Label",
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
+  const variants: Array<{
+    heading: string
+    variantProps?: Partial<SearchFieldProps>
+  }> = [
+    {
+      heading: "Default",
+    },
+    {
+      heading: "Secondary",
+      variantProps: { secondary: true },
+    },
+  ]
+
   const COMMON_PROPS = {
     placeholder: "Search…",
     reversed: isReversed,
     labelText: "Label",
     value: "Some value",
   }
+
   return (
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader
-        headings={["Base", "Filled", "Loading", "Disabled"]}
-      />
-      <StoryWrapper.Row rowTitle="Default">
-        <SearchField {...COMMON_PROPS} value={""} id="search-field-1" />
-        <SearchField id="search-field-2" {...COMMON_PROPS} />
-        <SearchField id="search-field-3" {...COMMON_PROPS} loading />
-        <SearchField id="search-field-4" {...COMMON_PROPS} disabled />
-      </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="Secondary">
-        <SearchField
-          id="search-field-5"
-          {...COMMON_PROPS}
-          value={""}
-          secondary
-        />
-        <SearchField id="search-field-6" {...COMMON_PROPS} secondary />
-        <SearchField id="search-field-7" {...COMMON_PROPS} secondary loading />
-        <SearchField id="search-field-8" {...COMMON_PROPS} secondary disabled />
-      </StoryWrapper.Row>
-    </StoryWrapper>
+    <>
+      {variants.map(({ heading, variantProps }) => (
+        <>
+          <StickerSheet isReversed={isReversed} heading={heading}>
+            <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
+            <StickerSheet.Body>
+              <StickerSheet.Row>
+                <SearchField
+                  id={`search-field--base--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  value={""}
+                />
+                <SearchField
+                  id={`search-field--filled--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                />
+                <SearchField
+                  id={`search-field--loading--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  loading
+                />
+              </StickerSheet.Row>
+            </StickerSheet.Body>
+          </StickerSheet>
+
+          <StickerSheet isReversed={isReversed}>
+            <StickerSheet.Header headings={["Disabled", "Hover", "Focus"]} />
+            <StickerSheet.Body>
+              <StickerSheet.Row>
+                <SearchField
+                  id={`search-field--disabled--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  value={""}
+                  disabled
+                />
+                <SearchField
+                  id={`search-field--hover--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  classNameOverride="story__input-search-hover"
+                />
+                <SearchField
+                  id={`search-field--focus--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  classNameOverride="story__input-search-focus"
+                />
+              </StickerSheet.Row>
+            </StickerSheet.Body>
+          </StickerSheet>
+        </>
+      ))}
+    </>
   )
 }
 

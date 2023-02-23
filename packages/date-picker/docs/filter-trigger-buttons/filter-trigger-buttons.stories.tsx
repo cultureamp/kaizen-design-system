@@ -33,9 +33,16 @@ const StickerSheetTemplate: Story = () => (
     <StickerSheet heading="Filter Trigger Button">
       <StickerSheet.Header
         headings={["Closed", "Open", "Has selected value"]}
+        hasVerticalHeadings
+        verticalHeadingsWidth={70}
       />
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="LTR">
+          <FilterTriggerButton label="Desserts" />
+          <FilterTriggerButton label="Desserts" isOpen />
+          <FilterTriggerButton label="Desserts" selectedValue="Cake" />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="RTL" dir="rtl">
           <FilterTriggerButton label="Desserts" />
           <FilterTriggerButton label="Desserts" isOpen />
           <FilterTriggerButton label="Desserts" selectedValue="Cake" />
@@ -45,7 +52,17 @@ const StickerSheetTemplate: Story = () => (
 
     <StickerSheet heading="Removable Filter Trigger Button">
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="LTR" rowTitleWidth={70}>
+          <RemovableFilterTriggerButton
+            triggerButtonProps={{
+              label: "Desserts",
+            }}
+            removeButtonProps={{
+              onClick: () => undefined,
+            }}
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="RTL" dir="rtl">
           <RemovableFilterTriggerButton
             triggerButtonProps={{
               label: "Desserts",

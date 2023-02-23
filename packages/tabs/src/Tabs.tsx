@@ -31,7 +31,7 @@ export interface TabsProps {
  *
  * Wrapper around the whole thing: holds a tab list and tab panels
  */
-export const Tabs = (props: TabsProps) => {
+export const Tabs = (props: TabsProps): JSX.Element => {
   const {
     defaultIndex,
     selectedIndex,

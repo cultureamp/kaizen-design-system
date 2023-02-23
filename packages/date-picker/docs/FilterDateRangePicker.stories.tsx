@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { ComponentStory, Story } from "@storybook/react"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { within, userEvent } from "@storybook/testing-library"
+import isChromatic from "chromatic"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { FilterDateRangePicker } from "../src/FilterDateRangePicker"
@@ -9,6 +11,8 @@ import { DateRange } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
 import { dateRangePickerLocaleControls } from "./controls/localeControls"
+
+const IS_CHROMATIC = isChromatic()
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker`,
@@ -80,9 +84,7 @@ DefaultStory.args = {
   onRemoveFilter: undefined,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+const StickerSheetTemplate: Story = () => {
   const [rangeDefaultBase, setRangeDefaultBase] = useState<
     DateRange | undefined
   >()
@@ -101,55 +103,77 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
   })
+  const [rangeOpen, setRangeOpen] = useState<DateRange | undefined>({
+    from: new Date("2022-05-15"),
+    to: new Date("2022-06-22"),
+  })
 
   return (
-    <StoryWrapper isReversed={isReversed}>
-      <StoryWrapper.RowHeader headings={["Base", "With existing value"]} />
-      <StoryWrapper.Row rowTitle="Default">
-        <div>
+    <StickerSheet style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}>
+      <StickerSheet.Header
+        headings={["Base", "With existing value"]}
+        hasVerticalHeadings
+        verticalHeadingsWidth={70}
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Default">
           <FilterDateRangePicker
             id="stickersheet--filter-drp--default--base"
             label="Dates"
-            locale="en-AU"
+            locale="en-US"
             selectedRange={rangeDefaultBase}
             onRangeChange={setRangeDefaultBase}
           />
-        </div>
-        <div>
           <FilterDateRangePicker
             id="stickersheet--filter-drp--default--existing"
             label="Dates"
-            locale="en-AU"
+            locale="en-US"
             selectedRange={rangeDefaultExisting}
             onRangeChange={setRangeDefaultExisting}
           />
-        </div>
-      </StoryWrapper.Row>
+        </StickerSheet.Row>
 
-      <StoryWrapper.Row rowTitle="Removable">
-        <div>
+        <StickerSheet.Row rowTitle="Removable">
           <FilterDateRangePicker
             id="stickersheet--filter-drp--removable--base"
             label="Dates"
-            locale="en-AU"
+            locale="en-US"
             selectedRange={rangeRemovableBase}
             onRangeChange={setRangeRemovableBase}
-            onRemoveFilter={() => undefined}
+            onRemoveFilter={(): void => undefined}
           />
-        </div>
-        <div>
           <FilterDateRangePicker
             id="stickersheet--filter-drp--removable--existing"
             label="Dates"
-            locale="en-AU"
+            locale="en-US"
             selectedRange={rangeRemovableExisting}
             onRangeChange={setRangeRemovableExisting}
-            onRemoveFilter={() => undefined}
+            onRemoveFilter={(): void => undefined}
           />
-        </div>
-      </StoryWrapper.Row>
-    </StoryWrapper>
+        </StickerSheet.Row>
+
+        <StickerSheet.Row rowTitle="Open">
+          <FilterDateRangePicker
+            data-testid="test__stickersheet--filter-drp--open"
+            id="stickersheet--filter-drp--open"
+            label="Open"
+            locale="en-US"
+            selectedRange={rangeOpen}
+            onRangeChange={setRangeOpen}
+            description="This is a custom description"
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
   )
+}
+
+const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
+  const canvas = within(canvasElement)
+  const filterButtonOpen = canvas
+    .getByTestId("test__stickersheet--filter-drp--open")
+    .getElementsByTagName("button")[0]
+  userEvent.click(filterButtonOpen)
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
@@ -157,4 +181,20 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+}
+StickerSheetDefault.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+StickerSheetRTL.args = {
+  textDirection: "rtl",
+}
+StickerSheetRTL.play = ({ canvasElement }): void => {
+  applyStickerSheetStyles(canvasElement)
 }

@@ -3,6 +3,283 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.4...@kaizen/select@6.13.5) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.3...@kaizen/select@6.13.4) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.2...@kaizen/select@6.13.3) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.1...@kaizen/select@6.13.2) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.0...@kaizen/select@6.13.1) (2023-02-16)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [6.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.12.1...@kaizen/select@6.13.0) (2023-02-16)
+
+
+### Features
+
+* Update the useEffect only trigger when defaultOpen ([#3284](https://github.com/cultureamp/kaizen-design-system/issues/3284)) ([cd58480](https://github.com/cultureamp/kaizen-design-system/commit/cd584800230c72bf632215ae829e8b2c9de9d9d7))
+
+
+
+
+
+## [6.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.12.0...@kaizen/select@6.12.1) (2023-02-16)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [6.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.11.2...@kaizen/select@6.12.0) (2023-02-15)
+
+
+### Features
+
+* **KaizenProvider:** add KaizenProvider to @kaizen/components ([#3239](https://github.com/cultureamp/kaizen-design-system/issues/3239)) ([16819f0](https://github.com/cultureamp/kaizen-design-system/commit/16819f0717dfebd6a938b2784dc84751650f8be4))
+* **select:** Add tech docs KZN-991-tech-docs ([#3272](https://github.com/cultureamp/kaizen-design-system/issues/3272)) ([f7ce329](https://github.com/cultureamp/kaizen-design-system/commit/f7ce329bcc0ba981ea996572ff8375017cf802fb))
+
+
+
+
+
+## [6.11.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.11.1...@kaizen/select@6.11.2) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.11.0...@kaizen/select@6.11.1) (2023-02-09)
+
+
+### Bug Fixes
+
+* **filtermultiselect:** trigger button tooltip consistency ([#3265](https://github.com/cultureamp/kaizen-design-system/issues/3265)) ([effefdc](https://github.com/cultureamp/kaizen-design-system/commit/effefdcf4d3d4166f1d8b0058bc27325e4a29206))
+
+
+
+
+
+# [6.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.10.4...@kaizen/select@6.11.0) (2023-02-07)
+
+
+### Features
+
+* export context for Select ([#3257](https://github.com/cultureamp/kaizen-design-system/issues/3257)) ([22ebaca](https://github.com/cultureamp/kaizen-design-system/commit/22ebaca48766bdc7f88ed1f1857121c8af2e3001))
+
+
+
+
+
+## [6.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.10.3...@kaizen/select@6.10.4) (2023-02-06)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.10.2...@kaizen/select@6.10.3) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.10.1...@kaizen/select@6.10.2) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.10.0...@kaizen/select@6.10.1) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [6.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.9.0...@kaizen/select@6.10.0) (2023-01-25)
+
+
+### Features
+
+* update max-height of filterSelect listbox ([#3234](https://github.com/cultureamp/kaizen-design-system/issues/3234)) ([e695472](https://github.com/cultureamp/kaizen-design-system/commit/e695472380c7ec7151028254214e83c7bbf74a80))
+
+
+
+
+
+# [6.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.8.0...@kaizen/select@6.9.0) (2023-01-25)
+
+
+### Features
+
+* reset filter when open ([#3228](https://github.com/cultureamp/kaizen-design-system/issues/3228)) ([21b1c09](https://github.com/cultureamp/kaizen-design-system/commit/21b1c095fe31c943ca5ba9fcb71ab87042b25be4))
+
+
+
+
+
+# [6.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.7.1...@kaizen/select@6.8.0) (2023-01-25)
+
+
+### Features
+
+* allow grouped sections for Select ([#3217](https://github.com/cultureamp/kaizen-design-system/issues/3217)) ([cebcb2b](https://github.com/cultureamp/kaizen-design-system/commit/cebcb2b2526563a1f319e9672423921b6d6efcfd))
+
+
+
+
+
+## [6.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.7.0...@kaizen/select@6.7.1) (2023-01-23)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [6.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.6.0...@kaizen/select@6.7.0) (2023-01-19)
+
+
+### Features
+
+* update focus selector to :focus ([#3214](https://github.com/cultureamp/kaizen-design-system/issues/3214)) ([b1b7a9b](https://github.com/cultureamp/kaizen-design-system/commit/b1b7a9bbe5aad8f233ad030b37f32414fd148d03))
+
+
+
+
+
+# [6.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.5.1...@kaizen/select@6.6.0) (2023-01-19)
+
+
+### Features
+
+* add reversed styles to Select ([#3211](https://github.com/cultureamp/kaizen-design-system/issues/3211)) ([4613971](https://github.com/cultureamp/kaizen-design-system/commit/461397136503f39b08b00562b1610ce2f6dd5995))
+
+
+
+
+
+## [6.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.5.0...@kaizen/select@6.5.1) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [6.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.4.0...@kaizen/select@6.5.0) (2023-01-16)
+
+
+### Features
+
+* remove useFocusRing for the Select button ([#3201](https://github.com/cultureamp/kaizen-design-system/issues/3201)) ([9164f46](https://github.com/cultureamp/kaizen-design-system/commit/9164f4639c354cb79f2090e0bce31c34448bba99))
+
+
+
+
+
+# [6.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.5...@kaizen/select@6.4.0) (2023-01-12)
+
+
+### Features
+
+* handle long text multiline or truncated ([#3196](https://github.com/cultureamp/kaizen-design-system/issues/3196)) ([ae409b1](https://github.com/cultureamp/kaizen-design-system/commit/ae409b129bd2e93976b3ef52bdf3e045d09c3ffd))
+
+
+
+
+
+## [6.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.4...@kaizen/select@6.3.5) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.3...@kaizen/select@6.3.4) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.2...@kaizen/select@6.3.3) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.1...@kaizen/select@6.3.2) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.3.0...@kaizen/select@6.3.1) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+# [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.2.0...@kaizen/select@6.3.0) (2022-12-15)
+
+
+### Features
+
+* Kds 930/disabled button options ([#3170](https://github.com/cultureamp/kaizen-design-system/issues/3170)) ([a2d77da](https://github.com/cultureamp/kaizen-design-system/commit/a2d77daaf1b66cb8b1187ced1d06e890d0cf0985))
+
+
+
+
+
 # [6.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.1.0...@kaizen/select@6.2.0) (2022-12-15)
 
 
