@@ -51,7 +51,7 @@
     "@react-stately/list": "^3.6.1",
     "@react-stately/menu": "^3.4.4",
     "@react-stately/select": "^3.3.4",
-    "@react-types/button": "^3.7.0",
+    "@react-types/button": "^3.7.1",
     "@react-types/shared": "^3.16.0",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
