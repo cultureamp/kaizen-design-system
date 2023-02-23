@@ -2,18 +2,17 @@
   "name": "@kaizen/components",
   "version": "1.4.7",
   "description": "Kaizen component library",
-  "main": "dist/cjs/index.js",
-  "types": "dist/types/index.d.ts",
-  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "future",
     "dist"
   ],
   "scripts": {
-    "prepublish": "yarn build:tsc && yarn bundle",
-    "bundle": "node esbuild.config.js",
-    "build:tsc": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
+    "prepublish": "tsup && yarn tailwindcss",
+    "build": "yarn prepublish",
+    "tailwindcss": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'dist'"
   },
@@ -78,7 +77,8 @@
     "autoprefixer": "^10.4.13",
     "esbuild": "^0.17.10",
     "tailwindcss": "^3.2.7",
-    "tiny-glob": "^0.2.9"
+    "tiny-glob": "^0.2.9",
+    "tsup": "^6.6.3"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
