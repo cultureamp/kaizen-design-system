@@ -2,20 +2,14 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
-import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import cautionWhiteIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
+import errorWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import { Paragraph } from "@kaizen/typography"
 import styles from "./FieldMessage.module.scss"
 
-const WarningIcon = (): JSX.Element => (
-  <span className={styles.warningIcon}>
-    <Icon
-      icon={exclamationWhiteIcon}
-      title="Error message"
-      role="img"
-      inheritSize={false}
-    />
-  </span>
-)
+function capitalize(word: string): string {
+  return word[0].toUpperCase() + word.slice(1)
+}
 
 export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 
@@ -58,7 +52,16 @@ export const FieldMessage = ({
       })}
       {...restProps}
     >
-      {(status === "error" || status === "caution") && <WarningIcon />}
+      {(status === "error" || status === "caution") && (
+        <span className={styles.warningIcon}>
+          <Icon
+            icon={status === "error" ? errorWhiteIcon : cautionWhiteIcon}
+            title={`${capitalize(status)} message`}
+            role="img"
+            inheritSize={false}
+          />
+        </span>
+      )}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}
