@@ -66,38 +66,3 @@ export interface DisabledDayMatchers {
    */
   disabledAfter?: Date
 }
-
-export type DateRangeEmptyStatus = {
-  /**
-   * Updates the styling of the validation FieldMessage.
-   */
-  status?: never
-  /**
-   * A descriptive message for the 'status' states.
-   */
-  validationMessage?: never
-}
-
-export type DateRangeStartStatus = {
-  status: { dateStart: FieldMessageStatus }
-  validationMessage: { dateStart: React.ReactNode }
-}
-
-export type DateRangeEndStatus = {
-  status: { dateEnd: FieldMessageStatus }
-  validationMessage: { dateEnd: React.ReactNode }
-}
-
-export type DateRangeFullStatus = {
-  status: {
-    dateStart: FieldMessageStatus
-    dateEnd: FieldMessageStatus
-  }
-  validationMessage: { dateStart: React.ReactNode; dateEnd: React.ReactNode }
-}
-
-export type DateRangeStatus =
-  | DateRangeEmptyStatus
-  | DateRangeStartStatus
-  | DateRangeEndStatus
-  | DateRangeFullStatus

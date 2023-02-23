@@ -2,20 +2,23 @@ import React from "react"
 import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
 import styles from "./DateRangeValidationMessage.module.scss"
 
+export type DateRangeValidationMessageDateStatus = FieldMessageStatus
+export type DateRangeValidationMessageDateMessage = React.ReactNode
+
 export type DateRangeValidationMessageProps = {
   /**
    * Updates the styling of the validation FieldMessage
    */
   status?: {
-    dateStart?: FieldMessageStatus
-    dateEnd?: FieldMessageStatus
+    dateStart?: DateRangeValidationMessageDateStatus
+    dateEnd?: DateRangeValidationMessageDateStatus
   }
   /**
    * A descriptive message for `status` states
    */
   validationMessage?: {
-    dateStart?: React.ReactNode
-    dateEnd?: React.ReactNode
+    dateStart?: DateRangeValidationMessageDateMessage
+    dateEnd?: DateRangeValidationMessageDateMessage
   }
   id?: string
   isReversed?: boolean
