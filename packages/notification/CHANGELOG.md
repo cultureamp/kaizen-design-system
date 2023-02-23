@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.3...@kaizen/notification@1.2.4) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.2...@kaizen/notification@1.2.3) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.1...@kaizen/notification@1.2.2) (2023-02-22)
 
 **Note:** Version bump only for package @kaizen/notification

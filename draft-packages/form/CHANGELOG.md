@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.1.1...@kaizen/draft-form@10.1.2) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [10.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.1.0...@kaizen/draft-form@10.1.1) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [10.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.0.1...@kaizen/draft-form@10.1.0) (2023-02-23)
+
+
+### Features
+
+* update field message caution icon ([#3313](https://github.com/cultureamp/kaizen-design-system/issues/3313)) ([869b2af](https://github.com/cultureamp/kaizen-design-system/commit/869b2afb0beeec5105fba04fdecf75df7914e210))
+
+
+
+
+
 ## [10.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.0.0...@kaizen/draft-form@10.0.1) (2023-02-22)
 
 **Note:** Version bump only for package @kaizen/draft-form
