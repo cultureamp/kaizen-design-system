@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/stylelint-plugin",
-  "version": "2.4.42",
+  "version": "2.4.43",
   "types": "dist/**/*.d.ts",
   "main": "dist/src/index.js",
   "license": "MIT",
@@ -18,7 +18,7 @@
   "dependencies": {
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
-    "nano-memoize": "^3.0.7",
+    "nano-memoize": "^3.0.8",
     "postcss": "^8.4.19",
     "postcss-less": "^6.0.0",
     "postcss-scss": "^4.0.6",
