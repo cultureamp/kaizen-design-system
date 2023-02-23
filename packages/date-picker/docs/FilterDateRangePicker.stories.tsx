@@ -11,6 +11,7 @@ import { DateRange } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
 import { dateRangePickerLocaleControls } from "./controls/localeControls"
+import { validationControls } from "./controls/validationControls"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -39,6 +40,7 @@ export default {
     ...dateRangePickerLocaleControls,
     ...defaultMonthControls,
     ...disabledDayMatchersControls,
+    ...validationControls,
     description: {
       control: "text",
     },
