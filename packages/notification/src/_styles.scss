@@ -37,6 +37,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   &%ca-notification---toast {
+    container-type: inline-size;
     width: 25rem;
     box-shadow: $shadow-small-box-shadow;
     max-width: 100%;
