@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.4...@kaizen/notification@1.3.0) (2023-02-23)
+
+
+### Features
+
+* Update Toast Notification to handle long strings KZN-1005 ([#3299](https://github.com/cultureamp/kaizen-design-system/issues/3299)) ([47ddf28](https://github.com/cultureamp/kaizen-design-system/commit/47ddf28d921186b6fa7bf89b6b67753507fc1216))
+
+
+
+
+
 ## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.3...@kaizen/notification@1.2.4) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/notification

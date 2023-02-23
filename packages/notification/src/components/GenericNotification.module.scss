@@ -61,6 +61,11 @@
   line-height: $typography-heading-6-line-height;
 }
 
+@container (max-width: 25rem) {
+  .notificationTitle {
+    width: 100%;
+  }
+}
 // Animation
 
 .hidden {
