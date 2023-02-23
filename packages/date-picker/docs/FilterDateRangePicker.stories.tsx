@@ -123,6 +123,16 @@ const StickerSheetTemplate: Story = () => {
             locale="en-US"
             selectedRange={rangeDefaultBase}
             onRangeChange={setRangeDefaultBase}
+            status={{
+              dateEnd: "error",
+              // dateStart: "error",
+            }}
+            validationMessage={{
+              dateEnd:
+                '"Date to" cannot be earlier than the "Date from" selection.',
+              dateStart:
+                'Date to" cannot be earlier than the "Date from" selection.',
+            }}
           />
           <FilterDateRangePicker
             id="stickersheet--filter-drp--default--existing"

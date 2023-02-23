@@ -8,12 +8,11 @@ import {
   DateInputDescription,
   DateInputDescriptionProps,
 } from "../../../_subcomponents/DateInputDescription"
-import {
-  DateRangeValidationMessageType,
-  DateRangeValidationStatus,
-} from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
-import { DateRangeValidationMessage } from "../DateRangeValidationMessage"
+import {
+  DateRangeValidationMessage,
+  DateRangeValidationMessageProps,
+} from "../DateRangeValidationMessage"
 import styles from "./DateRangeInputField.module.scss"
 
 export interface DateRangeInputFieldProps
@@ -33,11 +32,11 @@ export interface DateRangeInputFieldProps
   /**
    * Updates the styling of the validation FieldMessage
    */
-  status?: DateRangeValidationStatus
+  status?: DateRangeValidationMessageProps["status"]
   /**
    * A descriptive message for `status` states
    */
-  validationMessage?: DateRangeValidationMessageType
+  validationMessage?: DateRangeValidationMessageProps["validationMessage"]
   disabled?: boolean
 }
 
