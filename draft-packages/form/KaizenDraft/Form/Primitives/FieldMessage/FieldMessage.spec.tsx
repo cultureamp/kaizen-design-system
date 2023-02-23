@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { cleanup, render, screen } from "@testing-library/react"
 import { FieldMessage, FieldMessageProps } from "./index"
 
 afterEach(cleanup)
@@ -18,13 +18,13 @@ const renderFieldMessage = (
 }
 
 describe("<FieldMessage />", () => {
-  it("should render a message", () => {
+  it("renders a message", () => {
     const { queryByText } = renderFieldMessage()
 
     expect(queryByText(defaultFieldMessageProps.message)).toBeTruthy()
   })
 
-  it("should render an `id` attribute", () => {
+  it("renders an `id` attribute", () => {
     const { container } = renderFieldMessage()
 
     expect(
@@ -32,7 +32,7 @@ describe("<FieldMessage />", () => {
     ).toBeTruthy()
   })
 
-  it("should render an `data-automation-id` attribute", () => {
+  it("renders an `data-automation-id` attribute", () => {
     const automationId = "someFieldMessageAutomationId"
     const { container } = renderFieldMessage({ automationId })
 
@@ -41,15 +41,23 @@ describe("<FieldMessage />", () => {
     ).toBeTruthy()
   })
 
-  it("should render a `reversed` field message", () => {
+  it("renders a `reversed` field message", () => {
     const { container } = renderFieldMessage({ reversed: true })
 
     expect(container.querySelector(".reversed")).toBeTruthy()
   })
 
-  it("should render a warning icon with an error status", () => {
+  it("renders a warning icon with an error status", () => {
     const { container } = renderFieldMessage({ status: "error" })
 
     expect(container.querySelector(".warningIcon")).toBeTruthy()
+    expect(screen.getByTitle("Error message"))
+  })
+
+  it("renders a warning icon with an error status", () => {
+    const { container } = renderFieldMessage({ status: "caution" })
+
+    expect(container.querySelector(".warningIcon")).toBeTruthy()
+    expect(screen.getByTitle("Caution message"))
   })
 })
