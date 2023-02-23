@@ -12,14 +12,13 @@ export const validationControls = {
     control: {
       type: "select",
       labels: {
-        dateStartError: "dateStart has status error",
-        dateStartCaution: "dateStart has status caution",
-        dateEndError: "dateEnd has status error",
-        dateEndCaution: "dateEnd has status caution",
-        dateRangeError: "dateStart and dateEnd have status error",
-        dateRangeCaution: "dateStart and dateEnd have status caution",
-        dateRangeCautionError:
-          "dateStart has status caution and dateEnd has status error",
+        dateStartError: '{ dateStart: "error" }',
+        dateStartCaution: '{ dateStart: "caution" }',
+        dateEndError: '{ dateEnd: "error" }',
+        dateEndCaution: '{ dateEnd: "caution" }',
+        dateRangeError: '{ dateStart: "error", dateEnd: "error" }',
+        dateRangeCaution: '{ dateStart: "caution", dateEnd: "caution" }',
+        dateRangeCautionError: '{ dateStart: "caution", dateEnd: "error" }',
       },
     },
     mapping: {
@@ -48,15 +47,36 @@ export const validationControls = {
         dateStart: "caution",
       },
     },
+    table: {
+      type: {
+        summary: "DateRangeValidationStatus",
+        detail: `{
+          dateStart?: undefined;
+          dateEnd?: undefined;
+      } | {
+          dateStart: FieldMessageStatus;
+          dateEnd?: undefined;
+      } | {
+          dateStart?: undefined;
+          dateEnd: FieldMessageStatus;
+      } | {
+          dateStart: FieldMessageStatus;
+          dateEnd: FieldMessageStatus;
+      } | undefined`,
+      },
+    },
   },
   validationMessage: {
     options: ["dateStart", "dateEnd", "dateStartDateEnd"],
     control: {
       type: "select",
       labels: {
-        dateStart: "dateStart has validation message",
-        dateEnd: "dateEnd has validation message",
-        dateStartDateEnd: "dateStart and dateEnd have validation messages",
+        dateStart:
+          '{ dateStart: "Date from cannot be after the Date to selection." }',
+        dateEnd:
+          '{ dateEnd: "Date to cannot be earlier than the Date from selection." }',
+        dateStartDateEnd:
+          '{ dateStart: "Date from is not valid", dateEnd: "Date to cannot be earlier than the Date from selection" }',
       },
     },
     mapping: {
@@ -64,12 +84,29 @@ export const validationControls = {
         dateStart: '"Date from" cannot be after the "Date to" selection.',
       },
       dateEnd: {
-        dateStart:
-          '"Date to" cannot be earlier than the "Date from" selection.',
+        dateEnd: '"Date to" cannot be earlier than the "Date from" selection.',
       },
       dateStartDateEnd: {
-        dateStart: '"Date from" is not a valid date selection.',
+        dateStart: '"Date from" is not valid.',
         dateEnd: '"Date to" cannot be earlier than the "Date from" selection.',
+      },
+    },
+    table: {
+      type: {
+        summary: "DateRangeValidationMessage",
+        detail: `{
+          dateStart?: undefined;
+          dateEnd?: undefined;
+      } | {
+          dateStart: React.ReactNode;
+          dateEnd?: undefined;
+      } | {
+          dateStart?: undefined;
+          dateEnd: React.ReactNode;
+      } | {
+          dateStart: React.ReactNode;
+          dateEnd: React.ReactNode;
+      } | undefined`,
       },
     },
   },
