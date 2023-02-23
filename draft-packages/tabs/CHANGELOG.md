@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@5.2.25...@kaizen/draft-tabs@5.2.26) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [5.2.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@5.2.24...@kaizen/draft-tabs@5.2.25) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
 ## [5.2.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@5.2.23...@kaizen/draft-tabs@5.2.24) (2023-02-22)
 
 **Note:** Version bump only for package @kaizen/draft-tabs
