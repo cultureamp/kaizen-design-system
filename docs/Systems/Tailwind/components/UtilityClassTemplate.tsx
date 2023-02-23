@@ -31,7 +31,7 @@ export const UtilityClassTemplate = ({
         rules="rows"
       >
         <StickerSheet.Header
-          className="border-transparent border-b-gray-400 border-solid"
+          className="text-left border-transparent border-b-gray-400 border-solid"
           headings={["Utility Class", "Compiled CSS", "Example"]}
         />
         {classKeyValues.map((presetData, index) => {
