@@ -2,7 +2,11 @@ import React, { useState, FocusEvent } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "../types"
-import { FilterDateRangePicker, FilterDateRangePickerProps } from "."
+import {
+  DateRangeValidationStatus,
+  FilterDateRangePicker,
+  FilterDateRangePickerProps,
+} from "."
 
 // For testing within the open filter
 const openFilter = async (): Promise<void> => {
@@ -15,10 +19,9 @@ const openFilter = async (): Promise<void> => {
 
 const FilterDateRangePickerWrapper = ({
   selectedRange,
-  status,
-  validationMessage,
   ...restProps
-}: Partial<FilterDateRangePickerProps>): JSX.Element => {
+}: Partial<FilterDateRangePickerProps> &
+  DateRangeValidationStatus): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<
     DateRange | undefined
   >(selectedRange)
