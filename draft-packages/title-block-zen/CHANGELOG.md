@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.1...@kaizen/draft-title-block-zen@7.9.2) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.0...@kaizen/draft-title-block-zen@7.9.1) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [7.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.8.5...@kaizen/draft-title-block-zen@7.9.0) (2023-02-22)
+
+
+### Features
+
+* Fix custom component prop render on mobile menu items ([#3207](https://github.com/cultureamp/kaizen-design-system/issues/3207)) ([4e7d3c0](https://github.com/cultureamp/kaizen-design-system/commit/4e7d3c08fad7405596e1a33bb640f7cef6c3cf6b))
+
+
+
+
+
+## [7.8.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.8.4...@kaizen/draft-title-block-zen@7.8.5) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [7.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.8.3...@kaizen/draft-title-block-zen@7.8.4) (2023-02-16)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

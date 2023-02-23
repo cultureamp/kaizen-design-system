@@ -1,6 +1,6 @@
 {
   "internal": true,
-  "main": "dist/cjs/future.cjs.js",
-  "module": "dist/esm/future.js",
-  "types": "dist/types/future.d.ts"
+  "main": "../dist/cjs/future.js",
+  "module": "../dist/esm/future.js",
+  "types": "../dist/types/future.d.ts"
 }

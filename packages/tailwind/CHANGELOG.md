@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.5.0...@kaizen/tailwind@0.5.1) (2023-02-21)
+
+**Note:** Version bump only for package @kaizen/tailwind
+
+
+
+
+
+# [0.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.4.2...@kaizen/tailwind@0.5.0) (2023-02-20)
+
+
+### Features
+
+* Backport new pixel-based spacing tokens to design tokens ([#3279](https://github.com/cultureamp/kaizen-design-system/issues/3279)) ([a13da27](https://github.com/cultureamp/kaizen-design-system/commit/a13da271af79daafa93a144109b60d00c9f6111a))
+
+
+
+
+
 ## [0.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.4.1...@kaizen/tailwind@0.4.2) (2023-02-17)
 
 **Note:** Version bump only for package @kaizen/tailwind

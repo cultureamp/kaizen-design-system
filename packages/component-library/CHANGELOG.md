@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.3.0...@kaizen/component-library@16.3.1) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [16.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.2.1...@kaizen/component-library@16.3.0) (2023-02-22)
+
+
+### Features
+
+* Add Caution icon to compent lib ([#3310](https://github.com/cultureamp/kaizen-design-system/issues/3310)) ([4f53645](https://github.com/cultureamp/kaizen-design-system/commit/4f53645772ce022274e48702d1ebb3d8b02c8519))
+
+
+
+
+
 ## [16.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.2.0...@kaizen/component-library@16.2.1) (2023-02-09)
 
 

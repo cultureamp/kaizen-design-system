@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.24...@kaizen/rich-text-editor@1.19.25) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.19.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.23...@kaizen/rich-text-editor@1.19.24) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [1.19.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.22...@kaizen/rich-text-editor@1.19.23) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
 ## [1.19.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.21...@kaizen/rich-text-editor@1.19.22) (2023-02-17)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
