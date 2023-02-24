@@ -40,7 +40,7 @@
     "@kaizen/draft-tooltip": "^5.4.28",
     "@kaizen/loading-skeleton": "^2.0.2",
     "@kaizen/typography": "^2.3.6",
-    "@react-aria/button": "^3.6.4",
+    "@react-aria/button": "^3.7.0",
     "@react-aria/focus": "^3.10.1",
     "@react-aria/listbox": "^3.7.2",
     "@react-aria/menu": "^3.7.1",
