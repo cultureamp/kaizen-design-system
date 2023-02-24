@@ -7494,14 +7494,14 @@ chownr@^2.0.0:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromatic@^6.17.0:
-  version "6.17.0"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-6.17.0.tgz#c7a1c15262e748abd9e2bc7247653974e6eb2ea0"
-  integrity sha512-0CYJOwAAHrcD0kXqMDvZql7wih+IO7A7E8hdCRotC0cmfHK8gOFWK6ajUsZUVwrr2zF6IFSJ23wsMLuaZxqSlw==
+chromatic@^6.17.1:
+  version "6.17.1"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-6.17.1.tgz#6327fa9df683232bbb09a0f318ea656cc3c3ca8a"
+  integrity sha512-CKCIV+QiNsQUHaZu2uQkm9A140Fd9sPgf61IsbJCwPspb97tHxs6hbqzf1QjaJJL37G6UqR3u12bzPld7JB96w==
   dependencies:
     "@discoveryjs/json-ext" "^0.5.7"
     "@types/webpack-env" "^1.17.0"
-    snyk-nodejs-lockfile-parser "^1.43.1"
+    snyk-nodejs-lockfile-parser "^1.47.4"
 
 chrome-trace-event@^1.0.2:
   version "1.0.3"
@@ -17869,10 +17869,10 @@ snyk-config@^5.0.0:
     lodash.merge "^4.6.2"
     minimist "^1.2.5"
 
-snyk-nodejs-lockfile-parser@^1.43.1:
-  version "1.47.3"
-  resolved "https://registry.yarnpkg.com/snyk-nodejs-lockfile-parser/-/snyk-nodejs-lockfile-parser-1.47.3.tgz#cab44a8b2ae631927986713ce9b2ebdc5077a613"
-  integrity sha512-A6gq8kG4iTZ29kABPgKeVpo6a11dywYMEqQsBo+cYdx7EpHq+nGugV1nB/3bwbYLdhKtxZ1Be9Bx6eh2PwR12g==
+snyk-nodejs-lockfile-parser@^1.47.4:
+  version "1.47.4"
+  resolved "https://registry.yarnpkg.com/snyk-nodejs-lockfile-parser/-/snyk-nodejs-lockfile-parser-1.47.4.tgz#4e554e9f1400e27aeac51c3f1665a7b7b053c92c"
+  integrity sha512-qNrhOBVR0rw9/ztZqC8BTHrgAOd1+m1fUpC4UE6DkI75bZecSRTkCjTs4cW4hiEck2lMeRxQ07Wci2fqqUyzrQ==
   dependencies:
     "@snyk/dep-graph" "^2.3.0"
     "@snyk/graphlib" "2.1.9-patch.3"
