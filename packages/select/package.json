@@ -48,7 +48,7 @@
     "@react-aria/select": "^3.9.0",
     "@react-aria/utils": "^3.15.0",
     "@react-stately/collections": "^3.6.0",
-    "@react-stately/list": "^3.6.1",
+    "@react-stately/list": "^3.7.0",
     "@react-stately/menu": "^3.4.4",
     "@react-stately/select": "^3.3.4",
     "@react-types/button": "^3.7.1",
