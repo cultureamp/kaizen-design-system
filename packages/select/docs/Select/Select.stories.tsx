@@ -11,6 +11,7 @@ import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
 import { groupedMockItems, singleMockItems } from "../MockData"
 import { selectControls } from "../controls/selectControls"
+import mdx from "./Select.mdx"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
@@ -20,10 +21,7 @@ export default {
       argTypesRegex: "^on.*",
     },
     docs: {
-      source: { type: "code" },
-      description: {
-        component: 'import { Select } from "@kaizen/select".',
-      },
+      page: mdx,
     },
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966"

@@ -29,7 +29,7 @@ Buttons perform actions. If it needs to navigate somewhere and can be opened in 
 ```
 npm install @kaizen/button
 ```
-```
+```jsx
 import { Button } from "@kaizen/button"
 ```
 
@@ -37,8 +37,11 @@ import { Button } from "@kaizen/button"
 
 ## Skeleton State
 
-Use the `LoadingInput` component from the `LoadingSkeleton` package. Please refer to the LoadingInput [Component guidelines](https://cultureamp.design/components/loading-skeleton/).
+Use the `LoadingInput` component from the loading-skeleton package. Please refer to the `LoadingInput` [Component guidelines](https://cultureamp.design/components/loading-skeleton/).
 
+```jsx
+import { LoadingInput } from "@kaizen/loading-skeleton"
+```
 <Canvas>
   <Story id="components-button-button-docs--skeleton-state"/>
 </Canvas>
@@ -57,9 +60,7 @@ Use the `LoadingInput` component from the `LoadingSkeleton` package. Please refe
   </a> component.
 </InlineNotification>
 
-### Button Variants
-
-Kaizen has five variants of button, `Default`, `Primary`, `Destructive`, `Secondary` and `Seconday` + `Destructive`.
+### Variants - `Default`, `Primary`, `Destructive`, `Secondary`
 
 If no `variant` is specified, a `Default` button will be rendered. 
 
@@ -69,7 +70,13 @@ For more information on when to use each variant, check out the [Component guide
   <Story id="components-button-button-docs--variants" />
 </Canvas>
 
-### Button `disabled`
+### `reversed`
+
+<Canvas>
+  <Story id="components-button-button-docs--reversed" />
+</Canvas>
+
+### `disabled`
 
 A disabled Button prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read aloud by a screenreader.
 
@@ -77,7 +84,7 @@ A disabled Button prevents user interaction. It doesn’t appear in the tab orde
   <Story id="components-button-button-docs--disabled" />
 </Canvas>
 
-### Button `icon`
+### `icon`
 
 When a Button is supplied to the `icon` prop, it displays an icon.
 
@@ -86,7 +93,7 @@ import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 ```
 Once the icons are imported, you can pass them directly into the Button component. 
 
-### Button `iconPosition`
+### `iconPosition`
 
 The consumer can specify the icon placement with the `iconPosition` prop, default position is `start`.
 
@@ -94,14 +101,14 @@ The consumer can specify the icon placement with the `iconPosition` prop, defaul
   <Story id="components-button-button-docs--icon-position" />
 </Canvas>
 
-### Button `badge`
+### `badge`
 You can display a `Badge` component within the button using the `badge` prop.
 
 <Canvas>
   <Story id="components-button-button-docs--badge" />
 </Canvas>
 
-### Button `fullWidth`
+### `fullWidth`
 
 Buttons can be stretched to fill the full width of their container.
 
@@ -110,7 +117,7 @@ Buttons can be stretched to fill the full width of their container.
 </Canvas>
 
 
-### Button `Working`
+### `Working`
 
 The `working` prop should be used in situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form
 

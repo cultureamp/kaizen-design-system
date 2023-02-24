@@ -8,7 +8,6 @@ import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { LoadingInput } from "../../components/src"
 import { Button, ButtonProps } from ".."
 import mdx from "./Button.mdx"
 
