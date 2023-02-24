@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import isChromatic from "chromatic"
 import { withDesign } from "storybook-addon-designs"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
@@ -11,8 +10,6 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { LoadingInput } from "../../components/src"
 import { Button, ButtonProps } from ".."
 import mdx from "./Button.mdx"
-
-const IS_CHROMATIC = isChromatic()
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button/Docs`,

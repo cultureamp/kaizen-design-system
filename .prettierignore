@@ -12,6 +12,7 @@
 !*.scss
 !*.css
 !*.stories.mdx
+!*.stories.tsx
 
 # Explicitly ignore...
 **/node_modules/
