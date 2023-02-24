@@ -8,6 +8,7 @@ import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { LoadingInput } from "../../components/src"
 import { Button, ButtonProps } from ".."
 import mdx from "./Button.mdx"
 
@@ -260,6 +261,7 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+  docs: { disable: true },
 }
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
@@ -269,4 +271,5 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
+  docs: { disable: true },
 }
