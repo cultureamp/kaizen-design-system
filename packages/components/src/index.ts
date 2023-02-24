@@ -7,14 +7,7 @@ export * from "@kaizen/brand"
 export * from "@kaizen/brand-moment"
 export * from "@kaizen/button"
 export * from "@kaizen/component-base"
-export {
-  Icon,
-  Box,
-  Dropdown,
-  Layout,
-  Spacing,
-  Text,
-} from "@kaizen/component-library"
+export { Icon, Box, Spacing } from "@kaizen/component-library"
 export * from "@kaizen/date-picker"
 export * from "@kaizen/draft-avatar"
 export * from "@kaizen/draft-badge"
