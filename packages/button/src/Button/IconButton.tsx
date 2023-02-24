@@ -12,7 +12,7 @@ export type IconButtonProps = GenericProps &
     primary?: boolean
     destructive?: boolean
     secondary?: boolean
-    form?: boolean
+    compact?: boolean
     badge?: BadgeProps
     type?: "submit" | "reset" | "button"
     fullWidth?: boolean
@@ -29,7 +29,7 @@ export const IconButton: React.VFC<IconButtonProps> = props => (
 )
 
 IconButton.defaultProps = {
-  form: false,
+  compact: false,
   primary: false,
   destructive: false,
   disabled: false,
