@@ -3229,7 +3229,7 @@
     "@react-types/shared" "^3.17.0"
     "@swc/helpers" "^0.4.14"
 
-"@react-aria/datepicker@^3.2.1":
+"@react-aria/datepicker@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@react-aria/datepicker/-/datepicker-3.3.0.tgz#15bc746d75f43c2d31c826fcc34c6859433b205a"
   integrity sha512-76/5a2Dfe/SCcW0j4hqeSTnlh6SSW/AYPKPr5fNaiGnLFJ3oLsc9SAuUgTsOBglR/J3N/hqtH+UO2U8X1QC6Ng==
