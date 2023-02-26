@@ -1853,7 +1853,7 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@internationalized/date@^3.0.2", "@internationalized/date@^3.1.0":
+"@internationalized/date@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@internationalized/date/-/date-3.1.0.tgz#da48aeaa971df6ad410cd32597c174d6cab9a3b4"
   integrity sha512-wjeur7K4AecT+YwoBmBXQ/+n5lP69tuZc34hw09s44EozZK7FZHSyfPvRp5/xEb2D6abLboskDY4jG+Nt0TNUQ==
