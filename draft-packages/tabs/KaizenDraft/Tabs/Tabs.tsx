@@ -1,7 +1,6 @@
+import React from "react"
 import classnames from "classnames"
-import * as React from "react"
-
-import styles from "./styles.scss"
+import styles from "./Tabs.module.scss"
 
 interface Tab {
   readonly label: string
@@ -28,12 +27,17 @@ export interface TabsProps {
   }) => React.ReactNode
 }
 
+/**
+ * @deprecated
+ * If you were using this for page navigation, that design pattern is something we want to move away from. Reach out to the Kaizen team if you want to discuss further.
+ * Otherwise use @kaizen/tabs for the tabs pattern as defined by W3C WAI ARIA (switchable content areas rather than page navigation). See https://w3c.github.io/aria-practices/#tabpanel
+ */
 const Tabs = ({
   orientation = "horizontal",
   textDirection = "ltr",
   tabs,
   renderTab,
-}: TabsProps) => {
+}: TabsProps): JSX.Element => {
   if (orientation === "horizontal") {
     return (
       <RowTab textDirection={textDirection} tabs={tabs} renderTab={renderTab} />
@@ -49,7 +53,7 @@ const Tabs = ({
   )
 }
 
-const RowTab = ({ tabs, renderTab, textDirection }) => (
+const RowTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
   <div className={styles.container} dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (
@@ -80,7 +84,7 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
   </div>
 )
 
-const VerticalTab = ({ tabs, renderTab, textDirection }) => (
+const VerticalTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
   <div dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (

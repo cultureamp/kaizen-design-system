@@ -1081,7 +1081,7 @@ describe("Codemod", () => {
     expectedOutput,
     only,
     ...warnings
-  }: TestExample) => {
+  }: TestExample): void => {
     const testFn = only ? test.only : test
     testFn(`${language}: ${testName}`, async () => {
       const result = await lint({

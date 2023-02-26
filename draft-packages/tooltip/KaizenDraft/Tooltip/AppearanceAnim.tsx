@@ -5,12 +5,11 @@ type AnimationProps = {
   isAnimIn?: boolean
   isAnimOut?: boolean
   prevIsOpen?: boolean
+  animationDuration?: number
   isVisible: boolean
 }
 
-// Sync with ./AppearanceAnim.scss
-const ANIM_DURATION_MS = 200
-const ANIM_BUFFER = 200 // Add a buffer, just in case the css animation hasn't had a chance to finish yet
+const ANIM_DURATION_MS = 400
 
 export const AnimationContext = React.createContext<AnimationProps>({
   isVisible: false,
@@ -23,7 +22,11 @@ export const AnimationContext = React.createContext<AnimationProps>({
  * When the component is no longer needed, it will no longer be rendered to the
  * dom.
  */
-export const AnimationProvider = ({ isVisible, ...otherProps }) => {
+export const AnimationProvider = ({
+  isVisible,
+  animationDuration = ANIM_DURATION_MS,
+  ...otherProps
+}): JSX.Element => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
   const [prevIsOpen, setPrevIsOpen] = useState(false)
@@ -33,7 +36,7 @@ export const AnimationProvider = ({ isVisible, ...otherProps }) => {
     () => {
       setIsAnimOut(false)
     },
-    ANIM_DURATION_MS + ANIM_BUFFER,
+    animationDuration,
     { leading: false }
   )
 
@@ -73,7 +76,7 @@ export const AnimationProvider = ({ isVisible, ...otherProps }) => {
   )
 }
 
-export const useAnimation = () => {
+export const useAnimation = (): AnimationProps => {
   const context = React.useContext(AnimationContext)
   if (!context) {
     throw new Error("useAnimation must be used within a AnimationProvider")

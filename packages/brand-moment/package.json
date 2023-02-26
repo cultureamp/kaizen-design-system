@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/brand-moment",
-  "version": "1.11.24",
+  "version": "1.12.61",
   "description": "The brand moment component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -23,32 +23,29 @@
     "**/*.d.ts",
     "!**/*.spec.*",
     "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!docs",
+    "!docs/**/*",
     "!tsconfig.dist.json"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/button": "^1.2.14",
-    "@kaizen/component-base": "^1.1.0",
-    "@kaizen/component-library": "^15.0.3",
-    "@kaizen/draft-illustration": "^5.1.16",
-    "@kaizen/hosted-assets": "^2.0.0",
-    "@kaizen/responsive": "^1.7.1",
-    "@kaizen/typography": "^2.2.3",
+    "@kaizen/button": "^2.0.20",
+    "@kaizen/component-base": "^1.1.3",
+    "@kaizen/component-library": "^16.3.2",
+    "@kaizen/draft-illustration": "^6.0.17",
+    "@kaizen/hosted-assets": "^2.0.1",
+    "@kaizen/responsive": "^1.8.5",
+    "@kaizen/typography": "^2.3.6",
     "@types/classnames": "^2.3.1",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "^9.0.4",
-    "@kaizen/draft-select": "^2.3.0",
-    "rimraf": "^3.0.2"
+    "@kaizen/draft-select": "^2.10.18",
+    "rimraf": "^4.1.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
-    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

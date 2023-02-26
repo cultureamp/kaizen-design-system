@@ -3,6 +3,316 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.3.0...@kaizen/design-tokens@10.3.1) (2023-02-21)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [10.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.2.2...@kaizen/design-tokens@10.3.0) (2023-02-20)
+
+
+### Features
+
+* Backport new pixel-based spacing tokens to design tokens ([#3279](https://github.com/cultureamp/kaizen-design-system/issues/3279)) ([a13da27](https://github.com/cultureamp/kaizen-design-system/commit/a13da271af79daafa93a144109b60d00c9f6111a))
+
+
+
+
+
+## [10.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.2.1...@kaizen/design-tokens@10.2.2) (2023-02-17)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.2.0...@kaizen/design-tokens@10.2.1) (2023-02-17)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [10.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.7...@kaizen/design-tokens@10.2.0) (2023-02-13)
+
+
+### Features
+
+* **KaizenProvider:** add KaizenProvider to @kaizen/components ([#3239](https://github.com/cultureamp/kaizen-design-system/issues/3239)) ([16819f0](https://github.com/cultureamp/kaizen-design-system/commit/16819f0717dfebd6a938b2784dc84751650f8be4))
+
+
+
+
+
+## [10.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.6...@kaizen/design-tokens@10.1.7) (2023-01-31)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.5...@kaizen/design-tokens@10.1.6) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.4...@kaizen/design-tokens@10.1.5) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.3...@kaizen/design-tokens@10.1.4) (2023-01-05)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.2...@kaizen/design-tokens@10.1.3) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.1...@kaizen/design-tokens@10.1.2) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.0...@kaizen/design-tokens@10.1.1) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [10.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.14...@kaizen/design-tokens@10.1.0) (2022-12-08)
+
+
+### Features
+
+* add tailwind beta release ([#3136](https://github.com/cultureamp/kaizen-design-system/issues/3136)) ([cacff22](https://github.com/cultureamp/kaizen-design-system/commit/cacff220e18ebdc6c2e24f28d5e363ad0ae3bc31)), closes [#3116](https://github.com/cultureamp/kaizen-design-system/issues/3116) [#3121](https://github.com/cultureamp/kaizen-design-system/issues/3121)
+
+
+
+
+
+## [10.0.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.13...@kaizen/design-tokens@10.0.14) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.12...@kaizen/design-tokens@10.0.13) (2022-11-29)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.11...@kaizen/design-tokens@10.0.12) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.10...@kaizen/design-tokens@10.0.11) (2022-11-18)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.9...@kaizen/design-tokens@10.0.10) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.8...@kaizen/design-tokens@10.0.9) (2022-11-14)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.7...@kaizen/design-tokens@10.0.8) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.6...@kaizen/design-tokens@10.0.7) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.5...@kaizen/design-tokens@10.0.6) (2022-10-31)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.4...@kaizen/design-tokens@10.0.5) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [10.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.3...@kaizen/design-tokens@10.0.4) (2022-10-13)
+
+
+### Bug Fixes
+
+* remove incorrect design tokens type location ([#3019](https://github.com/cultureamp/kaizen-design-system/issues/3019)) ([fc99c3f](https://github.com/cultureamp/kaizen-design-system/commit/fc99c3f140eebeb60fd7354b959f4245bca86194))
+
+
+
+
+
+## [10.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.2...@kaizen/design-tokens@10.0.3) (2022-10-04)
+
+
+### Bug Fixes
+
+* **design-tokens:** update dist structure ([#2971](https://github.com/cultureamp/kaizen-design-system/issues/2971)) ([c2b8548](https://github.com/cultureamp/kaizen-design-system/commit/c2b8548f3e0c126faf7e022f4d3f0db9ac60874c))
+
+
+
+
+
+## [10.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.1...@kaizen/design-tokens@10.0.2) (2022-09-14)
+
+
+### Bug Fixes
+
+* **design-tokens/heart:** update intro-lede letter spacing ([#2959](https://github.com/cultureamp/kaizen-design-system/issues/2959)) ([4fc79c4](https://github.com/cultureamp/kaizen-design-system/commit/4fc79c43e9273d0a9999545524d2aa379d6eef78))
+
+
+
+
+
+## [10.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.0...@kaizen/design-tokens@10.0.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* be able to specify root element applying theme ([#2951](https://github.com/cultureamp/kaizen-design-system/issues/2951)) ([6498509](https://github.com/cultureamp/kaizen-design-system/commit/6498509d7e198421657e640dbe9f953a918500f3))
+
+
+
+
+
+# [10.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.1.0...@kaizen/design-tokens@10.0.0) (2022-09-07)
+
+
+### Bug Fixes
+
+* **design-tokens:** update $typography-paragraph-intro-lede ([#2946](https://github.com/cultureamp/kaizen-design-system/issues/2946)) ([7c6a056](https://github.com/cultureamp/kaizen-design-system/commit/7c6a056829d22dcd075a4dc50745362aa3d2817a)), closes [#2942](https://github.com/cultureamp/kaizen-design-system/issues/2942)
+
+
+### BREAKING CHANGES
+
+* **design-tokens:** Changes the $typography-paragraph-intro-lede-letter-spacing variable from -0.5px to 0px
+
+* chore: release [skip ci]
+
+ - @kaizen/draft-avatar@2.8.3
+ - @kaizen/draft-button@6.2.3
+ - @kaizen/draft-collapsible@3.2.3
+ - @kaizen/draft-empty-state@5.2.3
+ - @kaizen/draft-filter-menu-button@2.6.3
+ - @kaizen/draft-form@7.5.3
+ - @kaizen/draft-guidance-block@5.2.3
+ - @kaizen/draft-hero-card@2.2.3
+ - @kaizen/draft-illustration@5.2.3
+ - @kaizen/draft-likert-scale-legacy@1.10.4
+ - @kaizen/draft-loading-placeholder@2.2.3
+ - @kaizen/draft-menu@4.8.3
+ - @kaizen/draft-modal@10.5.4
+ - @kaizen/draft-popover@5.2.3
+ - @kaizen/draft-select@2.5.5
+ - @kaizen/draft-split-button@4.2.3
+ - @kaizen/draft-table@5.2.4
+ - @kaizen/draft-tabs@5.2.3
+ - @kaizen/draft-tag@3.2.3
+ - @kaizen/draft-tile@5.9.3
+ - @kaizen/draft-title-block-zen@7.4.3
+ - @kaizen/draft-tooltip@5.4.3
+ - @kaizen/draft-well@4.2.3
+ - @kaizen/a11y@1.6.3
+ - @kaizen/brand-moment@1.12.5
+ - @kaizen/button@1.3.3
+ - @kaizen/component-library@16.1.0
+ - @kaizen/date-picker@5.10.5
+ - @kaizen/notification@0.11.3
+ - @kaizen/pagination@1.6.3
+ - @kaizen/progress-bar@2.2.3
+ - @kaizen/rich-text-editor@1.18.5
+ - @kaizen/select@1.3.1
+ - @kaizen/split-button@1.3.3
+ - @kaizen/tabs@1.5.3
+
+
+
+
+
+# [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.5...@kaizen/design-tokens@9.1.0) (2022-08-16)
+
+
+### Features
+
+* Preload fonts in ThemeProvider & handle default theme ([#2917](https://github.com/cultureamp/kaizen-design-system/issues/2917)) ([67e8efb](https://github.com/cultureamp/kaizen-design-system/commit/67e8efb09f0582ef9e14b408291f1916c7f21eea))
+
+
+
+
+
+## [9.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.4...@kaizen/design-tokens@9.0.5) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 ## [9.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.3...@kaizen/design-tokens@9.0.4) (2022-07-20)
 
 **Note:** Version bump only for package @kaizen/design-tokens

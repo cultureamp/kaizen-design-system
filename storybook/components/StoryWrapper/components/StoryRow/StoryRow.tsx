@@ -1,20 +1,23 @@
 import React from "react"
+import classNames from "classnames"
 import { Heading } from "../../../../../packages/typography"
-import styles from "../../StoryWrapper.scss"
+import styles from "../../StoryWrapper.module.scss"
 
 export interface StoryRowProps {
   children: React.ReactNode
   rowTitle: string
   isReversed?: boolean
   gridColumns?: number
+  hasColumnDivider?: boolean
 }
 
-export const StoryRow: React.VFC<StoryRowProps> = ({
+export const StoryRow = ({
   children,
   rowTitle,
   gridColumns,
   isReversed = false,
-}) => {
+  hasColumnDivider = false,
+}: StoryRowProps): JSX.Element => {
   const childrenCount: number = React.Children.count(children)
   return (
     <div className={styles.storyRow}>
@@ -28,7 +31,10 @@ export const StoryRow: React.VFC<StoryRowProps> = ({
         </Heading>
       </div>
       <div
-        className={styles.storyRowContainer}
+        className={classNames(styles.storyRowContainer, {
+          [styles.columnDivider]: hasColumnDivider,
+          [styles.reversed]: isReversed,
+        })}
         style={{
           gridTemplateColumns: `repeat(${gridColumns || childrenCount}, 1fr)`,
         }}

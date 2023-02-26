@@ -1,14 +1,14 @@
 import React from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
-import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
-import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
-import { EmptyState } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
+import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./EmptyState.stories.scss"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { EmptyState, EmptyStateProps } from ".."
+import styles from "./EmptyState.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -43,6 +43,12 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof EmptyState>
 
+const BUTTON = (
+  <div className={styles.buttonContainer}>
+    <Button label="Label" icon={chevronRight} iconPosition="end" />
+  </div>
+)
+
 const EmptyStateTemplate: ComponentStory<typeof EmptyState> = ({
   isAnimated,
   ...args
@@ -51,94 +57,137 @@ const EmptyStateTemplate: ComponentStory<typeof EmptyState> = ({
 export const DefaultKaizenSiteDemo = EmptyStateTemplate.bind({})
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = {
-  headingText: "Empty state title",
+  headingProps: {
+    variant: "heading-3",
+    children: "Empty state title",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
 }
 
-export const Positive = EmptyStateTemplate.bind({})
-Positive.args = {
-  children: "Button (chevron right)",
-  headingText: "Positive empty state",
+const Positive = EmptyStateTemplate.bind({})
+const POSTIVE_PROPS: EmptyStateProps = {
+  children: BUTTON,
+  headingProps: {
+    variant: "heading-3",
+    children: "Positive empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "positive",
 }
-Positive.parameters = { chromatic: { disable: false } }
 
-export const Informative = EmptyStateTemplate.bind({})
-Informative.args = {
+const Informative = EmptyStateTemplate.bind({})
+const INFORMATIVE_PROPS: EmptyStateProps = {
   headingText: "Informative empty state",
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "informative",
 }
-Informative.parameters = { chromatic: { disable: false } }
 
-export const Action = EmptyStateTemplate.bind({})
-Action.args = {
-  children: "Button (chevron right)",
-  headingText: "Action empty state",
+const Action = EmptyStateTemplate.bind({})
+const ACTION_PROPS: EmptyStateProps = {
+  children: BUTTON,
+  headingProps: {
+    variant: "heading-3",
+    children: "Action empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "action",
 }
-Action.parameters = { chromatic: { disable: false } }
 
-export const Neutral = EmptyStateTemplate.bind({})
-Neutral.args = {
-  headingText: "Neutral empty state",
+const Neutral = EmptyStateTemplate.bind({})
+const NEUTRAL_PROPS: EmptyStateProps = {
+  headingProps: {
+    variant: "heading-3",
+    children: "Neutral empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "neutral",
 }
-Neutral.parameters = { chromatic: { disable: false } }
 
-export const Negative = EmptyStateTemplate.bind({})
-Negative.args = {
-  children: "Button (chevron right)",
-  headingText: "Negative empty state",
+const Negative = EmptyStateTemplate.bind({})
+const NEGATIVE_PROPS: EmptyStateProps = {
+  children: BUTTON,
+  headingProps: {
+    variant: "heading-3",
+    children: "Negative empty state",
+  },
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "negative",
 }
-Negative.parameters = { chromatic: { disable: false } }
 
-export const RtlAction = EmptyStateTemplate.bind({})
-RtlAction.storyName = "RTL, Action"
-RtlAction.decorators = [Story => <div dir="rtl">{Story()}</div>]
-RtlAction.argTypes = {
-  children: {
-    table: { type: { summary: "React.ReactNode" } },
-    control: { type: "select" },
-    options: ["Default (no children)", "Button (chevron left)"],
-    mapping: {
-      "Default (no children)": undefined,
-      "Button (chevron left)": (
-        <div className={styles.buttonContainer}>
-          <Button label="Label" icon={chevronLeft} iconPosition="end" />
-        </div>
-      ),
-    },
+const StraightCorners = EmptyStateTemplate.bind({})
+const STRAIGHT_CORNERS_PROPS: EmptyStateProps = {
+  children: BUTTON,
+  headingProps: {
+    variant: "heading-3",
+    children: "Straight corners empty state",
   },
-}
-RtlAction.args = {
-  children: "Button (chevron left)",
-  headingText: "Empty state title",
-  bodyText:
-    "If providing further actions, include a link to an action or use a Default or Primary action.",
-  illustrationType: "action",
-}
-RtlAction.parameters = { chromatic: { disable: false } }
-
-export const StraightCorners = EmptyStateTemplate.bind({})
-StraightCorners.storyName = "Straight corners"
-StraightCorners.args = {
-  children: "Button (chevron right)",
-  headingText: "Empty state title",
   bodyText:
     "If providing further actions, include a link to an action or use a Default or Primary action.",
   illustrationType: "action",
   straightCorners: true,
 }
-StraightCorners.parameters = { chromatic: { disable: false } }
+
+const CustomHeading = EmptyStateTemplate.bind({})
+const CUSTOM_HEADING_PROPS: EmptyStateProps = {
+  children: BUTTON,
+  bodyText:
+    "Customise heading level so that the correct semantic heading level can be used for your page.",
+  illustrationType: "neutral",
+  headingProps: {
+    variant: "heading-3",
+    children: "Custom heading empty state",
+    tag: "h2",
+    color: "dark-reduced-opacity",
+  },
+}
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Empty State"]} />
+    <StoryWrapper.Row rowTitle="Positive">
+      <Positive {...POSTIVE_PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Informative">
+      <Informative {...INFORMATIVE_PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Action">
+      <Action {...ACTION_PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Neutral">
+      <Neutral {...NEUTRAL_PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Negative">
+      <Negative {...NEGATIVE_PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Straight Corners">
+      <StraightCorners {...STRAIGHT_CORNERS_PROPS} />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Custom Heading">
+      <CustomHeading {...CUSTOM_HEADING_PROPS} />
+    </StoryWrapper.Row>
+  </StoryWrapper>
+)
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

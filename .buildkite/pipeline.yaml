@@ -14,7 +14,7 @@ steps:
   - name: ":balloon: Release"
     command: ".buildkite/scripts/release.sh"
     timeout_in_minutes: 30
-    branches: "master"
+    branches: "main"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
@@ -22,7 +22,7 @@ steps:
       - docker-compose#v3.9.0:
           run: release
     notify:
-      - slack: "#team_front_end_foundations"
+      - slack: "#wol_kaizen"
         if: build.state == "failed"
 
   - name: ":hatched_chick: Release (canary)"
@@ -43,19 +43,10 @@ steps:
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
 
-  - name: ":nodesecurity: Audit JS Dependencies"
-    command: .buildkite/scripts/audit-js.sh
-    agents:
-      queue: build-unrestricted
-    plugins:
-      - docker#v3.8.0:
-          image: node:14
-          environment:
-            - GITHUB_REGISTRY_TOKEN
-
   - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
+    key: "publish-step"
     command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
     # The canary branch is not able to update dev.cultureamp.design
@@ -68,3 +59,22 @@ steps:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.9.0:
           run: publish
+
+  - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
+    key: "playwright-step"
+    command: ".buildkite/scripts/run-playwright.sh"
+    timeout_in_minutes: 15
+    branches: "!main !canary"
+    depends_on: "publish-step"
+    <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
+    plugins:
+      - docker#v3.13.0:
+          image: mcr.microsoft.com/playwright:v1.31.0-focal
+          propagate-environment: true
+
+  - name: "LinearB: Record deployment time"
+    command: bin/ci_noop
+    branches: "main"
+    plugins:
+      - cultureamp/linearb-cycle-time#v1.1.1: ~

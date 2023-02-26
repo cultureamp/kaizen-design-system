@@ -1,5 +1,5 @@
-import { Theme as BaseTheme } from "./types"
 import { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsMap"
+import { Theme as BaseTheme } from "./types"
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
  * This class fulfills the idea of theming and runtime theme switching by relying on CSS variables,
@@ -8,8 +8,14 @@ import { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsM
  * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
  */
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
+  private themeChangeListeners = [] as Array<(theme: Theme) => void>
+  private theme: Theme
+  private rootElement: HTMLElement | null = null
+  private rootElementId: string
+
   constructor(
     theme: Theme,
+    rootElementId: string = "",
     /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
     apply: boolean = true
   ) {
@@ -18,20 +24,20 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
       If you use `constructor( private theme: Theme, ...)` - theme becomes undefined within the class's methods.
     */
     this.theme = theme
+    this.rootElementId = rootElementId
     if (apply) this.applyCurrentTheme()
   }
 
-  private themeChangeListeners = [] as Array<(theme: Theme) => void>
-  private theme: Theme
-  private rootElement: HTMLElement | null = null
+  public getRootElement = (): HTMLElement | null => this.rootElement
+  public getRootElementId = (): string => this.rootElementId
+  public getCurrentTheme = (): Theme => this.theme
 
-  public getRootElement = () => this.rootElement
-  public getCurrentTheme = () => this.theme
-
-  public setRootElement = (element: HTMLElement) => {
+  public setRootElement = (element: HTMLElement): void => {
     this.rootElement = element
   }
-  public setAndApplyTheme = (theme: Theme, force?: boolean) => {
+  public setRootElementId = (rootElementId: string): string =>
+    (this.rootElementId = rootElementId)
+  public setAndApplyTheme = (theme: Theme, force?: boolean): void => {
     if (!force) {
       if (this.theme === theme) return
     }
@@ -40,17 +46,21 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     this.notifyThemeChangeListeners(theme)
   }
 
-  public addThemeChangeListener = (listener: (theme: Theme) => void) => {
+  public addThemeChangeListener = (listener: (theme: Theme) => void): void => {
     this.themeChangeListeners.push(listener)
   }
-  public removeThemeChangeListener = (listener: (theme: Theme) => void) => {
+  public removeThemeChangeListener = (
+    listener: (theme: Theme) => void
+  ): void => {
     this.themeChangeListeners = this.themeChangeListeners.filter(
       l => l !== listener
     )
   }
-  public applyCurrentTheme = () => {
+  public applyCurrentTheme = (): void => {
     if (typeof window !== "undefined") {
-      this.setRootElement(document.documentElement)
+      this.setRootElement(
+        document.getElementById(this.rootElementId) ?? document.documentElement
+      )
       const cssVariableDefinitions = makeCssVariableDefinitionsMap(this.theme)
       Object.entries(cssVariableDefinitions).forEach(([key, value]) => {
         this.rootElement?.style.setProperty(key, value)
@@ -58,7 +68,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     }
   }
 
-  private notifyThemeChangeListeners = (theme: Theme) => {
+  private notifyThemeChangeListeners = (theme: Theme): void => {
     this.themeChangeListeners.forEach(listener => listener(theme))
   }
 }

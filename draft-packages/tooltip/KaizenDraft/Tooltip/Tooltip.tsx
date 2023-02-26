@@ -1,12 +1,11 @@
-import { usePopper } from "react-popper"
 import React, { useEffect, useRef, useState } from "react"
 import ReactDOM from "react-dom"
-import classnames from "classnames"
 import { Placement } from "@popperjs/core"
-import tooltipStyles from "./Tooltip.scss"
-import animationStyles from "./AppearanceAnim.scss"
+import classnames from "classnames"
+import { usePopper } from "react-popper"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
+import styles from "./Tooltip.module.scss"
 
 type Position = "above" | "below" | "left" | "right"
 
@@ -45,6 +44,7 @@ export type TooltipProps = {
    * regression testing.
    */
   isInitiallyVisible?: boolean
+  animationDuration?: number
 }
 
 const positionToPlacement = new Map<Position, Placement>([
@@ -64,7 +64,7 @@ const TooltipContent = ({
   referenceElement,
   tooltipId,
   mood = "default",
-}) => {
+}): JSX.Element | null => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -118,35 +118,26 @@ const TooltipContent = ({
     <div
       ref={setPopperElement}
       className={classnames({
-        [tooltipStyles.tooltip]: true,
-        [animationStyles.defaultHiddenState]: true,
-        [animationStyles.visibleState]: isVisible && !isAnimIn,
+        [styles.tooltip]: true,
       })}
       style={popperStyles.popper}
       {...attributes.popper}
       role="tooltip"
       id={tooltipId}
     >
-      <div
-        className={classnames(
-          tooltipStyles.tooltipContent,
-          tooltipStyles[mood]
-        )}
-      >
+      <div className={classnames(styles.tooltipContent, styles[mood])}>
         {text}
       </div>
       <div
         ref={setArrowElement}
         className={classnames({
-          [tooltipStyles.arrow]: true,
+          [styles.arrow]: true,
         })}
         style={popperStyles.arrow}
       >
-        <div className={tooltipStyles.arrowInner}>
-          <div
-            className={classnames(tooltipStyles.arrowMain, tooltipStyles[mood])}
-          />
-          <div className={tooltipStyles.arrowShadow} />
+        <div className={styles.arrowInner}>
+          <div className={classnames(styles.arrowMain, styles[mood])} />
+          <div className={styles.arrowShadow} />
         </div>
       </div>
     </div>
@@ -165,9 +156,10 @@ const Tooltip = ({
   position = "above",
   classNameOverride,
   portalSelector,
+  animationDuration,
   isInitiallyVisible = false,
   mood = "default",
-}: TooltipProps) => {
+}: TooltipProps): JSX.Element => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
   const [referenceElement, setReferenceElement] =
@@ -205,29 +197,24 @@ const Tooltip = ({
   }, [portalSelectorElementRef, portalSelector])
 
   return (
-    <AnimationProvider isVisible={isHover || isFocus}>
+    <AnimationProvider
+      isVisible={isHover || isFocus}
+      animationDuration={animationDuration}
+    >
       <>
         <div
           ref={setReferenceElement}
           className={classnames(classNameOverride, {
-            [tooltipStyles.displayInline]: displayToUse === "inline",
-            [tooltipStyles.displayBlock]: displayToUse === "block",
-            [tooltipStyles.displayInlineBlock]: displayToUse === "inline-block",
-            [tooltipStyles.displayFlex]: displayToUse === "flex",
-            [tooltipStyles.displayInlineFlex]: displayToUse === "inline-flex",
+            [styles.displayInline]: displayToUse === "inline",
+            [styles.displayBlock]: displayToUse === "block",
+            [styles.displayInlineBlock]: displayToUse === "inline-block",
+            [styles.displayFlex]: displayToUse === "flex",
+            [styles.displayInlineFlex]: displayToUse === "inline-flex",
           })}
-          onMouseEnter={() => {
-            setIsHover(true)
-          }}
-          onMouseLeave={() => {
-            setIsHover(false)
-          }}
-          onFocusCapture={() => {
-            setIsFocus(true)
-          }}
-          onBlurCapture={() => {
-            setIsFocus(false)
-          }}
+          onMouseEnter={(): void => setIsHover(true)}
+          onMouseLeave={(): void => setIsHover(false)}
+          onFocusCapture={(): void => setIsFocus(true)}
+          onBlurCapture={(): void => setIsFocus(false)}
           aria-describedby={tooltipId}
         >
           {children}

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "noEmit": false,
     "noImplicitAny": true,
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "dist",
     "declarationMap": true,
     "declaration": true,
@@ -11,6 +11,6 @@
     "module": "CommonJS",
     "noUncheckedIndexedAccess": true
   },
-  "include": ["index.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["**/*.spec.ts"]
 }

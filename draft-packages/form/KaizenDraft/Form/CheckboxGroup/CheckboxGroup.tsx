@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./CheckboxGroup.module.scss"
 
 export interface CheckboxGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -21,7 +21,7 @@ export interface CheckboxGroupProps
  * {@link https://cultureamp.design/components/checkbox-group/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-checkbox-group--interactive-kaizen-site-demo Storybook}
  */
-export const CheckboxGroup: React.VFC<CheckboxGroupProps> = ({
+export const CheckboxGroup = ({
   children,
   labelText,
   noBottomMargin = false,
@@ -29,7 +29,7 @@ export const CheckboxGroup: React.VFC<CheckboxGroupProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: CheckboxGroupProps): JSX.Element => (
   <div
     data-automation-id={automationId && `${automationId}-field-checkbox-group`}
     className={classnames(styles.checkboxGroupContainer, classNameOverride, {

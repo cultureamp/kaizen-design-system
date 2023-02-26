@@ -1,8 +1,6 @@
-import * as React from "react"
-
-import { Heading } from "@kaizen/typography"
+import React from "react"
 import { Negative } from "@kaizen/draft-illustration"
-
+import { Heading } from "@kaizen/typography"
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -11,8 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "../"
-
-import styles from "./RoadblockModal.scss"
+import styles from "./RoadblockModal.module.scss"
 
 export interface RoadblockModalProps {
   readonly isOpen: boolean
@@ -23,8 +20,6 @@ export interface RoadblockModalProps {
   readonly automationId?: string
   readonly children: React.ReactNode
 }
-
-type RoadblockModal = React.FunctionComponent<RoadblockModalProps>
 
 /**
  * @deprecated RoadblockModal is deprecated. Please use Confirmation Modal instead.
@@ -37,7 +32,7 @@ const RoadblockModal = ({
   dismissLabel = "Back",
   automationId,
   children,
-}: RoadblockModalProps) => (
+}: RoadblockModalProps): JSX.Element => (
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
@@ -74,4 +69,5 @@ const RoadblockModal = ({
     </div>
   </GenericModal>
 )
+
 export default RoadblockModal

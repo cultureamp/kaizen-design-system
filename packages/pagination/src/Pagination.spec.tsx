@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
 import React from "react"
+import { fireEvent } from "@testing-library/dom"
+import { render, screen } from "@testing-library/react"
 import { Pagination } from "./Pagination"
 
 const defaultProps = {
@@ -9,17 +9,16 @@ const defaultProps = {
   ariaLabelNextPage: "Next page",
   ariaLabelPreviousPage: "Previous page",
   ariaLabelPage: "Page",
-  onPageChange: () => jest.fn(),
+  onPageChange: jest.fn<void, [number]>(),
 }
 
 describe("<Pagination />", () => {
-  it("should render pagination component", async () => {
+  it("should render pagination component", () => {
     render(<Pagination {...defaultProps} />)
-
-    await screen.getByRole("navigation")
+    expect(screen.getByRole("navigation")).toBeInTheDocument()
   })
 
-  it("should render all pages when pageCount is less than 8", async () => {
+  it("should render all pages when pageCount is less than 8", () => {
     const pageCount = 7
     render(<Pagination {...defaultProps} pageCount={pageCount} />)
 
@@ -27,36 +26,35 @@ describe("<Pagination />", () => {
       { length: pageCount },
       (_, i) => i + 1
     )) {
-      await screen.getByRole("button", { name: `Page ${pageNumber}` })
+      expect(
+        screen.getByRole("button", { name: `Page ${pageNumber}` })
+      ).toBeInTheDocument()
     }
   })
 
-  it("should not render all pages and render truncated indicator when pageCount is greater than 7", async () => {
+  it("should not render all pages and render truncated indicator when pageCount is greater than 7", () => {
     render(<Pagination {...defaultProps} />)
-
-    await screen.getByTestId("truncate-indicator")
+    expect(screen.getByTestId("truncate-indicator")).toBeInTheDocument()
   })
 
-  it("should render a disabled back button when current page less than 1", async () => {
+  it("should render a disabled back button when current page less than 1", () => {
     render(<Pagination {...defaultProps} />)
-
     expect(
       screen.getByRole("button", { name: defaultProps.ariaLabelPreviousPage })
     ).toBeDisabled
   })
 
-  it("should render a disabled forward button when current page equals page count", async () => {
+  it("should render a disabled forward button when current page equals page count", () => {
     render(
       <Pagination {...defaultProps} currentPage={defaultProps.pageCount} />
     )
-
     expect(
       screen.getByRole("button", { name: defaultProps.ariaLabelPreviousPage })
     ).toBeDisabled
   })
 
   it("should call onPageChange when clicking page number", async () => {
-    const onPageChange = jest.fn()
+    const onPageChange = jest.fn<void, [number]>()
 
     render(<Pagination {...defaultProps} onPageChange={onPageChange} />)
 

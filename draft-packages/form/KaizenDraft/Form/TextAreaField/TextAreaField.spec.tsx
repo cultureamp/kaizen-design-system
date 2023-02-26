@@ -89,3 +89,52 @@ describe("Validation message", () => {
     })
   })
 })
+
+describe("aria-describedby value", () => {
+  const defaultProps = {
+    id: "text-area-field-test",
+    labelText: "Label",
+  }
+  it("renders correct aria-describedby when only description provided", () => {
+    render(<TextAreaField {...defaultProps} description="Description text" />)
+    screen.getByRole("textbox", {
+      description: "Description text",
+    })
+  })
+  it("renders correct aria-describedby when only validation message provided", () => {
+    render(
+      <TextAreaField
+        {...defaultProps}
+        description={undefined}
+        validationMessage="Error message"
+      />
+    )
+    screen.getByRole("textbox", {
+      description: "Error message",
+    })
+  })
+  it("renders correct aria-describedby when both description and validation message provided", () => {
+    render(
+      <TextAreaField
+        {...defaultProps}
+        description="Description text"
+        validationMessage="Error message"
+      />
+    )
+    screen.getByRole("textbox", {
+      description: "Description text Error message",
+    })
+  })
+  it("renders empty aria-describedby when no description or validation message provided", () => {
+    render(
+      <TextAreaField
+        {...defaultProps}
+        description={undefined}
+        validationMessage={undefined}
+      />
+    )
+    screen.getByRole("textbox", {
+      description: "",
+    })
+  })
+})

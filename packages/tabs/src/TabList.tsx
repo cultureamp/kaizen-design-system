@@ -1,7 +1,7 @@
-import { TabList as ReachTabList } from "@reach/tabs"
 import React, { ReactNode } from "react"
+import { TabList as ReachTabList } from "@reach/tabs"
 import classnames from "classnames"
-import styles from "./styles.scss"
+import styles from "./TabList.module.scss"
 
 export interface TabListProps {
   /**
@@ -18,7 +18,7 @@ export interface TabListProps {
 /**
  * Wrapper for the tabs themselves
  */
-export const TabList = (props: TabListProps) => {
+export const TabList = (props: TabListProps): JSX.Element => {
   const { "aria-label": ariaLabel, noPadding = false, children } = props
   return (
     <ReachTabList

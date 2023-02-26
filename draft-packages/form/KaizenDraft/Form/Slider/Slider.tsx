@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
 import { FieldGroup, Label, InputRange, InputRangeProps } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./Slider.module.scss"
 
 export interface SliderFieldProps extends InputRangeProps {
   id: string
@@ -19,7 +19,7 @@ export interface SliderFieldProps extends InputRangeProps {
  * {@link https://cultureamp.design/components/slider/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-slider--controlled Storybook}
  */
-export const Slider: React.VFC<SliderFieldProps> = props => {
+export const Slider = (props: SliderFieldProps): JSX.Element => {
   const {
     id,
     labelText,

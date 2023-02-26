@@ -1,6 +1,5 @@
-import { cleanup, render } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
+import { cleanup, render, screen, fireEvent } from "@testing-library/react"
 import Dropdown from "./Dropdown"
 
 afterEach(cleanup)
@@ -52,7 +51,7 @@ describe("Dropdown", () => {
   })
 
   test("shows dropdown menu when clicking on the button", () => {
-    const { container, queryByText } = render(
+    const { container } = render(
       <Dropdown>
         <div>Item</div>
       </Dropdown>
@@ -61,6 +60,6 @@ describe("Dropdown", () => {
     const button = container.querySelector(".dropdownButton")
     button && fireEvent.click(button)
 
-    expect(queryByText("Item")).toBeTruthy()
+    expect(screen.queryByText("Item")).toBeTruthy()
   })
 })

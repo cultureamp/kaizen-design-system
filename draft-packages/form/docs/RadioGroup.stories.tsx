@@ -1,14 +1,10 @@
 import React from "react"
-import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
+import { ComponentMeta, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
-const REVERSED_BG = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
+import { figmaEmbed } from "../../../storybook/helpers"
 
 type RenderProps = {
   selectedOption: string
@@ -20,7 +16,10 @@ type Props = {
 }
 
 class RadioGroupExample extends React.Component<Props> {
-  render() {
+  state = {
+    selectedOption: "",
+  }
+  render(): JSX.Element {
     const { render } = this.props
     return (
       <div>
@@ -32,14 +31,10 @@ class RadioGroupExample extends React.Component<Props> {
     )
   }
 
-  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.setState({
       selectedOption: event.target.value,
     })
-  }
-
-  state = {
-    selectedOption: "",
   }
 }
 
@@ -57,11 +52,11 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof RadioGroup>
 
-export const DefaultKaizenSiteDemo = () => (
+export const DefaultKaizenSiteDemo: Story = () => (
   <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
+    render={({ selectedOption, onChangeHandler }): JSX.Element => (
       <RadioGroup labelText="Radio group label" labelId="RadioGroupLabel">
         <RadioField
           labelText="Option one"
@@ -93,289 +88,107 @@ export const DefaultKaizenSiteDemo = () => (
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const WithDisabledRadios = () => (
-  <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
-      <RadioGroup labelText="Radio group label">
-        <RadioField
-          labelText="Label"
-          name="radio"
-          id="radio-1"
-          selectedStatus={selectedOption === "radio-1"}
-          disabled
-          onChange={onChangeHandler}
-          value="radio-1"
-        />
-        <RadioField
-          labelText="Label"
-          name="radio"
-          id="radio-2"
-          selectedStatus={selectedOption === "radio-2"}
-          onChange={onChangeHandler}
-          value="radio-2"
-        />
-        <RadioField
-          labelText="Label"
-          name="radio"
-          id="radio-3"
-          selectedStatus={selectedOption === "radio-3"}
-          onChange={onChangeHandler}
-          value="radio-3"
-        />
-      </RadioGroup>
-    )}
-  />
-)
-
-export const Rtl = () => (
-  <div dir="rtl">
-    <RadioGroupExample
-      render={({ selectedOption, onChangeHandler }) => (
-        <RadioGroup labelText="Radio group label">
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+      <StoryWrapper.Row rowTitle="Default">
+        <RadioGroup labelText="Radio group label" reversed={isReversed}>
           <RadioField
             labelText="Label"
             name="radio"
             id="radio-1"
-            selectedStatus={selectedOption === "radio-1"}
-            onChange={onChangeHandler}
             value="radio-1"
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
             id="radio-2"
-            selectedStatus={selectedOption === "radio-2"}
-            onChange={onChangeHandler}
             value="radio-2"
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
             id="radio-3"
-            selectedStatus={selectedOption === "radio-3"}
-            onChange={onChangeHandler}
             value="radio-3"
+            reversed={isReversed}
           />
         </RadioGroup>
-      )}
-    />
-  </div>
-)
-Rtl.storyName = "RTL"
-Rtl.parameters = { chromatic: { disable: false } }
-
-export const RtlWithDisabledRadios = () => (
-  <div dir="rtl">
-    <RadioGroupExample
-      render={({ selectedOption, onChangeHandler }) => (
-        <RadioGroup labelText="Radio group label">
+        <RadioGroup labelText="Radio group label" reversed={isReversed}>
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-1"
+            id="radio-disabled-1"
+            value="radio-1"
             disabled
-            selectedStatus={selectedOption === "radio-1"}
-            onChange={onChangeHandler}
-            value="radio-1"
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-2"
+            id="radio-disabled-2"
+            value="radio-2"
             disabled
-            selectedStatus={selectedOption === "radio-2"}
-            onChange={onChangeHandler}
-            value="radio-2"
+            reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-3"
-            selectedStatus={selectedOption === "radio-3"}
-            onChange={onChangeHandler}
+            id="radio-disabled-3"
             value="radio-3"
+            disabled
+            reversed={isReversed}
           />
         </RadioGroup>
-      )}
-    />
-  </div>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="No Bottom Margin">
+        <div>
+          <RadioGroup labelText="Radio group label" reversed={isReversed}>
+            <RadioField
+              labelText="Label"
+              name="radio"
+              id="radio-no-mb-1"
+              value="radio-1"
+              reversed={isReversed}
+            />
+            <RadioField
+              labelText="Label"
+              name="radio"
+              id="radio-no-mb-2"
+              value="radio-2"
+              reversed={isReversed}
+            />
+          </RadioGroup>
+          <Label
+            id="test_label"
+            htmlFor="test_label"
+            automationId="test_label"
+            labelText="Next line"
+            labelType="radio"
+            reversed={isReversed}
+          />
+        </div>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </>
 )
-RtlWithDisabledRadios.storyName = "RTL with disabled radios"
 
-export const WithLinks = () => (
-  <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
-      <RadioGroup
-        labelText={
-          <div>
-            Radio group label{" "}
-            <a href="http://google.com" target="_blank">
-              link
-            </a>
-          </div>
-        }
-      >
-        <RadioField
-          labelText="Label 1"
-          name="radio"
-          id="radio-1"
-          selectedStatus={selectedOption === "radio-1"}
-          onChange={onChangeHandler}
-          value="radio-1"
-        />
-        <RadioField
-          labelText="Label 2"
-          name="radio"
-          id="radio-2"
-          selectedStatus={selectedOption === "radio-2"}
-          onChange={onChangeHandler}
-          value="radio-2"
-        />
-        <RadioField
-          labelText={
-            <div>
-              Label 3 with a{" "}
-              <a href="http://google.com" target="_blank">
-                link
-              </a>
-            </div>
-          }
-          name="radio"
-          id="radio-3"
-          selectedStatus={selectedOption === "radio-3"}
-          onChange={onChangeHandler}
-          value="radio-3"
-        />
-      </RadioGroup>
-    )}
-  />
-)
-WithLinks.parameters = { chromatic: { disable: false } }
-
-export const WithBottomMargin = () => (
-  <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
-      <>
-        <RadioGroup labelText="Radio group label">
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-1"
-            selectedStatus={selectedOption === "radio-1"}
-            onChange={onChangeHandler}
-            value="radio-1"
-          />
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-2"
-            selectedStatus={selectedOption === "radio-2"}
-            onChange={onChangeHandler}
-            value="radio-2"
-          />
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-3"
-            selectedStatus={selectedOption === "radio-3"}
-            onChange={onChangeHandler}
-            value="radio-3"
-          />
-        </RadioGroup>
-
-        <Label
-          id="test_label"
-          htmlFor="test_label"
-          automationId="test_label"
-          labelText="Next line"
-          labelType="radio"
-        />
-      </>
-    )}
-  />
-)
-WithBottomMargin.parameters = { chromatic: { disable: false } }
-
-export const WithoutBottomMargin = () => (
-  <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
-      <>
-        <RadioGroup noBottomMargin labelText="Radio group label">
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-1"
-            selectedStatus={selectedOption === "radio-1"}
-            onChange={onChangeHandler}
-            value="radio-1"
-          />
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-2"
-            selectedStatus={selectedOption === "radio-2"}
-            onChange={onChangeHandler}
-            value="radio-2"
-          />
-          <RadioField
-            labelText="Label"
-            name="radio"
-            id="radio-3"
-            selectedStatus={selectedOption === "radio-3"}
-            onChange={onChangeHandler}
-            value="radio-3"
-          />
-        </RadioGroup>
-
-        <Label
-          id="test_label"
-          htmlFor="test_label"
-          automationId="test_label"
-          labelText="Next line"
-          labelType="radio"
-        />
-      </>
-    )}
-  />
-)
-WithoutBottomMargin.parameters = { chromatic: { disable: false } }
-
-export const ReversedDefault = () => (
-  <RadioGroupExample
-    render={({ selectedOption, onChangeHandler }) => (
-      <RadioGroup reversed labelText="Radio group label">
-        <RadioField
-          labelText="Label"
-          name="radio"
-          id="radio-1"
-          selectedStatus={selectedOption === "radio-1"}
-          onChange={onChangeHandler}
-          value="radio-1"
-          reversed
-        />
-        <RadioField
-          labelText="Label"
-          name="radio"
-          id="radio-2"
-          selectedStatus={selectedOption === "radio-2"}
-          onChange={onChangeHandler}
-          value="radio-2"
-          reversed
-        />
-        <RadioField
-          labelText="Label"
-          name="radio"
-          id="radio-3"
-          selectedStatus={selectedOption === "radio-3"}
-          onChange={onChangeHandler}
-          value="radio-3"
-          reversed
-        />
-      </RadioGroup>
-    )}
-  />
-)
-ReversedDefault.parameters = {
-  ...REVERSED_BG,
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
   chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
 }

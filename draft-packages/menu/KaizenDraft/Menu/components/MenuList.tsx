@@ -1,6 +1,6 @@
-import * as React from "react"
+import React from "react"
 import { v4 } from "uuid"
-import styles from "../styles.scss"
+import styles from "./MenuList.module.scss"
 
 type MenuListProps = {
   heading?: React.ReactNode
@@ -8,7 +8,7 @@ type MenuListProps = {
 }
 
 const listHeadingID = v4()
-const MenuList = (props: MenuListProps) => {
+const MenuList = (props: MenuListProps): JSX.Element => {
   const { heading, children } = props
   return (
     <>

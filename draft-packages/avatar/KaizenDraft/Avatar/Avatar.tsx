@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, HTMLAttributes } from "react"
 import classnames from "classnames"
+import { Textfit } from "react-textfit"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
-import { Textfit } from "react-textfit"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
-import styles from "./styles.module.scss"
+import styles from "./Avatar.module.scss"
 
 export type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"
 
@@ -73,7 +73,7 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   return 22
 }
 
-const fallbackIcon = (fullName: string) => (
+const fallbackIcon = (fullName: string): JSX.Element => (
   <span className={styles.fallbackIcon}>
     <Icon
       inheritSize
@@ -88,7 +88,7 @@ const renderInitials = (
   fullName = "",
   size: AvatarSizes,
   disableInitials = false
-) => {
+): JSX.Element => {
   const initials = getInitials(fullName)
   const isLongName = initials.length > 2 && size !== "small"
   const renderFallback = disableInitials || initials === ""
@@ -118,7 +118,7 @@ const renderInitials = (
  * {@link https://cultureamp.design/components/avatar/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-avatar-avatar--default-story Storybook}
  */
-export const Avatar: React.VFC<AvatarProps> = ({
+export const Avatar = ({
   fullName,
   size = "medium",
   avatarSrc,
@@ -127,7 +127,7 @@ export const Avatar: React.VFC<AvatarProps> = ({
   isCurrentUser = true,
   classNameOverride,
   ...restProps
-}) => {
+}: AvatarProps): JSX.Element => {
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
@@ -139,8 +139,8 @@ export const Avatar: React.VFC<AvatarProps> = ({
     setAvatarState(avatarSrc ? "loading" : "none")
   }, [avatarSrc])
 
-  const onImageFailure = () => setAvatarState("error")
-  const onImageSuccess = () => setAvatarState("success")
+  const onImageFailure = (): void => setAvatarState("error")
+  const onImageSuccess = (): void => setAvatarState("success")
 
   // if the image is cached onLoad may not trigger: https://stackoverflow.com/a/59809184
   useEffect(() => {

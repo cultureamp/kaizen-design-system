@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 import styles from "./Dropdown.module.scss"
 
@@ -17,13 +17,16 @@ type DropdownMenuProps = {
  * @deprecated DropdownMenu is deprecated. Please use draft-menu instead.
  */
 class DropdownMenu extends React.Component<DropdownMenuProps> {
-  componentDidMount() {
+  static displayName = "DropdownMenu"
+  menu = React.createRef<HTMLDivElement>()
+
+  componentDidMount(): void {
     document.addEventListener("click", this.handleDocumentClick, false)
     window.addEventListener("resize", this.handleDocumentResize, false)
     this.positionMenu()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     document.removeEventListener("click", this.handleDocumentClick, false)
     window.removeEventListener("resize", this.handleDocumentResize, false)
   }
@@ -37,14 +40,14 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
       <div
         className={styles.menuContainer}
         ref={this.menu}
-        onClick={() => hideDropdownMenu()}
+        onClick={hideDropdownMenu}
       >
         {children}
       </div>
     )
   }
 
-  positionMenu() {
+  positionMenu(): void {
     const menu = this.menu
 
     if (!this.props.position || !menu) {
@@ -66,7 +69,7 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
     }
   }
 
-  handleDocumentClick = (e: MouseEvent) => {
+  handleDocumentClick = (e: MouseEvent): void => {
     if (
       this.menu &&
       this.menu.current &&
@@ -77,12 +80,9 @@ class DropdownMenu extends React.Component<DropdownMenuProps> {
     }
   }
 
-  handleDocumentResize = () => {
+  handleDocumentResize = (): void => {
     this.props.hideDropdownMenu()
   }
-
-  static displayName = "DropdownMenu"
-  menu = React.createRef<HTMLDivElement>()
 }
 
 export default DropdownMenu

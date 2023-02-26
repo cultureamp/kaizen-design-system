@@ -2,6 +2,7 @@
 
 Recipe for creating a new package.
 
+- [Intro](#intro)
 - [Package structure](#package-structure)
   - [Documentation](#documentation)
   - [Components](#components)
@@ -9,6 +10,18 @@ Recipe for creating a new package.
   - [index.ts](#indexts)
   - [package.json](#packagejson)
   - [tsconfig.dist.json](#tsconfigdistjson)
+
+## Intro
+
+To generate a new component and package, new component within an existing package, or a subcomponent,
+run the following command and follow the prompts:
+```
+yarn plop
+```
+or run the following command to answer the name prop (replace `NewComponentName` with your component name):
+```
+yarn plop NewComponentName
+```
 
 ## Package structure
 
@@ -21,7 +34,7 @@ packages/
     docs/
       - PancakeStack.stories.tsx
     src/
-      (...see Component structure below)
+      (...see Components section below)
     - CHANGELOG.md
     - index.ts
     - package.json
@@ -82,36 +95,42 @@ The base package.json will look like this, where:
     "**/*",
     "!**/*.ts",
     "!**/*.tsx",
-    "**/*.d.ts",
+    "**/*.d.ts", // This must be below `.ts` to override
     "!**/*.spec.*",
-    "!**/*.snap",
     "!docs",
     "!tsconfig.dist.json"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
+  "dependencies": {
+    "@kaizen/component-base": "^1.1.0",
+    "classnames": "^2.3.1"
+  },
   "devDependencies": {
-    "@kaizen/component-base": "^1.0.0"
+    "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0",
-    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"  
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"  
   }
 }
 ```
 
 ### tsconfig.dist.json
 
+This config extends the dist file in the root. 
+
+It is important to have the `include` attribute set as files are included relative to the config file which has it (in this case, it would include files relative to the root of the repo, which includes all other packages).
+
+Like `include`, the `exclude` attribute will also look at files relative to the the file it was set, thus we want to avoid setting it in the root file.
+
+We exclude compiling the `.spec.ts(x)` files as we do not need to distribute test files.
+
 ```json
 {
   "extends": "../../tsconfig.dist.json",
-  "compilerOptions": {
-    "allowJs": false,
-    "declaration": true,
-    "noEmit": false,
-    "sourceMap": true
-  },
-  "exclude": ["docs"]
+  "include": ["index.ts", "src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
 }
 ```

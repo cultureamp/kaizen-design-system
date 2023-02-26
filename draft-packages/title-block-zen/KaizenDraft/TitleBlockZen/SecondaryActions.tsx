@@ -1,12 +1,12 @@
+import React from "react"
 import { Button, IconButton } from "@kaizen/button"
-import { Menu, MenuList, MenuItem } from "@kaizen/draft-menu"
-import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import { Menu, MenuList } from "@kaizen/draft-menu"
+import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
-
-import styles from "./TitleBlockZen.scss"
+import styles from "./TitleBlockZen.module.scss"
 
 type Props = {
   secondaryActions?: SecondaryActionsProps
@@ -17,7 +17,7 @@ type Props = {
 const renderSecondaryOverflowMenu = (
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean
-) => {
+): JSX.Element | undefined => {
   if (!secondaryOverflowMenuItems) return undefined
   return (
     <Menu
@@ -32,7 +32,7 @@ const renderSecondaryOverflowMenu = (
     >
       <MenuList>
         {secondaryOverflowMenuItems.map((menuItem, i) => (
-          <MenuItem {...menuItem} key={i} /> // We shouldn't use an index here, see note below
+          <TitleBlockMenuItem key={i} {...menuItem} />
         ))}
       </MenuList>
     </Menu>
@@ -47,12 +47,12 @@ const SecondaryActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   reversed = false,
-}: Props) => {
+}: Props): JSX.Element | null => {
   if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
   const secondaryActionsAsToolbarItems = secondaryActions
-    ? secondaryActions.map((a, i) => {
-        if ("menuItems" in a) {
+    ? secondaryActions.map((action, i) => {
+        if ("menuItems" in action) {
           return {
             key: `${i}`, // We shouldn't use an index here, see note above
             node: (
@@ -61,7 +61,7 @@ const SecondaryActions = ({
                 button={
                   <Button
                     secondary
-                    label={a.label}
+                    label={action.label}
                     reversed={reversed}
                     icon={chevronDownIcon}
                     iconPosition="end"
@@ -69,16 +69,15 @@ const SecondaryActions = ({
                 }
               >
                 <MenuList>
-                  {a.menuItems.map((menuItem, i2) => (
-                    // We shouldn't use an index here, see note above
-                    <MenuItem key={i2} {...menuItem} />
+                  {action.menuItems.map((menuItem, i2) => (
+                    <TitleBlockMenuItem key={i2} {...menuItem} />
                   ))}
                 </MenuList>
               </Menu>
             ),
           }
         } else {
-          if ("onClick" in a && "href" in a) {
+          if ("onClick" in action && "href" in action) {
             // eslint-disable-next-line no-console
             console.warn(
               "\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support " +
@@ -91,7 +90,7 @@ const SecondaryActions = ({
               <Button
                 secondary
                 reversed={reversed}
-                {...a}
+                {...action}
                 data-automation-id="title-block-secondary-actions-button"
               />
             ),
@@ -119,7 +118,11 @@ const SecondaryActions = ({
 
   return (
     <div className={styles.secondaryActionsContainer}>
-      <Toolbar items={toolbarItems} noGap />
+      <Toolbar
+        items={toolbarItems}
+        noGap
+        automationId="title-block-secondary-actions-toolbar"
+      />
     </div>
   )
 }

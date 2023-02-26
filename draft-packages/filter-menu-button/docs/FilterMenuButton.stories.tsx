@@ -1,25 +1,25 @@
 import React, { useState } from "react"
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
+import { ComponentStory, Story } from "@storybook/react"
+import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
+import { Box } from "@kaizen/component-library"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
 import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
-import { ComponentStory } from "@storybook/react"
-import isChromatic from "chromatic/isChromatic"
+import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./FilterMenuButton.stories.scss"
+import styles from "./FilterMenuButton.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 const IS_INITIAL_DROPDOWN_VISIBLE = IS_CHROMATIC
 
 export default {
-  title: `${CATEGORIES.components}/Filter Menu`,
+  title: `${CATEGORIES.deprecated}/Filter Menu`,
   component: FilterMenuButton,
   parameters: {
     docs: {
       description: {
         component:
-          'import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"',
+          '⛔️ This component is deprecated. No further changes will be made to it as it will be superseded by `<FilterMultiSelect>` from `@kaizen/select`.<br/><br/>Import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"',
       },
     },
   },
@@ -63,11 +63,11 @@ const SimpleFilterTemplate: ComponentStory<typeof FilterMenuButton> = ({
     .map(trait => trait.label)
     .join(", ")
 
-  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible)
+  const toggleDropdown = (): void => setIsDropdownVisible(!isDropdownVisible)
 
-  const hideDropdown = () => setIsDropdownVisible(false)
+  const hideDropdown = (): void => setIsDropdownVisible(false)
 
-  const onCheckboxChange = (option: DropdownOption) => {
+  const onCheckboxChange = (option: DropdownOption): void => {
     if (appliedFilters.find(filter => filter.id === option.id)) {
       setAppliedFilters(
         appliedFilters.filter(filter => filter.id !== option.id)
@@ -93,7 +93,7 @@ const SimpleFilterTemplate: ComponentStory<typeof FilterMenuButton> = ({
             {DROPDOWN_OPTIONS.map(trait => (
               <CheckboxField
                 key={trait.id}
-                onCheck={() => onCheckboxChange(trait)}
+                onCheck={(): void => onCheckboxChange(trait)}
                 id={`checkbox-${trait.id}`}
                 checkedStatus={
                   appliedFilters.find(({ id }) => id === trait.id)
@@ -128,14 +128,14 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
-export const DefaultEmpty = () => {
+export const DefaultEmpty: Story = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(
     IS_INITIAL_DROPDOWN_VISIBLE
   )
 
-  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible)
+  const toggleDropdown = (): void => setIsDropdownVisible(!isDropdownVisible)
 
-  const hideDropdown = () => setIsDropdownVisible(false)
+  const hideDropdown = (): void => setIsDropdownVisible(false)
 
   return (
     <FilterMenuButton
@@ -161,7 +161,6 @@ export const DefaultEmpty = () => {
   )
 }
 DefaultEmpty.storyName = "Default (Empty)"
-DefaultEmpty.parameters = { chromatic: { disable: false } }
 
 export const DefaultWithChildrenSimpleFilter = SimpleFilterTemplate.bind({})
 DefaultWithChildrenSimpleFilter.storyName =
@@ -171,7 +170,7 @@ DefaultWithChildrenSimpleFilter.parameters = {
   docs: { source: { type: "code" } },
 }
 
-export const DefaultWithChildrenAdvancedFilter = () => {
+export const DefaultWithChildrenAdvancedFilter: Story = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(
     IS_INITIAL_DROPDOWN_VISIBLE
   )
@@ -183,11 +182,11 @@ export const DefaultWithChildrenAdvancedFilter = () => {
     .map(trait => trait.label)
     .join(", ")
 
-  const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible)
+  const toggleDropdown = (): void => setIsDropdownVisible(!isDropdownVisible)
 
-  const hideDropdown = () => setIsDropdownVisible(false)
+  const hideDropdown = (): void => setIsDropdownVisible(false)
 
-  const onCheckboxChange = (option: DropdownOption) => {
+  const onCheckboxChange = (option: DropdownOption): void => {
     if (appliedFilters.find(filter => filter.id === option.id)) {
       setAppliedFilters(
         appliedFilters.filter(filter => filter.id !== option.id)
@@ -197,7 +196,7 @@ export const DefaultWithChildrenAdvancedFilter = () => {
     }
   }
 
-  const clearFilter = () => setAppliedFilters([])
+  const clearFilter = (): void => setAppliedFilters([])
 
   return (
     <FilterMenuButton
@@ -215,7 +214,7 @@ export const DefaultWithChildrenAdvancedFilter = () => {
             {DROPDOWN_OPTIONS.map(trait => (
               <CheckboxField
                 key={trait.id}
-                onCheck={() => onCheckboxChange(trait)}
+                onCheck={(): void => onCheckboxChange(trait)}
                 id={`checkbox-${trait.id}`}
                 checkedStatus={
                   appliedFilters.find(({ id }) => id === trait.id)

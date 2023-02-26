@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
-import { Story } from "@storybook/react"
-import { DateRange } from "react-day-picker"
+import { ComponentStory, Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { DateRangePicker } from "../src/DateRangePicker"
-import { Calendar } from "../src/_primitives/Calendar"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { DateRangePicker, DateRangePickerProps } from "../src/DateRangePicker"
 import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
+import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
+import { DateRange } from "../src/types"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Range Picker`,
@@ -17,22 +18,27 @@ export default {
         component: 'import { DateRangePicker } from "@kaizen/date-picker"',
       },
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=10458%3A45652"
+    ),
   },
 }
 
-export const DateRangePickerStoryDefault = props => (
-  <DateRangePickerTemplate {...props} />
-)
+export const DateRangePickerStoryDefault: ComponentStory<
+  typeof DateRangePicker
+> = props => <DateRangePickerTemplate {...props} />
 DateRangePickerStoryDefault.storyName = "Date Range Picker"
 
-const DateRangePickerTemplate: Story = props => {
+const DateRangePickerTemplate = (
+  props: Partial<DateRangePickerProps>
+): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,
   })
   const [value, setValue] = useState("")
 
-  const onDateRangeChange = (dateRange: DateRange) => {
+  const onDateRangeChange = (dateRange: DateRange): void => {
     setSelectedDateRange(dateRange)
   }
 
@@ -55,26 +61,19 @@ const DateRangePickerTemplate: Story = props => {
   )
 }
 
-const CalendarRangeTemplate: Story = props => {
+const LegacyCalendarRangeTemplate: Story = props => {
   const selectedDateRange = {
     from: undefined,
     to: undefined,
   }
 
-  const modifiers: DateRange = {
-    from: selectedDateRange?.from,
-    to: selectedDateRange?.to,
-  }
-
   return (
-    <Calendar
-      mode="range"
+    <LegacyCalendarRange
       id="calendar-dialog"
-      onDayChange={() => undefined}
+      onDayChange={(): void => undefined}
       weekStartsOn={0}
       defaultMonth={new Date(2022, 2)}
       selectedRange={selectedDateRange}
-      modifiers={modifiers}
       locale={enAU}
       {...props}
     />
@@ -113,12 +112,12 @@ const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={["Selected Range Dates", "Disabled Dates"]}
         />
-        <StoryWrapper.Row rowTitle="Date Range Calendar">
-          <CalendarRangeTemplate
+        <StoryWrapper.Row rowTitle="Date Range Calendar (Legacy)">
+          <LegacyCalendarRangeTemplate
             modifiers={modifiers}
             selectedRange={selectedDateRange}
           />
-          <CalendarRangeTemplate
+          <LegacyCalendarRangeTemplate
             disabledDays={[
               new Date(2022, 1, 15),
               { after: new Date(2022, 1, 17) },
@@ -134,4 +133,7 @@ const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const DateRangePickerStickerSheet =
   DateRangePickerStickerSheetTemplate.bind({})
 DateRangePickerStickerSheet.storyName = "Sticker Sheet"
-DateRangePickerStickerSheet.parameters = { chromatic: { disable: false } }
+DateRangePickerStickerSheet.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

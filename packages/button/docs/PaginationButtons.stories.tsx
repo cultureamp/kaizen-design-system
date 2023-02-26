@@ -1,13 +1,13 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { Heading } from "@kaizen/typography"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { DirectionalLink, PaginationLink } from ".."
+import { Heading } from "@kaizen/typography"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { DirectionalLinkProps } from "../src/Button/DirectionalLink"
 import { PaginationLinkProps } from "../src/Button/PaginationLink"
+import { DirectionalLink, PaginationLink } from ".."
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Pagination Buttons`,
@@ -32,20 +32,26 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenDirectionalLink = args => (
-  <DirectionalLink direction="prev" {...args} />
-)
+export const DefaultKaizenDirectionalLink: ComponentStory<
+  typeof DirectionalLink
+> = args => <DirectionalLink {...args} />
 DefaultKaizenDirectionalLink.storyName = "Directional Link"
+DefaultKaizenDirectionalLink.args = {
+  direction: "prev",
+}
 
-export const DefaultKaizenPaginationLink = args => (
-  <PaginationLink pageNumber={1} {...args} />
-)
+export const DefaultKaizenPaginationLink: ComponentStory<
+  typeof PaginationLink
+> = args => <PaginationLink {...args} />
 DefaultKaizenPaginationLink.storyName = "Pagination Link"
+DefaultKaizenPaginationLink.args = {
+  pageNumber: 1,
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
-  const SectionHeading: React.VFC<{ heading: string }> = ({ heading }) => (
+  const SectionHeading = ({ heading }: { heading: string }): JSX.Element => (
     <Heading variant="heading-3" tag="h1" color={isReversed ? "white" : "dark"}>
       {heading}
     </Heading>

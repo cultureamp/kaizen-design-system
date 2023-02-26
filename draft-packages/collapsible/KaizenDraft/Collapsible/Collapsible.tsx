@@ -1,13 +1,13 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
+import { IconButton } from "@kaizen/button"
 import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
-import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import { Sticky } from "./CollapsibleGroup"
-import styles from "./styles.scss"
+import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { Heading } from "@kaizen/typography"
+import { Sticky } from "../CollapsibleGroup/CollapsibleGroup"
+import styles from "./Collapsible.module.scss"
 
 type Variant = "default" | "clear"
 
@@ -55,7 +55,11 @@ type State = {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-collapsible--single-collapsible-kaizen-site-demo Storybook}
  */
 export class Collapsible extends React.Component<CollapsibleProps, State> {
-  public render() {
+  public state = {
+    open: !!this.props.open,
+  }
+
+  public render(): JSX.Element {
     const {
       id,
       children,
@@ -93,20 +97,19 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         data-automation-id={automationId || `collapsible-container-${id}`}
         {...props} // `title` is missing because it is used for the header; requires breaking change to fix
       >
-        <button
-          type="button"
-          id={buttonId}
-          className={classnames(styles.button, {
+        {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+        jsx-a11y/no-static-element-interactions */}
+        <div
+          className={classnames(styles.header, {
             [styles.defaultVariant]: open && variant === "default",
             [styles.clearVariant]: open && variant === "clear",
             [styles.sticky]: sticky,
             [styles.open]: open,
           })}
           style={sticky && { top: sticky.top }}
-          onClick={this.handleClick}
-          aria-expanded={open}
-          aria-controls={sectionId}
-          data-automation-id={`collapsible-button-${id}`}
+          onClick={this.handleSectionToggle}
+          data-automation-id={`collapsible-header-${id}`}
         >
           {renderHeader !== undefined ? (
             renderHeader(title)
@@ -121,9 +124,19 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
             </div>
           )}
           <div>
-            <Icon icon={open ? chevronUp : chevronDown} role="presentation" />
+            <IconButton
+              label="Toggle section"
+              icon={open ? chevronUp : chevronDown}
+              type="button"
+              aria-expanded={open}
+              aria-controls={sectionId}
+              data-automation-id={`collapsible-button-${id}`}
+              id={buttonId}
+              onClick={this.handleButtonPress}
+              classNameOverride={styles.chevronButton}
+            />
           </div>
-        </button>
+        </div>
         {(!lazyLoad || open) && (
           <AnimateHeight
             height={open ? "auto" : 0}
@@ -145,10 +158,10 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     )
   }
 
-  private getOpen = () =>
+  private getOpen = (): boolean | undefined =>
     this.props.controlled ? this.props.open : this.state.open
 
-  private handleClick = () => {
+  private handleSectionToggle = (): void => {
     const { onToggle, id, controlled } = this.props
     const open = this.getOpen()
 
@@ -161,7 +174,8 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     }
   }
 
-  public state = {
-    open: !!this.props.open,
+  private handleButtonPress = (event: React.MouseEvent): void => {
+    event.stopPropagation()
+    this.handleSectionToggle()
   }
 }

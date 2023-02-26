@@ -1,7 +1,7 @@
 import React from "react"
 import classNames from "classnames"
 import { Heading } from "../../../../../packages/typography"
-import styles from "../../StoryWrapper.scss"
+import styles from "../../StoryWrapper.module.scss"
 
 export interface StoryRowHeaderProps {
   gridColumns?: number
@@ -9,11 +9,11 @@ export interface StoryRowHeaderProps {
   isReversed?: boolean
 }
 
-export const StoryRowHeader: React.VFC<StoryRowHeaderProps> = ({
+export const StoryRowHeader = ({
   gridColumns,
   headings,
   isReversed = false,
-}) => (
+}: StoryRowHeaderProps): JSX.Element => (
   <div className={styles.storyRow}>
     <div
       className={classNames(styles.storyRowContainer, styles.topHeader)}

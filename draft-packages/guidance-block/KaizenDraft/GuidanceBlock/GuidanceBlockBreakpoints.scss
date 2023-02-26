@@ -1,5 +1,0 @@
-@mixin guidance-block-under-480 {
-  @media (max-width: 480px) {
-    @content;
-  }
-}

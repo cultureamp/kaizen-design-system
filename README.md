@@ -1,6 +1,6 @@
 # Kaizen Design System
 
-[![Build status](https://badge.buildkite.com/880e8b196b369c19ffcbef08a81d364059e0d6fb77e9d35563.svg?branch=master)](https://buildkite.com/culture-amp/kaizen-design-system)
+[![Build status](https://badge.buildkite.com/880e8b196b369c19ffcbef08a81d364059e0d6fb77e9d35563.svg?branch=main)](https://buildkite.com/culture-amp/kaizen-design-system)
 
 Kaizen is Culture Amp's public design system. It accelerates Culture Amp's designers and engineers as they collaborate on creating world-class products. Visit [cultureamp.design](https://cultureamp.design) to learn more.
 
@@ -10,6 +10,7 @@ This document serves to orient you within the repository — to get you set up a
 
 ## Quick links
 
+- [Kaizen Issues](https://github.com/cultureamp/kaizen-discourse/issues)
 - [Kaizen Design Tokens README](./packages/design-tokens/README.md)
 - [Kaizen Component Library README](./packages/component-library/README.md)
 - [Contributing guidelines](./CONTRIBUTING.md)
@@ -69,9 +70,13 @@ Command | Summary
 :- | :-
 `yarn storybook` | Develop components locally using Storybook
 `STORIES=path/to/package yarn storybook` | Develop just one package at a time using Storybook (builds faster!)
+`yarn commit` | Use commitizen to help you write your conventional commits
 `yarn compile` | Run all typechecks
 `yarn lint` | Run all linters
 `yarn lint:fix` | Run all linters, fixing violations
+`yarn plop` | Add a new component/subcomponent
+`yarn playwright:` | Start storybook and run all Playwright tests 
+`yarn playwright:debug` | Start storybook and run all Playwright tests in debug mode 
 `yarn test` | Run all tests (using [Jest](https://jestjs.io/))
 `yarn reset` | Reinstall all dependencies
 

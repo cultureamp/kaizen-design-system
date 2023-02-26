@@ -1,0 +1,36 @@
+import React, { HTMLAttributes } from "react"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./{{pascalCase componentName}}.module.scss"
+
+/**
+ * @todo: Refer to `docs/` for further code standards and guidelines
+ */
+
+/**
+ * @todo: Replace `HTMLAttributes<HTMLDivElement>` with attributes/props you need to extend
+ */
+export interface {{pascalCase componentName}}Props extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  /** @todo: Add custom props here */
+  exampleRequiredString: string
+}
+
+export const {{pascalCase componentName}} = ({
+  exampleRequiredString,
+  classNameOverride,
+  ...restProps
+}: {{pascalCase componentName}}Props): JSX.Element => {
+  return (
+    <div
+      className={classnames([
+        styles.{{camelCase componentName}},
+        classNameOverride,
+      ])}
+      {...restProps}
+    >
+      {exampleRequiredString}
+    </div>
+  )
+}
+
+{{pascalCase componentName}}.displayName = "{{pascalCase componentName}}"

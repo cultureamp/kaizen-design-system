@@ -4,7 +4,7 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
 import minusIcon from "@kaizen/component-library/icons/minus.icon.svg"
-import styles from "./styles.scss"
+import styles from "./Checkbox.module.scss"
 
 export type CheckedStatus = "on" | "off" | "mixed"
 
@@ -43,7 +43,7 @@ const renderCheckOrMixedIcon = (
 const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean =>
   checkedStatus === "on"
 
-export const Checkbox: React.VFC<CheckboxProps> = ({
+export const Checkbox = ({
   checkedStatus = "off",
   onCheck,
   reversed = false,
@@ -51,10 +51,10 @@ export const Checkbox: React.VFC<CheckboxProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: CheckboxProps): JSX.Element => (
   <span className={styles.container}>
     <input
-      ref={node => {
+      ref={(node): void => {
         if (node) {
           node.indeterminate = checkedStatus === "mixed"
         }

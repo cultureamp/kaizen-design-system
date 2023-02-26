@@ -1,5 +1,6 @@
 @import "@kaizen/design-tokens/sass/spacing";
 @import "@kaizen/design-tokens/sass/typography";
+@import "@kaizen/design-tokens/sass/color";
 
 @mixin contentStyles {
   font-family: $typography-paragraph-body-font-family;
@@ -14,8 +15,30 @@
     margin: 0 0 $spacing-sm;
   }
 
-  > p:last-child {
+  > *:last-child {
     margin-bottom: 0;
+    > li:last-of-type {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  > *:first-child {
+    margin-top: 0;
+    > li:first-of-type {
+      p {
+        margin-top: 0;
+      }
+    }
+  }
+
+  a {
+    color: $color-blue-500;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   @include nestedListStyles {

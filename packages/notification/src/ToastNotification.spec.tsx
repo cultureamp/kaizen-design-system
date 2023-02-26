@@ -1,5 +1,5 @@
-import { render, screen, waitFor } from "@testing-library/react"
 import * as React from "react"
+import { render, screen } from "@testing-library/react"
 import ToastNotification from "./ToastNotification"
 
 let spy = jest.spyOn(global.console, "warn")
@@ -17,7 +17,5 @@ test("The basic notification renders correctly", async () => {
     </ToastNotification>
   )
 
-  await waitFor(async () =>
-    expect(screen.getByRole("heading").textContent).toEqual("Success")
-  )
+  await screen.findByText("Success")
 })

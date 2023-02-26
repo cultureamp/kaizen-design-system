@@ -1,24 +1,4 @@
-import {
-  Matcher,
-  DateRange,
-  DateInterval,
-} from "react-day-picker/src/types/Matchers"
-
-import { DayOfWeek } from "../enums"
-
-/**
- * To save the consumer from passing an array of disabledDay options (each being a different object).
- * We have split the options out so the consumer can pass in an individual disabledDay option for ease of use.
- */
-
-type DisabledDayMatchers = {
-  disabledDates?: Date[]
-  disabledDaysOfWeek?: DayOfWeek[]
-  disabledRange?: DateRange
-  disabledBeforeAfter?: DateInterval
-  disabledBefore?: Date
-  disabledAfter?: Date
-}
+import { DisabledDayMatchers, Matcher } from "../types"
 
 export const calculateDisabledDays = ({
   disabledDates = [],

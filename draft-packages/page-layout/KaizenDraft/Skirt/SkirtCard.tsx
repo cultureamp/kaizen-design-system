@@ -1,11 +1,11 @@
 import React from "react"
-import { Card, CardProps } from "@kaizen/draft-card"
 import classNames from "classnames"
-import styles from "./SkirtCard.scss"
+import { Card, CardProps } from "@kaizen/draft-card"
+import styles from "./SkirtCard.module.scss"
 
 export type SkirtCardProps = CardProps
 
-export const SkirtCard: React.VFC<SkirtCardProps> = props => {
+export const SkirtCard = (props: SkirtCardProps): JSX.Element => {
   const { classNameOverride, ...restProps } = props
   return (
     <Card

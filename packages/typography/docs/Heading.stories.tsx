@@ -1,5 +1,4 @@
 import React from "react"
-import { Box } from "@kaizen/component-library"
 import {
   Title,
   Subtitle,
@@ -9,16 +8,19 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
+import { ComponentStory, Story } from "@storybook/react"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Heading, Paragraph } from "../"
-
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,
   component: Heading,
   parameters: {
-    chromatic: { disable: false },
     docs: {
-      page: () => (
+      description: {
+        component: 'import { Heading } from "@kaizen/typography"',
+      },
+      page: (): JSX.Element => (
         <>
           <Title />
           <Subtitle />
@@ -33,122 +35,181 @@ export default {
   },
 }
 
-const Documentation = ({ reversed }: { reversed?: boolean }) => (
-  <Box mt={2}>
-    <Paragraph variant="body" color={reversed ? "white" : "dark"}>
-      <ul>
-        <li>
-          The <code>variant</code> prop is required, but the <code>tag</code>{" "}
-          prop is not. If no <code>tag</code> prop is provided,{" "}
-          <code>Heading</code> will attempt to render the appropriate tag based
-          on the chosen <code>variant</code>. This cannot be relied on to give
-          you the right tag in 100% of cases, so we recommend manually choosing
-          the appropriate tag for your situation.
-        </li>
-        <li>
-          Use the <code>color</code> prop to change the text color. This prop is
-          typed to restrict values to a designer-approved palette. Do not modify
-          color by targeting the element via CSS from outside the{" "}
-          <code>Heading</code> component, because this causes problems in future
-          rebrands when our colors change.
-        </li>
-        <li>
-          <strong>Semantic, logical HTML should always take priority</strong>{" "}
-          when deciding which <code>tag</code> to use:
-          <ul>
-            <li>
-              Heading elements should never skip a level, e.g. an{" "}
-              <code>h2</code> followed by an <code>h4</code> should be avoided.
-            </li>
-            <li>
-              The main heading on the page that accurately summarizes the page
-              should be an <code>h1</code>.
-            </li>
-            <li>
-              A <code>Heading</code> should not have a bigger <code>tag</code>{" "}
-              than another visually smaller <code>Heading</code>.
-            </li>
-            <li>
-              <strong>
-                Illogical heading orders will cause pages to fail WCAG
-                compliance tests &amp; audits.
-              </strong>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </Paragraph>
-  </Box>
+export const Display0: ComponentStory<typeof Heading> = args => (
+  <Heading {...args}>Have the courage to be vulnerable.</Heading>
+)
+Display0.storyName = "Heading"
+Display0.args = { variant: "heading-1", color: "dark" }
+
+const Documentation = (): JSX.Element => (
+  <Paragraph variant="body">
+    <ul>
+      <li>
+        The <code>variant</code> prop is required, but the <code>tag</code> prop
+        is not. If no <code>tag</code> prop is provided, <code>Heading</code>{" "}
+        will attempt to render the appropriate tag based on the chosen{" "}
+        <code>variant</code>. This cannot be relied on to give you the right tag
+        in 100% of cases, so we recommend manually choosing the appropriate tag
+        for your situation.
+      </li>
+      <li>
+        Use the <code>color</code> prop to change the text color. This prop is
+        typed to restrict values to a designer-approved palette. Do not modify
+        color by targeting the element via CSS from outside the{" "}
+        <code>Heading</code> component, because this causes problems in future
+        rebrands when our colors change.
+      </li>
+      <li>
+        <strong>Semantic, logical HTML should always take priority</strong> when
+        deciding which <code>tag</code> to use:
+        <ul>
+          <li>
+            Heading elements should never skip a level, e.g. an <code>h2</code>{" "}
+            followed by an <code>h4</code> should be avoided.
+          </li>
+          <li>
+            The main heading on the page that accurately summarizes the page
+            should be an <code>h1</code>.
+          </li>
+          <li>
+            A <code>Heading</code> should not have a bigger <code>tag</code>{" "}
+            than another visually smaller <code>Heading</code>.
+          </li>
+          <li>
+            <strong>
+              Illogical heading orders will cause pages to fail WCAG compliance
+              tests &amp; audits.
+            </strong>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </Paragraph>
 )
 
-export const Display0 = () => <Heading variant="display-0">Display 0</Heading>
-
-export const Heading1 = () => (
-  <Heading data-automation-id="test" variant="heading-1" id="make-me-unique">
-    Heading 1
-  </Heading>
-)
-
-export const Heading2 = () => <Heading variant="heading-2">Heading 2</Heading>
-
-export const Heading3 = () => <Heading variant="heading-3">Heading 3</Heading>
-
-export const Heading4 = () => <Heading variant="heading-4">Heading 4</Heading>
-
-export const Heading5 = () => <Heading variant="heading-5">Heading 5</Heading>
-
-export const Heading6 = () => <Heading variant="heading-6">Heading 6</Heading>
-
-export const Heading1Positive = () => (
-  <Heading variant="heading-1" color="positive">
-    Heading 1 (positive)
-  </Heading>
-)
-
-export const Heading1Negative = () => (
-  <Heading variant="heading-1" color="negative">
-    Heading 1 (negative)
-  </Heading>
-)
-
-export const Heading3Positive = () => (
-  <Heading variant="heading-3" color="positive">
-    Heading 3 (positive)
-  </Heading>
-)
-
-export const Heading3Negative = () => (
-  <Heading variant="heading-3" color="negative">
-    Heading 3 (negative)
-  </Heading>
-)
-
-export const Heading1White = () => (
-  <>
-    <Heading variant="heading-1" color="white">
-      Heading 1 (white)
-    </Heading>
-    <Documentation reversed />
-  </>
-)
-Heading1White.parameters = {
-  backgrounds: { default: "Purple 700" },
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const fontColour = isReversed ? "white" : "dark"
+  return (
+    <>
+      <StoryWrapper isReversed={isReversed} hasRowDivider>
+        <StoryWrapper.Row rowTitle="Display 0">
+          <Heading variant="display-0" color={fontColour}>
+            Let's create a better world of work
+          </Heading>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Heading 1">
+          <div>
+            <Heading variant="heading-1" color={fontColour}>
+              Have the courage to be vulnerable.
+            </Heading>
+            <Heading variant="heading-1" color={fontColour}>
+              Be authentic, ask for help, be willing to fail, create open
+              environments.
+            </Heading>
+          </div>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Heading 2">
+          <div>
+            <Heading variant="heading-2" color={fontColour}>
+              Learn faster through feedback.
+            </Heading>
+            <Heading variant="heading-2" color={fontColour}>
+              Seek feedback, give feedback responsibly, respond constructively,
+              learn continuously.
+            </Heading>
+          </div>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Heading 3">
+          <div>
+            <Heading variant="heading-3" color={fontColour}>
+              Trust people to make decisions.
+            </Heading>
+            <Heading variant="heading-3" color={fontColour}>
+              Provide constructive feedback, support decisions, be accountable,
+              delegate decisions.
+            </Heading>
+          </div>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Heading 4">
+          <div>
+            <Heading variant="heading-4" color={fontColour}>
+              Amplify others.
+            </Heading>
+            <Heading variant="heading-4" color={fontColour}>
+              Recognise others, succeed together, grow others, create
+              opportunities.
+            </Heading>
+          </div>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Heading 5">
+          <div>
+            <Heading variant="heading-5" color={fontColour}>
+              An employee experience that people love.
+            </Heading>
+            <Heading variant="heading-5" color={fontColour}>
+              Get the employee engagement, performance and development tools and
+              insights you need to build a category-defining culture.
+            </Heading>
+          </div>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Heading 6">
+          <Heading variant="heading-6" color={fontColour}>
+            Discover the power of humanity at work.
+          </Heading>
+        </StoryWrapper.Row>
+      </StoryWrapper>
+      {!isReversed ? (
+        <StoryWrapper isReversed={isReversed} hasColumnDivider>
+          <StoryWrapper.RowHeader
+            headings={["Dark", "Dark Reduced Opacity", "Positive", "Negative"]}
+          />
+          <StoryWrapper.Row rowTitle="Colours">
+            <Heading variant="heading-6" color="dark">
+              Discover the power of humanity at work.
+            </Heading>
+            <Heading variant="heading-6" color="dark-reduced-opacity">
+              Discover the power of humanity at work.
+            </Heading>
+            <Heading variant="heading-6" color="positive">
+              Discover the power of humanity at work.
+            </Heading>
+            <Heading variant="heading-6" color="negative">
+              Discover the power of humanity at work.
+            </Heading>
+          </StoryWrapper.Row>
+        </StoryWrapper>
+      ) : (
+        <StoryWrapper isReversed={isReversed} hasColumnDivider>
+          <StoryWrapper.RowHeader
+            headings={["White", "White Reduced Opacity"]}
+          />
+          <StoryWrapper.Row rowTitle="Colours">
+            <Heading variant="heading-6" color="white">
+              Discover the power of humanity at work.
+            </Heading>
+            <Heading variant="heading-6" color="white-reduced-opacity">
+              Discover the power of humanity at work.
+            </Heading>
+          </StoryWrapper.Row>
+        </StoryWrapper>
+      )}
+    </>
+  )
+}
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
 }
 
-export const Heading1WhiteReducedOpacity = () => (
-  <>
-    <Heading variant="heading-1" color="white-reduced-opacity">
-      Heading 1 (white, reduced opacity)
-    </Heading>
-    <Documentation reversed />
-  </>
-)
-Heading1WhiteReducedOpacity.parameters = {
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
 }
-
-export const Heading1DarkReducedOpacity = () => (
-  <Heading variant="heading-1" color="dark-reduced-opacity">
-    Heading 1 (dark, reduced opacity)
-  </Heading>
-)

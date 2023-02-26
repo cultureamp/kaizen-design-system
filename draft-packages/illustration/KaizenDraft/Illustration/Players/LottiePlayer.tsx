@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react"
+import classnames from "classnames"
 import lottie from "lottie-web"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { getAnimationData } from "../utils"
-import styles from "../style.module.scss"
-import { LottieAnimation } from "../types"
 import { BaseProps } from "../Base"
+import styles from "../Base.module.scss"
+import { LottieAnimation } from "../types"
+import { getAnimationData } from "../utils"
 
 export type AnimatedBaseProps = {
   /**
@@ -36,7 +37,7 @@ export const AnimatedBase = ({
   alt,
   aspectRatio,
   classNameOverride,
-}: AnimatedBaseProps & BaseProps & { fallback: string }) => {
+}: AnimatedBaseProps & BaseProps & { fallback: string }): JSX.Element => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
   const [playerLoaded, setPlayerLoaded] = useState<AssetStatus>(
     AssetStatus.Loading
@@ -45,7 +46,7 @@ export const AnimatedBase = ({
 
   React.useEffect(() => {
     let didCancel = false
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       try {
         const srcParsed = await getAnimationData(name)
         if (!didCancel) {
@@ -64,7 +65,7 @@ export const AnimatedBase = ({
   }, [])
 
   useEffect(() => {
-    const initialiseLottiePlayer = () => {
+    const initialiseLottiePlayer = (): void => {
       if (asset && lottiePlayer.current !== null) {
         setPlayerLoaded(AssetStatus.Success)
         lottie.loadAnimation({
@@ -78,12 +79,6 @@ export const AnimatedBase = ({
     }
     initialiseLottiePlayer()
   }, [asset])
-
-  const wrapper =
-    (classNameOverride ? classNameOverride : "") +
-    (aspectRatio ? aspectRatio : "") +
-    " " +
-    styles.wrapper
 
   const LoadingState = (
     /* Avoid jump when asset loads */
@@ -100,7 +95,13 @@ export const AnimatedBase = ({
   const FailedState = <img src={assetUrl(fallback)} alt={alt} />
 
   return (
-    <figure className={wrapper}>
+    <figure
+      className={classnames([
+        styles.wrapper,
+        aspectRatio && styles[aspectRatio],
+        classNameOverride,
+      ])}
+    >
       <figcaption className={styles.visuallyHidden}>{alt}</figcaption>
       {playerLoaded === AssetStatus.Loading && LoadingState}
       {playerLoaded === AssetStatus.Failed && FailedState}

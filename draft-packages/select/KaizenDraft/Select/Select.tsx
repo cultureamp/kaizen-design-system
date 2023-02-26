@@ -1,18 +1,18 @@
+import React from "react"
 import classNames from "classnames"
-import * as React from "react"
 import ReactSelect, {
   components,
   Props as ReactSelectProps,
   NoticeProps,
 } from "react-select"
 import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
-import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Tag } from "@kaizen/draft-tag"
-import styles from "./styles.react.scss"
+import styles from "./Select.module.scss"
 
 export type { OnChangeValue as ValueType } from "react-select"
 
@@ -23,29 +23,20 @@ export interface SelectProps extends ReactSelectProps<any, boolean> {
    * @default "default"
    */
   variant?: VariantType
-
   status?: StatusType
-
   label?: React.ReactNode
-
   validationMessage?: React.ReactNode
-
   description?: React.ReactNode
-
   /**
    * Use a reversed colour scheme
-   * `variant="default" reversed="true" is not implemented and will throw a "not implemented" error
    * @default false
    */
   reversed?: boolean
-
   /**
    * Whether the "select control" (the button you click to open the menu) width fills the
    * full width of  the container or is as wide as the selected option text.
    * Note that the control text will ellipsize if it is wider than the parent container.
-   * `variant="default" fullWidth=false"` is not implemented and
-   * will throw a "not implemented" error
-   * @default false if variant is "secondary", otherwise true
+   * @default false
    */
   fullWidth?: boolean
 }
@@ -59,11 +50,6 @@ export type StatusType = "default" | "error"
  * {@link https://cultureamp.design/storybook/?path=/docs/components-select--default-select-story Storybook}
  */
 export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
-  if (props.fullWidth === false && props.variant !== "secondary") {
-    throw new Error(
-      'the prop fullWidth=false is not yet implemented when variant="default"'
-    )
-  }
   const {
     variant = "default",
     status = "default",
@@ -81,14 +67,8 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
       ? false
       : true
 
-  if (reversed === true && variant === "default") {
-    throw new Error(
-      'the combo variant="default" and reversed=true is not yet implemented for the Select component'
-    )
-  }
-
   const classes = classNames(props.className, styles.specificityIncreaser, {
-    [styles.default]: !reversed,
+    [styles.default]: !reversed || variant === "default",
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
     [styles.secondarySmall]: variant === "secondary-small",
@@ -107,8 +87,10 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
           Placeholder,
           DropdownIndicator,
           Menu,
+          GroupHeading,
           Option,
           NoOptionsMessage,
+          Input,
           SingleValue,
           MultiValue,
           IndicatorsContainer,
@@ -143,6 +125,7 @@ export const AsyncSelect = React.forwardRef(
         Menu,
         Option,
         NoOptionsMessage,
+        Input,
         SingleValue,
         MultiValue,
         IndicatorsContainer,
@@ -184,12 +167,19 @@ const DropdownIndicator: typeof components.DropdownIndicator = props => (
   </components.DropdownIndicator>
 )
 
-const LoadingMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
+const LoadingMessage = (props: NoticeProps): JSX.Element => (
   <components.LoadingMessage {...props} className={styles.loadingMessage} />
 )
 
 const Menu: typeof components.Menu = props => (
   <components.Menu {...props} className={styles.menu} />
+)
+
+const GroupHeading: typeof components.GroupHeading = props => (
+  <components.GroupHeading
+    {...props}
+    className={classNames(styles.groupHeading)}
+  />
 )
 
 const Option: typeof components.Option = props => (
@@ -205,7 +195,7 @@ const Option: typeof components.Option = props => (
   </div>
 )
 
-const NoOptionsMessage: React.VFC<NoticeProps> = (props: NoticeProps) => (
+const NoOptionsMessage = (props: NoticeProps): JSX.Element => (
   <components.NoOptionsMessage {...props}>
     <span className={styles.noOptionsMessage}>{props.children}</span>
   </components.NoOptionsMessage>
@@ -236,11 +226,15 @@ const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
   />
 )
 
+const Input: typeof components.Input = props => (
+  <components.Input className={styles.input} {...props} />
+)
+
 const ValueContainer: typeof components.ValueContainer = props => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = props => (
-  <components.ClearIndicator {...props}>
+  <components.ClearIndicator {...props} className={styles.clearIndicator}>
     <Icon icon={clearIcon} role="presentation" />
   </components.ClearIndicator>
 )

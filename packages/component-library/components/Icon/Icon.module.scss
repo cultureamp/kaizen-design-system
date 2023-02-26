@@ -25,10 +25,6 @@
   @extend %caIconInheritSize;
 }
 
-.blockLayout {
-  @extend %caIconBlockLayout;
-}
-
 .interactiveIconWrapper {
   cursor: pointer;
   .icon {

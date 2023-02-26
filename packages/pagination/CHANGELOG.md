@@ -3,6 +3,276 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.25...@kaizen/pagination@1.6.26) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.24...@kaizen/pagination@1.6.25) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.23...@kaizen/pagination@1.6.24) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.22...@kaizen/pagination@1.6.23) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.21...@kaizen/pagination@1.6.22) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.20...@kaizen/pagination@1.6.21) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.19...@kaizen/pagination@1.6.20) (2023-01-23)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.18...@kaizen/pagination@1.6.19) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.17...@kaizen/pagination@1.6.18) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.16...@kaizen/pagination@1.6.17) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.15...@kaizen/pagination@1.6.16) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.14...@kaizen/pagination@1.6.15) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.13...@kaizen/pagination@1.6.14) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.12...@kaizen/pagination@1.6.13) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.11...@kaizen/pagination@1.6.12) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.10...@kaizen/pagination@1.6.11) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.9...@kaizen/pagination@1.6.10) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.8...@kaizen/pagination@1.6.9) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.7...@kaizen/pagination@1.6.8) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.6...@kaizen/pagination@1.6.7) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.5...@kaizen/pagination@1.6.6) (2022-10-18)
+
+
+### Bug Fixes
+
+* **pagination:** Update ellipse color to purple 800, 70% ([#3028](https://github.com/cultureamp/kaizen-design-system/issues/3028)) ([ae97871](https://github.com/cultureamp/kaizen-design-system/commit/ae97871ba2e47e1862fead41e520a69f11001644))
+
+
+
+
+
+## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.4...@kaizen/pagination@1.6.5) (2022-09-30)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.3...@kaizen/pagination@1.6.4) (2022-09-14)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.2...@kaizen/pagination@1.6.3) (2022-09-05)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.1...@kaizen/pagination@1.6.2) (2022-09-02)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.6.0...@kaizen/pagination@1.6.1) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.18...@kaizen/pagination@1.6.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
+## [1.5.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.17...@kaizen/pagination@1.5.18) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.5.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.16...@kaizen/pagination@1.5.17) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.5.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.15...@kaizen/pagination@1.5.16) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.5.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.14...@kaizen/pagination@1.5.15) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.5.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.13...@kaizen/pagination@1.5.14) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
+## [1.5.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.12...@kaizen/pagination@1.5.13) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/pagination
+
+
+
+
+
 ## [1.5.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/pagination@1.5.11...@kaizen/pagination@1.5.12) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/pagination

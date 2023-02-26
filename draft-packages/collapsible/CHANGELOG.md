@@ -3,6 +3,333 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.18...@kaizen/draft-collapsible@3.5.19) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.17...@kaizen/draft-collapsible@3.5.18) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.16...@kaizen/draft-collapsible@3.5.17) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.15...@kaizen/draft-collapsible@3.5.16) (2023-02-21)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.14...@kaizen/draft-collapsible@3.5.15) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.13...@kaizen/draft-collapsible@3.5.14) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.12...@kaizen/draft-collapsible@3.5.13) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.11...@kaizen/draft-collapsible@3.5.12) (2023-01-23)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.10...@kaizen/draft-collapsible@3.5.11) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.9...@kaizen/draft-collapsible@3.5.10) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.8...@kaizen/draft-collapsible@3.5.9) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.7...@kaizen/draft-collapsible@3.5.8) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.6...@kaizen/draft-collapsible@3.5.7) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.5...@kaizen/draft-collapsible@3.5.6) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.4...@kaizen/draft-collapsible@3.5.5) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.3...@kaizen/draft-collapsible@3.5.4) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.2...@kaizen/draft-collapsible@3.5.3) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.1...@kaizen/draft-collapsible@3.5.2) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.0...@kaizen/draft-collapsible@3.5.1) (2022-10-27)
+
+
+### Bug Fixes
+
+* **deps:** import brand as package ([#3053](https://github.com/cultureamp/kaizen-design-system/issues/3053)) ([4b97d43](https://github.com/cultureamp/kaizen-design-system/commit/4b97d43ea7f3e78669df778c5a868a31911e87e5))
+
+
+
+
+
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.4.5...@kaizen/draft-collapsible@3.5.0) (2022-10-26)
+
+
+### Features
+
+* add expert advice to collapsible ([#3029](https://github.com/cultureamp/kaizen-design-system/issues/3029)) ([d24ce66](https://github.com/cultureamp/kaizen-design-system/commit/d24ce664c9e9da1fb6ee4bffe8e3dc5b9c762890))
+
+
+
+
+
+## [3.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.4.4...@kaizen/draft-collapsible@3.4.5) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.4.3...@kaizen/draft-collapsible@3.4.4) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.4.2...@kaizen/draft-collapsible@3.4.3) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.4.1...@kaizen/draft-collapsible@3.4.2) (2022-10-04)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.4.0...@kaizen/draft-collapsible@3.4.1) (2022-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.3.0...@kaizen/draft-collapsible@3.4.0) (2022-09-19)
+
+
+### Features
+
+* **collapsible:** remove deprecated styles from stylesheets ([#2970](https://github.com/cultureamp/kaizen-design-system/issues/2970)) ([bfe0ea1](https://github.com/cultureamp/kaizen-design-system/commit/bfe0ea132794e53dc518649660a2c6748df426fd))
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.4...@kaizen/draft-collapsible@3.3.0) (2022-09-16)
+
+
+### Features
+
+* **Collapsible:** Use an IconButton for header toggle (a11y improvement) ([#2954](https://github.com/cultureamp/kaizen-design-system/issues/2954)) ([05f3af9](https://github.com/cultureamp/kaizen-design-system/commit/05f3af920aa78182ca6c95e1eddc92171ef662b0))
+
+
+
+
+
+## [3.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.3...@kaizen/draft-collapsible@3.2.4) (2022-09-14)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.2...@kaizen/draft-collapsible@3.2.3) (2022-09-05)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.1...@kaizen/draft-collapsible@3.2.2) (2022-09-02)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.2.0...@kaizen/draft-collapsible@3.2.1) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.19...@kaizen/draft-collapsible@3.2.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
+## [3.1.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.18...@kaizen/draft-collapsible@3.1.19) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.17...@kaizen/draft-collapsible@3.1.18) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.16...@kaizen/draft-collapsible@3.1.17) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.15...@kaizen/draft-collapsible@3.1.16) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.14...@kaizen/draft-collapsible@3.1.15) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.13...@kaizen/draft-collapsible@3.1.14) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.12...@kaizen/draft-collapsible@3.1.13) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
 ## [3.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.1.11...@kaizen/draft-collapsible@3.1.12) (2022-06-23)
 
 

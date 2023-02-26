@@ -2,20 +2,14 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
-import exclamationWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import cautionWhiteIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
+import errorWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import { Paragraph } from "@kaizen/typography"
-import styles from "./styles.scss"
+import styles from "./FieldMessage.module.scss"
 
-const WarningIcon: React.VFC = () => (
-  <span className={styles.warningIcon}>
-    <Icon
-      icon={exclamationWhiteIcon}
-      title="Error message"
-      role="img"
-      inheritSize={false}
-    />
-  </span>
-)
+function capitalize(word: string): string {
+  return word[0].toUpperCase() + word.slice(1)
+}
 
 export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 
@@ -32,7 +26,7 @@ export interface FieldMessageProps
   automationId?: string
 }
 
-export const FieldMessage: React.VFC<FieldMessageProps> = ({
+export const FieldMessage = ({
   message,
   status = "default",
   position = "bottom",
@@ -40,7 +34,7 @@ export const FieldMessage: React.VFC<FieldMessageProps> = ({
   classNameOverride,
   automationId,
   ...restProps
-}) => {
+}: FieldMessageProps): JSX.Element => {
   const textColor =
     status === "default"
       ? reversed
@@ -58,7 +52,16 @@ export const FieldMessage: React.VFC<FieldMessageProps> = ({
       })}
       {...restProps}
     >
-      {(status === "error" || status === "caution") && <WarningIcon />}
+      {(status === "error" || status === "caution") && (
+        <span className={styles.warningIcon}>
+          <Icon
+            icon={status === "error" ? errorWhiteIcon : cautionWhiteIcon}
+            title={`${capitalize(status)} message`}
+            role="img"
+            inheritSize={false}
+          />
+        </span>
+      )}
       <div className={styles.message}>
         <Paragraph variant="small" color={textColor}>
           {message}

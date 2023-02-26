@@ -1,19 +1,19 @@
 import React from "react"
+import { ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Story } from "@storybook/react"
+import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
+import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import numberListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
-import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { ToggleIconButton, Toolbar, ToolbarProps, ToolbarSection } from "../"
+import { ToggleIconButton, Toolbar, ToolbarSection } from "../"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/${SUB_COMPONENTS_FOLDER_NAME}/Toolbar`,
@@ -34,7 +34,7 @@ export default {
   decorators: [withDesign],
 }
 
-const ToolbarStoryTemplate: Story<ToolbarProps> = (args: ToolbarProps) => (
+const ToolbarStoryTemplate: ComponentStory<typeof Toolbar> = args => (
   <Toolbar {...args}>
     <ToolbarSection>
       <ToggleIconButton label="Bold" icon={boldIcon} />
@@ -52,14 +52,11 @@ const ToolbarStoryTemplate: Story<ToolbarProps> = (args: ToolbarProps) => (
 )
 
 export const DefaultStory = ToolbarStoryTemplate.bind({})
-
 DefaultStory.storyName = "Default (Kaizen Demo)"
-
 DefaultStory.args = {
   "aria-label": "Toolbar",
   "aria-controls": "editable-id",
 }
-
 DefaultStory.argTypes = {
   children: {
     name: "children",
@@ -75,7 +72,7 @@ export const ToolBarWithTopContent = ToolbarStoryTemplate.bind({})
 
 ToolBarWithTopContent.storyName = "Toolbar with top content"
 ToolBarWithTopContent.decorators = [
-  StoryComponent => (
+  (StoryComponent): JSX.Element => (
     <div>
       <p style={{ paddingBottom: "100px" }}>
         This is an example to showcase the tooltip positioning when the page

@@ -1,12 +1,12 @@
 import React from "react"
 import { Box } from "@kaizen/component-library"
+import Action from "./components/Action"
 import {
   GenericTile,
   GenericTileProps,
   TileAction,
 } from "./components/GenericTile"
-import Action from "./components/Action"
-import styles from "./MultiActionTile.scss"
+import styles from "./MultiActionTile.module.scss"
 
 export interface MultiActionTileProps extends Omit<GenericTileProps, "footer"> {
   primaryAction: TileAction
@@ -16,7 +16,7 @@ export interface MultiActionTileProps extends Omit<GenericTileProps, "footer"> {
 const renderActions = (
   primaryAction: TileAction,
   secondaryAction?: TileAction
-) => (
+): JSX.Element => (
   <div className={styles.actions}>
     {secondaryAction && (
       <Box mr={0.5}>
@@ -31,12 +31,12 @@ const renderActions = (
  * {@link https://cultureamp.design/components/tile/#multiactiontile Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tile--multi-action Storybook}
  */
-export const MultiActionTile: React.VFC<MultiActionTileProps> = ({
+export const MultiActionTile = ({
   children,
   primaryAction,
   secondaryAction,
   ...restProps
-}) => (
+}: MultiActionTileProps): JSX.Element => (
   <GenericTile
     footer={renderActions(primaryAction, secondaryAction)}
     {...restProps}

@@ -1,43 +1,47 @@
+import {
+  ProseMirrorState,
+  ProseMirrorModel,
+  ProseMirrorCommands,
+  ProseMirrorSchemaList,
+  markIsActive,
+  listIsActive,
+} from "@cultureamp/rich-text-toolkit"
+import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
-import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
-import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import decreaseIndentIcon from "@kaizen/component-library/icons/decrease-indent.icon.svg"
 import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.icon.svg"
-import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
+import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
+import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
+import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 
-import { EditorState, Transaction } from "prosemirror-state"
-import { Schema, NodeType, MarkType } from "prosemirror-model"
-import { Command, toggleMark } from "prosemirror-commands"
-import { wrapInList, liftListItem, sinkListItem } from "prosemirror-schema-list"
-import { markIsActive } from "@cultureamp/rich-text-toolkit"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
+/** Configuration for individual controls */
 type ToolbarControl = {
   icon: React.SVGAttributes<SVGSymbolElement>
   label: string
   isActive: boolean
   disabled?: boolean
-  action: (
-    state: EditorState<any>,
-    dispatch: ((tr: Transaction<any>) => void) | undefined
-  ) => boolean
+  action: ProseMirrorState.Command
 }
+
+/** Toolbar controls mapped to a group */
 interface GroupedToolbarControls {
   [group: string]: ToolbarControl[]
 }
 
+/** An index for each control's group */
 type ControlGroupTypes = {
   [key in ToolbarControlTypes]?: string
 }
 
-/**
- * Chains multiple commands to dispatch each transitions in sequential order
- */
-function chainTransactions(...commands: Command[]): Command {
+/** Chains multiple commands to dispatch each transitions in sequential order */
+function chainTransactions(
+  ...commands: ProseMirrorState.Command[]
+): ProseMirrorState.Command {
   return (state, dispatch): boolean => {
-    const updateStateAndDispatch = (tr: Transaction): void => {
+    const updateStateAndDispatch = (tr: ProseMirrorState.Transaction): void => {
       state = state.apply(tr)
       dispatch && dispatch(tr)
     }
@@ -51,13 +55,11 @@ function chainTransactions(...commands: Command[]): Command {
   }
 }
 
-/**
- * Dispatches a transaction to create initial p tag required for pm commands
- */
+/** Dispatches a transaction to create initial p tag required for pm commands */
 function createInitialParagraph(
-  state: EditorState,
-  dispatch?: (tr: Transaction) => void
-) {
+  state: ProseMirrorState.EditorState,
+  dispatch?: (tr: ProseMirrorState.Transaction) => void
+): boolean {
   if (dispatch) {
     const { tr, schema } = state
 
@@ -67,67 +69,74 @@ function createInitialParagraph(
   return false
 }
 
-function createToggleMarkCommand(mark: MarkType): Command {
+/** Create command for toggling Marks */
+function createToggleMarkCommand(
+  mark: ProseMirrorModel.MarkType
+): ProseMirrorState.Command {
   return (
-    state: EditorState,
-    dispatch: ((tr: Transaction) => void) | undefined
+    state: ProseMirrorState.EditorState,
+    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
   ) => {
     const docIsEmpty = state.doc.content.size === 0
 
     if (docIsEmpty) {
-      return chainTransactions(createInitialParagraph, toggleMark(mark))(
-        state,
-        dispatch
-      )
+      return chainTransactions(
+        createInitialParagraph,
+        ProseMirrorCommands.toggleMark(mark)
+      )(state, dispatch)
     }
-    return toggleMark(mark)(state, dispatch)
+    return ProseMirrorCommands.toggleMark(mark)(state, dispatch)
   }
 }
 
-function createToggleListCommand(node: NodeType): Command {
+/** Create command for toggling Lists */
+function createToggleListCommand(
+  node: ProseMirrorModel.NodeType
+): ProseMirrorState.Command {
   return (
-    state: EditorState,
-    dispatch: ((tr: Transaction) => void) | undefined
+    state: ProseMirrorState.EditorState,
+    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
   ) => {
     const docIsEmpty = state.doc.content.size === 0
 
     if (docIsEmpty) {
-      return chainTransactions(createInitialParagraph, wrapInList(node))(
-        state,
-        dispatch
-      )
+      return chainTransactions(
+        createInitialParagraph,
+        ProseMirrorSchemaList.wrapInList(node)
+      )(state, dispatch)
     }
-    return wrapInList(node)(state, dispatch)
+    return ProseMirrorSchemaList.wrapInList(node)(state, dispatch)
   }
 }
 
-function createLiftListCommand(): Command {
+/** Create command for reducing indents in a List */
+function createLiftListCommand(): ProseMirrorState.Command {
   return (
-    state: EditorState,
-    dispatch: ((tr: Transaction) => void) | undefined
+    state: ProseMirrorState.EditorState,
+    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
   ) => {
     const { $from } = state.selection
     // calculate the parent node from the current tag selected
     const listItemNode = $from.node($from.depth - 1)?.type
-    return liftListItem(listItemNode)(state, dispatch)
+    return ProseMirrorSchemaList.liftListItem(listItemNode)(state, dispatch)
   }
 }
 
-// increase list indent should only be available on the second list node of a list item (otherwise it should be disabled)
-function createIndentListCommand(): Command {
+/** Create command for indenting in a List */
+function createIndentListCommand(): ProseMirrorState.Command {
   return (
-    state: EditorState,
-    dispatch: ((tr: Transaction) => void) | undefined
+    state: ProseMirrorState.EditorState,
+    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
   ) => {
     const { $from } = state.selection
     const listItemNode = $from.node($from.depth - 1)?.type
 
-    return sinkListItem(listItemNode)(state, dispatch)
+    return ProseMirrorSchemaList.sinkListItem(listItemNode)(state, dispatch)
   }
 }
 
-// If there is a valid list item its indent can be decrease or 'lifted'
-function liftListIsDisabled(state: EditorState): boolean {
+/** handler lift list disabled state */
+function liftListIsDisabled(state: ProseMirrorState.EditorState): boolean {
   const { $from } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
   const isValidListItem = listItemNode?.name === "listItem" || false
@@ -135,8 +144,8 @@ function liftListIsDisabled(state: EditorState): boolean {
   return !isValidListItem
 }
 
-// If there is a valid list item and it is not the first in a list it can be indented
-function indentListIsDisabled(state: EditorState): boolean {
+/** handler indent list disabled state */
+function indentListIsDisabled(state: ProseMirrorState.EditorState): boolean {
   const { $from, $to } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
   const isValidListItem = listItemNode?.name === "listItem" || false
@@ -153,8 +162,8 @@ function indentListIsDisabled(state: EditorState): boolean {
   return !range || range.startIndex === 0 ? true : false
 }
 
-// Creates an object used as an index to map the controls to respective groups
-const createControlGroupIndex = (controls: ToolbarItems[]) =>
+/** Creates an object used as an index to map the controls to respective groups */
+const createControlGroupIndex = (controls: ToolbarItems[]): ControlGroupTypes =>
   controls.reduce((groups, currentControl) => {
     if (!currentControl?.name) return groups
     return {
@@ -163,8 +172,10 @@ const createControlGroupIndex = (controls: ToolbarItems[]) =>
     }
   }, {})
 
-// Creates an initial object used to map button configuration into its respective groups
-const createInitialControls = (controlGroupIndex: ControlGroupTypes) => {
+/** Creates an initial object used to map button configuration into its respective groups */
+const createInitialControls = (
+  controlGroupIndex: ControlGroupTypes
+): GroupedToolbarControls => {
   const uniqueGroups: string[] = Array.from(
     new Set(Object.values(controlGroupIndex))
   )
@@ -184,20 +195,29 @@ const createInitialControls = (controlGroupIndex: ControlGroupTypes) => {
   return initialControlObject
 }
 
+/** Retrieves the name of the group a control belongs to */
 const getGroupIndex = (
   controlGroupIndex: ControlGroupTypes,
   controlType: string | undefined
-) => (controlType ? controlGroupIndex[controlType] : "ungrouped")
+): string => (controlType ? controlGroupIndex[controlType] : "ungrouped")
 
+/** Filters out empty control groups and returns a multi dimensional array  */
+const filterToolbarControls = (
+  groupedControls: GroupedToolbarControls
+): ToolbarControl[][] =>
+  Object.values(groupedControls).filter(controls => controls.length > 0)
+
+/** Builds an array of object used to map control configuration to rte toolbar buttons */
 export function buildControlMap(
-  schema: Schema,
-  editorState: EditorState,
+  schema: ProseMirrorModel.Schema,
+  editorState: ProseMirrorState.EditorState,
   controls?: ToolbarItems[]
-) {
-  if (!controls) return {}
+): ToolbarControl[][] {
+  if (!controls) return []
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
   const toolbarControls: GroupedToolbarControls =
     createInitialControls(controlGroupIndex)
+  const listNodes = [schema.nodes.bulletList, schema.nodes.orderedList]
 
   if (schema.marks.strong) {
     const type = schema.marks.strong
@@ -237,7 +257,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "bulletList")
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
-      isActive: false,
+      isActive: listIsActive(editorState, type, listNodes),
       label: "Bullet List",
       icon: bulletListIcon,
     })
@@ -248,7 +268,7 @@ export function buildControlMap(
     const groupIndex = getGroupIndex(controlGroupIndex, "orderedList")
     toolbarControls[groupIndex].push({
       action: createToggleListCommand(type),
-      isActive: false,
+      isActive: listIsActive(editorState, type, listNodes),
       label: "Numbered List",
       icon: numberedListIcon,
     })
@@ -290,5 +310,5 @@ export function buildControlMap(
     })
   }
 
-  return toolbarControls
+  return filterToolbarControls(toolbarControls)
 }

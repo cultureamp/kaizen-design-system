@@ -15,7 +15,7 @@ const defaultRadioFieldProps: RadioFieldProps = {
   inline: false,
   value: "radio-1",
 }
-const renderRadio = (props?: RadioFieldProps) => {
+const renderRadio = (props?: RadioFieldProps): ReturnType<typeof render> => {
   const mergedRadioFieldProps = { ...defaultRadioFieldProps, ...props }
 
   return render(<RadioField {...mergedRadioFieldProps} />)

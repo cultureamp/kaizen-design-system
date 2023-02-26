@@ -1,14 +1,18 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import { addParameters } from "@storybook/react"
+import "./tailwind.scss"
 import React from "react"
-import {
-  defaultTheme,
-  ThemeProvider,
-  ThemeManager,
-} from "@kaizen/design-tokens"
+import { addParameters } from "@storybook/react"
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
+import "highlight.js/styles/a11y-light.css"
 
+const queryClient = new QueryClient()
+
+const withQueryProvider = (Story): JSX.Element => (
+  <QueryClientProvider client={queryClient}>{Story()}</QueryClientProvider>
+)
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
 require("focus-visible")
@@ -29,6 +33,9 @@ addParameters({
     storySort: {
       method: "alphabetical",
       order: [
+        CATEGORIES.introduction,
+        CATEGORIES.systems,
+        CATEGORIES.tailwind,
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,
@@ -59,15 +66,13 @@ export const globalTypes = {
   },
 }
 
-export const themeManager = new ThemeManager(defaultTheme)
-
 export const decorators = [
-  (Story: React.ComponentType) => (
-    <ThemeProvider themeManager={themeManager}>
+  (Story: React.ComponentType): JSX.Element => (
+    <ThemeContext.Provider value={defaultTheme}>
       <Story />
-    </ThemeProvider>
+    </ThemeContext.Provider>
   ),
-  (Story, props) => {
+  (Story, props): JSX.Element => {
     const dir = props.args.textDirection ?? props.globals.textDirection
     return (
       <div dir={dir}>
@@ -75,4 +80,5 @@ export const decorators = [
       </div>
     )
   },
+  withQueryProvider,
 ]

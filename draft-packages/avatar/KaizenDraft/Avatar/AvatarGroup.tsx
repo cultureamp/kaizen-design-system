@@ -30,7 +30,7 @@ export interface AvatarGroupProps
   avatars: AvatarList
 }
 
-const renderCounter = (remainingAvatars: number) => {
+const renderCounter = (remainingAvatars: number): JSX.Element | void => {
   if (remainingAvatars <= 0) return
   return (
     <li
@@ -39,7 +39,7 @@ const renderCounter = (remainingAvatars: number) => {
           ? `are ${remainingAvatars} other members`
           : `is ${remainingAvatars} other member`
       } of this group`}
-      className={styles.AvatarGroupItemCounter}
+      className={styles.AvatarGroupItem}
     >
       <span className={styles.AvatarCounter} aria-hidden={true}>
         {`+${remainingAvatars}`}
@@ -52,7 +52,7 @@ const renderAvatars = (
   avatars: AvatarList,
   maxVisible: number,
   size: AvatarGroupSize
-) => (
+): JSX.Element => (
   <>
     {avatars?.map(
       (avatarProps, index) =>
@@ -70,13 +70,13 @@ const renderAvatars = (
  * {@link https://cultureamp.design/components/avatar-group/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-avatar-avatar-group--default-story Storybook}
  */
-export const AvatarGroup: React.VFC<AvatarGroupProps> = ({
+export const AvatarGroup = ({
   size = "medium",
   maxVisible = 2,
   avatars,
   classNameOverride,
   ...restProps
-}) => (
+}: AvatarGroupProps): JSX.Element => (
   <ul
     className={classnames(styles.AvatarGroup, styles[size], classNameOverride)}
     aria-label="Avatar Group"

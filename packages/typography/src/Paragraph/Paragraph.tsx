@@ -1,7 +1,7 @@
 import { createElement, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./Paragraph.scss"
+import styles from "./Paragraph.module.scss"
 
 export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
 
@@ -45,14 +45,14 @@ export interface ParagraphProps
  * {@link https://cultureamp.design/components/paragraph/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-typography-paragraph--body Storybook}
  */
-export const Paragraph: React.VFC<ParagraphProps> = ({
+export const Paragraph = ({
   children,
   tag,
   variant,
   color = "dark",
   classNameOverride,
   ...restProps
-}) => {
+}: ParagraphProps): JSX.Element => {
   const className = classnames([
     styles.paragraph,
     styles[variant],

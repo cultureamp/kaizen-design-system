@@ -1,11 +1,10 @@
 import React, { useState, createRef } from "react"
-
 import classnames from "classnames"
+import { FieldMessage } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValue } from "./types"
-
-import styles from "./styles.module.scss"
+import styles from "./LikertScaleLegacy.module.scss"
 
 type ItemRefs = Array<{
   value: ScaleValue
@@ -18,8 +17,8 @@ export interface LikertScaleProps {
   selectedItem: ScaleItem | null
   automationId?: string
   reversed?: boolean
-  validationError?: boolean
-  validationErrorId?: string
+  validationMessage?: string
+  status?: "default" | "error"
   onSelect: (value: ScaleItem | null) => void
 }
 
@@ -33,10 +32,10 @@ export const LikertScaleLegacy = ({
   reversed,
   automationId,
   onSelect,
-  validationError,
-  validationErrorId,
+  validationMessage,
+  status,
   labelId,
-}: LikertScaleProps) => {
+}: LikertScaleProps): JSX.Element => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
   const itemRefs: ItemRefs = scale.map(s => ({
     value: s.value,
@@ -98,6 +97,13 @@ export const LikertScaleLegacy = ({
     legend = selectedItem.label
   }
 
+  const shouldDisplayValidationMessage =
+    status !== "default" && validationMessage !== undefined
+
+  const validationMessageId = shouldDisplayValidationMessage
+    ? `${labelId}-field-validation-message`
+    : undefined
+
   return (
     <div
       className={classnames(styles.container, {
@@ -107,7 +113,7 @@ export const LikertScaleLegacy = ({
       aria-labelledby={labelId}
       role="radiogroup"
       tabIndex={-1}
-      aria-describedby={(validationError && validationErrorId) || undefined}
+      aria-describedby={validationMessageId}
       data-automation-id={automationId}
     >
       <div
@@ -152,12 +158,12 @@ export const LikertScaleLegacy = ({
                 [styles.unselected]:
                   selectedItem && selectedItem.value < item.value,
               })}
-              onClick={() => handleRadioClick(item)}
+              onClick={(): void => handleRadioClick(item)}
               key={item.value}
               data-automation-id={
                 automationId && `${automationId}-item-${item.value}`
               }
-              onMouseEnter={() => handleRadioMouseEnter(item)}
+              onMouseEnter={(): void => handleRadioMouseEnter(item)}
               onMouseLeave={handleRadioMouseLeave}
               role="radio"
               aria-label={item.label}
@@ -168,7 +174,7 @@ export const LikertScaleLegacy = ({
               aria-setsize={5}
               tabIndex={tabIndex}
               ref={itemRef && itemRef.ref}
-              onKeyDown={event => handleKeyDown(event, item)}
+              onKeyDown={(event): void => handleKeyDown(event, item)}
             >
               <div
                 className={classnames(
@@ -184,6 +190,14 @@ export const LikertScaleLegacy = ({
           )
         })}
       </div>
+      {shouldDisplayValidationMessage && (
+        <FieldMessage
+          id={validationMessageId}
+          message={validationMessage}
+          status={status}
+          reversed={reversed}
+        />
+      )}
     </div>
   )
 }

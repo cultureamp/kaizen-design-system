@@ -1,15 +1,15 @@
-import { Icon } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
-import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
+import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
-import * as React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import styles from "./styles.scss"
+import { Heading } from "@kaizen/typography"
+import styles from "./Table.module.scss"
 
-type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
   children?: React.ReactNode
   variant?: "compact" | "default" | "data"
@@ -18,11 +18,11 @@ type TableContainerProps = {
  * {@link https://cultureamp.design/components/table/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-table--default-kaizen-site-demo Storybook}
  */
-export const TableContainer: TableContainer = ({
+export const TableContainer = ({
   variant = "compact",
   children,
   ...otherProps
-}) => (
+}: TableContainerProps): JSX.Element => (
   <div
     role="table"
     className={classNames(styles.container, {
@@ -44,11 +44,11 @@ type TableHeaderProps = {
   backgroundColor?: AllowedTableHeaderBackgroundColors
   children?: React.ReactNode
 }
-export const TableHeader: React.VFC<TableHeaderProps> = ({
+export const TableHeader = ({
   backgroundColor,
   children,
   ...otherProps
-}) => {
+}: TableHeaderProps): JSX.Element => {
   if (backgroundColor) {
     // eslint-disable-next-line no-console
     console.warn(
@@ -66,16 +66,17 @@ export const TableHeader: React.VFC<TableHeaderProps> = ({
 type TableHeaderRowProps = {
   children?: React.ReactNode
 }
-export const TableHeaderRow: React.VFC<TableHeaderRowProps> = ({
+
+export const TableHeaderRow = ({
   children,
   ...otherProps
-}) => (
+}: TableHeaderRowProps): JSX.Element => (
   <div className={classNames(styles.row)} role="rowheader" {...otherProps}>
     {children}
   </div>
 )
 
-const ratioToPercent = (width?: number) =>
+const ratioToPercent = (width?: number): string | number | undefined =>
   width != null ? `${width * 100}%` : width
 
 /**
@@ -84,15 +85,17 @@ const ratioToPercent = (width?: number) =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableHeaderRowCell = React.FunctionComponent<{
+type TableHeaderRowCellProps = OverrideClassName<
+  HTMLAttributes<HTMLElement>
+> & {
   labelText: string
   automationId?: string
   onClick?:
     | ((e: React.MouseEvent<HTMLButtonElement>) => any)
     | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
-  href?: string
   width?: number
   flex?: string
+  href?: string
   icon?: React.SVGAttributes<SVGSymbolElement>
   checkable?: boolean
   checkedStatus?: CheckedStatus
@@ -112,9 +115,11 @@ type TableHeaderRowCell = React.FunctionComponent<{
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
   tooltipInfo?: string
+  isTooltipIconHidden?: boolean
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
-}>
-export const TableHeaderRowCell: TableHeaderRowCell = ({
+}
+
+export const TableHeaderRowCell = ({
   labelText,
   automationId,
   onClick,
@@ -137,18 +142,23 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   wrapping = "nowrap",
   align = "start",
   tooltipInfo,
-  // if set, this will show the arrow in the direction provided
+  // If set, this will hide the tooltip exclamation icon. Useful in situations where
+  // the table header does not have enough space. However, we should always show a
+  // tooltip icon as the default based on design system tooltip guidelines.
+  isTooltipIconHidden = false,
+  // If set, this will show the arrow in the direction provided
   // when the header cell is hovered over.
   sortingArrowsOnHover,
+  classNameOverride,
   // There aren't any other props in the type definition, so I'm unsure why we
   // have this spread.
   ...otherProps
-}) => {
+}: TableHeaderRowCellProps): JSX.Element => {
   // `active` is the legacy prop
   const sorting = sortingRaw || (active ? "descending" : undefined)
   const [isHovered, setIsHovered] = React.useState(false)
 
-  const updateHoverState = (hoverState: boolean) => {
+  const updateHoverState = (hoverState: boolean): void => {
     if (sortingArrowsOnHover && hoverState != isHovered)
       setIsHovered(hoverState)
   }
@@ -176,7 +186,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           />
         </div>
       )}
-      {tooltipInfo != null ? (
+      {tooltipInfo != null && !isTooltipIconHidden ? (
         <div className={styles.headerRowCellTooltipIcon}>
           <Icon icon={exclamationIcon} role="presentation" />
         </div>
@@ -223,10 +233,10 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       onClick={
         onClick as (e: React.MouseEvent<HTMLAnchorElement>) => any | undefined
       }
-      onMouseEnter={() => updateHoverState(true)}
-      onFocus={() => updateHoverState(true)}
-      onMouseLeave={() => updateHoverState(false)}
-      onBlur={() => updateHoverState(false)}
+      onMouseEnter={(): void => updateHoverState(true)}
+      onFocus={(): void => updateHoverState(true)}
+      onMouseLeave={(): void => updateHoverState(false)}
+      onBlur={(): void => updateHoverState(false)}
     >
       {cellContents}
     </a>
@@ -237,10 +247,10 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
         [styles.headerRowCellButtonReversed]: !!reversed,
       })}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
-      onMouseEnter={() => updateHoverState(true)}
-      onFocus={() => updateHoverState(true)}
-      onMouseLeave={() => updateHoverState(false)}
-      onBlur={() => updateHoverState(false)}
+      onMouseEnter={(): void => updateHoverState(true)}
+      onFocus={(): void => updateHoverState(true)}
+      onMouseLeave={(): void => updateHoverState(false)}
+      onBlur={(): void => updateHoverState(false)}
     >
       {cellContents}
     </button>
@@ -248,7 +258,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     // This div wrapper probably isn't needed, but it's a bit easier
     // for this flex positioning, to have the dom tree depth match for
     // each permutation.
-    <div className={styles.headerRowCellNoButton}>{cellContents}</div>
+    <div className={classNames(styles.headerRowCellNoButton)}>
+      {cellContents}
+    </div>
   )
 
   cellContents =
@@ -267,12 +279,16 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
 
   return (
     <div
-      className={classNames(styles.headerRowCell, {
-        [styles.headerRowCellNoWrap]: wrapping === "nowrap",
-        [styles.headerRowCellAlignCenter]: align === "center",
-        [styles.headerRowCellAlignEnd]: align === "end",
-        [styles.headerRowCellActive]: !!sorting,
-      })}
+      className={classNames(
+        styles.headerRowCell,
+        {
+          [styles.headerRowCellNoWrap]: wrapping === "nowrap",
+          [styles.headerRowCellAlignCenter]: align === "center",
+          [styles.headerRowCellAlignEnd]: align === "end",
+          [styles.headerRowCellActive]: !!sorting,
+        },
+        classNameOverride
+      )}
       style={{
         width: ratioToPercent(width),
         flex,
@@ -315,7 +331,7 @@ type TableCardProps = {
   children?: React.ReactNode
 }
 
-export const TableCard: React.VFC<TableCardProps> = ({
+export const TableCard = ({
   children,
   expanded,
   expandedStyle = "well",
@@ -323,7 +339,7 @@ export const TableCard: React.VFC<TableCardProps> = ({
   href,
   forceHoverState = false,
   ...otherProps
-}) => {
+}: TableCardProps): JSX.Element => {
   const className = classNames(styles.card, {
     [styles.expanded]: expanded,
     [styles[expandedStyle]]: expanded,
@@ -362,10 +378,10 @@ export const TableCard: React.VFC<TableCardProps> = ({
 type TableRowProps = {
   children?: React.ReactNode
 }
-export const TableRow: React.VFC<TableRowProps> = ({
+export const TableRow = ({
   children,
   ...otherProps
-}) => (
+}: TableRowProps): JSX.Element => (
   <div className={styles.row} role="row" {...otherProps}>
     {children}
   </div>
@@ -377,19 +393,21 @@ export const TableRow: React.VFC<TableRowProps> = ({
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableRowCellProps = {
+type TableRowCellProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
+  children?: React.ReactNode
   width?: number
   flex?: string
   href?: string
-  children?: React.ReactNode
 }
-export const TableRowCell: React.VFC<TableRowCellProps> = ({
+
+export const TableRowCell = ({
   children,
   width,
   flex,
   href,
+  classNameOverride,
   ...otherProps
-}) =>
+}: TableRowCellProps): JSX.Element =>
   href != null ? (
     <a
       // eslint-disable-next-line jsx-a11y/no-interactive-element-to-noninteractive-role
@@ -398,7 +416,7 @@ export const TableRowCell: React.VFC<TableRowCellProps> = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={styles.rowCell}
+      className={classNames(styles.rowCell, classNameOverride)}
       href={href}
       {...otherProps}
     >
@@ -411,7 +429,7 @@ export const TableRowCell: React.VFC<TableRowCellProps> = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={styles.rowCell}
+      className={classNames(styles.rowCell, classNameOverride)}
       {...otherProps}
     >
       {children}

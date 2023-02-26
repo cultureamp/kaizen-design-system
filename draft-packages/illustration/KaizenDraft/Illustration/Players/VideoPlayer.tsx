@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
-import styles from "../style.module.scss"
+import styles from "../Base.module.scss"
 import { canPlayWebm } from "../utils"
 
 export type VideoPlayerProps = {
@@ -44,7 +44,7 @@ export const VideoPlayer = ({
   source,
   aspectRatio,
   onEnded,
-}: VideoPlayerProps) => {
+}: VideoPlayerProps): JSX.Element => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] =
     React.useState<boolean>(true)
@@ -81,12 +81,20 @@ export const VideoPlayer = ({
       "(prefers-reduced-motion: reduce)"
     )
     setPrefersReducedMotion(reducedMotionQuery.matches)
-    const updateMotionPreferences = () => {
+    const updateMotionPreferences = (): void => {
       const { matches = false } = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       )
       setPrefersReducedMotion(matches)
     }
+
+    const isLegacyEdge = navigator.userAgent.match(/Edge/)
+
+    const isUnsupportedSafari =
+      window.matchMedia("").addEventListener === undefined
+
+    if (isLegacyEdge || isUnsupportedSafari) return
+
     reducedMotionQuery.addEventListener("change", updateMotionPreferences, true)
 
     return function cleanup() {
@@ -101,15 +109,23 @@ export const VideoPlayer = ({
     if (prefersReducedMotion) {
       videoElement.pause()
     } else if (autoplay && !prefersReducedMotion) {
-      videoElement.play().catch(e => {
-        /*
-         * An DOMException _may_ be raised by some browsers if we
-         * programatically interact with the video before the
-         * user has interacted with the page. This is okay - so
-         * we're going to catch this error without handling it. See:
-         * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
+      try {
+        // Older browsers may not return a promise, so .play could return undefined
+        videoElement.play()?.catch(e => {
+          /*
+           * An DOMException _may_ be raised by some browsers if we
+           * programatically interact with the video before the
+           * user has interacted with the page. This is okay - so
+           * we're going to catch this error without handling it. See:
+           * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
+           */
+        })
+      } catch (e) {
+        /**
+         * Older browsers will raise a synchronous error because their first implementation
+         * of `.play` was not a promise.
          */
-      })
+      }
     }
     /**
      * Chrome seems to have an issue with changes to autoplay after the video

@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { OverrideClassName } from "@kaizen/component-base"
 import { assetUrl } from "@kaizen/hosted-assets"
-import styles from "./Brand.scss"
+import styles from "./Brand.module.scss"
 
 export interface BrandProps
   extends OverrideClassName<HTMLAttributes<HTMLElement>> {
@@ -14,13 +14,13 @@ export interface BrandProps
   reversed?: boolean
 }
 
-export const Brand: React.VFC<BrandProps> = ({
+export const Brand = ({
   variant,
   alt,
   reversed = false,
   classNameOverride,
   ...restProps
-}) => {
+}: BrandProps): JSX.Element => {
   const brandTheme = reversed ? "-reversed" : "-default"
 
   return (
@@ -41,3 +41,5 @@ export const Brand: React.VFC<BrandProps> = ({
     </picture>
   )
 }
+
+Brand.displayName = "Brand"

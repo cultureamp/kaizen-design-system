@@ -2,10 +2,10 @@ import fs from "fs"
 import path from "path"
 import { format } from "prettier"
 import * as yargs from "yargs"
-import { defaultTheme } from "../"
+import { defaultTheme } from "../src"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 
-const { jsonOutput, cssOutput } = yargs
+const output = yargs
   .option("jsonOutput", {
     description:
       "The directory which JSON builds should be written to. Defaults to `./tokens` in your current working directory",
@@ -20,10 +20,12 @@ const { jsonOutput, cssOutput } = yargs
   })
   .env().argv
 
-const formatJson = (jsonString: string) =>
+const formatJson = (jsonString: string): string =>
   format(jsonString, { parser: "json" })
 
-const run = () => {
+const run = async (): Promise<void> => {
+  // as of v17 returns a promise
+  const { jsonOutput, cssOutput } = await output
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 

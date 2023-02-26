@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./Content.module.scss"
 
 export interface ContentProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

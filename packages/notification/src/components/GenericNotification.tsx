@@ -1,5 +1,5 @@
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import * as React from "react"
 import { Icon } from "@kaizen/component-library"
 
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
@@ -7,6 +7,7 @@ import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.sv
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 
+import { Heading, HeadingProps } from "@kaizen/typography"
 import styles from "./GenericNotification.module.scss"
 
 export type NotificationType =
@@ -27,6 +28,7 @@ type Props = {
   automationId?: string
   noBottomMargin?: boolean
   forceMultiline?: boolean
+  headingProps?: HeadingProps
 }
 
 type State = {
@@ -35,6 +37,21 @@ type State = {
 }
 
 class GenericNotification extends React.Component<Props, State> {
+  static defaultProps = {
+    persistent: false,
+    autohide: false,
+    autohideDelay: "short",
+  }
+
+  state = {
+    hidden: true,
+    removed: false,
+  }
+
+  autoHideTimeoutId: null | ReturnType<typeof setTimeout> = null
+
+  containerRef = React.createRef<HTMLDivElement>()
+
   constructor(props: Props) {
     super(props)
 
@@ -42,7 +59,7 @@ class GenericNotification extends React.Component<Props, State> {
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     requestAnimationFrame(() => {
       if (this.containerRef.current) {
         this.setState({ hidden: false })
@@ -54,14 +71,14 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     if (this.autoHideTimeoutId) {
       clearTimeout(this.autoHideTimeoutId)
       this.autoHideTimeoutId = null
     }
   }
 
-  autohideDelayMs() {
+  autohideDelayMs(): number {
     if (this.props.autohideDelay == "long") {
       return 30_000
     } else {
@@ -69,7 +86,7 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  render() {
+  render(): JSX.Element | null {
     if (this.state.removed) {
       return null
     }
@@ -91,8 +108,11 @@ class GenericNotification extends React.Component<Props, State> {
           <Icon icon={this.iconType()} role="presentation" inheritSize />
         </div>
         <div className={this.textContainerClassName()}>
-          {this.props.title && (
-            <h6 className={styles.title}>{this.props.title}</h6>
+          {this.props.style !== "global" && (
+            <NotificationHeading
+              titleProp={this.props.title}
+              headingProps={this.props.headingProps}
+            />
           )}
           {this.props.children && (
             <div className={styles.text}>{this.props.children}</div>
@@ -129,7 +149,7 @@ class GenericNotification extends React.Component<Props, State> {
     return "0"
   }
 
-  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>) {
+  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>): void {
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
     if (this.state.hidden && e.propertyName === "margin-top") {
       this.setState({ removed: true })
@@ -139,7 +159,7 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  iconType() {
+  iconType(): HTMLAttributes<SVGElement> {
     switch (this.props.type) {
       case "positive":
         return successIcon
@@ -154,42 +174,53 @@ class GenericNotification extends React.Component<Props, State> {
     }
   }
 
-  hide() {
+  hide(): void {
     this.setState({ hidden: true })
   }
-
-  static defaultProps = {
-    persistent: false,
-
-    autohide: false,
-    autohideDelay: "short",
-  }
-
-  state = {
-    hidden: true,
-    removed: false,
-  }
-
-  autoHideTimeoutId: null | ReturnType<typeof setTimeout> = null
-
-  containerRef = React.createRef<HTMLDivElement>()
 }
 
 type CancelButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const CancelButton = ({ onClick }: CancelButtonProps) => (
+const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
   <button
     className={styles.cancel}
     type="button"
     onClick={onClick}
     data-testid="close-button"
   >
-    <span className={styles.cancelInner}>
-      <Icon icon={closeIcon} role="img" title="close notification" />
-    </span>
+    <Icon icon={closeIcon} role="img" title="close notification" />
   </button>
 )
+
+const NotificationHeading = ({
+  titleProp,
+  headingProps,
+}): JSX.Element | null => {
+  if (headingProps) {
+    return (
+      <Heading
+        variant={headingProps.variant || "heading-6"}
+        tag={headingProps.tag || "div"}
+        color={headingProps.color || "dark"}
+        classNameOverride={styles.notificationTitle}
+      >
+        {headingProps.children}
+      </Heading>
+    )
+  } else if (titleProp) {
+    return (
+      <Heading
+        variant="heading-6"
+        tag="div"
+        color="dark"
+        classNameOverride={styles.notificationTitle}
+      >
+        {titleProp}
+      </Heading>
+    )
+  } else return null
+}
 
 export default GenericNotification

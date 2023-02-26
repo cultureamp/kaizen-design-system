@@ -1,6 +1,3 @@
-import { Icon } from "@kaizen/component-library"
-import { LoadingSpinner } from "@kaizen/loading-spinner"
-import classNames from "classnames"
 import React, {
   forwardRef,
   Ref,
@@ -10,14 +7,16 @@ import React, {
   FocusEvent,
   MouseEvent,
 } from "react"
+import classNames from "classnames"
+import { Icon } from "@kaizen/component-library"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { ButtonProps } from "../Button"
-import styles from "./GenericButton.scss"
+import styles from "./GenericButton.module.scss"
 
 export type CustomButtonProps = {
   id?: string
   className: string
-  ref: Ref<any>
   href?: string
   disabled?: boolean
   onClick?: (e: MouseEvent<any>) => void
@@ -71,7 +70,7 @@ export type ButtonRef = { focus: () => void }
 
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
-const getCustomProps = (props: Record<string, any>) => {
+const getCustomProps = (props: Record<string, any>): Record<string, string> => {
   const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
   return keys.reduce((acc, val) => {
     acc[val] = props[val]
@@ -83,18 +82,14 @@ const GenericButton = forwardRef(
   (props: Props, ref: Ref<ButtonRef | undefined>) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     useImperativeHandle(ref, () => ({
-      focus: () => {
+      focus: (): void => {
         buttonRef.current?.focus()
       },
     }))
 
-    const determineButtonRenderer = () => {
+    const determineButtonRenderer = (): JSX.Element => {
       if (props.component) {
-        return renderCustomComponent(
-          props.component,
-          props,
-          buttonRef as Ref<HTMLElement>
-        )
+        return renderCustomComponent(props.component, props)
       }
 
       if (props.href && !props.disabled && !props.working) {
@@ -128,14 +123,12 @@ GenericButton.defaultProps = {
 
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
-  props: Props,
-  ref: Ref<any>
-) => (
+  props: Props
+): JSX.Element => (
   <CustomComponent
     id={props.id}
     className={buttonClass(props)}
     disabled={props.disabled}
-    ref={ref}
     href={props.href}
     onClick={props.onClick}
     onFocus={props.onFocus}
@@ -146,7 +139,10 @@ const renderCustomComponent = (
   </CustomComponent>
 )
 
-const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
+const renderButton = (
+  props: Props,
+  ref: Ref<HTMLButtonElement>
+): JSX.Element => {
   const {
     id,
     disabled,
@@ -169,7 +165,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
-      onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
+      onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
       type={type}
       aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
@@ -186,7 +182,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   )
 }
 
-const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
+const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
   const {
     id,
     href,
@@ -219,7 +215,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
   )
 }
 
-const buttonClass = (props: Props) => {
+const buttonClass = (props: Props): string => {
   const isDefault = !props.primary && !props.destructive && !props.secondary
   return classNames([
     styles.button,
@@ -239,13 +235,15 @@ const buttonClass = (props: Props) => {
   ])
 }
 
-const renderLoadingSpinner = () => (
+const renderLoadingSpinner = (): JSX.Element => (
   <div className={styles.loadingSpinner}>
     <LoadingSpinner accessibilityLabel="" size="sm" />
   </div>
 )
 
-const renderWorkingContent = (props: Extract<Props, { working: true }>) => {
+const renderWorkingContent = (
+  props: Extract<Props, { working: true }>
+): JSX.Element => {
   if (props.workingLabelHidden) {
     return (
       <>
@@ -274,7 +272,7 @@ const renderWorkingContent = (props: Extract<Props, { working: true }>) => {
   )
 }
 
-const renderDefaultContent = (props: Props) => (
+const renderDefaultContent = (props: Props): JSX.Element => (
   <>
     {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
     {(!props.icon || !props.iconButton) && (
@@ -290,7 +288,7 @@ const renderDefaultContent = (props: Props) => (
   </>
 )
 
-const renderBadge = (props: Props) => {
+const renderBadge = (props: Props): JSX.Element | null => {
   if (!props.badge) return null
 
   const { text, animateChange, reversed, variant } = props.badge
@@ -309,13 +307,15 @@ const renderBadge = (props: Props) => {
   )
 }
 
-const renderContent: React.FunctionComponent<Props> = props => (
+const renderContent = (props: Props): JSX.Element => (
   <span className={styles.content}>
     {props.working ? renderWorkingContent(props) : renderDefaultContent(props)}
   </span>
 )
 
-const renderIcon = (icon: React.SVGAttributes<SVGSymbolElement>) => (
+const renderIcon = (
+  icon: React.SVGAttributes<SVGSymbolElement>
+): JSX.Element => (
   <span className={styles.iconWrapper}>
     <Icon icon={icon} role="presentation" />
   </span>
@@ -324,7 +324,7 @@ const renderIcon = (icon: React.SVGAttributes<SVGSymbolElement>) => (
 // We only want an aria-label in the case that the button has just an icon and no text
 // This can happen when the button is working and workingLabelHidden is true,
 // or when this is an IconButton
-const generateAriaLabel = (props: Props) => {
+const generateAriaLabel = (props: Props): string | undefined => {
   if (props.working && props.workingLabelHidden) {
     return props.workingLabel
   }

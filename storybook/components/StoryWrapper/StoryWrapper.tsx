@@ -1,11 +1,11 @@
 import React from "react"
 import classNames from "classnames"
-import styles from "../StoryWrapper/StoryWrapper.scss"
+import { StoryRow, StoryRowProps } from "./components/StoryRow"
 import {
   StoryRowHeader,
   StoryRowHeaderProps,
 } from "./components/StoryRowHeader"
-import { StoryRow, StoryRowProps } from "./components/StoryRow"
+import styles from "./StoryWrapper.module.scss"
 
 type ReversibleSubcomponents = StoryRowHeaderProps | StoryRowProps
 
@@ -19,24 +19,25 @@ export interface StoryWrapperProps {
   children: React.ReactNode
   hasNoRowTitles?: boolean
   isReversed?: boolean
+  hasColumnDivider?: boolean
+  hasRowDivider?: boolean
 }
 
-type Subcomponents = {
-  Row: typeof StoryRow
-  RowHeader: typeof StoryRowHeader
-}
-
-export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
+export const StoryWrapper = ({
   children,
   hasNoRowTitles = false,
   isReversed = false,
-}) => {
+  hasColumnDivider = false,
+  hasRowDivider = false,
+}: StoryWrapperProps): JSX.Element => {
   const childrenCount: number = React.Children.count(children)
 
   return (
     <div
       className={classNames(styles.storyRowContainer, {
         [styles.noRowTitles]: hasNoRowTitles,
+        [styles.rowDivider]: hasRowDivider,
+        [styles.reversed]: isReversed,
       })}
       style={{
         gridTemplateRows: `repeat(${childrenCount}, min-content)`,
@@ -47,6 +48,7 @@ export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
           return React.cloneElement(child, {
             ...child.props,
             isReversed,
+            hasColumnDivider,
           })
         }
 

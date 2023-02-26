@@ -1,18 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
+import { ComponentStory } from "@storybook/react"
+import { BrandMoment } from "@kaizen/brand-moment"
+import { Box } from "@kaizen/component-library"
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
+import feedbackClassifyIcon from "@kaizen/component-library/icons/feedback-classify.icon.svg"
+import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
 import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,
   BrandMomentError,
 } from "@kaizen/draft-illustration"
-import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
-import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
-import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
-import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
-import feedbackClassifyIcon from "@kaizen/component-library/icons/feedback-classify.icon.svg"
-import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
-import { BrandMoment } from "@kaizen/brand-moment"
 import { CATEGORIES } from "../../../storybook/constants"
 import {
   MinimalBasic,
@@ -31,7 +32,7 @@ export default {
     },
   },
   decorators: [
-    (story, { globals: { textDirection } }) => (
+    (story, { globals: { textDirection } }): JSX.Element => (
       <div id="brand-moment-container" style={{ margin: "-1rem" }}>
         {story({ isRTL: textDirection === "rtl" })}
       </div>
@@ -39,7 +40,10 @@ export default {
   ],
 }
 
-export const InformativeIntro = (_, { isRTL }) => (
+export const InformativeIntro: ComponentStory<typeof BrandMoment> = (
+  _,
+  { isRTL }
+) => (
   <BrandMoment
     mood="informative"
     illustration={<BrandMomentCaptureIntro isAnimated loop />}
@@ -59,7 +63,10 @@ export const InformativeIntro = (_, { isRTL }) => (
 InformativeIntro.storyName = "Informative intro"
 InformativeIntro.parameters = { chromatic: { disable: false } }
 
-export const PositiveOutro = (_, { isRTL }) => (
+export const PositiveOutro: ComponentStory<typeof BrandMoment> = (
+  _,
+  { isRTL }
+) => (
   <BrandMoment
     mood="positive"
     illustration={<BrandMomentPositiveOutro isAnimated loop />}
@@ -84,7 +91,9 @@ export const PositiveOutro = (_, { isRTL }) => (
 )
 PositiveOutro.storyName = "Positive outro"
 
-export const InformativeIntroCustomerFocused = (_, { isRTL }) => (
+export const InformativeIntroCustomerFocused: ComponentStory<
+  typeof BrandMoment
+> = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
     illustration={<BrandMomentCaptureIntro isAnimated loop />}
@@ -118,7 +127,9 @@ export const InformativeIntroCustomerFocused = (_, { isRTL }) => (
 InformativeIntroCustomerFocused.storyName =
   "Informative intro (customer focused)"
 
-export const PositiveOutroCustomerFocused = (_, { isRTL }) => (
+export const PositiveOutroCustomerFocused: ComponentStory<
+  typeof BrandMoment
+> = (_, { isRTL }) => (
   <BrandMoment
     mood="positive"
     illustration={<BrandMomentPositiveOutro isAnimated loop />}
@@ -157,7 +168,7 @@ export const PositiveOutroCustomerFocused = (_, { isRTL }) => (
 PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
 PositiveOutroCustomerFocused.parameters = { chromatic: { disable: false } }
 
-export const Error = (_, { isRTL }) => (
+export const Error: ComponentStory<typeof BrandMoment> = (_, { isRTL }) => (
   <BrandMoment
     mood="negative"
     illustration={<BrandMomentError isAnimated loop />}

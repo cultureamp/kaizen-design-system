@@ -2,7 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import { Container, Content, ContentProps } from "../../"
 import { DOMRectReadOnly, useResizeObserver } from "../useResizeObserver"
-import styles from "./styles.scss"
+import styles from "./Skirt.module.scss"
 
 const spacing = 24
 const maxHeight = 222
@@ -20,14 +20,14 @@ export interface SkirtProps extends ContentProps {
   titleBlockHasNavigation?: boolean
 }
 
-export const Skirt: React.VFC<SkirtProps> = ({
+export const Skirt = ({
   children,
   className,
   variant = "default",
   titleBlockHasNavigation = true,
   classNameOverride,
   ...restProps
-}) => {
+}: SkirtProps): JSX.Element => {
   const [ref, skirtHeight] = useResizeObserver<number, HTMLDivElement>(
     entry => {
       if (entry.contentRect) {
@@ -64,7 +64,7 @@ Skirt.displayName = "Skirt"
 const deriveSkirtHeight = (
   rect: DOMRectReadOnly,
   titleBlockHasNavigation: boolean
-) => {
+): number => {
   const { height, width } = rect
   let responsiveOffset: number = 0
   if (width > 768) {

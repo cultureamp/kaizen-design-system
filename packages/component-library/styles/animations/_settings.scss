@@ -1,3 +1,7 @@
+@import "./durations";
+@import "./easings";
+@import "~@kaizen/design-tokens/sass/animation";
+
 // CLASSES
 $motion-ui-classes: (
   chain: true,
@@ -12,22 +16,20 @@ $motion-ui-states: (
 
 // TIMING FUNCTIONS
 $motion-ui-delays: (
-  default: $ca-duration-instant,
-  short: $ca-duration-slow,
-  long: $ca-duration-deliberate,
+  default: $animation-duration-instant,
+  short: $animation-duration-slow,
+  long: $animation-duration-deliberate,
 );
 
 // DEFAULT EASINGS
 $motion-ui-easings: (
-  default: $ca-default,
-  linear: $ca-linear,
-  ease: $ca-ease,
-  ease-in: $ca-ease-in,
-  ease-out: $ca-ease-out,
-  ease-in-out: $ca-ease-in-out,
-  bounce-in: $ca-bounce-in,
-  bounce-out: $ca-bounce-out,
-  bounce-in-out: $ca-bounce-in-out,
+  default: $animation-easing-function-ease-in-out,
+  linear: $animation-easing-function-linear,
+  ease: $animation-easing-function-ease-in-out,
+  ease-in: $animation-easing-function-ease-in,
+  ease-out: $animation-easing-function-ease-out,
+  ease-in-out: $animation-easing-function-ease-in-out,
+  bounce-in: $animation-easing-function-bounce-in,
+  bounce-out: $animation-easing-function-bounce-out,
+  bounce-in-out: $animation-easing-function-bounce-in-out,
 );
-
-@import "~motion-ui/src/motion-ui";

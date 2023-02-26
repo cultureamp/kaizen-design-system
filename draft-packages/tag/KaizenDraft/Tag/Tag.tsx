@@ -1,12 +1,12 @@
-import { Icon } from "@kaizen/component-library"
-import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
+import React from "react"
 import classNames from "classnames"
-import * as React from "react"
+import { Icon } from "@kaizen/component-library"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-import styles from "./Tag.scss"
+import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
+import styles from "./Tag.module.scss"
 
 type Variant =
   | "default"
@@ -46,7 +46,9 @@ const isJSXElement = (
 ): imageElementOrAvatarProps is JSX.Element =>
   "props" in imageElementOrAvatarProps
 
-const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps) =>
+const renderAvatar = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps
+): JSX.Element =>
   isJSXElement(imageElementOrAvatarProps) ? (
     <>{imageElementOrAvatarProps}</>
   ) : (
@@ -57,7 +59,7 @@ const renderAvatar = (imageElementOrAvatarProps: JSX.Element | AvatarProps) =>
  * {@link https://cultureamp.design/components/tag/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tag--default-story Storybook}
  */
-const Tag = (props: TagProps) => {
+const Tag = (props: TagProps): JSX.Element => {
   const {
     children,
     variant = "default",
@@ -96,72 +98,79 @@ const Tag = (props: TagProps) => {
       })}
     >
       <div className={styles.layoutContainer}>
-        {canShowIcon &&
-          (() => {
-            switch (props.variant) {
-              case "validationPositive":
-                return (
-                  <span className={styles.validationIcon}>
-                    <Icon icon={successIcon} role="presentation" />
-                  </span>
-                )
-              case "validationNegative":
-                return (
-                  <span className={styles.validationIcon}>
-                    <Icon icon={exclamationIcon} role="presentation" />
-                  </span>
-                )
-              case "validationCautionary":
-                return (
-                  <span className={styles.validationIcon}>
-                    <Icon icon={exclamationIcon} role="presentation" />
-                  </span>
-                )
-              case "validationInformative":
-                return (
-                  <span className={styles.validationIcon}>
-                    <Icon icon={informationIcon} role="presentation" />
-                  </span>
-                )
-              case "profile":
-                return (
-                  <span className={styles.profile}>
-                    {props.avatar && renderAvatar(props.avatar)}
-                  </span>
-                )
-              default:
-                return
-            }
-          })()}
-        <span
-          className={classNames(styles.textContent, {
-            [styles.truncate]: isTruncated,
-          })}
-          style={{
-            maxWidth: isTruncated ? truncateWidth : undefined,
-          }}
-        >
-          {children}
-        </span>
-        {dismissible && (
-          <>
-            <button
-              className={styles.dismissButton}
-              onClick={onDismiss}
-              onMouseDown={onMouseDown}
-              onMouseLeave={onMouseLeave}
-            >
-              <div className={styles.iconWrapper}>
-                <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
-              </div>
-            </button>
-          </>
-        )}
-        {variant === "statusLive" && (
-          <span className={styles.pulse}>
-            <span className={styles.pulseRing} />
+        <>
+          {canShowIcon &&
+            ((): JSX.Element | void => {
+              switch (props.variant) {
+                case "validationPositive":
+                  return (
+                    <span className={styles.validationIcon}>
+                      <Icon icon={successIcon} role="presentation" />
+                    </span>
+                  )
+                case "validationNegative":
+                  return (
+                    <span className={styles.validationIcon}>
+                      <Icon icon={exclamationIcon} role="presentation" />
+                    </span>
+                  )
+                case "validationCautionary":
+                  return (
+                    <span className={styles.validationIcon}>
+                      <Icon icon={exclamationIcon} role="presentation" />
+                    </span>
+                  )
+                case "validationInformative":
+                  return (
+                    <span className={styles.validationIcon}>
+                      <Icon icon={informationIcon} role="presentation" />
+                    </span>
+                  )
+                case "profile":
+                  return (
+                    <span className={styles.profile}>
+                      {props.avatar && renderAvatar(props.avatar)}
+                    </span>
+                  )
+                default:
+                  return
+              }
+            })()}
+          <span
+            className={classNames(styles.textContent, {
+              [styles.truncate]: isTruncated,
+            })}
+            style={{
+              maxWidth: isTruncated ? truncateWidth : undefined,
+            }}
+          >
+            {children}
           </span>
-        )}
+          {dismissible && (
+            <>
+              <button
+                className={styles.dismissButton}
+                onClick={onDismiss}
+                onMouseDown={onMouseDown}
+                onMouseLeave={onMouseLeave}
+              >
+                <div className={styles.iconWrapper}>
+                  <Icon
+                    icon={clearIcon}
+                    inheritSize
+                    role="img"
+                    title="Dismiss"
+                  />
+                </div>
+              </button>
+            </>
+          )}
+          {variant === "statusLive" && (
+            <span className={styles.pulse}>
+              <span className={styles.pulseRing} />
+            </span>
+          )}
+        </>
       </div>
     </div>
   )

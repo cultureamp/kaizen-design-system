@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./ToggleSwitch.module.scss"
 
 export enum ToggledStatus {
   ON = "on",
@@ -25,13 +25,13 @@ export interface ToggleSwitchProps
   automationId?: string
 }
 
-export const ToggleSwitch: React.VFC<ToggleSwitchProps> = ({
+export const ToggleSwitch = ({
   toggledStatus,
   onToggle,
   reversed,
   automationId,
   ...restProps
-}) => {
+}: ToggleSwitchProps): JSX.Element => {
   const isOn = toggledStatus === ToggledStatus.ON
 
   return (

@@ -1,18 +1,15 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import isChromatic from "chromatic"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES } from "../../../storybook/constants"
-import { SplitButton, SplitButtonProps } from "../"
+import { figmaEmbed } from "../../../storybook/helpers"
 import { ActionButton, DropdownButton } from "../src/SplitButton/components"
-
-const IS_CHROMATIC = isChromatic()
+import { SplitButton, SplitButtonProps } from "../"
 
 const ACTION_BUTTON_PROPS__BUTTON = {
   label: "Edit Survey",
@@ -23,30 +20,18 @@ const ACTION_BUTTON_PROPS__ANCHOR = {
   href: "//example.com",
 }
 
-const WrapperChromaticIgnore: React.VFC<{ children: React.ReactNode }> = ({
-  children,
-}) => <div data-chromatic="ignore">{children}</div>
-
 const DROPDOWN_CONTENT__ENABLED = (
-  <WrapperChromaticIgnore>
-    <MenuList>
-      <MenuItem
-        icon={editIcon}
-        label="Menu Item 1"
-        onClick={action("clicked")}
-      />
-      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-    </MenuList>
-  </WrapperChromaticIgnore>
+  <MenuList>
+    <MenuItem icon={editIcon} label="Menu Item 1" onClick={action("clicked")} />
+    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+  </MenuList>
 )
 
 const DROPDOWN_CONTENT__ONE_DISABLED = (
-  <WrapperChromaticIgnore>
-    <MenuList>
-      <MenuItem icon={editIcon} label="Menu Item 1" disabled />
-      <MenuItem icon={duplicateIcon} label="Menu Item 2" />
-    </MenuList>
-  </WrapperChromaticIgnore>
+  <MenuList>
+    <MenuItem icon={editIcon} label="Menu Item 1" disabled />
+    <MenuItem icon={duplicateIcon} label="Menu Item 2" />
+  </MenuList>
 )
 
 export default {
@@ -96,9 +81,12 @@ export default {
   decorators: [withDesign],
 } as ComponentMeta<typeof SplitButton>
 
-export const DefaultKaizenSiteDemo = args => <SplitButton {...args} />
+export const DefaultKaizenSiteDemo: ComponentStory<
+  typeof SplitButton
+> = args => <SplitButton {...args} />
 DefaultKaizenSiteDemo.storyName = "Split Button"
 DefaultKaizenSiteDemo.args = {
+  // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls
   actionButtonProps: "Button",
   dropdownContent: "MenuList - MenuItems enabled",
 }
@@ -132,86 +120,77 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
   return (
     <>
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
-        {ROWS_MAP.map(({ rowTitle, ...props }) => (
-          <StoryWrapper.Row key={rowTitle} rowTitle={rowTitle}>
-            <SplitButton isReversed={isReversed} {...props} />
-            <SplitButton isReversed={isReversed} disabled {...props} />
-          </StoryWrapper.Row>
-        ))}
-      </StoryWrapper>
+      <StickerSheet isReversed={isReversed} heading="Split Button">
+        <StickerSheet.Header
+          headings={["Base", "Disabled"]}
+          hasVerticalHeadings
+          verticalHeadingsWidth="10rem"
+        />
+        <StickerSheet.Body>
+          {ROWS_MAP.map(({ rowTitle, ...props }) => (
+            <StickerSheet.Row key={rowTitle} rowTitle={rowTitle}>
+              <SplitButton isReversed={isReversed} {...props} />
+              <SplitButton isReversed={isReversed} disabled {...props} />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
 
-      <StoryWrapper isReversed={isReversed}>
-        <StoryWrapper.RowHeader headings={["Hover", "Active", "Focus"]} />
-        <StoryWrapper.Row rowTitle="Action button">
-          <SplitButton
-            isReversed={isReversed}
-            actionButtonProps={{
-              ...ACTION_BUTTON_PROPS__BUTTON,
-              classNameOverride: "__hover",
-            }}
-            dropdownContent={DROPDOWN_CONTENT__ENABLED}
-          />
-          <SplitButton
-            isReversed={isReversed}
-            actionButtonProps={{
-              ...ACTION_BUTTON_PROPS__BUTTON,
-              classNameOverride: "__active",
-            }}
-            dropdownContent={DROPDOWN_CONTENT__ENABLED}
-          />
-          <SplitButton
-            isReversed={isReversed}
-            actionButtonProps={{
-              ...ACTION_BUTTON_PROPS__BUTTON,
-              classNameOverride: "__focus",
-            }}
-            dropdownContent={DROPDOWN_CONTENT__ENABLED}
-          />
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Dropdown button">
-          <SplitButton
-            isReversed={isReversed}
-            actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-            dropdownContent={DROPDOWN_CONTENT__ENABLED}
-            dropdownButtonProps={{ classNameOverride: "__hover" }}
-          />
-          <SplitButton
-            isReversed={isReversed}
-            actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-            dropdownContent={DROPDOWN_CONTENT__ENABLED}
-            dropdownButtonProps={{ classNameOverride: "__active" }}
-          />
-          <SplitButton
-            isReversed={isReversed}
-            actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-            dropdownContent={DROPDOWN_CONTENT__ENABLED}
-            dropdownButtonProps={{ classNameOverride: "__focus" }}
-          />
-        </StoryWrapper.Row>
-      </StoryWrapper>
-
-      {IS_CHROMATIC && (
-        <StoryWrapper isReversed={isReversed}>
-          <StoryWrapper.RowHeader headings={["LTR", "RTL"]} />
-          <StoryWrapper.Row rowTitle="Dropdown open">
+      <StickerSheet isReversed={isReversed} heading="Pseudo states">
+        <StickerSheet.Header
+          headings={["Hover", "Active", "Focus"]}
+          hasVerticalHeadings
+          verticalHeadingsWidth="10rem"
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row rowTitle="Action button">
+            <SplitButton
+              isReversed={isReversed}
+              actionButtonProps={{
+                ...ACTION_BUTTON_PROPS__BUTTON,
+                classNameOverride: "__hover",
+              }}
+              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+            />
+            <SplitButton
+              isReversed={isReversed}
+              actionButtonProps={{
+                ...ACTION_BUTTON_PROPS__BUTTON,
+                classNameOverride: "__active",
+              }}
+              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+            />
+            <SplitButton
+              isReversed={isReversed}
+              actionButtonProps={{
+                ...ACTION_BUTTON_PROPS__BUTTON,
+                classNameOverride: "__focus",
+              }}
+              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row rowTitle="Dropdown button">
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              isDropdownInitOpen
+              dropdownButtonProps={{ classNameOverride: "__hover" }}
             />
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              dir="rtl"
-              isDropdownInitOpen
+              dropdownButtonProps={{ classNameOverride: "__active" }}
             />
-          </StoryWrapper.Row>
-        </StoryWrapper>
-      )}
+            <SplitButton
+              isReversed={isReversed}
+              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
+              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              dropdownButtonProps={{ classNameOverride: "__focus" }}
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
     </>
   )
 }

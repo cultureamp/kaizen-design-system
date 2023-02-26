@@ -1,5 +1,7 @@
 import React from "react"
+import { ComponentStory, Story } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   AccountBasics,
   Action,
@@ -126,8 +128,9 @@ import {
   Behaviour,
   Learn,
   Templates,
+  CalendarSync,
+  AnimatedSpotProps,
 } from ".."
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Spot`,
@@ -142,21 +145,26 @@ export default {
   },
 }
 
-export const SpotStoryForKaizenSite = args => (
+export const SpotStoryForKaizenSite: ComponentStory<
+  typeof AccountBasics
+> = args => (
   <div style={{ width: "150px" }}>
-    <AccountBasics alt="" {...args} />
+    <AccountBasics {...args} />
   </div>
 )
 SpotStoryForKaizenSite.storyName = "Spot (Kaizen Site Demo)"
+SpotStoryForKaizenSite.args = {
+  alt: "",
+}
 
-const IllustrationExampleTile = ({ Component, name }) => (
+const IllustrationExampleTile = ({ Component, name }): JSX.Element => (
   <div style={{ width: "150px", display: "inline-block", padding: "2rem" }}>
     <Component alt="" />
     <Paragraph variant="small">{name}</Paragraph>
   </div>
 )
 
-export const AllSpotIllustrations = () => {
+export const AllSpotIllustrations: Story = () => {
   const engagementSpots = [
     {
       Component: BenefitsSurvey,
@@ -681,6 +689,10 @@ export const AllSpotIllustrations = () => {
       Component: ChangeAgents,
       name: "Change Agents",
     },
+    {
+      Component: CalendarSync,
+      name: "Calendar Sync",
+    },
   ]
 
   return (
@@ -744,41 +756,19 @@ export const AllSpotIllustrations = () => {
 }
 AllSpotIllustrations.parameters = { chromatic: { disable: false } }
 
-export const AnimatedSpot = args => (
+export const AnimatedSpot: Story<AnimatedSpotProps> = args => (
   <div style={{ width: "156px" }}>
-    <Cautionary
-      alt="Add useful alt text for screen readers"
-      isAnimated
-      loop
-      {...args}
-    />
-    <Informative
-      alt="Add useful alt text for screen readers"
-      isAnimated
-      loop
-      {...args}
-    />
-    <Negative
-      alt="Add useful alt text for screen readers"
-      isAnimated
-      loop
-      {...args}
-    />
-    <Positive
-      alt="Add useful alt text for screen readers"
-      isAnimated
-      loop
-      {...args}
-    />
-    <Assertive
-      alt="Add useful alt text for screen readers"
-      isAnimated
-      loop
-      {...args}
-    />
+    <Cautionary isAnimated loop {...args} />
+    <Informative isAnimated loop {...args} />
+    <Negative isAnimated loop {...args} />
+    <Positive isAnimated loop {...args} />
+    <Assertive isAnimated loop {...args} />
   </div>
 )
 AnimatedSpot.storyName = "Spot, animated"
+AnimatedSpot.args = {
+  alt: "Add useful alt text for screen readers",
+}
 AnimatedSpot.parameters = {
   chromatic: {
     disable: false,

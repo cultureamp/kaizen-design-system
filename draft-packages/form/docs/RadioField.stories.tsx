@@ -1,56 +1,10 @@
-import React from "react"
-import { RadioField } from "@kaizen/draft-form"
+import React, { useState } from "react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { RadioField } from "@kaizen/draft-form"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
-const REVERSED_BG = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
-const ExampleContent = () => (
-  <div style={{ padding: "1em 2em", maxWidth: "400px" }} />
-)
-
-type RenderProps = {
-  selectedStatus: boolean
-  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
-}
-
-type Props = {
-  render: (props: RenderProps) => JSX.Element
-}
-class RadioFieldExample extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props)
-    this.onChangeHandler = this.onChangeHandler.bind(this)
-  }
-
-  onChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      selectedStatus: true,
-    })
-  }
-
-  render() {
-    const { render } = this.props
-
-    return (
-      <>
-        {render({
-          selectedStatus: this.state.selectedStatus,
-          onChangeHandler: this.onChangeHandler,
-        })}
-      </>
-    )
-  }
-
-  state = {
-    selectedStatus: false,
-  }
-}
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Field`,
@@ -66,152 +20,90 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14354%3A68219"
     ),
   },
+  argTypes: {
+    selectedStatus: {
+      control: "disabled",
+    },
+  },
   decorators: [withDesign],
+} as ComponentMeta<typeof RadioField>
+
+export const InteractiveKaizenSiteDemo: ComponentStory<
+  typeof RadioField
+> = args => {
+  const [status, setStatus] = useState<boolean>()
+  const onCheckHandler = (): void => setStatus(!status)
+
+  return (
+    <RadioField
+      {...args}
+      onChange={onCheckHandler}
+      selectedStatus={status}
+      id="checkbox-1"
+      labelText="label"
+    />
+  )
+}
+InteractiveKaizenSiteDemo.storyName = "Radio Field"
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+      <StoryWrapper.Row rowTitle="On">
+        <RadioField
+          name="radio"
+          id="radio-on"
+          labelText="Label"
+          selectedStatus
+          value="radio-1"
+          reversed={isReversed}
+        ></RadioField>
+        <RadioField
+          name="radio"
+          id="radio-on-disabled"
+          labelText="Label"
+          selectedStatus
+          disabled
+          value="radio-1"
+          reversed={isReversed}
+        ></RadioField>
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Off">
+        <RadioField
+          name="radio"
+          id="radio-off"
+          labelText="Label"
+          value="radio-1"
+          reversed={isReversed}
+        ></RadioField>
+        <RadioField
+          name="radio"
+          id="radio-off-disabled"
+          labelText="Label"
+          disabled
+          value="radio-1"
+          reversed={isReversed}
+        ></RadioField>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </>
+)
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
 }
 
-export const InteractiveKaizenSiteDemo = () => (
-  <RadioFieldExample
-    render={({ selectedStatus, onChangeHandler }) => (
-      <RadioField
-        name="radio"
-        onChange={onChangeHandler}
-        id="radio-1"
-        selectedStatus={selectedStatus as any}
-        value="radio-1"
-        labelText={
-          <span>
-            This is a label with a{" "}
-            <a href="http://google.com" target="_blank">
-              link
-            </a>
-          </span>
-        }
-      />
-    )}
-  />
-)
-InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
-
-export const UnselectedDisabled = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    selectedStatus={false}
-    disabled
-    value="radio-1"
-  >
-    <ExampleContent />
-  </RadioField>
-)
-
-export const UnselectedDefault = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    selectedStatus={false}
-    disabled={false}
-    value="radio-1"
-  >
-    <ExampleContent />
-  </RadioField>
-)
-
-export const SelectedDefault = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    selectedStatus={true}
-    disabled={false}
-    value="radio-1"
-  >
-    <ExampleContent />
-  </RadioField>
-)
-
-export const SelectedDisabled = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    selectedStatus={true}
-    disabled={true}
-    value="radio-1"
-  >
-    <ExampleContent />
-  </RadioField>
-)
-
-export const Rtl = () => (
-  <div dir="rtl">
-    <RadioField
-      name="radio"
-      id="radio-1"
-      labelText="Label"
-      selectedStatus={true}
-      disabled={true}
-      value="radio-1"
-    >
-      <ExampleContent />
-    </RadioField>
-  </div>
-)
-Rtl.storyName = "RTL"
-
-export const ReversedDefaultUnselected = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    value="radio-1"
-    reversed
-  >
-    <ExampleContent />
-  </RadioField>
-)
-ReversedDefaultUnselected.parameters = { ...REVERSED_BG }
-
-export const ReversedDefaultUnselectedDisabled = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    value="radio-1"
-    reversed
-    disabled
-  >
-    <ExampleContent />
-  </RadioField>
-)
-ReversedDefaultUnselectedDisabled.parameters = { ...REVERSED_BG }
-
-export const ReversedDefaultSelected = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    selectedStatus
-    value="radio-1"
-    reversed
-  >
-    <ExampleContent />
-  </RadioField>
-)
-ReversedDefaultSelected.parameters = { ...REVERSED_BG }
-
-export const ReversedDefaultSelectedDisabled = () => (
-  <RadioField
-    name="radio"
-    id="radio-1"
-    labelText="Label"
-    selectedStatus
-    value="radio-1"
-    reversed
-    disabled
-  >
-    <ExampleContent />
-  </RadioField>
-)
-ReversedDefaultSelectedDisabled.parameters = { ...REVERSED_BG }
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

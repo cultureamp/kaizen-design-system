@@ -1,8 +1,8 @@
 import React, { InputHTMLAttributes, ReactNode, useState } from "react"
 import classnames from "classnames"
-import { Paragraph } from "@kaizen/typography"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import { Paragraph } from "@kaizen/typography"
+import styles from "./InputRange.module.scss"
 
 export interface InputRangeProps
   extends OverrideClassName<InputHTMLAttributes<HTMLInputElement>> {
@@ -15,9 +15,7 @@ export interface InputRangeProps
   max?: number
 }
 
-export const InputRange: React.VFC<InputRangeProps> = (
-  props: InputRangeProps
-) => {
+export const InputRange = (props: InputRangeProps): JSX.Element => {
   const {
     id,
     defaultValue,
@@ -63,9 +61,9 @@ export const InputRange: React.VFC<InputRangeProps> = (
         aria-describedby={`${visuallyHiddenHintId} ${
           ariaDescribedby ? ariaDescribedby : ""
         }`}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
           setStep(1) // Put the stepper to 1 to avoid floating value
-          onChange && onChange(e)
+          onChange?.(e)
         }}
         {...restProps}
       />

@@ -1,18 +1,21 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { HumanityAtWork, Informative } from "@kaizen/draft-illustration"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
+import {
+  BrandMomentPositiveOutro,
+  Informative,
+} from "@kaizen/draft-illustration"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   LoadingGraphic,
   LoadingHeading,
   LoadingParagraph,
   LoadingInput,
 } from ".."
-import styles from "../../../draft-packages/guidance-block/KaizenDraft/GuidanceBlock/GuidanceBlock.scss"
+import styles from "./LoadingSkeleton.stories.module.scss"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}`,
@@ -37,9 +40,12 @@ type GuidanceBlockSkeletonTemplateProps = {
   paragraph: React.ReactElement
 }
 
-const GuidanceBlockSkeletonTemplate: React.VFC<
-  GuidanceBlockSkeletonTemplateProps
-> = ({ graphic, heading, input, paragraph }) => (
+const GuidanceBlockSkeletonTemplate = ({
+  graphic,
+  heading,
+  input,
+  paragraph,
+}: GuidanceBlockSkeletonTemplateProps): JSX.Element => (
   <div className={styles.banner}>
     <div className={styles.illustrationWrapper}>{graphic}</div>
     <div className={styles.descriptionAndActions}>
@@ -55,24 +61,13 @@ const GuidanceBlockSkeletonTemplate: React.VFC<
     </div>
   </div>
 )
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+
+const ExampleUsageTemplate: Story = () => {
   const GUIDANCE_BLOCK_TEXT = {
     title: "This is the Guidance block title",
     description:
       "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
       "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
-  }
-
-  const GUIDANCE_BLOCK_LOADING = {
-    title: (<LoadingHeading variant="heading-3" />) as any,
-    description: (
-      <div>
-        <LoadingParagraph />
-        <LoadingParagraph />
-      </div>
-    ),
   }
 
   const GUIDANCE_BLOCK_ACTION = {
@@ -82,7 +77,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   }
 
   return (
-    <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper>
       <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
       <StoryWrapper.Row rowTitle="Guidance Block - Spot">
         <GuidanceBlockSkeletonTemplate
@@ -102,6 +97,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           actions={GUIDANCE_BLOCK_ACTION}
         />
       </StoryWrapper.Row>
+
       <StoryWrapper.Row rowTitle="Guidance Block - Scene">
         <GuidanceBlockSkeletonTemplate
           heading={<LoadingHeading variant="heading-3" />}
@@ -115,7 +111,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           graphic={<LoadingGraphic size="scene" />}
         />
         <GuidanceBlock
-          illustration={<HumanityAtWork alt="humanity-at-work" />}
+          illustration={<BrandMomentPositiveOutro alt="positive-outro" />}
           text={GUIDANCE_BLOCK_TEXT}
           actions={GUIDANCE_BLOCK_ACTION}
           illustrationType="scene"
@@ -125,8 +121,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Example Usage"
-StickerSheetDefault.parameters = {
+export const ExampleUsage = ExampleUsageTemplate.bind({})
+ExampleUsage.parameters = {
   controls: { disable: true },
 }

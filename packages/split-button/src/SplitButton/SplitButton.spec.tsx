@@ -1,5 +1,10 @@
 import React from "react"
-import { fireEvent, render, waitFor } from "@testing-library/react"
+import {
+  fireEvent,
+  render,
+  RenderResult,
+  waitFor,
+} from "@testing-library/react"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { SplitButton, SplitButtonProps } from "./SplitButton"
 
@@ -19,7 +24,9 @@ const DEFAULT_PROPS: SplitButtonProps = {
   ),
 }
 
-const renderSplitButton = (customProps?: Partial<SplitButtonProps>) => {
+const renderSplitButton = (
+  customProps?: Partial<SplitButtonProps>
+): RenderResult => {
   const props = { ...DEFAULT_PROPS, ...customProps }
 
   return render(<SplitButton {...props} />)

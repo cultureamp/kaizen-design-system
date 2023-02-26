@@ -1,4 +1,5 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
+# Using this github action from https://github.com/lightspeedretail/actions-label-prs
 
 name: "chromatic"
 
@@ -8,20 +9,36 @@ on:
   pull_request_review:
     types: [submitted]
   push:
-    paths:
-      - packages/**
-      - draft-packages/**
 
 jobs:
+  paths-filter:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.filter.outputs.packages }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            packages:
+              - 'packages/**'
+              - 'draft-packages/**'
+              - 'storybook/**'
+
   visual-testing:
-    if: (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') || github.event.review.state == 'approved' || github.ref == 'refs/heads/master'
+    needs: [paths-filter]
+    if: >
+      (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
+      github.event.review.state == 'approved' ||
+      (github.ref == 'refs/heads/main' && needs.paths-filter.outputs.packages == 'true') ||
+      startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
-
       - uses: actions/setup-node@v2
         with:
           cache: yarn
@@ -31,12 +48,21 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 👇 Adds Chromatic as a step in the workflow
+      - name: Build Storybook
+        run: |
+          yarn storybook:build --webpack-stats-json
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
-        # Chromatic GitHub Action options
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          autoAcceptChanges: master # 👈 Auto accept master builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
+          storybookBuildDir: "./storybook/public"
+          onlyChanged: "!(main)"
+          externals: |
+            [
+              "**/!(*.module).scss",
+              "packages/button/src/Button/*.scss",
+              "packages/component-library/components/Spacing/Base.module.scss"
+            ]
+          autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)

@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./FieldGroup.module.scss"
 
 export interface FieldGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -19,14 +19,14 @@ export interface FieldGroupProps
   automationId?: string
 }
 
-export const FieldGroup: React.VFC<FieldGroupProps> = ({
+export const FieldGroup = ({
   children,
   inline = false,
   classNameOverride,
   className,
   automationId,
   ...restProps
-}) => (
+}: FieldGroupProps): JSX.Element => (
   <div
     data-automation-id={automationId}
     className={classnames(styles.group, className, classNameOverride, {

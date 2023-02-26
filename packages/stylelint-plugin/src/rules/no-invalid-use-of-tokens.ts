@@ -113,7 +113,7 @@ function detectAndFixInvalidTokens(
   }: {
     message: string
     autofixAvailable: boolean
-  }) {
+  }): void {
     reported = true
     options.reporter({
       message,
@@ -212,7 +212,7 @@ function detectAndFixInvalidTokens(
         return
       }
 
-      const commitReplacement = () => {
+      const commitReplacement = (): void => {
         changed = true
         if (!options.fix) {
           report({

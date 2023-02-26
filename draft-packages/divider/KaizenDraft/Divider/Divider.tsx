@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.module.scss"
+import styles from "./Divider.module.scss"
 
 export interface DividerProps
   extends OverrideClassName<HTMLAttributes<HTMLHRElement>> {
@@ -13,12 +13,12 @@ export interface DividerProps
  * {@link https://cultureamp.design/components/divider/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-divider--default-story Storybook}
  */
-export const Divider: React.VFC<DividerProps> = ({
+export const Divider = ({
   variant,
   isReversed = false,
   classNameOverride,
   ...props
-}) => (
+}: DividerProps): JSX.Element => (
   <hr
     aria-hidden="true"
     className={classNames(styles.wrapper, classNameOverride, {
@@ -30,3 +30,5 @@ export const Divider: React.VFC<DividerProps> = ({
     {...props}
   />
 )
+
+Divider.displayName = "Divider"

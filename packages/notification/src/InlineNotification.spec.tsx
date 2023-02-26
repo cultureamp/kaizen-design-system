@@ -1,5 +1,6 @@
-import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
+import { cleanup, render, screen } from "@testing-library/react"
+import { HeadingProps } from "@kaizen/typography"
 import InlineNotification from "./InlineNotification"
 
 afterEach(cleanup)
@@ -24,4 +25,23 @@ test("Persistent versions of the notifications work", () => {
 
   expect(container.querySelector(".cancel")).toBeFalsy()
   expect(container.firstChild).toMatchSnapshot()
+})
+
+test("Custom heading level is applied", () => {
+  const customHeadingProps: HeadingProps = {
+    variant: "heading-6",
+    tag: "h2",
+    children: "Custom",
+  }
+  render(
+    <InlineNotification
+      type="positive"
+      headingProps={customHeadingProps}
+      persistent
+    >
+      Something has gone wrong
+    </InlineNotification>
+  )
+
+  expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument()
 })

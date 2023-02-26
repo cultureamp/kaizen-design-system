@@ -1,9 +1,9 @@
+import React from "react"
+import classNames from "classnames"
 import { Button, ButtonProps } from "@kaizen/button"
 import { useMediaQueries } from "@kaizen/responsive"
-import classNames from "classnames"
-import * as React from "react"
 import GenericModalSection from "./GenericModalSection"
-import styles from "./ModalFooter.scss"
+import styles from "./ModalFooter.module.scss"
 
 type ActionsVariantProps = "context" | "inputEdit"
 
@@ -23,9 +23,7 @@ export type ModalFooterProps = Readonly<{
   alignStart?: boolean
 }>
 
-type ModalFooter = React.FunctionComponent<ModalFooterProps>
-
-const ModalFooter: ModalFooter = props => {
+const ModalFooter = (props: ModalFooterProps): JSX.Element => {
   const {
     unpadded,
     actions,

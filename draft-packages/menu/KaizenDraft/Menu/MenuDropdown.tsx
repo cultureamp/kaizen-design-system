@@ -1,7 +1,7 @@
-import classnames from "classnames"
 import React, { useCallback, useEffect, useState } from "react"
+import classnames from "classnames"
 import { usePopper } from "react-popper"
-import styles from "./styles.scss"
+import styles from "./MenuDropdown.module.scss"
 
 type MenuDropdownProps = {
   id?: string
@@ -27,7 +27,7 @@ const MenuDropdown = ({
   autoHide = "on",
   align = "left",
   width = "default",
-}: MenuDropdownProps) => {
+}: MenuDropdownProps): JSX.Element => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -39,7 +39,7 @@ const MenuDropdown = ({
         {
           name: "offset",
           options: {
-            offset: [0, 6], // value used from the $kz-var-spacing-xs scss variable,
+            offset: [0, 6], // value used from the $spacing-xs scss variable,
           },
         },
         {

@@ -1,7 +1,7 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./BaseButton.scss"
+import styles from "./BaseButton.module.scss"
 
 type AnchorAttributes = AnchorHTMLAttributes<HTMLAnchorElement>
 type ButtonAttributes = ButtonHTMLAttributes<HTMLButtonElement>
@@ -16,13 +16,13 @@ export type BaseButtonProps = OverrideClassName<AnchorButtonAttributes> & {
   isReversed?: boolean
 }
 
-export const BaseButton: React.VFC<BaseButtonProps> = ({
+export const BaseButton = ({
   label,
   icon,
   isReversed,
   classNameOverride,
   ...attributes
-}) => {
+}: BaseButtonProps): JSX.Element => {
   const className = classnames([
     styles.baseButton,
     classNameOverride,

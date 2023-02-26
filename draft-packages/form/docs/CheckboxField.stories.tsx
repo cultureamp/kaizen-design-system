@@ -1,54 +1,10 @@
-import React from "react"
-import { CheckboxField } from "@kaizen/draft-form"
+import React, { useState } from "react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-
-const REVERSED_BG = {
-  backgrounds: {
-    default: "Purple 700",
-  },
-}
-
-type RenderProps = {
-  checkedStatus: string
-  onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
-}
-
-type Props = {
-  render: (props: RenderProps) => JSX.Element
-}
-
-class CheckboxFieldExample extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props)
-
-    this.onCheckHandler = this.onCheckHandler.bind(this)
-  }
-
-  onCheckHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      checkedStatus: this.state.checkedStatus === "on" ? "off" : "on",
-    })
-  }
-
-  render() {
-    const { render } = this.props
-
-    return (
-      <>
-        {render({
-          checkedStatus: this.state.checkedStatus,
-          onCheckHandler: this.onCheckHandler,
-        })}
-      </>
-    )
-  }
-
-  state = {
-    checkedStatus: "mixed",
-  }
-}
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Field`,
@@ -64,167 +20,119 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14462%3A196"
     ),
   },
+  argTypes: {
+    checkedStatus: {
+      control: "disabled",
+    },
+  },
   decorators: [withDesign],
+} as ComponentMeta<typeof CheckboxField>
+
+export const InteractiveKaizenSiteDemo: ComponentStory<
+  typeof CheckboxField
+> = args => {
+  const [status, setStatus] = useState<CheckedStatus>()
+  const onCheckHandler = (): void => {
+    const newStatus = status === "on" ? "off" : "on"
+    setStatus(newStatus)
+  }
+  return (
+    <CheckboxField
+      {...args}
+      onCheck={onCheckHandler}
+      checkedStatus={status}
+      id="checkbox-1"
+      labelText="label"
+    />
+  )
+}
+InteractiveKaizenSiteDemo.storyName = "Checkbox Field"
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+      <StoryWrapper.Row rowTitle="On">
+        <CheckboxField
+          id="checkbox-on"
+          checkedStatus="on"
+          labelText="Label"
+          reversed={isReversed}
+        />
+        <CheckboxField
+          id="checkbox-on-disabled"
+          checkedStatus="on"
+          labelText="Label"
+          disabled
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Off">
+        <CheckboxField
+          id="checkbox-off"
+          checkedStatus="off"
+          labelText="Label"
+          reversed={isReversed}
+        />
+        <CheckboxField
+          id="checkbox-off-disabled"
+          checkedStatus="off"
+          labelText="Label"
+          disabled
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Mixed">
+        <CheckboxField
+          id="checkbox-mixed"
+          checkedStatus="mixed"
+          labelText="Label"
+          reversed={isReversed}
+        />
+        <CheckboxField
+          id="checkbox-mixed-disabled"
+          checkedStatus="mixed"
+          labelText="Label"
+          disabled
+          reversed={isReversed}
+        />
+      </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="No Bottom Margin">
+        <div>
+          <CheckboxField
+            id="checkbox-no-mb-1"
+            checkedStatus="off"
+            labelText="Label"
+            noBottomMargin
+            reversed={isReversed}
+          />
+          <CheckboxField
+            id="checkbox-no-mb-2"
+            checkedStatus="off"
+            labelText="Label"
+            noBottomMargin
+            reversed={isReversed}
+          />
+        </div>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+  </>
+)
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
 }
 
-export const InteractiveKaizenSiteDemo = () => (
-  <CheckboxFieldExample
-    render={({ checkedStatus, onCheckHandler }) => (
-      <CheckboxField
-        onCheck={onCheckHandler}
-        id="checkbox-1"
-        checkedStatus={checkedStatus as any}
-        labelText={
-          <span>
-            This is a label with a{" "}
-            <a href="http://google.com" target="_blank">
-              link
-            </a>
-          </span>
-        }
-      />
-    )}
-  />
-)
-InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
-
-export const On = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="on"
-    disabled={false}
-    labelText="Label"
-  />
-)
-
-export const Mixed = () => (
-  <CheckboxField
-    id="checkbox-3"
-    checkedStatus="mixed"
-    disabled={false}
-    labelText="Label"
-  />
-)
-
-export const Off = () => (
-  <CheckboxField
-    id="checkbox-4"
-    checkedStatus="off"
-    disabled={false}
-    labelText="Label"
-  />
-)
-
-export const DisabledOn = () => (
-  <CheckboxField
-    id="checkbox-5"
-    checkedStatus="on"
-    disabled={true}
-    labelText="Label"
-  />
-)
-DisabledOn.storyName = "Disabled + on"
-
-export const DisabledMixed = () => (
-  <CheckboxField
-    id="checkbox-6"
-    checkedStatus="mixed"
-    disabled={true}
-    labelText="Label"
-  />
-)
-DisabledMixed.storyName = "Disabled + mixed"
-
-export const DisabledOff = () => (
-  <CheckboxField
-    id="checkbox-7"
-    checkedStatus="off"
-    disabled={true}
-    labelText="Label"
-  />
-)
-DisabledOff.storyName = "Disabled + off"
-
-export const WithBottomMargin = () => (
-  <div>
-    <CheckboxField
-      id="checkbox-1"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-    <CheckboxField
-      id="checkbox-2"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-  </div>
-)
-WithBottomMargin.storyName = "with bottom margin"
-
-export const WithoutBottomMargin = () => (
-  <div>
-    <CheckboxField
-      noBottomMargin
-      id="checkbox-1"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-    <CheckboxField
-      noBottomMargin
-      id="checkbox-2"
-      checkedStatus="off"
-      disabled={false}
-      labelText="Label"
-    />
-  </div>
-)
-WithoutBottomMargin.storyName = "without bottom margin"
-
-export const ReversedOn = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="on"
-    labelText="Label"
-    reversed
-  />
-)
-ReversedOn.storyName = "Reversed + on"
-ReversedOn.parameters = { ...REVERSED_BG }
-
-export const ReversedDisabledOn = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="on"
-    labelText="Label"
-    reversed
-    disabled
-  />
-)
-ReversedDisabledOn.storyName = "Reversed Disabled + on"
-ReversedDisabledOn.parameters = { ...REVERSED_BG }
-
-export const ReversedOff = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="off"
-    labelText="Label"
-    reversed
-  />
-)
-ReversedOff.storyName = "Reversed + off"
-ReversedOff.parameters = { ...REVERSED_BG }
-
-export const ReversedDisabledOff = () => (
-  <CheckboxField
-    id="checkbox-2"
-    checkedStatus="off"
-    labelText="Label"
-    reversed
-    disabled
-  />
-)
-ReversedDisabledOff.storyName = "Reversed Disabled + off"
-ReversedDisabledOff.parameters = { ...REVERSED_BG }
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

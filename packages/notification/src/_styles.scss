@@ -3,29 +3,17 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/responsive";
 @import "./mixins";
 
-$ca-notification-border-width: $border-solid-border-width;
-$ca-notification-vertical-padding: calc(
-  #{$ca-grid / 4} - #{$ca-notification-border-width}
+$notification-vertical-padding: calc(
+  #{$spacing-xs} - #{$border-solid-border-width}
 );
-$ca-notification-inline-horizontal-padding: $spacing-sm;
-$ca-notification-toast-horizontal-padding: 10px;
-$ca-notification-fade-out: opacity $ca-duration-rapid ease;
-$ca-notification-collapse-height: margin-top $ca-duration-rapid ease,
-  margin-bottom $ca-duration-rapid ease;
-$ca-notification-collapse-height-delayed: margin-top $ca-duration-rapid ease
-    $ca-duration-rapid,
-  margin-bottom $ca-duration-rapid ease;
-$ca-notification-pop-up: transform $ca-duration-rapid ease-out;
-$ca-notification-slide-right: transform $ca-duration-fast ease-out;
+$notification-fade-out: opacity 200ms ease;
+$notification-collapse-height: margin-top 200ms ease, margin-bottom 200ms ease;
+$notification-collapse-height-delayed: margin-top 200ms ease 200ms,
+  margin-bottom 200ms ease;
+$notification-pop-up: transform 200ms ease-out;
+$notification-slide-right: transform 300ms ease-out;
 
 %ca-notification {
   display: flex;
@@ -35,29 +23,27 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   // Variants
   &%ca-notification---inline,
   &%ca-notification---toast {
-    margin-bottom: $ca-grid;
-    border-width: $ca-notification-border-width;
-    border-style: $border-solid-border-style;
+    margin-bottom: $spacing-md;
+    border: $border-solid-border-width $border-solid-border-style;
     border-radius: $border-solid-border-radius;
   }
 
   &%ca-notification---inline {
     width: 100%;
     min-height: 46px;
-    padding: $ca-notification-vertical-padding
-      $ca-notification-inline-horizontal-padding;
-    transition: $ca-notification-fade-out, $ca-notification-pop-up,
-      $ca-notification-collapse-height;
+    padding: $notification-vertical-padding $spacing-sm;
+    transition: $notification-fade-out, $notification-pop-up,
+      $notification-collapse-height;
   }
 
   &%ca-notification---toast {
+    container-type: inline-size;
     width: 25rem;
     box-shadow: $shadow-small-box-shadow;
     max-width: 100%;
-    padding: $ca-notification-vertical-padding
-      $ca-notification-toast-horizontal-padding;
-    transition: $ca-notification-fade-out, $ca-notification-slide-right,
-      $ca-notification-collapse-height-delayed;
+    padding: $notification-vertical-padding 10px;
+    transition: $notification-fade-out, $notification-slide-right,
+      $notification-collapse-height-delayed;
     will-change: transform;
   }
 
@@ -68,9 +54,9 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     border-width: 0;
     border-radius: 0;
     margin-bottom: 0;
-    transition: $ca-notification-collapse-height;
+    transition: $notification-collapse-height;
     position: relative;
-    z-index: $ca-z-index-fixed;
+    z-index: 1030;
   }
 
   // Types
@@ -111,9 +97,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     color: $color-purple-800;
 
     &%ca-notification---global {
-      // Coral200 for Heart theme, Coral300 for Zen theme. Switch not needed when Zen is removed.
-      // Use Coral 200 for Heart theme, and Coral 300 for zen (the default fallback)
-      background-color: var($color-red-200-id, $color-red-300);
+      background-color: $color-red-200;
     }
   }
 
@@ -141,7 +125,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     }
 
     &%ca-notification---global {
-      z-index: $ca-z-index-fixed - 1;
+      z-index: 1029;
       opacity: 1;
     }
   }
@@ -177,16 +161,15 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   %ca-notification---toast & {
     width: 22px;
     height: 22px;
-    margin-top: $ca-grid / 4;
+    margin-top: $spacing-xs;
   }
 
   %ca-notification---global & {
-    $size: $ca-grid * 1.25;
-
+    $size: calc(#{$spacing-md} * 1.25);
     width: $size;
     height: $size;
-    padding: (($ca-grid * 2) - $size) / 2;
-    margin: $ca-grid / 4;
+    padding: calc(((#{$spacing-md} * 2) - #{$size}) / 2);
+    margin: calc(#{$spacing-md} / 4);
     border-radius: $border-solid-border-radius;
 
     // Override the type-specific color values set above
@@ -219,15 +202,22 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     margin-left: 6px;
   }
 
+  %ca-notification---toast & {
+    margin-left: 6px;
+    max-width: calc(100% - #{$spacing-xl});
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
   %ca-notification---global & {
     margin-left: 14px;
-    padding: 0.25 * $ca-grid 0;
+    padding: calc(0.25 * #{$spacing-md}) 0;
   }
 
   %ca-notification---inline & {
     // Inline notifications often fade onto a white background.
     // Fading the higher-contrast text out at, as well as the whole container, makes for a smoother animation.
-    transition: $ca-notification-fade-out;
+    transition: $notification-fade-out;
   }
 
   &%ca-notification---forceMultiline {
@@ -236,7 +226,12 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
 }
 
 %ca-notification__title {
-  @include kz-typography-heading-6;
+  position: relative;
+  font-family: $typography-heading-6-font-family;
+  font-weight: $typography-heading-6-font-weight;
+  font-size: $typography-heading-6-font-size;
+  line-height: $typography-heading-6-line-height;
+  letter-spacing: $typography-heading-6-letter-spacing;
   margin: 0;
   padding-right: 6px;
   // overriding Bootstrap style that changes h6s to text-transform: uppercase
@@ -246,24 +241,37 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
 }
 
 %ca-notification__text {
-  @include kz-typography-paragraph-small;
+  position: relative;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
   margin: 0;
   color: inherit;
 
   %ca-notification---inline &,
   %ca-notification---toast & {
-    @include kz-typography-paragraph-small;
+    position: relative;
+    font-family: $typography-paragraph-small-font-family;
+    font-weight: $typography-paragraph-small-font-weight;
+    font-size: $typography-paragraph-small-font-size;
+    line-height: $typography-paragraph-small-line-height;
+    letter-spacing: $typography-paragraph-small-letter-spacing;
     // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
     // When they are both on a single line it ensures both are 1 grid unit tall.
-    margin-top: $ca-grid / 4;
+    margin-top: $spacing-xs;
     flex: 0 1 auto;
-    padding-bottom: 0.75rem;
+    padding-bottom: $spacing-sm;
     top: 0.21em;
+  }
+  %ca-notification---toast & {
+    width: 100%;
   }
 
   %ca-notification---global & {
     //Inherit baseline because the parent selector doesn't.
-    @include ca-inherit-baseline;
+    position: static;
     font-weight: $typography-paragraph-body-font-weight;
     font-size: $typography-paragraph-body-font-size;
     line-height: $typography-paragraph-body-line-height;
@@ -271,11 +279,11 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   }
 
   a[href] {
-    color: $ca-link-text-color;
+    color: $color-blue-500;
     text-decoration: underline;
 
     &:hover {
-      color: $ca-link-hover-text-color;
+      color: $color-blue-500;
       text-decoration: none;
     }
 
@@ -286,7 +294,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   }
 
   strong {
-    font-weight: $ca-weight-semibold;
+    font-weight: $typography-button-secondary-font-weight;
   }
 
   p {
@@ -307,37 +315,28 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   // The negative margins below are so that our clickable area will overlap the notification padding
   %ca-notification---inline &,
   %ca-notification---toast & {
-    width: $ca-grid * 2;
-    height: $ca-grid * 2;
-    margin-top: -$ca-grid / 4;
-    margin-bottom: -$ca-grid / 4;
+    width: $spacing-xl;
+    height: $spacing-xl;
+    margin-top: calc(-1 * #{$spacing-xs});
+    margin-bottom: calc(-1 * #{$spacing-xs});
   }
 
   %ca-notification---inline & {
-    margin-right: calc(-1 * #{$ca-notification-inline-horizontal-padding});
+    margin-right: calc(-1 * #{$spacing-sm});
   }
 
   %ca-notification---toast & {
-    margin-right: -$ca-notification-toast-horizontal-padding;
+    margin-right: -10px;
   }
 
   %ca-notification---global & {
-    padding-right: (5 / 8) * $ca-grid;
-    width: $ca-grid * 2.5;
-    height: $ca-grid * 2.5;
+    padding-right: calc((5 / 8) * #{$spacing-md});
+    width: $spacing-xxl;
+    height: $spacing-xxl;
     margin-right: -15px;
-    margin-top: -$ca-grid / 2;
-    margin-bottom: -$ca-grid / 2;
+    margin-top: calc(-1 * #{$spacing-sm});
+    margin-bottom: calc(-1 * #{$spacing-sm});
   }
-}
-
-%ca-notification__cancel__inner {
-  @include ca-margin($end: $spacing-sm);
-  // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
-  line-height: 0;
-  float: right;
-  display: flex;
-  align-items: center;
 }
 
 %ca-notification__cancel__label {

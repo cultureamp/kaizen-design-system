@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./RadioGroup.module.scss"
 
 export interface RadioGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -18,7 +18,7 @@ export interface RadioGroupProps
   automationId?: string
 }
 
-export const RadioGroup: React.VFC<RadioGroupProps> = ({
+export const RadioGroup = ({
   children,
   labelText,
   labelId,
@@ -27,7 +27,7 @@ export const RadioGroup: React.VFC<RadioGroupProps> = ({
   automationId = "",
   classNameOverride,
   ...restProps
-}) => (
+}: RadioGroupProps): JSX.Element => (
   <div
     data-automation-id={automationId}
     className={classnames(styles.radioGroupContainer, classNameOverride, {

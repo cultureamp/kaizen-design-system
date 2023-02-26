@@ -74,6 +74,7 @@ module.exports = {
     "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/explicit-member-accessibility": [
       "off",
       {
@@ -152,7 +153,45 @@ module.exports = {
     "id-match": "error",
     "import/no-extraneous-dependencies": "error",
     "import/no-internal-modules": "off",
-    "import/order": "error",
+    "import/order": [
+      "error",
+      {
+        alphabetize: {
+          order: "asc",
+        },
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
+        pathGroups: [
+          {
+            pattern: "{react,react-dom}",
+            group: "builtin",
+            position: "before",
+          },
+          {
+            pattern: "@kaizen/**",
+            group: "external",
+            position: "after",
+          },
+          {
+            pattern: "..",
+            group: "parent",
+            position: "after",
+          },
+          {
+            pattern: "{**,.}/*+(.scss|.css)",
+            group: "index",
+            position: "after",
+          },
+        ],
+        pathGroupsExcludedImportTypes: [],
+      },
+    ],
     "jsdoc/check-alignment": "off",
     "jsdoc/check-indentation": "off",
     "jsdoc/newline-after-description": "off",

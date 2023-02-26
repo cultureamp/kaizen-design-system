@@ -1,9 +1,9 @@
 import path from "path"
-import { NormalModuleReplacementPlugin } from "webpack"
+import { Configuration, NormalModuleReplacementPlugin } from "webpack"
 const webpackConfig = require("../webpack/rules")
 
 module.exports = {
-  managerWebpack: (config, { configType }) => {
+  managerWebpack: (config, { configType }): Configuration => {
     // don't add header and footer for local builds
     if (configType !== "PRODUCTION") return config
 

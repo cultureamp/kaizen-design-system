@@ -1,10 +1,10 @@
 // Call the pre-build script -- used for validation, setup, etc.
 import "../pre-build"
-import { resolve } from "path"
+import postcssPresetEnv from "postcss-preset-env"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
 import { browsersList } from "./browserslist"
 
-const isEnabled = require("./isEnabled")
+require("./isEnabled")
 
 export const babel: RuleSetRule = {
   test: /\.(j|t)sx?$/,
@@ -19,17 +19,17 @@ export const stylePreprocessors: RuleSetUseItem[] = [
       postcssOptions: {
         plugins: [
           require("postcss-flexbugs-fixes"),
-          [
-            require("postcss-preset-env"),
-            {
-              autoprefixer: {
-                flexbox: "no-2009",
-                grid: "no-autoplace",
-              },
-              browsers: browsersList,
-              stage: 3,
+          require("postcss-import"),
+          require("tailwindcss/nesting"),
+          require("tailwindcss"),
+          postcssPresetEnv({
+            autoprefixer: {
+              flexbox: "no-2009",
+              grid: "no-autoplace",
             },
-          ],
+            browsers: browsersList,
+            stage: 3,
+          }),
         ],
       },
     },
@@ -43,7 +43,7 @@ export const stylePreprocessors: RuleSetUseItem[] = [
 ]
 
 export const styles: RuleSetRule = {
-  test: /\.s?css$/,
+  test: /(?!(.*tailwind\.s?css))^.*\.s?css/,
   use: [
     {
       loader: "style-loader",
@@ -56,6 +56,23 @@ export const styles: RuleSetRule = {
         modules: {
           localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
         },
+      },
+    },
+    ...stylePreprocessors,
+  ],
+}
+export const tailwind: RuleSetRule = {
+  test: /tailwind\.s?css$/,
+  use: [
+    {
+      loader: "style-loader",
+    },
+    {
+      loader: "css-loader",
+      options: {
+        importLoaders: stylePreprocessors.length,
+        sourceMap: true,
+        modules: false,
       },
     },
     ...stylePreprocessors,

@@ -7,7 +7,7 @@ import {
   TextArea,
   TextAreaProps,
 } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./TextAreaField.module.scss"
 
 export interface TextAreaFieldProps
   extends Omit<TextAreaProps, "automationId"> {
@@ -22,7 +22,7 @@ export interface TextAreaFieldProps
  * {@link https://cultureamp.design/components/text-area-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-text-area-field--default-story Storybook}
  */
-export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
+export const TextAreaField = ({
   labelText,
   inline = false,
   validationMessage,
@@ -33,9 +33,20 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
   status = "default",
   disabled,
   ...restProps
-}) => {
+}: TextAreaFieldProps): JSX.Element => {
+  const validationMessageAria = validationMessage
+    ? `${id}-field-validation-message`
+    : ""
+  const descriptionAria = description ? `${id}-field-message` : ""
+  const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
+    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
+    ""
+  )
+
   const renderDescriptionOnTop = variant === "prominent"
-  const renderDescription = (position: "top" | "bottom") => {
+  const renderDescription = (
+    position: "top" | "bottom"
+  ): JSX.Element | null => {
     if (!description) return null
     return (
       <div
@@ -44,7 +55,7 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
         })}
       >
         <FieldMessage
-          id={`${id}-field-message`}
+          id={descriptionAria}
           automationId={`${id}-field-description`}
           message={description}
           reversed={reversed}
@@ -83,12 +94,13 @@ export const TextAreaField: React.VFC<TextAreaFieldProps> = ({
         reversed={reversed}
         status={status}
         disabled={disabled}
+        aria-describedby={ariaDescribedBy}
         {...restProps}
       />
       {!disabled && validationMessage && (
         <FieldMessage
-          id={`${id}-field-message`}
-          automationId={`${id}-field-validation-message`}
+          id={validationMessageAria}
+          automationId={validationMessageAria}
           message={validationMessage}
           status={status}
           reversed={reversed}

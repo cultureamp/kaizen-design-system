@@ -165,7 +165,7 @@
       "fontSize-id": "--typography-paragraph-intro-lede-font-size",
       "lineHeight": "var(--typography-paragraph-intro-lede-line-height, 1.875rem)",
       "lineHeight-id": "--typography-paragraph-intro-lede-line-height",
-      "letterSpacing": "var(--typography-paragraph-intro-lede-letter-spacing, -0.5px)",
+      "letterSpacing": "var(--typography-paragraph-intro-lede-letter-spacing, 0)",
       "letterSpacing-id": "--typography-paragraph-intro-lede-letter-spacing"
     },
     "paragraphBody": {

@@ -9,7 +9,7 @@ import {
   InputProps,
   Label,
 } from "../Primitives"
-import styles from "./styles.scss"
+import styles from "./TextField.module.scss"
 
 type OmittedInputProps =
   | "startIconAdornment"
@@ -40,7 +40,7 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
  * {@link https://cultureamp.design/components/text-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-text-field--default-story Storybook}
  */
-export const TextField: React.VFC<TextFieldProps> = ({
+export const TextField = ({
   id,
   labelText,
   inline = false,
@@ -51,7 +51,7 @@ export const TextField: React.VFC<TextFieldProps> = ({
   reversed = false,
   disabled,
   ...restProps
-}) => {
+}: TextFieldProps): JSX.Element => {
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
     : ""
@@ -114,8 +114,8 @@ export const TextField: React.VFC<TextFieldProps> = ({
           })}
         >
           <FieldMessage
-            id={`${id}-field-message`}
-            automationId={`${id}-field-validation-message`}
+            id={validationMessageAria}
+            automationId={validationMessageAria}
             message={validationMessage}
             status={status}
             reversed={reversed}
@@ -130,8 +130,8 @@ export const TextField: React.VFC<TextFieldProps> = ({
           })}
         >
           <FieldMessage
-            id={`${id}-field-message`}
-            automationId={`${id}-field-description`}
+            id={descriptionAria}
+            automationId={descriptionAria}
             message={description}
             reversed={reversed}
           />

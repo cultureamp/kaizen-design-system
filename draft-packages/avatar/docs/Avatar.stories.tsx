@@ -1,15 +1,15 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import {
   Avatar,
   AvatarSizes,
   CompanyAvatarProps,
   GenericAvatarProps,
 } from "../../avatar/KaizenDraft/Avatar/Avatar"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 const PROPS_PHOTO_PERSONAL: GenericAvatarProps = {
   fullName: "Jane Doe",
@@ -65,9 +65,11 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof Avatar>
 
-export const DefaultStory = args => <Avatar {...args} />
+export const DefaultStory: ComponentStory<typeof Avatar> = args => (
+  <Avatar {...args} />
+)
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   avatarSrc:
@@ -95,8 +97,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <StoryWrapper.RowHeader
           headings={[
             "Photo Personal",
-            "Intials Personal",
-            "Initals Generic",
+            "Initials Personal",
+            "Initials Generic",
             "Default User",
           ]}
         />
@@ -112,7 +114,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
-          headings={["Initals Unicode", "Initals Long", "Company Avatar"]}
+          headings={["Initials Unicode", "Initials Long", "Company Avatar"]}
         />
         {ROWS.map(({ title, size }) => (
           <StoryWrapper.Row key={title} rowTitle={title}>

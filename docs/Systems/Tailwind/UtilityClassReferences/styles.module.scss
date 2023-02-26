@@ -1,0 +1,29 @@
+.textColorExample {
+  padding: 5px;
+  border-radius: 5px;
+  background: white;
+  width: fit-content;
+}
+
+.textColorExampleDark {
+  @extend .textColorExample;
+  background: black;
+}
+
+.wrappedText {
+  width: 0px;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+}
+
+.boxWithBorder {
+  @extend .box;
+  border: 2px solid black;
+}
+
+.outlined {
+  outline: 1px solid black;
+}

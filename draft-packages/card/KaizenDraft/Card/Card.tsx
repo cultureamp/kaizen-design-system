@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.module.scss"
+import styles from "./Card.module.scss"
 
 export type CardVariants =
   | "default"
@@ -40,7 +40,7 @@ export const Card = ({
   isElevated = false,
   classNameOverride,
   ...props
-}: CardProps) => {
+}: CardProps): JSX.Element => {
   const Tag = tag
   return (
     <Tag

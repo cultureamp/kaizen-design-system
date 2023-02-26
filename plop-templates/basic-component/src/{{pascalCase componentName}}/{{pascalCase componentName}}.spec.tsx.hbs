@@ -1,0 +1,18 @@
+import React from "react"
+import { render } from "@testing-library/react"
+import { {{pascalCase componentName}}, {{pascalCase componentName}}Props } from "./{{pascalCase componentName}}"
+
+const {{pascalCase componentName}}Wrapper = (customProps?: Partial<{{pascalCase componentName}}Props>): JSX.Element => (
+  <{{pascalCase componentName}}
+    exampleRequiredString="Hello!" /** @todo: Add default values for your required props (override them with customProps if needed) */
+    {...customProps}
+  />
+)
+
+describe("<{{pascalCase componentName}} />", () => {
+  it("does something", () => {
+    render(<{{pascalCase componentName}}Wrapper />)
+    /** @todo: Fill in test case */
+    expect(true).toBe(false)
+  })
+})

@@ -3,6 +3,276 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.24...@kaizen/a11y@1.6.25) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.23...@kaizen/a11y@1.6.24) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.22...@kaizen/a11y@1.6.23) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.21...@kaizen/a11y@1.6.22) (2023-02-09)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.20...@kaizen/a11y@1.6.21) (2023-02-01)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.19...@kaizen/a11y@1.6.20) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.18...@kaizen/a11y@1.6.19) (2023-01-23)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.17...@kaizen/a11y@1.6.18) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.16...@kaizen/a11y@1.6.17) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.15...@kaizen/a11y@1.6.16) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.14...@kaizen/a11y@1.6.15) (2023-01-03)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.13...@kaizen/a11y@1.6.14) (2022-12-01)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.12...@kaizen/a11y@1.6.13) (2022-11-25)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.11...@kaizen/a11y@1.6.12) (2022-11-17)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.10...@kaizen/a11y@1.6.11) (2022-11-13)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.9...@kaizen/a11y@1.6.10) (2022-11-09)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.8...@kaizen/a11y@1.6.9) (2022-11-01)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.7...@kaizen/a11y@1.6.8) (2022-10-26)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.6...@kaizen/a11y@1.6.7) (2022-10-24)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.5...@kaizen/a11y@1.6.6) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.4...@kaizen/a11y@1.6.5) (2022-09-30)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.3...@kaizen/a11y@1.6.4) (2022-09-14)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.2...@kaizen/a11y@1.6.3) (2022-09-05)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.1...@kaizen/a11y@1.6.2) (2022-09-02)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.0...@kaizen/a11y@1.6.1) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.5.1...@kaizen/a11y@1.6.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.5.0...@kaizen/a11y@1.5.1) (2022-08-01)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.16...@kaizen/a11y@1.5.0) (2022-07-28)
+
+
+### Features
+
+* add classNameOverride to hidden wrapper ([#2883](https://github.com/cultureamp/kaizen-design-system/issues/2883)) ([884ab2b](https://github.com/cultureamp/kaizen-design-system/commit/884ab2b1f60b330d61e2a4888d43286e8c9c704b))
+
+
+
+
+
+## [1.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.15...@kaizen/a11y@1.4.16) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.14...@kaizen/a11y@1.4.15) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.13...@kaizen/a11y@1.4.14) (2022-07-26)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.12...@kaizen/a11y@1.4.13) (2022-07-22)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
+## [1.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.11...@kaizen/a11y@1.4.12) (2022-07-21)
+
+**Note:** Version bump only for package @kaizen/a11y
+
+
+
+
+
 ## [1.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.4.10...@kaizen/a11y@1.4.11) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/a11y

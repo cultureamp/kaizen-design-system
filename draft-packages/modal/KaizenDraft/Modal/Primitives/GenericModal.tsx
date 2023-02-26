@@ -1,15 +1,15 @@
-import * as React from "react"
+import React from "react"
 import { createPortal } from "react-dom"
-import FocusLock from "react-focus-lock"
-import uuid from "uuid/v4"
-import { warn } from "@kaizen/component-library/util/console"
 import { Transition } from "@headlessui/react"
+import FocusLock from "react-focus-lock"
+import { v4 } from "uuid"
+import { warn } from "@kaizen/component-library/util/console"
+
 import {
   ModalAccessibleContext,
   ModalAccessibleContextType,
 } from "./ModalAccessibleContext"
-
-import styles from "./GenericModal.scss"
+import styles from "./GenericModal.module.scss"
 
 export interface GenericModalContainerProps {
   readonly isOpen: boolean
@@ -27,9 +27,11 @@ export interface GenericModalProps
 
 const MODAL_TRANSITION_TIMEOUT = 350
 
-const GenericModalContainer = (props: GenericModalContainerProps) => {
-  const labelledByID = uuid()
-  const describedByID = uuid()
+const GenericModalContainer = (
+  props: GenericModalContainerProps
+): JSX.Element => {
+  const labelledByID = v4()
+  const describedByID = v4()
   return (
     <ModalAccessibleContext.Provider
       value={{
@@ -47,7 +49,10 @@ const GenericModalContainer = (props: GenericModalContainerProps) => {
 }
 
 class GenericModal extends React.Component<GenericModalProps> {
-  componentWillUnmount() {
+  scrollLayer: HTMLDivElement | null = null
+  modalLayer: HTMLDivElement | null = null
+
+  componentWillUnmount(): void {
     /*
       Sometimes consumers control rendering modals without the
       isOpen prop: e.g {isShowing && (<Modal />)}
@@ -57,12 +62,12 @@ class GenericModal extends React.Component<GenericModalProps> {
     this.onAfterLeave()
   }
 
-  onBeforeEnter() {
+  onBeforeEnter(): void {
     this.addEventHandlers()
     this.preventBodyScroll()
   }
 
-  onAfterEnter() {
+  onAfterEnter(): void {
     this.scrollModalToTop()
     this.ensureAccessiblityIsMet()
     this.focusAccessibleLabel()
@@ -71,19 +76,19 @@ class GenericModal extends React.Component<GenericModalProps> {
     }
   }
 
-  onAfterLeave() {
+  onAfterLeave(): void {
     this.removeEventHandlers()
     this.restoreBodyScroll()
     this.removeAriaHider()
     this.props.onAfterLeave && this.props.onAfterLeave()
   }
 
-  addEventHandlers() {
+  addEventHandlers(): void {
     this.props.onEscapeKeyup &&
       document.addEventListener("keyup", this.escapeKeyHandler)
   }
 
-  removeEventHandlers() {
+  removeEventHandlers(): void {
     this.props.onEscapeKeyup &&
       document.removeEventListener("keyup", this.escapeKeyHandler)
   }
@@ -91,7 +96,7 @@ class GenericModal extends React.Component<GenericModalProps> {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   removeAriaHider(): void {}
 
-  preventBodyScroll() {
+  preventBodyScroll(): void {
     const hasScrollbar =
       window.innerWidth > document.documentElement.clientWidth
     const scrollStyles = [styles.unscrollable]
@@ -101,13 +106,13 @@ class GenericModal extends React.Component<GenericModalProps> {
     document.documentElement.classList.add(...scrollStyles)
   }
 
-  restoreBodyScroll() {
+  restoreBodyScroll(): void {
     document.documentElement.classList.remove(
       styles.unscrollable,
       styles.pseudoScrollbar
     )
   }
-  ensureAccessiblityIsMet() {
+  ensureAccessiblityIsMet(): void {
     if (!this.modalLayer) return
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
@@ -119,7 +124,7 @@ class GenericModal extends React.Component<GenericModalProps> {
     }
   }
 
-  scrollModalToTop() {
+  scrollModalToTop(): void {
     // If we have a really long modal, the autofocus could land on an element down below
     // causing the modal to scroll down and skipping over the content near the modal's top.
     // Ensure that when the modal opens, we are at the top of its content.
@@ -129,7 +134,7 @@ class GenericModal extends React.Component<GenericModalProps> {
     })
   }
 
-  focusAccessibleLabel() {
+  focusAccessibleLabel(): void {
     if (this.modalLayer) {
       const labelElement: HTMLElement | null = document.getElementById(
         this.props.labelledByID
@@ -154,11 +159,11 @@ class GenericModal extends React.Component<GenericModalProps> {
         show={isOpen}
         enter={styles.animatingEnter}
         leave={styles.animatingLeave}
-        beforeEnter={() => this.onBeforeEnter()}
-        afterEnter={() => this.onAfterEnter()}
-        afterLeave={() => this.onAfterLeave()}
+        beforeEnter={(): void => this.onBeforeEnter()}
+        afterEnter={(): void => this.onAfterEnter()}
+        afterLeave={(): void => this.onAfterLeave()}
         data-generic-modal-transition-wrapper
-        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        onClick={(e: React.MouseEvent): void => e.stopPropagation()}
       >
         <FocusLock
           disabled={focusLockDisabled}
@@ -173,7 +178,9 @@ class GenericModal extends React.Component<GenericModalProps> {
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
           <div
             className={styles.scrollLayer}
-            ref={scrollLayer => (this.scrollLayer = scrollLayer)}
+            ref={(scrollLayer): HTMLDivElement | null =>
+              (this.scrollLayer = scrollLayer)
+            }
             onClick={
               this.props.onOutsideModalClick && this.outsideModalClickHandler
             }
@@ -184,7 +191,9 @@ class GenericModal extends React.Component<GenericModalProps> {
               aria-labelledby={this.props.labelledByID}
               aria-describedby={this.props.describedByID}
               className={styles.modalLayer}
-              ref={modalLayer => (this.modalLayer = modalLayer)}
+              ref={(modalLayer): HTMLDivElement | null =>
+                (this.modalLayer = modalLayer)
+              }
               data-automation-id={automationId}
             >
               {children}
@@ -196,7 +205,7 @@ class GenericModal extends React.Component<GenericModalProps> {
     )
   }
 
-  escapeKeyHandler = (event: KeyboardEvent) => {
+  escapeKeyHandler = (event: KeyboardEvent): void => {
     if (
       event.key === "Escape" ||
       event.key === "Esc" // IE11
@@ -204,14 +213,11 @@ class GenericModal extends React.Component<GenericModalProps> {
       this.props.onEscapeKeyup && this.props.onEscapeKeyup(event)
   }
 
-  outsideModalClickHandler = (event: React.MouseEvent) => {
+  outsideModalClickHandler = (event: React.MouseEvent): void => {
     if (event.target === this.scrollLayer || event.target === this.modalLayer) {
       this.props.onOutsideModalClick && this.props.onOutsideModalClick(event)
     }
   }
-
-  scrollLayer: HTMLDivElement | null = null
-  modalLayer: HTMLDivElement | null = null
 }
 
 /**
@@ -220,7 +226,7 @@ class GenericModal extends React.Component<GenericModalProps> {
  */
 const getOwnerDocument = <T extends HTMLElement = HTMLElement>(
   element: T | null
-) =>
+): Document | null =>
   element && element.ownerDocument
     ? element.ownerDocument
     : canUseDOM()

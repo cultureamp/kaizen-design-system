@@ -1,15 +1,23 @@
-import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
+import React from "react"
+import { cleanup, render, screen } from "@testing-library/react"
 
 import { EmptyStateProps } from "./EmptyState"
 import { EmptyState } from "."
 
 jest.mock("@kaizen/draft-illustration", () => ({
-  EmptyStatesPositive: () => <div>EmptyStatesPositive_Component</div>,
-  EmptyStatesNeutral: () => <div>EmptyStatesNeutral_Component</div>,
-  EmptyStatesNegative: () => <div>EmptyStatesNegative_Component</div>,
-  EmptyStatesInformative: () => <div>EmptyStatesInformative_Component</div>,
-  EmptyStatesAction: () => <div>EmptyStatesAction_Component</div>,
+  EmptyStatesPositive: (): JSX.Element => (
+    <div>EmptyStatesPositive_Component</div>
+  ),
+  EmptyStatesNeutral: (): JSX.Element => (
+    <div>EmptyStatesNeutral_Component</div>
+  ),
+  EmptyStatesNegative: (): JSX.Element => (
+    <div>EmptyStatesNegative_Component</div>
+  ),
+  EmptyStatesInformative: (): JSX.Element => (
+    <div>EmptyStatesInformative_Component</div>
+  ),
+  EmptyStatesAction: (): JSX.Element => <div>EmptyStatesAction_Component</div>,
 }))
 
 describe("<EmptyState />", () => {
@@ -101,6 +109,19 @@ describe("<EmptyState />", () => {
       const { getByText } = render(<EmptyState {...props} />)
 
       expect(getByText("EmptyStatesAction_Component")).toBeTruthy()
+    })
+
+    it("renders the correct heading level based on tag provided", () => {
+      const props: EmptyStateProps = {
+        ...defaultProps,
+        headingProps: {
+          variant: "heading-3",
+          children: "Custom heading",
+          tag: "h2",
+        },
+      }
+      render(<EmptyState {...props} />)
+      expect(screen.getByRole("heading", { level: 2 })).toBeInTheDocument()
     })
   })
 })

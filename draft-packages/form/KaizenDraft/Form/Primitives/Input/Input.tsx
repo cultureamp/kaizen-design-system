@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./Input.module.scss"
 
 export type InputType = "text" | "email" | "password"
 export type InputStatus = "default" | "success" | "error" | "caution"
@@ -51,7 +51,7 @@ export interface InputProps
   automationId?: string
 }
 
-export const Input: React.VFC<InputProps> = ({
+export const Input = ({
   inputRef,
   status = "default",
   startIconAdornment,
@@ -70,7 +70,7 @@ export const Input: React.VFC<InputProps> = ({
   automationId,
   disabled,
   ...restProps
-}) => (
+}: InputProps): JSX.Element => (
   <div
     className={classnames(styles.wrapper, {
       [styles.withReversed]: reversed,

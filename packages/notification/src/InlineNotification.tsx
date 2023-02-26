@@ -1,11 +1,11 @@
-import * as React from "react"
+import React from "react"
+import { HeadingProps } from "@kaizen/typography"
 import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"
 
-type Props = {
+type InlineNotificationProps = {
   type: NotificationType
-  title: string
   children?: React.ReactNode
   autohide?: boolean
   autohideDelay?: "short" | "long"
@@ -15,6 +15,12 @@ type Props = {
   automationId?: string
   noBottomMargin?: boolean
   forceMultiline?: boolean
+  headingProps?: HeadingProps
+  /**
+   * **Deprecated:** Use headingProps
+   * @deprecated
+   */
+  title?: string
 }
 
 /**
@@ -25,7 +31,7 @@ const InlineNotification = ({
   persistent,
   hideCloseIcon,
   ...otherProps
-}: Props) => (
+}: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
     persistent={persistent || hideCloseIcon}

@@ -1,0 +1,12 @@
+import { KaizenProvider, ThemeManager } from "@kaizen/components"
+
+- const themeManager = new ThemeManager(defaultTheme)
+
+...
+
+return(
+-  <KaizenProvider themeManager={themeManager}>
++  <KaizenProvider>
+    <App />
+  </KaizenProvider>
+)

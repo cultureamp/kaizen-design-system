@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useLayoutEffect, useState } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.module.scss"
+import styles from "./Badge.module.scss"
 
 interface CommonProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
@@ -31,14 +31,14 @@ export type BadgeProps = CommonProps | DotProps
  * {@link https://cultureamp.design/components/badge/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-badge--default-story Storybook}
  */
-export const Badge: React.VFC<BadgeProps> = ({
+export const Badge = ({
   children,
   variant = "default",
   reversed = false,
   size = "small",
   classNameOverride,
   ...restProps
-}) => (
+}: BadgeProps): JSX.Element => (
   <span
     className={classNames(styles.badge, styles[variant], classNameOverride, {
       [styles.reversed]: reversed,
@@ -50,7 +50,7 @@ export const Badge: React.VFC<BadgeProps> = ({
   </span>
 )
 
-export const BadgeAnimated: React.VFC<BadgeProps> = props => {
+export const BadgeAnimated = (props: BadgeProps): JSX.Element => {
   const [isFocused, setIsFocused] = useState(false)
 
   useLayoutEffect(() => {

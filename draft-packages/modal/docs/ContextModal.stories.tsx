@@ -1,14 +1,15 @@
 import React, { useState } from "react"
+import { DecoratorFunction } from "@storybook/addons"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
-import { ComponentStory } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES } from "../../../storybook/constants"
-import styles from "./ContextModal.stories.scss"
+import { figmaEmbed } from "../../../storybook/helpers"
+import styles from "./ContextModal.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -16,7 +17,7 @@ const IS_CHROMATIC = isChromatic()
 // Modals have fixed position and would be cropped from snapshot tests.
 // Setting height to 100vh ensures we capture as much content of the
 // modal, as it's height responds to the content within it.
-const withMinHeight = Story => {
+const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
   if (IS_CHROMATIC) {
     return <div style={{ minHeight: "100vh" }}>{Story()}</div>
   }
@@ -47,13 +48,13 @@ export default {
     },
   },
   decorators: [withDesign, withMinHeight],
-}
+} as ComponentMeta<typeof ContextModal>
 
 const ContextModalTemplate: ComponentStory<typeof ContextModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
 
-  const handleOpen = () => setIsOpen(true)
-  const handleClose = () => setIsOpen(false)
+  const handleOpen = (): void => setIsOpen(true)
+  const handleClose = (): void => setIsOpen(false)
 
   return (
     <>

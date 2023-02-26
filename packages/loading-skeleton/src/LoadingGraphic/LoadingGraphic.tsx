@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import skeletonStyles from "../loading-skeleton.scss"
-import graphicStyles from "./LoadingGraphic.scss"
+import skeletonStyles from "../loading-skeleton.module.scss"
+import graphicStyles from "./LoadingGraphic.module.scss"
 
 export type GraphicSizes =
   | "small"
@@ -28,13 +28,13 @@ export interface LoadingGraphicProps
   size: GraphicSizes
 }
 
-export const LoadingGraphic: React.VFC<LoadingGraphicProps> = ({
+export const LoadingGraphic = ({
   isAnimated,
   isReversed,
   size,
   classNameOverride,
   ...props
-}) => (
+}: LoadingGraphicProps): JSX.Element => (
   <div
     className={classnames(
       skeletonStyles.base,

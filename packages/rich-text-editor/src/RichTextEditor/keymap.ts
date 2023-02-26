@@ -1,6 +1,13 @@
-import { EditorState, Transaction } from "prosemirror-state"
-import { Schema } from "prosemirror-model"
 import {
+  ProseMirrorCommands,
+  ProseMirrorState,
+  ProseMirrorModel,
+  ProseMirrorSchemaList,
+  ProseMirrorHistory,
+  ProseMirrorInputrules,
+} from "@cultureamp/rich-text-toolkit"
+
+const {
   chainCommands,
   exitCode,
   joinDown,
@@ -9,29 +16,22 @@ import {
   selectParentNode,
   setBlockType,
   toggleMark,
-} from "prosemirror-commands"
-import { redo, undo } from "prosemirror-history"
-import { undoInputRule } from "prosemirror-inputrules"
-import {
-  wrapInList,
-  splitListItem,
-  liftListItem,
-  sinkListItem,
-} from "prosemirror-schema-list"
-
-// Most/all of this file is copied from https://github.com/ProseMirror/prosemirror-example-setup/blob/master/src/keymap.js
+} = ProseMirrorCommands
+const { redo, undo } = ProseMirrorHistory
+const { undoInputRule } = ProseMirrorInputrules
+const { wrapInList, splitListItem, liftListItem, sinkListItem } =
+  ProseMirrorSchemaList
 
 const mac =
   // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
   typeof navigator != "undefined" ? /Mac/.test(navigator.platform) : false
 
-export function buildKeymap(schema: Schema) {
-  const keys: {
-    [key: string]: (
-      state: EditorState<any>,
-      dispatch?: ((tr: Transaction<any>) => void) | undefined
-    ) => boolean
-  } = {
+interface KeyBinding {
+  [key: string]: ProseMirrorState.Command
+}
+
+export function buildKeymap(schema: ProseMirrorModel.Schema): KeyBinding {
+  const keys: KeyBinding = {
     "Mod-z": undo,
     "Shift-Mod-z": redo,
     Backspace: undoInputRule,

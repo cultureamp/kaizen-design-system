@@ -9,10 +9,13 @@ import {
   EmptyStatesPositive,
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
-import { Paragraph, Heading } from "@kaizen/typography"
-import styles from "./styles.scss"
+import { Paragraph, Heading, HeadingProps } from "@kaizen/typography"
+import styles from "./EmptyState.module.scss"
 
-const ILLUSTRATIONS: { [k: string]: React.VFC<AnimatedSceneProps> } = {
+const ILLUSTRATIONS: Record<
+  string,
+  (props: AnimatedSceneProps) => JSX.Element
+> = {
   positive: EmptyStatesPositive,
   neutral: EmptyStatesNeutral,
   negative: EmptyStatesNegative,
@@ -36,9 +39,14 @@ export interface EmptyStateProps
   id?: string
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
-  headingText: string | React.ReactNode
   bodyText: string | React.ReactNode
   straightCorners?: boolean
+  headingProps?: HeadingProps
+  /**
+   * **Deprecated:** Use headingProps
+   * @deprecated
+   */
+  headingText?: string | React.ReactNode
   /**
    * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
    * @deprecated
@@ -50,12 +58,13 @@ export interface EmptyStateProps
  * {@link https://cultureamp.design/components/empty-state/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-empty-state--default-kaizen-site-demo Storybook}
  */
-export const EmptyState: React.VFC<EmptyStateProps> = ({
+export const EmptyState = ({
   children,
   id,
   illustrationType = "informative",
   layoutContext = "sidebarAndContent",
   headingText,
+  headingProps,
   bodyText,
   straightCorners,
   isAnimated = true,
@@ -63,7 +72,7 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
   automationId,
   classNameOverride,
   ...props
-}) => {
+}: EmptyStateProps): JSX.Element => {
   const IllustrationComponent = ILLUSTRATIONS[illustrationType]
 
   return (
@@ -95,13 +104,17 @@ export const EmptyState: React.VFC<EmptyStateProps> = ({
       </div>
       <div className={styles.textSide}>
         <div className={styles.textSideInner}>
-          <Heading
-            variant="heading-3"
-            classNameOverride={styles.heading}
-            tag="div"
-          >
-            {headingText}
-          </Heading>
+          {headingProps ? (
+            <Heading classNameOverride={styles.heading} {...headingProps} />
+          ) : (
+            <Heading
+              variant="heading-3"
+              classNameOverride={styles.heading}
+              tag="div"
+            >
+              {headingText}
+            </Heading>
+          )}
           <Paragraph variant="body" classNameOverride={styles.description}>
             {bodyText}
           </Paragraph>

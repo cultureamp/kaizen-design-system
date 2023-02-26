@@ -3,9 +3,7 @@ import { formatDateAsNumeral } from "./formatDateAsNumeral"
 
 describe("formatDateAsNumeral", () => {
   it("formats invalid date as error message", () => {
-    expect(formatDateAsNumeral(new Date("potato"), enUS)).toEqual(
-      "Invalid Date"
-    )
+    expect(formatDateAsNumeral(new Date("potato"), enUS)).toEqual("")
   })
 
   describe("localisation - en-AU", () => {

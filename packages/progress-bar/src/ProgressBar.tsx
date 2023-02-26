@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
-import styles from "./ProgressBar.scss"
+import styles from "./ProgressBar.module.scss"
 
 type Mood = "positive" | "informative" | "negative" | "cautionary"
 
@@ -15,6 +15,7 @@ export interface ProgressBarProps
   mood: Mood
   subtext?: string
   label?: string
+  isReversed: boolean
 }
 
 const progressClassNames = (props: ProgressBarProps): string => {
@@ -28,7 +29,7 @@ const progressClassNames = (props: ProgressBarProps): string => {
   })
 }
 
-function calculatePercentage({ value, max }: ProgressBarProps) {
+function calculatePercentage({ value, max }: ProgressBarProps): number {
   return (value / max) * 100.0
 }
 
@@ -36,7 +37,7 @@ function calculatePercentage({ value, max }: ProgressBarProps) {
  * {@link https://cultureamp.design/components/progress-bar/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-progress-bar--default-story Storybook}
  */
-export const ProgressBar: React.VFC<ProgressBarProps> = props => {
+export const ProgressBar = (props: ProgressBarProps): JSX.Element => {
   const {
     value,
     max,
@@ -45,6 +46,7 @@ export const ProgressBar: React.VFC<ProgressBarProps> = props => {
     subtext,
     label,
     classNameOverride,
+    isReversed = false,
     ...restProps
   } = props
   const percentage = calculatePercentage(props)
@@ -57,7 +59,7 @@ export const ProgressBar: React.VFC<ProgressBarProps> = props => {
       className={classNameOverride}
       {...restProps}
     >
-      {label && <Label content={label} />}
+      {label && <Label content={label} isReversed={isReversed} />}
       <div className={styles.progressBackground}>
         <div
           className={progressClassNames(props)}
@@ -67,7 +69,11 @@ export const ProgressBar: React.VFC<ProgressBarProps> = props => {
       {subtext && (
         <div className={styles.subtext}>
           <Box pt={0.25}>
-            <Heading variant="heading-6" tag="p">
+            <Heading
+              variant="heading-6"
+              tag="p"
+              color={isReversed ? "white" : "dark"}
+            >
               {subtext}
             </Heading>
           </Box>
@@ -79,14 +85,22 @@ export const ProgressBar: React.VFC<ProgressBarProps> = props => {
 
 ProgressBar.displayName = "ProgressBar"
 
-function Label({ content }: { content: ReactNode }) {
-  return (
-    <div className={styles.label}>
-      <Box pb={0.25}>
-        <Heading variant="heading-4" tag="p">
-          {content}
-        </Heading>
-      </Box>
-    </div>
-  )
-}
+const Label = ({
+  content,
+  isReversed = false,
+}: {
+  content: ReactNode
+  isReversed: boolean
+}): JSX.Element => (
+  <div className={styles.label}>
+    <Box pb={0.25}>
+      <Heading
+        variant="heading-4"
+        tag="p"
+        color={isReversed ? "white" : "dark"}
+      >
+        {content}
+      </Heading>
+    </Box>
+  </div>
+)

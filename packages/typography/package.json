@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/typography",
-  "version": "2.2.3",
+  "version": "2.3.6",
   "description": "Collection of Kaizen typography components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -23,24 +23,22 @@
     "**/*.d.ts",
     "!**/*.spec.*",
     "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!docs",
+    "!docs/**/*",
     "!tsconfig.dist.json"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.0",
-    "classnames": "^2.3.1"
+    "@kaizen/component-base": "^1.1.3",
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.1.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0",
-    "react": "^16.9.0 || ^17.0.0 || ^18.0.0"
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

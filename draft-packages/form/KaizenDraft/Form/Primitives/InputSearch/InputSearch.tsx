@@ -1,11 +1,11 @@
-import React, { InputHTMLAttributes } from "react"
+import React, { InputHTMLAttributes, useRef } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
-import { LoadingSpinner } from "@kaizen/loading-spinner"
 import search from "@kaizen/component-library/icons/search.icon.svg"
-import clear from "@kaizen/component-library/icons/clear.icon.svg"
-import styles from "./styles.scss"
+import { LoadingSpinner } from "@kaizen/loading-spinner"
+import { ClearButton } from "../ClearButton"
+import styles from "./InputSearch.module.scss"
 
 export interface InputSearchProps
   extends OverrideClassName<
@@ -18,9 +18,7 @@ export interface InputSearchProps
   onClear?: () => void
 }
 
-export const InputSearch: React.VFC<InputSearchProps> = (
-  props: InputSearchProps
-) => {
+export const InputSearch = (props: InputSearchProps): JSX.Element => {
   const {
     value,
     onChange,
@@ -32,40 +30,39 @@ export const InputSearch: React.VFC<InputSearchProps> = (
     secondary = false,
     ...restProps
   } = props
+  const inputRef = useRef<HTMLInputElement>(null)
 
+  const handleOnClear = (): void => {
+    inputRef.current?.focus()
+    onClear && onClear()
+  }
   return (
     <div
       className={classnames(
         styles.wrapper,
-        styles.withStartIconAdornment,
-        styles.withEndIconAdornment,
-        styles.withSearch,
-        {
-          [styles.withReversed]: reversed,
-          [styles.withDisabled]: disabled,
-          [styles.withSecondary]: secondary,
-          [styles.withLoading]: loading,
-        }
+        secondary ? styles.secondary : styles.default,
+        reversed && styles.reversed,
+        disabled && styles.disabled,
+        value && styles.hasEndIconAdornment,
+        classNameOverride
       )}
     >
       <div className={styles.startIconAdornment}>
         {loading ? (
-          <div className={styles.loadingIcon}>
-            <LoadingSpinner accessibilityLabel="" size="sm" />
-          </div>
+          <LoadingSpinner
+            accessibilityLabel=""
+            size="sm"
+            classNameOverride={styles.loadingSpinner}
+          />
         ) : (
           <Icon icon={search} role="presentation" />
         )}
       </div>
 
       <input
+        ref={inputRef}
         type="search"
-        className={classnames(styles.input, styles.search, classNameOverride, {
-          [styles.default]: !reversed,
-          [styles.reversed]: reversed,
-          [styles.disabled]: disabled,
-          [styles.secondary]: secondary,
-        })}
+        className={styles.input}
         disabled={disabled}
         value={value}
         onChange={onChange}
@@ -77,16 +74,12 @@ export const InputSearch: React.VFC<InputSearchProps> = (
       <div className={styles.focusRing} />
 
       {value && (
-        <div className={styles.endIconAdornment}>
-          <button
-            type="button"
-            className={styles.cancelButton}
-            aria-label="clear"
-            onClick={onClear}
-          >
-            <Icon icon={clear} role="presentation" />
-          </button>
-        </div>
+        <ClearButton
+          isReversed={reversed}
+          onClick={handleOnClear}
+          disabled={disabled}
+          classNameOverride={styles.endIconAdornment}
+        />
       )}
     </div>
   )

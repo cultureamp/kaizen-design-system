@@ -1,82 +1,59 @@
-import { Label } from "@kaizen/draft-form"
 import React, { RefObject, useRef, useState } from "react"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import cx from "classnames"
-import { Icon } from "@kaizen/component-library"
-import { FocusOn } from "react-focus-on"
-import { DateRange, DateInterval, isMatch } from "react-day-picker"
 import { enUS } from "date-fns/locale"
+import { DateRange, isMatch } from "react-day-picker"
+import { FocusOn } from "react-focus-on"
+import { Icon } from "@kaizen/component-library"
+import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
+import { Label } from "@kaizen/draft-form"
+import {
+  LegacyCalendarRange,
+  LegacyCalendarRangeProps,
+} from "../_subcomponents/Calendar"
+import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapper"
+import { DisabledDayMatchers } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
-import { Calendar, CalendarProps } from "../_primitives/Calendar"
-import { DayOfWeek } from "../enums"
-import { CalendarWrapper } from "../_primitives/CalendarWrapper"
-import dateRangePickerStyles from "./DateRangePicker.scss"
+import dateRangePickerStyles from "./DateRangePicker.module.scss"
 
-export interface DateRangePickerProps {
+export interface DateRangePickerProps extends DisabledDayMatchers {
   id: string
   classNameOverride?: string
   labelText: string
   isDisabled?: boolean
   buttonRef?: RefObject<HTMLButtonElement>
   description?: string
-  /** Selected date range which is being updated in handleDayClick and checked
+  /**
+   * Selected date range which is being updated in handleDayClick and checked
    * if within range/not disabled and then passed back to the client to update
    * the state.
    */
   selectedDateRange?: DateRange
-
-  /** String that is formatted by the client with our helper formatDateRangeValue
+  /**
+   * String that is formatted by the client with our helper formatDateRangeValue
    * and then passed into the button to display the readable range.
    */
   value?: string
-
-  /** Accepts a DayOfWeek value to start the week on that day. By default,
+  /**
+   * Accepts a DayOfWeek value to start the week on that day. By default,
    * it's set to Monday.
    */
-  weekStartsOn?: CalendarProps["weekStartsOn"]
-
-  // Accepts a date to display that month on first render.
-  defaultMonth?: CalendarProps["defaultMonth"]
-
-  // Event passed from consumer to handle the date on change.
+  weekStartsOn?: LegacyCalendarRangeProps["weekStartsOn"]
+  /**
+   * Accepts a date to display that month on first render.
+   */
+  defaultMonth?: LegacyCalendarRangeProps["defaultMonth"]
+  /**
+   * Event passed from consumer to handle the date on change.
+   */
   onChange: (dateRange: DateRange) => void
-
-  /** Accepts an array of singluar dates and disables them.
-   * e.g. disabledDates={[new Date(2022, 1, 12), new Date(2022, 1, 25)]}
-   *  */
-  disabledDates?: Date[]
-
-  /** Accepts an object with a from and to date. Disables any date
-   *  inside of that range.
-   *  disabledRange={ from: new Date(2022, 1, 12), to: new Date(2022, 1, 16) }
-   * */
-  disabledRange?: DateRange
-
-  /** Accepts an object with a before and after date. Disables any date
-   *  outside of that range.
-   *  { before: new Date(2022, 1, 12), after: new Date(2022, 1, 16) }
-   */
-  disabledBeforeAfter?: DateInterval
-
-  // Accepts single date and disables all days before it.
-  disabledBefore?: Date
-
-  // Accepts single date and disables all days after it.
-  disabledAfter?: Date
-
-  /** Accepts an array of DayOfWeek values and disables those days throughout
-   *  the calendar.
-   * e.g. disabledDaysOfWeek={[DayOfWeek.Mon, DayOfWeek.Tue]}
-   */
-  disabledDaysOfWeek?: DayOfWeek[]
 }
 
 /**
  * {@link https://cultureamp.design/components/date-range-picker/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-range-picker--date-range-picker-sticker-sheet Storybook}
  */
-export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
+export const DateRangePicker = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
   description,
@@ -95,7 +72,7 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
   value,
   onChange,
   ...inputProps
-}) => {
+}: DateRangePickerProps): JSX.Element => {
   const containerRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -162,11 +139,6 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
     return !range.from || isBeforeFirstDay || isRangeSelected
   }
 
-  const modifiers: DateRange = {
-    from: selectedDateRange?.from,
-    to: selectedDateRange?.to,
-  }
-
   return (
     <div>
       <div ref={containerRef}>
@@ -201,27 +173,21 @@ export const DateRangePicker: React.VFC<DateRangePickerProps> = ({
         <FocusOn
           scrollLock={false}
           onDeactivation={handleReturnFocus}
-          onClickOutside={() => {
-            handleOpenClose()
-          }}
-          onEscapeKey={() => {
-            handleOpenClose()
-          }}
+          onClickOutside={handleOpenClose}
+          onEscapeKey={handleOpenClose}
           enabled={isOpen}
         >
-          <CalendarWrapper referenceElement={containerRef.current}>
-            <Calendar
-              mode="range"
+          <FloatingCalendarWrapper referenceElement={containerRef.current}>
+            <LegacyCalendarRange
               id={`${id}-calendar-dialog`}
               selectedRange={selectedDateRange}
               defaultMonth={defaultMonth}
               weekStartsOn={weekStartsOn}
               disabledDays={disabledDays}
               onDayChange={handleDayClick}
-              modifiers={modifiers}
               locale={enUS}
             />
-          </CalendarWrapper>
+          </FloatingCalendarWrapper>
         </FocusOn>
       )}
     </div>

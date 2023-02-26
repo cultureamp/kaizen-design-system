@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./Well.module.scss"
 
 type VariantType =
   | "positive"
@@ -31,7 +31,7 @@ export interface WellProps
  * {@link https://cultureamp.design/components/well/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-well--assertive Storybook}
  */
-export const Well: React.VFC<WellProps> = ({
+export const Well = ({
   children,
   variant = "default",
   borderStyle = "solid",
@@ -39,7 +39,7 @@ export const Well: React.VFC<WellProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: WellProps): JSX.Element => (
   <div
     data-automation-id={automationId}
     className={classnames(

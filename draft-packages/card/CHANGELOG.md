@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.2.5...@kaizen/draft-card@3.2.6) (2023-01-30)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [3.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.2.4...@kaizen/draft-card@3.2.5) (2023-01-18)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [3.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.2.3...@kaizen/draft-card@3.2.4) (2023-01-04)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [3.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.2.2...@kaizen/draft-card@3.2.3) (2022-10-19)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.2.1...@kaizen/draft-card@3.2.2) (2022-09-14)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.2.0...@kaizen/draft-card@3.2.1) (2022-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.1.3...@kaizen/draft-card@3.2.0) (2022-08-18)
+
+
+### Features
+
+* update react to 16.14.0 ([#2922](https://github.com/cultureamp/kaizen-design-system/issues/2922)) ([22878be](https://github.com/cultureamp/kaizen-design-system/commit/22878beee1884e2f58d0447b3908321937175228))
+
+
+
+
+
+## [3.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.1.2...@kaizen/draft-card@3.1.3) (2022-07-27)
+
+**Note:** Version bump only for package @kaizen/draft-card
+
+
+
+
+
 ## [3.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-card@3.1.1...@kaizen/draft-card@3.1.2) (2022-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-card

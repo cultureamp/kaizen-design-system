@@ -1,7 +1,7 @@
 import React, { LabelHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./styles.scss"
+import styles from "./Label.module.scss"
 
 type LabelType = "text" | "checkbox" | "toggle" | "radio"
 
@@ -21,7 +21,7 @@ export interface LabelProps
   automationId?: string
 }
 
-export const Label: React.VFC<LabelProps> = ({
+export const Label = ({
   children,
   labelText = "",
   labelType = "text",
@@ -32,7 +32,7 @@ export const Label: React.VFC<LabelProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: LabelProps): JSX.Element => (
   <label
     data-automation-id={automationId}
     className={classnames(styles.label, classNameOverride, {

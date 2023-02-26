@@ -1,4 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["./packages/component-library/stories/*", "**/node_modules"]
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "noEmit": false,
+    "sourceMap": true
+  }
 }

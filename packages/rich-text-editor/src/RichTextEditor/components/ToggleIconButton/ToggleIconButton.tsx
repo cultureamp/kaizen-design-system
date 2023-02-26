@@ -1,9 +1,9 @@
 import React from "react"
-import { Tooltip } from "@kaizen/draft-tooltip"
-import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./ToggleIconButton.scss"
+import { Icon } from "@kaizen/component-library"
+import { Tooltip } from "@kaizen/draft-tooltip"
+import styles from "./ToggleIconButton.module.scss"
 
 export interface ToggleIconButtonProps
   extends OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>> {
@@ -21,39 +21,46 @@ export interface ToggleIconButtonProps
     | "secondary-destructive"
 }
 
-export const ToggleIconButton: React.VFC<ToggleIconButtonProps> =
-  React.forwardRef((props, ref: React.Ref<HTMLButtonElement>) => {
-    const {
-      icon,
-      label,
-      isActive = false,
-      mood = "default",
-      disabled = false,
-      classNameOverride,
-      onClick,
-      ...nativeButtonProps
-    } = props
-    return (
-      <Tooltip text={label} display="inline-block" position="above">
-        <button
-          ref={ref}
-          type="button"
-          aria-pressed={isActive}
-          aria-label={label}
-          aria-disabled={disabled}
-          onMouseDown={e => e.preventDefault()}
-          onClick={!disabled ? onClick : undefined}
-          className={classnames(styles.button, classNameOverride, {
-            [styles.active]: isActive,
-            [styles[mood]]: mood,
-            [styles.disabled]: disabled,
-          })}
-          {...nativeButtonProps}
-        >
-          <Icon icon={icon} role="presentation" />
-        </button>
-      </Tooltip>
-    )
-  })
+export const ToggleIconButton = React.forwardRef<
+  HTMLButtonElement,
+  ToggleIconButtonProps
+>((props, ref) => {
+  const {
+    icon,
+    label,
+    isActive = false,
+    mood = "default",
+    disabled = false,
+    classNameOverride,
+    onClick,
+    ...nativeButtonProps
+  } = props
+  return (
+    <Tooltip
+      text={label}
+      display="inline-block"
+      position="above"
+      animationDuration={5}
+    >
+      <button
+        ref={ref}
+        type="button"
+        aria-pressed={isActive}
+        aria-label={label}
+        aria-disabled={disabled}
+        onMouseDown={(e): void => e.preventDefault()}
+        onClick={!disabled ? onClick : undefined}
+        className={classnames(styles.button, classNameOverride, {
+          [styles.active]: isActive,
+          [styles[mood]]: mood,
+          [styles.disabled]: disabled,
+        })}
+        {...nativeButtonProps}
+      >
+        <Icon icon={icon} role="presentation" />
+      </button>
+    </Tooltip>
+  )
+})
 
 ToggleIconButton.displayName = "ToggleIconButton"

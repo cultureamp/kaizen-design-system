@@ -1,10 +1,8 @@
-import * as React from "react"
-
+import React from "react"
 import { IconButton } from "@kaizen/button"
 import close from "@kaizen/component-library/icons/close.icon.svg"
 import GenericModalSection from "./GenericModalSection"
-
-import styles from "./ModalHeader.scss"
+import styles from "./ModalHeader.module.scss"
 
 export interface ModalHeaderProps {
   readonly unpadded?: boolean
@@ -14,7 +12,7 @@ export interface ModalHeaderProps {
 }
 
 class ModalHeader extends React.Component<ModalHeaderProps> {
-  render() {
+  render(): JSX.Element {
     const { reversed, onDismiss, children } = this.props
 
     return (
