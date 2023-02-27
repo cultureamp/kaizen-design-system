@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.14...@kaizen/components@1.4.15) (2023-02-27)
+
+
+### Bug Fixes
+
+* replace esbuild with tsup ([#3311](https://github.com/cultureamp/kaizen-design-system/issues/3311)) ([7fa6990](https://github.com/cultureamp/kaizen-design-system/commit/7fa6990a3479a4d3c33a8370ff1b5f3adf51e543))
+
+
+
+
+
 ## [1.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.13...@kaizen/components@1.4.14) (2023-02-26)
 
 **Note:** Version bump only for package @kaizen/components

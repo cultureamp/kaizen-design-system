@@ -3,7 +3,7 @@ import styles from "./ExampleComponent.module.scss"
 
 // Placeholder for illustration DO NOT COPY
 export const ExampleComponent = (): JSX.Element => (
-  <div className={`${styles.exampleComponent} bg-purple-600`}>
+  <div className={`${styles.exampleComponent} bg-green-300`}>
     ExampleComponent FUTURE
   </div>
 )
