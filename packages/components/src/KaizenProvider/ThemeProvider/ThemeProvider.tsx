@@ -5,12 +5,10 @@ import React, {
   useEffect,
   useState,
 } from "react"
-import { Theme } from "@kaizen/design-tokens"
 import { ThemeManager } from "./ThemeManager"
+import { defaultTheme, Theme } from "./themes"
 
-import heartTheme from "./themes/heart"
-
-export const ThemeContext: Context<Theme> = createContext<Theme>(heartTheme)
+export const ThemeContext: Context<Theme> = createContext<Theme>(defaultTheme)
 
 /**
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
@@ -24,7 +22,7 @@ export const ThemeProvider = ({
   children: React.ReactNode
 }): JSX.Element => {
   const [themeManagerInstance] = useState<ThemeManager>(
-    () => themeManager || new ThemeManager(heartTheme)
+    () => themeManager || new ThemeManager(defaultTheme)
   )
 
   const [theme, setTheme] = useState<Theme>(
