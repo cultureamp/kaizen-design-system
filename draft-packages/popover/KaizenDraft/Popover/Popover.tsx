@@ -143,7 +143,12 @@ export const Popover = ({
               {heading}
             </Heading>
             {dismissible && (
-              <button className={styles.close} onClick={onClose} type="button">
+              <button
+                className={styles.close}
+                onClick={onClose}
+                type="button"
+                aria-label="close"
+              >
                 <Icon role="presentation" icon={closeIcon} />
               </button>
             )}
