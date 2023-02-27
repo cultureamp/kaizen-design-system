@@ -19,61 +19,64 @@ export interface SliderFieldProps extends InputRangeProps {
  * {@link https://cultureamp.design/components/slider/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-slider--controlled Storybook}
  */
-export const Slider = (props: SliderFieldProps): JSX.Element => {
-  const {
-    id,
-    labelText,
-    description,
-    labelPosition = "inline",
-    variant = "default",
-    disabled,
-    readOnlyMessage,
-    ...restProps
-  } = props
-  const descriptionId = `${id}-description`
+export const Slider = React.forwardRef<HTMLInputElement, SliderFieldProps>(
+  (props: SliderFieldProps, ref): JSX.Element => {
+    const {
+      id,
+      labelText,
+      description,
+      labelPosition = "inline",
+      variant = "default",
+      disabled,
+      readOnlyMessage,
+      ...restProps
+    } = props
+    const descriptionId = `${id}-description`
 
-  return (
-    <FieldGroup inline>
-      <div
-        className={classnames(styles.wrapper, {
-          [styles.labelInline]: labelPosition === "inline",
-        })}
-      >
-        <div className={styles.labelWrapper}>
-          <Box mb={0.25}>
-            <Label
-              htmlFor={id}
-              labelText={labelText}
-              variant={variant}
+    return (
+      <FieldGroup inline>
+        <div
+          className={classnames(styles.wrapper, {
+            [styles.labelInline]: labelPosition === "inline",
+          })}
+        >
+          <div className={styles.labelWrapper}>
+            <Box mb={0.25}>
+              <Label
+                htmlFor={id}
+                labelText={labelText}
+                variant={variant}
+                disabled={disabled}
+              />
+            </Box>
+            {description && (
+              <Paragraph
+                variant="small"
+                id={descriptionId}
+                classNameOverride={
+                  disabled ? styles.descriptionDisabled : undefined
+                }
+              >
+                {description}
+              </Paragraph>
+            )}
+          </div>
+          <div className={styles.inputWrapper}>
+            <InputRange
+              ref={ref}
+              id={id}
+              aria-describedby={descriptionId}
               disabled={disabled}
+              {...restProps}
             />
-          </Box>
-          {description && (
-            <Paragraph
-              variant="small"
-              id={descriptionId}
-              classNameOverride={
-                disabled ? styles.descriptionDisabled : undefined
-              }
-            >
-              {description}
-            </Paragraph>
-          )}
+            {readOnlyMessage && (
+              <div className={styles.readOnlyMessage}>{readOnlyMessage}</div>
+            )}
+          </div>
         </div>
-        <div className={styles.inputWrapper}>
-          <InputRange
-            id={id}
-            aria-describedby={descriptionId}
-            disabled={disabled}
-            {...restProps}
-          />
-          {readOnlyMessage && (
-            <div className={styles.readOnlyMessage}>{readOnlyMessage}</div>
-          )}
-        </div>
-      </div>
-    </FieldGroup>
-  )
-}
+      </FieldGroup>
+    )
+  }
+)
 
 Slider.displayName = "Slider"

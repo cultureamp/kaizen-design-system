@@ -8,7 +8,6 @@ export type InputStatus = "default" | "success" | "error" | "caution"
 
 export interface InputProps
   extends OverrideClassName<InputHTMLAttributes<HTMLInputElement>> {
-  inputRef?: React.RefObject<HTMLInputElement>
   status?: InputStatus
   startIconAdornment?: React.ReactNode
   endIconAdornment?: React.ReactNode
@@ -51,66 +50,70 @@ export interface InputProps
   automationId?: string
 }
 
-export const Input = ({
-  inputRef,
-  status = "default",
-  startIconAdornment,
-  endIconAdornment,
-  reversed = false,
-  type = "text",
-  inputType = "text",
-  ariaLabel,
-  ariaDescribedBy,
-  value,
-  inputValue,
-  defaultValue,
-  defaultInputValue,
-  classNameOverride,
-  className,
-  automationId,
-  disabled,
-  ...restProps
-}: InputProps): JSX.Element => (
-  <div
-    className={classnames(styles.wrapper, {
-      [styles.withReversed]: reversed,
-      [styles.withDisabled]: disabled,
-      [styles.withStartIconAdornment]: startIconAdornment,
-      [styles.withEndIconAdornment]: endIconAdornment,
-    })}
-  >
-    {startIconAdornment && (
-      <div className={styles.startIconAdornment}>{startIconAdornment}</div>
-    )}
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      status = "default",
+      startIconAdornment,
+      endIconAdornment,
+      reversed = false,
+      type = "text",
+      inputType = "text",
+      ariaLabel,
+      ariaDescribedBy,
+      value,
+      inputValue,
+      defaultValue,
+      defaultInputValue,
+      classNameOverride,
+      className,
+      automationId,
+      disabled,
+      ...restProps
+    },
+    ref
+  ) => (
+    <div
+      className={classnames(styles.wrapper, {
+        [styles.withReversed]: reversed,
+        [styles.withDisabled]: disabled,
+        [styles.withStartIconAdornment]: startIconAdornment,
+        [styles.withEndIconAdornment]: endIconAdornment,
+      })}
+    >
+      {startIconAdornment && (
+        <div className={styles.startIconAdornment}>{startIconAdornment}</div>
+      )}
 
-    <input
-      ref={inputRef}
-      data-automation-id={automationId}
-      type={inputType || type}
-      value={inputValue || value}
-      defaultValue={defaultInputValue || defaultValue}
-      aria-describedby={ariaDescribedBy} // will be replaced by `aria-describedby` in restProps
-      aria-label={ariaLabel} // will be replaced by `aria-label` in restProps
-      disabled={disabled}
-      className={classnames([
-        styles.input,
-        styles[status],
-        className,
-        classNameOverride,
-        reversed ? styles.reversed : styles.default,
-        disabled && styles.disabled,
-      ])}
-      {...restProps}
-    />
+      <input
+        ref={ref}
+        data-automation-id={automationId}
+        type={inputType || type}
+        value={inputValue || value}
+        defaultValue={defaultInputValue || defaultValue}
+        aria-describedby={ariaDescribedBy} // will be replaced by `aria-describedby` in restProps
+        aria-label={ariaLabel} // will be replaced by `aria-label` in restProps
+        disabled={disabled}
+        className={classnames([
+          styles.input,
+          styles[status],
+          className,
+          classNameOverride,
+          reversed ? styles.reversed : styles.default,
+          disabled && styles.disabled,
+        ])}
+        {...restProps}
+      />
 
-    {/* Inputs aren't able to have pseudo elements like ::after on them,
+      {/* Inputs aren't able to have pseudo elements like ::after on them,
           so we have to create an element ourselves for the focus ring */}
-    <div className={styles.focusRing} />
+      <div className={styles.focusRing} />
 
-    {endIconAdornment && (
-      <div className={styles.endIconAdornment}>{endIconAdornment}</div>
-    )}
-  </div>
+      {endIconAdornment && (
+        <div className={styles.endIconAdornment}>{endIconAdornment}</div>
+      )}
+    </div>
+  )
 )
 
 Input.displayName = "Input"

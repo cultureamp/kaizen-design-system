@@ -31,7 +31,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         disabled={disabled}
       />
       <Input
-        inputRef={isRefObject(ref) ? ref : undefined}
+        ref={isRefObject(ref) ? ref : undefined}
         id={id}
         autoComplete="off"
         disabled={disabled}

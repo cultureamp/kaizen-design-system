@@ -35,40 +35,46 @@ const renderSelected = (
   return
 }
 
-export const Radio = ({
-  id,
-  name,
-  value,
-  selectedStatus = false,
-  reversed = false,
-  automationId,
-  onChange,
-  classNameOverride,
-  ...restProps
-}: RadioProps): JSX.Element => (
-  <span>
-    <input
-      data-automation-id={automationId}
-      type="radio"
-      id={id}
-      name={name}
-      value={value}
-      checked={selectedStatus}
-      className={classnames(styles.radioInput, classNameOverride, {
-        [styles.reversed]: reversed,
-      })}
-      onChange={onChange}
-      readOnly={onChange === undefined}
-      {...restProps}
-    />
-    <span
-      className={classnames(styles.box, {
-        [styles.reversed]: reversed,
-      })}
-    >
-      {renderSelected(selectedStatus, reversed)}
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+  (
+    {
+      id,
+      name,
+      value,
+      selectedStatus = false,
+      reversed = false,
+      automationId,
+      onChange,
+      classNameOverride,
+      ...restProps
+    },
+    ref
+  ): JSX.Element => (
+    <span>
+      <input
+        ref={ref}
+        data-automation-id={automationId}
+        type="radio"
+        id={id}
+        name={name}
+        value={value}
+        checked={selectedStatus}
+        className={classnames(styles.radioInput, classNameOverride, {
+          [styles.reversed]: reversed,
+        })}
+        onChange={onChange}
+        readOnly={onChange === undefined}
+        {...restProps}
+      />
+      <span
+        className={classnames(styles.box, {
+          [styles.reversed]: reversed,
+        })}
+      >
+        {renderSelected(selectedStatus, reversed)}
+      </span>
     </span>
-  </span>
+  )
 )
 
 Radio.displayName = "Radio"

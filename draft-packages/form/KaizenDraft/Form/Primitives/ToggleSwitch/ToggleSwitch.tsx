@@ -25,36 +25,39 @@ export interface ToggleSwitchProps
   automationId?: string
 }
 
-export const ToggleSwitch = ({
-  toggledStatus,
-  onToggle,
-  reversed,
-  automationId,
-  ...restProps
-}: ToggleSwitchProps): JSX.Element => {
-  const isOn = toggledStatus === ToggledStatus.ON
+export const ToggleSwitch = React.forwardRef<
+  HTMLInputElement,
+  ToggleSwitchProps
+>(
+  (
+    { toggledStatus, onToggle, reversed, automationId, ...restProps },
+    ref
+  ): JSX.Element => {
+    const isOn = toggledStatus === ToggledStatus.ON
 
-  return (
-    <span
-      className={classnames({
-        [styles.on]: isOn,
-        [styles.off]: !isOn,
-        [styles.reversed]: reversed,
-      })}
-    >
-      <input
-        type="checkbox"
-        data-automation-id={automationId}
-        className={styles.checkbox}
-        checked={isOn ? true : false}
-        onChange={onToggle}
-        {...restProps}
-      />
-      <span className={styles.track}>
-        <span className={styles.thumb} />
+    return (
+      <span
+        className={classnames({
+          [styles.on]: isOn,
+          [styles.off]: !isOn,
+          [styles.reversed]: reversed,
+        })}
+      >
+        <input
+          ref={ref}
+          type="checkbox"
+          data-automation-id={automationId}
+          className={styles.checkbox}
+          checked={isOn ? true : false}
+          onChange={onToggle}
+          {...restProps}
+        />
+        <span className={styles.track}>
+          <span className={styles.thumb} />
+        </span>
       </span>
-    </span>
-  )
-}
+    )
+  }
+)
 
 ToggleSwitch.displayName = "ToggleSwitch"

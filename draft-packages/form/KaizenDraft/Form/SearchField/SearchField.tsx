@@ -14,38 +14,44 @@ export interface SearchFieldProps extends InputSearchProps {
  * {@link https://cultureamp.design/components/search-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-search-field--default-kaizen-demo Storybook}
  */
-export const SearchField = ({
-  id,
-  labelText,
-  disabled,
-  reversed = false,
-  secondary = false,
-  classNameOverride,
-  ...restProps
-}: SearchFieldProps): JSX.Element => {
-  const showVisibleLabel = !secondary
+export const SearchField = React.forwardRef<HTMLInputElement, SearchFieldProps>(
+  (
+    {
+      id,
+      labelText,
+      disabled,
+      reversed = false,
+      secondary = false,
+      classNameOverride,
+      ...restProps
+    },
+    ref
+  ): JSX.Element => {
+    const showVisibleLabel = !secondary
 
-  return (
-    <div className={classNameOverride}>
-      {showVisibleLabel && (
-        <Label
-          htmlFor={id}
-          labelText={labelText}
-          reversed={reversed}
+    return (
+      <div className={classNameOverride}>
+        {showVisibleLabel && (
+          <Label
+            htmlFor={id}
+            labelText={labelText}
+            reversed={reversed}
+            disabled={disabled}
+            classNameOverride={styles.label}
+          />
+        )}
+        <InputSearch
+          ref={ref}
+          aria-label={!showVisibleLabel ? labelText : undefined}
+          id={id}
           disabled={disabled}
-          classNameOverride={styles.label}
+          reversed={reversed}
+          secondary={secondary}
+          {...restProps}
         />
-      )}
-      <InputSearch
-        aria-label={!showVisibleLabel ? labelText : undefined}
-        id={id}
-        disabled={disabled}
-        reversed={reversed}
-        secondary={secondary}
-        {...restProps}
-      />
-    </div>
-  )
-}
+      </div>
+    )
+  }
+)
 
 SearchField.displayName = "SearchField"
