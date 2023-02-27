@@ -1,3 +1,3 @@
 export * from "./ThemeProvider"
 export * from "./ThemeManager"
-export * from "./themes/heart"
+export * from "./themes"
