@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, Story } from "@storybook/react"
 import { enAU, enUS } from "date-fns/locale"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
@@ -13,6 +13,7 @@ import {
   DateRangeInputFieldProps,
 } from "../src/FilterDateRangePicker/components/DateRangeInputField"
 import { formatDateAsText } from "../src/utils/formatDateAsText"
+import { validationControls } from "./controls/validationControls"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Date Range Input Field`,
@@ -25,11 +26,24 @@ export default {
       },
     },
   },
+  argTypes: {
+    ...validationControls,
+  },
 } as ComponentMeta<typeof DateRangeInputField>
 
-export const DefaultStory: ComponentStory<
-  typeof DateRangeInputField
-> = props => <DateRangeInputField {...props} />
+export const DefaultStory = (
+  props: DateRangeInputFieldProps & {
+    validation?: {
+      status: DateRangeInputFieldProps["status"]
+      validationMessage: DateRangeInputFieldProps["validationMessage"]
+    }
+  }
+): JSX.Element => {
+  const { validation, status, validationMessage, ...restProps } = props
+  const mergedProps = { ...restProps, ...validation }
+
+  return <DateRangeInputField {...mergedProps} />
+}
 DefaultStory.storyName = "Date Range Input Field"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
