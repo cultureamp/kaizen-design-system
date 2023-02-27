@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.4.15",
+  "version": "1.4.16",
   "description": "Kaizen component library",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",

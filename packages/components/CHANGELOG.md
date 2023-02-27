@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.15...@kaizen/components@1.4.16) (2023-02-27)
+
+
+### Bug Fixes
+
+* make @kaizen/tailwind a dep ([#3321](https://github.com/cultureamp/kaizen-design-system/issues/3321)) ([77c36e9](https://github.com/cultureamp/kaizen-design-system/commit/77c36e9141047063693f67baf3d800c96c511daf))
+
+
+
+
+
 ## [1.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.14...@kaizen/components@1.4.15) (2023-02-27)
 
 
