@@ -1,4 +1,4 @@
-import { Theme } from "@kaizen/design-tokens"
+import { Theme } from "./types"
 
 export const heartTheme: Theme = {
   themeKey: "heart",
