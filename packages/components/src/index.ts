@@ -51,8 +51,6 @@ export {
   makeCSSVariableTheme,
   mapLeafsOfObject,
 } from "@kaizen/design-tokens"
-export * from "@kaizen/design-tokens/src/themes"
-export * from "@kaizen/design-tokens/src/types"
 // --- //
 
 // ValueType naming clash with @kaizen/date-picker requires us to export individual parts of draft-select
