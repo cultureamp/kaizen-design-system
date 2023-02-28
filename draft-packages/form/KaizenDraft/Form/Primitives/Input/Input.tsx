@@ -72,12 +72,16 @@ export const Input = ({
   ...restProps
 }: InputProps): JSX.Element => (
   <div
-    className={classnames(styles.wrapper, {
-      [styles.withReversed]: reversed,
-      [styles.withDisabled]: disabled,
-      [styles.withStartIconAdornment]: startIconAdornment,
-      [styles.withEndIconAdornment]: endIconAdornment,
-    })}
+    className={classnames(
+      styles.wrapper,
+      {
+        [styles.withReversed]: reversed,
+        [styles.withDisabled]: disabled,
+        [styles.withStartIconAdornment]: startIconAdornment,
+        [styles.withEndIconAdornment]: endIconAdornment,
+      },
+      status != "default" && styles.hasStatus
+    )}
   >
     {startIconAdornment && (
       <div className={styles.startIconAdornment}>{startIconAdornment}</div>
