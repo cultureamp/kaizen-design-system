@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.17...@kaizen/components@1.4.18) (2023-02-28)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+## [1.4.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.16...@kaizen/components@1.4.17) (2023-02-28)
+
+
+### Bug Fixes
+
+* design-tokens-aio-import ([#3323](https://github.com/cultureamp/kaizen-design-system/issues/3323)) ([9dcf307](https://github.com/cultureamp/kaizen-design-system/commit/9dcf30761a5c8886c64b207ddb9484e8f8fb3962))
+
+
+
+
+
+## [1.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.15...@kaizen/components@1.4.16) (2023-02-27)
+
+
+### Bug Fixes
+
+* make @kaizen/tailwind a dep ([#3321](https://github.com/cultureamp/kaizen-design-system/issues/3321)) ([77c36e9](https://github.com/cultureamp/kaizen-design-system/commit/77c36e9141047063693f67baf3d800c96c511daf))
+
+
+
+
+
+## [1.4.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.14...@kaizen/components@1.4.15) (2023-02-27)
+
+
+### Bug Fixes
+
+* replace esbuild with tsup ([#3311](https://github.com/cultureamp/kaizen-design-system/issues/3311)) ([7fa6990](https://github.com/cultureamp/kaizen-design-system/commit/7fa6990a3479a4d3c33a8370ff1b5f3adf51e543))
+
+
+
+
+
+## [1.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.13...@kaizen/components@1.4.14) (2023-02-26)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
 ## [1.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.12...@kaizen/components@1.4.13) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/components

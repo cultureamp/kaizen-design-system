@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, Story } from "@storybook/react"
 import { enAU, enUS } from "date-fns/locale"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
@@ -13,6 +13,7 @@ import {
   DateRangeInputFieldProps,
 } from "../src/FilterDateRangePicker/components/DateRangeInputField"
 import { formatDateAsText } from "../src/utils/formatDateAsText"
+import { validationControls } from "./controls/validationControls"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Date Range Input Field`,
@@ -25,11 +26,24 @@ export default {
       },
     },
   },
+  argTypes: {
+    ...validationControls,
+  },
 } as ComponentMeta<typeof DateRangeInputField>
 
-export const DefaultStory: ComponentStory<
-  typeof DateRangeInputField
-> = props => <DateRangeInputField {...props} />
+export const DefaultStory = (
+  props: DateRangeInputFieldProps & {
+    validation?: {
+      status: DateRangeInputFieldProps["status"]
+      validationMessage: DateRangeInputFieldProps["validationMessage"]
+    }
+  }
+): JSX.Element => {
+  const { validation, status, validationMessage, ...restProps } = props
+  const mergedProps = { ...restProps, ...validation }
+
+  return <DateRangeInputField {...mergedProps} />
+}
 DefaultStory.storyName = "Date Range Input Field"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
@@ -115,7 +129,7 @@ const StickerSheetTemplate: Story<{
       </StickerSheet>
 
       <StickerSheet heading="States">
-        <StickerSheet.Header headings={["Disabled", "Error"]} />
+        <StickerSheet.Header headings={["Disabled"]} />
         <StickerSheet.Body>
           <StickerSheet.Row style={{ verticalAlign: "top" }}>
             <DateRangeInputField
@@ -127,15 +141,84 @@ const StickerSheetTemplate: Story<{
               locale={locale}
               disabled
             />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet heading="Validation">
+        <StickerSheet.Header
+          headings={[
+            "Error - DateStart",
+            "Error - DateEnd",
+            "Error - Both",
+            "Different Status",
+          ]}
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row style={{ verticalAlign: "top" }}>
             <DateRangeInputField
-              id="daterangeinputfield--error"
+              id="daterangeinputfield--error-start"
               legend="Error example"
               isReversed={isReversed}
               inputRangeStartProps={inputRangeStartProps}
               inputRangeEndProps={inputRangeEndProps}
               locale={locale}
-              status="error"
-              validationMessage="Error message"
+              status={{
+                dateStart: "error",
+              }}
+              validationMessage={{
+                dateStart:
+                  '"Date from" cannot be after the "Date to" selection.',
+              }}
+            />
+            <DateRangeInputField
+              id="daterangeinputfield--error-end"
+              legend="Error example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              locale={locale}
+              status={{
+                dateEnd: "error",
+              }}
+              validationMessage={{
+                dateEnd:
+                  '"Date to" cannot be earlier than the "Date from" selection.',
+              }}
+            />
+            <DateRangeInputField
+              id="daterangeinputfield--error-both"
+              legend="Error example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              locale={locale}
+              status={{
+                dateEnd: "error",
+                dateStart: "error",
+              }}
+              validationMessage={{
+                dateStart: '"Date from" is not a valid date selection.',
+                dateEnd:
+                  'Date to" cannot be earlier than the "Date from" selection.',
+              }}
+            />
+            <DateRangeInputField
+              id="daterangeinputfield--error-different"
+              legend="Error example"
+              isReversed={isReversed}
+              inputRangeStartProps={inputRangeStartProps}
+              inputRangeEndProps={inputRangeEndProps}
+              locale={locale}
+              status={{
+                dateEnd: "error",
+                dateStart: "caution",
+              }}
+              validationMessage={{
+                dateStart: '"Date from" is close to the submission date.',
+                dateEnd:
+                  '"Date to" cannot be earlier than the "Date from" selection.',
+              }}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>

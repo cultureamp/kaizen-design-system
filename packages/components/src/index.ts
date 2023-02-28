@@ -7,6 +7,7 @@ export * from "@kaizen/brand"
 export * from "@kaizen/brand-moment"
 export * from "@kaizen/button"
 export * from "@kaizen/component-base"
+export { Icon, Box, Spacing } from "@kaizen/component-library"
 export * from "@kaizen/date-picker"
 export * from "@kaizen/draft-avatar"
 export * from "@kaizen/draft-badge"
@@ -40,6 +41,7 @@ export * from "@kaizen/progress-bar"
 export * from "@kaizen/responsive"
 export * from "@kaizen/rich-text-editor"
 export * from "@kaizen/split-button"
+export * from "@kaizen/typography"
 
 // Special cases
 
@@ -49,8 +51,6 @@ export {
   makeCSSVariableTheme,
   mapLeafsOfObject,
 } from "@kaizen/design-tokens"
-export * from "@kaizen/design-tokens/src/themes"
-export * from "@kaizen/design-tokens/src/types"
 // --- //
 
 // ValueType naming clash with @kaizen/date-picker requires us to export individual parts of draft-select

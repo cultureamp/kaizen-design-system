@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.1.2...@kaizen/draft-form@10.2.0) (2023-02-28)
+
+
+### Features
+
+* add validation to DateRangePicker ([#3277](https://github.com/cultureamp/kaizen-design-system/issues/3277)) ([5cbdf6a](https://github.com/cultureamp/kaizen-design-system/commit/5cbdf6a2f3979b22d03f7b6722953ea6c26fb7cd))
+
+
+
+
+
 ## [10.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.1.1...@kaizen/draft-form@10.1.2) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/draft-form
