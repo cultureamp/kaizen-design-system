@@ -2,7 +2,8 @@ import React from "react"
 import classnames from "classnames"
 import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+import cautionIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
+import errorIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 import {
@@ -53,7 +54,7 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
       return isProminent ? (
         <Cautionary alt="" isAnimated />
       ) : (
-        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+        <Icon icon={cautionIcon} inheritSize role="presentation" />
       )
     case "informative":
       return isProminent ? (
@@ -65,7 +66,7 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
       return isProminent ? (
         <Negative alt="" isAnimated />
       ) : (
-        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+        <Icon icon={errorIcon} inheritSize role="presentation" />
       )
     case "positive":
       return isProminent ? (
@@ -77,7 +78,7 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
       return isProminent ? (
         <Assertive alt="" isAnimated />
       ) : (
-        <Icon icon={exclamationIcon} inheritSize role="presentation" />
+        <Icon icon={errorIcon} inheritSize role="presentation" />
       )
   }
 }
