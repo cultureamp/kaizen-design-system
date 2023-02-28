@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.16...@kaizen/components@1.4.17) (2023-02-28)
+
+
+### Bug Fixes
+
+* design-tokens-aio-import ([#3323](https://github.com/cultureamp/kaizen-design-system/issues/3323)) ([9dcf307](https://github.com/cultureamp/kaizen-design-system/commit/9dcf30761a5c8886c64b207ddb9484e8f8fb3962))
+
+
+
+
+
 ## [1.4.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.15...@kaizen/components@1.4.16) (2023-02-27)
 
 
