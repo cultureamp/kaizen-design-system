@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.3.5...@kaizen/draft-tag@3.4.0) (2023-02-28)
+
+
+### Features
+
+* update components to use Caution Icon ([#3327](https://github.com/cultureamp/kaizen-design-system/issues/3327)) ([93d7647](https://github.com/cultureamp/kaizen-design-system/commit/93d764734a68e42c9717f42cdbd626d8eda3c1ea))
+
+
+
+
+
 ## [3.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.3.4...@kaizen/draft-tag@3.3.5) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/draft-tag
