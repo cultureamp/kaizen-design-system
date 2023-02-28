@@ -12,7 +12,7 @@ import { Button, ButtonProps } from ".."
 import mdx from "./Button.mdx"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button/Docs`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button/Doc Stories`,
   component: Button,
   args: {
     label: "Label",

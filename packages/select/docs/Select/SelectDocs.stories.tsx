@@ -1,5 +1,4 @@
 import React from "react"
-import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import {
@@ -9,14 +8,11 @@ import {
 } from "@kaizen/loading-skeleton"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
-import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
-import { Paragraph } from "../../../typography/src/Paragraph"
 import { Select } from "../../src/Select/Select"
-import { SingleItemType } from "../../src/types"
-import { groupedMockItems, singleMockItems } from "../MockData"
+import { singleMockItems } from "../MockData"
 import { selectControls } from "../controls/selectControls"
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select/Docs`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select/Doc Stories`,
   component: Select,
   parameters: {
     actions: {
