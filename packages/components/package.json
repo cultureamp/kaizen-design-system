@@ -75,11 +75,11 @@
     "@kaizen/select": "^6.13.6",
     "@kaizen/split-button": "^1.3.33",
     "@kaizen/tabs": "^1.5.30",
-    "@kaizen/tailwind": "^0.5.1",
     "@kaizen/typography": "^2.3.6",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
+    "@kaizen/tailwind": "^0.5.1",
     "autoprefixer": "^10.4.13",
     "concat-cli": "^4.0.0",
     "cssnano": "^5.1.15",
