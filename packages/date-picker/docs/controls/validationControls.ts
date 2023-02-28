@@ -12,13 +12,13 @@ export const validationControls = {
       type: "select",
       labels: {
         dateStartError:
-          "{ status: { dateStart: 'error' }, validationMessage: { dateStart: 'Error message' } }",
+          "{ status: { dateStart: 'error' }, validationMessage: { dateStart: ''Date from cannot' be after the 'Date to' selection.' } }",
         dateEndError:
-          "{ status: { dateEnd: 'error' }, validationMessage: { dateEnd: 'Error message' } }",
+          "{ status: { dateEnd: 'error' }, validationMessage: { dateEnd: ''Date to' cannot be earlier than the 'Date from' selection.' } }",
         dateRangeError:
-          "{ status: { dateStart: 'error, dateEnd: 'error' }, validationMessage: { dateStart: 'Error message', dateEnd: 'Error message' } }",
+          "{ status: { dateStart: 'error, dateEnd: 'error' }, validationMessage: { dateStart: ''Date from cannot' be after the 'Date to' selection.', dateEnd: ''Date to' cannot be earlier than the 'Date from' selection.' } }",
         dateRangeCautionError:
-          "{ status: { dateStart: 'caution, dateEnd: 'error' }, validationMessage: { dateStart: 'Caution message', dateEnd: 'Error message' } }",
+          "{ status: { dateStart: 'caution, dateEnd: 'error' }, validationMessage: { dateStart: ''Date from' is close to the submission date.', dateEnd: 'Error message' } }",
       },
     },
     mapping: {
@@ -35,7 +35,8 @@ export const validationControls = {
           dateEnd: "error",
         },
         validationMessage: {
-          dateEnd: '"Date from" cannot be after the "Date to" selection.',
+          dateEnd:
+            '"Date to" cannot be earlier than the "Date from" selection.',
         },
       },
       dateRangeError: {
@@ -45,7 +46,8 @@ export const validationControls = {
         },
         validationMessage: {
           dateStart: '"Date from" cannot be after the "Date to" selection.',
-          dateEnd: '"Date from" cannot be after the "Date to" selection.',
+          dateEnd:
+            '"Date to" cannot be earlier than the "Date from" selection.',
         },
       },
       dateRangeCautionError: {
@@ -54,8 +56,9 @@ export const validationControls = {
           dateEnd: "error",
         },
         validationMessage: {
-          dateStart: "Caution Message",
-          dateEnd: '"Date from" cannot be after the "Date to" selection.',
+          dateStart: '"Date from" is close to the submission date.',
+          dateEnd:
+            '"Date to" cannot be earlier than the "Date from" selection.',
         },
       },
     },
