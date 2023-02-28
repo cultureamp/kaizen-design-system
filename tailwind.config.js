@@ -17,7 +17,7 @@ module.exports = {
   plugins: [],
   safelist: [
     {
-      pattern: /(bg|border|rounded|shadow)-.*/,
+      pattern: /(bg|border|rounded|shadow|h)-.*/,
     },
   ],
 }
