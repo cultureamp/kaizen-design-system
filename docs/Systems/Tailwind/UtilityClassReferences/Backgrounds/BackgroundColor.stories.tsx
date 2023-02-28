@@ -31,10 +31,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="background-color"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
+    renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
-        style={{ backgroundColor: cssProperty }}
-        className={classnames(styles.boxWithBorder, "rounded-default")}
+        className={classnames(
+          styles.boxWithBorder,
+          "rounded-default",
+          utilityClass
+        )}
       />
     )}
     isReversed={isReversed}

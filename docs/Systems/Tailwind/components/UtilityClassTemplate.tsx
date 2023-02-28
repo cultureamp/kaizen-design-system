@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Divider } from "@kaizen/draft-divider"
 import { InlineNotification } from "@kaizen/notification"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 
@@ -8,7 +7,7 @@ import { CodeSnippet } from "./CodeSnippet"
 type Props = {
   compiledCssPropertyName: string
   classKeyValues: Array<{ utilityClassName; cssProperty }>
-  renderExampleComponent: (cssProperty: string) => React.ReactElement
+  renderExampleComponent: (utilityClass: string) => React.ReactElement
   isReversed?: boolean
 }
 
@@ -33,7 +32,7 @@ export const UtilityClassTemplate = ({
           className="text-left border-transparent border-solid border-b-gray-400"
           headings={["Utility Class", "Compiled CSS", "Example"]}
         />
-        {classKeyValues.map((presetData, index) => {
+        {classKeyValues.map((presetData, _index) => {
           const { utilityClassName, cssProperty } = presetData
 
           return (
@@ -48,7 +47,7 @@ export const UtilityClassTemplate = ({
                 {compiledCssPropertyName}: {cssProperty}
               </p>
               <div className="font-family-paragraph">
-                {renderExampleComponent(cssProperty)}
+                {renderExampleComponent(utilityClassName)}
               </div>
             </StickerSheet.Row>
           )
