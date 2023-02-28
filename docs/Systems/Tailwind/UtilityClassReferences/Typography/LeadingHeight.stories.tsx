@@ -1,11 +1,11 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
 const prefix = "leading-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
@@ -33,8 +33,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="line-height"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
-      <p style={{ lineHeight: cssProperty }} className={styles.wrappedText}>
+    renderExampleComponent={(utilityClass): React.ReactElement => (
+      <p className={classnames("w-0", utilityClass)}>
         Tutant Meenage Neetle Teetles
       </p>
     )}
