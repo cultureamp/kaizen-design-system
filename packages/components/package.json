@@ -11,9 +11,12 @@
     "icons"
   ],
   "scripts": {
-    "prepublish": "tsup && yarn tailwindcss",
+    "prepublish": "yarn build:typescript && yarn build:styles && yarn postBuild:styles && yarn combineStyles",
     "build": "yarn prepublish",
-    "tailwindcss": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "build:typescript": "tsup",
+    "build:styles": "postcss src/tailwind.css --output dist/tailwind.css",
+    "postBuild:styles": "postcss dist/**/*.css --output dist/components.css",
+    "combineStyles": "concat -o ./dist/styles.css ./dist/components.css ./dist/tailwind.css",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'dist'"
   },
@@ -78,6 +81,11 @@
   "devDependencies": {
     "@deanc/esbuild-plugin-postcss": "^1.0.2",
     "autoprefixer": "^10.4.13",
+    "concat": "^1.0.3",
+    "esbuild": "^0.17.10",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-modules": "^6.0.0",
     "tailwindcss": "^3.2.7",
     "tiny-glob": "^0.2.9",
     "tsup": "^6.6.3"
