@@ -11,13 +11,14 @@
     "icons"
   ],
   "scripts": {
-    "prepublish": "yarn build:typescript && yarn combineStyles && yarn build:styles",
+    "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublish",
-    "build:typescript": "tsup",
-    "build:styles": "postcss dist/styles.css --output dist/styles.css",
-    "copy:tailwind": "cp src/tailwind.css dist/tailwind.css",
-    "combineStyles": "yarn copy:tailwind && concat-cli -f ./dist/**/*.css ./dist/*.css -o ./dist/styles.css",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build:components": "tsup",
+    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
+    "dist:copy-tailwind": "cp src/tailwind.css dist/tailwind.css",
+    "dist:combine-styles": "concat-cli -f ./dist/**/*.css ./dist/*.css -o ./dist/styles.css",
+    "dist:postcss": "postcss dist/styles.css --output dist/styles.css",
+    "dist:clean": "rm ./dist/tailwind.css",
     "clean": "rimraf 'dist'"
   },
   "repository": {
@@ -83,7 +84,6 @@
     "autoprefixer": "^10.4.13",
     "concat-cli": "^4.0.0",
     "cssnano": "^5.1.15",
-    "esbuild": "^0.17.10",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
     "postcss-modules": "^6.0.0",

@@ -3,7 +3,7 @@ import { defineConfig } from "tsup"
 import cssModules from "./plugins/esbuild-css-module"
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/__future__/index.ts"],
+  entry: ["src/**/*.ts"],
   outDir: "./dist",
   format: ["cjs", "esm"],
   splitting: true,
