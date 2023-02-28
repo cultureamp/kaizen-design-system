@@ -26,7 +26,8 @@
     "chromatic": "chromatic",
     "commit": "cz",
     "plop": "plop",
-    "pkg:aio": "yarn workspace @kaizen/components"
+    "pkg:aio": "yarn workspace @kaizen/components",
+    "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
