@@ -1,4 +1,6 @@
 export const validationControls = {
+  status: { control: "disabled" },
+  validationMessage: { control: "disabled" },
   validation: {
     options: [
       "dateStartError",
