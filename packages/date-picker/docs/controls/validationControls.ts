@@ -12,13 +12,13 @@ export const validationControls = {
       type: "select",
       labels: {
         dateStartError:
-          "{ status: { dateStart: 'error' }, validationMessage: { dateStart: ''Date from cannot' be after the 'Date to' selection.' } }",
+          "{ status: { dateStart: 'error' }, validationMessage: { dateStart: '\"Date from\" cannot be after the \"Date to\" selection.' } }",
         dateEndError:
-          "{ status: { dateEnd: 'error' }, validationMessage: { dateEnd: ''Date to' cannot be earlier than the 'Date from' selection.' } }",
+          "{ status: { dateEnd: 'error' }, validationMessage: { dateEnd: '\"Date to\" cannot be earlier than the \"Date from\" selection.' } }",
         dateRangeError:
-          "{ status: { dateStart: 'error, dateEnd: 'error' }, validationMessage: { dateStart: ''Date from cannot' be after the 'Date to' selection.', dateEnd: ''Date to' cannot be earlier than the 'Date from' selection.' } }",
+          '{ status: { dateStart: \'error, dateEnd: \'error\' }, validationMessage: { dateStart: \'"Date from" cannot be after the "Date to" selection.\', dateEnd: \'"Date to" cannot be earlier than the "Date from" selection.\' } }',
         dateRangeCautionError:
-          "{ status: { dateStart: 'caution, dateEnd: 'error' }, validationMessage: { dateStart: ''Date from' is close to the submission date.', dateEnd: 'Error message' } }",
+          "{ status: { dateStart: 'caution, dateEnd: 'error' }, validationMessage: { dateStart: '\"Date from\" is close to the submission date.', dateEnd: '\"Date to\" cannot be earlier than the \"Date from\" selection.' } }",
       },
     },
     mapping: {
