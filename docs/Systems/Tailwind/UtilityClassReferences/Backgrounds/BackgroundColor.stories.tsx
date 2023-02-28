@@ -6,7 +6,6 @@ import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
 const prefix = "bg-"
 const classEntries = flattenEntries(
@@ -34,7 +33,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          styles.boxWithBorder,
+          "w-[100px] h-[100px] border-solid",
           "rounded-default",
           utilityClass
         )}
