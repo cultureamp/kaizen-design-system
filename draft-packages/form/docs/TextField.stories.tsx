@@ -41,11 +41,6 @@ DefaultStory.args = {
   reversed: false,
 }
 DefaultStory.argTypes = {
-  inputRef: {
-    control: {
-      disable: true,
-    },
-  },
   icon: {
     control: {
       disabled: true,

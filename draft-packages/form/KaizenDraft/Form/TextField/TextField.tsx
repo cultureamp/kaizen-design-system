@@ -40,6 +40,7 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
  * {@link https://cultureamp.design/components/text-field/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-text-field--default-story Storybook}
  */
+
 export const TextField = ({
   id,
   labelText,
