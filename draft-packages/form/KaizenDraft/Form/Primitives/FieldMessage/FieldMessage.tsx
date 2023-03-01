@@ -15,7 +15,7 @@ export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 
 export interface FieldMessageProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  message?: string | React.ReactNode
+  message?: React.ReactNode
   status?: FieldMessageStatus
   position?: "top" | "bottom"
   reversed?: boolean
@@ -63,9 +63,15 @@ export const FieldMessage = ({
         </span>
       )}
       <div className={styles.message}>
-        <Paragraph variant="small" color={textColor}>
-          {message}
-        </Paragraph>
+        {typeof message === "string" ? (
+          <Paragraph variant="small" color={textColor}>
+            {message}
+          </Paragraph>
+        ) : (
+          <Paragraph tag="div" variant="small" color={textColor}>
+            {message}
+          </Paragraph>
+        )}
       </div>
     </div>
   )
