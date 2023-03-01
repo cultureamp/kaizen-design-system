@@ -8,7 +8,6 @@ import { CodeSnippet } from "../../components/CodeSnippet"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
 const prefix = "text-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
@@ -30,21 +29,21 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="color"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
+    renderExampleComponent={(utilityClass): React.ReactElement => (
       <div className="flex items-center h-100">
         <p
           className={classnames(
-            "font-family-paragraph p-8 rounded-default font-weight-display text-heading-3 m-0 mr-16"
+            "font-family-paragraph p-8 rounded-default font-weight-display text-heading-3 m-0 mr-16",
+            utilityClass
           )}
-          style={{ color: cssProperty }}
         >
           Light bg
         </p>
         <p
           className={classnames(
-            "font-family-paragraph p-8 bg-[black] rounded-default font-weight-display text-heading-3 m-0"
+            "font-family-paragraph p-8 bg-[black] rounded-default font-weight-display text-heading-3 m-0",
+            utilityClass
           )}
-          style={{ color: cssProperty }}
         >
           Dark bg
         </p>

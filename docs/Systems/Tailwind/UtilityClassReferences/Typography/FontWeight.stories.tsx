@@ -32,10 +32,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="font-weight"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
-      <p className="font-family-paragraph" style={{ fontWeight: cssProperty }}>
-        Aa
-      </p>
+    renderExampleComponent={(utilityClass): React.ReactElement => (
+      <p className={utilityClass}>Aa</p>
     )}
     isReversed={isReversed}
   />
