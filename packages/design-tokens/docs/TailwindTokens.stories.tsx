@@ -20,7 +20,7 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemo = args => (
+export const DefaultKaizenSiteDemo = (args): any => (
   <div className="bg-purple-800 p-sm">
     <h1 className="flex flex-col items-center text-size-heading-1 font-weight-heading font-family-heading text-white ">
       {args.title}
@@ -56,7 +56,7 @@ export const DefaultKaizenSiteDemo = args => (
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { title: "Tailwind title example" }
 
-export const TailwindPsuedoStates = () => (
+export const TailwindPsuedoStates = (): any => (
   <div className="p-sm">
     <h1 className="flex flex-col items-center text-size-heading-1 font-weight-heading font-family-heading text-white ">
       Tailwind Psuedo states
