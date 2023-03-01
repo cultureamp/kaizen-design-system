@@ -2,6 +2,7 @@
   "name": "@kaizen/component-library",
   "description": "Component Library for Culture Amp's Kaizen Design System",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/component-library",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
@@ -44,7 +45,7 @@
     "rimraf": "^4.1.2"
   },
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsup",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf '?(components|draft|draft-templates|util|bin|stories)/**/?(*.js*|*.d.ts)' '**/*.js.map' 'index.js*' 'index.d.ts'"
