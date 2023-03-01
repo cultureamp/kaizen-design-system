@@ -1,0 +1,84 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { CATEGORIES } from "../../../storybook/constants"
+import { InlineNotification } from "@kaizen/notification"
+
+<Meta title={`${CATEGORIES.tailwind}/Configuration`} />
+
+# Configuration 
+
+This page provides guidance on potential configuration options and how they work with the preset and Kaizen components.
+
+- [Extending the Kaizen preset](#extending-the-kaizen-preset)
+- [Customising the important selector](#customising-the-important-selector)
+
+<br/>
+
+## Extending the Kaizen preset
+
+> Extending your config is a good option when you intend to _reuse_ the style.  
+> If you need a value not available in our preset for a specific use case, consider using [arbitrary values](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) instead.
+
+To extend upon the preset with values specific to your project, we recommend passing a theme object to `theme.extend`.
+
+```
+const { Preset } = require("@kaizen/tailwind")
+
+module.exports = {
+  presets: [Preset],
+  theme: {
+    extend: {
+      colors: {
+        myCoolNewColor: "#ffffff",
+        "purple-100": "lime"
+      }
+    }
+  }
+}
+```
+
+Here, the Kaizen preset overwrites the default Tailwind preset, and the `extend` field adds in some new values.  
+Be careful though! While adding in a _new_ field to `colors` won't overwrite any existing ones, passing in an existing field _will_. In this example, `purple-100` has unfortunately been overwritten.
+
+`<p className="text-sky">...` ❌ Default TW config overwritten by `Preset`
+
+`<p className="text-myCoolNewColor">` ✅ New color added
+
+`<p className="text-purple-100">` ️❗️ Value from `Preset` overwritten to "Lime"
+
+`<p className="text-purple-200">` ✅ Value from `Preset` not overwritten
+
+<br/>
+
+## Customising the important selector
+
+`important` is a configuration option that will prefix all of your utilities with the given selector. This increasing the [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) of your classes when compiled into your CSS bundle, ie:
+
+```css
+  #root .bg-red-500 { background: #c93b55}
+```
+
+Noting that the `important` selector must match to a node with the same `id`, `class`, or `HTML Element` within your application, ie:
+
+``` tsx
+<div id="#root">
+ {/* Application code */}
+</div>
+```
+
+<InlineNotification
+  persistent
+  type="cautionary"
+  style="inline"
+  title="Changing the selector"
+>
+ We advise using an <code>id</code> with <code>"#root"</code> as the default selector. Using different id's, classes or HTML elements like <code>body</code> as the selector could result in:
+ <ul>
+  <li>
+      Utility classes not superseding Kaizen defaults when using <code>classNameOverride</code>
+  </li>
+  <li>
+      Duplication of utillity classes in your CSS bundle caused by consuming components with different <code>important</code> selectors
+  </li>
+</ul>
+</InlineNotification>
+
