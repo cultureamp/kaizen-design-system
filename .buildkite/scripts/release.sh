@@ -49,9 +49,6 @@ release() {
 
   yarn install --frozen-lockfile
 
-  yarn workspace @kaizen/design-tokens prepublish
-  yarn workspace @kaizen/tailwind prepublish
-
   # Bump packages, push and tag a release commit, and update release notes
   yarn lerna version --conventional-commits --create-release=github --yes \
     --message "chore: release [skip ci]"
