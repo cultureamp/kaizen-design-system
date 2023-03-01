@@ -1,4 +1,5 @@
 import React from "react"
+import { Paragraph } from "@kaizen/typography"
 import { formatDescriptionInputFormat } from "../../utils/formatDescriptionInputFormat"
 import styles from "./DateInputDescription.module.scss"
 
@@ -7,11 +8,13 @@ interface DescriptionInputFormatProps {
 }
 
 const DescriptionInputFormat = ({ locale }): JSX.Element => (
-  <span className={styles.descriptionInputFormat}>
-    <span>Input format</span>
-    <span className={styles.labelSeparator}>:</span>
-    <span>{formatDescriptionInputFormat(locale)}</span>
-  </span>
+  <Paragraph variant="small">
+    <span className={styles.descriptionInputFormat}>
+      <span>Input format</span>
+      <span className={styles.labelSeparator}>:</span>
+      <span>{formatDescriptionInputFormat(locale)}</span>
+    </span>
+  </Paragraph>
 )
 
 DescriptionInputFormat.displayName = "DescriptionInputFormat"
@@ -30,12 +33,14 @@ export const DateInputDescription = ({
 
   if (hasCustomDescription) {
     return (
-      <span className={styles.dateInputDescription}>
-        <span>{description}</span>
-        <span className={styles.dateInputFormatContainer}>
-          (<DescriptionInputFormat locale={locale} />)
+      <Paragraph variant="small">
+        <span className={styles.dateInputDescription}>
+          <span>{description}</span>
+          <span className={styles.dateInputFormatContainer}>
+            (<DescriptionInputFormat locale={locale} />)
+          </span>
         </span>
-      </span>
+      </Paragraph>
     )
   }
 
