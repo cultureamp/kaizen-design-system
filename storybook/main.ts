@@ -45,7 +45,6 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "storybook-addon-designs",
-    "storybook-css-modules",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
 }
