@@ -1,5 +1,4 @@
 import React from "react"
-import { Paragraph } from "@kaizen/typography"
 import { formatDescriptionInputFormat } from "../../utils/formatDescriptionInputFormat"
 import styles from "./DateInputDescription.module.scss"
 
