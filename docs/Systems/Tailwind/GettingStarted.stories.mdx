@@ -3,6 +3,7 @@ import { CATEGORIES } from "../../../storybook/constants"
 import TailwindPlay from "./assets/tailwind-play.gif"
 import CssGeneration from "./assets/css-generation.png"
 import InlineFold from "./assets/inline-fold.gif"
+import { InlineNotification } from "@kaizen/notification"
 
 <Meta title={`${CATEGORIES.tailwind}/Getting Started`} />
 
@@ -16,8 +17,9 @@ If your project was created from this template, you should only need to do [Step
 
 - [1. Install the preset](#1-install-the-preset)
 - [2. Implement the preset](#2-implement-the-preset)
-- [3. Add the Tailwind directives](#3-add-the-tailwind-directives)
-- [4. Useful tools](#4-useful-tools)  
+- [3. Customising the important selector](#3-customising-the-important-selector)
+- [4. Add the Tailwind directives](#4-add-the-tailwind-directives)
+- [5. Useful tools](#5-useful-tools)  
 
 <br/>
 
@@ -53,7 +55,41 @@ module.exports = {
 
 For preset configuration options, see our [configuration docs](/story/systems-tailwind-preset-configuration--page)
 
-## 3. Add the Tailwind Directives
+## 3. Customising the important selector
+
+`important` is a configuration option that will prefix all of your utilities with the given selector. This increasing the [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) of your classes when compiled into your CSS bundle, ie:
+
+```css
+  #root .bg-red-500 { background: #c93b55}
+```
+
+Noting that the `important` selector must match to a node with the same `id`, `class`, or `HTML Element` within your application, ie:
+
+``` tsx
+<div id="#root">
+ {/* Application code */}
+</div>
+```
+
+<InlineNotification
+  persistent
+  type="cautionary"
+  style="inline"
+  title="Changing the selector"
+>
+ We advise using an <code>id</code> with <code>"#root"</code> as the default selector. Using different id's, classes or HTML elements like <code>body</code> as the selector could result in:
+ <ul>
+  <li>
+      Utility classes not superseding Kaizen defaults when using <code>classNameOverride</code>
+  </li>
+  <li>
+      Duplication of utillity classes in your CSS bundle caused by consuming components with different <code>important</code> selectors
+  </li>
+</ul>
+</InlineNotification>
+
+
+## 4. Add the Tailwind Directives
 
 The following directives need to be included in your project's main css file.
 
@@ -67,7 +103,7 @@ These directives inject classes that are needed for certain Tailwind features. F
 
 
 
-## 4. Useful tools
+## 5. Useful tools
 
 ### Tailwind Play
 
