@@ -16,10 +16,7 @@ export default {
     }))
     build.onLoad(
       { filter: /#css-module$/, namespace: "css-module" },
-      async args => {
-        const { pluginData } = args as {
-          pluginData: { pathDir: string }
-        }
+      async ({ pluginData }: { pluginData: { pathDir: string } }) => {
 
         const source = await fs.promises.readFile(pluginData.pathDir, "utf8")
 
