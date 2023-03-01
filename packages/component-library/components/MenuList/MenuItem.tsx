@@ -1,7 +1,7 @@
 /* !!! This component is deprecated. Please do not use for new code  !!! */
 
+import React from "react"
 import classNames from "classnames"
-import * as React from "react"
 import { Icon } from "../Icon"
 
 import styles from "./Menu.module.scss"
@@ -17,7 +17,7 @@ const MenuItem = (props: {
   children: React.ReactNode
   action: string | ((e: React.MouseEvent<HTMLAnchorElement>) => void)
   automationId?: string
-}) => {
+}): JSX.Element => {
   const {
     icon,
     hoverIcon,

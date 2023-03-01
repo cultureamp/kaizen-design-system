@@ -1,13 +1,13 @@
 import React, { useState, HTMLAttributes } from "react"
-import classnames from "classnames"
 import {
   ProseMirrorState,
   ProseMirrorModel,
   useRichTextEditor,
 } from "@cultureamp/rich-text-toolkit"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { EditorContentArray } from "../types"
 import { createSchemaWithAll } from "../RichTextEditor/schema"
+import { EditorContentArray } from "../types"
 import styles from "./RichTextContent.module.scss"
 
 export interface RichTextContentProps
@@ -15,7 +15,7 @@ export interface RichTextContentProps
   content: EditorContentArray
 }
 
-export const RichTextContent = (props: RichTextContentProps) => {
+export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
   const { content, classNameOverride, ...restProps } = props
   const [schema] = useState<ProseMirrorModel.Schema>(createSchemaWithAll())
 

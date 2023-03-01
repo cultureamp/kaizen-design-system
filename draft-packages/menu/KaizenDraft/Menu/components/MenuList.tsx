@@ -8,7 +8,7 @@ type MenuListProps = {
 }
 
 const listHeadingID = v4()
-const MenuList = (props: MenuListProps) => {
+const MenuList = (props: MenuListProps): JSX.Element => {
   const { heading, children } = props
   return (
     <>

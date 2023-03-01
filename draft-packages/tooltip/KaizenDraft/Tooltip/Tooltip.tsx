@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react"
-import classnames from "classnames"
 import ReactDOM from "react-dom"
-import { usePopper } from "react-popper"
 import { Placement } from "@popperjs/core"
+import classnames from "classnames"
+import { usePopper } from "react-popper"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
 import styles from "./Tooltip.module.scss"
@@ -64,7 +64,7 @@ const TooltipContent = ({
   referenceElement,
   tooltipId,
   mood = "default",
-}) => {
+}): JSX.Element | null => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -159,7 +159,7 @@ const Tooltip = ({
   animationDuration,
   isInitiallyVisible = false,
   mood = "default",
-}: TooltipProps) => {
+}: TooltipProps): JSX.Element => {
   const [isHover, setIsHover] = useState(isInitiallyVisible)
   const [isFocus, setIsFocus] = useState(false)
   const [referenceElement, setReferenceElement] =
@@ -211,18 +211,10 @@ const Tooltip = ({
             [styles.displayFlex]: displayToUse === "flex",
             [styles.displayInlineFlex]: displayToUse === "inline-flex",
           })}
-          onMouseEnter={() => {
-            setIsHover(true)
-          }}
-          onMouseLeave={() => {
-            setIsHover(false)
-          }}
-          onFocusCapture={() => {
-            setIsFocus(true)
-          }}
-          onBlurCapture={() => {
-            setIsFocus(false)
-          }}
+          onMouseEnter={(): void => setIsHover(true)}
+          onMouseLeave={(): void => setIsHover(false)}
+          onFocusCapture={(): void => setIsFocus(true)}
+          onBlurCapture={(): void => setIsFocus(false)}
           aria-describedby={tooltipId}
         >
           {children}

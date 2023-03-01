@@ -1,5 +1,4 @@
 import React from "react"
-import { Story } from "@storybook/react"
 import {
   Title,
   Subtitle,
@@ -9,9 +8,10 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs"
+import { ComponentStory, Story } from "@storybook/react"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Heading, Paragraph } from "../"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,
   component: Heading,
@@ -20,7 +20,7 @@ export default {
       description: {
         component: 'import { Heading } from "@kaizen/typography"',
       },
-      page: () => (
+      page: (): JSX.Element => (
         <>
           <Title />
           <Subtitle />
@@ -35,13 +35,13 @@ export default {
   },
 }
 
-export const Display0 = args => (
+export const Display0: ComponentStory<typeof Heading> = args => (
   <Heading {...args}>Have the courage to be vulnerable.</Heading>
 )
 Display0.storyName = "Heading"
 Display0.args = { variant: "heading-1", color: "dark" }
 
-const Documentation = () => (
+const Documentation = (): JSX.Element => (
   <Paragraph variant="body">
     <ul>
       <li>

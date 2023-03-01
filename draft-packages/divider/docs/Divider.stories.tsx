@@ -1,13 +1,13 @@
 import React from "react"
-import { Divider } from "@kaizen/draft-divider"
-import { Story } from "@storybook/react"
-import { Card } from "@kaizen/draft-card"
-import { Box } from "@kaizen/component-library"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES } from "../../../storybook/constants"
+import { Box } from "@kaizen/component-library"
+import { Card } from "@kaizen/draft-card"
+import { Divider } from "@kaizen/draft-divider"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/Divider`,
@@ -23,14 +23,17 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof Divider>
 
-export const DefaultStory = args => (
+export const DefaultStory: ComponentStory<typeof Divider> = args => (
   <Box m={1}>
-    <Divider variant="canvas" {...args} />
+    <Divider {...args} />
   </Box>
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
+DefaultStory.args = {
+  variant: "canvas",
+}
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,

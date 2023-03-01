@@ -1,7 +1,8 @@
 import React from "react"
+import cautionIcon from "@kaizen/component-library/icons/caution.icon.svg"
+import errorIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
-import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import { Size, Variant } from "./types"
 import styles from "./Popover.module.scss"
 
@@ -20,7 +21,7 @@ export const mapVariantToBoxClass = (variant: Variant): string => {
   }
 }
 
-export const mapVariantToIconClass = (variant: Variant) => {
+export const mapVariantToIconClass = (variant: Variant): string | undefined => {
   switch (variant) {
     case "informative":
       return styles.informativeIcon
@@ -44,9 +45,9 @@ export const mapVariantToIcon = (
     case "positive":
       return positiveIcon
     case "negative":
-      return negativeIcon
+      return errorIcon
     case "cautionary":
-      return negativeIcon
+      return cautionIcon
     default:
       return informativeIcon
   }

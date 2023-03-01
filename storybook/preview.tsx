@@ -1,15 +1,16 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
-import { addParameters } from "@storybook/react"
 import React from "react"
-import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
+import { addParameters } from "@storybook/react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import { CATEGORIES } from "./constants"
+import "highlight.js/styles/a11y-light.css"
 
 const queryClient = new QueryClient()
 
-const withQueryProvider = Story => (
+const withQueryProvider = (Story): JSX.Element => (
   <QueryClientProvider client={queryClient}>{Story()}</QueryClientProvider>
 )
 // Polyfill for :focus-visible pseudo-selector
@@ -32,6 +33,9 @@ addParameters({
     storySort: {
       method: "alphabetical",
       order: [
+        CATEGORIES.introduction,
+        CATEGORIES.systems,
+        CATEGORIES.tailwind,
         CATEGORIES.components,
         CATEGORIES.helpers,
         CATEGORIES.designTokens,
@@ -63,12 +67,12 @@ export const globalTypes = {
 }
 
 export const decorators = [
-  (Story: React.ComponentType) => (
+  (Story: React.ComponentType): JSX.Element => (
     <ThemeContext.Provider value={defaultTheme}>
       <Story />
     </ThemeContext.Provider>
   ),
-  (Story, props) => {
+  (Story, props): JSX.Element => {
     const dir = props.args.textDirection ?? props.globals.textDirection
     return (
       <div dir={dir}>

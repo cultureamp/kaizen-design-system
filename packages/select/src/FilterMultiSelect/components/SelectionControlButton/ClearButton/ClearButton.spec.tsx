@@ -10,7 +10,7 @@ jest.mock("../../../provider", () => ({
 
 describe("<ClearButton /> - interaction", () => {
   describe("Given selection is not empty", () => {
-    it("triggers selectionManager.selSelectedKeys() with focused keys filtered out when button is clicked", () => {
+    it("triggers selectionManager.selSelectedKeys() with focused keys filtered out when button is clicked", async () => {
       const spy = jest.fn()
       const selectedAndFocused = "selectedAndFocused"
       const selectedButNotFocused = "selectedButNotFocused"
@@ -30,7 +30,7 @@ describe("<ClearButton /> - interaction", () => {
         },
       })
       render(<ClearButton />)
-      userEvent.click(screen.getByRole("button"))
+      await userEvent.click(screen.getByRole("button"))
 
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith([selectedButNotFocused])
@@ -38,7 +38,7 @@ describe("<ClearButton /> - interaction", () => {
   })
 
   describe("Given selection is empty", () => {
-    it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", () => {
+    it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", async () => {
       const spy = jest.fn()
       const filteredKeys = []
       const selectedKeys = []
@@ -55,7 +55,7 @@ describe("<ClearButton /> - interaction", () => {
         },
       })
       render(<ClearButton />)
-      userEvent.click(screen.getByRole("button"))
+      await userEvent.click(screen.getByRole("button"))
 
       expect(spy).toHaveBeenCalledTimes(0)
     })

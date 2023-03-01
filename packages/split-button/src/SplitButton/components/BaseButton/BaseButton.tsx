@@ -16,13 +16,13 @@ export type BaseButtonProps = OverrideClassName<AnchorButtonAttributes> & {
   isReversed?: boolean
 }
 
-export const BaseButton: React.VFC<BaseButtonProps> = ({
+export const BaseButton = ({
   label,
   icon,
   isReversed,
   classNameOverride,
   ...attributes
-}) => {
+}: BaseButtonProps): JSX.Element => {
   const className = classnames([
     styles.baseButton,
     classNameOverride,

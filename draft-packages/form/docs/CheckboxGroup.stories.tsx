@@ -1,25 +1,25 @@
 import React, { useState } from "react"
-import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Story } from "@storybook/react"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 interface RenderProps {
   checkedStatus: string
-  onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
+  onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 interface CheckboxGroupExampleProps {
   render: (props: RenderProps) => JSX.Element
 }
 
-const CheckboxGroupExample: React.VFC<CheckboxGroupExampleProps> = ({
+const CheckboxGroupExample = ({
   render,
-}) => {
+}: CheckboxGroupExampleProps): JSX.Element => {
   const [checkedStatus, setCheckedStatus] = useState("mixed")
-  const onCheckHandler = () => {
+  const onCheckHandler = (): void => {
     const newStatus = checkedStatus === "on" ? "off" : "on"
     setCheckedStatus(newStatus)
   }
@@ -41,40 +41,39 @@ export default {
     ),
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof CheckboxField>
 
-export const InteractiveKaizenSiteDemo = args => (
+export const InteractiveKaizenSiteDemo: ComponentStory<
+  typeof CheckboxField
+> = args => (
   <div>
     <CheckboxGroup labelText="Checkbox Group Label">
       <CheckboxGroupExample
-        render={({ checkedStatus, onCheckHandler }) => (
+        render={({ checkedStatus, onCheckHandler }): JSX.Element => (
           <CheckboxField
             onCheck={onCheckHandler}
             id="checkbox-1"
             checkedStatus={checkedStatus as any}
-            labelText="Label"
             {...args}
           />
         )}
       />
       <CheckboxGroupExample
-        render={({ checkedStatus, onCheckHandler }) => (
+        render={({ checkedStatus, onCheckHandler }): JSX.Element => (
           <CheckboxField
             onCheck={onCheckHandler}
             id="checkbox-2"
             checkedStatus={checkedStatus as any}
-            labelText="Label"
             {...args}
           />
         )}
       />
       <CheckboxGroupExample
-        render={({ checkedStatus, onCheckHandler }) => (
+        render={({ checkedStatus, onCheckHandler }): JSX.Element => (
           <CheckboxField
             onCheck={onCheckHandler}
             id="checkbox-3"
             checkedStatus={checkedStatus as any}
-            labelText="Label"
             {...args}
           />
         )}
@@ -83,11 +82,14 @@ export const InteractiveKaizenSiteDemo = args => (
   </div>
 )
 InteractiveKaizenSiteDemo.storyName = "Checkbox Group"
+InteractiveKaizenSiteDemo.args = {
+  labelText: "Label",
+}
 
-export const NestedCheckboxGroup = () => {
+export const NestedCheckboxGroup: Story = () => {
   const [selectedOptions, setSelectedOptions] = React.useState<number[]>([])
 
-  const onCheckHandler = (state: string, value: number) => {
+  const onCheckHandler = (state: string, value: number): void => {
     if (state === "off") {
       setSelectedOptions(prev => [...prev, value])
     } else {
@@ -97,7 +99,7 @@ export const NestedCheckboxGroup = () => {
 
   const checkAllCheckboxOnCheckHandler = (
     event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  ): void => {
     const state = event.currentTarget.value
     if (state === "off" || state === "mixed") {
       setSelectedOptions([1, 2, 3])
@@ -129,19 +131,19 @@ export const NestedCheckboxGroup = () => {
           id="checkbox-1"
           checkedStatus={selectedOptions.includes(1) ? "on" : "off"}
           labelText="Label"
-          onCheck={e => onCheckHandler(e.currentTarget.value, 1)}
+          onCheck={(e): void => onCheckHandler(e.currentTarget.value, 1)}
         />
         <CheckboxField
           id="checkbox-2"
           checkedStatus={selectedOptions.includes(2) ? "on" : "off"}
           labelText="Label"
-          onCheck={e => onCheckHandler(e.currentTarget.value, 2)}
+          onCheck={(e): void => onCheckHandler(e.currentTarget.value, 2)}
         />
         <CheckboxField
           id="checkbox-3"
           checkedStatus={selectedOptions.includes(3) ? "on" : "off"}
           labelText="Label"
-          onCheck={e => onCheckHandler(e.currentTarget.value, 3)}
+          onCheck={(e): void => onCheckHandler(e.currentTarget.value, 3)}
         />
       </CheckboxGroup>
     </div>

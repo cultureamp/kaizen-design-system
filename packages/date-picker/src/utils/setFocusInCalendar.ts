@@ -1,12 +1,15 @@
-import calendarStyles from "../_primitives/Calendar/Calendar.module.scss"
-import { CalendarElement } from "../_primitives/Calendar"
+import {
+  CalendarSingleElement,
+  CalendarRangeElement,
+} from "../_subcomponents/Calendar"
+import calendarStyles from "../_subcomponents/Calendar/Calendar.module.scss"
 import { isInvalidDate } from "./isInvalidDate"
 
 const isHTMLElement = (element: Element | undefined): element is HTMLElement =>
   element instanceof HTMLElement
 
 export const setFocusInCalendar = (
-  calendarElement: CalendarElement,
+  calendarElement: CalendarSingleElement | CalendarRangeElement,
   selectedDay: Date | undefined
 ): void => {
   const daySelectedOrToday = calendarElement.getElementsByClassName(

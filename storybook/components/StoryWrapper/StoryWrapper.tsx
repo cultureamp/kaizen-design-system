@@ -1,10 +1,10 @@
 import React from "react"
 import classNames from "classnames"
+import { StoryRow, StoryRowProps } from "./components/StoryRow"
 import {
   StoryRowHeader,
   StoryRowHeaderProps,
 } from "./components/StoryRowHeader"
-import { StoryRow, StoryRowProps } from "./components/StoryRow"
 import styles from "./StoryWrapper.module.scss"
 
 type ReversibleSubcomponents = StoryRowHeaderProps | StoryRowProps
@@ -23,18 +23,13 @@ export interface StoryWrapperProps {
   hasRowDivider?: boolean
 }
 
-type Subcomponents = {
-  Row: typeof StoryRow
-  RowHeader: typeof StoryRowHeader
-}
-
-export const StoryWrapper: React.VFC<StoryWrapperProps> & Subcomponents = ({
+export const StoryWrapper = ({
   children,
   hasNoRowTitles = false,
   isReversed = false,
   hasColumnDivider = false,
   hasRowDivider = false,
-}) => {
+}: StoryWrapperProps): JSX.Element => {
   const childrenCount: number = React.Children.count(children)
 
   return (

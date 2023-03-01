@@ -1,6 +1,6 @@
 import React from "react"
-import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
+import { Icon } from "@kaizen/component-library"
 import styles from "./MenuItem.module.scss"
 
 export type MenuItemProps = {
@@ -32,7 +32,7 @@ export type MenuItemProps = {
   isActive?: boolean
 }
 
-const MenuItem = (props: MenuItemProps) => {
+const MenuItem = (props: MenuItemProps): JSX.Element => {
   const {
     label,
     icon,

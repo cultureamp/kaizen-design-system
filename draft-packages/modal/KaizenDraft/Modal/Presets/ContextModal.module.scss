@@ -42,8 +42,13 @@
 .portraitContentlayout {
   padding: $spacing-md;
   display: block;
+  box-sizing: content-box;
   @media (min-width: $layout-breakpoints-medium) {
-    display: flex;
+    display: grid;
+    max-width: 800px;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    column-gap: $spacing-xl;
     padding: $spacing-md $spacing-lg;
   }
 }
@@ -55,6 +60,7 @@
   @media (min-width: $layout-breakpoints-medium) {
     padding: $spacing-md $spacing-lg;
   }
+
   .image {
     display: flex;
     flex-direction: column;
@@ -68,18 +74,4 @@
       max-width: 100%;
     }
   }
-}
-
-.content {
-  flex: 1 0 100%;
-  padding-left: $spacing-xl;
-  padding-left: 0;
-  @media (min-width: $layout-breakpoints-medium) {
-    max-width: calc(16 * #{$spacing-md});
-    padding-left: $spacing-xl;
-  }
-}
-
-.image {
-  flex: 1;
 }

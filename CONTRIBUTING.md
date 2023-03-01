@@ -8,11 +8,11 @@ Kaizen Design System follows a federated, open-source model. All teams contribut
 
 An issue is a way to track ideas, enhancements and bugs.
 
-Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) to see if any relevant issues already exist.
+Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-discourse/issues/) to see if any relevant issues already exist.
 
 To create a new issue for changes to design documentation or missing documentation:
 
-1. Visit [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) and click the "**New issue**" button.
+1. Visit [Issues](https://github.com/cultureamp/kaizen-discourse/issues/) and click the "**New issue**" button.
 3. Give the issue a **title** framed as a problem, e.g. "There's no date picker guidance".
 4. Give the issue a **description** that provides enough information that people can act on it without including any sensitive information, e.g. "As a designer, I want to know how to position coach marks because I'm designing an onboarding workflow."
 5. Click **Submit**. Add a "Label" of "content" for design system content and "discussion" if you want feedback.
@@ -32,7 +32,7 @@ You can edit Kaizen Site documentation using GitHub's interface.
 6. **PR description and branch preview**:
     - Give your PR **a description** to help reviewers quickly understand why you've made the changes you have made and give feedback.
     - Where it says "No description provided", look for an "**Edit**" action (in the unlabeled icon dropdown).
-    - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-design-system/issues).
+    - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-discourse/issues).
     - It's convenient for reviewers if you add a link to your "**branch preview**", which shows how your changes will look on the Kaizen Site after it has automatically been built (within a few minutes of opening the PR). The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name), which you can find in the "Checks" section of the page (likely under "Show all checks" > Branch preview: "Details").
 
 Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #updates_design_systems for awareness.
@@ -72,7 +72,7 @@ To update a component in code:
 
 ### Design tokens
 
-See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
+See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/main/packages/generator) package.
 
 ### Browser and device support
 
@@ -131,7 +131,7 @@ To release a new version of a package, create a pull request that:
 - Has a conventional pull request title ([see below](#conventional-commit))
 - If there is only one commit, it has a commit message which matches the pull request title
 
-Once that pull request is merged into master, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
+Once that pull request is merged into main, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
 
 ### Semantic Versioning
 
@@ -149,7 +149,7 @@ All npm packages follow strict semantic versioning (or _semver_). Semantic versi
 
 ### Conventional Commit
 
-Our pull requests need to be structured in a certain way for the CI pipeline to correctly update version numbers when releasing packages. By following the [release workflow outlined above](#release-workflow), our pull requests will result in a Conventional Commit to the master branch when merged (see the [Conventional Commit 1.0.0 spec](https://www.conventionalcommits.org/en/v1.0.0/)).
+Our pull requests need to be structured in a certain way for the CI pipeline to correctly update version numbers when releasing packages. By following the [release workflow outlined above](#release-workflow), our pull requests will result in a Conventional Commit to the main branch when merged (see the [Conventional Commit 1.0.0 spec](https://www.conventionalcommits.org/en/v1.0.0/)).
 
 This workflow requires that all pull requests have a title formatted as follows:
 
@@ -183,7 +183,7 @@ However, **two commit types have special meaning** for the purpose of versioning
 
 #### Breaking changes
 
-In addition to `feat` and `fix` releases, if a pull request includes changes which modify existing behaviour or APIs in a way that is **not backwards compatible**, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to master. Doing so will trigger a MAJOR version update in the corresponding release, irrespective of the commit type.
+In addition to `feat` and `fix` releases, if a pull request includes changes which modify existing behaviour or APIs in a way that is **not backwards compatible**, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to main. Doing so will trigger a MAJOR version update in the corresponding release, irrespective of the commit type.
 
 Since we are using a squash-and-merge strategy for our pull requests, we recommend that you introduce breaking changes in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, with any additional notes in the commit body.
 

@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
+import { DecoratorFunction } from "@storybook/addons"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import isChromatic from "chromatic/isChromatic"
+import { withDesign } from "storybook-addon-designs"
+import { Button, IconButton } from "@kaizen/button"
+import { Icon } from "@kaizen/component-library"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
-import { Icon } from "@kaizen/component-library"
-import { Paragraph, Heading } from "@kaizen/typography"
-import { withDesign } from "storybook-addon-designs"
-import { Button, IconButton } from "@kaizen/button"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import isChromatic from "chromatic/isChromatic"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { Paragraph, Heading } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
-const openTooltipInChromatic = (story, config) => {
+const openTooltipInChromatic: DecoratorFunction = (story, config) => {
   if (isChromatic()) config.args.isInitiallyVisible = true
   return story()
 }
@@ -36,9 +38,9 @@ export default {
     ),
   },
   decorators: [withDesign, openTooltipInChromatic],
-}
+} as ComponentMeta<typeof Tooltip>
 
-export const DefaultKaizenSiteDemo = props => (
+export const DefaultKaizenSiteDemo: ComponentStory<typeof Tooltip> = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
@@ -56,7 +58,7 @@ DefaultKaizenSiteDemo.parameters = {
   },
 }
 
-export const WithNoAnimationDelay = props => (
+export const WithNoAnimationDelay: ComponentStory<typeof Tooltip> = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
@@ -67,7 +69,7 @@ export const WithNoAnimationDelay = props => (
 )
 WithNoAnimationDelay.storyName = "With no animation delay"
 
-export const StickerSheet = props => (
+export const StickerSheet: ComponentStory<typeof Tooltip> = props => (
   <div
     style={{
       marginTop: "100px",
@@ -275,7 +277,7 @@ export const StickerSheet = props => (
 )
 StickerSheet.parameters = { chromatic: { disable: false } }
 
-export const OverflowScroll = props => (
+export const OverflowScroll: ComponentStory<typeof Tooltip> = props => (
   <>
     <p>
       Default Placement is 'above'. Scroll horizontally or vertically to view

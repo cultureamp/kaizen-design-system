@@ -51,7 +51,7 @@ export interface InputProps
   automationId?: string
 }
 
-export const Input: React.VFC<InputProps> = ({
+export const Input = ({
   inputRef,
   status = "default",
   startIconAdornment,
@@ -70,14 +70,18 @@ export const Input: React.VFC<InputProps> = ({
   automationId,
   disabled,
   ...restProps
-}) => (
+}: InputProps): JSX.Element => (
   <div
-    className={classnames(styles.wrapper, {
-      [styles.withReversed]: reversed,
-      [styles.withDisabled]: disabled,
-      [styles.withStartIconAdornment]: startIconAdornment,
-      [styles.withEndIconAdornment]: endIconAdornment,
-    })}
+    className={classnames(
+      styles.wrapper,
+      {
+        [styles.withReversed]: reversed,
+        [styles.withDisabled]: disabled,
+        [styles.withStartIconAdornment]: startIconAdornment,
+        [styles.withEndIconAdornment]: endIconAdornment,
+      },
+      status != "default" && styles.hasStatus
+    )}
   >
     {startIconAdornment && (
       <div className={styles.startIconAdornment}>{startIconAdornment}</div>

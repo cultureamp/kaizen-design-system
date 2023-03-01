@@ -43,7 +43,7 @@ const renderCheckOrMixedIcon = (
 const getCheckedFromStatus = (checkedStatus: CheckedStatus): boolean =>
   checkedStatus === "on"
 
-export const Checkbox: React.VFC<CheckboxProps> = ({
+export const Checkbox = ({
   checkedStatus = "off",
   onCheck,
   reversed = false,
@@ -51,10 +51,10 @@ export const Checkbox: React.VFC<CheckboxProps> = ({
   automationId,
   classNameOverride,
   ...restProps
-}) => (
+}: CheckboxProps): JSX.Element => (
   <span className={styles.container}>
     <input
-      ref={node => {
+      ref={(node): void => {
         if (node) {
           node.indeterminate = checkedStatus === "mixed"
         }

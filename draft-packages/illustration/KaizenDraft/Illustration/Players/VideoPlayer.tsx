@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { canPlayWebm } from "../utils"
 import styles from "../Base.module.scss"
+import { canPlayWebm } from "../utils"
 
 export type VideoPlayerProps = {
   /**
@@ -44,7 +44,7 @@ export const VideoPlayer = ({
   source,
   aspectRatio,
   onEnded,
-}: VideoPlayerProps) => {
+}: VideoPlayerProps): JSX.Element => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] =
     React.useState<boolean>(true)
@@ -81,12 +81,20 @@ export const VideoPlayer = ({
       "(prefers-reduced-motion: reduce)"
     )
     setPrefersReducedMotion(reducedMotionQuery.matches)
-    const updateMotionPreferences = () => {
+    const updateMotionPreferences = (): void => {
       const { matches = false } = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
       )
       setPrefersReducedMotion(matches)
     }
+
+    const isLegacyEdge = navigator.userAgent.match(/Edge/)
+
+    const isUnsupportedSafari =
+      window.matchMedia("").addEventListener === undefined
+
+    if (isLegacyEdge || isUnsupportedSafari) return
+
     reducedMotionQuery.addEventListener("change", updateMotionPreferences, true)
 
     return function cleanup() {

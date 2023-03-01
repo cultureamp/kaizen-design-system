@@ -14,7 +14,7 @@ export const convertFractionToString = (fraction: GridFractions): string => {
     case 1:
       return "1"
     case 1.25:
-      return "0-point-25"
+      return "1-point-25"
     case 1.5:
       return "1-point-5"
     case 1.75:

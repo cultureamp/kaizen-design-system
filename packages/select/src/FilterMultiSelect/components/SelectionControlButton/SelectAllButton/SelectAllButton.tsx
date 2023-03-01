@@ -1,10 +1,10 @@
-import classNames from "classnames"
 import React from "react"
+import classNames from "classnames"
 import { useSelectionContext } from "../../../provider"
 
 import styles from "../SelectionControlButton.module.scss"
 
-export const SelectAllButton: React.VFC = () => {
+export const SelectAllButton = (): JSX.Element => {
   const { selectionState } = useSelectionContext()
   const selectedOptions = Array.from(
     selectionState.selectionManager.selectedKeys
@@ -23,7 +23,7 @@ export const SelectAllButton: React.VFC = () => {
       })}
       aria-disabled={selectionState.selectionManager.isSelectAll}
       onClick={
-        () =>
+        (): false | void =>
           !selectionState.selectionManager.isSelectAll &&
           selectionState.selectionManager.setSelectedKeys([
             ...selectedOptions,

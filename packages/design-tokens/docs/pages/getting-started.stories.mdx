@@ -5,7 +5,6 @@ import { Box } from "@kaizen/component-library";
 import { ThemesCodeBlocks, SassVariablesCodeBlocks, CodeBlock, LinkToStory } from "../DocsComponents"
 import howToUseInSass from './how-to-use-with-sass.stories.mdx'
 import howToUseInReact from './how-to-use-in-react.stories.mdx'
-import howToSwitchThemes from './how-to-switch-themes.stories.mdx'
 import api from './api.stories.mdx'
 
 <Meta title="Design Tokens/Getting started" parameters={{ docsOnly: true }} />
@@ -36,13 +35,6 @@ The recommended approaches to consuming design tokens are to:
 * Import their CSS variables representations in SASS - <LinkToStory storyModule={howToUseInSass} />
 * In a React application, use the context and hook components to subscribe and consume the current theme values - <LinkToStory storyModule={howToUseInReact} />
 * Subscribe to the theme using `themeManager.addThemeChangeListener(theme => ...)` and react to changes.
-
-
-## 3. Switching themes
-
-* Call `themeManager.setAndApplyTheme(themeObject)` which will set CSS variables accordingly and update all subscribers.
-
-See <LinkToStory storyModule={howToSwitchThemes} /> for more details and complex examples.
 
 
 ## Caveats

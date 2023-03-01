@@ -19,7 +19,10 @@ export interface RadioProps
   automationId?: string
 }
 
-const renderSelected = (selectedStatus: boolean, reversed) => {
+const renderSelected = (
+  selectedStatus: boolean,
+  reversed: boolean
+): React.ReactNode => {
   if (selectedStatus) {
     return (
       <div
@@ -32,7 +35,7 @@ const renderSelected = (selectedStatus: boolean, reversed) => {
   return
 }
 
-export const Radio: React.VFC<RadioProps> = ({
+export const Radio = ({
   id,
   name,
   value,
@@ -42,7 +45,7 @@ export const Radio: React.VFC<RadioProps> = ({
   onChange,
   classNameOverride,
   ...restProps
-}) => (
+}: RadioProps): JSX.Element => (
   <span>
     <input
       data-automation-id={automationId}

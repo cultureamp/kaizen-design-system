@@ -2,13 +2,13 @@
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
 
 import { Root } from "postcss"
-import stylelint from "stylelint"
 import postcssValueParser from "postcss-value-parser"
-import { kaizenTokensByValue } from "../util/kaizenTokens"
-import { KaizenToken, Options, RuleDefinition } from "../types"
-import { variablePrefixForLanguage } from "../util/utils"
+import stylelint from "stylelint"
 import { deprecatedTokenReplacements } from "../../deprecatedTokens"
+import { KaizenToken, Options, RuleDefinition } from "../types"
 import { normaliseColor } from "../util/colors"
+import { kaizenTokensByValue } from "../util/kaizenTokens"
+import { variablePrefixForLanguage } from "../util/utils"
 
 /**
  * A ranking strategy that causes the preference of tokens with the substring "color" in it, over ones that don't.
@@ -17,7 +17,7 @@ import { normaliseColor } from "../util/colors"
  *
  * You can extend this function if you have similar token conflicts in the future.
  */
-function getTokenRank(_tokenName: string) {
+function getTokenRank(_tokenName: string): number {
   const tokenName = _tokenName.toLowerCase()
   return 1 - tokenName.indexOf("color") / tokenName.length
 }

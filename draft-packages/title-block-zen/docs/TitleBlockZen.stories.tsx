@@ -1,18 +1,20 @@
-import React from "react"
-import addIcon from "@kaizen/component-library/icons/add.icon.svg"
-import { Box } from "@kaizen/component-library"
-import { Heading, Paragraph } from "@kaizen/typography"
-import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
-import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
-import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
-import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import { assetUrl } from "@kaizen/hosted-assets"
-import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
+import React, { ReactNode } from "react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Args, Story } from "@storybook/react"
-import { NavigationTab, TitleBlockZen } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
+import { CustomButtonProps } from "@kaizen/button"
+import { Box } from "@kaizen/component-library"
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
+import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
+import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
+import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
+import { Tag } from "@kaizen/draft-tag"
+import { assetUrl } from "@kaizen/hosted-assets"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { NavigationTab, SectionTitleRenderProps, TitleBlockZen } from ".."
 import styles from "./TitleBlockZen.stories.module.scss"
 
 const TESTING_VIEWPORTS = [320, 768, 1200]
@@ -34,45 +36,41 @@ export default {
   decorators: [withDesign],
 }
 
-const OffsetPadding = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ margin: "-1rem" }}>{children}</div>
-)
+const OffsetPadding = ({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element => <div style={{ margin: "-1rem" }}>{children}</div>
 
 const SECONDARY_ACTIONS = [
   {
     label: "Secondary menu",
     menuItems: [
       {
-        onClick: () => {
-          alert("test")
-        },
+        onClick: (): void => alert("test"),
         label: "Secondary menu action 1",
       },
       {
-        onClick: () => {
-          alert("test")
-        },
+        onClick: (): void => alert("test"),
         label: "Secondary menu action 2",
         icon: starIcon,
       },
     ],
   },
   {
-    onClick: () => {
-      alert("test")
-    },
-    href: "foo",
+    onClick: (): void => alert("test"),
     label: "Secondary action",
   },
 ]
 
-const DefaultTemplate = args => (
+const DefaultTemplate: ComponentStory<typeof TitleBlockZen> = args => (
   <OffsetPadding>
     <TitleBlockZen {...args} />
   </OffsetPadding>
 )
 
-export const Default: Story<Args> = DefaultTemplate.bind({})
+export const Default: ComponentStory<typeof TitleBlockZen> =
+  DefaultTemplate.bind({})
 Default.args = {
   title: "Page title",
   surveyStatus: { text: "Live", status: "live" },
@@ -89,9 +87,7 @@ Default.args = {
   secondaryActions: SECONDARY_ACTIONS,
   secondaryOverflowMenuItems: [
     {
-      action: () => {
-        alert("test")
-      },
+      action: (): void => alert("test"),
       label: "Overflow action 1",
       icon: starIcon,
     },
@@ -101,17 +97,13 @@ Default.args = {
       icon: starIcon,
     },
   ],
-  handleHamburgerClick: () => {
-    alert("Hamburger clicked")
-  },
+  handleHamburgerClick: (): void => alert("Hamburger clicked"),
   breadcrumb: {
     path: "#",
     text: "Back to home",
-    handleClick: event => {
-      alert("breadcrumb clicked!")
-    },
+    handleClick: (): void => alert("breadcrumb clicked!"),
   },
-  navigationTabs: () => [
+  navigationTabs: [
     <NavigationTab text="Label" href="#" active />,
     <NavigationTab text="Label" href="#" />,
     <NavigationTab text="Label" href="#" />,
@@ -121,7 +113,7 @@ Default.args = {
   ],
 }
 
-export const WithBadge = () => {
+export const WithBadge: Story = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
   return (
     <OffsetPadding>
@@ -147,9 +139,7 @@ export const WithBadge = () => {
         breadcrumb={{
           path: "#",
           text: "Back to home",
-          handleClick: event => {
-            alert("breadcrumb clicked!")
-          },
+          handleClick: () => alert("breadcrumb clicked!"),
         }}
       />
     </OffsetPadding>
@@ -158,7 +148,7 @@ export const WithBadge = () => {
 WithBadge.storyName = "With Primary Action Badge"
 WithBadge.parameters = { chromatic: { disable: false } }
 
-export const WithDefaultTag = () => (
+export const WithDefaultTag: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -172,9 +162,7 @@ export const WithDefaultTag = () => (
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
     />
   </OffsetPadding>
@@ -182,7 +170,7 @@ export const WithDefaultTag = () => (
 WithDefaultTag.storyName = "With Default Survey Status (Tag)"
 WithDefaultTag.parameters = { chromatic: { disable: false } }
 
-export const AdminWithDefaultTag = () => (
+export const AdminWithDefaultTag: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       variant="admin"
@@ -197,9 +185,7 @@ export const AdminWithDefaultTag = () => (
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
     />
   </OffsetPadding>
@@ -207,7 +193,7 @@ export const AdminWithDefaultTag = () => (
 AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 AdminWithDefaultTag.parameters = { chromatic: { disable: false } }
 
-export const DefaultWithMenuButton = () => (
+export const DefaultWithMenuButton: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -220,9 +206,7 @@ export const DefaultWithMenuButton = () => (
             label: "Item 1",
           },
           {
-            action: () => {
-              alert("Item 2 clicked")
-            },
+            action: () => alert("Item 2 clicked"),
             label: "Item 2",
           },
           {
@@ -236,15 +220,11 @@ export const DefaultWithMenuButton = () => (
         icon: addIcon,
       }}
       secondaryActions={SECONDARY_ACTIONS}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Label" href="#" active />,
@@ -260,7 +240,7 @@ export const DefaultWithMenuButton = () => (
 DefaultWithMenuButton.storyName = "Default (Menu Button)"
 DefaultWithMenuButton.parameters = { chromatic: { disable: false } }
 
-export const AdminVariant = () => (
+export const AdminVariant: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -282,15 +262,11 @@ export const AdminVariant = () => (
       }}
       defaultAction={{ label: "Default link", href: "#" }}
       secondaryActions={SECONDARY_ACTIONS}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
     />
   </OffsetPadding>
@@ -298,7 +274,7 @@ export const AdminVariant = () => (
 AdminVariant.storyName = "Admin variant"
 AdminVariant.parameters = { chromatic: { disable: false } }
 
-export const AdminVariantWithNavTabs = () => (
+export const AdminVariantWithNavTabs: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -306,15 +282,11 @@ export const AdminVariantWithNavTabs = () => (
       primaryAction={{ label: "Primary link", href: "#" }}
       defaultAction={{ label: "Default link", href: "#" }}
       secondaryActions={SECONDARY_ACTIONS}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Label" href="#" active variant="admin" />,
@@ -330,7 +302,7 @@ export const AdminVariantWithNavTabs = () => (
 AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 AdminVariantWithNavTabs.parameters = { chromatic: { disable: false } }
 
-export const EducationVariant = () => (
+export const EducationVariant: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -343,9 +315,7 @@ export const EducationVariant = () => (
       secondaryActions={SECONDARY_ACTIONS}
       secondaryOverflowMenuItems={[
         {
-          action: () => {
-            alert("test")
-          },
+          action: () => alert("test"),
           label: "Overflow action 1",
           icon: starIcon,
         },
@@ -355,15 +325,11 @@ export const EducationVariant = () => (
           icon: starIcon,
         },
       ]}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
     />
     <Skirt variant="education">
@@ -392,7 +358,7 @@ export const EducationVariant = () => (
 EducationVariant.storyName = "Education variant"
 EducationVariant.parameters = { chromatic: { disable: false } }
 
-export const Engagement = () => (
+export const Engagement: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Baseline Engagement Survey"
@@ -408,24 +374,18 @@ export const Engagement = () => (
         href: "#",
       }}
       secondaryActions={SECONDARY_ACTIONS}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Summary" href="#" />,
         <NavigationTab
           text="Insight"
           href="#"
-          handleClick={event => {
-            alert("Label clicked!")
-          }}
+          handleClick={(): void => alert("Label clicked!")}
         />,
         <NavigationTab text="Participation" href="#" />,
         <NavigationTab text="Questions" href="#" active />,
@@ -437,7 +397,7 @@ export const Engagement = () => (
 )
 Engagement.parameters = { chromatic: { disable: false } }
 
-export const Performance = () => (
+export const Performance: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -453,38 +413,28 @@ export const Performance = () => (
       }}
       secondaryActions={[
         {
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           label: "Quick comment",
           icon: commentIcon,
         },
         {
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           label: "Review skills",
           icon: starIcon,
         },
       ]}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Feedback" href="#" active />,
         <NavigationTab
           text="Self-reflection"
           href="#"
-          handleClick={event => {
-            alert("Self-reflection clicked!")
-          }}
+          handleClick={(): void => alert("Self-reflection clicked!")}
         />,
         <NavigationTab text="Goal" href="#" />,
         <NavigationTab text="Evaluations" href="#" />,
@@ -495,7 +445,7 @@ export const Performance = () => (
 )
 Performance.parameters = { chromatic: { disable: false } }
 
-export const PerformanceWithAvatarProps = () => (
+export const PerformanceWithAvatarProps: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -514,38 +464,28 @@ export const PerformanceWithAvatarProps = () => (
       }}
       secondaryActions={[
         {
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           label: "Quick comment",
           icon: commentIcon,
         },
         {
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           label: "Review skills",
           icon: starIcon,
         },
       ]}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Feedback" href="#" active />,
         <NavigationTab
           text="Self-reflection"
           href="#"
-          handleClick={event => {
-            alert("Self-reflection clicked!")
-          }}
+          handleClick={(): void => alert("Self-reflection clicked!")}
         />,
         <NavigationTab text="Goal" href="#" />,
         <NavigationTab text="Evaluations" href="#" />,
@@ -556,7 +496,7 @@ export const PerformanceWithAvatarProps = () => (
 )
 PerformanceWithAvatarProps.storyName = "Performance with AvatarProps"
 
-export const PerformanceWithEmptyAvatarProps = () => (
+export const PerformanceWithEmptyAvatarProps: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -572,38 +512,28 @@ export const PerformanceWithEmptyAvatarProps = () => (
       }}
       secondaryActions={[
         {
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           label: "Quick comment",
           icon: commentIcon,
         },
         {
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           label: "Review skills",
           icon: starIcon,
         },
       ]}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Feedback" href="#" active />,
         <NavigationTab
           text="Self-reflection"
           href="#"
-          handleClick={event => {
-            alert("Self-reflection clicked!")
-          }}
+          handleClick={(): void => alert("Self-reflection clicked!")}
         />,
         <NavigationTab text="Goal" href="#" />,
         <NavigationTab text="Evaluations" href="#" />,
@@ -614,7 +544,7 @@ export const PerformanceWithEmptyAvatarProps = () => (
 )
 PerformanceWithEmptyAvatarProps.storyName = "Performance with Empty AvatarProps"
 
-export const LongLabels = () => (
+export const LongLabels: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Wolfeschlegelsteino Hausenbergerdorffsch Hausenbergerdorffsch"
@@ -622,9 +552,7 @@ export const LongLabels = () => (
       primaryAction={{
         label: "Feedback anfordern",
         href: "#",
-        onClick: () => {
-          alert("test")
-        },
+        onClick: (): void => alert("test"),
       }}
       defaultAction={{
         label: "Feedback geben",
@@ -633,28 +561,20 @@ export const LongLabels = () => (
       secondaryActions={[
         {
           label: "Schneller Kommentar",
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           icon: commentIcon,
         },
         {
           label: "Fähigkeiten überprüfen",
-          onClick: () => {
-            alert("test")
-          },
+          onClick: () => alert("test"),
           icon: starIcon,
         },
       ]}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Drehen Sie sich um und kehren Sie zur Startseite zurück",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       avatar={<img alt="" src={assetUrl("site/empty-state.png")} />}
       subtitle="Wissenschaftlicher Mitarbeiter (Habilitation)"
@@ -663,9 +583,7 @@ export const LongLabels = () => (
         <NavigationTab
           text="Selbstreflexion"
           href="#"
-          handleClick={event => {
-            alert("Self-reflection clicked!")
-          }}
+          handleClick={(): void => alert("Self-reflection clicked!")}
         />,
         <NavigationTab text="Tor" href="#" />,
         <NavigationTab text="Bewertungen" href="#" />,
@@ -687,21 +605,17 @@ const MENU_LINKS = [
   },
   {
     label: "Primary menu action 1",
-    action: () => {
-      alert("test")
-    },
+    action: (): void => alert("test"),
     icon: reportSharingIcon,
   },
   {
     label: "Primary menu action 2",
-    action: () => {
-      alert("test")
-    },
+    action: (): void => alert("test"),
     icon: starIcon,
   },
 ]
 
-export const DefaultWithContent = () => (
+export const DefaultWithContent: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -716,15 +630,11 @@ export const DefaultWithContent = () => (
         href: "#",
       }}
       secondaryActions={SECONDARY_ACTIONS}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Label" href="#" active />,
@@ -819,7 +729,7 @@ export const DefaultWithContent = () => (
 DefaultWithContent.storyName = "Default with content"
 DefaultWithContent.parameters = { chromatic: { disable: false } }
 
-export const DefaultNoSecondary = () => (
+export const DefaultNoSecondary: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -833,15 +743,11 @@ export const DefaultNoSecondary = () => (
         label: "Default link",
         href: "#",
       }}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Label" href="#" active />,
@@ -930,13 +836,11 @@ export const DefaultNoSecondary = () => (
         </Paragraph>
       </Box>
     </Box>
-    {/* </SkirtCard>
-    </Skirt> */}
   </OffsetPadding>
 )
 DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
-export const DefaultOnlyPrimary = () => (
+export const DefaultOnlyPrimary: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -946,15 +850,11 @@ export const DefaultOnlyPrimary = () => (
         icon: addIcon,
         href: "#",
       }}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Label" href="#" active />,
@@ -969,7 +869,7 @@ export const DefaultOnlyPrimary = () => (
 )
 DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
-export const DefaultWithReportSwitcher = () => (
+export const DefaultWithReportSwitcher: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -1002,15 +902,11 @@ export const DefaultWithReportSwitcher = () => (
         icon: addIcon,
         href: "#",
       }}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Label" href="#" active />,
@@ -1026,7 +922,7 @@ export const DefaultWithReportSwitcher = () => (
 DefaultWithReportSwitcher.storyName = "Default with report switcher"
 DefaultWithReportSwitcher.parameters = { chromatic: { disable: false } }
 
-export const DefaultNoLink = () => (
+export const DefaultNoLink: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -1044,9 +940,7 @@ export const DefaultNoLink = () => (
       secondaryActions={SECONDARY_ACTIONS}
       secondaryOverflowMenuItems={[
         {
-          action: () => {
-            alert("test")
-          },
+          action: () => alert("test"),
           label: "Overflow action 1",
           icon: starIcon,
         },
@@ -1056,14 +950,10 @@ export const DefaultNoLink = () => (
           icon: starIcon,
         },
       ]}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
         <NavigationTab text="Label" href="#" active />,
@@ -1087,40 +977,32 @@ export const DefaultNoLink = () => (
 )
 DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
-export const DefaultOnlyLongTitle = () => (
+export const DefaultOnlyLongTitle: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       subtitle="Subtitle goes here"
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
     />
   </OffsetPadding>
 )
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
 
-export const DefaultCollapsedNavigation = () => (
+export const DefaultCollapsedNavigation: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       subtitle="Subtitle goes here"
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       collapseNavigationAreaWhenPossible
     />
@@ -1136,20 +1018,16 @@ export const DefaultCollapsedNavigation = () => (
 DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
 DefaultCollapsedNavigation.parameters = { chromatic: { disable: false } }
 
-export const DefaultCollapsedNavigationCard = () => (
+export const DefaultCollapsedNavigationCard: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       subtitle="Subtitle goes here"
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       collapseNavigationAreaWhenPossible
     />
@@ -1167,21 +1045,17 @@ export const DefaultCollapsedNavigationCard = () => (
 DefaultCollapsedNavigationCard.storyName =
   "Default (collapsed navigation with card)"
 
-export const AdminVariantNavigation = () => (
+export const AdminVariantNavigation: Story = () => (
   <OffsetPadding>
     <TitleBlockZen
       variant="admin"
       title="Page title"
       subtitle="Subtitle goes here"
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
       breadcrumb={{
         path: "#",
         text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
+        handleClick: () => alert("breadcrumb clicked!"),
       }}
       collapseNavigationAreaWhenPossible
     />
@@ -1198,8 +1072,12 @@ export const AdminVariantNavigation = () => (
 )
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
 
-export const RenderProps = () => {
-  const CustomTab = props => (
+export const RenderProps: Story = () => {
+  const CustomTab = (props: {
+    href: string
+    className: string
+    text: string
+  }): JSX.Element => (
     // In real life, you'll likely use this to insert a router Link component
     <a href={props.href} className={props.className}>
       {props.text}
@@ -1221,6 +1099,11 @@ export const RenderProps = () => {
             </a>
           ),
         }}
+        secondaryActions={SECONDARY_ACTIONS}
+        defaultAction={{
+          href: "#",
+          label: "Default action",
+        }}
         breadcrumb={{
           path: "#",
           text: "Back to home",
@@ -1240,3 +1123,170 @@ export const RenderProps = () => {
     </OffsetPadding>
   )
 }
+
+export const WithCustomSectionTitle: Story = () => {
+  const CustomComponent = (props: SectionTitleRenderProps): JSX.Element => (
+    <div className={styles["flex-wrapper"]}>
+      <Heading color="white" variant="heading-3">
+        {props.sectionTitle}
+      </Heading>
+      <Tag variant="statusDraft">My custom element</Tag>
+    </div>
+  )
+  return (
+    <OffsetPadding>
+      <TitleBlockZen
+        title="Page title"
+        primaryAction={{
+          label: "Primary action",
+          onClick: () => alert("primary action clicked"),
+        }}
+        subtitle="Subtitle"
+        sectionTitle="Section title"
+        renderSectionTitle={CustomComponent}
+        breadcrumb={{
+          text: "Back",
+          handleClick: () => undefined,
+        }}
+      />
+    </OffsetPadding>
+  )
+}
+WithCustomSectionTitle.storyName = "With custom section title"
+WithCustomSectionTitle.parameters = { chromatic: { disable: false } }
+
+RenderProps.storyName = "Navigation tabs with render props"
+
+/** A mock implementation of Next.js's Link types */
+type MockRouterPropsType = {
+  href: string | undefined
+  as?: string
+  replace?: boolean
+  scroll?: boolean
+  shallow?: boolean
+  passHref?: boolean
+  prefetch?: boolean
+  locale?: string | false
+  legacyBehavior?: boolean
+  onMouseEnter?: (e: any) => void
+  onTouchStart?: (e: any) => void
+  onClick?: (e: any) => void
+  children?: ReactNode
+  automationId?: string
+}
+/** A mock implementation of Next.js's Link component */
+const MockRouterLink = ({
+  href,
+  automationId,
+  children,
+  ...otherProps
+}: MockRouterPropsType): JSX.Element => (
+  <button
+    {...otherProps}
+    // this is in place of using Link's `to` prop
+    onClick={(): void => alert(`Mock route change to ${href}`)}
+    data-automation-id={automationId}
+  >
+    {children}
+  </button>
+)
+
+export const ActionRenderProps: Story = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default action",
+        // if you want to use sort your custom components in the top half for with links
+        // you will need to pass href in like this
+        href: "#default",
+        icon: starIcon,
+        // while this *could* take children it would not be able to use the custom button's
+        // `renderContent` for label and icon styling. If you do use children here you will
+        // have to byo styles
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      primaryAction={{
+        label: "Primary action",
+        icon: arrowForwardIcon,
+        iconPosition: "end",
+        component: props => <MockRouterLink href="#primary" {...props} />,
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          icon: reportSharingIcon,
+          component: props => <MockRouterLink href="#secondary" {...props} />,
+        },
+        {
+          label: "secondary action 2",
+          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+        },
+        {
+          label: "secondary action 3",
+          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+        },
+      ]}
+    />
+  </OffsetPadding>
+)
+
+ActionRenderProps.storyName = "Custom actions with component render props"
+
+export const MenuHierarchyExample: Story = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default link action",
+        href: "#default",
+        icon: starIcon,
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      primaryAction={{
+        label: "Primary actions",
+        menuItems: [
+          {
+            label: "Component prop with link 1",
+
+            href: "#priamry-2",
+            component: props => <MockRouterLink href={props.href} {...props} />,
+          },
+          {
+            label: "Component prop with link 2",
+            href: "#priamry-3",
+            component: props => <a {...props}>{props.children}</a>,
+          },
+          // on mobile, anything not supplied an href will be sorted below the default (link) action
+          // to match to the existing pattern of link on top, actions on bottom. See "Default
+          // with content" Story for example.
+          {
+            label: "Component prop with onclick",
+            icon: reportSharingIcon,
+            iconPosition: "end",
+            onClick: (): void => alert("a primary action"),
+            component: props => <button {...props} />,
+          },
+        ],
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          icon: reportSharingIcon,
+          component: props => <MockRouterLink href="#secondary" {...props} />,
+        },
+        {
+          label: "secondary action 2",
+          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+        },
+        {
+          label: "secondary action 3",
+          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+        },
+      ]}
+    />
+  </OffsetPadding>
+)
+
+MenuHierarchyExample.storyName =
+  "Sorting menu list actions using component render props"

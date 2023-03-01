@@ -18,6 +18,18 @@ $input-with-icon-padding: calc(
 
 .wrapper {
   position: relative;
+
+  &.hasStatus {
+    z-index: 1;
+  }
+
+  &:hover {
+    z-index: 2;
+  }
+
+  &:focus-within {
+    z-index: 3;
+  }
 }
 
 .input {

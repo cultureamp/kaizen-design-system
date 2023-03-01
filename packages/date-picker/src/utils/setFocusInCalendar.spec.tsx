@@ -2,17 +2,16 @@ import React from "react"
 import { render, screen } from "@testing-library/react"
 import { format } from "date-fns"
 import { enUS } from "date-fns/locale"
-import { Calendar, CalendarProps } from "../_primitives/Calendar"
+import { CalendarSingle, CalendarSingleProps } from "../_subcomponents/Calendar"
 import { setFocusInCalendar } from "./setFocusInCalendar"
 
-const CalendarWrapper = (props: Partial<CalendarProps>): JSX.Element => (
-  <Calendar
-    mode="single"
+const CalendarWrapper = (props: Partial<CalendarSingleProps>): JSX.Element => (
+  <CalendarSingle
     id="calendar-dialog"
-    onDayChange={jest.fn<void, [Date]>()}
+    onDayClick={jest.fn<void, [Date]>()}
     locale={enUS}
-    onMount={calendarElement =>
-      setFocusInCalendar(calendarElement, props.value)
+    onMount={(calendarElement): void =>
+      setFocusInCalendar(calendarElement, props.selected)
     }
     {...props}
   />
@@ -30,7 +29,7 @@ describe("setFocusInCalendar", () => {
   })
 
   it("should focus on the selected day", () => {
-    render(<CalendarWrapper value={new Date("2022-08-15")} />)
+    render(<CalendarWrapper selected={new Date("2022-08-15")} />)
 
     const dayToFocus = screen.getByRole("button", {
       name: "15th August (Monday)",
@@ -39,7 +38,7 @@ describe("setFocusInCalendar", () => {
   })
 
   it("should focus on today when selected date is invalid", () => {
-    render(<CalendarWrapper value={new Date("potato")} />)
+    render(<CalendarWrapper selected={new Date("potato")} />)
 
     const dayToFocus = screen.getByRole("button", { name: todayFormatted })
     expect(dayToFocus).toHaveFocus()

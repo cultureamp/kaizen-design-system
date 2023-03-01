@@ -1,9 +1,9 @@
 import * as React from "react"
-import { Icon } from "@kaizen/component-library"
+import classnames from "classnames"
 import { Button } from "@kaizen/button"
+import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
-import classnames from "classnames"
 import styles from "./FilterSplitButton.module.scss"
 
 type FilterSplitButtonProps = {
@@ -26,7 +26,7 @@ export const FilterSplitButton = ({
   ariaControls,
   ariaExpanded,
   isDropdownVisible,
-}: FilterSplitButtonProps) => {
+}: FilterSplitButtonProps): JSX.Element => {
   if (metadata) {
     return (
       <div className={styles.filterSelectButton}>

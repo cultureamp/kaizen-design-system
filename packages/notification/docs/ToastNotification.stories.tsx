@@ -1,5 +1,11 @@
-import * as React from "react"
+import React from "react"
+import { ComponentStory, Story } from "@storybook/react"
+import isChromatic from "chromatic"
+import { withDesign } from "storybook-addon-designs"
+import { v4 } from "uuid"
 import { Button } from "@kaizen/button"
+import { Box } from "@kaizen/component-library"
+import { Container, Content } from "@kaizen/draft-page-layout"
 import { TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import {
   addToastNotification,
@@ -7,29 +13,25 @@ import {
   clearToastNotifications,
   ToastNotification,
 } from "@kaizen/notification"
-import { Box } from "@kaizen/component-library"
-import { Container, Content } from "@kaizen/draft-page-layout"
 import { ToastNotificationWithOptionals } from "@kaizen/notification/src/types"
-import { withDesign } from "storybook-addon-designs"
-import { v4 } from "uuid"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ToastNotification.stories.module.scss"
 
-const withNavigation = (Story: React.FunctionComponent) => (
-  <>
-    <div style={{ margin: "-1rem", minHeight: "150px" }}>
-      <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
-      <Story />
-    </div>
-  </>
+const IS_CHROMATIC = isChromatic()
+
+const withNavigation = (StoryChild: () => JSX.Element): JSX.Element => (
+  <div style={{ margin: "-1rem", minHeight: "150px" }}>
+    <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
+    <StoryChild />
+  </div>
 )
 
 const Triggers = ({
   notifications,
 }: {
   notifications: ToastNotificationWithOptionals[]
-}) => {
+}): JSX.Element => {
   const [local] = React.useState(notifications.map(n => ({ ...n, id: v4() })))
 
   return (
@@ -39,7 +41,7 @@ const Triggers = ({
           <Box mr={0.25}>
             <Button
               label={`Show notification${local.length > 1 ? "s" : ""}`}
-              onClick={() => {
+              onClick={(): void => {
                 local.forEach(addToastNotification)
               }}
             />
@@ -47,14 +49,14 @@ const Triggers = ({
           <Box mr={0.25}>
             <Button
               label="Remove"
-              onClick={() => {
+              onClick={(): void => {
                 local.forEach(({ id }) => removeToastNotification(id))
               }}
             />
           </Box>
           <Button
             label="Clear"
-            onClick={() => {
+            onClick={(): void => {
               clearToastNotifications()
             }}
           />
@@ -81,174 +83,31 @@ export default {
   decorators: [withDesign, withNavigation],
 }
 
-export const PositiveKaizenSiteDemo = () => {
+export const PositiveKaizenSiteDemo: Story<
+  ToastNotificationWithOptionals
+> = args => {
   React.useEffect(() => {
-    addToastNotification({
-      type: "positive",
-      title: "Success",
-      automationId: "notification1",
-      message: (
-        <>
-          New user data, imported by mackenzie@hooli.com has successfully
-          uploaded. <a href="/">Manage users is now available</a>
-        </>
-      ),
-    })
+    addToastNotification({ ...args })
   })
   return <></>
 }
 
-PositiveKaizenSiteDemo.storyName = "Positive (Kaizen Site Demo)"
+PositiveKaizenSiteDemo.args = {
+  type: "positive",
+  title: "Success",
+  automationId: "notification1",
+  message: (
+    <>
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
+      <a href="/">Manage users is now available</a>
+    </>
+  ),
+  autohide: false,
+}
 
-export const PositiveAutohide = () => (
-  <Triggers
-    notifications={[
-      {
-        type: "positive",
-        title: "Success",
-        automationId: "notification1",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has successfully
-            uploaded. <a href="/">Manage users is now available</a>
-          </>
-        ),
-      },
-    ]}
-  />
-)
+PositiveKaizenSiteDemo.storyName = "Toast Notification"
 
-PositiveAutohide.storyName = "Positive, Autohide"
-
-export const PositiveAutohideHideCloseIcon = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "positive",
-        title: "Success",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has successfully
-            uploaded. <a href="/">Manage users is now available</a>
-          </>
-        ),
-        persistent: true,
-      },
-    ]}
-  />
-)
-
-PositiveAutohideHideCloseIcon.storyName = "Positive, Autohide, Hide Close Icon"
-
-export const Informative = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "informative",
-        title: "Informative",
-        message: (
-          <>
-            New user data is currently being processed. We’ll let you know when
-            the process is completed. <a href="/">Manage users</a>
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-export const Cautionary = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "cautionary",
-        title: "Warning",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has uploaded with
-            some minor issues. <a href="/">View issues</a>
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-export const Negative = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "negative",
-        title: "No network connection",
-        autohide: false,
-        message: (
-          <>
-            Check your connection and try again. <a href="/">Refresh</a>.
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-export const MultipleNotifications = () => (
-  <Triggers
-    notifications={[
-      {
-        automationId: "notification1",
-        type: "positive",
-        title: "Success",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has successfully
-            uploaded. <a href="/">Manage users is now available</a>
-          </>
-        ),
-      },
-      {
-        automationId: "notification2",
-        type: "informative",
-        title: "Informative",
-        message: (
-          <>
-            New user data is currently being processed. We’ll let you know when
-            the process is completed. <a href="/">Manage users</a>
-          </>
-        ),
-        persistent: true,
-      },
-      {
-        automationId: "notification3",
-        type: "cautionary",
-        title: "Warning",
-        message: (
-          <>
-            New user data, imported by mackenzie@hooli.com has uploaded with
-            some minor issues. <a href="/">View issues</a>
-          </>
-        ),
-      },
-      {
-        automationId: "notification4",
-        type: "negative",
-        title: "No network connection",
-        message: (
-          <>
-            Check your connection and try again. <a href="/">Refresh</a>.
-          </>
-        ),
-      },
-    ]}
-  />
-)
-
-MultipleNotifications.storyName = "Multiple notifications"
-
-export const OverflowNotifications = () => {
+export const OverflowNotifications: ComponentStory<typeof Triggers> = () => {
   const seed = Math.random() * 1000
   return (
     <Triggers
@@ -269,14 +128,14 @@ export const OverflowNotifications = () => {
 }
 OverflowNotifications.storyName = "Overflow notifications"
 
-export const UpdatedNotification = () => (
+export const UpdatedNotification: Story = () => (
   <Container>
     <Content>
       <Box py={1} classNameOverride={styles.triggerContainer}>
         <Box mr={0.25}>
           <Button
             label={"Create initial notification"}
-            onClick={() => {
+            onClick={(): void => {
               addToastNotification({
                 id: "consistent-id",
                 automationId: "notification1",
@@ -294,7 +153,7 @@ export const UpdatedNotification = () => (
         </Box>
         <Button
           label={"Update initial notification"}
-          onClick={() => {
+          onClick={(): void => {
             addToastNotification({
               id: "consistent-id",
               automationId: "notification1",
@@ -315,3 +174,78 @@ export const UpdatedNotification = () => (
   </Container>
 )
 UpdatedNotification.storyName = "Updated notification"
+
+const StickerSheetTemplate: Story = () => {
+  React.useEffect(() => {
+    addToastNotification({
+      type: "positive",
+      title: "Positive",
+      automationId: "notification1",
+      message: (
+        <>
+          New user data, imported by mackenzie@hooli.com has successfully
+          uploaded. <a href="/">Manage users is now available</a>
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "informative",
+      title: "Informative",
+      automationId: "notification1",
+      message: (
+        <>
+          New user data is currently being processed. We’ll let you know when
+          the process is completed. <a href="/">Manage users</a>
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "cautionary",
+      title: "Cautionary",
+      automationId: "notification1",
+      message: (
+        <>
+          New user data, imported by mackenzie@hooli.com has uploaded with some
+          minor issues. <a href="/">View issues</a>
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "negative",
+      title: "Negative",
+      automationId: "notification1",
+      message: (
+        <>
+          Check your connection and try again. <a href="/">Refresh</a>.
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "positive",
+      title:
+        "Very long Title Example Very long title Example VerylongTitleExampleVerylongtitleExample ",
+      automationId: "notification1",
+      message: (
+        <>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper
+          odio vitae sem gravida rutrum. Praesent vel sapien eget eros dictum
+          luctus scelerisque eu nibh. Etiam ullamcorper lobortis gravida.
+          Suspendisse massa tortor, ultricies et ipsum at, iaculis bibendum est.
+        </>
+      ),
+      autohide: false,
+    })
+  })
+  return <></>
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}

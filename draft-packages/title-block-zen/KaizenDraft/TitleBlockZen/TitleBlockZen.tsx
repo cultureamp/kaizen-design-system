@@ -1,20 +1,20 @@
 import React from "react"
 import classNames from "classnames"
+import { IconButton, ButtonProps, CustomButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
+import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 import {
   Avatar,
   GenericAvatarProps,
   CompanyAvatarProps,
 } from "@kaizen/draft-avatar"
-import { IconButton, ButtonProps } from "@kaizen/button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
-import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
-import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 import { useMediaQueries } from "@kaizen/responsive"
+import { Heading } from "@kaizen/typography"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
@@ -38,6 +38,18 @@ type AvatarProps =
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
+export type DefaultActionProps =
+  | TitleBlockButtonProps
+  | TitleBlockCustomButtonProps
+
+export type SectionTitleRenderProps = Pick<
+  TitleBlockProps,
+  | "sectionTitle"
+  | "sectionTitleAutomationId"
+  | "sectionTitleDescription"
+  | "sectionTitleDescriptionAutomationId"
+>
+
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario
@@ -57,10 +69,11 @@ export interface TitleBlockProps {
   subtitle?: React.ReactNode
   sectionTitle?: string
   sectionTitleDescription?: string
+  renderSectionTitle?: (renderProps: SectionTitleRenderProps) => React.ReactNode
   pageSwitcherSelect?: SelectProps
   handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
+  defaultAction?: DefaultActionProps
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
@@ -81,13 +94,26 @@ export type BadgeProps = {
   animateChange?: boolean
 }
 
-export type TitleBlockButtonProps = DistributiveOmit<ButtonProps, "onClick"> & {
+export type TitleBlockButtonProps = DistributiveOmit<
+  ButtonProps,
+  "onClick" | "component"
+> & {
   onClick?: (e: any) => void
 }
 
-export type TitleBlockMenuItemProps = Omit<MenuItemProps, "action"> & {
-  action: ((e: any) => void) | string
+export type TitleBlockCustomButtonProps = DistributiveOmit<
+  TitleBlockButtonProps,
+  "component"
+> & {
+  className?: string
+  component: (props: CustomButtonProps) => JSX.Element
 }
+
+export type TitleBlockMenuItemProps =
+  | (Omit<MenuItemProps, "action"> & {
+      action: ((e: any) => void) | string
+    })
+  | TitleBlockCustomButtonProps
 
 export type ButtonWithHrefNotOnClick = DistributiveOmit<ButtonProps, "onClick">
 export type ButtonWithOnClickNotHref = DistributiveOmit<
@@ -121,9 +147,10 @@ export type SelectProps = React.ComponentProps<typeof Select>
  * Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
  * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
  */
+
 export type PrimaryActionProps =
   | (MenuGroup & { badge?: BadgeProps })
-  | (TitleBlockButtonProps & {
+  | ((TitleBlockButtonProps | TitleBlockCustomButtonProps) & {
       badge?: BadgeProps
     })
 
@@ -156,14 +183,18 @@ export type SecondaryActionsProps = SecondaryActionItemProps[]
 
 export type SecondaryActionItemProps =
   | MenuGroup
-  | (ButtonWithHrefNotOnClick | ButtonWithOnClickNotHref)
+  | (
+      | ButtonWithHrefNotOnClick
+      | ButtonWithOnClickNotHref
+      | TitleBlockCustomButtonProps
+    )
 
 export const isMenuItemNotButton = (
   value: TitleBlockButtonProps | MenuItemProps
 ): value is MenuItemProps => "action" in value
 
 export const isMenuGroupNotButton = (
-  value: TitleBlockButtonProps | MenuGroup
+  value: (TitleBlockButtonProps | TitleBlockCustomButtonProps) | MenuGroup
 ): value is MenuGroup => "menuItems" in value
 
 export type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
@@ -177,7 +208,7 @@ type SurveyStatus = {
   status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
-const renderTag = (surveyStatus: SurveyStatus) => {
+const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
 
   if (tagVariant === "profile") {
@@ -228,7 +259,7 @@ const isJSXElement = (
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | AvatarProps,
   avatarAutomationId: string
-) =>
+): JSX.Element =>
   isJSXElement(imageElementOrAvatarProps) ? (
     <div
       data-automation-id={avatarAutomationId}
@@ -245,7 +276,7 @@ const renderAvatar = (
 const renderSubtitle = (
   subtitle: React.ReactNode,
   subtitleAutomationId: string
-) => (
+): JSX.Element => (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
@@ -256,39 +287,37 @@ const renderSubtitle = (
   </div>
 )
 
-const renderSectionTitle = (
+const defaultRenderSectionTitle = (
   sectionTitle?: string,
   sectionTitleDescription?: string,
   variant?: Variant,
   sectionTitleAutomationId?: string,
   sectionTitleDescriptionAutomationId?: string
-) => (
-  <div className={styles.sectionTitleContainer}>
-    <div className={styles.sectionTitleInner}>
-      {sectionTitle && (
-        <div className={styles.sectionTitle}>
-          <Heading
-            variant="heading-2"
-            color={isReversed(variant) ? "white" : "dark"}
-            classNameOverride={styles.sectionTitleOverride}
-            data-automation-id={sectionTitleAutomationId}
-          >
-            {sectionTitle}
-          </Heading>
-        </div>
-      )}
-      {sectionTitleDescription && (
-        <div
-          data-automation-id={sectionTitleDescriptionAutomationId}
-          className={classNames(styles.sectionTitleDescription, {
-            [styles.dark]: !isReversed(variant),
-          })}
+): JSX.Element => (
+  <>
+    {sectionTitle && (
+      <div className={styles.sectionTitle}>
+        <Heading
+          variant="heading-2"
+          color={isReversed(variant) ? "white" : "dark"}
+          classNameOverride={styles.sectionTitleOverride}
+          data-automation-id={sectionTitleAutomationId}
         >
-          {sectionTitleDescription}
-        </div>
-      )}
-    </div>
-  </div>
+          {sectionTitle}
+        </Heading>
+      </div>
+    )}
+    {sectionTitleDescription && (
+      <div
+        data-automation-id={sectionTitleDescriptionAutomationId}
+        className={classNames(styles.sectionTitleDescription, {
+          [styles.dark]: !isReversed(variant),
+        })}
+      >
+        {sectionTitleDescription}
+      </div>
+    )}
+  </>
 )
 
 type BreadcrumbType = {
@@ -315,15 +344,15 @@ export type CustomBreadcrumbProps = BreadcrumbProps & {
   children: React.ReactNode
 }
 
-const Breadcrumb: React.VFC<BreadcrumbProps> = ({
+const Breadcrumb = ({
   breadcrumb,
   automationId,
   textAutomationId,
   textDirection,
-}) => {
+}: BreadcrumbProps): JSX.Element => {
   const { path, handleClick, text, render } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
-  const InnerContents = () => (
+  const InnerContents = (): JSX.Element => (
     <>
       <div className={styles.circle}>
         <Icon icon={icon} role="presentation" />
@@ -371,7 +400,7 @@ const Breadcrumb: React.VFC<BreadcrumbProps> = ({
 const renderNavigationTabs = (
   navigationTabs: NavigationTabs | undefined,
   collapse: boolean
-) => (
+): JSX.Element => (
   <div className={styles.navigationTabScrollerContainer}>
     <div
       className={classNames(styles.navigationTabsContainer, {
@@ -402,6 +431,11 @@ export const convertSecondaryActionsToMenuItems = (
     if ("menuItems" in cur) {
       return [...acc, ...cur.menuItems]
     }
+
+    if ("component" in cur) {
+      return [...acc, cur]
+    }
+
     const out = {
       label: cur.label,
       icon: cur.icon,
@@ -511,6 +545,7 @@ const TitleBlockZen = ({
   subtitle,
   sectionTitle,
   sectionTitleDescription,
+  renderSectionTitle,
   pageSwitcherSelect,
   handleHamburgerClick,
   primaryAction,
@@ -528,7 +563,7 @@ const TitleBlockZen = ({
   sectionTitleDescriptionAutomationId = "TitleBlock__SectionTitleDescription",
   breadcrumbAutomationId = "TitleBlock__Breadcrumb",
   breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
-}: TitleBlockProps) => {
+}: TitleBlockProps): JSX.Element => {
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
     collapseNavigationAreaWhenPossible &&
@@ -549,7 +584,7 @@ const TitleBlockZen = ({
           [styles.adminVariant]: variant === "admin",
           [styles.collapseNavigationArea]:
             collapseNavigationArea &&
-            !(sectionTitle || sectionTitleDescription),
+            !(sectionTitle || sectionTitleDescription || renderSectionTitle),
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]:
             subtitle && typeof subtitle === "string" && subtitle.length >= 18,
@@ -569,55 +604,57 @@ const TitleBlockZen = ({
                   />
                 )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
-                  {handleHamburgerClick && (
-                    <div className={styles.hamburger}>
-                      <IconButton
-                        onClick={handleHamburgerClick}
-                        icon={hamburgerIcon}
-                        label="Open menu"
-                        reversed={isReversed(variant)}
-                      />
-                    </div>
-                  )}
-                  {avatar && renderAvatar(avatar, avatarAutomationId)}
-                  <div className={styles.titleAndSubtitle}>
-                    <div className={styles.titleAndSubtitleInner}>
-                      <div className={styles.title}>
-                        <Heading
-                          variant="heading-1"
-                          color={isReversed(variant) ? "white" : "dark"}
-                          classNameOverride={styles.titleTextOverride}
-                          data-automation-id={titleAutomationId}
-                        >
-                          {title}
-                        </Heading>
+                  <>
+                    {handleHamburgerClick && (
+                      <div className={styles.hamburger}>
+                        <IconButton
+                          onClick={handleHamburgerClick}
+                          icon={hamburgerIcon}
+                          label="Open menu"
+                          reversed={isReversed(variant)}
+                        />
                       </div>
-                      {isSmallOrMediumViewport && pageSwitcherSelect && (
-                        <div
-                          className={styles.pageSwitcherSelectUnderneathTitle}
-                        >
-                          <Select
-                            {...pageSwitcherSelect}
-                            variant="secondary-small"
-                            reversed
-                          />
+                    )}
+                    {avatar && renderAvatar(avatar, avatarAutomationId)}
+                    <div className={styles.titleAndSubtitle}>
+                      <div className={styles.titleAndSubtitleInner}>
+                        <div className={styles.title}>
+                          <Heading
+                            variant="heading-1"
+                            color={isReversed(variant) ? "white" : "dark"}
+                            classNameOverride={styles.titleTextOverride}
+                            data-automation-id={titleAutomationId}
+                          >
+                            {title}
+                          </Heading>
                         </div>
-                      )}
-                      {subtitle &&
-                        renderSubtitle(subtitle, subtitleAutomationId)}
+                        {isSmallOrMediumViewport && pageSwitcherSelect && (
+                          <div
+                            className={styles.pageSwitcherSelectUnderneathTitle}
+                          >
+                            <Select
+                              {...pageSwitcherSelect}
+                              variant="secondary-small"
+                              reversed
+                            />
+                          </div>
+                        )}
+                        {subtitle &&
+                          renderSubtitle(subtitle, subtitleAutomationId)}
+                      </div>
                     </div>
-                  </div>
-                  {surveyStatus && renderTag(surveyStatus)}
-                  {!isSmallOrMediumViewport && pageSwitcherSelect && (
-                    <div className={styles.pageSwitcherSelectNextToTitle}>
-                      <Select
-                        {...pageSwitcherSelect}
-                        variant="secondary"
-                        reversed
-                        fullWidth
-                      />
-                    </div>
-                  )}
+                    {surveyStatus && renderTag(surveyStatus)}
+                    {!isSmallOrMediumViewport && pageSwitcherSelect && (
+                      <div className={styles.pageSwitcherSelectNextToTitle}>
+                        <Select
+                          {...pageSwitcherSelect}
+                          variant="secondary"
+                          reversed
+                          fullWidth
+                        />
+                      </div>
+                    )}
+                  </>
                 </div>
               </div>
               {(primaryAction ||
@@ -641,14 +678,28 @@ const TitleBlockZen = ({
         <div className={styles.rowBelowSeparator}>
           <div className={styles.rowBelowSeparatorInner}>
             <div className={styles.rowBelowSeparatorInnerContent}>
-              {(sectionTitle || sectionTitleDescription) &&
-                renderSectionTitle(
-                  sectionTitle,
-                  sectionTitleDescription,
-                  variant,
-                  sectionTitleAutomationId,
-                  sectionTitleDescriptionAutomationId
-                )}
+              {(sectionTitle ||
+                sectionTitleDescription ||
+                renderSectionTitle) && (
+                <div className={styles.sectionTitleContainer}>
+                  <div className={styles.sectionTitleInner}>
+                    {!!renderSectionTitle
+                      ? renderSectionTitle({
+                          sectionTitle,
+                          sectionTitleAutomationId,
+                          sectionTitleDescription,
+                          sectionTitleDescriptionAutomationId,
+                        })
+                      : defaultRenderSectionTitle(
+                          sectionTitle,
+                          sectionTitleDescription,
+                          variant,
+                          sectionTitleAutomationId,
+                          sectionTitleDescriptionAutomationId
+                        )}
+                  </div>
+                </div>
+              )}
               {renderNavigationTabs(navigationTabs, collapseNavigationArea)}
               {(secondaryActions || secondaryOverflowMenuItems) && (
                 <SecondaryActions

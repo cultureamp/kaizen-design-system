@@ -1,9 +1,9 @@
 import React from "react"
 import { Story, ComponentStory } from "@storybook/react"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { ProgressBar } from "../index"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   title: `${CATEGORIES.components}/Progress Bar`,

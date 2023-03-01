@@ -1,13 +1,13 @@
 import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
+import classnames from "classnames"
+import { Button, ButtonProps } from "@kaizen/button"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Box } from "@kaizen/component-library"
-import { Heading, Paragraph } from "@kaizen/typography"
-import { Button, ButtonProps } from "@kaizen/button"
-import { useMediaQueries } from "@kaizen/responsive"
 import { SceneProps } from "@kaizen/draft-illustration"
 import { assetUrl } from "@kaizen/hosted-assets"
-import classnames from "classnames"
-import styles from "./BrandMoment.scss"
+import { useMediaQueries } from "@kaizen/responsive"
+import { Heading, Paragraph } from "@kaizen/typography"
+import styles from "./BrandMoment.module.scss"
 
 export interface BrandMomentProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -25,7 +25,7 @@ export interface BrandMomentProps
   }
 }
 
-export const BrandMoment: React.VFC<BrandMomentProps> = ({
+export const BrandMoment = ({
   mood,
   illustration,
   header,
@@ -35,7 +35,7 @@ export const BrandMoment: React.VFC<BrandMomentProps> = ({
   text,
   classNameOverride,
   ...restProps
-}) => {
+}: BrandMomentProps): JSX.Element => {
   const { queries } = useMediaQueries()
 
   return (
@@ -124,3 +124,5 @@ export const BrandMoment: React.VFC<BrandMomentProps> = ({
     </div>
   )
 }
+
+BrandMoment.displayName = "BrandMoment"

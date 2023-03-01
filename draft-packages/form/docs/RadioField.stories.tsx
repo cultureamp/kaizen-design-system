@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { RadioField } from "@kaizen/draft-form"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { ComponentStory, Story } from "@storybook/react"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { RadioField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Field`,
@@ -26,15 +26,14 @@ export default {
     },
   },
   decorators: [withDesign],
-}
+} as ComponentMeta<typeof RadioField>
 
 export const InteractiveKaizenSiteDemo: ComponentStory<
   typeof RadioField
 > = args => {
   const [status, setStatus] = useState<boolean>()
-  const onCheckHandler = () => {
-    setStatus(!status)
-  }
+  const onCheckHandler = (): void => setStatus(!status)
+
   return (
     <RadioField
       {...args}

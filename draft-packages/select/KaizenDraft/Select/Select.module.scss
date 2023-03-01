@@ -36,6 +36,7 @@ $focus-border-color: $color-blue-500;
 .specificityIncreaser {
   .multiValue {
     margin: 0.2375rem;
+    z-index: 1;
   }
 
   .dropdownIndicator {
@@ -72,6 +73,10 @@ $focus-border-color: $color-blue-500;
     font-size: $typography-paragraph-body-font-size;
   }
 
+  .indicatorsContainer {
+    z-index: 1;
+  }
+
   .loadingMessage {
     @include base-font-style();
   }
@@ -94,6 +99,7 @@ $focus-border-color: $color-blue-500;
     border: 6px $border-solid-border-style transparent;
     border-radius: $border-solid-border-radius;
     box-shadow: $shadow-large-box-shadow;
+    z-index: 3;
 
     // built-in class of React Select that is not easily styled any other way in CSS
     // (This is the "MenuList" div that wraps all the options)
@@ -197,7 +203,8 @@ $focus-border-color: $color-blue-500;
         }
       }
 
-      .dropdownIndicator {
+      .dropdownIndicator,
+      .clearIndicator {
         color: $color-white;
       }
 
@@ -327,6 +334,10 @@ $focus-border-color: $color-blue-500;
         margin-left: 0;
         margin-right: 0;
       }
+    }
+
+    .indicatorsContainer {
+      z-index: 1;
     }
 
     .dropdownIndicator {

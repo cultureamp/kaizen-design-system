@@ -1,20 +1,21 @@
 import React from "react"
+import { Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
-import { withDesign } from "storybook-addon-designs"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const ILLUSTRATION_SURVEY = require("./survey.png")
 
-const renderContent = () => (
+const renderContent = (): JSX.Element => (
   <div
     style={{
       width: "560px",
       height: "300px",
     }}
   >
-    <p style={{ margin: "0" }}>
+    <p style={{ margin: "0 0 0.75rem 0" }}>
       Understand diversity and inclusion in your organization with this set of
       people science backed survey questions. Preview the questions to get a
       feel for what the participants will see.
@@ -40,18 +41,18 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultKaizenSiteDemo = () => (
+export const DefaultKaizenSiteDemo: Story = () => (
   <HeroCard>{renderContent()}</HeroCard>
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const Title = () => (
+export const Title: Story = () => (
   <HeroCard title={<h1>Preview the survey questions</h1>}>
     {renderContent()}
   </HeroCard>
 )
 
-export const Badge = () => (
+export const Badge: Story = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     badge={<span>1</span>}
@@ -61,7 +62,7 @@ export const Badge = () => (
 )
 Badge.parameters = { chromatic: { disable: false } }
 
-export const Image = () => (
+export const Image: Story = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     badge={<span>1</span>}
@@ -83,7 +84,7 @@ export const Image = () => (
 )
 Image.parameters = { chromatic: { disable: false } }
 
-export const CustomLeftContent = () => (
+export const CustomLeftContent: Story = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftContent={<p>Ta-dah</p>}
@@ -93,7 +94,7 @@ export const CustomLeftContent = () => (
 )
 CustomLeftContent.parameters = { chromatic: { disable: false } }
 
-export const CustomLeftContentAndBadge = () => (
+export const CustomLeftContentAndBadge: Story = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftContent={<p>Ta-dah</p>}
@@ -104,7 +105,7 @@ export const CustomLeftContentAndBadge = () => (
 )
 CustomLeftContentAndBadge.parameters = { chromatic: { disable: false } }
 
-export const FullWidth = () => (
+export const FullWidth: Story = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftContent={<p>Ta-dah</p>}
@@ -115,7 +116,7 @@ export const FullWidth = () => (
 )
 FullWidth.parameters = { chromatic: { disable: false } }
 
-export const BackgroundColors = () => (
+export const BackgroundColors: Story = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftBackgroundColor="cluny200"

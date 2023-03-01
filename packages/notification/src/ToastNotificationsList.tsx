@@ -9,7 +9,7 @@ export const ToastNotificationsList = ({
 }: {
   notifications: ToastNotification[]
   onHide: RemoveToastNotification
-}) => (
+}): JSX.Element => (
   <div className={styles.list}>
     {notifications.map(notification => (
       <GenericNotification
@@ -22,7 +22,7 @@ export const ToastNotificationsList = ({
         autohideDelay={notification.autohideDelay}
         automationId={notification.automationId}
         persistent={notification.persistent}
-        onHide={() => {
+        onHide={(): void => {
           if (typeof notification.onHide !== "undefined") {
             notification.onHide()
           }
@@ -41,7 +41,7 @@ export const ToastNotificationsListContainer = ({
   registerSetNotificationsCallback: (
     callback: React.Dispatch<React.SetStateAction<ToastNotification[]>>
   ) => void
-}) => {
+}): JSX.Element => {
   const [notifications, setNotifications] = useState<ToastNotification[]>([])
 
   // Pass the local setNotifications function back up to the caller

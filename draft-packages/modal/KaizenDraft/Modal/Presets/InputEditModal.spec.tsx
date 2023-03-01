@@ -1,17 +1,19 @@
+import React from "react"
 import { cleanup, render, fireEvent } from "@testing-library/react"
-import * as React from "react"
 import InputEditModal, { InputEditModalProps } from "./InputEditModal"
 import "./matchMedia.mock"
 
 afterEach(cleanup)
 
-const InputEditModalWrapper = (props: Partial<InputEditModalProps>) => (
+const InputEditModalWrapper = (
+  props: Partial<InputEditModalProps>
+): JSX.Element => (
   <InputEditModal
     isOpen={true}
     mood="positive"
     title="Example modal title"
-    onSubmit={() => undefined}
-    onDismiss={() => undefined}
+    onSubmit={(): void => undefined}
+    onDismiss={(): void => undefined}
     children="Example modal body"
     {...props}
   />

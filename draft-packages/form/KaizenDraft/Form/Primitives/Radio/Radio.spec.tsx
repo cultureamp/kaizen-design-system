@@ -1,6 +1,6 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
+import { cleanup, render } from "@testing-library/react"
 import { Radio, RadioProps } from "./Radio"
 
 afterEach(cleanup)
@@ -14,7 +14,7 @@ const defaultRadioProps: RadioProps = {
   onChange: jest.fn(),
   value: "radio-1",
 }
-const renderRadio = (props?: RadioProps) => {
+const renderRadio = (props?: RadioProps): ReturnType<typeof render> => {
   const mergedRadioProps = { ...defaultRadioProps, ...props }
 
   return render(<Radio {...mergedRadioProps} />)

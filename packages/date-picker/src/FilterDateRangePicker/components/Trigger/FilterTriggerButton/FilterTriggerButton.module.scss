@@ -1,0 +1,23 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.filterTriggerButton {
+  gap: $spacing-xs;
+}
+
+.labelContainer {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.hasSelectedValues {
+  font-weight: $typography-button-primary-font-weight;
+}
+
+.labelSeparator {
+  margin-inline-end: $spacing-xs;
+
+  [dir="ltr"] [dir="rtl"] & {
+    margin-right: 0;
+  }
+}

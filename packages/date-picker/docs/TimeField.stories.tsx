@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { CATEGORIES } from "../../../storybook/constants"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
 import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: `${CATEGORIES.components}/Time Field`,
@@ -70,7 +70,7 @@ const StickerSheetTemplate: Story = () => {
           label="Label (en-AU)"
           locale="en-AU"
           value={{ hour: 1, minutes: 30 }}
-          onChange={() => undefined}
+          onChange={(): void => undefined}
           isDisabled
         />
         <TimeField
@@ -91,7 +91,7 @@ const StickerSheetTemplate: Story = () => {
           label="Label (hover on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
-          onChange={() => undefined}
+          onChange={(): void => undefined}
           classNameOverride="story__timefield-hover"
         />
         <TimeField
@@ -99,7 +99,7 @@ const StickerSheetTemplate: Story = () => {
           label="Label (focus on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
-          onChange={() => undefined}
+          onChange={(): void => undefined}
           classNameOverride="story__timefield-focus"
         />
       </StoryWrapper.Row>

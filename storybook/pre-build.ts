@@ -4,7 +4,7 @@ import { readdirSync } from "fs"
 import { dirname } from "path"
 
 /** Print a conspicuous red error message and exit non-zero. */
-const exitWithError = (...message: string[]) => {
+const exitWithError = (...message: string[]): void => {
   // eslint-disable-next-line no-console
   console.error(`\n${message.join("\n")}\n`)
   process.exit(1)

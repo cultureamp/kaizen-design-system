@@ -1,5 +1,5 @@
-import { cleanup, render } from "@testing-library/react"
-import * as React from "react"
+import React from "react"
+import { render } from "@testing-library/react"
 import useDebounce from "use-debounce"
 import { AnimationProvider } from "./AppearanceAnim"
 import "@testing-library/jest-dom"
@@ -10,7 +10,7 @@ let mockReturnValue
 
 beforeEach(() => {
   mockReturnValue = jest.fn()
-  mockReturnValue.cancel = () => undefined
+  mockReturnValue.cancel = (): void => undefined
   useDebouncedCallback.mockImplementation(() => mockReturnValue)
 })
 

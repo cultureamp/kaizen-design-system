@@ -1,11 +1,11 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { LoadingInput, LoadingHeading } from ".."
-import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+import { LoadingInput, LoadingHeading } from ".."
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Input`,
@@ -23,7 +23,9 @@ export default {
   decorators: [withDesign],
 }
 
-export const DefaultLoadingInput = args => <LoadingInput {...args} />
+export const DefaultLoadingInput: ComponentStory<
+  typeof LoadingInput
+> = args => <LoadingInput {...args} />
 DefaultLoadingInput.storyName = "Loading Input"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({

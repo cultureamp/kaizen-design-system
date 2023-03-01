@@ -12,7 +12,7 @@ export interface ModalHeaderProps {
 }
 
 class ModalHeader extends React.Component<ModalHeaderProps> {
-  render() {
+  render(): JSX.Element {
     const { reversed, onDismiss, children } = this.props
 
     return (
