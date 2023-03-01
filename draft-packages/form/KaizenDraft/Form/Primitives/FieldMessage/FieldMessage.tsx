@@ -63,15 +63,13 @@ export const FieldMessage = ({
         </span>
       )}
       <div className={styles.message}>
-        {typeof message === "string" ? (
-          <Paragraph variant="small" color={textColor}>
-            {message}
-          </Paragraph>
-        ) : (
-          <Paragraph tag="div" variant="small" color={textColor}>
-            {message}
-          </Paragraph>
-        )}
+        <Paragraph
+          tag={typeof message === "string" ? "p" : "div"}
+          variant="small"
+          color={textColor}
+        >
+          {message}
+        </Paragraph>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, render, screen } from "@testing-library/react"
+import { cleanup, getByText, render, screen } from "@testing-library/react"
 import { FieldMessage, FieldMessageProps } from "./index"
 
 afterEach(cleanup)
@@ -18,10 +18,31 @@ const renderFieldMessage = (
 }
 
 describe("<FieldMessage />", () => {
-  it("renders a message", () => {
-    const { queryByText } = renderFieldMessage()
+  it("renders a message within a <p> tag when given a string", () => {
+    const fieldMessage = renderFieldMessage({ message: "Hello I am a message" })
 
-    expect(queryByText(defaultFieldMessageProps.message)).toBeTruthy()
+    expect(fieldMessage.queryByText("Hello I am a message")).toBeInTheDocument()
+    expect(
+      fieldMessage.queryByText("Hello I am a message")?.tagName === "P"
+    ).toBeTruthy()
+  })
+
+  it("renders a message within a <div> tag when not given node other than string", () => {
+    const fieldMessage = renderFieldMessage({
+      message: (
+        <ul>
+          <li>Hello I am a message within a list</li>
+        </ul>
+      ),
+    })
+
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a list")
+    ).toBeInTheDocument()
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a list")
+        ?.parentElement?.parentElement?.tagName === "DIV"
+    ).toBeTruthy()
   })
 
   it("renders an `id` attribute", () => {
