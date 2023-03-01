@@ -1,6 +1,5 @@
 import React from "react"
 import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
-import { Paragraph } from "@kaizen/typography"
 import styles from "./DateRangeValidationMessage.module.scss"
 
 export type DateRangeValidationMessageDateStatus = FieldMessageStatus
@@ -41,16 +40,8 @@ export const DateRangeValidationMessage = ({
         <FieldMessage
           message={
             <ul className={styles.fieldMessageList}>
-              <li id={dateStartId}>
-                <Paragraph variant="small">
-                  {validationMessage.dateEnd}
-                </Paragraph>
-              </li>
-              <li id={dateEndId}>
-                <Paragraph variant="small">
-                  {validationMessage.dateStart}
-                </Paragraph>
-              </li>
+              <li id={dateStartId}>{validationMessage.dateEnd}</li>
+              <li id={dateEndId}>{validationMessage.dateStart}</li>
             </ul>
           }
           status={status?.dateStart || status?.dateEnd}
