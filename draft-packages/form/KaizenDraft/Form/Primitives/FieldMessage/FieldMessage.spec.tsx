@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, getByText, render, screen } from "@testing-library/react"
+import { cleanup, render, screen } from "@testing-library/react"
 import { FieldMessage, FieldMessageProps } from "./index"
 
 afterEach(cleanup)
