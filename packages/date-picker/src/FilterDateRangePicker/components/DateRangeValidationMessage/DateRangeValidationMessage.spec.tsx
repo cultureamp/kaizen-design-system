@@ -7,7 +7,7 @@ describe("<DateRangeValidationMessage />", () => {
     test("when the consumer has given it a node", () => {
       render(
         <DateRangeValidationMessage
-          id="error-message-id"
+          dateEndId="date-end-error-message-id"
           status={{
             dateEnd: "error",
           }}
@@ -22,7 +22,8 @@ describe("<DateRangeValidationMessage />", () => {
     it("combines multiple validation messages with the same status", () => {
       const { container } = render(
         <DateRangeValidationMessage
-          id="error-message-id"
+          dateStartId="date-start-error-message-id"
+          dateEndId="date-end-error-message-id"
           status={{
             dateEnd: "error",
             dateStart: "error",
@@ -46,7 +47,8 @@ describe("<DateRangeValidationMessage />", () => {
       test("when consumer passes validationMessage object and has different status", () => {
         const { container } = render(
           <DateRangeValidationMessage
-            id="error-message-id"
+            dateStartId="date-start-error-message-id"
+            dateEndId="date-end-error-message-id"
             status={{
               dateEnd: "error",
               dateStart: "caution",
