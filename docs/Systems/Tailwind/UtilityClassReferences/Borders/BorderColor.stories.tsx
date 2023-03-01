@@ -1,11 +1,11 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
 const prefix = "border-"
 const classEntries = flattenEntries(
@@ -30,10 +30,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="border-color"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
+    renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
-        style={{ borderColor: cssProperty }}
-        className={styles.boxWithBorder}
+        className={classnames(
+          "rounded-default w-[100px] h-[100px] border-solid",
+          utilityClass
+        )}
       />
     )}
     isReversed={isReversed}
