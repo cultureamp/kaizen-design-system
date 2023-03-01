@@ -255,9 +255,19 @@ export const FilterDateRangePicker = ({
   })
 
   const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
-    setInputRangeStartValue(transformDateToInputValue(range?.from))
-    setInputRangeEndValue(transformDateToInputValue(range?.to))
-    handleDateRangeChange(range)
+    const newStartDate = validateNewDate(
+      range?.from,
+      inputRangeStartValue,
+      handleValidateStartDate
+    )
+    const newEndDate = validateNewDate(
+      range?.to,
+      inputRangeEndValue,
+      handleValidateEndDate
+    )
+    setInputRangeStartValue(transformDateToInputValue(newStartDate))
+    setInputRangeEndValue(transformDateToInputValue(newEndDate))
+    handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }
 
   const triggerButtonProps: FilterTriggerButtonProps & DataAttributes = {

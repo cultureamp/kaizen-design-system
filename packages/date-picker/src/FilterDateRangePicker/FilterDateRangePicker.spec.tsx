@@ -588,5 +588,32 @@ describe("<FilterDateRangePicker />", () => {
         })
       })
     })
+
+    it("re-validates values when selecting a value using the calendar", async () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-10"),
+            to: new Date("potato"),
+          }}
+        />
+      )
+      await openFilter()
+
+      const errorMessage = "Date to: Invalid Date is an invalid date"
+
+      await waitFor(() => {
+        expect(screen.getByText(errorMessage)).toBeVisible()
+      })
+
+      const targetDay = screen.getByRole("button", {
+        name: "12th May (Thursday)",
+      })
+      await userEvent.click(targetDay)
+
+      await waitFor(() => {
+        expect(screen.queryByText(errorMessage)).not.toBeInTheDocument()
+      })
+    })
   })
 })
