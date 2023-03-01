@@ -3,6 +3,7 @@
   "description": "Component Library for Culture Amp's Kaizen Design System",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/component-library",
   "main": "dist/index.js",
+  "module": "dist/esm/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
