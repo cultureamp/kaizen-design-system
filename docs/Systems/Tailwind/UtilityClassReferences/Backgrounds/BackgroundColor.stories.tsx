@@ -6,13 +6,9 @@ import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
 const prefix = "bg-"
-const classEntries = flattenEntries(
-  prefix,
-  kaizenTailwindTheme?.borderColor || {}
-)
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
   title: `${CATEGORIES.tailwind}/Utility Class References/Backgrounds/Background Color`,
@@ -31,10 +27,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="background-color"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
+    renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
-        style={{ backgroundColor: cssProperty }}
-        className={classnames(styles.boxWithBorder, "rounded-default")}
+        className={classnames(
+          "w-[100px] h-[100px] border-solid",
+          "rounded-default",
+          utilityClass
+        )}
       />
     )}
     isReversed={isReversed}

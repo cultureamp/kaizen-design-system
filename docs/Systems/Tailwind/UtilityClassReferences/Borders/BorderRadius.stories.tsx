@@ -1,10 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
 const prefix = "rounded-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
@@ -33,10 +33,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="border-radius"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
+    renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
-        style={{ borderRadius: cssProperty }}
-        className={styles.boxWithBorder}
+        className={classnames("w-[100px] h-[100px] border-solid", utilityClass)}
       />
     )}
     isReversed={isReversed}
