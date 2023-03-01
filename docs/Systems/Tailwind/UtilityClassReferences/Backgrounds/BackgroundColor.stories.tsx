@@ -8,10 +8,7 @@ import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "bg-"
-const classEntries = flattenEntries(
-  prefix,
-  kaizenTailwindTheme?.borderColor || {}
-)
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
   title: `${CATEGORIES.tailwind}/Utility Class References/Backgrounds/Background Color`,
