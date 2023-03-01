@@ -439,4 +439,146 @@ describe("<FilterDateRangePicker />", () => {
       })
     })
   })
+
+  describe("Validation", () => {
+    describe("Custom validation", () => {
+      it("shows validation messages passed in from the consumer", async () => {
+        render(
+          <FilterDateRangePickerWrapper
+            onValidate={{
+              dateStart: (): void => undefined,
+              dateEnd: (): void => undefined,
+            }}
+            status={{ dateStart: "error", dateEnd: "caution" }}
+            validationMessage={{
+              dateStart: "Start date error message",
+              dateEnd: "End date caution message",
+            }}
+          />
+        )
+        await openFilter()
+
+        expect(screen.getByText("Start date error message")).toBeVisible()
+        expect(screen.getByText("End date caution message")).toBeVisible()
+      })
+    })
+
+    describe("Inbuilt validation", () => {
+      it("shows inbuilt validation messages for start date", async () => {
+        render(
+          <FilterDateRangePickerWrapper
+            inputRangeStartProps={{ labelText: "Start date" }}
+          />
+        )
+        await openFilter()
+
+        const inputRangeStart = screen.getByLabelText("Start date")
+
+        await userEvent.clear(inputRangeStart)
+        await userEvent.type(inputRangeStart, "potato")
+        await userEvent.tab({ shift: true })
+
+        await waitFor(() => {
+          expect(
+            screen.getByText("Start date: potato is an invalid date")
+          ).toBeVisible()
+        })
+      })
+
+      it("shows inbuilt validation messages for end date", async () => {
+        render(
+          <FilterDateRangePickerWrapper
+            inputRangeEndProps={{ labelText: "End date" }}
+          />
+        )
+        await openFilter()
+
+        const inputRangeEnd = screen.getByLabelText("End date")
+
+        await userEvent.clear(inputRangeEnd)
+        await userEvent.type(inputRangeEnd, "potato")
+        await userEvent.tab({ shift: true })
+
+        await waitFor(() => {
+          expect(
+            screen.getByText("End date: potato is an invalid date")
+          ).toBeVisible()
+        })
+      })
+
+      // it("shows inbuilt validation messages for pre-existing values", async () => {
+      //   render(
+      //     <FilterDateRangePickerWrapper
+      //       selectedRange={{
+      //         from: new Date("2022-05-15"),
+      //         to: new Date("2022-05-23"),
+      //       }}
+      //       disabledDates={[new Date("2022-05-15"), new Date("2022-05-23")]}
+      //     />
+      //   )
+      //   await openFilter()
+
+      //   expect(screen.getByText("Date from: 15/05/2022 is not available, try another date")).toBeVisible()
+      //   expect(screen.getByText("Date to: 23/05/2022 is not available, try another date")).toBeVisible()
+      // })
+    })
+
+    describe("Combined validation", () => {
+      it("shows custom start date validation with inbuilt end date validation", async () => {
+        render(
+          <FilterDateRangePickerWrapper
+            onValidate={{
+              dateStart: (): void => undefined,
+            }}
+            status={{ dateStart: "error" }}
+            validationMessage={{
+              dateStart: "Start date error message",
+            }}
+          />
+        )
+        await openFilter()
+
+        const inputRangeEnd = screen.getByLabelText("Date to")
+
+        await userEvent.clear(inputRangeEnd)
+        await userEvent.type(inputRangeEnd, "potato")
+        await userEvent.tab({ shift: true })
+
+        await waitFor(() => {
+          expect(screen.getByText("Start date error message")).toBeVisible()
+          expect(
+            screen.getByText("Date to: potato is an invalid date")
+          ).toBeVisible()
+        })
+      })
+
+      it("shows custom end date validation with inbuilt start date validation", async () => {
+        render(
+          <FilterDateRangePickerWrapper
+            onValidate={{
+              dateEnd: (): void => undefined,
+            }}
+            status={{ dateEnd: "error" }}
+            validationMessage={{
+              dateEnd: "End date error message",
+            }}
+          />
+        )
+        await openFilter()
+
+        const inputRangeStart = screen.getByLabelText("Date from")
+
+        await userEvent.clear(inputRangeStart)
+        await userEvent.type(inputRangeStart, "potato")
+        await userEvent.tab({ shift: true })
+
+        await waitFor(() => {
+          expect(screen.getByText("End date error message")).toBeVisible()
+          expect(
+            screen.getByText("Date from: potato is an invalid date")
+          ).toBeVisible()
+        })
+      })
+    })
+  })
 })
