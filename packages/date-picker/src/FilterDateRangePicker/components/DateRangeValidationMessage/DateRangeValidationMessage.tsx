@@ -20,14 +20,16 @@ export type DateRangeValidationMessageProps = {
     dateStart?: DateRangeValidationMessageDateMessage
     dateEnd?: DateRangeValidationMessageDateMessage
   }
-  id?: string
+  dateStartId?: string
+  dateEndId?: string
   isReversed?: boolean
 }
 
 export const DateRangeValidationMessage = ({
   status,
   validationMessage,
-  id,
+  dateStartId,
+  dateEndId,
   isReversed,
 }: DateRangeValidationMessageProps): JSX.Element | null => {
   if (!validationMessage) return null
@@ -36,11 +38,10 @@ export const DateRangeValidationMessage = ({
     if (status.dateEnd === status.dateStart) {
       return (
         <FieldMessage
-          id={id}
           message={
             <ul className={styles.fieldMessageList}>
-              <li>{validationMessage.dateEnd}</li>
-              <li>{validationMessage.dateStart}</li>
+              <li id={dateStartId}>{validationMessage.dateEnd}</li>
+              <li id={dateEndId}>{validationMessage.dateStart}</li>
             </ul>
           }
           status={status?.dateStart || status?.dateEnd}
@@ -52,13 +53,13 @@ export const DateRangeValidationMessage = ({
     return (
       <>
         <FieldMessage
-          id={id}
+          id={dateStartId}
           message={validationMessage.dateStart}
           status={status?.dateStart}
           reversed={isReversed}
         />
         <FieldMessage
-          id={id}
+          id={dateEndId}
           message={validationMessage.dateEnd}
           status={status?.dateEnd}
           reversed={isReversed}
@@ -69,7 +70,7 @@ export const DateRangeValidationMessage = ({
 
   return (
     <FieldMessage
-      id={id}
+      id={validationMessage.dateStart ? dateStartId : dateEndId}
       message={validationMessage.dateEnd || validationMessage.dateStart}
       status={status?.dateEnd || status?.dateStart}
       reversed={isReversed}
