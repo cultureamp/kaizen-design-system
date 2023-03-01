@@ -29,19 +29,19 @@ describe("<FieldMessage />", () => {
 
   it("renders a message within a <div> tag when not given node other than string", () => {
     const fieldMessage = renderFieldMessage({
-      message: (
-        <ul>
-          <li>Hello I am a message within a list</li>
-        </ul>
-      ),
+      message: <span>Hello I am a message within a span</span>,
     })
 
     expect(
-      fieldMessage.queryByText("Hello I am a message within a list")
+      fieldMessage.queryByText("Hello I am a message within a span")
     ).toBeInTheDocument()
     expect(
-      fieldMessage.queryByText("Hello I am a message within a list")
-        ?.parentElement?.parentElement?.tagName === "DIV"
+      fieldMessage.queryByText("Hello I am a message within a span")
+        ?.tagName === "SPAN"
+    ).toBeTruthy()
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a span")
+        ?.parentElement?.tagName === "DIV"
     ).toBeTruthy()
   })
 
