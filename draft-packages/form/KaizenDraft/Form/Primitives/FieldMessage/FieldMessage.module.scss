@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "../../variables";
 
 $message-icon-size: 1.25rem;
@@ -11,6 +12,13 @@ $validation-message-padding: 0.5625rem;
   position: relative;
   align-items: center;
   gap: $spacing-xs;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
+  color: $color-purple-800;
+  opacity: 1;
 }
 
 .default {
