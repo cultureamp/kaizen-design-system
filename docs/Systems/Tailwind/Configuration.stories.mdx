@@ -51,13 +51,9 @@ Be careful though! While adding in a _new_ field to `colors` won't overwrite any
 
 ## Customising the important selector
 
-`important` is a configuration option that will prefix all of your utilities with the given selector. This increasing the [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) of your classes when compiled into your CSS bundle, ie:
+If the `"#root"` id selector is incompatible with your application wrapper or you are working with a mono-repo that needs to target a selector with lower specificity, you can change the `important` [configuration option](https://tailwindcss.com/docs/configuration#important-modifier) in your `tailwind.config.js`.
 
-```css
-  #root .bg-red-500 { background: #c93b55}
-```
-
-Noting that the `important` selector must match to a node with the same `id`, `class`, or `HTML Element` within your application, ie:
+If this is changed or you are not using the [Frontend Template](https://github.com/cultureamp/frontend-template), be sure that the `important` selector matches to an `id`, `class`, or `HTML Element` within your application, ie:
 
 ``` tsx
 <div id="#root">
