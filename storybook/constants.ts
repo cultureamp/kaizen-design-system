@@ -36,7 +36,7 @@ export const SORT_ORDER = {
         "Working with Tailwind",
         "*",
         "Utility Class References",
-        ["Utility Class References", "*"],
+        ["Overview", "*"],
       ],
     ],
   ],
