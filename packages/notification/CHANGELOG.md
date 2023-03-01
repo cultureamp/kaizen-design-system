@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.3.0...@kaizen/notification@1.4.0) (2023-02-28)
+
+
+### Features
+
+* update components to use Caution Icon ([#3327](https://github.com/cultureamp/kaizen-design-system/issues/3327)) ([93d7647](https://github.com/cultureamp/kaizen-design-system/commit/93d764734a68e42c9717f42cdbd626d8eda3c1ea))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.4...@kaizen/notification@1.3.0) (2023-02-23)
 
 
