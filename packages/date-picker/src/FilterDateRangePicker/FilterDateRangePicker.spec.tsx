@@ -506,21 +506,29 @@ describe("<FilterDateRangePicker />", () => {
         })
       })
 
-      // it("shows inbuilt validation messages for pre-existing values", async () => {
-      //   render(
-      //     <FilterDateRangePickerWrapper
-      //       selectedRange={{
-      //         from: new Date("2022-05-15"),
-      //         to: new Date("2022-05-23"),
-      //       }}
-      //       disabledDates={[new Date("2022-05-15"), new Date("2022-05-23")]}
-      //     />
-      //   )
-      //   await openFilter()
+      it("shows inbuilt validation messages for pre-existing values", async () => {
+        render(
+          <FilterDateRangePickerWrapper
+            selectedRange={{
+              from: new Date("2022-05-15"),
+              to: new Date("2022-05-23"),
+            }}
+            disabledDates={[new Date("2022-05-15"), new Date("2022-05-23")]}
+          />
+        )
+        await openFilter()
 
-      //   expect(screen.getByText("Date from: 15/05/2022 is not available, try another date")).toBeVisible()
-      //   expect(screen.getByText("Date to: 23/05/2022 is not available, try another date")).toBeVisible()
-      // })
+        expect(
+          screen.getByText(
+            "Date from: 15/05/2022 is not available, try another date"
+          )
+        ).toBeVisible()
+        expect(
+          screen.getByText(
+            "Date to: 23/05/2022 is not available, try another date"
+          )
+        ).toBeVisible()
+      })
     })
 
     describe("Combined validation", () => {

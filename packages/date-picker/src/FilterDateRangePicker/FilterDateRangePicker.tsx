@@ -271,6 +271,20 @@ export const FilterDateRangePicker = ({
     ) : undefined,
   }
 
+  useEffect(() => {
+    const newStartDate = validateNewDate(
+      selectedRange?.from,
+      inputRangeStartValue,
+      handleValidateStartDate
+    )
+    const newEndDate = validateNewDate(
+      selectedRange?.to,
+      inputRangeEndValue,
+      handleValidateEndDate
+    )
+    if (isOpen) handleDateRangeChange({ from: newStartDate, to: newEndDate })
+  }, [isOpen])
+
   return (
     <div
       className={classnames(
