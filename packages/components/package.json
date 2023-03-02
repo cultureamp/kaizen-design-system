@@ -37,7 +37,12 @@
     "autoprefixer": "^10.4.14",
     "tailwindcss": "^3.2.7",
     "tiny-glob": "^0.2.9",
-    "tsup": "^6.6.3"
+    "tsup": "^6.6.3",
+    "esbuild": "^0.17.8",
+    "@popperjs/core": "^2.11.6",
+    "classnames": "^2.3.2",
+    "react-popper": "^2.3.0",
+    "react-focus-on": "^3.7.0"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
