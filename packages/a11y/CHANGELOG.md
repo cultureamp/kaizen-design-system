@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.7.1...@kaizen/a11y@1.7.2) (2023-03-02)
+
+
+### Bug Fixes
+
+* Revert esm changes ([#3342](https://github.com/cultureamp/kaizen-design-system/issues/3342)) ([708bad3](https://github.com/cultureamp/kaizen-design-system/commit/708bad396b10c67bca59eb06839f0c2f90e60a02)), closes [#3338](https://github.com/cultureamp/kaizen-design-system/issues/3338) [#3336](https://github.com/cultureamp/kaizen-design-system/issues/3336)
+
+
+
+
+
 ## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.7.0...@kaizen/a11y@1.7.1) (2023-03-02)
 
 
