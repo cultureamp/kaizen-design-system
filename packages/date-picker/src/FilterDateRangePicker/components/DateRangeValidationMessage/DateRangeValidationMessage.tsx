@@ -40,8 +40,8 @@ export const DateRangeValidationMessage = ({
         <FieldMessage
           message={
             <ul className={styles.fieldMessageList}>
-              <li id={dateEndId}>{validationMessage.dateStart}</li>
-              <li id={dateStartId}>{validationMessage.dateEnd}</li>
+              <li id={dateStartId}>{validationMessage.dateStart}</li>
+              <li id={dateEndId}>{validationMessage.dateEnd}</li>
             </ul>
           }
           status={status?.dateStart || status?.dateEnd}
