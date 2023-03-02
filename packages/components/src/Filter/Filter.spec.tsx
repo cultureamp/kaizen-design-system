@@ -1,18 +1,32 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { Filter, FilterProps } from "./Filter"
 
-const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => (
-  <Filter
-    exampleRequiredString="Hello!" /** @todo: Add default values for your required props (override them with customProps if needed) */
-    {...customProps}
-  />
-)
+const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
+  const [isOpen, setIsOpen] = React.useState(false)
+  return (
+    <Filter
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      filterButton={(triggerButtonProps): JSX.Element => (
+        <button label="Label" {...triggerButtonProps} />
+      )}
+      {...customProps}
+    >
+      <div>Filter Contents</div>
+    </Filter>
+  )
+}
 
 describe("<Filter />", () => {
-  it("does something", () => {
+  it("does not show content initially", () => {
     render(<FilterWrapper />)
-    /** @todo: Fill in test case */
-    expect(true).toBe(false)
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+  })
+
+  it("show content when isOpen is true", () => {
+    render(<FilterWrapper isOpen />)
+    expect(screen.queryByRole("dialog")).toBeInTheDocument()
+    expect(screen.queryByText("Filter Contents")).toBeInTheDocument()
   })
 })
