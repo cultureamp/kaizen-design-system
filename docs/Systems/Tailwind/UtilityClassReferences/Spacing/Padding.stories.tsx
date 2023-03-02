@@ -1,5 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { Card } from "@kaizen/draft-card"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { CATEGORIES } from "../../../../../storybook/constants"
@@ -31,7 +32,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 }) => (
   <div className="flex flex-col items-center">
     <Card variant="informative" classNameOverride="mb-24">
-      <div className="font-family-paragraph max-w-[1000px] p-24">
+      <div className="p-24 font-family-paragraph max-w-[1000px]">
         <p>
           The padding prefix 'p-' has been used in the examples in this
           document, which compiles to the `padding` property in CSS.
@@ -46,10 +47,12 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <UtilityClassTemplate
       compiledCssPropertyName="padding"
       classKeyValues={classEntries}
-      renderExampleComponent={(cssProperty): React.ReactElement => (
+      renderExampleComponent={(utilityClass): React.ReactElement => (
         <p
-          className="border-solid w-min rounded-default bg-blue-100"
-          style={{ padding: cssProperty }}
+          className={classnames(
+            "border-solid w-min rounded-default bg-blue-100",
+            utilityClass
+          )}
         >
           Padding
         </p>

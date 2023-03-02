@@ -1,15 +1,13 @@
 import React, { useState } from "react"
-import { Divider } from "@kaizen/draft-divider"
 import { InlineNotification } from "@kaizen/notification"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
-// import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 
 import { CodeSnippet } from "./CodeSnippet"
 
 type Props = {
   compiledCssPropertyName: string
   classKeyValues: Array<{ utilityClassName; cssProperty }>
-  renderExampleComponent: (cssProperty: string) => React.ReactElement
+  renderExampleComponent: (utilityClass: string) => React.ReactElement
   isReversed?: boolean
 }
 
@@ -31,10 +29,10 @@ export const UtilityClassTemplate = ({
         rules="rows"
       >
         <StickerSheet.Header
-          className="text-left border-transparent border-b-gray-400 border-solid"
+          className="text-left border-transparent border-solid border-b-gray-400"
           headings={["Utility Class", "Compiled CSS", "Example"]}
         />
-        {classKeyValues.map((presetData, index) => {
+        {classKeyValues.map((presetData, _index) => {
           const { utilityClassName, cssProperty } = presetData
 
           return (
@@ -45,11 +43,11 @@ export const UtilityClassTemplate = ({
                   onCopy={(text: string): void => setCopiedText(text)}
                 />
               </div>
-              <p className="font-family-paragraph mr-32 w-max">
+              <p className="mr-32 w-max font-family-paragraph">
                 {compiledCssPropertyName}: {cssProperty}
               </p>
               <div className="font-family-paragraph">
-                {renderExampleComponent(cssProperty)}
+                {renderExampleComponent(utilityClassName)}
               </div>
             </StickerSheet.Row>
           )

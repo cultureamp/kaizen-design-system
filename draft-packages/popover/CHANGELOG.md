@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.3.2...@kaizen/draft-popover@5.3.3) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.3.1...@kaizen/draft-popover@5.3.2) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.3.0...@kaizen/draft-popover@5.3.1) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.2.28...@kaizen/draft-popover@5.3.0) (2023-02-28)
+
+
+### Features
+
+* update components to use Caution Icon ([#3327](https://github.com/cultureamp/kaizen-design-system/issues/3327)) ([93d7647](https://github.com/cultureamp/kaizen-design-system/commit/93d764734a68e42c9717f42cdbd626d8eda3c1ea))
+
+
+
+
+
 ## [5.2.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@5.2.27...@kaizen/draft-popover@5.2.28) (2023-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-popover

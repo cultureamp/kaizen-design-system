@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.22...@kaizen/components@1.4.23) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+## [1.4.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.21...@kaizen/components@1.4.22) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+## [1.4.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.20...@kaizen/components@1.4.21) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+## [1.4.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.19...@kaizen/components@1.4.20) (2023-03-01)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+## [1.4.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.18...@kaizen/components@1.4.19) (2023-02-28)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
 ## [1.4.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.17...@kaizen/components@1.4.18) (2023-02-28)
 
 **Note:** Version bump only for package @kaizen/components

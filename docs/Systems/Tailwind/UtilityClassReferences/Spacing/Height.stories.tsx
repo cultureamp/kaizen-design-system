@@ -1,5 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
@@ -31,14 +32,19 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="height"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
-      <div className="w-min flex flex-col-reverse border-solid rounded-default h-[200px]">
+    renderExampleComponent={(utilityClass): React.ReactElement => (
+      <div className="flex flex-col-reverse w-min border-solid rounded-default h-[200px]">
         <div
-          className="w-[100px] h-100 flex justify-center items-center bg-blue-400"
-          style={{ height: cssProperty }}
+          className={classnames(
+            "flex justify-center items-center bg-blue-400 w-[100px]",
+            utilityClass
+          )}
         >
-          {cssProperty.includes("content") ? (
-            <div className="w-min font-family-paragraph bg-blue-100 p-4 border-dashed border-w-[1px]">
+          {utilityClass.includes("min") ||
+          utilityClass.includes("max") ||
+          utilityClass.includes("fit") ||
+          utilityClass.includes("auto") ? (
+            <div className="p-4 w-min bg-blue-100 border-dashed font-family-paragraph border-w-[1px]">
               Inner content
             </div>
           ) : null}
