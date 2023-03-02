@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.27...@kaizen/draft-avatar@2.8.28) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [2.8.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@2.8.26...@kaizen/draft-avatar@2.8.27) (2023-03-02)
 
 **Note:** Version bump only for package @kaizen/draft-avatar
