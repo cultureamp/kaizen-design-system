@@ -46,7 +46,6 @@ export const DateRangeValidationMessage = ({
           }
           status={status?.dateStart || status?.dateEnd}
           reversed={isReversed}
-          classNameOverride={styles.fieldMessageIcon}
         />
       )
     }
@@ -74,7 +73,6 @@ export const DateRangeValidationMessage = ({
       message={validationMessage.dateStart}
       status={status?.dateStart}
       reversed={isReversed}
-      classNameOverride={styles.fieldMessageIcon}
     />
 
   return (
@@ -83,7 +81,6 @@ export const DateRangeValidationMessage = ({
       message={validationMessage.dateEnd}
       status={status?.dateEnd}
       reversed={isReversed}
-      classNameOverride={styles.fieldMessageIcon}
     />
   )
 }
