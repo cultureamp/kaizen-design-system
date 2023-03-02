@@ -43,7 +43,7 @@ export const stylePreprocessors: RuleSetUseItem[] = [
 ]
 
 export const styles: RuleSetRule = {
-  test: /(?!(.*tailwind\.s?css))^.*\.s?css/,
+  test: /\.s?css$/,
   use: [
     {
       loader: "style-loader",
@@ -56,23 +56,6 @@ export const styles: RuleSetRule = {
         modules: {
           localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
         },
-      },
-    },
-    ...stylePreprocessors,
-  ],
-}
-export const tailwind: RuleSetRule = {
-  test: /tailwind\.s?css$/,
-  use: [
-    {
-      loader: "style-loader",
-    },
-    {
-      loader: "css-loader",
-      options: {
-        importLoaders: stylePreprocessors.length,
-        sourceMap: true,
-        modules: false,
       },
     },
     ...stylePreprocessors,
