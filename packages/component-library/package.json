@@ -7,8 +7,6 @@
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
     "directory": "packages/component-library"
   },
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
@@ -46,7 +44,7 @@
     "rimraf": "^4.1.2"
   },
   "scripts": {
-    "prepublish": "tsup",
+    "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf '?(components|draft|draft-templates|util|bin|stories)/**/?(*.js*|*.d.ts)' '**/*.js.map' 'index.js*' 'index.d.ts'"
