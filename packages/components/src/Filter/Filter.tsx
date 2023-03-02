@@ -38,10 +38,7 @@ export const Filter = ({
   const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
 
   return (
-    <div
-      className={classnames(styles.filter, classNameOverride)}
-      {...restProps}
-    >
+    <div className={classNameOverride} {...restProps}>
       {React.cloneElement(filterButtonComponent, {
         ref: filterButtonRef,
       })}
