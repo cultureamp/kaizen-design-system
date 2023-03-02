@@ -208,16 +208,15 @@ export const FilterDateRangePicker = ({
     onValidateDateStart(validationResponse)
   }
 
+  const validateStartDate = (date: Date | undefined): Date | undefined =>
+    validateNewDate(date, inputRangeStartValue, handleValidateStartDate)
+
   const inputRangeStartHandlers = useDateInputHandlers({
     locale,
     disabledDays,
     setInputValue: setInputRangeStartValue,
     onDateChange: date => {
-      const newDate = validateNewDate(
-        date,
-        inputRangeStartValue,
-        handleValidateStartDate
-      )
+      const newDate = validateStartDate(date)
       handleDateRangeChange({ from: newDate, to: rangeEnd })
       if (newDate) setStartMonth(newDate)
     },
@@ -239,32 +238,23 @@ export const FilterDateRangePicker = ({
     onValidateDateEnd(validationResponse)
   }
 
+  const validateEndDate = (date: Date | undefined): Date | undefined =>
+    validateNewDate(date, inputRangeEndValue, handleValidateEndDate)
+
   const inputRangeEndHandlers = useDateInputHandlers({
     locale,
     disabledDays,
     setInputValue: setInputRangeEndValue,
     onDateChange: date => {
-      const newDate = validateNewDate(
-        date,
-        inputRangeEndValue,
-        handleValidateEndDate
-      )
+      const newDate = validateEndDate(date)
       handleDateRangeChange({ from: rangeStart, to: newDate })
     },
     ...inputRangeEndProps,
   })
 
   const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
-    const newStartDate = validateNewDate(
-      range?.from,
-      inputRangeStartValue,
-      handleValidateStartDate
-    )
-    const newEndDate = validateNewDate(
-      range?.to,
-      inputRangeEndValue,
-      handleValidateEndDate
-    )
+    const newStartDate = validateStartDate(range?.from)
+    const newEndDate = validateEndDate(range?.to)
     setInputRangeStartValue(transformDateToInputValue(newStartDate))
     setInputRangeEndValue(transformDateToInputValue(newEndDate))
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
@@ -282,16 +272,8 @@ export const FilterDateRangePicker = ({
   }
 
   useEffect(() => {
-    const newStartDate = validateNewDate(
-      selectedRange?.from,
-      inputRangeStartValue,
-      handleValidateStartDate
-    )
-    const newEndDate = validateNewDate(
-      selectedRange?.to,
-      inputRangeEndValue,
-      handleValidateEndDate
-    )
+    const newStartDate = validateStartDate(selectedRange?.from)
+    const newEndDate = validateEndDate(selectedRange?.to)
     if (isOpen) handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }, [isOpen])
 
