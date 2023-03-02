@@ -2,8 +2,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../variables";
-@import "../mixins";
+@import "../../variables";
+@import "../../mixins";
 
 .filterBaseButton {
   @include button-reset;
@@ -43,8 +43,6 @@
 
   &:focus {
     outline: none;
-    // For testing only
-    background-color: pink;
   }
 
   #{$selectors--filter-button--focus} {

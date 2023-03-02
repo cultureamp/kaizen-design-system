@@ -1,16 +1,17 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../../../../../storybook/components/StickerSheet"
+
 import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../../../storybook/constants"
-import { FilterButton } from "../../../src/Filter/components/_primitives/FilterButton"
+} from "../../../../../../../storybook/constants"
+import { FilterButton } from "../../../components/_primitives/FilterButton"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Base Buttons/Filter Button`,
   component: FilterButton,
   parameters: {
     docs: {

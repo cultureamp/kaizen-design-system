@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../variables";
+@import "../../variables";
 
 %firstChildBorders {
   border-start-start-radius: $border-focus-ring-border-radius;

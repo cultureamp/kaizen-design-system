@@ -5,11 +5,11 @@ import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
-import { FilterButtonWithTooltip } from "../src/Filter/components/_primitives/FilterButtonWithTooltip"
+} from "../../../../../../../storybook/constants"
+import { FilterButtonWithTooltip } from "../../../components/_primitives/FilterButtonWithTooltip"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Base Buttons`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Base Buttons/Filter Button With Tooltip`,
   component: FilterButtonWithTooltip,
   parameters: {
     docs: {

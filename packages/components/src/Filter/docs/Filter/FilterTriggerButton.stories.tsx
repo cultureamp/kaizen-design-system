@@ -5,11 +5,11 @@ import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../../storybook/constants"
-import { FilterTriggerButton } from "../../src/FilterDateRangePicker/components/Trigger"
+} from "../../../../../../storybook/constants"
+import { FilterTriggerButton } from "../../components/FilterTriggerButton"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
   component: FilterTriggerButton,
   parameters: {
     docs: {

@@ -1,22 +1,24 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../../../../../storybook/components/StickerSheet"
+
 import {
   CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
-import { FilterButton } from "../src/Filter/components/_primitives/FilterButton"
-import { FilterButtonGroup } from "../src/Filter/components/_primitives/FilterButtonGroup"
+} from "../../../../../../../storybook/constants"
+import { FilterButton } from "../../../components/_primitives/FilterButton"
+import { FilterButtonGroup } from "../../../components/_primitives/FilterButtonGroup"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button Group`,
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Base Buttons/Filter Button Group`,
   component: FilterButtonGroup,
   parameters: {
     docs: {
       description: {
-        component: "This is a container component to group filter buttons.",
+        component:
+          "This is a subcomponent - use FilterTriggerButton or RemovableFilterTriggerButton.",
       },
     },
   },
