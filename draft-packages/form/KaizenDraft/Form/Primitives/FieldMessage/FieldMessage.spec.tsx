@@ -18,10 +18,31 @@ const renderFieldMessage = (
 }
 
 describe("<FieldMessage />", () => {
-  it("renders a message", () => {
-    const { queryByText } = renderFieldMessage()
+  it("renders a message within a <p> tag when given a string", () => {
+    const fieldMessage = renderFieldMessage({ message: "Hello I am a message" })
 
-    expect(queryByText(defaultFieldMessageProps.message)).toBeTruthy()
+    expect(fieldMessage.queryByText("Hello I am a message")).toBeInTheDocument()
+    expect(
+      fieldMessage.queryByText("Hello I am a message")?.tagName === "P"
+    ).toBeTruthy()
+  })
+
+  it("renders a message within a <div> tag when not given node other than string", () => {
+    const fieldMessage = renderFieldMessage({
+      message: <span>Hello I am a message within a span</span>,
+    })
+
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a span")
+    ).toBeInTheDocument()
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a span")
+        ?.tagName === "SPAN"
+    ).toBeTruthy()
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a span")
+        ?.parentElement?.tagName === "DIV"
+    ).toBeTruthy()
   })
 
   it("renders an `id` attribute", () => {
