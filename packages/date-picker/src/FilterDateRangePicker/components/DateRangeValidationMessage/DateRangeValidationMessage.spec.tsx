@@ -7,7 +7,6 @@ describe("<DateRangeValidationMessage />", () => {
     test("when the consumer has given it a node", () => {
       const { container } = render(
         <DateRangeValidationMessage
-          dateEndId="date-end-error-message-id"
           status={{
             dateEnd: "error",
           }}
@@ -17,16 +16,11 @@ describe("<DateRangeValidationMessage />", () => {
         />
       )
       expect(screen.getByText("Validation message")).toBeVisible()
-      expect(
-        container.querySelector("#date-end-error-message-id")
-      ).toBeVisible()
     })
 
     it("combines multiple validation messages with the same status", () => {
       const { container } = render(
         <DateRangeValidationMessage
-          dateStartId="date-start-error-message-id"
-          dateEndId="date-end-error-message-id"
           status={{
             dateEnd: "error",
             dateStart: "error",
@@ -44,19 +38,11 @@ describe("<DateRangeValidationMessage />", () => {
 
       expect(items.length).toBe(2)
       expect(container.getElementsByClassName("error").length).toBe(1)
-      expect(
-        container.querySelector("#date-start-error-message-id")
-      ).toBeVisible()
-      expect(
-        container.querySelector("#date-end-error-message-id")
-      ).toBeVisible()
     })
     describe("will render two validation field messages", () => {
       test("when consumer passes validationMessage object and has different status", () => {
         const { container } = render(
           <DateRangeValidationMessage
-            dateStartId="date-start-error-message-id"
-            dateEndId="date-end-error-message-id"
             status={{
               dateEnd: "error",
               dateStart: "caution",
@@ -70,13 +56,29 @@ describe("<DateRangeValidationMessage />", () => {
         )
         expect(container.getElementsByClassName("error").length).toBe(1)
         expect(container.getElementsByClassName("caution").length).toBe(1)
-        expect(
-          container.querySelector("#date-start-error-message-id")
-        ).toBeVisible()
-        expect(
-          container.querySelector("#date-end-error-message-id")
-        ).toBeVisible()
       })
     })
+  })
+
+  it("renders an id when passed in", () => {
+    const { container } = render(
+      <DateRangeValidationMessage
+        dateStartId="date-start-error-message-id"
+        dateEndId="date-end-error-message-id"
+        status={{
+          dateEnd: "error",
+          dateStart: "caution",
+        }}
+        validationMessage={{
+          dateStart: '"Date from" is close to the submission date.',
+          dateEnd:
+            '"Date to" cannot be earlier than the "Date from" selection.',
+        }}
+      />
+    )
+    expect(
+      container.querySelector("#date-start-error-message-id")
+    ).toBeVisible()
+    expect(container.querySelector("#date-end-error-message-id")).toBeVisible()
   })
 })
