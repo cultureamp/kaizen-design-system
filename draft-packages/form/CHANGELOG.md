@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.2.0...@kaizen/draft-form@10.3.0) (2023-03-01)
+
+
+### Features
+
+* update FieldMessage React.Node wrapper ([#3333](https://github.com/cultureamp/kaizen-design-system/issues/3333)) ([bb8b20c](https://github.com/cultureamp/kaizen-design-system/commit/bb8b20c805d283fa2c110a07d4e653fa19c4cd39))
+
+
+
+
+
 # [10.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@10.1.2...@kaizen/draft-form@10.2.0) (2023-02-28)
 
 
