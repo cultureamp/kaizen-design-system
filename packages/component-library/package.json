@@ -44,7 +44,7 @@
     "rimraf": "^4.1.3"
   },
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsup",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf '?(components|draft|draft-templates|util|bin|stories)/**/?(*.js*|*.d.ts)' '**/*.js.map' 'index.js*' 'index.d.ts'"
