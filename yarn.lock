@@ -2157,6 +2157,27 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@kaizen/a11y@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@kaizen/a11y/-/a11y-1.7.1.tgz#3c40ee4c91a66ade8a358a505c8691c7d62fe076"
+  integrity sha512-rSKC4KqCBCViPFk7wH31A85Ffi5k8qsiBZFWkFJodYXjcHlHejQEEe7IrPEpAHLnQNtr3Jr7J8loM/aduCh3Lw==
+  dependencies:
+    "@kaizen/component-base" "^1.1.3"
+    "@kaizen/component-library" "^16.4.1"
+
+"@kaizen/component-library@^16.4.1":
+  version "16.4.1"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.4.1.tgz#9c0cae97d2631b0fe225fdb0ccae98fd5c791c86"
+  integrity sha512-jzrsdJRoMtV6jvWg3ffz/rDakgvMYtnPdS7S3W54M28zE4vcIzbUK5Cxct3e5Zqhz4S5zLvYlvL3aAKlItT3FA==
+  dependencies:
+    "@kaizen/component-base" "^1.1.3"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
+    "@kaizen/hosted-assets" "^2.0.1"
+    "@types/classnames" "^2.3.0"
+    "@types/lodash" "^4.14.191"
+    "@types/uuid" "^9.0.1"
+    classnames "^2.3.2"
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
