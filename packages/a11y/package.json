@@ -3,7 +3,7 @@
   "version": "1.6.25",
   "description": "A collection of accessibility utils",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsup",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
