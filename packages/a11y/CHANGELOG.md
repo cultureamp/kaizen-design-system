@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.7.0...@kaizen/a11y@1.7.1) (2023-03-02)
+
+
+### Bug Fixes
+
+* a11y and component-library package-locks + build ([#3338](https://github.com/cultureamp/kaizen-design-system/issues/3338)) ([33dd9f5](https://github.com/cultureamp/kaizen-design-system/commit/33dd9f53f59417aaff10e7f59bf02617ce2369cb))
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.25...@kaizen/a11y@1.7.0) (2023-03-02)
+
+
+### Features
+
+* add esm to a11y and component-library packages ([#3336](https://github.com/cultureamp/kaizen-design-system/issues/3336)) ([1082488](https://github.com/cultureamp/kaizen-design-system/commit/1082488c912aeba76e7fadd619ec3607fc81cd20))
+
+
+
+
+
 ## [1.6.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/a11y@1.6.24...@kaizen/a11y@1.6.25) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/a11y

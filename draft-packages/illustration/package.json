@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "6.0.17",
+  "version": "6.0.19",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -36,7 +36,7 @@
     "lottie-web": "^5.10.2"
   },
   "devDependencies": {
-    "@kaizen/component-library": "^16.3.2",
+    "@kaizen/component-library": "^16.4.1",
     "@types/jszip": "^3.4.0",
     "rimraf": "^4.1.2"
   },
