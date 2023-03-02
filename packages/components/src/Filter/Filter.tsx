@@ -7,7 +7,6 @@ import {
   FilterRef,
   FilterTriggerButtonProps,
 } from "./components/FilterTriggerButton"
-import styles from "./Filter.module.scss"
 
 export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
