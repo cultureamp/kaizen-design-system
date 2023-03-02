@@ -86,7 +86,7 @@
     "commitizen": "^4.3.0",
     "css-loader": "^6.7.3",
     "cz-conventional-changelog": "3.3.0",
-    "danger": "^11.2.3",
+    "danger": "^11.2.4",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
