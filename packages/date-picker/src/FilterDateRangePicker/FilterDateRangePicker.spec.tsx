@@ -529,6 +529,104 @@ describe("<FilterDateRangePicker />", () => {
           )
         ).toBeVisible()
       })
+
+      describe("Validates end date is not before start date", () => {
+        const invalidDateOrderErrorMessage =
+          'Date to: Cannot be earlier than the selection in "Date from"'
+
+        it("shows error on updating end date input to be before start date", async () => {
+          render(
+            <FilterDateRangePickerWrapper
+              selectedRange={{
+                from: new Date("2022-05-15"),
+              }}
+            />
+          )
+          await openFilter()
+
+          const inputRangeEnd = screen.getByLabelText("Date to")
+
+          await userEvent.clear(inputRangeEnd)
+          await userEvent.type(inputRangeEnd, "12/05/2022")
+          await userEvent.tab({ shift: true })
+
+          await waitFor(() => {
+            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+          })
+        })
+
+        it("removes error on updating start date input to be before end date", async () => {
+          render(
+            <FilterDateRangePickerWrapper
+              selectedRange={{
+                from: new Date("2022-05-15"),
+                to: new Date("2022-05-22"),
+              }}
+            />
+          )
+          await openFilter()
+
+          const inputRangeEnd = screen.getByLabelText("Date to")
+
+          await userEvent.clear(inputRangeEnd)
+          await userEvent.type(inputRangeEnd, "12/05/2022")
+          await userEvent.tab({ shift: true })
+
+          await waitFor(() => {
+            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+          })
+
+          const inputRangeStart = screen.getByLabelText("Date from")
+
+          await userEvent.clear(inputRangeStart)
+          await userEvent.type(inputRangeStart, "01/05/2022")
+          await userEvent.tab()
+
+          await waitFor(() => {
+            expect(
+              screen.queryByText(invalidDateOrderErrorMessage)
+            ).not.toBeInTheDocument()
+          })
+        })
+
+        it("shows error on updating start date input to be after end date", async () => {
+          render(
+            <FilterDateRangePickerWrapper
+              selectedRange={{
+                from: new Date("2022-05-15"),
+                to: new Date("2022-05-22"),
+              }}
+            />
+          )
+          await openFilter()
+
+          const inputRangeStart = screen.getByLabelText("Date from")
+
+          await userEvent.clear(inputRangeStart)
+          await userEvent.type(inputRangeStart, "31/05/2022")
+          await userEvent.tab()
+
+          await waitFor(() => {
+            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+          })
+        })
+
+        it("shows error if the pre-existing end date is before start date", async () => {
+          render(
+            <FilterDateRangePickerWrapper
+              selectedRange={{
+                from: new Date("2022-05-15"),
+                to: new Date("2022-05-01"),
+              }}
+            />
+          )
+          await openFilter()
+
+          await waitFor(() => {
+            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+          })
+        })
+      })
     })
 
     describe("Combined validation", () => {
