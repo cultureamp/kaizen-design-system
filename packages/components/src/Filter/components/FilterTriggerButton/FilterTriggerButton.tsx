@@ -19,20 +19,22 @@ export type FilterRef = {
 }
 
 export const FilterTriggerButton = forwardRef<
-  FilterRef,
+  // FilterRef,
+  HTMLButtonElement,
   FilterTriggerButtonProps
 >(
   (
     { label, selectedValue, isOpen = false, classNameOverride, ...restProps },
     ref
   ) => {
-    const customRefObject = isRefObject(ref) ? ref.current : null
-    const triggerButtonRef = customRefObject?.triggerButtonRef
+    // const customRefObject = isRefObject(ref) ? ref.current : null
+    // const triggerButtonRef = customRefObject.triggerButtonRef
     const selectedValuesLabel = selectedValue
 
     return (
       <FilterButton
-        ref={triggerButtonRef}
+        // ref={triggerButtonRef}
+        ref={ref}
         classNameOverride={classnames(
           styles.filterTriggerButton,
           classNameOverride

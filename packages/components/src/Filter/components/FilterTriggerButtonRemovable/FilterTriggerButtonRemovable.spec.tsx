@@ -1,6 +1,8 @@
 import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { isRefObject } from "../../utils/isRefObject"
+import { FilterRef } from "../FilterTriggerButton/FilterTriggerButton"
 import {
   FilterTriggerButtonRemovable,
   FilterTriggerButtonRemovableProps,
@@ -43,9 +45,9 @@ describe("<FilterTriggerButtonRemovable />", () => {
         const removeButtonRef = useRef<HTMLButtonElement>(null)
         const ref = useRef({ triggerButtonRef, removeButtonRef })
 
-        const handleClick = (): void =>
+        const handleClick = (): void => {
           onClick(triggerButtonRef.current?.id, removeButtonRef.current?.id)
-
+        }
         return (
           <>
             <FilterTriggerButtonRemovable

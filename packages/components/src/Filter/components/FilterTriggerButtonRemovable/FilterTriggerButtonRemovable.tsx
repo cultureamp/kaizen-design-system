@@ -5,6 +5,7 @@ import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
 import { DataAttributes } from "../../types"
 import { isRefObject } from "../../utils/isRefObject"
 import {
+  FilterRef,
   FilterTriggerButton,
   FilterTriggerButtonProps,
 } from "../FilterTriggerButton"
@@ -43,8 +44,7 @@ export const FilterTriggerButtonRemovable = forwardRef<
 
   return (
     <FilterButtonGroup {...restProps}>
-      {/* <FilterTriggerButton ref={triggerButtonRef} {...triggerButtonProps} /> */}
-      <FilterTriggerButton {...triggerButtonProps} />
+      <FilterTriggerButton ref={triggerButtonRef} {...triggerButtonProps} />
       <FilterButtonWithTooltip
         ref={removeButtonRef}
         tooltipText={removeButtonLabel}
