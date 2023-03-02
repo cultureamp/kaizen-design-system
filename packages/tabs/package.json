@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tabs",
-  "version": "1.5.30",
+  "version": "1.5.31",
   "description": "Tabs component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -35,7 +35,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/button": "^2.0.20",
+    "@kaizen/button": "^2.0.21",
     "@kaizen/draft-card": "^3.2.6"
   },
   "peerDependencies": {
