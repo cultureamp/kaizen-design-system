@@ -81,6 +81,8 @@ export const DateRangeInputField = React.forwardRef<
       ? `${dateStartErrorMessageId} ${descriptionId}`
       : descriptionId
 
+    const dateStartIsInvalid = dateStartErrorMessageId !== undefined
+
     // Date End aria labels
     const dateEndErrorMessageId = validationMessage?.dateEnd
       ? `${id}--date-end-error-message`
@@ -89,6 +91,8 @@ export const DateRangeInputField = React.forwardRef<
     const dateEndInputDescribedBy = dateEndErrorMessageId
       ? `${dateEndErrorMessageId} ${descriptionId}`
       : descriptionId
+
+    const dateEndIsInvalid = dateEndErrorMessageId !== undefined
 
     return (
       <div className={classNameOverride} {...restProps}>
@@ -101,7 +105,7 @@ export const DateRangeInputField = React.forwardRef<
             id={`${id}--from`}
             aria-describedby={dateStartInputDescribedBy}
             aria-errormessage={dateStartErrorMessageId}
-            aria-invalid={dateStartErrorMessageId ? true : false}
+            aria-invalid={dateStartIsInvalid}
             autoComplete="off"
             disabled={disabled}
             status={status?.dateStart}
@@ -116,7 +120,7 @@ export const DateRangeInputField = React.forwardRef<
             id={`${id}--to`}
             aria-describedby={dateEndInputDescribedBy}
             aria-errormessage={dateEndErrorMessageId}
-            aria-invalid={dateEndErrorMessageId ? true : false}
+            aria-invalid={dateEndIsInvalid}
             autoComplete="off"
             disabled={disabled}
             status={status?.dateEnd}

@@ -5,7 +5,7 @@ import { DateRangeValidationMessage } from "./DateRangeValidationMessage"
 describe("<DateRangeValidationMessage />", () => {
   describe("will render a single validation field message", () => {
     test("when the consumer has given it a node", () => {
-      render(
+      const { container } = render(
         <DateRangeValidationMessage
           dateEndId="date-end-error-message-id"
           status={{
@@ -17,6 +17,9 @@ describe("<DateRangeValidationMessage />", () => {
         />
       )
       expect(screen.getByText("Validation message")).toBeVisible()
+      expect(
+        container.querySelector("#date-end-error-message-id")
+      ).toBeVisible()
     })
 
     it("combines multiple validation messages with the same status", () => {
@@ -40,8 +43,13 @@ describe("<DateRangeValidationMessage />", () => {
       const items = getAllByRole("listitem")
 
       expect(items.length).toBe(2)
-
       expect(container.getElementsByClassName("error").length).toBe(1)
+      expect(
+        container.querySelector("#date-start-error-message-id")
+      ).toBeVisible()
+      expect(
+        container.querySelector("#date-end-error-message-id")
+      ).toBeVisible()
     })
     describe("will render two validation field messages", () => {
       test("when consumer passes validationMessage object and has different status", () => {
@@ -62,6 +70,12 @@ describe("<DateRangeValidationMessage />", () => {
         )
         expect(container.getElementsByClassName("error").length).toBe(1)
         expect(container.getElementsByClassName("caution").length).toBe(1)
+        expect(
+          container.querySelector("#date-start-error-message-id")
+        ).toBeVisible()
+        expect(
+          container.querySelector("#date-end-error-message-id")
+        ).toBeVisible()
       })
     })
   })
