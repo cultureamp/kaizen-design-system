@@ -7,6 +7,8 @@
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
     "directory": "packages/component-library"
   },
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
@@ -22,7 +24,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "16.4.0",
+  "version": "16.4.1",
   "private": false,
   "license": "MIT",
   "peerDependencies": {

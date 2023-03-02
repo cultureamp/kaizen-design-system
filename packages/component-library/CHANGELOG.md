@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.4.0...@kaizen/component-library@16.4.1) (2023-03-02)
+
+
+### Bug Fixes
+
+* a11y and component-library package-locks + build ([#3338](https://github.com/cultureamp/kaizen-design-system/issues/3338)) ([33dd9f5](https://github.com/cultureamp/kaizen-design-system/commit/33dd9f53f59417aaff10e7f59bf02617ce2369cb))
+
+
+
+
+
 # [16.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.3.2...@kaizen/component-library@16.4.0) (2023-03-02)
 
 
