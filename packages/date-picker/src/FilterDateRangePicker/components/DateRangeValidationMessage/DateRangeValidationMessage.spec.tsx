@@ -5,7 +5,7 @@ import { DateRangeValidationMessage } from "./DateRangeValidationMessage"
 describe("<DateRangeValidationMessage />", () => {
   describe("will render a single validation field message", () => {
     test("when the consumer has given it a node", () => {
-      const { container } = render(
+      render(
         <DateRangeValidationMessage
           status={{
             dateEnd: "error",
