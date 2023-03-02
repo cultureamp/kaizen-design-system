@@ -68,15 +68,22 @@ export const DateRangeValidationMessage = ({
     )
   }
 
+  if (validationMessage.dateStart)
+    <FieldMessage
+      id={dateStartId}
+      message={validationMessage.dateStart}
+      status={status?.dateStart}
+      reversed={isReversed}
+      classNameOverride={styles.fieldMessageIcon}
+    />
+
   return (
     <FieldMessage
-      id={validationMessage.dateStart ? dateStartId : dateEndId}
-      message={validationMessage.dateEnd || validationMessage.dateStart}
-      status={status?.dateEnd || status?.dateStart}
+      id={dateEndId}
+      message={validationMessage.dateEnd}
+      status={status?.dateEnd}
       reversed={isReversed}
       classNameOverride={styles.fieldMessageIcon}
     />
   )
 }
-
-DateRangeValidationMessage.displayName = "DateRangeValidationMessage"
