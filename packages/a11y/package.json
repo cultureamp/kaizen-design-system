@@ -2,6 +2,8 @@
   "name": "@kaizen/a11y",
   "version": "1.7.0",
   "description": "A collection of accessibility utils",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
   "scripts": {
     "prepublish": "tsup",
     "build": "yarn clean && yarn prepublish",
