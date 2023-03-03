@@ -36,7 +36,7 @@ FilterTriggerButtonRemovableStory.args = {
 export const WithRefsStory: ComponentStory<
   typeof FilterTriggerButtonRemovable
 > = args => {
-  const triggerButtonRef = React.useRef<FilterRef>(null)
+  const triggerButtonRef = React.useRef<HTMLButtonElement>(null)
   const removeButtonRef = React.useRef<HTMLButtonElement>(null)
   const ref = React.useRef<FilterTriggerButtonRemovableRefs>({
     triggerButtonRef,
