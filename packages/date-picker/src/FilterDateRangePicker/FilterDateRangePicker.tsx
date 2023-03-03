@@ -30,6 +30,7 @@ import {
 } from "./components/Trigger"
 import { DateRangeValidationStatus } from "./types"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
+import { validateEndDateBeforeStartDate } from "./utils/validateEndDateBeforeStartDate"
 import styles from "./FilterDateRangePicker.module.scss"
 
 type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
@@ -222,25 +223,21 @@ export const FilterDateRangePicker = ({
       const endDate = parseDateFromTextFormatValue(inputRangeEndValue, locale)
 
       if (newDate && !isInvalidDate(endDate)) {
-        if (endDate < newDate) {
-          const extendedValidation: ValidationResponse = {
-            date: endDate,
-            inputValue: inputRangeEndValue,
-            status: "error",
-            validationMessage: `Cannot be earlier than the selection in "${inputRangeStartLabel}"`,
-            isInvalid: false,
-            isDisabled: false,
-            isEmpty: false,
-            isValidDate: true,
-          }
+        const extendedValidation = validateEndDateBeforeStartDate({
+          startDate: newDate,
+          startDateFieldLabel: inputRangeStartLabel,
+          endDate,
+          endDateInputValue: inputRangeEndValue,
+        })
 
-          handleValidateEndDate(extendedValidation)
-          handleDateRangeChange({ from: newDate, to: undefined })
-        } else {
+        if (extendedValidation.newDate) {
           setInbuiltEndDateStatus(undefined)
           setInbuiltEndDateValidationMessage(undefined)
-          handleDateRangeChange({ from: newDate, to: endDate })
+        } else {
+          handleValidateEndDate(extendedValidation.validationResponse)
         }
+
+        handleDateRangeChange({ from: newDate, to: extendedValidation.newDate })
       } else {
         handleDateRangeChange({ from: newDate, to: rangeEnd })
       }
@@ -262,20 +259,16 @@ export const FilterDateRangePicker = ({
     })
 
     if (validationResponse.isValidDate) {
-      if (newDate && selectedRange?.from && newDate < selectedRange.from) {
-        const extendedValidation: ValidationResponse = {
-          date,
-          inputValue,
-          status: "error",
-          validationMessage: `Cannot be earlier than the selection in "${inputRangeStartLabel}"`,
-          isInvalid: false,
-          isDisabled: false,
-          isEmpty: false,
-          isValidDate: true,
-        }
+      if (newDate && selectedRange?.from) {
+        const extendedValidation = validateEndDateBeforeStartDate({
+          startDate: selectedRange.from,
+          startDateFieldLabel: inputRangeStartLabel,
+          endDate: newDate,
+          endDateInputValue: inputRangeEndValue,
+        })
 
-        onValidateDate(extendedValidation)
-        return undefined
+        onValidateDate(extendedValidation.validationResponse)
+        return extendedValidation.newDate
       }
     }
 
