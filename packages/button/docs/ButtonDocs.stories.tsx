@@ -51,7 +51,7 @@ export const Variants: Story<ButtonProps> = () => (
   </StickerSheet>
 )
 export const Reversed: Story<ButtonProps> = () => (
-  <StickerSheet className="bg-purple-700">
+  <StickerSheet>
     <StickerSheet.Row>
       <Button label="Default" reversed />
       <Button label="Primary" primary reversed />

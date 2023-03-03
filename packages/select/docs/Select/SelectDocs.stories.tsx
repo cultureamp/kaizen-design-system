@@ -67,7 +67,7 @@ export const Disabled: ComponentStory<typeof Select> = () => (
 )
 
 export const Reversed: ComponentStory<typeof Select> = () => (
-  <div className="bg-purple-700 p-32">
+  <div className="p-32">
     <Select
       label="label"
       id="single-select"
