@@ -7,7 +7,14 @@ import {
 } from "../../../../../../storybook/constants"
 import { Filter } from "../../Filter"
 import { FilterContents } from "../../components/FilterContents"
-import { FilterTriggerButton } from "../../components/FilterTriggerButton"
+import {
+  FilterRef,
+  FilterTriggerButton,
+} from "../../components/FilterTriggerButton"
+import {
+  FilterTriggerButtonRemovable,
+  FilterTriggerButtonRemovableRefs,
+} from "../../components/FilterTriggerButtonRemovable"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/Filter`,
@@ -31,3 +38,29 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
   )
 }
 DefaultStory.storyName = "Filter"
+
+export const FilterButtonRemovable: ComponentStory<typeof Filter> = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const triggerButtonRef = useRef<HTMLButtonElement>(null)
+  const removeButtonRef = useRef<HTMLButtonElement>(null)
+  const ref = useRef<FilterTriggerButtonRemovableRefs>({
+    triggerButtonRef,
+    removeButtonRef,
+  })
+  return (
+    <Filter
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      filterButton={(triggerButtonProps): JSX.Element => (
+        <FilterTriggerButtonRemovable
+          ref={ref}
+          triggerButtonProps={{ label: "Label", ...triggerButtonProps }}
+          removeButtonProps={{ onClick: () => undefined }}
+        />
+      )}
+    >
+      <FilterContents>Filter Contents</FilterContents>
+    </Filter>
+  )
+}
+FilterButtonRemovable.storyName = "Filter With Trigger Button Removable"

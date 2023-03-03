@@ -6,6 +6,7 @@ import { FilterRef } from "../FilterTriggerButton/FilterTriggerButton"
 import {
   FilterTriggerButtonRemovable,
   FilterTriggerButtonRemovableProps,
+  FilterTriggerButtonRemovableRefs,
 } from "."
 
 const FilterTriggerButtonRemovableWrapper = ({
@@ -43,7 +44,10 @@ describe("<FilterTriggerButtonRemovable />", () => {
       const Wrapper = (): JSX.Element => {
         const triggerButtonRef = useRef<HTMLButtonElement>(null)
         const removeButtonRef = useRef<HTMLButtonElement>(null)
-        const ref = useRef({ triggerButtonRef, removeButtonRef })
+        const ref = useRef<FilterTriggerButtonRemovableRefs>({
+          triggerButtonRef,
+          removeButtonRef,
+        })
 
         const handleClick = (): void => {
           onClick(triggerButtonRef.current?.id, removeButtonRef.current?.id)

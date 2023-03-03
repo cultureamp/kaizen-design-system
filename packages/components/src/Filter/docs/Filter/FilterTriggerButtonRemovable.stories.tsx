@@ -6,7 +6,11 @@ import {
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../../../../storybook/constants"
-import { FilterTriggerButtonRemovable } from "../../components/FilterTriggerButtonRemovable"
+import { FilterRef } from "../../components/FilterTriggerButton"
+import {
+  FilterTriggerButtonRemovable,
+  FilterTriggerButtonRemovableRefs,
+} from "../../components/FilterTriggerButtonRemovable"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
@@ -26,5 +30,21 @@ export const FilterTriggerButtonRemovableStory: ComponentStory<
 > = args => <FilterTriggerButtonRemovable {...args} />
 FilterTriggerButtonRemovableStory.storyName = "Removable Filter Trigger Button"
 FilterTriggerButtonRemovableStory.args = {
+  triggerButtonProps: { label: "Label" },
+}
+
+export const WithRefsStory: ComponentStory<
+  typeof FilterTriggerButtonRemovable
+> = args => {
+  const triggerButtonRef = React.useRef<FilterRef>(null)
+  const removeButtonRef = React.useRef<HTMLButtonElement>(null)
+  const ref = React.useRef<FilterTriggerButtonRemovableRefs>({
+    triggerButtonRef,
+    removeButtonRef,
+  })
+  return <FilterTriggerButtonRemovable ref={ref} {...args} />
+}
+WithRefsStory.storyName = "WithRefsStory"
+WithRefsStory.args = {
   triggerButtonProps: { label: "Label" },
 }

@@ -35,7 +35,9 @@ export const FilterTriggerButtonRemovable = forwardRef<
   FilterTriggerButtonRemovableProps
 >(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
   const customRefObject = isRefObject(ref) ? ref.current : null
-  const triggerButtonRef = customRefObject?.triggerButtonRef
+  const triggerButtonRef = React.useRef<FilterRef>({
+    triggerButtonRef: customRefObject?.triggerButtonRef,
+  })
   const removeButtonRef = customRefObject?.removeButtonRef
 
   const removeButtonLabel =
