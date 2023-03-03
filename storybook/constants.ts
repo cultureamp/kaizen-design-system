@@ -23,4 +23,23 @@ export const SUB_CATEGORIES = {
   menu: "Menu",
 }
 
+export const SORT_ORDER = {
+  systems: [
+    CATEGORIES.systems,
+    [
+      "*",
+      "Tailwind",
+      [
+        "Overview",
+        "Getting Started",
+        "Configuration",
+        "Working with Tailwind",
+        "*",
+        "Utility Class References",
+        ["Overview", "*"],
+      ],
+    ],
+  ],
+}
+
 export const SUB_COMPONENTS_FOLDER_NAME = "Subcomponents"

@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.4.1...@kaizen/component-library@16.4.2) (2023-03-02)
+
+
+### Bug Fixes
+
+* Revert esm changes ([#3342](https://github.com/cultureamp/kaizen-design-system/issues/3342)) ([708bad3](https://github.com/cultureamp/kaizen-design-system/commit/708bad396b10c67bca59eb06839f0c2f90e60a02)), closes [#3338](https://github.com/cultureamp/kaizen-design-system/issues/3338) [#3336](https://github.com/cultureamp/kaizen-design-system/issues/3336)
+
+
+
+
+
+## [16.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.4.0...@kaizen/component-library@16.4.1) (2023-03-02)
+
+
+### Bug Fixes
+
+* a11y and component-library package-locks + build ([#3338](https://github.com/cultureamp/kaizen-design-system/issues/3338)) ([33dd9f5](https://github.com/cultureamp/kaizen-design-system/commit/33dd9f53f59417aaff10e7f59bf02617ce2369cb))
+
+
+
+
+
+# [16.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.3.2...@kaizen/component-library@16.4.0) (2023-03-02)
+
+
+### Features
+
+* add esm to a11y and component-library packages ([#3336](https://github.com/cultureamp/kaizen-design-system/issues/3336)) ([1082488](https://github.com/cultureamp/kaizen-design-system/commit/1082488c912aeba76e7fadd619ec3607fc81cd20))
+
+
+
+
+
 ## [16.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.3.1...@kaizen/component-library@16.3.2) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/component-library

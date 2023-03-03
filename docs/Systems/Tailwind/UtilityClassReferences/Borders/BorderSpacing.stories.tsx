@@ -1,12 +1,12 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
-const prefix = "border-"
+const prefix = "border-spacing-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   Object.entries(kaizenTailwindTheme?.spacing || []).map(
     ([suffix, cssProperty]) => ({
@@ -33,15 +33,23 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="border-spacing"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
-      <table style={{ borderSpacing: cssProperty }}>
+    renderExampleComponent={(utilityClass): React.ReactElement => (
+      <table className={utilityClass}>
         <tr>
-          <td className={styles.outlined}>Tutant</td>
-          <td className={styles.outlined}>Meenage</td>
+          <td className={classnames("outline-[black] outline-1 outline")}>
+            Tutant
+          </td>
+          <td className={classnames("outline-[black] outline-1 outline")}>
+            Meenage
+          </td>
         </tr>
         <tr>
-          <td className={styles.outlined}>Neetle</td>
-          <td className={styles.outlined}>Teetles</td>
+          <td className={classnames("outline-[black] outline-1 outline")}>
+            Neetle
+          </td>
+          <td className={classnames("outline-[black] outline-1 outline")}>
+            Teetles
+          </td>
         </tr>
       </table>
     )}
