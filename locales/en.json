@@ -1,0 +1,17 @@
+{
+  "smartling": {
+    "string_format": "icu",
+    "translate_paths": [
+      {
+        "instruction": "*/description",
+        "key": "{*}/message",
+        "path": "*/message"
+      }
+    ],
+    "variants_enabled": true
+  },
+  "foobar.sandwich": {
+    "description": "Validating new smartling connection"
+    "message": "Please translate me"
+  }
+}
