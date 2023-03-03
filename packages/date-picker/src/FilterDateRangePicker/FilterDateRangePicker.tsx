@@ -29,6 +29,7 @@ import {
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
 import { DateRangeValidationStatus } from "./types"
+import { getDateValidationHandler } from "./utils/getDateValidationHandler"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 import { validateEndDateBeforeStartDate } from "./utils/validateEndDateBeforeStartDate"
 import styles from "./FilterDateRangePicker.module.scss"
@@ -170,49 +171,65 @@ export const FilterDateRangePicker = ({
   const [inbuiltEndDateValidationMessage, setInbuiltEndDateValidationMessage] =
     useState<string | undefined>()
 
-  const onValidateDateStart = onValidate?.dateStart
-  const onValidateDateEnd = onValidate?.dateEnd
-
-  const shouldUseInbuiltStartDateValidation = onValidateDateStart === undefined
-  const shouldUseInbuiltEndDateValidation = onValidateDateEnd === undefined
+  const shouldUseInbuiltStartDateValidation =
+    onValidate?.dateStart === undefined
+  const shouldUseInbuiltEndDateValidation = onValidate?.dateEnd === undefined
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
   }
 
-  const validateNewDate = (
-    date: Date | undefined,
-    inputValue: string,
-    onValidateDate: (validationResponse: ValidationResponse) => void
-  ): Date | undefined => {
+  const handleValidateStartDate = getDateValidationHandler({
+    onValidate: onValidate?.dateStart,
+    setInbuiltValidationStatus: setInbuiltStartDateStatus,
+    setInbuiltValidationMessage: setInbuiltStartDateValidationMessage,
+    inputLabel: inputRangeStartLabel,
+  })
+
+  const handleValidateEndDate = getDateValidationHandler({
+    onValidate: onValidate?.dateEnd,
+    setInbuiltValidationStatus: setInbuiltEndDateStatus,
+    setInbuiltValidationMessage: setInbuiltEndDateValidationMessage,
+    inputLabel: inputRangeEndLabel,
+  })
+
+  const validateStartDate = (date: Date | undefined): Date | undefined => {
     const { validationResponse, newDate } = validateDate({
       date,
-      inputValue,
+      inputValue: inputRangeStartValue,
       disabledDays,
     })
 
-    onValidateDate(validationResponse)
-
+    handleValidateStartDate(validationResponse)
     return newDate
   }
 
-  const handleValidateStartDate = (
-    validationResponse: ValidationResponse
-  ): void => {
-    if (shouldUseInbuiltStartDateValidation) {
-      const message = validationResponse.validationMessage
-      setInbuiltStartDateStatus(validationResponse.status)
-      setInbuiltStartDateValidationMessage(
-        message ? `${inputRangeStartLabel}: ${message}` : undefined
-      )
-      return
+  const validateEndDate = (date: Date | undefined): Date | undefined => {
+    {
+      const { validationResponse, newDate } = validateDate({
+        date,
+        inputValue: inputRangeEndValue,
+        disabledDays,
+      })
+
+      if (validationResponse.isValidDate) {
+        if (newDate && selectedRange?.from) {
+          const extendedValidation = validateEndDateBeforeStartDate({
+            startDate: selectedRange.from,
+            startDateFieldLabel: inputRangeStartLabel,
+            endDate: newDate,
+            endDateInputValue: inputRangeEndValue,
+          })
+
+          handleValidateEndDate(extendedValidation.validationResponse)
+          return extendedValidation.newDate
+        }
+      }
+
+      handleValidateEndDate(validationResponse)
+      return newDate
     }
-
-    onValidateDateStart(validationResponse)
   }
-
-  const validateStartDate = (date: Date | undefined): Date | undefined =>
-    validateNewDate(date, inputRangeStartValue, handleValidateStartDate)
 
   const inputRangeStartHandlers = useDateInputHandlers({
     locale,
@@ -223,21 +240,14 @@ export const FilterDateRangePicker = ({
       const endDate = parseDateFromTextFormatValue(inputRangeEndValue, locale)
 
       if (newDate && !isInvalidDate(endDate)) {
-        const extendedValidation = validateEndDateBeforeStartDate({
+        const endDateValidation = validateEndDateBeforeStartDate({
           startDate: newDate,
           startDateFieldLabel: inputRangeStartLabel,
           endDate,
           endDateInputValue: inputRangeEndValue,
         })
-
-        if (extendedValidation.newDate) {
-          setInbuiltEndDateStatus(undefined)
-          setInbuiltEndDateValidationMessage(undefined)
-        } else {
-          handleValidateEndDate(extendedValidation.validationResponse)
-        }
-
-        handleDateRangeChange({ from: newDate, to: extendedValidation.newDate })
+        handleValidateEndDate(endDateValidation.validationResponse)
+        handleDateRangeChange({ from: newDate, to: endDateValidation.newDate })
       } else {
         handleDateRangeChange({ from: newDate, to: rangeEnd })
       }
@@ -246,53 +256,6 @@ export const FilterDateRangePicker = ({
     },
     ...inputRangeStartProps,
   })
-
-  const validateNewEndDate = (
-    date: Date | undefined,
-    inputValue: string,
-    onValidateDate: (validationResponse: ValidationResponse) => void
-  ): Date | undefined => {
-    const { validationResponse, newDate } = validateDate({
-      date,
-      inputValue,
-      disabledDays,
-    })
-
-    if (validationResponse.isValidDate) {
-      if (newDate && selectedRange?.from) {
-        const extendedValidation = validateEndDateBeforeStartDate({
-          startDate: selectedRange.from,
-          startDateFieldLabel: inputRangeStartLabel,
-          endDate: newDate,
-          endDateInputValue: inputRangeEndValue,
-        })
-
-        onValidateDate(extendedValidation.validationResponse)
-        return extendedValidation.newDate
-      }
-    }
-
-    onValidateDate(validationResponse)
-    return newDate
-  }
-
-  const handleValidateEndDate = (
-    validationResponse: ValidationResponse
-  ): void => {
-    if (shouldUseInbuiltEndDateValidation) {
-      const message = validationResponse.validationMessage
-      setInbuiltEndDateStatus(validationResponse.status)
-      setInbuiltEndDateValidationMessage(
-        message ? `${inputRangeEndLabel}: ${message}` : undefined
-      )
-      return
-    }
-
-    onValidateDateEnd(validationResponse)
-  }
-
-  const validateEndDate = (date: Date | undefined): Date | undefined =>
-    validateNewEndDate(date, inputRangeEndValue, handleValidateEndDate)
 
   const inputRangeEndHandlers = useDateInputHandlers({
     locale,
