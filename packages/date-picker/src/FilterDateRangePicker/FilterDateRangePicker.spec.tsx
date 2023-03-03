@@ -574,18 +574,26 @@ describe("<FilterDateRangePicker />", () => {
 
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+            // End date in Calendar is deselected
+            expect(
+              screen.getAllByRole("button", { pressed: true }).length
+            ).toEqual(1)
           })
 
           const inputRangeStart = screen.getByLabelText("Date from")
 
           await userEvent.clear(inputRangeStart)
-          await userEvent.type(inputRangeStart, "01/05/2022")
+          await userEvent.type(inputRangeStart, "10/05/2022")
           await userEvent.tab()
 
           await waitFor(() => {
             expect(
               screen.queryByText(invalidDateOrderErrorMessage)
             ).not.toBeInTheDocument()
+            // End date in Calendar is re-selected
+            expect(
+              screen.getAllByRole("button", { pressed: true }).length
+            ).toEqual(3)
           })
         })
 

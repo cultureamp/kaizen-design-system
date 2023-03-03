@@ -3,8 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enAU } from "date-fns/locale"
 import { CalendarSingle } from "../_subcomponents/Calendar"
-import { DateInput, DateInputProps } from "../_subcomponents/DateInput"
-import { Matcher } from "../types"
+import { DateInput } from "../_subcomponents/DateInput"
 import {
   useDateInputHandlers,
   UseDateInputHandlersArgs,
@@ -115,6 +114,17 @@ describe("useDateInputHandlers", () => {
       })
     })
 
+    it("changes date to undefined when input is empty", async () => {
+      render(<Wrapper value="1 May 2022" />)
+      const input = getDateInput()
+      await userEvent.clear(input)
+      await userEvent.tab()
+      await waitFor(() => {
+        expect(input).toHaveValue("")
+        expect(onDateChange).toBeCalledWith(undefined)
+      })
+    })
+
     it("transforms input value when it is a valid date", async () => {
       render(<Wrapper />)
       const input = getDateInput()
@@ -133,8 +143,7 @@ describe("useDateInputHandlers", () => {
       await userEvent.tab()
       await waitFor(() => {
         expect(input).toHaveValue("potato")
-        // @todo: fix this; now returns the invalid date
-        expect(onDateChange).toBeCalledWith(undefined)
+        expect(onDateChange).toHaveBeenCalled()
       })
     })
 
@@ -145,12 +154,22 @@ describe("useDateInputHandlers", () => {
       await userEvent.tab()
       await waitFor(() => {
         expect(input).toHaveValue("01/05/2022")
-        // @todo: fix this; now returns the invalid date
-        expect(onDateChange).toBeCalledWith(undefined)
+        expect(onDateChange).toHaveBeenCalled()
       })
     })
 
-    it("calls custom onBlur when provided", async () => {
+    it("calls custom onBlur when provided on input with value", async () => {
+      const onBlur = jest.fn<void, [FocusEvent]>()
+      render(<Wrapper onBlur={onBlur} value="1 May 2022" />)
+      const input = getDateInput()
+      await userEvent.click(input)
+      await userEvent.tab()
+      await waitFor(() => {
+        expect(onBlur).toHaveBeenCalled()
+      })
+    })
+
+    it("calls custom onBlur when provided on empty", async () => {
       const onBlur = jest.fn<void, [FocusEvent]>()
       render(<Wrapper onBlur={onBlur} />)
       const input = getDateInput()
