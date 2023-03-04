@@ -27,6 +27,6 @@
   "private": false,
   "license": "MIT",
   "devDependencies": {
-    "rimraf": "^4.2.0"
+    "rimraf": "^4.3.0"
   }
 }
