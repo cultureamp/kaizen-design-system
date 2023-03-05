@@ -352,7 +352,6 @@ export const TableCard = ({
       href={href}
       className={className}
       onClick={onClick as AnchorClickEvent}
-      role="button"
       {...otherProps}
     >
       {children}
