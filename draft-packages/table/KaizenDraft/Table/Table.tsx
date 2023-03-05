@@ -11,6 +11,7 @@ import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
 type TableContainerProps = {
+  caption?: string
   children?: React.ReactNode
   variant?: "compact" | "default" | "data"
 }
@@ -20,19 +21,20 @@ type TableContainerProps = {
  */
 export const TableContainer = ({
   variant = "compact",
+  caption,
   children,
   ...otherProps
 }: TableContainerProps): JSX.Element => (
-  <div
-    role="table"
+  <table
     className={classNames(styles.container, {
       [styles.defaultSpacing]: variant === "default",
       [styles.dataVariant]: variant === "data",
     })}
     {...otherProps}
   >
+    {caption && <caption className="sr-only">{caption}</caption>}
     {children}
-  </div>
+  </table>
 )
 
 /**
@@ -350,6 +352,7 @@ export const TableCard = ({
       href={href}
       className={className}
       onClick={onClick as AnchorClickEvent}
+      role="button"
       {...otherProps}
     >
       {children}

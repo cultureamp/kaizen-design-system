@@ -184,7 +184,7 @@ const Multiline = ({ isReversed }: { isReversed: boolean }): JSX.Element => (
 
 export const DataVariant: Story = () => (
   <Container>
-    <TableContainer variant="data">
+    <TableContainer caption="A data variant table example." variant="data">
       <TableHeader>
         <ExampleTableHeaderRow reversed={false} />
       </TableHeader>
@@ -204,7 +204,7 @@ DataVariant.parameters = { chromatic: { disable: false } }
 
 export const IconVariant: Story = () => (
   <Container>
-    <TableContainer>
+    <TableContainer caption="An icon variant table example.">
       <TableHeader>
         <TableHeaderRow>
           <TableHeaderRowCell
@@ -266,7 +266,7 @@ IconVariant.parameters = { chromatic: { disable: false } }
 
 export const LinkVariant: Story = () => (
   <Container>
-    <TableContainer>
+    <TableContainer caption="A link variant table example.">
       <TableHeader>
         <TableHeaderRow>
           <TableHeaderRowCell labelText="Header A" width={1 / 3} />
@@ -291,6 +291,19 @@ export const LinkVariant: Story = () => (
         <TableRow>
           <TableRowCell width={1 / 3}>
             <Paragraph variant="body">This row has a href</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">24</Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">48</Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 3}>
+            <Paragraph variant="body">This is a default row</Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 3}>
             <Paragraph variant="body">24</Paragraph>
