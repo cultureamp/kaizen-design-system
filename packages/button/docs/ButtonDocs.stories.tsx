@@ -85,12 +85,7 @@ export const Badge: Story<ButtonProps> = () => (
 )
 
 export const FullWidth: Story<ButtonProps> = () => (
-  <Button
-    label="Label"
-    icon={filterIcon}
-    badge={{ text: "3", variant: "active" }}
-    secondary
-  />
+  <Button label="Label" fullWidth />
 )
 
 export const Working: Story<ButtonProps> = () => (
