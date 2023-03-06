@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { CustomButtonProps } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
@@ -32,7 +31,6 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4619%3A17068"
     ),
   },
-  decorators: [withDesign],
 }
 
 const OffsetPadding = ({

@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { Label } from "@kaizen/draft-form"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { Heading } from "@kaizen/typography"
@@ -37,7 +36,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14321%3A65630"
     ),
   },
-  decorators: [withDesign],
 }
 
 export const DefaultSelectStory: ComponentStory<typeof Select> = args => (

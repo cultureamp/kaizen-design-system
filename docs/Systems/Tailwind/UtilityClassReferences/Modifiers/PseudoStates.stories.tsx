@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import { Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { Card } from "@kaizen/draft-card"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 
@@ -15,7 +14,6 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
 }
 
 export const TailwindPseudoSelectors: Story<{ isReversed: boolean }> = ({

@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { TextAreaField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -27,7 +26,6 @@ export default {
       table: { defaultValue: { summary: false } },
     },
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof TextAreaField>
 
 export const DefaultStory: ComponentStory<typeof TextAreaField> = args => (

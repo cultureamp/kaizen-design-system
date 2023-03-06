@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -23,7 +22,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=12317%3A92573"
     ),
   },
-  decorators: [withDesign],
 }
 
 const defaultButton = {

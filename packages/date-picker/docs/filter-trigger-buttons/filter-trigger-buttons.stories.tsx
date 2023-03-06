@@ -1,6 +1,5 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import {
   FilterTriggerButton,
@@ -21,7 +20,6 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
 }
 
 const StickerSheetTemplate: Story = () => (

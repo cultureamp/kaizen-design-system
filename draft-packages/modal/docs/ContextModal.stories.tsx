@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { DecoratorFunction } from "@storybook/addons"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
@@ -46,7 +45,7 @@ export default {
       argTypesRegex: "^on.*",
     },
   },
-  decorators: [withDesign, withMinHeight],
+  decorators: [withMinHeight],
 } as ComponentMeta<typeof ContextModal>
 
 const ContextModalTemplate: ComponentStory<typeof ContextModal> = args => {

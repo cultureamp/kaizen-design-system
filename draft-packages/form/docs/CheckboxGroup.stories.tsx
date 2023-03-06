@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -39,7 +38,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14533%3A69854"
     ),
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof CheckboxField>
 
 export const InteractiveKaizenSiteDemo: ComponentStory<

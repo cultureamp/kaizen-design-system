@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { DecoratorFunction } from "@storybook/addons"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
@@ -43,7 +42,7 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
     ),
   },
-  decorators: [withDesign, withMinHeight],
+  decorators: [withMinHeight],
 } as ComponentMeta<typeof InputEditModal>
 
 const InputEditModalTemplate: ComponentStory<typeof InputEditModal> = args => {

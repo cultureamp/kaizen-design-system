@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { TimeField } from "../index"
@@ -27,7 +26,6 @@ export default {
     status: { control: { type: "radio" }, options: ["default", "error"] },
     validationMessage: { control: "text" },
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof TimeField>
 
 export const DefaultStory: ComponentStory<typeof TimeField> = args => {

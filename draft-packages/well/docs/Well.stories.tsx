@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import { Heading, Paragraph } from "@kaizen/typography"
@@ -40,7 +39,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14168"
     ),
   },
-  decorators: [withDesign],
 }
 
 export const DefaultWithSolidBorderKaizenSiteDemo: ComponentStory<

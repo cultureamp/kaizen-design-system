@@ -1,6 +1,5 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   BrandMomentPositiveOutro,
@@ -29,7 +28,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=4496%3A1"
     ),
   },
-  decorators: [withDesign],
 }
 
 type GuidanceBlockSkeletonTemplateProps = {
