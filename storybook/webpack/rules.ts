@@ -4,8 +4,6 @@ import postcssPresetEnv from "postcss-preset-env"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
 import { browsersList } from "./browserslist"
 
-require("./isEnabled")
-
 export const babel: RuleSetRule = {
   test: /\.(j|t)sx?$/,
   loader: require.resolve("babel-loader"),
