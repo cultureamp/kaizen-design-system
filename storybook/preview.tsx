@@ -14,44 +14,44 @@ const withQueryProvider = (Story): JSX.Element => (
 )
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
-require("focus-visible")
+import "focus-visible"
 
 // Standard base stylesheet used across Culture Amp products
 // See: https://github.com/necolas/normalize.css/
-require("normalize.css")
+import "normalize.css"
 
-require("@kaizen/component-library/styles/fonts.scss")
-require("./global.scss")
+import "@kaizen/component-library/styles/fonts.scss"
+import "./global.scss"
 
 export const parameters = {
   backgrounds: {
     default: "White",
     values: backgrounds,
   },
-  options: {
-    storySort: {
-      method: "alphabetical",
-      order: [
-        CATEGORIES.introduction,
-        ...SORT_ORDER.systems,
-        CATEGORIES.components,
-        CATEGORIES.helpers,
-        CATEGORIES.designTokens,
-        CATEGORIES.deprecated,
-      ],
-    },
-  },
-  docs: {
-    // @note: Do we need this?
-    // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
-    // https://storybook.js.org/addons/@dblechoc/storybook-addon-docs
-    extractComponentDescription: (component, { notes }): unknown => {
-      if (notes) {
-        return typeof notes === "string" ? notes : notes.markdown || notes.text
-      }
-      return null
-    },
-  },
+  // options: {
+  //   storySort: {
+  //     method: "alphabetical",
+  //     order: [
+  //       CATEGORIES.introduction,
+  //       ...SORT_ORDER.systems,
+  //       CATEGORIES.components,
+  //       CATEGORIES.helpers,
+  //       CATEGORIES.designTokens,
+  //       CATEGORIES.deprecated,
+  //     ],
+  //   },
+  // },
+  // docs: {
+  //   // @note: Do we need this?
+  //   // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
+  //   // https://storybook.js.org/addons/@dblechoc/storybook-addon-docs
+  //   extractComponentDescription: (component, { notes }): unknown => {
+  //     if (notes) {
+  //       return typeof notes === "string" ? notes : notes.markdown || notes.text
+  //     }
+  //     return null
+  //   },
+  // },
   chromatic: { disable: true },
 }
 
