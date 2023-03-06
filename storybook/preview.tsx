@@ -1,7 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
-import { addParameters } from "@storybook/react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
@@ -24,7 +23,7 @@ require("normalize.css")
 require("@kaizen/component-library/styles/fonts.scss")
 require("./global.scss")
 
-addParameters({
+export const parameters = {
   backgrounds: {
     default: "White",
     values: backgrounds,
@@ -43,7 +42,10 @@ addParameters({
     },
   },
   docs: {
-    extractComponentDescription: (component, { notes }) => {
+    // @note: Do we need this?
+    // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
+    // https://storybook.js.org/addons/@dblechoc/storybook-addon-docs
+    extractComponentDescription: (component, { notes }): unknown => {
       if (notes) {
         return typeof notes === "string" ? notes : notes.markdown || notes.text
       }
@@ -51,7 +53,7 @@ addParameters({
     },
   },
   chromatic: { disable: true },
-})
+}
 
 export const globalTypes = {
   textDirection: {
