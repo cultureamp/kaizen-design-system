@@ -1,45 +1,69 @@
 {
-  "name": "@kaizen/components",
-  "version": "1.4.25",
+  "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-discourse/issues"
+  },
+  "dependencies": {
+    "@kaizen/design-tokens": "^10.3.1",
+    "classnames": "^2.3.2"
+  },
   "description": "Kaizen component library",
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/runtime": "^7.15.4",
+    "@deanc/esbuild-plugin-postcss": "^1.0.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "autoprefixer": "^10.4.13",
+    "rollup": "^2.57.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.1",
+    "sass": "^1.42.1",
+    "tailwindcss": "^3.2.7",
+    "tiny-glob": "^0.2.9",
+    "tsup": "^6.6.3"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./future": {
+      "import": "./dist/esm/future.js",
+      "require": "./dist/cjs/future.js"
+    }
+  },
   "files": [
     "future",
     "dist",
     "icons"
   ],
-  "scripts": {
-    "prepublish": "tsup && yarn tailwindcss",
-    "build": "yarn prepublish",
-    "tailwindcss": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'dist'"
+  "homepage": "https://github.com/cultureamp/kaizen-design-system#readme",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "name": "@kaizen/components",
+  "peerDependencies": {
+    "@kaizen/design-tokens": "^10.0.11",
+    "@kaizen/tailwind": "^0.5.1",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
-  "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cultureamp/kaizen-discourse/issues"
+  "scripts": {
+    "build": "rimraf ./dist && rollup -c && yarn tailwindcss",
+    "clean": "rimraf 'dist'",
+    "tailwindcss": "tailwindcss -i ./src/styles.css -o ./dist/styles.css"
   },
-  "homepage": "https://github.com/cultureamp/kaizen-design-system#readme",
-  "dependencies": {
-    "@kaizen/design-tokens": "^10.3.1",
-    "classnames": "^2.3.2"
-  },
-  "devDependencies": {
-    "@deanc/esbuild-plugin-postcss": "^1.0.2",
-    "@kaizen/tailwind": "^0.5.1",
-    "autoprefixer": "^10.4.13",
-    "tailwindcss": "^3.2.7",
-    "tiny-glob": "^0.2.9",
-    "tsup": "^6.6.3"
-  },
-  "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
-  }
+  "types": "dist/index.d.ts",
+  "version": "1.4.25"
 }
