@@ -1,10 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { useMediaQueries } from "../"
 
 export default {
-  title: `${CATEGORIES.helpers}/${SUB_CATEGORIES.responsive}/useMediaQueries`,
+  title: `Helpers/${SUB_CATEGORIES.responsive}/useMediaQueries`,
   component: useMediaQueries,
   parameters: {
     docs: {

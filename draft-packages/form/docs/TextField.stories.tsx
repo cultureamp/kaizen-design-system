@@ -4,12 +4,12 @@ import { withDesign } from "storybook-addon-designs"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { TextField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { TextFieldProps } from "../KaizenDraft/Form/TextField/TextField"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Field`,
+  title: `Components/${SUB_CATEGORIES.form}/Text Field`,
   component: TextField,
   parameters: {
     docs: {

@@ -6,14 +6,13 @@ import { Box } from "@kaizen/component-library"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
 import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./FilterMenuButton.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 const IS_INITIAL_DROPDOWN_VISIBLE = IS_CHROMATIC
 
 export default {
-  title: `${CATEGORIES.deprecated}/Filter Menu`,
+  title: "Deprecated/Filter Menu",
   component: FilterMenuButton,
   parameters: {
     docs: {

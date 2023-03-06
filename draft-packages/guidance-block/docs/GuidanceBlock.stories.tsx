@@ -14,7 +14,6 @@ import {
 import { Tag } from "@kaizen/draft-tag"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { GuidanceBlockProps } from "../KaizenDraft/GuidanceBlock/GuidanceBlock"
 
@@ -22,7 +21,7 @@ const ICON_EXTERNAL_LINK =
   require("@kaizen/component-library/icons/external-link.icon.svg").default
 
 export default {
-  title: `${CATEGORIES.components}/Guidance Block`,
+  title: "Components/Guidance Block",
   component: GuidanceBlock,
   parameters: {
     docs: {

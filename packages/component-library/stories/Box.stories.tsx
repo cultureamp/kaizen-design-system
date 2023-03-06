@@ -10,12 +10,11 @@ import {
 } from "@storybook/addon-docs"
 import { ComponentStory } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { Box } from "../components/Box"
 import styles from "./Box.stories.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/Box`,
+  title: "Components/Box",
   component: Box,
   parameters: {
     docs: {

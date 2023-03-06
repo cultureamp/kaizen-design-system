@@ -6,7 +6,6 @@ import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import { Collapsible } from "@kaizen/draft-collapsible"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
 
 const ListItem = ({ children }: { children: JSX.Element }): JSX.Element => (
@@ -23,7 +22,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: `${CATEGORIES.components}/Collapsible/Single Collapsible`,
+  title: "Components/Collapsible/Single Collapsible",
   component: Collapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },

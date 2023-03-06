@@ -6,14 +6,14 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Button, ButtonProps } from ".."
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
+  title: `Components/${SUB_CATEGORIES.button}/Button`,
   component: Button,
   args: {
     label: "Label",

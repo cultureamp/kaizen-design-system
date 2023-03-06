@@ -8,7 +8,6 @@ import { Box } from "@kaizen/component-library"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Select } from "@kaizen/draft-select"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const IS_CHROMATIC = isChromatic()
@@ -26,7 +25,7 @@ const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
 }
 
 export default {
-  title: `${CATEGORIES.components}/Modal/Input Edit Modal`,
+  title: "Components/Modal/Input Edit Modal",
   component: InputEditModal,
   parameters: {
     chromatic: {

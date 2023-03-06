@@ -11,7 +11,6 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Paragraph, Heading } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const openTooltipInChromatic: DecoratorFunction = (story, config) => {
@@ -20,7 +19,7 @@ const openTooltipInChromatic: DecoratorFunction = (story, config) => {
 }
 
 export default {
-  title: `${CATEGORIES.components}/Tooltip`,
+  title: "Components/Tooltip",
   component: Tooltip,
   parameters: {
     /**

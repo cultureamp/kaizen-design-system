@@ -3,7 +3,6 @@ import { Story } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../../../storybook/constants"
 import { CodeSnippet } from "../../components/CodeSnippet"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flatten-entries"
@@ -13,7 +12,7 @@ const prefix = "text-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
-  title: `${CATEGORIES.tailwind}/Utility Class References/Typography/Text Color`,
+  title: "Systems/Tailwind/Utility Class References/Typography/Text Color",
   parameters: {
     docs: {
       description: {

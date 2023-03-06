@@ -6,7 +6,6 @@ import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { ActionButton, DropdownButton } from "../src/SplitButton/components"
 import { SplitButton, SplitButtonProps } from "../"
@@ -35,7 +34,7 @@ const DROPDOWN_CONTENT__ONE_DISABLED = (
 )
 
 export default {
-  title: `${CATEGORIES.components}/Split Button`,
+  title: "Components/Split Button",
   component: SplitButton,
   subcomponents: {
     actionButtonProps: ActionButton,

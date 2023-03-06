@@ -3,11 +3,10 @@ import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../../../storybook/constants"
 import { figmaEmbed } from "../../../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.tailwind}/Utility Class References/Modifiers/Media Queries`,
+  title: `Systems/Tailwind/Utility Class References/Modifiers/Media Queries`,
   parameters: {
     docs: {
       description: {

@@ -1,10 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { VisuallyHidden } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.a11y}/Visually Hidden`,
+  title: `Components/${SUB_CATEGORIES.a11y}/Visually Hidden`,
   component: VisuallyHidden,
   parameters: {
     docs: {

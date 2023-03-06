@@ -3,7 +3,6 @@ import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const ILLUSTRATION_SURVEY = require("./survey.png")
@@ -25,7 +24,7 @@ const renderContent = (): JSX.Element => (
 )
 
 export default {
-  title: `${CATEGORIES.deprecated}/Hero Card`,
+  title: "Deprecated/Hero Card",
   component: HeroCard,
   parameters: {
     docs: {

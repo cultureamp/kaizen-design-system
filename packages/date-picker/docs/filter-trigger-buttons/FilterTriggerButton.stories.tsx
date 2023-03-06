@@ -2,14 +2,13 @@ import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import {
-  CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../../storybook/constants"
 import { FilterTriggerButton } from "../../src/FilterDateRangePicker/components/Trigger"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
+  title: `Components/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
   component: FilterTriggerButton,
   parameters: {
     docs: {

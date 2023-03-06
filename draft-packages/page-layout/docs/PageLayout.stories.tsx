@@ -4,13 +4,12 @@ import { withDesign } from "storybook-addon-designs"
 import { Box } from "@kaizen/component-library"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Container, Content, Skirt, SkirtCard } from ".."
 import styles from "./PageLayout.stories.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/Page Layout`,
+  title: "Components/Page Layout",
   component: Container,
   parameters: {
     docs: {

@@ -6,11 +6,10 @@ import { Card } from "@kaizen/draft-card"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Divider`,
+  title: "Components/Divider",
   component: Divider,
   parameters: {
     docs: {

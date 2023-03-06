@@ -1,7 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
@@ -14,7 +13,7 @@ const classEntries = Object.entries(kaizenTailwindTheme?.fontSize || []).map(
 )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Utility Class References/Typography/Font Size`,
+  title: "Systems/Tailwind/Utility Class References/Typography/Font Size",
   parameters: {
     docs: {
       description: {

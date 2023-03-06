@@ -2,7 +2,6 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
   AvatarGroup,
@@ -58,7 +57,7 @@ const AVATARS: AvatarList = [
 ]
 
 export default {
-  title: `${CATEGORIES.components}/Avatar/Avatar Group`,
+  title: "Components/Avatar/Avatar Group",
   component: AvatarGroup,
   parameters: {
     docs: {

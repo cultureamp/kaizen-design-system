@@ -5,11 +5,10 @@ import { Box } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Loading Spinner`,
+  title: "Components/Loading Spinner",
   component: LoadingSpinner,
   parameters: {
     chromatic: { disable: false },

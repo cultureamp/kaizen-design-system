@@ -1,13 +1,12 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { {{pascalCase componentName}} } from "../index"
 
 export default {
-  title: `${CATEGORIES.components}/{{pascalCase componentName}}`,
+  title: `Components/{{pascalCase componentName}}`,
   component: {{pascalCase componentName}},
   parameters: {
     docs: {

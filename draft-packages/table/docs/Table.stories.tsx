@@ -9,7 +9,6 @@ import effectivenessIcon from "@kaizen/component-library/icons/effectiveness.ico
 import { CheckboxField } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
   TableCard,
@@ -127,7 +126,7 @@ const ExampleTableRow = ({
 )
 
 export default {
-  title: `${CATEGORIES.components}/Table`,
+  title: "Components/Table",
   component: TableCard,
   parameters: {
     docs: {

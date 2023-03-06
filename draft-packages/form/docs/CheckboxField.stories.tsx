@@ -3,11 +3,11 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Field`,
+  title: `Components/${SUB_CATEGORIES.form}/Checkbox Field`,
   component: CheckboxField,
   parameters: {
     chromatic: { disable: false },

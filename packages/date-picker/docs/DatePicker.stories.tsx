@@ -6,7 +6,7 @@ import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { DatePicker } from "../src/DatePicker"
 import { ValidationResponse } from "../src/types"
@@ -16,7 +16,7 @@ import { datePickerLocaleControls } from "./controls/localeControls"
 import { weekStartsOnControls } from "./controls/weekStartsOnControls"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
+  title: `Components/${SUB_CATEGORIES.datePicker}/Date Picker`,
   component: DatePicker,
   parameters: {
     actions: {

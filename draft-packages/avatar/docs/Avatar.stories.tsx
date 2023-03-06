@@ -2,7 +2,6 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
   Avatar,
@@ -52,7 +51,7 @@ const PROPS_COMPANY: CompanyAvatarProps = {
 }
 
 export default {
-  title: `${CATEGORIES.components}/Avatar/Avatar`,
+  title: "Components/Avatar/Avatar",
   component: Avatar,
   parameters: {
     docs: {

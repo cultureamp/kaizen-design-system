@@ -2,12 +2,11 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Card } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/Card`,
+  title: "Components/Card",
   component: Card,
   parameters: {
     docs: {

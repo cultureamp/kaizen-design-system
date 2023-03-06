@@ -3,7 +3,7 @@ import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../../storybook/constants"
 import { figmaEmbed } from "../../../../storybook/helpers"
 import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
@@ -13,7 +13,7 @@ import { groupedMockItems, singleMockItems } from "../MockData"
 import { selectControls } from "../controls/selectControls"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
+  title: `Components/${SUB_CATEGORIES.select}/Select`,
   component: Select,
   parameters: {
     actions: {

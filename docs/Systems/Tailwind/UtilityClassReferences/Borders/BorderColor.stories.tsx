@@ -2,7 +2,6 @@ import React from "react"
 import { Story } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flatten-entries"
 import { utilityDescription } from "../../helpers/utilityDescription"
@@ -14,7 +13,7 @@ const classEntries = flattenEntries(
 )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Utility Class References/Borders/Border Color`,
+  title: `Systems/Tailwind/Utility Class References/Borders/Border Color`,
   parameters: {
     docs: {
       description: {

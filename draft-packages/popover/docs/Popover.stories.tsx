@@ -8,14 +8,13 @@ import informationWhiteIcon from "@kaizen/component-library/icons/information-wh
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 
 const DEFAULT_IS_OPEN: boolean = isChromatic()
 
 export default {
-  title: `${CATEGORIES.components}/Popover`,
+  title: "Components/Popover",
   component: PopoverRaw,
   parameters: {
     /**

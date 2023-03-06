@@ -14,7 +14,7 @@ import {
   ToastNotification,
 } from "@kaizen/notification"
 import { ToastNotificationWithOptionals } from "@kaizen/notification/src/types"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ToastNotification.stories.module.scss"
 
@@ -67,7 +67,7 @@ const Triggers = ({
 }
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Toast Notification`,
+  title: `Components/${SUB_CATEGORIES.notification}/Toast Notification`,
   component: ToastNotification,
   parameters: {
     docs: {

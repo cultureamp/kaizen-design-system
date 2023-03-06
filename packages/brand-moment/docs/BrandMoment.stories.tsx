@@ -14,7 +14,6 @@ import {
   BrandMomentError,
 } from "@kaizen/draft-illustration"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import {
   MinimalBasic,
   MinimalCustomerFocused,
@@ -22,7 +21,7 @@ import {
 } from "./ExampleHeaders"
 
 export default {
-  title: `${CATEGORIES.components}/Brand Moment`,
+  title: "Components/Brand Moment",
   component: BrandMoment,
   parameters: {
     docs: {

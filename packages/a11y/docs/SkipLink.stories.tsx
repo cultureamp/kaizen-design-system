@@ -11,11 +11,10 @@ import {
 import { Story } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { SkipLink } from "../index"
 
 export default {
-  title: `${CATEGORIES.components}/Skip Link`,
+  title: "Components/Skip Link",
   component: SkipLink,
   parameters: {
     docs: {

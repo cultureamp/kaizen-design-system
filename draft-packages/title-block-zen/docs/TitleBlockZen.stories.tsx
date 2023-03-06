@@ -12,7 +12,6 @@ import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
 import { Tag } from "@kaizen/draft-tag"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { NavigationTab, SectionTitleRenderProps, TitleBlockZen } from ".."
 import styles from "./TitleBlockZen.stories.module.scss"
@@ -20,7 +19,7 @@ import styles from "./TitleBlockZen.stories.module.scss"
 const TESTING_VIEWPORTS = [320, 768, 1200]
 
 export default {
-  title: `${CATEGORIES.components}/Title Block`,
+  title: "Components/Title Block",
   parameters: {
     chromatic: { viewports: TESTING_VIEWPORTS },
     docs: {

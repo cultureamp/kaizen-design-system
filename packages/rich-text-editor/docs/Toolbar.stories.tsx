@@ -8,7 +8,6 @@ import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import numberListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 import {
-  CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
@@ -16,7 +15,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { ToggleIconButton, Toolbar, ToolbarSection } from "../"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/${SUB_COMPONENTS_FOLDER_NAME}/Toolbar`,
+  title: `Components/${SUB_CATEGORIES.richTextEditor}/${SUB_COMPONENTS_FOLDER_NAME}/Toolbar`,
   component: Toolbar,
   parameters: {
     actions: {
