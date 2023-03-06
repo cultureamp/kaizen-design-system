@@ -3,7 +3,6 @@ import { ComponentMeta, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 type RenderProps = {
@@ -39,7 +38,7 @@ class RadioGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: `Components/${SUB_CATEGORIES.form}/Radio Group`,
+  title: "Components/Form/Radio Group",
   component: RadioGroup,
   parameters: {
     docs: {

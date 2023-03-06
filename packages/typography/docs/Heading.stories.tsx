@@ -10,10 +10,9 @@ import {
 } from "@storybook/addon-docs"
 import { ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { Heading, Paragraph } from "../"
 export default {
-  title: `Components/${SUB_CATEGORIES.typography}/Heading`,
+  title: "Components/Typography/Heading",
   component: Heading,
   parameters: {
     docs: {

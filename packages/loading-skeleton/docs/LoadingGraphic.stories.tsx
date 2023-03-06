@@ -9,13 +9,12 @@ import {
   Informative,
 } from "@kaizen/draft-illustration"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 
 import { figmaEmbed } from "../../../storybook/helpers"
 import { LoadingGraphic } from ".."
 
 export default {
-  title: `Components/${SUB_CATEGORIES.loadingSkeleton}/Loading Graphic`,
+  title: "Components/Loading Skeleton/Loading Graphic",
   component: LoadingGraphic,
   parameters: {
     docs: {

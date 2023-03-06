@@ -3,7 +3,7 @@ import { ComponentStory } from "@storybook/react"
 import { Text } from "@kaizen/component-library"
 
 export default {
-  title: `Deprecated/Text`,
+  title: "Deprecated/Text",
   component: Text,
   parameters: {
     docs: {

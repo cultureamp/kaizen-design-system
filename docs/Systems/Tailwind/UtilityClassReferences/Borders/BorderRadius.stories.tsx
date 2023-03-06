@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `Systems/Tailwind/Utility Class References/Borders/Border Radius`,
+  title: "Systems/Tailwind/Utility Class References/Borders/Border Radius",
   component: <div>Hello</div>,
   parameters: {
     docs: {

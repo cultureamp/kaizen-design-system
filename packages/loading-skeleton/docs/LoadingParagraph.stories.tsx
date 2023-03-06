@@ -3,12 +3,11 @@ import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { LoadingParagraph } from ".."
 
 export default {
-  title: `Components/${SUB_CATEGORIES.loadingSkeleton}/Loading Paragraph`,
+  title: "Components/Loading Skeleton/Loading Paragraph",
   component: LoadingParagraph,
   parameters: {
     docs: {

@@ -4,7 +4,6 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { withDesign } from "storybook-addon-designs"
 import { Label } from "../../../draft-packages/form"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Button, ButtonRef } from "../../button"
 import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
@@ -17,7 +16,7 @@ import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.select}/Filter Multi-Select`,
+  title: "Components/Select/Filter Multi-Select",
   component: FilterMultiSelect,
   parameters: {
     docs: {

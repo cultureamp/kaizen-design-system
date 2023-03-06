@@ -6,12 +6,11 @@ import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { IconButton, ButtonProps } from ".."
 
 export default {
-  title: `Components/${SUB_CATEGORIES.button}/Icon Button`,
+  title: "Components/Button/Icon Button",
   component: IconButton,
   parameters: {
     actions: {

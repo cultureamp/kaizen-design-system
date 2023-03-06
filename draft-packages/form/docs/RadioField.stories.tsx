@@ -3,11 +3,10 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { RadioField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.form}/Radio Field`,
+  title: "Components/Form/Radio Field",
   component: RadioField,
   parameters: {
     chromatic: { disable: false },
