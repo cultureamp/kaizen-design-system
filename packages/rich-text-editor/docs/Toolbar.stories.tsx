@@ -7,12 +7,11 @@ import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.
 import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import numberListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { ToggleIconButton, Toolbar, ToolbarSection } from "../"
 
 export default {
-  title: `Components/Rich Text Editor/${SUB_COMPONENTS_FOLDER_NAME}/Toolbar`,
+  title: "Components/Rich Text Editor/Subcomponents/Toolbar",
   component: Toolbar,
   parameters: {
     actions: {

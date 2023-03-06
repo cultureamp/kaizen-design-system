@@ -2,13 +2,12 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../../storybook/constants"
 import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
-import { FilterBaseTooltipButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseTooltipButton"
 import { FilterButtonGroup } from "../../src/FilterDateRangePicker/components/Trigger/FilterButtonGroup"
 
 export default {
-  title: `Components/Date Picker/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Button Group`,
+  title:
+    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Button Group",
   component: FilterButtonGroup,
   parameters: {
     docs: {

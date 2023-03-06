@@ -1,11 +1,11 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../../storybook/constants"
 import { FilterTriggerButton } from "../../src/FilterDateRangePicker/components/Trigger"
 
 export default {
-  title: `Components/Date Picker/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
+  title:
+    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
   component: FilterTriggerButton,
   parameters: {
     docs: {

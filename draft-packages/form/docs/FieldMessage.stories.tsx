@@ -2,10 +2,9 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { FieldMessage } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
 
 export default {
-  title: `Components/Form/${SUB_COMPONENTS_FOLDER_NAME}/Field Message`,
+  title: "Components/Form/Subcomponents/Field Message",
   component: FieldMessage,
   parameters: {
     docs: {
