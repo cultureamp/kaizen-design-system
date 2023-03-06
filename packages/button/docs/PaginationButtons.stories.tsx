@@ -3,14 +3,14 @@ import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { DirectionalLinkProps } from "../src/Button/DirectionalLink"
 import { PaginationLinkProps } from "../src/Button/PaginationLink"
 import { DirectionalLink, PaginationLink } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Pagination Buttons`,
+  title: `Components/${SUB_CATEGORIES.button}/Pagination Buttons`,
   component: DirectionalLink,
   args: {
     label: "Label",

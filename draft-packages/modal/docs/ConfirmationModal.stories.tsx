@@ -6,7 +6,6 @@ import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { ConfirmationModal } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const IS_CHROMATIC = isChromatic()
@@ -24,7 +23,7 @@ const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
 }
 
 export default {
-  title: `${CATEGORIES.components}/Modal`,
+  title: "Components/Modal",
   component: ConfirmationModal,
   args: {
     mood: "cautionary",

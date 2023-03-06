@@ -7,7 +7,6 @@ import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ContextModal.stories.module.scss"
 
@@ -26,7 +25,7 @@ const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
 }
 
 export default {
-  title: `${CATEGORIES.components}/Modal`,
+  title: "Components/Modal",
   component: ContextModal,
   parameters: {
     chromatic: {

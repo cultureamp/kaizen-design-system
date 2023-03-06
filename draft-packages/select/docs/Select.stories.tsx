@@ -5,7 +5,7 @@ import { Label } from "@kaizen/draft-form"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const OPTIONS = [
@@ -26,7 +26,7 @@ const OPTIONS = [
 ]
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select Legacy`,
+  title: `Components/${SUB_CATEGORIES.select}/Select Legacy`,
   component: Select,
   parameters: {
     docs: {

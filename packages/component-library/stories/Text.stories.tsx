@@ -1,10 +1,9 @@
 import React from "react"
 import { ComponentStory } from "@storybook/react"
 import { Text } from "@kaizen/component-library"
-import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.deprecated}/Text`,
+  title: `Deprecated/Text`,
   component: Text,
   parameters: {
     docs: {

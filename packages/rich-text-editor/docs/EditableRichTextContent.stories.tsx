@@ -7,11 +7,11 @@ import {
   RichTextEditor,
   EditorContentArray,
 } from "@kaizen/rich-text-editor"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Editable Rich Text Content`,
+  title: `Components/${SUB_CATEGORIES.richTextEditor}/Editable Rich Text Content`,
   component: EditableRichTextContent,
   parameters: {
     docs: {

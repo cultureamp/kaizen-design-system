@@ -12,11 +12,10 @@ import {
   TileGrid,
 } from "@kaizen/draft-tile"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Tile`,
+  title: "Components/Tile",
   component: MultiActionTile,
   subcomponents: { InformationTile, TileGrid },
   parameters: {

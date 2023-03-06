@@ -4,11 +4,10 @@ import { withDesign } from "storybook-addon-designs"
 import { Avatar } from "@kaizen/draft-avatar"
 import { Tag } from "@kaizen/draft-tag"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Tag`,
+  title: "Components/Tag",
   component: Tag,
   parameters: {
     docs: {

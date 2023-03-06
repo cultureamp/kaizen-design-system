@@ -3,7 +3,6 @@ import { Story } from "@storybook/react"
 import classnames from "classnames"
 import { Card } from "@kaizen/draft-card"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
@@ -17,7 +16,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Utility Class References/Spacing/Margin`,
+  title: "Systems/Tailwind/Utility Class References/Spacing/Margin",
   parameters: {
     docs: {
       description: {

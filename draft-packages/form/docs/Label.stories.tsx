@@ -3,13 +3,12 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
-  CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Label`,
+  title: `Components/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Label`,
   component: Label,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import { Story } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
   DateRangeValidationStatus,
@@ -20,7 +20,7 @@ import { validationControls } from "./controls/validationControls"
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker`,
+  title: `Components/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker`,
   component: FilterDateRangePicker,
   parameters: {
     actions: {

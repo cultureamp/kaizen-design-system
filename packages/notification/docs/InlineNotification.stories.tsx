@@ -4,11 +4,11 @@ import { withDesign } from "storybook-addon-designs"
 import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Inline Notification`,
+  title: `Components/${SUB_CATEGORIES.notification}/Inline Notification`,
   component: InlineNotification,
   parameters: {
     docs: {

@@ -3,7 +3,6 @@ import { Story } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
-  CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
@@ -15,7 +14,7 @@ import {
 import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,
+  title: `Components/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,
   subcomponents: {
     CalendarSingle,
     CalendarRange,

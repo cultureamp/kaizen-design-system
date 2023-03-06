@@ -7,7 +7,7 @@ import {
   Informative,
 } from "@kaizen/draft-illustration"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import {
   LoadingGraphic,
@@ -18,7 +18,7 @@ import {
 import styles from "./LoadingSkeleton.stories.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}`,
+  title: `Components/${SUB_CATEGORIES.loadingSkeleton}`,
   parameters: {
     docs: {
       description: {

@@ -5,7 +5,6 @@ import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContent = (): JSX.Element => (
@@ -29,7 +28,7 @@ const ExampleContent = (): JSX.Element => (
 )
 
 export default {
-  title: `${CATEGORIES.components}/Well`,
+  title: "Components/Well",
   component: Well,
   parameters: {
     docs: {

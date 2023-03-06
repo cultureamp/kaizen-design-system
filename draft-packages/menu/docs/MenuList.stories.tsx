@@ -2,7 +2,6 @@ import React from "react"
 import { ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import {
-  CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
@@ -10,7 +9,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 import { MenuList, MenuItem } from "../"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.menu}/${SUB_COMPONENTS_FOLDER_NAME}/MenuList`,
+  title: `Components/${SUB_CATEGORIES.menu}/${SUB_COMPONENTS_FOLDER_NAME}/MenuList`,
   component: MenuList,
   parameters: {
     docs: {

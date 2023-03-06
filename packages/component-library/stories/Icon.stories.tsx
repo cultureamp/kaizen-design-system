@@ -2,7 +2,6 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import {
   Logo,
   Actions,
@@ -18,7 +17,7 @@ import {
 } from "./Icons"
 
 export default {
-  title: `${CATEGORIES.components}/Icon`,
+  title: "Components/Icon",
   component: Icon,
   parameters: {
     docs: {

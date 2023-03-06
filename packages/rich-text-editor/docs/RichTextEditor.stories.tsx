@@ -5,7 +5,7 @@ import {
   EditorContentArray,
   RichTextEditorProps,
 } from "@kaizen/rich-text-editor"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 import dummyMalformedContent from "./dummyMalformedContent.json"
 
@@ -14,7 +14,7 @@ type RTEStory = Story<
 >
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Rich Text Editor`,
+  title: `Components/${SUB_CATEGORIES.richTextEditor}/Rich Text Editor`,
   component: RichTextEditor,
   parameters: {
     docs: {

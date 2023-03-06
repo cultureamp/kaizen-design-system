@@ -1,12 +1,11 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { Brand } from "../src/Brand/Brand"
 
 export default {
-  title: `${CATEGORIES.components}/Brand`,
+  title: "Components/Brand",
   component: Brand,
   parameters: {
     chromatic: { disable: false },

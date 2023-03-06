@@ -3,13 +3,12 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { ClearButton } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
-  CATEGORIES,
   SUB_CATEGORIES,
   SUB_COMPONENTS_FOLDER_NAME,
 } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Clear Button`,
+  title: `Components/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Clear Button`,
   component: ClearButton,
   parameters: {
     actions: {

@@ -2,7 +2,6 @@ import React from "react"
 import { Story } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
@@ -16,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `${CATEGORIES.tailwind}/Utility Class References/Borders/Border Radius`,
+  title: `Systems/Tailwind/Utility Class References/Borders/Border Radius`,
   component: <div>Hello</div>,
   parameters: {
     docs: {

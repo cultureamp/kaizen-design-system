@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -65,7 +65,7 @@ const STATIC_SCENE_CONTROLS = {
 }
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Scene`,
+  title: `Components/${SUB_CATEGORIES.illustration}/Scene`,
   component: BrandMomentCaptureIntro,
   parameters: {
     chromatic: { disable: false },
