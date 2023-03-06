@@ -3,10 +3,9 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.form}/Search Field`,
+  title: "Components/Form/Search Field",
   component: SearchField,
   parameters: {
     chromatic: { disable: false },

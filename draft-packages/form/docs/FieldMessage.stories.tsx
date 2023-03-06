@@ -2,13 +2,10 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { FieldMessage } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import {
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
+import { SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Field Message`,
+  title: `Components/Form/${SUB_COMPONENTS_FOLDER_NAME}/Field Message`,
   component: FieldMessage,
   parameters: {
     docs: {

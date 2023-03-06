@@ -1,10 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import {
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
+import { SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
 import { CalendarRange, CalendarSingle } from "../src/_subcomponents/Calendar"
 import {
   FloatingCalendarWrapper,
@@ -14,7 +11,7 @@ import {
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
 
 export default {
-  title: `Components/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Floating Calendar Wrapper`,
+  title: `Components/Date Picker/${SUB_COMPONENTS_FOLDER_NAME}/Floating Calendar Wrapper`,
   component: FloatingCalendarWrapper,
   parameters: {
     docs: {

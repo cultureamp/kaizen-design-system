@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: `Systems/Tailwind/Utility Class References/Borders/Border Spacing`,
+  title: "Systems/Tailwind/Utility Class References/Borders/Border Spacing",
   component: <div>Hello</div>,
   parameters: {
     docs: {

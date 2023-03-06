@@ -10,7 +10,8 @@ const prefix = "bg-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Backgrounds/Background Color",
+  title:
+    "Systems/Tailwind/Utility Class References/Backgrounds/Background Color",
   parameters: {
     docs: {
       description: {

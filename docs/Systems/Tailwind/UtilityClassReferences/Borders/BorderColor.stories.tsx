@@ -13,7 +13,7 @@ const classEntries = flattenEntries(
 )
 
 export default {
-  title: `Systems/Tailwind/Utility Class References/Borders/Border Color`,
+  title: "Systems/Tailwind/Utility Class References/Borders/Border Color",
   parameters: {
     docs: {
       description: {

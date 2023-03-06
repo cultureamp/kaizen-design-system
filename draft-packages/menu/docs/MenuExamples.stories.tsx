@@ -11,13 +11,12 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.menu}/Examples`,
+  title: "Components/Menu/Examples",
   component: Menu,
   parameters: {
     docs: {

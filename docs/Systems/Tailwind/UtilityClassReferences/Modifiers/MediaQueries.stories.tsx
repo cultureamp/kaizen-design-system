@@ -6,7 +6,7 @@ import { Heading, Paragraph } from "@kaizen/typography"
 import { figmaEmbed } from "../../../../../storybook/helpers"
 
 export default {
-  title: `Systems/Tailwind/Utility Class References/Modifiers/Media Queries`,
+  title: "Systems/Tailwind/Utility Class References/Modifiers/Media Queries",
   parameters: {
     docs: {
       description: {

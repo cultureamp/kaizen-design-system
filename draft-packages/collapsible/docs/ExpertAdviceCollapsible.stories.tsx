@@ -14,7 +14,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: `Components/Collapsible/Expert Advice Collapsible`,
+  title: "Components/Collapsible/Expert Advice Collapsible",
   component: ExpertAdviceCollapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },

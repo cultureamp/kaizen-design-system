@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 interface RenderProps {
@@ -28,7 +27,7 @@ const CheckboxGroupExample = ({
 }
 
 export default {
-  title: `Components/${SUB_CATEGORIES.form}/Checkbox Group`,
+  title: "Components/Form/Checkbox Group",
   component: CheckboxField,
   parameters: {
     docs: {

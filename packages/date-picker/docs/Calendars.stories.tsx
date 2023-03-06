@@ -2,10 +2,7 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import {
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
+import { SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
 import {
   CalendarRange,
   CalendarSingle,
@@ -14,7 +11,7 @@ import {
 import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,
+  title: `Components/Date Picker/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,
   subcomponents: {
     CalendarSingle,
     CalendarRange,

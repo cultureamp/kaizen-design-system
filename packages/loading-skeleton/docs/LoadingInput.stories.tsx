@@ -3,12 +3,11 @@ import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { LoadingInput, LoadingHeading } from ".."
 
 export default {
-  title: `Components/${SUB_CATEGORIES.loadingSkeleton}/Loading Input`,
+  title: "Components/Loading Skeleton/Loading Input",
   component: LoadingInput,
   parameters: {
     docs: {

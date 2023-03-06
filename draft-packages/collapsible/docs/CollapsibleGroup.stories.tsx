@@ -14,7 +14,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: `Components/Collapsible/Collapsible Group`,
+  title: "Components/Collapsible/Collapsible Group",
   component: CollapsibleGroup,
   parameters: {
     backgrounds: { default: "Gray 100" },

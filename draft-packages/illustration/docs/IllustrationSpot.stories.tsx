@@ -1,7 +1,6 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   AccountBasics,
   Action,
@@ -133,7 +132,7 @@ import {
 } from ".."
 
 export default {
-  title: `Components/${SUB_CATEGORIES.illustration}/Spot`,
+  title: "Components/Illustration/Spot",
   component: AccountBasics,
   parameters: {
     docs: {

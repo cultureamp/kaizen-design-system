@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { DateRangePicker, DateRangePickerProps } from "../src/DateRangePicker"
 import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
@@ -10,7 +9,7 @@ import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
 import { DateRange } from "../src/types"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.datePicker}/Date Range Picker`,
+  title: "Components/Date Picker/Date Range Picker",
   component: DateRangePicker,
   parameters: {
     docs: {

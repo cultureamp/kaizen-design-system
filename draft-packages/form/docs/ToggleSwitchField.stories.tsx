@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 class ToggleStateContainer extends React.Component<
@@ -40,7 +39,7 @@ class ToggleStateContainer extends React.Component<
 }
 
 export default {
-  title: `Components/${SUB_CATEGORIES.form}/Toggle Switch Field`,
+  title: "Components/Form/Toggle Switch Field",
   component: ToggleSwitchField,
   parameters: {
     docs: {

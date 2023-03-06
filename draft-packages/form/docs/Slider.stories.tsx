@@ -2,10 +2,9 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { Slider } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.form}/Slider`,
+  title: "Components/Form/Slider",
   component: Slider,
   parameters: {
     docs: {

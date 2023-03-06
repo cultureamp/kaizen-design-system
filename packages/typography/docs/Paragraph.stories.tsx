@@ -11,12 +11,11 @@ import {
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Paragraph } from "../src/Paragraph/Paragraph"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.typography}/Paragraph`,
+  title: "Components/Typography/Paragraph",
   component: Paragraph,
   parameters: {
     docs: {

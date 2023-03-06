@@ -1,11 +1,10 @@
 import React from "react"
 import { ComponentStory } from "@storybook/react"
 import { RichTextContent } from "@kaizen/rich-text-editor"
-import { SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 
 export default {
-  title: `Components/${SUB_CATEGORIES.richTextEditor}/Rich Text Content`,
+  title: "Components/Rich Text Editor/Rich Text Content",
   component: RichTextContent,
   parameters: {
     docs: {
