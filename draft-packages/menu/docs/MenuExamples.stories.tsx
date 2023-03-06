@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { Button, IconButton } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -29,7 +28,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=6262%3A1233"
     ),
   },
-  decorators: [withDesign],
 }
 
 export const DefaultStory: ComponentStory<typeof Menu> = args => (

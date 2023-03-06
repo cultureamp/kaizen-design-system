@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
@@ -15,7 +14,6 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof SearchField>
 
 export const DefaultKaizenDemo: ComponentStory<typeof SearchField> = args => {

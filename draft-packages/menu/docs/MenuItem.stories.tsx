@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentStory } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { MenuItem } from "../"
 
@@ -17,7 +16,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=12317%3A92573"
     ),
   },
-  decorators: [withDesign],
 }
 
 export const DefaultStory: ComponentStory<typeof MenuItem> = args => (

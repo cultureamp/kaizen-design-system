@@ -1,7 +1,6 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
-import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -39,7 +38,6 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof EmptyState>
 
 const BUTTON = (

@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
@@ -34,7 +33,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=21815%3A82744"
     ),
   },
-  decorators: [withDesign],
 }
 
 const primaryAction: TileAction = {

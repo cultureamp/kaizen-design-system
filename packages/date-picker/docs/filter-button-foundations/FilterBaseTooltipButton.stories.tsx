@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { FilterBaseTooltipButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseTooltipButton"
 
 export default {
@@ -15,7 +14,6 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof FilterBaseTooltipButton>
 
 export const FilterBaseTooltipButtonStory: ComponentStory<

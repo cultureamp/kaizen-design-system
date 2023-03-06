@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Card } from ".."
@@ -19,7 +18,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14084"
     ),
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof Card>
 
 export const DefaultStory: ComponentStory<typeof Card> = args => (

@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { RadioField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { figmaEmbed } from "../../../storybook/helpers"
@@ -24,7 +23,6 @@ export default {
       control: "disabled",
     },
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof RadioField>
 
 export const InteractiveKaizenSiteDemo: ComponentStory<

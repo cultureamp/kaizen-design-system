@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
-import { withDesign } from "storybook-addon-designs"
 import { Label } from "../../../draft-packages/form"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Button, ButtonRef } from "../../button"
@@ -29,7 +28,6 @@ export default {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966"
     ),
   },
-  decorators: [withDesign],
 } as ComponentMeta<typeof FilterMultiSelect>
 
 export const DefaultKaizenSiteDemo: ComponentStory<
