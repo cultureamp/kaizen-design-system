@@ -9,22 +9,18 @@ import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Button, ButtonProps } from ".."
-import mdx from "./Button.mdx"
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Button`,
   component: Button,
-  args: {
-    label: "Label",
-  },
   parameters: {
     actions: {
       argTypesRegex: "^on.*",
     },
     docs: {
-      page: mdx,
+      page: null,
     },
     ...figmaEmbed(
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13555%3A0"
@@ -32,11 +28,6 @@ export default {
   },
   decorators: [withDesign],
 } as ComponentMeta<typeof Button>
-
-export const DefaultStory: ComponentStory<typeof Button> = args => (
-  <Button {...args} />
-)
-DefaultStory.storyName = "Button"
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
@@ -260,7 +251,6 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
-  docs: { disable: true },
 }
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
@@ -270,5 +260,4 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
-  docs: { disable: true },
 }
