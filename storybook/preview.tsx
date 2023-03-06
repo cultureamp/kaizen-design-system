@@ -4,7 +4,6 @@ import React from "react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
-import { CATEGORIES, SORT_ORDER } from "./constants"
 import "highlight.js/styles/a11y-light.css"
 
 const queryClient = new QueryClient()
@@ -28,19 +27,33 @@ export const parameters = {
     default: "White",
     values: backgrounds,
   },
-  // options: {
-  //   storySort: {
-  //     method: "alphabetical",
-  //     order: [
-  //       CATEGORIES.introduction,
-  //       ...SORT_ORDER.systems,
-  //       CATEGORIES.components,
-  //       CATEGORIES.helpers,
-  //       CATEGORIES.designTokens,
-  //       CATEGORIES.deprecated,
-  //     ],
-  //   },
-  // },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: [
+        "Introduction",
+        "Systems",
+        [
+          "*",
+          "Tailwind",
+          [
+            "Overview",
+            "Getting Started",
+            "Configuration",
+            "Working with Tailwind",
+            "*",
+            "Utility Class References",
+            ["Overview", "*"],
+          ],
+        ],
+        "Components",
+        "Helpers",
+        "Design Tokens",
+        "Deprecated",
+        "AIO",
+      ],
+    },
+  },
   // docs: {
   //   // @note: Do we need this?
   //   // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
