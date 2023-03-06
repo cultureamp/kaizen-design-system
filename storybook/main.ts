@@ -8,15 +8,12 @@ import path from "path"
  */
 const getStoryPathsFromEnv = (): string[] | false => {
   if (!process.env.STORIES) return false
-
   const storyPath = path.join(__dirname, "../", process.env.STORIES)
-
   if (fs.existsSync(storyPath)) {
     if (fs.statSync(storyPath).isDirectory()) {
       return [path.join(storyPath, "**/*.stories.tsx")]
     }
   }
-
   return [storyPath]
 }
 
@@ -25,13 +22,9 @@ const defaultStoryPaths = [
   "../packages/**/*.stories.mdx",
   "../docs/**/*.stories.mdx",
   "../docs/**/*.stories.tsx",
-  "../draft-packages/**/!(deprecated.)*.stories.tsx",
 ]
 
 module.exports = {
-  core: {
-    builder: "webpack5",
-  },
   mode: "production",
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
@@ -48,4 +41,11 @@ module.exports = {
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   staticDirs: [{ from: "./assets", to: "/static/media" }],
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
 }
