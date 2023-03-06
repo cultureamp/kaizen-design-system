@@ -6,7 +6,10 @@ import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { Card } from ".."
 
-export default null
+export default {
+  title: `${CATEGORIES.stickersheets}/Card`,
+  component: Card,
+} as ComponentMeta<typeof Card>
 
 const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,

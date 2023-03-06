@@ -6,6 +6,7 @@ export const CATEGORIES = {
   deprecated: "Deprecated",
   tailwind: "Systems/Tailwind",
   systems: "Systems",
+  stickersheets: "Stickersheets",
 }
 
 export const SUB_CATEGORIES = {
