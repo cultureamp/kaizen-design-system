@@ -1,12 +1,11 @@
 import React from "react"
 import { ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { MenuItem } from "../"
 
 export default {
-  title: `Components/Menu/${SUB_COMPONENTS_FOLDER_NAME}/MenuItem`,
+  title: "Components/Menu/Subcomponents/MenuItem",
   component: MenuItem,
   parameters: {
     docs: {

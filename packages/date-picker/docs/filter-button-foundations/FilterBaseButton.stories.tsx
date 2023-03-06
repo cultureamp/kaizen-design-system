@@ -2,11 +2,11 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../../storybook/constants"
 import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
 
 export default {
-  title: `Components/Date Picker/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Base Buttons`,
+  title:
+    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Base Buttons",
   component: FilterBaseButton,
   parameters: {
     docs: {

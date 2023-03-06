@@ -3,12 +3,11 @@ import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { ToggleIconButton } from "../"
 
 export default {
-  title: `Components/Rich Text Editor/${SUB_COMPONENTS_FOLDER_NAME}/Toggle Icon Button`,
+  title: "Components/Rich Text Editor/Subcomponents/Toggle Icon Button",
   component: ToggleIconButton,
   parameters: {
     actions: {

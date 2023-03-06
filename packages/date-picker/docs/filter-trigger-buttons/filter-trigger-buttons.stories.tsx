@@ -2,14 +2,14 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
-import { SUB_COMPONENTS_FOLDER_NAME } from "../../../../storybook/constants"
 import {
   FilterTriggerButton,
   RemovableFilterTriggerButton,
 } from "../../src/FilterDateRangePicker/components/Trigger"
 
 export default {
-  title: `Components/Date Picker/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
+  title:
+    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
   subcomponents: {
     FilterTriggerButton,
     RemovableFilterTriggerButton,
