@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { TextField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { TextFieldProps } from "../KaizenDraft/Form/TextField/TextField"
 
 export default {
@@ -15,9 +14,6 @@ export default {
         component: 'import { TextField } from "@kaizen/draft-form"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14363%3A67837"
-    ),
   },
 } as ComponentMeta<typeof TextField>
 

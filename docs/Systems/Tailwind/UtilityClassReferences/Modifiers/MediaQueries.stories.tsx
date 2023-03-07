@@ -2,7 +2,6 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../../../storybook/helpers"
 
 export default {
   title: "Systems/Tailwind/Utility Class References/Modifiers/Media Queries",
@@ -13,9 +12,6 @@ export default {
           "Require @kaizen/tailwind and add it into your tailwind config",
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A63845"
-    ),
   },
 }
 

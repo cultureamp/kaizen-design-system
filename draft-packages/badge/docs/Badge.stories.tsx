@@ -4,7 +4,6 @@ import { Button } from "@kaizen/button"
 import { Badge, BadgeAnimated, BadgeProps } from "@kaizen/draft-badge"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Components/Badge",
@@ -18,9 +17,6 @@ export default {
     actions: {
       argTypesRegex: "^on.*",
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14398"
-    ),
   },
 } as ComponentMeta<typeof Badge>
 

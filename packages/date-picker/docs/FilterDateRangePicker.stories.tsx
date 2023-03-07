@@ -4,7 +4,6 @@ import { Story } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { figmaEmbed } from "../../../storybook/helpers"
 import {
   DateRangeValidationStatus,
   FilterDateRangePicker,
@@ -31,9 +30,7 @@ export default {
           'import { FilterDateRangePicker } from "@kaizen/date-picker"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=45526%3A98760&t=67y0ZhpSLd5K7Rpn-4"
-    ),
+
   },
   args: {
     label: "Dates",

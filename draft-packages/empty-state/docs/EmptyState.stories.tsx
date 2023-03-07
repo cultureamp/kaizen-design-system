@@ -4,7 +4,6 @@ import isChromatic from "chromatic"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { EmptyState, EmptyStateProps } from ".."
 import styles from "./EmptyState.stories.module.scss"
 
@@ -19,9 +18,6 @@ export default {
         component: 'import { EmptyState } from "@kaizen/draft-empty-state";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A33123"
-    ),
   },
   argTypes: {
     children: {

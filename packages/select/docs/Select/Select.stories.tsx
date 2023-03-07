@@ -2,7 +2,6 @@ import React from "react"
 import { Node } from "@react-types/shared"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../../storybook/helpers"
 import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
 import { Select } from "../../src/Select/Select"
@@ -23,9 +22,7 @@ export default {
         component: 'import { Select } from "@kaizen/select".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966"
-    ),
+
   },
   argTypes: {
     ...selectControls,

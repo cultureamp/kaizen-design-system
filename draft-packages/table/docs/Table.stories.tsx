@@ -8,7 +8,6 @@ import effectivenessIcon from "@kaizen/component-library/icons/effectiveness.ico
 import { CheckboxField } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import {
   TableCard,
   TableContainer,
@@ -134,9 +133,7 @@ export default {
           'import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A28358"
-    ),
+
   },
 }
 

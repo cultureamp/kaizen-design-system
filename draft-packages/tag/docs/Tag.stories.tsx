@@ -3,7 +3,6 @@ import { ComponentStory, Story } from "@storybook/react"
 import { Avatar } from "@kaizen/draft-avatar"
 import { Tag } from "@kaizen/draft-tag"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Components/Tag",
@@ -14,9 +13,7 @@ export default {
         component: 'import { Tag } from "@kaizen/draft-tag"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A90332"
-    ),
+
   },
 }
 

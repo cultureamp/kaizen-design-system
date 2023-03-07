@@ -4,7 +4,6 @@ import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContent = (): JSX.Element => (
   <div style={{ padding: "1rem" }}>
@@ -35,9 +34,7 @@ export default {
         component: 'import { Well } from "@kaizen/draft-well"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14168"
-    ),
+
   },
 }
 

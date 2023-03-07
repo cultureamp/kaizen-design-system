@@ -5,7 +5,6 @@ import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { IconButton, ButtonProps } from ".."
 
 export default {
@@ -21,9 +20,7 @@ export default {
           'import { IconButton } from "@kaizen/button". This Button supersedes "@kaizen/draft-button".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13555%3A0"
-    ),
+
   },
 }
 

@@ -7,7 +7,6 @@ import { Box } from "@kaizen/component-library"
 import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Select } from "@kaizen/draft-select"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -38,9 +37,7 @@ export default {
           'import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
-    ),
+
   },
   decorators: [withMinHeight],
 } as ComponentMeta<typeof InputEditModal>

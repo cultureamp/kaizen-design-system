@@ -5,7 +5,6 @@ import { Card } from "@kaizen/draft-card"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Components/Divider",
@@ -16,9 +15,6 @@ export default {
         component: 'import { Divider } from "@kaizen/draft-divider"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14040"
-    ),
   },
 } as ComponentMeta<typeof Divider>
 

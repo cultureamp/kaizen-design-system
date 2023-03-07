@@ -7,7 +7,6 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Menu, MenuList, MenuItem } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
@@ -21,9 +20,6 @@ export default {
           'import { Menu, MenuList, MenuItem, StatelessMenu } from "@kaizen/draft-menu";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=6262%3A1233"
-    ),
   },
 }
 

@@ -5,7 +5,6 @@ import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { ConfirmationModal } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -38,9 +37,6 @@ export default {
         component: 'import { ConfirmationModal } from "@kaizen/draft-modal"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
-    ),
     actions: {
       argTypesRegex: "^on.*",
     },

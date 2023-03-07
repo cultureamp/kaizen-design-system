@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Components/Form/Checkbox Field",
@@ -14,9 +13,6 @@ export default {
         component: 'import { CheckboxField } from "@kaizen/draft-form";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14462%3A196"
-    ),
   },
   argTypes: {
     checkedStatus: {

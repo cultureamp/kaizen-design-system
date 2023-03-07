@@ -3,7 +3,6 @@ import { Story } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Container, Content, Skirt, SkirtCard } from ".."
 import styles from "./PageLayout.stories.module.scss"
 
@@ -17,9 +16,7 @@ export default {
           'import { Container, Content } from "@kaizen/draft-page-layout"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=6243%3A4094"
-    ),
+
   },
 }
 
