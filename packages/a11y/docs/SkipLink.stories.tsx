@@ -1,15 +1,13 @@
-import * as React from "react"
+import React from "react"
 import {
   Title,
-  Subtitle,
   Description,
   Primary,
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from "@storybook/addon-docs"
-import { Story } from "@storybook/react"
-import { Box } from "@kaizen/component-library"
+} from "@storybook/blocks"
+import { Meta, StoryFn } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
 import { SkipLink } from "../index"
 
@@ -24,24 +22,17 @@ export default {
       page: (): JSX.Element => (
         <>
           <Title />
-          <Subtitle />
           <Description />
-          <>
-            <Box py={0.5}>
-              <Paragraph variant="body">
-                <a href="https://webaim.org/techniques/skipnav/">Skip links</a>{" "}
-                are useful for screen reader and keyboard users to skip repeated
-                naviagation.
-              </Paragraph>
-            </Box>
-            <Box py={0.5}>
-              <Paragraph variant="body">
-                This component is included out of the box when using Unified
-                Navigation. In most scenarios you will not need to consume this
-                component directly.
-              </Paragraph>
-            </Box>
-          </>
+          <Paragraph variant="body">
+            <a href="https://webaim.org/techniques/skipnav/">Skip links</a> are
+            useful for screen reader and keyboard users to skip repeated
+            navigation.
+          </Paragraph>
+          <Paragraph variant="body">
+            This component is included out of the box when using Unified
+            Navigation. In most scenarios you will not need to consume this
+            component directly.
+          </Paragraph>
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories />
@@ -52,15 +43,16 @@ export default {
       default: "Purple 700",
     },
   },
-}
+} as Meta<typeof SkipLink>
 
-export const SkipLinkExample: Story = () => {
+export const SkipLinkExample: StoryFn = () => {
   const renderPointers = (): JSX.Element[] =>
     Array.from(Array(10)).map((_, i) => (
       <div key={`pointer-${i}`} style={{ paddingTop: "10rem" }}>
         👇
       </div>
     ))
+
   return (
     <>
       <SkipLink label="Skip to content" skipTo="mainContent" />
