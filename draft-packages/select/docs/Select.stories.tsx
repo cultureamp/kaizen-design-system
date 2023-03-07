@@ -31,7 +31,6 @@ export default {
         component: 'import { AsyncSelect, Select } from "@kaizen/draft-select"',
       },
     },
-
   },
 }
 

@@ -71,7 +71,6 @@ export default {
         component: '`import { SplitButton } from "@kaizen/split-button"`',
       },
     },
-
   },
 } as ComponentMeta<typeof SplitButton>
 

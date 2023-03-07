@@ -20,7 +20,6 @@ export default {
         component: 'import { LoadingGraphic } from "@kaizen/loading-skeleton"',
       },
     },
-
   },
 }
 

@@ -34,7 +34,6 @@ export default {
         component: 'import { Well } from "@kaizen/draft-well"',
       },
     },
-
   },
 }
 

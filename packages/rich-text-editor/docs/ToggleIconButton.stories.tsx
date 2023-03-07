@@ -17,7 +17,6 @@ export default {
           'import { ToggleIconButton } from "@kaizen/rich-text-editor"',
       },
     },
-
   },
 }
 

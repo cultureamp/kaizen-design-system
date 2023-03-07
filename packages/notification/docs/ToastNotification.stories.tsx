@@ -73,7 +73,6 @@ export default {
           'import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/notification"',
       },
     },
-
   },
   decorators: [withNavigation],
 }

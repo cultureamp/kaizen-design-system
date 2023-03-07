@@ -30,7 +30,6 @@ export default {
           'import { FilterDateRangePicker } from "@kaizen/date-picker"',
       },
     },
-
   },
   args: {
     label: "Dates",

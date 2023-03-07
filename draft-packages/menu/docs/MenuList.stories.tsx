@@ -11,7 +11,6 @@ export default {
         component: 'import { MenuList }  from "@kaizen/draft-menu"',
       },
     },
-
   },
 }
 

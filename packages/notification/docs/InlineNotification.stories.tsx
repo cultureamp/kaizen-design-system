@@ -13,7 +13,6 @@ export default {
         component: 'import { InlineNotification } from "@kaizen/notification";',
       },
     },
-
   },
 }
 

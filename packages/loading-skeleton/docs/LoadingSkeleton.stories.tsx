@@ -23,7 +23,6 @@ export default {
           'import { LoadingHeading, LoadingParagraph, LoadingInput, LoadingGraphic } from "@kaizen/loading-skeleton"',
       },
     },
-
   },
 }
 

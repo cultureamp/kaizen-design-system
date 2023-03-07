@@ -14,7 +14,6 @@ export default {
           'import { LoadingParagraph } from "@kaizen/loading-skeleton"',
       },
     },
-
   },
 }
 

@@ -13,7 +13,6 @@ export default {
         component: 'import { Tag } from "@kaizen/draft-tag"',
       },
     },
-
   },
 }
 

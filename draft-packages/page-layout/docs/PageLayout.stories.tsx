@@ -16,7 +16,6 @@ export default {
           'import { Container, Content } from "@kaizen/draft-page-layout"',
       },
     },
-
   },
 }
 

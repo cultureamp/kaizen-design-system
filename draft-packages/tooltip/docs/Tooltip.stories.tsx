@@ -30,7 +30,6 @@ export default {
         component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
       },
     },
-
   },
   decorators: [openTooltipInChromatic],
 } as ComponentMeta<typeof Tooltip>

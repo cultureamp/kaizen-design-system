@@ -25,7 +25,6 @@ export default {
           'import { Button, IconButton } from "@kaizen/button". This Button supersedes "@kaizen/draft-button".',
       },
     },
-
   },
 } as ComponentMeta<typeof Button>
 

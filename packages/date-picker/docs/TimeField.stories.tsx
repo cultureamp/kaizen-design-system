@@ -13,7 +13,6 @@ export default {
         component: 'import { TimeField } from "@kaizen/date-picker"',
       },
     },
-
   },
   argTypes: {
     locale: {

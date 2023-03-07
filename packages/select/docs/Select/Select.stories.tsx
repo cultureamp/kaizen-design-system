@@ -22,7 +22,6 @@ export default {
         component: 'import { Select } from "@kaizen/select".',
       },
     },
-
   },
   argTypes: {
     ...selectControls,

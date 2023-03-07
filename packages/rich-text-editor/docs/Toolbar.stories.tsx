@@ -20,7 +20,6 @@ export default {
         component: 'import { Toolbar } from "@kaizen/rich-text-editor"',
       },
     },
-
   },
 }
 

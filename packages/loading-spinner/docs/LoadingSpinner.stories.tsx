@@ -15,7 +15,6 @@ export default {
         component: 'import { LoadingSpinner } from "@kaizen/loading-spinner"',
       },
     },
-
   },
 }
 
