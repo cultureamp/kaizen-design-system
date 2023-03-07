@@ -6,7 +6,6 @@ import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
 import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ContextModal.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
@@ -38,9 +37,7 @@ export default {
           'import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
-    ),
+
     actions: {
       argTypesRegex: "^on.*",
     },

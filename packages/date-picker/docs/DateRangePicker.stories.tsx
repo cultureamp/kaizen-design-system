@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { DateRangePicker, DateRangePickerProps } from "../src/DateRangePicker"
 import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
 import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
@@ -17,9 +16,7 @@ export default {
         component: 'import { DateRangePicker } from "@kaizen/date-picker"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=10458%3A45652"
-    ),
+
   },
 }
 

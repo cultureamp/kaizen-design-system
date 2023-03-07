@@ -5,7 +5,6 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Button, ButtonProps } from ".."
 
 const IS_CHROMATIC = isChromatic()
@@ -26,9 +25,7 @@ export default {
           'import { Button, IconButton } from "@kaizen/button". This Button supersedes "@kaizen/draft-button".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13555%3A0"
-    ),
+
   },
 } as ComponentMeta<typeof Button>
 

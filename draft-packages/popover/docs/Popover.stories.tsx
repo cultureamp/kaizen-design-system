@@ -7,7 +7,6 @@ import informationWhiteIcon from "@kaizen/component-library/icons/information-wh
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 
 const DEFAULT_IS_OPEN: boolean = isChromatic()
@@ -26,9 +25,7 @@ export default {
         component: 'import { usePopover } from "@kaizen/draft-popover"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A63845"
-    ),
+
   },
 }
 

@@ -2,7 +2,6 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 class ToggleStateContainer extends React.Component<
   {
@@ -47,9 +46,6 @@ export default {
           'import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14361%3A67850"
-    ),
   },
 } as ComponentMeta<typeof ToggleSwitchField>
 

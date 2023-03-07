@@ -3,7 +3,6 @@ import { Selection } from "@react-types/shared"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { Label } from "../../../draft-packages/form"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Button, ButtonRef } from "../../button"
 import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../typography"
@@ -24,9 +23,7 @@ export default {
         component: 'import { FilterMultiSelect } from "@kaizen/select".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966"
-    ),
+
   },
 } as ComponentMeta<typeof FilterMultiSelect>
 

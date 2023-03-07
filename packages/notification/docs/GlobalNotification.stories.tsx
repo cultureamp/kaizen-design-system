@@ -2,7 +2,6 @@ import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { GlobalNotification } from "@kaizen/notification"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Components/Notification/Global Notification",
@@ -13,9 +12,7 @@ export default {
         component: 'import { GlobalNotification } from "@kaizen/notification";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A39077"
-    ),
+
   },
 }
 

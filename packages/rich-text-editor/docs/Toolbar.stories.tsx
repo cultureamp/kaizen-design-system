@@ -6,7 +6,6 @@ import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.
 import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
 import numberListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
 import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { ToggleIconButton, Toolbar, ToolbarSection } from "../"
 
 export default {
@@ -21,9 +20,7 @@ export default {
         component: 'import { Toolbar } from "@kaizen/rich-text-editor"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=12317%3A92573"
-    ),
+
   },
 }
 

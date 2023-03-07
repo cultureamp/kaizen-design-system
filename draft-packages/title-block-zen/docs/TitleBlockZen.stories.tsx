@@ -11,7 +11,6 @@ import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
 import { Tag } from "@kaizen/draft-tag"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { NavigationTab, SectionTitleRenderProps, TitleBlockZen } from ".."
 import styles from "./TitleBlockZen.stories.module.scss"
 
@@ -27,9 +26,7 @@ export default {
           'import { TitleBlockZen } from "@kaizen/draft-title-block-zen"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4619%3A17068"
-    ),
+
   },
 }
 

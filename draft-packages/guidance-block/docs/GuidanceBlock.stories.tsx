@@ -13,7 +13,6 @@ import {
 import { Tag } from "@kaizen/draft-tag"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { GuidanceBlockProps } from "../KaizenDraft/GuidanceBlock/GuidanceBlock"
 
 const ICON_EXTERNAL_LINK =
@@ -30,9 +29,6 @@ export default {
       },
     },
     backgrounds: { default: "Gray 100" },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A39077"
-    ),
   },
 }
 

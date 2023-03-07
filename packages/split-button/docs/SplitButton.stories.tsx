@@ -5,7 +5,6 @@ import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { ActionButton, DropdownButton } from "../src/SplitButton/components"
 import { SplitButton, SplitButtonProps } from "../"
 
@@ -72,9 +71,7 @@ export default {
         component: '`import { SplitButton } from "@kaizen/split-button"`',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14512%3A404"
-    ),
+
   },
 } as ComponentMeta<typeof SplitButton>
 

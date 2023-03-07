@@ -13,7 +13,6 @@ import {
   ToastNotification,
 } from "@kaizen/notification"
 import { ToastNotificationWithOptionals } from "@kaizen/notification/src/types"
-import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ToastNotification.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
@@ -74,9 +73,7 @@ export default {
           'import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/notification"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A21830"
-    ),
+
   },
   decorators: [withNavigation],
 }

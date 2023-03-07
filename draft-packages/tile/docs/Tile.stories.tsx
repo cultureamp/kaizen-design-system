@@ -11,7 +11,6 @@ import {
   TileGrid,
 } from "@kaizen/draft-tile"
 import { Paragraph } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Components/Tile",
@@ -29,9 +28,7 @@ export default {
                     } from "@kaizen/draft-tile"`,
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=21815%3A82744"
-    ),
+
   },
 }
 

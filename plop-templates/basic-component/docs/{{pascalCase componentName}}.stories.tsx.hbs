@@ -1,6 +1,5 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { {{pascalCase componentName}} } from "../index"
 
@@ -14,7 +13,6 @@ export default {
           'import { {{pascalCase componentName}} } from "@kaizen/{{kebabCase packageName}}"',
       },
     },
-    ...figmaEmbed("REPLACE_THIS_WITH_FIGMA_URL"), /** @todo: Replace with Figma frame url */
   },
 } as ComponentMeta<typeof {{pascalCase componentName}}>
 

@@ -2,7 +2,6 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 const ILLUSTRATION_SURVEY = require("./survey.png")
 
@@ -32,9 +31,6 @@ export default {
           '⛔️ This component is deprecated. No further changes will be made to it as it will be superseded by `Tile`.<br/><br/>`import { HeroCard } from "@kaizen/draft-hero-card"`',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=3568%3A150"
-    ),
   },
 }
 

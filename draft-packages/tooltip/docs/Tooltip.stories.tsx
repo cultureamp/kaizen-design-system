@@ -10,7 +10,6 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Paragraph, Heading } from "@kaizen/typography"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 const openTooltipInChromatic: DecoratorFunction = (story, config) => {
   if (isChromatic()) config.args.isInitiallyVisible = true
@@ -31,9 +30,7 @@ export default {
         component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A90872"
-    ),
+
   },
   decorators: [openTooltipInChromatic],
 } as ComponentMeta<typeof Tooltip>
