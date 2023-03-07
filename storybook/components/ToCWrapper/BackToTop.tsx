@@ -1,32 +1,28 @@
-import React from "react"
+import React, { useLayoutEffect } from "react"
 
 const BackToTop = ({
   children,
-  ...rest
 }: {
   children?: JSX.Element
-}): JSX.Element => {
+}): JSX.Element | null => {
   const [visible, isVisible] = React.useState(false)
 
   const onScroll = (): void => {
     isVisible(() => window.pageYOffset > 300)
   }
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     document.addEventListener("scroll", onScroll)
     return () => document.removeEventListener("scroll", onScroll)
   }, [])
 
-  if (!visible) {
-    return <></>
-  }
+  if (!visible) return null
 
   return (
     <button
       onClick={(): void =>
         window.scroll({ top: 0, left: 0, behavior: "smooth" })
       }
-      {...rest}
     >
       {children || (
         <>
