@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import { DecoratorFunction } from "@storybook/addons"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button, IconButton } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
@@ -32,7 +32,7 @@ export default {
     },
   },
   decorators: [openTooltipInChromatic],
-} as ComponentMeta<typeof Tooltip>
+} as Meta<typeof Tooltip>
 
 export const DefaultKaizenSiteDemo: ComponentStory<typeof Tooltip> = props => (
   <div

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { DecoratorFunction } from "@storybook/addons"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { ConfirmationModal } from "@kaizen/draft-modal"
@@ -42,7 +42,7 @@ export default {
     },
   },
   decorators: [withMinHeight],
-} as ComponentMeta<typeof ConfirmationModal>
+} as Meta<typeof ConfirmationModal>
 
 const ConfirmationModalTemplate: ComponentStory<
   typeof ConfirmationModal

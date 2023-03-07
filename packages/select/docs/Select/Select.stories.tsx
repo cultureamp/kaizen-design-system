@@ -1,6 +1,6 @@
 import React from "react"
 import { Node } from "@react-types/shared"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
@@ -26,7 +26,7 @@ export default {
   argTypes: {
     ...selectControls,
   },
-} as ComponentMeta<typeof Select>
+} as Meta<typeof Select>
 
 export const DefaultStory: ComponentStory<typeof Select> = props => (
   <Select {...props} />
