@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import { create } from "@storybook/theming/create"
 import { defaultTheme } from "@kaizen/design-tokens"
-const logo = require("./assets/kaizen-logo.png")
+const logo = require("./assets/kaizen-badge.svg")
 
 const colors = defaultTheme.color
 
