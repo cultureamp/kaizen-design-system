@@ -18,6 +18,8 @@ import path from "path"
 // }
 
 const defaultStoryPaths = [
+  "../draft-packages/**/*.stories.tsx",
+  "../draft-packages/**/*.stories.mdx",
   "../packages/**/*.stories.tsx",
   "../packages/**/*.stories.mdx",
   "../docs/**/*.stories.mdx",
