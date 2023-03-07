@@ -1,6 +1,6 @@
 import { Meta, Markdown } from "@storybook/blocks"
-import Readme from '../../README.md'
+import ReadMe from "../../README.md?raw"
 
-<Meta title="Design Tokens/README" parameters={{docsOnly: true}} />
+<Meta title="Design Tokens/README" parameters={{ docsOnly: true }} />
 
-<Readme />
+<Markdown>{ReadMe}</Markdown>
