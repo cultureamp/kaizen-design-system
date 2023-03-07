@@ -9,7 +9,7 @@
   box-shadow: $shadow-small-box-shadow;
 
   &.informative {
-    background-color: red;
+    background-color: $color-blue-100;
   }
 
   &.positive {
