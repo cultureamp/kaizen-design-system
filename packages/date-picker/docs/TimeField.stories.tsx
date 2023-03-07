@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
@@ -22,7 +22,7 @@ export default {
     status: { control: { type: "radio" }, options: ["default", "error"] },
     validationMessage: { control: "text" },
   },
-} as ComponentMeta<typeof TimeField>
+} as Meta<typeof TimeField>
 
 export const DefaultStory: ComponentStory<typeof TimeField> = args => {
   const [value, setValue] = useState<ValueType | null>(null)

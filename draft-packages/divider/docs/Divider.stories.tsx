@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Divider } from "@kaizen/draft-divider"
@@ -16,7 +16,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Divider>
+} as Meta<typeof Divider>
 
 export const DefaultStory: ComponentStory<typeof Divider> = args => (
   <Box m={1}>

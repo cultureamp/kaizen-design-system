@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { FieldMessage } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FieldMessage>
+} as Meta<typeof FieldMessage>
 
 export const DefaultKaizenSiteDemo: ComponentStory<
   typeof FieldMessage

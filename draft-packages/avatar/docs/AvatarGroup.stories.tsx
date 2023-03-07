@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   AvatarGroup,
@@ -64,7 +64,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof AvatarGroup>
+} as Meta<typeof AvatarGroup>
 
 export const DefaultStory: ComponentStory<typeof AvatarGroup> = args => (
   <AvatarGroup {...args} />

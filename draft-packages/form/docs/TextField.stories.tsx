@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { TextField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
@@ -15,7 +15,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof TextField>
+} as Meta<typeof TextField>
 
 export const DefaultStory: ComponentStory<typeof TextField> = args => (
   <TextField {...args} />

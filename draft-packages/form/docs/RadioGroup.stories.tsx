@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, Story } from "@storybook/react"
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -45,7 +45,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof RadioGroup>
+} as Meta<typeof RadioGroup>
 
 export const DefaultKaizenSiteDemo: Story = () => (
   <RadioGroupExample

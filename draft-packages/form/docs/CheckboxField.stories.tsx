@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -19,7 +19,7 @@ export default {
       control: "disabled",
     },
   },
-} as ComponentMeta<typeof CheckboxField>
+} as Meta<typeof CheckboxField>
 
 export const InteractiveKaizenSiteDemo: ComponentStory<
   typeof CheckboxField

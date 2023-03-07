@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
@@ -33,7 +33,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Collapsible>
+} as Meta<typeof Collapsible>
 
 const SingleCollapsibleNoPadding = (): JSX.Element => (
   <Collapsible

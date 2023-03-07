@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { TextAreaField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -22,7 +22,7 @@ export default {
       table: { defaultValue: { summary: false } },
     },
   },
-} as ComponentMeta<typeof TextAreaField>
+} as Meta<typeof TextAreaField>
 
 export const DefaultStory: ComponentStory<typeof TextAreaField> = args => (
   <TextAreaField {...args} />

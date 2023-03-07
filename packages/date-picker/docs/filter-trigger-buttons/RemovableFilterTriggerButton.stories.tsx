@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { RemovableFilterTriggerButton } from "../../src/FilterDateRangePicker/components/Trigger"
 
 export default {
@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof RemovableFilterTriggerButton>
+} as Meta<typeof RemovableFilterTriggerButton>
 
 export const RemovableFilterTriggerButtonStory: ComponentStory<
   typeof RemovableFilterTriggerButton

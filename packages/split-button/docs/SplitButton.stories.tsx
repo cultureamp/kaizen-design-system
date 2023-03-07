@@ -1,6 +1,6 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
@@ -72,7 +72,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof SplitButton>
+} as Meta<typeof SplitButton>
 
 export const DefaultKaizenSiteDemo: ComponentStory<
   typeof SplitButton

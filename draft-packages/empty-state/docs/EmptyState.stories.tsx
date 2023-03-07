@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
@@ -34,7 +34,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof EmptyState>
+} as Meta<typeof EmptyState>
 
 const BUTTON = (
   <div className={styles.buttonContainer}>

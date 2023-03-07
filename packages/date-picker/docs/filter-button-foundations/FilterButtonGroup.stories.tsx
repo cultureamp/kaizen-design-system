@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, ComponentStory, Story } from "@storybook/react"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
 import { FilterButtonGroup } from "../../src/FilterDateRangePicker/components/Trigger/FilterButtonGroup"
@@ -15,7 +15,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FilterButtonGroup>
+} as Meta<typeof FilterButtonGroup>
 
 export const DefaultStory: ComponentStory<typeof FilterButtonGroup> = args => (
   <FilterButtonGroup {...args}>

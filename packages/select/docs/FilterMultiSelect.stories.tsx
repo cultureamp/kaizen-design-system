@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { Label } from "../../../draft-packages/form"
 import { Button, ButtonRef } from "../../button"
@@ -24,7 +24,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FilterMultiSelect>
+} as Meta<typeof FilterMultiSelect>
 
 export const DefaultKaizenSiteDemo: ComponentStory<
   typeof FilterMultiSelect

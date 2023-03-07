@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { DecoratorFunction } from "@storybook/addons"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
@@ -39,7 +39,7 @@ export default {
     },
   },
   decorators: [withMinHeight],
-} as ComponentMeta<typeof InputEditModal>
+} as Meta<typeof InputEditModal>
 
 const InputEditModalTemplate: ComponentStory<typeof InputEditModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
