@@ -5,6 +5,7 @@ import { addParameters } from "@storybook/react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
+import { withTableOfContents } from "./components/ToCWrapper"
 import { CATEGORIES, SORT_ORDER } from "./constants"
 import "highlight.js/styles/a11y-light.css"
 
@@ -81,3 +82,5 @@ export const decorators = [
   },
   withQueryProvider,
 ]
+
+addParameters(withTableOfContents())
