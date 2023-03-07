@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { IconButtonProps } from "@kaizen/button"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
@@ -21,18 +21,18 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof IconButton>
 
-export const DefaultKaizenSiteDemo: ComponentStory<
-  typeof IconButton
-> = args => <IconButton {...args} />
+export const DefaultKaizenSiteDemo: StoryFn<typeof IconButton> = args => (
+  <IconButton {...args} />
+)
 DefaultKaizenSiteDemo.storyName = "Icon Button"
 DefaultKaizenSiteDemo.args = {
   label: "Icon label",
   icon: trashIcon,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const WORKING_PROPS: ButtonProps = {

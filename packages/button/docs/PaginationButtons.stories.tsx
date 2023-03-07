@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Meta } from "@storybook/react"
 import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { DirectionalLinkProps } from "../src/Button/DirectionalLink"
@@ -23,9 +23,9 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof DirectionalLink>
 
-export const DefaultKaizenDirectionalLink: ComponentStory<
+export const DefaultKaizenDirectionalLink: StoryFn<
   typeof DirectionalLink
 > = args => <DirectionalLink {...args} />
 DefaultKaizenDirectionalLink.storyName = "Directional Link"
@@ -33,7 +33,7 @@ DefaultKaizenDirectionalLink.args = {
   direction: "prev",
 }
 
-export const DefaultKaizenPaginationLink: ComponentStory<
+export const DefaultKaizenPaginationLink: StoryFn<
   typeof PaginationLink
 > = args => <PaginationLink {...args} />
 DefaultKaizenPaginationLink.storyName = "Pagination Link"
@@ -41,7 +41,7 @@ DefaultKaizenPaginationLink.args = {
   pageNumber: 1,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const SectionHeading = ({ heading }: { heading: string }): JSX.Element => (
