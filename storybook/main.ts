@@ -32,12 +32,6 @@ module.exports = {
   addons: [
     // @note: Do we need this?
     // path.resolve("./storybook/gtm-addon/register"),
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        transcludeMarkdown: true,
-      },
-    },
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
   ],
