@@ -40,7 +40,6 @@ module.exports = {
     },
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
-    "storybook-addon-designs",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   staticDirs: [{ from: "./assets", to: "/static/media" }],
