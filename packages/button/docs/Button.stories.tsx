@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
@@ -26,14 +26,12 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Button>
+} as Meta<typeof Button>
 
-export const DefaultStory: ComponentStory<typeof Button> = args => (
-  <Button {...args} />
-)
+export const DefaultStory: StoryFn<typeof Button> = args => <Button {...args} />
 DefaultStory.storyName = "Button"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const REVERSED__VARIANT_PROPS: Array<{
