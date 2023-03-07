@@ -133,7 +133,6 @@ export default {
           'import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"',
       },
     },
-
   },
 }
 

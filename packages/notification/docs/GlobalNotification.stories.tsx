@@ -12,7 +12,6 @@ export default {
         component: 'import { GlobalNotification } from "@kaizen/notification";',
       },
     },
-
   },
 }
 

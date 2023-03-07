@@ -20,7 +20,6 @@ export default {
           'import { IconButton } from "@kaizen/button". This Button supersedes "@kaizen/draft-button".',
       },
     },
-
   },
 }
 

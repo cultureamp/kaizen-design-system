@@ -28,7 +28,6 @@ export default {
                     } from "@kaizen/draft-tile"`,
       },
     },
-
   },
 }
 

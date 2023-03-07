@@ -23,7 +23,6 @@ export default {
         component: 'import { FilterMultiSelect } from "@kaizen/select".',
       },
     },
-
   },
 } as ComponentMeta<typeof FilterMultiSelect>
 

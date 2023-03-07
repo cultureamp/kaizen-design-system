@@ -25,7 +25,6 @@ export default {
         component: 'import { usePopover } from "@kaizen/draft-popover"',
       },
     },
-
   },
 }
 

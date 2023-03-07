@@ -25,7 +25,6 @@ export default {
         component: 'import { DatePicker } from "@kaizen/date-picker"',
       },
     },
-
   },
   argTypes: {
     ...datePickerLocaleControls,

@@ -13,7 +13,6 @@ export default {
         component: 'import { LoadingHeading } from "@kaizen/loading-skeleton"',
       },
     },
-
   },
 }
 

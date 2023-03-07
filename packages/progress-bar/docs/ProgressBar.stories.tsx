@@ -12,7 +12,6 @@ export default {
         component: 'import { ProgressBar } from "@kaizen/progress-bar"',
       },
     },
-
   },
 }
 

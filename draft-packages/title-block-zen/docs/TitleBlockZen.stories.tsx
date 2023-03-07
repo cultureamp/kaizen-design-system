@@ -26,7 +26,6 @@ export default {
           'import { TitleBlockZen } from "@kaizen/draft-title-block-zen"',
       },
     },
-
   },
 }
 

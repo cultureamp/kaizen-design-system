@@ -37,7 +37,6 @@ export default {
           'import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"',
       },
     },
-
   },
   decorators: [withMinHeight],
 } as ComponentMeta<typeof InputEditModal>

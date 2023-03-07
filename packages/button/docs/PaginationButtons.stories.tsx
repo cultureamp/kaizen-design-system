@@ -22,7 +22,6 @@ export default {
           'import { DirectionalLink, PaginationLink } from "@kaizen/button".',
       },
     },
-
   },
 }
 

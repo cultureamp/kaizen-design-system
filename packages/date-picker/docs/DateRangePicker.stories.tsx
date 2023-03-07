@@ -16,7 +16,6 @@ export default {
         component: 'import { DateRangePicker } from "@kaizen/date-picker"',
       },
     },
-
   },
 }
 

@@ -13,7 +13,6 @@ export default {
         component: 'Import { Brand } from "@kaizen/brand"',
       },
     },
-
   },
 }
 

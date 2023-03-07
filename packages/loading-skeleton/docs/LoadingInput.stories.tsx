@@ -13,7 +13,6 @@ export default {
         component: 'import { LoadingInput } from "@kaizen/loading-skeleton"',
       },
     },
-
   },
 }
 
