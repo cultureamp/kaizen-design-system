@@ -17,7 +17,7 @@ export type NotificationType =
   | "cautionary"
   | "negative"
 
-type Props = {
+export type GenericNotificationProps = {
   type: NotificationType
   style: "global" | "inline" | "toast"
   children?: React.ReactNode
@@ -37,7 +37,10 @@ type State = {
   removed: boolean
 }
 
-class GenericNotification extends React.Component<Props, State> {
+class GenericNotification extends React.Component<
+  GenericNotificationProps,
+  State
+> {
   static defaultProps = {
     persistent: false,
     autohide: false,
@@ -53,7 +56,7 @@ class GenericNotification extends React.Component<Props, State> {
 
   containerRef = React.createRef<HTMLDivElement>()
 
-  constructor(props: Props) {
+  constructor(props: GenericNotificationProps) {
     super(props)
 
     this.hide = this.hide.bind(this)

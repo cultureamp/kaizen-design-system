@@ -1,6 +1,6 @@
-import * as React from "react"
+import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import GlobalNotification from "./GlobalNotification"
+import { GlobalNotification } from "./GlobalNotification"
 
 afterEach(cleanup)
 

@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { GlobalNotification } from "@kaizen/notification"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof GlobalNotification>
 
 export const DefaultStory: StoryFn<typeof GlobalNotification> = args => (
   <GlobalNotification {...args}>

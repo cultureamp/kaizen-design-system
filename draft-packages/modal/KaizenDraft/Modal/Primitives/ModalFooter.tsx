@@ -23,7 +23,7 @@ export type ModalFooterProps = Readonly<{
   alignStart?: boolean
 }>
 
-const ModalFooter = (props: ModalFooterProps): JSX.Element => {
+export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
   const {
     unpadded,
     actions,
@@ -61,4 +61,4 @@ const ModalFooter = (props: ModalFooterProps): JSX.Element => {
   )
 }
 
-export default ModalFooter
+ModalFooter.displayName = "ModalFooter"

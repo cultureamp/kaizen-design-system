@@ -10,7 +10,7 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
-type TableContainerProps = {
+export type TableContainerProps = {
   children?: React.ReactNode
   variant?: "compact" | "default" | "data"
 }
@@ -40,7 +40,7 @@ export const TableContainer = ({
  */
 export type AllowedTableHeaderBackgroundColors = "ash" | "white"
 
-type TableHeaderProps = {
+export type TableHeaderProps = {
   backgroundColor?: AllowedTableHeaderBackgroundColors
   children?: React.ReactNode
 }
@@ -63,7 +63,7 @@ export const TableHeader = ({
   )
 }
 
-type TableHeaderRowProps = {
+export type TableHeaderRowProps = {
   children?: React.ReactNode
 }
 
@@ -85,7 +85,7 @@ const ratioToPercent = (width?: number): string | number | undefined =>
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableHeaderRowCellProps = OverrideClassName<
+export type TableHeaderRowCellProps = OverrideClassName<
   HTMLAttributes<HTMLElement>
 > & {
   labelText: string
@@ -319,7 +319,7 @@ type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role
  */
-type TableCardProps = {
+export type TableCardProps = {
   onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
   expandedStyle?: "well" | "popout"
@@ -375,7 +375,7 @@ export const TableCard = ({
  *
  * @param {*} { children, ...otherProps }
  */
-type TableRowProps = {
+export type TableRowProps = {
   children?: React.ReactNode
 }
 export const TableRow = ({
@@ -393,7 +393,9 @@ export const TableRow = ({
  *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
  *        instead of just "1".
  */
-type TableRowCellProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
+export type TableRowCellProps = OverrideClassName<
+  HTMLAttributes<HTMLElement>
+> & {
   children?: React.ReactNode
   width?: number
   flex?: string
