@@ -1,6 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
+import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import "highlight.js/styles/a11y-light.css"
@@ -16,53 +17,7 @@ import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
 import "./global.scss"
 
-export const parameters = {
-  backgrounds: {
-    default: "White",
-    values: backgrounds,
-  },
-  options: {
-    storySort: {
-      method: "alphabetical",
-      order: [
-        "Introduction",
-        "Systems",
-        [
-          "*",
-          "Tailwind",
-          [
-            "Overview",
-            "Getting Started",
-            "Configuration",
-            "Working with Tailwind",
-            "*",
-            "Utility Class References",
-            ["Overview", "*"],
-          ],
-        ],
-        "Components",
-        "Helpers",
-        "Design Tokens",
-        "Deprecated",
-        "AIO",
-      ],
-    },
-  },
-  // docs: {
-  //   // @note: Do we need this?
-  //   // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
-  //   // https://storybook.js.org/addons/@dblechoc/storybook-addon-docs
-  //   extractComponentDescription: (component, { notes }): unknown => {
-  //     if (notes) {
-  //       return typeof notes === "string" ? notes : notes.markdown || notes.text
-  //     }
-  //     return null
-  //   },
-  // },
-  chromatic: { disable: true },
-}
-
-export const globalTypes = {
+const globalTypes: Preview["globalTypes"] = {
   textDirection: {
     name: "Text direction",
     description: "",
@@ -74,8 +29,8 @@ export const globalTypes = {
   },
 }
 
-export const decorators = [
-  (Story: React.ComponentType): JSX.Element => (
+const decorators: Preview["decorators"] = [
+  (Story): JSX.Element => (
     <ThemeContext.Provider value={defaultTheme}>
       <Story />
     </ThemeContext.Provider>
@@ -89,3 +44,55 @@ export const decorators = [
     )
   },
 ]
+
+const preview: Preview = {
+  parameters: {
+    backgrounds: {
+      default: "White",
+      values: backgrounds,
+    },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: [
+          "Introduction",
+          "Systems",
+          [
+            "*",
+            "Tailwind",
+            [
+              "Overview",
+              "Getting Started",
+              "Configuration",
+              "Working with Tailwind",
+              "*",
+              "Utility Class References",
+              ["Overview", "*"],
+            ],
+          ],
+          "Components",
+          "Helpers",
+          "Design Tokens",
+          "Deprecated",
+          "AIO",
+        ],
+      },
+    },
+    // docs: {
+    //   // @note: Do we need this?
+    //   // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
+    //   // https://storybook.js.org/addons/@dblechoc/storybook-addon-docs
+    //   extractComponentDescription: (component, { notes }): unknown => {
+    //     if (notes) {
+    //       return typeof notes === "string" ? notes : notes.markdown || notes.text
+    //     }
+    //     return null
+    //   },
+    // },
+    chromatic: { disable: true },
+  },
+  globalTypes,
+  decorators,
+}
+
+export default preview
