@@ -2,6 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
+import { FilterBaseTooltipButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseTooltipButton"
 
 export default {
   title:
@@ -23,6 +24,15 @@ export const FilterBaseButtonStory: StoryFn<typeof FilterBaseButton> = args => (
 FilterBaseButtonStory.storyName = "Filter Base Button"
 FilterBaseButtonStory.args = {
   children: "Label",
+}
+
+export const FilterBaseTooltipButtonStory: StoryFn<
+  typeof FilterBaseTooltipButton
+> = args => <FilterBaseTooltipButton {...args} />
+FilterBaseTooltipButtonStory.storyName = "Filter Base Tooltip Button"
+FilterBaseTooltipButtonStory.args = {
+  children: "Label",
+  tooltipText: "Tooltip",
 }
 
 const StickerSheetTemplate: StoryFn = () => (
