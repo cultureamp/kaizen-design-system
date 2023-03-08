@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react"
-import { StoryFn } from "@storybook/react"
-import { CustomButtonProps } from "@kaizen/button"
+import { Meta, StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -18,6 +17,7 @@ const TESTING_VIEWPORTS = [320, 768, 1200]
 
 export default {
   title: "Components/Title Block",
+  component: TitleBlockZen,
   parameters: {
     chromatic: { viewports: TESTING_VIEWPORTS },
     docs: {
@@ -27,7 +27,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof TitleBlockZen>
 
 const OffsetPadding = ({
   children,
