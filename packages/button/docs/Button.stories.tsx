@@ -11,9 +11,6 @@ import { Button, ButtonProps } from ".."
 const IS_CHROMATIC = isChromatic()
 /**
  * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
- *
- * [Source code](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button) &nbsp;|&nbsp; [Component guidelines](https://cultureamp.design/components/button/) &nbsp;|&nbsp; [UI Kit](https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364)
- *
  */
 const meta: Meta<typeof Button> = {
   title: "Components/Button/Button",
@@ -29,26 +26,32 @@ const meta: Meta<typeof Button> = {
       "npm install @kaizen/button",
       "import { Button } from `@kaizen/button`",
     ],
+    sourceCodeLink:
+      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
+    figmaLink:
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364",
   },
 }
 export default meta
 
-type Story = StoryFn<typeof Button>
+type Story = StoryFn<ButtonProps>
 
-// TODO limit the args showing within the Source
 export const Primary: Story = args => <Button {...args} />
-
-export const Skeleton: Story = () => (
-  // import { LoadingInput } from "@kaizen/loading-skeleton"
-  <LoadingInput isAnimated width={13} />
-)
+Primary.storyName = "Playground"
+// TODO limit the args showing within the Source
+// Primary.parameters = {
+//   docs: {
+//     canvas: {
+//       sourceState: "shown",
+//     },
+//   },
+// }
 
 /**
  * `Default`, `Primary`, `Destructive`, `Secondary`
  * <p>If no `variant` is specified, a `Default` button will be rendered. </p>
  * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.design/components/button/)</p>
  */
-
 export const Variants: Story = () => (
   <StickerSheet>
     <StickerSheet.Row>
@@ -140,6 +143,12 @@ export const Working: Story = () => (
     </StickerSheet.Row>
   </StickerSheet>
 )
+
+/**
+ * <p>Use the LoadingInput component from the loading-skeleton package. Please refer to the LoadingInput Component guidelines.</p>
+ * `import { LoadingInput } from "@kaizen/loading-skeleton"`
+ */
+export const Skeleton: Story = () => <LoadingInput isAnimated width={13} />
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

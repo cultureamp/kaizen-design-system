@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
-import { Meta, DocsContainer } from "@storybook/addon-docs"
+import { DocsContainer } from "@storybook/addon-docs"
 import {
   Title,
   Subtitle,
@@ -16,6 +16,7 @@ import { Preview } from "@storybook/react"
 import { Renderer } from "@storybook/types"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
+import { CustomDocsContainer } from "./CustomDocsContainer"
 import { backgrounds } from "./backgrounds"
 import "highlight.js/styles/a11y-light.css"
 
@@ -29,8 +30,6 @@ import "normalize.css"
 
 import "@kaizen/component-library/styles/fonts.scss"
 import "./global.scss"
-import { Installation } from "./components/CustomDocBlocks/components/Installation"
-import { Skeleton } from "./components/CustomDocBlocks/components/Skeleton"
 
 export const parameters = {
   backgrounds: {
@@ -64,25 +63,12 @@ export const parameters = {
       ],
     },
   },
-  // DocsContainerProps["context"]
   docs: {
-    container: (
-      props: DocsContainerProps
-    ): React.ReactElement<typeof DocsContainer> => {
-      console.log("hi", props.context)
-      return (
-        <DocsContainer context={props.context}>
-          <Title />
-          <Description />
-          <Installation context={props.context} />
-          <Skeleton context={props.context} />
-          <h2>Interactive</h2>
-          <Primary />
-          <Controls />
-          <Stories />
-        </DocsContainer>
-      )
-    },
+    container: ({
+      context,
+    }: DocsContainerProps): React.ReactElement<typeof DocsContainer> => (
+      <CustomDocsContainer context={context} />
+    ),
   },
   chromatic: { disable: true },
 }
