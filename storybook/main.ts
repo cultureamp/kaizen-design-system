@@ -31,12 +31,7 @@ module.exports = {
   // @todo: test this still works
   // stories: getStoryPathsFromEnv() || defaultStoryPaths,
   stories: defaultStoryPaths,
-  addons: [
-    // @note: Do we need this?
-    // path.resolve("./storybook/gtm-addon/register"),
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-  ],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
   presets: [path.resolve("./storybook/header-preset/preset")],
   staticDirs: [{ from: "./assets", to: "/static/media" }],
   framework: {
