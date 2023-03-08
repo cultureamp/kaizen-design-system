@@ -25,7 +25,7 @@ import "./global.scss"
 import { BackToTop } from "./components/BackToTop"
 import { TableOfContents } from "./components/TableOfContents"
 
-const ExampleContainer = ({
+const PageContainer = ({
   children,
   ...props
 }: DocsContainerProps & { children: any }): any => (
@@ -84,7 +84,7 @@ export const parameters = {
   //   },
   // },
   docs: {
-    container: ExampleContainer,
+    container: PageContainer,
   },
   chromatic: { disable: true },
 }
