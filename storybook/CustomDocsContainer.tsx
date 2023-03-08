@@ -1,6 +1,5 @@
 import React from "react"
 import {
-  Title,
   Description,
   Primary,
   Controls,
@@ -10,6 +9,7 @@ import {
 import { Installation } from "./components/CustomDocBlocks/components/Installation"
 import { Links } from "./components/CustomDocBlocks/components/Links"
 import { CustomStories } from "./components/CustomDocBlocks/components/Stories"
+import { Title } from "./components/CustomDocBlocks/components/Title"
 
 export const CustomDocsContainer = ({
   context,
@@ -18,7 +18,7 @@ export const CustomDocsContainer = ({
   return (
     <>
       <DocsContainer context={context}>
-        <Title />
+        <Title context={context} />
         <Links context={context} />
         <Description />
         <Installation context={context} />
