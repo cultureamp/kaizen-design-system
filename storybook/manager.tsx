@@ -3,6 +3,7 @@
 import React from "react"
 import { addons } from "@storybook/addons"
 import { defaultTheme } from "@kaizen/design-tokens"
+import { CATEGORIES_ICON } from "./constants"
 import KaizenTheme from "./theme"
 
 const colors = defaultTheme.color
@@ -13,10 +14,23 @@ addons.setConfig({
     gtmId: "GTM-KS4VWLT",
   },
   sidebar: {
-    renderLabel: item => (
-      <div style={item.type === "root" ? { color: colors.purple["800"] } : {}}>
-        {item.name}
-      </div>
-    ),
+    renderLabel: item =>
+      item.type === "root" ? (
+        <span
+          style={{
+            color: colors.purple["800"],
+            textTransform: "capitalize",
+            fontSize: "14px",
+            letterSpacing: "normal",
+          }}
+        >
+          <span aria-hidden style={{ marginRight: defaultTheme.spacing[6] }}>
+            {CATEGORIES_ICON[item.name]}
+          </span>
+          {item.name}
+        </span>
+      ) : (
+        item.name
+      ),
   },
 })

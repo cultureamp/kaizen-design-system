@@ -47,5 +47,5 @@ module.exports = {
     "storybook-addon-designs",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
-  staticDirs: ["./assets"],
+  staticDirs: [{ from: "./assets", to: "/static/media" }],
 }
