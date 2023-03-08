@@ -1,5 +1,5 @@
 import React from "react"
-import { Source } from "@storybook/addon-docs"
+import { Source } from "@storybook/blocks"
 
 export type InstallationProps = {
   //   context: DocsContainerProps["context"]
