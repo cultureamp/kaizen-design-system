@@ -51,6 +51,11 @@ const preview: Preview = {
       default: "White",
       values: backgrounds,
     },
+    docs: {
+      source: {
+        excludeDecorators: true,
+      },
+    },
     options: {
       storySort: {
         method: "alphabetical",
