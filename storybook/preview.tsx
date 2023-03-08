@@ -1,7 +1,20 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
+import { Meta, DocsContainer } from "@storybook/addon-docs"
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+  DocsContextProps,
+  DocsContainerProps,
+} from "@storybook/blocks"
 import { Preview } from "@storybook/react"
+import { Renderer } from "@storybook/types"
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import "highlight.js/styles/a11y-light.css"
@@ -16,6 +29,63 @@ import "normalize.css"
 
 import "@kaizen/component-library/styles/fonts.scss"
 import "./global.scss"
+import { Installation } from "./components/CustomDocBlocks/components/Installation"
+import { Skeleton } from "./components/CustomDocBlocks/components/Skeleton"
+
+export const parameters = {
+  backgrounds: {
+    default: "White",
+    values: backgrounds,
+  },
+  options: {
+    storySort: {
+      method: "alphabetical",
+      order: [
+        "Introduction",
+        "Systems",
+        [
+          "*",
+          "Tailwind",
+          [
+            "Overview",
+            "Getting Started",
+            "Configuration",
+            "Working with Tailwind",
+            "*",
+            "Utility Class References",
+            ["Overview", "*"],
+          ],
+        ],
+        "Components",
+        "Helpers",
+        "Design Tokens",
+        "Deprecated",
+        "AIO",
+      ],
+    },
+  },
+  // DocsContainerProps["context"]
+  docs: {
+    container: (
+      props: DocsContainerProps
+    ): React.ReactElement<typeof DocsContainer> => {
+      console.log("hi", props.context)
+      return (
+        <DocsContainer context={props.context}>
+          <Title />
+          <Description />
+          <Installation context={props.context} />
+          <Skeleton context={props.context} />
+          <h2>Interactive</h2>
+          <Primary />
+          <Controls />
+          <Stories />
+        </DocsContainer>
+      )
+    },
+  },
+  chromatic: { disable: true },
+}
 
 const globalTypes: Preview["globalTypes"] = {
   textDirection: {
