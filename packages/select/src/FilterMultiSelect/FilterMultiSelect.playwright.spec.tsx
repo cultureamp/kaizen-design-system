@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test"
 
 const iframePath = "iframe.html?args=&id="
-const storyId =
-  "components-select-filter-multi-select--default-kaizen-site-demo"
+const storyId = "components-filter-multi-select--docs"
 test.beforeEach(async ({ page }) => {
   // Go to the starting url before each test.
   await page.goto(`./${iframePath}${storyId}`)
