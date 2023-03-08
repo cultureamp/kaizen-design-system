@@ -132,7 +132,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.decorators = [
-  (StoryComponent: Story): JSX.Element => (
+  (StoryComponent: StoryFn): JSX.Element => (
     <div style={{ minHeight: "500px" }}>
       <StoryComponent />
     </div>
@@ -147,7 +147,7 @@ export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.decorators = [
-  (StoryComponent: Story): JSX.Element => (
+  (StoryComponent: StoryFn): JSX.Element => (
     <div style={{ minHeight: "500px" }}>
       <StoryComponent />
     </div>

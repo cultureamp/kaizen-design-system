@@ -1,10 +1,13 @@
 import React, { useState } from "react"
-import { DecoratorFunction } from "@storybook/addons"
-import { Meta, StoryFn } from "@storybook/react"
+import { Decorator, Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
-import { InputEditModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
+import {
+  InputEditModal,
+  InputEditModalProps,
+  ModalAccessibleDescription,
+} from "@kaizen/draft-modal"
 import { Select } from "@kaizen/draft-select"
 import { Paragraph } from "@kaizen/typography"
 
@@ -14,12 +17,16 @@ const IS_CHROMATIC = isChromatic()
 // Modals have fixed position and would be cropped from snapshot tests.
 // Setting height to 100vh ensures we capture as much content of the
 // modal, as it's height responds to the content within it.
-const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
+const withMinHeight: Decorator<InputEditModalProps> = Story => {
   if (IS_CHROMATIC) {
-    return <div style={{ minHeight: "100vh" }}>{Story()}</div>
+    return (
+      <div style={{ minHeight: "100vh" }}>
+        <Story />
+      </div>
+    )
   }
 
-  return Story()
+  return <Story />
 }
 
 export default {
