@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
@@ -88,7 +88,7 @@ DefaultStory.args = {
   onRemoveFilter: undefined,
 }
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const [rangeDefaultBase, setRangeDefaultBase] = useState<
     DateRange | undefined
   >()

@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { VisuallyHidden } from ".."
 
 export default {
@@ -14,7 +14,7 @@ export default {
   },
 }
 
-export const TextWithVisuallyHidden: Story = () => (
+export const TextWithVisuallyHidden: StoryFn = () => (
   <div>
     There is visually hidden text between the two brackets (click "Show code" to
     see more): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]

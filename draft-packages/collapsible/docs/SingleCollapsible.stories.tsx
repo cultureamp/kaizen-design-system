@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
@@ -124,7 +124,7 @@ SingleCollapsibleKaizenSiteDemo.args = {
   title: "Single Collapsible",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

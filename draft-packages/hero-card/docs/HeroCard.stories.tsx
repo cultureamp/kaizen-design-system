@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { HeroCard } from "@kaizen/draft-hero-card"
 
@@ -34,18 +34,18 @@ export default {
   },
 }
 
-export const DefaultKaizenSiteDemo: Story = () => (
+export const DefaultKaizenSiteDemo: StoryFn = () => (
   <HeroCard>{renderContent()}</HeroCard>
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const Title: Story = () => (
+export const Title: StoryFn = () => (
   <HeroCard title={<h1>Preview the survey questions</h1>}>
     {renderContent()}
   </HeroCard>
 )
 
-export const Badge: Story = () => (
+export const Badge: StoryFn = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     badge={<span>1</span>}
@@ -55,7 +55,7 @@ export const Badge: Story = () => (
 )
 Badge.parameters = { chromatic: { disable: false } }
 
-export const Image: Story = () => (
+export const Image: StoryFn = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     badge={<span>1</span>}
@@ -77,7 +77,7 @@ export const Image: Story = () => (
 )
 Image.parameters = { chromatic: { disable: false } }
 
-export const CustomLeftContent: Story = () => (
+export const CustomLeftContent: StoryFn = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftContent={<p>Ta-dah</p>}
@@ -87,7 +87,7 @@ export const CustomLeftContent: Story = () => (
 )
 CustomLeftContent.parameters = { chromatic: { disable: false } }
 
-export const CustomLeftContentAndBadge: Story = () => (
+export const CustomLeftContentAndBadge: StoryFn = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftContent={<p>Ta-dah</p>}
@@ -98,7 +98,7 @@ export const CustomLeftContentAndBadge: Story = () => (
 )
 CustomLeftContentAndBadge.parameters = { chromatic: { disable: false } }
 
-export const FullWidth: Story = () => (
+export const FullWidth: StoryFn = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftContent={<p>Ta-dah</p>}
@@ -109,7 +109,7 @@ export const FullWidth: Story = () => (
 )
 FullWidth.parameters = { chromatic: { disable: false } }
 
-export const BackgroundColors: Story = () => (
+export const BackgroundColors: StoryFn = () => (
   <HeroCard
     title={<h1>Preview the survey questions</h1>}
     leftBackgroundColor="cluny200"

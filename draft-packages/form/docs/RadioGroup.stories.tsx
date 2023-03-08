@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, Story } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -47,7 +47,7 @@ export default {
   },
 } as Meta<typeof RadioGroup>
 
-export const DefaultKaizenSiteDemo: Story = () => (
+export const DefaultKaizenSiteDemo: StoryFn = () => (
   <RadioGroupExample
     render={({ selectedOption, onChangeHandler }): JSX.Element => (
       <RadioGroup labelText="Radio group label" labelId="RadioGroupLabel">
@@ -81,7 +81,7 @@ export const DefaultKaizenSiteDemo: Story = () => (
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
 import {
@@ -28,7 +28,7 @@ export default {
   },
 }
 
-export const MeaningfulKaizenSiteDemo: Story = () => (
+export const MeaningfulKaizenSiteDemo: StoryFn = () => (
   // the wrapper with the fixed with is to solve a problem when this is used
   // as a site demo: the iframe was getting a height of 0px in Firefox
   <div
@@ -78,7 +78,7 @@ const IconExampleTile = ({
   </div>
 )
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const logoIcons = [...Object.entries(Logo)]
   const actionIcons = [...Object.entries(Actions)]
   const formationalIcons = [...Object.entries(Informational)]

@@ -1,6 +1,6 @@
 import React from "react"
 import { Node } from "@react-types/shared"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
@@ -68,7 +68,7 @@ export const WithSections: StoryFn<typeof Select> = () => (
   </>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>
@@ -237,7 +237,7 @@ StickerSheetReversed.parameters = {
   chromatic: { disable: false },
 }
 
-const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (
+const DropdownSheet: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <>
     <div style={{ marginBottom: "28rem" }}>
       <StoryWrapper isReversed={isReversed}>

@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { ToggleIconButton } from "../"
@@ -38,7 +38,7 @@ const InlineWrapper = ({
   <div style={{ display: "inline-block" }}>{children}</div>
 )
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StoryWrapper>
       <StoryWrapper.RowHeader headings={["Base", "Active", "Disabled"]} />

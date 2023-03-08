@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
@@ -45,7 +45,7 @@ DefaultStory.args = {
   size: "sm",
 }
 
-export const StickerSheet: Story = () => (
+export const StickerSheet: StoryFn = () => (
   <>
     <div
       style={{

@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
 
@@ -36,7 +36,7 @@ const QueryInfo = ({
   </div>
 )
 
-export const TailwindMediaQueries: Story = () => (
+export const TailwindMediaQueries: StoryFn = () => (
   <div>
     <div className="mb-32">
       <Heading variant="heading-2" classNameOverride="text-center">

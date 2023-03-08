@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingInput, LoadingHeading } from ".."
@@ -21,7 +21,7 @@ export const DefaultLoadingInput: StoryFn<typeof LoadingInput> = args => (
 )
 DefaultLoadingInput.storyName = "Loading Input"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

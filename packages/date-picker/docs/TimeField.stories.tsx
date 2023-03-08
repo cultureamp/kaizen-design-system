@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
@@ -37,7 +37,7 @@ DefaultStory.args = {
   status: "default",
 }
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const [valueDefault, setValueDefault] = useState<ValueType | null>(null)
   const [valueError, setValueError] = useState<ValueType | null>({
     hour: 1,

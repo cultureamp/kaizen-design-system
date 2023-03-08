@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
@@ -33,7 +33,7 @@ const CalendarSingleExample = (
   </div>
 )
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StickerSheet heading="Calendars - Day">
       <StickerSheet.Header headings={["Hover", "Focus", "Disabled"]} />

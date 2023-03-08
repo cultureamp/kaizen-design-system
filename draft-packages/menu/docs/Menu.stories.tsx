@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Button, IconButton } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
@@ -75,7 +75,7 @@ export const DefaultStory: StoryFn<typeof Menu> = args => (
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

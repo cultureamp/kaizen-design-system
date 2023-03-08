@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { IconButton } from "@kaizen/button"
 import informationWhiteIcon from "@kaizen/component-library/icons/information-white.icon.svg"
@@ -160,7 +160,7 @@ export const OverflowScroll: StoryFn<typeof PopoverRaw> = props => {
   )
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const [ElementRefDefault, PopoverDefault] = usePopover()

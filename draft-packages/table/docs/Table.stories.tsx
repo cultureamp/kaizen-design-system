@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
@@ -136,7 +136,7 @@ export default {
   },
 }
 
-export const DefaultKaizenSiteDemo: Story = () => (
+export const DefaultKaizenSiteDemo: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -175,7 +175,7 @@ const Multiline = ({ isReversed }: { isReversed: boolean }): JSX.Element => (
   </Container>
 )
 
-export const DataVariant: Story = () => (
+export const DataVariant: StoryFn = () => (
   <Container>
     <TableContainer variant="data">
       <TableHeader>
@@ -195,7 +195,7 @@ export const DataVariant: Story = () => (
 )
 DataVariant.parameters = { chromatic: { disable: false } }
 
-export const IconVariant: Story = () => (
+export const IconVariant: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -257,7 +257,7 @@ export const IconVariant: Story = () => (
 )
 IconVariant.parameters = { chromatic: { disable: false } }
 
-export const LinkVariant: Story = () => (
+export const LinkVariant: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -386,7 +386,7 @@ const Default = (): JSX.Element => (
   </Container>
 )
 
-export const HeaderAlignmentAndWrapping: Story = () => (
+export const HeaderAlignmentAndWrapping: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -444,7 +444,7 @@ export const HeaderAlignmentAndWrapping: Story = () => (
 )
 HeaderAlignmentAndWrapping.parameters = { chromatic: { disable: false } }
 
-export const Tooltip: Story = () => (
+export const Tooltip: StoryFn = () => (
   // Extra margin added, so we can see the tooltip above
   <Container style={{ marginTop: "200px" }}>
     <TableContainer>
@@ -501,7 +501,7 @@ export const Tooltip: Story = () => (
 )
 Tooltip.parameters = { chromatic: { disable: false } }
 
-export const AnchorLink: Story = () => (
+export const AnchorLink: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -546,7 +546,7 @@ export const AnchorLink: Story = () => (
   </Container>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

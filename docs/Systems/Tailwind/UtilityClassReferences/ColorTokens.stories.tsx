@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import colorString from "color-string"
 import flatMap from "lodash.flatmap"
 import { Box } from "@kaizen/component-library"
@@ -152,7 +152,7 @@ const ComponentsSection = React.forwardRef<
   </>
 ))
 
-export const ColorTokens: Story = () => {
+export const ColorTokens: StoryFn = () => {
   const theme = useTheme()
 
   /* We don't really need to update any of the stories elements unless the theme changes. This memoization causes a huge perf boost. */
