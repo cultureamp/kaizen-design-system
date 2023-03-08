@@ -23,6 +23,7 @@ import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
 import "./global.scss"
 import { BackToTop } from "./components/BackToTop"
+import { Content, Main, Sidebar } from "./components/Layout"
 import { TableOfContents } from "./components/TableOfContents"
 
 const PageContainer = ({
@@ -30,13 +31,15 @@ const PageContainer = ({
   ...props
 }: DocsContainerProps & { children: any }): any => (
   <DocsContainer {...props}>
-    <main className="flex flex-row-reverse">
-      <TableOfContents />
-      <div>
+    <Main>
+      <Sidebar>
+        <TableOfContents />
+      </Sidebar>
+      <Content>
         {children}
         <BackToTop />
-      </div>
-    </main>
+      </Content>
+    </Main>
   </DocsContainer>
 )
 

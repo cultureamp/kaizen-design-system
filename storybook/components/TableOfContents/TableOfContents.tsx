@@ -31,11 +31,9 @@ export const TableOfContents = (): JSX.Element | null => {
   if (headings.length < 1) return null
 
   return (
-    <aside className="p-16">
-      <div className="sticky right-0 top-12">
-        <p>On this page</p>
-        <div className="toc-list"></div>
-      </div>
-    </aside>
+    <div className="sticky right-0 top-12">
+      <p>On this page</p>
+      <div className="toc-list"></div>
+    </div>
   )
 }
