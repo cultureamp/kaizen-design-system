@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { enAU, enUS } from "date-fns/locale"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"

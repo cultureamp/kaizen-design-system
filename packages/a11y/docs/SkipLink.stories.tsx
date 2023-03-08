@@ -3,9 +3,8 @@ import {
   Title,
   Description,
   Primary,
-  ArgsTable,
+  Controls,
   Stories,
-  PRIMARY_STORY,
 } from "@storybook/blocks"
 import { Meta, StoryFn } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
@@ -34,7 +33,7 @@ export default {
             component directly.
           </Paragraph>
           <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls />
           <Stories />
         </>
       ),

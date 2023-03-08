@@ -1,11 +1,5 @@
 import React from "react"
-import {
-  Title,
-  Primary,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from "@storybook/blocks"
+import { Title, Primary, Controls, Stories } from "@storybook/blocks"
 import { Meta, StoryFn } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
 import { Box } from "../components/Box"
@@ -21,7 +15,7 @@ export default {
           <Title />
           <Documentation />
           <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls />
           <Stories />
         </>
       ),
