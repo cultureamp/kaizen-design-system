@@ -36,7 +36,7 @@ class RadioGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: "Components/Form/Radio Group",
+  title: "Components/Radio Group",
   component: RadioGroup,
   parameters: {
     docs: {

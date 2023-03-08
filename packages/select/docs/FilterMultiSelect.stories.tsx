@@ -14,7 +14,7 @@ import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
 
 export default {
-  title: "Components/Select/Filter Multi-Select",
+  title: "Components/Filter Multi-Select",
   component: FilterMultiSelect,
   parameters: {
     docs: {

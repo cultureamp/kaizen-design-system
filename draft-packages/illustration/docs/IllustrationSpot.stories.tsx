@@ -132,7 +132,7 @@ import {
 } from ".."
 
 export default {
-  title: "Components/Illustration/Spot",
+  title: "Components/Spot",
   component: AccountBasics,
   parameters: {
     docs: {

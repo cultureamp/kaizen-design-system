@@ -23,7 +23,7 @@ const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
 }
 
 export default {
-  title: "Components/Modal",
+  title: "Components",
   component: ContextModal,
   parameters: {
     chromatic: {

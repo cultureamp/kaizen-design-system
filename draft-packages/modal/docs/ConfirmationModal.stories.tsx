@@ -21,7 +21,7 @@ const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
 }
 
 export default {
-  title: "Components/Modal",
+  title: "Components",
   component: ConfirmationModal,
   args: {
     mood: "cautionary",

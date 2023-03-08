@@ -3,7 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { VisuallyHidden } from ".."
 
 export default {
-  title: "Components/Accessibility/Visually Hidden",
+  title: "Components/Visually Hidden",
   component: VisuallyHidden,
   parameters: {
     docs: {

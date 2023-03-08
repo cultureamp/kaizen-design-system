@@ -37,7 +37,7 @@ class ToggleStateContainer extends React.Component<
 }
 
 export default {
-  title: "Components/Form/Toggle Switch Field",
+  title: "Components/Toggle Switch Field",
   component: ToggleSwitchField,
   parameters: {
     docs: {
