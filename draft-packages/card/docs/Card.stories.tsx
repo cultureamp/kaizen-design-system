@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Card } from ".."
 
@@ -25,7 +25,7 @@ DefaultStory.args = {
   variant: "default",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

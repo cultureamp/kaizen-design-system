@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
@@ -29,7 +29,7 @@ export const DefaultLoadingGraphic: StoryFn<typeof LoadingGraphic> = args => (
 DefaultLoadingGraphic.storyName = "Loading Graphic"
 DefaultLoadingGraphic.args = { size: "xlarge" }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

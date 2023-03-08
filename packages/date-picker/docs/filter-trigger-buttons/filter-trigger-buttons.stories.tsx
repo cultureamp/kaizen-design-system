@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import {
   FilterTriggerButton,
@@ -22,7 +22,7 @@ export default {
   },
 }
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StickerSheet heading="Filter Trigger Button">
       <StickerSheet.Header

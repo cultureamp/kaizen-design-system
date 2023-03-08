@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import {
   RichTextEditor,
   EditorContentArray,
@@ -8,7 +8,7 @@ import {
 import dummyContent from "./dummyContent.json"
 import dummyMalformedContent from "./dummyMalformedContent.json"
 
-type RTEStory = Story<
+type RTEStory = StoryFn<
   Omit<RichTextEditorProps, "value" | "onChange" | "aria-labelledby">
 >
 

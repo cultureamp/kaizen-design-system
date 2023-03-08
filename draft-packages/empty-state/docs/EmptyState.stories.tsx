@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
@@ -140,7 +140,7 @@ const CUSTOM_HEADING_PROPS: EmptyStateProps = {
   },
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

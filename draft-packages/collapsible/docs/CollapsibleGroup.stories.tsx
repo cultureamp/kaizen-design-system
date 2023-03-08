@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -104,7 +104,7 @@ const CollapsibleGroupStickyHeaders = (): JSX.Element => (
   </CollapsibleGroup>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

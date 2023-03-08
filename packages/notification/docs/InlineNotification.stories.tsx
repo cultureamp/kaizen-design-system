@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -43,7 +43,7 @@ CustomHeadingLevel.args = {
   type: "positive",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const forceMultilineText = (

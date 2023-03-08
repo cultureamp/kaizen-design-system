@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
@@ -63,7 +63,7 @@ export const Default: StoryFn<typeof ToggleSwitchField> = props => (
 )
 Default.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StickerSheet isReversed={isReversed}>

@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
 
@@ -25,7 +25,7 @@ FilterBaseButtonStory.args = {
   children: "Label",
 }
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <StickerSheet heading="Filter Base Button">
     <StickerSheet.Header headings={["Base", "Hover", "Active", "Focus"]} />
     <StickerSheet.Body>

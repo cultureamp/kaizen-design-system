@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Card } from "@kaizen/draft-card"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 
@@ -16,7 +16,7 @@ export default {
   },
 }
 
-export const TailwindPseudoSelectors: Story<{ isReversed: boolean }> = ({
+export const TailwindPseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <div className="flex flex-col items-center">

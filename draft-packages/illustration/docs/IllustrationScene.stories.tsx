@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
@@ -122,7 +122,7 @@ const isAnimatedScene = (
   Component: IllustrationScene
 ): Component is AnimatedScene => Component.toString().includes("isAnimated")
 
-const IllustrationScenesTemplate: Story<
+const IllustrationScenesTemplate: StoryFn<
   (AnimatedSceneProps | StaticSceneProps) & { sceneComponents: SceneComponents }
 > = ({ sceneComponents, ...restArgs }) => {
   const { isAnimated, loop, autoplay, alt = "", ...restProps } = restArgs

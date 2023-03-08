@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingParagraph } from ".."
@@ -22,7 +22,7 @@ export const DefaultLoadingParagraph: StoryFn<
 > = args => <LoadingParagraph {...args} />
 DefaultLoadingParagraph.storyName = "Loading Paragraph"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

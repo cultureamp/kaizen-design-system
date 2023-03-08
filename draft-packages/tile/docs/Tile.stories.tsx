@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
@@ -67,7 +67,7 @@ export const MultiAction: StoryFn<typeof MultiActionTile> = () => (
 )
 MultiAction.storyName = "Multi action tile"
 
-export const MultiActionMoods: Story = () => (
+export const MultiActionMoods: StoryFn = () => (
   <TileGrid>
     <MultiActionTile
       title="Default"
@@ -115,7 +115,7 @@ export const MultiActionMoods: Story = () => (
 MultiActionMoods.storyName = "Multi action tile moods"
 MultiActionMoods.parameters = { chromatic: { disable: false } }
 
-export const MultiActionWithSecondary: Story = () => (
+export const MultiActionWithSecondary: StoryFn = () => (
   <MultiActionTile
     title="Tile heading"
     metadata="Metadata"
@@ -126,7 +126,7 @@ export const MultiActionWithSecondary: Story = () => (
 MultiActionWithSecondary.storyName = "Multi action tile with secondary action"
 MultiActionWithSecondary.parameters = { chromatic: { disable: false } }
 
-export const MultiActionWithChildren: Story = () => (
+export const MultiActionWithChildren: StoryFn = () => (
   <MultiActionTile
     title="Tile heading"
     metadata="Metadata"
@@ -138,7 +138,7 @@ export const MultiActionWithChildren: Story = () => (
 MultiActionWithChildren.storyName = "Multi action tile with children"
 MultiActionWithChildren.parameters = { chromatic: { disable: false } }
 
-export const MultiActionWithCustomTitle: Story = () => (
+export const MultiActionWithCustomTitle: StoryFn = () => (
   <MultiActionTile
     title="Custom title"
     primaryAction={primaryAction}
@@ -149,7 +149,7 @@ export const MultiActionWithCustomTitle: Story = () => (
 )
 MultiActionWithCustomTitle.storyName = "Multi action tile with custom title tag"
 
-export const MultiActionWithInformation: Story = () => (
+export const MultiActionWithInformation: StoryFn = () => (
   <MultiActionTile
     title="Tile heading"
     metadata="Metadata"
@@ -159,7 +159,7 @@ export const MultiActionWithInformation: Story = () => (
 )
 MultiActionWithInformation.storyName = "Multi action tile with information"
 
-export const MultiActionActionInNewTabs: Story = () => (
+export const MultiActionActionInNewTabs: StoryFn = () => (
   <MultiActionTile
     title="Tile heading"
     metadata="Metadata"
@@ -178,7 +178,7 @@ export const MultiActionActionInNewTabs: Story = () => (
 MultiActionActionInNewTabs.storyName =
   "Multi action tile with actions opening in new tabs"
 
-export const Information: Story = () => (
+export const Information: StoryFn = () => (
   <InformationTile
     title="Tile heading"
     metadata="Metadata"
@@ -189,7 +189,7 @@ export const Information: Story = () => (
 Information.storyName = "Information tile"
 Information.parameters = { chromatic: { disable: false } }
 
-export const InformationMood: Story = () => (
+export const InformationMood: StoryFn = () => (
   <TileGrid>
     <InformationTile
       title="Default"
@@ -243,7 +243,7 @@ export const InformationMood: Story = () => (
 )
 InformationMood.storyName = "Information tile moods"
 
-export const InformationWithChildren: Story = () => (
+export const InformationWithChildren: StoryFn = () => (
   <InformationTile
     title="Tile heading"
     metadata="Metadata"
@@ -255,7 +255,7 @@ export const InformationWithChildren: Story = () => (
 )
 InformationWithChildren.storyName = "Information tile with children"
 
-export const InformationWithCustomTitle: Story = () => (
+export const InformationWithCustomTitle: StoryFn = () => (
   <InformationTile
     title="Custom title"
     information={information}
@@ -267,7 +267,7 @@ export const InformationWithCustomTitle: Story = () => (
 )
 InformationMood.storyName = "Information tile moods"
 
-export const InformationCustomInfoElement: Story = () => (
+export const InformationCustomInfoElement: StoryFn = () => (
   <InformationTile
     title="Tile heading"
     metadata="Metadata"
@@ -278,7 +278,7 @@ export const InformationCustomInfoElement: Story = () => (
 InformationCustomInfoElement.storyName =
   "Information tile (custom information element)"
 
-export const InformationCustomTitleTag: Story = () => (
+export const InformationCustomTitleTag: StoryFn = () => (
   <InformationTile
     title="Tile heading"
     titleTag="div"
@@ -289,7 +289,7 @@ export const InformationCustomTitleTag: Story = () => (
 )
 InformationCustomTitleTag.storyName = "Information tile (custom title tag)"
 
-export const TileGridWithTiles: Story = () => (
+export const TileGridWithTiles: StoryFn = () => (
   <TileGrid>
     <InformationTile
       title="Tile heading"
@@ -332,7 +332,7 @@ export const TileGridWithTiles: Story = () => (
 TileGridWithTiles.storyName = "Tile Grid"
 TileGridWithTiles.parameters = { chromatic: { disable: false } }
 
-export const TileGridWithFewTiles: Story = () => (
+export const TileGridWithFewTiles: StoryFn = () => (
   <TileGrid>
     <InformationTile
       title="Tile heading"

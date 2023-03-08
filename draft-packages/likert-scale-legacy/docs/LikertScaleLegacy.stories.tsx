@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import {
   LikertScaleLegacy,
   Scale,
@@ -77,7 +77,7 @@ DefaultStory.args = {
   labelId: "456",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const SectionHeading = ({ heading }: { heading: string }): JSX.Element => (

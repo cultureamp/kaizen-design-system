@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { Paragraph } from "@kaizen/typography"
@@ -25,7 +25,7 @@ const OffsetPadding = ({
   children: React.ReactNode
 }): JSX.Element => <div style={{ margin: "-1rem" }}>{children}</div>
 
-export const DefaultStory: Story = () => (
+export const DefaultStory: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
     <Container>
@@ -53,7 +53,7 @@ export const DefaultStory: Story = () => (
 )
 DefaultStory.storyName = "Container/Content (default)"
 
-export const FullBleedBackgroundStory: Story = () => (
+export const FullBleedBackgroundStory: StoryFn = () => (
   <OffsetPadding>
     <Container classNameOverride={styles.pink}>
       <Content classNameOverride={styles.white}>
@@ -80,7 +80,7 @@ export const FullBleedBackgroundStory: Story = () => (
 FullBleedBackgroundStory.storyName = "Container/Content (Full-bleed background)"
 FullBleedBackgroundStory.parameters = { chromatic: { disable: false } }
 
-export const SkirtStory: Story = () => (
+export const SkirtStory: StoryFn = () => (
   <>
     <TitleBlockZen
       title="Skirt"
@@ -140,7 +140,7 @@ export const SkirtStory: Story = () => (
 )
 SkirtStory.storyName = "Skirt (default)"
 
-export const SkirtEducationVariant: Story = () => (
+export const SkirtEducationVariant: StoryFn = () => (
   <>
     <TitleBlockZen
       variant="education"
@@ -169,7 +169,7 @@ export const SkirtEducationVariant: Story = () => (
 SkirtEducationVariant.storyName = "Skirt (Education variant)"
 SkirtEducationVariant.parameters = { chromatic: { disable: false } }
 
-export const SkirtWithoutTitleBlockNavigation: Story = () => (
+export const SkirtWithoutTitleBlockNavigation: StoryFn = () => (
   <>
     <TitleBlockZen
       title="Without Title Block navigation"
@@ -237,7 +237,7 @@ SkirtWithoutTitleBlockNavigation.storyName =
   "Skirt (Title Block without navigation)"
 SkirtWithoutTitleBlockNavigation.parameters = { chromatic: { disable: false } }
 
-export const WithoutSkirtCard: Story = () => (
+export const WithoutSkirtCard: StoryFn = () => (
   <>
     <TitleBlockZen
       title="Without Skirt Card"

@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { GlobalNotification } from "@kaizen/notification"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -27,7 +27,7 @@ DefaultStory.args = {
   persistent: true,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

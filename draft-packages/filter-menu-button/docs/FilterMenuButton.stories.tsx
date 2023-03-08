@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
@@ -127,7 +127,7 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
-export const DefaultEmpty: Story = () => {
+export const DefaultEmpty: StoryFn = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(
     IS_INITIAL_DROPDOWN_VISIBLE
   )
@@ -169,7 +169,7 @@ DefaultWithChildrenSimpleFilter.parameters = {
   docs: { source: { type: "code" } },
 }
 
-export const DefaultWithChildrenAdvancedFilter: Story = () => {
+export const DefaultWithChildrenAdvancedFilter: StoryFn = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(
     IS_INITIAL_DROPDOWN_VISIBLE
   )

@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { Heading } from "@kaizen/typography"
@@ -121,7 +121,7 @@ DefaultAsyncSelectStory.args = {
   placeholder: "Placeholder",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <div>

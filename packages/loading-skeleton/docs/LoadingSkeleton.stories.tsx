@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   BrandMomentPositiveOutro,
@@ -55,7 +55,7 @@ const GuidanceBlockSkeletonTemplate = ({
   </div>
 )
 
-const ExampleUsageTemplate: Story = () => {
+const ExampleUsageTemplate: StoryFn = () => {
   const GUIDANCE_BLOCK_TEXT = {
     title: "This is the Guidance block title",
     description:

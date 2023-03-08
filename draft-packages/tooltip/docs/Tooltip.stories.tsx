@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import { DecoratorFunction } from "@storybook/addons"
-import { Meta, StoryFn, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button, IconButton } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"

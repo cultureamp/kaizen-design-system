@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
 import {
   AccountBasics,
@@ -161,7 +161,7 @@ const IllustrationExampleTile = ({ Component, name }): JSX.Element => (
   </div>
 )
 
-export const AllSpotIllustrations: Story = () => {
+export const AllSpotIllustrations: StoryFn = () => {
   const engagementSpots = [
     {
       Component: BenefitsSurvey,
@@ -753,7 +753,7 @@ export const AllSpotIllustrations: Story = () => {
 }
 AllSpotIllustrations.parameters = { chromatic: { disable: false } }
 
-export const AnimatedSpot: Story<AnimatedSpotProps> = args => (
+export const AnimatedSpot: StoryFn<AnimatedSpotProps> = args => (
   <div style={{ width: "156px" }}>
     <Cautionary isAnimated loop {...args} />
     <Informative isAnimated loop {...args} />

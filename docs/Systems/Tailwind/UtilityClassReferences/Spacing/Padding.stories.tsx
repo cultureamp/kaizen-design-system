@@ -1,5 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { Card } from "@kaizen/draft-card"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
@@ -26,7 +26,7 @@ export default {
   },
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <div className="flex flex-col items-center">
