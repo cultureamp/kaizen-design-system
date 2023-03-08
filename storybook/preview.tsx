@@ -1,7 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
-import { DocsContainer, DocsContainerProps } from "@storybook/blocks"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
 import "highlight.js/styles/a11y-light.css"
@@ -16,26 +15,7 @@ import "normalize.css"
 
 import "@kaizen/component-library/styles/fonts.scss"
 import "./global.scss"
-import { BackToTop } from "./components/BackToTop"
-import { Content, Main, Sidebar } from "./components/Layout"
-import { TableOfContents } from "./components/TableOfContents"
-
-const PageContainer = ({
-  children,
-  ...props
-}: DocsContainerProps & { children: any }): any => (
-  <DocsContainer {...props}>
-    <Main>
-      <Sidebar>
-        <TableOfContents />
-      </Sidebar>
-      <Content>
-        {children}
-        <BackToTop />
-      </Content>
-    </Main>
-  </DocsContainer>
-)
+import { PageContainer } from "./components/PageContainer"
 
 export const parameters = {
   backgrounds: {
