@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { DateRangePicker, DateRangePickerProps } from "../src/DateRangePicker"
@@ -19,7 +19,7 @@ export default {
   },
 }
 
-export const DateRangePickerStoryDefault: ComponentStory<
+export const DateRangePickerStoryDefault: StoryFn<
   typeof DateRangePicker
 > = props => <DateRangePickerTemplate {...props} />
 DateRangePickerStoryDefault.storyName = "Date Range Picker"

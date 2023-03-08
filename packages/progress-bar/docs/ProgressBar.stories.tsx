@@ -1,5 +1,5 @@
 import React from "react"
-import { Story, ComponentStory } from "@storybook/react"
+import { Story, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { ProgressBar } from "../index"
 
@@ -15,7 +15,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof ProgressBar> = args => (
+export const DefaultStory: StoryFn<typeof ProgressBar> = args => (
   <ProgressBar {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"

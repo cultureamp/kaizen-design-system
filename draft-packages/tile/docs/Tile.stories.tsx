@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
@@ -58,7 +58,7 @@ const information: TileInformation = {
   },
 }
 
-export const MultiAction: ComponentStory<typeof MultiActionTile> = () => (
+export const MultiAction: StoryFn<typeof MultiActionTile> = () => (
   <MultiActionTile
     title="Tile heading"
     metadata="Metadata"

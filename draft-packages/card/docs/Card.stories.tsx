@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Card } from ".."
 
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta<typeof Card>
 
-export const DefaultStory: ComponentStory<typeof Card> = args => (
+export const DefaultStory: StoryFn<typeof Card> = args => (
   <Card {...args}>This is a default container</Card>
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"

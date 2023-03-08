@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { FieldMessageStatus } from "@kaizen/draft-form"
@@ -73,7 +73,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof DatePicker> = props => {
+export const DefaultStory: StoryFn<typeof DatePicker> = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>()
 
   return (

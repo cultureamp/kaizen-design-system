@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
@@ -24,7 +24,7 @@ export default {
   },
 } as Meta<typeof TimeField>
 
-export const DefaultStory: ComponentStory<typeof TimeField> = args => {
+export const DefaultStory: StoryFn<typeof TimeField> = args => {
   const [value, setValue] = useState<ValueType | null>(null)
   return <TimeField {...args} value={value} onChange={setValue} />
 }

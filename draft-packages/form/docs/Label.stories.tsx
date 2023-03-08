@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -15,7 +15,7 @@ export default {
   },
 } as Meta<typeof Label>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Label> = args => (
+export const DefaultKaizenSiteDemo: StoryFn<typeof Label> = args => (
   <Label {...args}></Label>
 )
 DefaultKaizenSiteDemo.storyName = "Label"

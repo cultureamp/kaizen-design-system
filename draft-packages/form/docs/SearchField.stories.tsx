@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta<typeof SearchField>
 
-export const DefaultKaizenDemo: ComponentStory<typeof SearchField> = args => {
+export const DefaultKaizenDemo: StoryFn<typeof SearchField> = args => {
   const [value, setValue] = useState("Some value")
 
   return (

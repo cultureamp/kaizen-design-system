@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
@@ -23,7 +23,7 @@ export default {
   },
 }
 
-const ToolbarStoryTemplate: ComponentStory<typeof Toolbar> = args => (
+const ToolbarStoryTemplate: StoryFn<typeof Toolbar> = args => (
   <Toolbar {...args}>
     <ToolbarSection>
       <ToggleIconButton label="Bold" icon={boldIcon} />

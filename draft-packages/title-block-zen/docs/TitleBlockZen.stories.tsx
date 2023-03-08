@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { CustomButtonProps } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
@@ -56,14 +56,13 @@ const SECONDARY_ACTIONS = [
   },
 ]
 
-const DefaultTemplate: ComponentStory<typeof TitleBlockZen> = args => (
+const DefaultTemplate: StoryFn<typeof TitleBlockZen> = args => (
   <OffsetPadding>
     <TitleBlockZen {...args} />
   </OffsetPadding>
 )
 
-export const Default: ComponentStory<typeof TitleBlockZen> =
-  DefaultTemplate.bind({})
+export const Default: StoryFn<typeof TitleBlockZen> = DefaultTemplate.bind({})
 Default.args = {
   title: "Page title",
   surveyStatus: { text: "Live", status: "live" },

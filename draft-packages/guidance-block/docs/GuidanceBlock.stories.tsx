@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
@@ -39,7 +39,7 @@ const GUIDANCE_BLOCK_TEXT = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-export const DefaultStory: ComponentStory<typeof GuidanceBlock> = args => (
+export const DefaultStory: StoryFn<typeof GuidanceBlock> = args => (
   <GuidanceBlock
     actions={{
       primary: {

@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
@@ -49,7 +49,7 @@ export default {
   },
 } as Meta<typeof ToggleSwitchField>
 
-export const Default: ComponentStory<typeof ToggleSwitchField> = props => (
+export const Default: StoryFn<typeof ToggleSwitchField> = props => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
     {({ toggledStatus, toggle }): JSX.Element => (
       <ToggleSwitchField

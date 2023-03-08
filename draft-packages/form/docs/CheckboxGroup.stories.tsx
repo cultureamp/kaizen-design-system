@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -36,7 +36,7 @@ export default {
   },
 } as Meta<typeof CheckboxField>
 
-export const InteractiveKaizenSiteDemo: ComponentStory<
+export const InteractiveKaizenSiteDemo: StoryFn<
   typeof CheckboxField
 > = args => (
   <div>

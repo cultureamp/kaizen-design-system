@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -27,7 +27,7 @@ export default {
   },
 } as Meta<typeof CollapsibleGroup>
 
-export const CollapsibleGroupDefault: ComponentStory<
+export const CollapsibleGroupDefault: StoryFn<
   typeof CollapsibleGroup
 > = args => (
   <CollapsibleGroup {...args}>

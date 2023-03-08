@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { ClearButton } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
@@ -18,7 +18,7 @@ export default {
   },
 } as Meta<typeof ClearButton>
 
-export const DefaultStory: ComponentStory<typeof ClearButton> = args => (
+export const DefaultStory: StoryFn<typeof ClearButton> = args => (
   <ClearButton {...args} />
 )
 DefaultStory.storyName = "Clear Button"
