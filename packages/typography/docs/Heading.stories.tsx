@@ -3,9 +3,8 @@ import {
   Title,
   Description,
   Primary,
-  ArgsTable,
+  Controls,
   Stories,
-  PRIMARY_STORY,
 } from "@storybook/blocks"
 import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -25,7 +24,7 @@ export default {
           <Description />
           <Documentation />
           <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls />
           <Stories />
         </>
       ),
