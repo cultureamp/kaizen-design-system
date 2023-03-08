@@ -20,8 +20,9 @@ addons.setConfig({
           style={{
             color: colors.purple["800"],
             textTransform: "capitalize",
-            fontSize: "14px",
+            fontSize: "13px",
             letterSpacing: "normal",
+            fontWeight: 600,
           }}
         >
           <span aria-hidden style={{ marginRight: defaultTheme.spacing[6] }}>
