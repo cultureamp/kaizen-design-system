@@ -4,7 +4,7 @@ import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"
 
-type InlineNotificationProps = {
+export type InlineNotificationProps = {
   type: NotificationType
   children?: React.ReactNode
   autohide?: boolean
@@ -27,7 +27,7 @@ type InlineNotificationProps = {
  * {@link https://cultureamp.design/components/inline-notification/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-notification-inline-notification--default-kaizen-demo Storybook}
  */
-const InlineNotification = ({
+export const InlineNotification = ({
   persistent,
   hideCloseIcon,
   ...otherProps
@@ -46,4 +46,4 @@ InlineNotification.defaultProps = {
   persistent: false,
 }
 
-export default InlineNotification
+InlineNotification.displayName = "InlineNotification"
