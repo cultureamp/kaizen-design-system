@@ -2,19 +2,8 @@
 import "./tailwind.scss"
 import React from "react"
 import { DocsContainer } from "@storybook/addon-docs"
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Controls,
-  Stories,
-  DocsContextProps,
-  DocsContainerProps,
-} from "@storybook/blocks"
+import { DocsContainerProps } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
-import { Renderer } from "@storybook/types"
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { CustomDocsContainer } from "./CustomDocsContainer"
 import { backgrounds } from "./backgrounds"

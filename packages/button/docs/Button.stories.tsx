@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
@@ -38,14 +38,13 @@ type Story = StoryFn<ButtonProps>
 
 export const Primary: Story = args => <Button {...args} />
 Primary.storyName = "Playground"
-// TODO limit the args showing within the Source
-// Primary.parameters = {
-//   docs: {
-//     canvas: {
-//       sourceState: "shown",
-//     },
-//   },
-// }
+Primary.parameters = {
+  docs: {
+    canvas: {
+      sourceState: "shown",
+    },
+  },
+}
 
 /**
  * `Default`, `Primary`, `Destructive`, `Secondary`
