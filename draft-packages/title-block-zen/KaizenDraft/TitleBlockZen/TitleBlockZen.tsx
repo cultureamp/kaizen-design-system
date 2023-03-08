@@ -537,7 +537,7 @@ const createTabletOverflowMenuItems = (
  * please be aware of the intended order mentioned above.
  */
 
-const TitleBlockZen = ({
+export const TitleBlockZen = ({
   title,
   variant,
   breadcrumb,
@@ -727,5 +727,4 @@ const TitleBlockZen = ({
   )
 }
 
-export default TitleBlockZen
-export { NavigationTab, NavigationTabProps }
+TitleBlockZen.displayName = "TitleBlockZen"
