@@ -7,7 +7,7 @@ import { PaginationLinkProps } from "../src/Button/PaginationLink"
 import { DirectionalLink, PaginationLink } from ".."
 
 export default {
-  title: "Components/Button/Pagination Buttons",
+  title: "Components/Pagination/Buttons",
   component: DirectionalLink,
   args: {
     label: "Label",

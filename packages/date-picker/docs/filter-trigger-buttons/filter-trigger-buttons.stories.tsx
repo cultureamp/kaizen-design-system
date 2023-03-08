@@ -8,7 +8,7 @@ import {
 
 export default {
   title:
-    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
+    "Components/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
   subcomponents: {
     FilterTriggerButton,
     RemovableFilterTriggerButton,

@@ -6,7 +6,7 @@ import { FilterButtonGroup } from "../../src/FilterDateRangePicker/components/Tr
 
 export default {
   title:
-    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Button Group",
+    "Components/Filter Date Range Picker/Subcomponents/Filter Button Group",
   component: FilterButtonGroup,
   parameters: {
     docs: {
