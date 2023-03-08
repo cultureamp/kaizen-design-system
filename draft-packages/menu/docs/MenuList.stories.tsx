@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { MenuList, MenuItem } from "../"
 
 export default {
@@ -12,7 +12,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof MenuList>
 
 export const DefaultStory: StoryFn<typeof MenuList> = args => (
   <MenuList {...args}>
