@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import { DecoratorFunction } from "@storybook/addons"
-import { Meta, StoryFn } from "@storybook/react"
+import { Decorator, Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button, IconButton } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
@@ -11,9 +10,9 @@ import { Tag } from "@kaizen/draft-tag"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Paragraph, Heading } from "@kaizen/typography"
 
-const openTooltipInChromatic: DecoratorFunction = (story, config) => {
-  if (isChromatic()) config.args.isInitiallyVisible = true
-  return story()
+const openTooltipInChromatic: Decorator = (Story, { args }) => {
+  if (isChromatic()) args.isInitiallyVisible = true
+  return <Story />
 }
 
 export default {
