@@ -17,7 +17,7 @@ import { useMediaQueries } from "@kaizen/responsive"
 import { Heading } from "@kaizen/typography"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
-import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
+import { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
 import styles from "./TitleBlockZen.module.scss"
 
