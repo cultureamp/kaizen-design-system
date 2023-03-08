@@ -1,17 +1,31 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { Meta, StoryFn } from "@storybook/react"
-import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
+import { Decorator, Meta, StoryFn } from "@storybook/react"
+import {
+  QueryClientProvider,
+  QueryClient,
+  useInfiniteQuery,
+  useQueryClient,
+} from "@tanstack/react-query"
 import { Label } from "../../../draft-packages/form"
 import { Button, ButtonRef } from "../../button"
 import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../typography"
+import { FilterMultiSelectProps } from "../src/FilterMultiSelect/components/Root"
 import { FilterMultiSelect, getSelectedOptionLabels } from ".."
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
 import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
+
+const client = new QueryClient()
+
+const withQueryProvider: Decorator<FilterMultiSelectProps> = Story => (
+  <QueryClientProvider client={client}>
+    <Story />
+  </QueryClientProvider>
+)
 
 export default {
   title: "Components/Select/Filter Multi-Select",
@@ -334,7 +348,7 @@ export const FilterBarDemo = (): JSX.Element => {
         <Button label="Clear All" onClick={clearFilters} secondary />
       </div>
 
-      <Paragraph variant="body">
+      <Paragraph tag="div" variant="body">
         Selected Values:{" "}
         <CodeBlock
           language="json"
@@ -582,3 +596,4 @@ export const Async: StoryFn<typeof FilterMultiSelect> = args => {
     </>
   )
 }
+Async.decorators = [withQueryProvider]
