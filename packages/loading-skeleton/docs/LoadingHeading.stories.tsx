@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingHeading } from ".."
@@ -16,13 +16,13 @@ export default {
   },
 }
 
-export const DefaultLoadingHeading: ComponentStory<
-  typeof LoadingHeading
-> = args => <LoadingHeading {...args} />
+export const DefaultLoadingHeading: StoryFn<typeof LoadingHeading> = args => (
+  <LoadingHeading {...args} />
+)
 DefaultLoadingHeading.storyName = "Loading Heading"
 DefaultLoadingHeading.args = { variant: "heading-1" }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

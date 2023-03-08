@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { Label } from "../../../draft-packages/form"
 import { Button, ButtonRef } from "../../button"
@@ -24,9 +24,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FilterMultiSelect>
+} as Meta<typeof FilterMultiSelect>
 
-export const DefaultKaizenSiteDemo: ComponentStory<
+export const DefaultKaizenSiteDemo: StoryFn<
   typeof FilterMultiSelect
 > = args => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
@@ -88,7 +88,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
-export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
+export const Loading: StoryFn<typeof FilterMultiSelect> = args => (
   <>
     <FilterMultiSelect
       {...args}
@@ -113,7 +113,7 @@ Loading.parameters = {
   controls: { disable: true },
 }
 
-export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
+export const WithSections: StoryFn<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
@@ -208,7 +208,7 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
   )
 }
 
-export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
+export const TruncatedLabels: StoryFn<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
@@ -401,7 +401,7 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = (): JSX.Element => {
 
 DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
 
-export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
+export const Async: StoryFn<typeof FilterMultiSelect> = args => {
   const [open, setOpen] = useState(false)
   const [selectedPeople, setSelectedPeople] = useState<string[]>([])
   const [searchState, setSearchState] = useState("")

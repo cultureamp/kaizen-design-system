@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
@@ -20,7 +20,7 @@ export default {
   },
 }
 
-export const Uncontrolled: Story = () => (
+export const Uncontrolled: StoryFn = () => (
   <Tabs
     defaultIndex={1}
     // eslint-disable-next-line no-console
@@ -57,7 +57,7 @@ export const Uncontrolled: Story = () => (
 )
 Uncontrolled.parameters = { chromatic: { disable: false } }
 
-export const Controlled: Story = () => {
+export const Controlled: StoryFn = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   return (
     <>
@@ -98,7 +98,7 @@ export const Controlled: Story = () => {
   )
 }
 
-export const ManualKeyboardActivation: Story = () => (
+export const ManualKeyboardActivation: StoryFn = () => (
   <Tabs keyboardActivation="manual">
     <TabList aria-label="Tabs">
       <Tab>Tab 1</Tab>
@@ -135,7 +135,7 @@ export const ManualKeyboardActivation: Story = () => (
   </Tabs>
 )
 
-export const UsageInCard: Story = () => (
+export const UsageInCard: StoryFn = () => (
   <Card>
     <Tabs
       // eslint-disable-next-line no-console

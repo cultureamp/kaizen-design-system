@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Slider } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -21,9 +21,9 @@ export default {
       control: "text",
     },
   },
-} as ComponentMeta<typeof Slider>
+} as Meta<typeof Slider>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Slider> = args => (
+export const DefaultKaizenSiteDemo: StoryFn<typeof Slider> = args => (
   <Slider {...args} />
 )
 DefaultKaizenSiteDemo.storyName = "Slider"
@@ -34,7 +34,7 @@ DefaultKaizenSiteDemo.args = {
   maxLabel: "Fantastic",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

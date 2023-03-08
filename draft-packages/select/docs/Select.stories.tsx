@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { Heading } from "@kaizen/typography"
@@ -34,7 +34,7 @@ export default {
   },
 }
 
-export const DefaultSelectStory: ComponentStory<typeof Select> = args => (
+export const DefaultSelectStory: StoryFn<typeof Select> = args => (
   <Select {...args} />
 )
 DefaultSelectStory.storyName = "Select"
@@ -50,7 +50,7 @@ DefaultSelectStory.args = {
   isSearchable: false,
 }
 
-export const GroupedStory: ComponentStory<typeof Select> = args => {
+export const GroupedStory: StoryFn<typeof Select> = args => {
   const COLOUR_OPTIONS = [
     { value: "blue", label: "blue" },
     { value: "red", label: "red", isDisabled: true },
@@ -90,9 +90,7 @@ GroupedStory.args = {
   status: "default",
 }
 
-export const DefaultAsyncSelectStory: ComponentStory<
-  typeof AsyncSelect
-> = args => {
+export const DefaultAsyncSelectStory: StoryFn<typeof AsyncSelect> = args => {
   const filterNames = (inputValue: string): typeof OPTIONS =>
     OPTIONS.filter(({ label }) =>
       label.toLowerCase().includes(inputValue.toLowerCase())
@@ -123,7 +121,7 @@ DefaultAsyncSelectStory.args = {
   placeholder: "Placeholder",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <div>

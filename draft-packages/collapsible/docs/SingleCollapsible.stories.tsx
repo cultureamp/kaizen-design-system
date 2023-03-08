@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
@@ -33,7 +33,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Collapsible>
+} as Meta<typeof Collapsible>
 
 const SingleCollapsibleNoPadding = (): JSX.Element => (
   <Collapsible
@@ -110,7 +110,7 @@ const SingleCollapsibleLazyLoad = (): JSX.Element => (
   </Collapsible>
 )
 
-export const SingleCollapsibleKaizenSiteDemo: ComponentStory<
+export const SingleCollapsibleKaizenSiteDemo: StoryFn<
   typeof Collapsible
 > = args => (
   <Collapsible {...args}>
@@ -124,7 +124,7 @@ SingleCollapsibleKaizenSiteDemo.args = {
   title: "Single Collapsible",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

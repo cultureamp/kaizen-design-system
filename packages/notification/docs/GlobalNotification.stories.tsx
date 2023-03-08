@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { GlobalNotification } from "@kaizen/notification"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -15,7 +15,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof GlobalNotification> = args => (
+export const DefaultStory: StoryFn<typeof GlobalNotification> = args => (
   <GlobalNotification {...args}>
     Emails will be sent notifying coaches and inviting reviewers to give their
     feedback. <a href="/">View all</a>
@@ -27,7 +27,7 @@ DefaultStory.args = {
   persistent: true,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

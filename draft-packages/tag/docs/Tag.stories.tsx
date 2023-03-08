@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Avatar } from "@kaizen/draft-avatar"
 import { Tag } from "@kaizen/draft-tag"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -16,14 +16,14 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof Tag> = args => (
+export const DefaultStory: StoryFn<typeof Tag> = args => (
   <Tag variant="default" {...args}>
     Default
   </Tag>
 )
 DefaultStory.storyName = "Tag"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

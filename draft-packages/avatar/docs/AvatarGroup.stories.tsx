@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   AvatarGroup,
@@ -64,9 +64,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof AvatarGroup>
+} as Meta<typeof AvatarGroup>
 
-export const DefaultStory: ComponentStory<typeof AvatarGroup> = args => (
+export const DefaultStory: StoryFn<typeof AvatarGroup> = args => (
   <AvatarGroup {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
@@ -76,7 +76,7 @@ DefaultStory.args = {
   avatars: AVATARS,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const ROWS: Array<{ title: string; size: AvatarGroupSize }> = [

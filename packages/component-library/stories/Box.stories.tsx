@@ -1,14 +1,12 @@
 import React from "react"
 import {
   Title,
-  Subtitle,
-  Description,
   Primary,
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from "@storybook/addon-docs"
-import { ComponentStory } from "@storybook/react"
+} from "@storybook/blocks"
+import { Meta, StoryFn } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
 import { Box } from "../components/Box"
 import styles from "./Box.stories.module.scss"
@@ -21,8 +19,6 @@ export default {
       page: (): JSX.Element => (
         <>
           <Title />
-          <Subtitle />
-          <Description />
           <Documentation />
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
@@ -31,11 +27,11 @@ export default {
       ),
     },
   },
-}
+} as Meta<typeof Box>
 
 const Documentation = ({ reversed }: { reversed?: boolean }): JSX.Element => (
   <Box mt={2}>
-    <Paragraph variant="body" color={reversed ? "white" : "dark"}>
+    <Paragraph tag="div" variant="body" color={reversed ? "white" : "dark"}>
       <ul>
         <li>
           <code>Box</code> is a utility component that is for creating
@@ -62,7 +58,7 @@ const Documentation = ({ reversed }: { reversed?: boolean }): JSX.Element => (
   </Box>
 )
 
-export const BoxDefault: ComponentStory<typeof Box> = args => (
+export const BoxDefault: StoryFn<typeof Box> = args => (
   <div className={styles.boxStoriesWrapper}>
     <Box {...args}>
       A box with no props has a default margin and padding of 0. The children of

@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ClearButton } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
@@ -16,14 +16,14 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ClearButton>
+} as Meta<typeof ClearButton>
 
-export const DefaultStory: ComponentStory<typeof ClearButton> = args => (
+export const DefaultStory: StoryFn<typeof ClearButton> = args => (
   <ClearButton {...args} />
 )
 DefaultStory.storyName = "Clear Button"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StickerSheet isReversed={isReversed}>

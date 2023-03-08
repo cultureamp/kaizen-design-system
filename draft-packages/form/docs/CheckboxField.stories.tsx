@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -19,9 +19,9 @@ export default {
       control: "disabled",
     },
   },
-} as ComponentMeta<typeof CheckboxField>
+} as Meta<typeof CheckboxField>
 
-export const InteractiveKaizenSiteDemo: ComponentStory<
+export const InteractiveKaizenSiteDemo: StoryFn<
   typeof CheckboxField
 > = args => {
   const [status, setStatus] = useState<CheckedStatus>()
@@ -41,7 +41,7 @@ export const InteractiveKaizenSiteDemo: ComponentStory<
 }
 InteractiveKaizenSiteDemo.storyName = "Checkbox Field"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

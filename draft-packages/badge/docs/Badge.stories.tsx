@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Badge, BadgeAnimated, BadgeProps } from "@kaizen/draft-badge"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
@@ -18,7 +18,7 @@ export default {
       argTypesRegex: "^on.*",
     },
   },
-} as ComponentMeta<typeof Badge>
+} as Meta<typeof Badge>
 
 type BadgeAnimationStoryWrapperProps = {
   children: (badgeCount: string, useAnimation: boolean) => void
@@ -49,7 +49,7 @@ const BadgeAnimationStoryWrapper = ({
   )
 }
 
-export const DefaultStory: Story<Omit<BadgeProps, "children">> = ({
+export const DefaultStory: StoryFn<Omit<BadgeProps, "children">> = ({
   variant,
   ...args
 }) => (
@@ -77,7 +77,7 @@ export const DefaultStory: Story<Omit<BadgeProps, "children">> = ({
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

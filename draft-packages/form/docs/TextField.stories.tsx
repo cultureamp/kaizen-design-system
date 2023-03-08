@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { TextField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
@@ -15,9 +15,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof TextField>
+} as Meta<typeof TextField>
 
-export const DefaultStory: ComponentStory<typeof TextField> = args => (
+export const DefaultStory: StoryFn<typeof TextField> = args => (
   <TextField {...args} />
 )
 DefaultStory.args = {
@@ -55,7 +55,7 @@ DefaultStory.argTypes = {
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const DEFAULT__ROW_PROPS: TextFieldProps[] = [

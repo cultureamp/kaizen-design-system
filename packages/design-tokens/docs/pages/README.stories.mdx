@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { Meta } from "@storybook/blocks"
 import Readme from '../../README.md'
+=======
+import { Meta, Markdown } from "@storybook/blocks"
+import ReadMe from "../../README.md?raw"
+>>>>>>> d6026ef223b2fc98d2f05226e61def6594f8bcc9
 
-<Meta title="Design Tokens/README" parameters={{docsOnly: true}} />
+<Meta title="Design Tokens/README" parameters={{ docsOnly: true }} />
 
-<Readme />
+<Markdown>{ReadMe}</Markdown>

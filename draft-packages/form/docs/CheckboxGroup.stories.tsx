@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -34,9 +34,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof CheckboxField>
+} as Meta<typeof CheckboxField>
 
-export const InteractiveKaizenSiteDemo: ComponentStory<
+export const InteractiveKaizenSiteDemo: StoryFn<
   typeof CheckboxField
 > = args => (
   <div>
@@ -79,7 +79,7 @@ InteractiveKaizenSiteDemo.args = {
   labelText: "Label",
 }
 
-export const NestedCheckboxGroup: Story = () => {
+export const NestedCheckboxGroup: StoryFn = () => {
   const [selectedOptions, setSelectedOptions] = React.useState<number[]>([])
 
   const onCheckHandler = (state: string, value: number): void => {
@@ -143,7 +143,7 @@ export const NestedCheckboxGroup: Story = () => {
   )
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

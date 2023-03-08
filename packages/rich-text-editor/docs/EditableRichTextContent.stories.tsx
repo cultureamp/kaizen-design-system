@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import {
@@ -22,7 +22,7 @@ export default {
   },
 }
 
-export const EditableRichTextContentStory: ComponentStory<
+export const EditableRichTextContentStory: StoryFn<
   typeof InlineEditor
 > = args => <InlineEditor {...args} />
 EditableRichTextContentStory.storyName = "Default"

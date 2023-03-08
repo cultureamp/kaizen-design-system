@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { TextAreaField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -22,9 +22,9 @@ export default {
       table: { defaultValue: { summary: false } },
     },
   },
-} as ComponentMeta<typeof TextAreaField>
+} as Meta<typeof TextAreaField>
 
-export const DefaultStory: ComponentStory<typeof TextAreaField> = args => (
+export const DefaultStory: StoryFn<typeof TextAreaField> = args => (
   <TextAreaField {...args} />
 )
 DefaultStory.args = {
@@ -45,7 +45,7 @@ DefaultStory.argTypes = {
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Divider } from "@kaizen/draft-divider"
@@ -16,9 +16,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Divider>
+} as Meta<typeof Divider>
 
-export const DefaultStory: ComponentStory<typeof Divider> = args => (
+export const DefaultStory: StoryFn<typeof Divider> = args => (
   <Box m={1}>
     <Divider {...args} />
   </Box>
@@ -28,7 +28,7 @@ DefaultStory.args = {
   variant: "canvas",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

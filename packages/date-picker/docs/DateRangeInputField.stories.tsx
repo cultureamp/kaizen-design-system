@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { enAU, enUS } from "date-fns/locale"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
@@ -25,7 +25,7 @@ export default {
   argTypes: {
     ...validationControls,
   },
-} as ComponentMeta<typeof DateRangeInputField>
+} as Meta<typeof DateRangeInputField>
 
 export const DefaultStory = (
   props: DateRangeInputFieldProps & {
@@ -52,7 +52,7 @@ DefaultStory.args = {
   locale: enAU,
 }
 
-const StickerSheetTemplate: Story<{
+const StickerSheetTemplate: StoryFn<{
   textDirection: "ltr" | "rtl" // Global control; see storybook/preview.tsx
   isReversed: boolean
   locale: DateRangeInputFieldProps["locale"]

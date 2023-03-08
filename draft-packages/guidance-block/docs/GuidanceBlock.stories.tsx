@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
@@ -39,7 +39,7 @@ const GUIDANCE_BLOCK_TEXT = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-export const DefaultStory: ComponentStory<typeof GuidanceBlock> = args => (
+export const DefaultStory: StoryFn<typeof GuidanceBlock> = args => (
   <GuidanceBlock
     actions={{
       primary: {
@@ -128,7 +128,7 @@ const CustomContent = (): JSX.Element => (
   </>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>
@@ -255,7 +255,7 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
 }
 
-export const Layouts: Story = () => (
+export const Layouts: StoryFn = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
       Default
@@ -396,7 +396,7 @@ export const Layouts: Story = () => (
 )
 Layouts.parameters = { chromatic: { disable: false } }
 
-export const AspectRatio: Story = () => (
+export const AspectRatio: StoryFn = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
       Scene example

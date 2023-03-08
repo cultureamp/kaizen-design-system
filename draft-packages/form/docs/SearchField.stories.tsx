@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
@@ -14,9 +14,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof SearchField>
+} as Meta<typeof SearchField>
 
-export const DefaultKaizenDemo: ComponentStory<typeof SearchField> = args => {
+export const DefaultKaizenDemo: StoryFn<typeof SearchField> = args => {
   const [value, setValue] = useState("Some value")
 
   return (
@@ -35,7 +35,7 @@ DefaultKaizenDemo.args = {
   labelText: "Label",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const variants: Array<{

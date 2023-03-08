@@ -1,14 +1,13 @@
 import React from "react"
 import {
   Title,
-  Subtitle,
   Description,
   Primary,
   ArgsTable,
   Stories,
   PRIMARY_STORY,
-} from "@storybook/addon-docs"
-import { ComponentStory, Story } from "@storybook/react"
+} from "@storybook/blocks"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Paragraph } from "../src/Paragraph/Paragraph"
 
@@ -23,7 +22,6 @@ export default {
       page: (): JSX.Element => (
         <>
           <Title />
-          <Subtitle />
           <Description />
           <Documentation />
           <Primary />
@@ -33,10 +31,10 @@ export default {
       ),
     },
   },
-}
+} as Meta<typeof Paragraph>
 
 const Documentation = (): JSX.Element => (
-  <Paragraph variant="body">
+  <Paragraph tag="div" variant="body">
     <ul>
       <li>
         There is no variant for bold text. You can use{" "}
@@ -75,13 +73,13 @@ const Documentation = (): JSX.Element => (
   </Paragraph>
 )
 
-export const Body: ComponentStory<typeof Paragraph> = args => (
+export const DefaultStory: StoryFn<typeof Paragraph> = args => (
   <Paragraph {...args}>The quick brown fox jumps over the lazy dog.</Paragraph>
 )
-Body.storyName = "Paragraph"
-Body.args = { variant: "body" }
+DefaultStory.storyName = "Paragraph"
+DefaultStory.args = { variant: "body" }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const fontColour = isReversed ? "white" : "dark"
@@ -100,11 +98,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           </Paragraph>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Body strong">
-          <strong>
-            <Paragraph variant="body" color={fontColour}>
-              The quick brown fox jumps over the lazy dog.
-            </Paragraph>
-          </strong>
+          <Paragraph variant="body" color={fontColour}>
+            <strong>The quick brown fox jumps over the lazy dog.</strong>
+          </Paragraph>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Small">
           <Paragraph variant="small" color={fontColour}>

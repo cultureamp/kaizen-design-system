@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { CustomButtonProps } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
@@ -56,14 +56,13 @@ const SECONDARY_ACTIONS = [
   },
 ]
 
-const DefaultTemplate: ComponentStory<typeof TitleBlockZen> = args => (
+const DefaultTemplate: StoryFn<typeof TitleBlockZen> = args => (
   <OffsetPadding>
     <TitleBlockZen {...args} />
   </OffsetPadding>
 )
 
-export const Default: ComponentStory<typeof TitleBlockZen> =
-  DefaultTemplate.bind({})
+export const Default: StoryFn<typeof TitleBlockZen> = DefaultTemplate.bind({})
 Default.args = {
   title: "Page title",
   surveyStatus: { text: "Live", status: "live" },
@@ -106,7 +105,7 @@ Default.args = {
   ],
 }
 
-export const WithBadge: Story = () => {
+export const WithBadge: StoryFn = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
   return (
     <OffsetPadding>
@@ -141,7 +140,7 @@ export const WithBadge: Story = () => {
 WithBadge.storyName = "With Primary Action Badge"
 WithBadge.parameters = { chromatic: { disable: false } }
 
-export const WithDefaultTag: Story = () => (
+export const WithDefaultTag: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -163,7 +162,7 @@ export const WithDefaultTag: Story = () => (
 WithDefaultTag.storyName = "With Default Survey Status (Tag)"
 WithDefaultTag.parameters = { chromatic: { disable: false } }
 
-export const AdminWithDefaultTag: Story = () => (
+export const AdminWithDefaultTag: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       variant="admin"
@@ -186,7 +185,7 @@ export const AdminWithDefaultTag: Story = () => (
 AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 AdminWithDefaultTag.parameters = { chromatic: { disable: false } }
 
-export const DefaultWithMenuButton: Story = () => (
+export const DefaultWithMenuButton: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -233,7 +232,7 @@ export const DefaultWithMenuButton: Story = () => (
 DefaultWithMenuButton.storyName = "Default (Menu Button)"
 DefaultWithMenuButton.parameters = { chromatic: { disable: false } }
 
-export const AdminVariant: Story = () => (
+export const AdminVariant: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -267,7 +266,7 @@ export const AdminVariant: Story = () => (
 AdminVariant.storyName = "Admin variant"
 AdminVariant.parameters = { chromatic: { disable: false } }
 
-export const AdminVariantWithNavTabs: Story = () => (
+export const AdminVariantWithNavTabs: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -295,7 +294,7 @@ export const AdminVariantWithNavTabs: Story = () => (
 AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 AdminVariantWithNavTabs.parameters = { chromatic: { disable: false } }
 
-export const EducationVariant: Story = () => (
+export const EducationVariant: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -351,7 +350,7 @@ export const EducationVariant: Story = () => (
 EducationVariant.storyName = "Education variant"
 EducationVariant.parameters = { chromatic: { disable: false } }
 
-export const Engagement: Story = () => (
+export const Engagement: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Baseline Engagement Survey"
@@ -390,7 +389,7 @@ export const Engagement: Story = () => (
 )
 Engagement.parameters = { chromatic: { disable: false } }
 
-export const Performance: Story = () => (
+export const Performance: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -438,7 +437,7 @@ export const Performance: Story = () => (
 )
 Performance.parameters = { chromatic: { disable: false } }
 
-export const PerformanceWithAvatarProps: Story = () => (
+export const PerformanceWithAvatarProps: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -489,7 +488,7 @@ export const PerformanceWithAvatarProps: Story = () => (
 )
 PerformanceWithAvatarProps.storyName = "Performance with AvatarProps"
 
-export const PerformanceWithEmptyAvatarProps: Story = () => (
+export const PerformanceWithEmptyAvatarProps: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -537,7 +536,7 @@ export const PerformanceWithEmptyAvatarProps: Story = () => (
 )
 PerformanceWithEmptyAvatarProps.storyName = "Performance with Empty AvatarProps"
 
-export const LongLabels: Story = () => (
+export const LongLabels: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Wolfeschlegelsteino Hausenbergerdorffsch Hausenbergerdorffsch"
@@ -608,7 +607,7 @@ const MENU_LINKS = [
   },
 ]
 
-export const DefaultWithContent: Story = () => (
+export const DefaultWithContent: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -722,7 +721,7 @@ export const DefaultWithContent: Story = () => (
 DefaultWithContent.storyName = "Default with content"
 DefaultWithContent.parameters = { chromatic: { disable: false } }
 
-export const DefaultNoSecondary: Story = () => (
+export const DefaultNoSecondary: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -833,7 +832,7 @@ export const DefaultNoSecondary: Story = () => (
 )
 DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
-export const DefaultOnlyPrimary: Story = () => (
+export const DefaultOnlyPrimary: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -862,7 +861,7 @@ export const DefaultOnlyPrimary: Story = () => (
 )
 DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
-export const DefaultWithReportSwitcher: Story = () => (
+export const DefaultWithReportSwitcher: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -915,7 +914,7 @@ export const DefaultWithReportSwitcher: Story = () => (
 DefaultWithReportSwitcher.storyName = "Default with report switcher"
 DefaultWithReportSwitcher.parameters = { chromatic: { disable: false } }
 
-export const DefaultNoLink: Story = () => (
+export const DefaultNoLink: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -970,7 +969,7 @@ export const DefaultNoLink: Story = () => (
 )
 DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
-export const DefaultOnlyLongTitle: Story = () => (
+export const DefaultOnlyLongTitle: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -986,7 +985,7 @@ export const DefaultOnlyLongTitle: Story = () => (
 )
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
 
-export const DefaultCollapsedNavigation: Story = () => (
+export const DefaultCollapsedNavigation: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -1011,7 +1010,7 @@ export const DefaultCollapsedNavigation: Story = () => (
 DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
 DefaultCollapsedNavigation.parameters = { chromatic: { disable: false } }
 
-export const DefaultCollapsedNavigationCard: Story = () => (
+export const DefaultCollapsedNavigationCard: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -1038,7 +1037,7 @@ export const DefaultCollapsedNavigationCard: Story = () => (
 DefaultCollapsedNavigationCard.storyName =
   "Default (collapsed navigation with card)"
 
-export const AdminVariantNavigation: Story = () => (
+export const AdminVariantNavigation: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       variant="admin"
@@ -1065,7 +1064,7 @@ export const AdminVariantNavigation: Story = () => (
 )
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
 
-export const RenderProps: Story = () => {
+export const RenderProps: StoryFn = () => {
   const CustomTab = (props: {
     href: string
     className: string
@@ -1117,7 +1116,7 @@ export const RenderProps: Story = () => {
   )
 }
 
-export const WithCustomSectionTitle: Story = () => {
+export const WithCustomSectionTitle: StoryFn = () => {
   const CustomComponent = (props: SectionTitleRenderProps): JSX.Element => (
     <div className={styles["flex-wrapper"]}>
       <Heading color="white" variant="heading-3">
@@ -1184,7 +1183,7 @@ const MockRouterLink = ({
   </button>
 )
 
-export const ActionRenderProps: Story = () => (
+export const ActionRenderProps: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -1226,7 +1225,7 @@ export const ActionRenderProps: Story = () => (
 
 ActionRenderProps.storyName = "Custom actions with component render props"
 
-export const MenuHierarchyExample: Story = () => (
+export const MenuHierarchyExample: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"

@@ -1,14 +1,14 @@
 import React from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ExampleComponent } from "../ExampleComponent"
 
 export default {
   title: "AIO/future/ExampleComponent (Do Not Use)",
   component: ExampleComponent,
   parameters: {},
-} as ComponentMeta<typeof ExampleComponent>
+} as Meta<typeof ExampleComponent>
 
-export const DefaultStory: ComponentStory<typeof ExampleComponent> = () => (
+export const DefaultStory: StoryFn<typeof ExampleComponent> = () => (
   <ExampleComponent />
 )
 DefaultStory.storyName = "ExampleComponent"

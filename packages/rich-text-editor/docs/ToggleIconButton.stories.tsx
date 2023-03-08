@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { ToggleIconButton } from "../"
@@ -24,7 +24,7 @@ const defaultButton = {
   label: "Bold",
   icon: boldIcon,
 }
-export const DefaultStory: ComponentStory<typeof ToggleIconButton> = args => (
+export const DefaultStory: StoryFn<typeof ToggleIconButton> = args => (
   <ToggleIconButton {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
@@ -38,7 +38,7 @@ const InlineWrapper = ({
   <div style={{ display: "inline-block" }}>{children}</div>
 )
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StoryWrapper>
       <StoryWrapper.RowHeader headings={["Base", "Active", "Disabled"]} />

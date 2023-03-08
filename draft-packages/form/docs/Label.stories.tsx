@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -13,9 +13,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Label>
+} as Meta<typeof Label>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Label> = args => (
+export const DefaultKaizenSiteDemo: StoryFn<typeof Label> = args => (
   <Label {...args}></Label>
 )
 DefaultKaizenSiteDemo.storyName = "Label"
@@ -27,7 +27,7 @@ DefaultKaizenSiteDemo.parameters = {
   chromatic: { disable: false },
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

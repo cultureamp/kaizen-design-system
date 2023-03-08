@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Brand } from "../src/Brand/Brand"
 
@@ -16,9 +16,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof Brand> = args => (
-  <Brand {...args} />
-)
+export const DefaultStory: StoryFn<typeof Brand> = args => <Brand {...args} />
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   alt: "Culture Amp",
@@ -26,7 +24,7 @@ DefaultStory.args = {
   reversed: false,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

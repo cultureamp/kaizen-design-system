@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
@@ -22,9 +22,9 @@ export default {
     status: { control: { type: "radio" }, options: ["default", "error"] },
     validationMessage: { control: "text" },
   },
-} as ComponentMeta<typeof TimeField>
+} as Meta<typeof TimeField>
 
-export const DefaultStory: ComponentStory<typeof TimeField> = args => {
+export const DefaultStory: StoryFn<typeof TimeField> = args => {
   const [value, setValue] = useState<ValueType | null>(null)
   return <TimeField {...args} value={value} onChange={setValue} />
 }
@@ -37,7 +37,7 @@ DefaultStory.args = {
   status: "default",
 }
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const [valueDefault, setValueDefault] = useState<ValueType | null>(null)
   const [valueError, setValueError] = useState<ValueType | null>({
     hour: 1,

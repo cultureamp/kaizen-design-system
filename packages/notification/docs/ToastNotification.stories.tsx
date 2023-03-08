@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { v4 } from "uuid"
 import { Button } from "@kaizen/button"
@@ -77,7 +77,7 @@ export default {
   decorators: [withNavigation],
 }
 
-export const PositiveKaizenSiteDemo: Story<
+export const PositiveKaizenSiteDemo: StoryFn<
   ToastNotificationWithOptionals
 > = args => {
   React.useEffect(() => {
@@ -101,7 +101,7 @@ PositiveKaizenSiteDemo.args = {
 
 PositiveKaizenSiteDemo.storyName = "Toast Notification"
 
-export const OverflowNotifications: ComponentStory<typeof Triggers> = () => {
+export const OverflowNotifications: StoryFn<typeof Triggers> = () => {
   const seed = Math.random() * 1000
   return (
     <Triggers
@@ -122,7 +122,7 @@ export const OverflowNotifications: ComponentStory<typeof Triggers> = () => {
 }
 OverflowNotifications.storyName = "Overflow notifications"
 
-export const UpdatedNotification: Story = () => (
+export const UpdatedNotification: StoryFn = () => (
   <Container>
     <Content>
       <Box py={1} classNameOverride={styles.triggerContainer}>
@@ -169,7 +169,7 @@ export const UpdatedNotification: Story = () => (
 )
 UpdatedNotification.storyName = "Updated notification"
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   React.useEffect(() => {
     addToastNotification({
       type: "positive",

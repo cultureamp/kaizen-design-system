@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import {
   Avatar,
@@ -58,11 +58,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Avatar>
+} as Meta<typeof Avatar>
 
-export const DefaultStory: ComponentStory<typeof Avatar> = args => (
-  <Avatar {...args} />
-)
+export const DefaultStory: StoryFn<typeof Avatar> = args => <Avatar {...args} />
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   avatarSrc:
@@ -73,7 +71,7 @@ DefaultStory.args = {
   isCurrentUser: false,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const ROWS: Array<{ title: string; size: AvatarSizes }> = [

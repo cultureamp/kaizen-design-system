@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { DecoratorFunction } from "@storybook/addons"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
@@ -43,9 +43,9 @@ export default {
     },
   },
   decorators: [withMinHeight],
-} as ComponentMeta<typeof ContextModal>
+} as Meta<typeof ContextModal>
 
-const ContextModalTemplate: ComponentStory<typeof ContextModal> = args => {
+const ContextModalTemplate: StoryFn<typeof ContextModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
 
   const handleOpen = (): void => setIsOpen(true)

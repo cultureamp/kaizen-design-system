@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { RadioField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -19,11 +19,9 @@ export default {
       control: "disabled",
     },
   },
-} as ComponentMeta<typeof RadioField>
+} as Meta<typeof RadioField>
 
-export const InteractiveKaizenSiteDemo: ComponentStory<
-  typeof RadioField
-> = args => {
+export const InteractiveKaizenSiteDemo: StoryFn<typeof RadioField> = args => {
   const [status, setStatus] = useState<boolean>()
   const onCheckHandler = (): void => setStatus(!status)
 
@@ -39,7 +37,7 @@ export const InteractiveKaizenSiteDemo: ComponentStory<
 }
 InteractiveKaizenSiteDemo.storyName = "Radio Field"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

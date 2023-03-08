@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
 import { FilterButtonGroup } from "../../src/FilterDateRangePicker/components/Trigger/FilterButtonGroup"
@@ -15,9 +15,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FilterButtonGroup>
+} as Meta<typeof FilterButtonGroup>
 
-export const DefaultStory: ComponentStory<typeof FilterButtonGroup> = args => (
+export const DefaultStory: StoryFn<typeof FilterButtonGroup> = args => (
   <FilterButtonGroup {...args}>
     <FilterBaseButton>First</FilterBaseButton>
     <FilterBaseButton>Last</FilterBaseButton>
@@ -25,7 +25,7 @@ export const DefaultStory: ComponentStory<typeof FilterButtonGroup> = args => (
 )
 DefaultStory.storyName = "Filter Button Group"
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StickerSheet heading="Filter Button Group">
       <StickerSheet.Header headings={["Group of 2", "Group of 3"]} />

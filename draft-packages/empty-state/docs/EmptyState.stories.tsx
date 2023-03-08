@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
@@ -34,7 +34,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof EmptyState>
+} as Meta<typeof EmptyState>
 
 const BUTTON = (
   <div className={styles.buttonContainer}>
@@ -42,7 +42,7 @@ const BUTTON = (
   </div>
 )
 
-const EmptyStateTemplate: ComponentStory<typeof EmptyState> = ({
+const EmptyStateTemplate: StoryFn<typeof EmptyState> = ({
   isAnimated,
   ...args
 }) => <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />
@@ -140,7 +140,7 @@ const CUSTOM_HEADING_PROPS: EmptyStateProps = {
   },
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>
