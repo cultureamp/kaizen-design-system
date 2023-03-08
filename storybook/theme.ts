@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import { ThemeVars, create } from "@storybook/theming"
 import { defaultTheme } from "@kaizen/design-tokens"
-// const logo = require("./assets/kaizen-badge.png")
+const logo = require("./assets/kaizen-badge.svg")
 
 const colors = defaultTheme.color
 
@@ -30,7 +30,7 @@ const theme: ThemeVars = create({
   inputTextColor: colors.gray["600"],
   inputBorderRadius: 20,
   brandTitle: "Kaizen Storybook",
-  brandImage: "./assets/kaizen-badge.png",
+  brandImage: logo,
 })
 
 export default theme
