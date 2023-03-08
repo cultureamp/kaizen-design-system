@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test"
 
 const iframePath = "iframe.html?args=&id="
-const storyId = "components-rich-text-editor-rich-text-editor--default"
+const storyId = "components-rich-text-editor--docs"
 
 test.beforeEach(async ({ page }) => {
   // Go to the starting url before each test.
