@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
@@ -125,7 +125,7 @@ const ExampleTableRow = ({
 
 export default {
   title: "Components/Table",
-  component: TableCard,
+  component: TableContainer,
   parameters: {
     docs: {
       description: {
@@ -134,7 +134,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof TableContainer>
 
 export const DefaultKaizenSiteDemo: StoryFn = () => (
   <Container>

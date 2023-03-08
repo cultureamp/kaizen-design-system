@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Avatar } from "@kaizen/draft-avatar"
 import { Tag } from "@kaizen/draft-tag"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof Tag>
 
 export const DefaultStory: StoryFn<typeof Tag> = args => (
   <Tag variant="default" {...args}>

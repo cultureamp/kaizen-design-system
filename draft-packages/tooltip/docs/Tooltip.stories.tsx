@@ -323,7 +323,7 @@ export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
           }}
         >
           <Tooltip {...props} display="inline" text="Tooltip label">
-            <Icon icon={informationIcon} />
+            <Icon icon={informationIcon} title="Info" />
           </Tooltip>
         </div>
       </div>
@@ -342,7 +342,7 @@ export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
             position: "relative",
           }}
         >
-          <Paragraph variant="body">
+          <Paragraph tag="div" variant="body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nulla quas corporis? Perspiciatis, ratione voluptas{" "}
             <Tooltip {...props} display="inline-block" text="Tooltip label">

@@ -1,4 +1,4 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Meta, Unstyled } from '@storybook/blocks';
 import { SpacingTokens, MarginExample } from "./DemoComponents"
 
 <Meta title="Systems/Layout and Spacing" />
@@ -11,7 +11,7 @@ import { SpacingTokens, MarginExample } from "./DemoComponents"
 
 Kaizen's spacing tokens use pixel values to reference equivalent rem values. For example, the spacing token `16` refers to `1rem`, because `16px` = `1rem`.
 
-<SpacingTokens/>
+<SpacingTokens />
 
 <br/>
 
@@ -36,7 +36,9 @@ For example, if a design specifies a `div` with a margin-right of `12px`, the sp
 </div>
 ```
 
-<MarginExample/>
+<Unstyled>
+  <MarginExample/>
+</Unstyled>
 
 In Tailwind, spacing tokens can be applied to the following core modules:  
 [padding](https://tailwindcss.com/docs/padding), [margin](https://tailwindcss.com/docs/margin), [width](https://tailwindcss.com/docs/width), [height](https://tailwindcss.com/docs/height), [maxHeight](https://tailwindcss.com/docs/max-height#setting-the-maximum-height), [gap](https://tailwindcss.com/docs/gap), [space](https://tailwindcss.com/docs/space), [translate](https://tailwindcss.com/docs/translate)

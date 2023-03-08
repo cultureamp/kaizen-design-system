@@ -128,7 +128,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row rowTitle={title}>
+            <StickerSheet.Row key={title} rowTitle={title}>
               <Button reversed={isReversed} {...props} />
               <Button
                 reversed={isReversed}
@@ -167,7 +167,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           />
           <StickerSheet.Body>
             {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row rowTitle={title}>
+              <StickerSheet.Row key={title} rowTitle={title}>
                 <Button reversed={isReversed} {...props} form />
                 <Button
                   reversed={isReversed}
@@ -227,7 +227,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row rowTitle={title}>
+            <StickerSheet.Row key={title} rowTitle={title}>
               <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
               <Button
                 reversed={isReversed}
