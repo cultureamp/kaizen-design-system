@@ -15,7 +15,7 @@ import {
 import styles from "./LoadingSkeleton.stories.module.scss"
 
 export default {
-  title: "Components/Loading Skeleton",
+  title: "Components/Loading",
   parameters: {
     docs: {
       description: {
