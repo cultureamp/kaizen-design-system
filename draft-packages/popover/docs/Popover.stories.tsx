@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { IconButton } from "@kaizen/button"
 import informationWhiteIcon from "@kaizen/component-library/icons/information-white.icon.svg"
@@ -26,7 +26,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof PopoverRaw>
 
 const Container = ({
   children,
