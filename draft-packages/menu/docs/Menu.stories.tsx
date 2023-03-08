@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { Button, IconButton } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
@@ -23,7 +23,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof Menu> = args => (
+export const DefaultStory: StoryFn<typeof Menu> = args => (
   <Menu
     {...args}
     button={

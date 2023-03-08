@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import { Heading, Paragraph } from "@kaizen/typography"
@@ -37,7 +37,7 @@ export default {
   },
 }
 
-export const DefaultWithSolidBorderKaizenSiteDemo: ComponentStory<
+export const DefaultWithSolidBorderKaizenSiteDemo: StoryFn<
   typeof Well
 > = args => (
   <Well {...args}>

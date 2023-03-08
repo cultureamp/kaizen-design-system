@@ -1,6 +1,6 @@
 import React from "react"
 import { Node } from "@react-types/shared"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
 import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
@@ -28,7 +28,7 @@ export default {
   },
 } as Meta<typeof Select>
 
-export const DefaultStory: ComponentStory<typeof Select> = props => (
+export const DefaultStory: StoryFn<typeof Select> = props => (
   <Select {...props} />
 )
 
@@ -50,7 +50,7 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 
-export const WithSections: ComponentStory<typeof Select> = () => (
+export const WithSections: StoryFn<typeof Select> = () => (
   <>
     <Select
       id="select-grouped"

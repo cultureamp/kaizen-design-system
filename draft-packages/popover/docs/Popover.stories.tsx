@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { IconButton } from "@kaizen/button"
 import informationWhiteIcon from "@kaizen/component-library/icons/information-white.icon.svg"
@@ -98,9 +98,7 @@ const InlineBlockTargetElement = ({
   </div>
 )
 
-export const DefaultKaizenSiteDemo: ComponentStory<
-  typeof PopoverRaw
-> = props => {
+export const DefaultKaizenSiteDemo: StoryFn<typeof PopoverRaw> = props => {
   const [ElementRef, Popover] = usePopover()
   // set the popover open state to be true when testing on chromatic
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
@@ -135,7 +133,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 }
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const OverflowScroll: ComponentStory<typeof PopoverRaw> = props => {
+export const OverflowScroll: StoryFn<typeof PopoverRaw> = props => {
   const [ElementRef, Popover] = usePopover()
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
   const openPopover = (): void => setIsOpen(true)

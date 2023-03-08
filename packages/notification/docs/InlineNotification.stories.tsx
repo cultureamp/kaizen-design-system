@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -16,9 +16,7 @@ export default {
   },
 }
 
-export const DefaultKaizenDemo: ComponentStory<
-  typeof InlineNotification
-> = props => (
+export const DefaultKaizenDemo: StoryFn<typeof InlineNotification> = props => (
   <InlineNotification {...props}>
     New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
     <a href="/">Manage users is now available</a>
@@ -35,9 +33,7 @@ const customHeadingProps: HeadingProps = {
   tag: "h2",
   children: "Custom",
 }
-export const CustomHeadingLevel: ComponentStory<
-  typeof InlineNotification
-> = props => (
+export const CustomHeadingLevel: StoryFn<typeof InlineNotification> = props => (
   <InlineNotification headingProps={customHeadingProps} {...props}>
     New user data
   </InlineNotification>
@@ -157,9 +153,7 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
 }
 
-export const AutohideDemo: ComponentStory<
-  typeof InlineNotification
-> = props => (
+export const AutohideDemo: StoryFn<typeof InlineNotification> = props => (
   <>
     <InlineNotification
       title="Success"

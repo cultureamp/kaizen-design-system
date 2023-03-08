@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Pagination } from "@kaizen/pagination"
 
 export default {
@@ -27,7 +27,7 @@ export default {
   ],
 }
 
-export const Default: ComponentStory<typeof Pagination> = args => {
+export const Default: StoryFn<typeof Pagination> = args => {
   const [currentPage, setCurrentPage] = useState(1)
 
   return (

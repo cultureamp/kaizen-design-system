@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { MenuList, MenuItem } from "../"
 
 export default {
@@ -14,7 +14,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof MenuList> = args => (
+export const DefaultStory: StoryFn<typeof MenuList> = args => (
   <MenuList {...args}>
     <MenuItem label="Item 1" />
     <MenuItem label="Item 2" />

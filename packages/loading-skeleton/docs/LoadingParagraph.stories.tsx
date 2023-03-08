@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingParagraph } from ".."
@@ -17,7 +17,7 @@ export default {
   },
 }
 
-export const DefaultLoadingParagraph: ComponentStory<
+export const DefaultLoadingParagraph: StoryFn<
   typeof LoadingParagraph
 > = args => <LoadingParagraph {...args} />
 DefaultLoadingParagraph.storyName = "Loading Paragraph"

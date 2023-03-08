@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import {
   LikertScaleLegacy,
   Scale,
@@ -49,7 +49,7 @@ const scale: Scale = [
   },
 ]
 
-export const DefaultStory: ComponentStory<typeof LikertScaleLegacy> = args => {
+export const DefaultStory: StoryFn<typeof LikertScaleLegacy> = args => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
   return (

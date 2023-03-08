@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import { DecoratorFunction } from "@storybook/addons"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button, IconButton } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
@@ -34,7 +34,7 @@ export default {
   decorators: [openTooltipInChromatic],
 } as Meta<typeof Tooltip>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Tooltip> = props => (
+export const DefaultKaizenSiteDemo: StoryFn<typeof Tooltip> = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
@@ -52,7 +52,7 @@ DefaultKaizenSiteDemo.parameters = {
   },
 }
 
-export const WithNoAnimationDelay: ComponentStory<typeof Tooltip> = props => (
+export const WithNoAnimationDelay: StoryFn<typeof Tooltip> = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
@@ -63,7 +63,7 @@ export const WithNoAnimationDelay: ComponentStory<typeof Tooltip> = props => (
 )
 WithNoAnimationDelay.storyName = "With no animation delay"
 
-export const StickerSheet: ComponentStory<typeof Tooltip> = props => (
+export const StickerSheet: StoryFn<typeof Tooltip> = props => (
   <div
     style={{
       marginTop: "100px",
@@ -271,7 +271,7 @@ export const StickerSheet: ComponentStory<typeof Tooltip> = props => (
 )
 StickerSheet.parameters = { chromatic: { disable: false } }
 
-export const OverflowScroll: ComponentStory<typeof Tooltip> = props => (
+export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
   <>
     <p>
       Default Placement is 'above'. Scroll horizontally or vertically to view

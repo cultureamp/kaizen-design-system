@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { RichTextContent } from "@kaizen/rich-text-editor"
 import dummyContent from "./dummyContent.json"
 
@@ -15,9 +15,9 @@ export default {
   },
 }
 
-export const RichTextContentStory: ComponentStory<
-  typeof RichTextContent
-> = args => <RichTextContent {...args} />
+export const RichTextContentStory: StoryFn<typeof RichTextContent> = args => (
+  <RichTextContent {...args} />
+)
 
 RichTextContentStory.storyName = "Default"
 RichTextContentStory.args = {

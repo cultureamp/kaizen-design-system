@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingHeading } from ".."
@@ -16,9 +16,9 @@ export default {
   },
 }
 
-export const DefaultLoadingHeading: ComponentStory<
-  typeof LoadingHeading
-> = args => <LoadingHeading {...args} />
+export const DefaultLoadingHeading: StoryFn<typeof LoadingHeading> = args => (
+  <LoadingHeading {...args} />
+)
 DefaultLoadingHeading.storyName = "Loading Heading"
 DefaultLoadingHeading.args = { variant: "heading-1" }
 

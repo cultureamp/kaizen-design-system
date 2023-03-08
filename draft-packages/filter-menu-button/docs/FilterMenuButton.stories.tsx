@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
@@ -44,7 +44,7 @@ const DROPDOWN_OPTIONS_CHROMATIC_SELECTED: DropdownOption[] = [
   DROPDOWN_OPTIONS[2],
 ]
 
-const SimpleFilterTemplate: ComponentStory<typeof FilterMenuButton> = ({
+const SimpleFilterTemplate: StoryFn<typeof FilterMenuButton> = ({
   id: argsId,
   labelText: argsLabelText,
   isDropdownVisible: argsIsDropdownVisible,

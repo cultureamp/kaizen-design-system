@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
@@ -42,7 +42,7 @@ const BUTTON = (
   </div>
 )
 
-const EmptyStateTemplate: ComponentStory<typeof EmptyState> = ({
+const EmptyStateTemplate: StoryFn<typeof EmptyState> = ({
   isAnimated,
   ...args
 }) => <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />

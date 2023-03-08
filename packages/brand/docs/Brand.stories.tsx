@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Brand } from "../src/Brand/Brand"
 
@@ -16,9 +16,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof Brand> = args => (
-  <Brand {...args} />
-)
+export const DefaultStory: StoryFn<typeof Brand> = args => <Brand {...args} />
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   alt: "Culture Amp",

@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ExampleComponent } from "../ExampleComponent"
 
 export default {
@@ -8,7 +8,7 @@ export default {
   parameters: {},
 } as Meta<typeof ExampleComponent>
 
-export const DefaultStory: ComponentStory<typeof ExampleComponent> = () => (
+export const DefaultStory: StoryFn<typeof ExampleComponent> = () => (
   <ExampleComponent />
 )
 DefaultStory.storyName = "ExampleComponent"

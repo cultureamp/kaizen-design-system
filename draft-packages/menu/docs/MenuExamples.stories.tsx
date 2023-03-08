@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { Button, IconButton } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -26,7 +26,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof Menu> = args => (
+export const DefaultStory: StoryFn<typeof Menu> = args => (
   <Menu
     {...args}
     button={

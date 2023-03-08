@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
 import {
   AccountBasics,
@@ -144,9 +144,7 @@ export default {
   },
 }
 
-export const SpotStoryForKaizenSite: ComponentStory<
-  typeof AccountBasics
-> = args => (
+export const SpotStoryForKaizenSite: StoryFn<typeof AccountBasics> = args => (
   <div style={{ width: "150px" }}>
     <AccountBasics {...args} />
   </div>

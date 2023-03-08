@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
@@ -110,7 +110,7 @@ const SingleCollapsibleLazyLoad = (): JSX.Element => (
   </Collapsible>
 )
 
-export const SingleCollapsibleKaizenSiteDemo: ComponentStory<
+export const SingleCollapsibleKaizenSiteDemo: StoryFn<
   typeof Collapsible
 > = args => (
   <Collapsible {...args}>

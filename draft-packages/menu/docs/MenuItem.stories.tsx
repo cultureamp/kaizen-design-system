@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { MenuItem } from "../"
 
 export default {
@@ -14,7 +14,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof MenuItem> = args => (
+export const DefaultStory: StoryFn<typeof MenuItem> = args => (
   <MenuItem {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"

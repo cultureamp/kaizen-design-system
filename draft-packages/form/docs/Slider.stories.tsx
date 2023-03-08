@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn, Story } from "@storybook/react"
 import { Slider } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
@@ -23,7 +23,7 @@ export default {
   },
 } as Meta<typeof Slider>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Slider> = args => (
+export const DefaultKaizenSiteDemo: StoryFn<typeof Slider> = args => (
   <Slider {...args} />
 )
 DefaultKaizenSiteDemo.storyName = "Slider"

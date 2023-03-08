@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn, Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { v4 } from "uuid"
 import { Button } from "@kaizen/button"
@@ -101,7 +101,7 @@ PositiveKaizenSiteDemo.args = {
 
 PositiveKaizenSiteDemo.storyName = "Toast Notification"
 
-export const OverflowNotifications: ComponentStory<typeof Triggers> = () => {
+export const OverflowNotifications: StoryFn<typeof Triggers> = () => {
   const seed = Math.random() * 1000
   return (
     <Triggers
