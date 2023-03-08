@@ -24,7 +24,7 @@ export interface RoadblockModalProps {
 /**
  * @deprecated RoadblockModal is deprecated. Please use Confirmation Modal instead.
  */
-const RoadblockModal = ({
+export const RoadblockModal = ({
   isOpen,
   title,
   onDismiss,
@@ -70,4 +70,4 @@ const RoadblockModal = ({
   </GenericModal>
 )
 
-export default RoadblockModal
+RoadblockModal.displayName = "RoadblockModal"

@@ -11,10 +11,6 @@ import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
   title: "Components/Date Picker/Subcomponents/Calendars",
-  subcomponents: {
-    CalendarSingle,
-    CalendarRange,
-  },
   parameters: {
     docs: {
       description: {
