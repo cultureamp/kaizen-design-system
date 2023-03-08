@@ -1,6 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
+import { DocsContainer, DocsContainerProps } from "@storybook/blocks"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
@@ -21,6 +22,23 @@ import "normalize.css"
 
 import "@kaizen/component-library/styles/fonts.scss"
 import "./global.scss"
+import { BackToTop } from "./components/BackToTop"
+import { TableOfContents } from "./components/TableOfContents"
+
+const ExampleContainer = ({
+  children,
+  ...props
+}: DocsContainerProps & { children: any }): any => (
+  <DocsContainer {...props}>
+    <main className="flex flex-row-reverse">
+      <TableOfContents />
+      <div>
+        {children}
+        <BackToTop />
+      </div>
+    </main>
+  </DocsContainer>
+)
 
 export const parameters = {
   backgrounds: {
@@ -65,6 +83,9 @@ export const parameters = {
   //     return null
   //   },
   // },
+  docs: {
+    container: ExampleContainer,
+  },
   chromatic: { disable: true },
 }
 
