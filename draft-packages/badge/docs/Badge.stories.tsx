@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Badge, BadgeAnimated, BadgeProps } from "@kaizen/draft-badge"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
