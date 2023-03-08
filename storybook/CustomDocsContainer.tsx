@@ -14,7 +14,8 @@ import { Title } from "./components/CustomDocBlocks/components/Title"
 export const CustomDocsContainer = ({
   context,
 }: DocsContainerProps): JSX.Element => {
-  console.log("context", context)
+  // console.log("context", context)
+  const x = 0
   return (
     <>
       <DocsContainer context={context}>

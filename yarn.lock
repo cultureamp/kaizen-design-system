@@ -4279,6 +4279,19 @@
     doctrine "^3.0.0"
     lodash "^4.17.21"
 
+"@storybook/docs-tools@7.0.0-beta.63":
+  version "7.0.0-beta.63"
+  resolved "https://registry.yarnpkg.com/@storybook/docs-tools/-/docs-tools-7.0.0-beta.63.tgz#df32d56dcc8c5e60aa1ba4d79dff56feb53cb722"
+  integrity sha512-IOK+fhNHWoPvzB7d0qrV8xe32tQ44X4uzyAkgow9JMV/1RfrkzSvVsiLY0YdZ7DqMnIf+a9sGDHXXmQOojdLkA==
+  dependencies:
+    "@babel/core" "^7.12.10"
+    "@storybook/core-common" "7.0.0-beta.63"
+    "@storybook/preview-api" "7.0.0-beta.63"
+    "@storybook/types" "7.0.0-beta.63"
+    "@types/doctrine" "^0.0.3"
+    doctrine "^3.0.0"
+    lodash "^4.17.21"
+
 "@storybook/global@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/global/-/global-5.0.0.tgz#b793d34b94f572c1d7d9e0f44fac4e0dbc9572ed"
@@ -4517,6 +4530,16 @@
   dependencies:
     "@emotion/use-insertion-effect-with-fallbacks" "^1.0.0"
     "@storybook/client-logger" "7.0.0-beta.64"
+    "@storybook/global" "^5.0.0"
+    memoizerific "^1.11.3"
+
+"@storybook/theming@7.0.0-beta.63":
+  version "7.0.0-beta.63"
+  resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-7.0.0-beta.63.tgz#948aebebca0e59da4c9a1fb7eb7eff526a0d7fc8"
+  integrity sha512-aZWa0qyuGDdFjTiqo/lj8SP6GDzf6xXkvvMB+QIWZCLbRygP5OmImSo3FZmWq9KZns2tttGUbXCcBRLJSoZwSw==
+  dependencies:
+    "@emotion/use-insertion-effect-with-fallbacks" "^1.0.0"
+    "@storybook/client-logger" "7.0.0-beta.63"
     "@storybook/global" "^5.0.0"
     memoizerific "^1.11.3"
 
