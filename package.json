@@ -9,6 +9,7 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006 -c storybook",
+    "storybook:preview": "yarn storybook --docs",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
