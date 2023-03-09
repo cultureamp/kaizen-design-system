@@ -2,7 +2,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react"
 import classNames from "classnames"
 import { useDropzone, FileRejection, DropzoneOptions } from "react-dropzone"
-import { ACCEPTED_FILE_TYPES, DEFAULT_MAX_FILE_SIZE_40KB } from "./constants"
+import { ACCEPTED_FILE_TYPES, DEFAULT_MAX_FILE_SIZE_40KB, DROPZONE_AUTOMATION_ID } from "./constants"
 import { DefaultMessage } from "./sub-components/DefaultMessage/DefaultMessage"
 import { DropzoneErrors } from "./sub-components/DropzoneError/DropzoneError"
 import { DropzoneIcon } from "./sub-components/DropzoneIcon/DropzoneIcon"
@@ -86,6 +86,7 @@ export const Dropzone = ({ setEnableFileUpload, maxFileSize, className }: Dropzo
   return (
     <div className={classNames(className)}>
       <div
+        data-automation-id={DROPZONE_AUTOMATION_ID}
         className={classNames(
           {
             "rounded-default": true,
