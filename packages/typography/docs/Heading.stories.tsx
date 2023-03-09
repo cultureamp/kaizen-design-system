@@ -11,7 +11,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Heading, Paragraph } from "../"
 
 export default {
-  title: "Components/Typography/Heading",
+  title: "Components/Heading",
   component: Heading,
   parameters: {
     docs: {

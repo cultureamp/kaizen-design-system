@@ -8,7 +8,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { IconButton, ButtonProps } from ".."
 
 export default {
-  title: "Components/Button/Icon Button",
+  title: "Components/Icon Button",
   component: IconButton,
   parameters: {
     actions: {

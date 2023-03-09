@@ -10,7 +10,7 @@ import { Button, ButtonProps } from ".."
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Button/Button",
+  title: "Components/Button",
   component: Button,
   args: {
     label: "Label",

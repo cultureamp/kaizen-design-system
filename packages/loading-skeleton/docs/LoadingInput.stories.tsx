@@ -5,7 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingInput, LoadingHeading } from ".."
 
 export default {
-  title: "Components/Loading Skeleton/Loading Input",
+  title: "Components/Loading/Loading Input",
   component: LoadingInput,
   parameters: {
     docs: {

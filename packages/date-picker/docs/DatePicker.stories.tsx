@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
 import { DatePicker } from "../src/DatePicker"
 import { ValidationResponse } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
@@ -14,7 +14,7 @@ import { datePickerLocaleControls } from "./controls/localeControls"
 import { weekStartsOnControls } from "./controls/weekStartsOnControls"
 
 export default {
-  title: "Components/Date Picker/Date Picker",
+  title: "Components/Date Picker",
   component: DatePicker,
   parameters: {
     actions: {

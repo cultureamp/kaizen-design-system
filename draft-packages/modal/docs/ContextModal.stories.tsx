@@ -30,7 +30,7 @@ const withMinHeight: Decorator<ContextModalProps> = Story => {
 }
 
 export default {
-  title: "Components/Modal/Context Modal",
+  title: "Components/Context Modal",
   component: ContextModal,
   parameters: {
     chromatic: {

@@ -12,7 +12,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingGraphic } from ".."
 
 export default {
-  title: "Components/Loading Skeleton/Loading Graphic",
+  title: "Components/Loading/Loading Graphic",
   component: LoadingGraphic,
   parameters: {
     docs: {

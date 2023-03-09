@@ -25,7 +25,7 @@ const CheckboxGroupExample = ({
 }
 
 export default {
-  title: "Components/Form/Checkbox Group",
+  title: "Components/Checkbox Group",
   component: CheckboxField,
   parameters: {
     docs: {

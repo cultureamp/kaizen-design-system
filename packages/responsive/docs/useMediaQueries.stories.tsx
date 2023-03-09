@@ -3,7 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { useMediaQueries } from "../"
 
 export default {
-  title: "Helpers/Responsive/useMediaQueries",
+  title: "Helpers/useMediaQueries",
   component: useMediaQueries,
   parameters: {
     docs: {

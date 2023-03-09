@@ -64,7 +64,7 @@ const STATIC_SCENE_CONTROLS = {
 }
 
 export default {
-  title: "Components/Illustration/Scene",
+  title: "Components/Scene",
   component: BrandMomentCaptureIntro,
   parameters: {
     chromatic: { disable: false },
