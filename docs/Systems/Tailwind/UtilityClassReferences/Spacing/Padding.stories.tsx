@@ -34,6 +34,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <Card variant="informative" classNameOverride="mb-24">
       <div className="p-24 font-family-paragraph max-w-[1000px]">
         <p>
+          For information regarding our spacing system, see our{" "}
+          <a href="/?path=/story/systems-layout-and-spacing--page">
+            spacing docs
+          </a>
+          .
+        </p>
+        <p>
           The padding prefix 'p-' has been used in the examples in this
           document, which compiles to the `padding` property in CSS.
         </p>
