@@ -11,7 +11,10 @@ const getStoryPathsFromEnv = (): string[] | false => {
   const storyPath = path.join(__dirname, "../", process.env.STORIES)
   if (fs.existsSync(storyPath)) {
     if (fs.statSync(storyPath).isDirectory()) {
-      return [path.join(storyPath, "**/*.stories.tsx")]
+      return [
+        path.join(storyPath, "**/*.stories.tsx"),
+        path.join(storyPath, "**/*.mdx"),
+      ]
     }
   }
   return [storyPath]
