@@ -6,3 +6,14 @@
 .sbdocs-content {
   max-width: 1200px !important;
 }
+
+.production {
+  #stickersheets,
+  *[data-parent-id*="stickersheets"],
+  *[title*="Stickersheets"],
+  #aio,
+  *[data-parent-id*="aio"],
+  *[title*="aio"] {
+    display: none !important;
+  }
+}
