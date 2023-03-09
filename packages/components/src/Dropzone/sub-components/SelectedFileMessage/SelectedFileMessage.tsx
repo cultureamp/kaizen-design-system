@@ -37,7 +37,7 @@ export const SelectedFileMessage = ({ fileName, handleOpenDialog }: SelectedFile
     <div className="flex flex-col items-center justify-center">
       <span className="mb-8">
         <Paragraph variant="body">
-          <span className="block mb-12"><strong>{selectedFileName}</strong></span>
+          <span className="block mb-12 break-all"><strong>{selectedFileName}</strong></span>
         </Paragraph>
         <Paragraph variant="body">
           <span className="text-purple-800">Drag and drop to replace file or {" "}</span>
