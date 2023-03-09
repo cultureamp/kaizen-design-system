@@ -10,5 +10,5 @@ export const Sidebar = ({ children }: { children: ReactNode }): JSX.Element => (
 )
 
 export const Content = ({ children }: { children: ReactNode }): JSX.Element => (
-  <div className={styles.content}>{children}</div>
+  <div className={`${styles.content} tocbot-content`}>{children}</div>
 )

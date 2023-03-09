@@ -15,7 +15,6 @@ import "focus-visible"
 import "normalize.css"
 
 import "@kaizen/component-library/styles/fonts.scss"
-import "./global.scss"
 
 import { backgrounds } from "./backgrounds"
 import { BackToTop } from "./components/BackToTop"
@@ -82,9 +81,6 @@ export const parameters = {
   //     return null
   //   },
   // },
-  docs: {
-    container: PageContainer,
-  },
   chromatic: { disable: true },
 }
 
@@ -123,6 +119,7 @@ const preview: Preview = {
       values: backgrounds,
     },
     docs: {
+      container: PageContainer,
       source: {
         excludeDecorators: true,
       },

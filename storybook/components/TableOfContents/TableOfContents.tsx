@@ -9,14 +9,15 @@ export const TableOfContents = (): JSX.Element | null => {
     const headingElements = Array.from(
       document.querySelectorAll(headingSelector)
     )
+
     setHeadings(headingElements)
   }, [])
 
   useEffect(() => {
     tocbot.init({
       headingSelector,
-      tocSelector: ".toc-list",
-      contentSelector: ".sbdocs-content",
+      tocSelector: ".tocbot-list",
+      contentSelector: ".tocbot-content",
       orderedList: false,
       onClick: event => {
         event.preventDefault()
@@ -31,9 +32,9 @@ export const TableOfContents = (): JSX.Element | null => {
   if (headings.length < 1) return null
 
   return (
-    <div className="sticky right-0 top-12">
+    <div className="tocbot-container sticky right-0 top-12">
       <p>On this page</p>
-      <div className="toc-list"></div>
+      <div className="tocbot-list"></div>
     </div>
   )
 }
