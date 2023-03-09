@@ -5,6 +5,7 @@ import {
   Controls,
   DocsContainer,
 } from "@storybook/blocks"
+import { Alternatives } from "./components/CustomDocBlocks/components/Alternatives"
 import { Installation } from "./components/CustomDocBlocks/components/Installation"
 import { Links } from "./components/CustomDocBlocks/components/Links"
 import { CustomStories } from "./components/CustomDocBlocks/components/Stories"
@@ -22,6 +23,7 @@ export const CustomDocsContainer = ({ ...props }): JSX.Element => (
       <Primary />
       <Controls />
       <CustomStories />
+      <Alternatives context={props.context} />
     </DocsContainer>
   </>
 )

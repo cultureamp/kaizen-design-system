@@ -7,8 +7,9 @@ export type LinksProps = {
 }
 
 export const Links = ({ context }: LinksProps): JSX.Element => {
-  const sourceCodeLink = context.attachedCSFFile.meta.parameters.sourceCodeLink
-  const figmaLink = context.attachedCSFFile.meta.parameters.figmaLink
+  const sourceCodeLink: string =
+    context.attachedCSFFile.meta.parameters.sourceCodeLink
+  const figmaLink: string = context.attachedCSFFile.meta.parameters.figmaLink
 
   const hasLinks = sourceCodeLink !== undefined || figmaLink !== undefined
 

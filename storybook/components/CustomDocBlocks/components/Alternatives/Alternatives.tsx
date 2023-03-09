@@ -1,26 +1,29 @@
 import React from "react"
 
-export type LinksProps = {
+export type AlternativesProps = {
   //   context: DocsContainerProps["context"]
   // TODO: Find correct type
   context: any
 }
 
-export const Links = ({ context }: LinksProps): JSX.Element => {
-  const sourceCodeLink = context.attachedCSFFile.meta.parameters.sourceCodeLink
-  const figmaLink = context.attachedCSFFile.meta.parameters.figmaLink
+export const Alternatives = ({ context }: AlternativesProps): JSX.Element => {
+  const alternativesList: string[] =
+    context.attachedCSFFile.meta.parameters.alternatives
 
-  const hasLinks = sourceCodeLink !== undefined || figmaLink !== undefined
-
-  return hasLinks ? (
+  const hasAlternatives = alternativesList !== undefined
+  // TODO get alternatie component links from the parameter
+  return hasAlternatives ? (
     <div>
-      {sourceCodeLink && <a href={sourceCodeLink}>Source Code</a>}
-      {sourceCodeLink && figmaLink && <span>&nbsp;|&nbsp;</span>}
-      {figmaLink && <a href={figmaLink}>UI Kit</a>}
+      <h2>Alternatives</h2>
+      <ul>
+        {alternativesList.map(component => (
+          <li>{component}</li>
+        ))}
+      </ul>
     </div>
   ) : (
     <></>
   )
 }
 
-Links.displayName = "Links"
+Alternatives.displayName = "Alternatives"
