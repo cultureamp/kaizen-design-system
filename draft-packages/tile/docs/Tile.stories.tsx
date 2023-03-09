@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
@@ -15,7 +15,6 @@ import { Paragraph } from "@kaizen/typography"
 export default {
   title: "Components/Tile",
   component: MultiActionTile,
-  subcomponents: { InformationTile, TileGrid },
   parameters: {
     docs: {
       description: {
@@ -29,7 +28,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof MultiActionTile>
 
 const primaryAction: TileAction = {
   label: "View",

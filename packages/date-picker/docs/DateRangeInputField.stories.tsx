@@ -90,6 +90,7 @@ const StickerSheetTemplate: StoryFn<{
                   undefined,
                   locale
                 ),
+                onChange: () => undefined,
               }}
               inputRangeEndProps={{
                 ...inputRangeEndProps,
@@ -98,6 +99,7 @@ const StickerSheetTemplate: StoryFn<{
                   undefined,
                   locale
                 ),
+                onChange: () => undefined,
               }}
               locale={locale}
             />
