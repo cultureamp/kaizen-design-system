@@ -37,4 +37,5 @@ module.exports = {
   docs: {
     autodocs: true,
   },
+  staticDirs: [{ from: "./assets", to: "/static/media" }],
 }
