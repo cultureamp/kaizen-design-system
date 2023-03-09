@@ -97,11 +97,7 @@ const preview: Preview = {
       values: backgrounds,
     },
     docs: {
-      container: ({
-        context,
-      }: DocsContainerProps): React.ReactElement<typeof DocsContainer> => (
-        <CustomDocsContainer context={context} />
-      ),
+      container: CustomDocsContainer,
       source: {
         excludeDecorators: true,
       },
