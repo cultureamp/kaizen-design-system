@@ -10,7 +10,7 @@ import {
 import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
-  title: "Components/Date Picker/Subcomponents/Calendars",
+  title: "Components/Date Picker/Calendar",
   parameters: {
     docs: {
       description: {
