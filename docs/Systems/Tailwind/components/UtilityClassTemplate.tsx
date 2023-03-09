@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { InlineNotification } from "@kaizen/notification"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
-
 import { CodeSnippet } from "./CodeSnippet"
 
 type Props = {
@@ -25,47 +24,52 @@ export const UtilityClassTemplate = ({
         className="border-none w-100"
         isReversed={isReversed}
         border={1}
-        frame={false}
         rules="rows"
       >
         <StickerSheet.Header
           className="text-left border-transparent border-solid border-b-gray-400"
           headings={["Utility Class", "Compiled CSS", "Example"]}
         />
-        {classKeyValues.map((presetData, _index) => {
-          const { utilityClassName, cssProperty } = presetData
+        <StickerSheet.Body>
+          {classKeyValues.map((presetData, _index) => {
+            const { utilityClassName, cssProperty } = presetData
 
-          return (
-            <StickerSheet.Row rowTitle="" className="border-gray-400">
-              <div className="mr-32 min-w-max max-w-[300px]">
-                <CodeSnippet
-                  text={utilityClassName}
-                  onCopy={(text: string): void => setCopiedText(text)}
-                />
-              </div>
-              <p className="mr-32 w-max font-family-paragraph">
-                {compiledCssPropertyName}: {cssProperty}
-              </p>
-              <div className="font-family-paragraph">
-                {renderExampleComponent(utilityClassName)}
-              </div>
-            </StickerSheet.Row>
-          )
-        })}
-        <div className="fixed top-[10px] left-[10px]">
-          {copiedText && (
-            <InlineNotification
-              type="positive"
-              hideCloseIcon
-              autohide
-              onHide={(): void => setCopiedText(null)}
-              title="Copied to clipboard: "
-            >
-              {copiedText}
-            </InlineNotification>
-          )}
-        </div>
+            return (
+              <StickerSheet.Row
+                key={_index}
+                rowTitle=""
+                className="border-gray-400"
+              >
+                <div className="mr-32 min-w-max max-w-[300px]">
+                  <CodeSnippet
+                    text={utilityClassName}
+                    onCopy={(text: string): void => setCopiedText(text)}
+                  />
+                </div>
+                <p className="mr-32 w-max font-family-paragraph">
+                  {compiledCssPropertyName}: {cssProperty}
+                </p>
+                <div className="font-family-paragraph">
+                  {renderExampleComponent(utilityClassName)}
+                </div>
+              </StickerSheet.Row>
+            )
+          })}
+        </StickerSheet.Body>
       </StickerSheet>
+      <div className="fixed top-[10px] left-[10px]">
+        {copiedText && (
+          <InlineNotification
+            type="positive"
+            hideCloseIcon
+            autohide
+            onHide={(): void => setCopiedText(null)}
+            title="Copied to clipboard: "
+          >
+            {copiedText}
+          </InlineNotification>
+        )}
+      </div>
     </div>
   )
 }

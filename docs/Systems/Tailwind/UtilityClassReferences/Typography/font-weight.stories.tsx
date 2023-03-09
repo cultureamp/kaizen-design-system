@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
@@ -15,7 +15,6 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
 
 export default {
   title: "Systems/Tailwind/Utility Class References/Typography/Font Weight",
-  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
@@ -23,7 +22,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

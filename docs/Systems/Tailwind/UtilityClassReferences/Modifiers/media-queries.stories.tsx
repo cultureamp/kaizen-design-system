@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
 
@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 type QueryInfoProps = {
   selector: string
@@ -26,7 +26,7 @@ const QueryInfo = ({
   children,
 }: QueryInfoProps): React.ReactElement => (
   <div className="my-12">
-    <Paragraph variant="intro-lede">Psuedo selector: {selector}</Paragraph>
+    <Paragraph variant="intro-lede">Pseudo selector: {selector}</Paragraph>
     <Paragraph variant="body">Breakpoint: {selectorValue}</Paragraph>
     <Paragraph variant="body">
       In this example: {selector}:bg-blue-400
@@ -74,5 +74,4 @@ export const TailwindMediaQueries: StoryFn = () => (
     </div>
   </div>
 )
-
 TailwindMediaQueries.storyName = "Media Queries"

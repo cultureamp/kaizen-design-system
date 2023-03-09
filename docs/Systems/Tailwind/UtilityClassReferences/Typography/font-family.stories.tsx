@@ -1,22 +1,20 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
-import classnames from "classnames"
+import { Meta, StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "leading-"
+const prefix = "font-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.lineHeight || []).map(
-    ([suffix, cssProperty]) => ({
+  Object.entries(kaizenTailwindTheme?.fontFamily || []).map(
+    ([suffix, cssPropertyArr]) => ({
       utilityClassName: `${prefix}${suffix}`,
-      cssProperty,
+      cssProperty: cssPropertyArr[0],
     })
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Typography/Line Height",
+  title: "Systems/Tailwind/Utility Class References/Typography/Font Family",
   parameters: {
     docs: {
       description: {
@@ -24,23 +22,21 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="line-height"
+    compiledCssPropertyName="font-family"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <p className={classnames("w-0", utilityClass)}>
-        Tutant Meenage Neetle Teetles
-      </p>
+      <p className={utilityClass}>Aa</p>
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Line Height"
+StickerSheetDefault.storyName = "Font Family"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

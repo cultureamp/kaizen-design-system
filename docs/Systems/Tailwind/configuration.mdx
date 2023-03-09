@@ -1,4 +1,4 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta } from "@storybook/blocks"
 import { InlineNotification } from "@kaizen/notification"
 
 <Meta title="Systems/Tailwind/Configuration" />
@@ -19,7 +19,7 @@ This page provides guidance on potential configuration options and how they work
 
 To extend upon the preset with values specific to your project, we recommend passing a theme object to `theme.extend`.
 
-```
+```js
 const { Preset } = require("@kaizen/tailwind")
 
 module.exports = {
@@ -66,13 +66,13 @@ If this is changed or you are not using the [Frontend Template](https://github.c
   style="inline"
   title="Changing the selector"
 >
- We advise using an <code>id</code> with <code>"#root"</code> as the default selector. Using different id's, classes or HTML elements like <code>body</code> as the selector could result in:
- <ul>
-  <li>
+  We advise using an <code>id</code> with <code>"#root"</code> as the default selector. Using different id's, classes or HTML elements like <code>body</code> as the selector could result in:
+  <ul>
+    <li>
       Utility classes not superseding Kaizen defaults when using <code>classNameOverride</code>
-  </li>
-  <li>
+    </li>
+    <li>
       Duplication of utillity classes in your CSS bundle caused by consuming components with different <code>important</code> selectors
-  </li>
-</ul>
+    </li>
+  </ul>
 </InlineNotification>

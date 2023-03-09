@@ -22,7 +22,7 @@ const defaultStoryPaths = [
   "../draft-packages/**/*.stories.mdx",
   "../packages/**/*.stories.tsx",
   "../packages/**/*.stories.mdx",
-  "../docs/**/*.stories.mdx",
+  "../docs/**/*.mdx",
   "../docs/**/*.stories.tsx",
 ]
 
