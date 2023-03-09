@@ -4,7 +4,7 @@ import { RemovableFilterTriggerButton } from "../../src/FilterDateRangePicker/co
 
 export default {
   title:
-    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
+    "Components/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
   component: RemovableFilterTriggerButton,
   parameters: {
     docs: {

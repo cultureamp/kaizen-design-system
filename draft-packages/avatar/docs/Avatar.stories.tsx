@@ -49,7 +49,7 @@ const PROPS_COMPANY: CompanyAvatarProps = {
 }
 
 export default {
-  title: "Components/Avatar/Avatar",
+  title: "Components/Avatar",
   component: Avatar,
   parameters: {
     docs: {

@@ -8,7 +8,7 @@ import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
 import { DateRange } from "../src/types"
 
 export default {
-  title: "Components/Date Picker/Date Range Picker",
+  title: "Components/Date Range Picker",
   component: DateRangePicker,
   parameters: {
     docs: {

@@ -18,7 +18,7 @@ import { validationControls } from "./controls/validationControls"
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Date Picker/Filter Date Range Picker",
+  title: "Components/Filter Date Range Picker",
   component: FilterDateRangePicker,
   parameters: {
     actions: {

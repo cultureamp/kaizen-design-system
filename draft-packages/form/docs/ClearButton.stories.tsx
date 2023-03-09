@@ -4,7 +4,7 @@ import { ClearButton } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
 export default {
-  title: "Components/Form/Subcomponents/Clear Button",
+  title: "Components/Clear Button",
   component: ClearButton,
   parameters: {
     actions: {

@@ -6,7 +6,7 @@ import { FilterBaseTooltipButton } from "../../src/FilterDateRangePicker/compone
 
 export default {
   title:
-    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Filter Base Buttons",
+    "Components/Filter Date Range Picker/Subcomponents/Filter Base Buttons",
   component: FilterBaseButton,
   parameters: {
     docs: {

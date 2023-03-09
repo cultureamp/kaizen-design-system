@@ -4,7 +4,7 @@ import { Slider } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: "Components/Form/Slider",
+  title: "Components/Slider",
   component: Slider,
   parameters: {
     docs: {

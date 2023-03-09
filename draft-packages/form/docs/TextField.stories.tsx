@@ -6,7 +6,7 @@ import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { TextFieldProps } from "../KaizenDraft/Form/TextField/TextField"
 
 export default {
-  title: "Components/Form/Text Field",
+  title: "Components/Text Field",
   component: TextField,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import { FieldMessage } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: "Components/Form/Subcomponents/Field Message",
+  title: "Components/Field Message",
   component: FieldMessage,
   parameters: {
     docs: {

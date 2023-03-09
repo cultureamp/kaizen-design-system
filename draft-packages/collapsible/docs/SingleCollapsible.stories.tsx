@@ -22,14 +22,13 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: "Components/Collapsible/Single Collapsible",
+  title: "Components/Collapsible",
   component: Collapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },
     docs: {
       description: {
-        component:
-          'import { Collapsible, CollapsibleGroup, ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
+        component: 'import { Collapsible } from "@kaizen/draft-collapsible";',
       },
     },
   },

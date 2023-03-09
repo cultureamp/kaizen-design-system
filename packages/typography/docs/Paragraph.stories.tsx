@@ -11,7 +11,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Paragraph } from "../src/Paragraph/Paragraph"
 
 export default {
-  title: "Components/Typography/Paragraph",
+  title: "Components/Paragraph",
   component: Paragraph,
   parameters: {
     docs: {

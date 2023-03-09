@@ -6,7 +6,7 @@ import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { Paragraph } from "@kaizen/typography"
 
 export default {
-  title: "Components/Loading Spinner",
+  title: "Components/Loading/Loading Spinner",
   component: LoadingSpinner,
   parameters: {
     chromatic: { disable: false },

@@ -4,7 +4,7 @@ import { RadioField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: "Components/Form/Radio Field",
+  title: "Components/Radio Field",
   component: RadioField,
   parameters: {
     chromatic: { disable: false },
