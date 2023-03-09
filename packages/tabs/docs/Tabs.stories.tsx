@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
@@ -9,7 +9,6 @@ import { Tabs, TabList, TabPanels, TabPanel, Tab } from "../index"
 export default {
   title: "Components/Tabs",
   component: Tabs,
-  subcomponents: { Tab, TabList, TabPanels, TabPanel },
   parameters: {
     docs: {
       description: {
@@ -18,7 +17,7 @@ export default {
       },
     },
   },
-}
+} as Meta<typeof Tabs>
 
 export const Uncontrolled: StoryFn = () => (
   <Tabs

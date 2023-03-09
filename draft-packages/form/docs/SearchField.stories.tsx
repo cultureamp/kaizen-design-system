@@ -61,7 +61,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   return (
     <>
       {variants.map(({ heading, variantProps }) => (
-        <>
+        <React.Fragment key={heading}>
           <StickerSheet isReversed={isReversed} heading={heading}>
             <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
             <StickerSheet.Body>
@@ -113,7 +113,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
               </StickerSheet.Row>
             </StickerSheet.Body>
           </StickerSheet>
-        </>
+        </React.Fragment>
       ))}
     </>
   )

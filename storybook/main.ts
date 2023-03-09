@@ -30,6 +30,7 @@ module.exports = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
   presets: [path.resolve("./storybook/header-preset/preset")],
+  staticDirs: [{ from: "./assets", to: "/static/media" }],
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
@@ -37,5 +38,4 @@ module.exports = {
   docs: {
     autodocs: true,
   },
-  staticDirs: [{ from: "./assets", to: "/static/media" }],
 }
