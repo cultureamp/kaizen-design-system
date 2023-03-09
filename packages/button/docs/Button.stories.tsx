@@ -9,9 +9,7 @@ import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { Button, ButtonProps } from ".."
 
 const IS_CHROMATIC = isChromatic()
-/**
- * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
- */
+
 const meta: Meta<typeof Button> = {
   title: "Components/Button/Button",
   component: Button,
@@ -19,6 +17,12 @@ const meta: Meta<typeof Button> = {
     label: "Label",
   },
   parameters: {
+    docs: {
+      description: {
+        story:
+          "Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.",
+      },
+    },
     actions: {
       argTypesRegex: "^on.*",
     },
