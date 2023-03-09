@@ -4,6 +4,8 @@ import { defaultTheme } from "@kaizen/design-tokens"
 const logo = require("./assets/kaizen-badge.svg")
 const colors = defaultTheme.color
 
+// For styles that cannot be achieved through the folowing config, see
+// storybook/manager-head.html or storybook/manager.tsx
 const theme: ThemeVars = create({
   base: "light",
   colorSecondary: colors.purple["600"],
