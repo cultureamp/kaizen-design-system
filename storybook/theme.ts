@@ -18,7 +18,7 @@ const theme: ThemeVars = create({
   // Text colors
   textColor: colors.purple["800"],
   textInverseColor: colors.white,
-  textMutedColor: "rgba(110, 90, 125)",
+  textMutedColor: "rgba(85, 75, 95)",
   // Toolbar default and active colors
   barTextColor: colors.gray["600"],
   barSelectedColor: colors.purple["600"],
