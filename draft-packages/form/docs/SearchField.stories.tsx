@@ -58,65 +58,61 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     value: "Some value",
   }
 
-  return (
-    <>
-      {variants.map(({ heading, variantProps }) => (
-        <React.Fragment key={heading}>
-          <StickerSheet isReversed={isReversed} heading={heading}>
-            <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
-            <StickerSheet.Body>
-              <StickerSheet.Row>
-                <SearchField
-                  id={`search-field--base--${heading}`}
-                  {...variantProps}
-                  {...COMMON_PROPS}
-                  value={""}
-                />
-                <SearchField
-                  id={`search-field--filled--${heading}`}
-                  {...variantProps}
-                  {...COMMON_PROPS}
-                />
-                <SearchField
-                  id={`search-field--loading--${heading}`}
-                  {...variantProps}
-                  {...COMMON_PROPS}
-                  loading
-                />
-              </StickerSheet.Row>
-            </StickerSheet.Body>
-          </StickerSheet>
+  return variants.map(({ heading, variantProps }) => (
+    <React.Fragment key={heading}>
+      <StickerSheet isReversed={isReversed} heading={heading}>
+        <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <SearchField
+              id={`search-field--base--${heading}`}
+              {...variantProps}
+              {...COMMON_PROPS}
+              value={""}
+            />
+            <SearchField
+              id={`search-field--filled--${heading}`}
+              {...variantProps}
+              {...COMMON_PROPS}
+            />
+            <SearchField
+              id={`search-field--loading--${heading}`}
+              {...variantProps}
+              {...COMMON_PROPS}
+              loading
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
 
-          <StickerSheet isReversed={isReversed}>
-            <StickerSheet.Header headings={["Disabled", "Hover", "Focus"]} />
-            <StickerSheet.Body>
-              <StickerSheet.Row>
-                <SearchField
-                  id={`search-field--disabled--${heading}`}
-                  {...variantProps}
-                  {...COMMON_PROPS}
-                  value={""}
-                  disabled
-                />
-                <SearchField
-                  id={`search-field--hover--${heading}`}
-                  {...variantProps}
-                  {...COMMON_PROPS}
-                  classNameOverride="story__input-search-hover"
-                />
-                <SearchField
-                  id={`search-field--focus--${heading}`}
-                  {...variantProps}
-                  {...COMMON_PROPS}
-                  classNameOverride="story__input-search-focus"
-                />
-              </StickerSheet.Row>
-            </StickerSheet.Body>
-          </StickerSheet>
-        </React.Fragment>
-      ))}
-    </>
-  )
+      <StickerSheet isReversed={isReversed}>
+        <StickerSheet.Header headings={["Disabled", "Hover", "Focus"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <SearchField
+              id={`search-field--disabled--${heading}`}
+              {...variantProps}
+              {...COMMON_PROPS}
+              value={""}
+              disabled
+            />
+            <SearchField
+              id={`search-field--hover--${heading}`}
+              {...variantProps}
+              {...COMMON_PROPS}
+              classNameOverride="story__input-search-hover"
+            />
+            <SearchField
+              id={`search-field--focus--${heading}`}
+              {...variantProps}
+              {...COMMON_PROPS}
+              classNameOverride="story__input-search-focus"
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    </React.Fragment>
+  ))
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
