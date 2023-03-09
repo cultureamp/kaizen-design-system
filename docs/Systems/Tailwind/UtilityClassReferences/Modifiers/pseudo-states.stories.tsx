@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Card } from "@kaizen/draft-card"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 
@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 export const TailwindPseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
@@ -23,7 +23,7 @@ export const TailwindPseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
     <Card variant="informative" classNameOverride="mb-24">
       <div className="font-family-paragraph max-w-[1000px] p-24">
         <p>
-          Psuedo selectors can be used to apply standard Tailwind utility
+          Pseudo selectors can be used to apply standard Tailwind utility
           classes under certain pseudo states, such as on hover or focus.
         </p>
         <p>
@@ -59,5 +59,4 @@ export const TailwindPseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
     </StoryWrapper>
   </div>
 )
-
 TailwindPseudoSelectors.storyName = "Pseudo Selectors"

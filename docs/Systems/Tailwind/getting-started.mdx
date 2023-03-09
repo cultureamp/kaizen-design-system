@@ -1,4 +1,4 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta } from "@storybook/blocks"
 import TailwindPlay from "./assets/tailwind-play.gif"
 import CssGeneration from "./assets/css-generation.png"
 import InlineFold from "./assets/inline-fold.gif"
@@ -28,10 +28,10 @@ yarn add -D @kaizen/tailwind
 
 ## 2. Implement the Preset
 
-In your tailwind config file, import the preset and add it to your `presets` array. This will override the default Tailwind preset, and make ours available for use.
+In your tailwind config file, import the preset and add it to your `presets` array.
+This will override the default Tailwind preset, and make ours available for use.
 
-
-```json
+```js
 // tailwind.config.js
 
 const { Preset } = require("@kaizen/tailwind")
@@ -56,15 +56,14 @@ For preset configuration options, see our [configuration docs](/story/systems-ta
 
 The following directives need to be included in your project's main css file.
 
-```scss
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
-These directives inject classes that are needed for certain Tailwind features. For more information, see [here](https://tailwindcss.com/docs/functions-and-directives).
-
-
+These directives inject classes that are needed for certain Tailwind features.
+For more information, see [here](https://tailwindcss.com/docs/functions-and-directives).
 
 ## 4. Useful tools
 
@@ -104,12 +103,14 @@ Here are some examples you may wish to include in your own project:
 ]
 ```
 
-`tailwindCSS.experimental.classRegex` is used to provide intelliSense within your `classnames` functions in your codebase. Ideally you only add the pattern that is used in your repo.
+`tailwindCSS.experimental.classRegex` is used to provide intelliSense within your `classnames` functions in your codebase.
+Ideally you only add the pattern that is used in your repo.
 
 Calling out that this is still an experimental feature for the VSCode plugin.
 
 ### Inline fold VSCode extension
-Using tailwind often results in long class names, that can even span over multiple lines. Inline fold is a great extension that hides/ shows long class strings.
+Using tailwind often results in long class names, that can even span over multiple lines.
+Inline fold is a great extension that hides/ shows long class strings.
 
 Check it out [here](https://marketplace.visualstudio.com/items?itemName=moalamri.inline-fold):
 
@@ -120,4 +121,5 @@ Check it out [here](https://marketplace.visualstudio.com/items?itemName=moalamri
 
 ### Prettier plugin
 
-Tailwind now has prettier support! 🎉 This [prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) will order your classnames for you. We’d highly recommend it for the sake of consistency. The Tailwind docs even have a guide [here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier):
+Tailwind now has prettier support! 🎉 This [prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) will order your classnames for you.
+We’d highly recommend it for the sake of consistency. The Tailwind docs even have a guide [here](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier).

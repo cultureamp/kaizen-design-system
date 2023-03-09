@@ -1,13 +1,13 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "rounded-"
+const prefix = "border-spacing-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderRadius || []).map(
+  Object.entries(kaizenTailwindTheme?.spacing || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,8 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Borders/Border Radius",
-  component: <div>Hello</div>,
+  title: "Systems/Tailwind/Utility Class References/Borders/Border Spacing",
   parameters: {
     docs: {
       description: {
@@ -24,23 +23,40 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="border-radius"
+    compiledCssPropertyName="border-spacing"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div
-        className={classnames("w-[100px] h-[100px] border-solid", utilityClass)}
-      />
+      <table className={utilityClass}>
+        <tbody>
+          <tr>
+            <td className={classnames("outline-[black] outline-1 outline")}>
+              Tutant
+            </td>
+            <td className={classnames("outline-[black] outline-1 outline")}>
+              Meenage
+            </td>
+          </tr>
+          <tr>
+            <td className={classnames("outline-[black] outline-1 outline")}>
+              Neetle
+            </td>
+            <td className={classnames("outline-[black] outline-1 outline")}>
+              Teetles
+            </td>
+          </tr>
+        </tbody>
+      </table>
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Radius"
+StickerSheetDefault.storyName = "Border Spacing"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

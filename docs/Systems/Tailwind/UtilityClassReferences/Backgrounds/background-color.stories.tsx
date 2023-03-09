@@ -1,22 +1,17 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "border-"
-const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
-    ([suffix, cssProperty]) => ({
-      utilityClassName: `${prefix}${suffix}`,
-      cssProperty,
-    })
-  )
+const prefix = "bg-"
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Borders/Border Width",
-  component: <div>Hello</div>,
+  title:
+    "Systems/Tailwind/Utility Class References/Backgrounds/Background Color",
   parameters: {
     docs: {
       description: {
@@ -24,18 +19,19 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="border-width"
+    compiledCssPropertyName="background-color"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "w-[100px] h-[100px] border-solid border-[black]",
+          "w-[100px] h-[100px] border-solid",
+          "rounded-default",
           utilityClass
         )}
       />
@@ -45,5 +41,5 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Width"
+StickerSheetDefault.storyName = "Background Color"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }
