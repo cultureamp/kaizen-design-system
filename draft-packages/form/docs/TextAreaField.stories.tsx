@@ -4,7 +4,7 @@ import { TextAreaField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
-  title: "Components/Form/Text Area Field",
+  title: "Components/Text Area Field",
   component: TextAreaField,
   parameters: {
     docs: {

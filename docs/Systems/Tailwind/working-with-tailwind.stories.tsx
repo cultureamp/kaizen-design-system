@@ -1,5 +1,4 @@
 import React from "react"
-// import { Canvas } from "@storybook/blocks";
 import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Card } from "@kaizen/draft-card"
@@ -9,7 +8,11 @@ import {
 } from "@kaizen/draft-illustration"
 import { Skirt } from "@kaizen/draft-page-layout"
 import { Heading } from "@kaizen/typography"
-import { CardContent } from "./CardContent"
+import { CardContent } from "./components/CardContent"
+
+export default {
+  title: "Systems/Tailwind/Working with Tailwind",
+}
 
 export const TailwindExampleSpacingAndLayouts: StoryFn = () => (
   <div className="flex justify-center border-solid p-16">
@@ -66,13 +69,13 @@ export const TailwindExampleClassNameOverrideMargin: StoryFn = () => (
     <Card classNameOverride="mr-24">
       <CardContent
         title="Card 1"
-        Illustration={<CustomSurvey alt="custom-survey" />}
+        illustration={<CustomSurvey alt="custom-survey" />}
       />
     </Card>
     <Card>
       <CardContent
         title="Card 2"
-        Illustration={
+        illustration={
           <CustomUnattributedSurvey alt="custom-unattributed-survey" />
         }
       />

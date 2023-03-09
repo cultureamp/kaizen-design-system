@@ -30,7 +30,7 @@ const withMinHeight: Decorator<InputEditModalProps> = Story => {
 }
 
 export default {
-  title: "Components/Modal/Input Edit Modal",
+  title: "Components/Input Edit Modal",
   component: InputEditModal,
   parameters: {
     chromatic: {

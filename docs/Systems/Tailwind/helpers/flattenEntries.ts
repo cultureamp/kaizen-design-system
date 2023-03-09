@@ -4,7 +4,7 @@ interface RecursiveKeyValuePair<K extends keyof any = string, V = string> {
 // needed untill we can use satisfies to create a similar object to tailwind class consumption
 type ResolvableTo<T> = T | ((utils) => T)
 
-const flattenEntries = (
+export const flattenEntries = (
   prefix: string,
   themeObj: ResolvableTo<RecursiveKeyValuePair<string, string>>
 ): Array<{
@@ -35,5 +35,3 @@ const flattenEntries = (
   })
   return flattenedEntries
 }
-
-export { flattenEntries }

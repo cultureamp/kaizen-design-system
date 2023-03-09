@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
@@ -16,7 +16,6 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
 
 export default {
   title: "Systems/Tailwind/Utility Class References/Effects/Box Shadow",
-  component: <div>Hello</div>,
   parameters: {
     docs: {
       description: {
@@ -24,7 +23,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

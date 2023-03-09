@@ -55,7 +55,7 @@ const AVATARS: AvatarList = [
 ]
 
 export default {
-  title: "Components/Avatar/Avatar Group",
+  title: "Components/Avatar Group",
   component: AvatarGroup,
   parameters: {
     docs: {

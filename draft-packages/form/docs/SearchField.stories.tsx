@@ -4,7 +4,7 @@ import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
 export default {
-  title: "Components/Form/Search Field",
+  title: "Components/Search Field",
   component: SearchField,
   parameters: {
     chromatic: { disable: false },

@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { Card } from "@kaizen/draft-card"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
@@ -24,7 +24,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

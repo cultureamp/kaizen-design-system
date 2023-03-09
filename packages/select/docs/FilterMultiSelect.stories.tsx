@@ -28,7 +28,7 @@ const withQueryProvider: Decorator<FilterMultiSelectProps> = Story => (
 )
 
 export default {
-  title: "Components/Select/Filter Multi-Select",
+  title: "Components/Filter Multi-Select",
   component: FilterMultiSelect,
   parameters: {
     docs: {

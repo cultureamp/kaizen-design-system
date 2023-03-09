@@ -1,9 +1,9 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
-import { flattenEntries } from "../../helpers/flatten-entries"
+import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "border-"
@@ -21,7 +21,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

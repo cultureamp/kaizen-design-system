@@ -12,7 +12,7 @@ import { validationControls } from "./controls/validationControls"
 
 export default {
   title:
-    "Components/Date Picker/Filter Date Range Picker/Subcomponents/Date Range Input Field",
+    "Components/Filter Date Range Picker/Subcomponents/Date Range Input Field",
   component: DateRangeInputField,
   parameters: {
     docs: {

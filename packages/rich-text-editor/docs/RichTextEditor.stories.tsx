@@ -13,7 +13,7 @@ type RTEStory = StoryFn<
 >
 
 export default {
-  title: "Components/Rich Text Editor/Rich Text Editor",
+  title: "Components/Rich Text Editor",
   component: RichTextEditor,
   parameters: {
     docs: {

@@ -1,19 +1,18 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta } from "@storybook/blocks"
 
 <Meta title="Systems/Tailwind/Contributing to this package" />
 
-# Contributing   
+# Contributing
 
 <br/>
 
 ## Local Development within Kaizen
 
-#### Gotchas
+### Gotchas
 
 **New preset created but not available / rendering in DOM**
 
 Any time you update the Tailwind presets, make sure you run `yarn build` in the root @kaizen/tailwind folder. You may also need to reload the window for these to be picked up with TW IntelliSense.
-
 
 **Intellisense not working within the class attributes**
 
@@ -30,6 +29,7 @@ Tailwind CSS: Can't resolve '@kaizen/tailwind' in '/Users/.../kaizen-design-syst
 ```
 
 **Solution**
+
 Run build in both the design-tokens and tailwind package folders.
 
 In consuming repos this will not be an issue but for local develop we are requiring on `/dist` folders having compile ts for the plugin to consume.

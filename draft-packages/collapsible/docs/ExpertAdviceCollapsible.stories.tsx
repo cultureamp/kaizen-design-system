@@ -14,14 +14,14 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: "Components/Collapsible/Expert Advice Collapsible",
+  title: "Components/Expert Advice Collapsible",
   component: ExpertAdviceCollapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },
     docs: {
       description: {
         component:
-          'import { Collapsible, CollapsibleGroup, ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
+          'import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
       },
     },
   },

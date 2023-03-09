@@ -1,13 +1,7 @@
-import { Canvas, Meta } from '@storybook/blocks';
-import {
-  TailwindExampleSpacingAndLayouts,
-  TailwindExampleSpacingAndLayoutsComplex,
-  TailwindExampleClassNameOverrideMargin,
-  TailwindExampleClassNameOverrideHeading,
-  TailwindExampleSnowflake,
-} from "./components/WorkingWithTailwind"
+import { Canvas, Meta, Story } from "@storybook/blocks"
+import * as Examples from "./working-with-tailwind.stories"
 
-<Meta title="Systems/Tailwind/Working with Tailwind" />
+<Meta of={Examples} />
 
 # Working with Tailwind
 
@@ -28,9 +22,7 @@ When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-desi
 
 Here, Tailwind has been used to center a Kaizen button within a div.
 
-<Canvas>
-  <TailwindExampleSpacingAndLayouts />
-</Canvas>
+<Canvas of={Examples.TailwindExampleSpacingAndLayouts} />
 
 - `flex`: Adds `display: flex`
 - `justify-center`: Adds `justify-content: center`
@@ -39,9 +31,7 @@ Here, Tailwind has been used to center a Kaizen button within a div.
 
 Here's a more complex example, where some `<Card>` components and text have been spaced and laid out with Tailwind:
 
-<Canvas>
-  <TailwindExampleSpacingAndLayoutsComplex />
-</Canvas>
+<Canvas of={Examples.TailwindExampleSpacingAndLayoutsComplex} />
 
 <br/>
 
@@ -50,17 +40,13 @@ Here's a more complex example, where some `<Card>` components and text have been
 If a Kaizen component supports classNameOverride, Tailwind classes can also be used.  
 This is particularly useful for adding margins to Kaizen components. In this example, our preset is being used to add `margin-right: 1.5rem` to Kaizen's `<Card/>` component, without the need to wrap it in a div.
 
-<Canvas>
-  <TailwindExampleClassNameOverrideMargin />
-</Canvas>
+<Canvas of={Examples.TailwindExampleClassNameOverrideMargin} />
 
 In this example, a Tailwind css rule is being applied to a Kaizen `<Heading />` component to ensure that the first letter is capitalized.
 
-<Canvas>
-  <TailwindExampleClassNameOverrideHeading />
-</Canvas>
+<Canvas of={Examples.TailwindExampleClassNameOverrideHeading} />
 
-- first-letter:capitalize: Adds text-transform: capitalize on the first-letter psuedo selector
+- first-letter:capitalize: Adds text-transform: capitalize on the first-letter pseudo selector
 
 <br/>
 
@@ -69,9 +55,7 @@ Occasionally snowflakes need to be created. This package provides common utiliti
 
 Here is an example of our TW package being used to create a bespoke, non-Kaizen component:
 
-<Canvas>
-  <TailwindExampleSnowflake />
-</Canvas>
+<Canvas of={Examples.TailwindExampleSnowflake} />
 
 <br/>
 
