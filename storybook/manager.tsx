@@ -5,25 +5,14 @@ import { addons } from "@storybook/addons"
 import { defaultTheme } from "@kaizen/design-tokens"
 import KaizenTheme from "./theme"
 
-export const CATEGORIES = {
-  introduction: "Introduction",
-  components: "Components",
-  helpers: "Helpers",
-  designTokens: "Design Tokens",
-  deprecated: "Deprecated",
-  tailwind: "Systems/Tailwind",
-  systems: "Systems",
-  aio: "AIO",
-}
-
-export const CATEGORIES_ICON = {
-  [CATEGORIES.introduction]: "👋",
-  [CATEGORIES.components]: "⚙️",
-  [CATEGORIES.helpers]: "🤝",
-  [CATEGORIES.designTokens]: "🎨",
-  [CATEGORIES.deprecated]: "💣",
-  [CATEGORIES.systems]: "🤖",
-  [CATEGORIES.aio]: "📦",
+const CATEGORIES_ICON = {
+  Introduction: "👋",
+  Components: "⚙️",
+  Helpers: "🤝",
+  "Design Tokens": "🎨",
+  Deprecated: "💣",
+  Systems: "🤖",
+  AIO: "📦",
 }
 
 const colors = defaultTheme.color
