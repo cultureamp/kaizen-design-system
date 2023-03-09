@@ -3,8 +3,28 @@
 import React from "react"
 import { addons } from "@storybook/addons"
 import { defaultTheme } from "@kaizen/design-tokens"
-import { CATEGORIES_ICON } from "./constants"
 import KaizenTheme from "./theme"
+
+export const CATEGORIES = {
+  introduction: "Introduction",
+  components: "Components",
+  helpers: "Helpers",
+  designTokens: "Design Tokens",
+  deprecated: "Deprecated",
+  tailwind: "Systems/Tailwind",
+  systems: "Systems",
+  aio: "AIO",
+}
+
+export const CATEGORIES_ICON = {
+  [CATEGORIES.introduction]: "👋",
+  [CATEGORIES.components]: "⚙️",
+  [CATEGORIES.helpers]: "🤝",
+  [CATEGORIES.designTokens]: "🎨",
+  [CATEGORIES.deprecated]: "💣",
+  [CATEGORIES.systems]: "🤖",
+  [CATEGORIES.aio]: "📦",
+}
 
 const colors = defaultTheme.color
 

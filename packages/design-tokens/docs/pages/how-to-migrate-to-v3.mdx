@@ -1,14 +1,13 @@
 import { Meta } from "@storybook/blocks"
 import exampleSass from '!!raw-loader!./examples/example.scss'
 import { CodeBlock, LinkToStory } from '../DocsComponents'
-import gettingStartedPage from './getting-started.stories.mdx'
-import howToUseWithSass from './how-to-use-with-sass.stories.mdx'
+import gettingStartedPage from './getting-started.mdx'
+import howToUseWithSass from './how-to-use-with-sass.mdx'
 import cssVariableReplacementDiffExample from '!!raw-loader!./examples/cssVariableReplacement.diff'
 
 <Meta title="Systems/Tokens/How to migrate from V2 to V3" parameters={{ docsOnly: true }} />
 
 # How to migrate from V2 to V3 of design tokens
-
 
 ## 1. Update @kaizen/design-tokens to the latest 2.x version
 
@@ -25,7 +24,6 @@ Ensure you have followed the steps in <LinkToStory storyModule={gettingStartedPa
 Be careful of places where color mixing or rgba functions are used in SASS, as these won't work anymore. See <LinkToStory storyModule={howToUseWithSass} />
 
 Team Foundations will release a codemod or stylint plugin to assist with this migration.
-
 
 ## 4. Update @kaizen/design-tokens to V3 when released.
 
