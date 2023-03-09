@@ -8,7 +8,7 @@
     "node": ">=v16.13.1"
   },
   "scripts": {
-    "storybook": "IS_DEV=true storybook dev -p 6006 -c storybook",
+    "storybook": "storybook dev -p 6006 -c storybook",
     "storybook:preview": "NODE_ENV=production yarn storybook --docs",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
