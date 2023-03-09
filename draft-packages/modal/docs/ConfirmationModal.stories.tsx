@@ -24,7 +24,7 @@ const withMinHeight: Decorator<ConfirmationModalProps> = Story => {
 }
 
 export default {
-  title: "Components/Confirmation Modal",
+  title: "Components/Modal/Confirmation Modal",
   component: ConfirmationModal,
   args: {
     mood: "cautionary",
