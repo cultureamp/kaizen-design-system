@@ -1,5 +1,6 @@
 // Components inside this package
 export * from "./KaizenProvider"
+export * from "./Dropzone"
 
 // Re-exports which need to be moved into this package
 export * from "@kaizen/a11y"
