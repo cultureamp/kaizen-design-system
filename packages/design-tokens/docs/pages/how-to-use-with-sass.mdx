@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/blocks"
 import exampleSass from '!!raw-loader!./examples/example.scss'
 import { CodeBlock, LinkToStory } from '../DocsComponents'
-import apiPage from './api.stories.mdx'
-import gettingStartedPage from './getting-started.stories.mdx'
+import apiPage from './api.mdx'
+import gettingStartedPage from './getting-started.mdx'
 
 <Meta title="Systems/Tokens/How to use design tokens in SASS" parameters={{ docsOnly: true }} />
 
@@ -22,7 +22,6 @@ Example:
 
 See <LinkToStory storyModule={apiPage} /> for all available tokens.
 
-
 ## 3. Be aware of the limitations of CSS variables in SASS
 
 ### Compile-time functions like `mix()` or `darken()` won't work
@@ -31,7 +30,6 @@ See <LinkToStory storyModule={apiPage} /> for all available tokens.
 <CodeBlock language="scss" code={`.myClass { 
     color: mix(white, $color-purple-800, 90%);
 }`} />
-
 
 Because the exposed SASS variables contain values such as `var(--color-purple-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
 
@@ -53,7 +51,6 @@ For similar reasons to the previous section, a statement like `rgba($color-gray-
 Every color variable such as `$color-gray-200` will have a matching sibling variable with the `-rgb` suffix. And `$color-gray-200-rgb` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function. 
 
 For example `rgba($color-gray-200-rgb, 0.5)`, compiles to `rgba(var(--color-gray-200-rgb), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)`.
-
 
 ## Migrating from compile time SASS functions like add-tint, darken, or mix
 
