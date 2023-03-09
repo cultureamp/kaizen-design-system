@@ -21,7 +21,7 @@ const CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = `
   }
 `
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "development") {
   const head = document.head || document.getElementsByTagName("head")[0]
   const style = document.createElement("style")
   head.appendChild(style)
