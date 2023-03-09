@@ -5,6 +5,7 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { LoadingInput } from "@kaizen/loading-skeleton"
+import { CustomDocsContainer } from "../../../storybook/CustomDocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { Button, ButtonProps } from ".."
 
@@ -13,11 +14,13 @@ const IS_CHROMATIC = isChromatic()
 const meta: Meta<typeof Button> = {
   title: "Components/Button/Button",
   component: Button,
+  tags: ["autodocs"],
   args: {
     label: "Label",
   },
   parameters: {
     docs: {
+      container: CustomDocsContainer,
       description: {
         story:
           "Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.",

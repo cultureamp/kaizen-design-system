@@ -1,11 +1,8 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
-import { DocsContainer } from "@storybook/addon-docs"
-import { DocsContainerProps } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
-import { CustomDocsContainer } from "./CustomDocsContainer"
 import { backgrounds } from "./backgrounds"
 import "highlight.js/styles/a11y-light.css"
 
@@ -52,13 +49,6 @@ export const parameters = {
       ],
     },
   },
-  docs: {
-    container: ({
-      context,
-    }: DocsContainerProps): React.ReactElement<typeof DocsContainer> => (
-      <CustomDocsContainer context={context} />
-    ),
-  },
   chromatic: { disable: true },
 }
 
@@ -97,7 +87,6 @@ const preview: Preview = {
       values: backgrounds,
     },
     docs: {
-      container: CustomDocsContainer,
       source: {
         excludeDecorators: true,
       },
