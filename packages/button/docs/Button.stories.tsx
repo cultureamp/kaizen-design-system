@@ -342,7 +342,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             "Icon Right",
             "Icon Left with Badge",
             "Icon Right with Badge",
-            "Badge Only",
           ]}
           headingsWidth="10rem"
           hasVerticalHeadings
