@@ -410,7 +410,11 @@ const renderNavigationTabs = (
       {!collapse && navigationTabs !== undefined && (
         <>
           <span className={styles.navigationTabEdgeShadowLeft} />
-          {navigationTabs}
+          {navigationTabs.map((navigationTab, index) =>
+            React.cloneElement(navigationTab, {
+              key: index,
+            })
+          )}
           <span className={styles.navigationTabEdgeShadowRight} />
         </>
       )}

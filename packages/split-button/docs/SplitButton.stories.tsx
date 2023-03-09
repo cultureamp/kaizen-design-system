@@ -34,10 +34,6 @@ const DROPDOWN_CONTENT__ONE_DISABLED = (
 export default {
   title: "Components/Split Button",
   component: SplitButton,
-  subcomponents: {
-    actionButtonProps: ActionButton,
-    dropdownButtonProps: DropdownButton,
-  },
   argTypes: {
     actionButtonProps: {
       options: ["Button", "Anchor"],

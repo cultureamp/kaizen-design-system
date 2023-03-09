@@ -113,7 +113,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           headings={["Base", "Hover", "Active", "Focus", "Disabled", "RTL"]}
         />
         {DIRECTIONAL_LINK_PROPS.map(({ title, props }) => (
-          <StoryWrapper.Row rowTitle={title}>
+          <StoryWrapper.Row key={title} rowTitle={title}>
             <DirectionalLink {...props} reversed={isReversed} />
             <DirectionalLink
               {...props}
@@ -144,7 +144,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           headings={["Base", "Hover", "Active", "Focus"]}
         />
         {PAGINATION_LINK_PROPS.map(({ title, props }) => (
-          <StoryWrapper.Row rowTitle={title}>
+          <StoryWrapper.Row key={title} rowTitle={title}>
             <PaginationLink {...props} reversed={isReversed} />
             <PaginationLink
               {...props}

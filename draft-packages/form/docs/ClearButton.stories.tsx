@@ -28,14 +28,19 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 }) => (
   <StickerSheet isReversed={isReversed}>
     <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
-    <StickerSheet.Row>
-      <ClearButton isReversed={isReversed} />
-      <ClearButton
-        isReversed={isReversed}
-        classNameOverride="story__clear-button-hover"
-      />
-      <ClearButton isReversed={isReversed} classNameOverride="focus-visible" />
-    </StickerSheet.Row>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <ClearButton isReversed={isReversed} />
+        <ClearButton
+          isReversed={isReversed}
+          classNameOverride="story__clear-button-hover"
+        />
+        <ClearButton
+          isReversed={isReversed}
+          classNameOverride="focus-visible"
+        />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
   </StickerSheet>
 )
 

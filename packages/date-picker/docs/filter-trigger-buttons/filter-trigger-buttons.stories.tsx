@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
 import {
   FilterTriggerButton,
@@ -9,10 +9,6 @@ import {
 export default {
   title:
     "Components/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
-  subcomponents: {
-    FilterTriggerButton,
-    RemovableFilterTriggerButton,
-  },
   parameters: {
     docs: {
       description: {
@@ -20,7 +16,7 @@ export default {
       },
     },
   },
-}
+} as Meta
 
 const StickerSheetTemplate: StoryFn = () => (
   <>

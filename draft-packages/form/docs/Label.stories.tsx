@@ -21,9 +21,6 @@ export const DefaultKaizenSiteDemo: StoryFn<typeof Label> = args => (
 DefaultKaizenSiteDemo.storyName = "Label"
 DefaultKaizenSiteDemo.args = { labelText: "Label Text" }
 DefaultKaizenSiteDemo.parameters = {
-  backgrounds: {
-    default: DefaultKaizenSiteDemo.args.reversed ? "Purple 700" : "white",
-  },
   chromatic: { disable: false },
 }
 

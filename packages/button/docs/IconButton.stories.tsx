@@ -104,7 +104,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
         />
         {VARIANTS_PROPS.map(({ title, props }) => (
-          <StoryWrapper.Row rowTitle={title}>
+          <StoryWrapper.Row key={title} rowTitle={title}>
             <IconButton reversed={isReversed} {...props} />
             <IconButton
               reversed={isReversed}
