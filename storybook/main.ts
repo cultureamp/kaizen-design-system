@@ -27,7 +27,6 @@ const defaultStoryPaths = [
 ]
 
 module.exports = {
-  mode: "production",
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
   presets: [path.resolve("./storybook/header-preset/preset")],
