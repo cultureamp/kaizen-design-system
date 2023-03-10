@@ -34,7 +34,7 @@
   "devDependencies": {
     "@deanc/esbuild-plugin-postcss": "^1.0.2",
     "@kaizen/tailwind": "^0.5.1",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.14",
     "tailwindcss": "^3.2.7",
     "tiny-glob": "^0.2.9",
     "tsup": "^6.6.3"
