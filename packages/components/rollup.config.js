@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import babel from "@rollup/plugin-babel"
+import image from "@rollup/plugin-image"
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 // import copy from "rollup-plugin-copy"
@@ -13,19 +15,6 @@ const getCompiledConfigByModuleType = format => ({
   input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
   plugins: [
     peerDepsExternal(),
-    // Required if you need to export scss files for raw consumption
-    // copy({
-    //   targets: [
-    //     { src: "src/theme.scss*", dest: `${OUTPUT_DIR}/${format}` },
-    //     { src: "src/components.scss*", dest: `${OUTPUT_DIR}/${format}` },
-    //     {
-    //       src: ["src/components/**/*.scss*", "!**/*.spec.*"],
-    //       dest: `${OUTPUT_DIR}/${format}/src`,
-    //     },
-    //   ],
-    //   verbose: true,
-    //   flatten: false,
-    // }),
     resolve({
       extensions: [".js", ".jsx", ".ts", ".tsx"],
     }),
@@ -41,6 +30,7 @@ const getCompiledConfigByModuleType = format => ({
       babelHelpers: "runtime",
       exclude: "node_modules/**",
     }),
+    image(),
   ],
   output: [
     {
