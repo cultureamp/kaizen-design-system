@@ -28,7 +28,12 @@ $row-height-data-variant: 48px;
 
 .container {
   width: 100%;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-12;
+}
+
+.caption {
+  margin-bottom: $spacing-12;
+  text-align: left;
 }
 
 .headerRowCell {
@@ -37,7 +42,7 @@ $row-height-data-variant: 48px;
   text-align: start;
   justify-content: flex-start;
   // The 8px usually makes the height of the header cell 40px
-  padding: 8px $spacing-md;
+  padding: 8px $spacing-24;
   // This is required as so the tooltip will display directly above the header cell
   position: relative;
 }
@@ -142,7 +147,7 @@ $row-height-data-variant: 48px;
   }
 
   &.well {
-    margin-top: $spacing-sm;
+    margin-top: $spacing-12;
   }
 }
 
@@ -168,7 +173,7 @@ $row-height-data-variant: 48px;
   box-shadow: none;
   border-radius: $border-solid-border-radius;
   background-color: $color-gray-300;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-12;
 }
 
 .popout {
@@ -178,10 +183,10 @@ $row-height-data-variant: 48px;
 .expanded {
   position: relative;
   z-index: 1;
-  margin-left: calc(#{$spacing-sm} * -1);
-  margin-right: calc(#{$spacing-sm} * -1);
-  padding-left: $spacing-sm;
-  padding-right: $spacing-sm;
+  margin-left: calc(#{$spacing-12} * -1);
+  margin-right: calc(#{$spacing-12} * -1);
+  padding-left: $spacing-12;
+  padding-right: $spacing-12;
 }
 
 .hasHoverState {
@@ -190,7 +195,7 @@ $row-height-data-variant: 48px;
   cursor: pointer;
 
   &.expanded {
-    width: calc(100% + #{$spacing-md});
+    width: calc(100% + #{$spacing-24});
   }
 
   &:focus,
@@ -201,14 +206,14 @@ $row-height-data-variant: 48px;
 
 .rowCell {
   min-height: $row-height;
-  padding: 0 $spacing-md;
+  padding: 0 $spacing-24;
   display: flex;
   align-items: center;
   // These css properties are required for when the cells are anchor elements
   composes: anchorReset;
 
   .defaultSpacing & {
-    padding: $spacing-sm $spacing-md;
+    padding: $spacing-12 $spacing-24;
   }
 
   .dataVariant & {

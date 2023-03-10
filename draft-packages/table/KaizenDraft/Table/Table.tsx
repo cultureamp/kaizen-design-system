@@ -34,7 +34,7 @@ export const TableContainer = ({
   >
     {caption && (
       <Heading
-        classNameOverride="pb-12 text-left"
+        classNameOverride={styles.caption}
         variant="heading-2"
         tag="caption"
       >
