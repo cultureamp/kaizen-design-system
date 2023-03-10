@@ -16,7 +16,7 @@ export const CustomDocsContainer = ({ ...props }): JSX.Element => (
     <DocsContainer context={props.context}>
       <Title context={props.context} />
       <Links context={props.context} />
-      <Description of="component" />
+      <Description of="story" />
       <Installation context={props.context} />
       <h2>Playground</h2>
       <Primary />
