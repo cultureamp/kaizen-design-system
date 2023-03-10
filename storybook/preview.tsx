@@ -15,7 +15,6 @@ import "focus-visible"
 import "normalize.css"
 
 import "@kaizen/component-library/styles/fonts.scss"
-import "./global.scss"
 
 const globalTypes: Preview["globalTypes"] = {
   textDirection: {
