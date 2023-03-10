@@ -8,7 +8,7 @@
     "node": ">=v16.13.1"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006 -c storybook",
+    "storybook": "IS_DEV=true start-storybook -p 6006 -c storybook",
     "storybook:build": "build-storybook -c storybook -o storybook/public --no-manager-cache",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
