@@ -10,7 +10,8 @@ export const CustomStories: React.FC<StoriesProps> = ({ title }) => {
   const { componentStories } = useContext(DocsContext)
 
   const stories = componentStories().filter(
-    story => !story.parameters?.docs?.disable && story.name !== "Playground"
+    story =>
+      !story.parameters?.docs?.disable && !story.name.includes("Playground")
   )
 
   if (!stories || stories.length === 0) {
