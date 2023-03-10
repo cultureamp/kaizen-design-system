@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
-import { DocsContainer, DocsContainerProps } from "@storybook/blocks"
+import { DocsContainer, DocsContainerProps, Unstyled } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import "highlight.js/styles/a11y-light.css"
@@ -27,7 +27,11 @@ export const PageContainer = ({
   <DocsContainer {...props}>
     <Main>
       <Sidebar>
-        <TableOfContents />
+        {/* This is due to Unstyled typed as a being a FC pre-react-18 */}
+        {/* @ts-ignore */}
+        <Unstyled>
+          <TableOfContents />
+        </Unstyled>
       </Sidebar>
       <Content>
         {children}

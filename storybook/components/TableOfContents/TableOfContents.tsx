@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import { Unstyled } from "@storybook/blocks"
 import tocbot from "tocbot"
 
 export const TableOfContents = (): JSX.Element | null => {
@@ -38,17 +37,11 @@ export const TableOfContents = (): JSX.Element | null => {
   if (headings.length < 1) return null
 
   return (
-    <>
-      {/* This is due to Unstyled typed as a being a FC pre-react-18 */}
-      {/* @ts-ignore */}
-      <Unstyled>
-        <div className="tocbot-container sticky right-0 top-12 pl-12 pb-1 border-gray-300 border-solid border-y-w-none border-r-w-none border-l-[1px]">
-          <h2 className="font-family-paragraph text-paragraph-xs text-gray-600 leading-heading-5 font-weight-paragraph-bold mt-0 mb-8">
-            On this page
-          </h2>
-          <div className="tocbot-list"></div>
-        </div>
-      </Unstyled>
-    </>
+    <div className="tocbot-container sticky right-0 top-12 pl-12 pb-1 border-gray-300 border-solid border-y-w-none border-r-w-none border-l-[1px]">
+      <h2 className="font-family-paragraph text-paragraph-xs text-gray-600 leading-heading-5 font-weight-paragraph-bold mt-0 mb-8">
+        On this page
+      </h2>
+      <div className="tocbot-list"></div>
+    </div>
   )
 }
