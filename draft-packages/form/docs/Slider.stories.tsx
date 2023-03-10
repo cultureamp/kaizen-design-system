@@ -21,7 +21,7 @@ export default {
       control: "text",
     },
   },
-} as Meta<typeof Slider>
+} satisfies Meta<typeof Slider>
 
 export const DefaultKaizenSiteDemo: StoryFn<typeof Slider> = args => (
   <Slider {...args} />

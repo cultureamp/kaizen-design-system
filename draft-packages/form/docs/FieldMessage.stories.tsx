@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as Meta<typeof FieldMessage>
+} satisfies Meta<typeof FieldMessage>
 
 export const DefaultKaizenSiteDemo: StoryFn<typeof FieldMessage> = args => (
   <FieldMessage {...args}></FieldMessage>

@@ -19,7 +19,7 @@ export default {
       control: "disabled",
     },
   },
-} as Meta<typeof RadioField>
+} satisfies Meta<typeof RadioField>
 
 export const InteractiveKaizenSiteDemo: StoryFn<typeof RadioField> = args => {
   const [status, setStatus] = useState<boolean>()

@@ -38,7 +38,7 @@ export default {
       },
     },
   },
-} as Meta<typeof FilterMultiSelect>
+} satisfies Meta<typeof FilterMultiSelect>
 
 export const DefaultKaizenSiteDemo: StoryFn<
   typeof FilterMultiSelect

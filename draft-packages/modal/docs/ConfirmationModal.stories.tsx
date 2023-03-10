@@ -45,7 +45,7 @@ export default {
     },
   },
   decorators: [withMinHeight],
-} as Meta<typeof ConfirmationModal>
+} satisfies Meta<typeof ConfirmationModal>
 
 const ConfirmationModalTemplate: StoryFn<typeof ConfirmationModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)

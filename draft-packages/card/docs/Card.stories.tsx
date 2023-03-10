@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Card>
+} satisfies Meta<typeof Card>
 
 export const DefaultStory: StoryFn<typeof Card> = args => (
   <Card {...args}>This is a default container</Card>

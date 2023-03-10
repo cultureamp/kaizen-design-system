@@ -15,7 +15,7 @@ export default {
       },
     },
   },
-} as Meta<typeof FilterButtonGroup>
+} satisfies Meta<typeof FilterButtonGroup>
 
 export const DefaultStory: StoryFn<typeof FilterButtonGroup> = args => (
   <FilterButtonGroup {...args}>

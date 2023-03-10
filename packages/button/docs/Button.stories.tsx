@@ -26,7 +26,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Button>
+} satisfies Meta<typeof Button>
 
 export const DefaultStory: StoryFn<typeof Button> = args => <Button {...args} />
 DefaultStory.storyName = "Button"

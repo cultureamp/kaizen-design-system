@@ -25,7 +25,7 @@ export default {
   argTypes: {
     ...validationControls,
   },
-} as Meta<typeof DateRangeInputField>
+} satisfies Meta<typeof DateRangeInputField>
 
 export const DefaultStory = (
   props: DateRangeInputFieldProps & {

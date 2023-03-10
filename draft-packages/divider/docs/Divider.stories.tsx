@@ -16,7 +16,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Divider>
+} satisfies Meta<typeof Divider>
 
 export const DefaultStory: StoryFn<typeof Divider> = args => (
   <Box m={1}>

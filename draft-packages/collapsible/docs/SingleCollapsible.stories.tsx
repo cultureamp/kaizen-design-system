@@ -32,7 +32,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Collapsible>
+} satisfies Meta<typeof Collapsible>
 
 const SingleCollapsibleNoPadding = (): JSX.Element => (
   <Collapsible

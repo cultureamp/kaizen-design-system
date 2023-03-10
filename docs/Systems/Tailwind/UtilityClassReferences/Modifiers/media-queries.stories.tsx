@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as Meta
+} satisfies Meta
 
 type QueryInfoProps = {
   selector: string

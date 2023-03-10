@@ -28,7 +28,7 @@ export default {
       },
     },
   },
-} as Meta<typeof MultiActionTile>
+} satisfies Meta<typeof MultiActionTile>
 
 const primaryAction: TileAction = {
   label: "View",

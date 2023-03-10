@@ -47,7 +47,7 @@ export default {
       },
     },
   },
-} as Meta<typeof ToggleSwitchField>
+} satisfies Meta<typeof ToggleSwitchField>
 
 export const Default: StoryFn<typeof ToggleSwitchField> = props => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>

@@ -15,7 +15,7 @@ export default {
       },
     },
   },
-} as Meta<typeof TextField>
+} satisfies Meta<typeof TextField>
 
 export const DefaultStory: StoryFn<typeof TextField> = args => (
   <TextField {...args} />

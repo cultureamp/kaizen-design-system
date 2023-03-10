@@ -42,7 +42,7 @@ export default {
       default: "Purple 700",
     },
   },
-} as Meta<typeof SkipLink>
+} satisfies Meta<typeof SkipLink>
 
 export const SkipLinkExample: StoryFn = () => {
   const renderPointers = (): JSX.Element[] =>

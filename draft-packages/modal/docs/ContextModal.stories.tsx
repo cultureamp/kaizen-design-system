@@ -50,7 +50,7 @@ export default {
     },
   },
   decorators: [withMinHeight],
-} as Meta<typeof ContextModal>
+} satisfies Meta<typeof ContextModal>
 
 const ContextModalTemplate: StoryFn<typeof ContextModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)

@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-} as Meta<typeof SearchField>
+} satisfies Meta<typeof SearchField>
 
 export const DefaultKaizenDemo: StoryFn<typeof SearchField> = args => {
   const [value, setValue] = useState("Some value")
