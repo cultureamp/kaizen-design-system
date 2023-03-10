@@ -10,10 +10,6 @@ export default {
   parameters: {
     docs: {
       container: CustomDocsContainer,
-      description: {
-        component:
-          'Add component description here',
-      },
     },
     installation: [
       "npm install @kaizen/{{kebabCase packageName}}",
@@ -28,6 +24,9 @@ export default {
   },
 } as Meta<typeof {{pascalCase componentName}}>
 
+/**
+ * Main Description goes here
+ */
 export const Primary: StoryFn<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
 Primary.storyName = "{{pascalCase componentName}} Playground"
 /** @todo:  Uncomment below to show Playground story code initially 
