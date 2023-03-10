@@ -11,7 +11,7 @@ import { Button, ButtonProps } from ".."
 
 const IS_CHROMATIC = isChromatic()
 
-const meta: Meta<typeof Button> = {
+export default {
   title: "Components/Button/Button",
   component: Button,
   args: {
@@ -21,7 +21,7 @@ const meta: Meta<typeof Button> = {
     docs: {
       container: CustomDocsContainer,
       description: {
-        story:
+        component:
           "Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.",
       },
     },
@@ -39,13 +39,12 @@ const meta: Meta<typeof Button> = {
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364",
     alternatives: ["icon-button"],
   },
-}
-export default meta
+} as Meta<typeof Button>
 
 type Story = StoryFn<ButtonProps>
 
 export const Primary: Story = args => <Button {...args} />
-Primary.storyName = "Playground"
+Primary.storyName = "ButtonPlayground"
 Primary.parameters = {
   docs: {
     canvas: {
