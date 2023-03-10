@@ -17,41 +17,6 @@ import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
 import "./global.scss"
 
-export const parameters = {
-  backgrounds: {
-    default: "White",
-    values: backgrounds,
-  },
-  options: {
-    storySort: {
-      method: "alphabetical",
-      order: [
-        "Introduction",
-        "Systems",
-        [
-          "*",
-          "Tailwind",
-          [
-            "Overview",
-            "Getting Started",
-            "Configuration",
-            "Working with Tailwind",
-            "*",
-            "Utility Class References",
-            ["Overview", "*"],
-          ],
-        ],
-        "Components",
-        "Helpers",
-        "Design Tokens",
-        "Deprecated",
-        "AIO",
-      ],
-    },
-  },
-  chromatic: { disable: true },
-}
-
 const globalTypes: Preview["globalTypes"] = {
   textDirection: {
     name: "Text direction",
