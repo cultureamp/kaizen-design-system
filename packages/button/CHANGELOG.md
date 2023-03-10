@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@2.0.23...@kaizen/button@2.0.24) (2023-03-10)
+
+
+### Bug Fixes
+
+* custom button now forwards custom props ([#3356](https://github.com/cultureamp/kaizen-design-system/issues/3356)) ([a82863a](https://github.com/cultureamp/kaizen-design-system/commit/a82863a0ce25082e3ae56fd1ca8d7bafdd52377a))
+
+
+
+
+
 ## [2.0.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@2.0.22...@kaizen/button@2.0.23) (2023-03-02)
 
 **Note:** Version bump only for package @kaizen/button
