@@ -19,9 +19,6 @@ const colors = defaultTheme.color
 
 addons.setConfig({
   theme: KaizenTheme,
-  analyticsGTM: {
-    gtmId: "GTM-KS4VWLT",
-  },
   sidebar: {
     renderLabel: item =>
       item.type === "root" ? (
