@@ -1,7 +1,7 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import classnames from "classnames"
-import { Card } from "@kaizen/draft-card"
+import { GlobalNotification } from "@kaizen/notification"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
@@ -31,26 +31,24 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <div className="flex flex-col items-center">
-    <Card variant="informative" classNameOverride="mb-24">
-      <div className="p-24 font-family-paragraph max-w-[1000px]">
-        <p>
-          For information regarding our spacing system, see our{" "}
-          <a href="/?path=/story/systems-layout-and-spacing--page">
-            spacing docs
-          </a>
-          .
-        </p>
-        <p>
-          The padding prefix 'm-' has been used in the examples in this
-          document, which compiles to the `margin` property in CSS.
-        </p>
-        <p>
-          Note that there are other prefixes (such as `ml-` for `margin-left`)
-          that can be used instead. Available padding prefixes can be referenced{" "}
-          <a href="https://tailwindcss.com/docs/margin#basic-usage">here</a>.
-        </p>
-      </div>
-    </Card>
+    <GlobalNotification persistent type="informative">
+      <p>
+        For information regarding our spacing system, see our{" "}
+        <a href="/?path=/story/systems-layout-and-spacing--page">
+          spacing docs
+        </a>
+        .
+      </p>
+      <p>
+        The padding prefix 'm-' has been used in the examples in this document,
+        which compiles to the `margin` property in CSS.
+      </p>
+      <p>
+        Note that there are other prefixes (such as `ml-` for `margin-left`)
+        that can be used instead. Available margin prefixes can be referenced{" "}
+        <a href="https://tailwindcss.com/docs/margin">here</a>.
+      </p>
+    </GlobalNotification>
     <UtilityClassTemplate
       compiledCssPropertyName="margin"
       classKeyValues={classEntries}
