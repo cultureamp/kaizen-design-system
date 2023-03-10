@@ -124,20 +124,25 @@ GenericButton.defaultProps = {
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
   props: Props
-): JSX.Element => (
-  <CustomComponent
-    id={props.id}
-    className={buttonClass(props)}
-    disabled={props.disabled}
-    href={props.href}
-    onClick={props.onClick}
-    onFocus={props.onFocus}
-    onBlur={props.onBlur}
-    aria-label={generateAriaLabel(props)}
-  >
-    {renderContent(props)}
-  </CustomComponent>
-)
+): JSX.Element => {
+  const { id, disabled, href, onClick, onFocus, onBlur, ...rest } = props
+  const customProps = getCustomProps(rest)
+  return (
+    <CustomComponent
+      id={id}
+      className={buttonClass(props)}
+      disabled={disabled}
+      href={href}
+      onClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      aria-label={generateAriaLabel(props)}
+      {...customProps}
+    >
+      {renderContent(props)}
+    </CustomComponent>
+  )
+}
 
 const renderButton = (
   props: Props,
