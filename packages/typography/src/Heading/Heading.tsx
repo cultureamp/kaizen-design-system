@@ -26,6 +26,7 @@ export type AllowedHeadingTags =
   | "h5"
   | "h6"
   | "label"
+  | "caption"
 
 export type AllowedHeadingColors =
   | "dark"

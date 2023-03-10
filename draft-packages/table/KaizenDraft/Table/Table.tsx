@@ -32,13 +32,21 @@ export const TableContainer = ({
     })}
     {...otherProps}
   >
-    {caption && <caption className="sr-only">{caption}</caption>}
+    {caption && (
+      <Heading
+        classNameOverride="pb-12 text-left"
+        variant="heading-2"
+        tag="caption"
+      >
+        {caption}
+      </Heading>
+    )}
     {children}
   </table>
 )
 
 /**
- * @deprecated backgroundColor is deprecated. Header props now have transparet backgrounds
+ * @deprecated backgroundColor is deprecated. Header props now have transparent backgrounds
  */
 export type AllowedTableHeaderBackgroundColors = "ash" | "white"
 
