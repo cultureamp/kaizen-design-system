@@ -154,17 +154,6 @@ const preview: Preview = {
         ],
       },
     },
-    // docs: {
-    //   // @note: Do we need this?
-    //   // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
-    //   // https://storybook.js.org/addons/@dblechoc/storybook-addon-docs
-    //   extractComponentDescription: (component, { notes }): unknown => {
-    //     if (notes) {
-    //       return typeof notes === "string" ? notes : notes.markdown || notes.text
-    //     }
-    //     return null
-    //   },
-    // },
     chromatic: { disable: true },
   },
   globalTypes,
