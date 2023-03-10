@@ -20,10 +20,6 @@ export default {
   parameters: {
     docs: {
       container: CustomDocsContainer,
-      description: {
-        component:
-          "Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.",
-      },
     },
     actions: {
       argTypesRegex: "^on.*",
@@ -41,10 +37,11 @@ export default {
   },
 } as Meta<typeof Button>
 
-type Story = StoryFn<ButtonProps>
-
-export const Primary: Story = args => <Button {...args} />
-Primary.storyName = "ButtonPlayground"
+/**
+ * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
+ */
+export const Primary: StoryFn<typeof Button> = args => <Button {...args} />
+Primary.storyName = "Button Playground"
 Primary.parameters = {
   docs: {
     canvas: {
@@ -58,7 +55,7 @@ Primary.parameters = {
  * <p>If no `variant` is specified, a `Default` button will be rendered. </p>
  * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.design/components/button/)</p>
  */
-export const Variants: Story = () => (
+export const Variants: StoryFn = () => (
   <StickerSheet>
     <StickerSheet.Row>
       <Button label="Default" />
@@ -70,7 +67,7 @@ export const Variants: Story = () => (
   </StickerSheet>
 )
 
-export const Reversed: Story = () => (
+export const Reversed: StoryFn = () => (
   <StickerSheet>
     <StickerSheet.Row>
       <Button label="Default" reversed />
@@ -88,7 +85,7 @@ Reversed.parameters = {
 /**
  * A disabled Button prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read aloud by a screenreader.
  */
-export const Disabled: Story = () => <Button label="Label" disabled />
+export const Disabled: StoryFn = () => <Button label="Label" disabled />
 
 /**
  * <p>When a Button is supplied to the `icon` prop, it displays an icon.</p>
@@ -97,7 +94,7 @@ export const Disabled: Story = () => <Button label="Label" disabled />
  * <h3>IconPosition</h3>
  * <p>The consumer can specify the icon placement with the iconPosition prop, default position is start. </p>
  */
-export const Icon: Story = () => (
+export const Icon: StoryFn = () => (
   <StickerSheet>
     <StickerSheet.Row>
       <Button label="Label" icon={addIcon} />
@@ -109,7 +106,7 @@ export const Icon: Story = () => (
 /**
  * You can display a `Badge` component within the button using the `badge` prop.
  */
-export const Badge: Story = () => (
+export const Badge: StoryFn = () => (
   <Button
     label="Label"
     icon={filterIcon}
@@ -122,7 +119,7 @@ export const Badge: Story = () => (
  * Buttons can be stretched to fill the full width of their container.
  */
 
-export const FullWidth: Story = () => (
+export const FullWidth: StoryFn = () => (
   <Button
     label="Label"
     icon={filterIcon}
@@ -136,7 +133,7 @@ export const FullWidth: Story = () => (
  * <p>In conjuction use the `workingLabel` prop to update the label of the button when the working state is triggered.</p>
  * <p>Alternatively use the `workingLabelHidden` prop to hide the button label all together.</p>
  */
-export const Working: Story = () => (
+export const Working: StoryFn = () => (
   <StickerSheet>
     <StickerSheet.Row>
       <Button label="Label" working workingLabel="Submitting" />
@@ -154,7 +151,7 @@ export const Working: Story = () => (
  * <p>Use the LoadingInput component from the loading-skeleton package. Please refer to the LoadingInput Component guidelines.</p>
  * `import { LoadingInput } from "@kaizen/loading-skeleton"`
  */
-export const Skeleton: Story = () => <LoadingInput isAnimated width={13} />
+export const Skeleton: StoryFn = () => <LoadingInput isAnimated width={13} />
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
