@@ -22,7 +22,7 @@ export default {
     status: { control: { type: "radio" }, options: ["default", "error"] },
     validationMessage: { control: "text" },
   },
-} as Meta<typeof TimeField>
+} satisfies Meta<typeof TimeField>
 
 export const DefaultStory: StoryFn<typeof TimeField> = args => {
   const [value, setValue] = useState<ValueType | null>(null)

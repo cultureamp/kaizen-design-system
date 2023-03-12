@@ -17,7 +17,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Tabs>
+} satisfies Meta<typeof Tabs>
 
 export const Uncontrolled: StoryFn = () => (
   <Tabs

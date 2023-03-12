@@ -5,9 +5,9 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "w-"
+const prefix = "h-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.width || []).map(
+  Object.entries(kaizenTailwindTheme?.height || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Spacing/Width",
+  title: "Systems/Tailwind/Utility Class References/Spacing/Height",
   parameters: {
     docs: {
       description: {
@@ -23,27 +23,27 @@ export default {
       },
     },
   },
-} as Meta
+} satisfies Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="width"
+    compiledCssPropertyName="height"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div className="border-solid w-100 rounded-default">
+      <div className="flex flex-col-reverse w-min border-solid rounded-default h-[200px]">
         <div
           className={classnames(
-            "flex items-center bg-blue-400 h-100 min-h-[50px]",
+            "flex justify-center items-center bg-blue-400 w-[100px]",
             utilityClass
           )}
         >
-          {utilityClass.includes("auto") ||
-          utilityClass.includes("min") ||
+          {utilityClass.includes("min") ||
           utilityClass.includes("max") ||
-          utilityClass.includes("fit") ? (
-            <div className="p-4 my-12 bg-blue-100 border-dashed font-family-paragraph border-w-[1px]">
+          utilityClass.includes("fit") ||
+          utilityClass.includes("auto") ? (
+            <div className="p-4 w-min bg-blue-100 border-dashed font-family-paragraph border-w-[1px]">
               Inner content
             </div>
           ) : null}
@@ -55,5 +55,5 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Width"
+StickerSheetDefault.storyName = "Height"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

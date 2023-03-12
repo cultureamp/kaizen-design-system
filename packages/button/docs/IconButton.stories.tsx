@@ -21,7 +21,7 @@ export default {
       },
     },
   },
-} as Meta<typeof IconButton>
+} satisfies Meta<typeof IconButton>
 
 export const DefaultKaizenSiteDemo: StoryFn<typeof IconButton> = args => (
   <IconButton {...args} />

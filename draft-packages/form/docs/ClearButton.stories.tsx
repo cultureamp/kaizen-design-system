@@ -16,7 +16,7 @@ export default {
       },
     },
   },
-} as Meta<typeof ClearButton>
+} satisfies Meta<typeof ClearButton>
 
 export const DefaultStory: StoryFn<typeof ClearButton> = args => (
   <ClearButton {...args} />

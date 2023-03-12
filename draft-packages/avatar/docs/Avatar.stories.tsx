@@ -58,7 +58,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Avatar>
+} satisfies Meta<typeof Avatar>
 
 export const DefaultStory: StoryFn<typeof Avatar> = args => <Avatar {...args} />
 DefaultStory.storyName = "Default (Kaizen Demo)"

@@ -1,5 +1,7 @@
 import fs from "fs"
 import path from "path"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { StorybookConfig } from "@storybook/core-webpack"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -25,10 +27,9 @@ const defaultStoryPaths = [
   "../(docs|draft-packages|packages)/**/*.stories.tsx",
 ]
 
-module.exports = {
+const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
-  presets: [path.resolve("./storybook/header-preset/preset")],
   staticDirs: [{ from: "./assets", to: "/static/media" }],
   framework: {
     name: "@storybook/react-webpack5",
@@ -37,4 +38,6 @@ module.exports = {
   docs: {
     autodocs: true,
   },
-}
+} satisfies StorybookConfig
+
+export default config

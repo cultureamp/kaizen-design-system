@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { Box } from "@kaizen/component-library"
 import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible"
 import { Paragraph } from "@kaizen/typography"
 
@@ -25,7 +24,7 @@ export default {
       },
     },
   },
-} as Meta<typeof ExpertAdviceCollapsible>
+} satisfies Meta<typeof ExpertAdviceCollapsible>
 
 export const DefaultStory: StoryFn = args => (
   <ExpertAdviceCollapsible id="123" title="Expert advice collapsible" {...args}>

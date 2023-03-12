@@ -5,9 +5,9 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "h-"
+const prefix = "shadow-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.height || []).map(
+  Object.entries(kaizenTailwindTheme?.boxShadow || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Spacing/Height",
+  title: "Systems/Tailwind/Utility Class References/Effects/Box Shadow",
   parameters: {
     docs: {
       description: {
@@ -23,37 +23,21 @@ export default {
       },
     },
   },
-} as Meta
+} satisfies Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="height"
+    compiledCssPropertyName="box-shadow"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div className="flex flex-col-reverse w-min border-solid rounded-default h-[200px]">
-        <div
-          className={classnames(
-            "flex justify-center items-center bg-blue-400 w-[100px]",
-            utilityClass
-          )}
-        >
-          {utilityClass.includes("min") ||
-          utilityClass.includes("max") ||
-          utilityClass.includes("fit") ||
-          utilityClass.includes("auto") ? (
-            <div className="p-4 w-min bg-blue-100 border-dashed font-family-paragraph border-w-[1px]">
-              Inner content
-            </div>
-          ) : null}
-        </div>
-      </div>
+      <div className={classnames("w-[100px] h-[100px]", utilityClass)} />
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Height"
+StickerSheetDefault.storyName = "Box Shadow"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

@@ -34,7 +34,7 @@ export default {
       },
     },
   },
-} as Meta<typeof EmptyState>
+} satisfies Meta<typeof EmptyState>
 
 const BUTTON = (
   <div className={styles.buttonContainer}>

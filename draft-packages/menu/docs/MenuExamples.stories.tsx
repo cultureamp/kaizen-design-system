@@ -24,7 +24,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Menu>
+} satisfies Meta<typeof Menu>
 
 export const DefaultStory: StoryFn<typeof Menu> = args => (
   <Menu

@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as Meta<typeof Paragraph>
+} satisfies Meta<typeof Paragraph>
 
 const Documentation = (): JSX.Element => (
   <Paragraph tag="div" variant="body">

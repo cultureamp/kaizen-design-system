@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-} as Meta<typeof {{pascalCase componentName}}>
+} satisfies Meta<typeof {{pascalCase componentName}}>
 
 export const DefaultStory: StoryFn<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
 DefaultStory.storyName = "{{pascalCase componentName}}"

@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as Meta<typeof RemovableFilterTriggerButton>
+} satisfies Meta<typeof RemovableFilterTriggerButton>
 
 export const RemovableFilterTriggerButtonStory: StoryFn<
   typeof RemovableFilterTriggerButton

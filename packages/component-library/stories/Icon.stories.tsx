@@ -26,7 +26,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Icon>
+} satisfies Meta<typeof Icon>
 
 export const MeaningfulKaizenSiteDemo: StoryFn<typeof Icon> = args => (
   <Icon {...args} />

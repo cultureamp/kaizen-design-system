@@ -68,7 +68,7 @@ export default {
       },
     },
   },
-} as Meta<typeof SplitButton>
+} satisfies Meta<typeof SplitButton>
 
 export const DefaultKaizenSiteDemo: StoryFn<typeof SplitButton> = args => (
   <SplitButton {...args} />

@@ -18,7 +18,7 @@ export default {
       argTypesRegex: "^on.*",
     },
   },
-} as Meta<typeof Badge>
+} satisfies Meta<typeof Badge>
 
 type BadgeAnimationStoryWrapperProps = {
   children: (badgeCount: string, useAnimation: boolean) => void

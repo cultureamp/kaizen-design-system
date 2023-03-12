@@ -4,6 +4,11 @@ import React from "react"
 import { DocsContainer, DocsContainerProps, Unstyled } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
+import { backgrounds } from "./backgrounds"
+import { BackToTop } from "./components/BackToTop"
+import { Content, Main, Sidebar } from "./components/Layout"
+import { TableOfContents } from "./components/TableOfContents"
+
 import "highlight.js/styles/a11y-light.css"
 
 // Polyfill for :focus-visible pseudo-selector
@@ -15,11 +20,6 @@ import "focus-visible"
 import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
 
-import { backgrounds } from "./backgrounds"
-import { BackToTop } from "./components/BackToTop"
-import { Content, Main, Sidebar } from "./components/Layout"
-import { TableOfContents } from "./components/TableOfContents"
-
 export const PageContainer = ({
   children,
   ...props
@@ -27,11 +27,13 @@ export const PageContainer = ({
   <DocsContainer {...props}>
     <Main>
       <Sidebar>
-        {/* This is due to Unstyled typed as a being a FC pre-react-18 */}
-        {/* @ts-ignore */}
-        <Unstyled>
-          <TableOfContents />
-        </Unstyled>
+        <div className="sticky right-0 top-12">
+          {/* This is due to Unstyled typed as a being a FC pre-react-18 */}
+          {/* @ts-ignore */}
+          <Unstyled>
+            <TableOfContents />
+          </Unstyled>
+        </div>
       </Sidebar>
       <Content>
         {children}
@@ -40,52 +42,6 @@ export const PageContainer = ({
     </Main>
   </DocsContainer>
 )
-
-export const parameters = {
-  backgrounds: {
-    default: "White",
-    values: backgrounds,
-  },
-  options: {
-    storySort: {
-      method: "alphabetical",
-      order: [
-        "Introduction",
-        "Systems",
-        [
-          "*",
-          "Tailwind",
-          [
-            "Overview",
-            "Getting Started",
-            "Configuration",
-            "Working with Tailwind",
-            "*",
-            "Utility Class References",
-            ["Overview", "*"],
-          ],
-        ],
-        "Components",
-        "Helpers",
-        "Design Tokens",
-        "Deprecated",
-        "AIO",
-      ],
-    },
-  },
-  // docs: {
-  //   // @note: Do we need this?
-  //   // https://github.com/storybookjs/storybook/blob/next/code/addons/docs/docs/recipes.md#migrating-from-notesinfo-addons
-  //   // https://storybook.js.org/addons/@dblechoc/storybook-addon-docs
-  //   extractComponentDescription: (component, { notes }): unknown => {
-  //     if (notes) {
-  //       return typeof notes === "string" ? notes : notes.markdown || notes.text
-  //     }
-  //     return null
-  //   },
-  // },
-  chromatic: { disable: true },
-}
 
 const globalTypes: Preview["globalTypes"] = {
   textDirection: {

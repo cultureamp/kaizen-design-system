@@ -25,7 +25,7 @@ export default {
       },
     },
   },
-} as Meta<typeof CollapsibleGroup>
+} satisfies Meta<typeof CollapsibleGroup>
 
 export const CollapsibleGroupDefault: StoryFn<
   typeof CollapsibleGroup

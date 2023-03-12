@@ -134,7 +134,7 @@ export default {
       },
     },
   },
-} as Meta<typeof TableContainer>
+} satisfies Meta<typeof TableContainer>
 
 export const DefaultKaizenSiteDemo: StoryFn = () => (
   <Container>

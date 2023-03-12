@@ -34,7 +34,7 @@ export default {
       },
     },
   },
-} as Meta<typeof CheckboxField>
+} satisfies Meta<typeof CheckboxField>
 
 export const InteractiveKaizenSiteDemo: StoryFn<
   typeof CheckboxField

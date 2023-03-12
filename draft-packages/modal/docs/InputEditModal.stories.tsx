@@ -46,7 +46,7 @@ export default {
     },
   },
   decorators: [withMinHeight],
-} as Meta<typeof InputEditModal>
+} satisfies Meta<typeof InputEditModal>
 
 const InputEditModalTemplate: StoryFn<typeof InputEditModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)

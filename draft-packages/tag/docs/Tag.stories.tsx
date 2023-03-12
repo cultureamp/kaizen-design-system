@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Tag>
+} satisfies Meta<typeof Tag>
 
 export const DefaultStory: StoryFn<typeof Tag> = args => (
   <Tag variant="default" {...args}>

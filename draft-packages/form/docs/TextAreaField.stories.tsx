@@ -22,7 +22,7 @@ export default {
       table: { defaultValue: { summary: false } },
     },
   },
-} as Meta<typeof TextAreaField>
+} satisfies Meta<typeof TextAreaField>
 
 export const DefaultStory: StoryFn<typeof TextAreaField> = args => (
   <TextAreaField {...args} />
