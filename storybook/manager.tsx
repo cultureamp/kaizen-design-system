@@ -45,8 +45,6 @@ addons.setConfig({
   },
 })
 
-/* eslint-disable ssr-friendly/no-dom-globals-in-module-scope */
-
 const CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = `
   #stickersheets,
   *[data-parent-id*="stickersheets"],
