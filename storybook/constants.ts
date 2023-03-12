@@ -6,6 +6,17 @@ export const CATEGORIES = {
   deprecated: "Deprecated",
   tailwind: "Systems/Tailwind",
   systems: "Systems",
+  aio: "AIO",
+}
+
+export const CATEGORIES_ICON = {
+  [CATEGORIES.introduction]: "👋",
+  [CATEGORIES.components]: "⚙️",
+  [CATEGORIES.helpers]: "🤝",
+  [CATEGORIES.designTokens]: "🎨",
+  [CATEGORIES.deprecated]: "💣",
+  [CATEGORIES.systems]: "🤖",
+  [CATEGORIES.aio]: "📦",
 }
 
 export const SUB_CATEGORIES = {
