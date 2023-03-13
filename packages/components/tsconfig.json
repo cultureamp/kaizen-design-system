@@ -1,6 +1,16 @@
 {
   "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true
+  },
   "files": ["types.d.ts"],
-  "include": ["src/**/*"],
-  "exclude": ["**/node_modules"]
+  "include": ["src/index.ts", "src/__future__/index.ts"],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.stories.tsx"
+  ]
 }
