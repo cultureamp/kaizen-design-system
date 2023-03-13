@@ -6,7 +6,7 @@
     "emitDeclarationOnly": true
   },
   "files": ["types.d.ts"],
-  "include": ["src/index.ts", "src/__future__/index.ts"],
+  "include": ["src/**/*"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",
