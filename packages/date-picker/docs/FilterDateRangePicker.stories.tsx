@@ -82,6 +82,7 @@ export const DefaultStory = (
       {...mergedProps}
       selectedRange={range}
       onRangeChange={setRange}
+      locale="ja-JP"
     />
   )
 }

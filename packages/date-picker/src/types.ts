@@ -15,7 +15,7 @@ export type WeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6 | undefined
 type StringSuggestions<T> = T | (string & Record<never, never>)
 
 // Ensure you update the storybook SUPPORTED_LOCALES arg options when updating SupportedLocales.
-export type SupportedLocales = StringSuggestions<"en-US" | "en-AU">
+export type SupportedLocales = StringSuggestions<"en-US" | "en-AU" | "ja-JP">
 
 export type ValidationResponse = {
   date: Date | undefined

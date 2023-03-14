@@ -1,5 +1,5 @@
-const DATE_PICKER_SUPPORTED_LOCALES = ["en-US", "en-AU"]
-const DATE_RANGE_PICKER_SUPPORTED_LOCALES = ["en-US", "en-AU"]
+const DATE_PICKER_SUPPORTED_LOCALES = ["en-US", "en-AU", "ja-JP"]
+const DATE_RANGE_PICKER_SUPPORTED_LOCALES = ["en-US", "en-AU", "ja-JP"]
 
 export const datePickerLocaleControls = {
   locale: {
