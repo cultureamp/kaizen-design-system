@@ -35,9 +35,6 @@ export const FilterTriggerButtonRemovable = forwardRef<
   FilterTriggerButtonRemovableProps
 >(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
   const customRefObject = isRefObject(ref) ? ref.current : null
-  const triggerButtonRef = React.useRef<FilterRef>({
-    triggerButtonRef: customRefObject?.triggerButtonRef,
-  })
   const removeButtonRef = customRefObject?.removeButtonRef
 
   const removeButtonLabel =
@@ -46,7 +43,7 @@ export const FilterTriggerButtonRemovable = forwardRef<
 
   return (
     <FilterButtonGroup {...restProps}>
-      <FilterTriggerButton ref={triggerButtonRef} {...triggerButtonProps} />
+      <FilterTriggerButton ref={ref} {...triggerButtonProps} />
       <FilterButtonWithTooltip
         ref={removeButtonRef}
         tooltipText={removeButtonLabel}
