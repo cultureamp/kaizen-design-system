@@ -1,18 +1,14 @@
-import { FieldMessageStatus } from "@kaizen/draft-form"
-import { FieldValidation, Matcher, ValidationResponse } from "../../types"
+import { FieldValidation } from "../../types"
 import {
   validateEndDateBeforeStartDate,
   ValidateEndDateBeforeStartDateArgs,
 } from "../utils/validateEndDateBeforeStartDate"
-import { useRangeDateValidation } from "./useRangeDateValidation"
+import {
+  useRangeDateValidation,
+  UseRangeDateValidationArgs,
+} from "./useRangeDateValidation"
 
-export type UseEndDateValidationArgs = {
-  inputLabel: React.ReactNode
-  status?: FieldMessageStatus | undefined
-  validationMessage?: React.ReactNode | undefined
-  disabledDays?: Matcher[] | undefined
-  onValidate?: (validationResponse: ValidationResponse) => void
-}
+export type UseEndDateValidationArgs = UseRangeDateValidationArgs
 
 export type UseEndDateValidationValue = FieldValidation & {
   validateDate: (args: {
