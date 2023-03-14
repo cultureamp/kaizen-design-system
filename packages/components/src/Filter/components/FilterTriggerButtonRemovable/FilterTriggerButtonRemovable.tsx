@@ -5,7 +5,6 @@ import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
 import { DataAttributes } from "../../types"
 import { isRefObject } from "../../utils/isRefObject"
 import {
-  FilterRef,
   FilterTriggerButton,
   FilterTriggerButtonProps,
 } from "../FilterTriggerButton"

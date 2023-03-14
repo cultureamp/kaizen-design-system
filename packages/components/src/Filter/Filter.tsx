@@ -1,5 +1,4 @@
 import React, { HTMLAttributes, useRef } from "react"
-import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
 import { FilterPopover } from "./components/FilterPopover"

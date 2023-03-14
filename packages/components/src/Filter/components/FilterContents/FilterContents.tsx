@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useState } from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./FilterContents.module.scss"
