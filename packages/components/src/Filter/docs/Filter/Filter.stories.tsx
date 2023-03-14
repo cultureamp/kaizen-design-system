@@ -1,23 +1,16 @@
 import React, { useRef, useState } from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-} from "../../../../../../storybook/constants"
 import { Filter } from "../../Filter"
 import { FilterContents } from "../../components/FilterContents"
-import {
-  FilterRef,
-  FilterTriggerButton,
-} from "../../components/FilterTriggerButton"
+import { FilterTriggerButton } from "../../components/FilterTriggerButton"
 import {
   FilterTriggerButtonRemovable,
   FilterTriggerButtonRemovableRefs,
 } from "../../components/FilterTriggerButtonRemovable"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/Filter`,
+  title: "Components/Filter/Filter",
   component: Filter,
   parameters: {},
   decorators: [withDesign],

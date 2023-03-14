@@ -2,16 +2,10 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../../../../storybook/components/StickerSheet"
-
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../../../../../storybook/constants"
 import { FilterButton } from "../../../components/_primitives/FilterButton"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Base Buttons/Filter Button`,
+  title: "Components/Filter/Subcomponents/Buttons/Filter Button",
   component: FilterButton,
   parameters: {
     docs: {
@@ -27,13 +21,13 @@ export default {
 export const FilterButtonStory: ComponentStory<typeof FilterButton> = args => (
   <FilterButton {...args} />
 )
-FilterButtonStory.storyName = "Filter Base Button"
+FilterButtonStory.storyName = "Filter Button"
 FilterButtonStory.args = {
   children: "Label",
 }
 
 const StickerSheetTemplate: Story = () => (
-  <StickerSheet heading="Filter Base Button">
+  <StickerSheet heading="Filter Button">
     <StickerSheet.Header headings={["Base", "Hover", "Active", "Focus"]} />
     <StickerSheet.Body>
       <StickerSheet.Row>

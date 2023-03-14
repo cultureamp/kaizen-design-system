@@ -1,15 +1,10 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../../../../../storybook/constants"
 import { FilterButtonWithTooltip } from "../../../components/_primitives/FilterButtonWithTooltip"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Base Buttons/Filter Button With Tooltip`,
+  title: "Components/Filter/Subcomponents/Buttons/Filter Button With Tooltip",
   component: FilterButtonWithTooltip,
   parameters: {
     docs: {

@@ -1,19 +1,10 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../../../../storybook/constants"
-import { FilterRef } from "../../components/FilterTriggerButton"
-import {
-  FilterTriggerButtonRemovable,
-  FilterTriggerButtonRemovableRefs,
-} from "../../components/FilterTriggerButtonRemovable"
+import { FilterTriggerButtonRemovable } from "../../components/FilterTriggerButtonRemovable"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.filter}/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
+  title: "Components/Filter/Subcomponents/Filter Trigger Buttons",
   component: FilterTriggerButtonRemovable,
   parameters: {
     docs: {
@@ -33,18 +24,20 @@ FilterTriggerButtonRemovableStory.args = {
   triggerButtonProps: { label: "Label" },
 }
 
-export const WithRefsStory: ComponentStory<
-  typeof FilterTriggerButtonRemovable
-> = args => {
-  const triggerButtonRef = React.useRef<HTMLButtonElement>(null)
-  const removeButtonRef = React.useRef<HTMLButtonElement>(null)
-  const ref = React.useRef<FilterTriggerButtonRemovableRefs>({
-    triggerButtonRef,
-    removeButtonRef,
-  })
-  return <FilterTriggerButtonRemovable ref={ref} {...args} />
-}
-WithRefsStory.storyName = "WithRefsStory"
-WithRefsStory.args = {
-  triggerButtonProps: { label: "Label" },
-}
+// @todo move to code tech docs
+
+// export const WithRefsStory: ComponentStory<
+//   typeof FilterTriggerButtonRemovable
+// > = args => {
+//   const triggerButtonRef = React.useRef<HTMLButtonElement>(null)
+//   const removeButtonRef = React.useRef<HTMLButtonElement>(null)
+//   const ref = React.useRef<FilterTriggerButtonRemovableRefs>({
+//     triggerButtonRef,
+//     removeButtonRef,
+//   })
+//   return <FilterTriggerButtonRemovable ref={ref} {...args} />
+// }
+// WithRefsStory.storyName = "WithRefsStory"
+// WithRefsStory.args = {
+//   triggerButtonProps: { label: "Label" },
+// }
