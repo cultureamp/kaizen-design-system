@@ -19,7 +19,8 @@ const getCompiledConfigByModuleType = format => ({
     alias({
       entries: [
         { find: "@icons", replacement: "./icons" },
-        { find: "@util", replacement: "./util" },
+        { find: "@util", replacement: "./src/util" },
+        { find: "@components", replacement: "./src/components" },
       ]
     }),
     resolve({

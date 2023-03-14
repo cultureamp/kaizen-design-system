@@ -9,11 +9,7 @@
       "@components/*": ["src/*"],
       "@util/*": ["src/util/*"],
       "@icons/*": ["icons/*"]
-    },
-    "plugins": [
-      { "transform": "typescript-transform-paths" },
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ]
+    }
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*", "icons/**/*", "src/util"],
