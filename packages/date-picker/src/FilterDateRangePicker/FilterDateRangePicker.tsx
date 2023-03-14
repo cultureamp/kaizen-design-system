@@ -9,6 +9,7 @@ import {
   DataAttributes,
   DateRange,
   DisabledDayMatchers,
+  FieldValidation,
   SupportedLocales,
   ValidationResponse,
 } from "../types"
@@ -158,18 +159,10 @@ export const FilterDateRangePicker = ({
     }
   }, [isOpen, rangeStart, rangeEnd])
 
-  const [inbuiltStartDateStatus, setInbuiltStartDateStatus] = useState<
-    ValidationResponse["status"] | undefined
-  >()
-  const [
-    inbuiltStartDateValidationMessage,
-    setInbuiltStartDateValidationMessage,
-  ] = useState<string | undefined>()
-  const [inbuiltEndDateStatus, setInbuiltEndDateStatus] = useState<
-    ValidationResponse["status"] | undefined
-  >()
-  const [inbuiltEndDateValidationMessage, setInbuiltEndDateValidationMessage] =
-    useState<string | undefined>()
+  const [inbuiltStartDateValidation, setInbuiltStartDateValidation] =
+    useState<FieldValidation>()
+  const [inbuiltEndDateValidation, setInbuiltEndDateValidation] =
+    useState<FieldValidation>()
 
   const shouldUseInbuiltStartDateValidation =
     onValidate?.dateStart === undefined
@@ -181,15 +174,13 @@ export const FilterDateRangePicker = ({
 
   const handleValidateStartDate = getDateValidationHandler({
     onValidate: onValidate?.dateStart,
-    setInbuiltValidationStatus: setInbuiltStartDateStatus,
-    setInbuiltValidationMessage: setInbuiltStartDateValidationMessage,
+    setInbuiltValidation: setInbuiltStartDateValidation,
     inputLabel: inputRangeStartLabel,
   })
 
   const handleValidateEndDate = getDateValidationHandler({
     onValidate: onValidate?.dateEnd,
-    setInbuiltValidationStatus: setInbuiltEndDateStatus,
-    setInbuiltValidationMessage: setInbuiltEndDateValidationMessage,
+    setInbuiltValidation: setInbuiltEndDateValidation,
     inputLabel: inputRangeEndLabel,
   })
 
@@ -344,18 +335,18 @@ export const FilterDateRangePicker = ({
               description={description}
               status={{
                 dateStart: shouldUseInbuiltStartDateValidation
-                  ? inbuiltStartDateStatus
+                  ? inbuiltStartDateValidation?.status
                   : status?.dateStart,
                 dateEnd: shouldUseInbuiltEndDateValidation
-                  ? inbuiltEndDateStatus
+                  ? inbuiltEndDateValidation?.status
                   : status?.dateEnd,
               }}
               validationMessage={{
                 dateStart: shouldUseInbuiltStartDateValidation
-                  ? inbuiltStartDateValidationMessage
+                  ? inbuiltStartDateValidation?.validationMessage
                   : validationMessage?.dateStart,
                 dateEnd: shouldUseInbuiltEndDateValidation
-                  ? inbuiltEndDateValidationMessage
+                  ? inbuiltEndDateValidation?.validationMessage
                   : validationMessage?.dateEnd,
               }}
               classNameOverride={styles.dateRangeInputField}
