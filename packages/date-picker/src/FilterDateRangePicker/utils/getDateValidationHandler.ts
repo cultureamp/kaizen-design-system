@@ -1,5 +1,6 @@
 import React from "react"
 import { FieldValidation, ValidationResponse } from "../../types"
+import { getNodeText } from "./getNodeText"
 
 export type GetDateValidationHandlerArgs = {
   onValidate: ((validationResponse: ValidationResponse) => void) | undefined
@@ -21,7 +22,7 @@ export const getDateValidationHandler =
     setInbuiltValidation({
       status,
       validationMessage: validationMessage
-        ? `${inputLabel}: ${validationMessage}`
+        ? `${getNodeText(inputLabel)}: ${validationMessage}`
         : undefined,
     })
   }
