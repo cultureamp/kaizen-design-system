@@ -9,7 +9,7 @@ import React, {
 } from "react"
 import classNames from "classnames"
 import { Badge, BadgeAnimated } from "../Badge"
-import { ButtonProps } from "../Button/Button"
+import { ButtonProps } from "../Button"
 import { Icon } from "../Icon"
 import { LoadingSpinner } from "../LoadingSpinner"
 import styles from "./GenericButton.module.scss"

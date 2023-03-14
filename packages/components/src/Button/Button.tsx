@@ -1,5 +1,4 @@
 import React, { forwardRef, Ref } from "react"
-import { BadgeProps } from "../Badge"
 import {
   GenericButton,
   GenericProps,

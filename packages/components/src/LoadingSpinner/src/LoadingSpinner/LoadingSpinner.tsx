@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "../../../types"
+import { OverrideClassName } from "@kaizen/types"
 import styles from "./LoadingSpinner.module.scss"
 
 type size = "sm" | "md"

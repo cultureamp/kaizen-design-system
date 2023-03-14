@@ -1,0 +1,135 @@
+import React, { useState } from "react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
+import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+
+export default {
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Search Field`,
+  component: SearchField,
+  parameters: {
+    chromatic: { disable: false },
+    docs: {
+      description: {
+        component: 'import { SearchField } from "@kaizen/draft-form"',
+      },
+    },
+  },
+  decorators: [withDesign],
+} as ComponentMeta<typeof SearchField>
+
+export const DefaultKaizenDemo: ComponentStory<typeof SearchField> = args => {
+  const [value, setValue] = useState("Some value")
+
+  return (
+    <SearchField
+      value={value}
+      onChange={(e): void => setValue(e.target.value)}
+      onClear={(): void => setValue("")}
+      {...args}
+    />
+  )
+}
+DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
+DefaultKaizenDemo.args = {
+  id: "search-field",
+  placeholder: "Search…",
+  labelText: "Label",
+}
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => {
+  const variants: Array<{
+    heading: string
+    variantProps?: Partial<SearchFieldProps>
+  }> = [
+    {
+      heading: "Default",
+    },
+    {
+      heading: "Secondary",
+      variantProps: { secondary: true },
+    },
+  ]
+
+  const COMMON_PROPS = {
+    placeholder: "Search…",
+    reversed: isReversed,
+    labelText: "Label",
+    value: "Some value",
+  }
+
+  return (
+    <>
+      {variants.map(({ heading, variantProps }) => (
+        <>
+          <StickerSheet isReversed={isReversed} heading={heading}>
+            <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
+            <StickerSheet.Body>
+              <StickerSheet.Row>
+                <SearchField
+                  id={`search-field--base--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  value={""}
+                />
+                <SearchField
+                  id={`search-field--filled--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                />
+                <SearchField
+                  id={`search-field--loading--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  loading
+                />
+              </StickerSheet.Row>
+            </StickerSheet.Body>
+          </StickerSheet>
+
+          <StickerSheet isReversed={isReversed}>
+            <StickerSheet.Header headings={["Disabled", "Hover", "Focus"]} />
+            <StickerSheet.Body>
+              <StickerSheet.Row>
+                <SearchField
+                  id={`search-field--disabled--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  value={""}
+                  disabled
+                />
+                <SearchField
+                  id={`search-field--hover--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  classNameOverride="story__input-search-hover"
+                />
+                <SearchField
+                  id={`search-field--focus--${heading}`}
+                  {...variantProps}
+                  {...COMMON_PROPS}
+                  classNameOverride="story__input-search-focus"
+                />
+              </StickerSheet.Row>
+            </StickerSheet.Body>
+          </StickerSheet>
+        </>
+      ))}
+    </>
+  )
+}
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = { chromatic: { disable: false } }
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}

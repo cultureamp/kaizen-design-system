@@ -1,0 +1,85 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color";
+
+// Vars
+$avatar-sm: 1.25rem;
+$avatar-md: 3rem;
+$avatar-lg: 4.5rem;
+
+@mixin overlap($size) {
+  margin-inline-start: calc(#{$size} / -2);
+
+  [dir="rtl"] & {
+    margin-left: 0;
+  }
+}
+
+.AvatarGroup {
+  display: inline-flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.AvatarGroupItem {
+  + .AvatarGroupItem {
+    .small & {
+      @include overlap($avatar-sm);
+    }
+
+    .medium & {
+      @include overlap($avatar-md);
+    }
+
+    .large & {
+      @include overlap($avatar-lg);
+    }
+  }
+}
+
+.AvatarCounter {
+  align-items: center;
+  background: $color-gray-300;
+  border: 3px solid $color-white;
+  border-radius: 100%;
+  box-sizing: border-box;
+  box-shadow: $shadow-small-box-shadow;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  .small & {
+    box-shadow: none;
+    border: none;
+    width: $avatar-sm;
+    height: $avatar-sm;
+    font-family: $typography-heading-5-font-family;
+    font-size: 0.5rem;
+    font-weight: $typography-heading-5-font-weight;
+    letter-spacing: $typography-heading-5-letter-spacing;
+  }
+
+  .medium & {
+    width: $avatar-md;
+    height: $avatar-md;
+    font-family: $typography-heading-5-font-family;
+    font-size: $typography-heading-5-font-size;
+    font-weight: $typography-heading-5-font-weight;
+    letter-spacing: $typography-heading-5-letter-spacing;
+  }
+
+  .large & {
+    width: $avatar-lg;
+    height: $avatar-lg;
+    font-family: $typography-heading-3-font-family;
+    font-size: $typography-heading-3-font-size;
+    font-weight: $typography-heading-3-font-weight;
+    letter-spacing: $typography-heading-3-letter-spacing;
+  }
+
+  [dir="rtl"] & {
+    margin-left: 0;
+    direction: ltr;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "@kaizen/types",
+  "version": "0.0.1",
+  "description": "Shared Kaizen types",
+  "scripts": {
+    "prepublish": "yarn clean && yarn build",
+    "build": "tsc --project tsconfig.dist.json",
+    "clean": "rimraf 'dist'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/types"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "author": "Geoffrey Chong",
+  "private": false,
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "rimraf": "^4.4.0"
+  }
+}

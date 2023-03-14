@@ -1,0 +1,148 @@
+import React from "react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { withDesign } from "storybook-addon-designs"
+import { TextAreaField } from "@kaizen/draft-form"
+import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { figmaEmbed } from "../../../storybook/helpers"
+
+export default {
+  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Area Field`,
+  component: TextAreaField,
+  parameters: {
+    docs: {
+      description: {
+        component: 'import { TextAreaField } from "@kaizen/draft-form"',
+      },
+    },
+    ...figmaEmbed(
+      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14539%3A69482"
+    ),
+  },
+  args: {
+    status: "default",
+    variant: "default",
+  },
+  argTypes: {
+    autogrow: {
+      table: { defaultValue: { summary: false } },
+    },
+  },
+  decorators: [withDesign],
+} as ComponentMeta<typeof TextAreaField>
+
+export const DefaultStory: ComponentStory<typeof TextAreaField> = args => (
+  <TextAreaField {...args} />
+)
+DefaultStory.args = {
+  id: "reply",
+  labelText: "Your reply",
+  autogrow: false,
+  inline: false,
+  reversed: false,
+  validationMessage: "",
+  description: "",
+}
+DefaultStory.argTypes = {
+  textAreaRef: {
+    control: {
+      disable: true,
+    },
+  },
+}
+DefaultStory.storyName = "Default (Kaizen Demo)"
+
+const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
+  <StoryWrapper isReversed={isReversed}>
+    <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
+    <StoryWrapper.Row rowTitle="Default">
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-default-base"
+        labelText="Default"
+      />
+      <TextAreaField
+        reversed={isReversed}
+        disabled
+        id="text-area-default-disabled"
+        labelText="Default"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Description">
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-default-description-base"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+      />
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-default-description-disabled"
+        defaultValue="Filled input text"
+        labelText="With description"
+        description="Example/description text"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Prominent">
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-prominent-base"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+      />
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-prominent-disabled"
+        labelText="Prominent"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        variant="prominent"
+        disabled
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Negative" gridColumns={2}>
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-error-base"
+        labelText="Error"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="error"
+        validationMessage="Error message"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="Cautionary" gridColumns={2}>
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-caution-base"
+        labelText="Caution"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        status="caution"
+        validationMessage="Error message"
+      />
+    </StoryWrapper.Row>
+  </StoryWrapper>
+)
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
+
+export const StickerSheetReversed = StickerSheetTemplate.bind({})
+StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
+StickerSheetReversed.args = { isReversed: true }
+StickerSheetReversed.parameters = {
+  controls: { disable: true },
+  backgrounds: { default: "Purple 700" },
+  chromatic: { disable: false },
+}

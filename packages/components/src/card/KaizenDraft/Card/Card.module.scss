@@ -1,0 +1,38 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+
+.wrapper {
+  color: $color-purple-800;
+  background-color: $color-white;
+  border-radius: $border-borderless-border-radius;
+  box-shadow: $shadow-small-box-shadow;
+
+  &.informative {
+    background-color: $color-blue-100;
+  }
+
+  &.positive {
+    background-color: $color-green-100;
+  }
+
+  &.cautionary {
+    background-color: $color-yellow-100;
+  }
+
+  &.destructive {
+    background-color: $color-red-100;
+  }
+
+  &.assertive {
+    background-color: $color-orange-100;
+  }
+
+  &.highlight {
+    background-color: $color-purple-100;
+  }
+
+  &.elevated {
+    box-shadow: $shadow-large-box-shadow;
+  }
+}

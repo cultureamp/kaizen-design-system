@@ -1,0 +1,32 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-background-color-default: $color-purple-600;
+$dt-color-background-color-education: $color-blue-100;
+
+.container {
+  position: relative;
+}
+
+// Actual height is determined in JavaScript
+.underlay {
+  box-sizing: content-box;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.defaultVariant {
+  background-color: $dt-color-background-color-default;
+}
+
+.educationVariant {
+  background-color: $dt-color-background-color-education;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}

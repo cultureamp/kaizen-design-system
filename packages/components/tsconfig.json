@@ -1,12 +1,22 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "noEmit": false,
+    "baseUrl": ".",
     "declaration": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "paths": {
+      "@components/*": ["src/*"],
+      "@util/*": ["src/util/*"],
+      "@icons/*": ["icons/*"]
+    },
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "icons/**/*", "src/util"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",

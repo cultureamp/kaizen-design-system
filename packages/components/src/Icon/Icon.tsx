@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from "react"
+import { warn } from "@components/util/console"
 import classnames from "classnames"
-import { OverrideClassName } from "../types"
-import { warn } from "../util/console"
+import type { OverrideClassName } from "@kaizen/types"
 import styles from "./Icon.module.scss"
 
 type RolesType =
