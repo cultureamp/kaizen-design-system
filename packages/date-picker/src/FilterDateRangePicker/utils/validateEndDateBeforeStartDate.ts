@@ -1,5 +1,6 @@
 import React from "react"
 import { ValidationResponse } from "../../types"
+import { getNodeText } from "./getNodeText"
 
 export type ValidateEndDateBeforeStartDateArgs = {
   startDate: Date
@@ -35,7 +36,9 @@ export const validateEndDateBeforeStartDate = ({
       validationResponse: {
         ...baseResponse,
         status: "error",
-        validationMessage: `Cannot be earlier than the selection in "${startDateFieldLabel}"`,
+        validationMessage: `Cannot be earlier than the selection in "${getNodeText(
+          startDateFieldLabel
+        )}"`,
       },
       newDate: undefined,
     }

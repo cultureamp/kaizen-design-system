@@ -17,14 +17,11 @@ type StringSuggestions<T> = T | (string & Record<never, never>)
 // Ensure you update the storybook SUPPORTED_LOCALES arg options when updating SupportedLocales.
 export type SupportedLocales = StringSuggestions<"en-US" | "en-AU">
 
-export type FieldValidation = {
-  status: FieldMessageStatus | undefined
-  validationMessage: React.ReactNode | undefined
-}
-
-export type ValidationResponse = FieldValidation & {
+export type ValidationResponse = {
   date: Date | undefined
   inputValue: string | undefined // Input value upon validation
+  status: FieldMessageStatus | undefined
+  validationMessage: string | undefined
   isDisabled: boolean
   isInvalid: boolean
   isEmpty: boolean

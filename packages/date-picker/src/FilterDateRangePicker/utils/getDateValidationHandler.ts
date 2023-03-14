@@ -1,5 +1,6 @@
 import React from "react"
-import { FieldValidation, ValidationResponse } from "../../types"
+import { ValidationResponse } from "../../types"
+import { FieldValidation } from "../types"
 import { getNodeText } from "./getNodeText"
 
 export type GetDateValidationHandlerArgs = {

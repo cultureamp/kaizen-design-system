@@ -1,4 +1,4 @@
-import { FieldValidation } from "../../types"
+import { FieldValidation } from "../types"
 import {
   useRangeDateValidation,
   UseRangeDateValidationArgs,

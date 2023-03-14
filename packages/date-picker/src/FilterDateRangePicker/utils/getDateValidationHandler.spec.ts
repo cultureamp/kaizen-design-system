@@ -1,4 +1,5 @@
-import { FieldValidation, ValidationResponse } from "../../types"
+import { ValidationResponse } from "../../types"
+import { FieldValidation } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
 const onValidate = jest.fn<void, [ValidationResponse]>()
