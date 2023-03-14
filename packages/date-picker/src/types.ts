@@ -19,7 +19,7 @@ export type SupportedLocales = StringSuggestions<"en-US" | "en-AU">
 
 export type FieldValidation = {
   status: FieldMessageStatus | undefined
-  validationMessage: string | undefined
+  validationMessage: React.ReactNode | undefined
 }
 
 export type ValidationResponse = FieldValidation & {
