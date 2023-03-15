@@ -14,24 +14,23 @@ export type UseStartDateValidationValue = FieldValidation & {
 }
 
 export const useStartDateValidation = (
-  props: UseStartDateValidationArgs
+  args: UseStartDateValidationArgs
 ): UseStartDateValidationValue => {
-  const validation = useRangeDateValidation(props)
+  const { status, validationMessage, validateDate, updateValidation } =
+    useRangeDateValidation(args)
 
-  const validateDate: UseStartDateValidationValue["validateDate"] = ({
+  const validateStartDate: UseStartDateValidationValue["validateDate"] = ({
     date,
     inputValue,
   }) => {
-    const { validationResponse, newDate } = validation.validateDate(
-      date,
-      inputValue
-    )
-    validation.updateValidation(validationResponse)
+    const { validationResponse, newDate } = validateDate({ date, inputValue })
+    updateValidation(validationResponse)
     return newDate
   }
 
   return {
-    ...validation,
-    validateDate,
+    status,
+    validationMessage,
+    validateDate: validateStartDate,
   }
 }

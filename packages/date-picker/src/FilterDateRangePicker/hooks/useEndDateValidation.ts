@@ -23,15 +23,15 @@ export type UseEndDateValidationValue = FieldValidation & {
 }
 
 export const useEndDateValidation = (
-  props: UseEndDateValidationArgs
+  args: UseEndDateValidationArgs
 ): UseEndDateValidationValue => {
   const { status, validationMessage, validateDate, updateValidation } =
-    useRangeDateValidation(props)
+    useRangeDateValidation(args)
 
   const handleValidateEndDateBeforeStartDate: UseEndDateValidationValue["validateEndDateBeforeStartDate"] =
-    args => {
+    handlerArgs => {
       const { validationResponse, newDate } =
-        validateEndDateBeforeStartDate(args)
+        validateEndDateBeforeStartDate(handlerArgs)
       updateValidation(validationResponse)
       return newDate
     }
@@ -42,10 +42,10 @@ export const useEndDateValidation = (
     startDate,
     startDateFieldLabel,
   }) => {
-    const { validationResponse, newDate } = validateDate(
-      endDate,
-      endDateInputValue
-    )
+    const { validationResponse, newDate } = validateDate({
+      date: endDate,
+      inputValue: endDateInputValue,
+    })
 
     if (validationResponse.isValidDate) {
       if (newDate && startDate) {

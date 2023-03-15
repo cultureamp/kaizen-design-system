@@ -30,8 +30,10 @@ const Wrapper = ({
         type="button"
         onClick={(): void => {
           const { validationResponse, newDate: responseNewDate } = validateDate(
-            date,
-            inputValue
+            {
+              date,
+              inputValue,
+            }
           )
           updateValidation(validationResponse)
           setNewDate(responseNewDate)

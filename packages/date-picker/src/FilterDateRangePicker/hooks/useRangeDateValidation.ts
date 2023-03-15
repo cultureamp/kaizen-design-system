@@ -14,10 +14,10 @@ export type UseRangeDateValidationArgs = {
 }
 
 export type UseRangeDateValidationValue = FieldValidation & {
-  validateDate: (
-    date: Date | undefined,
+  validateDate: (args: {
+    date: Date | undefined
     inputValue: string
-  ) => ReturnType<typeof validateDate>
+  }) => ReturnType<typeof validateDate>
   updateValidation: (validationResponse: ValidationResponse) => void
 }
 
@@ -38,10 +38,10 @@ export const useRangeDateValidation = ({
     inputLabel,
   })
 
-  const validateRangeDate: UseRangeDateValidationValue["validateDate"] = (
+  const validateRangeDate: UseRangeDateValidationValue["validateDate"] = ({
     date,
-    inputValue
-  ) =>
+    inputValue,
+  }) =>
     validateDate({
       date,
       inputValue,
