@@ -3,11 +3,11 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { isRefObject } from "../../utils/isRefObject"
+import { isRefObject } from "../../../utils/isRefObject"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "./components/FilterButtonBase"
+} from "../components/FilterButtonBase"
 import styles from "./FilterButton.module.scss"
 
 export interface FilterButtonProps
