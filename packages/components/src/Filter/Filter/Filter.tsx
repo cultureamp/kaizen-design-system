@@ -1,8 +1,8 @@
 import React, { HTMLAttributes, useRef } from "react"
 import { FocusOn } from "react-focus-on"
-import { OverrideClassName } from "../types"
-import { FilterRef, FilterButtonProps } from "./FilterButton"
-import { FilterPopover } from "./components/FilterPopover"
+import { OverrideClassName } from "../../types"
+import { FilterRef, FilterButtonProps } from "../FilterButton"
+import { FilterPopover } from "../components/FilterPopover"
 
 export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
