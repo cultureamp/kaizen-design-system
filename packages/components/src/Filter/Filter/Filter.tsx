@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useRef } from "react"
+import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "../../types"
 import { FilterRef, FilterButtonProps } from "../FilterButton"
@@ -22,6 +22,8 @@ export const Filter = ({
   classNameOverride,
   ...restProps
 }: FilterProps): JSX.Element => {
+  const [isRefLoaded, setIsRefLoaded] = useState<boolean>(false)
+
   const filterButtonComponent = filterButton({
     onClick: (): void => setIsOpen(!isOpen),
     isOpen,
@@ -33,12 +35,18 @@ export const Filter = ({
   })
   const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
 
+  useEffect(() => {
+    if (filterButtonRef.current?.triggerButtonRef?.current) {
+      setIsRefLoaded(true)
+    }
+  }, [filterButtonRef.current?.triggerButtonRef?.current])
+
   return (
     <div className={classNameOverride} {...restProps}>
       {React.cloneElement(filterButtonComponent, {
         ref: filterButtonRef,
       })}
-      {isOpen && (
+      {isRefLoaded && isOpen && (
         <FocusOn
           scrollLock={false}
           onClickOutside={(): void => setIsOpen(false)}
