@@ -2,7 +2,7 @@ import React, { HTMLAttributes, useState } from "react"
 import { Options } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
-import { OverrideClassName } from "@kaizen/component-base"
+import { OverrideClassName } from "../../types"
 import styles from "./FilterPopover.module.scss"
 
 export interface FilterPopoverProps
