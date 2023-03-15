@@ -1,9 +1,13 @@
 import React, { useRef, useState } from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Filter } from "../../Filter"
+import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
+import { Filter, FilterProps } from "../../Filter"
 import { FilterContents } from "../../components/FilterContents"
-import { FilterTriggerButton } from "../../components/FilterTriggerButton"
+import {
+  FilterTriggerButton,
+  FilterTriggerButtonProps,
+} from "../../components/FilterTriggerButton"
 import {
   FilterTriggerButtonRemovable,
   FilterTriggerButtonRemovableRefs,
@@ -32,28 +36,32 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
 }
 DefaultStory.storyName = "Filter"
 
-export const FilterButtonRemovable: ComponentStory<typeof Filter> = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const triggerButtonRef = useRef<HTMLButtonElement>(null)
-  const removeButtonRef = useRef<HTMLButtonElement>(null)
-  const ref = useRef<FilterTriggerButtonRemovableRefs>({
-    triggerButtonRef,
-    removeButtonRef,
-  })
+const StickerSheetTemplate: Story = () => {
+  const [isOpen, setIsOpen] = React.useState(true)
+
   return (
-    <Filter
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      filterButton={(triggerButtonProps): JSX.Element => (
-        <FilterTriggerButtonRemovable
-          ref={ref}
-          triggerButtonProps={{ label: "Label", ...triggerButtonProps }}
-          removeButtonProps={{ onClick: () => undefined }}
-        />
-      )}
-    >
-      <FilterContents>Filter Contents</FilterContents>
-    </Filter>
+    <StickerSheet heading="Filter Button">
+      <StickerSheet.Header headings={["Open"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <Filter
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            filterButton={(triggerButtonProps): JSX.Element => (
+              <FilterTriggerButton label="Label" {...triggerButtonProps} />
+            )}
+          >
+            <FilterContents>Filter Contents</FilterContents>
+          </Filter>
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
   )
 }
-FilterButtonRemovable.storyName = "Filter With Trigger Button Removable"
+
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
