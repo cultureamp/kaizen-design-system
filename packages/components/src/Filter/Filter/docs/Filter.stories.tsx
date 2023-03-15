@@ -1,12 +1,10 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
-import { FilterButton } from "../../FilterButton"
-import { FilterContents } from "../../components/FilterContents"
-import { Filter } from ".."
+import { Filter, FilterButton, FilterContents } from "../../index"
 
 export default {
-  title: "Components/Filter/Filter",
+  title: "Components/Filter",
   component: Filter,
 } as ComponentMeta<typeof Filter>
 
