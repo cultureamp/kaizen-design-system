@@ -32,7 +32,6 @@ export const SUB_CATEGORIES = {
   datePicker: "Date Picker",
   select: "Select",
   menu: "Menu",
-  filter: "Filter",
 }
 
 export const SORT_ORDER = {
