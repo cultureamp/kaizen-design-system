@@ -3,33 +3,27 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enAU } from "date-fns/locale"
 import { CalendarSingle } from "../_subcomponents/Calendar"
-import { DateInput, DateInputProps } from "../_subcomponents/DateInput"
-import { Matcher } from "../types"
-import { useDateInputHandlers } from "./useDateInputHandlers"
+import { DateInput } from "../_subcomponents/DateInput"
+import {
+  useDateInputHandlers,
+  UseDateInputHandlersArgs,
+} from "./useDateInputHandlers"
 
 const onDateChange = jest.fn<void, [Date | undefined]>()
 
 const Wrapper = ({
   value = "",
-  onChange,
-  onFocus,
-  onBlur,
-  onKeyDown,
+  locale = enAU,
   disabledDays,
   ...restProps
-}: Partial<
-  DateInputProps & { disabledDays?: Matcher[] | undefined }
->): JSX.Element => {
-  const [inputValue, setInputValue] = useState<DateInputProps["value"]>(value)
+}: Partial<UseDateInputHandlersArgs> & { value?: string }): JSX.Element => {
+  const [inputValue, setInputValue] = useState<string>(value)
   const handlers = useDateInputHandlers({
-    locale: enAU,
+    locale,
     disabledDays,
     onDateChange,
     setInputValue,
-    onChange,
-    onFocus,
-    onBlur,
-    onKeyDown,
+    ...restProps,
   })
 
   return (
@@ -38,7 +32,6 @@ const Wrapper = ({
         id="test__date-input-handlers"
         labelText="Label"
         value={inputValue}
-        {...restProps}
         {...handlers}
       />
       <CalendarSingle defaultMonth={new Date("2022-05-01")} />
@@ -111,13 +104,24 @@ describe("useDateInputHandlers", () => {
   describe("onBlur", () => {
     it("does not call onBlur when selecting a day in the calendar", async () => {
       const onBlur = jest.fn<void, [FocusEvent]>()
-      render(<Wrapper />)
+      render(<Wrapper onBlur={onBlur} />)
       const input = getDateInput()
       await userEvent.click(input)
       const dayButton = screen.getByRole("button", { name: "1st May (Sunday)" })
       await userEvent.click(dayButton)
       await waitFor(() => {
         expect(onBlur).not.toHaveBeenCalled()
+      })
+    })
+
+    it("changes date to undefined when input is empty", async () => {
+      render(<Wrapper value="1 May 2022" />)
+      const input = getDateInput()
+      await userEvent.clear(input)
+      await userEvent.tab()
+      await waitFor(() => {
+        expect(input).toHaveValue("")
+        expect(onDateChange).toBeCalledWith(undefined)
       })
     })
 
@@ -139,7 +143,7 @@ describe("useDateInputHandlers", () => {
       await userEvent.tab()
       await waitFor(() => {
         expect(input).toHaveValue("potato")
-        expect(onDateChange).toBeCalledWith(undefined)
+        expect(onDateChange).toHaveBeenCalled()
       })
     })
 
@@ -150,11 +154,22 @@ describe("useDateInputHandlers", () => {
       await userEvent.tab()
       await waitFor(() => {
         expect(input).toHaveValue("01/05/2022")
-        expect(onDateChange).toBeCalledWith(undefined)
+        expect(onDateChange).toHaveBeenCalled()
       })
     })
 
-    it("calls custom onBlur when provided", async () => {
+    it("calls custom onBlur when provided on input with value", async () => {
+      const onBlur = jest.fn<void, [FocusEvent]>()
+      render(<Wrapper onBlur={onBlur} value="1 May 2022" />)
+      const input = getDateInput()
+      await userEvent.click(input)
+      await userEvent.tab()
+      await waitFor(() => {
+        expect(onBlur).toHaveBeenCalled()
+      })
+    })
+
+    it("calls custom onBlur when provided on empty", async () => {
       const onBlur = jest.fn<void, [FocusEvent]>()
       render(<Wrapper onBlur={onBlur} />)
       const input = getDateInput()

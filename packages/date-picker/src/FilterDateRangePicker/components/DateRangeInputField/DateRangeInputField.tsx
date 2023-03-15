@@ -131,7 +131,8 @@ export const DateRangeInputField = React.forwardRef<
             )}
           />
         </fieldset>
-        {status && validationMessage && (
+
+        {(validationMessage?.dateStart || validationMessage?.dateEnd) && (
           <DateRangeValidationMessage
             status={status}
             validationMessage={validationMessage}
