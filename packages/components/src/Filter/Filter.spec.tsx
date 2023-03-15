@@ -23,23 +23,6 @@ const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
   )
 }
 
-const FilterTriggerButtonRemovableWrapper = ({
-  triggerButtonProps,
-  removeButtonProps,
-  ...restProps
-}: Partial<FilterTriggerButtonRemovableProps>): JSX.Element => (
-  <FilterTriggerButtonRemovable
-    triggerButtonProps={{
-      ...triggerButtonProps,
-      label: "Desserts",
-    }}
-    removeButtonProps={{
-      ...removeButtonProps,
-    }}
-    {...restProps}
-  />
-)
-
 describe("<Filter />", () => {
   it("does not show content initially", () => {
     render(<FilterWrapper />)
@@ -54,7 +37,7 @@ describe("<Filter />", () => {
 
   it("shows content when trigger button is clicked", async () => {
     render(<FilterWrapper />)
-    const filterButton = screen.getByRole("button")
+    const filterButton = screen.getByRole("button", { name: "Label" })
     await userEvent.click(filterButton)
     await waitFor(() => {
       expect(screen.queryByRole("dialog")).toBeInTheDocument()
@@ -64,7 +47,7 @@ describe("<Filter />", () => {
 
   it("shows content when trigger button on keydown enter", async () => {
     render(<FilterWrapper />)
-    const filterButton = screen.getByRole("button")
+    const filterButton = screen.getByRole("button", { name: "Label" })
     await userEvent.tab()
     expect(filterButton).toHaveFocus()
     userEvent.keyboard("{Enter}")
