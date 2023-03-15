@@ -14,21 +14,21 @@ import {
   FilterButtonGroupProps,
 } from "../_primitives/FilterButtonGroup"
 
-export interface FilterTriggerButtonRemovableProps
+export interface FilterButtonRemovableProps
   extends Omit<FilterButtonGroupProps, "children"> {
   triggerButtonProps: FilterTriggerButtonProps & DataAttributes
   removeButtonProps: Partial<Omit<FilterTriggerButtonProps, "children">> &
     DataAttributes & { tooltipText?: string }
 }
 
-export type FilterTriggerButtonRemovableRefs = {
+export type FilterButtonRemovableRefs = {
   triggerButtonRef?: React.RefObject<HTMLButtonElement>
   removeButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
-export const FilterTriggerButtonRemovable = forwardRef<
-  FilterTriggerButtonRemovableRefs,
-  FilterTriggerButtonRemovableProps
+export const FilterButtonRemovable = forwardRef<
+  FilterButtonRemovableRefs,
+  FilterButtonRemovableProps
 >(({ triggerButtonProps, removeButtonProps, ...restProps }, ref) => {
   const customRefObject = isRefObject(ref) ? ref.current : null
   const removeButtonRef = customRefObject?.removeButtonRef
@@ -49,4 +49,4 @@ export const FilterTriggerButtonRemovable = forwardRef<
   )
 })
 
-FilterTriggerButtonRemovable.displayName = "FilterTriggerButtonRemovable"
+FilterButtonRemovable.displayName = "FilterButtonRemovable"

@@ -1,20 +1,18 @@
 import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { isRefObject } from "../../../utils/isRefObject"
-import { FilterRef } from "../FilterTriggerButton/FilterTriggerButton"
 import {
-  FilterTriggerButtonRemovable,
-  FilterTriggerButtonRemovableProps,
-  FilterTriggerButtonRemovableRefs,
+  FilterButtonRemovable,
+  FilterButtonRemovableProps,
+  FilterButtonRemovableRefs,
 } from "."
 
-const FilterTriggerButtonRemovableWrapper = ({
+const FilterButtonRemovableWrapper = ({
   triggerButtonProps,
   removeButtonProps,
   ...restProps
-}: Partial<FilterTriggerButtonRemovableProps>): JSX.Element => (
-  <FilterTriggerButtonRemovable
+}: Partial<FilterButtonRemovableProps>): JSX.Element => (
+  <FilterButtonRemovable
     triggerButtonProps={{
       ...triggerButtonProps,
       label: "Desserts",
@@ -26,9 +24,9 @@ const FilterTriggerButtonRemovableWrapper = ({
   />
 )
 
-describe("<FilterTriggerButtonRemovable />", () => {
+describe("<FilterButtonRemovable />", () => {
   it("should use fallback label for remove button if not specified", () => {
-    render(<FilterTriggerButtonRemovableWrapper />)
+    render(<FilterButtonRemovableWrapper />)
     expect(
       screen.getByRole("button", { name: "Remove filter - Desserts" })
     ).toBeVisible()
@@ -44,7 +42,7 @@ describe("<FilterTriggerButtonRemovable />", () => {
       const Wrapper = (): JSX.Element => {
         const triggerButtonRef = useRef<HTMLButtonElement>(null)
         const removeButtonRef = useRef<HTMLButtonElement>(null)
-        const ref = useRef<FilterTriggerButtonRemovableRefs>({
+        const ref = useRef<FilterButtonRemovableRefs>({
           triggerButtonRef,
           removeButtonRef,
         })
@@ -54,7 +52,7 @@ describe("<FilterTriggerButtonRemovable />", () => {
         }
         return (
           <>
-            <FilterTriggerButtonRemovable
+            <FilterButtonRemovable
               ref={ref}
               id="test__date-input-field--ref"
               triggerButtonProps={{

@@ -1,23 +1,13 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
 import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
-import { Filter, FilterProps } from "../../Filter"
+import { Filter } from "../../Filter"
 import { FilterContents } from "../../components/FilterContents"
-import {
-  FilterTriggerButton,
-  FilterTriggerButtonProps,
-} from "../../components/FilterTriggerButton"
-import {
-  FilterTriggerButtonRemovable,
-  FilterTriggerButtonRemovableRefs,
-} from "../../components/FilterTriggerButtonRemovable"
+import { FilterTriggerButton } from "../../components/FilterTriggerButton"
 
 export default {
   title: "Components/Filter/Filter",
   component: Filter,
-  parameters: {},
-  decorators: [withDesign],
 } as ComponentMeta<typeof Filter>
 
 export const DefaultStory: ComponentStory<typeof Filter> = () => {
