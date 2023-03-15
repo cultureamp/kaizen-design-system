@@ -1,10 +1,10 @@
 import React from "react"
-import { IntlShape, RawIntlProvider } from "react-intl"
+import { IntlConfig, RawIntlProvider } from "react-intl"
 import { ThemeProvider, ThemeManager } from "./ThemeProvider"
 
 export interface KaizenProviderProps {
   children: React.ReactNode
-  intlConfig: IntlShape
+  intlConfig: IntlConfig
   themeManager?: ThemeManager
 }
 
