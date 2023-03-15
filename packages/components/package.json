@@ -1,46 +1,25 @@
 {
+  "name": "@kaizen/components",
+  "version": "1.4.25",
+  "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system#readme",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-discourse/issues"
   },
-  "dependencies": {
-    "@kaizen/design-tokens": "^10.3.1",
-    "@kaizen/types": "*",
-    "classnames": "^2.3.2",
-    "react-textfit": "^1.1.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
-  "description": "Kaizen component library",
-  "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/plugin-transform-runtime": "^7.21.0",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/runtime": "^7.21.0",
-    "@deanc/esbuild-plugin-postcss": "^1.0.2",
-    "@rollup/plugin-alias": "^4.0.3",
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-image": "^3.0.2",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "autoprefixer": "^10.4.14",
-    "concat-cli": "^4.0.0",
-    "cssnano": "^5.1.15",
-    "node-sass": "^8.0.0",
-    "postcss": "^8.4.21",
-    "postcss-cli": "^10.1.0",
-    "postcss-import": "^15.1.0",
-    "rollup": "^3.19.1",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-dts": "^5.2.0",
-    "rollup-plugin-esbuild": "^5.0.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.2",
-    "sass": "^1.59.2",
-    "tailwindcss": "^3.2.7",
-    "tiny-glob": "^0.2.9",
-    "tsup": "^6.6.3",
-    "typescript-transform-paths": "^3.4.6"
-  },
+  "files": [
+    "future",
+    "dist",
+    "icons"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -50,25 +29,6 @@
       "import": "./dist/esm/future.js",
       "require": "./dist/cjs/future.js"
     }
-  },
-  "files": [
-    "future",
-    "dist",
-    "icons"
-  ],
-  "homepage": "https://github.com/cultureamp/kaizen-design-system#readme",
-  "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "name": "@kaizen/components",
-  "peerDependencies": {
-    "@kaizen/design-tokens": "^10.0.11",
-    "@kaizen/tailwind": "^0.5.1",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
   "scripts": {
     "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
@@ -83,6 +43,35 @@
     "dist:postcss": "postcss dist/styles.css --output dist/styles.css",
     "dist:clean": "rm ./dist/tailwind.css"
   },
-  "types": "dist/index.d.ts",
-  "version": "1.4.25"
+  "dependencies": {
+    "@kaizen/types": "^0.0.1",
+    "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^4.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "autoprefixer": "^10.4.14",
+    "concat-cli": "^4.0.0",
+    "cssnano": "^5.1.15",
+    "esbuild": "^0.17.11",
+    "node-sass": "^8.0.0",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "rollup": "^3.19.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-dts": "^5.2.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.59.3",
+    "tailwindcss": "^3.2.7"
+  },
+  "peerDependencies": {
+    "@kaizen/design-tokens": "^10.3.1",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+  }
 }
