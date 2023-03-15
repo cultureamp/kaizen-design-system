@@ -2,10 +2,7 @@ import React, { useRef } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Filter, FilterProps } from "./Filter"
-import {
-  FilterTriggerButtonRemovable,
-  FilterTriggerButtonRemovableProps,
-} from "./components/FilterTriggerButtonRemovable"
+import { FilterTriggerButtonRemovable } from "./components/FilterTriggerButtonRemovable"
 
 const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -14,7 +11,7 @@ const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       filterButton={(triggerButtonProps): JSX.Element => (
-        <button label="Label" {...triggerButtonProps} />
+        <button label="Label" aria-label="Label" {...triggerButtonProps} />
       )}
       {...customProps}
     >
