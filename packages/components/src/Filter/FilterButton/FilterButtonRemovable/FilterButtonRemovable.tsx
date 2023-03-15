@@ -5,8 +5,8 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { ButtonGroup, ButtonGroupProps } from "../../../ButtonGroup"
 import { DataAttributes } from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
-import { FilterButton, FilterButtonProps } from "../../FilterButton"
-import { FilterButtonBase } from "../../FilterButton/components/FilterButtonBase"
+import { FilterButtonBase } from "../components/FilterButtonBase"
+import { FilterButton, FilterButtonProps } from ".."
 
 export interface FilterButtonRemovableProps
   extends Omit<ButtonGroupProps, "children"> {

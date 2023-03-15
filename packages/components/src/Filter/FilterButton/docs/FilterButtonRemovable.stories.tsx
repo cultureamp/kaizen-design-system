@@ -1,9 +1,9 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { FilterButtonRemovable } from "../../components/FilterButtonRemovable"
+import { FilterButtonRemovable } from "../FilterButtonRemovable"
 
 export default {
-  title: "Components/Filter/Subcomponents/Filter Buttons",
+  title: "Components/Filter/Filter Button",
   component: FilterButtonRemovable,
   parameters: {
     docs: {
