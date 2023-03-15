@@ -3,7 +3,7 @@ import { Icon } from "@kaizen/component-library"
 import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { DataAttributes } from "../../../types"
-import { isRefObject } from "../../utils/isRefObject"
+import { isRefObject } from "../../../utils/isRefObject"
 import {
   FilterTriggerButton,
   FilterTriggerButtonProps,

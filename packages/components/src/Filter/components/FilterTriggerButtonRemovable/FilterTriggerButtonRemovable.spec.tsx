@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { isRefObject } from "../../utils/isRefObject"
+import { isRefObject } from "../../../utils/isRefObject"
 import { FilterRef } from "../FilterTriggerButton/FilterTriggerButton"
 import {
   FilterTriggerButtonRemovable,

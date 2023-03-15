@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { isRefObject } from "../../utils/isRefObject"
+import { isRefObject } from "../../../utils/isRefObject"
 import { FilterButton, FilterButtonProps } from "../_primitives/FilterButton"
 import styles from "./FilterTriggerButton.module.scss"
 
