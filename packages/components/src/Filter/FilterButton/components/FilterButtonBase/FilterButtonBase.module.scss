@@ -2,8 +2,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../../variables";
-@import "../../mixins";
+@import "./variables";
+@import "./mixins";
 
 .filterBaseButton {
   @include button-reset;
@@ -30,14 +30,14 @@
   letter-spacing: $typography-button-secondary-letter-spacing;
   color: $color-blue-500;
 
-  #{$selectors--filter-button--hover},
-  #{$selectors--filter-button--active} {
+  #{$selectors--filter-button-base--hover},
+  #{$selectors--filter-button-base--active} {
     z-index: 2;
   }
 
-  #{$selectors--filter-button--hover},
-  #{$selectors--filter-button--active},
-  #{$selectors--filter-button--focus} {
+  #{$selectors--filter-button-base--hover},
+  #{$selectors--filter-button-base--active},
+  #{$selectors--filter-button-base--focus} {
     background-color: $color-blue-200;
   }
 
@@ -45,7 +45,7 @@
     outline: none;
   }
 
-  #{$selectors--filter-button--focus} {
+  #{$selectors--filter-button-base--focus} {
     outline: none;
 
     &::after {

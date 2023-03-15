@@ -2,22 +2,22 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import {
-  FilterButton,
-  FilterButtonProps,
-} from "../Filter/components/_primitives/FilterButton"
+  FilterButtonBase,
+  FilterButtonBaseProps,
+} from "../Filter/FilterButton/components/FilterButtonBase"
 import { OverrideClassName } from "../types"
 import styles from "./ButtonGroup.module.scss"
 
 const isFilterButton = (
   node: React.ReactNode
-): node is React.ReactElement<FilterButtonProps> =>
-  React.isValidElement(node) && node.type === FilterButton
+): node is React.ReactElement<FilterButtonBaseProps> =>
+  React.isValidElement(node) && node.type === FilterButtonBase
 
 export interface ButtonGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children:
-    | React.ReactElement<FilterButtonProps>
-    | Array<React.ReactElement<FilterButtonProps>>
+    | React.ReactElement<FilterButtonBaseProps>
+    | Array<React.ReactElement<FilterButtonBaseProps>>
 }
 
 export const ButtonGroup = ({

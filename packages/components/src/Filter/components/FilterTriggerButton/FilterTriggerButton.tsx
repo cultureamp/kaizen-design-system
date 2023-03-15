@@ -4,11 +4,14 @@ import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { isRefObject } from "../../../utils/isRefObject"
-import { FilterButton, FilterButtonProps } from "../_primitives/FilterButton"
+import {
+  FilterButtonBase,
+  FilterButtonBaseProps,
+} from "../../FilterButton/components/FilterButtonBase"
 import styles from "./FilterTriggerButton.module.scss"
 
 export interface FilterTriggerButtonProps
-  extends Omit<FilterButtonProps, "children"> {
+  extends Omit<FilterButtonBaseProps, "children"> {
   label: string
   selectedValue?: string | JSX.Element
   isOpen?: boolean
@@ -30,7 +33,7 @@ export const FilterTriggerButton = forwardRef<
     const triggerButtonRef = customRefObject?.triggerButtonRef
     const selectedValuesLabel = selectedValue
     return (
-      <FilterButton
+      <FilterButtonBase
         ref={triggerButtonRef}
         classNameOverride={classnames(
           styles.filterTriggerButton,
@@ -54,7 +57,7 @@ export const FilterTriggerButton = forwardRef<
           )}
         </span>
         <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
-      </FilterButton>
+      </FilterButtonBase>
     )
   }
 )
