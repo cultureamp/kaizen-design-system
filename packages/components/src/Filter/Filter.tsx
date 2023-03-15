@@ -1,11 +1,8 @@
 import React, { HTMLAttributes, useRef } from "react"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "../types"
+import { FilterRef, FilterButtonProps } from "./FilterButton"
 import { FilterPopover } from "./components/FilterPopover"
-import {
-  FilterRef,
-  FilterTriggerButtonProps,
-} from "./components/FilterTriggerButton"
 
 export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -13,7 +10,7 @@ export interface FilterProps
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
   filterButton: (
-    triggerButtonProps: Partial<FilterTriggerButtonProps>
+    triggerButtonProps: Partial<FilterButtonProps>
   ) => JSX.Element & { ref?: React.RefObject<FilterRef> }
 }
 

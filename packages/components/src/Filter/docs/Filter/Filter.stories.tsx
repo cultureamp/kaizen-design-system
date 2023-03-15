@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
 import { Filter } from "../../Filter"
+import { FilterButton } from "../../FilterButton"
 import { FilterContents } from "../../components/FilterContents"
-import { FilterTriggerButton } from "../../components/FilterTriggerButton"
 
 export default {
   title: "Components/Filter/Filter",
@@ -17,7 +17,7 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       filterButton={(triggerButtonProps): JSX.Element => (
-        <FilterTriggerButton label="Label" {...triggerButtonProps} />
+        <FilterButton label="Label" {...triggerButtonProps} />
       )}
     >
       <FilterContents>Filter Contents</FilterContents>
@@ -38,7 +38,7 @@ const StickerSheetTemplate: Story = () => {
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             filterButton={(triggerButtonProps): JSX.Element => (
-              <FilterTriggerButton label="Label" {...triggerButtonProps} />
+              <FilterButton label="Label" {...triggerButtonProps} />
             )}
           >
             <FilterContents>Filter Contents</FilterContents>

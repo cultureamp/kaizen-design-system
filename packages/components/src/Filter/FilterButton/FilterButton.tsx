@@ -3,14 +3,14 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { isRefObject } from "../../../utils/isRefObject"
+import { isRefObject } from "../../utils/isRefObject"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../../FilterButton/components/FilterButtonBase"
-import styles from "./FilterTriggerButton.module.scss"
+} from "./components/FilterButtonBase"
+import styles from "./FilterButton.module.scss"
 
-export interface FilterTriggerButtonProps
+export interface FilterButtonProps
   extends Omit<FilterButtonBaseProps, "children"> {
   label: string
   selectedValue?: string | JSX.Element
@@ -21,10 +21,7 @@ export type FilterRef = {
   triggerButtonRef?: React.RefObject<HTMLButtonElement>
 }
 
-export const FilterTriggerButton = forwardRef<
-  FilterRef,
-  FilterTriggerButtonProps
->(
+export const FilterButton = forwardRef<FilterRef, FilterButtonProps>(
   (
     { label, selectedValue, isOpen = false, classNameOverride, ...restProps },
     ref
@@ -62,4 +59,4 @@ export const FilterTriggerButton = forwardRef<
   }
 )
 
-FilterTriggerButton.displayName = "FilterTriggerButton"
+FilterButton.displayName = "FilterButton"

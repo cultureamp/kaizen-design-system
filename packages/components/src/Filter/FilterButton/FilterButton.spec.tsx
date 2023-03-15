@@ -1,23 +1,21 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { FilterTriggerButton, FilterTriggerButtonProps } from "."
+import { FilterButton, FilterButtonProps } from "."
 
-const FilterTriggerButtonWrapper = (
-  props: Partial<FilterTriggerButtonProps>
-): JSX.Element => (
-  <FilterTriggerButton label="Desserts" isOpen={false} {...props} />
-)
+const FilterButtonWrapper = (
+  props: Partial<FilterButtonProps>
+): JSX.Element => <FilterButton label="Desserts" isOpen={false} {...props} />
 
-describe("<FilterTriggerButton />", () => {
+describe("<FilterButton />", () => {
   it("has the required attributes when not expanded", () => {
-    render(<FilterTriggerButtonWrapper />)
+    render(<FilterButtonWrapper />)
     const button = screen.getByRole("button", { name: "Desserts" })
     expect(button).toHaveAttribute("aria-haspopup", "true")
     expect(button).toHaveAttribute("aria-expanded", "false")
   })
 
   it("has the required attributes when expanded", () => {
-    render(<FilterTriggerButtonWrapper isOpen />)
+    render(<FilterButtonWrapper isOpen />)
     const button = screen.getByRole("button", {
       name: "Desserts",
     })
@@ -26,19 +24,19 @@ describe("<FilterTriggerButton />", () => {
   })
 
   it("should only show the label when there is no value", () => {
-    render(<FilterTriggerButtonWrapper />)
+    render(<FilterButtonWrapper />)
     expect(screen.getByRole("button", { name: "Desserts" })).toBeVisible()
   })
 
   it("should show the label and selected value when defined", () => {
-    render(<FilterTriggerButtonWrapper selectedValue="Cake" />)
+    render(<FilterButtonWrapper selectedValue="Cake" />)
     expect(
       screen.getByRole("button", { name: "Desserts : Cake" })
     ).toBeVisible()
   })
 
   it("should only show the label when selected value is an empty string", () => {
-    render(<FilterTriggerButtonWrapper selectedValue="" />)
+    render(<FilterButtonWrapper selectedValue="" />)
     expect(screen.getByRole("button", { name: "Desserts" })).toBeVisible()
   })
 })

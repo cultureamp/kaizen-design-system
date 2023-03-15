@@ -5,16 +5,13 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { ButtonGroup, ButtonGroupProps } from "../../../ButtonGroup"
 import { DataAttributes } from "../../../types"
 import { isRefObject } from "../../../utils/isRefObject"
+import { FilterButton, FilterButtonProps } from "../../FilterButton"
 import { FilterButtonBase } from "../../FilterButton/components/FilterButtonBase"
-import {
-  FilterTriggerButton,
-  FilterTriggerButtonProps,
-} from "../FilterTriggerButton"
 
 export interface FilterButtonRemovableProps
   extends Omit<ButtonGroupProps, "children"> {
-  triggerButtonProps: FilterTriggerButtonProps & DataAttributes
-  removeButtonProps: Partial<Omit<FilterTriggerButtonProps, "children">> &
+  triggerButtonProps: FilterButtonProps & DataAttributes
+  removeButtonProps: Partial<Omit<FilterButtonProps, "children">> &
     DataAttributes & { tooltipText?: string }
 }
 
@@ -36,7 +33,7 @@ export const FilterButtonRemovable = forwardRef<
 
   return (
     <ButtonGroup {...restProps}>
-      <FilterTriggerButton ref={ref} {...triggerButtonProps} />
+      <FilterButton ref={ref} {...triggerButtonProps} />
       <Tooltip text={removeButtonLabel} display="inline-block" position="below">
         <FilterButtonBase ref={removeButtonRef} {...removeButtonProps}>
           <Icon icon={iconClear} title={removeButtonLabel} />

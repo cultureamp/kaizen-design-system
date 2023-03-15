@@ -1,2 +1,2 @@
-export * from "./FilterTriggerButton"
+export * from "./FilterButton"
 export * from "./FilterButtonRemovable"
