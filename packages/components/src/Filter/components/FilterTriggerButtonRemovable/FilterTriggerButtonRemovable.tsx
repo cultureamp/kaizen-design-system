@@ -1,27 +1,24 @@
 import React, { forwardRef } from "react"
 import { Icon } from "@kaizen/component-library"
 import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
-
+import { Tooltip } from "@kaizen/draft-tooltip"
 import { DataAttributes } from "../../types"
 import { isRefObject } from "../../utils/isRefObject"
 import {
   FilterTriggerButton,
   FilterTriggerButtonProps,
 } from "../FilterTriggerButton"
+import { FilterButton } from "../_primitives/FilterButton"
 import {
   FilterButtonGroup,
   FilterButtonGroupProps,
 } from "../_primitives/FilterButtonGroup"
-import {
-  FilterButtonWithTooltip,
-  FilterButtonWithTooltipProps,
-} from "../_primitives/FilterButtonWithTooltip"
 
 export interface FilterTriggerButtonRemovableProps
   extends Omit<FilterButtonGroupProps, "children"> {
   triggerButtonProps: FilterTriggerButtonProps & DataAttributes
-  removeButtonProps: Partial<Omit<FilterButtonWithTooltipProps, "children">> &
-    DataAttributes
+  removeButtonProps: Partial<Omit<FilterTriggerButtonProps, "children">> &
+    DataAttributes & { tooltipText?: string }
 }
 
 export type FilterTriggerButtonRemovableRefs = {
@@ -43,13 +40,11 @@ export const FilterTriggerButtonRemovable = forwardRef<
   return (
     <FilterButtonGroup {...restProps}>
       <FilterTriggerButton ref={ref} {...triggerButtonProps} />
-      <FilterButtonWithTooltip
-        ref={removeButtonRef}
-        tooltipText={removeButtonLabel}
-        {...removeButtonProps}
-      >
-        <Icon icon={iconClear} title={removeButtonLabel} />
-      </FilterButtonWithTooltip>
+      <Tooltip text={removeButtonLabel} display="inline-block" position="below">
+        <FilterButton ref={removeButtonRef} {...removeButtonProps}>
+          <Icon icon={iconClear} title={removeButtonLabel} />
+        </FilterButton>
+      </Tooltip>
     </FilterButtonGroup>
   )
 })

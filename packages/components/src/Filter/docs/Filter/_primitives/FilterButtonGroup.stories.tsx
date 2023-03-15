@@ -1,6 +1,7 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
+import { Tooltip } from "@kaizen/draft-tooltip"
 import { StickerSheet } from "../../../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../../components/_primitives/FilterButton"
 import { FilterButtonGroup } from "../../../components/_primitives/FilterButtonGroup"
@@ -30,7 +31,9 @@ DefaultStory.storyName = "Filter Button Group"
 const StickerSheetTemplate: Story = () => (
   <>
     <StickerSheet heading="Filter Button Group">
-      <StickerSheet.Header headings={["Group of 2", "Group of 3"]} />
+      <StickerSheet.Header
+        headings={["Group of 2", "Group of 3", "With tooltip"]}
+      />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <FilterButtonGroup>
@@ -41,6 +44,14 @@ const StickerSheetTemplate: Story = () => (
             <FilterButton>First</FilterButton>
             <FilterButton>Middle</FilterButton>
             <FilterButton>Last</FilterButton>
+          </FilterButtonGroup>
+          <FilterButtonGroup>
+            <Tooltip text="Hello!">
+              <FilterButton>Tooltips here</FilterButton>
+            </Tooltip>
+            <Tooltip text="Pancakes!">
+              <FilterButton>Styles should still work</FilterButton>
+            </Tooltip>
           </FilterButtonGroup>
         </StickerSheet.Row>
       </StickerSheet.Body>

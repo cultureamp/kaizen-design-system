@@ -1,8 +1,14 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { FilterButtonProps } from "../FilterButton"
+import { Tooltip } from "@kaizen/draft-tooltip"
+import { FilterButton, FilterButtonProps } from "../FilterButton"
 import styles from "./FilterButtonGroup.module.scss"
+
+const isFilterButton = (
+  node: React.ReactNode
+): node is React.ReactElement<FilterButtonProps> =>
+  React.isValidElement(node) && node.type === FilterButton
 
 export interface FilterButtonGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -26,8 +32,28 @@ export const FilterButtonGroup = ({
     >
       {childCount === 1
         ? children
-        : React.Children.map(children, (child, index) =>
-            React.cloneElement(child, {
+        : React.Children.map(children, (child, index) => {
+            if (child.type === Tooltip) {
+              const button = child.props.children
+
+              if (isFilterButton(button)) {
+                return React.cloneElement(child, {
+                  ...child.props,
+                  children: React.cloneElement(button, {
+                    classNameOverride: classnames(
+                      styles.child,
+                      index === 0 && styles.firstChild,
+                      index === childCount - 1 && styles.lastChild,
+                      child.props.classNameOverride
+                    ),
+                  }),
+                })
+              }
+
+              return child
+            }
+
+            return React.cloneElement(child, {
               ...child.props,
               classNameOverride: classnames(
                 styles.child,
@@ -36,7 +62,7 @@ export const FilterButtonGroup = ({
                 child.props.classNameOverride
               ),
             })
-          )}
+          })}
     </div>
   )
 }
