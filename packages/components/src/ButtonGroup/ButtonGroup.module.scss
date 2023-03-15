@@ -1,6 +1,17 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../variables";
+
+$focus-ring-offset: 1px;
+$focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
+
+// Polyfill
+$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
+
+// Classnames to simulate pseudo states in storybook
+$story-className--button-group--focus: ":global(.story__button-group--focus)";
+
+// Combined pseudo state classes
+$selectors--button-group--focus: "&:focus-visible, #{$polyfill--focus-visible}, &#{$story-className--button-group--focus}";
 
 %firstChildBorders {
   border-start-start-radius: $border-focus-ring-border-radius;
@@ -18,7 +29,7 @@
   .child {
     border-radius: 0;
 
-    #{$selectors--filter-button--focus} {
+    #{$selectors--button-group--focus} {
       &::after {
         border-radius: 0;
       }
@@ -27,7 +38,7 @@
     &.firstChild {
       @extend %firstChildBorders;
 
-      #{$selectors--filter-button--focus} {
+      #{$selectors--button-group--focus} {
         &::after {
           @extend %firstChildBorders;
           inset-inline-end: $focus-ring-offset-inner;
@@ -40,7 +51,7 @@
     }
 
     &:not(.firstChild):not(.lastChild) {
-      #{$selectors--filter-button--focus} {
+      #{$selectors--button-group--focus} {
         &::after {
           inset-inline-start: $focus-ring-offset-inner;
           inset-inline-end: $focus-ring-offset-inner;
@@ -51,7 +62,7 @@
     &.lastChild {
       @extend %lastChildBorders;
 
-      #{$selectors--filter-button--focus} {
+      #{$selectors--button-group--focus} {
         &::after {
           @extend %lastChildBorders;
           inset-inline-start: $focus-ring-offset-inner;

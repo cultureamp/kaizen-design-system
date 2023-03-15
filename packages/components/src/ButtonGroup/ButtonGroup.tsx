@@ -1,27 +1,30 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import { OverrideClassName } from "../../../../types"
-import { FilterButton, FilterButtonProps } from "../FilterButton"
-import styles from "./FilterButtonGroup.module.scss"
+import {
+  FilterButton,
+  FilterButtonProps,
+} from "../Filter/components/_primitives/FilterButton"
+import { OverrideClassName } from "../types"
+import styles from "./ButtonGroup.module.scss"
 
 const isFilterButton = (
   node: React.ReactNode
 ): node is React.ReactElement<FilterButtonProps> =>
   React.isValidElement(node) && node.type === FilterButton
 
-export interface FilterButtonGroupProps
+export interface ButtonGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children:
     | React.ReactElement<FilterButtonProps>
     | Array<React.ReactElement<FilterButtonProps>>
 }
 
-export const FilterButtonGroup = ({
+export const ButtonGroup = ({
   children,
   classNameOverride,
   ...restProps
-}: FilterButtonGroupProps): JSX.Element => {
+}: ButtonGroupProps): JSX.Element => {
   const childCount = React.Children.count(children)
 
   return (
@@ -67,4 +70,4 @@ export const FilterButtonGroup = ({
   )
 }
 
-FilterButtonGroup.displayName = "FilterButtonGroup"
+ButtonGroup.displayName = "ButtonGroup"
