@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.21.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.20.1...@kaizen/date-picker@5.21.0) (2023-03-15)
+
+
+### Features
+
+* **filter-drp:** add inbuilt validation ([#3344](https://github.com/cultureamp/kaizen-design-system/issues/3344)) ([31baaf5](https://github.com/cultureamp/kaizen-design-system/commit/31baaf54caf7c1ec0db6d736e493d654e72cde5a))
+
+
+
+
+
 ## [5.20.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/date-picker@5.20.0...@kaizen/date-picker@5.20.1) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/date-picker
