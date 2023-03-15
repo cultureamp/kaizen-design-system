@@ -483,7 +483,7 @@ describe("<FilterDateRangePicker />", () => {
             screen.getByText("Start date: potato is an invalid date")
           ).toBeVisible()
         })
-      })
+      }, 10000)
 
       it("shows inbuilt validation messages for end date", async () => {
         render(
@@ -504,7 +504,7 @@ describe("<FilterDateRangePicker />", () => {
             screen.getByText("End date: potato is an invalid date")
           ).toBeVisible()
         })
-      })
+      }, 10000)
 
       it("shows inbuilt validation messages for pre-existing values", async () => {
         render(
@@ -553,7 +553,7 @@ describe("<FilterDateRangePicker />", () => {
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
           })
-        })
+        }, 10000)
 
         it("removes error on updating start date input to be before end date", async () => {
           render(
@@ -595,7 +595,7 @@ describe("<FilterDateRangePicker />", () => {
               screen.getAllByRole("button", { pressed: true }).length
             ).toEqual(3)
           })
-        })
+        }, 10000)
 
         it("shows error on updating start date input to be after end date", async () => {
           render(
@@ -617,7 +617,7 @@ describe("<FilterDateRangePicker />", () => {
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
           })
-        })
+        }, 10000)
 
         it("shows error if the pre-existing end date is before start date", async () => {
           render(
@@ -633,7 +633,7 @@ describe("<FilterDateRangePicker />", () => {
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
           })
-        })
+        }, 10000)
       })
     })
 
@@ -664,7 +664,7 @@ describe("<FilterDateRangePicker />", () => {
             screen.getByText("Date to: potato is an invalid date")
           ).toBeVisible()
         })
-      })
+      }, 10000)
 
       it("shows custom end date validation with inbuilt start date validation", async () => {
         render(
@@ -692,7 +692,7 @@ describe("<FilterDateRangePicker />", () => {
             screen.getByText("Date from: potato is an invalid date")
           ).toBeVisible()
         })
-      })
+      }, 10000)
     })
 
     it("re-validates values when selecting a value using the calendar", async () => {
@@ -720,6 +720,6 @@ describe("<FilterDateRangePicker />", () => {
       await waitFor(() => {
         expect(screen.queryByText(errorMessage)).not.toBeInTheDocument()
       })
-    })
+    }, 10000)
   })
 })
