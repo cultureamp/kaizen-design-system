@@ -1,9 +1,14 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
+import { DocsContainer, DocsContainerProps, Unstyled } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
+import { BackToTop } from "./components/BackToTop"
+import { Content, Main, Sidebar } from "./components/Layout"
+import { TableOfContents } from "./components/TableOfContents"
+
 import "highlight.js/styles/a11y-light.css"
 
 // Polyfill for :focus-visible pseudo-selector
@@ -13,8 +18,30 @@ import "focus-visible"
 // Standard base stylesheet used across Culture Amp products
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
-
 import "@kaizen/component-library/styles/fonts.scss"
+
+export const PageContainer = ({
+  children,
+  ...props
+}: DocsContainerProps & { children: any }): any => (
+  <DocsContainer {...props}>
+    <Main>
+      <Sidebar>
+        <div className="sticky right-0 top-12">
+          {/* This is due to Unstyled typed as a being a FC pre-react-18 */}
+          {/* @ts-ignore */}
+          <Unstyled>
+            <TableOfContents />
+          </Unstyled>
+        </div>
+      </Sidebar>
+      <Content>
+        {children}
+        <BackToTop />
+      </Content>
+    </Main>
+  </DocsContainer>
+)
 
 const globalTypes: Preview["globalTypes"] = {
   textDirection: {
@@ -51,6 +78,7 @@ const preview: Preview = {
       values: backgrounds,
     },
     docs: {
+      container: PageContainer,
       source: {
         excludeDecorators: true,
       },
