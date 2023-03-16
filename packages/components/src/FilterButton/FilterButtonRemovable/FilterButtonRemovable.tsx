@@ -6,13 +6,16 @@ import { ButtonGroup, ButtonGroupProps } from "../../ButtonGroup"
 import { FilterTriggerRef } from "../../Filter"
 import { DataAttributes } from "../../types"
 import { isRefObject } from "../../utils/isRefObject"
-import { FilterButtonBase } from "../components/FilterButtonBase"
+import {
+  FilterButtonBase,
+  FilterButtonBaseProps,
+} from "../components/FilterButtonBase"
 import { FilterButton, FilterButtonProps } from ".."
 
 export interface FilterButtonRemovableProps
   extends Omit<ButtonGroupProps, "children"> {
   triggerButtonProps: FilterButtonProps & DataAttributes
-  removeButtonProps: Partial<Omit<FilterButtonProps, "children">> &
+  removeButtonProps: Partial<Omit<FilterButtonBaseProps, "children">> &
     DataAttributes & { tooltipText?: string }
 }
 
