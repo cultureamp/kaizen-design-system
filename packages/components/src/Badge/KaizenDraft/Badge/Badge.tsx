@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, useLayoutEffect, useState } from "react"
 import classNames from "classnames"
-import { OverrideClassName } from "@kaizen/types"
+import { OverrideClassName } from "@t/overrideClassName"
 import styles from "./Badge.module.scss"
 
 interface CommonProps

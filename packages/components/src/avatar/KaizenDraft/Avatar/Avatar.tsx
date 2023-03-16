@@ -3,7 +3,7 @@ import { Icon } from "@components/Icon"
 import userIcon from "@icons/user.icon.svg"
 import classnames from "classnames"
 import { Textfit } from "react-textfit"
-import type { OverrideClassName } from "@kaizen/types"
+import type { OverrideClassName } from "@t/overrideClassName"
 import styles from "./Avatar.module.scss"
 
 export type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"

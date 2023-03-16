@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/types"
+import { OverrideClassName } from "@t/overrideClassName"
 import styles from "./Card.module.scss"
 
 export type CardVariants =

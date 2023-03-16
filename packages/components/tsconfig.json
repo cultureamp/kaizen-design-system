@@ -5,18 +5,23 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "noEmit": false,
+    // Has to be the same as packages/components/rollup.config.mjs -> alias -> entries
     "paths": {
       "@components/*": ["src/*"],
-      "@util/*": ["src/util/*"],
+      "@util/*": ["util/*"],
+      "@t/*": ["types/*"],
       "@icons/*": ["icons/*"]
     },
+    // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
     "plugins": [
+      // Transform paths in output .js files
       { "transform": "typescript-transform-paths" },
+      // Transform paths in output .d.ts files (Include this line if you output declarations files)
       { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ]
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*", "icons/**/*", "src/util"],
+  "include": ["src/**/*", "icons/**/*", "util", "types"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",

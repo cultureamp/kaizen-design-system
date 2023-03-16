@@ -39,6 +39,7 @@
     "tailwindcss": "^3.2.7",
     "tiny-glob": "^0.2.9",
     "tsup": "^6.6.3",
+    "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"
   },
   "exports": {
@@ -71,17 +72,17 @@
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
   "scripts": {
-    "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
     "build": "yarn build:clean && yarn prepublish",
     "build:clean": "rimraf 'dist'",
     "build:components": "rollup -c",
     "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build",
-    "tailwindcss": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "dist:copy-tailwind": "cp src/tailwind.css dist/tailwind.css",
+    "dist:clean": "rm ./dist/tailwind.css",
     "dist:combine-styles": "concat-cli -f ./dist/**/*.css ./dist/*.css -o ./dist/styles.css",
+    "dist:copy-tailwind": "cp src/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/styles.css --output dist/styles.css",
-    "dist:clean": "rm ./dist/tailwind.css"
+    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
+    "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
+    "tailwindcss": "tailwindcss -i ./src/styles.css -o ./dist/styles.css"
   },
   "types": "dist/index.d.ts",
   "version": "1.4.25"
