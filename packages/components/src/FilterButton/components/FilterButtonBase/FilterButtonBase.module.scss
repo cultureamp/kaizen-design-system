@@ -2,8 +2,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "../../../_mixins/button-reset";
 @import "./variables";
-@import "./mixins";
 
 .filterButtonBase {
   @include button-reset;
