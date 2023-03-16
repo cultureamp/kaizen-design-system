@@ -1,2 +1,2 @@
 export * from "./Filter"
-export * from "./FilterContents"
+export * from "./components/FilterContents"
