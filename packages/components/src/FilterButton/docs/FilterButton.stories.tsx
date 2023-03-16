@@ -8,7 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Trigger button for Filter.",
+        component: "To be used with Filter.",
       },
     },
   },
