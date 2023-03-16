@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-collapsible",
-  "version": "3.5.23",
+  "version": "3.5.24",
   "description": "The draft Collapsible component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,17 +29,17 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/brand": "^1.5.4",
-    "@kaizen/button": "^2.0.24",
-    "@kaizen/component-base": "^1.1.3",
-    "@kaizen/component-library": "^16.4.2",
-    "@kaizen/typography": "^2.3.6",
+    "@kaizen/brand": "^1.5.5",
+    "@kaizen/button": "^2.0.25",
+    "@kaizen/component-base": "^1.1.4",
+    "@kaizen/component-library": "^16.4.3",
+    "@kaizen/typography": "^2.3.7",
     "classnames": "^2.3.2",
     "react-animate-height": "^3.1.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.3.0",
-    "rimraf": "^4.1.2"
+    "rimraf": "^4.4.0"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@2.0.24...@kaizen/button@2.0.25) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/button
+
+
+
+
+
 ## [2.0.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@2.0.23...@kaizen/button@2.0.24) (2023-03-10)
 
 

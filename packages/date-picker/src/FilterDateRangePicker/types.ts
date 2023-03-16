@@ -1,3 +1,4 @@
+import { FieldMessageStatus } from "@kaizen/draft-form"
 import {
   DateRangeValidationMessageDateMessage,
   DateRangeValidationMessageDateStatus,
@@ -46,3 +47,8 @@ export type DateRangeValidationStatus =
   | DateRangeStartValidationStatus
   | DateRangeEndValidationStatus
   | DateRangeFullValidationStatus
+
+export type FieldValidation = {
+  status: FieldMessageStatus | undefined
+  validationMessage: React.ReactNode | undefined
+}
