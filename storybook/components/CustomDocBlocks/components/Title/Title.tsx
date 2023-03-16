@@ -13,7 +13,7 @@ export const Title = ({ context }: TitleProps): JSX.Element => {
 
   return (
     <>
-      <h2>
+      <h1>
         {title[title.length - 1]}
         {packageName && (
           <>
@@ -26,7 +26,7 @@ export const Title = ({ context }: TitleProps): JSX.Element => {
             </a>
           </>
         )}
-      </h2>
+      </h1>
       <br />
     </>
   )

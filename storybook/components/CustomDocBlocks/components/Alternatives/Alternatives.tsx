@@ -24,7 +24,7 @@ export const Alternatives = ({ context }: AlternativesProps): JSX.Element => {
 
   return hasAlternatives ? (
     <div>
-      <h2>Alternatives</h2>
+      <h2 id="alternatives">Alternatives</h2>
       <ul>
         {filteredAlternativeStories.map(component => {
           const title: string = component[1].split("/")

@@ -19,7 +19,7 @@ export const CustomStories: React.FC<StoriesProps> = ({ title }) => {
   }
   return (
     <>
-      <h2>{title}</h2>
+      <h2 id="component-api">{title}</h2>
       <br />
       {stories.map(
         story =>

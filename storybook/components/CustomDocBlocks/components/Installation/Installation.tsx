@@ -14,7 +14,7 @@ export const Installation = ({ context }: InstallationProps): JSX.Element => {
 
   return isInstallationLinks ? (
     <div>
-      <h2>Installation</h2>
+      <h2 id="installation">Installation</h2>
       {/* npm link */}
       <Source code={installationLinks[0]} language="tsx" />
       {/* import link */}
