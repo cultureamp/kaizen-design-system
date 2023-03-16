@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FilterButton } from "../../FilterButton"
+import { FilterButton } from "../FilterButton"
 import { Filter, FilterProps } from "./Filter"
 
 const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {

@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
-import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
-import { FilterButton } from "../../../FilterButton"
+import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { FilterButton } from "../../FilterButton"
 import { Filter, FilterContents } from "../../index"
 
 const IS_CHROMATIC = isChromatic()
