@@ -39,6 +39,8 @@ function InlineEditor(props: {
   const [rteData, setRTEData] = useState<EditorContentArray>(
     props.content || dummyContent
   )
+  const handleOnChange = (editorState): void =>
+    setRTEData(editorState.toJSON().doc.content)
   const handleContentClick = (): void => setEditMode(true)
   const handleCancel = (): void => setEditMode(false)
 
@@ -56,7 +58,7 @@ function InlineEditor(props: {
             { name: "link", group: "link" },
           ]}
           value={rteData}
-          onChange={setRTEData}
+          onChange={handleOnChange}
         />
         <Box mt={0.5} style={{ display: "flex", justifyContent: "end" }}>
           <Button label="Cancel" secondary onClick={handleCancel} />
