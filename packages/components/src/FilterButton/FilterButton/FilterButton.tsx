@@ -3,6 +3,7 @@ import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { FilterTriggerRef } from "../../Filter/types"
 import { isRefObject } from "../../utils/isRefObject"
 import {
   FilterButtonBase,
@@ -17,21 +18,17 @@ export interface FilterButtonProps
   isOpen?: boolean
 }
 
-export type FilterRef = {
-  triggerButtonRef?: React.RefObject<HTMLButtonElement>
-}
-
-export const FilterButton = forwardRef<FilterRef, FilterButtonProps>(
+export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
   (
     { label, selectedValue, isOpen = false, classNameOverride, ...restProps },
     ref
   ) => {
     const customRefObject = isRefObject(ref) ? ref.current : null
-    const triggerButtonRef = customRefObject?.triggerButtonRef
+    const triggerRef = customRefObject?.triggerRef
     const selectedValuesLabel = selectedValue
     return (
       <FilterButtonBase
-        ref={triggerButtonRef}
+        ref={triggerRef}
         classNameOverride={classnames(
           styles.filterTriggerButton,
           classNameOverride

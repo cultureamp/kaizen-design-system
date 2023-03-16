@@ -18,8 +18,8 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
     <Filter
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      filterButton={(triggerButtonProps): JSX.Element => (
-        <FilterButton label="Label" {...triggerButtonProps} />
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButton label="Label" {...triggerProps} />
       )}
     >
       <FilterContents>Filter Contents</FilterContents>
@@ -42,8 +42,8 @@ const StickerSheetTemplate: Story = () => {
           <Filter
             isOpen={isOpen}
             setIsOpen={setIsOpen}
-            filterButton={(triggerButtonProps): JSX.Element => (
-              <FilterButton label="Label" {...triggerButtonProps} />
+            renderTrigger={(triggerProps): JSX.Element => (
+              <FilterButton label="Label" {...triggerProps} />
             )}
           >
             <FilterContents>Filter Contents</FilterContents>

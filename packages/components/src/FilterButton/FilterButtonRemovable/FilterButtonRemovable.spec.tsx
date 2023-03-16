@@ -40,15 +40,15 @@ describe("<FilterButtonRemovable />", () => {
       >()
 
       const Wrapper = (): JSX.Element => {
-        const triggerButtonRef = useRef<HTMLButtonElement>(null)
+        const triggerRef = useRef<HTMLButtonElement>(null)
         const removeButtonRef = useRef<HTMLButtonElement>(null)
         const ref = useRef<FilterButtonRemovableRefs>({
-          triggerButtonRef,
+          triggerRef,
           removeButtonRef,
         })
 
         const handleClick = (): void => {
-          onClick(triggerButtonRef.current?.id, removeButtonRef.current?.id)
+          onClick(triggerRef.current?.id, removeButtonRef.current?.id)
         }
         return (
           <>

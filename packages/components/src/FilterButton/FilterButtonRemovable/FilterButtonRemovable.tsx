@@ -3,6 +3,7 @@ import { Icon } from "@kaizen/component-library"
 import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { ButtonGroup, ButtonGroupProps } from "../../ButtonGroup"
+import { FilterTriggerRef } from "../../Filter"
 import { DataAttributes } from "../../types"
 import { isRefObject } from "../../utils/isRefObject"
 import { FilterButtonBase } from "../components/FilterButtonBase"
@@ -15,8 +16,7 @@ export interface FilterButtonRemovableProps
     DataAttributes & { tooltipText?: string }
 }
 
-export type FilterButtonRemovableRefs = {
-  triggerButtonRef?: React.RefObject<HTMLButtonElement>
+export type FilterButtonRemovableRefs = FilterTriggerRef & {
   removeButtonRef?: React.RefObject<HTMLButtonElement>
 }
 

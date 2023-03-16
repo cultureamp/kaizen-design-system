@@ -10,8 +10,8 @@ const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
     <Filter
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      filterButton={(filterButtonProps): JSX.Element => (
-        <FilterButton label="Label" {...filterButtonProps} />
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButton label="Label" {...triggerProps} />
       )}
       {...customProps}
     >

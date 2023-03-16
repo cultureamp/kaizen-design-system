@@ -1,49 +1,50 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import { FocusOn } from "react-focus-on"
-import { FilterRef, FilterButtonProps } from "../FilterButton"
 import { OverrideClassName } from "../types"
 import { FilterPopover } from "./components/FilterPopover"
+import { FilterTriggerRef } from "./types"
 
 export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-  filterButton: (
-    triggerButtonProps: Partial<FilterButtonProps>
-  ) => JSX.Element & { ref?: React.RefObject<FilterRef> }
+  renderTrigger: (triggerProps: {
+    onClick: () => void
+    isOpen: boolean
+  }) => JSX.Element & { ref?: React.RefObject<FilterTriggerRef> }
 }
 
 export const Filter = ({
   children,
   isOpen,
   setIsOpen,
-  filterButton,
+  renderTrigger,
   classNameOverride,
   ...restProps
 }: FilterProps): JSX.Element => {
   const [isRefLoaded, setIsRefLoaded] = useState<boolean>(false)
 
-  const filterButtonComponent = filterButton({
+  const trigger = renderTrigger({
     onClick: (): void => setIsOpen(!isOpen),
     isOpen,
   })
 
   const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
-  const inbuiltRef = useRef<FilterRef>({
-    triggerButtonRef: inbuiltButtonRef,
+  const inbuiltRef = useRef<FilterTriggerRef>({
+    triggerRef: inbuiltButtonRef,
   })
-  const filterButtonRef = filterButtonComponent.ref ?? inbuiltRef
+  const filterButtonRef = trigger.ref ?? inbuiltRef
 
   useEffect(() => {
-    if (filterButtonRef.current?.triggerButtonRef?.current) {
+    if (filterButtonRef.current?.triggerRef?.current) {
       setIsRefLoaded(true)
     }
-  }, [filterButtonRef.current?.triggerButtonRef?.current])
+  }, [filterButtonRef.current?.triggerRef?.current])
 
   return (
     <div className={classNameOverride} {...restProps}>
-      {React.cloneElement(filterButtonComponent, {
+      {React.cloneElement(trigger, {
         ref: filterButtonRef,
       })}
       {isRefLoaded && isOpen && (
@@ -54,7 +55,7 @@ export const Filter = ({
         >
           <FilterPopover
             referenceElement={
-              filterButtonRef.current?.triggerButtonRef?.current || null
+              filterButtonRef.current?.triggerRef?.current || null
             }
           >
             {children}
