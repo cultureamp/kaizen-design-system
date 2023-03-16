@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.34...@kaizen/rich-text-editor@2.0.0) (2023-03-16)
+
+
+### Features
+
+* KZN-1068 - Expose rte internal state ([#3364](https://github.com/cultureamp/kaizen-design-system/issues/3364)) ([077559e](https://github.com/cultureamp/kaizen-design-system/commit/077559ee63627233a4f8672ff4d21effe11e58b9))
+
+
+### BREAKING CHANGES
+
+* Expose editorState onChange
+
+This change has replaced the content returned in `onChange` handler from the type `EditorContentArray` to `ProseMirrorState.EditorState`.
+
+Before:
+```
+const handleOnChange = (content: EditorContentArray): void => setRTEData(content)
+```
+
+After:
+```
+const handleOnChange = (editorState: ProseMirrorState.EditorState): void => setRTEData(editorState.toJSON().doc.content)
+```
+
+
+
+
+
 ## [1.19.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.33...@kaizen/rich-text-editor@1.19.34) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/rich-text-editor
