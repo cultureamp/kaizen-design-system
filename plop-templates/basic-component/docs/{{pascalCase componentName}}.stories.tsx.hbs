@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
+import { CustomDocsContainer } from "../../../storybook/CustomDocsContainer"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { {{pascalCase componentName}} } from "../index"
 
@@ -8,16 +9,68 @@ export default {
   component: {{pascalCase componentName}},
   parameters: {
     docs: {
-      description: {
-        component:
-          'import { {{pascalCase componentName}} } from "@kaizen/{{kebabCase packageName}}"',
-      },
+      container: CustomDocsContainer,
     },
+    installation: [
+      "npm install @kaizen/{{kebabCase packageName}}",
+      "import { {{pascalCase componentName}} } from `@kaizen/{{kebabCase packageName}}`",
+    ],
+    packageName: "@kaizen/{{kebabCase packageName}}",
+    sourceCodeLink:
+      "Add source code link here",
+    figmaLink:
+      "Add Figma link here",
+    alternatives: ["component-1", "component-2"],
   },
 } satisfies Meta<typeof {{pascalCase componentName}}>
 
-export const DefaultStory: StoryFn<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
-DefaultStory.storyName = "{{pascalCase componentName}}"
+/**
+ * Main Description goes here
+ */
+export const Primary: StoryFn<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
+Primary.storyName = "{{pascalCase componentName}} Playground"
+/** @todo:  Uncomment below to show Playground story code initially 
+Primary.parameters = {
+  docs: {
+    canvas: {
+      sourceState: "shown",
+    },
+  },
+} 
+*/
+
+/** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below*/
+
+/**
+ * Description here
+ */
+export const Variants: Story = () => (
+  <div></div>
+)
+
+/**
+ * Description here
+ */
+export const Reversed: Story = () => (
+  <div></div>
+)
+Reversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+}
+
+/**
+ * Description here
+ */
+export const Disabled: Story = () => (
+  <div></div>
+)
+
+/**
+ * Description here
+ */
+export const Skeleton: Story = () => (
+  <div></div>
+)
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
@@ -40,6 +93,7 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+  docs: { disable: true },
 }
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
@@ -49,6 +103,5 @@ StickerSheetReversed.parameters = {
   chromatic: { disable: false },
   backgrounds: { default: "Purple 700" },
   controls: { disable: true },
+  docs: { disable: true },
 }
-
-/** @todo: Add extra stories to showcase props which don't appear in sticker sheets */
