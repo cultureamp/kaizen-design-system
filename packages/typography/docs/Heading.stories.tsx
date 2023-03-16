@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as Meta<typeof Heading>
+} satisfies Meta<typeof Heading>
 
 export const DefaultStory: StoryFn<typeof Heading> = args => (
   <Heading {...args}>Have the courage to be vulnerable.</Heading>

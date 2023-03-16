@@ -12,7 +12,7 @@ export default {
       },
     },
   },
-} as Meta<typeof MenuItem>
+} satisfies Meta<typeof MenuItem>
 
 export const DefaultStory: StoryFn<typeof MenuItem> = args => (
   <MenuItem {...args} />

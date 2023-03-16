@@ -23,7 +23,7 @@ export default {
       },
     },
   },
-} as Meta<typeof DirectionalLink>
+} satisfies Meta<typeof DirectionalLink>
 
 export const DefaultKaizenDirectionalLink: StoryFn<
   typeof DirectionalLink

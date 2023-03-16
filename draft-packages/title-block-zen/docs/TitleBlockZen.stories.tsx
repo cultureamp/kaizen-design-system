@@ -27,7 +27,7 @@ export default {
       },
     },
   },
-} as Meta<typeof TitleBlockZen>
+} satisfies Meta<typeof TitleBlockZen>
 
 const OffsetPadding = ({
   children,

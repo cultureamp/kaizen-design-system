@@ -26,7 +26,7 @@ export default {
       },
     },
   },
-} as Meta<typeof PopoverRaw>
+} satisfies Meta<typeof PopoverRaw>
 
 const Container = ({
   children,

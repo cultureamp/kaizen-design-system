@@ -19,7 +19,7 @@ export default {
       },
     },
   },
-} as Meta
+} satisfies Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

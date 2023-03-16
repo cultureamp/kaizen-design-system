@@ -64,7 +64,7 @@ export default {
       },
     },
   },
-} as Meta<typeof AvatarGroup>
+} satisfies Meta<typeof AvatarGroup>
 
 export const DefaultStory: StoryFn<typeof AvatarGroup> = args => (
   <AvatarGroup {...args} />

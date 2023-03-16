@@ -6,7 +6,7 @@ export default {
   title: "AIO/future/ExampleComponent (Do Not Use)",
   component: ExampleComponent,
   parameters: {},
-} as Meta<typeof ExampleComponent>
+} satisfies Meta<typeof ExampleComponent>
 
 export const DefaultStory: StoryFn<typeof ExampleComponent> = () => (
   <ExampleComponent />

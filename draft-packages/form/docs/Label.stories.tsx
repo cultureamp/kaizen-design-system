@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as Meta<typeof Label>
+} satisfies Meta<typeof Label>
 
 export const DefaultKaizenSiteDemo: StoryFn<typeof Label> = args => (
   <Label {...args}></Label>

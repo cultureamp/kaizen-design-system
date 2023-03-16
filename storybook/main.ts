@@ -1,5 +1,7 @@
 import fs from "fs"
 import path from "path"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { StorybookConfig } from "@storybook/core-webpack"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -11,25 +13,23 @@ const getStoryPathsFromEnv = (): string[] | false => {
   const storyPath = path.join(__dirname, "../", process.env.STORIES)
   if (fs.existsSync(storyPath)) {
     if (fs.statSync(storyPath).isDirectory()) {
-      return [path.join(storyPath, "**/*.stories.tsx")]
+      return [
+        path.join(storyPath, "**/*.stories.tsx"),
+        path.join(storyPath, "**/*.mdx"),
+      ]
     }
   }
   return [storyPath]
 }
 
 const defaultStoryPaths = [
-  "../draft-packages/**/*.stories.tsx",
-  "../draft-packages/**/*.stories.mdx",
-  "../packages/**/*.stories.tsx",
-  "../packages/**/*.stories.mdx",
-  "../docs/**/*.mdx",
-  "../docs/**/*.stories.tsx",
+  "../(docs|draft-packages|packages)/**/*.mdx",
+  "../(docs|draft-packages|packages)/**/*.stories.tsx",
 ]
 
-module.exports = {
+const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
-  presets: [path.resolve("./storybook/header-preset/preset")],
   staticDirs: [{ from: "./assets", to: "/static/media" }],
   framework: {
     name: "@storybook/react-webpack5",
@@ -38,4 +38,6 @@ module.exports = {
   docs: {
     autodocs: true,
   },
-}
+} satisfies StorybookConfig
+
+export default config

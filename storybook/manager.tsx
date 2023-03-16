@@ -3,16 +3,22 @@
 import React from "react"
 import { addons } from "@storybook/addons"
 import { defaultTheme } from "@kaizen/design-tokens"
-import { CATEGORIES_ICON } from "./constants"
 import KaizenTheme from "./theme"
+
+const CATEGORIES_ICON = {
+  Introduction: "👋",
+  Components: "⚙️",
+  Helpers: "🤝",
+  "Design Tokens": "🎨",
+  Deprecated: "💣",
+  Systems: "🤖",
+  AIO: "📦",
+}
 
 const colors = defaultTheme.color
 
 addons.setConfig({
   theme: KaizenTheme,
-  analyticsGTM: {
-    gtmId: "GTM-KS4VWLT",
-  },
   sidebar: {
     renderLabel: item =>
       item.type === "root" ? (
@@ -35,3 +41,20 @@ addons.setConfig({
       ),
   },
 })
+
+const CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR = `
+  #stickersheets,
+  *[data-parent-id*="stickersheets"],
+  *[title*="Stickersheets"] {
+    display: none !important;
+  }
+`
+
+if (process.env.NODE_ENV === "production") {
+  const head = document.head || document.getElementsByTagName("head")[0]
+  const style = document.createElement("style")
+  head.appendChild(style)
+  style.appendChild(
+    document.createTextNode(CSS_TO_HIDE_TEST_SECTION_FROM_SIDEBAR)
+  )
+}

@@ -44,6 +44,7 @@ export const NavigationTab = (props: NavigationTabProps): JSX.Element => {
       onClick={props.handleClick}
       id={props.id}
       data-automation-id={props.automationId}
+      aria-current={props.active ? "page" : undefined}
     >
       {props.text}
     </a>

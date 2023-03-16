@@ -31,7 +31,7 @@ export default {
     },
   },
   decorators: [openTooltipInChromatic],
-} as Meta<typeof Tooltip>
+} satisfies Meta<typeof Tooltip>
 
 export const DefaultKaizenSiteDemo: StoryFn<typeof Tooltip> = props => (
   <div

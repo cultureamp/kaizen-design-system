@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-} as Meta
+} satisfies Meta
 
 export const TailwindPseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

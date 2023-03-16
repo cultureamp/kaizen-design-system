@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as Meta<typeof FilterTriggerButton>
+} satisfies Meta<typeof FilterTriggerButton>
 
 export const FilterTriggerButtonStory: StoryFn<
   typeof FilterTriggerButton

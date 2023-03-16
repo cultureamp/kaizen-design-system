@@ -5,9 +5,9 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "shadow-"
+const prefix = "w-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.boxShadow || []).map(
+  Object.entries(kaizenTailwindTheme?.width || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Effects/Box Shadow",
+  title: "Systems/Tailwind/Utility Class References/Spacing/Width",
   parameters: {
     docs: {
       description: {
@@ -23,21 +23,37 @@ export default {
       },
     },
   },
-} as Meta
+} satisfies Meta
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="box-shadow"
+    compiledCssPropertyName="width"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div className={classnames("w-[100px] h-[100px]", utilityClass)} />
+      <div className="border-solid w-100 rounded-default">
+        <div
+          className={classnames(
+            "flex items-center bg-blue-400 h-100 min-h-[50px]",
+            utilityClass
+          )}
+        >
+          {utilityClass.includes("auto") ||
+          utilityClass.includes("min") ||
+          utilityClass.includes("max") ||
+          utilityClass.includes("fit") ? (
+            <div className="p-4 my-12 bg-blue-100 border-dashed font-family-paragraph border-w-[1px]">
+              Inner content
+            </div>
+          ) : null}
+        </div>
+      </div>
     )}
     isReversed={isReversed}
   />
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Box Shadow"
+StickerSheetDefault.storyName = "Width"
 StickerSheetDefault.parameters = { chromatic: { disable: false } }

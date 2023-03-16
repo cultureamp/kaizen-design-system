@@ -21,7 +21,7 @@ export default {
       ),
     },
   },
-} as Meta<typeof Box>
+} satisfies Meta<typeof Box>
 
 const Documentation = ({ reversed }: { reversed?: boolean }): JSX.Element => (
   <Box mt={2}>

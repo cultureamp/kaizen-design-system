@@ -1,3 +1,21 @@
+/* stylelint-disable */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+pre code {
+  font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
+    "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
+    monospace !important;
+  font-size: 14px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 20px !important;
+  font-weight: 300 !important;
+  -webkit-font-smoothing: antialiased;
+  line-height: 19px;
+}
+
+.sbdocs-content {
+  max-width: 1200px !important;
+}

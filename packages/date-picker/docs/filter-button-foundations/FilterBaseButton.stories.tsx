@@ -16,7 +16,7 @@ export default {
       },
     },
   },
-} as Meta<typeof FilterBaseButton>
+} satisfies Meta<typeof FilterBaseButton>
 
 export const FilterBaseButtonStory: StoryFn<typeof FilterBaseButton> = args => (
   <FilterBaseButton {...args} />

@@ -13,7 +13,7 @@ export default {
       },
     },
   },
-} as Meta<typeof GlobalNotification>
+} satisfies Meta<typeof GlobalNotification>
 
 export const DefaultStory: StoryFn<typeof GlobalNotification> = args => (
   <GlobalNotification {...args}>

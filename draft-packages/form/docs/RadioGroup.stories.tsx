@@ -45,7 +45,7 @@ export default {
       },
     },
   },
-} as Meta<typeof RadioGroup>
+} satisfies Meta<typeof RadioGroup>
 
 export const DefaultKaizenSiteDemo: StoryFn = () => (
   <RadioGroupExample

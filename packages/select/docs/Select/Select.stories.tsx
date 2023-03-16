@@ -26,7 +26,7 @@ export default {
   argTypes: {
     ...selectControls,
   },
-} as Meta<typeof Select>
+} satisfies Meta<typeof Select>
 
 export const DefaultStory: StoryFn<typeof Select> = props => (
   <Select {...props} />
