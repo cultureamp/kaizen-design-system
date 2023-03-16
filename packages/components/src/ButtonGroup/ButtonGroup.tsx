@@ -27,45 +27,42 @@ export const ButtonGroup = ({
 }: ButtonGroupProps): JSX.Element => {
   const childCount = React.Children.count(children)
 
+  const containerProps = {
+    role: "group",
+    className: classnames(styles.filterButtonGroup, classNameOverride),
+    ...restProps,
+  }
+
+  if (childCount === 1) return <div {...containerProps}>{children}</div>
+
   return (
-    <div
-      role="group"
-      className={classnames(styles.filterButtonGroup, classNameOverride)}
-      {...restProps}
-    >
-      {childCount === 1
-        ? children
-        : React.Children.map(children, (child, index) => {
-            if (child.type === Tooltip) {
-              const button = child.props.children
+    <div {...containerProps}>
+      {React.Children.map(children, (child, index) => {
+        const buttonClassNames = classnames(
+          styles.child,
+          index === 0 && styles.firstChild,
+          index === childCount - 1 && styles.lastChild,
+          child.props.classNameOverride
+        )
 
-              if (isFilterButton(button)) {
-                return React.cloneElement(child, {
-                  ...child.props,
-                  children: React.cloneElement(button, {
-                    classNameOverride: classnames(
-                      styles.child,
-                      index === 0 && styles.firstChild,
-                      index === childCount - 1 && styles.lastChild,
-                      child.props.classNameOverride
-                    ),
-                  }),
-                })
-              }
+        if (child.type === Tooltip) {
+          const button = child.props.children
 
-              return child
-            }
-
+          if (isFilterButton(button)) {
             return React.cloneElement(child, {
-              ...child.props,
-              classNameOverride: classnames(
-                styles.child,
-                index === 0 && styles.firstChild,
-                index === childCount - 1 && styles.lastChild,
-                child.props.classNameOverride
-              ),
+              children: React.cloneElement(button, {
+                classNameOverride: buttonClassNames,
+              }),
             })
-          })}
+          }
+
+          return child
+        }
+
+        return React.cloneElement(child, {
+          classNameOverride: buttonClassNames,
+        })
+      })}
     </div>
   )
 }
