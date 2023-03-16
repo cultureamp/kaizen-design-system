@@ -1,6 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { FilterButton } from "../FilterButton"
 import { Filter, FilterProps } from "./Filter"
 
 const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
@@ -9,8 +10,8 @@ const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
     <Filter
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      filterButton={(triggerButtonProps): JSX.Element => (
-        <button label="Label" aria-label="Label" {...triggerButtonProps} />
+      filterButton={(filterButtonProps): JSX.Element => (
+        <FilterButton label="Label" {...filterButtonProps} />
       )}
       {...customProps}
     >
@@ -25,10 +26,12 @@ describe("<Filter />", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
   })
 
-  it("shows content when isOpen is true", () => {
+  it("shows content when isOpen is true", async () => {
     render(<FilterWrapper isOpen />)
-    expect(screen.queryByRole("dialog")).toBeInTheDocument()
-    expect(screen.queryByText("Filter Contents")).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByRole("dialog")).toBeVisible()
+      expect(screen.getByText("Filter Contents")).toBeVisible()
+    })
   })
 
   it("shows content when trigger button is clicked", async () => {
@@ -36,8 +39,8 @@ describe("<Filter />", () => {
     const filterButton = screen.getByRole("button", { name: "Label" })
     await userEvent.click(filterButton)
     await waitFor(() => {
-      expect(screen.queryByRole("dialog")).toBeInTheDocument()
-      expect(screen.queryByText("Filter Contents")).toBeInTheDocument()
+      expect(screen.getByRole("dialog")).toBeVisible()
+      expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })
 
@@ -49,8 +52,8 @@ describe("<Filter />", () => {
     userEvent.keyboard("{Enter}")
 
     await waitFor(() => {
-      expect(screen.queryByRole("dialog")).toBeInTheDocument()
-      expect(screen.queryByText("Filter Contents")).toBeInTheDocument()
+      expect(screen.getByRole("dialog")).toBeVisible()
+      expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })
 })
