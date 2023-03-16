@@ -28,7 +28,7 @@ const StickerSheetTemplate: Story = () => {
   const [isOpen, setIsOpen] = React.useState(true)
 
   return (
-    <StickerSheet heading="Filter Button">
+    <StickerSheet heading="Filter">
       <StickerSheet.Header headings={["Open"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
