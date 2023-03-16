@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { Tooltip } from "@kaizen/draft-tooltip"
+import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
@@ -16,8 +16,8 @@ const isFilterButton = (
 export interface ButtonGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children:
-    | React.ReactElement<FilterButtonBaseProps>
-    | Array<React.ReactElement<FilterButtonBaseProps>>
+    | React.ReactElement<FilterButtonBaseProps | TooltipProps>
+    | Array<React.ReactElement<FilterButtonBaseProps | TooltipProps>>
 }
 
 export const ButtonGroup = ({
