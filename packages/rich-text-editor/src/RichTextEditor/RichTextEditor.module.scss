@@ -92,6 +92,9 @@
 
 @for $i from 1 through 20 {
   .editor.rows#{$i} > :global(.ProseMirror) {
-    min-height: calc(#{$typography-paragraph-body-line-height} * #{$i});
+    min-height: calc(
+      ((#{$typography-paragraph-body-line-height} + #{$spacing-16}) * #{$i}) -
+        #{$spacing-16}
+    );
   }
 }

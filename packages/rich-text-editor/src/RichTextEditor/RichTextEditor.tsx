@@ -23,7 +23,7 @@ import styles from "./RichTextEditor.module.scss"
 
 export interface BaseRichTextEditorProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
-  onChange: (content: EditorContentArray) => void
+  onChange: (content: ProseMirrorState.EditorState) => void
   value: EditorContentArray
   controls?: ToolbarItems[]
   /**
@@ -117,7 +117,7 @@ export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
   const controlMap = buildControlMap(schema, editorState, controls)
 
   useEffect(() => {
-    onChange(editorState.toJSON().doc.content)
+    onChange(editorState)
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
   }, [editorState])
 
