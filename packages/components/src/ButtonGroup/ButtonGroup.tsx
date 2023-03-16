@@ -4,7 +4,7 @@ import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../Filter/FilterButton/components/FilterButtonBase"
+} from "../FilterButton/components/FilterButtonBase"
 import { OverrideClassName } from "../types"
 import styles from "./ButtonGroup.module.scss"
 

@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import { FocusOn } from "react-focus-on"
+import { FilterRef, FilterButtonProps } from "../../FilterButton"
 import { OverrideClassName } from "../../types"
-import { FilterRef, FilterButtonProps } from "../FilterButton"
 import { FilterPopover } from "./components/FilterPopover"
 
 export interface FilterProps

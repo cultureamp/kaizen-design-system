@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { StickerSheet } from "../../../../../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
 import { FilterButtonBase } from "../../components/FilterButtonBase"
 
 export default {
