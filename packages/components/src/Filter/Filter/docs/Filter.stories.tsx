@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import isChromatic from "chromatic"
 import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
 import { Filter, FilterButton, FilterContents } from "../../index"
+
+const IS_CHROMATIC = isChromatic()
 
 export default {
   title: "Components/Filter",
@@ -28,7 +31,10 @@ const StickerSheetTemplate: Story = () => {
   const [isOpen, setIsOpen] = React.useState(true)
 
   return (
-    <StickerSheet heading="Filter">
+    <StickerSheet
+      heading="Filter"
+      style={{ paddingBottom: IS_CHROMATIC ? "6rem" : undefined }}
+    >
       <StickerSheet.Header headings={["Open"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
