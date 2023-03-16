@@ -1,8 +1,9 @@
 import React, { useState } from "react"
+import { action } from "@storybook/addon-actions"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { FilterButton } from "../../FilterButton"
+import { FilterButton, FilterButtonRemovable } from "../../FilterButton"
 import { Filter, FilterContents } from "../../index"
 
 const IS_CHROMATIC = isChromatic()
@@ -10,6 +11,14 @@ const IS_CHROMATIC = isChromatic()
 export default {
   title: "Components/Filter",
   component: Filter,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '`import { Filter, FilterContents, FilterButton, FilterButtonRemovable } from "@kaizen/components"`<br />Use a Filter Button for the renderTrigger.<br />Use FilterContents to wrap the contents within a Filter.',
+      },
+    },
+  },
 } as ComponentMeta<typeof Filter>
 
 export const DefaultStory: ComponentStory<typeof Filter> = () => {
@@ -27,6 +36,29 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
   )
 }
 DefaultStory.storyName = "Filter"
+
+export const RemovableFilter: Story = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  return (
+    <Filter
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButtonRemovable
+          triggerButtonProps={{
+            label: "Label",
+            ...triggerProps,
+          }}
+          removeButtonProps={{
+            onClick: action("remove button clicked"),
+          }}
+        />
+      )}
+    >
+      <FilterContents>Filter Contents</FilterContents>
+    </Filter>
+  )
+}
 
 const StickerSheetTemplate: Story = () => {
   const [isOpen, setIsOpen] = React.useState(true)
