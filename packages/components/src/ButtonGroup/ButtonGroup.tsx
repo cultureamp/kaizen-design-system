@@ -29,7 +29,7 @@ export const ButtonGroup = ({
 
   const containerProps = {
     role: "group",
-    className: classnames(styles.filterButtonGroup, classNameOverride),
+    className: classnames(styles.buttonGroup, classNameOverride),
     ...restProps,
   }
 

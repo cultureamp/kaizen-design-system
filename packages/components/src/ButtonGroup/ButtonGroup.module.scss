@@ -23,7 +23,7 @@ $selectors--button-group--focus: "&:focus-visible, #{$polyfill--focus-visible}, 
   border-end-end-radius: $border-focus-ring-border-radius;
 }
 
-.filterButtonGroup {
+.buttonGroup {
   display: inline-flex;
 
   .child {
