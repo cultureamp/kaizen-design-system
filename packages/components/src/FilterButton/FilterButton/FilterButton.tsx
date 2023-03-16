@@ -29,10 +29,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
     return (
       <FilterButtonBase
         ref={triggerRef}
-        classNameOverride={classnames(
-          styles.filterTriggerButton,
-          classNameOverride
-        )}
+        classNameOverride={classnames(styles.filterButton, classNameOverride)}
         aria-haspopup="true"
         aria-expanded={isOpen}
         {...restProps}
