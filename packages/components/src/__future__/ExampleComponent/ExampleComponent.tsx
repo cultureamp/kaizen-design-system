@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from "react"
 import { OverrideClassName } from "@t/overrideClassName"
-import stylesCSS from "./ExampleComponent.module.css"
 import stylesSCSS from "./ExampleComponent.module.scss"
 
 interface CommonProps
@@ -10,9 +9,7 @@ interface CommonProps
 
 // Placeholder for illustration DO NOT COPY
 export const ExampleComponent = (props: CommonProps): JSX.Element => (
-  <div
-    className={`${stylesCSS.exampleComponent} ${stylesSCSS.exampleComponent} bg-green-300`}
-  >
+  <div className={`${stylesSCSS.exampleComponent} bg-green-300`}>
     ExampleComponent FUTURE
   </div>
 )
