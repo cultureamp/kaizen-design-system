@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { OverrideClassName } from "@t/overrideClassName"
-import styles from "./ExampleComponent.module.scss"
+import stylesCSS from "./ExampleComponent.module.css"
+import stylesSCSS from "./ExampleComponent.module.scss"
 
 interface CommonProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
@@ -9,7 +10,9 @@ interface CommonProps
 
 // Placeholder for illustration DO NOT COPY
 export const ExampleComponent = (props: CommonProps): JSX.Element => (
-  <div className={`${styles.exampleComponent} bg-green-300`}>
+  <div
+    className={`${stylesCSS.exampleComponent} ${stylesSCSS.exampleComponent} bg-green-300`}
+  >
     ExampleComponent FUTURE
   </div>
 )

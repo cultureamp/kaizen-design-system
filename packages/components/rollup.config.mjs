@@ -32,7 +32,7 @@ const getCompiledConfigByModuleType = format => ({
     }),
     postcss({
       extract: true,
-      extensions: [".scss"],
+      extensions: [".scss", ".css"],
     }),
     typescript({
       declaration: true,

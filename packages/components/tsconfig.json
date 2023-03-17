@@ -1,7 +1,14 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "lib": ["es2019", "dom"],
+    "module": "esnext",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "allowJs": false,
     "declaration": true,
     "emitDeclarationOnly": true,
     "noEmit": false,
