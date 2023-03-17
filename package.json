@@ -13,11 +13,11 @@
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
     "stylelint": "stylelint '**/*.scss'",
-    "test": "jest && yarn pkg:aio test",
+    "test": "jest",
     "playwright": "IS_DEV=true npx playwright test",
     "playwright:debug": "IS_DEV=true PWDEBUG=1 npx playwright test",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
-    "compile": "tsc && yarn pkg:aio tsc --noEmit --emitDeclarationOnly false",
+    "compile": "tsc",
     "lint": "yarn eslint --max-warnings=0 && yarn prettier && yarn stylelint",
     "lint:fix": "yarn stylelint --fix && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
@@ -26,7 +26,9 @@
     "chromatic": "chromatic",
     "commit": "cz",
     "plop": "plop",
-    "pkg:aio": "yarn workspace @kaizen/components"
+    "pkg:aio": "yarn workspace @kaizen/components",
+    "aio:test": "yarn pkg:aio test",
+    "aio:compile": "yarn pkg:aio compile"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",

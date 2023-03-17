@@ -42,7 +42,8 @@
     "dist:combine-styles": "concat-cli -f ./dist/**/*.css ./dist/*.css -o ./dist/styles.css",
     "dist:postcss": "postcss dist/styles.css --output dist/styles.css",
     "dist:clean": "rm ./dist/tailwind.css",
-    "test": "jest"
+    "test": "jest",
+    "compile": "tsc"
   },
   "dependencies": {
     "@kaizen/component-library": "^16.4.3",
