@@ -1,12 +1,13 @@
+import path from "path"
 import type { Configuration } from "webpack"
 import {
   excludeExternalModules,
   babel,
-  styles,
   svgs,
   svgIcons,
   removeSvgFromTest,
   tailwind,
+  styles,
 } from "./webpack/rules"
 
 export default ({ config }: { config: Configuration }): Configuration => {
@@ -29,6 +30,14 @@ export default ({ config }: { config: Configuration }): Configuration => {
   )
 
   config.resolve.extensions.push(".ts", ".tsx")
+
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    "@components": path.resolve(__dirname, "../packages/components/src"),
+    "@utils": path.resolve(__dirname, "../packages/components/utils"),
+    "@icons": path.resolve(__dirname, "../packages/components/icons"),
+    "@t": path.resolve(__dirname, "../packages/components/types"),
+  }
 
   // Return the altered config
   return config
