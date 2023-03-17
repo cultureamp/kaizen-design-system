@@ -39,6 +39,7 @@
     "@kaizen/component-library": "^16.5.3",
     "@kaizen/date-picker": "^5.21.0",
     "@kaizen/draft-divider": "^2.2.8",
+    "@kaizen/draft-form": "^10.3.4",
     "@kaizen/draft-tooltip": "^5.4.37",
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
