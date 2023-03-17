@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",

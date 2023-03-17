@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /** @type {import('jest').Config} */
 
 import { JestConfigWithTsJest } from "ts-jest"
