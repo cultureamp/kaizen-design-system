@@ -10,6 +10,7 @@ module.exports = {
     "\\.svg$": require.resolve("@kaizen/component-library/mocks/svgMock"),
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
+  modulePathIgnorePatterns: ["<rootDir>/packages/components"],
 }
 
 process.env.TZ = "UTC"

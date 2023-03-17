@@ -12,6 +12,7 @@
     "allowJs": false,
     "declaration": true,
     "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
     "noEmit": false,
     "paths": {
       "@components/*": ["src/*"],
