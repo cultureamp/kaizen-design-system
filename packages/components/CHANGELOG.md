@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.26...@kaizen/components@1.5.0) (2023-03-16)
+
+
+### Features
+
+* **filter:** Add Filter component into the AIO ([#3341](https://github.com/cultureamp/kaizen-design-system/issues/3341)) ([1806853](https://github.com/cultureamp/kaizen-design-system/commit/180685395ee53094f618af7f7292b16d72eb348b))
+
+
+
+
+
 ## [1.4.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.25...@kaizen/components@1.4.26) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/components
