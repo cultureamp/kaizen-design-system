@@ -17,7 +17,7 @@
     "playwright": "IS_DEV=true npx playwright test",
     "playwright:debug": "IS_DEV=true PWDEBUG=1 npx playwright test",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
-    "compile": "tsc",
+    "compile": "tsc && yarn pkg:aio tsc --noEmit --emitDeclarationOnly false",
     "lint": "yarn eslint --max-warnings=0 && yarn prettier && yarn stylelint",
     "lint:fix": "yarn stylelint --fix && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",

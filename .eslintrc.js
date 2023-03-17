@@ -22,6 +22,7 @@ module.exports = {
     "plugin:ssr-friendly/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:storybook/recommended",
+    "plugin:import/typescript",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {

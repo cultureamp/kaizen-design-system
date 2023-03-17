@@ -5,6 +5,7 @@
     "module": "esnext",
     "jsx": "react",
     "esModuleInterop": true,
+    "moduleResolution": "node",
     "skipLibCheck": true,
     "noImplicitAny": false,
     "strict": true,
