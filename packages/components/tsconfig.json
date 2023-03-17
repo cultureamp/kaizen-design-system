@@ -11,9 +11,8 @@
     "strict": true,
     "allowJs": false,
     "declaration": true,
-    "emitDeclarationOnly": true,
     "resolveJsonModule": true,
-    "noEmit": false,
+    "noEmit": true,
     "paths": {
       "@components/*": ["src/*"],
       "@icons/*": ["icons/*"],
