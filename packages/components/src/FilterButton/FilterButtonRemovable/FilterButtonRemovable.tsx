@@ -1,11 +1,11 @@
 import React, { forwardRef } from "react"
-import iconClear from "@icons/icons/clear.icon.svg"
+import iconClear from "@icons/clear.icon.svg"
+import { DataAttributes } from "@t/dataAttributes"
 import { isRefObject } from "@utils/isRefObject"
 import { Icon } from "@kaizen/component-library"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { ButtonGroup, ButtonGroupProps } from "../../ButtonGroup"
 import { FilterTriggerRef } from "../../Filter"
-import { DataAttributes } from "../../types"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
