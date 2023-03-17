@@ -37,7 +37,7 @@
     "build:components": "rollup -c",
     "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build",
     "tailwindcss": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss && yarn dist:clean",
+    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
     "dist:copy-tailwind": "cp src/tailwind.css dist/tailwind.css",
     "dist:combine-styles": "concat-cli -f ./dist/**/*.css ./dist/*.css -o ./dist/styles.css",
     "dist:postcss": "postcss dist/styles.css --output dist/styles.css",

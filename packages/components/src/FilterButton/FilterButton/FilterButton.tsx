@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react"
+import chevronDown from "@icons/icons/chevron-down.icon.svg"
+import chevronUp from "@icons/icons/chevron-up.icon.svg"
+import { isRefObject } from "@utils/isRefObject"
 import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import { FilterTriggerRef } from "../../Filter/types"
-import { isRefObject } from "../../utils/isRefObject"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,

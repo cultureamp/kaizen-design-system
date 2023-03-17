@@ -22,7 +22,7 @@ const getCompiledConfigByModuleType = format => ({
       entries: [
         { find: "@components", replacement: "src" },
         { find: "@icons", replacement: "icons" },
-        { find: "@util", replacement: "util" },
+        { find: "@utils", replacement: "util" },
         { find: "@t", replacement: "types" },
       ]
     }),
