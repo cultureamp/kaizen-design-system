@@ -68,7 +68,9 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.59.3",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.2.7",
+    "ttypescript": "^1.5.15",
+    "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.1",

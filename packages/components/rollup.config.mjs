@@ -8,6 +8,7 @@ import dts from "rollup-plugin-dts"
 import esbuild from "rollup-plugin-esbuild"
 import peerDepsExternal from "rollup-plugin-peer-deps-external"
 import postcss from "rollup-plugin-postcss"
+import ttypescript from "ttypescript"
 
 const TYPES_TEMP_DIR = "dts"
 const OUTPUT_DIR = "dist"
@@ -16,11 +17,13 @@ const getCompiledConfigByModuleType = format => ({
   input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
   plugins: [
     peerDepsExternal(),
+    // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
     alias({
       entries: [
-        { find: "@icons", replacement: "./icons" },
-        { find: "@util", replacement: "./src/util" },
-        { find: "@components", replacement: "./src/components" },
+        { find: "@components", replacement: "src" },
+        { find: "@icons", replacement: "icons" },
+        { find: "@util", replacement: "util" },
+        { find: "@t", replacement: "types" },
       ]
     }),
     resolve({
@@ -34,6 +37,8 @@ const getCompiledConfigByModuleType = format => ({
     typescript({
       declaration: true,
       declarationDir: `${OUTPUT_DIR}/${format}/${TYPES_TEMP_DIR}`,
+      // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
+      typescript: ttypescript
     }),
     commonjs({
       include: /node_modules/,
@@ -51,17 +56,14 @@ const getCompiledConfigByModuleType = format => ({
   ],
 })
 
-const getTypesConfigByModuleType = format => ({
-  // path to your declaration files root
-  input: `./${OUTPUT_DIR}/${format}/dts/index.d.ts`,
-  output: [{ file: `${OUTPUT_DIR}/index.d.ts`, format }],
-  external: [/\.scss$/],
-  plugins: [dts()],
-})
-
 export default [
   getCompiledConfigByModuleType("cjs"),
   getCompiledConfigByModuleType("esm"),
-  getTypesConfigByModuleType("cjs"),
-  getTypesConfigByModuleType("esm"),
+  // This step doesn't matter if it's cjs or esm, the output will be the same (esm is faster)
+  {
+    input: `./${OUTPUT_DIR}/esm/dts/src/index.d.ts`,
+    output: [{ file: `${OUTPUT_DIR}/index.d.ts`, format: "esm" }],
+    external: [/\.scss$/],
+    plugins: [dts()],
+  }
 ]
