@@ -16,6 +16,7 @@ module.exports = {
 process.env.TZ = "UTC"
 
 if (process.env.USE_REACT_16 === "true") {
+  console.log("=== React 16 tests ===")
   module.exports.cacheDirectory = ".cache/jest-cache-react-16"
   module.exports.moduleNameMapper = {
     ...module.exports.moduleNameMapper,
@@ -25,6 +26,7 @@ if (process.env.USE_REACT_16 === "true") {
     "^react-test-renderer((\\/.*)?)$": "react-test-renderer-17$1",
   }
 } else if (process.env.USE_REACT_17 === "true") {
+  console.log("=== React 17 tests ===")
   module.exports.cacheDirectory = ".cache/jest-cache-react-17"
   module.exports.moduleNameMapper = {
     ...module.exports.moduleNameMapper,
