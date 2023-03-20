@@ -50,7 +50,7 @@
     "@kaizen/draft-tooltip": "^5.4.32",
     "@popperjs/core": "^2.11.6",
     "classnames": "^2.3.2",
-    "react-focus-on": "^3.7.0",
+    "react-focus-on": "^3.8.0",
     "react-popper": "^2.3.0"
   },
   "devDependencies": {
@@ -67,7 +67,6 @@
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
-    "sass": "^1.59.3",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"
   },
