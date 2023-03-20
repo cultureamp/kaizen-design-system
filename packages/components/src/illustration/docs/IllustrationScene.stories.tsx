@@ -1,8 +1,8 @@
 import React from "react"
 import { Story } from "@storybook/react"
 import isChromatic from "chromatic"
-import { Box } from "@kaizen/component-library"
-import { Heading } from "@kaizen/typography"
+import { Box } from "@components/Box"
+import { Heading } from "@components/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   EmptyStatesAction,

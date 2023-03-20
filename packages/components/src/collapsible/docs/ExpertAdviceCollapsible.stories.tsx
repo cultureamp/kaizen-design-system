@@ -1,8 +1,8 @@
 import React from "react"
 import { ComponentMeta, Story } from "@storybook/react"
-import { Box } from "@kaizen/component-library"
+import { Box } from "@components/Box"
 import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible"
-import { Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@components/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus

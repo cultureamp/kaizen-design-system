@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
-@import "@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $gap: $spacing-sm;
 $menuContentHorizontalPadding: 4px; // this comes from the MenuContent component, which should be using tokens

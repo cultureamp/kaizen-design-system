@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Persistent versions of the notifications work 1`] = `
+<div
+  class="notification negative inline hidden"
+  data-automation-class="generic-notification negative inline"
+  style="margin-top: 0px;"
+>
+  <div
+    class="icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon inheritSize"
+      focusable="false"
+      role="presentation"
+    >
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    class="textContainer"
+  >
+    <div
+      class="heading heading-6 notificationTitle dark small"
+    >
+      Error
+    </div>
+    <div
+      class="text"
+    >
+      Something has gone wrong
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The basic notification renders correctly 1`] = `
+<div
+  class="notification cautionary inline hidden"
+  data-automation-class="generic-notification cautionary inline"
+  style="margin-top: 0px;"
+>
+  <div
+    class="icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon inheritSize"
+      focusable="false"
+      role="presentation"
+    >
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    class="textContainer"
+  >
+    <div
+      class="heading heading-6 notificationTitle dark small"
+    >
+      Warning
+    </div>
+    <div
+      class="text"
+    >
+      Something has gone wrong
+    </div>
+  </div>
+  <button
+    class="cancel"
+    data-testid="close-button"
+    type="button"
+  >
+    <svg
+      class="icon"
+      focusable="false"
+      role="img"
+    >
+      <title>
+        close notification
+      </title>
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </button>
+</div>
+`;

@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Heading, Paragraph } from "@components/typography"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   AccountBasics,

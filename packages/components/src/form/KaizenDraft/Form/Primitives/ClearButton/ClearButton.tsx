@@ -1,8 +1,8 @@
 import React, { ButtonHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import clear from "@kaizen/component-library/icons/clear.icon.svg"
+import { Icon } from "@components/Icon"
+import clear from "@icons/clear.icon.svg"
 import styles from "./ClearButton.module.scss"
 
 export interface ClearButtonProps

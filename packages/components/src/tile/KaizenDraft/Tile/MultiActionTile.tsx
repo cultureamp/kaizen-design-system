@@ -1,5 +1,5 @@
 import React from "react"
-import { Box } from "@kaizen/component-library"
+import { Box } from "@components/Box"
 import Action from "./components/Action"
 import {
   GenericTile,

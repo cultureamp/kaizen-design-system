@@ -1,8 +1,8 @@
 import React from "react"
 
-import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
-import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
-import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
+import duplicateIcon from "@icons/duplicate.icon.svg"
+import editIcon from "@icons/edit.icon.svg"
+import trashIcon from "@icons/trash.icon.svg"
 
 import { MenuList, MenuItem } from "../.."
 

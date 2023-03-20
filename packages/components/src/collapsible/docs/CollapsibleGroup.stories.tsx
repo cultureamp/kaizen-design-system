@@ -1,7 +1,7 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
-import { Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@components/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 

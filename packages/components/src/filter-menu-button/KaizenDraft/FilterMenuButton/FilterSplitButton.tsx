@@ -1,9 +1,9 @@
 import * as React from "react"
 import classnames from "classnames"
 import { Button } from "@kaizen/button"
-import { Icon } from "@kaizen/component-library"
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import { Icon } from "@components/Icon"
+import chevronDown from "@icons/chevron-down.icon.svg"
+import clearIcon from "@icons/clear.icon.svg"
 import styles from "./FilterSplitButton.module.scss"
 
 type FilterSplitButtonProps = {

@@ -1,7 +1,7 @@
 import React from "react"
 import { Button, IconButton } from "@kaizen/button"
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import chevronDownIcon from "@icons/chevron-down.icon.svg"
+import meatballsIcon from "@icons/meatballs.icon.svg"
 import { Menu, MenuList } from "@kaizen/draft-menu"
 import {
   TitleBlockMenuItem,

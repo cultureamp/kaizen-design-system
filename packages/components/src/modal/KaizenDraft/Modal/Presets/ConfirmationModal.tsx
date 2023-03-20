@@ -1,11 +1,12 @@
 import React from "react"
+import { Icon } from "@components/Icon"
+import { Heading } from "@components/typography"
+import cautionIcon from "@icons/caution-white.icon.svg"
+import errorIcon from "@icons/exclamation-white.icon.svg"
+import informationIcon from "@icons/information-white.icon.svg"
+import successIcon from "@icons/success-white.icon.svg"
 import classnames from "classnames"
 import { ButtonProps } from "@kaizen/button"
-import { Icon } from "@kaizen/component-library"
-import cautionIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
-import errorIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
-import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
-import successIcon from "@kaizen/component-library/icons/success-white.icon.svg"
 import {
   Assertive,
   Cautionary,
@@ -13,7 +14,6 @@ import {
   Negative,
   Positive,
 } from "@kaizen/draft-illustration"
-import { Heading } from "@kaizen/typography"
 import {
   GenericModal,
   ModalAccessibleDescription,

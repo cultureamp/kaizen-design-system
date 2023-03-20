@@ -1,10 +1,10 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import cautionWhiteIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
-import errorWhiteIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
-import { Paragraph } from "@kaizen/typography"
+import { Icon } from "@components/Icon"
+import cautionWhiteIcon from "@icons/caution-white.icon.svg"
+import errorWhiteIcon from "@icons/exclamation-white.icon.svg"
+import { Paragraph } from "@components/typography"
 import styles from "./FieldMessage.module.scss"
 
 function capitalize(word: string): string {

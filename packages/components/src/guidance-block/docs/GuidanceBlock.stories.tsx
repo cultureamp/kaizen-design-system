@@ -1,7 +1,7 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Box } from "@kaizen/component-library"
+import { Box } from "@components/Box"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   Informative,
@@ -12,14 +12,13 @@ import {
   BrandMomentPositiveOutro,
 } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Heading, Paragraph } from "@components/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 import { GuidanceBlockProps } from "../KaizenDraft/GuidanceBlock/GuidanceBlock"
 
-const ICON_EXTERNAL_LINK =
-  require("@kaizen/component-library/icons/external-link.icon.svg").default
+const ICON_EXTERNAL_LINK = require("@icons/external-link.icon.svg").default
 
 export default {
   title: `${CATEGORIES.components}/Guidance Block`,

@@ -8,7 +8,7 @@ import dts from "rollup-plugin-dts"
 import esbuild from "rollup-plugin-esbuild"
 import peerDepsExternal from "rollup-plugin-peer-deps-external"
 import postcss from "rollup-plugin-postcss"
-import ttypescript from 'ttypescript'
+import ttypescript from "ttypescript"
 
 const TYPES_TEMP_DIR = "dts"
 const OUTPUT_DIR = "dist"
@@ -20,10 +20,10 @@ const getCompiledConfigByModuleType = format => ({
     // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
     alias({
       entries: [
-        { find: "@components", replacement: 'src' },
-        { find: "@icons", replacement: 'icons' },
-        { find: "@util", replacement: 'util' },
-        { find: "@t", replacement: 'types' },
+        { find: "@components", replacement: "src" },
+        { find: "@icons", replacement: "icons" },
+        { find: "@util", replacement: "util" },
+        { find: "@t", replacement: "types" },
       ]
     }),
     resolve({
@@ -62,7 +62,7 @@ export default [
   // This step doesn't matter if it's cjs or esm, the output will be the same (esm is faster)
   {
     input: `./${OUTPUT_DIR}/esm/dts/src/index.d.ts`,
-    output: [{ file: `${OUTPUT_DIR}/index.d.ts`, format: 'esm' }],
+    output: [{ file: `${OUTPUT_DIR}/index.d.ts`, format: "esm" }],
     external: [/\.scss$/],
     plugins: [dts()],
   }

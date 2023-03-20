@@ -1,7 +1,7 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
+import bookmarkIcon from "@icons/bookmark-off.icon.svg"
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
 import {
@@ -11,7 +11,7 @@ import {
   InformationTile,
   TileGrid,
 } from "@kaizen/draft-tile"
-import { Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@components/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 

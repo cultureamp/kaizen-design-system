@@ -1,9 +1,9 @@
 import React from "react"
 import classnames from "classnames"
 import { ButtonProps } from "@kaizen/button"
-import { Icon } from "@kaizen/component-library"
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { Icon } from "@components/Icon"
+import chevronDownIcon from "@icons/chevron-down.icon.svg"
+import chevronUpIcon from "@icons/chevron-up.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 

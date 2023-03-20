@@ -1,7 +1,7 @@
 import React, { useState, createRef } from "react"
 import classnames from "classnames"
 import { FieldMessage } from "@kaizen/draft-form"
-import { Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@components/typography"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValue } from "./types"
 import styles from "./LikertScaleLegacy.module.scss"

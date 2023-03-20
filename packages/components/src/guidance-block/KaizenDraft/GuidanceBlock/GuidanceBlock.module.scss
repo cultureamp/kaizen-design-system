@@ -162,7 +162,7 @@ $scene-illustration-size: 300px;
 
 .cancel {
   @include button-reset;
-  composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+  composes: interactiveIconWrapper from "../../../Icon/Icon.module.scss";
   position: absolute;
   top: $spacing-sm;
   right: $spacing-sm;

@@ -1,10 +1,10 @@
 import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { Box } from "@kaizen/component-library"
+import { Box } from "@components/Box"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@components/typography"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { figmaEmbed } from "../../../../../storybook/helpers"
 

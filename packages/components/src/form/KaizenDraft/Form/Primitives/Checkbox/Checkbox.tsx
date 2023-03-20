@@ -1,9 +1,9 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
-import minusIcon from "@kaizen/component-library/icons/minus.icon.svg"
+import { Icon } from "@components/Icon"
+import checkIcon from "@icons/check.icon.svg"
+import minusIcon from "@icons/minus.icon.svg"
 import styles from "./Checkbox.module.scss"
 
 export type CheckedStatus = "on" | "off" | "mixed"

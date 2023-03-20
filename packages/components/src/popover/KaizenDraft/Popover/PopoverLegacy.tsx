@@ -1,7 +1,7 @@
 import React from "react"
 import classNames from "classnames"
-import { Icon } from "@kaizen/component-library"
-import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+import { Icon } from "@components/Icon"
+import closeIcon from "@icons/close.icon.svg"
 import {
   mapArrowVariantToClass,
   mapLineVariant,

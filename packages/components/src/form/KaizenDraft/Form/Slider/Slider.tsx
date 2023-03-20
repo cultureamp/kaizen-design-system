@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react"
 import classnames from "classnames"
-import { Box } from "@kaizen/component-library"
-import { Paragraph } from "@kaizen/typography"
+import { Box } from "@components/Box"
+import { Paragraph } from "@components/typography"
 import { FieldGroup, Label, InputRange, InputRangeProps } from "../Primitives"
 import styles from "./Slider.module.scss"
 

@@ -31,9 +31,6 @@
 }
 
 .modalLayer {
-  // use flexbox auto margins to horizontally and vertically centre the modal
-  // because in IE11, `align-items: center` and `justify-content: center` cause
-  // long modal content to become unreachable if they go off-screen
   margin: auto;
 
   padding: $ca-grid 0;
@@ -59,11 +56,6 @@
   transition-duration: $ca-duration-fast;
 
   .backdropLayer {
-    /*
-      There's a weird bug in Chrome/Blink 102.x that animates the opacity
-      all the way to 1 with 200ms ("rapid" token), but is fine with
-      201ms, see Jira [KDS-523]
-    */
     @include ca-animation-fade($duration: 201ms, $from: 0, $to: 0.5);
   }
 
@@ -95,12 +87,10 @@
 }
 
 .unscrollable {
-  /* Tech debt - this !important existed before Stylelint rules */
   overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .pseudoScrollbar {
-  /* Tech debt - this !important existed before Stylelint rules */
   padding-right: 15px !important; /* stylelint-disable-line declaration-no-important */
 }
 

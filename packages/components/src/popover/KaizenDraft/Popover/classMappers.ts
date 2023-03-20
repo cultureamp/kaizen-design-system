@@ -1,8 +1,8 @@
 import React from "react"
-import cautionIcon from "@kaizen/component-library/icons/caution.icon.svg"
-import errorIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
-import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
+import cautionIcon from "@icons/caution.icon.svg"
+import errorIcon from "@icons/exclamation.icon.svg"
+import informativeIcon from "@icons/information.icon.svg"
+import positiveIcon from "@icons/success.icon.svg"
 import { Size, Variant } from "./types"
 import styles from "./Popover.module.scss"
 

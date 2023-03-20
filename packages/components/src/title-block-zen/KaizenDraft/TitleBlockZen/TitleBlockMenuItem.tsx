@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { CustomButtonProps } from "@kaizen/button"
-import { Icon } from "@kaizen/component-library"
+import { Icon } from "@components/Icon"
 import { MenuItemProps, MenuItem } from "@kaizen/draft-menu"
 import styles from "./TitleBlockMenuItem.module.scss"
 

@@ -9,7 +9,7 @@ import {
   EmptyStatesPositive,
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
-import { Paragraph, Heading, HeadingProps } from "@kaizen/typography"
+import { Paragraph, Heading, HeadingProps } from "@components/typography"
 import styles from "./EmptyState.module.scss"
 
 const ILLUSTRATIONS: Record<

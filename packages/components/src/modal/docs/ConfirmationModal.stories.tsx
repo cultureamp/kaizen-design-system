@@ -1,11 +1,11 @@
 import React, { useState } from "react"
+import { Paragraph } from "@components/typography"
 import { DecoratorFunction } from "@storybook/addons"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { ConfirmationModal } from "@kaizen/draft-modal"
-import { Paragraph } from "@kaizen/typography"
 import { CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 

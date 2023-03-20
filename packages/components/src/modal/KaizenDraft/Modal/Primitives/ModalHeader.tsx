@@ -1,6 +1,6 @@
 import React from "react"
+import close from "@icons/close.icon.svg"
 import { IconButton } from "@kaizen/button"
-import close from "@kaizen/component-library/icons/close.icon.svg"
 import GenericModalSection from "./GenericModalSection"
 import styles from "./ModalHeader.module.scss"
 

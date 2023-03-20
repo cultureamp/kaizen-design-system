@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { Icon } from "@kaizen/component-library/components/Icon"
-import successIcon from "@kaizen/component-library/icons/success.icon.svg"
+import successIcon from "@icons/success.icon.svg"
 import {
   FieldGroup,
   FieldMessage,

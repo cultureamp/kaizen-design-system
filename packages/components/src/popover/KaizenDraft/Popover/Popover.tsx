@@ -2,9 +2,9 @@ import React, { HTMLAttributes, useMemo, useState } from "react"
 import classNames from "classnames"
 import { usePopper } from "react-popper"
 import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Icon } from "@components/Icon"
+import closeIcon from "@icons/close.icon.svg"
+import { Heading, Paragraph } from "@components/typography"
 import {
   mapArrowVariantToClass,
   mapLineVariant,

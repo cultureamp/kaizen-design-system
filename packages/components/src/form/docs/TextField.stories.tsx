@@ -1,7 +1,7 @@
 import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
+import dateIcon from "@icons/date-start.icon.svg"
 import { TextField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"

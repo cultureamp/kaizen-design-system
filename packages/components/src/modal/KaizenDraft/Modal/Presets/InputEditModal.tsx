@@ -1,7 +1,7 @@
 import React from "react"
+import { Heading } from "@components/typography"
 import classnames from "classnames"
 import { ButtonProps } from "@kaizen/button"
-import { Heading } from "@kaizen/typography"
 import {
   GenericModal,
   ModalAccessibleLabel,

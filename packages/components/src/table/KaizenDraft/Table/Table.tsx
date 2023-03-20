@@ -1,13 +1,13 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
-import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
+import { Icon } from "@components/Icon"
+import exclamationIcon from "@icons/exclamation.icon.svg"
+import sortAscendingIcon from "@icons/sort-ascending.icon.svg"
+import sortDescendingIcon from "@icons/sort-descending.icon.svg"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import { Heading } from "@kaizen/typography"
+import { Heading } from "@components/typography"
 import styles from "./Table.module.scss"
 
 type TableContainerProps = {
