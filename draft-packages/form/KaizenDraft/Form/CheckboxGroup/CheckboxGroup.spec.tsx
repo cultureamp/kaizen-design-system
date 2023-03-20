@@ -5,8 +5,8 @@ import { CheckboxGroup, CheckboxGroupProps } from "./CheckboxGroup"
 const defaultCheckboxGroupProps: CheckboxGroupProps = {
   automationId: "CheckboxGroupAutomationId",
   labelText: "Label",
-  noBottomMargin: true,
 }
+
 const renderCheckboxGroupProps = (
   props?: CheckboxGroupProps
 ): ReturnType<typeof render> => {
@@ -22,7 +22,7 @@ describe("<CheckboxGroup /> ", () => {
       container.querySelector(
         `[data-automation-id="${defaultCheckboxGroupProps.automationId}-field-checkbox-group"]`
       )
-    ).toBeTruthy()
+    ).toBeInTheDocument()
   })
 
   it("renders a title", () => {
