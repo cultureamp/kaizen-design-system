@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { FilterButtonRemovable } from "../FilterButtonRemovable"
+import { FilterButtonRemovable } from "../../FilterButtonRemovable"
 
 export default {
   title: "Components/Filter/Filter Button",

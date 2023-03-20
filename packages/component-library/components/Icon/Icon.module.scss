@@ -4,10 +4,6 @@
 .icon {
   @extend %caIcon;
 
-  // Set sensible defaults for icon colours when
-  // windows high-contrast mode is enabled. These
-  // should be overridden by the consumer when the
-  // icon colour conveys information, such as mood.
   @media screen and (-ms-high-contrast: active) {
     color: black;
   }
@@ -54,8 +50,6 @@
   }
 }
 
-// On dark backgrounds, icons are fully opaque by default and half opacity when active.
-// Hover and disabled states are the same.
 .reversedInteractiveIconWrapper {
   composes: interactiveIconWrapper;
   .icon {

@@ -1,7 +1,4 @@
 import React, { forwardRef } from "react"
-import chevronDown from "@icons/chevron-down.icon.svg"
-import chevronUp from "@icons/chevron-up.icon.svg"
-import { isRefObject } from "~utils/isRefObject"
 import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { FilterTriggerRef } from "../../Filter/types"
@@ -10,6 +7,9 @@ import {
   FilterButtonBaseProps,
 } from "../components/FilterButtonBase"
 import styles from "./FilterButton.module.scss"
+import chevronDown from "~icons/chevron-down.icon.svg"
+import chevronUp from "~icons/chevron-up.icon.svg"
+import { isRefObject } from "~utils/isRefObject"
 
 export interface FilterButtonProps
   extends Omit<FilterButtonBaseProps, "children"> {

@@ -2,7 +2,7 @@ import React from "react"
 import { Story } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../FilterButton"
-import { FilterButtonRemovable } from "../FilterButtonRemovable"
+import { FilterButtonRemovable } from "../../FilterButtonRemovable"
 import { FilterButtonBase } from "../components/FilterButtonBase"
 
 export default {
