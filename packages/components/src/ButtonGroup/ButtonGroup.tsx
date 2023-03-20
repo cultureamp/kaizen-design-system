@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
-import { OverrideClassName } from "~types/overrideClassName"
 import classnames from "classnames"
+import { OverrideClassName } from "~types/OverrideClassName"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import {
   FilterButtonBase,

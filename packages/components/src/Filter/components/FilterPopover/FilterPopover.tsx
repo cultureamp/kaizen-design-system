@@ -3,7 +3,7 @@ import { Options } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
 import styles from "./FilterPopover.module.scss"
-import { OverrideClassName } from "~types/overrideClassName"
+import { OverrideClassName } from "~types/OverrideClassName"
 
 export interface FilterPopoverProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

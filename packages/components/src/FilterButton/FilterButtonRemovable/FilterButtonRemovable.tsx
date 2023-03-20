@@ -8,9 +8,9 @@ import {
   FilterButtonBase,
   FilterButtonBaseProps,
 } from "../components/FilterButtonBase"
-import { isRefObject } from "~components/utils/isRefObject"
 import iconClear from "~icons/clear.icon.svg"
-import { DataAttributes } from "~types/dataAttributes"
+import { DataAttributes } from "~types/DataAttributes"
+import { isRefObject } from "~utils/isRefObject"
 
 export interface FilterButtonRemovableProps
   extends Omit<ButtonGroupProps, "children"> {
