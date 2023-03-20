@@ -9,7 +9,6 @@ lerna-*.log
 !/packages/**/*.config.js
 /packages/**/*.js.map
 /packages/**/*.d.ts
-!/packages/components/*.d.ts
 /playwright/test-results
 .DS_Store
 dist

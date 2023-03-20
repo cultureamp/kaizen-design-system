@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
-import { OverrideClassName } from "@t/overrideClassName"
 import stylesSCSS from "./ExampleComponent.module.scss"
+import { OverrideClassName } from "~types/overrideClassName"
 
-interface CommonProps
+export interface CommonProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
   children?: string
 }
@@ -10,6 +10,8 @@ interface CommonProps
 // Placeholder for illustration DO NOT COPY
 export const ExampleComponent = (props: CommonProps): JSX.Element => (
   <div className={`${stylesSCSS.exampleComponent} bg-green-300`}>
-    ExampleComponent FUTURE
+    ExampleComponent FUTURE {props.children}
   </div>
 )
+
+ExampleComponent.displayName = "ExampleComponent"

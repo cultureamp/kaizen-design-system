@@ -20,10 +20,10 @@ const getCompiledConfigByModuleType = format => ({
     // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
     alias({
       entries: [
-        { find: "@components", replacement: "src" },
-        { find: "@icons", replacement: "icons" },
-        { find: "@utils", replacement: "util" },
-        { find: "@t", replacement: "types" },
+        { find: "~components", replacement: "src" },
+        { find: "~icons", replacement: "icons" },
+        { find: "~utils", replacement: "util" },
+        { find: "~types", replacement: "types" },
       ]
     }),
     resolve({
@@ -37,6 +37,7 @@ const getCompiledConfigByModuleType = format => ({
     typescript({
       declaration: true,
       declarationDir: `${OUTPUT_DIR}/${format}/${TYPES_TEMP_DIR}`,
+      exclude: ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/*.stories.tsx"],
       // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
       typescript: ttypescript
     }),

@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-/** @type {import('jest').Config} */
-
 import { JestConfigWithTsJest } from "ts-jest"
 import sharedConfig from "../../jest.config.js"
 
@@ -10,8 +8,8 @@ const jestConfig: JestConfigWithTsJest = {
   modulePathIgnorePatterns: [],
   moduleNameMapper: {
     ...sharedConfig.moduleNameMapper,
-    "@components/(.*)$": "<rootDir>/src/$1",
-    "@utils/(.*)$": "<rootDir>/utils/$1",
+    "~components/(.*)$": "<rootDir>/src/$1",
+    "~utils/(.*)$": "<rootDir>/utils/$1",
   },
 }
 

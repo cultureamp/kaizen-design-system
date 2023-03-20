@@ -14,10 +14,10 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "paths": {
-      "@components/*": ["src/*"],
-      "@icons/*": ["icons/*"],
-      "@utils/*": ["utils/*"],
-      "@t/*": ["types/*"]
+      "~components/*": ["src/*"],
+      "~icons/*": ["icons/*"],
+      "~utils/*": ["utils/*"],
+      "~types/*": ["types/*"]
     },
     // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
     "plugins": [
@@ -29,10 +29,5 @@
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*", "icons/**/*", "utils", "types"],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "**/*.stories.tsx"
-  ]
+  "exclude": ["node_modules"]
 }

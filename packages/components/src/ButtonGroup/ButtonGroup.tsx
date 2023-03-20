@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import { OverrideClassName } from "@t/overrideClassName"
+import { OverrideClassName } from "~types/overrideClassName"
 import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import {

@@ -1,8 +1,8 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
-import { OverrideClassName } from "@t/overrideClassName"
 import { FocusOn } from "react-focus-on"
 import { FilterPopover } from "./components/FilterPopover"
 import { FilterTriggerRef } from "./types"
+import { OverrideClassName } from "~types/overrideClassName"
 
 export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
