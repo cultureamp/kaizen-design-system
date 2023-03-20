@@ -27,8 +27,8 @@
     "commit": "cz",
     "plop": "plop",
     "pkg:aio": "yarn workspace @kaizen/components",
-    "aio:test": "yarn pkg:aio test",
-    "aio:compile": "yarn pkg:aio compile"
+    "pkg:aio:test": "yarn pkg:aio test",
+    "pkg:aio:compile": "yarn pkg:aio compile"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
