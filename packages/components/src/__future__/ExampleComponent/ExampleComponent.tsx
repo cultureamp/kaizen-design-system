@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
-import stylesSCSS from "./ExampleComponent.module.scss"
 import { OverrideClassName } from "~types/OverrideClassName"
+import stylesSCSS from "./ExampleComponent.module.scss"
 
 export interface CommonProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {

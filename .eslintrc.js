@@ -180,6 +180,11 @@ module.exports = {
             position: "after",
           },
           {
+            pattern: "~*/**",
+            group: "internal",
+            position: "before",
+          },
+          {
             pattern: "..",
             group: "parent",
             position: "after",

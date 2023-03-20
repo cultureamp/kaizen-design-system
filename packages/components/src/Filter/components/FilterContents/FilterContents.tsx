@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import styles from "./FilterContents.module.scss"
 import { OverrideClassName } from "~types/OverrideClassName"
+import styles from "./FilterContents.module.scss"
 
 export interface FilterContentsProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
