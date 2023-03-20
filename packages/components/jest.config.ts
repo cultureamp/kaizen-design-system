@@ -8,8 +8,10 @@ const jestConfig: JestConfigWithTsJest = {
   modulePathIgnorePatterns: [],
   moduleNameMapper: {
     ...sharedConfig.moduleNameMapper,
+    "~types/(.*)$": "<rootDir>/src/types/$1",
+    "~utils/(.*)$": "<rootDir>/src/utils/$1",
     "~components/(.*)$": "<rootDir>/src/$1",
-    "~utils/(.*)$": "<rootDir>/utils/$1",
+    "~icons/(.*)$": "<rootDir>/icons/$1",
   },
 }
 

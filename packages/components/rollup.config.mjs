@@ -20,10 +20,10 @@ const getCompiledConfigByModuleType = format => ({
     // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
     alias({
       entries: [
+        { find: "~types", replacement: "src/types" },
+        { find: "~utils", replacement: "src/utils" },
         { find: "~components", replacement: "src" },
         { find: "~icons", replacement: "icons" },
-        { find: "~utils", replacement: "utils" },
-        { find: "~types", replacement: "types" },
       ]
     }),
     resolve({
