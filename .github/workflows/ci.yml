@@ -32,7 +32,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn compile
-      - run: yarn aio:compile
+      - run: yarn pkg:aio:compile
 
   linting:
     if: github.ref != 'refs/heads/main'
@@ -95,4 +95,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn test --ci
-      - run: yarn aio:test --ci
+      - run: yarn pkg:aio:test --ci
