@@ -2,6 +2,7 @@
 
 exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a label 1`] = `
 <div
+  aria-labelledby="ba333b4a-403d-4576-8187-9b73fd89eca1"
   class="radioGroupContainer"
   data-automation-id=""
   role="radiogroup"
@@ -11,7 +12,8 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
   >
     <label
       class="label text"
-      data-automation-id="-field-label"
+      data-automation-id=""
+      id="ba333b4a-403d-4576-8187-9b73fd89eca1"
     >
       <span
         class="appendedLabel"
@@ -25,6 +27,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
 
 exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a label 2`] = `
 <div
+  aria-labelledby="6aa19717-7bf2-41c7-bc79-5ae68a6be4b1"
   class="radioGroupContainer"
   data-automation-id=""
   role="radiogroup"
@@ -34,7 +37,8 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
   >
     <label
       class="label text"
-      data-automation-id="-field-label"
+      data-automation-id=""
+      id="6aa19717-7bf2-41c7-bc79-5ae68a6be4b1"
     >
       <span
         class="appendedLabel"
@@ -48,6 +52,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
 
 exports[`<RadioGroup />  snapshots renders RadioGroup in a row and with a label 1`] = `
 <div
+  aria-labelledby="6ff1ed49-0d00-4c18-9953-8cfd0bbf0551"
   class="radioGroupContainer"
   data-automation-id=""
   role="radiogroup"
@@ -57,7 +62,8 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a row and with a label 
   >
     <label
       class="label text"
-      data-automation-id="-field-label"
+      data-automation-id=""
+      id="6ff1ed49-0d00-4c18-9953-8cfd0bbf0551"
     >
       <span
         class="appendedLabel"
@@ -71,6 +77,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a row and with a label 
 
 exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
 <div
+  aria-labelledby="b3b749ed-2aba-4c46-8119-f6235b1de8f3"
   class="radioGroupContainer"
   data-automation-id=""
   role="radiogroup"
@@ -80,7 +87,8 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
   >
     <label
       class="label text"
-      data-automation-id="-field-label"
+      data-automation-id=""
+      id="b3b749ed-2aba-4c46-8119-f6235b1de8f3"
     >
       <span
         class="appendedLabel"

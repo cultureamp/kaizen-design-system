@@ -2,8 +2,10 @@
 
 exports[`<CheckboxGroup />  renders Checkbox Group with noBottomMargin attribute 1`] = `
 <div
+  aria-labelledby="81432aa4-255d-4e2f-9b4d-a0b0ea11acd9"
   class="checkboxGroupContainer noBottomMargin"
   data-automation-id="CheckboxGroupAutomationId-field-checkbox-group"
+  role="group"
 >
   <div
     class="checkboxGroupLabel"
@@ -11,6 +13,7 @@ exports[`<CheckboxGroup />  renders Checkbox Group with noBottomMargin attribute
     <label
       class="label text"
       data-automation-id="CheckboxGroupAutomationId-field-label"
+      id="81432aa4-255d-4e2f-9b4d-a0b0ea11acd9"
     >
       <span
         class="appendedLabel"
@@ -24,8 +27,10 @@ exports[`<CheckboxGroup />  renders Checkbox Group with noBottomMargin attribute
 
 exports[`<CheckboxGroup />  renders Checkbox Group without noBottomMargin attribute 1`] = `
 <div
+  aria-labelledby="0c14ab49-d68b-4074-b48a-14db60c75c87"
   class="checkboxGroupContainer"
   data-automation-id="CheckboxGroupAutomationId-field-checkbox-group"
+  role="group"
 >
   <div
     class="checkboxGroupLabel"
@@ -33,6 +38,7 @@ exports[`<CheckboxGroup />  renders Checkbox Group without noBottomMargin attrib
     <label
       class="label text"
       data-automation-id="CheckboxGroupAutomationId-field-label"
+      id="0c14ab49-d68b-4074-b48a-14db60c75c87"
     >
       <span
         class="appendedLabel"
