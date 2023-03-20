@@ -25,6 +25,7 @@ jobs:
               - 'packages/**'
               - 'draft-packages/**'
               - 'storybook/**'
+              - 'docs/**/*.stories.(mdx|tsx)'
 
   visual-testing:
     needs: [paths-filter]
