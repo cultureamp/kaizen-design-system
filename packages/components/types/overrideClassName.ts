@@ -1,3 +1,2 @@
-export type OverrideClassName<T> = Omit<T, "className"> & {
-  classNameOverride?: string
-}
+export type OverrideClassName<T extends Record<string, any>> =
+  | Omit<T, "className"> & { classNameOverride?: string }
