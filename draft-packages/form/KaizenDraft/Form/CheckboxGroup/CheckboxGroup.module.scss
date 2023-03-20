@@ -1,13 +1,11 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .checkboxGroupLabel {
-  margin-bottom: $spacing-sm;
+  padding-bottom: $spacing-xs;
 }
 .checkboxGroupContainer {
   display: flex;
   flex-direction: column;
   margin-bottom: $spacing-sm;
-  &.noBottomMargin {
-    margin-bottom: 0;
-  }
+  gap: $spacing-xs;
 }

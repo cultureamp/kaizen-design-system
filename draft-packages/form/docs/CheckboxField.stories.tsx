@@ -6,6 +6,8 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
 
+const CHECKBOX_LABEL = "A meaningful label for this checkbox field"
+
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Field`,
   component: CheckboxField,
@@ -42,7 +44,7 @@ export const InteractiveKaizenSiteDemo: ComponentStory<
       onCheck={onCheckHandler}
       checkedStatus={status}
       id="checkbox-1"
-      labelText="label"
+      labelText={CHECKBOX_LABEL}
     />
   )
 }
@@ -58,13 +60,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <CheckboxField
           id="checkbox-on"
           checkedStatus="on"
-          labelText="Label"
+          labelText={CHECKBOX_LABEL}
           reversed={isReversed}
         />
         <CheckboxField
           id="checkbox-on-disabled"
           checkedStatus="on"
-          labelText="Label"
+          labelText={CHECKBOX_LABEL}
           disabled
           reversed={isReversed}
         />
@@ -73,13 +75,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <CheckboxField
           id="checkbox-off"
           checkedStatus="off"
-          labelText="Label"
+          labelText={CHECKBOX_LABEL}
           reversed={isReversed}
         />
         <CheckboxField
           id="checkbox-off-disabled"
           checkedStatus="off"
-          labelText="Label"
+          labelText={CHECKBOX_LABEL}
           disabled
           reversed={isReversed}
         />
@@ -88,31 +90,30 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         <CheckboxField
           id="checkbox-mixed"
           checkedStatus="mixed"
-          labelText="Label"
+          labelText={CHECKBOX_LABEL}
           reversed={isReversed}
         />
         <CheckboxField
           id="checkbox-mixed-disabled"
           checkedStatus="mixed"
-          labelText="Label"
+          labelText={CHECKBOX_LABEL}
           disabled
           reversed={isReversed}
         />
       </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="No Bottom Margin">
+      <StoryWrapper.Row rowTitle="Two checkbox fields with custom margin">
         <div>
           <CheckboxField
-            id="checkbox-no-mb-1"
+            id="checkbox-mb-1"
             checkedStatus="off"
-            labelText="Label"
-            noBottomMargin
+            labelText={CHECKBOX_LABEL}
             reversed={isReversed}
+            classNameOverride="mb-6"
           />
           <CheckboxField
-            id="checkbox-no-mb-2"
+            id="checkbox-mb-2"
             checkedStatus="off"
-            labelText="Label"
-            noBottomMargin
+            labelText={CHECKBOX_LABEL}
             reversed={isReversed}
           />
         </div>

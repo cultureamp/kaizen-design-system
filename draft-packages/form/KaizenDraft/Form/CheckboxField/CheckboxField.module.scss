@@ -11,16 +11,11 @@
 ///////////////////////////////////////////////////
 .container {
   position: relative;
-  margin-bottom: $spacing-xs;
 
   label {
     // This is to override bootstrap styles. Remove when appropriate
     padding-top: 0;
     -webkit-tap-highlight-color: transparent;
-  }
-
-  &.noBottomMargin {
-    margin-bottom: 0;
   }
 
   @media (hover: hover) and (pointer: fine) {

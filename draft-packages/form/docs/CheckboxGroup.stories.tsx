@@ -83,7 +83,7 @@ export const InteractiveKaizenSiteDemo: ComponentStory<
 )
 InteractiveKaizenSiteDemo.storyName = "Checkbox Group"
 InteractiveKaizenSiteDemo.args = {
-  labelText: "Label",
+  labelText: "A label describing this checkbox",
 }
 
 export const NestedCheckboxGroup: Story = () => {
@@ -120,7 +120,7 @@ export const NestedCheckboxGroup: Story = () => {
 
   return (
     <div>
-      <CheckboxGroup noBottomMargin labelText="Checkbox Group Label">
+      <CheckboxGroup labelText="Checkbox Group Label">
         <CheckboxField
           id="checkbox-all"
           checkedStatus={allCheckboxState}

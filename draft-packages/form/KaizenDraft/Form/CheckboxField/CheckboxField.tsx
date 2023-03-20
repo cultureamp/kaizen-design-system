@@ -9,7 +9,6 @@ export interface CheckboxFieldProps extends CheckboxProps {
   checkedStatus?: CheckedStatus
   disabled?: boolean
   reversed?: boolean
-  noBottomMargin?: boolean
   /**
    * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
    * @deprecated
@@ -27,7 +26,6 @@ export const CheckboxField = ({
   checkedStatus,
   disabled = false,
   reversed = false,
-  noBottomMargin = false,
   automationId,
   classNameOverride,
   ...restProps
@@ -38,7 +36,6 @@ export const CheckboxField = ({
       [styles.checked]: checkedStatus === "on",
       [styles.mixed]: checkedStatus === "mixed",
       [styles.reversed]: reversed,
-      [styles.noBottomMargin]: noBottomMargin,
     })}
   >
     <Label
