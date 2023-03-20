@@ -33,10 +33,10 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
   config.resolve.alias = {
     ...config.resolve.alias,
-    "@components": path.resolve(__dirname, "../packages/components/src"),
-    "@utils": path.resolve(__dirname, "../packages/components/utils"),
-    "@icons": path.resolve(__dirname, "../packages/components/icons"),
-    "@t": path.resolve(__dirname, "../packages/components/types"),
+    "~components": path.resolve(__dirname, "../packages/components/src"),
+    "~utils": path.resolve(__dirname, "../packages/components/src/utils"),
+    "~icons": path.resolve(__dirname, "../packages/components/icons"),
+    "~types": path.resolve(__dirname, "../packages/components/types"),
   }
 
   // Return the altered config

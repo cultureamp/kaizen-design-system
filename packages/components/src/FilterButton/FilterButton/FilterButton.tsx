@@ -9,7 +9,7 @@ import {
 import styles from "./FilterButton.module.scss"
 import chevronDown from "~icons/chevron-down.icon.svg"
 import chevronUp from "~icons/chevron-up.icon.svg"
-import { isRefObject } from "~utils/isRefObject"
+import { isRefObject } from "~components/utils/isRefObject"
 
 export interface FilterButtonProps
   extends Omit<FilterButtonBaseProps, "children"> {

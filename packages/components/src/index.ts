@@ -2,4 +2,4 @@
 export * from "./KaizenProvider"
 export * from "./Filter"
 export * from "./FilterButton"
-export * from "./FilterButtonRemovable"
+export * from "./FilterButton/FilterButtonRemovable"

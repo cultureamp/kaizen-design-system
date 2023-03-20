@@ -16,7 +16,7 @@
     "paths": {
       "~components/*": ["src/*"],
       "~icons/*": ["icons/*"],
-      "~utils/*": ["utils/*"],
+      "~utils/*": ["src/utils/*"],
       "~types/*": ["types/*"]
     },
     // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
@@ -28,6 +28,6 @@
     ]
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*", "icons/**/*", "utils", "types"],
+  "include": ["src/**/*", "icons/**/*", "src/utils", "types"],
   "exclude": ["node_modules"]
 }
