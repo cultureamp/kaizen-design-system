@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import alias from "@rollup/plugin-alias";
 import commonjs from "@rollup/plugin-commonjs"
 import image from "@rollup/plugin-image"
