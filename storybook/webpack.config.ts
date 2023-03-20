@@ -34,7 +34,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
   config.resolve.alias = {
     ...config.resolve.alias,
     "~components": path.resolve(__dirname, "../packages/components/src"),
-    "~utils": path.resolve(__dirname, "../packages/components/src/utils"),
+    "~utils": path.resolve(__dirname, "../packages/components/utils"),
     "~icons": path.resolve(__dirname, "../packages/components/icons"),
     "~types": path.resolve(__dirname, "../packages/components/types"),
   }
