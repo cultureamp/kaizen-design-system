@@ -99,7 +99,7 @@ const ExampleTableRow = ({
           </Paragraph>
         </div>
       ) : (
-        <CheckboxField labelText={description} noBottomMargin />
+        <CheckboxField labelText={description} />
       )}
     </TableRowCell>
     <TableRowCell width={4 / 12}>
