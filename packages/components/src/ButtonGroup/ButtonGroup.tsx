@@ -1,12 +1,12 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
 } from "../FilterButton/components/FilterButtonBase"
 import styles from "./ButtonGroup.module.scss"
+import { OverrideClassName } from "~types/OverrideClassName"
 
 const isFilterButton = (
   node: React.ReactNode
