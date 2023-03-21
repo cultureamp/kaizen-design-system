@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import alias from "@rollup/plugin-alias";
 import commonjs from "@rollup/plugin-commonjs"
 import image from "@rollup/plugin-image"
@@ -47,6 +48,13 @@ const getCompiledConfigByModuleType = format => ({
     esbuild(),
     image(),
   ],
+  external:[fileURLToPath(
+    new URL(
+      "icons",
+      import.meta.url
+    ),
+    /node_modules/
+  )],
   output: [
     {
       dir: `${OUTPUT_DIR}/${format}`,

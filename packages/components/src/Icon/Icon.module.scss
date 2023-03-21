@@ -1,0 +1,66 @@
+@import "~@kaizen/design-tokens/sass/animation";
+@import "./styles";
+
+.icon {
+  @extend %caIcon;
+
+  @media screen and (-ms-high-contrast: active) {
+    color: black;
+  }
+
+  @media screen and (-ms-high-contrast: white-on-black) {
+    color: white;
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    color: black;
+  }
+}
+
+.inheritSize {
+  @extend %caIconInheritSize;
+}
+
+.interactiveIconWrapper {
+  cursor: pointer;
+  .icon {
+    opacity: 0.7;
+    transition: $animation-duration-fast opacity;
+  }
+  &:disabled,
+  &.disabled {
+    .icon {
+      opacity: 0.3;
+    }
+  }
+  &:not(:disabled):not(.disabled) {
+    &:hover,
+    &:focus,
+    &.hover {
+      .icon {
+        opacity: 1;
+      }
+    }
+    &:active,
+    &.active {
+      .icon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.reversedInteractiveIconWrapper {
+  composes: interactiveIconWrapper;
+  .icon {
+    opacity: 1;
+  }
+  &:not(:disabled, .disabled) {
+    &:active,
+    &.active {
+      .icon {
+        opacity: 0.5;
+      }
+    }
+  }
+}

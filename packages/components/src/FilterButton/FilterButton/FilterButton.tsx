@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react"
 import classnames from "classnames"
-import { Icon } from "@kaizen/component-library"
+import { Icon } from "~components/Icon"
 import chevronDown from "~icons/chevron-down.icon.svg"
 import chevronUp from "~icons/chevron-up.icon.svg"
 import { isRefObject } from "~utils/isRefObject"

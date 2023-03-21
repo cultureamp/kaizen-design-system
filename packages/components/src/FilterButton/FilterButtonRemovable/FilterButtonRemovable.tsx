@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react"
-import { Icon } from "@kaizen/component-library"
+import { Icon } from "~components/Icon"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import iconClear from "~icons/clear.icon.svg"
 import { DataAttributes } from "~types/DataAttributes"
