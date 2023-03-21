@@ -57,10 +57,9 @@ export const TextField = ({
     : ""
   const descriptionAria = description ? `${id}-field-description` : ""
 
-  const ariaDescribedBy = [validationMessageAria, descriptionAria].reduce(
-    (prev, curr) => (curr ? [curr, prev].join(" ") : prev),
-    ""
-  )
+  const ariaDescribedBy = [descriptionAria, validationMessageAria]
+    .filter(Boolean)
+    .join(" ")
 
   return (
     <FieldGroup
