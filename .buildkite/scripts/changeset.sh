@@ -58,7 +58,7 @@ main() {
   setup_github
   setup_npm
 
-  git checkout main && git pull
+  git checkout KZN-1056-changesets && git pull
 
   yarn install --frozen-lockfile
   yarn add -DW @changesets/cli
