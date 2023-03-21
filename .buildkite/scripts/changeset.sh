@@ -61,7 +61,6 @@ main() {
   git checkout KZN-1056-changesets && git pull
 
   yarn install --frozen-lockfile
-  yarn add -DW @changesets/cli
   yarn changeset version
 
   echo "All done!"
