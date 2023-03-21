@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Kaizen component library",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@deanc/esbuild-plugin-postcss": "^1.0.2",
-    "@kaizen/tailwind": "^0.5.2",
+    "@kaizen/tailwind": "^0.6.0",
     "autoprefixer": "^10.4.14",
     "tailwindcss": "^3.2.7",
     "tiny-glob": "^0.2.9",
