@@ -9,12 +9,14 @@ Out of the box, the `KaizenProvider` utilises the `defaultTheme` from `@kaizen/d
 
 ```jsx
 import { ThemeManager } from '@kaizen/components'
+
 export const themeManager = new ThemeManager({
   themeKey: "custom",
   spacing: {
     md: "1rem",
   },
 });
+
 <KaizenProvider themeManager={themeManager}>
   <App />
 </KaizenProvider>
@@ -28,6 +30,7 @@ Example:
 
 ```js
 themeManager.setAndApplyTheme(heartTheme)
+
 // or make your own modifications
 themeManager.setAndApplyTheme({
   ...heartTheme,
