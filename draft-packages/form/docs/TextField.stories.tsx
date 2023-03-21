@@ -37,7 +37,6 @@ DefaultStory.args = {
   validationMessage: "",
   inputValue: "",
   status: "default",
-  inline: false,
   reversed: false,
 }
 DefaultStory.argTypes = {
@@ -171,6 +170,45 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               />
             </StickerSheet.Row>
           ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet heading="Styling with Tailwind" isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Base", "Disabled"]}
+          headingsWidth="15rem"
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row key="customStyles">
+            <TextField
+              reversed={isReversed}
+              id={"customStyles--base"}
+              labelText="With margin-bottom (48px/3rem)"
+              classNameOverride="mb-48"
+            />
+            <TextField
+              reversed={isReversed}
+              id={"customStyles--disabled"}
+              disabled
+              labelText="With margin-bottom (48px/3rem)"
+              classNameOverride="mb-48"
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row key="customStyles_row2">
+            <TextField
+              reversed={isReversed}
+              id={"customStyles--base"}
+              labelText="With `display: inline;`"
+              classNameOverride="inline"
+            />
+            <TextField
+              reversed={isReversed}
+              id={"customStyles--disabled"}
+              disabled
+              labelText="With `display: inline;`"
+              classNameOverride="inline"
+            />
+          </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
 

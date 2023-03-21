@@ -24,7 +24,6 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
    * A short example of input text. For context or additional information use the `description` prop
    */
   labelText: string | React.ReactNode
-  inline?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
   /**
    * A descriptive message for `error` or `caution` states
@@ -43,13 +42,13 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
 export const TextField = ({
   id,
   labelText,
-  inline = false,
   icon,
   validationMessage,
   description,
   status,
   reversed = false,
   disabled,
+  classNameOverride,
   ...restProps
 }: TextFieldProps): JSX.Element => {
   const validationMessageAria = validationMessage
@@ -65,8 +64,7 @@ export const TextField = ({
     <FieldGroup
       id={`${id}-field-group`}
       automationId={`${id}-field-group`}
-      inline={inline}
-      classNameOverride={classnames(styles.withLabel, {
+      classNameOverride={classnames(styles.withLabel, classNameOverride, {
         [styles.withDisabled]: disabled,
       })}
     >
