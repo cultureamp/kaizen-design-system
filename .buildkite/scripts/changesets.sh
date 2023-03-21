@@ -61,7 +61,7 @@ main() {
   git checkout main && git pull
 
   yarn install --frozen-lockfile
-  yarn add -D @changesets/cli
+  yarn add -DW @changesets/cli
   yarn changeset version
 
   echo "All done!"
