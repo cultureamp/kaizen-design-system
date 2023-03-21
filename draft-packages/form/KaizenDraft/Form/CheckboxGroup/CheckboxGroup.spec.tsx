@@ -1,8 +1,6 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { CheckboxGroup, CheckboxGroupProps } from "./CheckboxGroup"
-
-afterEach(cleanup)
 
 const defaultCheckboxGroupProps: CheckboxGroupProps = {
   automationId: "CheckboxGroupAutomationId",
@@ -36,25 +34,14 @@ describe("<CheckboxGroup /> ", () => {
     expect(queryByText(title)).toBeTruthy()
   })
 
-  test("renders Checkbox Group with noBottomMargin attribute", () => {
-    const { container } = render(
-      <CheckboxGroup
-        automationId="CheckboxGroupAutomationId"
-        labelText="CheckboxGroup Label"
-        noBottomMargin
-      />
-    )
-
-    expect(container.firstChild).toMatchSnapshot()
-  })
-  test("renders Checkbox Group without noBottomMargin attribute", () => {
-    const { container } = render(
-      <CheckboxGroup
-        automationId="CheckboxGroupAutomationId"
-        labelText="CheckboxGroup Label"
-      />
-    )
-
-    expect(container.firstChild).toMatchSnapshot()
+  describe("accessibilty", () => {
+    it("should have an accessible name when not provided a labelId", () => {
+      render(<CheckboxGroup labelText="Label title" />)
+      expect(screen.getByRole("group", { name: "Label title" }))
+    })
+    it("should have an accessible name when provided a labelId", () => {
+      render(<CheckboxGroup labelText="Label title" labelId="some-custom-id" />)
+      expect(screen.getByRole("group", { name: "Label title" }))
+    })
   })
 })
