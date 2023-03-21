@@ -41,6 +41,7 @@
     "@react-aria/button": "^3.7.0",
     "@react-aria/select": "^3.9.1",
     "@react-stately/select": "^3.4.0",
+    "@react-types/shared": "^3.17.0",
     "classnames": "^2.3.2",
     "react-focus-on": "^3.8.0",
     "react-popper": "^2.3.0"
