@@ -20,29 +20,19 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
-    },
-    "./future": {
-      "import": "./dist/esm/future.js",
-      "require": "./dist/cjs/future.js"
-    }
-  },
   "scripts": {
-    "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
     "build": "yarn build:clean && yarn prepublish",
     "build:clean": "rimraf 'dist'",
     "build:components": "rollup -c",
     "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build",
-    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
+    "compile": "tsc",
+    "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
+    "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
-    "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css ./dist/styles.css",
-    "test": "jest",
-    "compile": "tsc"
+    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
+    "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
+    "test": "jest"
   },
   "dependencies": {
     "@kaizen/component-library": "^16.4.3",
