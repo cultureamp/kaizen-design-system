@@ -38,6 +38,7 @@
     "@kaizen/component-library": "^16.5.1",
     "@kaizen/draft-tooltip": "^5.4.35",
     "@popperjs/core": "^2.11.6",
+    "@react-aria/button": "^3.7.0",
     "classnames": "^2.3.2",
     "react-focus-on": "^3.8.0",
     "react-popper": "^2.3.0"
