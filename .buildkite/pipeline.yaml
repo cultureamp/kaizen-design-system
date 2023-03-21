@@ -43,6 +43,12 @@ steps:
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
 
+  - name: ":butterfly: changesets"
+    command: ".buildkite/scripts/changesets.sh"
+    timeout_in_minutes: 15
+    branches: "KZN-1056-changesets"
+    <<: *defaults
+
   - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
