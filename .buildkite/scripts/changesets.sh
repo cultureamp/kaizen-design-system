@@ -60,8 +60,7 @@ main() {
 
   git checkout main && git pull
 
-  yarn install --frozen-lockfile
-  yarn changeset version
+  npx yarn changeset version
 
   echo "All done!"
   unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
