@@ -28,6 +28,6 @@
     ]
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*", "icons/**/*", "types"],
+  "include": ["src/**/*", "icons/**/*"],
   "exclude": ["node_modules"]
 }

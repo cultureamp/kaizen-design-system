@@ -61,7 +61,7 @@ export default [
   getCompiledConfigByModuleType("esm"),
   // This step doesn't matter if it's cjs or esm, the output will be the same (esm is faster)
   {
-    input: `./${OUTPUT_DIR}/esm/dts/src/index.d.ts`,
+    input: `./${OUTPUT_DIR}/esm/dts/index.d.ts`,
     output: [{ file: `${OUTPUT_DIR}/index.d.ts`, format: "esm" }],
     external: [/\.scss$/],
     plugins: [dts()],
