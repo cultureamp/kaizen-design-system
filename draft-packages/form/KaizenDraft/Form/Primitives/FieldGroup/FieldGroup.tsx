@@ -1,12 +1,9 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
-import styles from "./FieldGroup.module.scss"
-
 export interface FieldGroupProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children?: React.ReactNode
-  inline?: boolean
   /**
    * **Deprecated:** Use `classNameOverride` instead
    * @deprecated
@@ -21,7 +18,6 @@ export interface FieldGroupProps
 
 export const FieldGroup = ({
   children,
-  inline = false,
   classNameOverride,
   className,
   automationId,
@@ -29,9 +25,7 @@ export const FieldGroup = ({
 }: FieldGroupProps): JSX.Element => (
   <div
     data-automation-id={automationId}
-    className={classnames(styles.group, className, classNameOverride, {
-      [styles.inline]: inline,
-    })}
+    className={classnames(className, classNameOverride)}
     {...restProps}
   >
     {children}
