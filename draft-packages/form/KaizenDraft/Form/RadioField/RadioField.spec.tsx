@@ -20,6 +20,7 @@ const renderRadio = (props?: RadioFieldProps): ReturnType<typeof render> => {
 
   return render(<RadioField {...mergedRadioFieldProps} />)
 }
+
 describe("<Radio /> ", () => {
   it("has the disabled attribute applied if the disabled prop is true", () => {
     const { container } = renderRadio({
@@ -52,47 +53,47 @@ describe("<Radio /> ", () => {
       disabled: true,
       value: "radio-1",
     })
-    expect(container.querySelector("input")!.checked).toBeTruthy()
-    expect(container.querySelector("[disabled]")).toBeTruthy()
+    expect(container.querySelector("input")!.checked).toBe(true)
+    expect(container.querySelector("[disabled]")).toBeInTheDocument()
   })
 
-  it("doesnt have the `.checked` property if the selectedStatus prop is not present", () => {
+  it("doesn't have the `.checked` property if the selectedStatus prop is not present", () => {
     const { container } = renderRadio({
       id: "testId",
       name: "RadioName",
       labelText: "Label",
       value: "radio-1",
     })
-    expect(container.querySelector("input")!.checked).toBeFalsy()
+    expect(container.querySelector("input")!.checked).toBe(false)
   })
 
-  it("should render an `id` attribute", () => {
+  it("renders an `id` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[id="${defaultRadioFieldProps.id}"]`)
-    ).toBeTruthy()
+    ).toBeInTheDocument()
   })
 
-  it("should render a `name` attribute", () => {
+  it("renders a `name` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[name="${defaultRadioFieldProps.name}"]`)
-    ).toBeTruthy()
+    ).toBeInTheDocument()
   })
 
-  it("should render a `data-automation-id` attribute", () => {
+  it("renders a `data-automation-id` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(
         `[data-automation-id="${defaultRadioFieldProps.automationId}"]`
       )
-    ).toBeTruthy()
+    ).toBeInTheDocument()
   })
 
-  it("should render a `value` attribute", () => {
+  it("renders a `value` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[value="${defaultRadioFieldProps.value}"]`)
-    ).toBeTruthy()
+    ).toBeInTheDocument()
   })
 })

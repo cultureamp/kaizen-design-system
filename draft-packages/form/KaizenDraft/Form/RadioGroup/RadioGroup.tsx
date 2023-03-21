@@ -10,7 +10,6 @@ export interface RadioGroupProps
   children?: React.ReactNode
   labelText: string | React.ReactNode
   labelId?: string
-  noBottomMargin?: boolean
   reversed?: boolean
   /**
    * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
@@ -23,7 +22,6 @@ export const RadioGroup = ({
   children,
   labelId: propsLabelId,
   labelText,
-  noBottomMargin = false,
   reversed = false,
   automationId = "",
   classNameOverride,
@@ -34,7 +32,6 @@ export const RadioGroup = ({
     <div
       data-automation-id={automationId}
       className={classnames(styles.radioGroupContainer, classNameOverride, {
-        [styles.noBottomMargin]: noBottomMargin,
         [styles.reversed]: reversed,
       })}
       role="radiogroup"

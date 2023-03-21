@@ -2,7 +2,6 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .radioGroupLabel {
-  margin-bottom: $spacing-sm;
   label {
     :global(.ideal-sans) & {
       // This is to override bootstrap styles. Remove when appropriate
@@ -13,11 +12,9 @@
     color: $color-white;
   }
 }
+
 .radioGroupContainer {
   display: flex;
   flex-direction: column;
-  margin-bottom: $spacing-sm;
-  &.noBottomMargin {
-    margin-bottom: 0;
-  }
+  gap: $spacing-sm;
 }
