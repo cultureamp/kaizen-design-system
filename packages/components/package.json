@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@kaizen/component-library": "^16.5.0",
-    "@kaizen/draft-tooltip": "^5.4.33",
+    "@kaizen/draft-tooltip": "^5.4.34",
     "@popperjs/core": "^2.11.6",
     "classnames": "^2.3.2",
     "react-focus-on": "^3.7.0",
