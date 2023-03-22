@@ -11,8 +11,8 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Paragraph, Heading } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { CATEGORIES } from "../../../../../storybook/constants"
+import { figmaEmbed } from "../../../../../storybook/helpers"
 
 const openTooltipInChromatic: DecoratorFunction = (story, config) => {
   if (isChromatic()) config.args.isInitiallyVisible = true

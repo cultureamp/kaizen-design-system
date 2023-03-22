@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Tooltip"
+export { Tooltip, TooltipProps } from "./Tooltip"
