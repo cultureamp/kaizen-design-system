@@ -11,6 +11,10 @@
   margin-bottom: $spacing-sm;
 }
 
+.inline {
+  display: inline;
+}
+
 @media (min-width: $layout-breakpoints-medium) {
   .labelInline {
     &.wrapper {

@@ -33,7 +33,7 @@ export const Slider = (props: SliderFieldProps): JSX.Element => {
   const descriptionId = `${id}-description`
 
   return (
-    <FieldGroup inline>
+    <FieldGroup classNameOverride={styles.inline}>
       <div
         className={classnames(styles.wrapper, {
           [styles.labelInline]: labelPosition === "inline",
