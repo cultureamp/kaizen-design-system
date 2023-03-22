@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
+import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { FilterButton, FilterButtonRemovable } from "../../FilterButton"
-import { Filter, FilterContents } from "../../index"
+import { Filter, FilterContents } from ".."
 
 const IS_CHROMATIC = isChromatic()
 

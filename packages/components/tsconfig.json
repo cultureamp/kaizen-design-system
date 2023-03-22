@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es2019", "dom"],
+    "module": "esnext",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "allowJs": false,
+    "declaration": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "paths": {
+      "~types/*": ["src/types/*"],
+      "~utils/*": ["src/utils/*"],
+      "~components/*": ["src/*"],
+      "~icons/*": ["src/SVG/icons/*"]
+    },
+    // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
+    "plugins": [
+      // Transform paths in output .js files
+      { "transform": "typescript-transform-paths" },
+      // Transform paths in output .d.ts files (Include this line if you output declarations files)
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
+  },
+  "files": ["types.d.ts"],
+  "include": ["src/**/*", "icons/**/*"],
+  "exclude": ["node_modules"]
+}

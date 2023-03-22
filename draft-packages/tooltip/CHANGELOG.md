@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.33...@kaizen/draft-tooltip@5.4.34) (2023-03-22)
+
+
+### Bug Fixes
+
+* Tooltip named export ([#3373](https://github.com/cultureamp/kaizen-design-system/issues/3373)) ([f212750](https://github.com/cultureamp/kaizen-design-system/commit/f212750e6ecfb369b8375eb2bc66a416bbb8a082))
+
+
+
+
+
+## [5.4.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.32...@kaizen/draft-tooltip@5.4.33) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 ## [5.4.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.31...@kaizen/draft-tooltip@5.4.32) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

@@ -1,14 +1,14 @@
 import React, { forwardRef } from "react"
 import classnames from "classnames"
-import { Icon } from "@kaizen/component-library"
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { ChevronDownIcon } from "~components/SVG/icons/ChevronDownIcon"
+import { ChevronUpIcon } from "~components/SVG/icons/ChevronUpIcon"
+import { ClearIcon } from "~components/SVG/icons/ClearIcon"
+import { isRefObject } from "~utils/isRefObject"
 import { FilterTriggerRef } from "../../Filter/types"
-import { isRefObject } from "../../utils/isRefObject"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../components/FilterButtonBase"
+} from "../_sub-components/FilterButtonBase"
 import styles from "./FilterButton.module.scss"
 
 export interface FilterButtonProps
@@ -26,6 +26,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
     const customRefObject = isRefObject(ref) ? ref.current : null
     const triggerRef = customRefObject?.triggerRef
     const selectedValuesLabel = selectedValue
+
     return (
       <FilterButtonBase
         ref={triggerRef}
@@ -47,7 +48,11 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
             label
           )}
         </span>
-        <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
+        {isOpen ? (
+          <ChevronUpIcon role="presentation" />
+        ) : (
+          <ChevronDownIcon role="presentation" />
+        )}
       </FilterButtonBase>
     )
   }

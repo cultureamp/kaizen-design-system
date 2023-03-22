@@ -5,7 +5,7 @@
     "draft-packages/*"
   ],
   "engines": {
-    "node": ">=v16.13.1"
+    "node": ">=v16.19.1"
   },
   "scripts": {
     "storybook": "IS_DEV=true start-storybook -p 6006 -c storybook",
@@ -26,7 +26,9 @@
     "chromatic": "chromatic",
     "commit": "cz",
     "plop": "plop",
-    "pkg:aio": "yarn workspace @kaizen/components"
+    "pkg:aio": "yarn workspace @kaizen/components",
+    "pkg:aio:test": "yarn pkg:aio test",
+    "pkg:aio:compile": "yarn pkg:aio compile"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
@@ -105,6 +107,7 @@
     "node-sass": "^8.0.0",
     "plop": "^3.1.2",
     "postcss": "^8.4.19",
+    "postcss-cli": "^10.1.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.1.0",

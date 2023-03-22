@@ -32,6 +32,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn compile
+      - run: yarn pkg:aio:compile
 
   linting:
     if: github.ref != 'refs/heads/main'
@@ -62,6 +63,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: USE_REACT_16=true yarn test --ci
+      - run: cd ./packages/components && USE_REACT_16=true yarn test --ci
 
   jest-react-17:
     if: github.ref != 'refs/heads/main'
@@ -77,6 +79,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: USE_REACT_17=true yarn test --ci
+      - run: cd ./packages/components && USE_REACT_17=true yarn test --ci
 
   jest-react-18:
     if: github.ref != 'refs/heads/main'
@@ -92,3 +95,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn test --ci
+      - run: yarn pkg:aio:test --ci
