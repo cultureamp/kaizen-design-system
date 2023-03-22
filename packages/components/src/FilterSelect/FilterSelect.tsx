@@ -5,15 +5,11 @@ import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
-import {
-  getSelectChildren,
-  SelectContext,
-  SelectProps,
-  SingleItemType,
-} from "@kaizen/select"
+import { SelectContext, SelectProps, SingleItemType } from "@kaizen/select"
 import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
 import { ListItems } from "@kaizen/select/src/Select/components/ListItems"
 import { Overlay } from "@kaizen/select/src/Select/components/Overlay"
+import { transformSelectChildren } from "@kaizen/select/src/Select/utils/transformSelectChildren"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import styles from "./FilterSelect.module.scss"
@@ -42,7 +38,7 @@ export const FilterSelect = ({
 
   const ariaSelectProps: AriaSelectProps<SingleItemType> = {
     label,
-    children: getSelectChildren,
+    children: transformSelectChildren,
     isOpen,
     onOpenChange: setIsOpen,
     ...restProps,

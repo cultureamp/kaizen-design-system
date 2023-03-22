@@ -1,11 +1,10 @@
 import React, { useEffect } from "react"
 import { HiddenSelect, useSelect } from "@react-aria/select"
-import { Item, Section } from "@react-stately/collections"
 import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
-import { Node, CollectionChildren } from "@react-types/shared"
+import { Node } from "@react-types/shared"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label, FieldMessage } from "@kaizen/draft-form"
@@ -16,20 +15,13 @@ import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
 import { SelectContext } from "./context/SelectContext"
+import { transformSelectChildren } from "./utils/transformSelectChildren"
 import styles from "./Select.module.scss"
 
 export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
 }
 
-export const getSelectChildren: CollectionChildren<SingleItemType> = item =>
-  Array.isArray(item.value) ? (
-    <Section key={item.label} title={item.label} items={item.value}>
-      {(child): JSX.Element => <Item key={child.value}>{child.label}</Item>}
-    </Section>
-  ) : (
-    <Item key={item.value}>{item.label}</Item>
-  )
 export interface SelectProps
   extends OverrideClassName<
     Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
@@ -101,7 +93,7 @@ export const Select = ({
     validationState: invalidStatus,
     errorMessage: validationMessage,
     disabledKeys: disabledValues,
-    children: getSelectChildren,
+    children: transformSelectChildren,
     ...restProps,
   }
 
