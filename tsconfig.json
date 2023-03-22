@@ -13,5 +13,5 @@
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],
-  "exclude": ["**/node_modules"]
+  "exclude": ["**/node_modules", "packages/components/**/*"]
 }

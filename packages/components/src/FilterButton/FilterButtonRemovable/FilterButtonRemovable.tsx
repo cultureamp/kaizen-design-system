@@ -1,16 +1,16 @@
 import React, { forwardRef } from "react"
-import { Icon } from "@kaizen/component-library"
-import iconClear from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
+import { ClearIcon } from "~icons/ClearIcon"
+import { DataAttributes } from "~types/DataAttributes"
+import { isRefObject } from "~utils/isRefObject"
 import { ButtonGroup, ButtonGroupProps } from "../../ButtonGroup"
 import { FilterTriggerRef } from "../../Filter"
-import { DataAttributes } from "../../types"
-import { isRefObject } from "../../utils/isRefObject"
+import { FilterButton, FilterButtonProps } from "../FilterButton"
+
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../components/FilterButtonBase"
-import { FilterButton, FilterButtonProps } from ".."
+} from "../_sub-components/FilterButtonBase"
 
 export interface FilterButtonRemovableProps
   extends Omit<ButtonGroupProps, "children"> {
@@ -39,7 +39,7 @@ export const FilterButtonRemovable = forwardRef<
       <FilterButton ref={ref} {...triggerButtonProps} />
       <Tooltip text={removeButtonLabel} display="inline-block" position="below">
         <FilterButtonBase ref={removeButtonRef} {...removeButtonProps}>
-          <Icon icon={iconClear} title={removeButtonLabel} />
+          <ClearIcon title={removeButtonLabel} />
         </FilterButtonBase>
       </Tooltip>
     </ButtonGroup>

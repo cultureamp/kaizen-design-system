@@ -1,18 +1,21 @@
 /* eslint-disable no-console */
-module.exports = {
-  preset: "ts-jest",
-  testEnvironment: "jsdom",
-  testRunner: "jest-circus/runner",
-  testMatch: ["**/*.spec.ts?(x)", "!**/*.playwright.spec.ts?(x)"],
-  setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/setupTests.ts"],
+import { JestConfigWithTsJest } from "ts-jest"
+import sharedConfig from "../../jest.config.js"
+
+const jestConfig: JestConfigWithTsJest = {
+  ...sharedConfig,
+  roots: ["<rootDir>"],
+  modulePathIgnorePatterns: [],
   moduleNameMapper: {
-    "\\.(jpe?g|png|webm|mp4)$": "jest-static-stubs/$1",
-    "\\.s?css$": "identity-obj-proxy",
-    "\\.svg$": require.resolve("@kaizen/component-library/mocks/svgMock"),
+    ...sharedConfig.moduleNameMapper,
+    "~types/(.*)$": "<rootDir>/src/types/$1",
+    "~utils/(.*)$": "<rootDir>/src/utils/$1",
+    "~components/(.*)$": "<rootDir>/src/$1",
+    "~icons/(.*)$": "<rootDir>/src/SVG/icons/$1",
   },
-  transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
-  modulePathIgnorePatterns: ["<rootDir>/packages/components"],
 }
+
+export default jestConfig
 
 process.env.TZ = "UTC"
 

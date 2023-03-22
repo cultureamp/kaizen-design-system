@@ -49,6 +49,7 @@ release() {
 
   yarn install --frozen-lockfile
 
+  # Certain packages rely on these two packages to be built so they can access dist files
   yarn workspace @kaizen/design-tokens prepublish
   yarn workspace @kaizen/tailwind prepublish
 

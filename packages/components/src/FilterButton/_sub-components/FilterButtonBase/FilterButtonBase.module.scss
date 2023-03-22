@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../../../_mixins/button-reset";
+@import "../../../../styles/button-reset";
 @import "./variables";
 
 .filterButtonBase {
