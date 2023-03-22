@@ -32,9 +32,9 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   },
 
   borderWidth: {
-    "w-none": "0px",
-    "w-default": "2px",
-    "w-focus-ring": "2px",
+    none: "0px",
+    default: "2px",
+    "focus-ring": "2px",
   },
   borderColor: {
     "default-color": `${defaultTheme.border.solid.borderColor}`,
