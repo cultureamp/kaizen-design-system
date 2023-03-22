@@ -2,7 +2,7 @@ import React from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { FilterButtonBase } from "../../FilterButton/_sub-components/FilterButtonBase"
+import { FilterButtonBase } from "~components/FilterButton/_sub-components/FilterButtonBase"
 import { ButtonGroup } from ".."
 
 export default {
