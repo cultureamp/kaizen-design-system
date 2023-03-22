@@ -24,7 +24,7 @@
     "build": "yarn build:clean && yarn prepublish",
     "build:clean": "rimraf 'dist'",
     "build:components": "rollup -c",
-    "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build",
+    "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build && yarn workspace @kaizen/draft-tooltip build",
     "compile": "tsc",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
