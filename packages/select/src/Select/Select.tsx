@@ -18,10 +18,6 @@ import { SelectContext } from "./context/SelectContext"
 import { transformSelectChildren } from "./utils/transformSelectChildren"
 import styles from "./Select.module.scss"
 
-export type SelectOptionsProps = {
-  items: Array<Node<SingleItemType>>
-}
-
 export interface SelectProps
   extends OverrideClassName<
     Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
@@ -46,7 +42,7 @@ export interface SelectProps
   /**
    * Replaces the contents of the Listbox and describes how the options are displayed
    * Exposes the option properties which contains the items */
-  children?: (optionsProps: SelectOptionsProps) => React.ReactNode
+  children?: (args: { items: Array<Node<SingleItemType>> }) => React.ReactNode
   /**
    * Updates the styling of the validation FieldMessage.
    */
