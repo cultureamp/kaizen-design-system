@@ -17,9 +17,6 @@
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'dist'"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
