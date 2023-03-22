@@ -1,12 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
+import { useButton } from "@react-aria/button"
+import { HiddenSelect, useSelect } from "@react-aria/select"
+import {
+  useSelectState,
+  SelectProps as AriaSelectProps,
+} from "@react-stately/select"
+import { Node } from "@react-types/shared"
+import {
+  getSelectChildren,
+  SelectContext,
+  SelectProps,
+  SingleItemType,
+} from "@kaizen/select"
+import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
+import { ListBoxSection } from "@kaizen/select/src/Select/components/ListBoxSection"
+import { Option } from "@kaizen/select/src/Select/components/Option"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
+import styles from "./FilterSelect.module.scss"
 
 export type FilterSelectProps = {
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
+  children?: SelectProps["children"]
+  items: AriaSelectProps<SingleItemType>["items"]
 }
 
 export const FilterSelect = ({
@@ -14,19 +33,69 @@ export const FilterSelect = ({
   setIsOpen,
   renderTrigger,
   label,
-}: FilterSelectProps): JSX.Element => (
-  <Filter
-    isOpen={isOpen}
-    setIsOpen={setIsOpen}
-    renderTrigger={(triggerProps): JSX.Element =>
-      renderTrigger({
-        label,
-        ...triggerProps,
-      })
-    }
-  >
-    <FilterContents>Hello</FilterContents>
-  </Filter>
-)
+  children,
+  ...restProps
+}: FilterSelectProps): JSX.Element => {
+  // Ref will be populated by Filter
+  const [triggerRef, setTriggerRef] = useState<
+    React.RefObject<HTMLButtonElement>
+  >({ current: null })
+
+  const ariaSelectProps: AriaSelectProps<SingleItemType> = {
+    label,
+    children: getSelectChildren,
+    isOpen,
+    onOpenChange: setIsOpen,
+    ...restProps,
+  }
+
+  const state = useSelectState(ariaSelectProps)
+
+  const { triggerProps, menuProps } = useSelect(
+    ariaSelectProps,
+    state,
+    triggerRef
+  )
+
+  const renderChildren = children
+    ? children
+    : ({ items }): JSX.Element =>
+        items.map((item: Node<SingleItemType>) =>
+          item.type === "section" ? (
+            <ListBoxSection key={item.key} section={item} />
+          ) : (
+            <Option key={item.key} item={item} />
+          )
+        )
+
+  const { buttonProps } = useButton(triggerProps, triggerRef)
+
+  return (
+    <>
+      <HiddenSelect label={label} state={state} triggerRef={triggerRef} />
+      <Filter
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        renderTrigger={(): JSX.Element =>
+          renderTrigger({
+            selectedValue: state.selectedItem?.textValue || undefined,
+            label,
+            isOpen,
+            ...buttonProps,
+          })
+        }
+        onTriggerLoaded={setTriggerRef}
+      >
+        <FilterContents classNameOverride={styles.filterContents}>
+          <SelectContext.Provider value={{ state }}>
+            <ListBox menuProps={menuProps}>
+              {renderChildren({ items: Array.from(state.collection) })}
+            </ListBox>
+          </SelectContext.Provider>
+        </FilterContents>
+      </Filter>
+    </>
+  )
+}
 
 FilterSelect.displayName = "FilterSelect"
