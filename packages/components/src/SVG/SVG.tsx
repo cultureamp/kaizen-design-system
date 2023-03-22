@@ -2,7 +2,7 @@ import React, { ReactNode, SVGAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { warn } from "~utils/console"
-import styles from "./Icon.module.scss"
+import styles from "./SVG.module.scss"
 
 type RolesType =
   | "img" // meaningful, title should be read aloud to users who can't see it
