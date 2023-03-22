@@ -12,6 +12,7 @@ import { Label, FieldMessage } from "@kaizen/draft-form"
 import { SingleItemType } from "../types"
 import { ListBox } from "./components/ListBox"
 import { ListBoxSection } from "./components/ListBoxSection"
+import { ListItems } from "./components/ListItems"
 import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
@@ -106,16 +107,6 @@ export const Select = ({
   }
 
   const state = useSelectState(ariaSelectProps)
-  const renderChildren = children
-    ? children
-    : ({ items }): JSX.Element =>
-        items.map((item: Node<SingleItemType>) =>
-          item.type === "section" ? (
-            <ListBoxSection key={item.key} section={item} />
-          ) : (
-            <Option key={item.key} item={item} />
-          )
-        )
 
   const {
     labelProps,
@@ -173,7 +164,7 @@ export const Select = ({
           {state.isOpen && (
             <Overlay>
               <ListBox menuProps={menuProps} classNameOverride={styles.listBox}>
-                {renderChildren({ items })}
+                {children ? children({ items }) : <ListItems items={items} />}
               </ListBox>
             </Overlay>
           )}

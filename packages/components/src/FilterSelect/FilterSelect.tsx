@@ -5,7 +5,6 @@ import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
-import { Node } from "@react-types/shared"
 import {
   getSelectChildren,
   SelectContext,
@@ -13,8 +12,7 @@ import {
   SingleItemType,
 } from "@kaizen/select"
 import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
-import { ListBoxSection } from "@kaizen/select/src/Select/components/ListBoxSection"
-import { Option } from "@kaizen/select/src/Select/components/Option"
+import { ListItems } from "@kaizen/select/src/Select/components/ListItems"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import styles from "./FilterSelect.module.scss"
@@ -57,18 +55,9 @@ export const FilterSelect = ({
     triggerRef
   )
 
-  const renderChildren = children
-    ? children
-    : ({ items }): JSX.Element =>
-        items.map((item: Node<SingleItemType>) =>
-          item.type === "section" ? (
-            <ListBoxSection key={item.key} section={item} />
-          ) : (
-            <Option key={item.key} item={item} />
-          )
-        )
-
   const { buttonProps } = useButton(triggerProps, triggerRef)
+
+  const items = Array.from(state.collection)
 
   return (
     <>
@@ -89,7 +78,7 @@ export const FilterSelect = ({
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectContext.Provider value={{ state }}>
             <ListBox menuProps={menuProps}>
-              {renderChildren({ items: Array.from(state.collection) })}
+              {children ? children({ items }) : <ListItems items={items} />}
             </ListBox>
           </SelectContext.Provider>
         </FilterContents>
