@@ -1,10 +1,14 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import { AriaListBoxOptions, useListBox } from "@react-aria/listbox"
+import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { SingleItemType } from "../../../types"
 import { useSelectContext } from "../../context/SelectContext"
 import styles from "./ListBox.module.scss"
 
-export type SingleListBoxProps = {
+export type SingleListBoxProps = OverrideClassName<
+  HTMLAttributes<HTMLUListElement>
+> & {
   /** Props for the popup. */
   menuProps: AriaListBoxOptions<SingleItemType>
   children: React.ReactNode
@@ -13,6 +17,8 @@ export type SingleListBoxProps = {
 export const ListBox = ({
   menuProps,
   children,
+  classNameOverride,
+  ...restProps
 }: SingleListBoxProps): JSX.Element => {
   const ref = React.useRef<HTMLUListElement>(null)
   const { state } = useSelectContext()
@@ -22,7 +28,12 @@ export const ListBox = ({
     ref
   )
   return (
-    <ul {...listBoxProps} ref={ref} className={styles.listBox}>
+    <ul
+      ref={ref}
+      className={classnames(styles.listBox, classNameOverride)}
+      {...listBoxProps}
+      {...restProps}
+    >
       {children}
     </ul>
   )

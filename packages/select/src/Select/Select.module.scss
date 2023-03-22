@@ -1,3 +1,5 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
 .container {
   position: relative;
   width: 100%;
@@ -5,4 +7,8 @@
 
 .notFullWidth {
   width: 180px;
+}
+
+.listBox {
+  padding: $spacing-sm;
 }

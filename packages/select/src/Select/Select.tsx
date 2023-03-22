@@ -16,7 +16,7 @@ import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
 import { TriggerButton, TriggerButtonProps } from "./components/TriggerButton"
 import { SelectContext } from "./context/SelectContext"
-import selectStyles from "./Select.module.scss"
+import styles from "./Select.module.scss"
 
 export type SelectOptionsProps = {
   items: Array<Node<SingleItemType>>
@@ -150,7 +150,7 @@ export const Select = ({
     >
       <div
         className={classnames(
-          !isFullWidth && selectStyles.notFullWidth,
+          !isFullWidth && styles.notFullWidth,
           classNameOverride
         )}
       >
@@ -164,7 +164,7 @@ export const Select = ({
           triggerRef={buttonRef}
         />
 
-        <div className={classnames([selectStyles.container])}>
+        <div className={classnames([styles.container])}>
           {trigger(
             { placeholder, triggerProps, valueProps, status, isReversed },
             buttonRef
@@ -172,7 +172,7 @@ export const Select = ({
 
           {state.isOpen && (
             <Overlay>
-              <ListBox menuProps={menuProps}>
+              <ListBox menuProps={menuProps} classNameOverride={styles.listBox}>
                 {renderChildren({ items })}
               </ListBox>
             </Overlay>
