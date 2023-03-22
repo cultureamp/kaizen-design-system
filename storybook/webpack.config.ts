@@ -36,7 +36,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
     "~types": path.resolve(__dirname, "../packages/components/src/types"),
     "~utils": path.resolve(__dirname, "../packages/components/src/utils"),
     "~components": path.resolve(__dirname, "../packages/components/src"),
-    "~icons": path.resolve(__dirname, "../packages/components/icons"),
+    "~icons": path.resolve(__dirname, "../packages/components/src/SVG/icons"),
   }
 
   // Return the altered config

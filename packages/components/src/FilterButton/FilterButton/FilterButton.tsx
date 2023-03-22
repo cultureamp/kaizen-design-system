@@ -1,14 +1,13 @@
 import React, { forwardRef } from "react"
 import classnames from "classnames"
-import { Icon } from "~components/Icon"
-import chevronDown from "~icons/chevron-down.icon.svg"
-import chevronUp from "~icons/chevron-up.icon.svg"
+import { ChevronDownIcon } from "~icons/ChevronDown"
+import { ChevronUpIcon } from "~icons/ChevronUp"
 import { isRefObject } from "~utils/isRefObject"
 import { FilterTriggerRef } from "../../Filter/types"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../components/FilterButtonBase"
+} from "../_sub-components/FilterButtonBase"
 import styles from "./FilterButton.module.scss"
 
 export interface FilterButtonProps
@@ -26,6 +25,7 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
     const customRefObject = isRefObject(ref) ? ref.current : null
     const triggerRef = customRefObject?.triggerRef
     const selectedValuesLabel = selectedValue
+
     return (
       <FilterButtonBase
         ref={triggerRef}
@@ -47,7 +47,11 @@ export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
             label
           )}
         </span>
-        <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
+        {isOpen ? (
+          <ChevronUpIcon role="presentation" />
+        ) : (
+          <ChevronDownIcon role="presentation" />
+        )}
       </FilterButtonBase>
     )
   }

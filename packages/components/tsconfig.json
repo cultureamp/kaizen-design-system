@@ -17,7 +17,7 @@
       "~types/*": ["src/types/*"],
       "~utils/*": ["src/utils/*"],
       "~components/*": ["src/*"],
-      "~icons/*": ["icons/*"]
+      "~icons/*": ["src/SVG/icons/*"]
     },
     // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
     "plugins": [

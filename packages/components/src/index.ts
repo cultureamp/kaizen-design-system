@@ -1,5 +1,5 @@
 // Components inside this package
 export * from "./KaizenProvider"
-export * from "./Icon"
+export * from "./SVG"
 export * from "./Filter"
 export * from "./FilterButton"
