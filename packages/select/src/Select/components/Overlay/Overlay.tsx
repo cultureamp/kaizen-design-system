@@ -1,15 +1,19 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import { FocusScope } from "@react-aria/focus"
 import { useOverlay, DismissButton } from "@react-aria/overlays"
+import { OverrideClassName } from "@kaizen/component-base"
 import { useSelectContext } from "../../context/SelectContext"
-import styles from "./Overlay.module.scss"
 
-export type OverlayProps = {
+export type OverlayProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   children: React.ReactNode
 }
 
-export const Overlay = ({ children }: OverlayProps): JSX.Element => {
+export const Overlay = ({
+  children,
+  classNameOverride,
+  ...restProps
+}: OverlayProps): JSX.Element => {
   // Handle events that should cause the menu to close,
   // e.g. blur, clicking outside, or pressing the escape key.
   const overlayRef = React.useRef<HTMLDivElement>(null)
@@ -24,7 +28,12 @@ export const Overlay = ({ children }: OverlayProps): JSX.Element => {
   // In addition, add hidden <DismissButton> components at the start and end of the list
   // to allow screen reader users to dismiss the popup easily.
   return (
-    <div {...overlayProps} ref={overlayRef} className={styles.menuPopup}>
+    <div
+      ref={overlayRef}
+      className={classNameOverride}
+      {...overlayProps}
+      {...restProps}
+    >
       <FocusScope contain autoFocus restoreFocus>
         <DismissButton onDismiss={state.close} />
         {children}

@@ -11,7 +11,6 @@ import { OverrideClassName } from "@kaizen/component-base"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { SingleItemType } from "../types"
 import { ListBox } from "./components/ListBox"
-import { ListBoxSection } from "./components/ListBoxSection"
 import { ListItems } from "./components/ListItems"
 import { Option } from "./components/Option"
 import { Overlay } from "./components/Overlay"
@@ -162,7 +161,7 @@ export const Select = ({
           )}
 
           {state.isOpen && (
-            <Overlay>
+            <Overlay classNameOverride={styles.menuPopup}>
               <ListBox menuProps={menuProps} classNameOverride={styles.listBox}>
                 {children ? children({ items }) : <ListItems items={items} />}
               </ListBox>

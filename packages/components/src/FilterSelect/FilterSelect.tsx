@@ -13,6 +13,7 @@ import {
 } from "@kaizen/select"
 import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
 import { ListItems } from "@kaizen/select/src/Select/components/ListItems"
+import { Overlay } from "@kaizen/select/src/Select/components/Overlay"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import styles from "./FilterSelect.module.scss"
@@ -63,8 +64,8 @@ export const FilterSelect = ({
     <>
       <HiddenSelect label={label} state={state} triggerRef={triggerRef} />
       <Filter
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
+        isOpen={state.isOpen}
+        setIsOpen={state.setOpen}
         renderTrigger={(): JSX.Element =>
           renderTrigger({
             selectedValue: state.selectedItem?.textValue || undefined,
@@ -77,9 +78,11 @@ export const FilterSelect = ({
       >
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectContext.Provider value={{ state }}>
-            <ListBox menuProps={menuProps}>
-              {children ? children({ items }) : <ListItems items={items} />}
-            </ListBox>
+            <Overlay>
+              <ListBox menuProps={menuProps}>
+                {children ? children({ items }) : <ListItems items={items} />}
+              </ListBox>
+            </Overlay>
           </SelectContext.Provider>
         </FilterContents>
       </Filter>
