@@ -12,9 +12,12 @@ import { Overlay } from "@kaizen/select/src/Select/components/Overlay"
 import { transformSelectChildren } from "@kaizen/select/src/Select/utils/transformSelectChildren"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
+import { OverrideClassName } from "../types"
 import styles from "./FilterSelect.module.scss"
 
-export type FilterSelectProps = {
+export type FilterSelectProps = OverrideClassName<
+  Omit<AriaSelectProps<SingleItemType>, "children">
+> & {
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
