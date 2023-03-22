@@ -148,7 +148,7 @@ const TooltipContent = ({
  * {@link https://cultureamp.design/components/tooltip/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tooltip--default-kaizen-site-demo Storybook}
  */
-const Tooltip = ({
+export const Tooltip = ({
   children,
   text,
   inline,
