@@ -8,6 +8,7 @@ import {
 import { SelectContext, SelectProps, SingleItemType } from "@kaizen/select"
 import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
 import { ListItems } from "@kaizen/select/src/Select/components/ListItems"
+import { Option } from "@kaizen/select/src/Select/components/Option"
 import { Overlay } from "@kaizen/select/src/Select/components/Overlay"
 import { transformSelectChildren } from "@kaizen/select/src/Select/utils/transformSelectChildren"
 import { Filter, FilterContents, FilterProps } from "../Filter"
@@ -90,3 +91,5 @@ export const FilterSelect = ({
 }
 
 FilterSelect.displayName = "FilterSelect"
+
+FilterSelect.Option = Option
