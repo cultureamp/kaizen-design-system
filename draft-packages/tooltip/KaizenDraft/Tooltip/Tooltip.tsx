@@ -231,5 +231,3 @@ export const Tooltip = ({
 Tooltip.defaultProps = {
   position: "above",
 }
-
-export default Tooltip
