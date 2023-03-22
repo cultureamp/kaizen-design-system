@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
+import { singleMockItems } from "@kaizen/select/docs/MockData"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton, FilterButtonRemovable } from "../../FilterButton"
 import { Filter, FilterContents } from "../../index"
@@ -32,6 +33,7 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
         <FilterButton {...triggerButtonProps} />
       )}
       label="Pancakes"
+      items={singleMockItems}
     />
   )
 }
