@@ -3,7 +3,7 @@ import { Story } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../FilterButton"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
-import { FilterButtonBase } from "../components/FilterButtonBase"
+import { FilterButtonBase } from "../_sub-components/FilterButtonBase"
 
 export default {
   title: "Components/Filter/Filter Button",

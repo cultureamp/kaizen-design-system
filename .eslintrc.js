@@ -22,6 +22,7 @@ module.exports = {
     "plugin:ssr-friendly/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:storybook/recommended",
+    "plugin:import/typescript",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -74,7 +75,7 @@ module.exports = {
     "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": [
       "off",
       {
@@ -179,6 +180,11 @@ module.exports = {
             position: "after",
           },
           {
+            pattern: "~*/**",
+            group: "internal",
+            position: "before",
+          },
+          {
             pattern: "..",
             group: "parent",
             position: "after",
@@ -260,6 +266,12 @@ module.exports = {
       files: ["*.stories.tsx", "*.spec.tsx", "*.docsExample.tsx"],
       rules: {
         "import/no-extraneous-dependencies": "off",
+      },
+    },
+    {
+      files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
+      rules: {
+        "@typescript-eslint/explicit-function-return-type": "error",
       },
     },
   ],

@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react"
 import classNames from "classnames"
-import { OverrideClassName } from "../../../types"
+import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./FilterButtonBase.module.scss"
 
 export interface FilterButtonBaseProps

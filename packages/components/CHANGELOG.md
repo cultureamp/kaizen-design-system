@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.6.2...@kaizen/components@1.6.3) (2023-03-23)
+
+
+### Bug Fixes
+
+* tooltip aio error ([#3378](https://github.com/cultureamp/kaizen-design-system/issues/3378)) ([3693d57](https://github.com/cultureamp/kaizen-design-system/commit/3693d57858f6640742b317f3671169eb3808a418))
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.6.1...@kaizen/components@1.6.2) (2023-03-22)
+
+
+### Bug Fixes
+
+* tooltip-aio-error ([#3374](https://github.com/cultureamp/kaizen-design-system/issues/3374)) ([949890a](https://github.com/cultureamp/kaizen-design-system/commit/949890aef62a60ff9de0790fac2034199fb422bf))
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.6.0...@kaizen/components@1.6.1) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.5.1...@kaizen/components@1.6.0) (2023-03-22)
+
+
+### Features
+
+* css processing ([#3362](https://github.com/cultureamp/kaizen-design-system/issues/3362)) ([38c0fa3](https://github.com/cultureamp/kaizen-design-system/commit/38c0fa3475a5f78cd4f2c9836815b53d65f2d039))
+
+
+
+
+
 ## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.5.0...@kaizen/components@1.5.1) (2023-03-21)
 
 **Note:** Version bump only for package @kaizen/components
