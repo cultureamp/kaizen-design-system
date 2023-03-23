@@ -42,7 +42,6 @@ main() {
 
   echo "Setting up git and npm credentials..."
   setup_github
-  setup_npm
 
   git checkout KZN-1056-changesets && git pull
 
