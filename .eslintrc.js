@@ -235,6 +235,14 @@ module.exports = {
     "no-underscore-dangle": "error",
     "no-unsafe-finally": "error",
     "no-unused-labels": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        varsIgnorePattern: "^_",
+        argsIgnorePattern: "^_",
+      },
+    ],
     "no-var": "error",
     "object-shorthand": "error",
     "one-var": ["error", "never"],
