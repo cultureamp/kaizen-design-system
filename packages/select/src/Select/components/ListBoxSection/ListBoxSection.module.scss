@@ -3,6 +3,10 @@
 .sectionWrapper {
   display: flex;
   flex-direction: column;
+
+  &:not(:first-child) {
+    margin-top: $spacing-8;
+  }
 }
 
 .sectionHeading {
@@ -13,8 +17,4 @@
   display: flex;
   flex-direction: column;
   padding: $spacing-xs 0px 0px 0px;
-}
-
-.sectionWrapper + .sectionWrapper {
-  margin-top: 0.5rem;
 }
