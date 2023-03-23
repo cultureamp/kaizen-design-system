@@ -39,7 +39,7 @@
     "@kaizen/draft-tooltip": "^5.4.34",
     "@popperjs/core": "^2.11.6",
     "classnames": "^2.3.2",
-    "react-focus-on": "^3.7.0",
+    "react-focus-on": "^3.8.0",
     "react-popper": "^2.3.0"
   },
   "devDependencies": {
