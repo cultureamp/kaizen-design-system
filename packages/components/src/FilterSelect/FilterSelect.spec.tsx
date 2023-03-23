@@ -1,32 +1,13 @@
 import React, { useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { SingleItemType } from "@kaizen/select"
 import { FilterButton } from "~components/FilterButton"
 import { FilterSelect, FilterSelectProps } from "./FilterSelect"
-
-export const mockItems: SingleItemType[] = [
-  { label: "Short black", value: "short-black" },
-  { label: "Long black", value: "long-black" },
-  { label: "Batch brew", value: "batch-brew" },
-  { label: "Latte", value: "latte" },
-  { label: "Flat white", value: "flat-white" },
-  { label: "Mocha", value: "mocha" },
-  { label: "Cappuccino", value: "cappuccino" },
-  { label: "Magic", value: "Magic" },
-  {
-    label: "Syrup",
-    value: [
-      { label: "Vanilla", value: "vanilla" },
-      { label: "Caramel", value: "caramel" },
-      { label: "Hazelnut", value: "hazelnut" },
-    ],
-  },
-]
+import { mixedMockItems } from "./docs/mockData"
 
 const FilterSelectWrapper = ({
   isOpen: propsIsOpen = false,
-  items = mockItems,
+  items = mixedMockItems,
   selectedKey,
   onSelectionChange,
   ...restProps
@@ -61,16 +42,18 @@ describe("<Select>", () => {
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
   })
 
-  it("shows the options initially when isOpen is true", () => {
+  it("shows the options initially when isOpen is true", async () => {
     render(<FilterSelectWrapper isOpen />)
-    expect(screen.queryByRole("listbox")).toBeVisible()
+    await waitFor(() => {
+      expect(screen.queryByRole("listbox")).toBeVisible()
+    })
   })
 
   describe("Trigger", () => {
     it("shows the selected option in the button", () => {
-      render(<FilterSelectWrapper selectedKey="mocha" />)
+      render(<FilterSelectWrapper selectedKey="magic" />)
       const trigger = screen.getByRole("button", {
-        name: "Coffee : Mocha",
+        name: "Coffee : Magic",
       })
       expect(trigger).toBeVisible()
     })
@@ -122,7 +105,7 @@ describe("<Select>", () => {
         expect(screen.queryByRole("listbox")).toBeVisible()
         await waitFor(() => {
           expect(
-            screen.queryByRole("option", { name: "Short black" })
+            screen.queryByRole("option", { name: "Regular" })
           ).toHaveFocus()
         })
       })
@@ -156,12 +139,12 @@ describe("<Select>", () => {
         expect(screen.queryByRole("listbox")).toBeVisible()
       })
 
-      const option = screen.getByRole("option", { name: "Mocha" })
+      const option = screen.getByRole("option", { name: "Magic" })
       await userEvent.click(option)
 
       await waitFor(() => {
         expect(
-          screen.getByRole("button", { name: "Coffee : Mocha" })
+          screen.getByRole("button", { name: "Coffee : Magic" })
         ).toBeVisible()
       })
     })
