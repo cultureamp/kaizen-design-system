@@ -14,6 +14,7 @@ import {
 } from "@kaizen/select"
 import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
 import { ListBoxSection } from "@kaizen/select/src/Select/components/ListBoxSection"
+import { ListItem } from "@kaizen/select/src/Select/components/ListItem"
 import { Option } from "@kaizen/select/src/Select/components/Option"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { Filter, FilterContents, FilterProps } from "../Filter"
@@ -103,4 +104,6 @@ export const FilterSelect = ({
 
 FilterSelect.displayName = "FilterSelect"
 
+FilterSelect.Section = ListBoxSection
 FilterSelect.Option = Option
+FilterSelect.ItemDefault = ListItem
