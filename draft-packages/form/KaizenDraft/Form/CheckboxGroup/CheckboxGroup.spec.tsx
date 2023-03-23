@@ -16,7 +16,7 @@ const renderCheckboxGroupProps = (
 }
 
 describe("<CheckboxGroup /> ", () => {
-  it("should render a `data-automation-id` attribute", () => {
+  it("renders a `data-automation-id` attribute", () => {
     const { container } = renderCheckboxGroupProps()
     expect(
       container.querySelector(
@@ -25,7 +25,7 @@ describe("<CheckboxGroup /> ", () => {
     ).toBeTruthy()
   })
 
-  it("should render a title", () => {
+  it("renders a title", () => {
     const title = "Label"
 
     const { queryByText } = render(
@@ -35,13 +35,17 @@ describe("<CheckboxGroup /> ", () => {
   })
 
   describe("accessibilty", () => {
-    it("should have an accessible name when not provided a labelId", () => {
+    it("has an accessible name when not provided a labelId", () => {
       render(<CheckboxGroup labelText="Label title" />)
-      expect(screen.getByRole("group", { name: "Label title" }))
+      expect(
+        screen.getByRole("group", { name: "Label title" })
+      ).toBeInTheDocument()
     })
-    it("should have an accessible name when provided a labelId", () => {
+    it("has an accessible name when provided a labelId", () => {
       render(<CheckboxGroup labelText="Label title" labelId="some-custom-id" />)
-      expect(screen.getByRole("group", { name: "Label title" }))
+      expect(
+        screen.getByRole("group", { name: "Label title" })
+      ).toBeInTheDocument()
     })
   })
 })
