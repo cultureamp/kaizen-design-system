@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import {
   FieldGroup,
@@ -8,11 +8,9 @@ import {
   TextAreaProps,
 } from "../Primitives"
 import styles from "./TextAreaField.module.scss"
-
 export interface TextAreaFieldProps
   extends Omit<TextAreaProps, "automationId"> {
   labelText: string | React.ReactNode
-  inline?: boolean
   validationMessage?: string | React.ReactNode
   description?: string | React.ReactNode
   variant?: "default" | "prominent"
@@ -24,7 +22,6 @@ export interface TextAreaFieldProps
  */
 export const TextAreaField = ({
   labelText,
-  inline = false,
   validationMessage,
   description,
   variant = "default",
@@ -32,6 +29,7 @@ export const TextAreaField = ({
   reversed = false,
   status = "default",
   disabled,
+  classNameOverride,
   ...restProps
 }: TextAreaFieldProps): JSX.Element => {
   const validationMessageAria = validationMessage
@@ -68,9 +66,10 @@ export const TextAreaField = ({
   return (
     <FieldGroup
       id={`${id}-field-group`}
-      inline={inline}
       automationId={`${id}-field-group`}
-      classNameOverride={disabled ? styles.disabled : undefined}
+      classNameOverride={classnames(classNameOverride, {
+        [styles.disabled]: disabled,
+      })}
     >
       <div
         className={classnames(styles.textareaLabel, {

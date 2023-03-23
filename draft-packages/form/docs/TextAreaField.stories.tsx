@@ -38,7 +38,6 @@ DefaultStory.args = {
   id: "reply",
   labelText: "Your reply",
   autogrow: false,
-  inline: false,
   reversed: false,
   validationMessage: "",
   description: "",
@@ -126,6 +125,16 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         defaultValue="Filled input text"
         status="caution"
         validationMessage="Error message"
+      />
+    </StoryWrapper.Row>
+    <StoryWrapper.Row rowTitle="With custom styles" gridColumns={2}>
+      <TextAreaField
+        reversed={isReversed}
+        id="text-area-custom-styles"
+        labelText="With custom styles"
+        description="Example/description text"
+        defaultValue="Filled input text"
+        classNameOverride="p-12 bg-purple-100 rounded-default"
       />
     </StoryWrapper.Row>
   </StoryWrapper>
