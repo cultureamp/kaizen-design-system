@@ -39,16 +39,24 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
 DefaultStory.storyName = "Filter Select"
 
 const StickerSheetTemplate: Story = () => {
-  const [isOpenDefaultSingle, setIsOpenDefaultSingle] = React.useState(true)
-  const [isOpenDefaultGroup, setIsOpenDefaultGroup] = React.useState(true)
-  const [isOpenCustomSingle, setIsOpenCustomSingle] = React.useState(true)
-  const [isOpenCustomPartial, setIsOpenCustomPartial] = React.useState(true)
+  const [isOpenDefaultSingle, setIsOpenDefaultSingle] =
+    React.useState<boolean>(IS_CHROMATIC)
+  const [isOpenDefaultGroup, setIsOpenDefaultGroup] =
+    React.useState<boolean>(IS_CHROMATIC)
+  const [isOpenCustomSingle, setIsOpenCustomSingle] =
+    React.useState<boolean>(IS_CHROMATIC)
+  const [isOpenCustomPartial, setIsOpenCustomPartial] =
+    React.useState<boolean>(IS_CHROMATIC)
+  const [isOpenCustomDividerMixed, setIsOpenCustomDividerMixed] =
+    React.useState<boolean>(IS_CHROMATIC)
+  const [isOpenCustomDividerSpecific, setIsOpenCustomDividerSpecific] =
+    React.useState<boolean>(IS_CHROMATIC)
 
   return (
     <>
       <StickerSheet
         heading="Default options"
-        style={{ paddingBottom: "26rem" }}
+        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
       >
         <StickerSheet.Header headings={["Single items", "Groups"]} />
         <StickerSheet.Body>
@@ -84,7 +92,12 @@ const StickerSheetTemplate: Story = () => {
         style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
       >
         <StickerSheet.Header
-          headings={["All options (no groups)", "Partial customisation"]}
+          headings={[
+            "All options (no groups)",
+            "Partial customisation",
+            "Section dividers",
+            "Specific item divider",
+          ]}
         />
         <StickerSheet.Body>
           <StickerSheet.Row>
@@ -176,6 +189,89 @@ const StickerSheetTemplate: Story = () => {
                             ),
                           }}
                         />
+                      )
+                    }
+
+                    return (
+                      <FilterSelect.ItemDefault key={item.key} item={item} />
+                    )
+                  })
+                }
+              </FilterSelect>
+            </div>
+
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenCustomDividerMixed}
+                setIsOpen={setIsOpenCustomDividerMixed}
+                renderTrigger={(triggerProps): JSX.Element => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={[
+                  {
+                    label: "Desserts",
+                    value: [
+                      { label: "Pancake", value: "pancake" },
+                      { label: "Waffle", value: "waffle" },
+                    ],
+                  },
+                  { label: "Bacon", value: "bacon" },
+                  { label: "Coffee", value: "coffee" },
+                  {
+                    label: "Stationery",
+                    value: [
+                      { label: "Pen", value: "pen" },
+                      { label: "Pencil", value: "pencil" },
+                    ],
+                  },
+                  {
+                    label: "Colours",
+                    value: [
+                      { label: "Blue", value: "blue" },
+                      { label: "Red", value: "red" },
+                      { label: "Green", value: "green" },
+                    ],
+                  },
+                ]}
+              >
+                {({ items }): JSX.Element[] =>
+                  items.map(item => (
+                    <React.Fragment key={item.key}>
+                      {item.type === "section" && (
+                        <FilterSelect.SectionDivider />
+                      )}
+                      <FilterSelect.ItemDefault item={item} />
+                      {item.type === "section" && (
+                        <FilterSelect.SectionDivider />
+                      )}
+                    </React.Fragment>
+                  ))
+                }
+              </FilterSelect>
+            </div>
+
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenCustomDividerSpecific}
+                setIsOpen={setIsOpenCustomDividerSpecific}
+                renderTrigger={(triggerProps): JSX.Element => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={[
+                  { label: "Coffee", value: "coffee" },
+                  ...singleMockItems,
+                ]}
+              >
+                {({ items }): JSX.Element[] =>
+                  items.map(item => {
+                    if (item.key === "coffee") {
+                      return (
+                        <React.Fragment key={item.key}>
+                          <FilterSelect.Option item={item} />
+                          <FilterSelect.SectionDivider />
+                        </React.Fragment>
                       )
                     }
 
