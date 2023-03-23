@@ -92,7 +92,7 @@ const ExampleTableRow = ({
       {multiline ? (
         <div className={styles.multiline}>
           <Paragraph tag="div" variant="body">
-            This is a resource label
+            <strong>This is a resource label</strong>
           </Paragraph>
           <Paragraph tag="div" variant="body">
             This is a long name for the resource that splits over multiple lines
