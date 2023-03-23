@@ -103,10 +103,9 @@ export const Negative = ({
  * @deprecated Use the non-gendered Positive illustration instead
  */
 export const PositiveMale = ({
-  isAnimated,
   enableAspectRatio,
   ...otherProps
-}: AnimatedSpotProps): JSX.Element => (
+}: SpotProps): JSX.Element => (
   <Base
     aspectRatio={enableAspectRatio ? "square" : undefined}
     {...otherProps}

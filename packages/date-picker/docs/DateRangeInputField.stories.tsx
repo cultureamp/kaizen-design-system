@@ -39,7 +39,7 @@ export const DefaultStory = (
     }
   }
 ): JSX.Element => {
-  const { validation, status, validationMessage, ...restProps } = props
+  const { validation, status: _s, validationMessage: _v, ...restProps } = props
   const mergedProps = { ...restProps, ...validation }
 
   return <DateRangeInputField {...mergedProps} />

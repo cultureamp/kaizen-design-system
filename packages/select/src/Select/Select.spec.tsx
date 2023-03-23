@@ -17,7 +17,7 @@ const SelectWrapper = ({
     <Select
       id="select"
       label="Mock Label"
-      items={singleMockItems}
+      items={items}
       description="This is a description"
       selectedKey={selected}
       onSelectionChange={(selection): void => {
