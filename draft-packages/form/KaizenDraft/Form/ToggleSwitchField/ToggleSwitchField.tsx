@@ -16,7 +16,6 @@ export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
   toggledStatus?: ToggledStatus
   disabled?: boolean
   reversed?: boolean
-  inline?: boolean
   fullWidth?: boolean
 }
 
@@ -31,15 +30,14 @@ export const ToggleSwitchField = ({
   toggledStatus,
   disabled,
   reversed,
-  inline,
   fullWidth,
+  classNameOverride,
   ...restProps
 }: ToggleSwitchFieldProps): JSX.Element => (
   <FieldGroup
     id={`${id}-field-group`}
-    inline={inline}
     automationId={`${id}-field-group`}
-    classNameOverride={classnames(styles.container, {
+    classNameOverride={classnames(styles.container, classNameOverride, {
       [styles.fullWidth]: fullWidth,
       [styles.on]: toggledStatus === ToggledStatus.ON,
     })}

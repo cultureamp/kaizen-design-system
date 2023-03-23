@@ -116,6 +116,20 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           )}
         </ToggleStateContainer>
       </StickerSheet.Row>
+      <StickerSheet.Row>
+        <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+          {({ toggledStatus, toggle }): JSX.Element => (
+            <ToggleSwitchField
+              reversed={isReversed}
+              id="toggle-switch-field--custom-styles"
+              labelText="With custom styles"
+              toggledStatus={toggledStatus}
+              onToggle={toggle}
+              classNameOverride="p-12 bg-purple-300 rounded-default"
+            />
+          )}
+        </ToggleStateContainer>
+      </StickerSheet.Row>
     </StickerSheet.Body>
   </StickerSheet>
 )
