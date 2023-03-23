@@ -40,10 +40,7 @@ const getCompiledConfigByModuleType = format => ({
       // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
       typescript: ttypescript
     }),
-    commonjs({
-      include: /node_modules/,
-      requireReturnsDefault: "auto",
-    }),
+    commonjs(),
     esbuild(),
     image(),
   ],
