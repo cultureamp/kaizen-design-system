@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.6.2...@kaizen/components@1.6.3) (2023-03-23)
+
+
+### Bug Fixes
+
+* tooltip aio error ([#3378](https://github.com/cultureamp/kaizen-design-system/issues/3378)) ([3693d57](https://github.com/cultureamp/kaizen-design-system/commit/3693d57858f6640742b317f3671169eb3808a418))
+
+
+
+
+
 ## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.6.1...@kaizen/components@1.6.2) (2023-03-22)
 
 
