@@ -7,6 +7,8 @@ import {
 } from "@react-stately/select"
 import { SelectContext, SelectProps, SingleItemType } from "@kaizen/select"
 import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
+import { ListBoxSection } from "@kaizen/select/src/Select/components/ListBoxSection"
+import { ListItem } from "@kaizen/select/src/Select/components/ListItem"
 import { ListItems } from "@kaizen/select/src/Select/components/ListItems"
 import { Option } from "@kaizen/select/src/Select/components/Option"
 import { Overlay } from "@kaizen/select/src/Select/components/Overlay"
@@ -92,4 +94,6 @@ export const FilterSelect = ({
 
 FilterSelect.displayName = "FilterSelect"
 
+FilterSelect.Section = ListBoxSection
 FilterSelect.Option = Option
+FilterSelect.ItemDefault = ListItem
