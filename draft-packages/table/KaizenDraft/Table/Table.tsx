@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
+import _uniqueId from "lodash.uniqueid"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
@@ -11,8 +12,8 @@ import { Heading } from "@kaizen/typography"
 import styles from "./Table.module.scss"
 
 type TableContainerProps = {
-  caption?: string
   children?: React.ReactNode
+  heading?: string
   variant?: "compact" | "default" | "data"
 }
 /**
@@ -21,29 +22,38 @@ type TableContainerProps = {
  */
 export const TableContainer = ({
   variant = "compact",
-  caption,
+  heading,
   children,
   ...otherProps
-}: TableContainerProps): JSX.Element => (
-  <table
-    className={classNames(styles.container, {
-      [styles.defaultSpacing]: variant === "default",
-      [styles.dataVariant]: variant === "data",
-    })}
-    {...otherProps}
-  >
-    {caption && (
-      <Heading
-        classNameOverride={styles.caption}
-        variant="heading-2"
-        tag="caption"
-      >
-        {caption}
-      </Heading>
-    )}
-    {children}
-  </table>
-)
+}: TableContainerProps): JSX.Element => {
+  const headingId = heading
+    ? _uniqueId(`${heading.toLowerCase().replace(" ", "_")}_`)
+    : null
+
+  return (
+    <div
+      role="table"
+      aria-labelledby={headingId}
+      className={classNames(styles.container, {
+        [styles.defaultSpacing]: variant === "default",
+        [styles.dataVariant]: variant === "data",
+      })}
+      {...otherProps}
+    >
+      {heading && (
+        <Heading
+          id={headingId}
+          classNameOverride={styles.heading}
+          tag="h3"
+          variant="heading-2"
+        >
+          {heading}
+        </Heading>
+      )}
+      {children}
+    </div>
+  )
+}
 
 /**
  * @deprecated backgroundColor is deprecated. Header props now have transparent backgrounds

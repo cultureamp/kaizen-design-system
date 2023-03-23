@@ -184,7 +184,7 @@ const Multiline = ({ isReversed }: { isReversed: boolean }): JSX.Element => (
 
 export const DataVariant: Story = () => (
   <Container>
-    <TableContainer caption="Data variant" variant="data">
+    <TableContainer heading="Data variant" variant="data">
       <TableHeader>
         <ExampleTableHeaderRow reversed={false} />
       </TableHeader>
@@ -204,7 +204,7 @@ DataVariant.parameters = { chromatic: { disable: false } }
 
 export const IconVariant: Story = () => (
   <Container>
-    <TableContainer caption="Icon variant">
+    <TableContainer heading="Icon variant">
       <TableHeader>
         <TableHeaderRow>
           <TableHeaderRowCell
@@ -266,7 +266,7 @@ IconVariant.parameters = { chromatic: { disable: false } }
 
 export const LinkVariant: Story = () => (
   <Container>
-    <TableContainer caption="Link variant">
+    <TableContainer heading="Link variant">
       <TableHeader>
         <TableHeaderRow>
           <TableHeaderRowCell labelText="Header A" width={1 / 3} />
