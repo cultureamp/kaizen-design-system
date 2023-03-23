@@ -12,10 +12,11 @@ import { ListItem } from "@kaizen/select/src/Select/components/ListItem"
 import { ListItems } from "@kaizen/select/src/Select/components/ListItems"
 import { Option } from "@kaizen/select/src/Select/components/Option"
 import { Overlay } from "@kaizen/select/src/Select/components/Overlay"
+import { SectionDivider } from "@kaizen/select/src/Select/components/SectionDivider"
 import { transformSelectChildren } from "@kaizen/select/src/Select/utils/transformSelectChildren"
-import { Filter, FilterContents, FilterProps } from "../Filter"
-import { FilterButtonProps } from "../FilterButton"
-import { OverrideClassName } from "../types"
+import { Filter, FilterContents, FilterProps } from "~components/Filter"
+import { FilterButtonProps } from "~components/FilterButton"
+import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./FilterSelect.module.scss"
 
 export type FilterSelectProps = OverrideClassName<
@@ -95,5 +96,6 @@ export const FilterSelect = ({
 FilterSelect.displayName = "FilterSelect"
 
 FilterSelect.Section = ListBoxSection
+FilterSelect.SectionDivider = SectionDivider
 FilterSelect.Option = Option
 FilterSelect.ItemDefault = ListItem
