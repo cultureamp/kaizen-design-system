@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-popover",
-  "version": "5.3.5",
+  "version": "5.3.6",
   "description": "The draft Popover component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,10 +29,10 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.4",
-    "@kaizen/component-library": "^16.5.0",
+    "@kaizen/component-base": "^1.1.5",
+    "@kaizen/component-library": "^16.5.1",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
-    "@kaizen/typography": "^2.3.7",
+    "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.6",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2",
@@ -40,7 +40,7 @@
     "use-debounce": "^9.0.3"
   },
   "devDependencies": {
-    "rimraf": "^4.4.0"
+    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
