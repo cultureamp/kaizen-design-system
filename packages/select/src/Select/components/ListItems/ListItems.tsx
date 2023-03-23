@@ -1,11 +1,8 @@
 import React from "react"
-import { Node } from "@react-types/shared"
-import { SingleItemType } from "../../../types"
-import { ListBoxSection } from "../ListBoxSection"
-import { Option } from "../Option"
+import { ListItem, ListItemProps } from "../ListItem"
 
 export type ListItemsProps = {
-  items: Array<Node<SingleItemType>>
+  items: Array<ListItemProps["item"]>
 }
 
 /*
@@ -13,13 +10,9 @@ export type ListItemsProps = {
  */
 export const ListItems = ({ items }: ListItemsProps): JSX.Element => (
   <>
-    {items.map((item: Node<SingleItemType>) =>
-      item.type === "section" ? (
-        <ListBoxSection key={item.key} section={item} />
-      ) : (
-        <Option key={item.key} item={item} />
-      )
-    )}
+    {items.map(item => (
+      <ListItem key={item.key} item={item} />
+    ))}
   </>
 )
 
