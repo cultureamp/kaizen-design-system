@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.9.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.11...@kaizen/draft-title-block-zen@7.9.12) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.9.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.10...@kaizen/draft-title-block-zen@7.9.11) (2023-03-10)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.9.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.9...@kaizen/draft-title-block-zen@7.9.10) (2023-03-09)
+
+
+### Bug Fixes
+
+* Add aria-current=page to title block nav active item ([#3352](https://github.com/cultureamp/kaizen-design-system/issues/3352)) ([0cc40c6](https://github.com/cultureamp/kaizen-design-system/commit/0cc40c6d10ed3b511fec483d73c10d60b9c9b166))
+
+
+
+
+
 ## [7.9.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.8...@kaizen/draft-title-block-zen@7.9.9) (2023-03-02)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
