@@ -23,7 +23,7 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./FilterSelect.module.scss"
 
 export type FilterSelectProps = OverrideClassName<
-  Omit<AriaSelectProps<SingleItemType>, "children">
+  Omit<AriaSelectProps<SingleItemType>, "children" | "defaultOpen">
 > & {
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
