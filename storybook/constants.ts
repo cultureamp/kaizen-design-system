@@ -11,7 +11,7 @@ export const CATEGORIES = {
 
 export const CATEGORIES_ICON = {
   [CATEGORIES.introduction]: "👋",
-  ["Guides"]: "📚",
+  Guides: "📚",
   [CATEGORIES.components]: "⚙️",
   [CATEGORIES.helpers]: "🤝",
   [CATEGORIES.designTokens]: "🎨",
