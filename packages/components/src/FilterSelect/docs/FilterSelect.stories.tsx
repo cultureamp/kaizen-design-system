@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
-import { groupedMockItems, singleMockItems } from "@kaizen/select/docs/MockData"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { Filter } from "../../index"
 import { FilterSelect } from "../FilterSelect"
+import { groupedMockItems, mixedMockItems, singleMockItems } from "./mockData"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -43,6 +43,9 @@ const StickerSheetTemplate: Story = () => {
     React.useState<boolean>(IS_CHROMATIC)
   const [isOpenDefaultGroup, setIsOpenDefaultGroup] =
     React.useState<boolean>(IS_CHROMATIC)
+  const [isOpenDefaultExisting, setIsOpenDefaultExisting] =
+    React.useState<boolean>(IS_CHROMATIC)
+
   const [isOpenCustomSingle, setIsOpenCustomSingle] =
     React.useState<boolean>(IS_CHROMATIC)
   const [isOpenCustomPartial, setIsOpenCustomPartial] =
@@ -58,7 +61,9 @@ const StickerSheetTemplate: Story = () => {
         heading="Default options"
         style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
       >
-        <StickerSheet.Header headings={["Single items", "Groups"]} />
+        <StickerSheet.Header
+          headings={["Single items", "Groups", "Existing value"]}
+        />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <div style={{ width: "250px" }}>
@@ -83,6 +88,18 @@ const StickerSheetTemplate: Story = () => {
                 items={groupedMockItems}
               />
             </div>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenDefaultExisting}
+                setIsOpen={setIsOpenDefaultExisting}
+                renderTrigger={(triggerProps): JSX.Element => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={singleMockItems}
+                selectedKey="mocha"
+              />
+            </div>
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
@@ -93,7 +110,7 @@ const StickerSheetTemplate: Story = () => {
       >
         <StickerSheet.Header
           headings={[
-            "All options (no groups)",
+            "All options",
             "Partial customisation",
             "Section dividers",
             "Specific item divider",
@@ -141,29 +158,14 @@ const StickerSheetTemplate: Story = () => {
                   <FilterButton {...triggerProps} />
                 )}
                 items={[
-                  { label: "Bacon", value: "bacon" },
-                  { label: "Cat", value: "cat" },
-                  { label: "Coffee", value: "coffee" },
-                  {
-                    label: "Desserts",
-                    value: [
-                      { label: "Pancake", value: "pancake" },
-                      { label: "Waffle", value: "waffle" },
-                    ],
-                  },
-                  {
-                    label: "Colours",
-                    value: [
-                      { label: "Blue", value: "blue" },
-                      { label: "Red", value: "red" },
-                      { label: "Green", value: "green" },
-                    ],
-                  },
+                  { label: "Pancake", value: "pancake" },
+                  { label: "Waffle", value: "waffle" },
+                  ...groupedMockItems,
                 ]}
               >
                 {({ items }): JSX.Element[] =>
                   items.map(item => {
-                    if (item.key === "bacon") {
+                    if (item.key === "pancake") {
                       return (
                         <FilterSelect.Option
                           key={item.key}
@@ -175,7 +177,7 @@ const StickerSheetTemplate: Story = () => {
                       )
                     }
 
-                    if (item.key === "Desserts") {
+                    if (item.key === "Flavours") {
                       return (
                         <FilterSelect.Section
                           key={item.key}
@@ -208,32 +210,7 @@ const StickerSheetTemplate: Story = () => {
                 renderTrigger={(triggerProps): JSX.Element => (
                   <FilterButton {...triggerProps} />
                 )}
-                items={[
-                  {
-                    label: "Desserts",
-                    value: [
-                      { label: "Pancake", value: "pancake" },
-                      { label: "Waffle", value: "waffle" },
-                    ],
-                  },
-                  { label: "Bacon", value: "bacon" },
-                  { label: "Coffee", value: "coffee" },
-                  {
-                    label: "Stationery",
-                    value: [
-                      { label: "Pen", value: "pen" },
-                      { label: "Pencil", value: "pencil" },
-                    ],
-                  },
-                  {
-                    label: "Colours",
-                    value: [
-                      { label: "Blue", value: "blue" },
-                      { label: "Red", value: "red" },
-                      { label: "Green", value: "green" },
-                    ],
-                  },
-                ]}
+                items={mixedMockItems}
               >
                 {({ items }): JSX.Element[] =>
                   items.map(item => (
@@ -260,13 +237,13 @@ const StickerSheetTemplate: Story = () => {
                   <FilterButton {...triggerProps} />
                 )}
                 items={[
-                  { label: "Coffee", value: "coffee" },
+                  { label: "Customise...", value: "custom" },
                   ...singleMockItems,
                 ]}
               >
                 {({ items }): JSX.Element[] =>
                   items.map(item => {
-                    if (item.key === "coffee") {
+                    if (item.key === "custom") {
                       return (
                         <React.Fragment key={item.key}>
                           <FilterSelect.Option item={item} />
