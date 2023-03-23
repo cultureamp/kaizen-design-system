@@ -27,7 +27,6 @@ export const CheckboxGroup = ({
   children,
   labelText,
   labelId: propsLabelId,
-  noBottomMargin = false,
   reversed = false,
   automationId,
   classNameOverride,
@@ -40,7 +39,6 @@ export const CheckboxGroup = ({
         automationId && `${automationId}-field-checkbox-group`
       }
       className={classnames(styles.checkboxGroupContainer, classNameOverride, {
-        [styles.noBottomMargin]: noBottomMargin,
         [styles.reversed]: reversed,
       })}
       role="group"
