@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hero-card",
-  "version": "2.2.16",
+  "version": "2.2.17",
   "description": "The draft Hero card component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,7 +29,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.4",
+    "@kaizen/component-base": "^1.1.5",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2"
   },

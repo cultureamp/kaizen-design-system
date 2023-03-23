@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "16.5.0",
+  "version": "16.5.1",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -31,7 +31,7 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@kaizen/component-base": "^1.1.4",
+    "@kaizen/component-base": "^1.1.5",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/hosted-assets": "^2.0.1",
     "@types/classnames": "^2.3.0",
