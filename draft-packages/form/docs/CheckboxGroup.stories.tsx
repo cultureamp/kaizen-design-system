@@ -252,9 +252,13 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           />
         </CheckboxGroup>
       </StoryWrapper.Row>
-      <StoryWrapper.Row rowTitle="No Bottom Margin">
+      <StoryWrapper.Row rowTitle="With custom styles">
         <div>
-          <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
+          <CheckboxGroup
+            labelText="Checkbox Group Label"
+            reversed={isReversed}
+            classNameOverride="p-12 bg-purple-300 rounded-default mb-12"
+          >
             <CheckboxField
               id="checkbox-no-mb-1"
               checkedStatus="on"

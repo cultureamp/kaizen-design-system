@@ -134,7 +134,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         labelText="With custom styles"
         description="Example/description text"
         defaultValue="Filled input text"
-        classNameOverride="p-12 bg-purple-100 rounded-default"
+        classNameOverride="p-12 bg-purple-300 rounded-default"
       />
     </StoryWrapper.Row>
   </StoryWrapper>
