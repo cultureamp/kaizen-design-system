@@ -394,6 +394,7 @@ const DrawerHandle = ({
               className={styles.mobileActionsExpandButton}
               onClick={toggleDisplay}
               aria-expanded={isOpen}
+              aria-label="Other actions"
             >
               <Icon
                 icon={isOpen ? chevronDownIcon : chevronUpIcon}
