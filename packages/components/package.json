@@ -36,7 +36,6 @@
   },
   "dependencies": {
     "@kaizen/component-library": "^16.5.1",
-    "@kaizen/design-tokens": "^10.3.1",
     "@kaizen/draft-tooltip": "^5.4.35",
     "@kaizen/select": "^6.13.12",
     "@popperjs/core": "^2.11.6",
