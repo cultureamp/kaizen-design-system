@@ -30,7 +30,28 @@ export const groupedMockItems: SingleItemType[] = [
   },
 ]
 
-export const mixedMockItems: SingleItemType[] = [
+export const mixedMockItemsUngroupedFirst: SingleItemType[] = [
+  { label: "Batch brew", value: "batch-brew" },
+  { label: "Latte", value: "latte" },
+  { label: "Magic", value: "magic" },
+  {
+    label: "Size",
+    value: [
+      { label: "Regular", value: "regular" },
+      { label: "Large", value: "large" },
+    ],
+  },
+  {
+    label: "Syrup",
+    value: [
+      { label: "Vanilla", value: "vanilla" },
+      { label: "Caramel", value: "caramel" },
+      { label: "Hazelnut", value: "hazelnut" },
+    ],
+  },
+]
+
+export const mixedMockItemsUnordered: SingleItemType[] = [
   {
     label: "Size",
     value: [

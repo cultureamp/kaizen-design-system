@@ -8,7 +8,7 @@ export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
   isOpen: boolean
-  setIsOpen: (isOpen: boolean) => void
+  setIsOpen: (newIsOpen: boolean) => void
   renderTrigger: (triggerProps: {
     onClick: () => void
     isOpen: boolean
