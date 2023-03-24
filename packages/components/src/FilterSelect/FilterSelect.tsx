@@ -17,16 +17,25 @@ import { ListBoxSection } from "@kaizen/select/src/Select/components/ListBoxSect
 import { ListItem } from "@kaizen/select/src/Select/components/ListItem"
 import { Option } from "@kaizen/select/src/Select/components/Option"
 import { SectionDivider } from "@kaizen/select/src/Select/components/SectionDivider"
-import { Filter, FilterContents, FilterProps } from "~components/Filter"
+import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./FilterSelect.module.scss"
 
-export type FilterSelectProps = OverrideClassName<
-  Omit<AriaSelectProps<SingleItemType>, "children" | "defaultOpen">
-> & {
-  isOpen: FilterProps["isOpen"]
-  setIsOpen: FilterProps["setIsOpen"]
+type OmittedAriaSelectProps =
+  | "label"
+  | "children"
+  | "isOpen"
+  | "onOpenChange"
+  | "defaultOpen"
+  | "items"
+
+export interface FilterSelectProps
+  extends OverrideClassName<
+    Omit<AriaSelectProps<SingleItemType>, OmittedAriaSelectProps>
+  > {
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
   children?: SelectProps["children"]

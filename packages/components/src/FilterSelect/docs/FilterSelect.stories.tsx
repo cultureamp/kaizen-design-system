@@ -1,42 +1,81 @@
 import React, { useState } from "react"
+import { action } from "@storybook/addon-actions"
 import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { FilterButton } from "../../FilterButton"
-import { Filter } from "../../index"
+import {
+  FilterButton,
+  FilterButtonProps,
+  FilterButtonRemovable,
+} from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
-import { groupedMockItems, mixedMockItems, singleMockItems } from "./mockData"
+import {
+  groupedMockItems,
+  mixedMockItemsUngroupedFirst,
+  mixedMockItemsUnordered,
+  singleMockItems,
+} from "./mockData"
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
   title: "Components/Filter Select",
   component: FilterSelect,
+  argTypes: {
+    isOpen: { control: "disabled" },
+    setIsOpen: { control: "disabled" },
+    renderTrigger: {
+      options: ["Filter Button", "Filter Button Removable"],
+      control: { type: "radio" },
+      mapping: {
+        "Filter Button": (
+          triggerButtonProps: FilterButtonProps
+        ): JSX.Element => <FilterButton {...triggerButtonProps} />,
+        "Filter Button Removable": (
+          triggerButtonProps: FilterButtonProps
+        ): JSX.Element => (
+          <FilterButtonRemovable
+            triggerButtonProps={{ ...triggerButtonProps }}
+            removeButtonProps={{ onClick: action("remove button onClick") }}
+          />
+        ),
+      },
+    },
+    items: {
+      options: ["Single", "Grouped", "Mix"],
+      control: { type: "radio" },
+      mapping: {
+        Single: singleMockItems,
+        Grouped: groupedMockItems,
+        Mix: mixedMockItemsUngroupedFirst,
+      },
+    },
+  },
   parameters: {
+    actions: {
+      argTypesRegex: "^on.*",
+    },
     docs: {
       description: {
         component: '`import { FilterSelect } from "@kaizen/components"`',
       },
     },
   },
-} as ComponentMeta<typeof Filter>
+} as ComponentMeta<typeof FilterSelect>
 
-export const DefaultStory: ComponentStory<typeof Filter> = () => {
+export const DefaultStory: ComponentStory<typeof FilterSelect> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  return (
-    <FilterSelect
-      label="Pancakes"
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      renderTrigger={(triggerButtonProps): JSX.Element => (
-        <FilterButton {...triggerButtonProps} />
-      )}
-      items={singleMockItems}
-    />
-  )
+  return <FilterSelect {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
 }
 DefaultStory.storyName = "Filter Select"
+DefaultStory.args = {
+  label: "Coffee",
+  /* @ts-expect-error: Storybook controls key; see argTypes in default export */
+  items: "Single",
+  /* @ts-expect-error: Storybook controls key; see argTypes in default export */
+  renderTrigger: "Filter Button",
+}
 
 const StickerSheetTemplate: Story = () => {
   const [isOpenDefaultSingle, setIsOpenDefaultSingle] =
@@ -157,15 +196,11 @@ const StickerSheetTemplate: Story = () => {
                 renderTrigger={(triggerProps): JSX.Element => (
                   <FilterButton {...triggerProps} />
                 )}
-                items={[
-                  { label: "Pancake", value: "pancake" },
-                  { label: "Waffle", value: "waffle" },
-                  ...groupedMockItems,
-                ]}
+                items={mixedMockItemsUngroupedFirst}
               >
                 {({ items }): JSX.Element[] =>
                   items.map(item => {
-                    if (item.key === "pancake") {
+                    if (item.key === "batch-brew") {
                       return (
                         <FilterSelect.Option
                           key={item.key}
@@ -177,7 +212,7 @@ const StickerSheetTemplate: Story = () => {
                       )
                     }
 
-                    if (item.key === "Flavours") {
+                    if (item.key === "Syrup") {
                       return (
                         <FilterSelect.Section
                           key={item.key}
@@ -210,7 +245,7 @@ const StickerSheetTemplate: Story = () => {
                 renderTrigger={(triggerProps): JSX.Element => (
                   <FilterButton {...triggerProps} />
                 )}
-                items={mixedMockItems}
+                items={mixedMockItemsUnordered}
               >
                 {({ items }): JSX.Element[] =>
                   items.map(item => (
