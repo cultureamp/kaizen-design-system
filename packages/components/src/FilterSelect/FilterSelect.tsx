@@ -39,6 +39,7 @@ export const FilterSelect = ({
   renderTrigger,
   label,
   children,
+  classNameOverride,
   ...restProps
 }: FilterSelectProps): JSX.Element => {
   // Ref will be populated by Filter
@@ -90,6 +91,7 @@ export const FilterSelect = ({
           })
         }
         onTriggerLoaded={setTriggerRef}
+        classNameOverride={classNameOverride}
       >
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectContext.Provider value={{ state }}>
