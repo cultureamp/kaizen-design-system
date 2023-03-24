@@ -46,7 +46,8 @@ steps:
   - name: ":butterfly: changesets"
     command: ".buildkite/scripts/changeset.sh"
     timeout_in_minutes: 15
-    branches: "KZN-1056-changesets"
+    branches: "main"
+    if: build.author.name === "app/changeset-bot"
     <<: *defaults
     plugins:
       - docker-compose#v3.9.0:

@@ -43,10 +43,9 @@ main() {
   echo "Setting up git and npm credentials..."
   setup_github
 
-  git checkout KZN-1056-changesets && git pull
+  git checkout main && git pull
 
   yarn install --frozen-lockfile
-  yarn ci:version
   yarn ci:publish
 
   echo "All done!"
