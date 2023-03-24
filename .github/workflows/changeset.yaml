@@ -23,3 +23,7 @@ jobs:
           npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
       - name: Create Release Pull Request
         uses: changesets/action@v1
+        with:
+          title: "Version packages"
+          commit: "version packages"
+          version: yarn version:ci
