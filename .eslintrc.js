@@ -34,6 +34,7 @@ module.exports = {
     "sort-imports-es6-autofix",
     "ssr-friendly",
     "jsx-a11y",
+    "jest",
   ],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -198,6 +199,8 @@ module.exports = {
         pathGroupsExcludedImportTypes: [],
       },
     ],
+    "jest/no-focused-tests": "error",
+    "jest/valid-expect": "error",
     "jsdoc/check-alignment": "off",
     "jsdoc/check-indentation": "off",
     "jsdoc/newline-after-description": "off",
