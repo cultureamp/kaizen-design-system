@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/loading-spinner",
-  "version": "2.3.7",
+  "version": "2.3.8",
   "description": "The loading-spinner component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,7 +29,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.4",
+    "@kaizen/component-base": "^1.1.5",
     "classnames": "^2.3.2"
   },
   "peerDependencies": {

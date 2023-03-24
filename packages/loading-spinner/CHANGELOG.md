@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.3.7...@kaizen/loading-spinner@2.3.8) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/loading-spinner
+
+
+
+
+
 ## [2.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/loading-spinner@2.3.6...@kaizen/loading-spinner@2.3.7) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/loading-spinner
