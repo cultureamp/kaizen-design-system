@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterButton } from "~components/FilterButton"
 import { FilterSelect, FilterSelectProps } from "./FilterSelect"
-import { mixedMockItemsUnordered } from "./docs/mockData"
+import { mixedMockItemsUnordered } from "./_docs/mockData"
 
 const FilterSelectWrapper = ({
   isOpen: propsIsOpen = false,
