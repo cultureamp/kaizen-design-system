@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: yarn
+      - run: |
+          npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
+          yarn install --frozen-lockfile --ignore-scripts
+          npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          title: "Version packages"
+          commit: "version packages"
+          version: yarn version:ci
