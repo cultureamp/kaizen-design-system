@@ -28,7 +28,9 @@
     "plop": "plop",
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test",
-    "pkg:aio:compile": "yarn pkg:aio compile"
+    "pkg:aio:compile": "yarn pkg:aio compile",
+    "ci:version": "yarn changeset version",
+    "ci:publish": "yarn changeset publish"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
@@ -62,6 +64,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.20.5",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
+    "@changesets/cli": "^2.26.0",
     "@playwright/test": "^1.31.2",
     "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
