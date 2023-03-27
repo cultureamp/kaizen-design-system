@@ -13,7 +13,7 @@ export interface FilterProps
     onClick: () => void
     isOpen: boolean
   }) => JSX.Element & { ref?: React.RefObject<FilterTriggerRef> }
-  onTriggerLoaded?: (triggerRef: React.RefObject<HTMLButtonElement>) => void
+  onMount?: (triggerRef: React.RefObject<HTMLButtonElement>) => void
 }
 
 export const Filter = ({
@@ -22,7 +22,7 @@ export const Filter = ({
   setIsOpen,
   renderTrigger,
   classNameOverride,
-  onTriggerLoaded,
+  onMount,
   ...restProps
 }: FilterProps): JSX.Element => {
   const [isRefLoaded, setIsRefLoaded] = useState<boolean>(false)
@@ -41,9 +41,9 @@ export const Filter = ({
   useEffect(() => {
     if (filterButtonRef.current?.triggerRef?.current) {
       setIsRefLoaded(true)
-      onTriggerLoaded?.(filterButtonRef.current.triggerRef)
+      onMount?.(filterButtonRef.current.triggerRef)
     }
-  }, [filterButtonRef.current?.triggerRef?.current, onTriggerLoaded])
+  }, [filterButtonRef.current?.triggerRef?.current, onMount])
 
   return (
     <div className={classNameOverride} {...restProps}>

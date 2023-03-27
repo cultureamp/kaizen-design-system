@@ -92,7 +92,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
             ...buttonProps,
           })
         }
-        onTriggerLoaded={setTriggerRef}
+        onMount={setTriggerRef}
         classNameOverride={classNameOverride}
       >
         <FilterContents classNameOverride={styles.filterContents}>
