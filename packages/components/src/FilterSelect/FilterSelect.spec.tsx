@@ -37,7 +37,7 @@ const FilterSelectWrapper = ({
   )
 }
 
-describe("<Select>", () => {
+describe("<FilterSelect>", () => {
   it("does not show the options initially", () => {
     render(<FilterSelectWrapper />)
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
