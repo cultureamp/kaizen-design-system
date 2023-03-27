@@ -5,21 +5,19 @@ import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
-import { Node } from "@react-types/shared"
-import {
-  getSelectChildren,
-  SelectContext,
-  SelectProps,
-  SingleItemType,
-} from "@kaizen/select"
-import { ListBox } from "@kaizen/select/src/Select/components/ListBox"
-import { ListBoxSection } from "@kaizen/select/src/Select/components/ListBoxSection"
-import { ListItem } from "@kaizen/select/src/Select/components/ListItem"
-import { Option } from "@kaizen/select/src/Select/components/Option"
-import { SectionDivider } from "@kaizen/select/src/Select/components/SectionDivider"
 import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { SelectProvider } from "./context"
+import { ListBox } from "./subcomponents/ListBox"
+import { ListBoxSection } from "./subcomponents/ListBoxSection"
+import { ListItem } from "./subcomponents/ListItem"
+import { ListItems } from "./subcomponents/ListItems"
+import { Option } from "./subcomponents/Option"
+import { Overlay } from "./subcomponents/Overlay"
+import { SectionDivider } from "./subcomponents/SectionDivider"
+import { SelectItem, SelectItemNode, SelectOption } from "./types"
+import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"
 import styles from "./FilterSelect.module.scss"
 
 type OmittedAriaSelectProps =
@@ -30,19 +28,19 @@ type OmittedAriaSelectProps =
   | "defaultOpen"
   | "items"
 
-export interface FilterSelectProps
+export interface FilterSelectProps<Option extends SelectOption = SelectOption>
   extends OverrideClassName<
-    Omit<AriaSelectProps<SingleItemType>, OmittedAriaSelectProps>
+    Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>
   > {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
-  children?: SelectProps["children"]
-  items: AriaSelectProps<SingleItemType>["items"]
+  children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
+  items: AriaSelectProps<SelectItem<Option>>["items"]
 }
 
-export const FilterSelect = ({
+export const FilterSelect = <Option extends SelectOption = SelectOption>({
   isOpen,
   setIsOpen,
   renderTrigger,
@@ -50,15 +48,15 @@ export const FilterSelect = ({
   children,
   classNameOverride,
   ...restProps
-}: FilterSelectProps): JSX.Element => {
+}: FilterSelectProps<Option>): JSX.Element => {
   // Ref will be populated by Filter
   const [triggerRef, setTriggerRef] = useState<
     React.RefObject<HTMLButtonElement>
   >({ current: null })
 
-  const ariaSelectProps: AriaSelectProps<SingleItemType> = {
+  const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
     label,
-    children: getSelectChildren,
+    children: transformSelectItemToCollectionElement,
     isOpen,
     onOpenChange: setIsOpen,
     ...restProps,
@@ -72,18 +70,13 @@ export const FilterSelect = ({
     triggerRef
   )
 
-  const renderChildren = children
-    ? children
-    : ({ items }): JSX.Element =>
-        items.map((item: Node<SingleItemType>) =>
-          item.type === "section" ? (
-            <ListBoxSection key={item.key} section={item} />
-          ) : (
-            <Option key={item.key} item={item} />
-          )
-        )
-
   const { buttonProps } = useButton(triggerProps, triggerRef)
+
+  // The collection structure is set by useSelectState's `children`
+  // which we have used a util to ensure the following structure
+  // - SelectOptionGroup => Section
+  // - Option => Item
+  const items = Array.from(state.collection) as Array<SelectItemNode<Option>>
 
   return (
     <>
@@ -103,11 +96,17 @@ export const FilterSelect = ({
         classNameOverride={classNameOverride}
       >
         <FilterContents classNameOverride={styles.filterContents}>
-          <SelectContext.Provider value={{ state }}>
-            <ListBox menuProps={menuProps}>
-              {renderChildren({ items: Array.from(state.collection) })}
-            </ListBox>
-          </SelectContext.Provider>
+          <SelectProvider<Option> state={state}>
+            <Overlay<Option>>
+              <ListBox<Option> menuProps={menuProps}>
+                {children ? (
+                  children({ items })
+                ) : (
+                  <ListItems<Option> items={items} />
+                )}
+              </ListBox>
+            </Overlay>
+          </SelectProvider>
         </FilterContents>
       </Filter>
     </>

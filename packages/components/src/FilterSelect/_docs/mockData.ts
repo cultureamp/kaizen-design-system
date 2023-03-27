@@ -1,6 +1,6 @@
-import { SingleItemType } from "@kaizen/select"
+import { SelectItem } from "../types"
 
-export const singleMockItems: SingleItemType[] = [
+export const singleMockItems: SelectItem[] = [
   { label: "Short black", value: "short-black" },
   { label: "Long black", value: "long-black" },
   { label: "Batch brew", value: "batch-brew" },
@@ -11,10 +11,10 @@ export const singleMockItems: SingleItemType[] = [
   { label: "Magic", value: "magic" },
 ]
 
-export const groupedMockItems: SingleItemType[] = [
+export const groupedMockItems: SelectItem[] = [
   {
     label: "Colours",
-    value: [
+    options: [
       { label: "Blue", value: "blue" },
       { label: "Red", value: "red" },
       { label: "Green", value: "green" },
@@ -22,7 +22,7 @@ export const groupedMockItems: SingleItemType[] = [
   },
   {
     label: "Flavours",
-    value: [
+    options: [
       { label: "Vanilla", value: "vanilla" },
       { label: "Chocolate", value: "chocolate" },
       { label: "Strawberry", value: "strawberry" },
@@ -30,20 +30,20 @@ export const groupedMockItems: SingleItemType[] = [
   },
 ]
 
-export const mixedMockItemsUngroupedFirst: SingleItemType[] = [
+export const mixedMockItemsUngroupedFirst: SelectItem[] = [
   { label: "Batch brew", value: "batch-brew" },
   { label: "Latte", value: "latte" },
   { label: "Magic", value: "magic" },
   {
     label: "Size",
-    value: [
+    options: [
       { label: "Regular", value: "regular" },
       { label: "Large", value: "large" },
     ],
   },
   {
     label: "Syrup",
-    value: [
+    options: [
       { label: "Vanilla", value: "vanilla" },
       { label: "Caramel", value: "caramel" },
       { label: "Hazelnut", value: "hazelnut" },
@@ -51,10 +51,10 @@ export const mixedMockItemsUngroupedFirst: SingleItemType[] = [
   },
 ]
 
-export const mixedMockItemsUnordered: SingleItemType[] = [
+export const mixedMockItemsUnordered: SelectItem[] = [
   {
     label: "Size",
-    value: [
+    options: [
       { label: "Regular", value: "regular" },
       { label: "Large", value: "large" },
     ],
@@ -64,7 +64,7 @@ export const mixedMockItemsUnordered: SingleItemType[] = [
   { label: "Magic", value: "magic" },
   {
     label: "Syrup",
-    value: [
+    options: [
       { label: "Vanilla", value: "vanilla" },
       { label: "Caramel", value: "caramel" },
       { label: "Hazelnut", value: "hazelnut" },

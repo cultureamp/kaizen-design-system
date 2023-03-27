@@ -3,7 +3,8 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterButton } from "~components/FilterButton"
 import { FilterSelect, FilterSelectProps } from "./FilterSelect"
-import { mixedMockItemsUnordered } from "./_docs/mockData"
+import { mixedMockItemsUnordered, singleMockItems } from "./_docs/mockData"
+import { SelectOption } from "./types"
 
 const FilterSelectWrapper = ({
   isOpen: propsIsOpen = false,
@@ -147,6 +148,49 @@ describe("<Select>", () => {
           screen.getByRole("button", { name: "Coffee : Magic" })
         ).toBeVisible()
       })
+    })
+  })
+})
+
+const defaultProps: FilterSelectProps = {
+  label: "Coffee",
+  isOpen: false,
+  setIsOpen: () => undefined,
+  renderTrigger: (triggerButtonProps): JSX.Element => (
+    <FilterButton {...triggerButtonProps} />
+  ),
+  items: singleMockItems,
+}
+
+describe("FilterSelect generic", () => {
+  it("should prevent adding `options` attribute to option", () => {
+    /* @ts-expect-error */
+    ;<FilterSelect<SelectOption & { options: string[] }> {...defaultProps} />
+  })
+
+  describe("Extended option", () => {
+    it("should error when new required attribute is missing from items", () => {
+      /* @ts-expect-error */
+      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }>
+        {...defaultProps}
+      />
+    })
+
+    it("should allow consumer to access custom attributes in children", () => {
+      ;<FilterSelect<SelectOption & { isRubberDuck: boolean }>
+        {...defaultProps}
+        items={[{ label: "Bubblegum", value: "bubblegum", isRubberDuck: true }]}
+      >
+        {({ items }): JSX.Element[] =>
+          items.map(item =>
+            item.type === "item" ? (
+              <li>{item.value.isRubberDuck}</li>
+            ) : (
+              <li>Section</li>
+            )
+          )
+        }
+      </FilterSelect>
     })
   })
 })

@@ -168,22 +168,32 @@ const StickerSheetTemplate: Story = () => {
                 items={singleMockItems}
               >
                 {({ items }): JSX.Element[] =>
-                  items.map(item => (
-                    <FilterSelect.Option
-                      key={item.key}
-                      item={{
-                        ...item,
-                        rendered: (
-                          <div>
-                            <div style={{ fontSize: "0.75rem", color: "gray" }}>
-                              Customised in list!
-                            </div>
-                            <div>{item.rendered}</div>
-                          </div>
-                        ),
-                      }}
-                    />
-                  ))
+                  items.map(item => {
+                    if (item.type === "item") {
+                      return (
+                        <FilterSelect.Option
+                          key={item.key}
+                          item={{
+                            ...item,
+                            rendered: (
+                              <div>
+                                <div
+                                  style={{ fontSize: "0.75rem", color: "gray" }}
+                                >
+                                  Customised in list!
+                                </div>
+                                <div>{item.rendered}</div>
+                              </div>
+                            ),
+                          }}
+                        />
+                      )
+                    }
+
+                    return (
+                      <FilterSelect.ItemDefault key={item.key} item={item} />
+                    )
+                  })
                 }
               </FilterSelect>
             </div>
@@ -200,7 +210,7 @@ const StickerSheetTemplate: Story = () => {
               >
                 {({ items }): JSX.Element[] =>
                   items.map(item => {
-                    if (item.key === "batch-brew") {
+                    if (item.type === "item" && item.key === "batch-brew") {
                       return (
                         <FilterSelect.Option
                           key={item.key}
@@ -212,7 +222,7 @@ const StickerSheetTemplate: Story = () => {
                       )
                     }
 
-                    if (item.key === "Syrup") {
+                    if (item.type === "section" && item.key === "Syrup") {
                       return (
                         <FilterSelect.Section
                           key={item.key}
@@ -278,7 +288,7 @@ const StickerSheetTemplate: Story = () => {
               >
                 {({ items }): JSX.Element[] =>
                   items.map(item => {
-                    if (item.key === "custom") {
+                    if (item.type === "item" && item.key === "custom") {
                       return (
                         <React.Fragment key={item.key}>
                           <FilterSelect.Option item={item} />
