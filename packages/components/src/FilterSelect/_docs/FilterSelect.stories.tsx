@@ -78,6 +78,8 @@ DefaultStory.args = {
 }
 
 const StickerSheetTemplate: Story = () => {
+  // Only open the dropdowns in Chromatic as the focus locks clash with
+  // each other in Storybook.
   const [isOpenDefaultSingle, setIsOpenDefaultSingle] =
     React.useState<boolean>(IS_CHROMATIC)
   const [isOpenDefaultGroup, setIsOpenDefaultGroup] =
