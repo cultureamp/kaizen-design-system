@@ -22,6 +22,7 @@ export const ListBoxSection = <Option extends SelectOption = SelectOption>({
       <li {...itemProps} className={styles.sectionWrapper}>
         {section.rendered && (
           <Heading
+            tag="span"
             variant="heading-6"
             {...headingProps}
             classNameOverride={styles.sectionHeading}
