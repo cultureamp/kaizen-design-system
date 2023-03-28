@@ -342,6 +342,7 @@ const DrawerHandle = ({
               styles.mobileActionsPrimaryLabel
             )}
             onClick={toggleDisplay}
+            aria-expanded={isOpen}
           >
             {primaryAction.label}
             <span className={styles.mobileActionsChevronSquare}>
@@ -392,6 +393,8 @@ const DrawerHandle = ({
             <button
               className={styles.mobileActionsExpandButton}
               onClick={toggleDisplay}
+              aria-expanded={isOpen}
+              aria-label="Other actions"
             >
               <Icon
                 icon={isOpen ? chevronDownIcon : chevronUpIcon}
@@ -419,6 +422,7 @@ const DrawerHandle = ({
             styles.mobileActionsPrimaryLabel
           )}
           onClick={toggleDisplay}
+          aria-expanded={isOpen}
         >
           {renderDrawerHandleLabel("Other actions")}
           <span className={styles.mobileActionsChevronSquare}>
