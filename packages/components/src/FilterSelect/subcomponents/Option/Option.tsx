@@ -11,7 +11,7 @@ import { SelectOption, SelectOptionNode } from "../../types"
 import styles from "./Option.module.scss"
 
 export interface OptionProps<Option extends SelectOption = SelectOption>
-  extends OverrideClassName<HTMLAttributes<HTMLLIElement>> {
+  extends OverrideClassName<Omit<HTMLAttributes<HTMLLIElement>, "children">> {
   item: SelectOptionNode<Option>
 }
 
