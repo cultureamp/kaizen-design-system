@@ -9,6 +9,7 @@ import {
   FilterButtonRemovable,
 } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
+import { SelectOption } from "../types"
 import {
   groupedMockItems,
   mixedMockItemsDisabled,
@@ -76,6 +77,49 @@ DefaultStory.args = {
   /* @ts-expect-error: Storybook controls key; see argTypes in default export */
   renderTrigger: "Filter Button",
 }
+
+/**
+ * Extend the option type to have additional properties to use for rendering.
+ */
+export const AdditionalProperties: Story = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  return (
+    <FilterSelect<SelectOption & { isFruit: boolean }>
+      label="Custom"
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButton {...triggerProps} />
+      )}
+      items={[
+        { label: "Bubblegum", value: "bubblegum", isFruit: false },
+        { label: "Strawberry", value: "strawberry", isFruit: true },
+        { label: "Chocolate", value: "chocolate", isFruit: false },
+        { label: "Apple", value: "apple", isFruit: true },
+        { label: "Lemon", value: "lemon", isFruit: true },
+      ]}
+    >
+      {({ items }): JSX.Element[] =>
+        items.map(item =>
+          item.type === "item" ? (
+            <FilterSelect.Option
+              item={{
+                ...item,
+                rendered: item.value.isFruit
+                  ? `${item.rendered} (Fruit)`
+                  : item.rendered,
+              }}
+            />
+          ) : (
+            <FilterSelect.ItemDefaultRender item={item} />
+          )
+        )
+      }
+    </FilterSelect>
+  )
+}
+AdditionalProperties.storyName = "Additional option properties"
 
 const StickerSheetTemplate: Story = () => {
   // Only open the dropdowns in Chromatic as the focus locks clash with
