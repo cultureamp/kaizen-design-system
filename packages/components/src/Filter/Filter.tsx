@@ -8,11 +8,12 @@ export interface FilterProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
   isOpen: boolean
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerProps: {
     onClick: () => void
     isOpen: boolean
   }) => JSX.Element & { ref?: React.RefObject<FilterTriggerRef> }
+  onMount?: (triggerRef: React.RefObject<HTMLButtonElement>) => void
 }
 
 export const Filter = ({
@@ -21,6 +22,7 @@ export const Filter = ({
   setIsOpen,
   renderTrigger,
   classNameOverride,
+  onMount,
   ...restProps
 }: FilterProps): JSX.Element => {
   const [isRefLoaded, setIsRefLoaded] = useState<boolean>(false)
@@ -39,8 +41,9 @@ export const Filter = ({
   useEffect(() => {
     if (filterButtonRef.current?.triggerRef?.current) {
       setIsRefLoaded(true)
+      onMount?.(filterButtonRef.current.triggerRef)
     }
-  }, [filterButtonRef.current?.triggerRef?.current])
+  }, [filterButtonRef.current?.triggerRef?.current, onMount])
 
   return (
     <div className={classNameOverride} {...restProps}>
