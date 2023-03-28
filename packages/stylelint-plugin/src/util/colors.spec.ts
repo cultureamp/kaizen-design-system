@@ -1,3 +1,4 @@
+/* eslint-disable jest/consistent-test-it */
 import { normaliseColor } from "./colors"
 describe("normaliseColor", () => {
   test.each([

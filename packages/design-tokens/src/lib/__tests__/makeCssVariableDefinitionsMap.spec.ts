@@ -2,12 +2,12 @@ import { makeCssVariableDefinitionsMap } from "../makeCssVariableDefinitionsMap"
 import { heartColorNamePattern } from "../patterns"
 import { themeForTesting } from "./themeForTesting"
 
-describe(makeCssVariableDefinitionsMap.name, () => {
+describe("makeCssVariableDefinitionsMap()", () => {
   const cssVariableDefinitions = makeCssVariableDefinitionsMap(themeForTesting)
 
   // We don't want any CSS variable identifiers within CSS variables - we don't need them
   // E.g. we want to avoid: `--kz-var-color-wisteria-100-id: --kz-var-color-wisteria-100`
-  test("doesn't contain any CSS variable identifiers in values", () => {
+  it("doesn't contain any CSS variable identifiers in values", () => {
     Object.values(cssVariableDefinitions).forEach(value => {
       expect(value).not.toMatch(/^--/)
     })
@@ -16,13 +16,13 @@ describe(makeCssVariableDefinitionsMap.name, () => {
   const cssVariableKeysThatAreColors = Object.keys(
     cssVariableDefinitions
   ).filter(key => key.startsWith("--color-"))
-  test("produces heart color vars", () => {
+  it("produces heart color vars", () => {
     cssVariableKeysThatAreColors.forEach(key => {
       if (key.startsWith("--color")) expect(key).toMatch(heartColorNamePattern)
     })
   })
 
-  test(`${makeCssVariableDefinitionsMap.name}(themeForTesting) produces the correct output`, () => {
+  it("produces the correct output with the test theme", () => {
     const actual = makeCssVariableDefinitionsMap(themeForTesting)
     expect(actual).toStrictEqual({
       "--border-dashed-border-width": "2px",

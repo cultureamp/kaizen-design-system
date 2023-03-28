@@ -1,3 +1,4 @@
+/* eslint-disable jest/consistent-test-it */
 import { getParser } from "../util/utils"
 import { noInvalidUseOfVarTokensInEquations } from "./no-invalid-use-of-var-tokens-in-equations"
 

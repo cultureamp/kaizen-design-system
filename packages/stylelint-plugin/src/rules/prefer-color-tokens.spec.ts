@@ -1,6 +1,6 @@
 // Migrated from https://github.com/cultureamp/node-packages/tree/0407d85/packages/stylelint-kaizen/lib
 // converted to TypeScript, and modified to be integratable with our stylelint plugin.
-
+/* eslint-disable jest/consistent-test-it */
 import postcss from "postcss"
 import { defaultTheme } from "@kaizen/design-tokens"
 import { messages, preferColorTokens } from "./prefer-color-tokens"

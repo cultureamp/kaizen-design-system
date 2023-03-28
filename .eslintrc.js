@@ -199,6 +199,7 @@ module.exports = {
         pathGroupsExcludedImportTypes: [],
       },
     ],
+    "jest/consistent-test-it": ["error", { fn: "it" }],
     "jest/no-focused-tests": "error",
     "jest/valid-expect": "error",
     "jsdoc/check-alignment": "off",
