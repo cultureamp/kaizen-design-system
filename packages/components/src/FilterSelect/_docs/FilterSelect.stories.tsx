@@ -146,7 +146,7 @@ const StickerSheetTemplate: Story = () => {
     <>
       <StickerSheet
         heading="Default options"
-        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+        style={{ paddingBottom: IS_CHROMATIC ? "28rem" : undefined }}
       >
         <StickerSheet.Header
           headings={["Single items", "Groups", "Existing value", "Disabled"]}
@@ -204,7 +204,7 @@ const StickerSheetTemplate: Story = () => {
 
       <StickerSheet
         heading="Customised options"
-        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+        style={{ paddingBottom: IS_CHROMATIC ? "28rem" : undefined }}
       >
         <StickerSheet.Header
           headings={[
