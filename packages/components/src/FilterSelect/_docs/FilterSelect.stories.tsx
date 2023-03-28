@@ -11,6 +11,7 @@ import {
 import { FilterSelect } from "../FilterSelect"
 import {
   groupedMockItems,
+  mixedMockItemsDisabled,
   mixedMockItemsUngroupedFirst,
   mixedMockItemsUnordered,
   singleMockItems,
@@ -86,6 +87,8 @@ const StickerSheetTemplate: Story = () => {
     React.useState<boolean>(IS_CHROMATIC)
   const [isOpenDefaultExisting, setIsOpenDefaultExisting] =
     React.useState<boolean>(IS_CHROMATIC)
+  const [isOpenDefaultDisabled, setIsOpenDefaultDisabled] =
+    React.useState<boolean>(IS_CHROMATIC)
 
   const [isOpenCustomSingle, setIsOpenCustomSingle] =
     React.useState<boolean>(IS_CHROMATIC)
@@ -103,7 +106,7 @@ const StickerSheetTemplate: Story = () => {
         style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
       >
         <StickerSheet.Header
-          headings={["Single items", "Groups", "Existing value"]}
+          headings={["Single items", "Groups", "Existing value", "Disabled"]}
         />
         <StickerSheet.Body>
           <StickerSheet.Row>
@@ -139,6 +142,17 @@ const StickerSheetTemplate: Story = () => {
                 )}
                 items={singleMockItems}
                 selectedKey="mocha"
+              />
+            </div>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenDefaultDisabled}
+                setIsOpen={setIsOpenDefaultDisabled}
+                renderTrigger={(triggerProps): JSX.Element => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={mixedMockItemsDisabled}
               />
             </div>
           </StickerSheet.Row>

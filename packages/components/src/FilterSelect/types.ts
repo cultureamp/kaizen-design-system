@@ -3,6 +3,7 @@ import { Node } from "@react-types/shared"
 export type SelectOption = {
   label: string
   value: React.Key
+  disabled?: boolean
   options?: never
 }
 

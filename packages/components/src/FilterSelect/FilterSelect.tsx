@@ -17,6 +17,7 @@ import { Option } from "./subcomponents/Option"
 import { Overlay } from "./subcomponents/Overlay"
 import { SectionDivider } from "./subcomponents/SectionDivider"
 import { SelectItem, SelectItemNode, SelectOption } from "./types"
+import { isSelectOptionGroup } from "./utils/isSelectOptionGroup"
 import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"
 import styles from "./FilterSelect.module.scss"
 
@@ -37,7 +38,7 @@ export interface FilterSelectProps<Option extends SelectOption = SelectOption>
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
   children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
-  items: AriaSelectProps<SelectItem<Option>>["items"]
+  items: Array<SelectItem<Option>>
 }
 
 export const FilterSelect = <Option extends SelectOption = SelectOption>({
@@ -46,6 +47,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   renderTrigger,
   label,
   children,
+  items,
   classNameOverride,
   ...restProps
 }: FilterSelectProps<Option>): JSX.Element => {
@@ -54,11 +56,24 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
     React.RefObject<HTMLButtonElement>
   >({ current: null })
 
+  const disabledKeys = items.reduce((acc: React.Key[], item) => {
+    if (isSelectOptionGroup(item)) {
+      const keys = Array.from(item.options)
+        .filter(groupItem => groupItem.disabled)
+        .map(disabledItems => disabledItems.value)
+      return [...acc, ...keys]
+    }
+
+    return item.disabled ? [...acc, item.value] : acc
+  }, [])
+
   const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
     label,
+    items,
     children: transformSelectItemToCollectionElement,
     isOpen,
     onOpenChange: setIsOpen,
+    disabledKeys,
     ...restProps,
   }
 
@@ -76,7 +91,9 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   // which we have used a util to ensure the following structure
   // - SelectOptionGroup => Section
   // - Option => Item
-  const items = Array.from(state.collection) as Array<SelectItemNode<Option>>
+  const itemNodes = Array.from(state.collection) as Array<
+    SelectItemNode<Option>
+  >
 
   return (
     <>
@@ -100,9 +117,9 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
             <Overlay<Option>>
               <ListBox<Option> menuProps={menuProps}>
                 {children ? (
-                  children({ items })
+                  children({ items: itemNodes })
                 ) : (
-                  <ListItems<Option> items={items} />
+                  <ListItems<Option> items={itemNodes} />
                 )}
               </ListBox>
             </Overlay>

@@ -30,6 +30,27 @@ export const groupedMockItems: SelectItem[] = [
   },
 ]
 
+export const mixedMockItemsDisabled: SelectItem[] = [
+  { label: "Short black", value: "short-black", disabled: true },
+  { label: "Long black", value: "long-black" },
+  { label: "Batch brew", value: "batch-brew", disabled: true },
+  {
+    label: "Size",
+    options: [
+      { label: "Regular", value: "regular" },
+      { label: "Large", value: "large", disabled: true },
+    ],
+  },
+  {
+    label: "Syrup",
+    options: [
+      { label: "Vanilla", value: "vanilla", disabled: true },
+      { label: "Caramel", value: "caramel" },
+      { label: "Hazelnut", value: "hazelnut" },
+    ],
+  },
+]
+
 export const mixedMockItemsUngroupedFirst: SelectItem[] = [
   { label: "Batch brew", value: "batch-brew" },
   { label: "Latte", value: "latte" },

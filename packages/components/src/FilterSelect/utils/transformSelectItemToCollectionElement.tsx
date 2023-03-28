@@ -1,12 +1,8 @@
 import React from "react"
 import { Item, Section } from "@react-stately/collections"
 import { CollectionElement } from "@react-types/shared"
-import { SelectItem, SelectOption, SelectOptionGroup } from "../types"
-
-const isSelectOptionGroup = <Option extends SelectOption>(
-  item: SelectItem
-): item is SelectOptionGroup<Option> =>
-  item.hasOwnProperty("options") && Array.isArray(item.options)
+import { SelectItem, SelectOption } from "../types"
+import { isSelectOptionGroup } from "./isSelectOptionGroup"
 
 export const transformSelectItemToCollectionElement = <
   Option extends SelectOption
