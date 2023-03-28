@@ -26,4 +26,4 @@ jobs:
         with:
           title: "Version packages"
           commit: "version packages"
-          version: yarn version:ci
+          version: yarn ci:version
