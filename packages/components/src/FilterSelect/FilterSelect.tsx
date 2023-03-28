@@ -135,4 +135,4 @@ FilterSelect.displayName = "FilterSelect"
 FilterSelect.Section = ListBoxSection
 FilterSelect.SectionDivider = SectionDivider
 FilterSelect.Option = Option
-FilterSelect.ItemDefault = ListItem
+FilterSelect.ItemDefaultRender = ListItem

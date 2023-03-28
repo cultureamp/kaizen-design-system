@@ -206,7 +206,10 @@ const StickerSheetTemplate: Story = () => {
                     }
 
                     return (
-                      <FilterSelect.ItemDefault key={item.key} item={item} />
+                      <FilterSelect.ItemDefaultRender
+                        key={item.key}
+                        item={item}
+                      />
                     )
                   })
                 }
@@ -255,7 +258,10 @@ const StickerSheetTemplate: Story = () => {
                     }
 
                     return (
-                      <FilterSelect.ItemDefault key={item.key} item={item} />
+                      <FilterSelect.ItemDefaultRender
+                        key={item.key}
+                        item={item}
+                      />
                     )
                   })
                 }
@@ -278,7 +284,7 @@ const StickerSheetTemplate: Story = () => {
                       {item.type === "section" && (
                         <FilterSelect.SectionDivider />
                       )}
-                      <FilterSelect.ItemDefault item={item} />
+                      <FilterSelect.ItemDefaultRender item={item} />
                       {item.type === "section" && (
                         <FilterSelect.SectionDivider />
                       )}
@@ -313,7 +319,10 @@ const StickerSheetTemplate: Story = () => {
                     }
 
                     return (
-                      <FilterSelect.ItemDefault key={item.key} item={item} />
+                      <FilterSelect.ItemDefaultRender
+                        key={item.key}
+                        item={item}
+                      />
                     )
                   })
                 }
