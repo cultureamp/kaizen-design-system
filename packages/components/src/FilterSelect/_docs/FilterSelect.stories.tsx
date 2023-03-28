@@ -43,12 +43,11 @@ export default {
       },
     },
     items: {
-      options: ["Single", "Grouped", "Mix"],
+      options: ["Single", "Grouped"],
       control: { type: "radio" },
       mapping: {
         Single: singleMockItems,
         Grouped: groupedMockItems,
-        Mix: mixedMockItemsUngroupedFirst,
       },
     },
   },
