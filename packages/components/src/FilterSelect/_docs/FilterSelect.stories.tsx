@@ -143,7 +143,7 @@ const StickerSheetTemplate: Story = () => {
     React.useState<boolean>(IS_CHROMATIC)
 
   return (
-    <div style={{ height: "76rem" }}>
+    <>
       <StickerSheet
         heading="Default options"
         style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
@@ -204,7 +204,7 @@ const StickerSheetTemplate: Story = () => {
 
       <StickerSheet
         heading="Customised options"
-        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+        style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
       >
         <StickerSheet.Header
           headings={[
@@ -375,7 +375,7 @@ const StickerSheetTemplate: Story = () => {
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
-    </div>
+    </>
   )
 }
 
