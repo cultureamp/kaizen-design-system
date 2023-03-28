@@ -13,7 +13,7 @@ describe("<GenericNotification />", () => {
     jest.useFakeTimers()
   })
 
-  it('begins "hidden" but transitions out of it immediately', () => {
+  it('begins "hidden" but transitions out of it immediately', async () => {
     const { container } = render(
       <GenericNotification type="positive" style="inline" title="Success">
         This is my positive notification
@@ -21,7 +21,8 @@ describe("<GenericNotification />", () => {
     )
 
     expect(container.querySelector(".hidden")).toBeInTheDocument()
-    process.nextTick(() => {
+
+    await waitFor(() => {
       expect(container.querySelector(".hidden")).not.toBeInTheDocument()
     })
   })
