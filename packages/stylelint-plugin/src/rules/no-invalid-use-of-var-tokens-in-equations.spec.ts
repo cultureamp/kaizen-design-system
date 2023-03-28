@@ -14,6 +14,7 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
         },
       }
     )
+    /* eslint-disable jest/valid-expect */
     return expect(reported === 0)
   }
 

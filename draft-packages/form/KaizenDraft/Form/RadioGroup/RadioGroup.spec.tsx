@@ -13,14 +13,20 @@ describe("<RadioGroup /> ", () => {
       expect(queryByText(title)).toBeTruthy()
     })
   })
+
   describe("accessibilty", () => {
     it("has an accessible name when not provided a labelId", () => {
       render(<RadioGroup labelText="Label title" />)
-      expect(screen.getByRole("radiogroup", { name: "Label title" }))
+      expect(
+        screen.getByRole("radiogroup", { name: "Label title" })
+      ).toBeInTheDocument()
     })
+
     it("has an accessible name when provided a labelId", () => {
       render(<RadioGroup labelText="Label title" labelId="some-custom-id" />)
-      expect(screen.getByRole("radiogroup", { name: "Label title" }))
+      expect(
+        screen.getByRole("radiogroup", { name: "Label title" })
+      ).toBeInTheDocument()
     })
   })
 })

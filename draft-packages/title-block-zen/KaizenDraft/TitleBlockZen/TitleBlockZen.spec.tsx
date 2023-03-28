@@ -736,7 +736,7 @@ describe("<TitleBlockZen />", () => {
         for (const automationId of Object.values(automationdIds)) {
           expect(
             container.querySelector(`[data-automation-id="${automationId}"]`)
-          ).toBeTruthy
+          ).toBeTruthy()
         }
       })
     })
