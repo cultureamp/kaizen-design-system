@@ -5,7 +5,7 @@ import { InputRange } from "./index"
 it("renders value as 5.5 when no default value provided", async () => {
   render(<InputRange id="unique-1" minLabel="Awful" maxLabel="Fantastic" />)
 
-  screen.getByDisplayValue("5.5")
+  expect(screen.getByDisplayValue("5.5")).toBeInTheDocument()
 })
 
 it.todo(
@@ -24,7 +24,7 @@ it("shows default value correctly when provided", async () => {
     />
   )
 
-  screen.getByDisplayValue("9")
+  expect(screen.getByDisplayValue("9")).toBeInTheDocument()
 })
 
 it("fires onChange after interaction", async () => {
@@ -51,22 +51,26 @@ it("shows value correctly when provided", async () => {
     <InputRange id="unique-4" value={2} minLabel="Awful" maxLabel="Fantastic" />
   )
 
-  screen.getByDisplayValue("2")
+  expect(screen.getByDisplayValue("2")).toBeInTheDocument()
 })
 
 it("custom low and high labels show when provided", async () => {
   render(<InputRange id="unique-5" minLabel="Sad face" maxLabel="Happy face" />)
 
-  await screen.findByText("Sad face")
-  await screen.findByText("Happy face")
+  const sadFace = await screen.findByText("Sad face")
+  const happyFace = await screen.findByText("Happy face")
+
+  expect(sadFace).toBeInTheDocument()
+  expect(happyFace).toBeInTheDocument()
 })
 
 it("renders the screenreader help text", async () => {
   render(
     <InputRange id="unique-6" min={1} max={10} minLabel="bad" maxLabel="good" />
   )
+  const helpText = await screen.findAllByText(/1 is bad, 10 is good/i)
 
-  await screen.findAllByText(/1 is bad, 10 is good/i)
+  expect(helpText).toBeInTheDocument()
 })
 
 it.todo("doesn't change value when disabled and clicked")

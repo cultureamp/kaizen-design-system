@@ -1078,8 +1078,13 @@ describe("<TitleBlockZen />", () => {
             Example
           </TitleBlockZen>
         )
-        screen.getByTestId("title-block-mobile-actions-default-link")
+        const mobileActionLink = screen.getByTestId(
+          "title-block-mobile-actions-default-link"
+        )
+
+        expect(mobileActionLink).toBeInTheDocument()
       })
+
       it("will render the component in the top list of the Drawer content if it is a clickable button", () => {
         const testClickFunc = jest.fn()
         render(

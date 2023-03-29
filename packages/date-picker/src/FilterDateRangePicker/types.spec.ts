@@ -1,3 +1,4 @@
+/* eslint-disable jest/expect-expect */
 import { DateRangeValidationStatus } from "./types"
 
 let testValue: DateRangeValidationStatus

@@ -1,4 +1,5 @@
 /* eslint-disable jest/consistent-test-it */
+/* eslint-disable jest/expect-expect */
 import { getParser } from "../util/utils"
 import { noInvalidUseOfVarTokensInEquations } from "./no-invalid-use-of-var-tokens-in-equations"
 
@@ -15,7 +16,7 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
         },
       }
     )
-    /* eslint-disable jest/valid-expect */
+    /* eslint-disable-next-line jest/valid-expect */
     return expect(reported === 0)
   }
 

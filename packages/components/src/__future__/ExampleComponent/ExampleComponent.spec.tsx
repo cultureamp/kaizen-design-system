@@ -4,6 +4,7 @@ import { ExampleComponent } from "./ExampleComponent"
 
 describe("<ExampleComponent />", () => {
   it("renders", () => {
-    render(<ExampleComponent />)
+    const { getByTestId } = render(<ExampleComponent />)
+    expect(getByTestId("example-component")).toBeInTheDocument()
   })
 })

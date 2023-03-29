@@ -15,6 +15,7 @@ export const ExampleComponent = ({
   ...restProps
 }: CommonProps): JSX.Element => (
   <div
+    data-testid="example-component"
     className={classNames(
       stylesSCSS.exampleComponent,
       "bg-green-300",
