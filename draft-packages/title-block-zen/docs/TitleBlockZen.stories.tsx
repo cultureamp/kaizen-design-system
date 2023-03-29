@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
-import { CustomButtonProps } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -869,6 +868,30 @@ export const DefaultOnlyPrimary: Story = () => (
 )
 DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
+export const DefaultOnlySecondary: Story = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      surveyStatus={{ text: "Live", status: "live" }}
+      secondaryActions={SECONDARY_ACTIONS}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: () => alert("breadcrumb clicked!"),
+      }}
+      navigationTabs={[
+        <NavigationTab text="Label" href="#" active />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+      ]}
+    />
+  </OffsetPadding>
+)
+DefaultOnlySecondary.storyName = "Default (only secondary action)"
 export const DefaultWithReportSwitcher: Story = () => (
   <OffsetPadding>
     <TitleBlockZen

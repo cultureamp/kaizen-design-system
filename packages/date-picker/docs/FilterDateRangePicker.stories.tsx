@@ -68,7 +68,7 @@ export const DefaultStory = (
     validation?: DateRangeValidationStatus
   }
 ): JSX.Element => {
-  const { validation, status, validationMessage, ...restProps } = props
+  const { validation, status: _s, validationMessage: _v, ...restProps } = props
   const [range, setRange] = useState<DateRange | undefined>()
   const mergedProps = { ...restProps, ...validation }
 

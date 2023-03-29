@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.9.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.17...@kaizen/draft-title-block-zen@7.9.18) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.9.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.16...@kaizen/draft-title-block-zen@7.9.17) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [7.9.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.15...@kaizen/draft-title-block-zen@7.9.16) (2023-03-28)
+
+
+### Bug Fixes
+
+* **TitleBlockZen:** add aria-expanded attributes to mobile action buttons ([#3384](https://github.com/cultureamp/kaizen-design-system/issues/3384)) ([8630049](https://github.com/cultureamp/kaizen-design-system/commit/8630049004186abeba351556001fc138e0a4187a))
+
+
+
+
+
 ## [7.9.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@7.9.14...@kaizen/draft-title-block-zen@7.9.15) (2023-03-23)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

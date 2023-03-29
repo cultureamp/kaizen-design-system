@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tag",
-  "version": "3.4.6",
+  "version": "3.4.8",
   "description": "The draft Tag component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,8 +29,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^16.5.1",
-    "@kaizen/draft-avatar": "^2.8.32",
+    "@kaizen/component-library": "^16.5.3",
+    "@kaizen/draft-avatar": "^2.8.34",
     "classnames": "^2.3.2"
   },
   "devDependencies": {

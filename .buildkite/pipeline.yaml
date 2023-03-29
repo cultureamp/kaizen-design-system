@@ -11,10 +11,19 @@ x-defaults: &defaults
         run: build
 
 steps:
+  - name: ":butterfly: changeset release"
+    command: ".buildkite/scripts/changeset.sh"
+    timeout_in_minutes: 15
+    if: build.branch == "main" && build.author.name == "github-actions[bot]"
+    <<: *defaults
+    plugins:
+      - docker-compose#v3.9.0:
+          run: release
+
   - name: ":balloon: Release"
     command: ".buildkite/scripts/release.sh"
     timeout_in_minutes: 30
-    branches: "main"
+    if: build.branch == "main" && build.author.name != "github-actions[bot]"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
@@ -70,7 +79,7 @@ steps:
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.31.0-focal
+          image: mcr.microsoft.com/playwright:v1.32.1-focal
           propagate-environment: true
 
   - name: "LinearB: Record deployment time"

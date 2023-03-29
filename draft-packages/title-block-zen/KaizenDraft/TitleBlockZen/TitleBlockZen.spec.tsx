@@ -237,7 +237,7 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("passes the primary menu items to the mobile actions drawer", () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
         </TitleBlockZen>

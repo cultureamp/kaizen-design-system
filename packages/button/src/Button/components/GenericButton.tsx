@@ -157,7 +157,6 @@ const renderButton = (
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    iconButton,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
@@ -195,7 +194,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    iconButton,
     ...rest
   } = props
   const customProps = getCustomProps(rest)

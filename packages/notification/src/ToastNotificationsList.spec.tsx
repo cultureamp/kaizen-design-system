@@ -23,7 +23,7 @@ describe("<ToastNotificationsListContainer />", () => {
     let callback: (notifications: ToastNotification[]) => void | undefined
     const registerCallback = jest.fn(cb => (callback = cb))
     const removeToastNotification = jest.fn()
-    const { getByRole } = render(
+    render(
       <ToastNotificationsListContainer
         registerSetNotificationsCallback={registerCallback}
         removeToastNotification={removeToastNotification}

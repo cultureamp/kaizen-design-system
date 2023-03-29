@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import {
   CATEGORIES,
