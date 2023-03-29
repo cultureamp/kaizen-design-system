@@ -18,18 +18,22 @@ export interface ProgressBarProps
   isReversed: boolean
 }
 
-const progressClassNames = (props: ProgressBarProps): string => {
-  const { mood } = props
-  return classnames({
+const progressClassNames = ({
+  mood,
+  isAnimating,
+}: Pick<ProgressBarProps, "mood" | "isAnimating">): string =>
+  classnames({
     [styles.positive]: mood === "positive",
     [styles.informative]: mood === "informative",
     [styles.cautionary]: mood === "cautionary",
     [styles.negative]: mood === "negative",
-    [styles.isAnimating]: props.isAnimating,
+    [styles.isAnimating]: isAnimating,
   })
-}
 
-function calculatePercentage({ value, max }: ProgressBarProps): number {
+function calculatePercentage({
+  value,
+  max,
+}: Pick<ProgressBarProps, "value" | "max">): number {
   return (value / max) * 100.0
 }
 
@@ -37,19 +41,18 @@ function calculatePercentage({ value, max }: ProgressBarProps): number {
  * {@link https://cultureamp.design/components/progress-bar/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-progress-bar--default-story Storybook}
  */
-export const ProgressBar = (props: ProgressBarProps): JSX.Element => {
-  const {
-    value,
-    max,
-    isAnimating,
-    mood,
-    subtext,
-    label,
-    classNameOverride,
-    isReversed = false,
-    ...restProps
-  } = props
-  const percentage = calculatePercentage(props)
+export const ProgressBar = ({
+  value,
+  max,
+  isAnimating,
+  mood,
+  subtext,
+  label,
+  classNameOverride,
+  isReversed = false,
+  ...restProps
+}: ProgressBarProps): JSX.Element => {
+  const percentage = calculatePercentage({ value, max })
   return (
     <div
       role="progressbar"
@@ -62,7 +65,7 @@ export const ProgressBar = (props: ProgressBarProps): JSX.Element => {
       {label && <Label content={label} isReversed={isReversed} />}
       <div className={styles.progressBackground}>
         <div
-          className={progressClassNames(props)}
+          className={progressClassNames({ mood, isAnimating })}
           style={{ transform: `translateX(-${100 - percentage}%` }}
         />
       </div>

@@ -1,5 +1,6 @@
 import { DateRangeValidationStatus } from "./types"
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let testValue: DateRangeValidationStatus
 
 describe("DateRangeValidationStatus", () => {
