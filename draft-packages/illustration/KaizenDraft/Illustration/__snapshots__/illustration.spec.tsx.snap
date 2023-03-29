@@ -1,5 +1,455 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Illustration /> Scene <BrandMomentError /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-error.png"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <BrandMomentLogin /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-login.png"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <BrandMomentNewAccountOnboarding /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-new-account-onboarding.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <BrandMomentPositiveOutro /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-positive-outro.png"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <BrandMomentStarterKit /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-starter-kit.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <BrandMomentUploadEmployeeData /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-upload-employee-data.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <Collaboration /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-collaboration.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <Communication /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-communications.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <CompanyValues /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-company-values.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <ConnectTheDots /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-connect-the-dots.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <CultureLab /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-culture-lab.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <EmptyStatesAction /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/empty-states-action.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <EmptyStatesInformative /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/empty-states-informative.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <EmptyStatesNegative /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/empty-states-negative.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <EmptyStatesNeutral /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/empty-states-neutral.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <EmptyStatesPositive /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/empty-states-positive.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <EngagementSurveySummaryFemale /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/engagement-survey-summary-female.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <EngagementSurveySummaryMale /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/engagement-survey-summary-male.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <Information360Upgrade /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-360-upgrade.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <InformationDemographicFocus /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-demographic-focus.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <InformationEmergingTrends /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-emerging-trends.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <InformationEmployeeLifecycle /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-employee-lifecycle.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <InformationReportOwner /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-report-owner.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <InformationReportOwnerByRule /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-report-owner-by-rule.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <InformationTurnoverCalculator /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-turnover-calculator.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <InformationTurnoverForecast /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/information-modals-turnover-forecast.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <PerformanceCompanySettings /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/performance-company-settings.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <Programs /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/engagement-programs.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoach1On1Meetings /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-1-on-1-meetings.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachCoaching /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-coaching.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachEmployeeDevelopment /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-employee-development.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachEssentialFeedback /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-essential-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachEssentialProductivity /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-essential-productivity.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachEssentialResilience /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-essential-resilience.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachFeedback /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachInfluentialCommunication /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-influential-communication.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachLeadingChange /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-leading-change.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachManagerHub /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-manager-hub.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachProductivity /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-productivity.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachRemoteManager /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-remote-manager.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachResilience /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-resilience.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SkillsCoachStrategy /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/skills-coach-strategy.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SurveyGetStarted /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/getting-started.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <SurveyOverviewClosed /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/survey-overview-closed.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Scene <TermsAgreement /> exists and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/miscellaneous-terms-agreement.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Scene BrandMomentError should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -450,12 +900,1362 @@ exports[`<Illustration /> Scene TermsAgreement should exist and render an alt ta
 </div>
 `;
 
+exports[`<Illustration /> Spot <AccountBasics /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-account-basics.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Action /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-action.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ActionPlans /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-action-plans.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <AddImage /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-add-image.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <AddUser /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-add-user.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Alarm /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-alarm.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <AmplifyOthers /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-amplify-others.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Assertive /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-assertive.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <BCorp /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-b-corp.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <BaselineSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-baseline-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Behaviour /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-behavior.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <BenefitsSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-benefits-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <BlankSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-blank-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <CalendarSync /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-calendar-sync.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <CandidateSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-candidate-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Cautionary /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ChangeAgents /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-change-agents.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ChangeReadiness /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-change-readiness.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ChangeSuccess /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-change-success.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Coaching /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-coaching.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Communications /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-communications.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Community /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-community.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Company /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-company.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <CompanyDetails /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-company-details.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Conversations /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-conversations.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <CustomOnboardSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-custom-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <CustomSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-custom-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <CustomUnattributedSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-custom-unattributed-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <DataVisualization /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-data-visualization.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <EmergencyResponse /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-emergency-response.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <EmployeeData /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-employee-data.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <EndOfProbation /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-end-of-probation.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <EngagementSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-engagement-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <EssentialProductivity /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-essential-productivity.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <EssentialResilience /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-essential-resillience.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ExecutiveReportSharing /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-executive-report-sharing.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ExitSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-exit-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <FastAction /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-fast-action.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Feedback /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Fire /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-fire.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Fireworks /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-fireworks.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <FullImport /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-full-import.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Gdpr /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-gdpr.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <GeneralOnboardSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-general-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Goals /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-goals.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <HaveTheCourageToBeVulnerable /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-have-the-courage-to-be-vulnerable.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <HealthAndSafety /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-health-and-safety.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <HrisImport /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-hris-import.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <InclusionSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-inclusion-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Individual180 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-individual-180.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Individual360 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-individual-360.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <InfluentialCommunication /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-influential-communication.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Informative /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-informative.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Insights /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-insights.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <InternSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-intern-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <LeaderReportSharing /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-leader-report-sharing.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Leadership180 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-leadership-180.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Leadership360 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-leadership-360.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <LeadingChange /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-leading-change.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <LeadingThroughCrisis /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-leading-through-crisis.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Learn /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-learn.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <LearnFasterThroughFeedback /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-learn-faster-through-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <London /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-london.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Manager180 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-manager-180.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Manager360 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-manager-360.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ManagerLearning /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-manager-learning.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ManagerReportSharing /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-manager-report-sharing.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <MeetingVoices /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-meeting-voices.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Melbourne /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-melbourne.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Microphone /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-microphone.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Negative /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-negative.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <NewWaysOfWorking /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-new-ways-of-working.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <NewYork /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-new-york.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Objective /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-objective.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <OneOnOne /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-1-on-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PaperPen /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-paper-pen.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PartialImport /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-partial-import.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PerformanceDiagnostics /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-performance-diagnostics.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PhasedWeek1OnboardSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-phased-week-1-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PhasedWeek5OnboardSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-phased-week-5-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Positive /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-positive.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PositiveFemale /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-positive.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PositiveMale /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-positive.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PowerfulInsights /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-powerful-insights.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Privacy /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-privacy.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Process /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-process.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Productivity /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-productivity.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <PulseSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-pulse-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <QuickEngagementSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-quick-engagement-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ReOnboarding /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-re-onboarding.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ReadArticle /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-read-article.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Recommendation /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-recommendation.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <RemoteManager /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-remote-manager.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <RemoteOnboardSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-remote-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <RemoteWorkQSet /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-remote-work-q-set.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ReportSharing /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-report-sharing.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Resilience /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-resilience.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Resources /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-resources.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Response /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-response.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ReturnToWorkplace /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-return-to-workplace.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <SanFrancisco /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-san-francisco.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ScienceBackedTools /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-science-backed-tools.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ShareReport /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-share-report.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <SinglePointOnboardSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-single-point-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <SkillsDevelopment /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-skills-development.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <SpreadsheetTemplate /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-spreadsheet-template.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Starburst /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-starburst.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Stop /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-stop.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Strategy /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-strategy.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <TakeAim /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-take-aim.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Team1 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-team-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Team2 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-team-2.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <TeamEffectiveness1 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-team-effectiveness-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <TeamEffectiveness2 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-team-effectiveness-2.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Templates /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-templates.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Timezone /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-timezone.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <TrafficCone /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-traffic-cone.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Training1 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-training-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Training2 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-training-2.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Training3 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-training-3.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Trophy /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-trophy.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <TrustOthersToMakeDecisions /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-trust-others-to-make-decisions.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <UnderConstruction /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-under-construction.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ValueAdd /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-value-add.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ValuesSurvey1 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-values-survey-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ValuesSurvey2 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-values-survey-2.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Video /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-video.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <ViewReports /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-view-reports.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <WellbeingSurvey /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <WellbeingSurvey1 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <WellbeingSurvey2 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey-2.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <WellbeingSurvey3 /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey-3.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot <Workshop /> exists and renders an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-workshop.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot AccountBasics AccountBasics should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-account-basics.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot AccountBasics should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-account-basics.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Action Action should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-action.svg"
   />
 </div>
 `;
@@ -470,12 +2270,32 @@ exports[`<Illustration /> Spot Action should exist and render an alt tag 1`] = `
 </div>
 `;
 
+exports[`<Illustration /> Spot ActionPlans ActionPlans should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-action-plans.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ActionPlans should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-action-plans.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot AddImage AddImage should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-add-image.svg"
   />
 </div>
 `;
@@ -490,12 +2310,32 @@ exports[`<Illustration /> Spot AddImage should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot AddUser AddUser should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-add-user.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot AddUser should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-add-user.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Alarm Alarm should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-alarm.svg"
   />
 </div>
 `;
@@ -510,12 +2350,32 @@ exports[`<Illustration /> Spot Alarm should exist and render an alt tag 1`] = `
 </div>
 `;
 
+exports[`<Illustration /> Spot AmplifyOthers AmplifyOthers should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-amplify-others.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot AmplifyOthers should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-amplify-others.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Assertive Assertive should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-assertive.svg"
   />
 </div>
 `;
@@ -530,12 +2390,32 @@ exports[`<Illustration /> Spot Assertive should exist and render an alt tag 1`] 
 </div>
 `;
 
+exports[`<Illustration /> Spot BCorp BCorp should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-b-corp.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot BCorp should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-b-corp.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot BaselineSurvey BaselineSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-baseline-survey.svg"
   />
 </div>
 `;
@@ -550,12 +2430,32 @@ exports[`<Illustration /> Spot BaselineSurvey should exist and render an alt tag
 </div>
 `;
 
+exports[`<Illustration /> Spot Behaviour Behaviour should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-behavior.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Behaviour should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-behavior.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot BenefitsSurvey BenefitsSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-benefits-survey.svg"
   />
 </div>
 `;
@@ -570,12 +2470,32 @@ exports[`<Illustration /> Spot BenefitsSurvey should exist and render an alt tag
 </div>
 `;
 
+exports[`<Illustration /> Spot BlankSurvey BlankSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-blank-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot BlankSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-blank-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot CalendarSync CalendarSync should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-calendar-sync.svg"
   />
 </div>
 `;
@@ -590,12 +2510,32 @@ exports[`<Illustration /> Spot CalendarSync should exist and render an alt tag 1
 </div>
 `;
 
+exports[`<Illustration /> Spot CandidateSurvey CandidateSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-candidate-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot CandidateSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-candidate-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Cautionary Cautionary should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg"
   />
 </div>
 `;
@@ -610,12 +2550,32 @@ exports[`<Illustration /> Spot Cautionary should exist and render an alt tag 1`]
 </div>
 `;
 
+exports[`<Illustration /> Spot ChangeAgents ChangeAgents should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-change-agents.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ChangeAgents should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-change-agents.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ChangeReadiness ChangeReadiness should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-change-readiness.svg"
   />
 </div>
 `;
@@ -630,12 +2590,32 @@ exports[`<Illustration /> Spot ChangeReadiness should exist and render an alt ta
 </div>
 `;
 
+exports[`<Illustration /> Spot ChangeSuccess ChangeSuccess should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-change-success.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ChangeSuccess should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-change-success.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Coaching Coaching should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-coaching.svg"
   />
 </div>
 `;
@@ -650,12 +2630,32 @@ exports[`<Illustration /> Spot Coaching should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot Communications Communications should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-communications.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Communications should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-communications.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Community Community should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-community.svg"
   />
 </div>
 `;
@@ -670,12 +2670,32 @@ exports[`<Illustration /> Spot Community should exist and render an alt tag 1`] 
 </div>
 `;
 
+exports[`<Illustration /> Spot Company Company should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-company.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Company should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-company.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot CompanyDetails CompanyDetails should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-company-details.svg"
   />
 </div>
 `;
@@ -690,12 +2710,32 @@ exports[`<Illustration /> Spot CompanyDetails should exist and render an alt tag
 </div>
 `;
 
+exports[`<Illustration /> Spot Conversations Conversations should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-conversations.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Conversations should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-conversations.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot CustomOnboardSurvey CustomOnboardSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-custom-onboard-survey.svg"
   />
 </div>
 `;
@@ -710,12 +2750,32 @@ exports[`<Illustration /> Spot CustomOnboardSurvey should exist and render an al
 </div>
 `;
 
+exports[`<Illustration /> Spot CustomSurvey CustomSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-custom-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot CustomSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-custom-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot CustomUnattributedSurvey CustomUnattributedSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-custom-unattributed-survey.svg"
   />
 </div>
 `;
@@ -730,12 +2790,32 @@ exports[`<Illustration /> Spot CustomUnattributedSurvey should exist and render 
 </div>
 `;
 
+exports[`<Illustration /> Spot DataVisualization DataVisualization should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-data-visualization.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot DataVisualization should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-data-visualization.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot EmergencyResponse EmergencyResponse should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-emergency-response.svg"
   />
 </div>
 `;
@@ -750,12 +2830,32 @@ exports[`<Illustration /> Spot EmergencyResponse should exist and render an alt 
 </div>
 `;
 
+exports[`<Illustration /> Spot EmployeeData EmployeeData should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-employee-data.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot EmployeeData should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-employee-data.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot EndOfProbation EndOfProbation should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-end-of-probation.svg"
   />
 </div>
 `;
@@ -770,12 +2870,32 @@ exports[`<Illustration /> Spot EndOfProbation should exist and render an alt tag
 </div>
 `;
 
+exports[`<Illustration /> Spot EngagementSurvey EngagementSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-engagement-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot EngagementSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-engagement-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot EssentialProductivity EssentialProductivity should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-essential-productivity.svg"
   />
 </div>
 `;
@@ -790,12 +2910,32 @@ exports[`<Illustration /> Spot EssentialProductivity should exist and render an 
 </div>
 `;
 
+exports[`<Illustration /> Spot EssentialResilience EssentialResilience should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-essential-resillience.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot EssentialResilience should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-essential-resillience.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ExecutiveReportSharing ExecutiveReportSharing should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-executive-report-sharing.svg"
   />
 </div>
 `;
@@ -810,12 +2950,32 @@ exports[`<Illustration /> Spot ExecutiveReportSharing should exist and render an
 </div>
 `;
 
+exports[`<Illustration /> Spot ExitSurvey ExitSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-exit-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ExitSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-exit-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot FastAction FastAction should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-fast-action.svg"
   />
 </div>
 `;
@@ -830,12 +2990,32 @@ exports[`<Illustration /> Spot FastAction should exist and render an alt tag 1`]
 </div>
 `;
 
+exports[`<Illustration /> Spot Feedback Feedback should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-feedback.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Feedback should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-feedback.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Fire Fire should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-fire.svg"
   />
 </div>
 `;
@@ -850,12 +3030,32 @@ exports[`<Illustration /> Spot Fire should exist and render an alt tag 1`] = `
 </div>
 `;
 
+exports[`<Illustration /> Spot Fireworks Fireworks should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-fireworks.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Fireworks should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-fireworks.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot FullImport FullImport should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-full-import.svg"
   />
 </div>
 `;
@@ -870,12 +3070,32 @@ exports[`<Illustration /> Spot FullImport should exist and render an alt tag 1`]
 </div>
 `;
 
+exports[`<Illustration /> Spot Gdpr Gdpr should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-gdpr.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Gdpr should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-gdpr.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot GeneralOnboardSurvey GeneralOnboardSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-general-onboard-survey.svg"
   />
 </div>
 `;
@@ -890,12 +3110,32 @@ exports[`<Illustration /> Spot GeneralOnboardSurvey should exist and render an a
 </div>
 `;
 
+exports[`<Illustration /> Spot Goals Goals should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-goals.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Goals should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-goals.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot HaveTheCourageToBeVulnerable HaveTheCourageToBeVulnerable should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-have-the-courage-to-be-vulnerable.svg"
   />
 </div>
 `;
@@ -910,12 +3150,32 @@ exports[`<Illustration /> Spot HaveTheCourageToBeVulnerable should exist and ren
 </div>
 `;
 
+exports[`<Illustration /> Spot HealthAndSafety HealthAndSafety should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-health-and-safety.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot HealthAndSafety should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-health-and-safety.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot HrisImport HrisImport should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-hris-import.svg"
   />
 </div>
 `;
@@ -930,12 +3190,32 @@ exports[`<Illustration /> Spot HrisImport should exist and render an alt tag 1`]
 </div>
 `;
 
+exports[`<Illustration /> Spot InclusionSurvey InclusionSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-inclusion-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot InclusionSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-inclusion-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Individual180 Individual180 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-individual-180.svg"
   />
 </div>
 `;
@@ -950,12 +3230,32 @@ exports[`<Illustration /> Spot Individual180 should exist and render an alt tag 
 </div>
 `;
 
+exports[`<Illustration /> Spot Individual360 Individual360 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-individual-360.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Individual360 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-individual-360.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot InfluentialCommunication InfluentialCommunication should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-influential-communication.svg"
   />
 </div>
 `;
@@ -970,12 +3270,32 @@ exports[`<Illustration /> Spot InfluentialCommunication should exist and render 
 </div>
 `;
 
+exports[`<Illustration /> Spot Informative Informative should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-informative.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Informative should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-informative.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Insights Insights should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-insights.svg"
   />
 </div>
 `;
@@ -990,12 +3310,32 @@ exports[`<Illustration /> Spot Insights should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot InternSurvey InternSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-intern-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot InternSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-intern-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot LeaderReportSharing LeaderReportSharing should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-leader-report-sharing.svg"
   />
 </div>
 `;
@@ -1010,12 +3350,32 @@ exports[`<Illustration /> Spot LeaderReportSharing should exist and render an al
 </div>
 `;
 
+exports[`<Illustration /> Spot Leadership180 Leadership180 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-leadership-180.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Leadership180 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-leadership-180.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Leadership360 Leadership360 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-leadership-360.svg"
   />
 </div>
 `;
@@ -1030,12 +3390,32 @@ exports[`<Illustration /> Spot Leadership360 should exist and render an alt tag 
 </div>
 `;
 
+exports[`<Illustration /> Spot LeadingChange LeadingChange should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-leading-change.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot LeadingChange should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-leading-change.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot LeadingThroughCrisis LeadingThroughCrisis should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-leading-through-crisis.svg"
   />
 </div>
 `;
@@ -1050,12 +3430,32 @@ exports[`<Illustration /> Spot LeadingThroughCrisis should exist and render an a
 </div>
 `;
 
+exports[`<Illustration /> Spot Learn Learn should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-learn.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Learn should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-learn.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot LearnFasterThroughFeedback LearnFasterThroughFeedback should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-learn-faster-through-feedback.svg"
   />
 </div>
 `;
@@ -1070,12 +3470,32 @@ exports[`<Illustration /> Spot LearnFasterThroughFeedback should exist and rende
 </div>
 `;
 
+exports[`<Illustration /> Spot London London should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-london.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot London should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-london.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Manager180 Manager180 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-manager-180.svg"
   />
 </div>
 `;
@@ -1090,12 +3510,32 @@ exports[`<Illustration /> Spot Manager180 should exist and render an alt tag 1`]
 </div>
 `;
 
+exports[`<Illustration /> Spot Manager360 Manager360 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-manager-360.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Manager360 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-manager-360.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ManagerLearning ManagerLearning should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-manager-learning.svg"
   />
 </div>
 `;
@@ -1110,12 +3550,32 @@ exports[`<Illustration /> Spot ManagerLearning should exist and render an alt ta
 </div>
 `;
 
+exports[`<Illustration /> Spot ManagerReportSharing ManagerReportSharing should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-manager-report-sharing.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ManagerReportSharing should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-manager-report-sharing.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot MeetingVoices MeetingVoices should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-meeting-voices.svg"
   />
 </div>
 `;
@@ -1130,12 +3590,32 @@ exports[`<Illustration /> Spot MeetingVoices should exist and render an alt tag 
 </div>
 `;
 
+exports[`<Illustration /> Spot Melbourne Melbourne should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-melbourne.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Melbourne should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-melbourne.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Microphone Microphone should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-microphone.svg"
   />
 </div>
 `;
@@ -1150,12 +3630,32 @@ exports[`<Illustration /> Spot Microphone should exist and render an alt tag 1`]
 </div>
 `;
 
+exports[`<Illustration /> Spot Negative Negative should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-negative.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Negative should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-negative.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot NewWaysOfWorking NewWaysOfWorking should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-new-ways-of-working.svg"
   />
 </div>
 `;
@@ -1170,12 +3670,32 @@ exports[`<Illustration /> Spot NewWaysOfWorking should exist and render an alt t
 </div>
 `;
 
+exports[`<Illustration /> Spot NewYork NewYork should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-new-york.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot NewYork should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-new-york.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Objective Objective should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-objective.svg"
   />
 </div>
 `;
@@ -1190,12 +3710,32 @@ exports[`<Illustration /> Spot Objective should exist and render an alt tag 1`] 
 </div>
 `;
 
+exports[`<Illustration /> Spot OneOnOne OneOnOne should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-1-on-1.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot OneOnOne should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-1-on-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot PaperPen PaperPen should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-paper-pen.svg"
   />
 </div>
 `;
@@ -1210,12 +3750,32 @@ exports[`<Illustration /> Spot PaperPen should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot PartialImport PartialImport should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-partial-import.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot PartialImport should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-partial-import.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot PerformanceDiagnostics PerformanceDiagnostics should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-performance-diagnostics.svg"
   />
 </div>
 `;
@@ -1230,12 +3790,32 @@ exports[`<Illustration /> Spot PerformanceDiagnostics should exist and render an
 </div>
 `;
 
+exports[`<Illustration /> Spot PhasedWeek1OnboardSurvey PhasedWeek1OnboardSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-phased-week-1-onboard-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot PhasedWeek1OnboardSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-phased-week-1-onboard-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot PhasedWeek5OnboardSurvey PhasedWeek5OnboardSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-phased-week-5-onboard-survey.svg"
   />
 </div>
 `;
@@ -1250,7 +3830,27 @@ exports[`<Illustration /> Spot PhasedWeek5OnboardSurvey should exist and render 
 </div>
 `;
 
+exports[`<Illustration /> Spot Positive Positive should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-positive.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Positive should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-positive.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot PositiveFemale PositiveFemale should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
@@ -1270,12 +3870,32 @@ exports[`<Illustration /> Spot PositiveFemale should exist and render an alt tag
 </div>
 `;
 
+exports[`<Illustration /> Spot PositiveMale PositiveMale should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-positive.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot PositiveMale should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-positive.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot PowerfulInsights PowerfulInsights should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-powerful-insights.svg"
   />
 </div>
 `;
@@ -1290,12 +3910,32 @@ exports[`<Illustration /> Spot PowerfulInsights should exist and render an alt t
 </div>
 `;
 
+exports[`<Illustration /> Spot Privacy Privacy should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-privacy.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Privacy should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-privacy.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Process Process should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-process.svg"
   />
 </div>
 `;
@@ -1310,12 +3950,32 @@ exports[`<Illustration /> Spot Process should exist and render an alt tag 1`] = 
 </div>
 `;
 
+exports[`<Illustration /> Spot Productivity Productivity should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-productivity.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Productivity should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-productivity.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot PulseSurvey PulseSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-pulse-survey.svg"
   />
 </div>
 `;
@@ -1330,12 +3990,32 @@ exports[`<Illustration /> Spot PulseSurvey should exist and render an alt tag 1`
 </div>
 `;
 
+exports[`<Illustration /> Spot QuickEngagementSurvey QuickEngagementSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-quick-engagement-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot QuickEngagementSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-quick-engagement-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ReOnboarding ReOnboarding should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-re-onboarding.svg"
   />
 </div>
 `;
@@ -1350,12 +4030,32 @@ exports[`<Illustration /> Spot ReOnboarding should exist and render an alt tag 1
 </div>
 `;
 
+exports[`<Illustration /> Spot ReadArticle ReadArticle should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-read-article.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ReadArticle should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-read-article.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Recommendation Recommendation should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-recommendation.svg"
   />
 </div>
 `;
@@ -1370,12 +4070,32 @@ exports[`<Illustration /> Spot Recommendation should exist and render an alt tag
 </div>
 `;
 
+exports[`<Illustration /> Spot RemoteManager RemoteManager should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-remote-manager.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot RemoteManager should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-remote-manager.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot RemoteOnboardSurvey RemoteOnboardSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-remote-onboard-survey.svg"
   />
 </div>
 `;
@@ -1390,12 +4110,32 @@ exports[`<Illustration /> Spot RemoteOnboardSurvey should exist and render an al
 </div>
 `;
 
+exports[`<Illustration /> Spot RemoteWorkQSet RemoteWorkQSet should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-remote-work-q-set.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot RemoteWorkQSet should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-remote-work-q-set.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ReportSharing ReportSharing should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-report-sharing.svg"
   />
 </div>
 `;
@@ -1410,12 +4150,32 @@ exports[`<Illustration /> Spot ReportSharing should exist and render an alt tag 
 </div>
 `;
 
+exports[`<Illustration /> Spot Resilience Resilience should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-resilience.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Resilience should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-resilience.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Resources Resources should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-resources.svg"
   />
 </div>
 `;
@@ -1430,12 +4190,32 @@ exports[`<Illustration /> Spot Resources should exist and render an alt tag 1`] 
 </div>
 `;
 
+exports[`<Illustration /> Spot Response Response should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-response.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Response should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-response.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ReturnToWorkplace ReturnToWorkplace should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-return-to-workplace.svg"
   />
 </div>
 `;
@@ -1450,12 +4230,32 @@ exports[`<Illustration /> Spot ReturnToWorkplace should exist and render an alt 
 </div>
 `;
 
+exports[`<Illustration /> Spot SanFrancisco SanFrancisco should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-san-francisco.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot SanFrancisco should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/offices-san-francisco.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ScienceBackedTools ScienceBackedTools should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-science-backed-tools.svg"
   />
 </div>
 `;
@@ -1470,12 +4270,32 @@ exports[`<Illustration /> Spot ScienceBackedTools should exist and render an alt
 </div>
 `;
 
+exports[`<Illustration /> Spot ShareReport ShareReport should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-share-report.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ShareReport should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-share-report.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot SinglePointOnboardSurvey SinglePointOnboardSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-single-point-onboard-survey.svg"
   />
 </div>
 `;
@@ -1490,12 +4310,32 @@ exports[`<Illustration /> Spot SinglePointOnboardSurvey should exist and render 
 </div>
 `;
 
+exports[`<Illustration /> Spot SkillsDevelopment SkillsDevelopment should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-skills-development.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot SkillsDevelopment should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-skills-development.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot SpreadsheetTemplate SpreadsheetTemplate should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-spreadsheet-template.svg"
   />
 </div>
 `;
@@ -1510,12 +4350,32 @@ exports[`<Illustration /> Spot SpreadsheetTemplate should exist and render an al
 </div>
 `;
 
+exports[`<Illustration /> Spot Starburst Starburst should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-starburst.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Starburst should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-starburst.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Stop Stop should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-stop.svg"
   />
 </div>
 `;
@@ -1530,12 +4390,32 @@ exports[`<Illustration /> Spot Stop should exist and render an alt tag 1`] = `
 </div>
 `;
 
+exports[`<Illustration /> Spot Strategy Strategy should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-strategy.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Strategy should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/skills-coach-strategy.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot TakeAim TakeAim should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-take-aim.svg"
   />
 </div>
 `;
@@ -1550,12 +4430,32 @@ exports[`<Illustration /> Spot TakeAim should exist and render an alt tag 1`] = 
 </div>
 `;
 
+exports[`<Illustration /> Spot Team1 Team1 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-team-1.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Team1 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-team-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Team2 Team2 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-team-2.svg"
   />
 </div>
 `;
@@ -1570,12 +4470,32 @@ exports[`<Illustration /> Spot Team2 should exist and render an alt tag 1`] = `
 </div>
 `;
 
+exports[`<Illustration /> Spot TeamEffectiveness1 TeamEffectiveness1 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-team-effectiveness-1.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot TeamEffectiveness1 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-team-effectiveness-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot TeamEffectiveness2 TeamEffectiveness2 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-team-effectiveness-2.svg"
   />
 </div>
 `;
@@ -1590,12 +4510,32 @@ exports[`<Illustration /> Spot TeamEffectiveness2 should exist and render an alt
 </div>
 `;
 
+exports[`<Illustration /> Spot Templates Templates should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-templates.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Templates should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-templates.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Timezone Timezone should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/new-account-timezone.svg"
   />
 </div>
 `;
@@ -1610,12 +4550,32 @@ exports[`<Illustration /> Spot Timezone should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot TrafficCone TrafficCone should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-traffic-cone.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot TrafficCone should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-traffic-cone.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Training1 Training1 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-training-1.svg"
   />
 </div>
 `;
@@ -1630,12 +4590,32 @@ exports[`<Illustration /> Spot Training1 should exist and render an alt tag 1`] 
 </div>
 `;
 
+exports[`<Illustration /> Spot Training2 Training2 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-training-2.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Training2 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-training-2.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Training3 Training3 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-training-3.svg"
   />
 </div>
 `;
@@ -1650,12 +4630,32 @@ exports[`<Illustration /> Spot Training3 should exist and render an alt tag 1`] 
 </div>
 `;
 
+exports[`<Illustration /> Spot Trophy Trophy should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-trophy.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Trophy should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-trophy.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot TrustOthersToMakeDecisions TrustOthersToMakeDecisions should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/values-trust-others-to-make-decisions.svg"
   />
 </div>
 `;
@@ -1670,12 +4670,32 @@ exports[`<Illustration /> Spot TrustOthersToMakeDecisions should exist and rende
 </div>
 `;
 
+exports[`<Illustration /> Spot UnderConstruction UnderConstruction should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-under-construction.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot UnderConstruction should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-under-construction.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ValueAdd ValueAdd should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-value-add.svg"
   />
 </div>
 `;
@@ -1690,12 +4710,32 @@ exports[`<Illustration /> Spot ValueAdd should exist and render an alt tag 1`] =
 </div>
 `;
 
+exports[`<Illustration /> Spot ValuesSurvey1 ValuesSurvey1 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-values-survey-1.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot ValuesSurvey1 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-values-survey-1.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ValuesSurvey2 ValuesSurvey2 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-values-survey-2.svg"
   />
 </div>
 `;
@@ -1710,12 +4750,32 @@ exports[`<Illustration /> Spot ValuesSurvey2 should exist and render an alt tag 
 </div>
 `;
 
+exports[`<Illustration /> Spot Video Video should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-video.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Video should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-video.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot ViewReports ViewReports should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-view-reports.svg"
   />
 </div>
 `;
@@ -1730,12 +4790,32 @@ exports[`<Illustration /> Spot ViewReports should exist and render an alt tag 1`
 </div>
 `;
 
+exports[`<Illustration /> Spot WellbeingSurvey WellbeingSurvey should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot WellbeingSurvey should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot WellbeingSurvey1 WellbeingSurvey1 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey-1.svg"
   />
 </div>
 `;
@@ -1750,6 +4830,16 @@ exports[`<Illustration /> Spot WellbeingSurvey1 should exist and render an alt t
 </div>
 `;
 
+exports[`<Illustration /> Spot WellbeingSurvey2 WellbeingSurvey2 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey-2.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot WellbeingSurvey2 should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -1760,12 +4850,32 @@ exports[`<Illustration /> Spot WellbeingSurvey2 should exist and render an alt t
 </div>
 `;
 
+exports[`<Illustration /> Spot WellbeingSurvey3 WellbeingSurvey3 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey-3.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot WellbeingSurvey3 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"
     class="wrapper"
     src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/template-library-wellbeing-survey-3.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Workshop Workshop should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class="wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/miscellaneous-workshop.svg"
   />
 </div>
 `;

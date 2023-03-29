@@ -2,8 +2,6 @@ import React from "react"
 import { cleanup, render, screen } from "@testing-library/react"
 import { FieldMessage, FieldMessageProps } from "./index"
 
-afterEach(cleanup)
-
 const defaultFieldMessageProps = {
   id: "someFieldMessageId",
   message: "Some FieldMessage.",

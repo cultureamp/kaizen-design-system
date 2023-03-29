@@ -3,8 +3,6 @@ import { cleanup, render, fireEvent } from "@testing-library/react"
 import ContextModal, { ContextModalProps } from "./ContextModal"
 import "./matchMedia.mock"
 
-afterEach(cleanup)
-
 const ContextModalWrapper = (
   props: Partial<ContextModalProps>
 ): JSX.Element => (

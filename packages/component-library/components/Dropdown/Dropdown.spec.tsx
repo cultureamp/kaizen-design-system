@@ -1,8 +1,6 @@
 import * as React from "react"
-import { cleanup, render, screen, fireEvent } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 import Dropdown from "./Dropdown"
-
-afterEach(cleanup)
 
 const svgIcon = {
   id: "my-icon",

@@ -1,11 +1,9 @@
 import React from "react"
 import { fireEvent } from "@testing-library/dom"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 
 import { CheckboxProps } from "./Checkbox"
 import { Checkbox } from "."
-
-afterEach(cleanup)
 
 const defaultProps: CheckboxProps = {
   id: "someCheckboxId",
