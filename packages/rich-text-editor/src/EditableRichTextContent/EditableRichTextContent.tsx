@@ -12,6 +12,7 @@ export interface EditableRichTextContentProps
   content: EditorContentArray
   labelText: string
   isLabelHidden?: boolean
+  contentHTMLAttributes?: HTMLAttributes<HTMLDivElement>
 }
 
 const handleEditableClick = (
@@ -33,6 +34,7 @@ export const EditableRichTextContent = (
     classNameOverride,
     labelText,
     isLabelHidden = false,
+    contentHTMLAttributes,
     ...restProps
   } = props
 
@@ -53,7 +55,7 @@ export const EditableRichTextContent = (
             aria-label={`Edit ${labelText}`}
           />
         </VisuallyHidden>
-        <RichTextContent content={content} />
+        <RichTextContent content={content} {...contentHTMLAttributes} />
       </div>
     </>
   )
