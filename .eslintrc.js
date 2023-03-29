@@ -206,6 +206,7 @@ module.exports = {
     "jest/no-focused-tests": "error",
     "jest/no-disabled-tests": "error",
     "jest/no-standalone-expect": "error",
+    "jest/no-test-return-statement": "error",
     "jest/valid-describe-callback": "error",
     "jest/valid-expect": "error",
     "jest/valid-title": "error",
