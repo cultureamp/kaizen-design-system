@@ -5,8 +5,9 @@ import React, {
   useEffect,
 } from "react"
 import { useButton } from "@react-aria/button"
-import { useMenuTrigger } from "@react-aria/menu"
+import { AriaMenuOptions, useMenuTrigger } from "@react-aria/menu"
 import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
+import { ItemType } from "../../../types"
 
 export interface MenuTriggerProviderProps {
   isOpen?: boolean
@@ -18,6 +19,7 @@ export interface MenuTriggerProviderProps {
 export interface MenuTriggerProviderContextType {
   menuTriggerProps: HTMLAttributes<HTMLElement>
   buttonProps: ButtonHTMLAttributes<HTMLButtonElement>
+  menuProps: AriaMenuOptions<ItemType>
   menuTriggerState: MenuTriggerState
 
   buttonRef: React.RefObject<HTMLButtonElement>
@@ -37,7 +39,11 @@ export function MenuTriggerProvider({
 
   // Get A11y attributes and events for the menu trigger and menu elements
   const ref = React.createRef<HTMLButtonElement>()
-  const { menuTriggerProps } = useMenuTrigger({}, state, ref)
+  const { menuTriggerProps, menuProps } = useMenuTrigger<ItemType>(
+    {},
+    state,
+    ref
+  )
 
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger
   const { buttonProps } = useButton(menuTriggerProps, ref)
@@ -54,6 +60,7 @@ export function MenuTriggerProvider({
       value={{
         menuTriggerProps,
         buttonProps,
+        menuProps,
         menuTriggerState: state,
         buttonRef: ref,
       }}
