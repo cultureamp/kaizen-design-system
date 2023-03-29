@@ -2,11 +2,6 @@
   "version": "independent",
   "npmClient": "yarn",
   "packages": ["packages/*", "draft-packages/*"],
-  "ignoreChanges": [
-    "**/*.stories.*",
-    "**/*.spec.*",
-    "**/README.*",
-    "packages/components/*"
-  ],
+  "ignoreChanges": ["**/*.stories.*", "**/*.spec.*", "**/README.*"],
   "useWorkspaces": true
 }
