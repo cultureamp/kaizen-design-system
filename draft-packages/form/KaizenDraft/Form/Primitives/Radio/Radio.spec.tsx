@@ -19,7 +19,7 @@ const renderRadio = (props?: RadioProps): ReturnType<typeof render> => {
 
   return render(<Radio {...mergedRadioProps} />)
 }
-describe("<Radio /> ", () => {
+describe("<Radio />", () => {
   it("should call the `onChange` event when clicked", () => {
     const { container } = render(<Radio {...defaultRadioProps} />)
     const radioInput = container.querySelector(

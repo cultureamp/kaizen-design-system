@@ -157,7 +157,7 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
     })
   })
 
-  describe("Given selectedKeys is 'all' ", () => {
+  describe("Given selectedKeys is 'all'", () => {
     it("shows all options are selected", () => {
       render(<SelectionProviderWrapper selectedKeys="all" />)
       expect(

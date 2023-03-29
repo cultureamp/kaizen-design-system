@@ -658,7 +658,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("survey status", () => {
-    it("it doesn't render tag when field is omitted", async () => {
+    it("doesn't render tag when field is omitted", async () => {
       render(<TitleBlockZen title="Test Title">Example</TitleBlockZen>)
 
       await waitFor(() => {
@@ -674,7 +674,7 @@ describe("<TitleBlockZen />", () => {
       ["closed", "statusClosed"],
       ["scheduled", "statusClosed"],
     ])(
-      "it renders tag with correct text and variant when %s status",
+      "renders tag with correct text and variant when %s status",
       async (status, expectedClassName) => {
         render(
           <TitleBlockZen

@@ -2,7 +2,7 @@ import React from "react"
 import { render, screen } from "@testing-library/react"
 import { RadioGroup } from "./index"
 
-describe("<RadioGroup /> ", () => {
+describe("<RadioGroup />", () => {
   describe("presentational", () => {
     it("renders a title", () => {
       const title = "Label"

@@ -20,7 +20,7 @@ const renderRadio = (props?: RadioFieldProps): ReturnType<typeof render> => {
 
   return render(<RadioField {...mergedRadioFieldProps} />)
 }
-describe("<Radio /> ", () => {
+describe("<Radio />", () => {
   it("has the disabled attribute applied if the disabled prop is true", () => {
     const { container } = renderRadio({
       id: "testId",
