@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.5...@kaizen/notification@1.4.6) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.4...@kaizen/notification@1.4.5) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.3...@kaizen/notification@1.4.4) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.2...@kaizen/notification@1.4.3) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.1...@kaizen/notification@1.4.2) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.0...@kaizen/notification@1.4.1) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.3.0...@kaizen/notification@1.4.0) (2023-02-28)
+
+
+### Features
+
+* update components to use Caution Icon ([#3327](https://github.com/cultureamp/kaizen-design-system/issues/3327)) ([93d7647](https://github.com/cultureamp/kaizen-design-system/commit/93d764734a68e42c9717f42cdbd626d8eda3c1ea))
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.4...@kaizen/notification@1.3.0) (2023-02-23)
+
+
+### Features
+
+* Update Toast Notification to handle long strings KZN-1005 ([#3299](https://github.com/cultureamp/kaizen-design-system/issues/3299)) ([47ddf28](https://github.com/cultureamp/kaizen-design-system/commit/47ddf28d921186b6fa7bf89b6b67753507fc1216))
+
+
+
+
+
+## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.3...@kaizen/notification@1.2.4) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.2.2...@kaizen/notification@1.2.3) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/notification

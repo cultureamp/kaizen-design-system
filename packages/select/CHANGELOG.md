@@ -3,6 +3,102 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.13.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.15...@kaizen/select@6.13.16) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.14...@kaizen/select@6.13.15) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.13...@kaizen/select@6.13.14) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.12...@kaizen/select@6.13.13) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.11...@kaizen/select@6.13.12) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.10...@kaizen/select@6.13.11) (2023-03-10)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.9...@kaizen/select@6.13.10) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.8...@kaizen/select@6.13.9) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.7...@kaizen/select@6.13.8) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.6...@kaizen/select@6.13.7) (2023-03-01)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.5...@kaizen/select@6.13.6) (2023-02-28)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
+## [6.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.4...@kaizen/select@6.13.5) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/select
+
+
+
+
+
 ## [6.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/select@6.13.3...@kaizen/select@6.13.4) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/select

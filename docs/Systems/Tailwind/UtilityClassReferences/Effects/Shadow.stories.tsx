@@ -1,10 +1,10 @@
 import React from "react"
 import { Story } from "@storybook/react"
+import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { CATEGORIES } from "../../../../../storybook/constants"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
-import styles from "../styles.module.scss"
 
 const prefix = "shadow-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
@@ -33,8 +33,8 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   <UtilityClassTemplate
     compiledCssPropertyName="box-shadow"
     classKeyValues={classEntries}
-    renderExampleComponent={(cssProperty): React.ReactElement => (
-      <div style={{ boxShadow: cssProperty }} className={styles.box} />
+    renderExampleComponent={(utilityClass): React.ReactElement => (
+      <div className={classnames("w-[100px] h-[100px]", utilityClass)} />
     )}
     isReversed={isReversed}
   />

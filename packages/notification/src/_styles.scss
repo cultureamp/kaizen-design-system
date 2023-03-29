@@ -37,6 +37,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   &%ca-notification---toast {
+    container-type: inline-size;
     width: 25rem;
     box-shadow: $shadow-small-box-shadow;
     max-width: 100%;
@@ -201,6 +202,13 @@ $notification-slide-right: transform 300ms ease-out;
     margin-left: 6px;
   }
 
+  %ca-notification---toast & {
+    margin-left: 6px;
+    max-width: calc(100% - #{$spacing-xl});
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
   %ca-notification---global & {
     margin-left: 14px;
     padding: calc(0.25 * #{$spacing-md}) 0;
@@ -256,6 +264,9 @@ $notification-slide-right: transform 300ms ease-out;
     flex: 0 1 auto;
     padding-bottom: $spacing-sm;
     top: 0.21em;
+  }
+  %ca-notification---toast & {
+    width: 100%;
   }
 
   %ca-notification---global & {

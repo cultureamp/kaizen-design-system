@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.34...@kaizen/draft-tooltip@5.4.35) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.4.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.33...@kaizen/draft-tooltip@5.4.34) (2023-03-22)
+
+
+### Bug Fixes
+
+* Tooltip named export ([#3373](https://github.com/cultureamp/kaizen-design-system/issues/3373)) ([f212750](https://github.com/cultureamp/kaizen-design-system/commit/f212750e6ecfb369b8375eb2bc66a416bbb8a082))
+
+
+
+
+
+## [5.4.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.32...@kaizen/draft-tooltip@5.4.33) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.4.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.31...@kaizen/draft-tooltip@5.4.32) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.4.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.30...@kaizen/draft-tooltip@5.4.31) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.4.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.29...@kaizen/draft-tooltip@5.4.30) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.4.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.28...@kaizen/draft-tooltip@5.4.29) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [5.4.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.27...@kaizen/draft-tooltip@5.4.28) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 ## [5.4.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@5.4.26...@kaizen/draft-tooltip@5.4.27) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

@@ -11,10 +11,19 @@ x-defaults: &defaults
         run: build
 
 steps:
+  - name: ":butterfly: changeset release"
+    command: ".buildkite/scripts/changeset.sh"
+    timeout_in_minutes: 15
+    if: build.branch == "main" && build.author.name == "github-actions[bot]"
+    <<: *defaults
+    plugins:
+      - docker-compose#v3.9.0:
+          run: release
+
   - name: ":balloon: Release"
     command: ".buildkite/scripts/release.sh"
     timeout_in_minutes: 30
-    branches: "main"
+    if: build.branch == "main" && build.author.name != "github-actions[bot]"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:

@@ -3,6 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.23...@kaizen/draft-table@5.6.24) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.22...@kaizen/draft-table@5.6.23) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.21...@kaizen/draft-table@5.6.22) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.20...@kaizen/draft-table@5.6.21) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.19...@kaizen/draft-table@5.6.20) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.18...@kaizen/draft-table@5.6.19) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.17...@kaizen/draft-table@5.6.18) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.16...@kaizen/draft-table@5.6.17) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.15...@kaizen/draft-table@5.6.16) (2023-03-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.14...@kaizen/draft-table@5.6.15) (2023-02-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [5.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.13...@kaizen/draft-table@5.6.14) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [5.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@5.6.12...@kaizen/draft-table@5.6.13) (2023-02-23)
 
 **Note:** Version bump only for package @kaizen/draft-table

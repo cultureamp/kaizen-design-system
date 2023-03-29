@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.6.0...@kaizen/tailwind@0.6.1) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/tailwind
+
+
+
+
+
+# [0.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.5.2...@kaizen/tailwind@0.6.0) (2023-03-21)
+
+
+### Bug Fixes
+
+* **tailwind:** remove w- from borderWidth utilities ([#3367](https://github.com/cultureamp/kaizen-design-system/issues/3367)) ([782b0ff](https://github.com/cultureamp/kaizen-design-system/commit/782b0ff4f4132c6e267b2a2127d0210267573dbd))
+
+
+### BREAKING CHANGES
+
+* **tailwind:** Any border width utilities will need to be renamed without the `w-`. These include:
+border-w-? border-x-w-? border-y-w-? border-t-w-? border-b-w-? border-r-w-? border-l-w-?
+
+* docs(tailwind): adds card to border-width stories, explaining that other prefixes are available
+
+
+
+
+
+## [0.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.5.1...@kaizen/tailwind@0.5.2) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/tailwind
+
+
+
+
+
 ## [0.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.5.0...@kaizen/tailwind@0.5.1) (2023-02-21)
 
 **Note:** Version bump only for package @kaizen/tailwind

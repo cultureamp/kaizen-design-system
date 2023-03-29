@@ -6,6 +6,18 @@ export const CATEGORIES = {
   deprecated: "Deprecated",
   tailwind: "Systems/Tailwind",
   systems: "Systems",
+  aio: "AIO",
+}
+
+export const CATEGORIES_ICON = {
+  [CATEGORIES.introduction]: "👋",
+  Guides: "📚",
+  [CATEGORIES.components]: "⚙️",
+  [CATEGORIES.helpers]: "🤝",
+  [CATEGORIES.designTokens]: "🎨",
+  [CATEGORIES.deprecated]: "💣",
+  [CATEGORIES.systems]: "🤖",
+  [CATEGORIES.aio]: "📦",
 }
 
 export const SUB_CATEGORIES = {
@@ -21,6 +33,25 @@ export const SUB_CATEGORIES = {
   datePicker: "Date Picker",
   select: "Select",
   menu: "Menu",
+}
+
+export const SORT_ORDER = {
+  systems: [
+    CATEGORIES.systems,
+    [
+      "*",
+      "Tailwind",
+      [
+        "Overview",
+        "Getting Started",
+        "Configuration",
+        "Working with Tailwind",
+        "*",
+        "Utility Class References",
+        ["Overview", "*"],
+      ],
+    ],
+  ],
 }
 
 export const SUB_COMPONENTS_FOLDER_NAME = "Subcomponents"
