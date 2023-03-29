@@ -33,7 +33,7 @@
     "@kaizen/component-library": "^16.5.1",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/typography": "^2.3.8",
-    "@popperjs/core": "^2.11.6",
+    "@popperjs/core": "^2.11.7",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2",
     "react-popper": "^2.3.0",
