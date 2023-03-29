@@ -1,7 +1,6 @@
 import React from "react"
 import { fireEvent } from "@testing-library/dom"
-import { cleanup, render } from "@testing-library/react"
-
+import { render } from "@testing-library/react"
 import { InputProps } from "./Input"
 import { Input } from "."
 

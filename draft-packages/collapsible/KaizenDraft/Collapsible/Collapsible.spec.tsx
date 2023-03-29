@@ -102,7 +102,7 @@ describe("<Collapsible />", () => {
   })
 
   it("gives precedence to renderHeader over title", () => {
-    const { container, getByTestId, getByText } = render(
+    const { container, getByTestId } = render(
       <Collapsible
         id="1"
         open
@@ -124,7 +124,7 @@ describe("<Collapsible />", () => {
   })
 
   it("doesn't render section content when lazyLoad is enabled", () => {
-    const { container, getByTestId } = render(
+    const { container } = render(
       <Collapsible id="1" title="Title" lazyLoad>
         <div data-automation-id="lazy-load-content">First panel content</div>
       </Collapsible>
