@@ -17,7 +17,6 @@ export interface MenuTriggerProviderProps {
 
 export interface MenuTriggerProviderContextType {
   menuTriggerProps: HTMLAttributes<HTMLElement>
-  menuProps: HTMLAttributes<HTMLElement>
   buttonProps: ButtonHTMLAttributes<HTMLButtonElement>
   menuTriggerState: MenuTriggerState
 
@@ -38,7 +37,7 @@ export function MenuTriggerProvider({
 
   // Get A11y attributes and events for the menu trigger and menu elements
   const ref = React.createRef<HTMLButtonElement>()
-  const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref)
+  const { menuTriggerProps } = useMenuTrigger({}, state, ref)
 
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger
   const { buttonProps } = useButton(menuTriggerProps, ref)
@@ -54,7 +53,6 @@ export function MenuTriggerProvider({
     <MenuTriggerContext.Provider
       value={{
         menuTriggerProps,
-        menuProps,
         buttonProps,
         menuTriggerState: state,
         buttonRef: ref,
