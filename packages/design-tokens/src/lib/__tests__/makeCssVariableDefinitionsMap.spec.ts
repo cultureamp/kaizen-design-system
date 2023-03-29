@@ -18,6 +18,7 @@ describe("makeCssVariableDefinitionsMap()", () => {
   ).filter(key => key.startsWith("--color-"))
   it("produces heart color vars", () => {
     cssVariableKeysThatAreColors.forEach(key => {
+      // eslint-disable-next-line jest/no-conditional-expect
       if (key.startsWith("--color")) expect(key).toMatch(heartColorNamePattern)
     })
   })

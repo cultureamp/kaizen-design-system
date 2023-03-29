@@ -1,9 +1,7 @@
 import React from "react"
 import { fireEvent } from "@testing-library/dom"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { Radio, RadioProps } from "./Radio"
-
-afterEach(cleanup)
 
 const defaultRadioProps: RadioProps = {
   id: "testRadioId",
@@ -20,17 +18,14 @@ const renderRadio = (props?: RadioProps): ReturnType<typeof render> => {
   return render(<Radio {...mergedRadioProps} />)
 }
 describe("<Radio />", () => {
-  it("should call the `onChange` event when clicked", () => {
+  it("calls the `onChange` event when clicked", () => {
     const { container } = render(<Radio {...defaultRadioProps} />)
     const radioInput = container.querySelector(
       `[data-automation-id="${defaultRadioProps.automationId}"]`
-    )
+    ) as Node
 
-    if (radioInput) {
-      fireEvent.click(radioInput)
-
-      expect(defaultRadioProps.onChange).toBeCalledTimes(1)
-    }
+    fireEvent.click(radioInput)
+    expect(defaultRadioProps.onChange).toBeCalledTimes(1)
   })
 
   it("has the disabled attribute applied if the disabled prop is true", () => {
@@ -74,21 +69,21 @@ describe("<Radio />", () => {
     expect(container.querySelector("input")!.checked).toBeFalsy()
   })
 
-  it("should render an `id` attribute", () => {
+  it("renders an `id` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[id="${defaultRadioProps.id}"]`)
     ).toBeTruthy()
   })
 
-  it("should render a `name` attribute", () => {
+  it("renders a `name` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[name="${defaultRadioProps.name}"]`)
     ).toBeTruthy()
   })
 
-  it("should render a `data-automation-id` attribute", () => {
+  it("renders a `data-automation-id` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(
@@ -97,7 +92,7 @@ describe("<Radio />", () => {
     ).toBeTruthy()
   })
 
-  it("should render a `value` attribute", () => {
+  it("renders a `value` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[value="${defaultRadioProps.value}"]`)

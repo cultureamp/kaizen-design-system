@@ -23,47 +23,45 @@ const renderCheckbox = (props?: CheckboxProps): ReturnType<typeof render> => {
 }
 
 describe("<Checkbox />", () => {
-  it("should call the `onCheck` event when clicked", () => {
+  it("calls the `onCheck` event when clicked", () => {
     const { container } = render(<Checkbox {...defaultProps} />)
     const checkbox = container.querySelector(
       `[data-automation-id="${defaultProps.automationId}"]`
-    )
+    ) as Node
 
-    if (checkbox) {
-      fireEvent.click(checkbox)
+    fireEvent.click(checkbox)
 
-      expect(defaultProps.onCheck).toBeCalledTimes(1)
-    }
+    expect(defaultProps.onCheck).toBeCalledTimes(1)
   })
 
-  it("should render a disabled checkbox", () => {
+  it("renders a disabled checkbox", () => {
     const { container } = renderCheckbox({ disabled: true })
     expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
-  it("should render a `checked` checkbox", () => {
+  it("renders a `checked` checkbox", () => {
     const { container } = renderCheckbox({ checkedStatus: "on" })
     expect(container.querySelector("[checked]")).toBeTruthy()
   })
 
-  it("should render a `mixed` checkbox", () => {
+  it("renders a `mixed` checkbox", () => {
     const { container } = renderCheckbox({ checkedStatus: "mixed" })
     expect(container.querySelector("[data-indeterminate]")).toBeTruthy()
   })
 
-  it("should render an `id` attribute", () => {
+  it("renders an `id` attribute", () => {
     const { container } = renderCheckbox()
     expect(container.querySelector(`[id="${defaultProps.id}"]`)).toBeTruthy()
   })
 
-  it("should render a `name` attribute", () => {
+  it("renders a `name` attribute", () => {
     const { container } = renderCheckbox()
     expect(
       container.querySelector(`[name="${defaultProps.name}"]`)
     ).toBeTruthy()
   })
 
-  it("should render a `data-automation-id` attribute", () => {
+  it("renders a `data-automation-id` attribute", () => {
     const { container } = renderCheckbox()
     expect(
       container.querySelector(

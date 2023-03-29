@@ -200,6 +200,7 @@ module.exports = {
       },
     ],
     "jest/consistent-test-it": ["error", { fn: "it" }],
+    "jest/no-conditional-expect": "error",
     "jest/no-focused-tests": "error",
     "jest/no-disabled-tests": "error",
     "jest/no-standalone-expect": "error",
