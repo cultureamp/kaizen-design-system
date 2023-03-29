@@ -27,81 +27,27 @@ setup_github() {
   ssh -T git@github.com || true # exits non-zero
 }
 
-setup_npm() {
-  npm config set update-notifier false
-  npm config set email service-npm@cultureamp.com
-  npm config set username cultureamp-user
-  npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
-  npm config set access public
-  npm config set unsafe-perm true
-
-  echo "Checking npm authentication..."
-  echo "Logged in as: $(npm whoami)"
-}
-
-release() {
-  git checkout main && git pull
-
-  yarn install --frozen-lockfile
-
-  # Certain packages rely on these two packages to be built so they can access dist files
-  yarn workspace @kaizen/design-tokens prepublish
-  yarn workspace @kaizen/tailwind prepublish
-
-  # Bump packages, push and tag a release commit, and update release notes
-  yarn lerna version --conventional-commits --create-release=github --yes \
-    --message "chore: release [skip ci]"
-
-  # Publish any package versions which are not already present on npm
-  yarn lerna publish from-package --yes
-}
-
-release_canary() {
-  git checkout canary && git pull
-
-  yarn install --frozen-lockfile
-
-  yarn lerna publish --canary --preid canary --yes
-}
-
 main() {
-  export GH_SSH_KEY GH_TOKEN NPM_TOKEN
+  export GH_SSH_KEY GH_TOKEN
 
   printf "Fetching secrets... "
   GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
   GH_TOKEN=$(get_secret "github-api-token") || exit $?
-  NPM_TOKEN=$(get_secret "npm-token") || exit $?
   echo "(done)"
 
   echo "Setting up git and npm credentials..."
   setup_github
-  setup_npm
 
-  if [ "$BUILDKITE_BRANCH" = main ]; then
+  git checkout main && git pull
 
-    echo "Branch: main"
-
-    echo "Releasing packages..."
-    release
-
-  elif [ "$BUILDKITE_BRANCH" = canary ]; then
-
-    echo "Branch: canary"
-
-    echo "Releasing packages..."
-    release_canary
-
-    echo "Resetting canary branch..."
-    git reset --hard main
-    git push --force --no-verify
-
-  fi
+  yarn install --frozen-lockfile
+  yarn ci:publish
 
   echo "All done!"
 
-  unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
+  unset GH_SSH_KEY GH_TOKEN
 }
 
 main
 
-unset -f main setup_github setup_npm
+unset -f main setup_github

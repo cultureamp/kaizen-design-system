@@ -34,6 +34,7 @@ addParameters({
       method: "alphabetical",
       order: [
         CATEGORIES.introduction,
+        "Guides",
         ...SORT_ORDER.systems,
         CATEGORIES.components,
         CATEGORIES.helpers,

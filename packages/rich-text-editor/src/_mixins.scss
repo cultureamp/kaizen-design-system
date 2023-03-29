@@ -10,6 +10,7 @@
   letter-spacing: $typography-paragraph-body-letter-spacing;
   position: relative;
   white-space: pre-wrap;
+  box-sizing: content-box;
 
   > p {
     margin: 0 0 $spacing-16;
