@@ -27,7 +27,7 @@ const Toolbar = ({
   }
   return (
     <div className={styles.toolbar} data-automation-id={automationId}>
-      {items.map((item, i) => (
+      {items.map(item => (
         <div
           className={classNames(styles.toolbarItem, {
             [styles.noGap]: noGap,

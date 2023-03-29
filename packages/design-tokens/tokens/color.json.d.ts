@@ -1,4 +1,3 @@
-import { useTheme, ThemeProvider } from "../src/react"
 import { DeepMapObjectLeafs, Theme } from "../src/types"
 /**
  * @deprecated
