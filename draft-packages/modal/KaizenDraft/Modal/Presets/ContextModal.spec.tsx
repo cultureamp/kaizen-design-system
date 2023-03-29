@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, render, fireEvent } from "@testing-library/react"
+import { render, fireEvent } from "@testing-library/react"
 import ContextModal, { ContextModalProps } from "./ContextModal"
 import "./matchMedia.mock"
 
