@@ -25,8 +25,6 @@ export interface GenericModalProps
   extends GenericModalContainerProps,
     ModalAccessibleContextType {}
 
-const MODAL_TRANSITION_TIMEOUT = 350
-
 const GenericModalContainer = (
   props: GenericModalContainerProps
 ): JSX.Element => {

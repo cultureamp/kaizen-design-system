@@ -18,7 +18,6 @@ const renderFieldGroup = (
 
 describe("<FieldGroup />", () => {
   it("should render an `id` attribute", () => {
-    const id = "someFieldGroupId"
     const { container } = renderFieldGroup()
 
     expect(

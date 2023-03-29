@@ -7,7 +7,7 @@ export const filterOutNonPixelTokens = (
   const keyValuePairs = Object.entries(spacingTokensObject)
 
   return Object.fromEntries(
-    keyValuePairs.filter(([key, value]) => !Number.isNaN(Number(key)))
+    keyValuePairs.filter(([key]) => !Number.isNaN(Number(key)))
   )
 }
 
