@@ -13,8 +13,9 @@ const defaultProps = {
 describe("<TextField />", () => {
   it("renders a description when provided", () => {
     render(<TextField {...defaultProps} />)
-    screen.getByText("Description text")
+    expect(screen.getByText("Description text")).toBeInTheDocument()
   })
+
   it("renders a validation message when provided", () => {
     render(
       <TextField
@@ -23,8 +24,9 @@ describe("<TextField />", () => {
         status="error"
       />
     )
-    screen.getByText("Description text")
+    expect(screen.getByText("Description text")).toBeInTheDocument()
   })
+
   it("validation message has the correct type", () => {
     const { container } = render(
       <TextField
@@ -37,12 +39,16 @@ describe("<TextField />", () => {
       container.querySelector(`#${defaultProps.id}-field-validation-message`)
     ).toHaveClass("error")
   })
+
   it("renders correct aria-describedby when only description provided", () => {
     render(<TextField {...defaultProps} description="Description text" />)
-    screen.getByRole("textbox", {
+    const input = screen.getByRole("textbox", {
       description: "Description text",
     })
+
+    expect(input).toBeInTheDocument()
   })
+
   it("renders correct aria-describedby when only validation message provided", () => {
     render(
       <TextField
@@ -51,9 +57,11 @@ describe("<TextField />", () => {
         validationMessage="Error message"
       />
     )
-    screen.getByRole("textbox", {
+    const input = screen.getByRole("textbox", {
       description: "Error message",
     })
+
+    expect(input).toBeInTheDocument()
   })
   it("renders correct aria-describedby when both description and validation message provided", () => {
     render(
@@ -63,9 +71,11 @@ describe("<TextField />", () => {
         validationMessage="Error message"
       />
     )
-    screen.getByRole("textbox", {
+    const input = screen.getByRole("textbox", {
       description: "Description text Error message",
     })
+
+    expect(input).toBeInTheDocument()
   })
   it("renders empty aria-describedby when no description or validation message provided", () => {
     render(
@@ -75,8 +85,10 @@ describe("<TextField />", () => {
         validationMessage={undefined}
       />
     )
-    screen.getByRole("textbox", {
+    const input = screen.getByRole("textbox", {
       description: "",
     })
+
+    expect(input).toBeInTheDocument()
   })
 })

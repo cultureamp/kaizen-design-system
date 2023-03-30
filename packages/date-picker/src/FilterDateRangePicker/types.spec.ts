@@ -1,10 +1,11 @@
+/* eslint-disable jest/expect-expect */
 import { DateRangeValidationStatus } from "./types"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 let testValue: DateRangeValidationStatus
 
 describe("DateRangeValidationStatus", () => {
-  test("valid validation status", () => {
+  it("does not error for valid validation status cases", () => {
     testValue = {}
     testValue = { status: undefined }
     testValue = { validationMessage: undefined }
@@ -23,17 +24,27 @@ describe("DateRangeValidationStatus", () => {
     }
   })
 
-  describe("invalid validation status", () => {
-    test("status only", () => {
+  describe("Invalid validation status cases", () => {
+    it("errors when the status is missing a corresponsing validation message", () => {
       /** @ts-expect-error */
       testValue = { status: { dateStart: "error" } }
       /** @ts-expect-error */
       testValue = { status: { dateEnd: "error" } }
       /** @ts-expect-error */
       testValue = { status: { dateStart: "caution", dateEnd: "error" } }
+      /** @ts-expect-error */
+      testValue = {
+        status: { dateStart: "caution", dateEnd: "error" },
+        validationMessage: { dateStart: "Message" },
+      }
+      /** @ts-expect-error */
+      testValue = {
+        status: { dateStart: "caution", dateEnd: "error" },
+        validationMessage: { dateEnd: "Message" },
+      }
     })
 
-    test("validation message only", () => {
+    it("errors when the validation message is missing a corresponding status", () => {
       /** @ts-expect-error */
       testValue = { validationMessage: { dateStart: "Message" } }
       /** @ts-expect-error */
@@ -42,26 +53,10 @@ describe("DateRangeValidationStatus", () => {
       testValue = {
         validationMessage: { dateStart: "caution", dateEnd: "Message" },
       }
-    })
-
-    test("status for start date with incompatible validation message", () => {
-      /** @ts-expect-error */
-      testValue = {
-        status: { dateStart: "error" },
-        validationMessage: { dateEnd: "Message" },
-      }
       /** @ts-expect-error */
       testValue = {
         status: { dateStart: "error" },
         validationMessage: { dateStart: "Message", dateEnd: "Message" },
-      }
-    })
-
-    test("status for end date with incompatible validation message", () => {
-      /** @ts-expect-error */
-      testValue = {
-        status: { dateEnd: "error" },
-        validationMessage: { dateStart: "Message" },
       }
       /** @ts-expect-error */
       testValue = {
@@ -70,16 +65,16 @@ describe("DateRangeValidationStatus", () => {
       }
     })
 
-    test("status for both start date and end date with incompatible validation message", () => {
+    it("errors when status and validation message are mismatched", () => {
       /** @ts-expect-error */
       testValue = {
-        status: { dateStart: "caution", dateEnd: "error" },
-        validationMessage: { dateStart: "Message" },
+        status: { dateStart: "error" },
+        validationMessage: { dateEnd: "Message" },
       }
       /** @ts-expect-error */
       testValue = {
-        status: { dateStart: "caution", dateEnd: "error" },
-        validationMessage: { dateEnd: "Message" },
+        status: { dateEnd: "error" },
+        validationMessage: { dateStart: "Message" },
       }
     })
   })

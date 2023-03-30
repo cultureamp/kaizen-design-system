@@ -64,7 +64,7 @@ describe("ToastNotificationsManager", () => {
       })
     })
 
-    expect(queryByTestId(document.body, "first")).not.toBeInTheDocument
+    expect(queryByTestId(document.body, "first")).not.toBeInTheDocument()
     const elementSecond = screen.getByTestId("second")
 
     expect(elementSecond).toHaveTextContent("Second render")

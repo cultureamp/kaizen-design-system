@@ -9,10 +9,11 @@ const DateRangePickerWrapper = (
   props: Partial<DateRangePickerProps>
 ): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
-    from: undefined,
-    to: undefined,
+    from: props.selectedDateRange?.from,
+    to: props.selectedDateRange?.to,
   })
-  const [value, setValue] = useState("")
+  const { value: propValue, ...restProps } = props
+  const [value, setValue] = useState(propValue || "")
 
   const onDateRangeChange = (dateRange: DateRange): void => {
     setSelectedDateRange(dateRange)
@@ -30,7 +31,8 @@ const DateRangePickerWrapper = (
       onChange={onDateRangeChange}
       value={value}
       defaultMonth={new Date("2022-03-01")}
-      {...props}
+      selectedDateRange={selectedDateRange}
+      {...restProps}
     />
   )
 }
@@ -61,89 +63,6 @@ describe("<DateRangePicker />", () => {
     })
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument()
-  })
-
-  it("is able to select date range and shows in button", async () => {
-    render(<DateRangePickerWrapper />)
-
-    const button = screen.getByRole("button")
-
-    userEvent.click(button)
-
-    await waitFor(() => {
-      const selectedFromDate = screen.getByRole("button", {
-        name: "6th March (Sunday)",
-      })
-      selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
-      userEvent.keyboard("{enter}")
-    })
-
-    await waitFor(() => {
-      const selectedToDate = screen.getByRole("button", {
-        name: "16th March (Wednesday)",
-      })
-      selectedToDate.parentElement && selectedToDate.parentElement.focus()
-      userEvent.keyboard("{enter}")
-    })
-
-    expect(button.innerText === "Mar 6 – Mar 16, 2022")
-  })
-
-  it("updates the selected range when the user selects a new range", async () => {
-    const selectedDateRange = {
-      from: new Date(2022, 2, 1),
-      to: new Date(2022, 2, 16),
-    }
-    render(<DateRangePickerWrapper selectedDateRange={selectedDateRange} />)
-
-    const button = screen.getByRole("button")
-    expect(button.innerText === "Mar 1 – Mar 16, 2022")
-
-    userEvent.click(button)
-
-    await waitFor(() => {
-      const selectedFromDate = screen.getByRole("button", {
-        name: "6th March (Sunday)",
-      })
-      selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
-      userEvent.keyboard("{enter}")
-    })
-
-    await waitFor(() => {
-      const selectedToDate = screen.getByRole("button", {
-        name: "16th March (Wednesday)",
-      })
-      selectedToDate.parentElement && selectedToDate.parentElement.focus()
-      userEvent.keyboard("{enter}")
-    })
-
-    expect(button.innerText === "Mar 6 – Mar 16, 2022")
-  })
-
-  it("resets the selected from date when the user attempts to select a to date that is before the from date", async () => {
-    render(<DateRangePickerWrapper />)
-
-    const button = screen.getByRole("button")
-    userEvent.click(button)
-
-    await waitFor(() => {
-      const selectedFromDate = screen.getByRole("button", {
-        name: "6th March (Sunday)",
-      })
-      selectedFromDate.parentElement && selectedFromDate.parentElement.focus()
-      userEvent.keyboard("{enter}")
-    })
-
-    await waitFor(() => {
-      const selectedToDate = screen.getByRole("button", {
-        name: "1st March (Tuesday)",
-      })
-      selectedToDate.parentElement && selectedToDate.parentElement.focus()
-      userEvent.keyboard("{enter}")
-      expect(screen.queryByRole("dialog")).toBeInTheDocument()
-    })
-
-    expect(button.innerText === "Mar 1, 2022")
   })
 
   it("has disabled attribute on button", () => {

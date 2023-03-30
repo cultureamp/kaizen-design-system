@@ -658,7 +658,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("survey status", () => {
-    it("it doesn't render tag when field is omitted", async () => {
+    it("doesn't render tag when field is omitted", async () => {
       render(<TitleBlockZen title="Test Title">Example</TitleBlockZen>)
 
       await waitFor(() => {
@@ -674,7 +674,7 @@ describe("<TitleBlockZen />", () => {
       ["closed", "statusClosed"],
       ["scheduled", "statusClosed"],
     ])(
-      "it renders tag with correct text and variant when %s status",
+      "renders tag with correct text and variant when %s status",
       async (status, expectedClassName) => {
         render(
           <TitleBlockZen
@@ -736,7 +736,7 @@ describe("<TitleBlockZen />", () => {
         for (const automationId of Object.values(automationdIds)) {
           expect(
             container.querySelector(`[data-automation-id="${automationId}"]`)
-          ).toBeTruthy
+          ).toBeTruthy()
         }
       })
     })
@@ -1078,8 +1078,13 @@ describe("<TitleBlockZen />", () => {
             Example
           </TitleBlockZen>
         )
-        screen.getByTestId("title-block-mobile-actions-default-link")
+        const mobileActionLink = screen.getByTestId(
+          "title-block-mobile-actions-default-link"
+        )
+
+        expect(mobileActionLink).toBeInTheDocument()
       })
+
       it("will render the component in the top list of the Drawer content if it is a clickable button", () => {
         const testClickFunc = jest.fn()
         render(
