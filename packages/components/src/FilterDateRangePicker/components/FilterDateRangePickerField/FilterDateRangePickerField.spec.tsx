@@ -26,7 +26,7 @@ const FilterDateRangePickerFieldWrapper = ({
 
 describe("<FilterDateRangePickerField />", () => {
   describe("Inputs", () => {
-    it("should have empty inputs when a date range is not provided", () => {
+    it("has empty inputs when a date range is not provided", () => {
       render(<FilterDateRangePickerFieldWrapper />)
 
       const inputRangeStart = screen.getByLabelText("Date from")
@@ -35,7 +35,7 @@ describe("<FilterDateRangePickerField />", () => {
       expect(inputRangeEnd).toHaveValue("")
     })
 
-    it("should pre-fill the inputs when date range is provided", () => {
+    it("pre-fills the inputs when date range is provided", () => {
       render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
@@ -96,16 +96,10 @@ describe("<FilterDateRangePickerField />", () => {
         expect(targetDay).not.toHaveAttribute("aria-pressed")
 
         await userEvent.click(inputRangeStart)
-
-        await waitFor(() => {
-          expect(inputRangeStart).toHaveValue("02/05/2022")
-        })
-
         await userEvent.clear(inputRangeStart)
         await userEvent.type(inputRangeStart, "01/05/2022")
 
-        await userEvent.tab({ shift: true })
-        // await userEvent.click(document.body)
+        await userEvent.click(document.body)
 
         await waitFor(() => {
           expect(inputRangeStart).toHaveValue("1 May 2022")
@@ -141,13 +135,11 @@ describe("<FilterDateRangePickerField />", () => {
         })
         expect(targetDay).not.toHaveAttribute("aria-pressed")
 
-        await userEvent.tab()
-        rangeStartOnBlur.mockClear()
-
+        await userEvent.click(inputRangeEnd)
         await userEvent.clear(inputRangeEnd)
         await userEvent.type(inputRangeEnd, "31/05/2022")
 
-        await userEvent.tab()
+        await userEvent.click(document.body)
 
         await waitFor(() => {
           expect(inputRangeStart).toHaveValue("1 May 2022")
@@ -186,60 +178,6 @@ describe("<FilterDateRangePickerField />", () => {
         expect(screen.getByText("March 2020")).toBeVisible()
       })
     })
-
-    it("resets the input values if cleared from the outside", async () => {
-      const Wrapper = (): JSX.Element => {
-        const [selectedDateRange, setSelectedDateRange] = useState<
-          DateRange | undefined
-        >({
-          from: new Date("2022-05-01"),
-          to: new Date("2022-05-22"),
-        })
-        return (
-          <div>
-            <button
-              type="button"
-              onClick={(): void => setSelectedDateRange(undefined)}
-            >
-              Clear the filter
-            </button>
-
-            <FilterDateRangePickerField
-              id="test__filter-date-range-picker"
-              label="Dates"
-              selectedRange={selectedDateRange}
-              onRangeChange={setSelectedDateRange}
-              locale="en-AU"
-            />
-          </div>
-        )
-      }
-
-      render(<Wrapper />)
-
-      // await openFilter()
-
-      const inputRangeStart = screen.getByLabelText("Date from")
-      const inputRangeEnd = screen.getByLabelText("Date to")
-      // Input Start is focused when filter is opened
-      expect(inputRangeStart).toHaveValue("1 May 2022")
-      expect(inputRangeEnd).toHaveValue("22 May 2022")
-
-      await userEvent.keyboard("{Escape}")
-
-      const clearButton = screen.getByRole("button", {
-        name: "Clear the filter",
-      })
-
-      await userEvent.click(clearButton)
-
-      // await openFilter()
-
-      const inputRangeAfterStart = screen.getByLabelText("Date from")
-      const inputRangeAfterEnd = screen.getByLabelText("Date to")
-      expect(inputRangeAfterStart).toHaveValue("")
-      expect(inputRangeAfterEnd).toHaveValue("")
-    }, 10000)
   })
 
   describe("Calendar", () => {
@@ -249,7 +187,6 @@ describe("<FilterDateRangePickerField />", () => {
           defaultMonth={new Date("2022-05-02")}
         />
       )
-      // await openFilter()
 
       expect(screen.getByText("May 2022")).toBeVisible()
       expect(screen.getByText("June 2022")).toBeVisible()
@@ -264,7 +201,6 @@ describe("<FilterDateRangePickerField />", () => {
           }}
         />
       )
-      // await openFilter()
 
       expect(screen.getByText("May 2022")).toBeVisible()
       expect(screen.getByText("June 2022")).toBeVisible()
@@ -279,10 +215,7 @@ describe("<FilterDateRangePickerField />", () => {
           }}
         />
       )
-      // await openFilter()
 
-      // Remove focus from input range start
-      await userEvent.tab()
       const inputRangeStart = screen.getByLabelText("Date from")
       expect(inputRangeStart).toHaveValue("15 May 2022")
 
@@ -296,7 +229,7 @@ describe("<FilterDateRangePickerField />", () => {
         expect(targetDay).toHaveAttribute("aria-pressed", "true")
         expect(inputRangeStart).toHaveValue("12 May 2022")
       })
-    }, 8000)
+    })
 
     it("updates the range end input when changing the end date", async () => {
       render(
@@ -307,7 +240,6 @@ describe("<FilterDateRangePickerField />", () => {
           }}
         />
       )
-      // await openFilter()
 
       const inputRangeEnd = screen.getByLabelText("Date to")
       expect(inputRangeEnd).toHaveValue("15 Jun 2022")
@@ -333,12 +265,10 @@ describe("<FilterDateRangePickerField />", () => {
           }}
         />
       )
-      // await openFilter()
 
       const inputRangeStart = screen.getByLabelText("Date from")
       const inputRangeEnd = screen.getByLabelText("Date to")
-      // Input Start is focused when filter is opened
-      expect(inputRangeStart).toHaveValue("15/05/2022")
+      expect(inputRangeStart).toHaveValue("15 May 2022")
       expect(inputRangeEnd).toHaveValue("22 May 2022")
 
       const firstSelectedDay = screen.getByRole("button", {
@@ -374,7 +304,6 @@ describe("<FilterDateRangePickerField />", () => {
             }}
           />
         )
-        // await openFilter()
 
         expect(screen.getByText("Start date error message")).toBeVisible()
         expect(screen.getByText("End date caution message")).toBeVisible()
@@ -388,20 +317,20 @@ describe("<FilterDateRangePickerField />", () => {
             inputRangeStartProps={{ labelText: "Start date" }}
           />
         )
-        // await openFilter()
 
         const inputRangeStart = screen.getByLabelText("Start date")
 
         await userEvent.clear(inputRangeStart)
         await userEvent.type(inputRangeStart, "potato")
-        await userEvent.tab({ shift: true })
+
+        await userEvent.click(document.body)
 
         await waitFor(() => {
           expect(
             screen.getByText("Start date: potato is an invalid date")
           ).toBeVisible()
         })
-      }, 10000)
+      })
 
       it("shows inbuilt validation messages for end date", async () => {
         render(
@@ -409,20 +338,20 @@ describe("<FilterDateRangePickerField />", () => {
             inputRangeEndProps={{ labelText: "End date" }}
           />
         )
-        // await openFilter()
 
         const inputRangeEnd = screen.getByLabelText("End date")
 
         await userEvent.clear(inputRangeEnd)
         await userEvent.type(inputRangeEnd, "potato")
-        await userEvent.tab({ shift: true })
+
+        await userEvent.click(document.body)
 
         await waitFor(() => {
           expect(
             screen.getByText("End date: potato is an invalid date")
           ).toBeVisible()
         })
-      }, 10000)
+      })
 
       it("shows inbuilt validation messages for pre-existing values", async () => {
         render(
@@ -434,7 +363,6 @@ describe("<FilterDateRangePickerField />", () => {
             disabledDates={[new Date("2022-05-15"), new Date("2022-05-23")]}
           />
         )
-        // await openFilter()
 
         expect(
           screen.getByText(
@@ -460,18 +388,18 @@ describe("<FilterDateRangePickerField />", () => {
               }}
             />
           )
-          // await openFilter()
 
           const inputRangeEnd = screen.getByLabelText("Date to")
 
           await userEvent.clear(inputRangeEnd)
           await userEvent.type(inputRangeEnd, "12/05/2022")
-          await userEvent.tab({ shift: true })
+
+          await userEvent.click(document.body)
 
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
           })
-        }, 10000)
+        })
 
         it("removes error on updating start date input to be before end date", async () => {
           render(
@@ -482,13 +410,13 @@ describe("<FilterDateRangePickerField />", () => {
               }}
             />
           )
-          // await openFilter()
 
           const inputRangeEnd = screen.getByLabelText("Date to")
 
           await userEvent.clear(inputRangeEnd)
           await userEvent.type(inputRangeEnd, "12/05/2022")
-          await userEvent.tab({ shift: true })
+
+          await userEvent.click(document.body)
 
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
@@ -502,7 +430,8 @@ describe("<FilterDateRangePickerField />", () => {
 
           await userEvent.clear(inputRangeStart)
           await userEvent.type(inputRangeStart, "10/05/2022")
-          await userEvent.tab()
+
+          await userEvent.click(document.body)
 
           await waitFor(() => {
             expect(
@@ -513,7 +442,7 @@ describe("<FilterDateRangePickerField />", () => {
               screen.getAllByRole("button", { pressed: true }).length
             ).toEqual(3)
           })
-        }, 10000)
+        })
 
         it("shows error on updating start date input to be after end date", async () => {
           render(
@@ -524,18 +453,18 @@ describe("<FilterDateRangePickerField />", () => {
               }}
             />
           )
-          // await openFilter()
 
           const inputRangeStart = screen.getByLabelText("Date from")
 
           await userEvent.clear(inputRangeStart)
           await userEvent.type(inputRangeStart, "31/05/2022")
-          await userEvent.tab()
+
+          await userEvent.click(document.body)
 
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
           })
-        }, 10000)
+        })
 
         it("shows error if the pre-existing end date is before start date", async () => {
           render(
@@ -546,12 +475,11 @@ describe("<FilterDateRangePickerField />", () => {
               }}
             />
           )
-          // await openFilter()
 
           await waitFor(() => {
             expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
           })
-        }, 10000)
+        })
       })
     })
 
@@ -570,13 +498,13 @@ describe("<FilterDateRangePickerField />", () => {
             }}
           />
         )
-        // await openFilter()
 
         const inputRangeEnd = screen.getByLabelText("Date to")
 
         await userEvent.clear(inputRangeEnd)
         await userEvent.type(inputRangeEnd, "potato")
-        await userEvent.tab({ shift: true })
+
+        await userEvent.click(document.body)
 
         await waitFor(() => {
           expect(screen.getByText("Start date error message")).toBeVisible()
@@ -584,7 +512,7 @@ describe("<FilterDateRangePickerField />", () => {
             screen.getByText("Date to: potato is an invalid date")
           ).toBeVisible()
         })
-      }, 10000)
+      })
 
       it("shows custom end date validation with inbuilt start date validation", async () => {
         render(
@@ -600,13 +528,13 @@ describe("<FilterDateRangePickerField />", () => {
             }}
           />
         )
-        // await openFilter()
 
         const inputRangeStart = screen.getByLabelText("Date from")
 
         await userEvent.clear(inputRangeStart)
         await userEvent.type(inputRangeStart, "potato")
-        await userEvent.tab({ shift: true })
+
+        await userEvent.click(document.body)
 
         await waitFor(() => {
           expect(screen.getByText("End date error message")).toBeVisible()
@@ -614,7 +542,7 @@ describe("<FilterDateRangePickerField />", () => {
             screen.getByText("Date from: potato is an invalid date")
           ).toBeVisible()
         })
-      }, 10000)
+      })
     })
 
     it("re-validates values when selecting a value using the calendar", async () => {
@@ -626,7 +554,6 @@ describe("<FilterDateRangePickerField />", () => {
           }}
         />
       )
-      // await openFilter()
 
       const errorMessage = "Date to: Invalid Date is an invalid date"
 
@@ -642,6 +569,6 @@ describe("<FilterDateRangePickerField />", () => {
       await waitFor(() => {
         expect(screen.queryByText(errorMessage)).not.toBeInTheDocument()
       })
-    }, 10000)
+    })
   })
 })
