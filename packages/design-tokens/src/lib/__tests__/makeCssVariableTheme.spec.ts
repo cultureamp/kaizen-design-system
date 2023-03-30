@@ -1,7 +1,7 @@
 import { makeCSSVariableTheme } from "../makeCssVariableTheme"
 import { themeForTesting } from "./themeForTesting"
 
-describe(makeCSSVariableTheme.name, () => {
+describe("makeCSSVariableTheme()", () => {
   const cssVariableTheme = makeCSSVariableTheme(themeForTesting)
 
   const extraEntriesForColor = (colorName: string): Record<string, string> => ({
@@ -14,7 +14,8 @@ describe(makeCSSVariableTheme.name, () => {
     "200-rgb": `var(--color-${colorName}-200-rgb, 204, 204, 204)`,
     "200-rgb-id": `--color-${colorName}-200-rgb`,
   })
-  test("adds -id, -rgb, and -rgb-id fields to every leaf (rgbs for colors only)", () => {
+
+  it("adds -id, -rgb, and -rgb-id fields to every leaf (rgbs for colors only)", () => {
     expect(cssVariableTheme).toStrictEqual({
       color: {
         gray: extraEntriesForColor("gray"),

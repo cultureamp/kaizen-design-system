@@ -51,13 +51,13 @@ describe("<TextField />", () => {
       />
     )
 
-    expect(screen.getByText("This is an error")).toBeVisible
+    expect(screen.getByText("This is an error")).toBeVisible()
 
     expect(
       screen.getByRole("radiogroup", {
         description: "Error message This is an error",
       })
-    ).toBeInTheDocument
+    ).toBeInTheDocument()
   })
 
   it("does not show a validation message when provided and status is default", () => {
@@ -71,6 +71,6 @@ describe("<TextField />", () => {
       screen.getByRole("radiogroup", {
         description: undefined,
       })
-    ).toBeInTheDocument
+    ).toBeInTheDocument()
   })
 })

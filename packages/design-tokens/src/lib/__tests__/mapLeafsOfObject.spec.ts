@@ -1,8 +1,8 @@
 import { objectPathToCssVarFunction } from "../cssVariables"
 import { mapLeafsOfObject } from "../mapLeafsOfObject"
 
-describe(mapLeafsOfObject.name, () => {
-  test.each([
+describe("mapLeafsOfObject()", () => {
+  it.each([
     [
       {
         test: {

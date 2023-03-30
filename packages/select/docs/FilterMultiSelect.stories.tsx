@@ -319,7 +319,7 @@ export const FilterBarDemo = (): JSX.Element => {
 
                 // exclude demographic from both selectedGroups and selectedDemographicValues
                 removeFilter(id)
-                const { [id]: omitted, ...rest } = selectedDemographicValues
+                const { [id]: _omitted, ...rest } = selectedDemographicValues
                 setSelectedDemographicValues(rest)
               }}
               onSelectionChange={(selectedKeys): void => {

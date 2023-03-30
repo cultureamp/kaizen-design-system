@@ -1,13 +1,11 @@
 import React from "react"
 import { fireEvent } from "@testing-library/dom"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 
 import { Tabs } from "."
 import styles from "./styles.scss"
 
-afterEach(cleanup)
-
-describe("Tabs", () => {
+describe("<Tabs />", () => {
   it("renders basic tabs", () => {
     const tabs = [{ label: "One" }, { label: "Two" }]
     const { container } = render(<Tabs tabs={tabs} />)

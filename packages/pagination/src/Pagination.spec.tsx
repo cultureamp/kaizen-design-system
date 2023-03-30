@@ -13,12 +13,12 @@ const defaultProps = {
 }
 
 describe("<Pagination />", () => {
-  it("should render pagination component", () => {
+  it("renders pagination component", () => {
     render(<Pagination {...defaultProps} />)
     expect(screen.getByRole("navigation")).toBeInTheDocument()
   })
 
-  it("should render all pages when pageCount is less than 8", () => {
+  it("renders all pages when pageCount is less than 8", () => {
     const pageCount = 7
     render(<Pagination {...defaultProps} pageCount={pageCount} />)
 
@@ -32,28 +32,28 @@ describe("<Pagination />", () => {
     }
   })
 
-  it("should not render all pages and render truncated indicator when pageCount is greater than 7", () => {
+  it("does not render all pages and render truncated indicator when pageCount is greater than 7", () => {
     render(<Pagination {...defaultProps} />)
     expect(screen.getByTestId("truncate-indicator")).toBeInTheDocument()
   })
 
-  it("should render a disabled back button when current page less than 1", () => {
+  it("renders a disabled back button when current page less than 1", () => {
     render(<Pagination {...defaultProps} />)
     expect(
       screen.getByRole("button", { name: defaultProps.ariaLabelPreviousPage })
-    ).toBeDisabled
+    ).toBeDisabled()
   })
 
-  it("should render a disabled forward button when current page equals page count", () => {
+  it("renders a disabled forward button when current page equals page count", () => {
     render(
       <Pagination {...defaultProps} currentPage={defaultProps.pageCount} />
     )
     expect(
-      screen.getByRole("button", { name: defaultProps.ariaLabelPreviousPage })
-    ).toBeDisabled
+      screen.getByRole("button", { name: defaultProps.ariaLabelNextPage })
+    ).toBeDisabled()
   })
 
-  it("should call onPageChange when clicking page number", async () => {
+  it("calls onPageChange when clicking page number", async () => {
     const onPageChange = jest.fn<void, [number]>()
 
     render(<Pagination {...defaultProps} onPageChange={onPageChange} />)

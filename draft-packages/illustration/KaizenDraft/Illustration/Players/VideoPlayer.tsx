@@ -111,7 +111,7 @@ export const VideoPlayer = ({
     } else if (autoplay && !prefersReducedMotion) {
       try {
         // Older browsers may not return a promise, so .play could return undefined
-        videoElement.play()?.catch(e => {
+        videoElement.play()?.catch(() => {
           /*
            * An DOMException _may_ be raised by some browsers if we
            * programatically interact with the video before the
