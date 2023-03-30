@@ -2,11 +2,11 @@ import React from "react"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
-import { DateRangeDisplayLabel } from "./components/DateRangeDisplayLabel"
+import { DateRangeDisplayLabel } from "./subcomponents/DateRangeDisplayLabel"
 import {
   FilterDateRangePickerField,
   FilterDateRangePickerFieldProps,
-} from "./components/FilterDateRangePickerField"
+} from "./subcomponents/FilterDateRangePickerField"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 
 export interface FilterDateRangePickerProps

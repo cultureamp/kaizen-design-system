@@ -1,2 +1,2 @@
 export * from "./FilterDateRangePicker"
-export * from "./components/FilterDateRangePickerField/types"
+export * from "./subcomponents/FilterDateRangePickerField/types"

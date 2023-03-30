@@ -7,8 +7,8 @@ import { dateRangePickerLocaleControls } from "@kaizen/date-picker/docs/controls
 import { DateRange } from "@kaizen/date-picker/src/types"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton, FilterButtonRemovable } from "../../FilterButton"
-import { validationControls } from "../components/FilterDateRangePickerField/_docs/validationControls"
 import { FilterDateRangePicker, FilterDateRangePickerProps } from "../index"
+import { validationControls } from "../subcomponents/FilterDateRangePickerField/_docs/validationControls"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -44,15 +44,12 @@ export default {
 export const DefaultStory = (
   props: FilterDateRangePickerProps
 ): JSX.Element => {
-  // const { validation, status, validationMessage, ...restProps } = props
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
-  // const mergedProps = { ...restProps, ...validation }
 
   return (
     <FilterDateRangePicker
       {...props}
-      // Create custom control?
       renderTrigger={(triggerButtonProps): JSX.Element => (
         <FilterButton {...triggerButtonProps} />
       )}
