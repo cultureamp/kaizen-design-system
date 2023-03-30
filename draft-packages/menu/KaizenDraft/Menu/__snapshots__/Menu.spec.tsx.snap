@@ -6,6 +6,7 @@ exports[`Dropdown renders default view 1`] = `
     class="buttonWrapper"
   >
     <span
+      aria-live="polite"
       class="container"
     >
       <button

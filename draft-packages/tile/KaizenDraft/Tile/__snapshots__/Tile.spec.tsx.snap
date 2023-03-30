@@ -190,6 +190,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
         class="informationBtn"
       >
         <span
+          aria-live="polite"
           class="container"
         >
           <button
@@ -258,6 +259,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
         class="informationBtn"
       >
         <span
+          aria-live="polite"
           class="container"
         >
           <button
@@ -303,6 +305,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
             class="actions"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <button
@@ -540,6 +543,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
           class="actions"
         >
           <span
+            aria-live="polite"
             class="container"
           >
             <a
@@ -606,6 +610,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with assertive mo
             class="p-0 mr-0-point-5"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <a
@@ -626,6 +631,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with assertive mo
             </span>
           </div>
           <span
+            aria-live="polite"
             class="container"
           >
             <a
@@ -692,6 +698,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with cautionary m
             class="p-0 mr-0-point-5"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <a
@@ -712,6 +719,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with cautionary m
             </span>
           </div>
           <span
+            aria-live="polite"
             class="container"
           >
             <a
@@ -778,6 +786,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with informative 
             class="p-0 mr-0-point-5"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <a
@@ -798,6 +807,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with informative 
             </span>
           </div>
           <span
+            aria-live="polite"
             class="container"
           >
             <a
@@ -864,6 +874,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with negative moo
             class="p-0 mr-0-point-5"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <a
@@ -884,6 +895,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with negative moo
             </span>
           </div>
           <span
+            aria-live="polite"
             class="container"
           >
             <a
@@ -950,6 +962,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with positive moo
             class="p-0 mr-0-point-5"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <a
@@ -970,6 +983,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with positive moo
             </span>
           </div>
           <span
+            aria-live="polite"
             class="container"
           >
             <a
@@ -1036,6 +1050,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with prominent mo
             class="p-0 mr-0-point-5"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <a
@@ -1056,6 +1071,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with prominent mo
             </span>
           </div>
           <span
+            aria-live="polite"
             class="container"
           >
             <a
@@ -1122,6 +1138,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
             class="p-0 mr-0-point-5"
           >
             <span
+              aria-live="polite"
               class="container"
             >
               <a
@@ -1142,6 +1159,7 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
             </span>
           </div>
           <span
+            aria-live="polite"
             class="container"
           >
             <a
