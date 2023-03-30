@@ -29,8 +29,8 @@
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test",
     "pkg:aio:compile": "yarn pkg:aio compile",
-    "ci:version": "yarn changesets version",
-    "ci:publish": "yarn changesets publish"
+    "ci:version": "yarn changeset version",
+    "ci:publish": "yarn changeset publish"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
