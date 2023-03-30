@@ -1,11 +1,19 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+- ae55e7acd: Add aria-live to GenericButton to support screen readers reading the working state label.
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@2.0.29...@kaizen/button@2.1.0) (2023-03-30)
 
 ### Features
+
+- 71-working-button-state-needs-to-be-announced-with-a-live-region ([#3406](https://github.com/cultureamp/kaizen-design-system/issues/3406)) ([ae55e7a](https://github.com/cultureamp/kaizen-design-system/commit/ae55e7acd8ef6d9d0797a5f9adc9e206a9995f66))
 
 ## [2.0.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/button@2.0.28...@kaizen/button@2.0.29) (2023-03-29)
 
