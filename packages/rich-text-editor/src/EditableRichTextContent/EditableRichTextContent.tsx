@@ -16,7 +16,7 @@ export interface EditableRichTextContentProps
   content: EditorContentArray
   labelText: string
   isLabelHidden?: boolean
-  contentProps?: Omit<RichTextContentProps, "contents">
+  contentProps?: Omit<RichTextContentProps, "content">
 }
 
 const handleEditableClick = (
