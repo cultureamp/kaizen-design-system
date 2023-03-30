@@ -1,9 +1,11 @@
-import { ValidationResponse } from "../../types"
-import { FieldValidation } from "../types"
+// import { ValidationResponse } from "../../types"
+import { ValidationResponse } from "@kaizen/date-picker"
+import { ValidationMessage } from "../types"
+// import { FieldValidation } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
 const onValidate = jest.fn<void, [ValidationResponse]>()
-const setInbuiltValidation = jest.fn<void, [FieldValidation]>()
+const setInbuiltValidation = jest.fn<void, [ValidationMessage | undefined]>()
 
 describe("getDateValidationHandler", () => {
   afterEach(() => {
@@ -55,7 +57,7 @@ describe("getDateValidationHandler", () => {
       expect(onValidate).not.toBeCalled()
       expect(setInbuiltValidation).toBeCalledWith({
         status: undefined,
-        validationMessage: undefined,
+        message: undefined,
       })
     })
 
@@ -73,7 +75,7 @@ describe("getDateValidationHandler", () => {
       expect(onValidate).not.toBeCalled()
       expect(setInbuiltValidation).toBeCalledWith({
         status: "error",
-        validationMessage: "Field label: Custom error message",
+        message: "Field label: Custom error message",
       })
     })
   })

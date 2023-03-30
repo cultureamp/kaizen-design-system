@@ -24,7 +24,7 @@ import {
 } from "../DateRangeInputField"
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
-import { DateRangeValidationStatus } from "./types"
+import { DateRangeValidationStatus, ValidationMessage } from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
 
 type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
@@ -36,8 +36,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 export type FilterDateRangePickerFieldProps = OverrideClassName<
   HTMLAttributes<HTMLDivElement>
 > &
-  DisabledDayMatchers &
-  DateRangeValidationStatus & {
+  DisabledDayMatchers & {
     id: string
     label: string
     locale: SupportedLocales
@@ -60,6 +59,10 @@ export type FilterDateRangePickerFieldProps = OverrideClassName<
      * Custom description to provide extra context (input format help text remains).
      */
     description?: DateRangeInputFieldProps["description"]
+    validationMessage?: {
+      dateStart?: ValidationMessage
+      dateEnd?: ValidationMessage
+    }
     /**
      * Callback when a date is selected. Utilises internal validation if not set.
      */
@@ -85,7 +88,7 @@ export const FilterDateRangePickerField = ({
   inputRangeStartProps,
   inputRangeEndProps,
   description,
-  status,
+  // status,
   validationMessage,
   onValidate,
   classNameOverride,

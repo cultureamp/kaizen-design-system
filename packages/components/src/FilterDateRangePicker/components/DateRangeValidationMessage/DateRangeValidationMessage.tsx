@@ -1,32 +1,30 @@
 import React from "react"
 import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
+import { DateRangeFieldValidationMessage } from "../FilterDateRangePickerField/types"
 import styles from "./DateRangeValidationMessage.module.scss"
 
-export type DateRangeValidationMessageDateStatus = FieldMessageStatus
-export type DateRangeValidationMessageDateMessage = React.ReactNode
+// export type DateRangeValidationMessageDateStatus = FieldMessageStatus
+// export type DateRangeValidationMessageDateMessage = React.ReactNode
 
 export type DateRangeValidationMessageProps = {
   /**
    * Updates the styling of the validation FieldMessage
    */
-  status?: {
-    dateStart?: DateRangeValidationMessageDateStatus
-    dateEnd?: DateRangeValidationMessageDateStatus
-  }
+  // status?: {
+  //   dateStart?: DateRangeValidationMessageDateStatus
+  //   dateEnd?: DateRangeValidationMessageDateStatus
+  // }
   /**
    * A descriptive message for `status` states
    */
-  validationMessage?: {
-    dateStart?: DateRangeValidationMessageDateMessage
-    dateEnd?: DateRangeValidationMessageDateMessage
-  }
+  validationMessage?: DateRangeFieldValidationMessage
   dateStartId?: string
   dateEndId?: string
   isReversed?: boolean
 }
 
 export const DateRangeValidationMessage = ({
-  status,
+  // status,
   validationMessage,
   dateStartId,
   dateEndId,
@@ -34,58 +32,66 @@ export const DateRangeValidationMessage = ({
 }: DateRangeValidationMessageProps): JSX.Element | null => {
   if (!validationMessage) return null
 
-  if (status?.dateEnd && status?.dateStart) {
-    if (status.dateEnd === status.dateStart) {
+  const dateStart = validationMessage.dateStart
+  const dateEnd = validationMessage.dateEnd
+
+  if (dateStart && dateEnd) {
+    if (dateStart.status === dateEnd.status) {
       return (
         <FieldMessage
           message={
             <ul className={styles.fieldMessageList}>
-              <li id={dateStartId}>{validationMessage.dateStart}</li>
-              <li id={dateEndId}>{validationMessage.dateEnd}</li>
+              <li id={dateStartId}>{dateStart.message}</li>
+              <li id={dateEndId}>{dateEnd.message}</li>
             </ul>
           }
-          status={status?.dateStart || status?.dateEnd}
+          status={dateStart.status || dateEnd.status}
           reversed={isReversed}
         />
       )
     }
+
     return (
       <>
         <FieldMessage
           id={dateStartId}
-          message={validationMessage.dateStart}
-          status={status?.dateStart}
+          message={dateStart.message}
+          status={dateStart.status}
           reversed={isReversed}
         />
         <FieldMessage
           id={dateEndId}
-          message={validationMessage.dateEnd}
-          status={status?.dateEnd}
+          message={dateEnd.message}
+          status={dateEnd.status}
           reversed={isReversed}
         />
       </>
     )
   }
 
-  if (validationMessage.dateStart) {
+  if (dateStart) {
     return (
       <FieldMessage
         id={dateStartId}
-        message={validationMessage.dateStart}
-        status={status?.dateStart}
+        message={dateStart.message}
+        status={dateStart.status}
         reversed={isReversed}
       />
     )
   }
 
-  return (
-    <FieldMessage
-      id={dateEndId}
-      message={validationMessage.dateEnd}
-      status={status?.dateEnd}
-      reversed={isReversed}
-    />
-  )
+  if (dateEnd) {
+    return (
+      <FieldMessage
+        id={dateEndId}
+        message={dateEnd.message}
+        status={dateEnd.status}
+        reversed={isReversed}
+      />
+    )
+  }
+
+  return null
 }
 
 DateRangeValidationMessage.displayName = "DateRangeValidationMessage"

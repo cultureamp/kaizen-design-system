@@ -1,4 +1,4 @@
-import { FieldValidation } from "../types"
+import { ValidationMessage } from "../types"
 import {
   useRangeDateValidation,
   UseRangeDateValidationArgs,
@@ -6,7 +6,8 @@ import {
 
 export type UseStartDateValidationArgs = UseRangeDateValidationArgs
 
-export type UseStartDateValidationValue = FieldValidation & {
+export type UseStartDateValidationValue = {
+  validationMessage: ValidationMessage
   validateDate: (args: {
     date: Date | undefined
     inputValue: string
@@ -29,7 +30,7 @@ export const useStartDateValidation = (
   }
 
   return {
-    status,
+    // status,
     validationMessage,
     validateDate: validateStartDate,
   }

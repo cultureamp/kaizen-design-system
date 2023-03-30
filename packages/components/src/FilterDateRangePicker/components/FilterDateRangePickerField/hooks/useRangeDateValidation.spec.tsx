@@ -15,7 +15,7 @@ const Wrapper = ({
   inputValue: string
 }): JSX.Element => {
   const [newDate, setNewDate] = useState<Date | undefined>()
-  const { status, validationMessage, validateDate, updateValidation } =
+  const { validationMessage, validateDate, updateValidation } =
     useRangeDateValidation({
       inputLabel: "Start date",
       ...restProps,
@@ -24,8 +24,8 @@ const Wrapper = ({
   return (
     <div>
       <p data-testid="new-date">{newDate ? newDate.toJSON() : "undefined"}</p>
-      <p data-testid="status">{status ?? "undefined"}</p>
-      <p data-testid="message">{validationMessage ?? "undefined"}</p>
+      <p data-testid="status">{validationMessage.status ?? "undefined"}</p>
+      <p data-testid="message">{validationMessage.message ?? "undefined"}</p>
       <button
         type="button"
         onClick={(): void => {

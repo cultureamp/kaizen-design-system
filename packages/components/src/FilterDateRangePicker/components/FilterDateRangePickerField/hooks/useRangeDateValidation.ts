@@ -2,18 +2,20 @@ import { useState } from "react"
 import { Matcher, ValidationResponse } from "@kaizen/date-picker/src/types"
 import { validateDate } from "@kaizen/date-picker/src/utils/validateDate"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { FieldValidation } from "../types"
+import { FieldValidation, ValidationMessage } from "../types"
 import { getDateValidationHandler } from "../utils/getDateValidationHandler"
 
 export type UseRangeDateValidationArgs = {
   inputLabel: React.ReactNode
   disabledDays?: Matcher[] | undefined
-  status?: FieldMessageStatus | undefined
-  validationMessage?: React.ReactNode | undefined
+  // status?: FieldMessageStatus | undefined
+  // validationMessage?: React.ReactNode | undefined
+  validationMessage?: ValidationMessage
   onValidate?: (validationResponse: ValidationResponse) => void
 }
 
-export type UseRangeDateValidationValue = FieldValidation & {
+export type UseRangeDateValidationValue = {
+  validationMessage: ValidationMessage
   validateDate: (args: {
     date: Date | undefined
     inputValue: string
@@ -24,11 +26,11 @@ export type UseRangeDateValidationValue = FieldValidation & {
 export const useRangeDateValidation = ({
   inputLabel,
   disabledDays,
-  status,
+  // status,
   validationMessage,
   onValidate,
 }: UseRangeDateValidationArgs): UseRangeDateValidationValue => {
-  const [inbuiltValidation, setInbuiltValidation] = useState<FieldValidation>()
+  const [inbuiltValidation, setInbuiltValidation] = useState<ValidationMessage>()
 
   const shouldUseInbuiltDateValidation = onValidate === undefined
 
@@ -49,7 +51,7 @@ export const useRangeDateValidation = ({
     })
 
   return {
-    status: shouldUseInbuiltDateValidation ? inbuiltValidation?.status : status,
+    // status: shouldUseInbuiltDateValidation ? inbuiltValidation?.status : status,
     validationMessage: shouldUseInbuiltDateValidation
       ? inbuiltValidation?.validationMessage
       : validationMessage,
