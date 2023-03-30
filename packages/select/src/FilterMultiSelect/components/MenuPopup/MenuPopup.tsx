@@ -1,7 +1,6 @@
 import React from "react"
 import { FocusScope } from "@react-aria/focus"
 import { useOverlay, DismissButton } from "@react-aria/overlays"
-import { mergeProps } from "@react-aria/utils"
 import { useMenuTriggerContext } from "../../provider"
 import styles from "./MenuPopup.module.scss"
 
@@ -16,7 +15,7 @@ export const MenuPopup = ({
   loadingSkeleton,
   children,
 }: MenuPopupProps): JSX.Element => {
-  const { menuTriggerState, menuProps } = useMenuTriggerContext()
+  const { menuTriggerState } = useMenuTriggerContext()
 
   const onClose = (): void => menuTriggerState.close()
 
@@ -37,11 +36,7 @@ export const MenuPopup = ({
   // In addition, add hidden <DismissButton> components at the start and end of the list
   // to allow screen reader users to dismiss the popup easily.
   return menuTriggerState.isOpen ? (
-    <div
-      {...mergeProps(overlayProps, menuProps)}
-      ref={overlayRef}
-      className={styles.menuPopup}
-    >
+    <div {...overlayProps} ref={overlayRef} className={styles.menuPopup}>
       {isLoading && loadingSkeleton ? (
         <>
           <DismissButton onDismiss={onClose} />

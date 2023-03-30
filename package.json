@@ -82,7 +82,7 @@
     "@types/classnames": "^2.3.1",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.11.18",
-    "@types/react": "^18.0.29",
+    "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
@@ -133,7 +133,7 @@
     "webpack": "^5.77.0"
   },
   "resolutions": {
-    "@types/react": "^18.0.29",
+    "@types/react": "^18.0.31",
     "commitizen": "^4.3.0"
   },
   "resolutionsComments": {
