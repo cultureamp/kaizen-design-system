@@ -212,7 +212,6 @@ class GuidanceBlock extends React.Component<
       illustration,
       persistent,
       withActionButtonArrow,
-      noMaxWidth,
       illustrationType,
     } = this.props
 

@@ -65,16 +65,16 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
       children,
       title,
       renderHeader,
-      open: propsOpen, // Unused, but extracted so as not to spread into the container
+      open: _propsOpen, // Unused, but extracted so as not to spread into the container
       group,
       separated,
       sticky,
       noSectionPadding,
       automationId,
-      onToggle, // Unused, but extracted so as not to spread into the container
+      onToggle: _onToggle, // Unused, but extracted so as not to spread into the container
       variant = "default",
       lazyLoad,
-      controlled, // Unused, but extracted so as not to spread into the container
+      controlled: _controlled, // Unused, but extracted so as not to spread into the container
       classNameOverride,
       ...props
     } = this.props

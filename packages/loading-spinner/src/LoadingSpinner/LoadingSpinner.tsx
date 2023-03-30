@@ -20,7 +20,7 @@ export interface LoadingSpinnerProps
  * {@link https://cultureamp.design/storybook/?path=/docs/components-loading-spinner--default-story Storybook}
  */
 export const LoadingSpinner = ({
-  children,
+  children: _children, // not used
   accessibilityLabel = "Loading",
   size = "md",
   classNameOverride,

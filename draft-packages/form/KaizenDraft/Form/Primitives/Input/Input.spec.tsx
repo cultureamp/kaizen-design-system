@@ -1,11 +1,8 @@
 import React from "react"
 import { fireEvent } from "@testing-library/dom"
-import { cleanup, render } from "@testing-library/react"
-
+import { render } from "@testing-library/react"
 import { InputProps } from "./Input"
 import { Input } from "."
-
-afterEach(cleanup)
 
 const defaultInputProps = {
   id: "someInputId",
@@ -20,7 +17,7 @@ const renderInput = (props?: InputProps): ReturnType<typeof render> => {
 }
 
 describe("<Input />", () => {
-  it("should render a value inside of input", () => {
+  it("renders a value inside of input", () => {
     const { container } = renderInput()
 
     expect(
@@ -28,7 +25,7 @@ describe("<Input />", () => {
     ).toBeTruthy()
   })
 
-  it("should call the `onChange` event when text value is updated", () => {
+  it("calls the `onChange` event when text value is updated", () => {
     const placeholder = "someInputPlaceholder"
     const utils = renderInput({ inputValue: "", placeholder })
     const input = utils.getByPlaceholderText(placeholder)
@@ -40,19 +37,19 @@ describe("<Input />", () => {
     expect(defaultInputProps.onChange).toBeCalledTimes(1)
   })
 
-  it("should render a disabled inside of input", () => {
+  it("renders a disabled inside of input", () => {
     const { container } = renderInput({ disabled: true })
     expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
-  it("should render an `id` attribute", () => {
+  it("renders an `id` attribute", () => {
     const { container } = renderInput()
     expect(
       container.querySelector(`[id="${defaultInputProps.id}"]`)
     ).toBeTruthy()
   })
 
-  it("should render an `ariaDescribedBy` attribute", () => {
+  it("renders an `ariaDescribedBy` attribute", () => {
     const ariaDescribedBy = "someInputMessageId"
 
     const { container } = renderInput({ ariaDescribedBy })
@@ -61,7 +58,7 @@ describe("<Input />", () => {
     ).toBeTruthy()
   })
 
-  it("should render an `data-automation-id` attribute", () => {
+  it("renders an `data-automation-id` attribute", () => {
     const automationId = "someInputAutomationId"
 
     const { container } = renderInput({ automationId })
@@ -70,18 +67,18 @@ describe("<Input />", () => {
     ).toBeTruthy()
   })
 
-  it("should render a reversed input", () => {
+  it("renders a reversed input", () => {
     const { container } = renderInput({ reversed: true })
     expect(container.querySelector(".reversed")).toBeTruthy()
   })
 
-  it("should render a `success` input", () => {
+  it("renders a `success` input", () => {
     const { container } = renderInput({ status: "success" })
 
     expect(container.querySelector(".success")).toBeTruthy()
   })
 
-  it("should render an `error` input", () => {
+  it("renders an `error` input", () => {
     const { container } = renderInput({ status: "error" })
 
     expect(container.querySelector(".error")).toBeTruthy()

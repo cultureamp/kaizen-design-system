@@ -1,40 +1,38 @@
 import * as React from "react"
-import { cleanup, render, screen, fireEvent } from "@testing-library/react"
+import { render, screen, fireEvent } from "@testing-library/react"
 import Dropdown from "./Dropdown"
-
-afterEach(cleanup)
 
 const svgIcon = {
   id: "my-icon",
   viewBox: "0 0 20 20",
 }
 
-describe("Dropdown", () => {
-  test("renders default view", () => {
+describe("<Dropdown />", () => {
+  it("renders default view", () => {
     const { container } = render(<Dropdown />)
 
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test("renders drop down with icon", () => {
+  it("renders drop down with icon", () => {
     const { container } = render(<Dropdown icon={svgIcon} />)
 
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test("renders drop down with icon and label", () => {
+  it("renders drop down with icon and label", () => {
     const { container } = render(<Dropdown icon={svgIcon} label="add" />)
 
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test("renders drop down with only label", () => {
+  it("renders drop down with only label", () => {
     const { container } = render(<Dropdown label="add" />)
 
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test("renders control action dropdown", () => {
+  it("renders control action dropdown", () => {
     const { container } = render(
       <Dropdown icon={svgIcon} label="add" controlAction />
     )
@@ -42,7 +40,7 @@ describe("Dropdown", () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test("renders reversed color control action dropdown", () => {
+  it("renders reversed color control action dropdown", () => {
     const { container } = render(
       <Dropdown icon={svgIcon} label="add" controlAction reversedColor />
     )
@@ -50,7 +48,7 @@ describe("Dropdown", () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test("shows dropdown menu when clicking on the button", () => {
+  it("shows dropdown menu when clicking on the button", () => {
     const { container } = render(
       <Dropdown>
         <div>Item</div>

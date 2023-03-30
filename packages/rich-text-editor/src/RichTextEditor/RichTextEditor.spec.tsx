@@ -23,9 +23,7 @@ const TestRTE = (
   }
 ): JSX.Element => {
   const { rteMockData, ...rest } = args
-  const [rteData, setRTEData] = useState<EditorContentArray>(
-    args.rteMockData || []
-  )
+  const [rteData, setRTEData] = useState<EditorContentArray>(rteMockData || [])
   const handleOnChange = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
   return (

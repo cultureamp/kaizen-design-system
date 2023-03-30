@@ -1,8 +1,6 @@
 import React from "react"
-import { cleanup, render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { Badge, BadgeProps } from "./Badge"
-
-afterEach(cleanup)
 
 const renderBadge = (props?: BadgeProps): ReturnType<typeof render> =>
   render(<Badge {...props} />)
