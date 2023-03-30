@@ -40,7 +40,8 @@ main() {
 
   git checkout main && git pull
 
-  npx @changesets/cli publish
+  yarn install --frozen-lockfile
+  yarn ci:publish
 
   echo "All done!"
 

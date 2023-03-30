@@ -8,16 +8,17 @@ on:
 jobs:
   version:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+          cache: yarn
+      - run: |
+          yarn install --frozen-lockfile --ignore-scripts
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
           title: "chore: version packages"
           commit: "chore: version packages"
-          version: npx @changesets/cli version
+          version: yarn ci:version
