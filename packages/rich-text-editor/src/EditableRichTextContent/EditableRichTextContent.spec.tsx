@@ -1,13 +1,14 @@
 import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import "@testing-library/jest-dom"
+import { RichTextContentProps } from "../RichTextContent"
 import { EditableRichTextContent } from "./EditableRichTextContent"
 
 const mockFn = jest.fn()
 
 jest.mock("../../", () => ({
   __esModule: true,
-  RichTextContent: props => {
+  RichTextContent: (props: RichTextContentProps): JSX.Element => {
     mockFn(props)
     return <div>Mocked Component</div>
   },
