@@ -3,8 +3,8 @@ import { render, screen, within } from "@testing-library/react"
 import { DateRangeValidationMessage } from "./DateRangeValidationMessage"
 
 describe("<DateRangeValidationMessage />", () => {
-  describe("will render a single validation field message", () => {
-    test("when the consumer has given it a node", () => {
+  describe("when the consumer has given it a node", () => {
+    it("will render a single validation field message", () => {
       render(
         <DateRangeValidationMessage
           status={{
@@ -39,24 +39,25 @@ describe("<DateRangeValidationMessage />", () => {
       expect(items.length).toBe(2)
       expect(container.getElementsByClassName("error").length).toBe(1)
     })
-    describe("will render two validation field messages", () => {
-      test("when consumer passes validationMessage object and has different status", () => {
-        const { container } = render(
-          <DateRangeValidationMessage
-            status={{
-              dateEnd: "error",
-              dateStart: "caution",
-            }}
-            validationMessage={{
-              dateStart: '"Date from" is close to the submission date.',
-              dateEnd:
-                '"Date to" cannot be earlier than the "Date from" selection.',
-            }}
-          />
-        )
-        expect(container.getElementsByClassName("error").length).toBe(1)
-        expect(container.getElementsByClassName("caution").length).toBe(1)
-      })
+  })
+
+  describe("when consumer passes validationMessage object and has different status", () => {
+    it("will render two validation field messages", () => {
+      const { container } = render(
+        <DateRangeValidationMessage
+          status={{
+            dateEnd: "error",
+            dateStart: "caution",
+          }}
+          validationMessage={{
+            dateStart: '"Date from" is close to the submission date.',
+            dateEnd:
+              '"Date to" cannot be earlier than the "Date from" selection.',
+          }}
+        />
+      )
+      expect(container.getElementsByClassName("error").length).toBe(1)
+      expect(container.getElementsByClassName("caution").length).toBe(1)
     })
   })
 
