@@ -17,6 +17,8 @@ steps:
     if: build.branch == "main" && build.author.name == "github-actions[bot]"
     <<: *defaults
     plugins:
+      - cultureamp/aws-assume-role#v0.2.0:
+          role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.9.0:
           run: release
 
