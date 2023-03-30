@@ -23,7 +23,6 @@ describe("useRangeDateValidation()", () => {
 
   describe("with an invalid date", () => {
     it("returns an error status, a validation message and no date", () => {
-      console.log("TYPEOF", typeof renderHook)
       const { result } = renderHook(() =>
         useRangeDateValidation({
           inputLabel: "Start date",
