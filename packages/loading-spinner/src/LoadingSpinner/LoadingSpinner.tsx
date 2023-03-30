@@ -32,9 +32,7 @@ export const LoadingSpinner = ({
     role="status"
     {...props}
   >
-    <span className={styles.visuallyHidden} aria-live="polite">
-      {accessibilityLabel}
-    </span>
+    <span className={styles.visuallyHidden}>{accessibilityLabel}</span>
     {size === "md" ? (
       <svg
         className={styles.spinner}
