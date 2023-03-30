@@ -3,7 +3,11 @@ import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label } from "@kaizen/draft-form"
-import { EditorContentArray, RichTextContent, RichTextContentProps } from "../../"
+import {
+  EditorContentArray,
+  RichTextContent,
+  RichTextContentProps,
+} from "../../"
 import styles from "./EditableRichTextContent.module.scss"
 
 export interface EditableRichTextContentProps
