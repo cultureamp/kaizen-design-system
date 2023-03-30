@@ -1,11 +1,5 @@
 # Change Log
 
-## 2.2.0
-
-### Minor Changes
-
-- ae55e7acd: Add aria-live to GenericButton to support screen readers reading the working state label.
-
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
