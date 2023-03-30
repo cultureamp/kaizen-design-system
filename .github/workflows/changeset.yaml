@@ -20,4 +20,4 @@ jobs:
         with:
           title: "chore: version packages"
           commit: "chore: version packages"
-          version: npx changeset version
+          version: npx @changesets/cli version

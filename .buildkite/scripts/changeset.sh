@@ -40,7 +40,7 @@ main() {
 
   git checkout main && git pull
 
-  npx changeset publish
+  npx @changesets/cli publish
 
   echo "All done!"
 
