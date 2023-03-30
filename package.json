@@ -28,9 +28,7 @@
     "plop": "plop",
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test",
-    "pkg:aio:compile": "yarn pkg:aio compile",
-    "ci:version": "yarn changeset version",
-    "ci:publish": "yarn changeset publish"
+    "pkg:aio:compile": "yarn pkg:aio compile"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
