@@ -30,7 +30,6 @@ export const useStartDateValidation = (
   }
 
   return {
-    // status,
     validationMessage,
     validateDate: validateStartDate,
   }

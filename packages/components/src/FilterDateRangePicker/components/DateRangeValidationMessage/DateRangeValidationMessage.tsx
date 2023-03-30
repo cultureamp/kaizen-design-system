@@ -3,20 +3,7 @@ import { FieldMessage } from "@kaizen/draft-form"
 import { DateRangeFieldValidationMessage } from "../FilterDateRangePickerField/types"
 import styles from "./DateRangeValidationMessage.module.scss"
 
-// export type DateRangeValidationMessageDateStatus = FieldMessageStatus
-// export type DateRangeValidationMessageDateMessage = React.ReactNode
-
 export type DateRangeValidationMessageProps = {
-  /**
-   * Updates the styling of the validation FieldMessage
-   */
-  // status?: {
-  //   dateStart?: DateRangeValidationMessageDateStatus
-  //   dateEnd?: DateRangeValidationMessageDateStatus
-  // }
-  /**
-   * A descriptive message for `status` states
-   */
   validationMessage?: DateRangeFieldValidationMessage
   dateStartId?: string
   dateEndId?: string
@@ -24,7 +11,6 @@ export type DateRangeValidationMessageProps = {
 }
 
 export const DateRangeValidationMessage = ({
-  // status,
   validationMessage,
   dateStartId,
   dateEndId,

@@ -7,8 +7,6 @@ import { validateDate } from "../utils/validateDate"
 export type UseRangeDateValidationArgs = {
   inputLabel: React.ReactNode
   disabledDays?: Matcher[] | undefined
-  // status?: FieldMessageStatus | undefined
-  // validationMessage?: React.ReactNode | undefined
   validationMessage?: ValidationMessage
   onValidate?: (validationResponse: DateValidationResponse) => void
 }
@@ -25,7 +23,6 @@ export type UseRangeDateValidationValue = {
 export const useRangeDateValidation = ({
   inputLabel,
   disabledDays,
-  // status,
   validationMessage,
   onValidate,
 }: UseRangeDateValidationArgs): UseRangeDateValidationValue => {
@@ -52,7 +49,6 @@ export const useRangeDateValidation = ({
     })
 
   return {
-    // status: shouldUseInbuiltDateValidation ? inbuiltValidationMessage?.status : status,
     validationMessage: shouldUseInbuiltDateValidation
       ? inbuiltValidationMessage
       : validationMessage,
