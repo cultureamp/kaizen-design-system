@@ -63,4 +63,4 @@ main() {
 
 main
 
-unset -f main setup_github
+unset -f main setup_github setup_npm
