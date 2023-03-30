@@ -35,41 +35,40 @@ type InputRangeEndProps = DateRangeInputFieldProps["inputRangeEndProps"]
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
-export type FilterDateRangePickerFieldProps = OverrideClassName<
-  HTMLAttributes<HTMLDivElement>
-> &
-  DisabledDayMatchers & {
-    id: string
-    label: string
-    locale: SupportedLocales
-    /**
-     * Sets first displayed month to month of provided date if there isn't a date set.
-     */
-    defaultMonth?: CalendarRangeProps["defaultMonth"]
-    /**
-     * The date range passed in from the consumer that renders in the inputs and calendar.
-     */
-    selectedRange: DateRange | undefined
-    /**
-     * Callback when date is updated either by the calendar picker or by typing and blurring.
-     * Date will return as `undefined` if empty, invalid or disabled.
-     */
-    onRangeChange: (range: DateRange | undefined) => void
-    inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
-    inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
-    /**
-     * Custom description to provide extra context (input format help text remains).
-     */
-    description?: DateRangeInputFieldProps["description"]
-    validationMessage?: DateRangeFieldValidationMessage
-    /**
-     * Callback when a date is selected. Utilises internal validation if not set.
-     */
-    onValidate?: {
-      dateStart?: (validationResponse: DateValidationResponse) => void
-      dateEnd?: (validationResponse: DateValidationResponse) => void
-    }
+export interface FilterDateRangePickerFieldProps
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
+    DisabledDayMatchers {
+  id: string
+  label: string
+  locale: SupportedLocales
+  /**
+   * Sets first displayed month to month of provided date if there isn't a date set.
+   */
+  defaultMonth?: CalendarRangeProps["defaultMonth"]
+  /**
+   * The date range passed in from the consumer that renders in the inputs and calendar.
+   */
+  selectedRange: DateRange | undefined
+  /**
+   * Callback when date is updated either by the calendar picker or by typing and blurring.
+   * Date will return as `undefined` if empty, invalid or disabled.
+   */
+  onRangeChange: (range: DateRange | undefined) => void
+  inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
+  inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
+  /**
+   * Custom description to provide extra context (input format help text remains).
+   */
+  description?: DateRangeInputFieldProps["description"]
+  validationMessage?: DateRangeFieldValidationMessage
+  /**
+   * Callback when a date is selected. Utilises internal validation if not set.
+   */
+  onValidate?: {
+    dateStart?: (validationResponse: DateValidationResponse) => void
+    dateEnd?: (validationResponse: DateValidationResponse) => void
   }
+}
 
 export const FilterDateRangePickerField = ({
   id,

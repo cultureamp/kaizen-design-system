@@ -9,7 +9,8 @@ import {
 } from "./components/FilterDateRangePickerField"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 
-export type FilterDateRangePickerProps = FilterDateRangePickerFieldProps & {
+export interface FilterDateRangePickerProps
+  extends FilterDateRangePickerFieldProps {
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
