@@ -1,9 +1,6 @@
 import * as React from "react"
-import { cleanup, render } from "@testing-library/react"
-
+import { render } from "@testing-library/react"
 import { Icon } from "@kaizen/component-library"
-
-afterEach(cleanup)
 
 const svgIcon = {
   id: "my-icon",
@@ -12,16 +9,16 @@ const svgIcon = {
 
 describe("<Icon />", () => {
   describe("presentational", () => {
-    it("should not render a title", () => {
+    it("does not render a title", () => {
       const title = "My unnecessary accessible title"
-
       const { queryByText } = render(
         <Icon title={title} icon={svgIcon} role="presentation" />
       )
+
       expect(queryByText(title)).toBeFalsy()
     })
 
-    it("should not render a description", () => {
+    it("does not render a description", () => {
       const description = "My unnecessary accessible icon description"
 
       const { queryByText } = render(
@@ -30,7 +27,7 @@ describe("<Icon />", () => {
       expect(queryByText(description)).toBeFalsy()
     })
 
-    it("should not be visible to screen readers", () => {
+    it("is not visible to screen readers", () => {
       const title = "My accessible title"
       const description = "My accessible icon description"
 
@@ -48,7 +45,7 @@ describe("<Icon />", () => {
   })
 
   describe("meaningful", () => {
-    it("should render a title", () => {
+    it("renders a title", () => {
       const title = "My accessible title"
 
       const { queryByText } = render(
@@ -57,7 +54,7 @@ describe("<Icon />", () => {
       expect(queryByText(title)).toBeTruthy()
     })
 
-    it("should render a description", () => {
+    it("renders a description", () => {
       const description = "My accessible icon description"
 
       const { queryByText } = render(

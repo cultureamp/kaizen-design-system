@@ -15,7 +15,7 @@ const renderCheckboxGroupProps = (
   return render(<CheckboxGroup {...mergedCheckboxGroupProps} />)
 }
 
-describe("<CheckboxGroup /> ", () => {
+describe("<CheckboxGroup />", () => {
   it("renders a `data-automation-id` attribute", () => {
     const { container } = renderCheckboxGroupProps()
     expect(

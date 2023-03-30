@@ -1,8 +1,6 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { FieldGroup, FieldGroupProps } from "./index"
-
-afterEach(cleanup)
 
 const defaultFieldGroupProps = {
   id: "someFieldGroupId",
@@ -17,7 +15,7 @@ const renderFieldGroup = (
 }
 
 describe("<FieldGroup />", () => {
-  it("should render an `id` attribute", () => {
+  it("renders an `id` attribute", () => {
     const { container } = renderFieldGroup()
 
     expect(
@@ -25,7 +23,7 @@ describe("<FieldGroup />", () => {
     ).toBeTruthy()
   })
 
-  it("should render an `data-automation-id` attribute", () => {
+  it("renders an `data-automation-id` attribute", () => {
     const automationId = "someFieldGroupAutomationId"
     const { container } = renderFieldGroup({ automationId })
 

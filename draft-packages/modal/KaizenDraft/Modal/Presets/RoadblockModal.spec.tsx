@@ -1,9 +1,7 @@
 import React from "react"
-import { cleanup, render, fireEvent } from "@testing-library/react"
+import { render, fireEvent } from "@testing-library/react"
 import RoadblockModal, { RoadblockModalProps } from "./RoadblockModal"
 import "./matchMedia.mock"
-
-afterEach(cleanup)
 
 const RoadblockModalWrapper = (
   props: Partial<RoadblockModalProps>

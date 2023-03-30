@@ -120,7 +120,7 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
       ).toBeVisible()
     })
 
-    test("The listbox is labelled by the provided label", () => {
+    it("labels the listbox with the provided label", () => {
       render(<SelectionProviderWrapper />)
       const listBox = screen.getByLabelText("selection-label-mock", {
         selector: "ul",
@@ -157,7 +157,7 @@ describe("<SelectionProviderWrapper /> - Visual content", () => {
     })
   })
 
-  describe("Given selectedKeys is 'all' ", () => {
+  describe("Given selectedKeys is 'all'", () => {
     it("shows all options are selected", () => {
       render(<SelectionProviderWrapper selectedKeys="all" />)
       expect(

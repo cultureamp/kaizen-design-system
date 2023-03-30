@@ -8,13 +8,13 @@ const useDebouncedCallback = useDebounce.useDebouncedCallback as jest.Mock
 
 let mockReturnValue
 
-beforeEach(() => {
-  mockReturnValue = jest.fn()
-  mockReturnValue.cancel = (): void => undefined
-  useDebouncedCallback.mockImplementation(() => mockReturnValue)
-})
-
 describe("<AnimationProvider />", () => {
+  beforeEach(() => {
+    mockReturnValue = jest.fn()
+    mockReturnValue.cancel = (): void => undefined
+    useDebouncedCallback.mockImplementation(() => mockReturnValue)
+  })
+
   describe("When no animationDuration prop is given", () => {
     it("calls useDebouncedCallback with a 400 ms delay", () => {
       render(<AnimationProvider isVisible />)

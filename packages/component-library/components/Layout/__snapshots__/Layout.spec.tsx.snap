@@ -1,25 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Announcers component renders correctly 1`] = `
+exports[`Layout components renders the Announcers component correctly 1`] = `
 <div
   aria-live="assertive"
   class="announcers"
 />
 `;
 
-exports[`The Footer component renders correctly 1`] = `
+exports[`Layout components renders the Footer component correctly 1`] = `
 <footer
   class="footer"
 />
 `;
 
-exports[`The Header component renders correctly 1`] = `
+exports[`Layout components renders the Header component correctly 1`] = `
 <aside
   class="header"
 />
 `;
 
-exports[`The Layout component renders child components in the correct positions 1`] = `
+exports[`Layout components renders the Layout component correctly 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="page"
+  >
+    <div
+      class="body"
+    >
+      <div
+        class="bodyInner"
+      >
+        <main
+          class="content"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Layout components renders the Layout component's child components in the correct positions 1`] = `
 <div
   class="root"
 >
@@ -81,35 +103,13 @@ exports[`The Layout component renders child components in the correct positions 
 </div>
 `;
 
-exports[`The Layout component renders correctly 1`] = `
-<div
-  class="root"
->
-  <div
-    class="page"
-  >
-    <div
-      class="body"
-    >
-      <div
-        class="bodyInner"
-      >
-        <main
-          class="content"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`The NavigationBar component renders correctly 1`] = `
+exports[`Layout components renders the NavigationBar component correctly 1`] = `
 <div
   class="navigationBar"
 />
 `;
 
-exports[`The Sidebar component renders correctly 1`] = `
+exports[`Layout components renders the Sidebar component correctly 1`] = `
 <div
   class="sidebar"
 >
@@ -119,7 +119,7 @@ exports[`The Sidebar component renders correctly 1`] = `
 </div>
 `;
 
-exports[`The Toasts component renders correctly 1`] = `
+exports[`Layout components renders the Toasts component correctly 1`] = `
 <div
   aria-live="assertive"
   class="toasts"
