@@ -1,33 +1,33 @@
 import React from "react"
-import { ValidationResponse } from "@kaizen/date-picker/src/types"
 import { getNodeText } from "../../../../utils/getNodeText"
-import { ValidationMessage } from "../types"
-// import { FieldValidation } from "../types"
+import { ValidationMessage, DateValidationResponse } from "../types"
 
 export type GetDateValidationHandlerArgs = {
-  onValidate: ((validationResponse: ValidationResponse) => void) | undefined
-  setInbuiltValidation: (validationMessage: ValidationMessage | undefined) => void
+  onValidate: ((validationResponse: DateValidationResponse) => void) | undefined
+  setInbuiltValidationMessage: (
+    validationMessage: ValidationMessage | undefined
+  ) => void
   inputLabel: React.ReactNode
 }
 
 export const getDateValidationHandler =
   ({
     onValidate,
-    setInbuiltValidation,
+    setInbuiltValidationMessage,
     inputLabel,
   }: GetDateValidationHandlerArgs) =>
-  (validationResponse: ValidationResponse): void => {
+  (validationResponse: DateValidationResponse): void => {
     if (onValidate) return onValidate(validationResponse)
 
-    const { validationMessage, status } = validationResponse
+    const { validationMessage } = validationResponse
 
-    if (!validationMessage || !status) {
-      setInbuiltValidation(undefined)
+    if (!validationMessage) {
+      setInbuiltValidationMessage(undefined)
       return
     }
 
-    setInbuiltValidation({
-      status,
-      message: `${getNodeText(inputLabel)}: ${validationMessage}`,
+    setInbuiltValidationMessage({
+      status: validationMessage.status,
+      message: `${getNodeText(inputLabel)}: ${validationMessage.message}`,
     })
   }

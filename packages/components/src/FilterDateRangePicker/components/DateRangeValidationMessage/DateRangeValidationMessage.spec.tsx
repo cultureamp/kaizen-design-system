@@ -7,11 +7,11 @@ describe("<DateRangeValidationMessage />", () => {
     it("will render a single validation field message", () => {
       render(
         <DateRangeValidationMessage
-          status={{
-            dateEnd: "error",
-          }}
           validationMessage={{
-            dateEnd: <p>Validation message</p>,
+            dateEnd: {
+              status: "error",
+              message: <p>Validation message</p>,
+            },
           }}
         />
       )
@@ -21,14 +21,16 @@ describe("<DateRangeValidationMessage />", () => {
     it("combines multiple validation messages with the same status", () => {
       const { container } = render(
         <DateRangeValidationMessage
-          status={{
-            dateEnd: "error",
-            dateStart: "error",
-          }}
           validationMessage={{
-            dateStart: '"Date from" is not a valid date selection.',
-            dateEnd:
-              'Date to" cannot be earlier than the "Date from" selection.',
+            dateStart: {
+              status: "error",
+              message: '"Date from" is not a valid date selection.',
+            },
+            dateEnd: {
+              status: "error",
+              message:
+                'Date to" cannot be earlier than the "Date from" selection.',
+            },
           }}
         />
       )
@@ -45,14 +47,16 @@ describe("<DateRangeValidationMessage />", () => {
     it("will render two validation field messages", () => {
       const { container } = render(
         <DateRangeValidationMessage
-          status={{
-            dateEnd: "error",
-            dateStart: "caution",
-          }}
           validationMessage={{
-            dateStart: '"Date from" is close to the submission date.',
-            dateEnd:
-              '"Date to" cannot be earlier than the "Date from" selection.',
+            dateStart: {
+              status: "error",
+              message: '"Date from" is close to the submission date.',
+            },
+            dateEnd: {
+              status: "caution",
+              message:
+                '"Date to" cannot be earlier than the "Date from" selection.',
+            },
           }}
         />
       )
@@ -66,14 +70,16 @@ describe("<DateRangeValidationMessage />", () => {
       <DateRangeValidationMessage
         dateStartId="date-start-error-message-id"
         dateEndId="date-end-error-message-id"
-        status={{
-          dateEnd: "error",
-          dateStart: "caution",
-        }}
         validationMessage={{
-          dateStart: '"Date from" is close to the submission date.',
-          dateEnd:
-            '"Date to" cannot be earlier than the "Date from" selection.',
+          dateStart: {
+            status: "caution",
+            message: '"Date from" is close to the submission date.',
+          },
+          dateEnd: {
+            status: "error",
+            message:
+              '"Date to" cannot be earlier than the "Date from" selection.',
+          },
         }}
       />
     )

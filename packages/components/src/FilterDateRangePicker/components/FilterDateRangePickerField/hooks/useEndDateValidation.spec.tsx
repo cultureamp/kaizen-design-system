@@ -15,21 +15,17 @@ const Wrapper = ({
   endDateInputValue: string
 }): JSX.Element => {
   const [newDate, setNewDate] = useState<Date | undefined>()
-  const {
-    status,
-    validationMessage,
-    validateDate,
-    validateEndDateBeforeStartDate,
-  } = useEndDateValidation({
-    inputLabel: "End date",
-    ...restProps,
-  })
+  const { validationMessage, validateDate, validateEndDateBeforeStartDate } =
+    useEndDateValidation({
+      inputLabel: "End date",
+      ...restProps,
+    })
 
   return (
     <div>
       <p data-testid="new-date">{newDate ? newDate.toJSON() : "undefined"}</p>
-      <p data-testid="status">{status ?? "undefined"}</p>
-      <p data-testid="message">{validationMessage ?? "undefined"}</p>
+      <p data-testid="status">{validationMessage?.status ?? "undefined"}</p>
+      <p data-testid="message">{validationMessage?.message ?? "undefined"}</p>
       <button
         type="button"
         onClick={(): void =>

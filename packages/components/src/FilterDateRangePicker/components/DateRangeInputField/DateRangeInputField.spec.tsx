@@ -45,10 +45,12 @@ describe("<DateRangeInputField />", () => {
   it("adds validation message to description if it exists", () => {
     render(
       <DateRangeInputFieldWrapper
-        status={{
-          dateStart: "error",
+        validationMessage={{
+          dateStart: {
+            status: "error",
+            message: "Date Start has an error",
+          },
         }}
-        validationMessage={{ dateStart: "Date Start has an error" }}
       />
     )
     const inputStart = screen.getByRole("textbox", { name: "Date from" })

@@ -3,7 +3,7 @@ import { useRangeDateValidation } from "./useRangeDateValidation"
 
 describe("useRangeDateValidation()", () => {
   describe("with a valid date", () => {
-    it("returns no error status, no validation message and the same date", () => {
+    it("returns no validation message and the same date", () => {
       const { result } = renderHook(() =>
         useRangeDateValidation({
           inputLabel: "Start date",
@@ -15,14 +15,13 @@ describe("useRangeDateValidation()", () => {
         inputValue: "1 May 2022",
       })
 
-      expect(result.current.status).toBeUndefined()
       expect(result.current.validationMessage).toBeUndefined()
       expect(newDate).toEqual(new Date("2022-05-01"))
     })
   })
 
   describe("with an invalid date", () => {
-    it("returns an error status, a validation message and no date", () => {
+    it("returns a validation message and no date", () => {
       const { result } = renderHook(() =>
         useRangeDateValidation({
           inputLabel: "Start date",
@@ -38,10 +37,13 @@ describe("useRangeDateValidation()", () => {
         updateValidation(validationResponse)
       })
 
-      expect(result.current.status).toBe("error")
-      expect(result.current.validationMessage).toBe(
-        "Start date: potato is an invalid date"
-      )
+      expect(result.current.validationMessage).toStrictEqual({
+        status: "error",
+        message: "Start date: potato is an invalid date",
+      })
+      // expect(result.current.validationMessage.message).toBe(
+      //   "Start date: potato is an invalid date"
+      // )
       expect(newDate).toBeUndefined()
     })
   })
@@ -51,8 +53,10 @@ describe("useRangeDateValidation()", () => {
       const { result } = renderHook(() =>
         useRangeDateValidation({
           inputLabel: "Start date",
-          status: "caution",
-          validationMessage: "Jelly-filled doughnuts",
+          validationMessage: {
+            status: "caution",
+            message: "Jelly-filled doughnuts",
+          },
           onValidate: (): void => undefined,
         })
       )
@@ -66,8 +70,10 @@ describe("useRangeDateValidation()", () => {
         updateValidation(validationResponse)
       })
 
-      expect(result.current.status).toBe("caution")
-      expect(result.current.validationMessage).toBe("Jelly-filled doughnuts")
+      expect(result.current.validationMessage).toStrictEqual({
+        status: "caution",
+        message: "Jelly-filled doughnuts",
+      })
       expect(newDate).toBeUndefined()
     })
   })

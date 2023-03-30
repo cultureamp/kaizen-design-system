@@ -2,11 +2,8 @@ import React, { useState, FocusEvent } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "@kaizen/date-picker/src/types"
-import {
-  DateRangeValidationStatus,
-  FilterDateRangePicker,
-  FilterDateRangePickerProps,
-} from "."
+import { FilterButton } from "~components/FilterButton"
+import { FilterDateRangePicker, FilterDateRangePickerProps } from "."
 
 // For testing within the open filter
 const openFilter = async (): Promise<void> => {
@@ -20,8 +17,8 @@ const openFilter = async (): Promise<void> => {
 const FilterDateRangePickerWrapper = ({
   selectedRange,
   ...restProps
-}: Partial<FilterDateRangePickerProps> &
-  DateRangeValidationStatus): JSX.Element => {
+}: Partial<FilterDateRangePickerProps>): JSX.Element => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [selectedDateRange, setSelectedDateRange] = useState<
     DateRange | undefined
   >(selectedRange)
@@ -29,6 +26,11 @@ const FilterDateRangePickerWrapper = ({
   return (
     <FilterDateRangePicker
       id="test__filter-date-range-picker"
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButton {...triggerProps} />
+      )}
       label="Dates"
       selectedRange={selectedDateRange}
       onRangeChange={setSelectedDateRange}

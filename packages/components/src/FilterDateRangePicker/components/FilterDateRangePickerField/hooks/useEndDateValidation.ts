@@ -1,4 +1,4 @@
-import { FieldValidation } from "../types"
+import { ValidationMessage } from "../types"
 import {
   validateEndDateBeforeStartDate,
   ValidateEndDateBeforeStartDateArgs,
@@ -10,7 +10,8 @@ import {
 
 export type UseEndDateValidationArgs = UseRangeDateValidationArgs
 
-export type UseEndDateValidationValue = FieldValidation & {
+export type UseEndDateValidationValue = {
+  validationMessage: ValidationMessage | undefined
   validateDate: (args: {
     endDate: Date | undefined
     endDateInputValue: string
@@ -25,7 +26,7 @@ export type UseEndDateValidationValue = FieldValidation & {
 export const useEndDateValidation = (
   args: UseEndDateValidationArgs
 ): UseEndDateValidationValue => {
-  const { status, validationMessage, validateDate, updateValidation } =
+  const { validationMessage, validateDate, updateValidation } =
     useRangeDateValidation(args)
 
   const handleValidateEndDateBeforeStartDate: UseEndDateValidationValue["validateEndDateBeforeStartDate"] =
@@ -63,7 +64,6 @@ export const useEndDateValidation = (
   }
 
   return {
-    status,
     validationMessage,
     validateDate: validateEndDate,
     validateEndDateBeforeStartDate: handleValidateEndDateBeforeStartDate,

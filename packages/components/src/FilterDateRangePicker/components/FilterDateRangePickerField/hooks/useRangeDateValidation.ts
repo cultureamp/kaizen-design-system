@@ -1,9 +1,8 @@
 import { useState } from "react"
-import { Matcher, ValidationResponse } from "@kaizen/date-picker/src/types"
-import { validateDate } from "@kaizen/date-picker/src/utils/validateDate"
-import { FieldMessageStatus } from "@kaizen/draft-form"
-import { FieldValidation, ValidationMessage } from "../types"
+import { Matcher } from "@kaizen/date-picker/src/types"
+import { ValidationMessage, DateValidationResponse } from "../types"
 import { getDateValidationHandler } from "../utils/getDateValidationHandler"
+import { validateDate } from "../utils/validateDate"
 
 export type UseRangeDateValidationArgs = {
   inputLabel: React.ReactNode
@@ -11,16 +10,16 @@ export type UseRangeDateValidationArgs = {
   // status?: FieldMessageStatus | undefined
   // validationMessage?: React.ReactNode | undefined
   validationMessage?: ValidationMessage
-  onValidate?: (validationResponse: ValidationResponse) => void
+  onValidate?: (validationResponse: DateValidationResponse) => void
 }
 
 export type UseRangeDateValidationValue = {
-  validationMessage: ValidationMessage
+  validationMessage: ValidationMessage | undefined
   validateDate: (args: {
     date: Date | undefined
     inputValue: string
   }) => ReturnType<typeof validateDate>
-  updateValidation: (validationResponse: ValidationResponse) => void
+  updateValidation: (validationResponse: DateValidationResponse) => void
 }
 
 export const useRangeDateValidation = ({
@@ -30,13 +29,15 @@ export const useRangeDateValidation = ({
   validationMessage,
   onValidate,
 }: UseRangeDateValidationArgs): UseRangeDateValidationValue => {
-  const [inbuiltValidation, setInbuiltValidation] = useState<ValidationMessage>()
+  const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
+    ValidationMessage | undefined
+  >()
 
   const shouldUseInbuiltDateValidation = onValidate === undefined
 
   const updateValidation = getDateValidationHandler({
     onValidate,
-    setInbuiltValidation,
+    setInbuiltValidationMessage,
     inputLabel,
   })
 
@@ -51,9 +52,9 @@ export const useRangeDateValidation = ({
     })
 
   return {
-    // status: shouldUseInbuiltDateValidation ? inbuiltValidation?.status : status,
+    // status: shouldUseInbuiltDateValidation ? inbuiltValidationMessage?.status : status,
     validationMessage: shouldUseInbuiltDateValidation
-      ? inbuiltValidation?.validationMessage
+      ? inbuiltValidationMessage
       : validationMessage,
     validateDate: validateRangeDate,
     updateValidation,

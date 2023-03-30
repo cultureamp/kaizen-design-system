@@ -1,6 +1,6 @@
 import React from "react"
-import { ValidationResponse } from "@kaizen/date-picker/src/types"
 import { getNodeText } from "../../../../utils/getNodeText"
+import { DateValidationResponse } from "../types"
 
 export type ValidateEndDateBeforeStartDateArgs = {
   startDate: Date
@@ -10,7 +10,7 @@ export type ValidateEndDateBeforeStartDateArgs = {
 }
 
 export type ValidateEndDateBeforeStartDateResponse = {
-  validationResponse: ValidationResponse
+  validationResponse: DateValidationResponse
   newDate: Date | undefined
 }
 
@@ -23,7 +23,6 @@ export const validateEndDateBeforeStartDate = ({
   const baseResponse = {
     date: endDate,
     inputValue: endDateInputValue,
-    status: undefined,
     validationMessage: undefined,
     isInvalid: false,
     isDisabled: false,
@@ -35,10 +34,12 @@ export const validateEndDateBeforeStartDate = ({
     return {
       validationResponse: {
         ...baseResponse,
-        status: "error",
-        validationMessage: `Cannot be earlier than the selection in "${getNodeText(
-          startDateFieldLabel
-        )}"`,
+        validationMessage: {
+          status: "error",
+          message: `Cannot be earlier than the selection in "${getNodeText(
+            startDateFieldLabel
+          )}"`,
+        },
       },
       newDate: undefined,
     }

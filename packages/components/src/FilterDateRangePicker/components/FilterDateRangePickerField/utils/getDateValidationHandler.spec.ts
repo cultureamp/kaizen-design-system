@@ -1,27 +1,28 @@
-import { ValidationResponse } from "../../types"
-import { FieldValidation } from "../types"
+import { ValidationMessage, DateValidationResponse } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
-const onValidate = jest.fn<void, [ValidationResponse]>()
-const setInbuiltValidation = jest.fn<void, [FieldValidation]>()
+const onValidate = jest.fn<void, [DateValidationResponse]>()
+const setInbuiltValidationMessage = jest.fn<
+  void,
+  [ValidationMessage | undefined]
+>()
 
 describe("getDateValidationHandler()", () => {
   afterEach(() => {
     onValidate.mockClear()
-    setInbuiltValidation.mockClear()
+    setInbuiltValidationMessage.mockClear()
   })
 
   it("uses onValidate if defined", () => {
     const handleValidate = getDateValidationHandler({
       onValidate,
-      setInbuiltValidation,
+      setInbuiltValidationMessage,
       inputLabel: "Field label",
     })
 
     const validationResponse = {
       date: new Date("2022-05-01"),
       inputValue: "01/05/2022",
-      status: undefined,
       validationMessage: undefined,
       isInvalid: false,
       isDisabled: false,
@@ -31,13 +32,13 @@ describe("getDateValidationHandler()", () => {
 
     handleValidate(validationResponse)
     expect(onValidate).toBeCalledWith(validationResponse)
-    expect(setInbuiltValidation).not.toBeCalled()
+    expect(setInbuiltValidationMessage).not.toBeCalled()
   })
 
   describe("when onValidate is not defined", () => {
     const handleValidate = getDateValidationHandler({
       onValidate: undefined,
-      setInbuiltValidation,
+      setInbuiltValidationMessage,
       inputLabel: "Field label",
     })
 
@@ -46,7 +47,6 @@ describe("getDateValidationHandler()", () => {
         handleValidate({
           date: new Date("2022-05-01"),
           inputValue: "01/05/2022",
-          status: undefined,
           validationMessage: undefined,
           isInvalid: false,
           isDisabled: false,
@@ -54,10 +54,7 @@ describe("getDateValidationHandler()", () => {
           isValidDate: true,
         })
         expect(onValidate).not.toBeCalled()
-        expect(setInbuiltValidation).toBeCalledWith({
-          status: undefined,
-          validationMessage: undefined,
-        })
+        expect(setInbuiltValidationMessage).toBeCalledWith(undefined)
       })
     })
 
@@ -66,17 +63,19 @@ describe("getDateValidationHandler()", () => {
         handleValidate({
           date: new Date("2022-05-01"),
           inputValue: "01/05/2022",
-          status: "error",
-          validationMessage: "Custom error message",
+          validationMessage: {
+            status: "error",
+            message: "Custom error message",
+          },
           isInvalid: false,
           isDisabled: false,
           isEmpty: false,
           isValidDate: true,
         })
         expect(onValidate).not.toBeCalled()
-        expect(setInbuiltValidation).toBeCalledWith({
+        expect(setInbuiltValidationMessage).toBeCalledWith({
           status: "error",
-          validationMessage: "Field label: Custom error message",
+          message: "Field label: Custom error message",
         })
       })
     })

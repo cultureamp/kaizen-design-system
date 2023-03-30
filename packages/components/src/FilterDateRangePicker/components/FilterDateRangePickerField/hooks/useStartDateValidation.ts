@@ -7,7 +7,7 @@ import {
 export type UseStartDateValidationArgs = UseRangeDateValidationArgs
 
 export type UseStartDateValidationValue = {
-  validationMessage: ValidationMessage
+  validationMessage: ValidationMessage | undefined
   validateDate: (args: {
     date: Date | undefined
     inputValue: string
@@ -17,7 +17,7 @@ export type UseStartDateValidationValue = {
 export const useStartDateValidation = (
   args: UseStartDateValidationArgs
 ): UseStartDateValidationValue => {
-  const { status, validationMessage, validateDate, updateValidation } =
+  const { validationMessage, validateDate, updateValidation } =
     useRangeDateValidation(args)
 
   const validateStartDate: UseStartDateValidationValue["validateDate"] = ({

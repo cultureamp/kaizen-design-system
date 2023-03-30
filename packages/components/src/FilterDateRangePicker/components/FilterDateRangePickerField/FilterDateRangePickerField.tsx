@@ -9,7 +9,6 @@ import {
   DateRange,
   DisabledDayMatchers,
   SupportedLocales,
-  ValidationResponse,
 } from "@kaizen/date-picker/src/types"
 import { calculateDisabledDays } from "@kaizen/date-picker/src/utils/calculateDisabledDays"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
@@ -24,7 +23,10 @@ import {
 } from "../DateRangeInputField"
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
-import { DateRangeValidationStatus, ValidationMessage } from "./types"
+import {
+  DateRangeFieldValidationMessage,
+  DateValidationResponse,
+} from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
 
 type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
@@ -59,16 +61,13 @@ export type FilterDateRangePickerFieldProps = OverrideClassName<
      * Custom description to provide extra context (input format help text remains).
      */
     description?: DateRangeInputFieldProps["description"]
-    validationMessage?: {
-      dateStart?: ValidationMessage
-      dateEnd?: ValidationMessage
-    }
+    validationMessage?: DateRangeFieldValidationMessage
     /**
      * Callback when a date is selected. Utilises internal validation if not set.
      */
     onValidate?: {
-      dateStart?: (validationResponse: ValidationResponse) => void
-      dateEnd?: (validationResponse: ValidationResponse) => void
+      dateStart?: (validationResponse: DateValidationResponse) => void
+      dateEnd?: (validationResponse: DateValidationResponse) => void
     }
   }
 
@@ -88,7 +87,6 @@ export const FilterDateRangePickerField = ({
   inputRangeStartProps,
   inputRangeEndProps,
   description,
-  // status,
   validationMessage,
   onValidate,
   classNameOverride,
@@ -121,30 +119,11 @@ export const FilterDateRangePickerField = ({
       : defaultMonth || new Date()
   )
 
-  // useEffect(() => {
-  //   if (!isOpen) {
-  //     if (rangeStart !== startMonth) {
-  //       setStartMonth(rangeStart || defaultMonth || new Date())
-  //     }
-  //   }
-  // }, [isOpen, rangeStart])
-
   const [inputRangeStartValue, setInputRangeStartValue] = useState<string>(
     transformedRangeStart
   )
   const [inputRangeEndValue, setInputRangeEndValue] =
     useState<string>(transformedRangeEnd)
-
-  // useEffect(() => {
-  //   if (!isOpen) {
-  //     if (transformedRangeStart !== inputRangeStartValue) {
-  //       setInputRangeStartValue(transformedRangeStart)
-  //     }
-  //     if (transformedRangeEnd !== inputRangeEndValue) {
-  //       setInputRangeEndValue(transformedRangeEnd)
-  //     }
-  //   }
-  // }, [isOpen, rangeStart, rangeEnd])
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
@@ -153,7 +132,6 @@ export const FilterDateRangePickerField = ({
   const startDateValidation = useStartDateValidation({
     inputLabel: inputRangeStartLabel,
     disabledDays,
-    status: status?.dateStart,
     validationMessage: validationMessage?.dateStart,
     onValidate: onValidate?.dateStart,
   })
@@ -164,7 +142,6 @@ export const FilterDateRangePickerField = ({
   const endDateValidation = useEndDateValidation({
     inputLabel: inputRangeEndLabel,
     disabledDays,
-    status: status?.dateEnd,
     validationMessage: validationMessage?.dateEnd,
     onValidate: onValidate?.dateEnd,
   })
@@ -254,10 +231,6 @@ export const FilterDateRangePickerField = ({
         }}
         locale={locale}
         description={description}
-        status={{
-          dateStart: startDateValidation.status,
-          dateEnd: endDateValidation.status,
-        }}
         validationMessage={{
           dateStart: startDateValidation.validationMessage,
           dateEnd: endDateValidation.validationMessage,

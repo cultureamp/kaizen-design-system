@@ -22,7 +22,7 @@ export default {
 
 export const DefaultStory: ComponentStory<
   typeof FilterDateRangePicker
-> = args => {
+> = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
 

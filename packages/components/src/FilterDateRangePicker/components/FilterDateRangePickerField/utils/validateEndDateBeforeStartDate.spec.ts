@@ -21,7 +21,6 @@ describe("validateEndDateBeforeStartDate()", () => {
       expect(result.validationResponse).toStrictEqual({
         date: endDate,
         inputValue: endDateInputValue,
-        status: undefined,
         validationMessage: undefined,
         isInvalid: false,
         isDisabled: false,
@@ -55,7 +54,6 @@ describe("validateEndDateBeforeStartDate()", () => {
       expect(result.validationResponse).toStrictEqual({
         date: endDate,
         inputValue: endDateInputValue,
-        status: undefined,
         validationMessage: undefined,
         isInvalid: false,
         isDisabled: false,
@@ -89,9 +87,10 @@ describe("validateEndDateBeforeStartDate()", () => {
       expect(result.validationResponse).toStrictEqual({
         date: endDate,
         inputValue: endDateInputValue,
-        status: "error",
-        validationMessage:
-          'Cannot be earlier than the selection in "Start date"',
+        validationMessage: {
+          status: "error",
+          message: 'Cannot be earlier than the selection in "Start date"',
+        },
         isInvalid: false,
         isDisabled: false,
         isEmpty: false,
