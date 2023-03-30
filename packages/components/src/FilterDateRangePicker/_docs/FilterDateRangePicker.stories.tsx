@@ -1,13 +1,14 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
+import { ComponentStory, Story } from "@storybook/react"
 import isChromatic from "chromatic"
 import { defaultMonthControls } from "@kaizen/date-picker/docs/controls/defaultMonthControls"
 import { disabledDayMatchersControls } from "@kaizen/date-picker/docs/controls/disabledDayMatchersControls"
 import { dateRangePickerLocaleControls } from "@kaizen/date-picker/docs/controls/localeControls"
 import { DateRange } from "@kaizen/date-picker/src/types"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton, FilterButtonRemovable } from "../../FilterButton"
-import { FilterDateRangePicker, FilterDateRangePickerProps } from "../index"
+import { FilterDateRangePicker } from "../index"
 import { validationControls } from "../subcomponents/FilterDateRangePickerField/_docs/validationControls"
 
 const IS_CHROMATIC = isChromatic()
@@ -35,25 +36,24 @@ export default {
     ...defaultMonthControls,
     ...disabledDayMatchersControls,
     ...validationControls,
+    renderTrigger: renderTriggerControls,
+    isOpen: { control: "disabled" },
     description: {
       control: "text",
     },
   },
 }
 
-export const DefaultStory = (
-  props: FilterDateRangePickerProps
-): JSX.Element => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+export const DefaultStory: ComponentStory<
+  typeof FilterDateRangePicker
+> = args => {
+  const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
   const [range, setRange] = useState<DateRange | undefined>()
 
   return (
     <FilterDateRangePicker
-      {...props}
-      renderTrigger={(triggerButtonProps): JSX.Element => (
-        <FilterButton {...triggerButtonProps} />
-      )}
-      isOpen={props.isOpen ?? isOpen}
+      {...args}
+      isOpen={isOpen}
       setIsOpen={setIsOpen}
       selectedRange={range}
       onRangeChange={setRange}
@@ -65,6 +65,8 @@ DefaultStory.parameters = {
 }
 DefaultStory.args = {
   id: "filter-drp--default",
+  /* @ts-expect-error: Storybook controls key; see argTypes in default export */
+  renderTrigger: "Filter Button",
 }
 
 const StickerSheetTemplate: Story = () => {
