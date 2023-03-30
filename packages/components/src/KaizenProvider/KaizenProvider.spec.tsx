@@ -10,7 +10,7 @@ const KaizenProviderWrapper = ({
 )
 
 describe("<KaizenProvider />", () => {
-  it("renders it's children", () => {
+  it("renders its children", () => {
     const ReactApp = (): JSX.Element => <div>Hello App</div>
     const screen = render(
       <KaizenProviderWrapper>
@@ -18,6 +18,6 @@ describe("<KaizenProvider />", () => {
       </KaizenProviderWrapper>
     )
 
-    expect(screen.getByText("Hello App"))
+    expect(screen.getByText("Hello App")).toBeInTheDocument()
   })
 })

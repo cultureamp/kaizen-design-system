@@ -162,6 +162,7 @@ const defaultProps: FilterSelectProps = {
   items: singleMockItems,
 }
 
+/* eslint-disable jest/expect-expect */
 describe("FilterSelect generic", () => {
   it("should prevent adding `options` attribute to option", () => {
     /* @ts-expect-error */
@@ -194,3 +195,4 @@ describe("FilterSelect generic", () => {
     })
   })
 })
+/* eslint-enable jest/expect-expect */

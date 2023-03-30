@@ -1,11 +1,9 @@
 import * as React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { Box } from "@kaizen/component-library"
 import { BrandMomentError } from "@kaizen/draft-illustration"
 import { Paragraph } from "@kaizen/typography"
 import { BrandMoment } from "./BrandMoment"
-
-afterEach(cleanup)
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = jest.fn().mockImplementation(() => ({
@@ -22,16 +20,16 @@ const mockPlay = jest.fn().mockResolvedValue(undefined)
 const mockLoad = jest.fn()
 const mockPause = jest.fn()
 
-beforeEach(() => {
-  window.HTMLMediaElement.prototype.load = mockLoad
-  window.HTMLMediaElement.prototype.play = mockPlay
-  window.HTMLMediaElement.prototype.pause = mockPause
-  Object.defineProperty(HTMLMediaElement.prototype, "muted", {
-    set: jest.fn(),
-  })
-})
-
 describe("<BrandMoment />", () => {
+  beforeEach(() => {
+    window.HTMLMediaElement.prototype.load = mockLoad
+    window.HTMLMediaElement.prototype.play = mockPlay
+    window.HTMLMediaElement.prototype.pause = mockPause
+    Object.defineProperty(HTMLMediaElement.prototype, "muted", {
+      set: jest.fn(),
+    })
+  })
+
   it("matches the snapshot", () => {
     const { container } = render(
       <BrandMoment

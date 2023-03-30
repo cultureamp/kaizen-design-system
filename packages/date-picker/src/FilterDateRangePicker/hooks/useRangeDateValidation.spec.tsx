@@ -1,99 +1,74 @@
-import React, { useState } from "react"
-import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import {
-  useRangeDateValidation,
-  UseRangeDateValidationArgs,
-} from "./useRangeDateValidation"
+import { renderHook, act } from "@testing-library/react-hooks"
+import { useRangeDateValidation } from "./useRangeDateValidation"
 
-const Wrapper = ({
-  date,
-  inputValue,
-  ...restProps
-}: Partial<UseRangeDateValidationArgs> & {
-  date: Date | undefined
-  inputValue: string
-}): JSX.Element => {
-  const [newDate, setNewDate] = useState<Date | undefined>()
-  const { status, validationMessage, validateDate, updateValidation } =
-    useRangeDateValidation({
-      inputLabel: "Start date",
-      ...restProps,
-    })
-
-  return (
-    <div>
-      <p data-testid="new-date">{newDate ? newDate.toJSON() : "undefined"}</p>
-      <p data-testid="status">{status ?? "undefined"}</p>
-      <p data-testid="message">{validationMessage ?? "undefined"}</p>
-      <button
-        type="button"
-        onClick={(): void => {
-          const { validationResponse, newDate: responseNewDate } = validateDate(
-            {
-              date,
-              inputValue,
-            }
-          )
-          updateValidation(validationResponse)
-          setNewDate(responseNewDate)
-        }}
-      >
-        Validate
-      </button>
-    </div>
-  )
-}
-
-const validateValue = (): void => {
-  userEvent.click(screen.getByRole("button", { name: "Validate" }))
-}
-
-describe("useRangeDateValidation", () => {
-  test("valid date", async () => {
-    render(<Wrapper date={new Date("2022-05-01")} inputValue="1 May 2022" />)
-    validateValue()
-
-    await waitFor(() => {
-      expect(screen.getByTestId("new-date").textContent).toBe(
-        "2022-05-01T00:00:00.000Z"
+describe("useRangeDateValidation()", () => {
+  describe("with a valid date", () => {
+    it("returns no error status, no validation message and the same date", () => {
+      const { result } = renderHook(() =>
+        useRangeDateValidation({
+          inputLabel: "Start date",
+        })
       )
-      expect(screen.getByTestId("status").textContent).toBe("undefined")
-      expect(screen.getByTestId("message").textContent).toBe("undefined")
+      const { validateDate } = result.current
+      const { newDate } = validateDate({
+        date: new Date("2022-05-01"),
+        inputValue: "1 May 2022",
+      })
+
+      expect(result.current.status).toBeUndefined()
+      expect(result.current.validationMessage).toBeUndefined()
+      expect(newDate).toEqual(new Date("2022-05-01"))
     })
   })
 
-  test("invalid date", async () => {
-    render(<Wrapper date={new Date("potato")} inputValue="potato" />)
-    validateValue()
+  describe("with an invalid date", () => {
+    it("returns an error status, a validation message and no date", () => {
+      const { result } = renderHook(() =>
+        useRangeDateValidation({
+          inputLabel: "Start date",
+        })
+      )
+      const { validateDate, updateValidation } = result.current
+      const { validationResponse, newDate } = validateDate({
+        date: new Date("potato"),
+        inputValue: "potato",
+      })
 
-    await waitFor(() => {
-      expect(screen.getByTestId("new-date").textContent).toBe("undefined")
-      expect(screen.getByTestId("status").textContent).toBe("error")
-      expect(screen.getByTestId("message").textContent).toBe(
+      act(() => {
+        updateValidation(validationResponse)
+      })
+
+      expect(result.current.status).toBe("error")
+      expect(result.current.validationMessage).toBe(
         "Start date: potato is an invalid date"
       )
+      expect(newDate).toBeUndefined()
     })
   })
 
-  test("consumer controlled validation", async () => {
-    render(
-      <Wrapper
-        date={new Date("potato")}
-        inputValue="potato"
-        onValidate={(): void => undefined}
-        status="caution"
-        validationMessage="Jelly-filled doughnuts"
-      />
-    )
-    validateValue()
-
-    await waitFor(() => {
-      expect(screen.getByTestId("new-date").textContent).toBe("undefined")
-      expect(screen.getByTestId("status").textContent).toBe("caution")
-      expect(screen.getByTestId("message").textContent).toBe(
-        "Jelly-filled doughnuts"
+  describe("consumer controlled validation", () => {
+    it("returns the consumer's error status and validation message", () => {
+      const { result } = renderHook(() =>
+        useRangeDateValidation({
+          inputLabel: "Start date",
+          status: "caution",
+          validationMessage: "Jelly-filled doughnuts",
+          onValidate: (): void => undefined,
+        })
       )
+      const { validateDate, updateValidation } = result.current
+      const { validationResponse, newDate } = validateDate({
+        date: new Date("potato"),
+        inputValue: "potato",
+      })
+
+      act(() => {
+        updateValidation(validationResponse)
+      })
+
+      expect(result.current.status).toBe("caution")
+      expect(result.current.validationMessage).toBe("Jelly-filled doughnuts")
+      expect(newDate).toBeUndefined()
     })
   })
 })

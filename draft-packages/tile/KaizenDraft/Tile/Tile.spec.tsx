@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import {
   InformationTile,
   MultiActionTile,
@@ -36,8 +36,6 @@ const information: TileInformation = {
     href: "",
   },
 }
-
-afterEach(cleanup)
 
 describe("<InformationTile />", () => {
   describe("snapshots", () => {
