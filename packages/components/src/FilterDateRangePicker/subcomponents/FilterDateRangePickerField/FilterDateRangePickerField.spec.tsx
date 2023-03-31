@@ -181,7 +181,7 @@ describe("<FilterDateRangePickerField />", () => {
   })
 
   describe("Calendar", () => {
-    it("shows the default month as the start month when there isn't a selected value", async () => {
+    it("shows the default month as the start month when there isn't a selected value", () => {
       render(
         <FilterDateRangePickerFieldWrapper
           defaultMonth={new Date("2022-05-02")}
@@ -192,7 +192,7 @@ describe("<FilterDateRangePickerField />", () => {
       expect(screen.getByText("June 2022")).toBeVisible()
     })
 
-    it("shows the selected start date month as the start month when provided", async () => {
+    it("shows the selected start date month as the start month when provided", () => {
       render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
@@ -206,7 +206,7 @@ describe("<FilterDateRangePickerField />", () => {
       expect(screen.getByText("June 2022")).toBeVisible()
     })
 
-    it("shows the current month as the start month when selected start date is invalid", async () => {
+    it("shows the current month as the start month when selected start date is invalid", () => {
       render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
@@ -305,7 +305,7 @@ describe("<FilterDateRangePickerField />", () => {
       "#test__filter-date-range-picker--input--date-end-error-message"
 
     describe("Custom validation", () => {
-      it("shows validation messages passed in from the consumer", async () => {
+      it("shows validation messages passed in from the consumer", () => {
         render(
           <FilterDateRangePickerFieldWrapper
             onValidate={{
@@ -376,7 +376,7 @@ describe("<FilterDateRangePickerField />", () => {
         })
       })
 
-      it("shows inbuilt validation messages for pre-existing values", async () => {
+      it("shows inbuilt validation messages for pre-existing values", () => {
         const { container } = render(
           <FilterDateRangePickerFieldWrapper
             selectedRange={{
