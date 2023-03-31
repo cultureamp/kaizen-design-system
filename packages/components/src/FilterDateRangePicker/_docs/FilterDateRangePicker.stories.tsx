@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { ComponentStory, Story } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
-import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
@@ -191,10 +191,11 @@ export const ValidationStory: Story = () => {
           <code>validationResponse</code> object which provides data such as a
           default validation message, and can be utilised for custom validation.
         </Paragraph>
-        <CodeBlock
-          language="json"
-          code={JSON.stringify(response, null, "\t")}
-        />
+
+        <Highlight className="json">
+          {JSON.stringify(response, null, "\t")}
+        </Highlight>
+
         <ul>
           <li>
             <code>isInvalid</code>: A date that cannot be parsed. e.g "potato".
