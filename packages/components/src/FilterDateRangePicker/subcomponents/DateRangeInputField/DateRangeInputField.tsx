@@ -23,8 +23,8 @@ export interface DateRangeInputFieldProps
   id: string
   legend: string
 
-  inputRangeStartProps: Omit<DateInputProps, "id">
-  inputRangeEndProps: Omit<DateInputProps, "id">
+  inputStartDateProps: Omit<DateInputProps, "id">
+  inputEndDateProps: Omit<DateInputProps, "id">
 
   locale: Locale
   /**
@@ -49,8 +49,8 @@ export const DateRangeInputField = React.forwardRef<
     {
       id,
       legend,
-      inputRangeStartProps,
-      inputRangeEndProps,
+      inputStartDateProps,
+      inputEndDateProps,
       description,
       disabled,
       isReversed = false,
@@ -104,10 +104,10 @@ export const DateRangeInputField = React.forwardRef<
             autoComplete="off"
             disabled={disabled}
             status={validationMessage?.dateStart?.status}
-            {...inputRangeStartProps}
+            {...inputStartDateProps}
             classNameOverride={classnames(
               styles.inputRangeStart,
-              inputRangeStartProps.classNameOverride
+              inputStartDateProps.classNameOverride
             )}
           />
           <DateInput
@@ -119,10 +119,10 @@ export const DateRangeInputField = React.forwardRef<
             autoComplete="off"
             disabled={disabled}
             status={validationMessage?.dateEnd?.status}
-            {...inputRangeEndProps}
+            {...inputEndDateProps}
             classNameOverride={classnames(
               styles.inputRangeEnd,
-              inputRangeEndProps.classNameOverride
+              inputEndDateProps.classNameOverride
             )}
           />
         </fieldset>
