@@ -1,4 +1,6 @@
+import React from "react"
 import { renderHook, act } from "@testing-library/react-hooks"
+import { LabelledMessage } from "~components/LabelledMessage"
 import { useRangeDateValidation } from "./useRangeDateValidation"
 
 describe("useRangeDateValidation()", () => {
@@ -39,11 +41,13 @@ describe("useRangeDateValidation()", () => {
 
       expect(result.current.validationMessage).toStrictEqual({
         status: "error",
-        message: "Start date: potato is an invalid date",
+        message: (
+          <LabelledMessage
+            label="Start date"
+            message="potato is an invalid date"
+          />
+        ),
       })
-      // expect(result.current.validationMessage.message).toBe(
-      //   "Start date: potato is an invalid date"
-      // )
       expect(newDate).toBeUndefined()
     })
   })
