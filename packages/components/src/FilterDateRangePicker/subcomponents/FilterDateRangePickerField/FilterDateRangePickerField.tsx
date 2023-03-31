@@ -125,7 +125,7 @@ export const FilterDateRangePickerField = ({
     onRangeChange(dateRange)
   }
 
-  const startDateValidation = useStartDateValidation({
+  const dateStartValidation = useStartDateValidation({
     inputLabel: inputRangeStartLabel,
     disabledDays,
     validationMessage: validationMessage?.dateStart,
@@ -133,9 +133,9 @@ export const FilterDateRangePickerField = ({
   })
 
   const validateStartDate = (date: Date | undefined): Date | undefined =>
-    startDateValidation.validateDate({ date, inputValue: inputRangeStartValue })
+    dateStartValidation.validateDate({ date, inputValue: inputRangeStartValue })
 
-  const endDateValidation = useEndDateValidation({
+  const dateEndValidation = useEndDateValidation({
     inputLabel: inputRangeEndLabel,
     disabledDays,
     validationMessage: validationMessage?.dateEnd,
@@ -143,7 +143,7 @@ export const FilterDateRangePickerField = ({
   })
 
   const validateEndDate = (date: Date | undefined): Date | undefined =>
-    endDateValidation.validateDate({
+    dateEndValidation.validateDate({
       endDate: date,
       endDateInputValue: inputRangeEndValue,
       startDate: selectedRange?.from,
@@ -159,7 +159,7 @@ export const FilterDateRangePickerField = ({
       const endDate = parseDateFromTextFormatValue(inputRangeEndValue, locale)
 
       if (newDate && !isInvalidDate(endDate)) {
-        const newEndDate = endDateValidation.validateEndDateBeforeStartDate({
+        const newEndDate = dateEndValidation.validateEndDateBeforeStartDate({
           startDate: newDate,
           startDateFieldLabel: inputRangeStartLabel,
           endDate,
@@ -228,8 +228,8 @@ export const FilterDateRangePickerField = ({
         locale={locale}
         description={description}
         validationMessage={{
-          dateStart: startDateValidation.validationMessage,
-          dateEnd: endDateValidation.validationMessage,
+          dateStart: dateStartValidation.validationMessage,
+          dateEnd: dateEndValidation.validationMessage,
         }}
         classNameOverride={styles.dateRangeInputField}
       />
