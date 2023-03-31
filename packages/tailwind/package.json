@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "yarn clean && yarn prepublish",
