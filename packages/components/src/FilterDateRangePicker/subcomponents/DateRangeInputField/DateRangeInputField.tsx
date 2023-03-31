@@ -5,13 +5,13 @@ import {
   DateInput,
   DateInputProps,
 } from "@kaizen/date-picker/src/_subcomponents/DateInput"
-import {
-  DateInputDescription,
-  DateInputDescriptionProps,
-} from "@kaizen/date-picker/src/_subcomponents/DateInputDescription"
 import { FieldMessage } from "@kaizen/draft-form"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { isRefObject } from "~utils/isRefObject"
+import {
+  DateInputDescription,
+  DateInputDescriptionProps,
+} from "../DateInputDescription"
 import {
   DateRangeValidationMessage,
   DateRangeValidationMessageProps,
