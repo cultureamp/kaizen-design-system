@@ -206,6 +206,21 @@ describe("<FilterDateRangePickerField />", () => {
       expect(screen.getByText("June 2022")).toBeVisible()
     })
 
+    it("shows the current month as the start month when selected start date is invalid", async () => {
+      render(
+        <FilterDateRangePickerFieldWrapper
+          selectedRange={{
+            from: new Date("potato"),
+          }}
+        />
+      )
+      const currentMonth = new Date().toLocaleDateString("en-AU", {
+        month: "long",
+        year: "numeric",
+      })
+      expect(screen.getByText(currentMonth)).toBeVisible()
+    })
+
     it("updates the range start input when changing the start date", async () => {
       render(
         <FilterDateRangePickerFieldWrapper

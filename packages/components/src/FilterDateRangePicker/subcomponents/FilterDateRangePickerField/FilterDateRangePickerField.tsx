@@ -110,7 +110,6 @@ export const FilterDateRangePickerField = ({
   const transformedRangeEnd = transformDateToInputValue(rangeEnd)
 
   const [startMonth, setStartMonth] = useState<Date>(
-    // @todo: NEW; write test
     rangeStart && !isInvalidDate(rangeStart)
       ? rangeStart
       : defaultMonth || new Date()
