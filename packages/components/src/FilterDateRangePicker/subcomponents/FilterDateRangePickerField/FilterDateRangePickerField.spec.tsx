@@ -299,6 +299,11 @@ describe("<FilterDateRangePickerField />", () => {
   })
 
   describe("Validation", () => {
+    const dateStartErrorId =
+      "#test__filter-date-range-picker--input--date-start-error-message"
+    const dateEndErrorId =
+      "#test__filter-date-range-picker--input--date-end-error-message"
+
     describe("Custom validation", () => {
       it("shows validation messages passed in from the consumer", async () => {
         render(
@@ -327,7 +332,7 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("Inbuilt validation", () => {
       it("shows inbuilt validation messages for start date", async () => {
-        render(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             inputRangeStartProps={{ labelText: "Start date" }}
           />
@@ -341,14 +346,16 @@ describe("<FilterDateRangePickerField />", () => {
         await userEvent.click(document.body)
 
         await waitFor(() => {
-          expect(
-            screen.getByText("Start date: potato is an invalid date")
-          ).toBeVisible()
+          const dateStartErrorContainer =
+            container.querySelector(dateStartErrorId)
+          expect(dateStartErrorContainer).toHaveTextContent(
+            "Start date:potato is an invalid date"
+          )
         })
       })
 
       it("shows inbuilt validation messages for end date", async () => {
-        render(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             inputRangeEndProps={{ labelText: "End date" }}
           />
@@ -362,14 +369,15 @@ describe("<FilterDateRangePickerField />", () => {
         await userEvent.click(document.body)
 
         await waitFor(() => {
-          expect(
-            screen.getByText("End date: potato is an invalid date")
-          ).toBeVisible()
+          const dateEndErrorContainer = container.querySelector(dateEndErrorId)
+          expect(dateEndErrorContainer).toHaveTextContent(
+            "End date:potato is an invalid date"
+          )
         })
       })
 
       it("shows inbuilt validation messages for pre-existing values", async () => {
-        render(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             selectedRange={{
               from: new Date("2022-05-15"),
@@ -379,24 +387,24 @@ describe("<FilterDateRangePickerField />", () => {
           />
         )
 
-        expect(
-          screen.getByText(
-            "Date from: 15/05/2022 is not available, try another date"
-          )
-        ).toBeVisible()
-        expect(
-          screen.getByText(
-            "Date to: 23/05/2022 is not available, try another date"
-          )
-        ).toBeVisible()
+        const dateStartErrorContainer =
+          container.querySelector(dateStartErrorId)
+        expect(dateStartErrorContainer).toHaveTextContent(
+          "Date from:15/05/2022 is not available, try another date"
+        )
+
+        const dateEndErrorContainer = container.querySelector(dateEndErrorId)
+        expect(dateEndErrorContainer).toHaveTextContent(
+          "Date to:23/05/2022 is not available, try another date"
+        )
       })
 
       describe("Validates end date is not before start date", () => {
         const invalidDateOrderErrorMessage =
-          'Date to: Cannot be earlier than the selection in "Date from"'
+          'Date to:Cannot be earlier than the selection in "Date from"'
 
         it("shows error on updating end date input to be before start date", async () => {
-          render(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -412,12 +420,16 @@ describe("<FilterDateRangePickerField />", () => {
           await userEvent.click(document.body)
 
           await waitFor(() => {
-            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+            const dateEndErrorContainer =
+              container.querySelector(dateEndErrorId)
+            expect(dateEndErrorContainer).toHaveTextContent(
+              invalidDateOrderErrorMessage
+            )
           })
         })
 
         it("removes error on updating start date input to be before end date", async () => {
-          render(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -433,8 +445,12 @@ describe("<FilterDateRangePickerField />", () => {
 
           await userEvent.click(document.body)
 
+          const dateEndErrorContainer = container.querySelector(dateEndErrorId)
+
           await waitFor(() => {
-            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+            expect(dateEndErrorContainer).toHaveTextContent(
+              invalidDateOrderErrorMessage
+            )
             // End date in Calendar is deselected
             expect(
               screen.getAllByRole("button", { pressed: true }).length
@@ -449,9 +465,7 @@ describe("<FilterDateRangePickerField />", () => {
           await userEvent.click(document.body)
 
           await waitFor(() => {
-            expect(
-              screen.queryByText(invalidDateOrderErrorMessage)
-            ).not.toBeInTheDocument()
+            expect(dateEndErrorContainer).not.toBeInTheDocument()
             // End date in Calendar is re-selected
             expect(
               screen.getAllByRole("button", { pressed: true }).length
@@ -460,7 +474,7 @@ describe("<FilterDateRangePickerField />", () => {
         })
 
         it("shows error on updating start date input to be after end date", async () => {
-          render(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -477,12 +491,16 @@ describe("<FilterDateRangePickerField />", () => {
           await userEvent.click(document.body)
 
           await waitFor(() => {
-            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+            const dateEndErrorContainer =
+              container.querySelector(dateEndErrorId)
+            expect(dateEndErrorContainer).toHaveTextContent(
+              invalidDateOrderErrorMessage
+            )
           })
         })
 
         it("shows error if the pre-existing end date is before start date", async () => {
-          render(
+          const { container } = render(
             <FilterDateRangePickerFieldWrapper
               selectedRange={{
                 from: new Date("2022-05-15"),
@@ -492,7 +510,11 @@ describe("<FilterDateRangePickerField />", () => {
           )
 
           await waitFor(() => {
-            expect(screen.getByText(invalidDateOrderErrorMessage)).toBeVisible()
+            const dateEndErrorContainer =
+              container.querySelector(dateEndErrorId)
+            expect(dateEndErrorContainer).toHaveTextContent(
+              invalidDateOrderErrorMessage
+            )
           })
         })
       })
@@ -500,7 +522,7 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("Combined validation", () => {
       it("shows custom start date validation with inbuilt end date validation", async () => {
-        render(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             onValidate={{
               dateStart: (): void => undefined,
@@ -523,14 +545,16 @@ describe("<FilterDateRangePickerField />", () => {
 
         await waitFor(() => {
           expect(screen.getByText("Start date error message")).toBeVisible()
-          expect(
-            screen.getByText("Date to: potato is an invalid date")
-          ).toBeVisible()
+
+          const dateEndErrorContainer = container.querySelector(dateEndErrorId)
+          expect(dateEndErrorContainer).toHaveTextContent(
+            "Date to:potato is an invalid date"
+          )
         })
       })
 
       it("shows custom end date validation with inbuilt start date validation", async () => {
-        render(
+        const { container } = render(
           <FilterDateRangePickerFieldWrapper
             onValidate={{
               dateEnd: (): void => undefined,
@@ -553,15 +577,18 @@ describe("<FilterDateRangePickerField />", () => {
 
         await waitFor(() => {
           expect(screen.getByText("End date error message")).toBeVisible()
-          expect(
-            screen.getByText("Date from: potato is an invalid date")
-          ).toBeVisible()
+
+          const dateStartErrorContainer =
+            container.querySelector(dateStartErrorId)
+          expect(dateStartErrorContainer).toHaveTextContent(
+            "Date from:potato is an invalid date"
+          )
         })
       })
     })
 
     it("re-validates values when selecting a value using the calendar", async () => {
-      render(
+      const { container } = render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
             from: new Date("2022-05-10"),
@@ -570,10 +597,12 @@ describe("<FilterDateRangePickerField />", () => {
         />
       )
 
-      const errorMessage = "Date to: Invalid Date is an invalid date"
+      const dateEndErrorContainer = container.querySelector(dateEndErrorId)
 
       await waitFor(() => {
-        expect(screen.getByText(errorMessage)).toBeVisible()
+        expect(dateEndErrorContainer).toHaveTextContent(
+          "Date to:Invalid Date is an invalid date"
+        )
       })
 
       const targetDay = screen.getByRole("button", {
@@ -582,7 +611,7 @@ describe("<FilterDateRangePickerField />", () => {
       await userEvent.click(targetDay)
 
       await waitFor(() => {
-        expect(screen.queryByText(errorMessage)).not.toBeInTheDocument()
+        expect(dateEndErrorContainer).not.toBeInTheDocument()
       })
     })
   })
