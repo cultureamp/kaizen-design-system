@@ -1,0 +1,10 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.labelledMessage {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.labelSeparator {
+  margin-inline-end: $spacing-xs;
+}
