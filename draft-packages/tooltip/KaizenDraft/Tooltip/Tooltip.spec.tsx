@@ -1,17 +1,15 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import * as AppearanceAnim from "./AppearanceAnim"
 import { Tooltip } from "./index"
 import "@testing-library/jest-dom"
 jest.mock("./AppearanceAnim")
 const AnimationProvider = AppearanceAnim.AnimationProvider as jest.Mock
 
-afterEach(() => cleanup())
-beforeEach(() => {
-  AnimationProvider.mockReturnValue(<div />)
-})
-
 describe("<Tooltip />", () => {
+  beforeEach(() => {
+    AnimationProvider.mockReturnValue(<div />)
+  })
   describe("When no animationDuration prop is given", () => {
     it("animationDuration prop is passed to AnimationProvider as undefined", () => {
       render(

@@ -1,8 +1,6 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { RadioField, RadioFieldProps } from "./RadioField"
-
-afterEach(cleanup)
 
 const defaultRadioFieldProps: RadioFieldProps = {
   id: "testRadioId",
@@ -20,7 +18,8 @@ const renderRadio = (props?: RadioFieldProps): ReturnType<typeof render> => {
 
   return render(<RadioField {...mergedRadioFieldProps} />)
 }
-describe("<Radio /> ", () => {
+
+describe("<Radio />", () => {
   it("has the disabled attribute applied if the disabled prop is true", () => {
     const { container } = renderRadio({
       id: "testId",
@@ -66,21 +65,21 @@ describe("<Radio /> ", () => {
     expect(container.querySelector("input")!.checked).toBeFalsy()
   })
 
-  it("should render an `id` attribute", () => {
+  it("renders an `id` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[id="${defaultRadioFieldProps.id}"]`)
     ).toBeTruthy()
   })
 
-  it("should render a `name` attribute", () => {
+  it("renders a `name` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[name="${defaultRadioFieldProps.name}"]`)
     ).toBeTruthy()
   })
 
-  it("should render a `data-automation-id` attribute", () => {
+  it("renders a `data-automation-id` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(
@@ -89,7 +88,7 @@ describe("<Radio /> ", () => {
     ).toBeTruthy()
   })
 
-  it("should render a `value` attribute", () => {
+  it("renders a `value` attribute", () => {
     const { container } = renderRadio()
     expect(
       container.querySelector(`[value="${defaultRadioFieldProps.value}"]`)

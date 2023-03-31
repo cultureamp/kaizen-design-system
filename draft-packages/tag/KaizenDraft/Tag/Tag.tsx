@@ -1,8 +1,9 @@
 import React from "react"
 import classNames from "classnames"
 import { Icon } from "@kaizen/component-library"
+import cautionIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import errorIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
@@ -111,13 +112,13 @@ const Tag = (props: TagProps): JSX.Element => {
                 case "validationNegative":
                   return (
                     <span className={styles.validationIcon}>
-                      <Icon icon={exclamationIcon} role="presentation" />
+                      <Icon icon={errorIcon} role="presentation" />
                     </span>
                   )
                 case "validationCautionary":
                   return (
                     <span className={styles.validationIcon}>
-                      <Icon icon={exclamationIcon} role="presentation" />
+                      <Icon icon={cautionIcon} role="presentation" />
                     </span>
                   )
                 case "validationInformative":

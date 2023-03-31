@@ -57,6 +57,7 @@ $validation-message-padding: 0.5625rem;
 .warningIcon {
   display: inline-flex;
   width: $message-icon-size;
+  align-self: flex-start;
 
   .error & {
     color: $color-red-500;

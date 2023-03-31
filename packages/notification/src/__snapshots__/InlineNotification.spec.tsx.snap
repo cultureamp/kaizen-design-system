@@ -1,43 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Persistent versions of the notifications work 1`] = `
-<div
-  class="notification negative inline hidden"
-  data-automation-class="generic-notification negative inline"
-  style="margin-top: 0px;"
->
-  <div
-    class="icon"
-  >
-    <svg
-      aria-hidden="true"
-      class="icon inheritSize"
-      focusable="false"
-      role="presentation"
-    >
-      <use
-        xlink:href="#undefined"
-      />
-    </svg>
-  </div>
-  <div
-    class="textContainer"
-  >
-    <div
-      class="heading heading-6 notificationTitle dark small"
-    >
-      Error
-    </div>
-    <div
-      class="text"
-    >
-      Something has gone wrong
-    </div>
-  </div>
-</div>
-`;
-
-exports[`The basic notification renders correctly 1`] = `
+exports[`<InlineNotification /> renders a basic notification correctly 1`] = `
 <div
   class="notification cautionary inline hidden"
   data-automation-class="generic-notification cautionary inline"
@@ -76,22 +39,55 @@ exports[`The basic notification renders correctly 1`] = `
     data-testid="close-button"
     type="button"
   >
-    <span
-      class="cancelInner"
+    <svg
+      class="icon"
+      focusable="false"
+      role="img"
     >
-      <svg
-        class="icon"
-        focusable="false"
-        role="img"
-      >
-        <title>
-          close notification
-        </title>
-        <use
-          xlink:href="#undefined"
-        />
-      </svg>
-    </span>
+      <title>
+        close notification
+      </title>
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
   </button>
+</div>
+`;
+
+exports[`<InlineNotification /> renders a persistent notifications 1`] = `
+<div
+  class="notification negative inline hidden"
+  data-automation-class="generic-notification negative inline"
+  style="margin-top: 0px;"
+>
+  <div
+    class="icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon inheritSize"
+      focusable="false"
+      role="presentation"
+    >
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    class="textContainer"
+  >
+    <div
+      class="heading heading-6 notificationTitle dark small"
+    >
+      Error
+    </div>
+    <div
+      class="text"
+    >
+      Something has gone wrong
+    </div>
+  </div>
 </div>
 `;

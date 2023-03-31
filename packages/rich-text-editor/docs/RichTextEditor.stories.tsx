@@ -27,11 +27,13 @@ export default {
 
 export const Default: RTEStory = ({ labelText, ...args }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
+  const handleOnChange = (editorState): void =>
+    setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
       labelText={labelText}
       value={rteData}
-      onChange={setRTEData}
+      onChange={handleOnChange}
       {...args}
     />
   )
@@ -53,11 +55,13 @@ Default.args = {
 
 export const WithData: RTEStory = ({ labelText, ...args }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
+  const handleOnChange = (editorState): void =>
+    setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
       labelText={labelText}
       value={rteData}
-      onChange={setRTEData}
+      onChange={handleOnChange}
       {...args}
     />
   )
@@ -80,11 +84,13 @@ export const WithBadData: RTEStory = ({ labelText, ...args }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(
     dummyMalformedContent
   )
+  const handleOnChange = (editorState): void =>
+    setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
       labelText={labelText}
       value={rteData}
-      onChange={setRTEData}
+      onChange={handleOnChange}
       {...args}
     />
   )
@@ -109,19 +115,21 @@ export const WithDescriptionAndValidationMessage: RTEStory = ({
   ...args
 }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
+  const handleOnChange = (editorState): void =>
+    setRTEData(editorState.toJSON().doc.content)
   return (
     <>
       <RichTextEditor
         labelText={labelText}
         value={rteData}
-        onChange={setRTEData}
+        onChange={handleOnChange}
         status="error"
         {...args}
       />
       <RichTextEditor
         labelText={labelText}
         value={rteData}
-        onChange={setRTEData}
+        onChange={handleOnChange}
         status="caution"
         {...args}
       />

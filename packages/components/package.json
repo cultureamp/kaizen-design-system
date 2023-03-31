@@ -1,33 +1,79 @@
 {
   "name": "@kaizen/components",
-  "version": "1.1.0",
+  "version": "1.7.7",
   "description": "Kaizen component library",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "future",
-    "dist"
-  ],
-  "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'dist'"
+  "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
+  "homepage": "https://cultureamp.design",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-discourse/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
-  "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cultureamp/kaizen-discourse/issues"
-  },
-  "homepage": "https://github.com/cultureamp/kaizen-design-system#readme",
-  "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+  "files": [
+    "future",
+    "dist",
+    "icons"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "yarn build:clean && yarn prepublish",
+    "build:clean": "rimraf 'dist'",
+    "build:components": "rollup -c",
+    "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build && yarn workspace @kaizen/draft-tooltip build",
+    "compile": "tsc",
+    "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
+    "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
+    "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
+    "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
+    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
+    "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
+    "test": "jest"
   },
   "dependencies": {
-    "classnames": "^2.3.2"
+    "@kaizen/component-library": "^16.5.3",
+    "@kaizen/draft-divider": "^2.2.8",
+    "@kaizen/draft-tooltip": "^5.4.37",
+    "@kaizen/typography": "^2.3.8",
+    "@popperjs/core": "^2.11.7",
+    "@react-aria/button": "^3.7.0",
+    "@react-aria/focus": "^3.11.0",
+    "@react-aria/listbox": "^3.8.1",
+    "@react-aria/overlays": "^3.13.0",
+    "@react-aria/select": "^3.9.1",
+    "@react-aria/utils": "^3.15.0",
+    "@react-stately/collections": "^3.6.0",
+    "@react-stately/select": "^3.4.0",
+    "@react-types/shared": "^3.17.0",
+    "classnames": "^2.3.2",
+    "react-focus-on": "^3.8.0",
+    "react-popper": "^2.3.0"
+  },
+  "devDependencies": {
+    "@kaizen/tailwind": "^0.6.3",
+    "@rollup/plugin-alias": "^4.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "autoprefixer": "^10.4.14",
+    "concat-cli": "^4.0.0",
+    "esbuild": "^0.17.14",
+    "rollup": "^3.20.2",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "ts-jest": "^29.0.5",
+    "ttypescript": "^1.5.15",
+    "typescript-transform-paths": "^3.4.6"
+  },
+  "peerDependencies": {
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.45...@kaizen/stylelint-plugin@2.4.46) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.44...@kaizen/stylelint-plugin@2.4.45) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.43...@kaizen/stylelint-plugin@2.4.44) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.42...@kaizen/stylelint-plugin@2.4.43) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.41...@kaizen/stylelint-plugin@2.4.42) (2023-02-17)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.40...@kaizen/stylelint-plugin@2.4.41) (2023-02-16)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
+## [2.4.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.39...@kaizen/stylelint-plugin@2.4.40) (2023-02-12)
+
+**Note:** Version bump only for package @kaizen/stylelint-plugin
+
+
+
+
+
 ## [2.4.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/stylelint-plugin@2.4.38...@kaizen/stylelint-plugin@2.4.39) (2023-02-07)
 
 **Note:** Version bump only for package @kaizen/stylelint-plugin

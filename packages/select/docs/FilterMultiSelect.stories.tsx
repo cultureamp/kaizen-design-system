@@ -3,17 +3,13 @@ import { Selection } from "@react-types/shared"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
 import { withDesign } from "storybook-addon-designs"
-import { Button, ButtonRef } from "@kaizen/button"
-import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
-import { Label } from "@kaizen/draft-form"
-import {
-  FilterMultiSelect,
-  getSelectedOptionLabels,
-  ItemType,
-} from "@kaizen/select"
-import { Paragraph } from "@kaizen/typography"
+import { Label } from "../../../draft-packages/form"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { Button, ButtonRef } from "../../button"
+import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
+import { Paragraph } from "../../typography"
+import { FilterMultiSelect, getSelectedOptionLabels } from ".."
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
@@ -90,10 +86,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant="body">Items: </Paragraph>{" "}
-        <CodeBlock
-          language="json"
-          code={JSON.stringify(mockItems, null, "\t")}
-        />
+        <CodeBlock language="json" code={JSON.stringify(mockItems, null, 2)} />
       </div>
     </>
   )
@@ -326,7 +319,7 @@ export const FilterBarDemo = (): JSX.Element => {
 
                 // exclude demographic from both selectedGroups and selectedDemographicValues
                 removeFilter(id)
-                const { [id]: omitted, ...rest } = selectedDemographicValues
+                const { [id]: _omitted, ...rest } = selectedDemographicValues
                 setSelectedDemographicValues(rest)
               }}
               onSelectionChange={(selectedKeys): void => {

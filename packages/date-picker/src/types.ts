@@ -21,7 +21,7 @@ export type ValidationResponse = {
   date: Date | undefined
   inputValue: string | undefined // Input value upon validation
   status: FieldMessageStatus | undefined
-  validationMessage?: string
+  validationMessage: string | undefined
   isDisabled: boolean
   isInvalid: boolean
   isEmpty: boolean

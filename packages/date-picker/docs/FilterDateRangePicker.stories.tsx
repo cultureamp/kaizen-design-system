@@ -1,16 +1,21 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentStory, Story } from "@storybook/react"
+import { Story } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { FilterDateRangePicker } from "../src/FilterDateRangePicker"
+import {
+  DateRangeValidationStatus,
+  FilterDateRangePicker,
+  FilterDateRangePickerProps,
+} from "../src/FilterDateRangePicker"
 import { DateRange } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
 import { dateRangePickerLocaleControls } from "./controls/localeControls"
+import { validationControls } from "./controls/validationControls"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -39,6 +44,7 @@ export default {
     ...dateRangePickerLocaleControls,
     ...defaultMonthControls,
     ...disabledDayMatchersControls,
+    ...validationControls,
     description: {
       control: "text",
     },
@@ -57,10 +63,14 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<
-  typeof FilterDateRangePicker
-> = props => {
+export const DefaultStory = (
+  props: FilterDateRangePickerProps & {
+    validation?: DateRangeValidationStatus
+  }
+): JSX.Element => {
+  const { validation, status: _s, validationMessage: _v, ...restProps } = props
   const [range, setRange] = useState<DateRange | undefined>()
+  const mergedProps = { ...restProps, ...validation }
 
   return (
     <FilterDateRangePicker
@@ -68,14 +78,13 @@ export const DefaultStory: ComponentStory<
       // a full re-render which disassociates the floating wrapper
       // as it uses ref.
       // Add key to force re-render when onRemoveFiler is changed.
-      key={props.onRemoveFilter ? "defined" : "undefined"}
-      {...props}
+      key={restProps.onRemoveFilter ? "defined" : "undefined"}
+      {...mergedProps}
       selectedRange={range}
       onRangeChange={setRange}
     />
   )
 }
-DefaultStory.storyName = "Filter Date Range Picker"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }

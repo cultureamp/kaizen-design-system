@@ -9,7 +9,6 @@ import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
 import { Paragraph } from "@kaizen/typography"
-import "highlight.js/styles/monokai.css"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 import { defaultTheme } from "../src/themes"
 import animationSass from "!!raw-loader!../sass/animation.scss"
@@ -52,7 +51,7 @@ const TabbedCodeBlocks = ({
   >
 }): JSX.Element => {
   const [currentTab, setCurrentTab] = React.useState(blocks[0])
-  const { name, ...codeBlockProps } = currentTab
+  const { name: _name, ...codeBlockProps } = currentTab
 
   return (
     <div style={{ minHeight: "32rem" }}>
@@ -179,7 +178,7 @@ export const getStoryLinkName = (
 export const LinkToStory = ({
   storyModule,
   children,
-  hash,
+  hash: _hash, // not used
 }: {
   storyModule: Meta
   hash?: string

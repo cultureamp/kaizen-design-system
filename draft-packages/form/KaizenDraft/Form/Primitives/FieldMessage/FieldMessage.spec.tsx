@@ -1,8 +1,6 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { FieldMessage, FieldMessageProps } from "./index"
-
-afterEach(cleanup)
 
 const defaultFieldMessageProps = {
   id: "someFieldMessageId",
@@ -18,13 +16,34 @@ const renderFieldMessage = (
 }
 
 describe("<FieldMessage />", () => {
-  it("should render a message", () => {
-    const { queryByText } = renderFieldMessage()
+  it("renders a message within a <p> tag when given a string", () => {
+    const fieldMessage = renderFieldMessage({ message: "Hello I am a message" })
 
-    expect(queryByText(defaultFieldMessageProps.message)).toBeTruthy()
+    expect(fieldMessage.queryByText("Hello I am a message")).toBeInTheDocument()
+    expect(
+      fieldMessage.queryByText("Hello I am a message")?.tagName === "P"
+    ).toBeTruthy()
   })
 
-  it("should render an `id` attribute", () => {
+  it("renders a message within a <div> tag when not given node other than string", () => {
+    const fieldMessage = renderFieldMessage({
+      message: <span>Hello I am a message within a span</span>,
+    })
+
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a span")
+    ).toBeInTheDocument()
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a span")
+        ?.tagName === "SPAN"
+    ).toBeTruthy()
+    expect(
+      fieldMessage.queryByText("Hello I am a message within a span")
+        ?.parentElement?.tagName === "DIV"
+    ).toBeTruthy()
+  })
+
+  it("renders an `id` attribute", () => {
     const { container } = renderFieldMessage()
 
     expect(
@@ -32,7 +51,7 @@ describe("<FieldMessage />", () => {
     ).toBeTruthy()
   })
 
-  it("should render an `data-automation-id` attribute", () => {
+  it("renders an `data-automation-id` attribute", () => {
     const automationId = "someFieldMessageAutomationId"
     const { container } = renderFieldMessage({ automationId })
 
@@ -41,15 +60,23 @@ describe("<FieldMessage />", () => {
     ).toBeTruthy()
   })
 
-  it("should render a `reversed` field message", () => {
+  it("renders a `reversed` field message", () => {
     const { container } = renderFieldMessage({ reversed: true })
 
     expect(container.querySelector(".reversed")).toBeTruthy()
   })
 
-  it("should render a warning icon with an error status", () => {
+  it("renders a warning icon with an error status", () => {
     const { container } = renderFieldMessage({ status: "error" })
 
     expect(container.querySelector(".warningIcon")).toBeTruthy()
+    expect(screen.getByTitle("Error message")).toBeInTheDocument()
+  })
+
+  it("renders a warning icon with an error status", () => {
+    const { container } = renderFieldMessage({ status: "caution" })
+
+    expect(container.querySelector(".warningIcon")).toBeTruthy()
+    expect(screen.getByTitle("Caution message")).toBeInTheDocument()
   })
 })

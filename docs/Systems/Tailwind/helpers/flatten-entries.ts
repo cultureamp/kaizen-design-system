@@ -8,24 +8,27 @@ const flattenEntries = (
   prefix: string,
   themeObj: ResolvableTo<RecursiveKeyValuePair<string, string>>
 ): Array<{
-  className: string
-  classValue: string
+  utilityClassName: string
+  cssProperty: string
 }> => {
   const classKeyVal: string[][] = Object.entries(themeObj || [])
-  const flattenedEntries: Array<{ className: string; classValue: string }> = []
+  const flattenedEntries: Array<{
+    utilityClassName: string
+    cssProperty: string
+  }> = []
   classKeyVal.forEach(colorGroup => {
-    const [classModifier, classValue] = colorGroup
-    if (typeof classValue === "string") {
+    const [classModifier, cssProperty] = colorGroup
+    if (typeof cssProperty === "string") {
       flattenedEntries.push({
-        className: `${prefix}${classModifier}`,
-        classValue,
+        utilityClassName: `${prefix}${classModifier}`,
+        cssProperty,
       })
     } else {
-      Object.entries(classValue as Record<string, string>).forEach(
+      Object.entries(cssProperty as Record<string, string>).forEach(
         classNamePair =>
           flattenedEntries.push({
-            className: `${prefix}${classModifier}-${classNamePair[0]}`,
-            classValue: classNamePair[1],
+            utilityClassName: `${prefix}${classModifier}-${classNamePair[0]}`,
+            cssProperty: classNamePair[1],
           })
       )
     }

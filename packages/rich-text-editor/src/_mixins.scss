@@ -10,9 +10,10 @@
   letter-spacing: $typography-paragraph-body-letter-spacing;
   position: relative;
   white-space: pre-wrap;
+  box-sizing: content-box;
 
   > p {
-    margin: 0 0 $spacing-sm;
+    margin: 0 0 $spacing-16;
   }
 
   > *:last-child {
@@ -47,6 +48,10 @@
 }
 
 @mixin nestedListStyles {
+  ul,
+  ol {
+    padding-inline-start: $spacing-40; // default browser styling
+  }
   ol {
     list-style-type: decimal;
     ol {

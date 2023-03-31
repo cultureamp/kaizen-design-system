@@ -2,8 +2,9 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 
+import cautionIcon from "@kaizen/component-library/icons/caution.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import errorIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 
@@ -164,9 +165,9 @@ class GenericNotification extends React.Component<Props, State> {
       case "positive":
         return successIcon
       case "negative":
-        return exclamationIcon
+        return errorIcon
       case "cautionary":
-        return exclamationIcon
+        return cautionIcon
       case "informative":
         return informationIcon
       default:
@@ -190,9 +191,7 @@ const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
     onClick={onClick}
     data-testid="close-button"
   >
-    <span className={styles.cancelInner}>
-      <Icon icon={closeIcon} role="img" title="close notification" />
-    </span>
+    <Icon icon={closeIcon} role="img" title="close notification" />
   </button>
 )
 

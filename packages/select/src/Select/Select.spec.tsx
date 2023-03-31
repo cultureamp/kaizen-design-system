@@ -17,7 +17,7 @@ const SelectWrapper = ({
     <Select
       id="select"
       label="Mock Label"
-      items={singleMockItems}
+      items={items}
       description="This is a description"
       selectedKey={selected}
       onSelectionChange={(selection): void => {
@@ -156,7 +156,11 @@ describe("<Select>", () => {
           const trigger = screen.getByRole("button", {
             name: "Mock Label SRE",
           })
-          trigger.focus()
+          userEvent.tab()
+          userEvent.tab()
+          await waitFor(() => {
+            expect(trigger).toHaveFocus()
+          })
           userEvent.keyboard("{Enter}")
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).toBeVisible()
@@ -266,7 +270,6 @@ describe("<Select>", () => {
         it("focuses on the first option when tabs onto the list", async () => {
           render(<SelectWrapper />)
           await userEvent.tab()
-          await userEvent.tab()
           await userEvent.keyboard("{Enter}")
           await waitFor(() => {
             expect(
@@ -280,7 +283,6 @@ describe("<Select>", () => {
         it("focuses the first selected option when tabs onto the list", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           await userEvent.tab()
-          await userEvent.tab()
           await userEvent.keyboard("{Enter}")
           await waitFor(() => {
             expect(screen.getByRole("option", { name: "SRE" })).toHaveFocus()
@@ -290,9 +292,8 @@ describe("<Select>", () => {
 
       it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
         render(<SelectWrapper />)
-        await userEvent.tab()
-        await userEvent.tab()
-        await userEvent.keyboard("{ArrowUp}")
+        userEvent.tab()
+        userEvent.keyboard("{ArrowUp}")
         await waitFor(() => {
           expect(
             screen.getByRole("option", { name: "Front-End" })

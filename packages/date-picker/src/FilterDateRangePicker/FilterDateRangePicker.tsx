@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useRef, useState } from "react"
+import React, { useEffect, HTMLAttributes, useRef, useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "@kaizen/component-base"
@@ -10,10 +10,13 @@ import {
   DateRange,
   DisabledDayMatchers,
   SupportedLocales,
+  ValidationResponse,
 } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { formatDateAsText } from "../utils/formatDateAsText"
 import { getLocale } from "../utils/getLocale"
+import { isInvalidDate } from "../utils/isInvalidDate"
+import { parseDateFromTextFormatValue } from "../utils/parseDateFromTextFormatValue"
 import { DateRangeDisplayLabel } from "./components/DateRangeDisplayLabel"
 import {
   DateRangeInputField,
@@ -24,6 +27,9 @@ import {
   FilterTriggerButtonProps,
   RemovableFilterTriggerButton,
 } from "./components/Trigger"
+import { useEndDateValidation } from "./hooks/useEndDateValidation"
+import { useStartDateValidation } from "./hooks/useStartDateValidation"
+import { DateRangeValidationStatus } from "./types"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 import styles from "./FilterDateRangePicker.module.scss"
 
@@ -33,33 +39,42 @@ type InputRangeEndProps = DateRangeInputFieldProps["inputRangeEndProps"]
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
-export interface FilterDateRangePickerProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
-    DisabledDayMatchers {
-  id: string
-  label: string
-  locale: SupportedLocales
-  /**
-   * Sets first displayed month to month of provided date if there isn't a date set.
-   */
-  defaultMonth?: CalendarRangeProps["defaultMonth"]
-  /**
-   * The date range passed in from the consumer that renders in the inputs and calendar.
-   */
-  selectedRange: DateRange | undefined
-  /**
-   * Callback when date is updated either by the calendar picker or by typing and blurring.
-   * Date will return as `undefined` if empty, invalid or disabled.
-   */
-  onRangeChange: (range: DateRange | undefined) => void
-  onRemoveFilter?: () => void
-  inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
-  inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
-  /**
-   * Custom description to provide extra context (input format help text remains).
-   */
-  description?: DateRangeInputFieldProps["description"]
-}
+export type FilterDateRangePickerProps = OverrideClassName<
+  HTMLAttributes<HTMLDivElement>
+> &
+  DisabledDayMatchers &
+  DateRangeValidationStatus & {
+    id: string
+    label: string
+    locale: SupportedLocales
+    /**
+     * Sets first displayed month to month of provided date if there isn't a date set.
+     */
+    defaultMonth?: CalendarRangeProps["defaultMonth"]
+    /**
+     * The date range passed in from the consumer that renders in the inputs and calendar.
+     */
+    selectedRange: DateRange | undefined
+    /**
+     * Callback when date is updated either by the calendar picker or by typing and blurring.
+     * Date will return as `undefined` if empty, invalid or disabled.
+     */
+    onRangeChange: (range: DateRange | undefined) => void
+    onRemoveFilter?: () => void
+    inputRangeStartProps?: FilterInputProps<InputRangeStartProps>
+    inputRangeEndProps?: FilterInputProps<InputRangeEndProps>
+    /**
+     * Custom description to provide extra context (input format help text remains).
+     */
+    description?: DateRangeInputFieldProps["description"]
+    /**
+     * Callback when a date is selected. Utilises internal validation if not set.
+     */
+    onValidate?: {
+      dateStart?: (validationResponse: ValidationResponse) => void
+      dateEnd?: (validationResponse: ValidationResponse) => void
+    }
+  }
 
 export const FilterDateRangePicker = ({
   id,
@@ -78,19 +93,12 @@ export const FilterDateRangePicker = ({
   inputRangeStartProps,
   inputRangeEndProps,
   description,
+  status,
+  validationMessage,
+  onValidate,
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  const removableButtonRefs = useRef(
-    onRemoveFilter
-      ? {
-          triggerButtonRef: buttonRef,
-        }
-      : null
-  )
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-
   const locale = getLocale(propsLocale)
   const disabledDays = calculateDisabledDays({
     disabledDates,
@@ -100,27 +108,108 @@ export const FilterDateRangePicker = ({
     disabledBefore,
     disabledAfter,
   })
+  const inputRangeStartLabel = inputRangeStartProps?.labelText || "Date from"
+  const inputRangeEndLabel = inputRangeEndProps?.labelText || "Date to"
 
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""
 
-  const [inputRangeStartValue, setInputRangeStartValue] = useState<
-    InputRangeStartProps["value"]
-  >(transformDateToInputValue(selectedRange?.from))
-  const [inputRangeEndValue, setInputRangeEndValue] = useState<
-    InputRangeEndProps["value"]
-  >(transformDateToInputValue(selectedRange?.to))
+  const rangeStart = selectedRange?.from
+  const rangeEnd = selectedRange?.to
+  const transformedRangeStart = transformDateToInputValue(rangeStart)
+  const transformedRangeEnd = transformDateToInputValue(rangeEnd)
+
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const removableButtonRefs = useRef(
+    onRemoveFilter
+      ? {
+          triggerButtonRef: buttonRef,
+        }
+      : null
+  )
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [startMonth, setStartMonth] = useState<Date>(
+    rangeStart || defaultMonth || new Date()
+  )
+
+  useEffect(() => {
+    if (!isOpen) {
+      if (rangeStart !== startMonth) {
+        setStartMonth(rangeStart || defaultMonth || new Date())
+      }
+    }
+  }, [isOpen, rangeStart])
+
+  const [inputRangeStartValue, setInputRangeStartValue] = useState<string>(
+    transformedRangeStart
+  )
+  const [inputRangeEndValue, setInputRangeEndValue] =
+    useState<string>(transformedRangeEnd)
+
+  useEffect(() => {
+    if (!isOpen) {
+      if (transformedRangeStart !== inputRangeStartValue) {
+        setInputRangeStartValue(transformedRangeStart)
+      }
+      if (transformedRangeEnd !== inputRangeEndValue) {
+        setInputRangeEndValue(transformedRangeEnd)
+      }
+    }
+  }, [isOpen, rangeStart, rangeEnd])
 
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
   }
 
+  const startDateValidation = useStartDateValidation({
+    inputLabel: inputRangeStartLabel,
+    disabledDays,
+    status: status?.dateStart,
+    validationMessage: validationMessage?.dateStart,
+    onValidate: onValidate?.dateStart,
+  })
+
+  const validateStartDate = (date: Date | undefined): Date | undefined =>
+    startDateValidation.validateDate({ date, inputValue: inputRangeStartValue })
+
+  const endDateValidation = useEndDateValidation({
+    inputLabel: inputRangeEndLabel,
+    disabledDays,
+    status: status?.dateEnd,
+    validationMessage: validationMessage?.dateEnd,
+    onValidate: onValidate?.dateEnd,
+  })
+
+  const validateEndDate = (date: Date | undefined): Date | undefined =>
+    endDateValidation.validateDate({
+      endDate: date,
+      endDateInputValue: inputRangeEndValue,
+      startDate: selectedRange?.from,
+      startDateFieldLabel: inputRangeStartLabel,
+    })
+
   const inputRangeStartHandlers = useDateInputHandlers({
     locale,
     disabledDays,
     setInputValue: setInputRangeStartValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: date, to: selectedRange?.to }),
+    onDateChange: date => {
+      const newDate = validateStartDate(date)
+      const endDate = parseDateFromTextFormatValue(inputRangeEndValue, locale)
+
+      if (newDate && !isInvalidDate(endDate)) {
+        const newEndDate = endDateValidation.validateEndDateBeforeStartDate({
+          startDate: newDate,
+          startDateFieldLabel: inputRangeStartLabel,
+          endDate,
+          endDateInputValue: inputRangeEndValue,
+        })
+        handleDateRangeChange({ from: newDate, to: newEndDate })
+      } else {
+        handleDateRangeChange({ from: newDate, to: rangeEnd })
+      }
+
+      if (newDate) setStartMonth(newDate)
+    },
     ...inputRangeStartProps,
   })
 
@@ -128,15 +217,19 @@ export const FilterDateRangePicker = ({
     locale,
     disabledDays,
     setInputValue: setInputRangeEndValue,
-    onDateChange: date =>
-      handleDateRangeChange({ from: selectedRange?.from, to: date }),
+    onDateChange: date => {
+      const newDate = validateEndDate(date)
+      handleDateRangeChange({ from: rangeStart, to: newDate })
+    },
     ...inputRangeEndProps,
   })
 
   const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
-    setInputRangeStartValue(transformDateToInputValue(range?.from))
-    setInputRangeEndValue(transformDateToInputValue(range?.to))
-    handleDateRangeChange(range)
+    const newStartDate = validateStartDate(range?.from)
+    const newEndDate = validateEndDate(range?.to)
+    setInputRangeStartValue(transformDateToInputValue(newStartDate))
+    setInputRangeEndValue(transformDateToInputValue(newEndDate))
+    handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }
 
   const triggerButtonProps: FilterTriggerButtonProps & DataAttributes = {
@@ -149,6 +242,12 @@ export const FilterDateRangePicker = ({
       <DateRangeDisplayLabel dateRange={selectedRange} locale={locale} />
     ) : undefined,
   }
+
+  useEffect(() => {
+    const newStartDate = validateStartDate(selectedRange?.from)
+    const newEndDate = validateEndDate(selectedRange?.to)
+    if (isOpen) handleDateRangeChange({ from: newStartDate, to: newEndDate })
+  }, [isOpen])
 
   return (
     <div
@@ -184,14 +283,14 @@ export const FilterDateRangePicker = ({
               id={`${id}--input`}
               legend={label}
               inputRangeStartProps={{
-                labelText: "Date from",
+                labelText: inputRangeStartLabel,
                 value: inputRangeStartValue,
                 ...inputRangeStartProps,
                 // The below props extend the values from inputRangeStartProps, therefore must be below the spread
                 ...inputRangeStartHandlers,
               }}
               inputRangeEndProps={{
-                labelText: "Date to",
+                labelText: inputRangeEndLabel,
                 value: inputRangeEndValue,
                 ...inputRangeEndProps,
                 // The below props extend the values from inputRangeEndProps, therefore must be below the spread
@@ -199,14 +298,23 @@ export const FilterDateRangePicker = ({
               }}
               locale={locale}
               description={description}
+              status={{
+                dateStart: startDateValidation.status,
+                dateEnd: endDateValidation.status,
+              }}
+              validationMessage={{
+                dateStart: startDateValidation.validationMessage,
+                dateEnd: endDateValidation.validationMessage,
+              }}
               classNameOverride={styles.dateRangeInputField}
             />
             <CalendarRange
-              defaultMonth={defaultMonth}
               disabled={disabledDays}
               locale={locale}
               selected={selectedRange}
               onSelect={handleCalendarSelectRange}
+              month={startMonth}
+              onMonthChange={setStartMonth}
             />
           </FloatingCalendarWrapper>
         </FocusOn>

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/stylelint-plugin",
-  "version": "2.4.39",
+  "version": "2.4.46",
   "types": "dist/**/*.d.ts",
   "main": "dist/src/index.js",
   "license": "MIT",
@@ -18,7 +18,7 @@
   "dependencies": {
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
-    "nano-memoize": "^3.0.4",
+    "nano-memoize": "^3.0.8",
     "postcss": "^8.4.19",
     "postcss-less": "^6.0.0",
     "postcss-scss": "^4.0.6",
@@ -33,13 +33,13 @@
     "@types/lodash.kebabcase": "^4.1.7",
     "@types/lodash.merge": "^4.6.7",
     "@types/node": "^18.11.18",
-    "@types/node-fetch": "^2.6.2",
+    "@types/node-fetch": "^2.6.3",
     "@types/postcss-less": "^4.0.2",
     "@types/stylelint": "^13.13.3",
     "@types/tinycolor2": "^1.4.3",
     "lodash.merge": "^4.6.2",
-    "node-fetch": "^3.3.0",
-    "prettier": "^2.8.3",
+    "node-fetch": "^3.3.1",
+    "prettier": "^2.8.7",
     "ts-node": "^10.9.1"
   }
 }

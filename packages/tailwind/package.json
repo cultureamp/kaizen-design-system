@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "0.3.2",
+  "version": "0.6.3",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "yarn clean && yarn prepublish",
@@ -28,13 +28,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "^10.1.7",
+    "@kaizen/design-tokens": "^10.3.4",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/draft-divider": "^2.2.6",
-    "rimraf": "^4.1.2",
-    "tailwindcss": "^3.2.4"
+    "@kaizen/draft-divider": "^2.2.8",
+    "rimraf": "^4.4.1",
+    "tailwindcss": "^3.3.1"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
