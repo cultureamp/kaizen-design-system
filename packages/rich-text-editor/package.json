@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/rich-text-editor",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "The RichTextEditor component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
