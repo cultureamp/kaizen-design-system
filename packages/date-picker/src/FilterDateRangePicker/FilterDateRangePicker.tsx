@@ -41,6 +41,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 
 /**
  * @deprecated Use FilterDateRangePicker from @kaizen/components
+ * https://cultureamp.design/storybook/?path=/docs/components-filter-date-range-picker--default-story
  */
 export type FilterDateRangePickerProps = OverrideClassName<
   HTMLAttributes<HTMLDivElement>
