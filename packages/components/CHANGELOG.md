@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.6
+
+### Patch Changes
+
+- b803f5aaf: Tester
+
 ## 1.7.5
 
 ### Patch Changes
