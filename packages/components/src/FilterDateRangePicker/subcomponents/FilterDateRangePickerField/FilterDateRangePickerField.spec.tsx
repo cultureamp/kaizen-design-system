@@ -1,7 +1,7 @@
 import React, { useState, FocusEvent } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { DateRange } from "@kaizen/date-picker/src/types"
+import { DateRange } from "./types"
 import { FilterDateRangePickerField, FilterDateRangePickerFieldProps } from "."
 
 const FilterDateRangePickerFieldWrapper = ({

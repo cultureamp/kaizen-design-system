@@ -1,4 +1,4 @@
-import { DateRange } from "@kaizen/date-picker/src/types"
+import { DateRange } from "../subcomponents/FilterDateRangePickerField/types"
 
 export const isCompleteDateRange = (
   dateRange: DateRange | undefined

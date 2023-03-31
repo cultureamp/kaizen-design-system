@@ -1,6 +1,5 @@
 import { useState } from "react"
-import { Matcher } from "@kaizen/date-picker/src/types"
-import { ValidationMessage, DateValidationResponse } from "../types"
+import { ValidationMessage, DateValidationResponse, Matcher } from "../types"
 import { getDateValidationHandler } from "../utils/getDateValidationHandler"
 import { validateDate } from "../utils/validateDate"
 

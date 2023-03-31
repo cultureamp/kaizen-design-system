@@ -5,11 +5,6 @@ import {
   CalendarRangeProps,
 } from "@kaizen/date-picker/src/_subcomponents/Calendar"
 import { useDateInputHandlers } from "@kaizen/date-picker/src/hooks/useDateInputHandlers"
-import {
-  DateRange,
-  DisabledDayMatchers,
-  SupportedLocales,
-} from "@kaizen/date-picker/src/types"
 import { calculateDisabledDays } from "@kaizen/date-picker/src/utils/calculateDisabledDays"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
@@ -24,8 +19,11 @@ import {
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
 import {
+  DateRange,
   DateRangeFieldValidationMessage,
   DateValidationResponse,
+  DisabledDayMatchers,
+  SupportedLocales,
 } from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
 

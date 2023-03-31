@@ -3,22 +3,22 @@ import { action } from "@storybook/addon-actions"
 import { ComponentStory, Story } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
-import { defaultMonthControls } from "@kaizen/date-picker/docs/controls/defaultMonthControls"
-import { disabledDayMatchersControls } from "@kaizen/date-picker/docs/controls/disabledDayMatchersControls"
-import { dateRangePickerLocaleControls } from "@kaizen/date-picker/docs/controls/localeControls"
-import { DateRange } from "@kaizen/date-picker/src/types"
 import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { Paragraph } from "@kaizen/typography"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import {
+  DateRange,
   DateRangeFieldValidationMessage,
   DateValidationResponse,
   FilterDateRangePicker,
 } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
-import { validationControls } from "./validationControls"
+import { defaultMonthControls } from "./controls/defaultMonthControls"
+import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
+import { dateRangePickerLocaleControls } from "./controls/localeControls"
+import { validationControls } from "./controls/validationControls"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -28,8 +28,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component:
-          'import { FilterDateRangePicker } from "@kaizen/date-picker"',
+        component: 'import { FilterDateRangePicker } from "@kaizen/components"',
       },
     },
   },

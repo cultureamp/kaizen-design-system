@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { DateRange } from "@kaizen/date-picker/src/types"
 import { FilterButton } from "~components/FilterButton"
-import { FilterDateRangePicker, FilterDateRangePickerProps } from "."
+import { DateRange, FilterDateRangePicker, FilterDateRangePickerProps } from "."
 
 const FilterDateRangePickerWrapper = ({
   selectedRange,
