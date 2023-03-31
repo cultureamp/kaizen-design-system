@@ -2,7 +2,7 @@ import React from "react"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import styles from "./DateRangeDisplayLabel.module.scss"
 
-interface DateRangeDisplayLabelProps {
+export interface DateRangeDisplayLabelProps {
   dateRange: { from: Date; to: Date }
   locale: Locale
 }

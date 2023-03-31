@@ -3,7 +3,7 @@ import { FieldMessage } from "@kaizen/draft-form"
 import { DateRangeFieldValidationMessage } from "../FilterDateRangePickerField/types"
 import styles from "./DateRangeValidationMessage.module.scss"
 
-export type DateRangeValidationMessageProps = {
+export interface DateRangeValidationMessageProps {
   validationMessage?: DateRangeFieldValidationMessage
   dateStartId?: string
   dateEndId?: string
