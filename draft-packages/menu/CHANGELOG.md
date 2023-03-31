@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.40...@kaizen/draft-menu@4.9.0) (2023-03-30)
+
+
+### Features
+
+* 71-working-button-state-needs-to-be-announced-with-a-live-region ([#3406](https://github.com/cultureamp/kaizen-design-system/issues/3406)) ([ae55e7a](https://github.com/cultureamp/kaizen-design-system/commit/ae55e7acd8ef6d9d0797a5f9adc9e206a9995f66))
+
+
+
+
+
 ## [4.8.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@4.8.39...@kaizen/draft-menu@4.8.40) (2023-03-29)
 
 **Note:** Version bump only for package @kaizen/draft-menu
