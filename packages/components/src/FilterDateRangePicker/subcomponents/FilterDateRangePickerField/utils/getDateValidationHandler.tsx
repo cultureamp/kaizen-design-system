@@ -1,4 +1,5 @@
 import React from "react"
+import { LabelledMessage } from "~components/LabelledMessage"
 import { getNodeText } from "../../../../utils/getNodeText"
 import { ValidationMessage, DateValidationResponse } from "../types"
 
@@ -28,6 +29,11 @@ export const getDateValidationHandler =
 
     setInbuiltValidationMessage({
       status: validationMessage.status,
-      message: `${getNodeText(inputLabel)}: ${validationMessage.message}`,
+      message: (
+        <LabelledMessage
+          label={`${getNodeText(inputLabel)}`}
+          message={validationMessage.message}
+        />
+      ),
     })
   }

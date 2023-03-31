@@ -1,3 +1,5 @@
+import React from "react"
+import { LabelledMessage } from "~components/LabelledMessage"
 import { ValidationMessage, DateValidationResponse } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
@@ -75,7 +77,12 @@ describe("getDateValidationHandler()", () => {
         expect(onValidate).not.toBeCalled()
         expect(setInbuiltValidationMessage).toBeCalledWith({
           status: "error",
-          message: "Field label: Custom error message",
+          message: (
+            <LabelledMessage
+              label="Field label"
+              message="Custom error message"
+            />
+          ),
         })
       })
     })
