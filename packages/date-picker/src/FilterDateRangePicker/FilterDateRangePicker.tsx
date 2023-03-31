@@ -39,6 +39,9 @@ type InputRangeEndProps = DateRangeInputFieldProps["inputRangeEndProps"]
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
+/**
+ * @deprecated Use FilterDateRangePicker from @kaizen/components
+ */
 export type FilterDateRangePickerProps = OverrideClassName<
   HTMLAttributes<HTMLDivElement>
 > &
