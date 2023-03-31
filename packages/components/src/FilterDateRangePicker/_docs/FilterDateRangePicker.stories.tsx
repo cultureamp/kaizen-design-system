@@ -7,10 +7,16 @@ import { defaultMonthControls } from "@kaizen/date-picker/docs/controls/defaultM
 import { disabledDayMatchersControls } from "@kaizen/date-picker/docs/controls/disabledDayMatchersControls"
 import { dateRangePickerLocaleControls } from "@kaizen/date-picker/docs/controls/localeControls"
 import { DateRange } from "@kaizen/date-picker/src/types"
+import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
+import { Paragraph } from "@kaizen/typography"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
-import { FilterDateRangePicker } from "../index"
+import {
+  DateRangeFieldValidationMessage,
+  DateValidationResponse,
+  FilterDateRangePicker,
+} from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
 import { validationControls } from "./validationControls"
 
@@ -73,6 +79,148 @@ DefaultStory.args = {
   id: "filter-drp--default",
   /* @ts-expect-error: Storybook controls key; see argTypes in default export */
   renderTrigger: "Filter Button",
+}
+
+export const ValidationStory: Story = () => {
+  const [range, setRange] = useState<DateRange | undefined>()
+  const [response, setResponse] = useState<DateValidationResponse | undefined>()
+  const [validationMessage, setValidationMessage] = useState<
+    DateRangeFieldValidationMessage | undefined
+  >()
+
+  const handleValidate = (
+    validationResponse: DateValidationResponse,
+    input: "dateStart" | "dateEnd"
+  ): void => {
+    setResponse(validationResponse)
+    // An example of additional validation
+    if (
+      validationResponse.isValidDate &&
+      validationResponse.date?.getFullYear() !== new Date().getFullYear()
+    ) {
+      setValidationMessage(currentValue => ({
+        ...currentValue,
+        [input]: {
+          status: "caution",
+          message: `(${input}) Date is not this year`,
+        },
+      }))
+      return
+    }
+
+    setValidationMessage(currentValue => ({
+      ...currentValue,
+      [input]: validationResponse.validationMessage,
+    }))
+  }
+
+  const handleDateStartValidate = (
+    validationResponse: DateValidationResponse
+  ): void => handleValidate(validationResponse, "dateStart")
+
+  const handleDateEndValidate = (
+    validationResponse: DateValidationResponse
+  ): void => handleValidate(validationResponse, "dateEnd")
+
+  const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
+    e.preventDefault()
+
+    let errors: DateRangeFieldValidationMessage | undefined
+
+    if (validationMessage?.dateStart) {
+      errors = {
+        dateStart: { status: "error", message: "Error for start date" },
+      }
+    }
+
+    if (validationMessage?.dateEnd) {
+      errors = {
+        ...errors,
+        dateEnd: { status: "error", message: "Error for end date" },
+      }
+    }
+
+    if (errors) {
+      setValidationMessage(errors)
+      return alert("Error")
+    }
+
+    alert("Success")
+  }
+
+  return (
+    <>
+      <form onSubmit={submitRequest}>
+        <FilterDateRangePickerField
+          id="datepicker-default"
+          label="Label"
+          selectedRange={range}
+          onRangeChange={setRange}
+          onValidate={{
+            dateStart: handleDateStartValidate,
+            dateEnd: handleDateEndValidate,
+          }}
+          validationMessage={validationMessage}
+          disabledBefore={new Date()}
+          locale="en-AU"
+        />
+        <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+
+      <div>
+        <Paragraph variant="body">
+          NOTE: This story includes additional custom validation to provide some
+          guidance when dealing with validation other than date isInvalid or
+          isDisabled.
+        </Paragraph>
+        <ul>
+          <li>
+            There will be a caution when the selectedDay{" "}
+            <strong>is valid</strong> but{" "}
+            <strong>is not within this year</strong>.
+          </li>
+          <li>
+            There will be an error when the{" "}
+            <strong>submit button is clicked</strong> and there is a{" "}
+            <strong>current error</strong>.
+          </li>
+        </ul>
+        <Paragraph variant="body">
+          The <code>onValidate</code> callback returns a{" "}
+          <code>validationResponse</code> object which provides data such as a
+          default validation message, and can be utilised for custom validation.
+        </Paragraph>
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(response, null, "\t")}
+        />
+        <ul>
+          <li>
+            <code>isInvalid</code>: A date that cannot be parsed. e.g "potato".
+          </li>
+          <li>
+            <code>isDisabled</code>: A date that have been set as disabled
+            through the <code>disabledDates</code> prop.
+          </li>
+          <li>
+            <code>isEmpty</code>: Input is empty.
+          </li>
+          <li>
+            <code>isValidDate</code>: Date input that is not{" "}
+            <code>invalid</code> nor <code>disabled</code> nor{" "}
+            <code>empty</code>.
+          </li>
+        </ul>
+      </div>
+    </>
+  )
+}
+ValidationStory.storyName = "Validation"
+ValidationStory.parameters = {
+  docs: { source: { type: "code" } },
+  controls: { disable: true },
 }
 
 const StickerSheetTemplate: Story<{ textDirection: "ltr" | "rtl" }> = ({
