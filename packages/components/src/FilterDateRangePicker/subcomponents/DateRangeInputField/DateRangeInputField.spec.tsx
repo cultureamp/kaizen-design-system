@@ -13,8 +13,8 @@ const DateRangeInputFieldWrapper = (
   <DateRangeInputField
     id="test__date-range-input-field"
     legend="Dates"
-    inputRangeStartProps={{ labelText: "Date from" }}
-    inputRangeEndProps={{ labelText: "Date to" }}
+    inputStartDateProps={{ labelText: "Date from" }}
+    inputEndDateProps={{ labelText: "Date to" }}
     locale={enAU}
     {...props}
   />
@@ -78,14 +78,14 @@ describe("<DateRangeInputField />", () => {
       >()
 
       const Wrapper = (): JSX.Element => {
-        const inputRangeStartRef = useRef<HTMLInputElement>(null)
-        const inputRangeEndRef = useRef<HTMLInputElement>(null)
-        const ref = useRef({ inputRangeStartRef, inputRangeEndRef })
+        const inputStartDateRef = useRef<HTMLInputElement>(null)
+        const inputEndDateRef = useRef<HTMLInputElement>(null)
+        const ref = useRef({ inputStartDateRef, inputEndDateRef })
 
         const handleClick = (): void =>
           onButtonClick(
-            inputRangeStartRef.current?.id,
-            inputRangeEndRef.current?.id
+            inputStartDateRef.current?.id,
+            inputEndDateRef.current?.id
           )
 
         return (
@@ -94,8 +94,8 @@ describe("<DateRangeInputField />", () => {
               ref={ref}
               id="test__id"
               legend="Dates"
-              inputRangeStartProps={{ labelText: "Start" }}
-              inputRangeEndProps={{ labelText: "End" }}
+              inputStartDateProps={{ labelText: "Start" }}
+              inputEndDateProps={{ labelText: "End" }}
               locale={enAU}
             />
             <button onClick={handleClick}>Click me</button>

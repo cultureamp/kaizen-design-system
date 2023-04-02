@@ -42,10 +42,10 @@ export default {
     ...disabledDayMatchersControls,
     ...validationControls,
     renderTrigger: renderTriggerControls,
-    inputRangeStartProps: {
+    inputStartDateProps: {
       table: { type: { summary: 'Omit<DateInputProps, "id">' } },
     },
-    inputRangeEndProps: {
+    inputEndDateProps: {
       table: { type: { summary: 'Omit<DateInputProps, "id">' } },
     },
     isOpen: { control: "disabled" },
@@ -326,7 +326,7 @@ const StickerSheetTemplate: Story<{ textDirection: "ltr" | "rtl" }> = ({
                     "(Start date custom message) Jelly-filled doughnuts are my favourite!",
                 },
               }}
-              inputRangeEndProps={{
+              inputEndDateProps={{
                 "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
               }}
             />
@@ -342,11 +342,11 @@ const applyStickerSheetStyles = (
   textDirection: "ltr" | "rtl"
 ): void => {
   const canvas = within(canvasElement)
-  const rangeEndInput = canvas.getByTestId(
+  const inputEndDate = canvas.getByTestId(
     `${textDirection}-test__filter-drp-field--validation--end`
   )
-  userEvent.click(rangeEndInput)
-  userEvent.type(rangeEndInput, "potato")
+  userEvent.click(inputEndDate)
+  userEvent.type(inputEndDate, "potato")
   userEvent.click(document.body)
 }
 

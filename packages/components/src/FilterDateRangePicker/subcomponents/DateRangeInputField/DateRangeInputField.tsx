@@ -37,8 +37,8 @@ export interface DateRangeInputFieldProps
 }
 
 export type DateRangeInputFieldRefs = {
-  inputRangeStartRef?: React.RefObject<HTMLInputElement>
-  inputRangeEndRef?: React.RefObject<HTMLInputElement>
+  inputStartDateRef?: React.RefObject<HTMLInputElement>
+  inputEndDateRef?: React.RefObject<HTMLInputElement>
 }
 
 export const DateRangeInputField = React.forwardRef<
@@ -62,8 +62,8 @@ export const DateRangeInputField = React.forwardRef<
     ref
   ) => {
     const customRefObject = isRefObject(ref) ? ref.current : null
-    const inputRangeStartRef = customRefObject?.inputRangeStartRef
-    const inputRangeEndRef = customRefObject?.inputRangeEndRef
+    const inputStartDateRef = customRefObject?.inputStartDateRef
+    const inputEndDateRef = customRefObject?.inputEndDateRef
 
     const descriptionId = `${id}--field-message`
 
@@ -96,7 +96,7 @@ export const DateRangeInputField = React.forwardRef<
             <VisuallyHidden>{legend}</VisuallyHidden>
           </legend>
           <DateInput
-            ref={inputRangeStartRef}
+            ref={inputStartDateRef}
             id={`${id}--from`}
             aria-describedby={dateStartInputDescribedBy}
             aria-errormessage={dateStartErrorMessageId}
@@ -106,12 +106,12 @@ export const DateRangeInputField = React.forwardRef<
             status={validationMessage?.dateStart?.status}
             {...inputStartDateProps}
             classNameOverride={classnames(
-              styles.inputRangeStart,
+              styles.inputStartDate,
               inputStartDateProps.classNameOverride
             )}
           />
           <DateInput
-            ref={inputRangeEndRef}
+            ref={inputEndDateRef}
             id={`${id}--to`}
             aria-describedby={dateEndInputDescribedBy}
             aria-errormessage={dateEndErrorMessageId}
@@ -121,7 +121,7 @@ export const DateRangeInputField = React.forwardRef<
             status={validationMessage?.dateEnd?.status}
             {...inputEndDateProps}
             classNameOverride={classnames(
-              styles.inputRangeEnd,
+              styles.inputEndDate,
               inputEndDateProps.classNameOverride
             )}
           />

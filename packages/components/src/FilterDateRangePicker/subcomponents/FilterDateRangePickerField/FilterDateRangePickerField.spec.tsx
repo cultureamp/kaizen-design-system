@@ -29,10 +29,10 @@ describe("<FilterDateRangePickerField />", () => {
     it("has empty inputs when a date range is not provided", () => {
       render(<FilterDateRangePickerFieldWrapper />)
 
-      const inputRangeStart = screen.getByLabelText("Date from")
-      const inputRangeEnd = screen.getByLabelText("Date to")
-      expect(inputRangeStart).toHaveValue("")
-      expect(inputRangeEnd).toHaveValue("")
+      const inputStartDate = screen.getByLabelText("Date from")
+      const inputEndDate = screen.getByLabelText("Date to")
+      expect(inputStartDate).toHaveValue("")
+      expect(inputEndDate).toHaveValue("")
     })
 
     it("pre-fills the inputs when date range is provided", () => {
@@ -45,10 +45,10 @@ describe("<FilterDateRangePickerField />", () => {
         />
       )
 
-      const inputRangeStart = screen.getByLabelText("Date from")
-      const inputRangeEnd = screen.getByLabelText("Date to")
-      expect(inputRangeStart).toHaveValue("1 May 2022")
-      expect(inputRangeEnd).toHaveValue("22 May 2022")
+      const inputStartDate = screen.getByLabelText("Date from")
+      const inputEndDate = screen.getByLabelText("Date to")
+      expect(inputStartDate).toHaveValue("1 May 2022")
+      expect(inputEndDate).toHaveValue("22 May 2022")
     })
 
     it("allows customising the input labels", () => {
@@ -58,21 +58,21 @@ describe("<FilterDateRangePickerField />", () => {
             from: new Date("2022-05-01"),
             to: new Date("2022-05-22"),
           }}
-          inputRangeStartProps={{ labelText: "Start date" }}
-          inputRangeEndProps={{ labelText: "End date" }}
+          inputStartDateProps={{ labelText: "Start date" }}
+          inputEndDateProps={{ labelText: "End date" }}
         />
       )
 
-      const inputRangeStart = screen.getByLabelText("Start date")
-      const inputRangeEnd = screen.getByLabelText("End date")
-      expect(inputRangeStart).toHaveValue("1 May 2022")
-      expect(inputRangeEnd).toHaveValue("22 May 2022")
+      const inputStartDate = screen.getByLabelText("Start date")
+      const inputEndDate = screen.getByLabelText("End date")
+      expect(inputStartDate).toHaveValue("1 May 2022")
+      expect(inputEndDate).toHaveValue("22 May 2022")
     })
 
     describe("onBlur", () => {
       it("updates start date input and calendar values correctly on blur", async () => {
-        const rangeStartOnBlur = jest.fn<void, [FocusEvent]>()
-        const rangeEndOnBlur = jest.fn<void, [FocusEvent]>()
+        const startDateOnBlur = jest.fn<void, [FocusEvent]>()
+        const endDateOnBlur = jest.fn<void, [FocusEvent]>()
 
         render(
           <FilterDateRangePickerFieldWrapper
@@ -80,39 +80,39 @@ describe("<FilterDateRangePickerField />", () => {
               from: new Date("2022-05-02"),
               to: new Date("2022-05-22"),
             }}
-            inputRangeStartProps={{ onBlur: rangeStartOnBlur }}
-            inputRangeEndProps={{ onBlur: rangeEndOnBlur }}
+            inputStartDateProps={{ onBlur: startDateOnBlur }}
+            inputEndDateProps={{ onBlur: endDateOnBlur }}
           />
         )
 
-        const inputRangeStart = screen.getByLabelText("Date from")
-        const inputRangeEnd = screen.getByLabelText("Date to")
-        expect(inputRangeStart).toHaveValue("2 May 2022")
-        expect(inputRangeEnd).toHaveValue("22 May 2022")
+        const inputStartDate = screen.getByLabelText("Date from")
+        const inputEndDate = screen.getByLabelText("Date to")
+        expect(inputStartDate).toHaveValue("2 May 2022")
+        expect(inputEndDate).toHaveValue("22 May 2022")
 
         const targetDay = screen.getByRole("button", {
           name: "1st May (Sunday)",
         })
         expect(targetDay).not.toHaveAttribute("aria-pressed")
 
-        await userEvent.click(inputRangeStart)
-        await userEvent.clear(inputRangeStart)
-        await userEvent.type(inputRangeStart, "01/05/2022")
+        await userEvent.click(inputStartDate)
+        await userEvent.clear(inputStartDate)
+        await userEvent.type(inputStartDate, "01/05/2022")
 
         await userEvent.click(document.body)
 
         await waitFor(() => {
-          expect(inputRangeStart).toHaveValue("1 May 2022")
-          expect(rangeStartOnBlur).toHaveBeenCalled()
-          expect(inputRangeEnd).toHaveValue("22 May 2022")
-          expect(rangeEndOnBlur).not.toHaveBeenCalled()
+          expect(inputStartDate).toHaveValue("1 May 2022")
+          expect(startDateOnBlur).toHaveBeenCalled()
+          expect(inputEndDate).toHaveValue("22 May 2022")
+          expect(endDateOnBlur).not.toHaveBeenCalled()
           expect(targetDay).toHaveAttribute("aria-pressed", "true")
         })
       })
 
       it("updates end date input and calendar values correctly on blur", async () => {
-        const rangeStartOnBlur = jest.fn<void, [FocusEvent]>()
-        const rangeEndOnBlur = jest.fn<void, [FocusEvent]>()
+        const startDateOnBlur = jest.fn<void, [FocusEvent]>()
+        const endDateOnBlur = jest.fn<void, [FocusEvent]>()
 
         render(
           <FilterDateRangePickerFieldWrapper
@@ -120,32 +120,32 @@ describe("<FilterDateRangePickerField />", () => {
               from: new Date("2022-05-01"),
               to: new Date("2022-05-22"),
             }}
-            inputRangeStartProps={{ onBlur: rangeStartOnBlur }}
-            inputRangeEndProps={{ onBlur: rangeEndOnBlur }}
+            inputStartDateProps={{ onBlur: startDateOnBlur }}
+            inputEndDateProps={{ onBlur: endDateOnBlur }}
           />
         )
 
-        const inputRangeStart = screen.getByLabelText("Date from")
-        const inputRangeEnd = screen.getByLabelText("Date to")
-        expect(inputRangeStart).toHaveValue("1 May 2022")
-        expect(inputRangeEnd).toHaveValue("22 May 2022")
+        const inputStartDate = screen.getByLabelText("Date from")
+        const inputEndDate = screen.getByLabelText("Date to")
+        expect(inputStartDate).toHaveValue("1 May 2022")
+        expect(inputEndDate).toHaveValue("22 May 2022")
 
         const targetDay = screen.getByRole("button", {
           name: "31st May (Tuesday)",
         })
         expect(targetDay).not.toHaveAttribute("aria-pressed")
 
-        await userEvent.click(inputRangeEnd)
-        await userEvent.clear(inputRangeEnd)
-        await userEvent.type(inputRangeEnd, "31/05/2022")
+        await userEvent.click(inputEndDate)
+        await userEvent.clear(inputEndDate)
+        await userEvent.type(inputEndDate, "31/05/2022")
 
         await userEvent.click(document.body)
 
         await waitFor(() => {
-          expect(inputRangeStart).toHaveValue("1 May 2022")
-          expect(rangeStartOnBlur).not.toHaveBeenCalled()
-          expect(inputRangeEnd).toHaveValue("31 May 2022")
-          expect(rangeEndOnBlur).toHaveBeenCalled()
+          expect(inputStartDate).toHaveValue("1 May 2022")
+          expect(startDateOnBlur).not.toHaveBeenCalled()
+          expect(inputEndDate).toHaveValue("31 May 2022")
+          expect(endDateOnBlur).toHaveBeenCalled()
           expect(targetDay).toHaveAttribute("aria-pressed", "true")
         })
       })
@@ -161,14 +161,14 @@ describe("<FilterDateRangePickerField />", () => {
         />
       )
 
-      const inputRangeStart = screen.getByLabelText("Date from")
-      expect(inputRangeStart).toHaveValue("2 May 2022")
+      const inputStartDate = screen.getByLabelText("Date from")
+      expect(inputStartDate).toHaveValue("2 May 2022")
 
       expect(screen.getByText("May 2022")).toBeVisible()
       expect(screen.getByText("June 2022")).toBeVisible()
 
-      await userEvent.clear(inputRangeStart)
-      await userEvent.type(inputRangeStart, "19/02/2020")
+      await userEvent.clear(inputStartDate)
+      await userEvent.type(inputStartDate, "19/02/2020")
 
       await userEvent.tab({ shift: true })
 
@@ -231,8 +231,8 @@ describe("<FilterDateRangePickerField />", () => {
         />
       )
 
-      const inputRangeStart = screen.getByLabelText("Date from")
-      expect(inputRangeStart).toHaveValue("15 May 2022")
+      const inputStartDate = screen.getByLabelText("Date from")
+      expect(inputStartDate).toHaveValue("15 May 2022")
 
       const targetDay = screen.getByRole("button", {
         name: "12th May (Thursday)",
@@ -242,7 +242,7 @@ describe("<FilterDateRangePickerField />", () => {
 
       await waitFor(() => {
         expect(targetDay).toHaveAttribute("aria-pressed", "true")
-        expect(inputRangeStart).toHaveValue("12 May 2022")
+        expect(inputStartDate).toHaveValue("12 May 2022")
       })
     })
 
@@ -256,8 +256,8 @@ describe("<FilterDateRangePickerField />", () => {
         />
       )
 
-      const inputRangeEnd = screen.getByLabelText("Date to")
-      expect(inputRangeEnd).toHaveValue("15 Jun 2022")
+      const inputEndDate = screen.getByLabelText("Date to")
+      expect(inputEndDate).toHaveValue("15 Jun 2022")
 
       const targetDay = screen.getByRole("button", {
         name: "23rd June (Thursday)",
@@ -267,7 +267,7 @@ describe("<FilterDateRangePickerField />", () => {
 
       await waitFor(() => {
         expect(targetDay).toHaveAttribute("aria-pressed", "true")
-        expect(inputRangeEnd).toHaveValue("23 Jun 2022")
+        expect(inputEndDate).toHaveValue("23 Jun 2022")
       })
     })
 
@@ -281,10 +281,10 @@ describe("<FilterDateRangePickerField />", () => {
         />
       )
 
-      const inputRangeStart = screen.getByLabelText("Date from")
-      const inputRangeEnd = screen.getByLabelText("Date to")
-      expect(inputRangeStart).toHaveValue("15 May 2022")
-      expect(inputRangeEnd).toHaveValue("22 May 2022")
+      const inputStartDate = screen.getByLabelText("Date from")
+      const inputEndDate = screen.getByLabelText("Date to")
+      expect(inputStartDate).toHaveValue("15 May 2022")
+      expect(inputEndDate).toHaveValue("22 May 2022")
 
       const firstSelectedDay = screen.getByRole("button", {
         name: "15th May (Sunday)",
@@ -292,8 +292,8 @@ describe("<FilterDateRangePickerField />", () => {
       await userEvent.click(firstSelectedDay)
 
       await waitFor(() => {
-        expect(inputRangeStart).toHaveValue("")
-        expect(inputRangeEnd).toHaveValue("")
+        expect(inputStartDate).toHaveValue("")
+        expect(inputEndDate).toHaveValue("")
       })
     })
   })
@@ -334,14 +334,14 @@ describe("<FilterDateRangePickerField />", () => {
       it("shows inbuilt validation messages for start date", async () => {
         const { container } = render(
           <FilterDateRangePickerFieldWrapper
-            inputRangeStartProps={{ labelText: "Start date" }}
+            inputStartDateProps={{ labelText: "Start date" }}
           />
         )
 
-        const inputRangeStart = screen.getByLabelText("Start date")
+        const inputStartDate = screen.getByLabelText("Start date")
 
-        await userEvent.clear(inputRangeStart)
-        await userEvent.type(inputRangeStart, "potato")
+        await userEvent.clear(inputStartDate)
+        await userEvent.type(inputStartDate, "potato")
 
         await userEvent.click(document.body)
 
@@ -357,14 +357,14 @@ describe("<FilterDateRangePickerField />", () => {
       it("shows inbuilt validation messages for end date", async () => {
         const { container } = render(
           <FilterDateRangePickerFieldWrapper
-            inputRangeEndProps={{ labelText: "End date" }}
+            inputEndDateProps={{ labelText: "End date" }}
           />
         )
 
-        const inputRangeEnd = screen.getByLabelText("End date")
+        const inputEndDate = screen.getByLabelText("End date")
 
-        await userEvent.clear(inputRangeEnd)
-        await userEvent.type(inputRangeEnd, "potato")
+        await userEvent.clear(inputEndDate)
+        await userEvent.type(inputEndDate, "potato")
 
         await userEvent.click(document.body)
 
@@ -412,10 +412,10 @@ describe("<FilterDateRangePickerField />", () => {
             />
           )
 
-          const inputRangeEnd = screen.getByLabelText("Date to")
+          const inputEndDate = screen.getByLabelText("Date to")
 
-          await userEvent.clear(inputRangeEnd)
-          await userEvent.type(inputRangeEnd, "12/05/2022")
+          await userEvent.clear(inputEndDate)
+          await userEvent.type(inputEndDate, "12/05/2022")
 
           await userEvent.click(document.body)
 
@@ -438,10 +438,10 @@ describe("<FilterDateRangePickerField />", () => {
             />
           )
 
-          const inputRangeEnd = screen.getByLabelText("Date to")
+          const inputEndDate = screen.getByLabelText("Date to")
 
-          await userEvent.clear(inputRangeEnd)
-          await userEvent.type(inputRangeEnd, "12/05/2022")
+          await userEvent.clear(inputEndDate)
+          await userEvent.type(inputEndDate, "12/05/2022")
 
           await userEvent.click(document.body)
 
@@ -457,10 +457,10 @@ describe("<FilterDateRangePickerField />", () => {
             ).toEqual(1)
           })
 
-          const inputRangeStart = screen.getByLabelText("Date from")
+          const inputStartDate = screen.getByLabelText("Date from")
 
-          await userEvent.clear(inputRangeStart)
-          await userEvent.type(inputRangeStart, "10/05/2022")
+          await userEvent.clear(inputStartDate)
+          await userEvent.type(inputStartDate, "10/05/2022")
 
           await userEvent.click(document.body)
 
@@ -483,10 +483,10 @@ describe("<FilterDateRangePickerField />", () => {
             />
           )
 
-          const inputRangeStart = screen.getByLabelText("Date from")
+          const inputStartDate = screen.getByLabelText("Date from")
 
-          await userEvent.clear(inputRangeStart)
-          await userEvent.type(inputRangeStart, "31/05/2022")
+          await userEvent.clear(inputStartDate)
+          await userEvent.type(inputStartDate, "31/05/2022")
 
           await userEvent.click(document.body)
 
@@ -536,10 +536,10 @@ describe("<FilterDateRangePickerField />", () => {
           />
         )
 
-        const inputRangeEnd = screen.getByLabelText("Date to")
+        const inputEndDate = screen.getByLabelText("Date to")
 
-        await userEvent.clear(inputRangeEnd)
-        await userEvent.type(inputRangeEnd, "potato")
+        await userEvent.clear(inputEndDate)
+        await userEvent.type(inputEndDate, "potato")
 
         await userEvent.click(document.body)
 
@@ -568,10 +568,10 @@ describe("<FilterDateRangePickerField />", () => {
           />
         )
 
-        const inputRangeStart = screen.getByLabelText("Date from")
+        const inputStartDate = screen.getByLabelText("Date from")
 
-        await userEvent.clear(inputRangeStart)
-        await userEvent.type(inputRangeStart, "potato")
+        await userEvent.clear(inputStartDate)
+        await userEvent.type(inputStartDate, "potato")
 
         await userEvent.click(document.body)
 
