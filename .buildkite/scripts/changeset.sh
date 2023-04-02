@@ -45,6 +45,7 @@ main() {
   printf "Fetching secrets... "
   GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
   GH_TOKEN=$(get_secret "github-api-token") || exit $?
+  NPM_TOKEN=$(get_secret "npm-token") || exit $?
   echo "(done)"
 
   echo "Setting up git and npm credentials..."
