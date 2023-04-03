@@ -17,6 +17,7 @@ jobs:
           node-version-file: ".nvmrc"
           cache: yarn
       - run: |
+          npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
           yarn install --frozen-lockfile --ignore-scripts
       - name: Create Release Pull Request
         uses: changesets/action@v1
