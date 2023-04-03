@@ -27,10 +27,10 @@ export const Alternatives = ({ context }: AlternativesProps): JSX.Element => {
       <h2 id="alternatives">Alternatives</h2>
       <ul>
         {filteredAlternativeStories.map(component => {
-          const title: string = component[1].split("/")
+          const title: string[] = component[1].split("/")
 
           return (
-            <li>
+            <li key={component[0]}>
               <a href={`/?path=/docs/${component[0]}`}>
                 {title[title.length - 1]}
               </a>

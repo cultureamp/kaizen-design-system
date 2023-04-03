@@ -65,8 +65,8 @@ const VariantsTemplate: StoryFn<{ isReversed?: boolean }> = ({
 )
 
 /**
- * `Default`, `Primary`, `Destructive`, `Secondary`
- * <p>If no `variant` is specified, a `Default` button will be rendered. </p>
+ * <p>`Default`, `Primary`, `Destructive`, `Secondary`</p>
+ * <p>If no `variant` is specified, a `Default` button will be rendered.</p>
  * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.design/components/button/).</p>
  */
 export const Variants = VariantsTemplate.bind({})
@@ -84,10 +84,10 @@ export const Disabled: StoryFn = () => <Button label="Label" disabled />
 
 /**
  * <p>When a Button is supplied to the `icon` prop, it displays an icon.</p>
- * `import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"`
+ * <p>`import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"`</p>
  * <p>Once the icons are imported, you can pass them directly into the Button component.</p>
  * <h3>IconPosition</h3>
- * <p>The consumer can specify the icon placement with the iconPosition prop, default position is start. </p>
+ * <p>The consumer can specify the icon placement with the iconPosition prop, default position is start.</p>
  */
 export const Icon: StoryFn = () => (
   <StickerSheet>
@@ -115,7 +115,6 @@ export const Badge: StoryFn = () => (
 /**
  * Buttons can be stretched to fill the full width of their container.
  */
-
 export const FullWidth: StoryFn = () => (
   <Button
     label="Label"
