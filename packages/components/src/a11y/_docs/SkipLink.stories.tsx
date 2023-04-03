@@ -11,7 +11,7 @@ import {
 import { Story } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES } from "../../../../../storybook/constants"
 import { SkipLink } from "../index"
 
 export default {

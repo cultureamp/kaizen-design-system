@@ -1,6 +1,6 @@
 import React from "react"
 import { Story } from "@storybook/react"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES, SUB_CATEGORIES } from "../../../../../storybook/constants"
 import { VisuallyHidden } from ".."
 
 export default {
