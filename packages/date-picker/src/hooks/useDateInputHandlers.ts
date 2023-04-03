@@ -11,7 +11,7 @@ import { parseDateFromTextFormatValue } from "../utils/parseDateFromTextFormatVa
 
 export type UseDateInputHandlersArgs = {
   locale: Locale
-  disabledDays: DisabledDays
+  disabledDays?: DisabledDays
   setInputValue: Dispatch<SetStateAction<string>>
   onDateChange: (date: Date | undefined) => void
   onChange?: DateInputProps["onChange"]
