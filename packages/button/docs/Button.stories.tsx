@@ -47,38 +47,33 @@ Primary.parameters = {
   },
 }
 
-/**
- * `Default`, `Primary`, `Destructive`, `Secondary`
- * <p>If no `variant` is specified, a `Default` button will be rendered. </p>
- * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.design/components/button/)</p>
- */
-export const Variants: StoryFn = () => (
+const VariantsTemplate: StoryFn<{ isReversed?: boolean }> = ({
+  isReversed,
+}) => (
   <StickerSheet>
     <StickerSheet.Body>
       <StickerSheet.Row>
-        <Button label="Default" />
-        <Button label="Primary" primary />
-        <Button label="Destructive" destructive />
-        <Button label="Secondary" secondary />
-        <Button label="Secondary Destructive" secondary destructive />
+        <Button label="Default" reversed={isReversed} />
+        <Button label="Primary" primary reversed={isReversed} />
+        <Button label="Destructive" destructive reversed={isReversed} />
+        <Button label="Secondary" secondary reversed={isReversed} />
+        {!isReversed && (
+          <Button label="Secondary Destructive" secondary destructive />
+        )}
       </StickerSheet.Row>
     </StickerSheet.Body>
   </StickerSheet>
 )
 
-export const Reversed: StoryFn = () => (
-  <StickerSheet>
-    <StickerSheet.Body>
-      <StickerSheet.Row>
-        <Button label="Default" reversed />
-        <Button label="Primary" primary reversed />
-        <Button label="Destructive" destructive reversed />
-        <Button label="Secondary" secondary reversed />
-        <Button label="Secondary Destructive" secondary destructive reversed />
-      </StickerSheet.Row>
-    </StickerSheet.Body>
-  </StickerSheet>
-)
+/**
+ * `Default`, `Primary`, `Destructive`, `Secondary`
+ * <p>If no `variant` is specified, a `Default` button will be rendered. </p>
+ * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.design/components/button/).</p>
+ */
+export const Variants = VariantsTemplate.bind({})
+
+export const Reversed = VariantsTemplate.bind({})
+Reversed.args = { isReversed: true }
 Reversed.parameters = {
   backgrounds: { default: "Purple 700" },
 }
