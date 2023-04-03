@@ -1,11 +1,38 @@
 import "./tailwind.scss"
 import React from "react"
 import { Preview } from "@storybook/react"
+import { addParameters } from "@storybook/react"
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { createIntl, createIntlCache } from "react-intl"
+import { ThemeManager, heartTheme } from "@kaizen/components"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
+import { KaizenProvider } from "../packages/components"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
 
 import "highlight.js/styles/a11y-light.css"
+// -----------------------------
+// Changes in this file are for testing fallback behaviour when
+// intl object is/isn't present.
+// Don't merge before resetting this file.
+
+const themeManager = new ThemeManager(heartTheme)
+
+const cache = createIntlCache()
+const intl = createIntl(
+  {
+    locale: "fr",
+    defaultLocale: "en",
+    messages: {
+      myMessage: "Bonsoir bro",
+    },
+  },
+  cache
+)
+
+// -----------------------------
+
+const queryClient = new QueryClient()
 
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
@@ -38,7 +65,9 @@ const decorators = [
     const dir = props.args.textDirection ?? props.globals.textDirection
     return (
       <div dir={dir}>
-        <Story {...props} />
+        <KaizenProvider intlConfig={intl}>
+          <Story {...props} />
+        </KaizenProvider>
       </div>
     )
   },
