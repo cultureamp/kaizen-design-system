@@ -25,7 +25,6 @@ export default {
       "npm install @kaizen/button",
       "import { Button } from `@kaizen/button`",
     ],
-    packageName: "@kaizen/button",
     sourceCodeLink:
       "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
     figmaLink:

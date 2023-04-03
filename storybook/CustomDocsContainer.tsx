@@ -21,8 +21,6 @@ export const CustomDocsContainer = ({ ...props }): JSX.Element => (
       <Main>
         <Sidebar>
           <div className="sticky right-0 top-12">
-            {/* This is due to Unstyled typed as a being a FC pre-react-18 */}
-            {/* @ts-ignore */}
             <Unstyled>
               <TableOfContents />
             </Unstyled>

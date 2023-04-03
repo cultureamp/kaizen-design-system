@@ -8,25 +8,11 @@ export type TitleProps = {
 
 export const Title = ({ context }: TitleProps): JSX.Element => {
   const titleHierarchy = context.attachedCSFFile.meta.title
-  const packageName = context.attachedCSFFile.meta.parameters.packageName
   const title = titleHierarchy.split("/")
 
   return (
     <>
-      <h1>
-        {title[title.length - 1]}
-        {packageName && (
-          <>
-            {" "}
-            <a href="https://www.npmjs.com/package/@kaizen/button">
-              <img
-                alt="npm version"
-                src={`https://flat.badgen.net/npm/v/${packageName}`}
-              ></img>
-            </a>
-          </>
-        )}
-      </h1>
+      <h1>{title[title.length - 1]}</h1>
       <br />
     </>
   )

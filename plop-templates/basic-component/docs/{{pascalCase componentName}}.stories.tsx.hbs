@@ -15,7 +15,6 @@ export default {
       "npm install @kaizen/{{kebabCase packageName}}",
       "import { {{pascalCase componentName}} } from `@kaizen/{{kebabCase packageName}}`",
     ],
-    packageName: "@kaizen/{{kebabCase packageName}}",
     sourceCodeLink:
       "Add source code link here",
     figmaLink:
@@ -29,14 +28,14 @@ export default {
  */
 export const Primary: StoryFn<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
 Primary.storyName = "{{pascalCase componentName}} Playground"
-/** @todo:  Uncomment below to show Playground story code initially 
+/** @todo:  Uncomment below to show Playground story code initially
 Primary.parameters = {
   docs: {
     canvas: {
       sourceState: "shown",
     },
   },
-} 
+}
 */
 
 /** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below*/
