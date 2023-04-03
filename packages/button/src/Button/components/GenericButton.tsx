@@ -104,6 +104,7 @@ const GenericButton = forwardRef(
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
         })}
+        aria-live="polite"
       >
         {determineButtonRenderer()}
       </span>

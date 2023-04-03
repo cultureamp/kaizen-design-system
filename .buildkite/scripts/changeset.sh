@@ -27,16 +27,30 @@ setup_github() {
   ssh -T git@github.com || true # exits non-zero
 }
 
+setup_npm() {
+  npm config set update-notifier false
+  npm config set email service-npm@cultureamp.com
+  npm config set username cultureamp-user
+  npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+  npm config set access public
+  npm config set unsafe-perm true
+
+  echo "Checking npm authentication..."
+  echo "Logged in as: $(npm whoami)"
+}
+
 main() {
   export GH_SSH_KEY GH_TOKEN
 
   printf "Fetching secrets... "
   GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
   GH_TOKEN=$(get_secret "github-api-token") || exit $?
+  NPM_TOKEN=$(get_secret "npm-token") || exit $?
   echo "(done)"
 
   echo "Setting up git and npm credentials..."
   setup_github
+  setup_npm
 
   git checkout main && git pull
 
@@ -50,4 +64,4 @@ main() {
 
 main
 
-unset -f main setup_github
+unset -f main setup_github setup_npm

@@ -6,9 +6,15 @@ name: "chromatic"
 on:
   pull_request:
     types: [labeled]
+    branches-ignore:
+      - changeset-release/main
   pull_request_review:
     types: [submitted]
+    branches-ignore:
+      - changeset-release/main
   push:
+    branches-ignore:
+      - changeset-release/main
 
 jobs:
   paths-filter:
