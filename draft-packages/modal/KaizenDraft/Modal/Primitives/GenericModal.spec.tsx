@@ -80,9 +80,7 @@ describe("<GenericModal />", () => {
     const spy = jest
       .spyOn(global.console, "warn")
       .mockImplementation(mockWarnFn)
-    const { getByText } = render(
-      <GenericModal isOpen={true}>Catch me if you can</GenericModal>
-    )
+    render(<GenericModal isOpen={true}>Catch me if you can</GenericModal>)
     await waitFor(() => {
       expect(mockWarnFn).toBeCalled()
       expect(mockWarnFn).toBeCalledWith(

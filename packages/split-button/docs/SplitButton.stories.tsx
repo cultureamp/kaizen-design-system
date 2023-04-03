@@ -5,7 +5,6 @@ import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { ActionButton, DropdownButton } from "../src/SplitButton/components"
 import { SplitButton, SplitButtonProps } from "../"
 
 const ACTION_BUTTON_PROPS__BUTTON = {

@@ -1,15 +1,12 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import isChromatic from "chromatic"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { LoadingInput } from "@kaizen/loading-skeleton"
 import { CustomDocsContainer } from "../../../storybook/CustomDocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { Button, ButtonProps } from ".."
-
-const IS_CHROMATIC = isChromatic()
+import { Button } from ".."
 
 export default {
   title: "Components/Button",
@@ -57,25 +54,29 @@ Primary.parameters = {
  */
 export const Variants: StoryFn = () => (
   <StickerSheet>
-    <StickerSheet.Row>
-      <Button label="Default" />
-      <Button label="Primary" primary />
-      <Button label="Destructive" destructive />
-      <Button label="Secondary" secondary />
-      <Button label="Secondary Destructive" secondary destructive />
-    </StickerSheet.Row>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <Button label="Default" />
+        <Button label="Primary" primary />
+        <Button label="Destructive" destructive />
+        <Button label="Secondary" secondary />
+        <Button label="Secondary Destructive" secondary destructive />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
   </StickerSheet>
 )
 
 export const Reversed: StoryFn = () => (
   <StickerSheet>
-    <StickerSheet.Row>
-      <Button label="Default" reversed />
-      <Button label="Primary" primary reversed />
-      <Button label="Destructive" destructive reversed />
-      <Button label="Secondary" secondary reversed />
-      <Button label="Secondary Destructive" secondary destructive reversed />
-    </StickerSheet.Row>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <Button label="Default" reversed />
+        <Button label="Primary" primary reversed />
+        <Button label="Destructive" destructive reversed />
+        <Button label="Secondary" secondary reversed />
+        <Button label="Secondary Destructive" secondary destructive reversed />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
   </StickerSheet>
 )
 Reversed.parameters = {
@@ -96,10 +97,12 @@ export const Disabled: StoryFn = () => <Button label="Label" disabled />
  */
 export const Icon: StoryFn = () => (
   <StickerSheet>
-    <StickerSheet.Row>
-      <Button label="Label" icon={addIcon} />
-      <Button label="Label" icon={arrowRight} iconPosition="end" />
-    </StickerSheet.Row>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <Button label="Label" icon={addIcon} />
+        <Button label="Label" icon={arrowRight} iconPosition="end" />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
   </StickerSheet>
 )
 
@@ -135,15 +138,17 @@ export const FullWidth: StoryFn = () => (
  */
 export const Working: StoryFn = () => (
   <StickerSheet>
-    <StickerSheet.Row>
-      <Button label="Label" working workingLabel="Submitting" />
-      <Button
-        label="Label"
-        working
-        workingLabel="Submitting"
-        workingLabelHidden
-      />
-    </StickerSheet.Row>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <Button label="Label" working workingLabel="Submitting" />
+        <Button
+          label="Label"
+          working
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
   </StickerSheet>
 )
 
@@ -151,4 +156,4 @@ export const Working: StoryFn = () => (
  * <p>Use the LoadingInput component from the loading-skeleton package. Please refer to the LoadingInput Component guidelines.</p>
  * `import { LoadingInput } from "@kaizen/loading-skeleton"`
  */
-export const Skeleton: StoryFn = () => <LoadingInput isAnimated width={13} />
+export const Loading: StoryFn = () => <LoadingInput isAnimated width={13} />

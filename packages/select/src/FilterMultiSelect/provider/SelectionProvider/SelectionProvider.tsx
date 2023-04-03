@@ -5,6 +5,7 @@ import { ListState, useListState } from "@react-stately/list"
 import { SelectionMode, Node, Selection } from "@react-types/shared"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { ItemType } from "../../../types"
+import { useMenuTriggerContext } from "../MenuTriggerProvider"
 
 export interface SelectionProviderProps {
   selectionMode: SelectionMode
@@ -35,7 +36,7 @@ export const SelectionProvider = (
 ): JSX.Element => {
   const { onSearchInputChange, ...otherProps } = props
   const [searchQuery, setSearchQuery] = useState<string>("")
-
+  const { menuProps } = useMenuTriggerContext()
   /**
    * While the onSearchInputChange  is a side-effect, this useEffect should be fine.
    * If the search input state becomes controlled, this useEffect could cause synchronisation
@@ -69,6 +70,7 @@ export const SelectionProvider = (
   const ref = React.createRef<HTMLUListElement>()
   const { listBoxProps, labelProps } = useListBox(
     {
+      ...menuProps,
       ...otherProps,
       disallowEmptySelection: true, // stop escape key from clearing selection
     },

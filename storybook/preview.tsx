@@ -88,6 +88,7 @@ const preview: Preview = {
         method: "alphabetical",
         order: [
           "Introduction",
+          "Guides",
           "Systems",
           [
             "*",

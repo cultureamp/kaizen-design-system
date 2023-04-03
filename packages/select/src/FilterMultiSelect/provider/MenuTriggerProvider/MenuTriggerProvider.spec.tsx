@@ -29,13 +29,6 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
     expect(trigger).toBeVisible()
   })
 
-  it("makes sure the menu to be labelled by trigger", () => {
-    render(<MenuTriggerProviderWrapper defaultOpen />)
-    const menu = screen.getByLabelText("trigger-display-label-mock")
-
-    expect(menu).toHaveTextContent("menu-content-mock")
-  })
-
   describe("when uncontrolled", () => {
     it("does not show the menu initially", () => {
       render(<MenuTriggerProviderWrapper />)

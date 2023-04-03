@@ -12,19 +12,22 @@ describe("<Avatar />", () => {
   it("renders user initials if the image link is broken", () => {
     render(<Avatar fullName="John Doe" avatarSrc="broken" />)
     fireEvent.error(screen.getByRole("img"))
-    screen.getByText("JD")
+
+    expect(screen.getByText("JD")).toBeInTheDocument()
   })
 
   it("renders an svg icon if user initials are not provided and image is broken", () => {
     render(<Avatar avatarSrc="broken" />)
     fireEvent.error(screen.getByRole("img"))
-    expect(document.querySelector("svg.icon")).toBeTruthy()
+
+    expect(document.querySelector("svg.icon")).toBeInTheDocument()
   })
 
-  describe("fullName provided contains more than two names", () => {
+  describe("full name provided contains more than two names", () => {
     it("renders the initials for each name", () => {
       render(<Avatar size="large" fullName="Jane With A Very Long Name" />)
-      screen.getByText("JWAVLN")
+
+      expect(screen.getByText("JWAVLN")).toBeInTheDocument()
     })
   })
 })

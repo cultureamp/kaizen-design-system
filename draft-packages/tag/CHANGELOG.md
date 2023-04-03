@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.4.7...@kaizen/draft-tag@3.4.8) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.4.6...@kaizen/draft-tag@3.4.7) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.4.5...@kaizen/draft-tag@3.4.6) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [3.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.4.4...@kaizen/draft-tag@3.4.5) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@3.4.3...@kaizen/draft-tag@3.4.4) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/draft-tag

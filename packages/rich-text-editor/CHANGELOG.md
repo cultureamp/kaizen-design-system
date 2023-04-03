@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.1.2...@kaizen/rich-text-editor@2.2.0) (2023-03-31)
+
+
+### Features
+
+* Pass HTMLAttributes to content in EditableRichTextContent ([#3403](https://github.com/cultureamp/kaizen-design-system/issues/3403)) ([afeb682](https://github.com/cultureamp/kaizen-design-system/commit/afeb682911af3ac0ce416d158ba765b45e60506d))
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.1.1...@kaizen/rich-text-editor@2.1.2) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.1.0...@kaizen/rich-text-editor@2.1.1) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.0.4...@kaizen/rich-text-editor@2.1.0) (2023-03-23)
+
+
+### Features
+
+* Explicitly set RTE box-sizing for proper height calculation ([#3381](https://github.com/cultureamp/kaizen-design-system/issues/3381)) ([5ff9d0c](https://github.com/cultureamp/kaizen-design-system/commit/5ff9d0c52ec5a59bbe16a958e1e16b63a01c6292))
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.0.3...@kaizen/rich-text-editor@2.0.4) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.0.2...@kaizen/rich-text-editor@2.0.3) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.0.1...@kaizen/rich-text-editor@2.0.2) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@2.0.0...@kaizen/rich-text-editor@2.0.1) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/rich-text-editor
+
+
+
+
+
 # [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/rich-text-editor@1.19.34...@kaizen/rich-text-editor@2.0.0) (2023-03-16)
 
 

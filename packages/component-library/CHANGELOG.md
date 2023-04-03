@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.5.2...@kaizen/component-library@16.5.3) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.5.1...@kaizen/component-library@16.5.2) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [16.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.5.0...@kaizen/component-library@16.5.1) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [16.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.4.3...@kaizen/component-library@16.5.0) (2023-03-22)
+
+
+### Features
+
+* css processing ([#3362](https://github.com/cultureamp/kaizen-design-system/issues/3362)) ([38c0fa3](https://github.com/cultureamp/kaizen-design-system/commit/38c0fa3475a5f78cd4f2c9836815b53d65f2d039))
+
+
+
+
+
 ## [16.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.4.2...@kaizen/component-library@16.4.3) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/component-library

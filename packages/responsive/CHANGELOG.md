@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.8.6...@kaizen/responsive@1.8.7) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/responsive
+
+
+
+
+
 ## [1.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.8.5...@kaizen/responsive@1.8.6) (2023-03-14)
 
 **Note:** Version bump only for package @kaizen/responsive

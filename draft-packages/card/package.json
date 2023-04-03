@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-card",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "description": "The draft card component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,7 +29,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.4"
+    "@kaizen/component-base": "^1.1.5"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

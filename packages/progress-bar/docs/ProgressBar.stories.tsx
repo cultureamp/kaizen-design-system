@@ -1,5 +1,5 @@
 import React from "react"
-import { Story, StoryFn } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { ProgressBar } from "../index"
 

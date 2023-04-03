@@ -1,8 +1,6 @@
 import React from "react"
-import { cleanup, fireEvent, render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import { TextArea, TextAreaProps } from "./index"
-
-afterEach(cleanup)
 
 const defaultTextAreaProps = {
   id: "someTextAreaId",
@@ -17,12 +15,12 @@ const renderTextArea = (props?: TextAreaProps): ReturnType<typeof render> => {
 }
 
 describe("<TextArea />", () => {
-  it("should render a value when component is controlled", () => {
+  it("renders a value when component is controlled", () => {
     const { queryByText } = renderTextArea()
     expect(queryByText(defaultTextAreaProps.value)).toBeTruthy()
   })
 
-  it("should render a default value when component is uncontrolled", () => {
+  it("renders a default value when component is uncontrolled", () => {
     const { queryByText } = renderTextArea({
       defaultValue: "default value",
       value: undefined,
@@ -31,7 +29,7 @@ describe("<TextArea />", () => {
     expect(queryByText("default value")).toBeTruthy()
   })
 
-  it("should call the `onChange` event when the value is updated", () => {
+  it("calls the `onChange` event when the value is updated", () => {
     renderTextArea()
 
     fireEvent.change(screen.getByRole("textbox"), {
@@ -41,7 +39,7 @@ describe("<TextArea />", () => {
     expect(defaultTextAreaProps.onChange).toBeCalledTimes(1)
   })
 
-  it("should render a reversed text area", () => {
+  it("renders a reversed text area", () => {
     const { container } = renderTextArea({ reversed: true })
     expect(container.querySelector(".reversed")).toBeTruthy()
   })

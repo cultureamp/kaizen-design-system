@@ -1,13 +1,11 @@
 import * as React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import {
   AllowedParagraphColors,
   AllowedParagraphTags,
   Paragraph,
   ParagraphVariants,
 } from "./"
-
-afterEach(cleanup)
 
 describe("<Paragraph />", () => {
   describe("renders the correct variant classes", () => {

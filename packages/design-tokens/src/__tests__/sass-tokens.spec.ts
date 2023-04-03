@@ -1,3 +1,4 @@
+/* eslint-disable jest/consistent-test-it */
 import fs from "fs"
 import path from "path"
 import PostCSS, { Declaration } from "postcss"
