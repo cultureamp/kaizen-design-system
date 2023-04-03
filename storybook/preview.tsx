@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
 import { DocsContainer, DocsContainerProps, Unstyled } from "@storybook/blocks"
