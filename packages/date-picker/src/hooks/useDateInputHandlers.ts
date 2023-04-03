@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
 import { DateInputProps } from "../_subcomponents/DateInput"
-import { Matcher } from "../types"
+import { DisabledDays } from "../types"
 import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
 import { formatDateAsText } from "../utils/formatDateAsText"
 import { isDisabledDate } from "../utils/isDisabledDate"
@@ -11,7 +11,7 @@ import { parseDateFromTextFormatValue } from "../utils/parseDateFromTextFormatVa
 
 export type UseDateInputHandlersArgs = {
   locale: Locale
-  disabledDays: Matcher[] | undefined
+  disabledDays: DisabledDays
   setInputValue: Dispatch<SetStateAction<string>>
   onDateChange: (date: Date | undefined) => void
   onChange?: DateInputProps["onChange"]
