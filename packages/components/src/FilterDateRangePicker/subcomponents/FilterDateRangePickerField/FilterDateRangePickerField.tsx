@@ -5,7 +5,6 @@ import {
   CalendarRangeProps,
 } from "@kaizen/date-picker/src/_subcomponents/Calendar"
 import { useDateInputHandlers } from "@kaizen/date-picker/src/hooks/useDateInputHandlers"
-import { calculateDisabledDays } from "@kaizen/date-picker/src/utils/calculateDisabledDays"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
@@ -19,10 +18,10 @@ import {
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
 import {
+  DisabledDays,
   DateRange,
   DateRangeFieldValidationMessage,
   DateValidationResponse,
-  DisabledDayMatchers,
   SupportedLocales,
 } from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
@@ -34,8 +33,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
 export interface FilterDateRangePickerFieldProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>>,
-    DisabledDayMatchers {
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   label: string
   locale: SupportedLocales
@@ -52,6 +50,10 @@ export interface FilterDateRangePickerFieldProps
    * Date will return as `undefined` if empty, invalid or disabled.
    */
   onRangeChange: (range: DateRange | undefined) => void
+  /**
+   * See https://react-day-picker.js.org/api/types/Matcher
+   */
+  disabledDays?: DisabledDays
   inputStartDateProps?: FilterInputProps<InputStartDateProps>
   inputEndDateProps?: FilterInputProps<InputEndDateProps>
   /**
@@ -75,12 +77,7 @@ export const FilterDateRangePickerField = ({
   defaultMonth,
   selectedRange,
   onRangeChange,
-  disabledDates,
-  disabledDaysOfWeek,
-  disabledRange,
-  disabledBeforeAfter,
-  disabledBefore,
-  disabledAfter,
+  disabledDays,
   inputStartDateProps,
   inputEndDateProps,
   description,
@@ -90,14 +87,6 @@ export const FilterDateRangePickerField = ({
   ...restProps
 }: FilterDateRangePickerFieldProps): JSX.Element => {
   const locale = getLocale(propsLocale)
-  const disabledDays = calculateDisabledDays({
-    disabledDates,
-    disabledDaysOfWeek,
-    disabledRange,
-    disabledBeforeAfter,
-    disabledBefore,
-    disabledAfter,
-  })
   const inputStartDateLabel = inputStartDateProps?.labelText || "Date from"
   const inputEndDateLabel = inputEndDateProps?.labelText || "Date to"
 

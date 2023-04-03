@@ -16,7 +16,7 @@ import {
 } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
-import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
+import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { dateRangePickerLocaleControls } from "./controls/localeControls"
 import { validationControls } from "./controls/validationControls"
 
@@ -39,8 +39,8 @@ export default {
   argTypes: {
     ...dateRangePickerLocaleControls,
     ...defaultMonthControls,
-    ...disabledDayMatchersControls,
     ...validationControls,
+    disabledDays: disabledDaysControls,
     renderTrigger: renderTriggerControls,
     inputStartDateProps: {
       table: { type: { summary: 'Omit<DateInputProps, "id">' } },
@@ -160,7 +160,7 @@ export const ValidationStory: Story = () => {
             dateEnd: handleDateEndValidate,
           }}
           validationMessage={validationMessage}
-          disabledBefore={new Date()}
+          disabledDays={new Date()}
           locale="en-AU"
         />
         <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>

@@ -1,11 +1,15 @@
 import { useState } from "react"
-import { ValidationMessage, DateValidationResponse, Matcher } from "../types"
+import {
+  ValidationMessage,
+  DateValidationResponse,
+  DisabledDays,
+} from "../types"
 import { getDateValidationHandler } from "../utils/getDateValidationHandler"
 import { validateDate } from "../utils/validateDate"
 
 export type UseRangeDateValidationArgs = {
   inputLabel: React.ReactNode
-  disabledDays?: Matcher[] | undefined
+  disabledDays?: DisabledDays
   validationMessage?: ValidationMessage
   onValidate?: (validationResponse: DateValidationResponse) => void
 }

@@ -383,7 +383,7 @@ describe("<FilterDateRangePickerField />", () => {
               from: new Date("2022-05-15"),
               to: new Date("2022-05-23"),
             }}
-            disabledDates={[new Date("2022-05-15"), new Date("2022-05-23")]}
+            disabledDays={[new Date("2022-05-15"), new Date("2022-05-23")]}
           />
         )
 
