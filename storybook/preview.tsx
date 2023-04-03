@@ -19,10 +19,10 @@ import "focus-visible"
 import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
 
-export const PageContainer = ({
+const PageContainer = ({
   children,
   ...props
-}: DocsContainerProps & { children: any }): any => (
+}: DocsContainerProps & { children: React.ReactNode }): any => (
   <DocsContainer {...props}>
     <Main>
       <Sidebar>
@@ -40,7 +40,7 @@ export const PageContainer = ({
   </DocsContainer>
 )
 
-const globalTypes: Preview["globalTypes"] = {
+const globalTypes = {
   textDirection: {
     name: "Text direction",
     description: "",
@@ -50,9 +50,9 @@ const globalTypes: Preview["globalTypes"] = {
       items: ["ltr", "rtl"],
     },
   },
-}
+} satisfies Preview["globalTypes"]
 
-const decorators: Preview["decorators"] = [
+const decorators = [
   (Story): JSX.Element => (
     <ThemeContext.Provider value={defaultTheme}>
       <Story />
@@ -66,9 +66,9 @@ const decorators: Preview["decorators"] = [
       </div>
     )
   },
-]
+] satisfies Preview["decorators"]
 
-const preview: Preview = {
+const preview = {
   parameters: {
     backgrounds: {
       default: "White",
@@ -112,6 +112,6 @@ const preview: Preview = {
   },
   globalTypes,
   decorators,
-}
+} satisfies Preview
 
 export default preview
