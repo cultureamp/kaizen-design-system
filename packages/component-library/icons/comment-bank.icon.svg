@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <title>comment-bank</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0 40V3C0 2.23333 0.3 1.54167 0.9 0.925C1.5 0.308334 2.2 0 3 0H37C37.7667 0 38.4583 0.308334 39.075 0.925C39.6917 1.54167 40 2.23333 40 3V29C40 29.7667 39.6917 30.4583 39.075 31.075C38.4583 31.6917 37.7667 32 37 32H8L0 40ZM22.15 16.65L27 14.15L31.8 16.65V3H22.15V16.65Z" id="path-1"/>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="comment-bank">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Icons/Actions/comment-bank" fill="#000000" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>
