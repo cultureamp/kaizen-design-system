@@ -1,2 +1,2 @@
 export * from "./SkipLink"
-export * from "./VisuallyHidden/VisuallyHidden"
+export * from "./VisuallyHidden"
