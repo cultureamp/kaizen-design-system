@@ -105,8 +105,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             hideCloseIcon
           >
             "All Employees - North America" status has been changed to
-            'Archived'.
-            <a href="/">View all</a>
+            'Archived'. <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Positive">
