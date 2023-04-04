@@ -4,7 +4,7 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { Button, ButtonProps } from "../src/Button/Button"
+import { Button, ButtonProps } from "../index"
 
 export default {
   title: "Stickersheets/Button",
@@ -236,7 +236,7 @@ export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
+  chromatic: { disable: false },
   controls: { disable: true },
   backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
 }

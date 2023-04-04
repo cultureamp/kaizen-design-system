@@ -1,14 +1,14 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { LoadingInput } from "@kaizen/loading-skeleton"
 import { CustomDocsContainer } from "../../../storybook/CustomDocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { Button } from ".."
+import { Button } from "../index"
 
-export default {
+const meta = {
   tags: ["autodocs"],
   title: "Components/Button",
   component: Button,
@@ -34,15 +34,17 @@ export default {
   },
 } satisfies Meta<typeof Button>
 
+export default meta
+
 /**
  * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
  */
-export const Primary: StoryFn<typeof Button> = args => <Button {...args} />
-Primary.storyName = "Button Playground"
-Primary.parameters = {
-  docs: {
-    canvas: {
-      sourceState: "shown",
+export const Playground: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
     },
   },
 }
@@ -81,7 +83,9 @@ Reversed.parameters = {
 /**
  * A disabled Button prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read aloud by a screenreader.
  */
-export const Disabled: StoryFn = () => <Button label="Label" disabled />
+export const Disabled: StoryObj<typeof meta> = {
+  args: { disabled: true },
+}
 
 /**
  * <p>When a Button is supplied to the `icon` prop, it displays an icon.</p>
