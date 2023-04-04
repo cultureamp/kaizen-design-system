@@ -55,9 +55,8 @@ module.exports = (
             {
               type: "addMany",
               destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents`,
-              base: "plop-templates/aio-component",
-              // We only want the base src files and not any subfolders
-              templateFiles: "plop-templates/aio-component/*.hbs",
+              base: "plop-templates/basic-component/src",
+              templateFiles: "plop-templates/basic-component/src/**/*.hbs",
             },
           ]
         }
@@ -66,8 +65,17 @@ module.exports = (
           {
             type: "addMany",
             destination: `packages/components/${src}/{{pascalCase componentName}}`,
-            base: "plop-templates/aio-component",
-            templateFiles: "plop-templates/aio-component/**/*.hbs",
+            base: "plop-templates/basic-component/src",
+            templateFiles: "plop-templates/basic-component/src/**/*.hbs",
+            data: {
+              packageName: "components",
+            },
+          },
+          {
+            type: "addMany",
+            destination: `packages/components/${src}/{{pascalCase componentName}}/_docs`,
+            base: "plop-templates/basic-component/docs",
+            templateFiles: "plop-templates/basic-component/docs/**/*.hbs",
             data: {
               packageName: "components",
             },
@@ -94,7 +102,7 @@ module.exports = (
           {
             type: "addMany",
             destination:
-              "packages/{{kebabCase packageName}}/src/{{pascalCase parentComponentName}}/components",
+              "packages/{{kebabCase packageName}}/src/{{pascalCase parentComponentName}}/components/{{pascalCase componentName}}",
             base: "plop-templates/basic-component/src",
             templateFiles: "plop-templates/basic-component/src/**/*.hbs",
           },
@@ -104,9 +112,22 @@ module.exports = (
       return [
         {
           type: "addMany",
+          destination:
+            "packages/{{kebabCase packageName}}/src/{{pascalCase componentName}}",
+          base: "plop-templates/basic-component/src",
+          templateFiles: "plop-templates/basic-component/src/**/*.hbs",
+        },
+        {
+          type: "addMany",
+          destination: "packages/{{kebabCase packageName}}/docs",
+          base: "plop-templates/basic-component/docs",
+          templateFiles: "plop-templates/basic-component/docs/**/*.hbs",
+        },
+        {
+          type: "addMany",
           destination: "packages/{{kebabCase packageName}}",
           base: "plop-templates/basic-component",
-          templateFiles: "plop-templates/basic-component/**/*.hbs",
+          templateFiles: "plop-templates/basic-component/*.hbs",
           skipIfExists: true,
         },
         {
