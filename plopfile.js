@@ -57,6 +57,9 @@ module.exports = (
               destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents`,
               base: "plop-templates/basic-component/src",
               templateFiles: "plop-templates/basic-component/src/**/*.hbs",
+              data: {
+                overrideClassNameSrc: "~types/OverrideClassName",
+              },
             },
           ]
         }
@@ -68,7 +71,7 @@ module.exports = (
             base: "plop-templates/basic-component/src",
             templateFiles: "plop-templates/basic-component/src/**/*.hbs",
             data: {
-              packageName: "components",
+              overrideClassNameSrc: "~types/OverrideClassName",
             },
           },
           {
@@ -78,6 +81,9 @@ module.exports = (
             templateFiles: "plop-templates/basic-component/docs/**/*.hbs",
             data: {
               packageName: "components",
+              storybookDir: isAIOFuture
+                ? "../../../../../../storybook"
+                : "../../../../../storybook",
             },
           },
           {
@@ -105,6 +111,9 @@ module.exports = (
               "packages/{{kebabCase packageName}}/src/{{pascalCase parentComponentName}}/components/{{pascalCase componentName}}",
             base: "plop-templates/basic-component/src",
             templateFiles: "plop-templates/basic-component/src/**/*.hbs",
+            data: {
+              overrideClassNameSrc: "@kaizen/component-base",
+            },
           },
         ]
       }
@@ -116,12 +125,18 @@ module.exports = (
             "packages/{{kebabCase packageName}}/src/{{pascalCase componentName}}",
           base: "plop-templates/basic-component/src",
           templateFiles: "plop-templates/basic-component/src/**/*.hbs",
+          data: {
+            overrideClassNameSrc: "@kaizen/component-base",
+          },
         },
         {
           type: "addMany",
           destination: "packages/{{kebabCase packageName}}/docs",
           base: "plop-templates/basic-component/docs",
           templateFiles: "plop-templates/basic-component/docs/**/*.hbs",
+          data: {
+            storybookDir: "../../../storybook",
+          },
         },
         {
           type: "addMany",
