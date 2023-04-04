@@ -1,7 +1,7 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import { FilterButtonBase } from "~components/FilterButton/_sub-components/FilterButtonBase"
+import { FilterButtonBase } from "~components/FilterButton/_subcomponents/FilterButtonBase"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { ButtonGroup } from ".."
 
@@ -17,9 +17,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ButtonGroup>
+} satisfies Meta<typeof ButtonGroup>
 
-export const DefaultStory: ComponentStory<typeof ButtonGroup> = args => (
+export const DefaultStory: StoryFn<typeof ButtonGroup> = args => (
   <ButtonGroup {...args}>
     <FilterButtonBase>First</FilterButtonBase>
     <FilterButtonBase>Last</FilterButtonBase>
@@ -27,7 +27,7 @@ export const DefaultStory: ComponentStory<typeof ButtonGroup> = args => (
 )
 DefaultStory.storyName = "Button Group"
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StickerSheet heading="Button Group">
       <StickerSheet.Header

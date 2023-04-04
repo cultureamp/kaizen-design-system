@@ -1,5 +1,5 @@
 import React from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { FilterButton } from "../FilterButton"
 
 export default {
@@ -13,9 +13,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FilterButton>
+} satisfies Meta<typeof FilterButton>
 
-export const FilterButtonStory: ComponentStory<typeof FilterButton> = args => (
+export const FilterButtonStory: StoryFn<typeof FilterButton> = args => (
   <FilterButton {...args} />
 )
 FilterButtonStory.storyName = "Filter Button"
