@@ -41,30 +41,21 @@ export const LikertScaleLegacy = ({
     value: s.value,
     ref: createRef<HTMLDivElement>(),
   }))
+  const hasSelectedItem = selectedItem && selectedItem.value > 0
+  const notRatedStateItem = scale.find(s => s.value === -1) || null
 
   const handleRadioClick = (item: ScaleItem): void => {
-    const newValue =
-      selectedItem && item.value === selectedItem.value
-        ? scale.find(s => s.value === -1) || null
-        : item
-    onSelect(newValue)
+    const isSameAsCurrentlySelectedItem = selectedItem?.value === item.value
+    const newItem = isSameAsCurrentlySelectedItem ? notRatedStateItem : item
 
-    // Remove hover state
+    onSelect(newItem)
     setHoveredItem(null)
   }
 
   const handleRadioMouseEnter = (item: ScaleItem): void => {
-    if (selectedItem && selectedItem.value > 0) {
-      return // Disable hover when there is a selection
+    if (!hasSelectedItem) {
+      setHoveredItem(item)
     }
-    setHoveredItem(item)
-  }
-
-  const handleRadioMouseLeave = (): void => {
-    if (selectedItem && selectedItem.value > 0) {
-      return // Disable hover when there is a selection
-    }
-    setHoveredItem(null)
   }
 
   /**
@@ -158,13 +149,16 @@ export const LikertScaleLegacy = ({
                 [styles.unselected]:
                   selectedItem && selectedItem.value < item.value,
               })}
-              onClick={(): void => handleRadioClick(item)}
               key={item.value}
               data-automation-id={
                 automationId && `${automationId}-item-${item.value}`
               }
+              onClick={(): void => handleRadioClick(item)}
               onMouseEnter={(): void => handleRadioMouseEnter(item)}
-              onMouseLeave={handleRadioMouseLeave}
+              onMouseLeave={(): void => setHoveredItem(null)}
+              onKeyDown={(event): void => handleKeyDown(event, item)}
+              onFocus={(): void => setHoveredItem(item)}
+              onBlur={(): void => setHoveredItem(null)}
               role="radio"
               aria-label={item.label}
               aria-checked={
@@ -174,7 +168,6 @@ export const LikertScaleLegacy = ({
               aria-setsize={5}
               tabIndex={tabIndex}
               ref={itemRef && itemRef.ref}
-              onKeyDown={(event): void => handleKeyDown(event, item)}
             >
               <div
                 className={classnames(
