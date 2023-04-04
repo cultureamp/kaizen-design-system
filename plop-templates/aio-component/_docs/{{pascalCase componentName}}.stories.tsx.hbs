@@ -1,0 +1,88 @@
+import React from "react"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { CustomDocsContainer } from "../../../storybook/CustomDocsContainer"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { {{pascalCase componentName}} } from "../index"
+
+const meta = {
+  tags: ["autodocs"],
+  title: "Components/{{pascalCase componentName}}",
+  component: {{pascalCase componentName}},
+  parameters: {
+    docs: {
+      container: CustomDocsContainer,
+    },
+    installation: [
+      "npm install @kaizen/{{kebabCase packageName}}",
+      "import { {{pascalCase componentName}} } from `@kaizen/{{kebabCase packageName}}`",
+    ],
+    /** @todo (optional): Add Github link */
+    sourceCodeLink: "Add source code link here",
+    /** @todo (optional): Add Figma link */
+    figmaLink: "Add Figma link here",
+    /**
+     * @todo (optional): Add alternate components
+     * lower-kebab-case of the component name (eg. icon-button)
+     */
+    alternatives: ["component-1", "component-2"],
+  },
+} satisfies Meta<typeof {{pascalCase componentName}}>
+
+export default meta
+
+/**
+ * @todo: Main Description goes here
+ */
+export const Playground: StoryObj<typeof meta> = {
+  /** @todo:  Uncomment below to show Playground story code initially
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+  */
+}
+
+/** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below */
+
+const VariantsTemplate: StoryFn<{ isReversed?: boolean }> = ({
+  isReversed,
+}) => (
+  <StickerSheet>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        /** Change `variant` to the relevant prop name */
+        <{{pascalCase componentName}} variant="variantName" isReversed={isReversed} />
+        <{{pascalCase componentName}} variant="variantName" isReversed={isReversed} />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
+)
+
+/**
+ * @todo: Description here
+ */
+export const Variants = VariantsTemplate.bind({})
+
+export const Reversed = VariantsTemplate.bind({})
+Reversed.args = { isReversed: true }
+Reversed.parameters = {
+  backgrounds: { default: "Purple 700" },
+}
+
+/**
+ * @todo: Description here
+ */
+export const Disabled: StoryObj<typeof meta> = {
+  args: { disabled: true },
+}
+
+/**
+ * @todo: Description here
+ * @note: This will likely be a Loading Skeleton component
+ */
+export const Loading: StoryFn = () => (
+  <div></div>
+)
