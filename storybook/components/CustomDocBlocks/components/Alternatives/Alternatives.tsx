@@ -6,11 +6,15 @@ export type AlternativesProps = {
   context: any
 }
 
-export const Alternatives = ({ context }: AlternativesProps): JSX.Element => {
+export const Alternatives = ({
+  context,
+}: AlternativesProps): JSX.Element | null => {
   const alternativesList: string[] =
     context.attachedCSFFile.meta.parameters.alternatives
 
   const hasAlternatives = alternativesList !== undefined
+
+  if (!hasAlternatives) return null
 
   const store = context.store.storyIndex.entries
 
@@ -22,7 +26,7 @@ export const Alternatives = ({ context }: AlternativesProps): JSX.Element => {
     )
     .map(obj => [obj, store[obj].title], [])
 
-  return hasAlternatives ? (
+  return (
     <div>
       <h2 id="alternatives">Alternatives</h2>
       <ul>
@@ -39,8 +43,6 @@ export const Alternatives = ({ context }: AlternativesProps): JSX.Element => {
         })}
       </ul>
     </div>
-  ) : (
-    <></>
   )
 }
 

@@ -7,12 +7,16 @@ export type InstallationProps = {
   context: any
 }
 
-export const Installation = ({ context }: InstallationProps): JSX.Element => {
+export const Installation = ({
+  context,
+}: InstallationProps): JSX.Element | null => {
   const isInstallationLinks =
     context.attachedCSFFile.meta.parameters.installation !== undefined
   const installationLinks = context.attachedCSFFile.meta.parameters.installation
 
-  return isInstallationLinks ? (
+  if (!isInstallationLinks) return null
+
+  return (
     <div>
       <h2 id="installation">Installation</h2>
       {/* npm link */}
@@ -20,8 +24,6 @@ export const Installation = ({ context }: InstallationProps): JSX.Element => {
       {/* import link */}
       <Source code={installationLinks[1]} language="tsx" />
     </div>
-  ) : (
-    <></>
   )
 }
 

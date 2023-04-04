@@ -6,7 +6,9 @@ interface StoriesProps {
   includeStickerSheets?: boolean
 }
 
-export const CustomStories: React.FC<StoriesProps> = ({ title }) => {
+export const CustomStories = ({
+  title = "Component API",
+}: StoriesProps): JSX.Element | null => {
   const { componentStories } = useContext(DocsContext)
 
   const stories = componentStories().filter(
@@ -14,9 +16,8 @@ export const CustomStories: React.FC<StoriesProps> = ({ title }) => {
       !story.parameters?.docs?.disable && !story.name.includes("Playground")
   )
 
-  if (!stories || stories.length === 0) {
-    return null
-  }
+  if (!stories || stories.length === 0) return null
+
   return (
     <>
       <h2 id="component-api">{title}</h2>
@@ -36,6 +37,4 @@ export const CustomStories: React.FC<StoriesProps> = ({ title }) => {
   )
 }
 
-CustomStories.defaultProps = {
-  title: "Component API",
-}
+CustomStories.displayName = "CustomStories"
