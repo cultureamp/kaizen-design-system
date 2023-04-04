@@ -13,19 +13,22 @@ import styles from "./{{pascalCase componentName}}.module.scss"
 export interface {{pascalCase componentName}}Props extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   /** @todo: Add custom props here */
   exampleRequiredString: string
+  isReversed?: boolean
 }
 
 export const {{pascalCase componentName}} = ({
   exampleRequiredString,
+  isReversed = false,
   classNameOverride,
   ...restProps
 }: {{pascalCase componentName}}Props): JSX.Element => {
   return (
     <div
-      className={classnames([
+      className={classnames(
         styles.{{camelCase componentName}},
+        isReversed && styles.isReversed,
         classNameOverride,
-      ])}
+      )}
       {...restProps}
     >
       {exampleRequiredString}

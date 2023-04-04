@@ -1,12 +1,12 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { CustomDocsContainer } from "../../../storybook/CustomDocsContainer"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { {{pascalCase componentName}} } from "../index"
 
-export default {
+const meta = {
   tags: ["autodocs"],
-  title: `Components/{{pascalCase componentName}}`,
+  title: "Components/{{pascalCase componentName}}",
   component: {{pascalCase componentName}},
   parameters: {
     docs: {
@@ -16,92 +16,73 @@ export default {
       "npm install @kaizen/{{kebabCase packageName}}",
       "import { {{pascalCase componentName}} } from `@kaizen/{{kebabCase packageName}}`",
     ],
-    sourceCodeLink:
-      "Add source code link here",
-    figmaLink:
-      "Add Figma link here",
+    /** @todo (optional): Add Github link */
+    sourceCodeLink: "Add source code link here",
+    /** @todo (optional): Add Figma link */
+    figmaLink: "Add Figma link here",
+    /**
+     * @todo (optional): Add alternate components
+     * lower-kebab-case of the component name (eg. icon-button)
+     */
     alternatives: ["component-1", "component-2"],
   },
 } satisfies Meta<typeof {{pascalCase componentName}}>
 
+export default meta
+
 /**
- * Main Description goes here
+ * @todo: Main Description goes here
  */
-export const Primary: StoryFn<typeof {{pascalCase componentName}}> = args => <{{pascalCase componentName}} {...args} />
-Primary.storyName = "{{pascalCase componentName}} Playground"
-/** @todo:  Uncomment below to show Playground story code initially
-Primary.parameters = {
-  docs: {
-    canvas: {
-      sourceState: "shown",
+export const Playground: StoryObj<typeof meta> = {
+  /** @todo:  Uncomment below to show Playground story code initially
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
     },
   },
+  */
 }
-*/
 
-/** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below*/
+/** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below */
 
-/**
- * Description here
- */
-export const Variants: Story = () => (
-  <div></div>
+const VariantsTemplate: StoryFn<{ isReversed?: boolean }> = ({
+  isReversed,
+}) => (
+  <StickerSheet>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        /** Change `variant` to the relevant prop name */
+        <{{pascalCase componentName}} variant="variantName" isReversed={isReversed} />
+        <{{pascalCase componentName}} variant="variantName" isReversed={isReversed} />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
 )
 
 /**
- * Description here
+ * @todo: Description here
  */
-export const Reversed: Story = () => (
-  <div></div>
-)
+export const Variants = VariantsTemplate.bind({})
+
+export const Reversed = VariantsTemplate.bind({})
+Reversed.args = { isReversed: true }
 Reversed.parameters = {
   backgrounds: { default: "Purple 700" },
 }
 
 /**
- * Description here
+ * @todo: Description here
  */
-export const Disabled: Story = () => (
-  <div></div>
-)
+export const Disabled: StoryObj<typeof meta> = {
+  args: { disabled: true },
+}
 
 /**
- * Description here
+ * @todo: Description here
+ * @note: This will likely be a Loading Skeleton component
  */
-export const Skeleton: Story = () => (
+export const Loading: StoryFn = () => (
   <div></div>
 )
-
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
-  <StoryWrapper isReversed={isReversed}>
-    <StoryWrapper.RowHeader headings={["COLUMN 1", "COLUMN 2"]} />
-    <StoryWrapper.Row rowTitle="ROW 1">
-      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 1 + row 1 props */}
-      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 2 + row 1 props */}
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="ROW 2">
-      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 1 + row 2 props */}
-      <{{pascalCase componentName}} exampleRequiredString="Example" /> {/** @todo: Add column 2 + row 2 props */}
-    </StoryWrapper.Row>
-  </StoryWrapper>
-)
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-  docs: { disable: true },
-}
-
-export const StickerSheetReversed = StickerSheetTemplate.bind({})
-StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-StickerSheetReversed.args = { isReversed: true }
-StickerSheetReversed.parameters = {
-  chromatic: { disable: false },
-  backgrounds: { default: "Purple 700" },
-  controls: { disable: true },
-  docs: { disable: true },
-}
