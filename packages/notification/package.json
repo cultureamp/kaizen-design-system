@@ -31,6 +31,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^16.6.0",
+    "@kaizen/component-base": "^1.1.5",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
   },
