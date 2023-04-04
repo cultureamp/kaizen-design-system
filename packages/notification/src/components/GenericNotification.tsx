@@ -30,6 +30,7 @@ type Props = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
+  isSubtle?: boolean
 }
 
 type State = {
@@ -132,6 +133,7 @@ class GenericNotification extends React.Component<Props, State> {
       {
         [styles.hidden]: this.state.hidden,
         [styles.noBottomMargin]: this.props.noBottomMargin,
+        [styles.subtle]: this.props.isSubtle,
       }
     )
   }

@@ -113,3 +113,7 @@
 .forceMultiline {
   @extend %ca-notification---forceMultiline;
 }
+
+.subtle {
+  @extend %ca-notification---subtle;
+}

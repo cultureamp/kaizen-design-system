@@ -97,6 +97,18 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
             <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Subtle">
+          <InlineNotification
+            type="informative"
+            isSubtle
+            title="Informative title"
+            hideCloseIcon
+          >
+            "All Employees - North America" status has been changed to
+            'Archived'.
+            <a href="/">View all</a>
+          </InlineNotification>
+        </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Positive">
           <InlineNotification type="positive" title="Positive title">
             Emails will be sent notifying coaches and inviting reviewers to give

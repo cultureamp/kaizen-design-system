@@ -16,6 +16,7 @@ type InlineNotificationProps = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
+  isSubtle?: boolean
   /**
    * **Deprecated:** Use headingProps
    * @deprecated

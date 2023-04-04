@@ -135,6 +135,12 @@ $notification-slide-right: transform 300ms ease-out;
   &%ca-notification---noBottomMargin {
     margin-bottom: 0;
   }
+
+  &%ca-notification---subtle {
+    background: none;
+    border: none;
+    padding: 0;
+  }
 }
 
 %ca-notification__icon {
