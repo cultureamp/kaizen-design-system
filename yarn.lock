@@ -2430,14 +2430,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kaizen/a11y@^1.7.7":
-  version "1.7.7"
-  resolved "https://registry.yarnpkg.com/@kaizen/a11y/-/a11y-1.7.7.tgz#7f28b08ce8559ab8a2918f418789c68ea8b40259"
-  integrity sha512-CKiM0YoPIT51EWtmidqJBPsstQaTLn+i+BqjRrycRvh1T8PH4knnSVkL1CUY+fXDpvueHhmXulN6jqrcDVSuSA==
-  dependencies:
-    "@kaizen/component-base" "^1.1.5"
-    "@kaizen/component-library" "^16.5.3"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
