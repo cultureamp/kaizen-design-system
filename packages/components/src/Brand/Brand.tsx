@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
-import { OverrideClassName } from "~types/OverrideClassName"
 import { assetUrl } from "@kaizen/hosted-assets"
+import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Brand.module.scss"
 
 export interface BrandProps
