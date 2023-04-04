@@ -1,5 +1,5 @@
 import { ReactNode, createElement, HTMLAttributes } from "react"
-import { OverrideClassName } from "@kaizen/component-base"
+import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./VisuallyHidden.module.scss"
 
 export type AllowedTags = "div" | "span"

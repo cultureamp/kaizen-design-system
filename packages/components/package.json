@@ -35,7 +35,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "~types/OverrideClassName": "^1.1.5",
     "@kaizen/component-library": "^16.5.3",
     "@kaizen/draft-divider": "^2.2.8",
     "@kaizen/draft-tooltip": "^5.4.37",
