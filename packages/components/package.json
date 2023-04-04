@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.7.9",
+  "version": "1.7.10",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -38,8 +38,8 @@
     "@kaizen/component-library": "^16.5.3",
     "@kaizen/draft-divider": "^2.2.8",
     "@kaizen/draft-tooltip": "^5.4.37",
-    "@kaizen/typography": "^2.3.8",
     "@kaizen/hosted-assets": "^2.0.1",
+    "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
     "@react-aria/button": "^3.7.0",
     "@react-aria/focus": "^3.11.0",
