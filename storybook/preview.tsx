@@ -1,12 +1,9 @@
 import "./tailwind.scss"
 import React from "react"
-import { DocsContainer, DocsContainerProps, Unstyled } from "@storybook/blocks"
 import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
-import { BackToTop } from "./components/BackToTop"
-import { Content, Main, Sidebar } from "./components/Layout"
-import { TableOfContents } from "./components/TableOfContents"
+import { DefaultDocsContainer } from "./components/DocsContainer"
 
 import "highlight.js/styles/a11y-light.css"
 
@@ -18,27 +15,6 @@ import "focus-visible"
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
-
-const PageContainer = ({
-  children,
-  ...props
-}: DocsContainerProps & { children: React.ReactNode }): any => (
-  <DocsContainer {...props}>
-    <Main>
-      <Sidebar>
-        <div className="sticky right-0 top-12">
-          <Unstyled>
-            <TableOfContents />
-          </Unstyled>
-        </div>
-      </Sidebar>
-      <Content>
-        {children}
-        <BackToTop />
-      </Content>
-    </Main>
-  </DocsContainer>
-)
 
 const globalTypes = {
   textDirection: {
@@ -75,7 +51,7 @@ const preview = {
       values: backgrounds,
     },
     docs: {
-      container: PageContainer,
+      container: DefaultDocsContainer,
       source: {
         excludeDecorators: true,
       },

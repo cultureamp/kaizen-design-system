@@ -32,3 +32,5 @@ export const BackToTop = ({
     </button>
   )
 }
+
+BackToTop.displayName = "BackToTop"

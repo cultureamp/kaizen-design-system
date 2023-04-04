@@ -4,7 +4,7 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { LoadingInput } from "@kaizen/loading-skeleton"
-import { CustomDocsContainer } from "../../../storybook/CustomDocsContainer"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { Button } from "../index"
 
@@ -17,7 +17,7 @@ const meta = {
   },
   parameters: {
     docs: {
-      container: CustomDocsContainer,
+      container: ComponentDocsTemplate,
     },
     actions: {
       argTypesRegex: "^on.*",

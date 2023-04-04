@@ -1,5 +1,5 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import colorString from "color-string"
 import flatMap from "lodash.flatmap"
 import { Box } from "@kaizen/component-library"
@@ -7,19 +7,12 @@ import { useTheme } from "@kaizen/design-tokens"
 import { Heading } from "@kaizen/typography"
 
 export default {
-  tags: ["autodocs"],
   title: "Systems/Tokens/Classname References/Color Tokens",
   parameters: {
     chromatic: { disable: false },
-    layout: "fullscreen",
-    docs: {
-      description: {
-        component:
-          'Import the color tokens into your SCSS with `@import "~@kaizen/design-tokens/sass/color`.',
-      },
-    },
+    docsLayout: "fullPage",
   },
-}
+} satisfies Meta
 
 const Padding = ({
   size = 1,
@@ -136,12 +129,10 @@ const ComponentsSection = React.forwardRef<
   { title: React.ReactNode; children: React.ReactNode }
 >((props, ref) => (
   <>
-    <Heading variant="heading-2">{props.title}</Heading>
-    <Padding />
     <div
       ref={ref}
       style={{
-        maxWidth: "100vw",
+        maxWidth: "calc(100vw - 4rem)",
         contain: "content",
         display: "grid",
         gap: "2rem",
@@ -243,8 +234,8 @@ export const ColorTokens: StoryFn = () => {
   return (
     <div
       style={{
-        height: "100%",
-        width: "100%",
+        // height: "100%",
+        // width: "100%",
         padding: theme.spacing.md,
       }}
     >
