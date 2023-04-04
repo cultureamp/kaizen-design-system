@@ -1,6 +1,7 @@
 .main {
   display: grid;
-  grid-template-columns: 1fr 200px;
+  // Content width = 100% - TOC width - gap
+  grid-template-columns: minmax(calc(100% - 224px), 1fr) 200px;
   grid-template-rows: 1fr;
   grid-column-gap: 24px;
   grid-row-gap: 0px;
