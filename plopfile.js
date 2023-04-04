@@ -29,6 +29,13 @@ module.exports = (
         default: true,
       },
       {
+        type: "confirm",
+        name: "isAIOFuture",
+        message: "Is this a future component?",
+        when: answers => answers.isAIO,
+        default: false,
+      },
+      {
         type: "input",
         name: "packageName",
         message: "What is the package name?",
@@ -39,14 +46,15 @@ module.exports = (
           ),
       },
     ],
-    actions: ({ isSubcomponent, isAIO }) => {
+    actions: ({ isSubcomponent, isAIO, isAIOFuture }) => {
       if (isAIO) {
+        const src = isAIOFuture ? "src/__future__" : "src"
+
         if (isSubcomponent) {
           return [
             {
               type: "addMany",
-              destination:
-                "packages/components/src/{{pascalCase parentComponentName}}/subcomponents",
+              destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents`,
               base: "plop-templates/aio-component",
               // We only want the base src files and not any subfolders
               templateFiles: "plop-templates/aio-component/*.hbs",
@@ -57,7 +65,7 @@ module.exports = (
         return [
           {
             type: "addMany",
-            destination: "packages/components/src/{{pascalCase componentName}}",
+            destination: `packages/components/${src}/{{pascalCase componentName}}`,
             base: "plop-templates/aio-component",
             templateFiles: "plop-templates/aio-component/**/*.hbs",
             data: {
@@ -66,7 +74,7 @@ module.exports = (
           },
           {
             type: "modify",
-            path: "packages/components/src/index.ts",
+            path: `packages/components/${src}/index.ts`,
             transform: (content, answers) => {
               const componentName = plop.getHelper("pascalCase")(
                 answers.componentName
