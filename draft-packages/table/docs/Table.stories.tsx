@@ -124,6 +124,7 @@ const ExampleTableRow = ({
 )
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Table",
   component: TableContainer,
   parameters: {

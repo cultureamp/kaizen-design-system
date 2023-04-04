@@ -11,6 +11,7 @@ import { formatDateAsText } from "../src/utils/formatDateAsText"
 import { validationControls } from "./controls/validationControls"
 
 export default {
+  tags: ["autodocs"],
   title:
     "Components/Filter Date Range Picker/Subcomponents/Date Range Input Field",
   component: DateRangeInputField,

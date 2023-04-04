@@ -7,6 +7,7 @@ import { Container, Content, Skirt, SkirtCard } from ".."
 import styles from "./PageLayout.stories.module.scss"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Page Layout",
   component: Container,
   parameters: {

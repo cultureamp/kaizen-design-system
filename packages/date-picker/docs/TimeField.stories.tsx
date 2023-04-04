@@ -5,6 +5,7 @@ import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Time Field",
   component: TimeField,
   parameters: {

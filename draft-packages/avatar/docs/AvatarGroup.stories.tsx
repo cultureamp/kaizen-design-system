@@ -55,6 +55,7 @@ const AVATARS: AvatarList = [
 ]
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Avatar Group",
   component: AvatarGroup,
   parameters: {

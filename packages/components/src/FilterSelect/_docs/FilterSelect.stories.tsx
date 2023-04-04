@@ -21,6 +21,7 @@ import {
 const IS_CHROMATIC = isChromatic()
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter Select",
   component: FilterSelect,
   argTypes: {

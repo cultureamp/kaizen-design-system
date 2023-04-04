@@ -6,6 +6,7 @@ import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { ButtonGroup } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Button Group",
   component: ButtonGroup,
   parameters: {

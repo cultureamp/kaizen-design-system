@@ -13,6 +13,7 @@ const classEntries = flattenEntries(
 )
 
 export default {
+  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Borders/Border Color",
   parameters: {
     docs: {

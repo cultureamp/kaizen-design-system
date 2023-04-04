@@ -7,6 +7,7 @@ import { Paragraph } from "@kaizen/typography"
 import { Tabs, TabList, TabPanels, TabPanel, Tab } from "../index"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Tabs",
   component: Tabs,
   parameters: {

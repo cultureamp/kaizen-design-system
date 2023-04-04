@@ -9,6 +9,7 @@ import { Filter, FilterContents } from ".."
 const IS_CHROMATIC = isChromatic()
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter",
   component: Filter,
   parameters: {

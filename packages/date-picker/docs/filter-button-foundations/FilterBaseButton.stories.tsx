@@ -5,6 +5,7 @@ import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Tri
 import { FilterBaseTooltipButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseTooltipButton"
 
 export default {
+  tags: ["autodocs"],
   title:
     "Components/Filter Date Range Picker/Subcomponents/Filter Base Buttons",
   component: FilterBaseButton,

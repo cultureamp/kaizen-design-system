@@ -14,6 +14,7 @@ import { datePickerLocaleControls } from "./controls/localeControls"
 import { weekStartsOnControls } from "./controls/weekStartsOnControls"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Date Picker",
   component: DatePicker,
   parameters: {

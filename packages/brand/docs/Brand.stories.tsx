@@ -4,6 +4,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Brand } from "../src/Brand/Brand"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Brand",
   component: Brand,
   parameters: {

@@ -4,6 +4,7 @@ import { Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Label",
   component: Label,
   parameters: {

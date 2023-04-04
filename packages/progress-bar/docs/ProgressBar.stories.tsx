@@ -4,6 +4,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { ProgressBar } from "../index"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Progress Bar",
   component: ProgressBar,
   parameters: {

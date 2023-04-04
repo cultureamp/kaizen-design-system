@@ -5,6 +5,7 @@ import { Card } from "@kaizen/draft-card"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Modifiers/Pseudo Selectors",
   parameters: {
     docs: {

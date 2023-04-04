@@ -16,6 +16,7 @@ import styles from "./TitleBlockZen.stories.module.scss"
 const TESTING_VIEWPORTS = [320, 768, 1200]
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Title Block",
   component: TitleBlockZen,
   parameters: {

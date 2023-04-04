@@ -4,6 +4,7 @@ import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
 
 export default {
+  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Modifiers/Media Queries",
   parameters: {
     docs: {

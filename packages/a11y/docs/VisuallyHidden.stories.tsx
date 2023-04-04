@@ -3,6 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { VisuallyHidden } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Visually Hidden",
   component: VisuallyHidden,
   parameters: {

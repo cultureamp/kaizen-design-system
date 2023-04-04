@@ -9,6 +9,7 @@ import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Likert Scale",
   component: LikertScaleLegacy,
   parameters: {

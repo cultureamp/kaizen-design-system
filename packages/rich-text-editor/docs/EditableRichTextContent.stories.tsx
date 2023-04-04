@@ -10,6 +10,7 @@ import {
 import dummyContent from "./dummyContent.json"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Rich Text Content/Editable Rich Text Content",
   component: EditableRichTextContent,
   parameters: {

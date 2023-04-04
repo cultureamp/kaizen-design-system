@@ -4,6 +4,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Card } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Card",
   component: Card,
   parameters: {

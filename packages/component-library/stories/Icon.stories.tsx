@@ -17,6 +17,7 @@ import {
 } from "./Icons"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Icon",
   component: Icon,
   parameters: {

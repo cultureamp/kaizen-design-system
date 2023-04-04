@@ -4,6 +4,7 @@ import { RichTextContent } from "@kaizen/rich-text-editor"
 import dummyContent from "./dummyContent.json"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Rich Text Content",
   component: RichTextContent,
   parameters: {

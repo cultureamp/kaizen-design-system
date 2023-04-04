@@ -64,6 +64,7 @@ const Triggers = ({
 }
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Notification/Toast Notification",
   component: ToastNotification,
   parameters: {

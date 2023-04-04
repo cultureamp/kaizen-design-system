@@ -36,6 +36,7 @@ class RadioGroupExample extends React.Component<Props> {
 }
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Radio Group",
   component: RadioGroup,
   parameters: {

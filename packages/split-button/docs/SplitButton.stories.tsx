@@ -31,6 +31,7 @@ const DROPDOWN_CONTENT__ONE_DISABLED = (
 )
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Split Button",
   component: SplitButton,
   argTypes: {

@@ -8,6 +8,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { IconButton, ButtonProps } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Icon Button",
   component: IconButton,
   parameters: {

@@ -5,6 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingInput, LoadingHeading } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Loading/Loading Input",
   component: LoadingInput,
   parameters: {

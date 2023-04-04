@@ -21,6 +21,7 @@ import {
 } from "./ExampleHeaders"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Brand Moment",
   component: BrandMoment,
   parameters: {

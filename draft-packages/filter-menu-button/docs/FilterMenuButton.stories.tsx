@@ -12,6 +12,7 @@ const IS_CHROMATIC = isChromatic()
 const IS_INITIAL_DROPDOWN_VISIBLE = IS_CHROMATIC
 
 export default {
+  tags: ["autodocs"],
   title: "Deprecated/Filter Menu",
   component: FilterMenuButton,
   parameters: {

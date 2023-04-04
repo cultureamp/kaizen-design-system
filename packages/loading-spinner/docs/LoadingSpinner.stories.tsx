@@ -6,6 +6,7 @@ import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { Paragraph } from "@kaizen/typography"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Loading/Loading Spinner",
   component: LoadingSpinner,
   parameters: {

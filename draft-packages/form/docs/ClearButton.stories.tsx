@@ -4,6 +4,7 @@ import { ClearButton } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Clear Button",
   component: ClearButton,
   parameters: {

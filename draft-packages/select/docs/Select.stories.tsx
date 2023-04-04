@@ -23,6 +23,7 @@ const OPTIONS = [
 ]
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Select/Select Legacy",
   component: Select,
   parameters: {

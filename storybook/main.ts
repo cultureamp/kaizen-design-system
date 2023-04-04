@@ -34,9 +34,6 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  docs: {
-    autodocs: true,
-  },
 } satisfies StorybookConfig
 
 export default config

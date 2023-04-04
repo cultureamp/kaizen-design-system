@@ -15,6 +15,7 @@ import {
 import styles from "./LoadingSkeleton.stories.module.scss"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Loading",
   parameters: {
     docs: {

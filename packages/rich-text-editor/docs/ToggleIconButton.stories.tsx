@@ -5,6 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { ToggleIconButton } from "../"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Rich Text Editor/Subcomponents/Toggle Icon Button",
   component: ToggleIconButton,
   parameters: {

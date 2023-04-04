@@ -10,6 +10,7 @@ import { groupedMockItems, singleMockItems } from "../MockData"
 import { selectControls } from "../controls/selectControls"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Select",
   component: Select,
   parameters: {

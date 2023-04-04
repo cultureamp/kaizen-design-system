@@ -9,6 +9,7 @@ import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { Button } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Button",
   component: Button,
   args: {

@@ -7,6 +7,7 @@ import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Divider",
   component: Divider,
   parameters: {

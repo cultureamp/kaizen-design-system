@@ -5,9 +5,7 @@ import { FilterButton } from "../FilterButton"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
 import { FilterButtonBase } from "../_sub-components/FilterButtonBase"
 
-export default {
-  title: "Components/Filter/Filter Button",
-}
+export default { tags: ["autodocs"], title: "Components/Filter/Filter Button" }
 
 const StickerSheetTemplate: Story = () => (
   <>

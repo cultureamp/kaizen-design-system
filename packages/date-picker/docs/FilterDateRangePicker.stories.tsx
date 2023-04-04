@@ -18,6 +18,7 @@ import { validationControls } from "./controls/validationControls"
 const IS_CHROMATIC = isChromatic()
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter Date Range Picker",
   component: FilterDateRangePicker,
   parameters: {

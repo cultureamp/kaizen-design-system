@@ -19,6 +19,7 @@ const ICON_EXTERNAL_LINK =
   require("@kaizen/component-library/icons/external-link.icon.svg").default
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Guidance Block",
   component: GuidanceBlock,
   parameters: {

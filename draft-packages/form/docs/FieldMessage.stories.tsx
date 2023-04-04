@@ -4,6 +4,7 @@ import { FieldMessage } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Field Message",
   component: FieldMessage,
   parameters: {

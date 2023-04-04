@@ -10,6 +10,7 @@ import styles from "./EmptyState.stories.module.scss"
 const IS_CHROMATIC = isChromatic()
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Empty State",
   component: EmptyState,
   parameters: {

@@ -13,6 +13,7 @@ import {
 import { Paragraph } from "@kaizen/typography"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Tile",
   component: MultiActionTile,
   parameters: {

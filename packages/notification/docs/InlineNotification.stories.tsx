@@ -5,6 +5,7 @@ import { Heading, HeadingProps } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Notification/Inline Notification",
   component: InlineNotification,
   parameters: {

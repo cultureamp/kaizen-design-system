@@ -22,6 +22,7 @@ const renderContent = (): JSX.Element => (
 )
 
 export default {
+  tags: ["autodocs"],
   title: "Deprecated/Hero Card",
   component: HeroCard,
   parameters: {

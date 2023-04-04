@@ -3,6 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { MenuItem } from "../"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Menu/Subcomponents/MenuItem",
   component: MenuItem,
   parameters: {

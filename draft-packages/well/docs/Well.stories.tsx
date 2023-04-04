@@ -26,6 +26,7 @@ const ExampleContent = (): JSX.Element => (
 )
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Well",
   component: Well,
   parameters: {

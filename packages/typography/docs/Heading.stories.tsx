@@ -11,6 +11,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Heading, Paragraph } from "../"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Heading",
   component: Heading,
   parameters: {

@@ -12,6 +12,7 @@ import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 const DEFAULT_IS_OPEN: boolean = isChromatic()
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Popover",
   component: PopoverRaw,
   parameters: {

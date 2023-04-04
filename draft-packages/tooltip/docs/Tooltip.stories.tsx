@@ -16,6 +16,7 @@ const openTooltipInChromatic: Decorator = (Story, { args }) => {
 }
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Tooltip",
   component: Tooltip,
   parameters: {

@@ -3,6 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { Pagination } from "@kaizen/pagination"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Pagination",
   component: Pagination,
   parameters: {

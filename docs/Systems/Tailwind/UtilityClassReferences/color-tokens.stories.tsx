@@ -7,6 +7,7 @@ import { useTheme } from "@kaizen/design-tokens"
 import { Heading } from "@kaizen/typography"
 
 export default {
+  tags: ["autodocs"],
   title: "Systems/Tokens/Classname References/Color Tokens",
   parameters: {
     chromatic: { disable: false },

@@ -9,6 +9,7 @@ import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
 import { ToggleIconButton, Toolbar, ToolbarSection } from "../"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Rich Text Editor/Subcomponents/Toolbar",
   component: Toolbar,
   parameters: {

@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter/Filter Button",
   component: FilterButtonRemovable,
   parameters: {

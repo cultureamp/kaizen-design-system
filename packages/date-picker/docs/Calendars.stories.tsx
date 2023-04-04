@@ -10,6 +10,7 @@ import {
 import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Calendar",
   parameters: {
     docs: {

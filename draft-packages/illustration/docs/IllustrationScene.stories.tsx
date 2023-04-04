@@ -64,6 +64,7 @@ const STATIC_SCENE_CONTROLS = {
 }
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Scene",
   component: BrandMomentCaptureIntro,
   parameters: {

@@ -13,6 +13,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Expert Advice Collapsible",
   component: ExpertAdviceCollapsible,
   parameters: {

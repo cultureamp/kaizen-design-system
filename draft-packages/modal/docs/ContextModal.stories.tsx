@@ -30,6 +30,7 @@ const withMinHeight: Decorator<ContextModalProps> = Story => {
 }
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Modal/Context Modal",
   component: ContextModal,
   parameters: {

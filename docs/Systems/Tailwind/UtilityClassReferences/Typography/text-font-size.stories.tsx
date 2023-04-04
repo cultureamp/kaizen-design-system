@@ -13,6 +13,7 @@ const classEntries = Object.entries(kaizenTailwindTheme?.fontSize || []).map(
 )
 
 export default {
+  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Typography/Font Size",
   parameters: {
     docs: {

@@ -8,6 +8,7 @@ import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
 import { DateRange } from "../src/types"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Date Range Picker",
   component: DateRangePicker,
   parameters: {

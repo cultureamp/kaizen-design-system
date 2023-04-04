@@ -7,6 +7,7 @@ import { PaginationLinkProps } from "../src/Button/PaginationLink"
 import { DirectionalLink, PaginationLink } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Pagination/Subcomponents/Buttons",
   component: DirectionalLink,
   args: {

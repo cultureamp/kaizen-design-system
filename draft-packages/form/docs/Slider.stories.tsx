@@ -4,6 +4,7 @@ import { Slider } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Slider",
   component: Slider,
   parameters: {

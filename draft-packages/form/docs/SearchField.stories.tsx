@@ -4,6 +4,7 @@ import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Search Field",
   component: SearchField,
   parameters: {

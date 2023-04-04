@@ -11,6 +11,7 @@ import { Menu, MenuList, MenuItem } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Menu",
   component: Menu,
   parameters: {

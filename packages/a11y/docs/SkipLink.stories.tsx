@@ -11,6 +11,7 @@ import { Paragraph } from "@kaizen/typography"
 import { SkipLink } from "../index"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Skip Link",
   component: SkipLink,
   parameters: {

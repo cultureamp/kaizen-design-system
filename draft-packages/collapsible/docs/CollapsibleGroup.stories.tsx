@@ -14,6 +14,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Collapsible Group",
   component: CollapsibleGroup,
   parameters: {

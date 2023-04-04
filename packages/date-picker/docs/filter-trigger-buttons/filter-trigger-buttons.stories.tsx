@@ -7,6 +7,7 @@ import {
 } from "../../src/FilterDateRangePicker/components/Trigger"
 
 export default {
+  tags: ["autodocs"],
   title:
     "Components/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
   parameters: {

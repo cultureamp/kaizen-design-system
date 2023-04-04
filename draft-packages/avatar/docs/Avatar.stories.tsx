@@ -49,6 +49,7 @@ const PROPS_COMPANY: CompanyAvatarProps = {
 }
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Avatar",
   component: Avatar,
   parameters: {

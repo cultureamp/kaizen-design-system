@@ -6,6 +6,7 @@ import { Box } from "../components/Box"
 import styles from "./Box.stories.module.scss"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Box",
   component: Box,
   parameters: {

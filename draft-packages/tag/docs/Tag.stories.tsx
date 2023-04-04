@@ -5,6 +5,7 @@ import { Tag } from "@kaizen/draft-tag"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Tag",
   component: Tag,
   parameters: {

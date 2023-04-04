@@ -13,6 +13,7 @@ type RTEStory = StoryFn<
 >
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Rich Text Editor",
   component: RichTextEditor,
   parameters: {

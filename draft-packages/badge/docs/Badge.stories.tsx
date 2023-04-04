@@ -6,6 +6,7 @@ import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Badge",
   component: Badge,
   parameters: {

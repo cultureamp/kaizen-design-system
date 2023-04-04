@@ -5,6 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { LoadingParagraph } from ".."
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Loading/Loading Paragraph",
   component: LoadingParagraph,
   parameters: {

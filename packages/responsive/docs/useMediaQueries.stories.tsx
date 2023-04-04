@@ -3,6 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { useMediaQueries } from "../"
 
 export default {
+  tags: ["autodocs"],
   title: "Helpers/useMediaQueries",
   component: useMediaQueries,
   parameters: {

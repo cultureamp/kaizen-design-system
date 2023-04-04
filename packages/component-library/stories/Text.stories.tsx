@@ -3,6 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { Text } from "@kaizen/component-library"
 
 export default {
+  tags: ["autodocs"],
   title: "Deprecated/Text",
   component: Text,
   parameters: {

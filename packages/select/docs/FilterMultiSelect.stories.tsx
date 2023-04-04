@@ -28,6 +28,7 @@ const withQueryProvider: Decorator<FilterMultiSelectProps> = Story => (
 )
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter Multi-Select",
   component: FilterMultiSelect,
   parameters: {

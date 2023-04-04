@@ -10,6 +10,7 @@ const prefix = "text-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
+  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Typography/Text Color",
   parameters: {
     docs: {

@@ -14,6 +14,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
+  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Typography/Font Weight",
   parameters: {
     docs: {

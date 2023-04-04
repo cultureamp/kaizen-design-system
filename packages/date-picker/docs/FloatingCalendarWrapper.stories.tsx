@@ -10,6 +10,7 @@ import {
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Date Picker/Subcomponents/Floating Calendar Wrapper",
   component: FloatingCalendarWrapper,
   parameters: {
