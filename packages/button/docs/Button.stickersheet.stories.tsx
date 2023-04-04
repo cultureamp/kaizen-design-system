@@ -1,17 +1,14 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import isChromatic from "chromatic"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { Button, ButtonProps } from "../src/Button/Button"
 
-const IS_CHROMATIC = isChromatic()
-
 export default {
   title: "Stickersheets/Button",
-} as Meta<typeof Button>
+} satisfies Meta<typeof Button>
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
@@ -110,7 +107,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row rowTitle={title}>
+            <StickerSheet.Row key={title} rowTitle={title}>
               <Button reversed={isReversed} {...props} />
               <Button
                 reversed={isReversed}
@@ -133,61 +130,59 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </StickerSheet.Body>
       </StickerSheet>
 
-      {IS_CHROMATIC && (
-        <StickerSheet isReversed={isReversed} heading="Form (to be deprecated)">
-          <StickerSheet.Header
-            headings={[
-              "Base",
-              "Hover",
-              "Active",
-              "Focus",
-              "Disabled",
-              "Working",
-              "Working Focus",
-            ]}
-            hasVerticalHeadings
-          />
-          <StickerSheet.Body>
-            {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row rowTitle={title}>
-                <Button reversed={isReversed} {...props} form />
-                <Button
-                  reversed={isReversed}
-                  classNameOverride="story__button-hover"
-                  {...props}
-                  form
-                />
-                <Button
-                  reversed={isReversed}
-                  classNameOverride="story__button-active"
-                  {...props}
-                  form
-                />
-                <Button
-                  reversed={isReversed}
-                  classNameOverride="story__button-focus"
-                  {...props}
-                  form
-                />
-                <Button reversed={isReversed} {...props} disabled form />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  form
-                  {...WORKING_PROPS}
-                />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  form
-                  classNameOverride="story__button-focus"
-                  {...WORKING_PROPS}
-                />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
-        </StickerSheet>
-      )}
+      <StickerSheet isReversed={isReversed} heading="Form (to be deprecated)">
+        <StickerSheet.Header
+          headings={[
+            "Base",
+            "Hover",
+            "Active",
+            "Focus",
+            "Disabled",
+            "Working",
+            "Working Focus",
+          ]}
+          hasVerticalHeadings
+        />
+        <StickerSheet.Body>
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} rowTitle={title}>
+              <Button reversed={isReversed} {...props} form />
+              <Button
+                reversed={isReversed}
+                classNameOverride="story__button-hover"
+                {...props}
+                form
+              />
+              <Button
+                reversed={isReversed}
+                classNameOverride="story__button-active"
+                {...props}
+                form
+              />
+              <Button
+                reversed={isReversed}
+                classNameOverride="story__button-focus"
+                {...props}
+                form
+              />
+              <Button reversed={isReversed} {...props} disabled form />
+              <Button
+                reversed={isReversed}
+                {...props}
+                form
+                {...WORKING_PROPS}
+              />
+              <Button
+                reversed={isReversed}
+                {...props}
+                form
+                classNameOverride="story__button-focus"
+                {...WORKING_PROPS}
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
 
       <StickerSheet
         isReversed={isReversed}
@@ -209,7 +204,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
-            <StickerSheet.Row rowTitle={title}>
+            <StickerSheet.Row key={title} rowTitle={title}>
               <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
               <Button
                 reversed={isReversed}
