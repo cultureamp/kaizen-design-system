@@ -1,5 +1,5 @@
-export * from "./KaizenProvider"
+export * from "./Brand"
 export * from "./Filter"
 export * from "./FilterButton"
 export * from "./FilterSelect"
-export * from "./Brand"
+export * from "./KaizenProvider"
