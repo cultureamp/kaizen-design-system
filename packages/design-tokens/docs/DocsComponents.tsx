@@ -2,6 +2,7 @@
 
 import React from "react"
 import LinkTo from "@storybook/addon-links/react"
+import { Unstyled } from "@storybook/blocks"
 import { Meta } from "@storybook/react"
 import classNames from "classnames"
 import Highlight from "react-highlight"
@@ -26,21 +27,25 @@ export const CodeBlock = (props: {
   caption?: React.ReactNode
   code: string
 }): JSX.Element => (
-  <Box py={0.5}>
-    <Card>
-      <div className={styles.codeWrapper}>
-        <Highlight className={props.language}>{props.code}</Highlight>
-      </div>
-    </Card>
+  <Unstyled>
+    <Box py={0.5}>
+      <Card>
+        <div className={styles.codeWrapper}>
+          <Highlight className={props.language}>{props.code}</Highlight>
+        </div>
+      </Card>
 
-    {props.caption && (
-      <div className={styles.codeWrapperCaption}>
-        <Paragraph variant="small">
-          <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
-        </Paragraph>
-      </div>
-    )}
-  </Box>
+      {props.caption && (
+        <div className={styles.codeWrapperCaption}>
+          <Paragraph variant="small">
+            <span className={styles.codeWrapperCaptionText}>
+              {props.caption}
+            </span>
+          </Paragraph>
+        </div>
+      )}
+    </Box>
+  </Unstyled>
 )
 
 const TabbedCodeBlocks = ({

@@ -27,8 +27,8 @@ See <LinkToStory storyModule={apiPage} /> for all available tokens.
 ### Compile-time functions like `mix()` or `darken()` won't work
 
 **It won't be possible to do things like:**
-<CodeBlock language="scss" code={`.myClass { 
-    color: mix(white, $color-purple-800, 90%);
+<CodeBlock language="scss" code={`.myClass {
+  color: mix(white, $color-purple-800, 90%);
 }`} />
 
 Because the exposed SASS variables contain values such as `var(--color-purple-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
@@ -42,13 +42,14 @@ Usually when we've used functions like `mix` or `shade` it has been to lighten o
 We have exposed extra sibling variables for every color, as seen in <LinkToStory storyModule={apiPage} hash="sass-variables">SASS Variables</LinkToStory>, which allow you to manipulate opacity of CSS variable colors:
 
 <CodeBlock language="scss" code={`@import '~@kaizen/design-tokens/sass/color.scss';
+
 .myClass {
-    background-color: rgba($color-gray-200-rgb, 0.5);
+  background-color: rgba($color-gray-200-rgb, 0.5);
 }`} />
 
 For similar reasons to the previous section, a statement like `rgba($color-gray-200, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--color-gray-200), 0.5)`.
 
-Every color variable such as `$color-gray-200` will have a matching sibling variable with the `-rgb` suffix. And `$color-gray-200-rgb` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function. 
+Every color variable such as `$color-gray-200` will have a matching sibling variable with the `-rgb` suffix. And `$color-gray-200-rgb` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function.
 
 For example `rgba($color-gray-200-rgb, 0.5)`, compiles to `rgba(var(--color-gray-200-rgb), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)`.
 
