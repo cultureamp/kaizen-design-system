@@ -1,5 +1,7 @@
 import React, { useState, createRef } from "react"
 import classnames from "classnames"
+import { Icon } from "@kaizen/component-library"
+import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
 import { FieldMessage } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
@@ -21,6 +23,10 @@ export interface LikertScaleProps {
   status?: "default" | "error"
   onSelect: (value: ScaleItem | null) => void
 }
+
+const SelectedItemIcon = (): JSX.Element => (
+  <Icon role="presentation" icon={checkIcon} classNameOverride={styles.check} />
+)
 
 /**
  * {@link https://cultureamp.design/components/likert-scale/ Guidance} |
@@ -126,6 +132,8 @@ export const LikertScaleLegacy = ({
             return
           }
 
+          const isSelectedItem = selectedItem?.value === item.value
+
           const itemRef = itemRefs.find(i => item.value === i.value)
 
           // Make control tabbable
@@ -161,9 +169,7 @@ export const LikertScaleLegacy = ({
               onBlur={(): void => setHoveredItem(null)}
               role="radio"
               aria-label={item.label}
-              aria-checked={
-                selectedItem ? item.value === selectedItem.value : false
-              }
+              aria-checked={isSelectedItem}
               aria-posinset={item.value}
               aria-setsize={5}
               tabIndex={tabIndex}
@@ -174,11 +180,11 @@ export const LikertScaleLegacy = ({
                   styles.likertItemFill,
                   styles[`field${item.value}`],
                   {
-                    [styles.pop]:
-                      selectedItem && item.value === selectedItem.value,
+                    [styles.pop]: isSelectedItem,
                   }
                 )}
               />
+              {isSelectedItem ? <SelectedItemIcon /> : null}
             </div>
           )
         })}

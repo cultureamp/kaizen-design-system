@@ -249,6 +249,35 @@ $fifth: $color-red-500;
   border-color: rgba($color-white-rgb, 0.65);
 }
 
+.check {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+
+  .field4 + &,
+  .field5 + & {
+    color: white;
+  }
+
+  .field1 + & {
+    margin-left: -9px;
+
+    [dir="rtl"] & {
+      margin-left: -11px;
+    }
+  }
+
+  .field5 + & {
+    margin-left: -12px;
+
+    [dir="rtl"] & {
+      margin-left: -9px;
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   $block-height: 48px;
 
