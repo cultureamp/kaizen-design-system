@@ -92,7 +92,7 @@ main() {
   
   echo "All done!"
 
-  unset GH_SSH_KEY GH_TOKEN
+  unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
 }
 
 main
