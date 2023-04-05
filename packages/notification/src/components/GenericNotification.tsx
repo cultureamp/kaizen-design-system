@@ -18,8 +18,7 @@ export type NotificationType =
   | "cautionary"
   | "negative"
 
-interface GenericNotificationProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "style">> {
+type GenericNotificationProps = OverrideClassName<{
   type: NotificationType
   style: "global" | "inline" | "toast"
   children?: React.ReactNode
@@ -32,7 +31,7 @@ interface GenericNotificationProps
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
-}
+}>
 
 type State = {
   hidden: boolean

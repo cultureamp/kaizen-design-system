@@ -136,6 +136,7 @@ $notification-slide-right: transform 300ms ease-out;
     margin-bottom: 0;
   }
 
+  // this is only for inline notifications
   &%ca-notification---subtle {
     background: none;
     border: none;

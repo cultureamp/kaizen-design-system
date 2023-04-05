@@ -114,6 +114,7 @@
   @extend %ca-notification---forceMultiline;
 }
 
+// this is only for inline notifications, but is here due to specificity issues in the _styles.scss file
 .subtle {
   @extend %ca-notification---subtle;
 }
