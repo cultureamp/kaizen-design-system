@@ -302,6 +302,10 @@ $fifth: $color-red-500;
   color: white;
 }
 
+.hovered.reversed .itemContainer > :not(.suggested.likertItem) .check {
+  color: white;
+}
+
 @media only screen and (max-width: 767px) {
   $block-height: 48px;
 
