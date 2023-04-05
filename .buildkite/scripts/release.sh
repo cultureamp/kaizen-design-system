@@ -54,7 +54,7 @@ release_canary() {
 }
 
 main() {
-  export GH_SSH_KEY GH_TOKEN
+  export GH_SSH_KEY GH_TOKEN NPM_TOKEN
 
   printf "Fetching secrets... "
   GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
