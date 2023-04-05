@@ -2,11 +2,11 @@ import React from "react"
 import { ComponentStory, Story } from "@storybook/react"
 import { withDesign } from "storybook-addon-designs"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
+import { LoadingHeading } from "~components/LoadingHeading"
+import { LoadingInput } from "~components/LoadingInput"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 import { CATEGORIES, SUB_CATEGORIES } from "../../../../../storybook/constants"
 import { figmaEmbed } from "../../../../../storybook/helpers"
-import { LoadingInput } from "~components/LoadingInput"
-import { LoadingHeading } from "~components/LoadingHeading"
 
 export default {
   title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Input`,

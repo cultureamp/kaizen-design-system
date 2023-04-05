@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
-import skeletonStyles from "./loading-skeleton.module.scss"
+import { OverrideClassName } from "~types/OverrideClassName"
 import graphicStyles from "./LoadingGraphic.module.scss"
+import skeletonStyles from "./loading-skeleton.module.scss"
 
 export type GraphicSizes =
   | "small"

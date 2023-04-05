@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
-import skeletonStyles from "./loading-skeleton.module.scss"
+import { OverrideClassName } from "~types/OverrideClassName"
 import inputStyles from "./LoadingInput.module.scss"
+import skeletonStyles from "./loading-skeleton.module.scss"
 
 export interface LoadingInputProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

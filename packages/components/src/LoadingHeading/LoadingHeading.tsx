@@ -1,9 +1,9 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
 import { HeadingVariants } from "@kaizen/typography"
-import skeletonStyles from "./loading-skeleton.module.scss"
+import { OverrideClassName } from "~types/OverrideClassName"
 import headingStyles from "./LoadingHeading.module.scss"
+import skeletonStyles from "./loading-skeleton.module.scss"
 
 export interface LoadingHeadingProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
