@@ -71,7 +71,9 @@
     "rollup-plugin-postcss": "^4.0.2",
     "ts-jest": "^29.1.0",
     "ttypescript": "^1.5.15",
-    "typescript-transform-paths": "^3.4.6"
+    "typescript-transform-paths": "^3.4.6",
+    "@types/classnames": "^2.3.0",
+    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
