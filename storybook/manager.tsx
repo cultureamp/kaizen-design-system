@@ -38,7 +38,7 @@ addons.setConfig({
           {item.name}
         </span>
       ) : (
-        item.name
+        <span style={{ margin: "1px 0" }}>{item.name}</span>
       ),
   },
 })
