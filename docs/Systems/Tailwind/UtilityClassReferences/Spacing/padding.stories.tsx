@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
-import { Card } from "@kaizen/draft-card"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
@@ -16,9 +15,10 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Spacing/Padding",
   parameters: {
+    chromatic: { disable: false },
+    docsLayout: "fullPage",
     docs: {
       description: {
         component: utilityDescription(prefix, classEntries[0].utilityClassName),
@@ -27,41 +27,20 @@ export default {
   },
 } satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
-  <div className="flex flex-col items-center">
-    <Card variant="informative" classNameOverride="mb-24">
-      <div className="p-24 font-family-paragraph max-w-[1000px]">
-        <p>
-          The padding prefix 'p-' has been used in the examples in this
-          document, which compiles to the `padding` property in CSS.
-        </p>
-        <p>
-          Note that there are other prefixes (such as `pl-` for `padding-left`)
-          that can be used instead. Available padding prefixes can be referenced{" "}
-          <a href="https://tailwindcss.com/docs/padding#basic-usage">here</a>.
-        </p>
-      </div>
-    </Card>
-    <UtilityClassTemplate
-      compiledCssPropertyName="padding"
-      classKeyValues={classEntries}
-      renderExampleComponent={(utilityClass): React.ReactElement => (
-        <p
-          className={classnames(
-            "border-solid w-min rounded-default bg-blue-100",
-            utilityClass
-          )}
-        >
-          Padding
-        </p>
-      )}
-      isReversed={isReversed}
-    />
-  </div>
+export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+  <UtilityClassTemplate
+    compiledCssPropertyName="padding"
+    classKeyValues={classEntries}
+    renderExampleComponent={(utilityClass): React.ReactElement => (
+      <p
+        className={classnames(
+          "border-solid w-min rounded-default bg-blue-100",
+          utilityClass
+        )}
+      >
+        Padding
+      </p>
+    )}
+    isReversed={isReversed}
+  />
 )
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Padding"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }

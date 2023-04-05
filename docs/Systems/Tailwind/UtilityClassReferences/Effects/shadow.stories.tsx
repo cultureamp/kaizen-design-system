@@ -15,9 +15,10 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Effects/Box Shadow",
   parameters: {
+    chromatic: { disable: false },
+    docsLayout: "fullPage",
     docs: {
       description: {
         component: utilityDescription(prefix, classEntries[0].utilityClassName),
@@ -26,9 +27,7 @@ export default {
   },
 } satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const BoxShadow: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <UtilityClassTemplate
     compiledCssPropertyName="box-shadow"
     classKeyValues={classEntries}
@@ -38,7 +37,3 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     isReversed={isReversed}
   />
 )
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Box Shadow"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }

@@ -13,9 +13,10 @@ const classEntries = Object.entries(kaizenTailwindTheme?.fontSize || []).map(
 )
 
 export default {
-  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Typography/Font Size",
   parameters: {
+    chromatic: { disable: false },
+    docsLayout: "fullPage",
     docs: {
       description: {
         component: utilityDescription(prefix, classEntries[0].utilityClassName),
@@ -24,9 +25,7 @@ export default {
   },
 }
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const FontSize: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <UtilityClassTemplate
     compiledCssPropertyName="font-size"
     classKeyValues={classEntries}
@@ -36,7 +35,3 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     isReversed={isReversed}
   />
 )
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Font Size"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }

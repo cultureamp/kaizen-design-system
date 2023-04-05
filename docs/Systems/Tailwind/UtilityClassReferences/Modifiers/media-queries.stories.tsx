@@ -1,12 +1,11 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
 
 export default {
-  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Modifiers/Media Queries",
   parameters: {
+    docsLayout: "fullPage",
     docs: {
       description: {
         component:
@@ -37,42 +36,32 @@ const QueryInfo = ({
   </div>
 )
 
-export const TailwindMediaQueries: StoryFn = () => (
-  <div>
-    <div className="mb-32">
-      <Heading variant="heading-2" classNameOverride="text-center">
-        Mobile first breakpoints
-      </Heading>
-      <Heading variant="heading-4" classNameOverride="text-center">
-        These breakpoints activate <em>over</em> a certain screen width. Meaning
-        that bg-blue-400 will be applied when the screen gets <em>wider</em>.
-      </Heading>
-      <QueryInfo selector="md" selectorValue="768px">
-        <div className="h-[50px] w-100 rounded-default border-solid  md:bg-blue-400" />
-      </QueryInfo>
-      <QueryInfo selector="lg" selectorValue="1080px">
-        <div className="h-[50px] w-100 rounded-default border-solid  lg:bg-blue-400" />
-      </QueryInfo>
-    </div>
-
-    <Divider variant="content" />
-
-    <div className="mt-32">
-      <Heading variant="heading-2" classNameOverride="text-center">
-        Non mobile first breakpoints
-      </Heading>
-      <Heading variant="heading-4" classNameOverride="text-center">
-        These breakpoints activate <em>under</em> a certain screen width.
-        Meaning that bg-blue-400 will be applied when the screen gets{" "}
-        <em>slimmer</em>.
-      </Heading>
-      <QueryInfo selector="md-max" selectorValue="768px">
-        <div className="h-[50px] w-100 rounded-default border-solid  md-max:bg-blue-400" />
-      </QueryInfo>
-      <QueryInfo selector="lg-max" selectorValue="1080px">
-        <div className="h-[50px] w-100 rounded-default border-solid  lg-max:bg-blue-400" />
-      </QueryInfo>
-    </div>
+export const MobileFirstBreakpoints: StoryFn = () => (
+  <div className="py-32">
+    <Heading tag="p" variant="heading-4" classNameOverride="text-center">
+      These breakpoints activate <em>over</em> a certain screen width. Meaning
+      that bg-blue-400 will be applied when the screen gets <em>wider</em>.
+    </Heading>
+    <QueryInfo selector="md" selectorValue="768px">
+      <div className="h-[50px] w-100 rounded-default border-solid  md:bg-blue-400" />
+    </QueryInfo>
+    <QueryInfo selector="lg" selectorValue="1080px">
+      <div className="h-[50px] w-100 rounded-default border-solid  lg:bg-blue-400" />
+    </QueryInfo>
   </div>
 )
-TailwindMediaQueries.storyName = "Media Queries"
+
+export const NonMobileFirstBreakpoints: StoryFn = () => (
+  <div className="py-32">
+    <Heading tag="p" variant="heading-4" classNameOverride="text-center">
+      These breakpoints activate <em>under</em> a certain screen width. Meaning
+      that bg-blue-400 will be applied when the screen gets <em>slimmer</em>.
+    </Heading>
+    <QueryInfo selector="md-max" selectorValue="768px">
+      <div className="h-[50px] w-100 rounded-default border-solid  md-max:bg-blue-400" />
+    </QueryInfo>
+    <QueryInfo selector="lg-max" selectorValue="1080px">
+      <div className="h-[50px] w-100 rounded-default border-solid  lg-max:bg-blue-400" />
+    </QueryInfo>
+  </div>
+)

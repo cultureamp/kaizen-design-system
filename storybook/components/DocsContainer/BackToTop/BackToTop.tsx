@@ -1,10 +1,9 @@
-import React, { useLayoutEffect } from "react"
+import React, { HTMLAttributes, useLayoutEffect } from "react"
 
 export const BackToTop = ({
   children,
-}: {
-  children?: JSX.Element
-}): JSX.Element | null => {
+  ...buttonAttributes
+}: HTMLAttributes<HTMLButtonElement>): JSX.Element | null => {
   const [visible, isVisible] = React.useState(false)
 
   const onScroll = (): void => {
@@ -23,6 +22,7 @@ export const BackToTop = ({
       onClick={(): void =>
         window.scroll({ top: 0, left: 0, behavior: "smooth" })
       }
+      {...buttonAttributes}
     >
       {children || (
         <>

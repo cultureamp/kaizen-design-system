@@ -15,9 +15,10 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Borders/Border Spacing",
   parameters: {
+    chromatic: { disable: false },
+    docsLayout: "fullPage",
     docs: {
       description: {
         component: utilityDescription(prefix, classEntries[0].utilityClassName),
@@ -26,7 +27,7 @@ export default {
   },
 } satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
+export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
@@ -57,7 +58,3 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     isReversed={isReversed}
   />
 )
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Border Spacing"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }

@@ -10,9 +10,10 @@ const prefix = "text-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
-  tags: ["autodocs"],
   title: "Systems/Tailwind/Utility Class References/Typography/Text Color",
   parameters: {
+    chromatic: { disable: false },
+    docsLayout: "fullPage",
     docs: {
       description: {
         component: utilityDescription(prefix, classEntries[0].utilityClassName),
@@ -21,9 +22,7 @@ export default {
   },
 }
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <UtilityClassTemplate
     compiledCssPropertyName="color"
     classKeyValues={classEntries}
@@ -50,7 +49,3 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     isReversed={isReversed}
   />
 )
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Text Color"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }

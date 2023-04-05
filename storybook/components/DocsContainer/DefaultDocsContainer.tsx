@@ -14,7 +14,7 @@ type LayoutProps = { children: React.ReactNode }
 const FullPage = ({ children }: LayoutProps): JSX.Element => (
   <main>
     {children}
-    <BackToTop />
+    <BackToTop className="mt-24" />
   </main>
 )
 
@@ -29,7 +29,7 @@ const DefaultLayout = ({ children }: LayoutProps): JSX.Element => (
     </Sidebar>
     <Content>
       {children}
-      <BackToTop />
+      <BackToTop className="mt-24" />
     </Content>
   </Main>
 )
