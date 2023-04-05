@@ -131,16 +131,9 @@
     "webpack": "^5.77.0"
   },
   "resolutions": {
-    "@types/react": "^18.0.32",
-    "commitizen": "^4.3.0"
+    "@types/react": "^18.0.32"
   },
   "resolutionsComments": {
-    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want",
-    "commitizen": "cz-conventional-changelog v3.3.0 has a dependency on commitizen 4.2.4 which has vulnerabilities"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want"
   }
 }
