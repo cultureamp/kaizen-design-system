@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 
 import cautionIcon from "@kaizen/component-library/icons/caution.icon.svg"
@@ -7,8 +8,8 @@ import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import errorIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-
 import { Heading, HeadingProps } from "@kaizen/typography"
+
 import styles from "./GenericNotification.module.scss"
 
 export type NotificationType =
@@ -17,7 +18,7 @@ export type NotificationType =
   | "cautionary"
   | "negative"
 
-type Props = {
+type GenericNotificationProps = OverrideClassName<{
   type: NotificationType
   style: "global" | "inline" | "toast"
   children?: React.ReactNode
@@ -30,14 +31,17 @@ type Props = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
-}
+}>
 
 type State = {
   hidden: boolean
   removed: boolean
 }
 
-class GenericNotification extends React.Component<Props, State> {
+class GenericNotification extends React.Component<
+  GenericNotificationProps,
+  State
+> {
   static defaultProps = {
     persistent: false,
     autohide: false,
@@ -53,7 +57,7 @@ class GenericNotification extends React.Component<Props, State> {
 
   containerRef = React.createRef<HTMLDivElement>()
 
-  constructor(props: Props) {
+  constructor(props: GenericNotificationProps) {
     super(props)
 
     this.hide = this.hide.bind(this)
@@ -132,7 +136,8 @@ class GenericNotification extends React.Component<Props, State> {
       {
         [styles.hidden]: this.state.hidden,
         [styles.noBottomMargin]: this.props.noBottomMargin,
-      }
+      },
+      this.props.classNameOverride
     )
   }
 
