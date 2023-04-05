@@ -43,29 +43,18 @@ release() {
   git checkout main && git pull
 
   yarn install --frozen-lockfile
-
-  # Certain packages rely on these two packages to be built so they can access dist files
-  yarn workspace @kaizen/design-tokens prepublish
-  yarn workspace @kaizen/tailwind prepublish
-
-  # Bump packages, push and tag a release commit, and update release notes
-  yarn lerna version --conventional-commits --create-release=github --yes \
-    --message "chore: release [skip ci]"
-
-  # Publish any package versions which are not already present on npm
-  yarn lerna publish from-package --yes
+  yarn ci:publish
 }
 
 release_canary() {
   git checkout canary && git pull
 
   yarn install --frozen-lockfile
-
-  yarn lerna publish --canary --preid canary --yes
+  yarn ci:publish --tag "canary"
 }
 
 main() {
-  export GH_SSH_KEY GH_TOKEN NPM_TOKEN
+  export GH_SSH_KEY GH_TOKEN
 
   printf "Fetching secrets... "
   GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
@@ -82,6 +71,7 @@ main() {
     echo "Branch: main"
 
     echo "Releasing packages..."
+
     release
 
   elif [ "$BUILDKITE_BRANCH" = canary ]; then
@@ -89,17 +79,20 @@ main() {
     echo "Branch: canary"
 
     echo "Releasing packages..."
+    
     release_canary
 
     echo "Resetting canary branch..."
+    
     git reset --hard main
+   
     git push --force --no-verify
-
+  
   fi
-
+  
   echo "All done!"
 
-  unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
+  unset GH_SSH_KEY GH_TOKEN
 }
 
 main
