@@ -8,7 +8,6 @@ export default {
   title: "Components/Search Field",
   component: SearchField,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { SearchField } from "@kaizen/draft-form"',

@@ -45,9 +45,7 @@ DefaultStory.args = {
   defaultOpen: false,
   selectedKey: undefined,
 }
-
 DefaultStory.parameters = {
-  chromatic: { disable: false },
   docs: { source: { type: "code" } },
 }
 

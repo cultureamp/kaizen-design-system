@@ -27,9 +27,6 @@ DefaultKaizenSiteDemo.args = {
   position: "bottom",
   reversed: false,
 }
-DefaultKaizenSiteDemo.parameters = {
-  chromatic: { disable: false },
-}
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

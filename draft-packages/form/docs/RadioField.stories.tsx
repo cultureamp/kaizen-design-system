@@ -8,7 +8,6 @@ export default {
   title: "Components/Radio Field",
   component: RadioField,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { RadioField } from "@kaizen/draft-form"',

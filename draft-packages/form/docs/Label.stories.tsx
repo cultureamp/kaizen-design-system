@@ -21,9 +21,6 @@ export const DefaultKaizenSiteDemo: StoryFn<typeof Label> = args => (
 )
 DefaultKaizenSiteDemo.storyName = "Label"
 DefaultKaizenSiteDemo.args = { labelText: "Label Text" }
-DefaultKaizenSiteDemo.parameters = {
-  chromatic: { disable: false },
-}
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,

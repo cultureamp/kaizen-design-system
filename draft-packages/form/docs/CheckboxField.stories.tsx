@@ -8,7 +8,6 @@ export default {
   title: "Components/Checkbox Field",
   component: CheckboxField,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { CheckboxField } from "@kaizen/draft-form";',
