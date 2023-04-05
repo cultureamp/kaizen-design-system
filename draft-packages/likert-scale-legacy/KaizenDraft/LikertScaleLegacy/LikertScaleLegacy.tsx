@@ -47,7 +47,6 @@ export const LikertScaleLegacy = ({
     value: s.value,
     ref: createRef<HTMLDivElement>(),
   }))
-  const hasSelectedItem = selectedItem && selectedItem.value > 0
   const notRatedStateItem = scale.find(s => s.value === -1) || null
 
   const handleRadioClick = (item: ScaleItem): void => {
@@ -59,9 +58,7 @@ export const LikertScaleLegacy = ({
   }
 
   const handleRadioMouseEnter = (item: ScaleItem): void => {
-    if (!hasSelectedItem) {
-      setHoveredItem(item)
-    }
+    setHoveredItem(item)
   }
 
   /**
@@ -87,12 +84,7 @@ export const LikertScaleLegacy = ({
     }
   }
 
-  let legend = "Not rated"
-  if (hoveredItem) {
-    legend = hoveredItem.label
-  } else if (selectedItem) {
-    legend = selectedItem.label
-  }
+  const legend = hoveredItem?.label || selectedItem?.label || "Not rated"
 
   const shouldDisplayValidationMessage =
     status !== "default" && validationMessage !== undefined
@@ -106,6 +98,7 @@ export const LikertScaleLegacy = ({
       className={classnames(styles.container, {
         [styles.rated]: selectedItem && selectedItem.value > 0,
         [styles.reversed]: reversed,
+        [styles.hovered]: !!hoveredItem,
       })}
       aria-labelledby={labelId}
       role="radiogroup"
@@ -133,7 +126,6 @@ export const LikertScaleLegacy = ({
           }
 
           const isSelectedItem = selectedItem?.value === item.value
-
           const itemRef = itemRefs.find(i => item.value === i.value)
 
           // Make control tabbable
@@ -149,14 +141,20 @@ export const LikertScaleLegacy = ({
 
           return (
             <div
-              className={classnames(styles.likertItem, {
-                [styles.selected]:
-                  selectedItem && item.value <= selectedItem.value,
-                [styles.suggested]:
-                  hoveredItem && hoveredItem.value >= item.value,
-                [styles.unselected]:
-                  selectedItem && selectedItem.value < item.value,
-              })}
+              className={classnames(
+                styles.likertItem,
+                styles[`likertItem${item.value}`],
+                {
+                  [styles.selected]:
+                    selectedItem &&
+                    item.value <= selectedItem?.value &&
+                    !hoveredItem,
+                  [styles.suggested]:
+                    hoveredItem && hoveredItem.value >= item.value,
+                  [styles.unselected]:
+                    selectedItem && selectedItem.value < item.value,
+                }
+              )}
               key={item.value}
               data-automation-id={
                 automationId && `${automationId}-item-${item.value}`

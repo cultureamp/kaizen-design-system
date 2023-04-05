@@ -189,6 +189,22 @@ $fifth: $color-red-500;
     margin-right: 0;
   }
 
+  // Hack to bridge the gaps between items so mouse always hovers on something
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 2px;
+    height: 100%;
+  }
+
+  &:after {
+    right: auto;
+    left: 100%;
+  }
+
   &.suggested,
   &.selected {
     .field1 {
@@ -255,13 +271,9 @@ $fifth: $color-red-500;
   top: 50%;
   left: 50%;
   margin: -10px 0 0 -10px;
+  color: black;
 
-  .field4 + &,
-  .field5 + & {
-    color: white;
-  }
-
-  .field1 + & {
+  .likertItem1 & {
     margin-left: -9px;
 
     [dir="rtl"] & {
@@ -269,13 +281,25 @@ $fifth: $color-red-500;
     }
   }
 
-  .field5 + & {
+  .likertItem5 & {
     margin-left: -12px;
 
     [dir="rtl"] & {
       margin-left: -9px;
     }
   }
+}
+
+:where(.likertItem4, .likertItem5) .check {
+  color: white;
+}
+
+.hovered :where(.likertItem4, .likertItem5) .check {
+  color: black;
+}
+
+:is(.likertItem4.suggested, .likertItem5.suggested) .check {
+  color: white;
 }
 
 @media only screen and (max-width: 767px) {
