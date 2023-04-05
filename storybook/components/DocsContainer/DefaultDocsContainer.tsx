@@ -12,7 +12,10 @@ import { TableOfContents } from "./TableOfContents"
 type LayoutProps = { children: React.ReactNode }
 
 const FullPage = ({ children }: LayoutProps): JSX.Element => (
-  <div>{children}</div>
+  <div>
+    {children}
+    <BackToTop />
+  </div>
 )
 
 const DefaultLayout = ({ children }: LayoutProps): JSX.Element => (
