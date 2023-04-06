@@ -21,7 +21,7 @@
     "lint": "yarn eslint --max-warnings=0 && yarn prettier && yarn stylelint",
     "lint:fix": "yarn stylelint --fix && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
-    "clean": "yarn clean:storybook",
+    "clean": "yarn turbo clean && yarn clean:storybook",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
     "commit": "yarn changeset",
@@ -127,6 +127,7 @@
     "svgo-loader": "~4.0.0",
     "tailwindcss": "^3.3.1",
     "ts-jest": "^29.1.0",
+    "turbo": "^1.8.8",
     "typescript": "^4.9.5",
     "webpack": "^5.77.0"
   },
