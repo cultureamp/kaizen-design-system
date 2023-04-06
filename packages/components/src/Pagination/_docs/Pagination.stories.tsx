@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { ComponentStory } from "@storybook/react"
 import { Pagination } from "@kaizen/pagination"
-import { CATEGORIES } from "../../../storybook/constants"
+import { CATEGORIES } from "../../../../../storybook/constants"
 
 export default {
   title: `${CATEGORIES.components}/Pagination`,
