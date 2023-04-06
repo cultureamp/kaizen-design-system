@@ -7,6 +7,7 @@ import {
   Stories,
 } from "@storybook/blocks"
 import { Meta, StoryFn } from "@storybook/react"
+import { LinkTo } from "../../../storybook/components/LinkTo"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 import { Paragraph } from "../src/Paragraph/Paragraph"
 
@@ -55,9 +56,9 @@ const Documentation = (): JSX.Element => (
           <li>wrap it in a new div with margin or padding applied, or</li>
           <li>
             wrap it in the{" "}
-            <a href="../?path=/story/box-react--box-default">
+            <LinkTo pageId="components-box">
               <code>Box</code>
-            </a>{" "}
+            </LinkTo>
             component, which gives you a no-CSS way to create spacing.
           </li>
         </ul>

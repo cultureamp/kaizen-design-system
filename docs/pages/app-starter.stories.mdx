@@ -1,5 +1,6 @@
 import { Meta, Unstyled } from '@storybook/blocks'
 import { InlineNotification } from "@kaizen/notification"
+import { LinkTo } from "../../storybook/components/LinkTo"
 
 <Meta title="Guides/App starter" />
 
@@ -22,7 +23,7 @@ or are using <a href="https://github.com/cultureamp/frontend-services/tree/main/
 
 ## 1. Add the KaizenProvider
 
-The [KaizenProvider](../?path=/docs/components-kaizenprovider-installation--page) feeds your entire app with the theme and various other defaults, so it's important that it goes at the very root of your application.
+The <LinkTo pageId="components-kaizenprovider-installation">KaizenProvider</LinkTo> feeds your entire app with the theme and various other defaults, so it's important that it goes at the very root of your application.
 
 ```jsx
   import { KaizenProvider } from '@kaizen/components';
@@ -31,16 +32,16 @@ The [KaizenProvider](../?path=/docs/components-kaizenprovider-installation--page
   </KaizenProvider>
 ```
 
-Be sure to read the [KaizenProvider](../?path=/docs/components-kaizenprovider-installation--page) documentation in case your app requires any further config, but generally this should be it!
+Be sure to read the <LinkTo pageId="components-kaizenprovider-installation">KaizenProvider</LinkTo> documentation in case your app requires any further config, but generally this should be it!
 
 
 ## 2. Setup Tailwind CSS
 
 It is recommended that you use Tailwind for any custom CSS you may need to write outside of using Kaizen components.
 
-For full installation instructions, see the [Tailwind Getting Started](../?path=/docs/systems-tailwind-getting-started--page) page.
+For full installation instructions, see the <LinkTo pageId="systems-tailwind-getting-started">Tailwind Getting Started</LinkTo> page.
 
-Whether or not you are already familiar with Tailwind, you'll want to take a look at our [Utility Class References](../?path=/docs/systems-tailwind-utility-class-references-overview--page), as we have made distinct modifications to vanilla Tailwind to suit our design system.
+Whether or not you are already familiar with Tailwind, you'll want to take a look at our <LinkTo pageId="systems-tailwind-utility-class-references-overview">Utility Class References</LinkTo>, as we have made distinct modifications to vanilla Tailwind to suit our design system.
 
 ## 3. Add the Kaizen global CSS
 

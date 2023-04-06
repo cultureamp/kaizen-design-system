@@ -30,7 +30,10 @@ const meta = {
       "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
     figmaLink:
       "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364",
-    alternatives: ["icon-button"],
+    alternatives: [
+      "components-icon-button--docs",
+      "components-button-group--docs",
+    ],
   },
 } satisfies Meta<typeof Button>
 
