@@ -24,7 +24,6 @@
     "clean": "yarn turbo clean && yarn clean:storybook",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
-    "commit": "yarn changeset",
     "plop": "plop",
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test",
