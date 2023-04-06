@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 
 import cautionIcon from "@kaizen/component-library/icons/caution.icon.svg"
@@ -7,8 +8,8 @@ import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import errorIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-
 import { Heading, HeadingProps } from "@kaizen/typography"
+
 import styles from "./GenericNotification.module.scss"
 
 export type NotificationType =
@@ -17,7 +18,7 @@ export type NotificationType =
   | "cautionary"
   | "negative"
 
-export type GenericNotificationProps = {
+export type GenericNotificationProps = OverrideClassName<{
   type: NotificationType
   style: "global" | "inline" | "toast"
   children?: React.ReactNode
@@ -30,7 +31,7 @@ export type GenericNotificationProps = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
-}
+}>
 
 type State = {
   hidden: boolean
@@ -135,7 +136,8 @@ class GenericNotification extends React.Component<
       {
         [styles.hidden]: this.state.hidden,
         [styles.noBottomMargin]: this.props.noBottomMargin,
-      }
+      },
+      this.props.classNameOverride
     )
   }
 

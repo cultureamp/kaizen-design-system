@@ -3,6 +3,7 @@ import { HeadingProps } from "@kaizen/typography"
 import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"
+import styles from "./components/GenericNotification.module.scss"
 
 export type InlineNotificationProps = {
   type: NotificationType
@@ -16,6 +17,7 @@ export type InlineNotificationProps = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
+  isSubtle?: boolean
   /**
    * **Deprecated:** Use headingProps
    * @deprecated
@@ -30,11 +32,13 @@ export type InlineNotificationProps = {
 export const InlineNotification = ({
   persistent,
   hideCloseIcon,
+  isSubtle,
   ...otherProps
 }: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
     persistent={persistent || hideCloseIcon}
+    classNameOverride={isSubtle ? styles.subtle : undefined}
     {...otherProps}
   />
 )
