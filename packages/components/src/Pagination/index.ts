@@ -1,1 +1,1 @@
-export * from "./src/Pagination"
+export * from "./Pagination"
