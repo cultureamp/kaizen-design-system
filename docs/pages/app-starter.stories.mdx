@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks'
+import { Meta, Unstyled } from '@storybook/blocks'
 import { InlineNotification } from "@kaizen/notification"
 
 <Meta title="Guides/App starter" />
@@ -9,12 +9,16 @@ This guide is all about how to introduce the Kaizen Design System to your app.
 
 Whilst the Kaizen Design System mainly focuses on the more atomic components in your app, some of the components have a high level of complexity requiring various global components to be present in order for them to function.
 
+<Unstyled>
 <InlineNotification
   persistent
   type="informative"
 >
-  You won't need to apply this if you started your app with the <a href="https://github.com/cultureamp/frontend-template" target="_blank">Frontend template</a> or are using <a href="https://github.com/cultureamp/frontend-services/tree/main/packages/next-services">next-services</a>.
+<span>You won't need to apply this if you started your app with the
+<a href="https://github.com/cultureamp/frontend-template" target="_blank">Frontend template</a>
+or are using <a href="https://github.com/cultureamp/frontend-services/tree/main/packages/next-services">next-services</a>.</span>
 </InlineNotification>
+</Unstyled>
 
 ## 1. Add the KaizenProvider
 
