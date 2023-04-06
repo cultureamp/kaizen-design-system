@@ -47,11 +47,16 @@ export const LikertScaleLegacy = ({
     value: s.value,
     ref: createRef<HTMLDivElement>(),
   }))
-  const notRatedStateItem = scale.find(s => s.value === -1) || null
 
   const handleRadioClick = (item: ScaleItem): void => {
-    const isSameAsCurrentlySelectedItem = selectedItem?.value === item.value
-    const newItem = isSameAsCurrentlySelectedItem ? notRatedStateItem : item
+    // Is this a click on the item that is currently selected?
+    const isClickOnSelectedItem = selectedItem?.value === item.value
+
+    // Grab "Not rated" state item from the scale, its value is -1
+    const notYetRated = scale.find(s => s.value === -1) || null
+
+    // Clear or set new selection
+    const newItem = isClickOnSelectedItem ? notYetRated : item
 
     onSelect(newItem)
     setHoveredItem(null)
