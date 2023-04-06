@@ -1,3 +1,5 @@
+@import "~@kaizen/design-tokens/sass/color";
+
 /* stylelint-disable */
 @tailwind base;
 @tailwind components;
@@ -16,10 +18,20 @@ pre code {
   line-height: 19px;
 }
 
-.sbdocs-wrapper {
-  padding: 2.5rem !important;
-}
+#storybook-docs {
+  .sbdocs-wrapper {
+    padding: 2.5rem;
+  }
 
-.sbdocs-content {
-  max-width: unset !important;
+  .sbdocs-content {
+    max-width: unset;
+  }
+
+  .sbdocs-a {
+    color: $color-blue-400;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
