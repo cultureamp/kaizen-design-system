@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import React from "react"
-import LinkTo from "@storybook/addon-links/react"
 import { Unstyled } from "@storybook/blocks"
-import { Meta } from "@storybook/react"
 import classNames from "classnames"
 import Highlight from "react-highlight"
 import { Box } from "@kaizen/component-library"
@@ -174,25 +172,6 @@ const sassBlocks: Array<
 
 export const SassVariablesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={sassBlocks} />
-)
-
-export const getStoryLinkName = (
-  storyTitle: string | undefined
-): string | undefined => storyTitle?.replace(/.*\//, "")
-
-export const LinkToStory = ({
-  storyModule,
-  children,
-  hash: _hash, // not used
-}: {
-  storyModule: Meta
-  hash?: string
-  /* Children can be used to override the Link text */
-  children?: React.ReactNode
-}): JSX.Element => (
-  <LinkTo kind={storyModule.title}>
-    {children || getStoryLinkName(storyModule.title!)}
-  </LinkTo>
 )
 
 export default {}

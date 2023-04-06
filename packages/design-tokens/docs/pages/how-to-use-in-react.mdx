@@ -1,7 +1,5 @@
-import exampleSass from '!!raw-loader!./examples/example.scss'
-import { CodeBlock, LinkToStory } from '../DocsComponents'
 import { Meta } from "@storybook/blocks"
-import gettingStartedPage from './getting-started.mdx'
+import { LinkTo } from "../../../../storybook/components/LinkTo"
 
 <Meta title="Systems/Tokens/How to use design tokens in React components" parameters={{ docsOnly: true }} />
 
@@ -9,7 +7,7 @@ import gettingStartedPage from './getting-started.mdx'
 
 ## 1. Set up a KaizenProvider
 
-Ensure you have followed the steps in [KaizenProvider](/story/components-kaizenprovider--page) to set up your application for using themes.
+Ensure you have followed the steps in <LinkTo pageId="components-kaizenprovider-installation">KaizenProvider</LinkTo> to set up your application for using themes.
 
 ## 2. Start using design tokens with the `useTheme` hook
 
