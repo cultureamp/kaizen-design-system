@@ -99,7 +99,7 @@ export const LikertScaleLegacy = ({
       className={classnames(styles.container, {
         [styles.rated]: selectedItem && selectedItem.value > 0,
         [styles.reversed]: reversed,
-        [styles.hovered]: !!hoveredItem,
+        [styles.hovered]: hoveredItem !== null,
       })}
       aria-labelledby={labelId}
       role="radiogroup"
