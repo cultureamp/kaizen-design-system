@@ -1,15 +1,11 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { FieldMessage } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Field Message`,
+  tags: ["autodocs"],
+  title: "Components/Field Message",
   component: FieldMessage,
   parameters: {
     docs: {
@@ -18,11 +14,11 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FieldMessage>
+} satisfies Meta<typeof FieldMessage>
 
-export const DefaultKaizenSiteDemo: ComponentStory<
-  typeof FieldMessage
-> = args => <FieldMessage {...args}></FieldMessage>
+export const DefaultKaizenSiteDemo: StoryFn<typeof FieldMessage> = args => (
+  <FieldMessage {...args}></FieldMessage>
+)
 DefaultKaizenSiteDemo.storyName = "FieldMessage"
 DefaultKaizenSiteDemo.args = {
   message:
@@ -31,11 +27,8 @@ DefaultKaizenSiteDemo.args = {
   position: "bottom",
   reversed: false,
 }
-DefaultKaizenSiteDemo.parameters = {
-  chromatic: { disable: false },
-}
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

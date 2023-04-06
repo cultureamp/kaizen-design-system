@@ -32,7 +32,7 @@ export type MenuItemProps = {
   isActive?: boolean
 }
 
-const MenuItem = (props: MenuItemProps): JSX.Element => {
+export const MenuItem = (props: MenuItemProps): JSX.Element => {
   const {
     label,
     icon,
@@ -121,5 +121,3 @@ const MenuItem = (props: MenuItemProps): JSX.Element => {
 }
 
 MenuItem.displayName = "MenuItem"
-
-export default MenuItem

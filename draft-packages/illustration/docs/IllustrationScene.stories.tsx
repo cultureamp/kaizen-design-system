@@ -1,9 +1,8 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -65,7 +64,8 @@ const STATIC_SCENE_CONTROLS = {
 }
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Scene`,
+  tags: ["autodocs"],
+  title: "Components/Scene",
   component: BrandMomentCaptureIntro,
   parameters: {
     chromatic: { disable: false },
@@ -123,7 +123,7 @@ const isAnimatedScene = (
   Component: IllustrationScene
 ): Component is AnimatedScene => Component.toString().includes("isAnimated")
 
-const IllustrationScenesTemplate: Story<
+const IllustrationScenesTemplate: StoryFn<
   (AnimatedSceneProps | StaticSceneProps) & { sceneComponents: SceneComponents }
 > = ({ sceneComponents, ...restArgs }) => {
   const { isAnimated, loop, autoplay, alt = "", ...restProps } = restArgs

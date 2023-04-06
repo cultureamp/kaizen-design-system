@@ -18,7 +18,7 @@ export type NotificationType =
   | "cautionary"
   | "negative"
 
-type GenericNotificationProps = OverrideClassName<{
+export type GenericNotificationProps = OverrideClassName<{
   type: NotificationType
   style: "global" | "inline" | "toast"
   children?: React.ReactNode

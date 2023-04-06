@@ -1,8 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import React from "react"
-import LinkTo from "@storybook/addon-links/react"
-import { Meta } from "@storybook/react"
+import { Unstyled } from "@storybook/blocks"
 import classNames from "classnames"
 import Highlight from "react-highlight"
 import { Box } from "@kaizen/component-library"
@@ -26,21 +25,25 @@ export const CodeBlock = (props: {
   caption?: React.ReactNode
   code: string
 }): JSX.Element => (
-  <Box py={0.5}>
-    <Card>
-      <div className={styles.codeWrapper}>
-        <Highlight className={props.language}>{props.code}</Highlight>
-      </div>
-    </Card>
+  <Unstyled>
+    <Box py={0.5}>
+      <Card>
+        <div className={styles.codeWrapper}>
+          <Highlight className={props.language}>{props.code}</Highlight>
+        </div>
+      </Card>
 
-    {props.caption && (
-      <div className={styles.codeWrapperCaption}>
-        <Paragraph variant="small">
-          <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
-        </Paragraph>
-      </div>
-    )}
-  </Box>
+      {props.caption && (
+        <div className={styles.codeWrapperCaption}>
+          <Paragraph variant="small">
+            <span className={styles.codeWrapperCaptionText}>
+              {props.caption}
+            </span>
+          </Paragraph>
+        </div>
+      )}
+    </Box>
+  </Unstyled>
 )
 
 const TabbedCodeBlocks = ({
@@ -169,25 +172,6 @@ const sassBlocks: Array<
 
 export const SassVariablesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={sassBlocks} />
-)
-
-export const getStoryLinkName = (
-  storyTitle: string | undefined
-): string | undefined => storyTitle?.replace(/.*\//, "")
-
-export const LinkToStory = ({
-  storyModule,
-  children,
-  hash: _hash, // not used
-}: {
-  storyModule: Meta
-  hash?: string
-  /* Children can be used to override the Link text */
-  children?: React.ReactNode
-}): JSX.Element => (
-  <LinkTo kind={storyModule.title}>
-    {children || getStoryLinkName(storyModule.title!)}
-  </LinkTo>
 )
 
 export default {}

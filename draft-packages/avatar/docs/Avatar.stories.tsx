@@ -1,9 +1,6 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import {
   Avatar,
   AvatarSizes,
@@ -52,7 +49,8 @@ const PROPS_COMPANY: CompanyAvatarProps = {
 }
 
 export default {
-  title: `${CATEGORIES.components}/Avatar/Avatar`,
+  tags: ["autodocs"],
+  title: "Components/Avatar",
   component: Avatar,
   parameters: {
     docs: {
@@ -60,16 +58,10 @@ export default {
         component: 'import { Avatar } from "@kaizen/draft-avatar"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14305"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof Avatar>
+} satisfies Meta<typeof Avatar>
 
-export const DefaultStory: ComponentStory<typeof Avatar> = args => (
-  <Avatar {...args} />
-)
+export const DefaultStory: StoryFn<typeof Avatar> = args => <Avatar {...args} />
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   avatarSrc:
@@ -80,7 +72,7 @@ DefaultStory.args = {
   isCurrentUser: false,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const ROWS: Array<{ title: string; size: AvatarSizes }> = [
@@ -130,7 +122,10 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = { chromatic: { disable: false } }
+StickerSheetDefault.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
@@ -138,4 +133,5 @@ StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   backgrounds: { default: "Purple 700" },
   chromatic: { disable: false },
+  controls: { disable: true },
 }

@@ -1,10 +1,7 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 class ToggleStateContainer extends React.Component<
   {
@@ -40,7 +37,8 @@ class ToggleStateContainer extends React.Component<
 }
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Toggle Switch Field`,
+  tags: ["autodocs"],
+  title: "Components/Toggle Switch Field",
   component: ToggleSwitchField,
   parameters: {
     docs: {
@@ -49,14 +47,10 @@ export default {
           'import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14361%3A67850"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof ToggleSwitchField>
+} satisfies Meta<typeof ToggleSwitchField>
 
-export const Default: ComponentStory<typeof ToggleSwitchField> = props => (
+export const Default: StoryFn<typeof ToggleSwitchField> = props => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
     {({ toggledStatus, toggle }): JSX.Element => (
       <ToggleSwitchField
@@ -70,7 +64,7 @@ export const Default: ComponentStory<typeof ToggleSwitchField> = props => (
 )
 Default.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StickerSheet isReversed={isReversed}>

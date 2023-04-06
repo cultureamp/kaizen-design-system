@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { usePopper } from "react-popper"
 import styles from "./MenuDropdown.module.scss"
 
-type MenuDropdownProps = {
+export type MenuDropdownProps = {
   id?: string
   hideMenuDropdown: () => void
   position?: {
@@ -19,7 +19,7 @@ type MenuDropdownProps = {
   referenceElement: HTMLElement | null
 }
 
-const MenuDropdown = ({
+export const MenuDropdown = ({
   children,
   referenceElement,
   id,
@@ -124,4 +124,4 @@ const MenuDropdown = ({
   )
 }
 
-export default MenuDropdown
+MenuDropdown.displayName = "MenuDropdown"

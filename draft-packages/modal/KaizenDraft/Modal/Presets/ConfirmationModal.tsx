@@ -87,7 +87,7 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
  * {@link https://cultureamp.design/components/modal/#confirmation-modal Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-modal--confirmation-modal-example Storybook}
  */
-const ConfirmationModal = ({
+export const ConfirmationModal = ({
   isOpen,
   isProminent = false,
   unpadded = false,
@@ -182,4 +182,4 @@ const ConfirmationModal = ({
   )
 }
 
-export default ConfirmationModal
+ConfirmationModal.displayName = "ConfirmationModal"
