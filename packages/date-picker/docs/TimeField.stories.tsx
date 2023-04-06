@@ -1,14 +1,12 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { TimeField } from "../index"
 import { ValueType } from "../src/TimeField/types"
 
 export default {
-  title: `${CATEGORIES.components}/Time Field`,
+  tags: ["autodocs"],
+  title: "Components/Time Field",
   component: TimeField,
   parameters: {
     docs: {
@@ -16,9 +14,6 @@ export default {
         component: 'import { TimeField } from "@kaizen/date-picker"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=44599%3A98274"
-    ),
   },
   argTypes: {
     locale: {
@@ -28,10 +23,9 @@ export default {
     status: { control: { type: "radio" }, options: ["default", "error"] },
     validationMessage: { control: "text" },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof TimeField>
+} satisfies Meta<typeof TimeField>
 
-export const DefaultStory: ComponentStory<typeof TimeField> = args => {
+export const DefaultStory: StoryFn<typeof TimeField> = args => {
   const [value, setValue] = useState<ValueType | null>(null)
   return <TimeField {...args} value={value} onChange={setValue} />
 }
@@ -44,7 +38,7 @@ DefaultStory.args = {
   status: "default",
 }
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const [valueDefault, setValueDefault] = useState<ValueType | null>(null)
   const [valueError, setValueError] = useState<ValueType | null>({
     hour: 1,

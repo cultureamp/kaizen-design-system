@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import { DecoratorFunction } from "@storybook/addons"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Decorator, Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { withDesign } from "storybook-addon-designs"
 import { Button, IconButton } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
@@ -11,16 +9,15 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Paragraph, Heading } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
-const openTooltipInChromatic: DecoratorFunction = (story, config) => {
-  if (isChromatic()) config.args.isInitiallyVisible = true
-  return story()
+const openTooltipInChromatic: Decorator = (Story, { args }) => {
+  if (isChromatic()) args.isInitiallyVisible = true
+  return <Story />
 }
 
 export default {
-  title: `${CATEGORIES.components}/Tooltip`,
+  tags: ["autodocs"],
+  title: "Components/Tooltip",
   component: Tooltip,
   parameters: {
     /**
@@ -33,14 +30,11 @@ export default {
         component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A90872"
-    ),
   },
-  decorators: [withDesign, openTooltipInChromatic],
-} as ComponentMeta<typeof Tooltip>
+  decorators: [openTooltipInChromatic],
+} satisfies Meta<typeof Tooltip>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Tooltip> = props => (
+export const DefaultKaizenSiteDemo: StoryFn<typeof Tooltip> = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
@@ -58,7 +52,7 @@ DefaultKaizenSiteDemo.parameters = {
   },
 }
 
-export const WithNoAnimationDelay: ComponentStory<typeof Tooltip> = props => (
+export const WithNoAnimationDelay: StoryFn<typeof Tooltip> = props => (
   <div
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
@@ -69,7 +63,7 @@ export const WithNoAnimationDelay: ComponentStory<typeof Tooltip> = props => (
 )
 WithNoAnimationDelay.storyName = "With no animation delay"
 
-export const StickerSheet: ComponentStory<typeof Tooltip> = props => (
+export const StickerSheet: StoryFn<typeof Tooltip> = props => (
   <div
     style={{
       marginTop: "100px",
@@ -277,7 +271,7 @@ export const StickerSheet: ComponentStory<typeof Tooltip> = props => (
 )
 StickerSheet.parameters = { chromatic: { disable: false } }
 
-export const OverflowScroll: ComponentStory<typeof Tooltip> = props => (
+export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
   <>
     <p>
       Default Placement is 'above'. Scroll horizontally or vertically to view
@@ -330,7 +324,7 @@ export const OverflowScroll: ComponentStory<typeof Tooltip> = props => (
           }}
         >
           <Tooltip {...props} display="inline" text="Tooltip label">
-            <Icon icon={informationIcon} />
+            <Icon icon={informationIcon} title="Info" />
           </Tooltip>
         </div>
       </div>
@@ -349,7 +343,7 @@ export const OverflowScroll: ComponentStory<typeof Tooltip> = props => (
             position: "relative",
           }}
         >
-          <Paragraph variant="body">
+          <Paragraph tag="div" variant="body">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
             nulla quas corporis? Perspiciatis, ratione voluptas{" "}
             <Tooltip {...props} display="inline-block" text="Tooltip label">

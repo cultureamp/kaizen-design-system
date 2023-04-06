@@ -1,16 +1,14 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn, Meta } from "@storybook/react"
 import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { DirectionalLinkProps } from "../src/Button/DirectionalLink"
 import { PaginationLinkProps } from "../src/Button/PaginationLink"
 import { DirectionalLink, PaginationLink } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Pagination Buttons`,
+  tags: ["autodocs"],
+  title: "Components/Pagination/Subcomponents/Buttons",
   component: DirectionalLink,
   args: {
     label: "Label",
@@ -25,14 +23,10 @@ export default {
           'import { DirectionalLink, PaginationLink } from "@kaizen/button".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13555%3A0"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof DirectionalLink>
 
-export const DefaultKaizenDirectionalLink: ComponentStory<
+export const DefaultKaizenDirectionalLink: StoryFn<
   typeof DirectionalLink
 > = args => <DirectionalLink {...args} />
 DefaultKaizenDirectionalLink.storyName = "Directional Link"
@@ -40,7 +34,7 @@ DefaultKaizenDirectionalLink.args = {
   direction: "prev",
 }
 
-export const DefaultKaizenPaginationLink: ComponentStory<
+export const DefaultKaizenPaginationLink: StoryFn<
   typeof PaginationLink
 > = args => <PaginationLink {...args} />
 DefaultKaizenPaginationLink.storyName = "Pagination Link"
@@ -48,7 +42,7 @@ DefaultKaizenPaginationLink.args = {
   pageNumber: 1,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const SectionHeading = ({ heading }: { heading: string }): JSX.Element => (
@@ -120,7 +114,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           headings={["Base", "Hover", "Active", "Focus", "Disabled", "RTL"]}
         />
         {DIRECTIONAL_LINK_PROPS.map(({ title, props }) => (
-          <StoryWrapper.Row rowTitle={title}>
+          <StoryWrapper.Row key={title} rowTitle={title}>
             <DirectionalLink {...props} reversed={isReversed} />
             <DirectionalLink
               {...props}
@@ -151,7 +145,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           headings={["Base", "Hover", "Active", "Focus"]}
         />
         {PAGINATION_LINK_PROPS.map(({ title, props }) => (
-          <StoryWrapper.Row rowTitle={title}>
+          <StoryWrapper.Row key={title} rowTitle={title}>
             <PaginationLink {...props} reversed={isReversed} />
             <PaginationLink
               {...props}

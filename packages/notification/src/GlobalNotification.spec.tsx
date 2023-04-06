@@ -1,6 +1,6 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import GlobalNotification from "./GlobalNotification"
+import { GlobalNotification } from "./GlobalNotification"
 
 describe("<GlobalNotification />", () => {
   it("renders the positive notification correctly", () => {

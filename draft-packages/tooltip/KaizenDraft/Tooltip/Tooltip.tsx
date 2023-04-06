@@ -228,6 +228,4 @@ export const Tooltip = ({
   )
 }
 
-Tooltip.defaultProps = {
-  position: "above",
-}
+Tooltip.displayName = "Tooltip"

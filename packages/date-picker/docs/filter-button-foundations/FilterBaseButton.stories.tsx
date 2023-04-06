@@ -1,16 +1,13 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../storybook/components/StickerSheet"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../../storybook/constants"
 import { FilterBaseButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseButton"
+import { FilterBaseTooltipButton } from "../../src/FilterDateRangePicker/components/Trigger/FilterBaseTooltipButton"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Base Buttons`,
+  tags: ["autodocs"],
+  title:
+    "Components/Filter Date Range Picker/Subcomponents/Filter Base Buttons",
   component: FilterBaseButton,
   parameters: {
     docs: {
@@ -20,18 +17,26 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof FilterBaseButton>
+} satisfies Meta<typeof FilterBaseButton>
 
-export const FilterBaseButtonStory: ComponentStory<
-  typeof FilterBaseButton
-> = args => <FilterBaseButton {...args} />
+export const FilterBaseButtonStory: StoryFn<typeof FilterBaseButton> = args => (
+  <FilterBaseButton {...args} />
+)
 FilterBaseButtonStory.storyName = "Filter Base Button"
 FilterBaseButtonStory.args = {
   children: "Label",
 }
 
-const StickerSheetTemplate: Story = () => (
+export const FilterBaseTooltipButtonStory: StoryFn<
+  typeof FilterBaseTooltipButton
+> = args => <FilterBaseTooltipButton {...args} />
+FilterBaseTooltipButtonStory.storyName = "Filter Base Tooltip Button"
+FilterBaseTooltipButtonStory.args = {
+  children: "Label",
+  tooltipText: "Tooltip",
+}
+
+const StickerSheetTemplate: StoryFn = () => (
   <StickerSheet heading="Filter Base Button">
     <StickerSheet.Header headings={["Base", "Hover", "Active", "Focus"]} />
     <StickerSheet.Body>

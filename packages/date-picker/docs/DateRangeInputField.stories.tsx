@@ -1,13 +1,8 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { enAU, enUS } from "date-fns/locale"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,
@@ -16,7 +11,9 @@ import { formatDateAsText } from "../src/utils/formatDateAsText"
 import { validationControls } from "./controls/validationControls"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Date Range Input Field`,
+  tags: ["autodocs"],
+  title:
+    "Components/Filter Date Range Picker/Subcomponents/Date Range Input Field",
   component: DateRangeInputField,
   parameters: {
     docs: {
@@ -29,7 +26,7 @@ export default {
   argTypes: {
     ...validationControls,
   },
-} as ComponentMeta<typeof DateRangeInputField>
+} satisfies Meta<typeof DateRangeInputField>
 
 export const DefaultStory = (
   props: DateRangeInputFieldProps & {
@@ -56,7 +53,7 @@ DefaultStory.args = {
   locale: enAU,
 }
 
-const StickerSheetTemplate: Story<{
+const StickerSheetTemplate: StoryFn<{
   textDirection: "ltr" | "rtl" // Global control; see storybook/preview.tsx
   isReversed: boolean
   locale: DateRangeInputFieldProps["locale"]
@@ -94,6 +91,7 @@ const StickerSheetTemplate: Story<{
                   undefined,
                   locale
                 ),
+                onChange: () => undefined,
               }}
               inputRangeEndProps={{
                 ...inputRangeEndProps,
@@ -102,6 +100,7 @@ const StickerSheetTemplate: Story<{
                   undefined,
                   locale
                 ),
+                onChange: () => undefined,
               }}
               locale={locale}
             />

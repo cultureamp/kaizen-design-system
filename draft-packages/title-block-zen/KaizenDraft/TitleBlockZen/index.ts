@@ -1,7 +1,7 @@
-export {
-  default as TitleBlockZen,
+export { TitleBlockZen } from "./TitleBlockZen"
+export type {
+  TitleBlockProps,
   CustomBreadcrumbProps,
   SectionTitleRenderProps,
 } from "./TitleBlockZen"
-export { NavigationTab, NavigationTabProps } from "./TitleBlockZen"
-export { TitleBlockProps } from "./TitleBlockZen"
+export * from "./NavigationTabs"

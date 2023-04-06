@@ -1,14 +1,12 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { LoadingInput, LoadingHeading } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Input`,
+  tags: ["autodocs"],
+  title: "Components/Loading/Loading Input",
   component: LoadingInput,
   parameters: {
     docs: {
@@ -16,19 +14,15 @@ export default {
         component: 'import { LoadingInput } from "@kaizen/loading-skeleton"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=4496%3A1"
-    ),
   },
-  decorators: [withDesign],
 }
 
-export const DefaultLoadingInput: ComponentStory<
-  typeof LoadingInput
-> = args => <LoadingInput {...args} />
+export const DefaultLoadingInput: StoryFn<typeof LoadingInput> = args => (
+  <LoadingInput {...args} />
+)
 DefaultLoadingInput.storyName = "Loading Input"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

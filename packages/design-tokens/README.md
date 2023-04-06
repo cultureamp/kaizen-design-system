@@ -38,14 +38,14 @@ yarn add @kaizen/design-tokens
 
 ### Less
 
-```
+```less
 ## Note helper functions are provided
 @import "~@kaizen/design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
 ```
 
 ### JavaScript
 
-```
+```js
 import * as tokens from @kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]
 ```
 

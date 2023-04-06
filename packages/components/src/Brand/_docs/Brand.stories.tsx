@@ -1,29 +1,23 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../../../storybook/constants"
-import { figmaEmbed } from "../../../../../storybook/helpers/figmaEmbed"
-import { Brand } from "../../../src/Brand/Brand"
+import { Brand } from "../index"
 
 export default {
-  title: `${CATEGORIES.components}/Brand`,
+  tags: ["autodocs"],
+  title: "Components/Brand",
   component: Brand,
   parameters: {
     chromatic: { disable: false },
     docs: {
       description: {
-        component: 'Import { Brand } from "@kaizen/brand"',
+        component: 'Import { Brand } from "@kaizen/components"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=1929%3A13091"
-    ),
   },
 }
 
-export const DefaultStory: ComponentStory<typeof Brand> = args => (
-  <Brand {...args} />
-)
+export const DefaultStory: StoryFn<typeof Brand> = args => <Brand {...args} />
 DefaultStory.storyName = "Default (Kaizen Demo)"
 DefaultStory.args = {
   alt: "Culture Amp",
@@ -31,7 +25,7 @@ DefaultStory.args = {
   reversed: false,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

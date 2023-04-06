@@ -3,7 +3,7 @@ import { v4 } from "uuid"
 import { addToastNotification } from "./ToastNotificationManager"
 import { ToastNotificationWithOptionals } from "./types"
 
-type ToastNotificationProps = Omit<
+export type ToastNotificationProps = Omit<
   ToastNotificationWithOptionals,
   "message"
 > & {
@@ -15,7 +15,7 @@ type ToastNotificationProps = Omit<
  * {@link https://cultureamp.design/components/toast-notification/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-notification-toast-notification--cautionary Storybook}
  */
-const ToastNotification = ({
+export const ToastNotification = ({
   id,
   hideCloseIcon = false,
   autohide = true,
@@ -40,4 +40,4 @@ const ToastNotification = ({
   return null
 }
 
-export default ToastNotification
+ToastNotification.displayName = "ToastNotification"

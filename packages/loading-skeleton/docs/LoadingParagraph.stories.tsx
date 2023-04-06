@@ -1,14 +1,12 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { LoadingParagraph } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Paragraph`,
+  tags: ["autodocs"],
+  title: "Components/Loading/Loading Paragraph",
   component: LoadingParagraph,
   parameters: {
     docs: {
@@ -17,19 +15,15 @@ export default {
           'import { LoadingParagraph } from "@kaizen/loading-skeleton"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=4496%3A1"
-    ),
   },
-  decorators: [withDesign],
 }
 
-export const DefaultLoadingParagraph: ComponentStory<
+export const DefaultLoadingParagraph: StoryFn<
   typeof LoadingParagraph
 > = args => <LoadingParagraph {...args} />
 DefaultLoadingParagraph.storyName = "Loading Paragraph"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

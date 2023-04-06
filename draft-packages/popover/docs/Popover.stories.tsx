@@ -1,21 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { withDesign } from "storybook-addon-designs"
 import { IconButton } from "@kaizen/button"
 import informationWhiteIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 
 const DEFAULT_IS_OPEN: boolean = isChromatic()
 
 export default {
-  title: `${CATEGORIES.components}/Popover`,
+  tags: ["autodocs"],
+  title: "Components/Popover",
   component: PopoverRaw,
   parameters: {
     /**
@@ -28,12 +26,8 @@ export default {
         component: 'import { usePopover } from "@kaizen/draft-popover"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A63845"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof PopoverRaw>
 
 const Container = ({
   children,
@@ -105,9 +99,7 @@ const InlineBlockTargetElement = ({
   </div>
 )
 
-export const DefaultKaizenSiteDemo: ComponentStory<
-  typeof PopoverRaw
-> = props => {
+export const DefaultKaizenSiteDemo: StoryFn<typeof PopoverRaw> = props => {
   const [ElementRef, Popover] = usePopover()
   // set the popover open state to be true when testing on chromatic
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
@@ -142,7 +134,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 }
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const OverflowScroll: ComponentStory<typeof PopoverRaw> = props => {
+export const OverflowScroll: StoryFn<typeof PopoverRaw> = props => {
   const [ElementRef, Popover] = usePopover()
   const [isOpen, setIsOpen] = useState(DEFAULT_IS_OPEN)
   const openPopover = (): void => setIsOpen(true)
@@ -169,7 +161,7 @@ export const OverflowScroll: ComponentStory<typeof PopoverRaw> = props => {
   )
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const [ElementRefDefault, PopoverDefault] = usePopover()
