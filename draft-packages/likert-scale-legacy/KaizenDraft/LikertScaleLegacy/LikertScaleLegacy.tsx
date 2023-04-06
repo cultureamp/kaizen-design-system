@@ -57,10 +57,6 @@ export const LikertScaleLegacy = ({
     setHoveredItem(null)
   }
 
-  const handleRadioMouseEnter = (item: ScaleItem): void => {
-    setHoveredItem(item)
-  }
-
   /**
    * Because the radios have been built with divs, we need to add the keyboard functionality manually
    */
@@ -160,7 +156,7 @@ export const LikertScaleLegacy = ({
                 automationId && `${automationId}-item-${item.value}`
               }
               onClick={(): void => handleRadioClick(item)}
-              onMouseEnter={(): void => handleRadioMouseEnter(item)}
+              onMouseEnter={(): void => setHoveredItem(item)}
               onMouseLeave={(): void => setHoveredItem(null)}
               onKeyDown={(event): void => handleKeyDown(event, item)}
               onFocus={(): void => setHoveredItem(item)}
