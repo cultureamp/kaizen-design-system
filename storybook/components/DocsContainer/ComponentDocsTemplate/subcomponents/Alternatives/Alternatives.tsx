@@ -35,7 +35,7 @@ export const Alternatives = ({
 
           return (
             <li key={component[0]}>
-              <a href={`/?path=/docs/${component[0]}`}>
+              <a href={`../?path=/docs/${component[0]}`}>
                 {title[title.length - 1]}
               </a>
             </li>

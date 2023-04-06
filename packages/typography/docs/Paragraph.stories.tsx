@@ -55,7 +55,7 @@ const Documentation = (): JSX.Element => (
           <li>wrap it in a new div with margin or padding applied, or</li>
           <li>
             wrap it in the{" "}
-            <a href="/?path=/story/box-react--box-default">
+            <a href="../?path=/story/box-react--box-default">
               <code>Box</code>
             </a>{" "}
             component, which gives you a no-CSS way to create spacing.
