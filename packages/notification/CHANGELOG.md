@@ -10,10 +10,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **notification:** add isSubtle prop to inline notification ([#3438](https://github.com/cultureamp/kaizen-design-system/issues/3438)) ([3d980cb](https://github.com/cultureamp/kaizen-design-system/commit/3d980cbb101a12a2ceb611705f518bf9186ea05f))
 
-
-
-
-
 ## [1.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.8...@kaizen/notification@1.4.9) (2023-04-05)
 
 **Note:** Version bump only for package @kaizen/notification

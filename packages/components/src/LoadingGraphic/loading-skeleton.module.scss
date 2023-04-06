@@ -1,0 +1,26 @@
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+
+.base {
+  border-radius: $border-solid-border-radius;
+  top: calc(#{$spacing-md} * 0.175);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.animated {
+  animation-name: fadeInOut;
+  animation-duration: calc(#{$animation-duration-deliberate} * 2);
+  animation-iteration-count: infinite;
+}
