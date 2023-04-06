@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.7.9",
+  "version": "1.7.11",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -35,9 +35,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@kaizen/component-library": "^16.5.3",
+    "@kaizen/component-library": "^16.6.0",
     "@kaizen/draft-divider": "^2.2.8",
-    "@kaizen/draft-tooltip": "^5.4.37",
+    "@kaizen/draft-tooltip": "^5.4.38",
+    "@kaizen/hosted-assets": "^2.0.1",
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
     "@react-aria/button": "^3.7.0",
