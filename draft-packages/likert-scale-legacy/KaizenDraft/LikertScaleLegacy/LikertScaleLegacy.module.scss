@@ -189,6 +189,22 @@ $fifth: $color-red-500;
     margin-right: 0;
   }
 
+  // Hack to bridge the gaps between items so mouse always hovers on something
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 2px;
+    height: 100%;
+  }
+
+  &:after {
+    right: auto;
+    left: 100%;
+  }
+
   &.suggested,
   &.selected {
     .field1 {
@@ -247,6 +263,47 @@ $fifth: $color-red-500;
 
 .reversed .likertItemFill {
   border-color: rgba($color-white-rgb, 0.65);
+}
+
+.check {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  color: black;
+
+  .likertItem1 & {
+    margin-left: -9px;
+
+    [dir="rtl"] & {
+      margin-left: -11px;
+    }
+  }
+
+  .likertItem5 & {
+    margin-left: -12px;
+
+    [dir="rtl"] & {
+      margin-left: -9px;
+    }
+  }
+}
+
+:where(.likertItem4, .likertItem5) .check {
+  color: white;
+}
+
+.hovered :where(.likertItem4, .likertItem5) .check {
+  color: black;
+}
+
+:is(.likertItem4.suggested, .likertItem5.suggested) .check {
+  color: white;
+}
+
+.hovered.reversed .itemContainer > :not(.suggested.likertItem) .check {
+  color: white;
 }
 
 @media only screen and (max-width: 767px) {
