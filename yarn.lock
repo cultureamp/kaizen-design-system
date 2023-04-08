@@ -3791,6 +3791,23 @@
     "@react-types/shared" "^3.17.0"
     "@swc/helpers" "^0.4.14"
 
+"@react-aria/overlays@^3.14.0":
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/overlays/-/overlays-3.14.0.tgz#2206ca33010dbf6f1986dac6019caeeb5632c03d"
+  integrity sha512-lt4vOj44ho0LpmpaHwQ4VgX7eNfKXig9VD7cvE9u7uyECG51jqt9go19s4+/O+otX7pPrhdYlEB2FxLFJocxfw==
+  dependencies:
+    "@react-aria/focus" "^3.12.0"
+    "@react-aria/i18n" "^3.7.1"
+    "@react-aria/interactions" "^3.15.0"
+    "@react-aria/ssr" "^3.6.0"
+    "@react-aria/utils" "^3.16.0"
+    "@react-aria/visually-hidden" "^3.8.0"
+    "@react-stately/overlays" "^3.5.1"
+    "@react-types/button" "^3.7.2"
+    "@react-types/overlays" "^3.7.1"
+    "@react-types/shared" "^3.18.0"
+    "@swc/helpers" "^0.4.14"
+
 "@react-aria/select@^3.9.1":
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/@react-aria/select/-/select-3.9.1.tgz#ff39833a323ddb2a2add582ee04d512c87a4f0af"
@@ -3880,6 +3897,17 @@
     "@react-aria/interactions" "^3.14.0"
     "@react-aria/utils" "^3.15.0"
     "@react-types/shared" "^3.17.0"
+    "@swc/helpers" "^0.4.14"
+    clsx "^1.1.1"
+
+"@react-aria/visually-hidden@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.8.0.tgz#9bdcf708e4e628041d8fbac66c7dcb98b9529da9"
+  integrity sha512-Ox7VcO8vfdA1rCHPcUuP9DWfCI9bNFVlvN/u66AfjwBLH40MnGGdob5hZswQnbxOY4e0kwkMQDmZwNPYzBQgsg==
+  dependencies:
+    "@react-aria/interactions" "^3.15.0"
+    "@react-aria/utils" "^3.16.0"
+    "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
     clsx "^1.1.1"
 
