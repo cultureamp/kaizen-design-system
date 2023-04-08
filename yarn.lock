@@ -14203,10 +14203,10 @@ nan@^2.17.0:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.17.0.tgz#c0150a2368a182f033e9aa5195ec76ea41a199cb"
   integrity sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==
 
-nano-memoize@^3.0.8:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/nano-memoize/-/nano-memoize-3.0.8.tgz#922abb2b52f1a127b72cef6f4d03dcd0fbdefd0c"
-  integrity sha512-yUG7ZnQUArQ3CFjsp6sSCzqInjfmK17lGtnKJFNmc0O/gsXUuhMmZo8vbu9xiHs9z76i4JgqOVAma88taLae2w==
+nano-memoize@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/nano-memoize/-/nano-memoize-3.0.10.tgz#aaf1c7438252fa12efaa3677395ba1e64fb00f4e"
+  integrity sha512-OHpd5WfdzZvrJeJsdZfiu3s06p5NeI9v9qOjWgeRwZmEF8mVTgj/SU2eQvXC6NmEIaFwOIIWeoEgMQ6FxFFi1g==
 
 nanoassert@^1.1.0:
   version "1.1.0"
