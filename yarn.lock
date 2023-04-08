@@ -3934,6 +3934,13 @@
   dependencies:
     "@react-types/shared" "^3.17.0"
 
+"@react-types/button@^3.7.2":
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/@react-types/button/-/button-3.7.2.tgz#954566e9b576780bda0c018d7f5046a1d44f5677"
+  integrity sha512-P7L+r+k4yVrvsfEWx3wlzbb+G7c9XNWzxEBfy6WX9HnKb/J5bo4sP5Zi8/TFVaKTlaG60wmVhdr+8KWSjL0GuQ==
+  dependencies:
+    "@react-types/shared" "^3.18.0"
+
 "@react-types/calendar@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@react-types/calendar/-/calendar-3.1.0.tgz#cee348fbc502884237b86c1b4ed22853d9b6ea3c"
@@ -4006,6 +4013,11 @@
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.17.0.tgz#b7c5e318664aadb315d305a27dd2a209d1837d95"
   integrity sha512-1SNZ/RhVrrQ1e6yE0bPV7d5Sfp+Uv0dfUEhwF9MAu2v5msu7AMewnsiojKNA0QA6Ing1gpDLjHCxtayQfuxqcg==
+
+"@react-types/shared@^3.18.0":
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.18.0.tgz#4f2bacad5912eba6667695ee3f9e8ac9f79849f7"
+  integrity sha512-WJj7RAPj7NLdR/VzFObgvCju9NMDktWSruSPJ3DrL5qyrrvJoyMW67L4YjNoVp2b7Y+k10E0q4fSMV0PlJoL0w==
 
 "@rollup/plugin-alias@^4.0.4":
   version "4.0.4"
