@@ -3944,17 +3944,6 @@
     "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
 
-"@react-stately/menu@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/menu/-/menu-3.5.0.tgz#04fda461dc3971bc84bf49436625b3e044bca3bc"
-  integrity sha512-JL6TcT+SbYdlxNLOS84SXp6njDNZuXfkt05o4rS51evmjM2+hlYaB9+yUMqrCb/J2nW7vVAg51TDAhLgmGTYKg==
-  dependencies:
-    "@react-stately/overlays" "^3.5.0"
-    "@react-stately/utils" "^3.6.0"
-    "@react-types/menu" "^3.8.0"
-    "@react-types/shared" "^3.17.0"
-    "@swc/helpers" "^0.4.14"
-
 "@react-stately/menu@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@react-stately/menu/-/menu-3.5.1.tgz#2cffe84d8c93920822fdd92bf716205460873db7"
@@ -3982,20 +3971,6 @@
   dependencies:
     "@react-stately/utils" "^3.6.0"
     "@react-types/overlays" "^3.7.1"
-    "@swc/helpers" "^0.4.14"
-
-"@react-stately/select@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.4.0.tgz#e6df572279b5baed264552032f8060dbf49c9ebb"
-  integrity sha512-thSqD3apMCSgZgKtqHKGVIQRyvG8l0supIuzJicBwq6xg+J8X5muPCZgchCSNmU6im/l81XXE8LGuHGgMilORA==
-  dependencies:
-    "@react-stately/collections" "^3.6.0"
-    "@react-stately/list" "^3.7.0"
-    "@react-stately/menu" "^3.5.0"
-    "@react-stately/selection" "^3.12.0"
-    "@react-stately/utils" "^3.6.0"
-    "@react-types/select" "^3.7.0"
-    "@react-types/shared" "^3.17.0"
     "@swc/helpers" "^0.4.14"
 
 "@react-stately/select@^3.5.0":
@@ -4127,14 +4102,6 @@
   dependencies:
     "@react-types/shared" "^3.18.0"
 
-"@react-types/menu@^3.8.0":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@react-types/menu/-/menu-3.8.0.tgz#578d4697caa838e72b2652a81f1241a9cb7815cc"
-  integrity sha512-1nwGUwKNHJf60vOsg7p48NPQIzMsSprxw8VXfStr8eE5uU4vvKfVNQNUgvpkRmHmel8BrYdh1WnERXJJ3yKUgQ==
-  dependencies:
-    "@react-types/overlays" "^3.7.0"
-    "@react-types/shared" "^3.17.0"
-
 "@react-types/menu@^3.9.0":
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/@react-types/menu/-/menu-3.9.0.tgz#2c98335e9e563f06a25996cde73b99a8920ef6a9"
@@ -4156,13 +4123,6 @@
   integrity sha512-2AwYQkelr4p1uXR1KJIGQEbubOumzM853Hsyup2y/TaMbjvBWOVyzYWSrQURex667JZmpwUb0qjkEH+4z3Q74g==
   dependencies:
     "@react-types/shared" "^3.18.0"
-
-"@react-types/select@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@react-types/select/-/select-3.7.0.tgz#7d1840525d345625ac6ad69005b192930ca5abec"
-  integrity sha512-BaynMuW0dQ9ModFzW291+3n1D9bwKSFh03g3+1PvhRcBg1EXq1vFyfFBj4uuBymI0T7oCbnjGh19xo0vKIYRrA==
-  dependencies:
-    "@react-types/shared" "^3.17.0"
 
 "@react-types/select@^3.8.0":
   version "3.8.0"
