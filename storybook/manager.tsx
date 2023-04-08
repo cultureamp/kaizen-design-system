@@ -3,16 +3,23 @@
 import React from "react"
 import { addons } from "@storybook/addons"
 import { defaultTheme } from "@kaizen/design-tokens"
-import { CATEGORIES_ICON } from "./constants"
 import KaizenTheme from "./theme"
+
+const CATEGORIES_ICON = {
+  Introduction: "👋",
+  Guides: "📚",
+  Components: "⚙️",
+  Helpers: "🤝",
+  "Design Tokens": "🎨",
+  Deprecated: "💣",
+  Systems: "🤖",
+  AIO: "📦",
+}
 
 const colors = defaultTheme.color
 
 addons.setConfig({
   theme: KaizenTheme,
-  analyticsGTM: {
-    gtmId: "GTM-KS4VWLT",
-  },
   sidebar: {
     renderLabel: item =>
       item.type === "root" ? (
@@ -31,7 +38,7 @@ addons.setConfig({
           {item.name}
         </span>
       ) : (
-        item.name
+        <span style={{ margin: "1px 0" }}>{item.name}</span>
       ),
   },
 })

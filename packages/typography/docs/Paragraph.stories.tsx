@@ -1,22 +1,19 @@
 import React from "react"
 import {
   Title,
-  Subtitle,
   Description,
   Primary,
-  ArgsTable,
+  Controls,
   Stories,
-  PRIMARY_STORY,
-} from "@storybook/addon-docs"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+} from "@storybook/blocks"
+import { Meta, StoryFn } from "@storybook/react"
+import { LinkTo } from "../../../storybook/components/LinkTo"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Paragraph } from "../src/Paragraph/Paragraph"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Paragraph`,
+  tags: ["autodocs"],
+  title: "Components/Paragraph",
   component: Paragraph,
   parameters: {
     docs: {
@@ -26,24 +23,19 @@ export default {
       page: (): JSX.Element => (
         <>
           <Title />
-          <Subtitle />
           <Description />
           <Documentation />
           <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls />
           <Stories />
         </>
       ),
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A1288"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof Paragraph>
 
 const Documentation = (): JSX.Element => (
-  <Paragraph variant="body">
+  <Paragraph tag="div" variant="body">
     <ul>
       <li>
         There is no variant for bold text. You can use{" "}
@@ -64,9 +56,9 @@ const Documentation = (): JSX.Element => (
           <li>wrap it in a new div with margin or padding applied, or</li>
           <li>
             wrap it in the{" "}
-            <a href="/?path=/story/box-react--box-default">
+            <LinkTo pageId="components-box">
               <code>Box</code>
-            </a>{" "}
+            </LinkTo>
             component, which gives you a no-CSS way to create spacing.
           </li>
         </ul>
@@ -82,13 +74,13 @@ const Documentation = (): JSX.Element => (
   </Paragraph>
 )
 
-export const Body: ComponentStory<typeof Paragraph> = args => (
+export const DefaultStory: StoryFn<typeof Paragraph> = args => (
   <Paragraph {...args}>The quick brown fox jumps over the lazy dog.</Paragraph>
 )
-Body.storyName = "Paragraph"
-Body.args = { variant: "body" }
+DefaultStory.storyName = "Paragraph"
+DefaultStory.args = { variant: "body" }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const fontColour = isReversed ? "white" : "dark"
@@ -107,11 +99,9 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           </Paragraph>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Body strong">
-          <strong>
-            <Paragraph variant="body" color={fontColour}>
-              The quick brown fox jumps over the lazy dog.
-            </Paragraph>
-          </strong>
+          <Paragraph variant="body" color={fontColour}>
+            <strong>The quick brown fox jumps over the lazy dog.</strong>
+          </Paragraph>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Small">
           <Paragraph variant="small" color={fontColour}>

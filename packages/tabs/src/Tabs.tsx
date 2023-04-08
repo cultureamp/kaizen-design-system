@@ -54,3 +54,5 @@ export const Tabs = (props: TabsProps): JSX.Element => {
     </ReachTabs>
   )
 }
+
+Tabs.displayName = "Tabs"

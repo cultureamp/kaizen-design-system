@@ -1,10 +1,7 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 type RenderProps = {
   selectedOption: string
@@ -39,7 +36,8 @@ class RadioGroupExample extends React.Component<Props> {
 }
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Group`,
+  tags: ["autodocs"],
+  title: "Components/Radio Group",
   component: RadioGroup,
   parameters: {
     docs: {
@@ -47,14 +45,10 @@ export default {
         component: 'import { RadioGroup } from "@kaizen/draft-form"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=4496%3A481"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof RadioGroup>
+} satisfies Meta<typeof RadioGroup>
 
-export const DefaultKaizenSiteDemo: Story = () => (
+export const DefaultKaizenSiteDemo: StoryFn = () => (
   <RadioGroupExample
     render={({ selectedOption, onChangeHandler }): JSX.Element => (
       <RadioGroup labelText="Radio group label" labelId="RadioGroupLabel">
@@ -88,7 +82,7 @@ export const DefaultKaizenSiteDemo: Story = () => (
 )
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

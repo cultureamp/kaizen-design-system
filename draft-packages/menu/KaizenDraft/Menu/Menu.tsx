@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { ButtonProps } from "@kaizen/button"
-import StatelessMenu, { StatelessMenuProps } from "./StatelessMenu"
+import { StatelessMenu, StatelessMenuProps } from "./StatelessMenu"
 
 type ButtonPropsWithOptionalAria = ButtonProps & {
   "aria-haspopup"?: boolean
@@ -27,7 +27,7 @@ export type MenuProps = Omit<
  * {@link https://cultureamp.design/components/menu/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-menu--auto-hide-behaviours Storybook}
  */
-const Menu = ({
+export const Menu = ({
   button,
   menuVisible = false,
   ...rest
@@ -71,4 +71,4 @@ const Menu = ({
   )
 }
 
-export default Menu
+Menu.displayName = "Menu"

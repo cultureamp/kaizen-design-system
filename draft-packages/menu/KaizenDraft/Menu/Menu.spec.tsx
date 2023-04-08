@@ -3,7 +3,7 @@ import { fireEvent } from "@testing-library/dom"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Button } from "@kaizen/button"
-import Menu from "./Menu"
+import { Menu } from "./Menu"
 
 describe("Dropdown", () => {
   it("renders default view", () => {

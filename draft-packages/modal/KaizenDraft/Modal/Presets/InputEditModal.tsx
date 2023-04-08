@@ -33,7 +33,7 @@ export interface InputEditModalProps {
  * {@link https://cultureamp.design/components/modal/#input-edit-modal Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-modal-input-edit-modal--input-edit-modal-example Storybook}
  */
-const InputEditModal = ({
+export const InputEditModal = ({
   isOpen,
   mood,
   title,
@@ -113,4 +113,4 @@ const InputEditModal = ({
   )
 }
 
-export default InputEditModal
+InputEditModal.displayName = "InputEditModal"

@@ -1,13 +1,31 @@
 # Change Log
 
-## 1.7.9
-
-### Patch Changes
-
-- ceef47494: Tester
-
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.7.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.11...@kaizen/components@1.7.12) (2023-04-06)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+## [1.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.10...@kaizen/components@1.7.11) (2023-04-05)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
+
+## [1.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.9...@kaizen/components@1.7.10) (2023-04-04)
+
+**Note:** Version bump only for package @kaizen/components
+
+
+
+
 
 ## [1.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.8...@kaizen/components@1.7.9) (2023-03-31)
 

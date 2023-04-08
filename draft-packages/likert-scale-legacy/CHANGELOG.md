@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.52](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.10.51...@kaizen/draft-likert-scale-legacy@1.10.52) (2023-04-06)
+
+
+### Bug Fixes
+
+* A11y issue when using keyboard with Likert Scale ([#3437](https://github.com/cultureamp/kaizen-design-system/issues/3437)) ([1336d1f](https://github.com/cultureamp/kaizen-design-system/commit/1336d1f87fdd359fe70807840fe2ff97cdd1c22a))
+
+
+
+
+
+## [1.10.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.10.50...@kaizen/draft-likert-scale-legacy@1.10.51) (2023-04-06)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
+## [1.10.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.10.49...@kaizen/draft-likert-scale-legacy@1.10.50) (2023-04-05)
+
+**Note:** Version bump only for package @kaizen/draft-likert-scale-legacy
+
+
+
+
+
 ## [1.10.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-likert-scale-legacy@1.10.48...@kaizen/draft-likert-scale-legacy@1.10.49) (2023-03-29)
 
 **Note:** Version bump only for package @kaizen/draft-likert-scale-legacy

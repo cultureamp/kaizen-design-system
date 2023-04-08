@@ -23,6 +23,9 @@ export interface StoryWrapperProps {
   hasRowDivider?: boolean
 }
 
+/**
+ * @deprecated Use StickerSheet instead
+ */
 export const StoryWrapper = ({
   children,
   hasNoRowTitles = false,

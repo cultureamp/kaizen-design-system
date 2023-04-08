@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@6.0.26...@kaizen/draft-illustration@6.0.27) (2023-04-06)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [6.0.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@6.0.25...@kaizen/draft-illustration@6.0.26) (2023-04-05)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 ## [6.0.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@6.0.24...@kaizen/draft-illustration@6.0.25) (2023-03-29)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
