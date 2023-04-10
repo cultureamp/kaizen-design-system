@@ -45,8 +45,8 @@ export const MultiSelectOption = ({
         isFocusVisible ? styles.isFocusVisible : "",
         isDisabled ? styles.isDisabled : ""
       )}
-      aria-label={item.value.label}
-      aria-describedby={item.value.count ? countElementId : undefined}
+      aria-label={item.value?.label}
+      aria-describedby={item.value?.count ? countElementId : undefined}
     >
       <span
         className={classNames(styles.icon, isSelected ? styles.isSelected : "")}
@@ -55,9 +55,9 @@ export const MultiSelectOption = ({
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}
-      {item.value.count && (
+      {item.value?.count && (
         <span id={countElementId} className={styles.badgeContainer}>
-          <Badge classNameOverride={styles.badge}>{item.value.count}</Badge>
+          <Badge classNameOverride={styles.badge}>{item.value?.count}</Badge>
           <VisuallyHidden> available</VisuallyHidden>
         </span>
       )}

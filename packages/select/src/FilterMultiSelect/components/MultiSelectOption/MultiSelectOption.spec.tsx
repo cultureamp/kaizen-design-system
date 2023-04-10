@@ -110,7 +110,11 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
         <MultiSelectOptionWrapper
           item={{
             ...itemMock,
-            value: { ...itemMock.value, count: "count-mock" },
+            value: {
+              label: "label-mock",
+              value: "value-mock",
+              count: "count-mock",
+            },
           }}
         />
       )
