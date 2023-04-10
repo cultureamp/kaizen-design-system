@@ -14,3 +14,7 @@ export const translateMessageSafely = (id: string, defaultMessage: string) => {
   }
   return message
 }
+
+// TODO:
+// - Implement this in FilterDRP for "Date from" and "Date to" DateInputs
+// - Create En translation source file and pass in as "id". Eg. FilterDRP.fromLabel

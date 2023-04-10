@@ -44,6 +44,7 @@
     "date-fns": "^2.29.3",
     "react-day-picker": "8.4.1",
     "react-focus-on": "^3.8.0",
+    "react-intl": "^6.3.2",
     "react-popper": "^2.3.0"
   },
   "peerDependencies": {
