@@ -24,6 +24,7 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
     >
       <p className="font-family-paragraph text-white mr-16">{text}</p>
       <Icon
+        title={`Copy text: ${text}`}
         color={copyIconIsChecked ? "#18d992" : "white"}
         icon={copyIconIsChecked ? clipboardChecked : clipboard}
       />

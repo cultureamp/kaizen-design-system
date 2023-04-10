@@ -1,6 +1,6 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react"
-import ConfirmationModal, { ConfirmationModalProps } from "./ConfirmationModal"
+import { ConfirmationModal, ConfirmationModalProps } from "./ConfirmationModal"
 import "./matchMedia.mock"
 
 const ConfirmationModalWrapper = (

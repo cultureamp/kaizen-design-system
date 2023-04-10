@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "@kaizen/button"
 
-const MarginExample = (): React.ReactNode => (
+export const MarginExample = (): JSX.Element => (
   <div className="flex">
     <div className="mr-12">
       <Button label="Button 1" />
@@ -10,4 +10,4 @@ const MarginExample = (): React.ReactNode => (
   </div>
 )
 
-export default MarginExample
+MarginExample.displayName = "MarginExample"

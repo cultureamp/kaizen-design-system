@@ -1,15 +1,18 @@
 // Call the pre-build script -- used for validation, setup, etc.
 import "../pre-build"
+import postcssFlexbugsFixes from "postcss-flexbugs-fixes"
+import postcssImport from "postcss-import"
 import postcssPresetEnv from "postcss-preset-env"
+import tailwindcss from "tailwindcss"
+import tailwindcssNesting from "tailwindcss/nesting"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
+import babelConfig from "../../.babelrc.json"
 import { browsersList } from "./browserslist"
-
-require("./isEnabled")
 
 export const babel: RuleSetRule = {
   test: /\.(j|t)sx?$/,
   loader: require.resolve("babel-loader"),
-  options: require("../../.babelrc.json"),
+  options: babelConfig,
 }
 
 export const stylePreprocessors: RuleSetUseItem[] = [
@@ -18,10 +21,10 @@ export const stylePreprocessors: RuleSetUseItem[] = [
     options: {
       postcssOptions: {
         plugins: [
-          require("postcss-flexbugs-fixes"),
-          require("postcss-import"),
-          require("tailwindcss/nesting"),
-          require("tailwindcss"),
+          postcssFlexbugsFixes,
+          postcssImport,
+          tailwindcss,
+          tailwindcssNesting,
           postcssPresetEnv({
             autoprefixer: {
               flexbox: "no-2009",

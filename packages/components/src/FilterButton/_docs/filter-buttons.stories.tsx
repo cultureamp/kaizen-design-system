@@ -1,15 +1,16 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../FilterButton"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
-import { FilterButtonBase } from "../_sub-components/FilterButtonBase"
+import { FilterButtonBase } from "../_subcomponents/FilterButtonBase"
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter/Filter Button",
-}
+} as Meta
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StickerSheet heading="Filter Button Base">
       <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />

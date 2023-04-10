@@ -1,2 +1,2 @@
-export { usePopover, Popover, PopoverProps } from "./Popover"
-export { PopoverLegacy, PopoverLegacyProps } from "./PopoverLegacy"
+export * from "./Popover"
+export * from "./PopoverLegacy"

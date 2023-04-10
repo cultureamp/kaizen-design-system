@@ -1,10 +1,7 @@
 import React from "react"
 import { Node } from "@react-types/shared"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../../storybook/constants"
-import { figmaEmbed } from "../../../../storybook/helpers"
 import { CodeBlock } from "../../../design-tokens/docs/DocsComponents"
 import { Paragraph } from "../../../typography/src/Paragraph"
 import { Select } from "../../src/Select/Select"
@@ -13,7 +10,8 @@ import { groupedMockItems, singleMockItems } from "../MockData"
 import { selectControls } from "../controls/selectControls"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Select`,
+  tags: ["autodocs"],
+  title: "Components/Select",
   component: Select,
   parameters: {
     actions: {
@@ -25,17 +23,13 @@ export default {
         component: 'import { Select } from "@kaizen/select".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966"
-    ),
   },
-  decorators: [withDesign],
   argTypes: {
     ...selectControls,
   },
-} as ComponentMeta<typeof Select>
+} satisfies Meta<typeof Select>
 
-export const DefaultStory: ComponentStory<typeof Select> = props => (
+export const DefaultStory: StoryFn<typeof Select> = props => (
   <Select {...props} />
 )
 
@@ -51,13 +45,11 @@ DefaultStory.args = {
   defaultOpen: false,
   selectedKey: undefined,
 }
-
 DefaultStory.parameters = {
-  chromatic: { disable: false },
   docs: { source: { type: "code" } },
 }
 
-export const WithSections: ComponentStory<typeof Select> = () => (
+export const WithSections: StoryFn<typeof Select> = () => (
   <>
     <Select
       id="select-grouped"
@@ -75,7 +67,7 @@ export const WithSections: ComponentStory<typeof Select> = () => (
   </>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>
@@ -244,7 +236,7 @@ StickerSheetReversed.parameters = {
   chromatic: { disable: false },
 }
 
-const DropdownSheet: Story<{ isReversed: boolean }> = ({ isReversed }) => (
+const DropdownSheet: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <>
     <div style={{ marginBottom: "28rem" }}>
       <StoryWrapper isReversed={isReversed}>

@@ -1,10 +1,10 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { StoryFn } from "@storybook/react"
 import { useMediaQueries } from "../"
 
 export default {
-  title: `${CATEGORIES.helpers}/${SUB_CATEGORIES.responsive}/useMediaQueries`,
+  tags: ["autodocs"],
+  title: "Helpers/useMediaQueries",
   component: useMediaQueries,
   parameters: {
     docs: {
@@ -15,7 +15,7 @@ export default {
   },
 }
 
-export const Components: Story = () => {
+export const Components: StoryFn = () => {
   const { components } = useMediaQueries()
   const { SmallOnly, MediumOnly, LargeOnly, MediumOrSmaller, MediumOrLarger } =
     components
@@ -41,7 +41,7 @@ export const Components: Story = () => {
   )
 }
 
-export const Queries: Story = () => {
+export const Queries: StoryFn = () => {
   const { queries } = useMediaQueries()
   const { isSmall, isMedium, isLarge, isMediumOrLarger, isMediumOrSmaller } =
     queries
@@ -57,7 +57,7 @@ export const Queries: Story = () => {
   )
 }
 
-export const CustomQueries: Story = () => {
+export const CustomQueries: StoryFn = () => {
   const { queries, components } = useMediaQueries({
     prefersReducedMotion: "(prefers-reduced-motion: reduce)",
   })

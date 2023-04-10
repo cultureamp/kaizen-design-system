@@ -1,14 +1,10 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { ActionButton, DropdownButton } from "../src/SplitButton/components"
 import { SplitButton, SplitButtonProps } from "../"
 
 const ACTION_BUTTON_PROPS__BUTTON = {
@@ -35,12 +31,9 @@ const DROPDOWN_CONTENT__ONE_DISABLED = (
 )
 
 export default {
-  title: `${CATEGORIES.components}/Split Button`,
+  tags: ["autodocs"],
+  title: "Components/Split Button",
   component: SplitButton,
-  subcomponents: {
-    actionButtonProps: ActionButton,
-    dropdownButtonProps: DropdownButton,
-  },
   argTypes: {
     actionButtonProps: {
       options: ["Button", "Anchor"],
@@ -74,16 +67,12 @@ export default {
         component: '`import { SplitButton } from "@kaizen/split-button"`',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14512%3A404"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof SplitButton>
+} satisfies Meta<typeof SplitButton>
 
-export const DefaultKaizenSiteDemo: ComponentStory<
-  typeof SplitButton
-> = args => <SplitButton {...args} />
+export const DefaultKaizenSiteDemo: StoryFn<typeof SplitButton> = args => (
+  <SplitButton {...args} />
+)
 DefaultKaizenSiteDemo.storyName = "Split Button"
 DefaultKaizenSiteDemo.args = {
   // @ts-expect-error:next-line - String here is mapped to valid prop value in default controls
@@ -91,7 +80,7 @@ DefaultKaizenSiteDemo.args = {
   dropdownContent: "MenuList - MenuItems enabled",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const ROWS_MAP: Array<{ rowTitle: string } & SplitButtonProps> = [

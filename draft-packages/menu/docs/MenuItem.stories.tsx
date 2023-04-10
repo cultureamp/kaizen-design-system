@@ -1,16 +1,10 @@
 import React from "react"
-import { ComponentStory } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { Meta, StoryFn } from "@storybook/react"
 import { MenuItem } from "../"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.menu}/${SUB_COMPONENTS_FOLDER_NAME}/MenuItem`,
+  tags: ["autodocs"],
+  title: "Components/Menu/Subcomponents/MenuItem",
   component: MenuItem,
   parameters: {
     docs: {
@@ -18,14 +12,10 @@ export default {
         component: 'import { MenuItem }  from "@kaizen/draft-menu"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=12317%3A92573"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof MenuItem>
 
-export const DefaultStory: ComponentStory<typeof MenuItem> = args => (
+export const DefaultStory: StoryFn<typeof MenuItem> = args => (
   <MenuItem {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"

@@ -1,15 +1,13 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import dateIcon from "@kaizen/component-library/icons/date-start.icon.svg"
 import { TextField } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { TextFieldProps } from "../KaizenDraft/Form/TextField/TextField"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Field`,
+  tags: ["autodocs"],
+  title: "Components/Text Field",
   component: TextField,
   parameters: {
     docs: {
@@ -17,14 +15,10 @@ export default {
         component: 'import { TextField } from "@kaizen/draft-form"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14363%3A67837"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof TextField>
+} satisfies Meta<typeof TextField>
 
-export const DefaultStory: ComponentStory<typeof TextField> = args => (
+export const DefaultStory: StoryFn<typeof TextField> = args => (
   <TextField {...args} />
 )
 DefaultStory.args = {
@@ -62,7 +56,7 @@ DefaultStory.argTypes = {
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const DEFAULT__ROW_PROPS: TextFieldProps[] = [

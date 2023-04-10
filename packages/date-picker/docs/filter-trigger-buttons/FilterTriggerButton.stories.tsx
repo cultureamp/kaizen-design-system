@@ -1,15 +1,11 @@
 import React from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../../storybook/constants"
+import { Meta, StoryFn } from "@storybook/react"
 import { FilterTriggerButton } from "../../src/FilterDateRangePicker/components/Trigger"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker/${SUB_COMPONENTS_FOLDER_NAME}/Filter Trigger Buttons`,
+  tags: ["autodocs"],
+  title:
+    "Components/Filter Date Range Picker/Subcomponents/Filter Trigger Buttons",
   component: FilterTriggerButton,
   parameters: {
     docs: {
@@ -18,10 +14,9 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof FilterTriggerButton>
+} satisfies Meta<typeof FilterTriggerButton>
 
-export const FilterTriggerButtonStory: ComponentStory<
+export const FilterTriggerButtonStory: StoryFn<
   typeof FilterTriggerButton
 > = args => <FilterTriggerButton {...args} />
 FilterTriggerButtonStory.storyName = "Filter Trigger Button"

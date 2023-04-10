@@ -1,6 +1,6 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react"
-import RoadblockModal, { RoadblockModalProps } from "./RoadblockModal"
+import { RoadblockModal, RoadblockModalProps } from "./RoadblockModal"
 import "./matchMedia.mock"
 
 const RoadblockModalWrapper = (
