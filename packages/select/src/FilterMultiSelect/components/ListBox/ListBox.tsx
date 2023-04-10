@@ -65,7 +65,7 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   if (hasNoItems) {
     return (
       <>
-        <div>{!itemsState && children(itemsState)}</div>
+        <div>{children(itemsState)}</div>
         {/* This ul with the ref needs to exist otherwise it fatals */}
         <ul ref={listRef} className={styles.hidden} />
       </>
@@ -81,7 +81,7 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
         isOverflown ? styles.overflown : null
       )}
     >
-      {!itemsState && children(itemsState)}
+      {children(itemsState)}
     </ul>
   )
 }
