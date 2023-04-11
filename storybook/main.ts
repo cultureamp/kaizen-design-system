@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path"
-import { StorybookConfig } from "@storybook/core-webpack"
+import { StorybookConfig } from "@storybook/react-webpack5"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -33,6 +33,19 @@ const config = {
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
+  },
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      skipChildrenPropWithoutDoc: false,
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop): boolean => {
+        const isHTMLElementProp =
+          prop.parent?.fileName.includes("node_modules/@types/react") ?? false
+
+        return !isHTMLElementProp
+      },
+    },
   },
 } satisfies StorybookConfig
 
