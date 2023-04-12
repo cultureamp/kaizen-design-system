@@ -1,143 +1,125 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
-import { TextField } from "@kaizen/draft-form"
-import { Well } from "@kaizen/draft-well"
-import { Heading, Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Paragraph } from "../../../packages/typography"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { Well } from "../index"
 
-const ExampleContent = (): JSX.Element => (
-  <div style={{ padding: "1rem" }}>
-    <Heading tag="h3" variant="heading-3">
-      Heading
-    </Heading>
-    <div style={{ paddingBottom: "1rem", paddingTop: "1rem" }}>
-      <Paragraph tag="p" variant="body">
-        This is just a sentence to fill the content area so that you have
-        something to look at.
-      </Paragraph>
-    </div>
-    <TextField
-      id="blerg"
-      labelText="Example text field"
-      inputValue=""
-      onChange={(): void => undefined}
-    />
-  </div>
-)
-
-export default {
+const meta = {
   tags: ["autodocs"],
   title: "Components/Well",
   component: Well,
+  args: {
+    children: "Content",
+  },
   parameters: {
     docs: {
-      description: {
-        component: 'import { Well } from "@kaizen/draft-well"',
+      container: ComponentDocsTemplate,
+    },
+    actions: {
+      argTypesRegex: "^on.*",
+    },
+    installation: [
+      "npm install @kaizen/draft-well",
+      "import { Well } from `@kaizen/draft-well`",
+    ],
+    sourceCodeLink:
+      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
+    figmaLink:
+      "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37851&t=DDzgfxEHtZWOOhro-0",
+  },
+} satisfies Meta<typeof Well>
+
+export default meta
+
+/**
+ * Wells are used as a visual container around secondary content.
+ */
+export const Playground: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
       },
     },
   },
 }
 
-export const DefaultWithSolidBorderKaizenSiteDemo: StoryFn<
-  typeof Well
-> = args => (
-  <Well {...args}>
-    <ExampleContent />
-  </Well>
-)
-DefaultWithSolidBorderKaizenSiteDemo.storyName = "Well"
-DefaultWithSolidBorderKaizenSiteDemo.parameters = {
-  chromatic: { disable: false },
-}
-
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
-  <StoryWrapper isReversed={isReversed}>
-    <StoryWrapper.RowHeader
-      headings={["Solid Border", "Dashed Border", "Borderless"]}
-    />
-    <StoryWrapper.Row rowTitle="Default">
-      <Well variant="default" borderStyle="solid">
-        <ExampleContent />
-      </Well>
-      <Well variant="default" borderStyle="dashed">
-        <ExampleContent />
-      </Well>
-      <Well variant="default" borderStyle="none">
-        <ExampleContent />
-      </Well>
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Informative">
-      <Well variant="informative" borderStyle="solid">
-        <ExampleContent />
-      </Well>
-      <Well variant="informative" borderStyle="dashed">
-        <ExampleContent />
-      </Well>
-      <Well variant="informative" borderStyle="none">
-        <ExampleContent />
-      </Well>
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Positive">
-      <Well variant="positive" borderStyle="solid">
-        <ExampleContent />
-      </Well>
-      <Well variant="positive" borderStyle="dashed">
-        <ExampleContent />
-      </Well>
-      <Well variant="positive" borderStyle="none">
-        <ExampleContent />
-      </Well>
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Negative">
-      <Well variant="negative" borderStyle="solid">
-        <ExampleContent />
-      </Well>
-      <Well variant="negative" borderStyle="dashed">
-        <ExampleContent />
-      </Well>
-      <Well variant="negative" borderStyle="none">
-        <ExampleContent />
-      </Well>
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Cautionary">
-      <Well variant="cautionary" borderStyle="solid">
-        <ExampleContent />
-      </Well>
-      <Well variant="cautionary" borderStyle="dashed">
-        <ExampleContent />
-      </Well>
-      <Well variant="cautionary" borderStyle="none">
-        <ExampleContent />
-      </Well>
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Assertive">
-      <Well variant="assertive" borderStyle="solid">
-        <ExampleContent />
-      </Well>
-      <Well variant="assertive" borderStyle="dashed">
-        <ExampleContent />
-      </Well>
-      <Well variant="assertive" borderStyle="none">
-        <ExampleContent />
-      </Well>
-    </StoryWrapper.Row>
-  </StoryWrapper>
+const ExampleContent = (): JSX.Element => (
+  <Paragraph tag="p" variant="body">
+    This is just a sentence to fill the content area so that you have something
+    to look at.
+  </Paragraph>
 )
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
+const VariantsTemplate: StoryFn = () => (
+  <StickerSheet>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <Well variant="default">
+          <ExampleContent />
+        </Well>
+        <Well variant="informative">
+          <ExampleContent />
+        </Well>
+        <Well variant="positive">
+          <ExampleContent />
+        </Well>
+      </StickerSheet.Row>
+      <StickerSheet.Row>
+        <Well variant="negative">
+          <ExampleContent />
+        </Well>
+        <Well variant="cautionary">
+          <ExampleContent />
+        </Well>
+        <Well variant="assertive">
+          <ExampleContent />
+        </Well>
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
+)
 
-export const StickerSheetReversed = StickerSheetTemplate.bind({})
-StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-StickerSheetReversed.args = { isReversed: true }
-StickerSheetReversed.parameters = {
+/**
+ * <p>`default`, `informative`, `positive`, `negative`, `cautionary`, `assertive`</p>
+ * <p>If no `variant` is specified, a `default` Well will be rendered.</p>
+ * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well).</p>
+ */
+export const Variants = VariantsTemplate.bind({})
+
+export const Reversed = VariantsTemplate.bind({})
+Reversed.parameters = {
   backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
-  controls: { disable: true },
 }
+
+export const Borders: StoryFn = () => (
+  <StickerSheet>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <Well variant="informative" borderStyle="solid">
+          <ExampleContent />
+        </Well>
+        <Well variant="informative" borderStyle="dashed">
+          <ExampleContent />
+        </Well>
+        <Well variant="informative" borderStyle="none">
+          <ExampleContent />
+        </Well>
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
+)
+
+/**
+ * You can use `classNameOverride` to add additional classes to the container div
+ */
+export const CustomisingStyles: StoryFn = () => (
+  <StickerSheet>
+    <StickerSheet.Body>
+      <Well classNameOverride="flex flex-col p-8">
+        <ExampleContent />
+      </Well>
+    </StickerSheet.Body>
+  </StickerSheet>
+)
