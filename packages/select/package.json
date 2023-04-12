@@ -41,6 +41,7 @@
     "@kaizen/loading-skeleton": "^2.0.4",
     "@kaizen/typography": "^2.3.8",
     "@react-aria/button": "^3.7.1",
+<<<<<<< HEAD
     "@react-aria/focus": "^3.12.0",
     "@react-aria/listbox": "^3.9.0",
     "@react-aria/menu": "^3.9.0",
@@ -51,6 +52,18 @@
     "@react-stately/list": "^3.8.0",
     "@react-stately/menu": "^3.5.1",
     "@react-stately/select": "^3.5.0",
+=======
+    "@react-aria/focus": "^3.11.0",
+    "@react-aria/listbox": "^3.8.1",
+    "@react-aria/menu": "^3.8.1",
+    "@react-aria/overlays": "^3.13.0",
+    "@react-aria/select": "^3.9.1",
+    "@react-aria/utils": "^3.15.0",
+    "@react-stately/collections": "^3.6.0",
+    "@react-stately/list": "^3.7.0",
+    "@react-stately/menu": "^3.5.1",
+    "@react-stately/select": "^3.4.0",
+>>>>>>> ef47d20d9 (fix(deps): update dependency @react-stately/menu to ^3.5.1 (#3456))
     "@react-types/button": "^3.7.1",
     "@react-types/shared": "^3.18.0",
     "classnames": "^2.3.2",
