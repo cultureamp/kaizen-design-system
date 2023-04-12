@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.8.0
+
+### Minor Changes
+
+- ddaa1aa6d: Add Brand component
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
@@ -7,33 +13,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/components
 
-
-
-
-
 ## [1.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.10...@kaizen/components@1.7.11) (2023-04-05)
 
 **Note:** Version bump only for package @kaizen/components
-
-
-
-
 
 ## [1.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.9...@kaizen/components@1.7.10) (2023-04-04)
 
 **Note:** Version bump only for package @kaizen/components
 
-
-
-
-
 ## [1.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.8...@kaizen/components@1.7.9) (2023-03-31)
 
 **Note:** Version bump only for package @kaizen/components
-
-
-
-
 
 ## [1.7.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.7.7...@kaizen/components@1.7.8) (2023-03-31)
 
