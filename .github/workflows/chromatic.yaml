@@ -32,13 +32,11 @@ jobs:
     needs: [paths-filter]
     if: >
       (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-      github.event.pull_request != 'draft' ||
+      ! github.event.pull_request.draft ||
       (github.ref == 'refs/heads/main' && needs.paths-filter.outputs.packages == 'true') ||
       startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        run: echo ${{ toJson(github.event) }}
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
