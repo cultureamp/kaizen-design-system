@@ -1,6 +1,5 @@
 node_modules
 yarn-*.log
-lerna-*.log
 /storybook/public/
 /draft-packages/**/*.js
 /draft-packages/**/*.js.map
