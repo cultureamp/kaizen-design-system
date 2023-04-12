@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.7.9",
+  "version": "1.7.11",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -35,9 +35,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "@kaizen/component-library": "^16.5.3",
+    "@kaizen/button": "^2.1.0",
+    "@kaizen/component-library": "^16.6.0",
     "@kaizen/draft-divider": "^2.2.8",
-    "@kaizen/draft-tooltip": "^5.4.37",
+    "@kaizen/draft-illustration": "^6.0.25",
+    "@kaizen/draft-tooltip": "^5.4.38",
+    "@kaizen/hosted-assets": "^2.0.1",
+    "@kaizen/responsive": "^1.8.7",
     "@kaizen/typography": "^2.3.8",
     "@kaizen/hosted-assets": "^2.0.1",
     "@popperjs/core": "^2.11.7",
@@ -50,12 +54,14 @@
     "@react-stately/collections": "^3.6.0",
     "@react-stately/select": "^3.4.0",
     "@react-types/shared": "^3.17.0",
+    "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2",
     "react-focus-on": "^3.8.0",
     "react-popper": "^2.3.0"
   },
   "devDependencies": {
     "@kaizen/tailwind": "^0.6.4",
+    "@kaizen/draft-select": "^2.10.32",
     "@rollup/plugin-alias": "^4.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-image": "^3.0.2",
@@ -64,6 +70,7 @@
     "autoprefixer": "^10.4.14",
     "concat-cli": "^4.0.0",
     "esbuild": "^0.17.15",
+    "rimraf": "^4.4.1",
     "rollup": "^3.20.2",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-esbuild": "^5.0.0",
@@ -71,7 +78,9 @@
     "rollup-plugin-postcss": "^4.0.2",
     "ts-jest": "^29.1.0",
     "ttypescript": "^1.5.15",
-    "typescript-transform-paths": "^3.4.6"
+    "typescript-transform-paths": "^3.4.6",
+    "@types/classnames": "^2.3.0",
+    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

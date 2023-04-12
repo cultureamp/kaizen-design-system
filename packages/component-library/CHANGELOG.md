@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.5.3...@kaizen/component-library@16.6.0) (2023-04-05)
+
+
+### Features
+
+* Add comment-bank icon ([#3441](https://github.com/cultureamp/kaizen-design-system/issues/3441)) ([fea67e5](https://github.com/cultureamp/kaizen-design-system/commit/fea67e5f31034c608d97571d198e3e79dd2f5f50))
+
+
+
+
+
 ## [16.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@16.5.2...@kaizen/component-library@16.5.3) (2023-03-29)
 
 **Note:** Version bump only for package @kaizen/component-library
