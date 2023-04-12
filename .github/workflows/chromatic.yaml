@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.event.pull_request) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.action) }}
         run: echo "$GITHUB_CONTEXT"
   paths-filter:
     runs-on: ubuntu-latest
