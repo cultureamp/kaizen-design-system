@@ -1,4 +1,3 @@
-export * from "./Brand"
 export * from "./Filter"
 export * from "./FilterButton"
 export * from "./FilterSelect"
