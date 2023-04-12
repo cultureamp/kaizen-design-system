@@ -14,8 +14,10 @@ on:
 
 jobs:
   echo-object:
-    run: |
-      echo ${{github.event.pull_request}}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ${{github.event.pull_request}}
   paths-filter:
     runs-on: ubuntu-latest
     outputs:
