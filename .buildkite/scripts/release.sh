@@ -44,16 +44,7 @@ release() {
 
   yarn install --frozen-lockfile
 
-  # Certain packages rely on these two packages to be built so they can access dist files
-  yarn workspace @kaizen/design-tokens prepublish
-  yarn workspace @kaizen/tailwind prepublish
-
-  # Bump packages, push and tag a release commit, and update release notes
-  yarn lerna version --conventional-commits --create-release=github --yes \
-    --message "chore: release [skip ci]"
-
-  # Publish any package versions which are not already present on npm
-  yarn lerna publish from-package --yes
+  yarn ci:publish
 }
 
 release_canary() {
@@ -61,7 +52,7 @@ release_canary() {
 
   yarn install --frozen-lockfile
 
-  yarn lerna publish --canary --preid canary --yes
+  yarn ci:publish --tag "canary"
 }
 
 main() {
