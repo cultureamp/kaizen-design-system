@@ -42,7 +42,6 @@
     "@kaizen/typography": "^2.3.8",
     "@react-aria/button": "^3.7.1",
     "@react-aria/focus": "^3.12.0",
-<<<<<<< HEAD
     "@react-aria/listbox": "^3.9.0",
     "@react-aria/menu": "^3.9.0",
     "@react-aria/overlays": "^3.14.0",
@@ -50,15 +49,6 @@
     "@react-aria/utils": "^3.16.0",
     "@react-stately/collections": "^3.7.0",
     "@react-stately/list": "^3.8.0",
-=======
-    "@react-aria/listbox": "^3.8.1",
-    "@react-aria/menu": "^3.9.0",
-    "@react-aria/overlays": "^3.14.0",
-    "@react-aria/select": "^3.9.1",
-    "@react-aria/utils": "^3.16.0",
-    "@react-stately/collections": "^3.6.0",
-    "@react-stately/list": "^3.7.0",
->>>>>>> 65985fec9 (fix(deps): update dependency @react-aria/menu to ^3.9.0 (#3468))
     "@react-stately/menu": "^3.5.1",
     "@react-stately/select": "^3.5.0",
     "@react-types/button": "^3.7.1",
