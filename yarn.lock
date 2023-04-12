@@ -3733,6 +3733,16 @@
     "@react-types/shared" "^3.17.0"
     "@swc/helpers" "^0.4.14"
 
+"@react-aria/label@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/label/-/label-3.5.1.tgz#ad7f9c141a1d5af143957716e01404ed4ab558e0"
+  integrity sha512-3KNg6/MJNMN25o0psBbCWzhJNFjtT5NtYJPrFwGHbAfVWvMTRqNftoyrhR490Ac0q2eMKIXkULl1HVn3izrAuw==
+  dependencies:
+    "@react-aria/utils" "^3.16.0"
+    "@react-types/label" "^3.7.3"
+    "@react-types/shared" "^3.18.0"
+    "@swc/helpers" "^0.4.14"
+
 "@react-aria/listbox@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@react-aria/listbox/-/listbox-3.8.1.tgz#98c68c5ff7a000e1195c793195c6eb0fdf335c8c"
@@ -3747,6 +3757,22 @@
     "@react-stately/list" "^3.7.0"
     "@react-types/listbox" "^3.4.0"
     "@react-types/shared" "^3.17.0"
+    "@swc/helpers" "^0.4.14"
+
+"@react-aria/listbox@^3.9.0":
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/listbox/-/listbox-3.9.0.tgz#243d9a863d2592f003aa2c7604962e4db1d57dee"
+  integrity sha512-CWJBw+R9eGrd2I/RRIpXeTmCTiJRPz9JgL2EYage1+8lCV0sp7HIH2StTMsVBzCA1eH+vJ06LBcPuiZBdtZFlA==
+  dependencies:
+    "@react-aria/focus" "^3.12.0"
+    "@react-aria/interactions" "^3.15.0"
+    "@react-aria/label" "^3.5.1"
+    "@react-aria/selection" "^3.14.0"
+    "@react-aria/utils" "^3.16.0"
+    "@react-stately/collections" "^3.7.0"
+    "@react-stately/list" "^3.8.0"
+    "@react-types/listbox" "^3.4.1"
+    "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
 
 "@react-aria/live-announcer@^3.2.0":
@@ -3983,6 +4009,17 @@
     "@react-types/shared" "^3.17.0"
     "@swc/helpers" "^0.4.14"
 
+"@react-stately/list@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.8.0.tgz#a5de6f3b125c8cb90b65188978bace4eabe9a9a5"
+  integrity sha512-eJ1iUFnXPZi5MGW2h/RdNTrKtq4HLoAlFAQbC4eSPlET6VDeFsX9NkKhE/A111ia24DnWCqJB5zH20EvNbOxxA==
+  dependencies:
+    "@react-stately/collections" "^3.7.0"
+    "@react-stately/selection" "^3.13.0"
+    "@react-stately/utils" "^3.6.0"
+    "@react-types/shared" "^3.18.0"
+    "@swc/helpers" "^0.4.14"
+
 "@react-stately/menu@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@react-stately/menu/-/menu-3.5.0.tgz#04fda461dc3971bc84bf49436625b3e044bca3bc"
@@ -4149,12 +4186,26 @@
   dependencies:
     "@react-types/shared" "^3.17.0"
 
+"@react-types/label@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@react-types/label/-/label-3.7.3.tgz#adab02949088a450f9dd947319bc5ca66eef5c4b"
+  integrity sha512-TKuQ2REPl4UVq/wl3CAujzixeNVVso0Kob+0T1nP8jIt9k9ssdLMAgSh8Z4zNNfR+oBIngYOA9IToMnbx6qACA==
+  dependencies:
+    "@react-types/shared" "^3.18.0"
+
 "@react-types/listbox@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@react-types/listbox/-/listbox-3.4.0.tgz#b1fdad5acf8ffd524a9baf31015ff290414f35a0"
   integrity sha512-OvHaX4EBRHxKrfFItdJXjY7dYomzejqJ87P5fTL1l1TbDX8gvEP014S3cI+VLQq+EsXeTZ8E/sx0tFUo7ilchA==
   dependencies:
     "@react-types/shared" "^3.17.0"
+
+"@react-types/listbox@^3.4.1":
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/@react-types/listbox/-/listbox-3.4.1.tgz#3d9f5859ad4eb550a6c1c532042316b32e43b606"
+  integrity sha512-2h1zJDQI3v4BFBwpjKc+OYXM2EzN2uxG5DiZ4MZUcWJDpa1+rOlfaPtBNUPiEVHt6fm6qeuoYVPf3r65Lo3IDw==
+  dependencies:
+    "@react-types/shared" "^3.18.0"
 
 "@react-types/menu@^3.8.0":
   version "3.8.0"
