@@ -163,6 +163,12 @@ Note that since the `description` will be included in the CHANGELOG — and may 
 
 Note that in the case that a pull request touches files from more than one package, all of those packages will be released to the npm registry with the specified update. Sometimes this might be desirable (e.g. when performing a bulk update to package docs), but in general, **be on the lookout for pull requests which touch more than one package**, and break those changes up into separate pull requests!
 
+#### Updating documentation only
+
+If you are only updating documentation (eg. including extra detail about existing features), you can add the `force storybook publish` label to your pull request.
+
+Typically we try to publish our stories together with changes to a component to prevent the documentation available to our consumers from going out of sync with updates made to the component. This is facilitated by a condition that will only publish storybook when the Changeset PR is merged, however there are many valid use cases where we'd want to ensure our docs are updated in a timely manner.
+
 ## Canary releases
 
 Canary releases create a way to test changes in production-like environments, and are a great way to reduce the risk of proposed changes to a package. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes.
