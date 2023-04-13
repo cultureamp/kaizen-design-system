@@ -26,10 +26,14 @@ const meta = {
       "npm install @kaizen/button",
       "import { Button } from `@kaizen/button`",
     ],
-    sourceCodeLink:
-      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
-    figmaLink:
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364",
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
+      figma:
+        "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button",
+    },
     alternatives: [
       "components-icon-button--docs",
       "components-button-group--docs",
@@ -73,7 +77,6 @@ const VariantsTemplate: StoryFn<{ isReversed?: boolean }> = ({
 /**
  * <p>`Default`, `Primary`, `Destructive`, `Secondary`</p>
  * <p>If no `variant` is specified, a `Default` button will be rendered.</p>
- * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.design/components/button/).</p>
  */
 export const Variants = VariantsTemplate.bind({})
 
