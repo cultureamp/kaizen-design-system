@@ -123,6 +123,30 @@ export const BorderStyles: StoryFn = () => (
 )
 
 /**
+ * You can use `noMargin` to remove the default bottom margin (this is a dying pattern)
+ */
+export const NoMargin: StoryFn = () => (
+  <StickerSheet>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <div className="border-dashed border-purple-200 border-default p-8">
+          <Well>
+            <Heading variant="heading-4">Default margin</Heading>
+            <ExampleContent />
+          </Well>
+        </div>
+        <div className="border-dashed border-purple-200 border-default p-8">
+          <Well noMargin>
+            <Heading variant="heading-4">No margin</Heading>
+            <ExampleContent />
+          </Well>
+        </div>
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
+)
+
+/**
  * You can use `classNameOverride` to add additional classes to the container div and give your Well a default layout
  */
 export const AddingStyles: StoryFn = () => (

@@ -17,17 +17,7 @@ export type TooltipProps = {
    * @deprecated
    */
   inline?: boolean
-  /**
-   * Unfortunately, the content needed to be wrapped in a div. This can sometimes
-   * break the css layout. To get around this, we allow you to specify the css
-   * display value directly. If you need to need to modify more values, feel free
-   * to use the `classNameOverride` prop, but avoid it if you can.
-   */
   display?: "block" | "inline" | "inline-block" | "flex" | "inline-flex"
-  /**
-   * This is more a "desired position". The tooltip will automatically change
-   * its position, if there's not enough room to show it in the one specified.
-   */
   position?: Position
   text: React.ReactNode
   children?: React.ReactNode

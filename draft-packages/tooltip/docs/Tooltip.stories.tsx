@@ -1,367 +1,211 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react"
-import { Decorator, Meta, StoryFn } from "@storybook/react"
-import isChromatic from "chromatic/isChromatic"
-import { Button, IconButton } from "@kaizen/button"
-import { Icon } from "@kaizen/component-library"
-import informationIcon from "@kaizen/component-library/icons/information-white.icon.svg"
-import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-import { Tag } from "@kaizen/draft-tag"
-import { Tooltip } from "@kaizen/draft-tooltip"
-import { Paragraph, Heading } from "@kaizen/typography"
+import React, { ReactNode } from "react"
+import { Decorator, Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Card, CardProps } from "../../../draft-packages/card"
+import { Tooltip } from "../../../draft-packages/tooltip"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 
-const openTooltipInChromatic: Decorator = (Story, { args }) => {
-  if (isChromatic()) args.isInitiallyVisible = true
-  return <Story />
-}
+const ContentWrapper = ({
+  children,
+  mood,
+}: {
+  children?: ReactNode
+  mood?: CardProps["variant"]
+}): JSX.Element => (
+  <Card variant={mood} classNameOverride="p-16 grow">
+    {children}
+  </Card>
+)
 
-export default {
+const PlaygroundDecorator: Decorator = Story => (
+  <ContentWrapper>
+    <Story />
+  </ContentWrapper>
+)
+
+const meta = {
   tags: ["autodocs"],
   title: "Components/Tooltip",
   component: Tooltip,
+  args: {
+    children: "Hover over me for more info",
+    text: "This is more info",
+  },
   parameters: {
-    /**
-     * To cater for false positives when the tooltip renders
-     * with a different alignment (controlled by react-popper).
-     */
-    chromatic: { diffThreshold: 1 },
     docs: {
-      description: {
-        component: 'import { Tooltip } from "@kaizen/draft-tooltip"',
+      container: ComponentDocsTemplate,
+      controls: { exclude: ["children"] },
+    },
+    actions: {
+      argTypesRegex: "^on.*",
+    },
+    installation: [
+      "npm install @kaizen/draft-tooltip",
+      "import { Tooltip } from `@kaizen/draft-tooltip`",
+    ],
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/draft-well",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37851&t=DDzgfxEHtZWOOhro-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well",
+    },
+  },
+} satisfies Meta<typeof Tooltip>
+
+export default meta
+
+export const Playground: StoryObj<typeof meta> = {
+  decorators: [PlaygroundDecorator],
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
       },
     },
   },
-  decorators: [openTooltipInChromatic],
-} satisfies Meta<typeof Tooltip>
-
-export const DefaultKaizenSiteDemo: StoryFn<typeof Tooltip> = props => (
-  <div
-    style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
-  >
-    <Tooltip {...props} text="Tooltip label">
-      {/* Using buttons, as so we can test the focus state.
-         ie. the tooltip should show when any child is focused. */}
-      <Button label="Default" />
-    </Tooltip>
-  </div>
-)
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
-DefaultKaizenSiteDemo.parameters = {
-  info: {
-    text: 'import { Tooltip } from "@kaizen/draft-tooltip"',
-  },
 }
 
-export const WithNoAnimationDelay: StoryFn<typeof Tooltip> = props => (
-  <div
-    style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
-  >
-    <Tooltip {...props} text="Tooltip label" animationDuration={0}>
-      <Button label="Fast tooltip" />
-    </Tooltip>
+/**
+ * Unfortunately, the content needed to be wrapped in a div. This can sometimes
+ * break the css layout. To get around this, we allow you to specify the css
+ * display value directly. If you need to need to modify more values, feel free
+ * to use the `classNameOverride` prop, but avoid it if you can.
+ */
+export const Display: StoryFn<typeof Tooltip> = () => (
+  <div className="flex p-16 gap-16">
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" display="block">
+        Block (Default)
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" display="inline">
+        Inline
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" display="inline-block">
+        Inline Block
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" display="flex">
+        Flex
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" display="inline-flex">
+        Inline Flex
+      </Tooltip>
+    </ContentWrapper>
   </div>
 )
-WithNoAnimationDelay.storyName = "With no animation delay"
 
-export const StickerSheet: StoryFn<typeof Tooltip> = props => (
-  <div
-    style={{
-      marginTop: "100px",
-      display: "grid",
-      justifyContent: "center",
-      gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-    }}
-  >
-    <div
-      style={{
-        display: "grid",
-        justifyContent: "center",
-        flexDirection: "column",
-        justifyItems: "center",
-        rowGap: "5rem",
-      }}
-    >
-      <Heading variant="heading-5" tag="h2">
-        {" "}
-      </Heading>
-      <Heading variant="heading-5" tag="h2">
-        Default
-      </Heading>
-      <Heading variant="heading-5" tag="h2">
-        Informative
-      </Heading>
-      <Heading variant="heading-5" tag="h2">
-        Positive
-      </Heading>
-      <Heading variant="heading-5" tag="h2">
-        Highlight
-      </Heading>
-      <Heading variant="heading-5" tag="h2">
-        Cautionary
-      </Heading>
-    </div>
-    <div
-      style={{
-        display: "grid",
-        justifyContent: "center",
-        flexDirection: "column",
-        justifyItems: "center",
-        rowGap: "5rem",
-      }}
-    >
-      <Heading variant="heading-3" tag="h1">
-        Top
-      </Heading>
-      <Tooltip {...props} position="above" text="Tooltip label" mood="default">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="above"
-        text="Tooltip label"
-        mood="informative"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip {...props} position="above" text="Tooltip label" mood="positive">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="above"
-        text="Tooltip label"
-        mood="highlight"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="above"
-        text="Tooltip label"
-        mood="cautionary"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-    </div>
-    <div
-      style={{
-        display: "grid",
-        justifyContent: "center",
-        flexDirection: "column",
-        justifyItems: "center",
-        rowGap: "5rem",
-      }}
-    >
-      <Heading variant="heading-3" tag="h1">
-        Bottom
-      </Heading>
-      <Tooltip {...props} position="below" text="Tooltip label" mood="default">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="below"
-        text="Tooltip label"
-        mood="informative"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip {...props} position="below" text="Tooltip label" mood="positive">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="below"
-        text="Tooltip label"
-        mood="highlight"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="below"
-        text="Tooltip label"
-        mood="cautionary"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-    </div>
-    <div
-      style={{
-        display: "grid",
-        justifyContent: "center",
-        flexDirection: "column",
-        justifyItems: "center",
-        rowGap: "5rem",
-      }}
-    >
-      <Heading variant="heading-3" tag="h1">
-        Left
-      </Heading>
-      <Tooltip {...props} position="left" text="Tooltip label" mood="default">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="left"
-        text="Tooltip label"
-        mood="informative"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip {...props} position="left" text="Tooltip label" mood="positive">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip {...props} position="left" text="Tooltip label" mood="highlight">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="left"
-        text="Tooltip label"
-        mood="cautionary"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-    </div>
-    <div
-      style={{
-        display: "grid",
-        justifyContent: "center",
-        flexDirection: "column",
-        justifyItems: "center",
-        rowGap: "5rem",
-      }}
-    >
-      <Heading variant="heading-3" tag="h1">
-        Right
-      </Heading>
-      <Tooltip {...props} position="right" text="Tooltip label" mood="default">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="right"
-        text="Tooltip label"
-        mood="informative"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip {...props} position="right" text="Tooltip label" mood="positive">
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="right"
-        text="Tooltip label"
-        mood="highlight"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-      <Tooltip
-        {...props}
-        position="right"
-        text="Tooltip label"
-        mood="cautionary"
-      >
-        <IconButton label="Label" icon={meatballsIcon} />
-      </Tooltip>
-    </div>
-  </div>
-)
-StickerSheet.parameters = { chromatic: { disable: false } }
-
-export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
+/**
+ * This is more a "desired position". The tooltip will automatically change
+ * its position, if there's not enough room to show it in the one specified.
+ */
+export const Position: StoryFn<typeof Tooltip> = () => (
   <>
-    <p>
-      Default Placement is 'above'. Scroll horizontally or vertically to view
-      the Tooltip "flip" and move according to the space of the viewport.
-      Ensuring the Tooltip does not get cut off.
-    </p>
-
-    <div
-      style={{
-        display: "flex",
-        width: "300px",
-        maxHeight: "700px",
-        overflow: "scroll",
-        border: "solid black 2px",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        style={{
-          width: "500px",
-          marginLeft: "200px",
-          marginTop: "400px",
-        }}
-      >
-        <div
-          style={{
-            width: "300px",
-            height: "200px",
-            textAlign: "center",
-            position: "relative",
-          }}
-        >
-          <Tooltip {...props} display="inline-block" text="Tooltip label">
-            <Button label="Default" />
-          </Tooltip>
-        </div>
-      </div>
-      <div
-        style={{
-          width: "500px",
-          marginLeft: "200px",
-        }}
-      >
-        <div
-          style={{
-            width: "300px",
-            height: "100px",
-            textAlign: "center",
-            position: "relative",
-          }}
-        >
-          <Tooltip {...props} display="inline" text="Tooltip label">
-            <Icon icon={informationIcon} title="Info" />
-          </Tooltip>
-        </div>
-      </div>
-      <div
-        style={{
-          width: "500px",
-          marginLeft: "200px",
-          marginBottom: "500px",
-        }}
-      >
-        <div
-          style={{
-            width: "300px",
-            height: "200px",
-            textAlign: "center",
-            position: "relative",
-          }}
-        >
-          <Paragraph tag="div" variant="body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            nulla quas corporis? Perspiciatis, ratione voluptas{" "}
-            <Tooltip {...props} display="inline-block" text="Tooltip label">
-              <Tag>ad veniam sapiente</Tag>
-            </Tooltip>{" "}
-            Maxime harum, ducimus maiores itaque pariatur quod vel porro
-            mollitia. Lorem ipsum dolor sit{" "}
-            <Tooltip {...props} display="inline" text="Open in new tab">
-              <a href="#">
-                amet consectetur adipisicing elit Itaque obcaecati maxime
-                molestiae blanditiis pariatur
-              </a>
-            </Tooltip>
-            . Magni perspiciatis assumenda in adipisci, eaque commodi quidem
-            dolore, tempore provident animi{" "}
-          </Paragraph>
-        </div>
-      </div>
+    <div className="flex gap-8 p-16">
+      <ContentWrapper>
+        <Tooltip text="Tooltip label" position="above">
+          Above (default)
+        </Tooltip>
+      </ContentWrapper>
+      <ContentWrapper>
+        <Tooltip text="Tooltip label" position="below">
+          Below
+        </Tooltip>
+      </ContentWrapper>
+      <ContentWrapper>
+        <Tooltip text="Tooltip label" position="right">
+          Right
+        </Tooltip>
+      </ContentWrapper>
+      <ContentWrapper>
+        <Tooltip text="Tooltip label" position="left">
+          Left
+        </Tooltip>
+      </ContentWrapper>
+      <ContentWrapper>
+        <Tooltip text="Tooltip label" position="right">
+          Right, but with no space
+        </Tooltip>
+      </ContentWrapper>
     </div>
   </>
+)
+
+export const Mood: StoryFn<typeof Tooltip> = () => (
+  <div className="flex p-16 gap-16">
+    <ContentWrapper mood="default">
+      <Tooltip text="Tooltip label" mood="default">
+        Default (Default)
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper mood="positive">
+      <Tooltip text="Tooltip label" mood="positive">
+        Positive
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper mood="informative">
+      <Tooltip text="Tooltip label" mood="informative">
+        Informative
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper mood="cautionary">
+      <Tooltip text="Tooltip label" mood="cautionary">
+        Cautionary
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper mood="highlight">
+      <Tooltip text="Tooltip label" mood="highlight">
+        Highlight
+      </Tooltip>
+    </ContentWrapper>
+  </div>
+)
+
+/**
+ * Set the duration (milliseconds) of how long the tooltip should stay visible for
+ */
+
+export const IntiallyVisible: StoryFn<typeof Tooltip> = () => (
+  <div className="flex p-16 gap-16">
+    <ContentWrapper>
+      <Tooltip text="I didn't start visible">Default</Tooltip>
+    </ContentWrapper>
+    <ContentWrapper>
+      <Tooltip text="Look at me! I start visible" isInitiallyVisible>
+        Initially visible
+      </Tooltip>
+    </ContentWrapper>
+  </div>
+)
+
+/**
+ * Set the duration (milliseconds) of how long the tooltip should stay visible for
+ */
+
+export const AnimationDuration: StoryFn<typeof Tooltip> = () => (
+  <div className="flex p-16 gap-16">
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" animationDuration={0}>
+        Duration: 0
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" animationDuration={1000}>
+        Duration: 1000
+      </Tooltip>
+    </ContentWrapper>
+    <ContentWrapper>
+      <Tooltip text="Tooltip label" animationDuration={5000}>
+        Duration: 5000
+      </Tooltip>
+    </ContentWrapper>
+  </div>
 )
