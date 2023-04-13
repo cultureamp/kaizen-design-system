@@ -1,25 +1,55 @@
-import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 import { VisuallyHidden } from ".."
 
-export default {
+const meta = {
   tags: ["autodocs"],
   title: "Components/Visually Hidden",
   component: VisuallyHidden,
+  args: {
+    children: "Hello I'm visually hidden",
+  },
   parameters: {
     docs: {
-      description: {
-        component: 'import { VisuallyHidden } from "@kaizen/a11y";',
+      container: ComponentDocsTemplate,
+    },
+    actions: {
+      argTypesRegex: "^on.*",
+    },
+    installation: [
+      "npm install @kaizen/a11y",
+      "import { VisuallyHidden } from `@kaizen/a11y`",
+    ],
+    sourceCodeLink:
+      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/a11y",
+  },
+} satisfies Meta<typeof VisuallyHidden>
+
+export default meta
+
+export const Playground: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
       },
     },
   },
 }
 
-export const TextWithVisuallyHidden: StoryFn = () => (
-  <div>
-    There is visually hidden text between the two brackets (click "Show code" to
-    see more): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]
-  </div>
-)
-TextWithVisuallyHidden.storyName = "Hidden text embedded in visible text"
-TextWithVisuallyHidden.parameters = { chromatic: { disable: false } }
+type Story = StoryObj<typeof VisuallyHidden>
+
+/**
+ * You can use the `tag` prop to change the rendered HTMl tag from the default `span` to a `div`
+ */
+
+export const Tag: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+  args: { children: "I'm a div, not a span" },
+}
