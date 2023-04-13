@@ -1,32 +1,51 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { StoryFn, StoryObj } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
-export default {
+const meta = {
   tags: ["autodocs"],
   title: "Components/Notification/Inline Notification",
   component: InlineNotification,
   parameters: {
     docs: {
-      description: {
-        component: 'import { InlineNotification } from "@kaizen/notification";',
-      },
+      container: ComponentDocsTemplate,
+    },
+    installation: [
+      "npm install @kaizen/notification",
+      "import { InlineNotification } from `@kaizen/notification`",
+    ],
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/notification/src",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-39912&t=pCbdJNgUOTYNCrEN-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093392",
     },
   },
 }
 
-export const DefaultKaizenDemo: StoryFn<typeof InlineNotification> = props => (
-  <InlineNotification {...props}>
-    New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-    <a href="/">Manage users is now available</a>
-  </InlineNotification>
-)
-DefaultKaizenDemo.storyName = "Default (Kaizen Demo)"
-DefaultKaizenDemo.args = {
-  type: "positive",
-  title: "Success",
+export default meta
+
+/**
+ * An inline notification is a message object that presents timely information
+ * within content areas as close as possible to the thing that it’s about.
+ */
+export const Playground: StoryObj<typeof meta> = {
+  args: {
+    type: "positive",
+    title: "Success",
+  },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
 }
 
 const customHeadingProps: HeadingProps = {
@@ -72,7 +91,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   )
   return (
     <>
-      <StoryWrapper isReversed={isReversed}>
+      <StickerSheet isReversed={isReversed}>
         <Heading
           variant="heading-3"
           tag="h1"
@@ -80,14 +99,14 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         >
           Prominent
         </Heading>
-        <StoryWrapper.Row rowTitle="Informative">
+        <StickerSheet.Row rowTitle="Informative" isReversed={isReversed}>
           <InlineNotification type="informative" title="Informative title">
             "All Employees - North America" status has been changed to
             'Archived'.
             <a href="/">View all</a>
           </InlineNotification>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Subtle">
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Subtle" isReversed={isReversed}>
           <InlineNotification
             type="informative"
             isSubtle
@@ -97,26 +116,26 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             "All Employees - North America" status has been changed to
             'Archived'. <a href="/">View all</a>
           </InlineNotification>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Positive">
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Positive" isReversed={isReversed}>
           <InlineNotification type="positive" title="Positive title">
             Emails will be sent notifying coaches and inviting reviewers to give
             their feedback. <a href="/">View all</a>
           </InlineNotification>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Negative">
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Negative" isReversed={isReversed}>
           <InlineNotification type="negative" title="Negative title">
             Something went wrong while validating and analyzing user data.{" "}
             <a href="/">View all</a>
           </InlineNotification>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Cautionary">
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Cautionary" isReversed={isReversed}>
           <InlineNotification type="cautionary" title="Cautionary title">
             The syncing process can take some time to complete. Keep this window
             open until complete. <a href="/">View all</a>
           </InlineNotification>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Persistent">
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Persistent" isReversed={isReversed}>
           <InlineNotification
             type="cautionary"
             title="Cautionary title"
@@ -125,8 +144,8 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             The syncing process can take some time to complete. Keep this window
             open until complete. <a href="/">View all</a>
           </InlineNotification>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Multiline">
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Multiline" isReversed={isReversed}>
           <InlineNotification
             type="positive"
             title="Positive title"
@@ -134,8 +153,8 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           >
             {multilineText}
           </InlineNotification>
-        </StoryWrapper.Row>
-        <StoryWrapper.Row rowTitle="Forced Multiline">
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Forced Multiline" isReversed={isReversed}>
           <InlineNotification
             type="negative"
             title="Negative title"
@@ -143,8 +162,8 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           >
             {forceMultilineText}
           </InlineNotification>
-        </StoryWrapper.Row>
-      </StoryWrapper>
+        </StickerSheet.Row>
+      </StickerSheet>
     </>
   )
 }
