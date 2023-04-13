@@ -45,17 +45,20 @@ const meta = {
     ],
     resourceLinks: {
       sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/draft-well",
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/tooltip",
       figma:
-        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37851&t=DDzgfxEHtZWOOhro-0",
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37850&t=F1FNU9mCyOPgcf5C-0",
       designGuidelines:
-        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well",
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604978/Tooltip",
     },
   },
 } satisfies Meta<typeof Tooltip>
 
 export default meta
 
+/**
+ * Tooltips are brief floating labels used to add additional contextual information when users hover, click or focus on an interactive element. These should offer concise explanations,  elaborating on the element they are associated with.
+ */
 export const Playground: StoryObj<typeof meta> = {
   decorators: [PlaygroundDecorator],
   parameters: {

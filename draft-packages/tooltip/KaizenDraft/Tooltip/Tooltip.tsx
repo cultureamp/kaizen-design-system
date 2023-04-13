@@ -23,16 +23,7 @@ export type TooltipProps = {
   children?: React.ReactNode
   classNameOverride?: string
   mood?: Mood
-  /**
-   * Render the tooltip inside a react portal, given the ccs selector.
-   * This is typically used for instances where the menu is a descendant of an
-   * `overflow: scroll` or `overflow: hidden` element.
-   */
   portalSelector?: string
-  /**
-   * Should the tooltip be visible on the first render. Useful for visual
-   * regression testing.
-   */
   isInitiallyVisible?: boolean
   animationDuration?: number
 }

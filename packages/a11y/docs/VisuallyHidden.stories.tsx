@@ -20,13 +20,18 @@ const meta = {
       "npm install @kaizen/a11y",
       "import { VisuallyHidden } from `@kaizen/a11y`",
     ],
-    sourceCodeLink:
-      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/a11y",
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/a11y",
+    },
   },
 } satisfies Meta<typeof VisuallyHidden>
 
 export default meta
 
+/**
+ * To visually hide something on the screen, normally reserved for screen reader only content.
+ */
 export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {

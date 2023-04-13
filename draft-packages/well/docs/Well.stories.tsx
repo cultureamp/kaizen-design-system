@@ -23,12 +23,14 @@ const meta = {
       "npm install @kaizen/draft-well",
       "import { Well } from `@kaizen/draft-well`",
     ],
-    sourceCodeLink:
-      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/draft-well",
-    figmaLink:
-      "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37851&t=DDzgfxEHtZWOOhro-0",
-    designGuidelines:
-      "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well",
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/master/draft-packages/well",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37851&t=DDzgfxEHtZWOOhro-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well",
+    },
     alternatives: [
       "components-card--docs",
       "components-notification-global-notification--docs",
