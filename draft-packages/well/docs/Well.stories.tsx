@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { Paragraph } from "../../../packages/typography"
+import { Heading, Paragraph } from "../../../packages/typography"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { Well } from "../index"
@@ -24,9 +24,17 @@ const meta = {
       "import { Well } from `@kaizen/draft-well`",
     ],
     sourceCodeLink:
-      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
+      "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/draft-well",
     figmaLink:
       "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37851&t=DDzgfxEHtZWOOhro-0",
+    designGuidelines:
+      "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well",
+    alternatives: [
+      "components-card--docs",
+      "components-notification-global-notification--docs",
+      "components-notification-inline-notification--docs",
+      "components-notification-toast-notification--docs",
+    ],
   },
 } satisfies Meta<typeof Well>
 
@@ -57,23 +65,29 @@ const VariantsTemplate: StoryFn = () => (
     <StickerSheet.Body>
       <StickerSheet.Row>
         <Well variant="default">
+          <Heading variant="heading-4">Default</Heading>
           <ExampleContent />
         </Well>
         <Well variant="informative">
+          <Heading variant="heading-4">Informative</Heading>
           <ExampleContent />
         </Well>
         <Well variant="positive">
+          <Heading variant="heading-4">Positive</Heading>
           <ExampleContent />
         </Well>
       </StickerSheet.Row>
       <StickerSheet.Row>
         <Well variant="negative">
+          <Heading variant="heading-4">Negative</Heading>
           <ExampleContent />
         </Well>
         <Well variant="cautionary">
+          <Heading variant="heading-4">Cautionary</Heading>
           <ExampleContent />
         </Well>
         <Well variant="assertive">
+          <Heading variant="heading-4">Assertive</Heading>
           <ExampleContent />
         </Well>
       </StickerSheet.Row>
@@ -84,26 +98,23 @@ const VariantsTemplate: StoryFn = () => (
 /**
  * <p>`default`, `informative`, `positive`, `negative`, `cautionary`, `assertive`</p>
  * <p>If no `variant` is specified, a `default` Well will be rendered.</p>
- * <p>For more information on when to use each variant, check out the [Component guidelines](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604733/Well).</p>
  */
 export const Variants = VariantsTemplate.bind({})
 
-export const Reversed = VariantsTemplate.bind({})
-Reversed.parameters = {
-  backgrounds: { default: "Purple 700" },
-}
-
-export const Borders: StoryFn = () => (
+export const BorderStyles: StoryFn = () => (
   <StickerSheet>
     <StickerSheet.Body>
       <StickerSheet.Row>
         <Well variant="informative" borderStyle="solid">
+          <Heading variant="heading-4">Solid (default)</Heading>
           <ExampleContent />
         </Well>
         <Well variant="informative" borderStyle="dashed">
+          <Heading variant="heading-4">Dashed</Heading>
           <ExampleContent />
         </Well>
         <Well variant="informative" borderStyle="none">
+          <Heading variant="heading-4">None</Heading>
           <ExampleContent />
         </Well>
       </StickerSheet.Row>
@@ -112,14 +123,11 @@ export const Borders: StoryFn = () => (
 )
 
 /**
- * You can use `classNameOverride` to add additional classes to the container div
+ * You can use `classNameOverride` to add additional classes to the container div and give your Well a default layout
  */
-export const CustomisingStyles: StoryFn = () => (
-  <StickerSheet>
-    <StickerSheet.Body>
-      <Well classNameOverride="flex flex-col p-8">
-        <ExampleContent />
-      </Well>
-    </StickerSheet.Body>
-  </StickerSheet>
+export const AddingStyles: StoryFn = () => (
+  <Well classNameOverride="flex flex-col gap-8 p-8">
+    <Heading variant="heading-4">Added padding + flex for gap</Heading>
+    <ExampleContent />
+  </Well>
 )
