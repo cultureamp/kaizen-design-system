@@ -37,7 +37,7 @@ export const Links = ({ context }: LinksProps): JSX.Element | null => {
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            UI Kit
+            Figma
           </a>
         </li>
       )}
@@ -49,7 +49,7 @@ export const Links = ({ context }: LinksProps): JSX.Element | null => {
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            Design guidelines
+            Usage Guidelines
           </a>
         </li>
       )}
