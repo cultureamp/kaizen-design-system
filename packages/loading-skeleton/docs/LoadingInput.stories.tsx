@@ -1,34 +1,51 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { StoryFn, StoryObj } from "@storybook/react"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { LoadingInput, LoadingHeading } from ".."
 
-export default {
+const meta = {
   tags: ["autodocs"],
   title: "Components/Loading/Loading Input",
   component: LoadingInput,
   parameters: {
     docs: {
-      description: {
-        component: 'import { LoadingInput } from "@kaizen/loading-skeleton"',
+      container: ComponentDocsTemplate,
+    },
+    installation: [
+      "npm install @kaizen/loading-skeleton",
+      "import { LoadingInput } from `@kaizen/loading-skeleton`",
+    ],
+    sourceCodeLink:
+      "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/loading-skeleton/src/LoadingInput",
+    figmaLink:
+      "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-39907&t=wEc5CYMSdMMfoeq9-0",
+  },
+}
+
+export default meta
+
+/**
+ *  The Loading Input can be displayed in place of an input field while it is being loaded.
+ */
+export const Playground: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
       },
     },
   },
 }
 
-export const DefaultLoadingInput: StoryFn<typeof LoadingInput> = args => (
-  <LoadingInput {...args} />
-)
-DefaultLoadingInput.storyName = "Loading Input"
-
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <StoryWrapper isReversed={isReversed}>
-    <StoryWrapper.RowHeader headings={["Loading Skeleton", "Example"]} />
-    <StoryWrapper.Row rowTitle="TextField">
-      <div>
+  <StickerSheet isReversed={isReversed}>
+    <StickerSheet.Header headings={["Loading Skeleton", "Example"]} />
+    <StickerSheet.Row rowTitle="TextField" isReversed={isReversed}>
+      <div className="min-w-[246px]">
         <LoadingHeading variant="heading-6" width={10} />
         <LoadingInput isReversed={isReversed} />
       </div>
@@ -38,8 +55,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         labelText="Default"
         reversed={isReversed}
       />
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="Text Area Field (custom height)">
+    </StickerSheet.Row>
+    <StickerSheet.Row
+      rowTitle="Text Area Field (custom height)"
+      isReversed={isReversed}
+    >
       <div>
         <LoadingHeading variant="heading-6" width={10} />
         <LoadingInput isReversed={isReversed} height={100} />
@@ -49,8 +69,8 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         labelText="Default"
         reversed={isReversed}
       />
-    </StoryWrapper.Row>
-  </StoryWrapper>
+    </StickerSheet.Row>
+  </StickerSheet>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
