@@ -54,7 +54,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 }) => (
   <StickerSheet isReversed={isReversed}>
     <StickerSheet.Header headings={["Loading Skeleton", "Example"]} />
-    <StickerSheet.Row rowTitle="Icon (small)" isReversed>
+    <StickerSheet.Row rowTitle="Icon (small)" isReversed={isReversed}>
       <LoadingGraphic size="small" isReversed={isReversed} />
       <div style={{ width: "20px" }}>
         <Icon
@@ -66,7 +66,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         />
       </div>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Avatar (medium)" isReversed>
+    <StickerSheet.Row rowTitle="Avatar (medium)" isReversed={isReversed}>
       <LoadingGraphic size="medium" isReversed={isReversed} />
       <Avatar
         fullName="Jane Doe"
@@ -75,7 +75,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         size="medium"
       />
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Avatar (large)" isReversed>
+    <StickerSheet.Row rowTitle="Avatar (large)" isReversed={isReversed}>
       <LoadingGraphic size="large" isReversed={isReversed} />
       <Avatar
         fullName="Jane Doe"
@@ -84,7 +84,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         size="large"
       />
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Avatar (x-large)" isReversed>
+    <StickerSheet.Row rowTitle="Avatar (x-large)" isReversed={isReversed}>
       <LoadingGraphic size="xlarge" isReversed={isReversed} />
       <Avatar
         fullName="Jane Doe"
@@ -93,13 +93,13 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         size="xlarge"
       />
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Spot (xx-large)" isReversed>
+    <StickerSheet.Row rowTitle="Spot (xx-large)" isReversed={isReversed}>
       <LoadingGraphic size="xxlarge" isReversed={isReversed} />
       <div style={{ width: "156px" }}>
         <Informative alt="informative-spot-image" />
       </div>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Scene (scene)" isReversed>
+    <StickerSheet.Row rowTitle="Scene (scene)" isReversed={isReversed}>
       <LoadingGraphic size="scene" isReversed={isReversed} />
       <BrandMomentPositiveOutro alt="positive-outro" />
     </StickerSheet.Row>

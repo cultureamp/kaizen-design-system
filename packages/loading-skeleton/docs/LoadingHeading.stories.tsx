@@ -47,49 +47,49 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 }) => (
   <StickerSheet isReversed={isReversed}>
     <StickerSheet.Header headings={["Loading Skeleton", "Example"]} />
-    <StickerSheet.Row rowTitle="Display 0" isReversed>
+    <StickerSheet.Row rowTitle="Display 0" isReversed={isReversed}>
       <LoadingHeading variant="display-0" isReversed={isReversed} />
       <Heading variant="display-0" color={isReversed ? "white" : "dark"}>
         Display-0
       </Heading>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Heading 1" isReversed>
+    <StickerSheet.Row rowTitle="Heading 1" isReversed={isReversed}>
       <LoadingHeading variant="heading-1" isReversed={isReversed} />
       <Heading variant="heading-1" color={isReversed ? "white" : "dark"}>
         Heading
       </Heading>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Heading 2" isReversed>
+    <StickerSheet.Row rowTitle="Heading 2" isReversed={isReversed}>
       <LoadingHeading variant="heading-2" isReversed={isReversed} />
       <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
         Heading
       </Heading>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Heading 3" isReversed>
+    <StickerSheet.Row rowTitle="Heading 3" isReversed={isReversed}>
       <LoadingHeading variant="heading-3" isReversed={isReversed} />
       <Heading variant="heading-3" color={isReversed ? "white" : "dark"}>
         Heading
       </Heading>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Heading 4" isReversed>
+    <StickerSheet.Row rowTitle="Heading 4" isReversed={isReversed}>
       <LoadingHeading variant="heading-4" isReversed={isReversed} />
       <Heading variant="heading-4" color={isReversed ? "white" : "dark"}>
         Heading
       </Heading>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Heading 5" isReversed>
+    <StickerSheet.Row rowTitle="Heading 5" isReversed={isReversed}>
       <LoadingHeading variant="heading-5" isReversed={isReversed} />
       <Heading variant="heading-5" color={isReversed ? "white" : "dark"}>
         Heading
       </Heading>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Heading 6" isReversed>
+    <StickerSheet.Row rowTitle="Heading 6" isReversed={isReversed}>
       <LoadingHeading variant="heading-6" isReversed={isReversed} />
       <Heading variant="heading-6" color={isReversed ? "white" : "dark"}>
         Heading
       </Heading>
     </StickerSheet.Row>
-    <StickerSheet.Row rowTitle="Heading Link" isReversed>
+    <StickerSheet.Row rowTitle="Heading Link" isReversed={isReversed}>
       <LoadingHeading variant="heading-1" isLink isReversed={isReversed} />
       <Heading variant="heading-1" color={isReversed ? "white" : "dark"}>
         Heading Link
