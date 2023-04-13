@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Node } from "@react-types/shared"
+import { Node, Collection } from "@react-types/shared"
 import classNames from "classnames"
 import { ItemType } from "../../../types"
 import { useSelectionContext } from "../../provider/SelectionProvider"
@@ -13,6 +13,23 @@ export interface ListBoxProps {
     allItems: Array<Node<ItemType>>
     hasNoItems: boolean
   }) => React.ReactNode
+}
+
+/** get items from keys and filter out nullish or undefinded values
+ ** this is required now `collection.getItem()` has a nullish return value
+ */
+const getItemsFromKeys = (
+  items: Collection<Node<ItemType>>,
+  keys: Set<React.Key>
+): Array<Node<ItemType>> => {
+  const itemKeys = Array.from(keys)
+  return itemKeys.reduce((acc: Array<Node<ItemType>>, itemKey) => {
+    const item = items.getItem(itemKey)
+    if (item !== undefined && item) {
+      return [...acc, item]
+    }
+    return acc
+  }, [])
 }
 
 export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
@@ -30,12 +47,8 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
     disabledKeys,
     selectionManager: { selectedKeys },
   } = selectionState
-  const disabledItems = Array.from(disabledKeys)
-    .map(key => items.getItem(key))
-    .filter(item => item !== undefined)
-  const selectedItems = Array.from(selectedKeys)
-    .map(key => items.getItem(key))
-    .filter(item => item !== undefined)
+  const disabledItems = getItemsFromKeys(items, disabledKeys)
+  const selectedItems = getItemsFromKeys(items, selectedKeys)
   const unselectedItems = Array.from(items).filter(
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
