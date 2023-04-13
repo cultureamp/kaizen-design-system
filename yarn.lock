@@ -3893,14 +3893,6 @@
     "@swc/helpers" "^0.4.14"
     clsx "^1.1.1"
 
-"@react-stately/collections@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.6.0.tgz#4fbecbbbb354badbc46618262e91743754257673"
-  integrity sha512-znkaqCPo7F1yyzEKDAB5MpX1Vw5UHcUQhDNrys5YOqAkX6/G/AChnBz0B63UxS3fjyqgnuJylRRmUp9nTqO21w==
-  dependencies:
-    "@react-types/shared" "^3.17.0"
-    "@swc/helpers" "^0.4.14"
-
 "@react-stately/collections@^3.7.0":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.7.0.tgz#5f032ba5e8b554e90bf1a2077220d2560618dbf7"
@@ -3919,17 +3911,6 @@
     "@react-stately/overlays" "^3.5.0"
     "@react-stately/utils" "^3.6.0"
     "@react-types/datepicker" "^3.2.0"
-    "@react-types/shared" "^3.17.0"
-    "@swc/helpers" "^0.4.14"
-
-"@react-stately/list@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.7.0.tgz#7484cc46d995a18b2b43de50449aba7faae76809"
-  integrity sha512-/BxCqXFjX9P+OJWjIYmUWaOGJ2hlZHUdymVwZPkIWdO9K7069LWckdYFXRqLFMwIGLUcXVfw4jR0BIQqWlR4eA==
-  dependencies:
-    "@react-stately/collections" "^3.6.0"
-    "@react-stately/selection" "^3.12.0"
-    "@react-stately/utils" "^3.6.0"
     "@react-types/shared" "^3.17.0"
     "@swc/helpers" "^0.4.14"
 
@@ -3985,16 +3966,6 @@
     "@react-stately/utils" "^3.6.0"
     "@react-types/select" "^3.8.0"
     "@react-types/shared" "^3.18.0"
-    "@swc/helpers" "^0.4.14"
-
-"@react-stately/selection@^3.12.0":
-  version "3.12.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.12.0.tgz#feb5ad753ea93870566f2c0b07f0387b690bd860"
-  integrity sha512-qgUaPwqtAl7YaZxxGdb55ZaVuMB1rG+Vr+9fgG8dPtDYCNaPeIlg7ndC4ylzDhCWIx8D5qZotcrqCA4+93TwdA==
-  dependencies:
-    "@react-stately/collections" "^3.6.0"
-    "@react-stately/utils" "^3.6.0"
-    "@react-types/shared" "^3.17.0"
     "@swc/helpers" "^0.4.14"
 
 "@react-stately/selection@^3.13.0":
