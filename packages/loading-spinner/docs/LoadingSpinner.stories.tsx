@@ -1,6 +1,5 @@
 import React from "react"
 import { StoryFn, StoryObj } from "@storybook/react"
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
