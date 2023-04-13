@@ -1,9 +1,9 @@
-import { Heading } from "@kaizen/typography"
-import { StoryFn, StoryObj } from "@storybook/react"
 import React from "react"
-import { LoadingHeading } from ".."
+import { StoryFn, StoryObj } from "@storybook/react"
+import { Heading } from "@kaizen/typography"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { LoadingHeading } from ".."
 
 const meta = {
   tags: ["autodocs"],

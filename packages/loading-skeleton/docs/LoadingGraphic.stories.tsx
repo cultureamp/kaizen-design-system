@@ -1,3 +1,5 @@
+import React from "react"
+import { StoryFn, StoryObj } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
@@ -5,8 +7,6 @@ import {
   BrandMomentPositiveOutro,
   Informative,
 } from "@kaizen/draft-illustration"
-import { StoryFn, StoryObj } from "@storybook/react"
-import React from "react"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 

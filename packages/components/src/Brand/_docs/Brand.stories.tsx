@@ -1,8 +1,8 @@
 import React from "react"
-import { Brand } from "../index"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { StoryFn, StoryObj } from "@storybook/react"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet/StickerSheet"
+import { Brand } from "../index"
 
 const meta = {
   tags: ["autodocs"],
