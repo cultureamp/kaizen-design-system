@@ -71,10 +71,7 @@ export const Playground: StoryObj<typeof meta> = {
 }
 
 /**
- * Unfortunately, the content needed to be wrapped in a div. This can sometimes
- * break the css layout. To get around this, we allow you to specify the css
- * display value directly. If you need to need to modify more values, feel free
- * to use the `classNameOverride` prop, but avoid it if you can.
+ * Allows you to specify the CSS display value of the wrapping div, which can yield different alignment depending on your context.
  */
 export const Display: StoryFn<typeof Tooltip> = () => (
   <div className="flex p-16 gap-16">
