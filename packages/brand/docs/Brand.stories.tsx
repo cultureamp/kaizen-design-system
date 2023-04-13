@@ -43,14 +43,6 @@ export const Playground: StoryObj<typeof meta> = {
   },
 }
 
-export const DefaultStory: StoryFn<typeof Brand> = args => <Brand {...args} />
-DefaultStory.storyName = "Default (Kaizen Demo)"
-DefaultStory.args = {
-  alt: "Culture Amp",
-  variant: "logo-horizontal",
-  reversed: false,
-}
-
 /**
  * `logo-horizontal`, `logo-vertical`, `enso`, `collective-intelligence`
  */
