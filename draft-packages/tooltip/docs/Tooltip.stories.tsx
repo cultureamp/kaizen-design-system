@@ -175,7 +175,6 @@ export const Mood: StoryFn<typeof Tooltip> = () => (
 /**
  * Set the duration (milliseconds) of how long the tooltip should stay visible for
  */
-
 export const IntiallyVisible: StoryFn<typeof Tooltip> = () => (
   <div className="flex p-16 gap-16">
     <ContentWrapper>
@@ -192,7 +191,6 @@ export const IntiallyVisible: StoryFn<typeof Tooltip> = () => (
 /**
  * Set the duration (milliseconds) of how long the tooltip should stay visible for
  */
-
 export const AnimationDuration: StoryFn<typeof Tooltip> = () => (
   <div className="flex p-16 gap-16">
     <ContentWrapper>
