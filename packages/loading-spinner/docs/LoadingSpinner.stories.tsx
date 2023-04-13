@@ -38,11 +38,11 @@ export default meta
  * When inside a button, it is intended to have the same color as the label text.
  */
 export const Playground: StoryObj<typeof meta> = {
+  args: {
+    accessibilityLabel: "Loading comments",
+    size: "sm",
+  },
   parameters: {
-    args: {
-      accessibilityLabel: "Loading comments",
-      size: "sm",
-    },
     docs: {
       canvas: {
         sourceState: "shown",
