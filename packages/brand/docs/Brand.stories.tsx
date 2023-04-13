@@ -1,8 +1,8 @@
 import React from "react"
-import { StoryFn, StoryObj } from "@storybook/react"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet/StickerSheet"
 import { Brand } from "../index"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
+import { StickerSheet } from "../../../storybook/components/StickerSheet/StickerSheet"
 
 const meta = {
   tags: ["autodocs"],
@@ -18,9 +18,12 @@ const meta = {
       "import { Brand } from `@kaizen/Brand`",
     ],
     packageName: "@kaizen/Brand",
-    sourceCodeLink:
-      "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/brand",
-    figmaLink: "Add Figma link here",
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/brand",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=5-353&t=woUD77xUSAMkDHIS-0",
+    },
   },
 }
 

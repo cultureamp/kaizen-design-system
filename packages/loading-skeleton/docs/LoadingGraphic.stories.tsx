@@ -24,10 +24,14 @@ const meta = {
       "npm install @kaizen/loading-skeleton",
       "import { LoadingGraphic } from `@kaizen/loading-skeleton`",
     ],
-    sourceCodeLink:
-      "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/loading-skeleton/src/LoadingGraphic",
-    figmaLink:
-      "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-39907&t=wEc5CYMSdMMfoeq9-0",
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/loading-skeleton/src/LoadingGraphic",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-39907&t=wEc5CYMSdMMfoeq9-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060062",
+    },
   },
 }
 
