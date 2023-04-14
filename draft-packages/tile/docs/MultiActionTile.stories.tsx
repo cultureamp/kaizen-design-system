@@ -29,7 +29,7 @@ const meta = {
     ],
     resourceLinks: {
       sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/tile/KaizenDraft/Tile",
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/tile",
       figma:
         "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37846&t=SWGqgqCIpwFeAORM-0",
       designGuidelines:
@@ -47,7 +47,7 @@ const meta = {
 export default meta
 
 /**
- * <p>A visually interesting item in a list consisting of a card, visual, title metadata, and call to action.</p>
+ * A visually interesting item in a list consisting of a card, visual, title metadata, and call to action.
  */
 export const Playground: StoryObj<typeof meta> = {
   // As of Storybook V7.0.2 adding this messes up the code preview

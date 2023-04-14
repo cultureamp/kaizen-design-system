@@ -27,7 +27,7 @@ const meta = {
     ],
     resourceLinks: {
       sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/tile/KaizenDraft/Tile",
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/tile",
       figma:
         "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37846&t=SWGqgqCIpwFeAORM-0",
       designGuidelines:
