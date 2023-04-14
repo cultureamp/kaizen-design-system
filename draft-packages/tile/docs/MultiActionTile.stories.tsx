@@ -132,6 +132,7 @@ export const Moods: StoryFn = () => (
 export const SupportForGenericTileOptions: StoryObj<typeof meta> = {
   args: {
     title: "Title heading",
+    titleTag: "h1",
     metadata: "Metadata",
     children: <Coaching alt="" />,
     information: {
