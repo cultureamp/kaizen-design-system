@@ -1,171 +1,159 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
-import { Coaching } from "@kaizen/draft-illustration"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import bookmarkIcon from "../../../packages/component-library/icons/bookmark-off.icon.svg"
+import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
+import { Coaching } from "../../illustration"
+import { MultiActionTile, TileGrid } from "../index"
 
-import {
-  MultiActionTile,
-  TileInformation,
-  TileAction,
-  TileGrid,
-} from "@kaizen/draft-tile"
-
-export default {
+const meta = {
   tags: ["autodocs"],
   title: "Components/Tile/Multi Action Tile",
   component: MultiActionTile,
+  args: {
+    title: "Tile heading",
+    primaryAction: {
+      label: "Click me",
+      href: "#",
+    },
+  },
   parameters: {
     docs: {
-      description: {
-        component: 'import {  MultiActionTile } from "@kaizen/draft-tile"',
-      },
+      container: ComponentDocsTemplate,
     },
+    actions: {
+      argTypesRegex: "^on.*",
+    },
+    installation: [
+      "npm install @kaizen/draft-tile",
+      "import { MultiActionTile } from '@kaizen/draft-tile'",
+    ],
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/tile/KaizenDraft/Tile",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37846&t=SWGqgqCIpwFeAORM-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3079077889/Tile#MultiActionTile",
+    },
+    alternatives: [
+      "components-tile-information-tile--docs",
+      "components-card--docs",
+      "components-well--docs",
+      "components-guidance-block--docs",
+    ],
   },
 } satisfies Meta<typeof MultiActionTile>
 
-const primaryAction: TileAction = {
-  label: "View",
-  href: "",
-}
+export default meta
 
-const secondaryAction: TileAction = {
-  label: "Bookmark",
-  href: "",
-  icon: bookmarkIcon,
-}
-
-const children = (
-  <div style={{ width: "170px" }}>
-    <Coaching alt="" />
-  </div>
-)
-
-const information: TileInformation = {
-  text:
-    "Additional information can be included on the underside of the tile and viewed on click of the information" +
-    " icon.",
-  secondaryAction: {
-    label: "Learn more",
-    href: "",
+/**
+ * <p>A visually interesting item in a list consisting of a card, visual, title metadata, and call to action.</p>
+ */
+export const Playground: StoryObj<typeof meta> = {
+  // As of Storybook V7.0.2 adding this messes up the code preview
+  // argTypes: {
+  //   children: {
+  //     control: "radio",
+  //     options: ["none", "example"],
+  //     mapping: {
+  //       none: undefined,
+  //       example: <Coaching alt="" />,
+  //     },
+  //   },
+  // },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
   },
 }
 
-export const MultiAction: StoryFn<typeof MultiActionTile> = () => (
-  <MultiActionTile
-    title="Tile heading"
-    metadata="Metadata"
-    primaryAction={primaryAction}
-  />
-)
-MultiAction.storyName = "Multi action tile"
+/**
+ * MultiActionTile supports the addition of a secondary action through the `secondaryAction` prop.
+ */
+export const SecondaryAction: StoryObj<typeof meta> = {
+  args: {
+    primaryAction: {
+      label: "View",
+      href: "#",
+    },
+    secondaryAction: {
+      label: "Bookmark",
+      href: "#",
+      icon: bookmarkIcon,
+    },
+  },
+}
 
-export const MultiActionMoods: StoryFn = () => (
+export const Moods: StoryFn = () => (
   <TileGrid>
     <MultiActionTile
       title="Default"
-      metadata="Metadata"
-      primaryAction={primaryAction}
+      primaryAction={{ label: "View", href: "#" }}
     />
     <MultiActionTile
       title="Positive"
-      metadata="Metadata"
-      primaryAction={primaryAction}
+      primaryAction={{ label: "View", href: "#" }}
       mood="positive"
     />
     <MultiActionTile
       title="Informative"
-      metadata="Metadata"
-      primaryAction={primaryAction}
+      primaryAction={{ label: "View", href: "#" }}
       mood="informative"
     />
     <MultiActionTile
       title="Cautionary"
-      metadata="Metadata"
-      primaryAction={primaryAction}
+      primaryAction={{ label: "View", href: "#" }}
       mood="cautionary"
     />
     <MultiActionTile
       title="Assertive"
-      metadata="Metadata"
-      primaryAction={primaryAction}
+      primaryAction={{ label: "View", href: "#" }}
       mood="assertive"
     />
     <MultiActionTile
       title="Negative"
-      metadata="Metadata"
-      primaryAction={primaryAction}
+      primaryAction={{ label: "View", href: "#" }}
       mood="negative"
     />
     <MultiActionTile
       title="Prominent"
-      metadata="Metadata"
-      primaryAction={primaryAction}
+      primaryAction={{ label: "View", href: "#" }}
       mood="prominent"
     />
   </TileGrid>
 )
-MultiActionMoods.storyName = "Multi action tile moods"
-MultiActionMoods.parameters = { chromatic: { disable: false } }
 
-export const MultiActionWithSecondary: StoryFn = () => (
-  <MultiActionTile
-    title="Tile heading"
-    metadata="Metadata"
-    primaryAction={primaryAction}
-    secondaryAction={secondaryAction}
-  />
-)
-MultiActionWithSecondary.storyName = "Multi action tile with secondary action"
-MultiActionWithSecondary.parameters = { chromatic: { disable: false } }
-
-export const MultiActionWithChildren: StoryFn = () => (
-  <MultiActionTile
-    title="Tile heading"
-    metadata="Metadata"
-    primaryAction={primaryAction}
-  >
-    {children}
-  </MultiActionTile>
-)
-MultiActionWithChildren.storyName = "Multi action tile with children"
-MultiActionWithChildren.parameters = { chromatic: { disable: false } }
-
-export const MultiActionWithCustomTitle: StoryFn = () => (
-  <MultiActionTile
-    title="Custom title"
-    primaryAction={primaryAction}
-    titleTag="div"
-  >
-    {children}
-  </MultiActionTile>
-)
-MultiActionWithCustomTitle.storyName = "Multi action tile with custom title tag"
-
-export const MultiActionWithInformation: StoryFn = () => (
-  <MultiActionTile
-    title="Tile heading"
-    metadata="Metadata"
-    primaryAction={primaryAction}
-    information={information}
-  />
-)
-MultiActionWithInformation.storyName = "Multi action tile with information"
-
-export const MultiActionActionInNewTabs: StoryFn = () => (
-  <MultiActionTile
-    title="Tile heading"
-    metadata="Metadata"
-    primaryAction={{
-      ...primaryAction,
-      href: "https://www.cultureamp.com",
-      newTabAndIUnderstandTheAccessibilityImplications: true,
-    }}
-    secondaryAction={{
-      ...secondaryAction,
-      href: "https://www.cultureamp.com",
-      newTabAndIUnderstandTheAccessibilityImplications: true,
-    }}
-  />
-)
-MultiActionActionInNewTabs.storyName =
-  "Multi action tile with actions opening in new tabs"
+/**
+ * The API is mostly the same as the `InformationTile`, so checkout those docs for more detail!
+ */
+export const SupportForGenericTileOptions: StoryObj<typeof meta> = {
+  args: {
+    title: "Title heading",
+    metadata: "Metadata",
+    children: <Coaching alt="" />,
+    information: {
+      text: "Additional information can be included on the underside of the tile and viewed on click of the information",
+      primaryAction: {
+        label: "Primary",
+        href: "",
+      },
+      secondaryAction: {
+        label: "Bookmark",
+        href: "",
+        icon: bookmarkIcon,
+      },
+    },
+    primaryAction: {
+      label: "View",
+      href: "",
+    },
+    secondaryAction: {
+      label: "Bookmark",
+      href: "",
+      icon: bookmarkIcon,
+    },
+  },
+}

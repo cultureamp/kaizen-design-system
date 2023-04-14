@@ -110,11 +110,11 @@ export const AddingExtraInformation: StoryFn = () => (
         text: "Additional information can be included on the underside of the tile and viewed on click of the information",
         primaryAction: {
           label: "Primary",
-          href: "",
+          href: "#",
         },
         secondaryAction: {
           label: "Bookmark",
-          href: "",
+          href: "#",
           icon: bookmarkIcon,
         },
       }}
