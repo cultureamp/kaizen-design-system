@@ -25,7 +25,7 @@ const meta = {
     ],
     resourceLinks: {
       sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/master/draft-packages/well",
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/well",
       figma:
         "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37851&t=DDzgfxEHtZWOOhro-0",
       designGuidelines:

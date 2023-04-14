@@ -22,7 +22,7 @@ const meta = {
     ],
     resourceLinks: {
       sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/a11y",
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/a11y",
     },
   },
 } satisfies Meta<typeof VisuallyHidden>

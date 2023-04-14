@@ -57,7 +57,7 @@ const meta = {
     ],
     resourceLinks: {
       sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/master/draft-packages/form/KaizenDraft/Form/ToggleSwitchField",
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/draft-packages/form/KaizenDraft/Form/ToggleSwitchField",
       figma:
         "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9-37849&t=tTe9WARWi1kIWalg-0",
       designGuidelines:
