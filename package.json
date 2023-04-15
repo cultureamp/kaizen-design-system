@@ -1,9 +1,6 @@
 {
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "draft-packages/*"
-  ],
+  "workspaces": ["packages/*", "draft-packages/*"],
   "engines": {
     "node": ">=v16.19.1"
   },
@@ -22,10 +19,10 @@
     "lint": "yarn eslint --max-warnings=0 && yarn prettier && yarn stylelint",
     "lint:fix": "yarn stylelint --fix && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
-    "clean": "lerna run clean && yarn clean:storybook",
+    "clean": "yarn turbo clean && yarn clean:storybook",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
-    "commit": "cz",
+    "commit": "yarn changeset",
     "plop": "plop",
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test",
@@ -89,9 +86,7 @@
     "@typescript-eslint/parser": "^5.57.1",
     "babel-loader": "^9.1.2",
     "chromatic": "^6.17.3",
-    "commitizen": "^4.3.0",
     "css-loader": "^6.7.3",
-    "cz-conventional-changelog": "3.3.0",
     "danger": "^11.2.5",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
@@ -107,7 +102,6 @@
     "jest-circus": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "jest-static-stubs": "^0.0.1",
-    "lerna": "3.22.1",
     "node-fetch": "^3.3.1",
     "node-sass": "^8.0.0",
     "plop": "^3.1.2",
@@ -131,20 +125,14 @@
     "svgo-loader": "~4.0.0",
     "tailwindcss": "^3.3.1",
     "ts-jest": "^29.1.0",
+    "turbo": "^1.8.8",
     "typescript": "^4.9.5",
     "webpack": "^5.78.0"
   },
   "resolutions": {
-    "@types/react": "^18.0.32",
-    "commitizen": "^4.3.0"
+    "@types/react": "^18.0.32"
   },
   "resolutionsComments": {
-    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want",
-    "commitizen": "cz-conventional-changelog v3.3.0 has a dependency on commitizen 4.2.4 which has vulnerabilities"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want"
   }
 }

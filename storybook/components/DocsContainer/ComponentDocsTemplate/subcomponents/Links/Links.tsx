@@ -7,20 +7,53 @@ export type LinksProps = {
 }
 
 export const Links = ({ context }: LinksProps): JSX.Element | null => {
-  const sourceCodeLink: string =
-    context.attachedCSFFile.meta.parameters.sourceCodeLink
-  const figmaLink: string = context.attachedCSFFile.meta.parameters.figmaLink
+  const links: Record<string, string> =
+    context.attachedCSFFile.meta.parameters.resourceLinks
 
-  const hasLinks = sourceCodeLink !== undefined || figmaLink !== undefined
+  const sourceCodeLink: string = links.sourceCode
+  const figmaLink: string = links.figma
+  const designGuidelinesLink: string = links.designGuidelines
 
-  if (!hasLinks) return null
+  if (!links) return null
 
   return (
-    <div>
-      {sourceCodeLink && <a href={sourceCodeLink}>Source Code</a>}
-      {sourceCodeLink && figmaLink && <span>&nbsp;|&nbsp;</span>}
-      {figmaLink && <a href={figmaLink}>UI Kit</a>}
-    </div>
+    <ul className="!list-none !p-0 !m-0 flex gap-4 items-center">
+      {sourceCodeLink && (
+        <li className="!mt-0 !text-paragraph">
+          <a
+            href={sourceCodeLink}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            Source Code
+          </a>
+        </li>
+      )}
+      {figmaLink && (
+        <li className="!mt-0 !text-paragraph">
+          |&nbsp;
+          <a
+            href={figmaLink}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            Figma
+          </a>
+        </li>
+      )}
+      {designGuidelinesLink && (
+        <li className="!mt-0 !text-paragraph">
+          |&nbsp;
+          <a
+            href={designGuidelinesLink}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            Usage Guidelines
+          </a>
+        </li>
+      )}
+    </ul>
   )
 }
 
