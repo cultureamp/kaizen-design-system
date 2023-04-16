@@ -38,6 +38,8 @@ export const Playground: StoryObj<typeof meta> = {
   args: {
     type: "positive",
     title: "Success",
+    persistent: false,
+    hideCloseIcon: false,
   },
   parameters: {
     docs: {
