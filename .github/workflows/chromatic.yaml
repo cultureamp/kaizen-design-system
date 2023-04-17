@@ -29,8 +29,8 @@ jobs:
   visual-testing:
     needs: [paths-filter]
     if: >
-      (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-      github.event.pull_request.draft == false ||
+      contains(github.event.pull_request.labels.*.name, 'run chromatic') ||
+      (github.event.pull_request.draft == false && ! contains(github.event.pull_request.labels.*.name, 'run chromatic')) ||
       (github.ref == 'refs/heads/main' && needs.paths-filter.outputs.packages == 'true') ||
       startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
     runs-on: ubuntu-latest
