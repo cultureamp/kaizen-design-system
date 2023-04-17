@@ -8,7 +8,6 @@ on:
     types: [labeled, opened, synchronize, reopened, ready_for_review]
     branches-ignore:
       - changeset-release/main
-  push:
 
 jobs:
   paths-filter:
