@@ -1,12 +1,10 @@
 import "./tailwind.scss"
 import React from "react"
 import { Preview } from "@storybook/react"
-import { addParameters } from "@storybook/react"
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { QueryClient } from "@tanstack/react-query"
 import { createIntl, createIntlCache } from "react-intl"
-import { ThemeManager, heartTheme } from "@kaizen/components"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
-import { KaizenProvider } from "../packages/components"
+import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
 
@@ -18,8 +16,6 @@ import "highlight.js/styles/a11y-light.css"
 // intl object is expected to be provided by consumer. We will need
 // to create our own translation files that get picked up by CA's
 // intl object (somehow...)
-
-const themeManager = new ThemeManager(heartTheme)
 
 const cache = createIntlCache()
 const intl = createIntl(
