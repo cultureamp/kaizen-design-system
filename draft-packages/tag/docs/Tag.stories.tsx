@@ -88,19 +88,15 @@ export const Status: StoryFn = () => (
   </>
 )
 
+const avatarURL =
+  "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
 /**
  * Use the `profile` variant to show a user's profile image within a tag
  */
 export const Profile: StoryFn = () => (
   <Tag
     variant="profile"
-    avatar={
-      <Avatar
-        size="small"
-        avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
-        fullName="Jane Doe"
-      />
-    }
+    avatar={<Avatar size="small" avatarSrc={avatarURL} fullName="Jane Doe" />}
   >
     Jane Doe
   </Tag>
