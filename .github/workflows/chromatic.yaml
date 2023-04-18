@@ -12,10 +12,9 @@ on:
 jobs:
   visual-testing:
     if: >
-      github.event.pull_request.draft == false ||
-      contains(github.event.pull_request.labels.*.name, 'run chromatic') ||
       github.ref == 'refs/heads/main' ||
-      (github.event.pull_request.draft == false && startsWith(github.event.head_commit.message, 'Merge branch ''main'' into'))
+      github.event.pull_request.draft == false ||
+      contains(github.event.pull_request.labels.*.name, 'run chromatic')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
