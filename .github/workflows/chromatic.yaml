@@ -16,8 +16,7 @@ jobs:
   visual-testing:
     if: >
       github.ref == 'refs/heads/main' ||
-      github.event.pull_request.draft == false ||
-      contains(github.event.pull_request.labels.*.name, 'run chromatic')
+      github.event.label.name == 'run chromatic'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
