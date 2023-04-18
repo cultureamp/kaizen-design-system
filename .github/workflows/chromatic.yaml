@@ -13,11 +13,6 @@ on:
 
 jobs:
   paths-filter:
-    if: >
-      github.event.pull_request.draft == false ||
-      contains(github.event.pull_request.labels.*.name, 'run chromatic') ||
-      (github.ref == 'refs/heads/main' && needs.paths-filter.outputs.packages == 'true') ||
-      startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
     runs-on: ubuntu-latest
     outputs:
       packages: ${{ steps.filter.outputs.packages }}
@@ -38,7 +33,7 @@ jobs:
       github.event.pull_request.draft == false ||
       contains(github.event.pull_request.labels.*.name, 'run chromatic') ||
       (github.ref == 'refs/heads/main' && needs.paths-filter.outputs.packages == 'true') ||
-      startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
+      (github.event.pull_request.draft == false && startsWith(github.event.head_commit.message, 'Merge branch ''main'' into'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
