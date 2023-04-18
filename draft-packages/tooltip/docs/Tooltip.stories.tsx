@@ -172,7 +172,7 @@ export const Mood: StoryFn<typeof Tooltip> = () => (
 /**
  * Set the duration (milliseconds) of how long the tooltip should stay visible for
  */
-export const IntiallyVisible: StoryFn<typeof Tooltip> = () => (
+export const InitiallyVisible: StoryFn<typeof Tooltip> = () => (
   <div className="flex p-16 gap-16">
     <ContentWrapper>
       <Tooltip text="I didn't start visible">Default</Tooltip>
