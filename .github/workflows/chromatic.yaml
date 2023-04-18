@@ -16,7 +16,8 @@ jobs:
   visual-testing:
     if: >
       github.ref == 'refs/heads/main' ||
-      github.event.label.name == 'run chromatic'
+      github.event.label.name == 'run chromatic' ||
+      startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
