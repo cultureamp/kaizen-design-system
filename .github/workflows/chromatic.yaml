@@ -6,8 +6,13 @@ name: "chromatic"
 on:
   pull_request:
     types: [labeled, opened, synchronize, reopened, ready_for_review]
+    branches-ignore:
+      - changeset-release/main
+
   push:
     branches: [main]
+    branches-ignore:
+      - changeset-release/main
 
 jobs:
   visual-testing:
