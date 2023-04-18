@@ -1,5 +1,6 @@
 import React from "react"
 import { formatDescriptionInputFormat } from "../../utils/formatDescriptionInputFormat"
+import { translateMessageSafely } from "../../FilterDateRangePicker/utils/translateMessageSafely"
 import styles from "./DateInputDescription.module.scss"
 
 interface DescriptionInputFormatProps {
@@ -8,7 +9,7 @@ interface DescriptionInputFormatProps {
 
 const DescriptionInputFormat = ({ locale }): JSX.Element => (
   <span className={styles.descriptionInputFormat}>
-    <span>Input format</span>
+    <span>{translateMessageSafely("inputFormat", "Input format")}</span>
     <span className={styles.labelSeparator}>:</span>
     <span>{formatDescriptionInputFormat(locale)}</span>
   </span>

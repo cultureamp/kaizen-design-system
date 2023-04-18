@@ -31,6 +31,7 @@ import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
 import { DateRangeValidationStatus } from "./types"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
+import { translateMessageSafely } from "./utils/translateMessageSafely"
 import styles from "./FilterDateRangePicker.module.scss"
 
 type InputRangeStartProps = DateRangeInputFieldProps["inputRangeStartProps"]
@@ -108,8 +109,11 @@ export const FilterDateRangePicker = ({
     disabledBefore,
     disabledAfter,
   })
-  const inputRangeStartLabel = inputRangeStartProps?.labelText || "Date from"
-  const inputRangeEndLabel = inputRangeEndProps?.labelText || "Date to"
+  const inputRangeStartLabel =
+    inputRangeStartProps?.labelText ||
+    translateMessageSafely("dateFrom", "Date from")
+  const inputRangeEndLabel =
+    inputRangeEndProps?.labelText || translateMessageSafely("dateTo", "Date to")
 
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""

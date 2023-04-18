@@ -23,7 +23,9 @@ const intl = createIntl(
     locale: "fr",
     defaultLocale: "en",
     messages: {
-      myMessage: "Bonsoir bro",
+      dateFrom: "Le date frõm",
+      dateTo: "Le date tõ",
+      inputFormat: "Le input fõrmatte",
     },
   },
   cache
