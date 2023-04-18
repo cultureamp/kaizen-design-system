@@ -11,8 +11,6 @@ on:
 
   push:
     branches: [main]
-    branches-ignore:
-      - changeset-release/main
 
 jobs:
   visual-testing:
