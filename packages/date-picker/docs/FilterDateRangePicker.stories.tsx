@@ -3,6 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { StoryFn } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
+import { createIntl, createIntlCache, RawIntlProvider } from "react-intl"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
   DateRangeValidationStatus,
@@ -85,6 +86,51 @@ DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
 DefaultStory.args = {
+  id: "filter-drp--default",
+  onRemoveFilter: undefined,
+}
+
+export const WithINTLProvider = (
+  props: FilterDateRangePickerProps & {
+    validation?: DateRangeValidationStatus
+  }
+): JSX.Element => {
+  const { validation, status: _s, validationMessage: _v, ...restProps } = props
+  const [range, setRange] = useState<DateRange | undefined>()
+  const mergedProps = { ...restProps, ...validation }
+  const cache = createIntlCache()
+  const intlConfig = createIntl(
+    {
+      locale: "fr",
+      defaultLocale: "en",
+      messages: {
+        dateFrom: "Le date frõm",
+        dateTo: "Le date tõ",
+        inputFormat: "Le input fõrmatte",
+      },
+    },
+    cache
+  )
+
+  return (
+    <RawIntlProvider value={intlConfig}>
+      <FilterDateRangePicker
+        // Switching the trigger using the controls doesn't cause
+        // a full re-render which disassociates the floating wrapper
+        // as it uses ref.
+        // Add key to force re-render when onRemoveFiler is changed.
+        key={restProps.onRemoveFilter ? "defined" : "undefined"}
+        {...mergedProps}
+        selectedRange={range}
+        onRangeChange={setRange}
+      />
+    </RawIntlProvider>
+  )
+}
+WithINTLProvider.parameters = {
+  docs: { source: { type: "code" } },
+}
+WithINTLProvider.args = {
   id: "filter-drp--default",
   onRemoveFilter: undefined,
 }

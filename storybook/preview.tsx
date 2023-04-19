@@ -9,29 +9,6 @@ import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
 
 import "highlight.js/styles/a11y-light.css"
-// -----------------------------
-// Changes in this file are for testing fallback behaviour when
-// intl object is/isn't present.
-// Don't merge before resetting this file.
-// intl object is expected to be provided by consumer. We will need
-// to create our own translation files that get picked up by CA's
-// intl object (somehow...)
-
-const cache = createIntlCache()
-const intl = createIntl(
-  {
-    locale: "fr",
-    defaultLocale: "en",
-    messages: {
-      dateFrom: "Le date frõm",
-      dateTo: "Le date tõ",
-      inputFormat: "Le input fõrmatte",
-    },
-  },
-  cache
-)
-
-// -----------------------------
 
 const queryClient = new QueryClient()
 
@@ -66,7 +43,7 @@ const decorators = [
     const dir = props.args.textDirection ?? props.globals.textDirection
     return (
       <div dir={dir}>
-        <KaizenProvider intlConfig={intl}>
+        <KaizenProvider>
           <Story {...props} />
         </KaizenProvider>
       </div>
