@@ -40,7 +40,7 @@ steps:
   - name: ":books: Build Storybook"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
-    if: build.branch == "changeset-deploy-storybook" && (build.author.name == "gyfchong" || $FORCE_STORYBOOK_DEPLOY == true)
+    if: build.branch == "changeset-deploy-storybook" && (build.author.name == "gyfchong" || $FORCE_STORYBOOK_DEPLOY == false)
     artifact_paths: "./storybook.tar.gz"
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
