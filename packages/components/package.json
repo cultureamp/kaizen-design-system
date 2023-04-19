@@ -31,14 +31,17 @@
     "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
+    "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
     "test": "jest"
   },
   "dependencies": {
+    "@kaizen/button": "^2.1.2",
     "@kaizen/component-library": "^16.6.1",
     "@kaizen/draft-divider": "^2.2.8",
+    "@kaizen/draft-menu": "^4.9.2",
     "@kaizen/draft-tooltip": "^5.4.39",
     "@kaizen/hosted-assets": "^2.0.1",
+    "@kaizen/select": "^6.14.0",
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
     "@react-aria/button": "^3.7.0",
@@ -52,9 +55,12 @@
     "@react-types/shared": "^3.17.0",
     "classnames": "^2.3.2",
     "react-focus-on": "^3.8.0",
-    "react-popper": "^2.3.0"
+    "react-popper": "^2.3.0",
+    "react-query": "^3.39.3",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
+    "@cultureamp/frontend-testing": "^5.0.1",
     "@kaizen/tailwind": "^0.6.5",
     "@rollup/plugin-alias": "^4.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
@@ -71,7 +77,8 @@
     "rollup-plugin-postcss": "^4.0.2",
     "ts-jest": "^29.1.0",
     "ttypescript": "^1.5.15",
-    "typescript-transform-paths": "^3.4.6"
+    "typescript-transform-paths": "^3.4.6",
+    "use-debounce": "^9.0.4"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
