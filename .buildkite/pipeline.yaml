@@ -51,7 +51,7 @@ steps:
     command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
     # The canary branch is not able to update dev.cultureamp.design
-    if: build.branch == "main" && (build.author.name == "github-actions[bot]" || ${FORCE_STORYBOOK_DEPLOY} == "true")
+    if: build.branch == "main" && (build.author.name == "github-actions[bot]")
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
