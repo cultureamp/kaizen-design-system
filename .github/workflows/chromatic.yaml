@@ -51,9 +51,3 @@ jobs:
               "packages/component-library/components/Spacing/Base.module.scss"
             ]
           autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
-
-      - name: Remove "run chromatic" label
-        uses: actions-ecosystem/action-remove-labels@v1
-        if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'failure' }}
-        with:
-          labels: run chromatic
