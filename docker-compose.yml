@@ -16,7 +16,6 @@ x-defaults: &defaults
     - GITHUB_STATUS_TOKEN
     - BUILDKITE_BRANCH
     - GITHUB_REGISTRY_TOKEN
-    - FORCE_STORYBOOK_DEPLOY
 
 services:
   build:
