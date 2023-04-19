@@ -3,6 +3,7 @@ env:
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
+  FORCE_STORYBOOK_DEPLOY: ${FORCE_STORYBOOK_DEPLOY}
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -50,7 +51,7 @@ steps:
     command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
     # The canary branch is not able to update dev.cultureamp.design
-    if: build.branch == "main" && build.author.name == "github-actions[bot]"
+    if: build.branch == "main" && (build.author.name == "github-actions[bot]" || ${FORCE_STORYBOOK_DEPLOY} == true)
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
