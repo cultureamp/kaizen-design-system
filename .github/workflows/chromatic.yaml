@@ -8,9 +8,7 @@ on:
     types: [labeled, synchronize]
     branches-ignore:
       - changeset-release/main
-
   push:
-    branches: [main]
 
 jobs:
   visual-testing:
