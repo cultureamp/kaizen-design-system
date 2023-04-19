@@ -165,9 +165,13 @@ Note that in the case that a pull request touches files from more than one packa
 
 #### Updating documentation only
 
-If you are only updating documentation (eg. including extra detail about existing features), you can add the `force storybook publish` label to your pull request.
+Typically we try to publish our stories together with changes to a component to prevent the documentation available to our consumers from going out of sync with updates made to the component. This is facilitated by a condition that will only publish storybook when the Changeset PR is merged.
 
-Typically we try to publish our stories together with changes to a component to prevent the documentation available to our consumers from going out of sync with updates made to the component. This is facilitated by a condition that will only publish storybook when the Changeset PR is merged, however there are many valid use cases where we'd want to ensure our docs are updated in a timely manner.
+But in the unlikely case you are only updating documentation and not any components, you can tell Buildkite to publish your storybook immediately when your PR is merged to `main`:
+
+1. Have your PR approved.
+2. Add the `deploy storybook` label
+3. Await a merge.
 
 ## Canary releases
 
