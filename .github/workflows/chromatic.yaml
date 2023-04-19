@@ -5,39 +5,18 @@ name: "chromatic"
 
 on:
   pull_request:
-    types: [labeled]
+    types: [labeled, synchronize]
     branches-ignore:
       - changeset-release/main
-  pull_request_review:
-    types: [submitted]
-    branches-ignore:
-      - changeset-release/main
+
   push:
-    branches-ignore:
-      - changeset-release/main
+    branches: [main]
 
 jobs:
-  paths-filter:
-    runs-on: ubuntu-latest
-    outputs:
-      packages: ${{ steps.filter.outputs.packages }}
-    steps:
-      - uses: actions/checkout@v2
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            packages:
-              - 'packages/**'
-              - 'draft-packages/**'
-              - 'storybook/**'
-
   visual-testing:
-    needs: [paths-filter]
     if: >
-      (github.event.action == 'labeled' && github.event.label.name == 'run chromatic') ||
-      github.event.review.state == 'approved' ||
-      (github.ref == 'refs/heads/main' && needs.paths-filter.outputs.packages == 'true') ||
+      github.ref == 'refs/heads/main' ||
+      github.event.label.name == 'run chromatic' ||
       startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
     runs-on: ubuntu-latest
     steps:
