@@ -4,9 +4,9 @@ set -e
 # shellcheck source=setup-registry.sh
 . ".buildkite/scripts/helpers/setup-registry.sh"
 
-if [ "$FORCE_STORYBOOK_DEPLOY" = true ]; then
+if [ "$FORCE_STORYBOOK_DEPLOY" = "true" ]; then
   echo "Force is with you"
-elif [ "$FORCE_STORYBOOK_DEPLOY" = false ]; then
+elif [ "$FORCE_STORYBOOK_DEPLOY" = "false" ]; then
   echo "No force for you"
 else
   echo "not found"
