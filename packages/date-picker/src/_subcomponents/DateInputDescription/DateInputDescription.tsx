@@ -1,6 +1,6 @@
 import React from "react"
-import { formatDescriptionInputFormat } from "../../utils/formatDescriptionInputFormat"
 import { translateMessageSafely } from "../../FilterDateRangePicker/utils/translateMessageSafely"
+import { formatDescriptionInputFormat } from "../../utils/formatDescriptionInputFormat"
 import styles from "./DateInputDescription.module.scss"
 
 interface DescriptionInputFormatProps {

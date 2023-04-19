@@ -1,16 +1,12 @@
 import "./tailwind.scss"
 import React from "react"
 import { Preview } from "@storybook/react"
-import { QueryClient } from "@tanstack/react-query"
-import { createIntl, createIntlCache } from "react-intl"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
 
 import "highlight.js/styles/a11y-light.css"
-
-const queryClient = new QueryClient()
 
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible

@@ -1,6 +1,9 @@
 import { useIntl } from "react-intl"
 
-export const translateMessageSafely = (id: string, defaultMessage: string) => {
+export const translateMessageSafely = (
+  id: string,
+  defaultMessage: string
+): string => {
   let message: string
 
   try {
