@@ -1,6 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
@@ -9,13 +8,12 @@ import {
   Informative,
 } from "@kaizen/draft-illustration"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
-import { figmaEmbed } from "../../../storybook/helpers"
 import { LoadingGraphic } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}/Loading Graphic`,
+  tags: ["autodocs"],
+  title: "Components/Loading/Loading Graphic",
   component: LoadingGraphic,
   parameters: {
     docs: {
@@ -23,20 +21,16 @@ export default {
         component: 'import { LoadingGraphic } from "@kaizen/loading-skeleton"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=4496%3A1"
-    ),
   },
-  decorators: [withDesign],
 }
 
-export const DefaultLoadingGraphic: ComponentStory<
-  typeof LoadingGraphic
-> = args => <LoadingGraphic {...args} />
+export const DefaultLoadingGraphic: StoryFn<typeof LoadingGraphic> = args => (
+  <LoadingGraphic {...args} />
+)
 DefaultLoadingGraphic.storyName = "Loading Graphic"
 DefaultLoadingGraphic.args = { size: "xlarge" }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

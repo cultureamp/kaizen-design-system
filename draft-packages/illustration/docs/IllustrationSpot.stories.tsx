@@ -1,7 +1,6 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   AccountBasics,
   Action,
@@ -133,7 +132,8 @@ import {
 } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Spot`,
+  tags: ["autodocs"],
+  title: "Components/Spot",
   component: AccountBasics,
   parameters: {
     docs: {
@@ -145,9 +145,7 @@ export default {
   },
 }
 
-export const SpotStoryForKaizenSite: ComponentStory<
-  typeof AccountBasics
-> = args => (
+export const SpotStoryForKaizenSite: StoryFn<typeof AccountBasics> = args => (
   <div style={{ width: "150px" }}>
     <AccountBasics {...args} />
   </div>
@@ -164,7 +162,7 @@ const IllustrationExampleTile = ({ Component, name }): JSX.Element => (
   </div>
 )
 
-export const AllSpotIllustrations: Story = () => {
+export const AllSpotIllustrations: StoryFn = () => {
   const engagementSpots = [
     {
       Component: BenefitsSurvey,
@@ -756,7 +754,7 @@ export const AllSpotIllustrations: Story = () => {
 }
 AllSpotIllustrations.parameters = { chromatic: { disable: false } }
 
-export const AnimatedSpot: Story<AnimatedSpotProps> = args => (
+export const AnimatedSpot: StoryFn<AnimatedSpotProps> = args => (
   <div style={{ width: "156px" }}>
     <Cautionary isAnimated loop {...args} />
     <Informative isAnimated loop {...args} />

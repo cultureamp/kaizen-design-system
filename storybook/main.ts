@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "path"
+import { StorybookConfig } from "@storybook/react-webpack5"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -8,44 +9,44 @@ import path from "path"
  */
 const getStoryPathsFromEnv = (): string[] | false => {
   if (!process.env.STORIES) return false
-
   const storyPath = path.join(__dirname, "../", process.env.STORIES)
-
   if (fs.existsSync(storyPath)) {
     if (fs.statSync(storyPath).isDirectory()) {
-      return [path.join(storyPath, "**/*.stories.tsx")]
+      return [
+        path.join(storyPath, "**/*.stories.tsx"),
+        path.join(storyPath, "**/*.mdx"),
+      ]
     }
   }
-
   return [storyPath]
 }
 
 const defaultStoryPaths = [
-  "../packages/**/*.stories.tsx",
-  "../packages/**/*.stories.mdx",
-  "../docs/**/*.stories.mdx",
-  "../docs/**/*.stories.tsx",
-  "../draft-packages/**/!(deprecated.)*.stories.tsx",
+  "../(docs|draft-packages|packages)/**/*.mdx",
+  "../(docs|draft-packages|packages)/**/*.stories.tsx",
 ]
 
-module.exports = {
-  core: {
-    builder: "webpack5",
-  },
-  mode: "production",
+const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
-  addons: [
-    path.resolve("./storybook/gtm-addon/register"),
-    {
-      name: "@storybook/addon-docs",
-      options: {
-        transcludeMarkdown: true,
+  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
+  staticDirs: [{ from: "./assets", to: "/static/media" }],
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      skipChildrenPropWithoutDoc: false,
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop): boolean => {
+        const isHTMLElementProp =
+          prop.parent?.fileName.includes("node_modules/@types/react") ?? false
+
+        return !isHTMLElementProp
       },
     },
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "storybook-addon-designs",
-  ],
-  presets: [path.resolve("./storybook/header-preset/preset")],
-  staticDirs: [{ from: "./assets", to: "/static/media" }],
-}
+  },
+} satisfies StorybookConfig
+
+export default config

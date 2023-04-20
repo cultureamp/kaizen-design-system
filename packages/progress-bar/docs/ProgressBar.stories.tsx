@@ -1,12 +1,11 @@
 import React from "react"
-import { Story, ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers/figmaEmbed"
 import { ProgressBar } from "../index"
 
 export default {
-  title: `${CATEGORIES.components}/Progress Bar`,
+  tags: ["autodocs"],
+  title: "Components/Progress Bar",
   component: ProgressBar,
   parameters: {
     docs: {
@@ -14,13 +13,10 @@ export default {
         component: 'import { ProgressBar } from "@kaizen/progress-bar"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A20890"
-    ),
   },
 }
 
-export const DefaultStory: ComponentStory<typeof ProgressBar> = args => (
+export const DefaultStory: StoryFn<typeof ProgressBar> = args => (
   <ProgressBar {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
@@ -33,7 +29,7 @@ DefaultStory.args = {
   isReversed: false,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

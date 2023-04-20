@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
@@ -17,6 +17,7 @@ import {
 const IS_CHROMATIC = isChromatic()
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter Select",
   component: FilterSelect,
   argTypes: {
@@ -42,9 +43,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FilterSelect>
+} satisfies Meta<typeof FilterSelect>
 
-export const DefaultStory: ComponentStory<typeof FilterSelect> = args => {
+export const DefaultStory: StoryFn<typeof FilterSelect> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return <FilterSelect {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -61,7 +62,7 @@ DefaultStory.args = {
 /**
  * Extend the option type to have additional properties to use for rendering.
  */
-export const AdditionalProperties: Story = () => {
+export const AdditionalProperties: StoryFn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -101,7 +102,7 @@ export const AdditionalProperties: Story = () => {
 }
 AdditionalProperties.storyName = "Additional option properties"
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   // Only open the dropdowns in Chromatic as the focus locks clash with
   // each other in Storybook.
   const [isOpenDefaultSingle, setIsOpenDefaultSingle] =

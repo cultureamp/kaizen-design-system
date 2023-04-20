@@ -1,6 +1,6 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react"
-import ContextModal, { ContextModalProps } from "./ContextModal"
+import { ContextModal, ContextModalProps } from "./ContextModal"
 import "./matchMedia.mock"
 
 const ContextModalWrapper = (

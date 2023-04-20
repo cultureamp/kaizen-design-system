@@ -26,7 +26,7 @@ export type ButtonProps = GenericProps &
  * {@link https://cultureamp.design/components/button/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-button--default-kaizen-site-demo Storybook}
  */
-const Button = forwardRef(
+export const Button = forwardRef(
   (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
     <GenericButton {...props} ref={ref} />
   )
@@ -45,5 +45,3 @@ Button.defaultProps = {
 }
 
 Button.displayName = "Button"
-
-export default Button

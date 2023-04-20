@@ -1,6 +1,6 @@
 import React from "react"
 import { render, fireEvent } from "@testing-library/react"
-import InputEditModal, { InputEditModalProps } from "./InputEditModal"
+import { InputEditModal, InputEditModalProps } from "./InputEditModal"
 import "./matchMedia.mock"
 
 const InputEditModalWrapper = (

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import {
@@ -7,11 +7,11 @@ import {
   RichTextEditor,
   EditorContentArray,
 } from "@kaizen/rich-text-editor"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Editable Rich Text Content`,
+  tags: ["autodocs"],
+  title: "Components/Rich Text Content/Editable Rich Text Content",
   component: EditableRichTextContent,
   parameters: {
     docs: {
@@ -23,7 +23,7 @@ export default {
   },
 }
 
-export const EditableRichTextContentStory: ComponentStory<
+export const EditableRichTextContentStory: StoryFn<
   typeof InlineEditor
 > = args => <InlineEditor {...args} />
 EditableRichTextContentStory.storyName = "Default"

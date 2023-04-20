@@ -8,7 +8,7 @@ export interface ModalAccessibleLabelProps {
   readonly isProminent?: boolean
 }
 
-const ModalAccessibleLabel = ({
+export const ModalAccessibleLabel = ({
   children,
   isProminent = false,
 }: ModalAccessibleLabelProps): JSX.Element => (
@@ -27,4 +27,4 @@ const ModalAccessibleLabel = ({
   </ModalAccessibleContext.Consumer>
 )
 
-export default ModalAccessibleLabel
+ModalAccessibleLabel.displayName = "ModalAccessibleLabel"

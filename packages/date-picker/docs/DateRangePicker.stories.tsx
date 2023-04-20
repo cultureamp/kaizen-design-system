@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { DateRangePicker, DateRangePickerProps } from "../src/DateRangePicker"
 import { formatDateRangeValue } from "../src/DateRangePicker/utils/formatDateRangeValue"
 import { LegacyCalendarRange } from "../src/_subcomponents/Calendar"
 import { DateRange } from "../src/types"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Range Picker`,
+  tags: ["autodocs"],
+  title: "Components/Date Range Picker",
   component: DateRangePicker,
   parameters: {
     docs: {
@@ -18,13 +17,10 @@ export default {
         component: 'import { DateRangePicker } from "@kaizen/date-picker"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=10458%3A45652"
-    ),
   },
 }
 
-export const DateRangePickerStoryDefault: ComponentStory<
+export const DateRangePickerStoryDefault: StoryFn<
   typeof DateRangePicker
 > = props => <DateRangePickerTemplate {...props} />
 DateRangePickerStoryDefault.storyName = "Date Range Picker"
@@ -61,7 +57,7 @@ const DateRangePickerTemplate = (
   )
 }
 
-const LegacyCalendarRangeTemplate: Story = props => {
+const LegacyCalendarRangeTemplate: StoryFn = props => {
   const selectedDateRange = {
     from: undefined,
     to: undefined,
@@ -80,7 +76,7 @@ const LegacyCalendarRangeTemplate: Story = props => {
   )
 }
 
-const DateRangePickerStickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const DateRangePickerStickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const selectedDateRange = {

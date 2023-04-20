@@ -46,7 +46,7 @@ export type ContextModalProps = Readonly<
  * {@link https://cultureamp.design/components/modal/#context-modals-previously-information-modal Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-modal--context-modal-example Storybook}
  */
-const ContextModal = ({
+export const ContextModal = ({
   isOpen,
   unpadded = false,
   layout = "portrait",
@@ -147,4 +147,4 @@ const ContextModal = ({
   )
 }
 
-export default ContextModal
+ContextModal.displayName = "ContextModal"

@@ -1,16 +1,14 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Divider`,
+  tags: ["autodocs"],
+  title: "Components/Divider",
   component: Divider,
   parameters: {
     docs: {
@@ -18,14 +16,10 @@ export default {
         component: 'import { Divider } from "@kaizen/draft-divider"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14040"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof Divider>
+} satisfies Meta<typeof Divider>
 
-export const DefaultStory: ComponentStory<typeof Divider> = args => (
+export const DefaultStory: StoryFn<typeof Divider> = args => (
   <Box m={1}>
     <Divider {...args} />
   </Box>
@@ -35,7 +29,7 @@ DefaultStory.args = {
   variant: "canvas",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

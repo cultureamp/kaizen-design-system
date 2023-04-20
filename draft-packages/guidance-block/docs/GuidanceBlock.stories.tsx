@@ -1,6 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
@@ -14,15 +13,14 @@ import {
 import { Tag } from "@kaizen/draft-tag"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { GuidanceBlockProps } from "../KaizenDraft/GuidanceBlock/GuidanceBlock"
 
 const ICON_EXTERNAL_LINK =
   require("@kaizen/component-library/icons/external-link.icon.svg").default
 
 export default {
-  title: `${CATEGORIES.components}/Guidance Block`,
+  tags: ["autodocs"],
+  title: "Components/Guidance Block",
   component: GuidanceBlock,
   parameters: {
     docs: {
@@ -32,11 +30,7 @@ export default {
       },
     },
     backgrounds: { default: "Gray 100" },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A39077"
-    ),
   },
-  decorators: [withDesign],
 }
 
 const GUIDANCE_BLOCK_TEXT = {
@@ -46,7 +40,7 @@ const GUIDANCE_BLOCK_TEXT = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-export const DefaultStory: ComponentStory<typeof GuidanceBlock> = args => (
+export const DefaultStory: StoryFn<typeof GuidanceBlock> = args => (
   <GuidanceBlock
     actions={{
       primary: {
@@ -135,7 +129,7 @@ const CustomContent = (): JSX.Element => (
   </>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>
@@ -262,7 +256,7 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
 }
 
-export const Layouts: Story = () => (
+export const Layouts: StoryFn = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
       Default
@@ -403,7 +397,7 @@ export const Layouts: Story = () => (
 )
 Layouts.parameters = { chromatic: { disable: false } }
 
-export const AspectRatio: Story = () => (
+export const AspectRatio: StoryFn = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "36px" }}>
     <Heading tag="h2" variant="heading-4">
       Scene example

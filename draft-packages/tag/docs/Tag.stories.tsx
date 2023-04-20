@@ -1,14 +1,12 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { Avatar } from "@kaizen/draft-avatar"
 import { Tag } from "@kaizen/draft-tag"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Tag`,
+  tags: ["autodocs"],
+  title: "Components/Tag",
   component: Tag,
   parameters: {
     docs: {
@@ -16,21 +14,17 @@ export default {
         component: 'import { Tag } from "@kaizen/draft-tag"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A90332"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof Tag>
 
-export const DefaultStory: ComponentStory<typeof Tag> = args => (
+export const DefaultStory: StoryFn<typeof Tag> = args => (
   <Tag variant="default" {...args}>
     Default
   </Tag>
 )
 DefaultStory.storyName = "Tag"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

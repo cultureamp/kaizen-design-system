@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
@@ -9,6 +9,7 @@ import { Filter, FilterContents } from ".."
 const IS_CHROMATIC = isChromatic()
 
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter",
   component: Filter,
   parameters: {
@@ -19,9 +20,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Filter>
+} satisfies Meta<typeof Filter>
 
-export const DefaultStory: ComponentStory<typeof Filter> = () => {
+export const DefaultStory: StoryFn<typeof Filter> = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Filter
@@ -37,7 +38,7 @@ export const DefaultStory: ComponentStory<typeof Filter> = () => {
 }
 DefaultStory.storyName = "Filter"
 
-export const RemovableFilter: Story = () => {
+export const RemovableFilter: StoryFn = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Filter
@@ -60,7 +61,7 @@ export const RemovableFilter: Story = () => {
   )
 }
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true)
 
   return (

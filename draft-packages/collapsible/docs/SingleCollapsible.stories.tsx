@@ -1,12 +1,11 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import { Collapsible } from "@kaizen/draft-collapsible"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 import styles from "./Collapsible.stories.module.scss"
 
 const ListItem = ({ children }: { children: JSX.Element }): JSX.Element => (
@@ -23,18 +22,18 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: `${CATEGORIES.components}/Collapsible/Single Collapsible`,
+  tags: ["autodocs"],
+  title: "Components/Collapsible",
   component: Collapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },
     docs: {
       description: {
-        component:
-          'import { Collapsible, CollapsibleGroup, ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
+        component: 'import { Collapsible } from "@kaizen/draft-collapsible";',
       },
     },
   },
-} as ComponentMeta<typeof Collapsible>
+} satisfies Meta<typeof Collapsible>
 
 const SingleCollapsibleNoPadding = (): JSX.Element => (
   <Collapsible
@@ -111,7 +110,7 @@ const SingleCollapsibleLazyLoad = (): JSX.Element => (
   </Collapsible>
 )
 
-export const SingleCollapsibleKaizenSiteDemo: ComponentStory<
+export const SingleCollapsibleKaizenSiteDemo: StoryFn<
   typeof Collapsible
 > = args => (
   <Collapsible {...args}>
@@ -125,7 +124,7 @@ SingleCollapsibleKaizenSiteDemo.args = {
   title: "Single Collapsible",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

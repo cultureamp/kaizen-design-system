@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.5.0...@kaizen/notification@1.5.1) (2023-04-06)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.9...@kaizen/notification@1.5.0) (2023-04-05)
+
+
+### Features
+
+* **notification:** add isSubtle prop to inline notification ([#3438](https://github.com/cultureamp/kaizen-design-system/issues/3438)) ([3d980cb](https://github.com/cultureamp/kaizen-design-system/commit/3d980cbb101a12a2ceb611705f518bf9186ea05f))
+
+
+
+
+
+## [1.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.8...@kaizen/notification@1.4.9) (2023-04-05)
+
+**Note:** Version bump only for package @kaizen/notification
+
+
+
+
+
 ## [1.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/notification@1.4.7...@kaizen/notification@1.4.8) (2023-03-29)
 
 **Note:** Version bump only for package @kaizen/notification

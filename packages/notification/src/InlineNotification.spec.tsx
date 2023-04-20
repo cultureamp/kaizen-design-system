@@ -1,7 +1,7 @@
-import * as React from "react"
+import React from "react"
 import { render, screen } from "@testing-library/react"
 import { HeadingProps } from "@kaizen/typography"
-import InlineNotification from "./InlineNotification"
+import { InlineNotification } from "./InlineNotification"
 
 describe("<InlineNotification />", () => {
   it("renders a basic notification correctly", () => {
