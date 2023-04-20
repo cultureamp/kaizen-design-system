@@ -115,17 +115,17 @@ Playground.args = {
   renderTrigger: "Filter Button",
 }
 
-const commonProps = {
-  locale: "en-AU",
-  renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
-    <FilterButton {...triggerButtonProps} />
-  ),
-}
-
 /**
  * Selected value will only be passed into the Filter Button when date range has both a Start and End date.
  */
 export const SelectedRange: StoryFn = () => {
+  const commonProps = {
+    locale: "en-AU",
+    renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
+      <FilterButton {...triggerButtonProps} />
+    ),
+  }
+
   const [isOpenNotSelected, setIsOpenNotSelected] = useState<boolean>(false)
   const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
   const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
@@ -181,9 +181,12 @@ export const Description: StoryFn = () => {
 
   return (
     <FilterDateRangePicker
-      {...commonProps}
       id="filterdrp--description"
       label="Open to see description"
+      locale="en-AU"
+      renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
+        <FilterButton {...triggerButtonProps} />
+      )}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       selectedRange={undefined}
@@ -202,9 +205,12 @@ export const ExtendInputProps: StoryFn = () => {
 
   return (
     <FilterDateRangePicker
-      {...commonProps}
       id="filterdrp--extend-input-props"
       label="Check the DOM for the inputs"
+      locale="en-AU"
+      renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
+        <FilterButton {...triggerButtonProps} />
+      )}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       selectedRange={undefined}
