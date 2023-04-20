@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Factory, faker } from "@cultureamp/frontend-testing"
 import { FilterOption } from "../types"
 
 const userFactory = Factory.Sync.makeFactory<FilterOption>({
-  value: Factory.each((i) => faker.datatype.uuid()),
+  value: Factory.each(i => faker.datatype.uuid()),
   label: Factory.each(
     () => `${faker.name.firstName()} ${faker.name.lastName()}`
   ),
 })
 
 const departmentFactory = Factory.Sync.makeFactory<FilterOption>({
-  value: Factory.each((i) => faker.datatype.uuid()),
+  value: Factory.each(i => faker.datatype.uuid()),
   label: Factory.each(() => faker.commerce.department()),
 })
 

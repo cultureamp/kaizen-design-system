@@ -242,7 +242,7 @@ export const ExpandableFilterConditionalFilters = () => {
       return state
     }
 
-    if (Math.max(params?.managers?.length, 0) > 0 && !reportsFilter) {
+    if (Math.max(params?.managers?.length || 0, 0) > 0 && !reportsFilter) {
       setFilters(
         state.filters.concat({
           id: "reports",
@@ -262,7 +262,7 @@ export const ExpandableFilterConditionalFilters = () => {
       return state
     }
 
-    if (Math.max(params?.managers?.length, 0) < 1 && reportsFilter) {
+    if (Math.max(params?.managers?.length || 0, 0) < 1 && reportsFilter) {
       setParams({ ...params, reports: undefined })
 
       setFilters(state.filters.filter(f => f.id !== "reports"))
