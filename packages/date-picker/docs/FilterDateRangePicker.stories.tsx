@@ -28,7 +28,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { FilterDateRangePicker } from "@kaizen/date-picker"',
+          '⛔️ This component is deprecated. No further changes will be made to it as it will be superseded by `<FilterDateRangePicker>` from `@kaizen/components`.<br/><br/>`import { FilterDateRangePicker } from "@kaizen/date-picker"`',
       },
     },
   },
