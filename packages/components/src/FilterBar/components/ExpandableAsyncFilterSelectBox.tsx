@@ -1,7 +1,8 @@
-import { FilterMultiSelect, ItemType } from "@kaizen/select"
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useRef } from "react"
 import { useInfiniteQuery } from "react-query"
-import useDebounce from "use-debounce/lib/useDebounce"
+import { useDebounce } from "use-debounce"
+import { FilterMultiSelect, ItemType } from "@kaizen/select"
 import { useExpandableFilterSelect } from "../hooks/useExpandableFilterSelect"
 import { useExpandableFilterState } from "../hooks/useExpandableFilterState"
 import { FilterOption, FilterValues, IFilter } from "../types"
@@ -10,7 +11,10 @@ type Cursor = {
   next: string | number | null
 }
 
-type Response = { options: FilterOption<string | number>[]; cursor: Cursor }
+type Response = {
+  options: Array<FilterOption<string | number>>
+  cursor: Cursor
+}
 
 export type Fetch = (
   searchTerm: string,
@@ -26,7 +30,7 @@ export const ExpandableAsyncSelectBox = ({
   fetch: Fetch
 }) => {
   const { filters, dispatch, values } = useExpandableFilterState()
-  const activeFilter = filters.find((f) => f.id === id)
+  const activeFilter = filters.find(f => f.id === id)
   if (!activeFilter) {
     return null
   }
@@ -67,16 +71,16 @@ const AsyncSelect = ({
           { next: pageParam },
           filterbarValues.current
         ),
-      getNextPageParam: (lastPage) => lastPage.cursor.next,
+      getNextPageParam: lastPage => lastPage.cursor.next,
       keepPreviousData: true,
       enabled: open,
     })
 
-  const options = data?.pages.flatMap((p) => p.options) || []
+  const options = data?.pages.flatMap(p => p.options) || []
 
   const { selectedOptions, onCheckboxChange, setOpen } =
     useExpandableFilterSelect(filter, options)
-  const labels = selectedOptions.map((v) => v.label)
+  const labels = selectedOptions.map(v => v.label)
 
   return (
     <FilterMultiSelect
@@ -86,8 +90,8 @@ const AsyncSelect = ({
       loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
       label={filter.name}
       onSelectionChange={onCheckboxChange}
-      onSearchInputChange={(query) => setSearchString(query)}
-      selectedKeys={new Set(selectedOptions.map((o) => o.value))}
+      onSearchInputChange={query => setSearchString(query)}
+      selectedKeys={new Set(selectedOptions.map(o => o.value))}
       items={options as ItemType[]}
       trigger={() =>
         filter.removable ? (
@@ -104,7 +108,7 @@ const AsyncSelect = ({
         )
       }
     >
-      {(context) => (
+      {context => (
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
@@ -121,7 +125,7 @@ const AsyncSelect = ({
                   </div>
                 )
               }
-              return allItems.map((item) => (
+              return allItems.map(item => (
                 <FilterMultiSelect.Option key={item.key} item={item} />
               ))
             }}

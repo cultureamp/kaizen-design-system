@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from "react"
 import { Button } from "@kaizen/button"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"

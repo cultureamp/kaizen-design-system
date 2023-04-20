@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useCallback } from "react"
 import uniqBy from "ramda/src/uniqBy"
 import { Selection } from "@kaizen/select"
@@ -23,9 +24,10 @@ export const useBaseFilterSelect = <
   onChange,
 }: BaseFilterSelectProps<Values, Filter>) => {
   // needs to convert to set
-  const selectedOptions: FilterOption[] = React.useMemo(() => {
-    return values[filter.id] || []
-  }, [filter.id, values])
+  const selectedOptions: FilterOption[] = React.useMemo(
+    () => values[filter.id] || [],
+    [filter.id, values]
+  )
 
   // convert back to label and value
   const onCheckboxChange = useCallback(
@@ -39,7 +41,7 @@ export const useBaseFilterSelect = <
        * This feels like a bug with the interface/component/library again in that numbers are okay but when you use them,
        * the values thrown up are all strings. Thus the conversion first
        * */
-      const convertedOptions = [...options, ...selectedOptions].map((o) => ({
+      const convertedOptions = [...options, ...selectedOptions].map(o => ({
         ...o,
         value: String(o.value),
       }))
@@ -49,7 +51,7 @@ export const useBaseFilterSelect = <
        * async select that will already account for this, we can have simpler logic here.
        */
       return onChange(
-        uniqBy((o) => o.value, convertedOptions).filter((option) =>
+        uniqBy(o => o.value, convertedOptions).filter(option =>
           selected.has(String(option.value))
         )
       )

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { FilterOption, IBaseFilter } from "../types"
 import { useBaseFilterSelect } from "./useBaseFilterSelect"
 import { useSimpleFilterState } from "./useSimpleFilterState"
@@ -13,7 +14,7 @@ export const useSimpleFilterSelect = <T extends IBaseFilter<any>>(
     filter,
     options,
     values,
-    onChange: (value) =>
+    onChange: value =>
       dispatch({
         data: { id: filter.id, value },
         type: "setFilterValue",

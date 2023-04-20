@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { createContext, Provider, useContext } from "react"
 import { FilterValues, SimpleFilterContainerProps } from "../types"
 

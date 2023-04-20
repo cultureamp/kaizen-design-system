@@ -1,13 +1,14 @@
-import React from "react"
-import { ComponentMeta } from "@cultureamp/frontend-storybook"
-import { useQueryParam, JsonParam } from "use-query-params"
-import { SimpleFilterContainer } from "./components/SimpleFilterContainer"
-import { FilterOption, IBaseFilter } from "./types"
-import { useSimpleFilter } from "./hooks/useSimpleFilter"
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import React, { useState } from "react"
+import { Meta } from "@storybook/react"
+import { SimpleFilterContainer } from "../components/SimpleFilterContainer"
+import { useSimpleFilter } from "../hooks/useSimpleFilter"
+import { FilterOption, IBaseFilter } from "../types"
 
 type Values = {
-  userStatus: FilterOption<string>[]
-  gender: FilterOption<string>[]
+  userStatus: Array<FilterOption<string>>
+  gender: Array<FilterOption<string>>
 }
 
 const userStatusOptions = [
@@ -21,7 +22,7 @@ const genderOptions = [
   { label: "Non-binary", value: "non-binary" },
 ]
 
-const filters: IBaseFilter<Values>[] = [
+const filters: Array<IBaseFilter<Values>> = [
   {
     id: "userStatus",
     name: "User Status",
@@ -42,29 +43,26 @@ const filters: IBaseFilter<Values>[] = [
 ]
 
 export default {
+  tags: ["autodocs"],
+  title: "Components/Filter Bar/Simple Filter",
   component: SimpleFilterContainer,
-} as ComponentMeta<typeof SimpleFilterContainer>
+} satisfies Meta<typeof SimpleFilterContainer>
 
 export const SimpleFilter = () => {
-  const [params, setParams] = useQueryParam("filter", JsonParam)
-
-  const updateUrl = (values: Values) => {
-    setParams(values)
-  }
+  const [params, setParams] = useState<Values>({
+    userStatus: [],
+    gender: [],
+  })
 
   const state = useSimpleFilter<Values>({
     filters,
     values: params,
-    onValuesChange: updateUrl,
+    onValuesChange: setParams,
   })
 
   return (
     <>
-      <SimpleFilterContainer
-        dispatch={state.dispatch}
-        values={state.values}
-        filters={state.filters}
-      />
+      <SimpleFilterContainer {...state} />
       <pre>
         {JSON.stringify({ values: state.values }, null, 2)}
         {JSON.stringify(

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useEffect } from "react"
 import {
   ExpandableReducer,
@@ -29,7 +30,7 @@ export const useExpandableFilter = <Values extends FilterValues>(
   })
 
   useEffect(() => {
-    setState((s) => ({ ...s, ...calculateFiltersState(filters) }))
+    setState(s => ({ ...s, ...calculateFiltersState(filters) }))
   }, [filters])
 
   /**
@@ -64,7 +65,7 @@ export const useExpandableFilter = <Values extends FilterValues>(
           const { [event.data.id]: filterId = undefined, ...updatedValues } =
             values
           onValuesChange(updatedValues as Values)
-          return setState((s) => r(s, event, helpers))
+          return setState(s => r(s, event, helpers))
         }
         case "setFilterVisibility": {
           const { id, visibility } = event.data
@@ -75,14 +76,14 @@ export const useExpandableFilter = <Values extends FilterValues>(
             onValuesChange(updatedValues)
           }
 
-          return setState((s) => r(s, event, helpers))
+          return setState(s => r(s, event, helpers))
         }
         case "clearFilters": {
           onValuesChange({} as Values)
-          return setState((s) => r(s, event, helpers))
+          return setState(s => r(s, event, helpers))
         }
         default:
-          return setState((s) => r(s, event, helpers))
+          return setState(s => r(s, event, helpers))
       }
     },
     [r, values, filters, onValuesChange]

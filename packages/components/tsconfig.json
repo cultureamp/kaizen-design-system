@@ -28,6 +28,10 @@
     ]
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*", "icons/**/*"],
+  "include": [
+    "src/**/*",
+    "icons/**/*",
+    "../../storybook/components/RouterWrapper.tsx"
+  ],
   "exclude": ["node_modules"]
 }

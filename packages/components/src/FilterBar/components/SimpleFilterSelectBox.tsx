@@ -1,18 +1,19 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from "react"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { useSimpleFilterSelect } from "../hooks/useSimpleFilterSelect"
-import { FilterOption, FilterValues, IBaseFilter } from "../types"
 import { useSimpleFilterState } from "../hooks/useSimpleFilterState"
+import { FilterOption, FilterValues, IBaseFilter } from "../types"
 
 export const SimpleFilterSelectBox = <T extends string | number>({
   id = "",
   options = [],
 }: {
   id: string
-  options: FilterOption<T>[]
+  options: Array<FilterOption<T>>
 }) => {
   const { filters } = useSimpleFilterState()
-  const activeFilter = filters.find((f) => f.id === id)
+  const activeFilter = filters.find(f => f.id === id)
   if (!activeFilter) {
     return null
   }
@@ -36,12 +37,12 @@ const Select = ({
     <FilterMultiSelect
       label={filter.name}
       onSelectionChange={onCheckboxChange}
-      selectedKeys={new Set(selectedOptions.map((o) => o.value))}
+      selectedKeys={new Set(selectedOptions.map(o => o.value))}
       items={options}
       trigger={() => (
         <FilterMultiSelect.TriggerButton
           selectedOptionLabels={getSelectedOptionLabels(
-            new Set(selectedOptions.map((o) => o.value)),
+            new Set(selectedOptions.map(o => o.value)),
             options
           )}
           label={filter.name}
@@ -52,11 +53,11 @@ const Select = ({
         <>
           <FilterMultiSelect.SearchInput />
           <FilterMultiSelect.ListBox>
-            {({ allItems }) => {
-              return allItems.map((item) => (
+            {({ allItems }) =>
+              allItems.map(item => (
                 <FilterMultiSelect.Option key={item.key} item={item} />
               ))
-            }}
+            }
           </FilterMultiSelect.ListBox>
           <FilterMultiSelect.MenuFooter>
             <FilterMultiSelect.SelectAllButton />

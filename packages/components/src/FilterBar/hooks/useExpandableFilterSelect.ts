@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useCallback } from "react"
 import { FilterOption, IFilter } from "../types"
 import { useBaseFilterSelect } from "./useBaseFilterSelect"
@@ -14,7 +15,7 @@ export const useExpandableFilterSelect = <T extends IFilter<any>>(
     filter,
     options,
     values,
-    onChange: (value) =>
+    onChange: value =>
       dispatch({
         data: { id: filter.id, value },
         type: "setFilterValue",

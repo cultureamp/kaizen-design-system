@@ -1,10 +1,11 @@
-import partition from "ramda/src/partition"
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import identity from "ramda/src/identity"
+import partition from "ramda/src/partition"
 
 import {
   FilterValues,
   IExpandableFilterBarState,
-  ExpandableFilterEvents,
+  // ExpandableFilterEvents,
   IFilter,
   VisibilityStates,
   ExpandableReducerFilterEvents,
@@ -23,17 +24,17 @@ export type ExpandableReducer<Values> = (
   helpers: ReducerHelpers
 ) => ReducerState<Values>
 
-export const activeStates: Array<VisibilityStates> = ["open", "visible"]
+export const activeStates: VisibilityStates[] = ["open", "visible"]
 
 const filterIsActive = (filter: { visibility: VisibilityStates }) =>
   activeStates.includes(filter.visibility)
 
 const makeVisible = <T extends FilterValues>(
   filter: IFilter<T>,
-  filters: IFilter<T>[]
+  filters: Array<IFilter<T>>
 ) =>
   filters
-    .filter((f) => f.id !== filter.id)
+    .filter(f => f.id !== filter.id)
     .concat({
       ...filter,
       visibility: "visible",
@@ -41,29 +42,29 @@ const makeVisible = <T extends FilterValues>(
 
 const makeHidden = <T extends FilterValues>(
   filter: IFilter<T>,
-  filters: IFilter<T>[]
+  filters: Array<IFilter<T>>
 ) =>
   filters
-    .filter((f) => f.id !== filter.id)
+    .filter(f => f.id !== filter.id)
     .concat({
       ...filter,
       visibility: "hidden",
     })
 
 const deactivateFilter = <T extends FilterValues>(
-  filters: IFilter<T>[],
+  filters: Array<IFilter<T>>,
   filter: IFilter<T>
 ) => calculateFiltersState(makeHidden(filter, filters))
 
 const activateFilter = <T extends FilterValues>(
-  filters: IFilter<T>[],
+  filters: Array<IFilter<T>>,
   filter: IFilter<T>
 ) => calculateFiltersState(makeVisible(filter, filters))
 
-const getFilterById = <T extends IFilter<any>[]>(
+const getFilterById = <T extends Array<IFilter<any>>>(
   filters: T,
   id: T[number]["id"]
-) => filters.find((f) => f.id === id)
+) => filters.find(f => f.id === id)
 
 export const helpers = {
   activateFilter,
@@ -83,8 +84,8 @@ export const helpers = {
  */
 export const calculateFiltersState = <T>(filters: Array<IFilter<T>>) => {
   const [activeFilters, additionalFilters] = partition(
-    (f) => !f.removable || activeStates.includes(f.visibility),
-    filters.map((f) => ({
+    f => !f.removable || activeStates.includes(f.visibility),
+    filters.map(f => ({
       ...f,
       visibility: f.visibility
         ? f.visibility
@@ -135,7 +136,7 @@ function getUpdatedState<T extends FilterValues>(
 
     case "removeFilter": {
       const updatedFilters = state.filters
-        .filter((f) => f.id !== event.data.id)
+        .filter(f => f.id !== event.data.id)
         .concat({
           ...event.data,
           visibility: "hidden",
@@ -149,12 +150,12 @@ function getUpdatedState<T extends FilterValues>(
 
     case "setFilterVisibility": {
       const { id, visibility } = event.data
-      const filter = state.filters.find((f) => f.id === id)
+      const filter = state.filters.find(f => f.id === id)
       if (!filter || (!filter.removable && visibility === "hidden")) {
         return state
       }
 
-      const updatedFilters = state.filters.map((f) =>
+      const updatedFilters = state.filters.map(f =>
         f.id === id ? { ...f, visibility } : f
       )
 
@@ -165,7 +166,7 @@ function getUpdatedState<T extends FilterValues>(
     }
 
     case "clearFilters": {
-      const resetFilters = state.filters.map((f) => ({
+      const resetFilters = state.filters.map(f => ({
         ...f,
         visibility: f.removable ? "hidden" : ("visible" as VisibilityStates),
       }))

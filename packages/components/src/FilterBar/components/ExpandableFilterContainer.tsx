@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from "react"
 import { Button, IconButton } from "@kaizen/button"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import minimiseIcon from "@kaizen/component-library/icons/minimize.icon.svg"
-import { Tooltip } from "@Components/Tooltip"
+import { Tooltip } from "@kaizen/draft-tooltip"
 import { useExpandableProvider } from "../hooks/useExpandableFilterState"
 import { FilterValues, ExpandableFilterContainerProps } from "../types"
 import { AddFilterButton } from "./AddFilterButton"
-import { ExpandableSelectBox } from "./ExpandableFilterSelectBox"
-import { Row } from "./Row"
-import { Items } from "./Items"
 import { ExpandableAsyncSelectBox } from "./ExpandableAsyncFilterSelectBox"
+import { ExpandableSelectBox } from "./ExpandableFilterSelectBox"
+import { Items } from "./Items"
+import { Row } from "./Row"
 
 export const ExpandableFilterContainer = <T extends FilterValues>(
   props: ExpandableFilterContainerProps<T>
@@ -29,13 +30,12 @@ export const ExpandableFilterContainer = <T extends FilterValues>(
           </Items>
         )}
         {props.display === "expanded" ? (
-          <div className="flex">
-            <button
-              className="appearance-none bg-transparent text-blue-500 mr-2 cursor-pointer"
+          <div className="flex gap-8">
+            <Button
+              secondary
               onClick={() => props.dispatch({ type: "clearFilters" })}
-            >
-              Clear all
-            </button>
+              label="Clear all"
+            />
             <div
               style={{
                 borderLeft: "solid 1px rgb(244, 244, 245)",

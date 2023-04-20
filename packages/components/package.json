@@ -54,6 +54,7 @@
     "@react-stately/select": "^3.4.0",
     "@react-types/shared": "^3.17.0",
     "classnames": "^2.3.2",
+    "ramda": "^0.29.0",
     "react-focus-on": "^3.8.0",
     "react-popper": "^2.3.0",
     "react-query": "^3.39.3",
@@ -67,9 +68,12 @@
     "@rollup/plugin-image": "^3.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
+    "@types/history": "^5.0.0",
     "autoprefixer": "^10.4.14",
     "concat-cli": "^4.0.0",
     "esbuild": "^0.17.15",
+    "history": "^4.10.1",
+    "react-router-dom": "^5.3.4",
     "rollup": "^3.20.2",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-esbuild": "^5.0.0",
@@ -78,7 +82,8 @@
     "ts-jest": "^29.1.0",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6",
-    "use-debounce": "^9.0.4"
+    "use-debounce": "^9.0.4",
+    "use-query-params": "^1.2.3"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

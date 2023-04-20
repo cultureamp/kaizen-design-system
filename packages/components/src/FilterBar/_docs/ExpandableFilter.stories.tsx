@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React, { useMemo, useState } from "react"
-import { ComponentMeta } from "@cultureamp/frontend-storybook"
+import { Meta } from "@storybook/react"
 import { QueryClient, QueryClientProvider } from "react-query"
-import { useQueryParam, JsonParam } from "use-query-params"
 import { Fetch } from "../components/ExpandableAsyncFilterSelectBox"
 import { ExpandableFilterContainer } from "../components/ExpandableFilterContainer"
 import { useExpandableFilter } from "../hooks/useExpandableFilter"
@@ -11,8 +12,8 @@ import { users, departments } from "./fixtures"
 import { mockEndpoint } from "./utils"
 
 type Values = {
-  reports: Array<FilterOption<string>>
-  gender: Array<FilterOption<string>>
+  reports?: Array<FilterOption<string>>
+  gender?: Array<FilterOption<string>>
   departments?: Array<FilterOption<string>>
   managers?: Array<FilterOption<string>>
 }
@@ -51,15 +52,18 @@ const genderOptions = [
 const client = new QueryClient()
 
 export default {
+  tags: ["autodocs"],
+  title: "Components/Filter Bar/Expandable Filter",
   component: ExpandableFilterContainer,
   decorators: [
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     Story => (
       <QueryClientProvider client={client}>
         <Story />
       </QueryClientProvider>
     ),
   ],
-} as ComponentMeta<typeof ExpandableFilterContainer>
+} satisfies Meta<typeof ExpandableFilterContainer>
 
 export const ExpandableFilter = () => {
   /**
@@ -71,7 +75,12 @@ export const ExpandableFilter = () => {
    * us the user has selected. This doesn't HAVE to be the URL, it can be
    * local state as would be the case with some simple filters.
    * */
-  const [params = {}, setParams] = useQueryParam("filter", JsonParam)
+  const [params, setParams] = useState<Values>({
+    reports: [],
+    gender: [],
+    departments: [],
+    managers: [],
+  })
 
   // starting state of the filters, should be memoised
   const filters: Array<IFilter<Values>> = useMemo(
@@ -130,14 +139,10 @@ export const ExpandableFilter = () => {
     []
   )
 
-  const updateUrl = (values: Values) => {
-    setParams(values)
-  }
-
   const expandableState = useExpandableFilter<Values>({
     filters,
     values: params,
-    onValuesChange: updateUrl,
+    onValuesChange: setParams,
   })
 
   return (
@@ -175,7 +180,13 @@ export const ExpandableFilter = () => {
  * Enforce a visibility for a filter once another has values, give initial value
  */
 export const ExpandableFilterConditionalFilters = () => {
-  const [params = {}, setParams] = useQueryParam("filter", JsonParam)
+  const [params, setParams] = useState<Values>({
+    reports: [],
+    gender: [],
+    departments: [],
+    managers: [],
+  })
+
   const [filters, setFilters] = useState<Array<IFilter<Values>>>([
     {
       id: "departments",
@@ -261,15 +272,11 @@ export const ExpandableFilterConditionalFilters = () => {
     return state
   }
 
-  const updateUrl = (values: Values) => {
-    setParams(values)
-  }
-
   const expandableState = useExpandableFilter<Values>(
     {
       filters,
       values: params,
-      onValuesChange: updateUrl,
+      onValuesChange: setParams,
     },
     reducer
   )
@@ -369,7 +376,12 @@ const additionalFilters: Array<IFilter<Values>> = [
  * has been selected
  */
 export const ExpandableFilterWithDynamicFilters = () => {
-  const [params = {}, setParams] = useQueryParam("filter", JsonParam)
+  const [params, setParams] = useState<Values>({
+    reports: [],
+    gender: [],
+    departments: [],
+    managers: [],
+  })
 
   const [f, setF] = useState(initialFilters)
 
@@ -398,15 +410,11 @@ export const ExpandableFilterWithDynamicFilters = () => {
     return state
   }
 
-  const updateUrl = (values: Values) => {
-    setParams(values)
-  }
-
   const expandableState = useExpandableFilter<Values>(
     {
       filters: f,
       values: params,
-      onValuesChange: updateUrl,
+      onValuesChange: setParams,
     },
     reducer
   )

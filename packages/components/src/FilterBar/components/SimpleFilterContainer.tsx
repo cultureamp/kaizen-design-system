@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+
 import React from "react"
 import { useSimpleFilterProvider } from "../hooks/useSimpleFilterState"
 import type { FilterValues, SimpleFilterContainerProps } from "../types"
-import { SimpleFilterSelectBox } from "./SimpleFilterSelectBox"
 import { Items } from "./Items"
+import { SimpleFilterSelectBox } from "./SimpleFilterSelectBox"
 
 export const SimpleFilterContainer = <T extends FilterValues>(
   props: SimpleFilterContainerProps<T>
