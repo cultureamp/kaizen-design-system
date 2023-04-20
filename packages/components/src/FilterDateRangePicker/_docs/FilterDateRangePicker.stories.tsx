@@ -194,7 +194,8 @@ export const Description: StoryFn = () => {
 }
 
 /**
- * Add extra props (eg. data-attributes) to the Start or End date inputs.
+ * Add extra props (eg. data-attributes) to the Start or End date inputs
+ * using `inputStartDateProps` and/or `inputEndDateProps`.
  */
 export const ExtendInputProps: StoryFn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
