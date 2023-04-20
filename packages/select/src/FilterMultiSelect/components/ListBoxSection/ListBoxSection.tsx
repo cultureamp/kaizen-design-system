@@ -1,16 +1,15 @@
 import React from "react"
-import { Node } from "@react-types/shared"
-import { ItemType } from "../../../types"
+import { MultiSelectItem } from "../../../types"
 import styles from "./ListBoxSection.module.scss"
 
 export interface ListBoxSectionProps {
-  items: Array<Node<ItemType>>
+  items: MultiSelectItem[]
   /**
    * Becomes an aria-label on the section, informing
    * unsighted users
    */
   sectionName: string
-  children: (item: Node<ItemType>) => React.ReactNode
+  children: (item: MultiSelectItem) => React.ReactNode
 }
 
 export const ListBoxSection = ({

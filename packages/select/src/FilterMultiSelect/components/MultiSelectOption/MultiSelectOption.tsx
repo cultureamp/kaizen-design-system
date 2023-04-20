@@ -1,21 +1,19 @@
 import React, { useMemo } from "react"
-
 import { useFocusRing } from "@react-aria/focus"
 import { useOption } from "@react-aria/listbox"
 import { mergeProps } from "@react-aria/utils"
-import { Node } from "@react-types/shared"
 import classNames from "classnames"
 import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { Icon } from "@kaizen/component-library"
 import check from "@kaizen/component-library/icons/check.icon.svg"
 import { Badge } from "@kaizen/draft-badge"
-import { ItemType } from "../../../types"
+import { MultiSelectItem } from "../../../types"
 import { useSelectionContext } from "../../provider"
 import styles from "./MultiSelectOption.module.scss"
 
 export interface MultiSelectOptionProps {
-  item: Node<ItemType>
+  item: MultiSelectItem
 }
 
 export const MultiSelectOption = ({
@@ -45,7 +43,7 @@ export const MultiSelectOption = ({
         isFocusVisible ? styles.isFocusVisible : "",
         isDisabled ? styles.isDisabled : ""
       )}
-      aria-label={item.value?.label || ""}
+      aria-label={item.value?.label}
       aria-describedby={item.value?.count ? countElementId : undefined}
     >
       <span
