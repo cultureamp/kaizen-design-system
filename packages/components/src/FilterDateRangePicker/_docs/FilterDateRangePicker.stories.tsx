@@ -1,13 +1,10 @@
-import React, { useState } from "react"
-import { action } from "@storybook/addon-actions"
-import { ComponentStory, Story } from "@storybook/react"
-import { within, userEvent } from "@storybook/testing-library"
-import isChromatic from "chromatic"
+import React, { useEffect, useState } from "react"
+import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { FilterButton } from "../../FilterButton"
+import { FilterButton, FilterButtonProps } from "~components/FilterButton"
+import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import {
   DateRange,
   DateRangeFieldValidationMessage,
@@ -20,16 +17,25 @@ import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { dateRangePickerLocaleControls } from "./controls/localeControls"
 import { validationControls } from "./controls/validationControls"
 
-const IS_CHROMATIC = isChromatic()
-
 export default {
+  tags: ["autodocs"],
   title: "Components/Filter Date Range Picker",
   component: FilterDateRangePicker,
   parameters: {
     docs: {
-      description: {
-        component: 'import { FilterDateRangePicker } from "@kaizen/components"',
-      },
+      container: ComponentDocsTemplate,
+    },
+    installation: [
+      "npm install @kaizen/components",
+      "import { FilterDateRangePicker } from @kaizen/components",
+    ],
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterDateRangePicker",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=2349%3A110993&t=gzsKluk8LiOX3jCF-1",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
     },
   },
   args: {
@@ -49,17 +55,42 @@ export default {
       table: { type: { summary: 'Omit<DateInputProps, "id">' } },
     },
     isOpen: { control: "disabled" },
+    selectedRange: {
+      options: ["None", "Partial Range", "Complete Range"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+          "Partial Range": "{ from: new Date() }",
+          "Complete Range":
+            '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
+        },
+      },
+      mapping: {
+        None: undefined,
+        "Partial Range": { from: new Date() },
+        "Complete Range": {
+          from: new Date("2022-05-01"),
+          to: new Date("2022-05-12"),
+        },
+      },
+    },
     description: {
       control: "text",
     },
   },
-}
+} satisfies Meta<typeof FilterDateRangePicker>
 
-export const DefaultStory: ComponentStory<
-  typeof FilterDateRangePicker
-> = args => {
-  const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
+/**
+ * Date Range Picker to use for Filtering.
+ */
+export const Playground: StoryFn<typeof FilterDateRangePicker> = args => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()
+
+  useEffect(() => {
+    setRange(args.selectedRange)
+  }, [args.selectedRange])
 
   return (
     <FilterDateRangePicker
@@ -71,16 +102,177 @@ export const DefaultStory: ComponentStory<
     />
   )
 }
-DefaultStory.parameters = {
-  docs: { source: { type: "code" } },
+Playground.parameters = {
+  docs: {
+    canvas: {
+      sourceState: "shown",
+    },
+  },
 }
-DefaultStory.args = {
+Playground.args = {
   id: "filter-drp--default",
   /* @ts-expect-error: Storybook controls key; see argTypes in default export */
   renderTrigger: "Filter Button",
 }
 
-export const ValidationStory: Story = () => {
+const commonProps = {
+  locale: "en-AU",
+  renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
+    <FilterButton {...triggerButtonProps} />
+  ),
+}
+
+/**
+ * Selected value will only be passed into the Filter Button when date range has both a Start and End date.
+ */
+export const SelectedRange: StoryFn = () => {
+  const [isOpenNotSelected, setIsOpenNotSelected] = useState<boolean>(false)
+  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
+  const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
+  const [rangeNotSelected, setRangeNotSelected] = useState<
+    DateRange | undefined
+  >()
+  const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
+    from: new Date(),
+  })
+  const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
+    from: new Date("2022-05-01"),
+    to: new Date("2022-05-12"),
+  })
+
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <FilterDateRangePicker
+        {...commonProps}
+        id="filterdrp--not-selected"
+        label="Not selected"
+        isOpen={isOpenNotSelected}
+        setIsOpen={setIsOpenNotSelected}
+        selectedRange={rangeNotSelected}
+        onRangeChange={setRangeNotSelected}
+      />
+      <FilterDateRangePicker
+        {...commonProps}
+        id="filterdrp--partial-range"
+        label="Partial range"
+        isOpen={isOpenPartial}
+        setIsOpen={setIsOpenPartial}
+        selectedRange={rangePartial}
+        onRangeChange={setRangePartial}
+      />
+      <FilterDateRangePicker
+        {...commonProps}
+        id="filterdrp--complete"
+        label="Complete range"
+        isOpen={isOpenComplete}
+        setIsOpen={setIsOpenComplete}
+        selectedRange={rangeComplete}
+        onRangeChange={setRangeComplete}
+      />
+    </div>
+  )
+}
+
+/**
+ * Custom description to provide extra context (input format help text remains).
+ */
+export const Description: StoryFn = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  return (
+    <FilterDateRangePicker
+      {...commonProps}
+      id="filterdrp--description"
+      label="Open to see description"
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      selectedRange={undefined}
+      onRangeChange={(): void => undefined}
+      description="This is a custom description"
+    />
+  )
+}
+
+/**
+ * Add extra props (eg. data-attributes) to the Start or End date inputs.
+ */
+export const ExtendInputProps: StoryFn = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  return (
+    <FilterDateRangePicker
+      {...commonProps}
+      id="filterdrp--extend-input-props"
+      label="Check the DOM for the inputs"
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      selectedRange={undefined}
+      onRangeChange={(): void => undefined}
+      inputStartDateProps={{
+        "data-testid": "filterdrp--input-start-testid",
+      }}
+      inputEndDateProps={{
+        "data-testid": "filterdrp--input-end-testid",
+      }}
+    />
+  )
+}
+
+const ValidationHelpText = ({
+  validationResponse,
+}: {
+  validationResponse: DateValidationResponse | undefined
+}): JSX.Element => (
+  <div>
+    <Paragraph variant="body">
+      NOTE: This story includes additional custom validation to provide some
+      guidance when dealing with validation other than date isInvalid or
+      isDisabled.
+    </Paragraph>
+    <ul>
+      <li>
+        There will be a caution when the selectedDay <strong>is valid</strong>{" "}
+        but <strong>is not within this year</strong>.
+      </li>
+      <li>
+        There will be an error when the{" "}
+        <strong>submit button is clicked</strong> and there is a{" "}
+        <strong>current error</strong>.
+      </li>
+    </ul>
+    <Paragraph variant="body">
+      The <code>onValidate</code> callback returns a{" "}
+      <code>validationResponse</code> object which provides data such as a
+      default validation message, and can be utilised for custom validation.
+    </Paragraph>
+
+    <Highlight className="json">
+      {JSON.stringify(validationResponse, null, "\t")}
+    </Highlight>
+
+    <ul>
+      <li>
+        <code>isInvalid</code>: A date that cannot be parsed. e.g "potato".
+      </li>
+      <li>
+        <code>isDisabled</code>: A date that have been set as disabled through
+        the <code>disabledDates</code> prop.
+      </li>
+      <li>
+        <code>isEmpty</code>: Input is empty.
+      </li>
+      <li>
+        <code>isValidDate</code>: Date input that is not <code>invalid</code>{" "}
+        nor <code>disabled</code> nor <code>empty</code>.
+      </li>
+    </ul>
+  </div>
+)
+
+/**
+ * Contents extracted from within the Filter to showcase the validation.
+ */
+export const Validation: StoryFn = () => {
   const [range, setRange] = useState<DateRange | undefined>()
   const [response, setResponse] = useState<DateValidationResponse | undefined>()
   const [validationMessage, setValidationMessage] = useState<
@@ -168,210 +360,11 @@ export const ValidationStory: Story = () => {
         </div>
       </form>
 
-      <div>
-        <Paragraph variant="body">
-          NOTE: This story includes additional custom validation to provide some
-          guidance when dealing with validation other than date isInvalid or
-          isDisabled.
-        </Paragraph>
-        <ul>
-          <li>
-            There will be a caution when the selectedDay{" "}
-            <strong>is valid</strong> but{" "}
-            <strong>is not within this year</strong>.
-          </li>
-          <li>
-            There will be an error when the{" "}
-            <strong>submit button is clicked</strong> and there is a{" "}
-            <strong>current error</strong>.
-          </li>
-        </ul>
-        <Paragraph variant="body">
-          The <code>onValidate</code> callback returns a{" "}
-          <code>validationResponse</code> object which provides data such as a
-          default validation message, and can be utilised for custom validation.
-        </Paragraph>
-
-        <Highlight className="json">
-          {JSON.stringify(response, null, "\t")}
-        </Highlight>
-
-        <ul>
-          <li>
-            <code>isInvalid</code>: A date that cannot be parsed. e.g "potato".
-          </li>
-          <li>
-            <code>isDisabled</code>: A date that have been set as disabled
-            through the <code>disabledDates</code> prop.
-          </li>
-          <li>
-            <code>isEmpty</code>: Input is empty.
-          </li>
-          <li>
-            <code>isValidDate</code>: Date input that is not{" "}
-            <code>invalid</code> nor <code>disabled</code> nor{" "}
-            <code>empty</code>.
-          </li>
-        </ul>
-      </div>
+      <ValidationHelpText validationResponse={response} />
     </>
   )
 }
-ValidationStory.storyName = "Validation"
-ValidationStory.parameters = {
+Validation.parameters = {
   docs: { source: { type: "code" } },
   controls: { disable: true },
-}
-
-const StickerSheetTemplate: Story<{ textDirection: "ltr" | "rtl" }> = ({
-  textDirection,
-}) => {
-  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(IS_CHROMATIC)
-  const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
-    from: new Date("2022-05-15"),
-  })
-  const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
-  const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
-    from: new Date("2022-05-15"),
-    to: new Date("2022-06-22"),
-  })
-
-  const [rangeFieldDefault, setRangeFieldDefault] = useState<
-    DateRange | undefined
-  >()
-  const [rangeFieldExisting, setRangeFieldExisting] = useState<
-    DateRange | undefined
-  >({
-    from: new Date("2022-05-15"),
-    to: new Date("2022-06-22"),
-  })
-  const [rangeFieldValidation, setRangeFieldValidation] = useState<
-    DateRange | undefined
-  >({
-    from: new Date("2022-05-15"),
-  })
-
-  return (
-    <>
-      <StickerSheet
-        heading="Filter Date Range Picker"
-        style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
-      >
-        <StickerSheet.Header headings={["Partial range", "Complete range"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--partial-range`}
-              isOpen={isOpenPartial}
-              setIsOpen={setIsOpenPartial}
-              renderTrigger={(triggerButtonProps): JSX.Element => (
-                <FilterButton {...triggerButtonProps} />
-              )}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangePartial}
-              onRangeChange={setRangePartial}
-            />
-            <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--complete-range`}
-              isOpen={isOpenComplete}
-              setIsOpen={setIsOpenComplete}
-              renderTrigger={(triggerButtonProps): JSX.Element => (
-                <FilterButton {...triggerButtonProps} />
-              )}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeComplete}
-              onRangeChange={setRangeComplete}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-
-      <StickerSheet heading="Filter Date Range Picker Field">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--default`}
-              label="Dates"
-              locale="en-US"
-              defaultMonth={new Date("2023-05-01")}
-              selectedRange={rangeFieldDefault}
-              onRangeChange={setRangeFieldDefault}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Existing value">
-            <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--existing`}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeFieldExisting}
-              onRangeChange={setRangeFieldExisting}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Validation">
-            <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--validation`}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeFieldValidation}
-              onRangeChange={setRangeFieldValidation}
-              onValidate={{
-                dateStart: action("Validation story: date start onValidate"),
-              }}
-              validationMessage={{
-                dateStart: {
-                  status: "error",
-                  message:
-                    "(Start date custom message) Jelly-filled doughnuts are my favourite!",
-                },
-              }}
-              inputEndDateProps={{
-                "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
-              }}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
-  )
-}
-
-const applyStickerSheetStyles = (
-  canvasElement: HTMLElement,
-  textDirection: "ltr" | "rtl"
-): void => {
-  const canvas = within(canvasElement)
-  const inputEndDate = canvas.getByTestId(
-    `${textDirection}-test__filter-drp-field--validation--end`
-  )
-  userEvent.click(inputEndDate)
-  userEvent.type(inputEndDate, "potato")
-  userEvent.click(document.body)
-}
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
-StickerSheetDefault.args = {
-  textDirection: "ltr",
-}
-StickerSheetDefault.play = ({ canvasElement }): void => {
-  applyStickerSheetStyles(canvasElement, "ltr")
-}
-
-export const StickerSheetRTL = StickerSheetTemplate.bind({})
-StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
-StickerSheetRTL.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
-StickerSheetRTL.args = {
-  textDirection: "rtl",
-}
-StickerSheetRTL.play = ({ canvasElement }): void => {
-  applyStickerSheetStyles(canvasElement, "rtl")
 }
