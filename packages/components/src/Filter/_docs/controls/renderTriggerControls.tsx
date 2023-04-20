@@ -1,6 +1,4 @@
 import React from "react"
-// Storybook dep is in the root of the repo
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { action } from "@storybook/addon-actions"
 import {
   FilterButton,
