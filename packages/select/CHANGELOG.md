@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.14.1
+
+### Patch Changes
+
+- 2664979a8: Triggering re-publish of select due to lack of build files in `6.14.0`
+
 ## 6.14.0
 
 ### Minor Changes
