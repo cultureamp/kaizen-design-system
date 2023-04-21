@@ -32,7 +32,7 @@
     "pkg:aio:test": "yarn pkg:aio test",
     "pkg:aio:compile": "yarn pkg:aio compile",
     "ci:version": "yarn build && yarn changeset version",
-    "ci:publish": "yarn build && yarn changeset publish && git push --follow-tags"
+    "ci:publish": "yarn build && yarn changeset publish"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
