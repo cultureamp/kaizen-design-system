@@ -4,7 +4,11 @@ import { StickerSheet } from "{{storybookDir}}/components/StickerSheet"
 import { {{pascalCase componentName}} } from "../index"
 
 export default {
-  title: "Stickersheets/{{pascalCase componentName}}",
+  title: "Components/{{pascalCase componentName}}",
+  parameters: {
+    chromatic: { disable: false },
+    controls: { disable: true },
+  },
 } satisfies Meta<typeof {{pascalCase componentName}}>
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
@@ -30,16 +34,10 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
   backgrounds: { default: "Purple 700" },
 }
