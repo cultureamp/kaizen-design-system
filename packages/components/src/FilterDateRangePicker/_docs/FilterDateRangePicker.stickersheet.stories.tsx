@@ -12,6 +12,10 @@ const IS_CHROMATIC = isChromatic()
 
 export default {
   title: "Components/Filter Date Range Picker",
+  parameters: {
+    chromatic: { disable: false },
+    controls: { disable: true },
+  },
 } satisfies Meta<typeof FilterDateRangePicker>
 
 const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
@@ -143,10 +147,6 @@ const applyStickerSheetStyles = (
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
 StickerSheetDefault.args = {
   textDirection: "ltr",
 }
@@ -156,10 +156,6 @@ StickerSheetDefault.play = ({ canvasElement }): void => {
 
 export const StickerSheetRTL = StickerSheetTemplate.bind({})
 StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
-StickerSheetRTL.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
 StickerSheetRTL.args = {
   textDirection: "rtl",
 }
