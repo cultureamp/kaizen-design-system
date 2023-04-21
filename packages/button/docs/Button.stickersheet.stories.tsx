@@ -7,7 +7,11 @@ import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { Button, ButtonProps } from "../index"
 
 export default {
-  title: "Stickersheets/Button",
+  title: "Components/Button",
+  parameters: {
+    chromatic: { disable: false },
+    controls: { disable: true },
+  },
 } satisfies Meta<typeof Button>
 
 const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
@@ -227,16 +231,10 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}
 
 export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
   backgrounds: { default: "Purple 700" },
 }
