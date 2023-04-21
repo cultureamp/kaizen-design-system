@@ -24,7 +24,7 @@ describe("<DateRangeInputField />", () => {
   it("has unique ids for both inputs", () => {
     const { container } = render(<DateRangeInputFieldWrapper id="range" />)
     const inputStart = container.querySelector("#range--from")
-    const inputEnd = container.querySelector("#range--from")
+    const inputEnd = container.querySelector("#range--to")
     expect(inputStart).toBeVisible()
     expect(inputEnd).toBeVisible()
   })
