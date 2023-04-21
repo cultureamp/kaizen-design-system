@@ -11,7 +11,7 @@ import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePick
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Stickersheets/Filter Date Range Picker",
+  title: "Components/Filter Date Range Picker",
 } satisfies Meta<typeof FilterDateRangePicker>
 
 const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
