@@ -45,6 +45,7 @@ release() {
   yarn install --frozen-lockfile
 
   yarn ci:publish
+  git push --follow-tags
 }
 
 release_canary() {
