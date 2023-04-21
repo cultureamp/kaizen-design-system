@@ -3,7 +3,11 @@ import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
-import { FilterButton, FilterButtonProps } from "~components/FilterButton"
+import {
+  FilterButton,
+  FilterButtonProps,
+  FilterButtonRemovable,
+} from "~components/FilterButton"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import {
   DateRange,
@@ -115,6 +119,52 @@ Playground.args = {
   id: "filter-drp--default",
   /* @ts-expect-error: Storybook controls key; see argTypes in default export */
   renderTrigger: "Filter Button",
+}
+
+/**
+ * Render function for the trigger button.
+ *
+ * Provides `selectedValue`, `label`, `isOpen`, `onClick` (calls `setIsOpen`).
+ */
+export const RenderTrigger: StoryFn = () => {
+  const [isOpenButton, setIsOpenButton] = useState<boolean>(false)
+  const [rangeButton, setRangeButton] = useState<DateRange | undefined>()
+  const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
+  const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <FilterDateRangePicker
+        id="filterdrp--filter-button"
+        label="FilterButton"
+        locale="en-AU"
+        renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
+          <FilterButton {...triggerButtonProps} />
+        )}
+        isOpen={isOpenButton}
+        setIsOpen={setIsOpenButton}
+        selectedRange={rangeButton}
+        onRangeChange={setRangeButton}
+      />
+      <FilterDateRangePicker
+        id="filterdrp--filter-button-removable"
+        label="FilterButtonRemovable"
+        locale="en-AU"
+        renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
+          <FilterButtonRemovable
+            triggerButtonProps={{ ...triggerButtonProps }}
+            removeButtonProps={{
+              onClick: (): void => undefined,
+            }}
+          />
+        )}
+        isOpen={isOpenRemovable}
+        setIsOpen={setIsOpenRemovable}
+        selectedRange={rangeRemovable}
+        onRangeChange={setRangeRemovable}
+      />
+    </div>
+  )
 }
 
 /**
