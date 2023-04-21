@@ -22,7 +22,7 @@ import {
   DateRange,
   DateRangeFieldValidationMessage,
   DateValidationResponse,
-  SupportedLocales,
+  FilterDRPSupportedLocales,
 } from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
 
@@ -36,7 +36,7 @@ export interface FilterDateRangePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   label: string
-  locale: SupportedLocales
+  locale: FilterDRPSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */

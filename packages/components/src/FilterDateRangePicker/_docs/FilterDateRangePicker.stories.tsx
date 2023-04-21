@@ -14,7 +14,6 @@ import {
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
-import { dateRangePickerLocaleControls } from "./controls/localeControls"
 import { validationControls } from "./controls/validationControls"
 
 export default {
@@ -27,7 +26,7 @@ export default {
     },
     installation: [
       "npm install @kaizen/components",
-      "import { FilterDateRangePicker } from @kaizen/components",
+      'import { FilterDateRangePicker } from "@kaizen/components"',
     ],
     resourceLinks: {
       sourceCode:
@@ -43,11 +42,14 @@ export default {
     locale: "en-AU",
   },
   argTypes: {
-    ...dateRangePickerLocaleControls,
     ...defaultMonthControls,
     ...validationControls,
     disabledDays: disabledDaysControls,
     renderTrigger: renderTriggerControls,
+    locale: {
+      options: ["en-US", "en-AU"],
+      control: { type: "radio" },
+    },
     inputStartDateProps: {
       table: { type: { summary: 'Omit<DateInputProps, "id">' } },
     },
