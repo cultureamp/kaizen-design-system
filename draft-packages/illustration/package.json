@@ -33,7 +33,7 @@
     "@kaizen/hosted-assets": "^2.0.1",
     "classnames": "^2.3.2",
     "jszip": "^3.10.1",
-    "lottie-web": "^5.10.2"
+    "lottie-web": "^5.11.0"
   },
   "devDependencies": {
     "@kaizen/component-library": "^16.6.1",
