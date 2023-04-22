@@ -35,7 +35,7 @@
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/hosted-assets": "^2.0.1",
     "@types/classnames": "^2.3.0",
-    "@types/lodash": "^4.14.192",
+    "@types/lodash": "^4.14.194",
     "@types/uuid": "^9.0.1",
     "classnames": "^2.3.2"
   },
