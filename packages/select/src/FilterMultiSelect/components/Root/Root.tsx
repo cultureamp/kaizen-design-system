@@ -33,6 +33,7 @@ interface SelectionProps {
   label: string // provide A11y context for listbox
   items: ItemType[]
   selectedKeys?: Selection
+  defaultSelectedKeys?: Selection
   onSelectionChange?: (keys: Selection) => void
   selectionMode?: SelectionMode
   onSearchInputChange?: (searchInput: string) => void
@@ -52,6 +53,7 @@ export const Root = ({
   label,
   items,
   selectedKeys,
+  defaultSelectedKeys,
   onSelectionChange,
   selectionMode = "multiple",
   onSearchInputChange,
@@ -67,6 +69,7 @@ export const Root = ({
     label,
     items,
     selectedKeys,
+    defaultSelectedKeys,
     onSelectionChange,
     selectionMode,
     disabledKeys,

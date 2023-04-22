@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.7.12",
+  "version": "1.7.13",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -24,14 +24,14 @@
     "build": "yarn build:clean && yarn prepublish",
     "build:clean": "rimraf 'dist'",
     "build:components": "rollup -c",
-    "build:deps": "yarn workspace @kaizen/design-tokens build && yarn workspace @kaizen/tailwind build && yarn workspace @kaizen/draft-tooltip build",
+    "clean": "yarn build:clean && rimraf '.turbo'",
     "compile": "tsc",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
     "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "prepublish": "yarn build:deps && yarn build:components && yarn postBuild && yarn dist:clean",
+    "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
     "test": "jest"
   },
   "dependencies": {
@@ -69,6 +69,7 @@
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.62.0",
     "ts-jest": "^29.1.0",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"

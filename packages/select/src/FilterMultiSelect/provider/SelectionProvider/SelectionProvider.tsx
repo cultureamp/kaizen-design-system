@@ -12,7 +12,10 @@ export interface SelectionProviderProps {
   children: React.ReactNode // control how menu should look like
   items?: ItemType[]
   onSelectionChange?: (keys: Selection) => void
+  /** The currently selected keys in the collection (controlled). */
   selectedKeys?: Selection
+  /** The initial selected keys in the collection (uncontrolled). */
+  defaultSelectedKeys?: Selection
   label: string
   disabledKeys?: Selection
   onSearchInputChange?: (searchInput: string) => void
