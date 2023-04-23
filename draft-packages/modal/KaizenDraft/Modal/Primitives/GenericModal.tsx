@@ -289,4 +289,28 @@ const createAriaHider = (dialogNode: HTMLElement): (() => void) => {
   }
 }
 
-export default GenericModalContainer
+const ClientOnly = ({
+  children,
+}: {
+  readonly children: React.ReactNode
+}): JSX.Element => {
+  const [hasMounted, setHasMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
+  if (!hasMounted) {
+    return <></>
+  }
+
+  return <>{children}</>
+}
+
+const ClientModal = (args: GenericModalContainerProps): JSX.Element => (
+  <ClientOnly>
+    <GenericModalContainer {...args} />
+  </ClientOnly>
+)
+
+export default ClientModal
