@@ -1,25 +1,24 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": [
-      {
-        "instruction": "*/description",
-        "key": "{*}/message",
-        "path": "*/message"
-      }
-    ],
-    "variants_enabled": true
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : [
+    {
+      "instruction" : "*/description",
+      "key" : "{*}/message",
+      "path" : "*/message"
+    }],
+    "variants_enabled" : true
   },
-  "filterDateRangePicker.dateFrom": {
-    "description": "Label for the 'Date from' date range input field",
-    "message": "Datum „Od“"
+  "filterDateRangePicker.dateFrom" : {
+    "description" : "Label for the 'Date from' date range input field",
+    "message" : "Datum „Od“"
   },
-  "filterDateRangePicker.dateTo": {
-    "description": "Label for the 'Date to' date range input field",
-    "message": "Datum „Do“"
+  "filterDateRangePicker.dateTo" : {
+    "description" : "Label for the 'Date to' date range input field",
+    "message" : "Datum „Do“"
   },
-  "filterDateRangePicker.inputFormat": {
-    "description": "Label for the 'Input format' subtext",
-    "message": "Format unosa"
+  "filterDateRangePicker.inputFormat" : {
+    "description" : "Label for the 'Input format' subtext",
+    "message" : "Format unosa"
   }
 }
