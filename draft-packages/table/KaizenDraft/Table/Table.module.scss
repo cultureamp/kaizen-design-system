@@ -101,13 +101,7 @@ $row-height-data-variant: 48px;
 
 .headerRowCellTooltipIcon {
   color: $color-blue-500;
-
-  [dir="ltr"] & {
-    margin-right: $spacing-xs;
-  }
-  [dir="rtl"] & {
-    margin-left: $spacing-xs;
-  }
+  margin-inline-end: $spacing-xs;
 }
 
 .headerRowCellIcon {
@@ -234,10 +228,5 @@ $row-height-data-variant: 48px;
 
 .headerRowCellIconAlignCenter,
 .headerRowCellIconAlignEnd {
-  [dir="ltr"] & {
-    margin-right: -20px;
-  }
-  [dir="rtl"] & {
-    margin-left: -20px;
-  }
+  margin-inline-end: -20px;
 }
