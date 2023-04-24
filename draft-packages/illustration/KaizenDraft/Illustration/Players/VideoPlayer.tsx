@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import styles from "../Base.module.scss"
 import { canPlayWebm } from "../utils"
@@ -146,31 +146,46 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
+  const pausePlay = (): void => {
+    if (!videoRef.current) return
+
+    if (videoRef.current.paused) {
+      videoRef.current.play()
+    } else {
+      videoRef.current.pause()
+    }
+  }
+
   const videoPlayer = (
-    <video
-      muted={true}
-      aria-hidden={true}
-      preload="metadata"
-      ref={videoRef}
-      width="100%"
-      data-testid="kz-video-player"
-      className={styles.wrapper}
-      loop={loop}
-      poster={assetUrl(`${fallback}.png`)}
-      autoPlay={prefersReducedMotion ? false : autoplay}
-      playsInline={true}
-      tabIndex={-1}
-    >
-      {/**
-       * This seems counter-intuitive, but webm support is codec specific.
-       * Only offer webm if we are positive the browser supports it.
-       * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
-       */}
-      {canPlayWebm() && (
-        <source src={assetUrl(`${source}.webm`)} type="video/webm" />
-      )}
-      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
-    </video>
+    <>
+      <video
+        muted={true}
+        aria-hidden={true}
+        preload="metadata"
+        ref={videoRef}
+        width="100%"
+        data-testid="kz-video-player"
+        className={styles.wrapper}
+        loop={loop}
+        poster={assetUrl(`${fallback}.png`)}
+        autoPlay={prefersReducedMotion ? false : autoplay}
+        playsInline={true}
+        tabIndex={-1}
+      >
+        {/**
+         * This seems counter-intuitive, but webm support is codec specific.
+         * Only offer webm if we are positive the browser supports it.
+         * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
+         */}
+        {canPlayWebm() && (
+          <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+        )}
+        <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
+      </video>
+      <button type="button" onClick={(): void => pausePlay()}>
+        PAUSE
+      </button>
+    </>
   )
 
   if (aspectRatio) {
