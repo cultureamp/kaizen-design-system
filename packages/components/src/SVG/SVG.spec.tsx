@@ -9,13 +9,13 @@ const svgIcon = {
 
 describe("<Icon />", () => {
   describe("presentational", () => {
-    it("does not render a title", () => {
+    it("does not render an arial label", () => {
       const title = "My unnecessary accessible title"
-
-      const { queryByText } = render(
+      const { queryByLabelText } = render(
         <Icon title={title} icon={svgIcon} role="presentation" />
       )
-      expect(queryByText(title)).toBeFalsy()
+
+      expect(queryByLabelText(title)).not.toBeInTheDocument()
     })
 
     it("does not render a description", () => {
@@ -45,13 +45,13 @@ describe("<Icon />", () => {
   })
 
   describe("meaningful", () => {
-    it("renders a title", () => {
+    it("renders an arial label", () => {
       const title = "My accessible title"
-
-      const { queryByText } = render(
+      const { queryByLabelText } = render(
         <Icon title={title} icon={svgIcon} role="img" />
       )
-      expect(queryByText(title)).toBeTruthy()
+
+      expect(queryByLabelText(title)).toBeInTheDocument()
     })
 
     it("renders a description", () => {
