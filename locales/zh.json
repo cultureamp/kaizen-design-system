@@ -11,14 +11,14 @@
   },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' date range input field",
-    "message" : "Date from"
+    "message" : "起始日期"
   },
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'Date to' date range input field",
-    "message" : "Date to"
+    "message" : "结束日期"
   },
   "filterDateRangePicker.inputFormat" : {
     "description" : "Label for the 'Input format' subtext",
-    "message" : "Input format"
+    "message" : "输入格式"
   }
 }

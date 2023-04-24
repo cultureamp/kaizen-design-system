@@ -11,14 +11,14 @@
   },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' date range input field",
-    "message" : "Date from"
+    "message" : "Alkamispäivä"
   },
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'Date to' date range input field",
-    "message" : "Date to"
+    "message" : "Päättymispäivä"
   },
   "filterDateRangePicker.inputFormat" : {
     "description" : "Label for the 'Input format' subtext",
-    "message" : "Input format"
+    "message" : "Syöttömuoto"
   }
 }
