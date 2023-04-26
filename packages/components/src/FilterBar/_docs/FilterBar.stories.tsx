@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
+import { useFilterBarContext } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
 import { FilterPancake } from "../subcomponents/FilterPancake"
 import { FilterBarSelect } from "../subcomponents/FilterSelect"
@@ -13,6 +14,24 @@ const meta = {
 } satisfies Meta<typeof FilterBar>
 
 export default meta
+
+// Component must be created to access the context.
+// Provider is in FilterBar, thus hook cannot be called in instantiating component.
+const VanillaPancake = (): JSX.Element => {
+  const { setOpenFilter } = useFilterBarContext()
+  return (
+    <FilterPancake
+      label="Vanilla"
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButtonRemovable
+          triggerButtonProps={{ ...triggerProps }}
+          removeButtonProps={{ onClick: () => undefined }}
+        />
+      )}
+      onChange={(): void => setOpenFilter("Coffee")}
+    />
+  )
+}
 
 export const Playground: StoryFn<typeof FilterBar> = () => {
   const [filtersState, setFiltersState] = useState({})
@@ -27,15 +46,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
           )}
         />
 
-        <FilterPancake
-          label="Vanilla"
-          renderTrigger={(triggerProps): JSX.Element => (
-            <FilterButtonRemovable
-              triggerButtonProps={{ ...triggerProps }}
-              removeButtonProps={{ onClick: () => undefined }}
-            />
-          )}
-        />
+        <VanillaPancake />
 
         <FilterBarSelect
           label="Coffee"

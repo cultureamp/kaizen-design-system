@@ -13,7 +13,7 @@ type FilterBarContextValue = {
   addFilter: (label: string, isRemovable: boolean) => void
   updateSelectedValue: (label: string, value: any) => void
   toggleOpenFilter: (label: string, isOpen: boolean) => void
-  // setOpenFilter: (label: string) => void
+  setOpenFilter: (label: string) => void
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue | null>(null)
@@ -64,13 +64,16 @@ export const FilterBarProvider = ({
         [label]: { ...current[label], isOpen: isOpen || undefined },
       }))
     },
-    // setOpenFilter: (label: string): void =>
-    //   setState(current => Object.values(current).reduce((acc, filter) => (
-    //     acc[filter.label] = {
-    //       ...filter,
-    //       isOpen: filter.label === label ?? undefined
-    //     }
-    //   ), {}))
+    setOpenFilter: (label: string): void =>
+      setState(current =>
+        Object.values(current).reduce((acc, filter) => {
+          acc[filter.label] = {
+            ...filter,
+            isOpen: filter.label === label || undefined,
+          }
+          return acc
+        }, {})
+      ),
   } satisfies FilterBarContextValue
 
   useEffect(() => {
