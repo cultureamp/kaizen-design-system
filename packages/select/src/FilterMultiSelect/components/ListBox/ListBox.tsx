@@ -17,9 +17,6 @@ export interface ListBoxProps {
   children: (items: ListBoxItems) => React.ReactNode
 }
 
-/** get items from keys and filter out nullish or undefinded values
- ** this is required now `collection.getItem()` has a nullish return value
- */
 const getItemsFromKeys = (
   items: Collection<MultiSelectItem>,
   keys: Set<React.Key>
