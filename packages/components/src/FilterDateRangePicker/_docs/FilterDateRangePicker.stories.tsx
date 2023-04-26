@@ -87,6 +87,44 @@ export default {
   },
 } satisfies Meta<typeof FilterDateRangePicker>
 
+const sampleCode = `
+// This code is not connected to the controls of the attached component.
+// @note: If you want a removable button, use the commented out code instead.
+
+import {
+  FilterButton,
+  FilterButtonProps,
+//  FilterButtonRemovable,
+  FilterDateRangePicker,
+} from "@kaizen/components"
+
+const [isOpen, setIsOpen] = useState<boolean>(false)
+const [range, setRange] = useState<DateRange | undefined>()
+
+return (
+  <FilterDateRangePicker
+    id="filter-drp--default"
+    label="Dates"
+    locale="en-AU"
+    renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
+      <FilterButton {...triggerButtonProps} />
+    )}
+    // renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
+    //   <FilterButtonRemovable
+    //     triggerButtonProps={{ ...triggerButtonProps }}
+    //     removeButtonProps={{
+    //       onClick: (): void => undefined,
+    //     }}
+    //   />
+    // )}
+    isOpen={isOpen}
+    setIsOpen={setIsOpen}
+    selectedRange={range}
+    onRangeChange={setRange}
+  />
+)
+`
+
 /**
  * Date Range Picker to use for Filtering.
  */
@@ -112,6 +150,9 @@ Playground.parameters = {
   docs: {
     canvas: {
       sourceState: "shown",
+    },
+    source: {
+      code: sampleCode,
     },
   },
 }
