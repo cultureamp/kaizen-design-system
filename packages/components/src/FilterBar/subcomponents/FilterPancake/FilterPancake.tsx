@@ -6,18 +6,30 @@ import { FilterButtonProps } from "~components/FilterButton"
 export interface FilterPancakeProps {
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
   label: string
+  onChange?: (value: string | undefined) => void
 }
 
 export const FilterPancake = ({
   renderTrigger,
   label,
-}: FilterPancakeProps): JSX.Element => {
+  onChange,
+}: FilterPancakeProps): JSX.Element | null => {
   const [contents, setContents] = useState<string>()
-  const { updateSelectedValue, state, toggleOpenFilter } = useFilterBarContext()
+  const { addFilter, updateSelectedValue, state, toggleOpenFilter } =
+    useFilterBarContext()
+
+  useEffect(() => {
+    addFilter(
+      label,
+      renderTrigger({ label }).props?.removeButtonProps !== undefined
+    )
+  }, [])
 
   useEffect(() => {
     updateSelectedValue(label, contents)
   }, [contents])
+
+  if (!state[label]) return null
 
   return (
     <Filter
@@ -35,7 +47,9 @@ export const FilterPancake = ({
         <p>{contents ?? "Nothing!"}</p>
         <button
           onClick={(): void => {
-            setContents(c => (c ? undefined : "meep"))
+            const newValue = contents ? undefined : "meep"
+            setContents(newValue)
+            onChange?.(newValue)
           }}
         >
           Toggle contents value

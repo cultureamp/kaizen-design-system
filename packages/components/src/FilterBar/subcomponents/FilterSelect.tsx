@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import {
   FilterSelect,
   FilterSelectProps,
@@ -11,9 +11,19 @@ export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
 
 export const FilterBarSelect = <Option extends SelectOption = SelectOption>(
   props: FilterBarSelectProps<Option>
-): JSX.Element => {
-  const { updateSelectedValue, state, toggleOpenFilter } = useFilterBarContext()
-  const { label, onSelectionChange } = props
+): JSX.Element | null => {
+  const { addFilter, updateSelectedValue, state, toggleOpenFilter } =
+    useFilterBarContext()
+  const { label, onSelectionChange, renderTrigger } = props
+
+  useEffect(() => {
+    addFilter(
+      label,
+      renderTrigger({ label }).props?.removeButtonProps !== undefined
+    )
+  }, [])
+
+  if (!state[label]) return null
 
   return (
     <FilterSelect<Option>

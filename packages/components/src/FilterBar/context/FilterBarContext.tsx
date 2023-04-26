@@ -5,11 +5,12 @@ type FilterBarContextValue = {
     string,
     {
       label: string
-      removable: boolean
-      selectedValue: any
+      isRemovable: boolean
+      selectedValue?: any
       isOpen?: boolean
     }
   >
+  addFilter: (label: string, isRemovable: boolean) => void
   updateSelectedValue: (label: string, value: any) => void
   toggleOpenFilter: (label: string, isOpen: boolean) => void
   // setOpenFilter: (label: string) => void
@@ -31,19 +32,23 @@ export const useFilterBarContext = (): FilterBarContextValue => {
 
 type FilterBarProviderProps = {
   children: React.ReactNode
-  filters: FilterBarContextValue["state"]
   onChange: (state: FilterBarContextValue["state"]) => void
 }
 
 export const FilterBarProvider = ({
   children,
-  filters,
   onChange,
 }: FilterBarProviderProps): JSX.Element => {
-  const [state, setState] = useState<FilterBarContextValue["state"]>(filters)
+  const [state, setState] = useState<FilterBarContextValue["state"]>({})
 
   const value = {
     state,
+    addFilter: (label: string, isRemovable: boolean): void => {
+      setState(current => ({
+        ...current,
+        [label]: { label, isRemovable },
+      }))
+    },
     updateSelectedValue: (label: string, newValue: any): void => {
       setState(current => ({
         ...current,

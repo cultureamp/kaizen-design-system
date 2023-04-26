@@ -17,25 +17,8 @@ export type FilterBarProps = {
 export const FilterBar = ({
   children,
   onChange,
-}: FilterBarProps): JSX.Element => {
-  const filters = React.Children.toArray(children).reduce((acc, child) => {
-    if (React.isValidElement(child)) {
-      const label = child.props.label
-      acc[label] = {
-        label,
-        removable:
-          child.props.renderTrigger({ label }).props?.removeButtonProps !==
-          undefined,
-      }
-    }
-    return acc
-  }, {})
-
-  return (
-    <div style={{ display: "flex", gap: "1rem" }}>
-      <FilterBarProvider filters={filters} onChange={onChange}>
-        {children}
-      </FilterBarProvider>
-    </div>
-  )
-}
+}: FilterBarProps): JSX.Element => (
+  <div style={{ display: "flex", gap: "1rem" }}>
+    <FilterBarProvider onChange={onChange}>{children}</FilterBarProvider>
+  </div>
+)
