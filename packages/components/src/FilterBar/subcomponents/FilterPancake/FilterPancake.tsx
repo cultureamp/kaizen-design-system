@@ -6,12 +6,14 @@ import { FilterButtonProps } from "~components/FilterButton"
 export interface FilterPancakeProps {
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
   label: string
+  isDefaultHidden?: boolean
   onChange?: (value: string | undefined) => void
 }
 
 export const FilterPancake = ({
   renderTrigger,
   label,
+  isDefaultHidden,
   onChange,
 }: FilterPancakeProps): JSX.Element | null => {
   const [contents, setContents] = useState<string>()
@@ -21,7 +23,10 @@ export const FilterPancake = ({
   useEffect(() => {
     addFilter(
       label,
-      renderTrigger({ label }).props?.removeButtonProps !== undefined
+      {
+        isRemovable: renderTrigger({ label }).props?.removeButtonProps !== undefined,
+        isHidden: isDefaultHidden,
+      }
     )
   }, [])
 
@@ -29,7 +34,7 @@ export const FilterPancake = ({
     updateSelectedValue(label, contents)
   }, [contents])
 
-  if (!state[label]) return null
+  if (!state[label] || state[label].isHidden) return null
 
   return (
     <Filter

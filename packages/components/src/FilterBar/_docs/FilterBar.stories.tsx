@@ -4,6 +4,7 @@ import Highlight from "react-highlight"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { useFilterBarContext } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
+import { FilterAddButton } from "../subcomponents/FilterAddButton"
 import { FilterPancake } from "../subcomponents/FilterPancake"
 import { FilterBarSelect } from "../subcomponents/FilterSelect"
 
@@ -59,6 +60,16 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
             { label: "Batch brew", value: "batch-brew" },
           ]}
         />
+
+        <FilterPancake
+          label="Carrots"
+          renderTrigger={(triggerProps): JSX.Element => (
+            <FilterButton {...triggerProps} />
+          )}
+          isDefaultHidden
+        />
+
+        <FilterAddButton />
       </FilterBar>
 
       <Highlight className="json">

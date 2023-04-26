@@ -8,9 +8,13 @@ type FilterBarContextValue = {
       isRemovable: boolean
       selectedValue?: any
       isOpen?: boolean
+      isHidden?: boolean
     }
   >
-  addFilter: (label: string, isRemovable: boolean) => void
+  addFilter: (label: string, data: {
+    isRemovable: boolean,
+    isHidden?: boolean,
+  }) => void
   updateSelectedValue: (label: string, value: any) => void
   toggleOpenFilter: (label: string, isOpen: boolean) => void
   setOpenFilter: (label: string) => void
@@ -43,10 +47,10 @@ export const FilterBarProvider = ({
 
   const value = {
     state,
-    addFilter: (label: string, isRemovable: boolean): void => {
+    addFilter: (label: string, data: { isRemovable: boolean }): void => {
       setState(current => ({
         ...current,
-        [label]: { label, isRemovable },
+        [label]: { label, ...data },
       }))
     },
     updateSelectedValue: (label: string, newValue: any): void => {
