@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { CustomDocsContainer } from "{{storybookDir}}/CustomDocsContainer"
+import { ComponentDocsTemplate } from "{{storybookDir}}/components/DocsContainer"
 import { StickerSheet } from "{{storybookDir}}/components/StickerSheet"
 import { {{pascalCase componentName}} } from "../index"
 
@@ -10,7 +10,7 @@ const meta = {
   component: {{pascalCase componentName}},
   parameters: {
     docs: {
-      container: CustomDocsContainer,
+      container: ComponentDocsTemplate,
     },
     installation: [
       "npm install @kaizen/{{kebabCase packageName}}",
