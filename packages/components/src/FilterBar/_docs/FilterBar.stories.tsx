@@ -57,7 +57,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     </FilterBar>
 
     <Highlight className="json">
-      {JSON.stringify(filtersState, null, "\t")}
+      {JSON.stringify(filtersState, null, 4)}
     </Highlight>
     </div>
   )
