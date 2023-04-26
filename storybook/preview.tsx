@@ -54,6 +54,7 @@ const preview = {
       container: DefaultDocsContainer,
       source: {
         excludeDecorators: true,
+        language: "tsx",
       },
     },
     options: {
