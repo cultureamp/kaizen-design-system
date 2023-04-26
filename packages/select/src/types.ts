@@ -1,4 +1,5 @@
 import { SelectState } from "@react-stately/select"
+import { Node } from "@react-types/shared"
 
 export type ValueType = React.Key
 
@@ -25,3 +26,5 @@ export type SingleState = {
 
 // types from @react-aria/@react-stately/@react-types that consumer might use goes here
 export type { Selection } from "@react-types/shared"
+
+export type MultiSelectItem = Node<ItemType>
