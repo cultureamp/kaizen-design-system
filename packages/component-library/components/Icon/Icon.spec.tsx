@@ -9,7 +9,7 @@ const svgIcon = {
 
 describe("<Icon />", () => {
   describe("presentational", () => {
-    it("does not render an arial label", () => {
+    it("does not render an aria label", () => {
       const title = "My unnecessary accessible title"
       const { queryByLabelText } = render(
         <Icon title={title} icon={svgIcon} role="presentation" />
@@ -47,7 +47,7 @@ describe("<Icon />", () => {
   })
 
   describe("meaningful", () => {
-    it("renders an arial label", () => {
+    it("renders an aria label", () => {
       const title = "My accessible title"
       const { queryByLabelText } = render(
         <Icon title={title} icon={svgIcon} role="img" />
