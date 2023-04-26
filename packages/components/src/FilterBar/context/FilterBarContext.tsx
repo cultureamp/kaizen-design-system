@@ -1,8 +1,8 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 
 type FilterBarContextValue = {
   state: Record<string, any>
-  onChange: (state: FilterBarContextValue["state"]) => void
+  updateSelectedValue: (label: string, value: any) => void
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue | null>(null)
@@ -21,11 +21,35 @@ export const useFilterBarContext = (): FilterBarContextValue => {
 
 type FilterBarProviderProps = {
   children: React.ReactNode
-  value: FilterBarContextValue
+  filters: FilterBarContextValue["state"]
+  onChange: (state: FilterBarContextValue["state"]) => void
 }
 
-export const FilterBarProvider = ({ children, value }: FilterBarProviderProps): JSX.Element =>
-  // value.onChange(value.state)
-   (
-  <FilterBarContext.Provider value={value}>{children}</FilterBarContext.Provider>
-)
+export const FilterBarProvider = ({
+  children,
+  filters,
+  onChange,
+}: FilterBarProviderProps): JSX.Element => {
+  const [state, setState] = useState(filters)
+
+  const value = {
+    state,
+    updateSelectedValue: (label: string, newValue: any): void => {
+      setState(current =>
+        current.map(obj =>
+          obj.label === label ? { ...obj, selectedValue: newValue } : obj
+        )
+      )
+    },
+  }
+
+  useEffect(() => {
+    onChange(state)
+  }, [state])
+
+  return (
+    <FilterBarContext.Provider value={value}>
+      {children}
+    </FilterBarContext.Provider>
+  )
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Filter, FilterContents, FilterProps } from "~components/Filter"
+import { useFilterBarContext } from "~components/FilterBar/context/FilterBarContext"
 import { FilterButtonProps } from "~components/FilterButton"
 
 export interface FilterPancakeProps {
@@ -7,7 +8,6 @@ export interface FilterPancakeProps {
   setIsOpen: FilterProps["setIsOpen"]
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
   label: string
-  contents?: string
 }
 
 export const FilterPancake = ({
@@ -15,30 +15,36 @@ export const FilterPancake = ({
   setIsOpen,
   renderTrigger,
   label,
-  contents,
 }: FilterPancakeProps): JSX.Element => {
-  const [count, setCount] = useState(0)
+  const [contents, setContents] = useState<string>()
+  const { updateSelectedValue } = useFilterBarContext()
 
   useEffect(() => {
-    setCount(c => c + 1)
-  }, [])
+    updateSelectedValue(label, contents)
+  }, [contents])
 
   return (
-  <Filter
-    isOpen={isOpen}
-    setIsOpen={setIsOpen}
-    renderTrigger={(triggerProps): JSX.Element =>
-      renderTrigger({
-        selectedValue: contents,
-        label,
-        ...triggerProps,
-      })
-    }
-  >
-    <FilterContents>
-      <p>{contents ?? "Nothing!"}</p>
-      <p>Render count: {count}</p>
-    </FilterContents>
-  </Filter>
-)
-  }
+    <Filter
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      renderTrigger={(triggerProps): JSX.Element =>
+        renderTrigger({
+          selectedValue: contents,
+          label,
+          ...triggerProps,
+        })
+      }
+    >
+      <FilterContents>
+        <p>{contents ?? "Nothing!"}</p>
+        <button
+          onClick={(): void => {
+            setContents(c => (c ? undefined : "meep"))
+          }}
+        >
+          Toggle contents value
+        </button>
+      </FilterContents>
+    </Filter>
+  )
+}
