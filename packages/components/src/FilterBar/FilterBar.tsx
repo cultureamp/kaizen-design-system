@@ -18,15 +18,18 @@ export const FilterBar = ({
   children,
   onChange,
 }: FilterBarProps): JSX.Element => {
-  const filters = React.Children.map(children, child => {
-    const label = child.props.label
-    return {
-      label,
-      removable:
-        child.props.renderTrigger({ label }).props?.removeButtonProps !==
-        undefined,
+  const filters = React.Children.toArray(children).reduce((acc, child) => {
+    if (React.isValidElement(child)) {
+      const label = child.props.label
+      acc[label] = {
+        label,
+        removable:
+          child.props.renderTrigger({ label }).props?.removeButtonProps !==
+          undefined,
+      }
     }
-  })
+    return acc
+  }, {})
 
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
