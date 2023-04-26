@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { FilterButton } from "~components/FilterButton"
+import Highlight from "react-highlight"
+import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { FilterPancake } from "~components/FilterPancake"
 import { FilterBar } from "../index"
 
@@ -13,16 +14,51 @@ const meta = {
 export default meta
 
 export const Playground: StoryFn<typeof FilterBar> = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [filtersState, setFiltersState] = useState({})
+
+  const [isOpenChoc, setIsOpenChoc] = useState(false)
+  const [isOpenStrawb, setIsOpenStrawb] = useState(false)
+  const [isOpenVanilla, setIsOpenVanilla] = useState(false)
 
   return (
-  <FilterBar>
-    <FilterPancake
-      label="Chocolate"
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      renderTrigger={(triggerProps): JSX.Element => <FilterButton {...triggerProps} />}
-    />
-  </FilterBar>
+    <div>
+    <FilterBar
+      onChange={setFiltersState}
+    >
+      <FilterPancake
+        label="Chocolate"
+        isOpen={isOpenChoc}
+        setIsOpen={setIsOpenChoc}
+        renderTrigger={(triggerProps): JSX.Element => (
+          <FilterButton {...triggerProps} />
+        )}
+      />
+
+      <FilterPancake
+        label="Strawberry"
+        isOpen={isOpenStrawb}
+        setIsOpen={setIsOpenStrawb}
+        renderTrigger={(triggerProps): JSX.Element => (
+          <FilterButton {...triggerProps} />
+        )}
+      />
+
+      <FilterPancake
+        label="Vanilla"
+        isOpen={isOpenVanilla}
+        setIsOpen={setIsOpenVanilla}
+        renderTrigger={(triggerProps): JSX.Element => (
+          <FilterButtonRemovable
+            triggerButtonProps={{...triggerProps}}
+            removeButtonProps={{ onClick: () => undefined }}
+          />
+        )}
+      />
+    </FilterBar>
+
+    <Highlight className="json">
+      {JSON.stringify(filtersState, null, "\t")}
+    </Highlight>
+    </div>
   )
 }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Filter, FilterContents, FilterProps } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
 
@@ -16,7 +16,14 @@ export const FilterPancake = ({
   renderTrigger,
   label,
   contents,
-}: FilterPancakeProps): JSX.Element => (
+}: FilterPancakeProps): JSX.Element => {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    setCount(c => c + 1)
+  }, [])
+
+  return (
   <Filter
     isOpen={isOpen}
     setIsOpen={setIsOpen}
@@ -28,6 +35,10 @@ export const FilterPancake = ({
       })
     }
   >
-    <FilterContents>{contents ?? "Nothing!"}</FilterContents>
+    <FilterContents>
+      <p>{contents ?? "Nothing!"}</p>
+      <p>Render count: {count}</p>
+    </FilterContents>
   </Filter>
 )
+  }
