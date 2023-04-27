@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { FieldMessageStatus } from "@kaizen/draft-form"
-import { Matcher, ValidationResponse } from "../../types"
+import { DisabledDays, ValidationResponse } from "../../types"
 import { validateDate } from "../../utils/validateDate"
 import { FieldValidation } from "../types"
 import { getDateValidationHandler } from "../utils/getDateValidationHandler"
 
 export type UseRangeDateValidationArgs = {
   inputLabel: React.ReactNode
-  disabledDays?: Matcher[] | undefined
+  disabledDays?: DisabledDays
   status?: FieldMessageStatus | undefined
   validationMessage?: React.ReactNode | undefined
   onValidate?: (validationResponse: ValidationResponse) => void
