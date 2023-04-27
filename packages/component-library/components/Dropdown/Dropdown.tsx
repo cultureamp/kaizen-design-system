@@ -69,6 +69,7 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
     return (
       <div className={styles.dropdown}>
         <button
+          type="button"
           className={btnClass}
           onClick={this.toggleDropdownMenu}
           onMouseDown={(e): void => e.preventDefault()}

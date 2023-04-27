@@ -1200,6 +1200,7 @@ const MockRouterLink = ({
   ...otherProps
 }: MockRouterPropsType): JSX.Element => (
   <button
+    type="button"
     {...otherProps}
     // this is in place of using Link's `to` prop
     onClick={(): void => alert(`Mock route change to ${href}`)}
@@ -1289,7 +1290,7 @@ export const MenuHierarchyExample: StoryFn = () => (
             icon: reportSharingIcon,
             iconPosition: "end",
             onClick: (): void => alert("a primary action"),
-            component: props => <button {...props} />,
+            component: props => <button type="button" {...props} />,
           },
         ],
       }}

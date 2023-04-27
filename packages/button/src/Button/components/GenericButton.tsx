@@ -164,6 +164,8 @@ const renderButton = (
 
   return (
     <button
+      // eslint-disable-next-line react/button-has-type
+      type={type}
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
@@ -171,7 +173,6 @@ const renderButton = (
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
-      type={type}
       aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
       tabIndex={
