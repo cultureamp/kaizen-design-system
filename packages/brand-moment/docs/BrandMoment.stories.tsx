@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { BrandMoment } from "@kaizen/brand-moment"
 import { Box } from "@kaizen/component-library"
 import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
@@ -38,7 +38,7 @@ export default {
       </div>
     ),
   ],
-}
+} satisfies Meta<typeof BrandMoment>
 
 export const InformativeIntro: StoryFn<typeof BrandMoment> = (_, { isRTL }) => (
   <BrandMoment
