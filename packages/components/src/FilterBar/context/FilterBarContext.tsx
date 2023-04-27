@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react"
 
+type FilterAttr = {
+  label: string
+  isRemovable: boolean
+  selectedValue?: any
+  isOpen?: boolean
+  isHidden?: boolean
+}
+
 type FilterBarContextValue = {
-  state: Record<
-    string,
-    {
-      label: string
-      isRemovable: boolean
-      selectedValue?: any
-      isOpen?: boolean
-      isHidden?: boolean
-    }
-  >
+  state: Record<string, FilterAttr>
   addFilter: (
     label: string,
     data: {
@@ -23,6 +22,7 @@ type FilterBarContextValue = {
   setOpenFilter: (label: string) => void
   showFilter: (label: string) => void
   hideFilter: (label: string) => void
+  getHiddenFilters: () => FilterAttr[]
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue | null>(null)
@@ -98,6 +98,7 @@ export const FilterBarProvider = ({
         [label]: { ...current[label], isHidden: true },
       }))
     },
+    getHiddenFilters: (): FilterAttr[] => Object.values(state).filter(({ isHidden }) => isHidden)
   } satisfies FilterBarContextValue
 
   useEffect(() => {
