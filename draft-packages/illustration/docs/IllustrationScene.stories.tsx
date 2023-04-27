@@ -139,13 +139,12 @@ const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
     <>
       {sceneComponents.map(({ Component, heading, width }: SceneComponent) => {
         const sceneWrapperProps = {
-          key: heading,
           width: width || "450px",
           heading,
         }
         if (isAnimatedScene(Component)) {
           return (
-            <SceneWrapper {...sceneWrapperProps}>
+            <SceneWrapper key={heading} {...sceneWrapperProps}>
               {isAnimatedStory ? (
                 <Component
                   isAnimated={true}
@@ -161,7 +160,7 @@ const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
         }
 
         return (
-          <SceneWrapper {...sceneWrapperProps}>
+          <SceneWrapper key={heading} {...sceneWrapperProps}>
             <Component alt={alt} {...restProps} />
           </SceneWrapper>
         )

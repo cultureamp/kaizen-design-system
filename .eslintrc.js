@@ -289,7 +289,6 @@ module.exports = {
     "use-isnan": "error",
     "valid-typeof": "off",
     "react/no-unescaped-entities": "off",
-    "react/jsx-key": "off",
   },
   overrides: [
     {

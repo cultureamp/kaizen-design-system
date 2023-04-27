@@ -90,7 +90,9 @@ export const SkirtStory: StoryFn = () => (
         text: "Back to home",
         handleClick: () => alert("breadcrumb clicked!"),
       }}
-      navigationTabs={[<NavigationTab text="Label" href="#" active />]}
+      navigationTabs={[
+        <NavigationTab key="Label" text="Label" href="#" active />,
+      ]}
     />
     <Skirt>
       <SkirtCard>
@@ -152,7 +154,13 @@ export const SkirtEducationVariant: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab variant="education" text="Label" href="#" active />,
+        <NavigationTab
+          key="Label"
+          variant="education"
+          text="Label"
+          href="#"
+          active
+        />,
       ]}
     />
     <Skirt variant="education">
