@@ -9,13 +9,13 @@ const svgIcon = {
 
 describe("<Icon />", () => {
   describe("presentational", () => {
-    it("does not render a title", () => {
+    it("does not render an aria label", () => {
       const title = "My unnecessary accessible title"
-      const { queryByText } = render(
+      const { queryByLabelText } = render(
         <Icon title={title} icon={svgIcon} role="presentation" />
       )
 
-      expect(queryByText(title)).toBeFalsy()
+      expect(queryByLabelText(title)).not.toBeInTheDocument()
     })
 
     it("does not render a description", () => {
@@ -24,7 +24,7 @@ describe("<Icon />", () => {
       const { queryByText } = render(
         <Icon desc={description} icon={svgIcon} role="presentation" />
       )
-      expect(queryByText(description)).toBeFalsy()
+      expect(queryByText(description)).not.toBeInTheDocument()
     })
 
     it("is not visible to screen readers", () => {
@@ -40,18 +40,20 @@ describe("<Icon />", () => {
         />
       )
 
-      expect(container.querySelector('[aria-hidden="true"]')).toBeTruthy()
+      expect(
+        container.querySelector('[aria-hidden="true"]')
+      ).toBeInTheDocument()
     })
   })
 
   describe("meaningful", () => {
-    it("renders a title", () => {
+    it("renders an aria label", () => {
       const title = "My accessible title"
-
-      const { queryByText } = render(
+      const { queryByLabelText } = render(
         <Icon title={title} icon={svgIcon} role="img" />
       )
-      expect(queryByText(title)).toBeTruthy()
+
+      expect(queryByLabelText(title)).toBeInTheDocument()
     })
 
     it("renders a description", () => {
@@ -60,7 +62,20 @@ describe("<Icon />", () => {
       const { queryByText } = render(
         <Icon title="Icon" desc={description} icon={svgIcon} role="img" />
       )
-      expect(queryByText(description)).toBeTruthy()
+      expect(queryByText(description)).toBeInTheDocument()
+    })
+
+    it("is visible to screen readers", () => {
+      const title = "My accessible title"
+      const description = "My accessible icon description"
+
+      const { getByLabelText } = render(
+        <Icon title={title} desc={description} icon={svgIcon} role="img" />
+      )
+
+      const icon = getByLabelText(title)
+
+      expect(icon.attributes["aria-hidden"]).toBeUndefined()
     })
   })
 })
