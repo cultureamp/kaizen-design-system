@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -36,11 +36,11 @@
   },
   "dependencies": {
     "@kaizen/a11y": "^1.7.9",
-    "@kaizen/component-library": "^16.7.0",
-    "@kaizen/date-picker": "^5.21.9",
+    "@kaizen/component-library": "^16.7.1",
+    "@kaizen/date-picker": "^5.21.10",
     "@kaizen/draft-divider": "^2.2.8",
     "@kaizen/draft-form": "^10.3.11",
-    "@kaizen/draft-tooltip": "^5.4.39",
+    "@kaizen/draft-tooltip": "^5.4.40",
     "@kaizen/hosted-assets": "^2.0.1",
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
