@@ -23,6 +23,7 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "plugin:storybook/recommended",
     "plugin:import/typescript",
+    "plugin:react/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -264,6 +265,7 @@ module.exports = {
     "prefer-object-spread": "error",
     "quote-props": ["error", "as-needed"],
     radix: "error",
+    "react/button-has-type": ["error"],
     "space-before-function-paren": [
       "error",
       {
