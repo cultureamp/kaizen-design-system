@@ -462,6 +462,11 @@ export const Tooltip: StoryFn = () => (
             width={1 / 4}
             wrapping="wrap"
             tooltipInfo="This is a tooltip"
+            sorting="ascending"
+            onClick={(e: React.MouseEvent): void => {
+              e.preventDefault()
+              alert("Header was clicked")
+            }}
           />
           <TableHeaderRowCell
             labelText="End aligned, no icon"
@@ -469,6 +474,11 @@ export const Tooltip: StoryFn = () => (
             tooltipInfo="This is a tooltip even though there was no icon"
             isTooltipIconHidden={true}
             align="end"
+            sorting="ascending"
+            onClick={(e: React.MouseEvent): void => {
+              e.preventDefault()
+              alert("Header was clicked")
+            }}
           />
         </TableHeaderRow>
       </TableHeader>
