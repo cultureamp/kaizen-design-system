@@ -140,3 +140,5 @@ export const PopoverLegacy = React.forwardRef<
     </div>
   )
 )
+
+PopoverLegacy.displayName = "PopoverLegacy"

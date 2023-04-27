@@ -292,7 +292,6 @@ module.exports = {
     "react/jsx-key": "off",
     "react/no-children-prop": "off",
     "react/jsx-no-target-blank": "off",
-    "react/display-name": "off",
   },
   overrides: [
     {

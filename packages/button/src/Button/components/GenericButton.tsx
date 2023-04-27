@@ -121,6 +121,7 @@ GenericButton.defaultProps = {
   disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
   type: "button",
 }
+GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
