@@ -287,7 +287,9 @@ module.exports = {
     {
       files: [
         "storybook/*",
+        "**/_docs/**/*",
         "*.stories.tsx",
+        "*.spec.ts",
         "*.spec.tsx",
         "*.docsExample.tsx",
       ],
