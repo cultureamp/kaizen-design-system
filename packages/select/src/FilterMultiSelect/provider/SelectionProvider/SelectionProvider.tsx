@@ -2,9 +2,9 @@ import React, { HTMLAttributes, useCallback, useContext, useState } from "react"
 import { useListBox } from "@react-aria/listbox"
 import { Item } from "@react-stately/collections"
 import { ListState, useListState } from "@react-stately/list"
-import { SelectionMode, Node, Selection } from "@react-types/shared"
+import { SelectionMode, Selection } from "@react-types/shared"
 import { VisuallyHidden } from "@kaizen/a11y"
-import { ItemType } from "../../../types"
+import { ItemType, MultiSelectItem } from "../../../types"
 import { useMenuTriggerContext } from "../MenuTriggerProvider"
 
 export interface SelectionProviderProps {
@@ -53,7 +53,7 @@ export const SelectionProvider = (
   }, [searchQuery, onSearchInputChange])
 
   const searchFilter = useCallback(
-    (nodes: Iterable<Node<ItemType>>): Iterable<Node<ItemType>> =>
+    (nodes: Iterable<MultiSelectItem>): Iterable<MultiSelectItem> =>
       searchQuery
         ? Array.from(nodes).filter(f =>
             f.textValue.toLowerCase().includes(searchQuery.toLowerCase())
