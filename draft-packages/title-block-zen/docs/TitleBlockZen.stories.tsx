@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react"
 import { Meta, StoryFn } from "@storybook/react"
+import { CustomButtonProps } from "packages/button"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -1233,15 +1234,21 @@ export const ActionRenderProps: StoryFn = () => (
         {
           label: "secondary action",
           icon: reportSharingIcon,
-          component: props => <MockRouterLink href="#secondary" {...props} />,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary" {...props} />
+          ),
         },
         {
           label: "secondary action 2",
-          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-2" {...props} />
+          ),
         },
         {
           label: "secondary action 3",
-          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-3" {...props} />
+          ),
         },
       ]}
     />
@@ -1290,15 +1297,21 @@ export const MenuHierarchyExample: StoryFn = () => (
         {
           label: "secondary action",
           icon: reportSharingIcon,
-          component: props => <MockRouterLink href="#secondary" {...props} />,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary" {...props} />
+          ),
         },
         {
           label: "secondary action 2",
-          component: props => <MockRouterLink href="#secondary-2" {...props} />,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-2" {...props} />
+          ),
         },
         {
           label: "secondary action 3",
-          component: props => <MockRouterLink href="#secondary-3" {...props} />,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-3" {...props} />
+          ),
         },
       ]}
     />

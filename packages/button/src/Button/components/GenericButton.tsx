@@ -72,7 +72,7 @@ export type ButtonRef = { focus: () => void }
 // This is so we can support properties like aria-* or data-*
 const getCustomProps = (props: Record<string, any>): Record<string, string> => {
   const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
-  return keys.reduce((acc, val) => {
+  return keys.reduce<Record<string, any>>((acc, val) => {
     acc[val] = props[val]
     return acc
   }, {})
