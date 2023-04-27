@@ -3,9 +3,10 @@ import { render, fireEvent } from "@testing-library/react"
 import { ContextModal, ContextModalProps } from "./ContextModal"
 import "./matchMedia.mock"
 
-const ContextModalWrapper = (
-  props: Partial<ContextModalProps>
-): JSX.Element => (
+const ContextModalWrapper = ({
+  children,
+  ...props
+}: Partial<ContextModalProps>): JSX.Element => (
   <ContextModal
     isOpen={true}
     title="Example modal title"
@@ -15,7 +16,7 @@ const ContextModalWrapper = (
     onSecondaryAction={(): void => undefined}
     {...props}
   >
-    Example modal body
+    {children}
   </ContextModal>
 )
 

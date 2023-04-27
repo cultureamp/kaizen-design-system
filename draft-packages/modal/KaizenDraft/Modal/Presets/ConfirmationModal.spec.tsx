@@ -3,9 +3,10 @@ import { render, fireEvent } from "@testing-library/react"
 import { ConfirmationModal, ConfirmationModalProps } from "./ConfirmationModal"
 import "./matchMedia.mock"
 
-const ConfirmationModalWrapper = (
-  props: Partial<ConfirmationModalProps>
-): JSX.Element => (
+const ConfirmationModalWrapper = ({
+  children,
+  ...props
+}: Partial<ConfirmationModalProps>): JSX.Element => (
   <ConfirmationModal
     mood="informative"
     isOpen={true}
@@ -14,7 +15,7 @@ const ConfirmationModalWrapper = (
     onConfirm={(): void => undefined}
     {...props}
   >
-    Example Modal body
+    {children}
   </ConfirmationModal>
 )
 

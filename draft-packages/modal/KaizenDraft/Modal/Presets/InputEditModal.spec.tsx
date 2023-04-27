@@ -3,9 +3,10 @@ import { render, fireEvent } from "@testing-library/react"
 import { InputEditModal, InputEditModalProps } from "./InputEditModal"
 import "./matchMedia.mock"
 
-const InputEditModalWrapper = (
-  props: Partial<InputEditModalProps>
-): JSX.Element => (
+const InputEditModalWrapper = ({
+  children,
+  ...props
+}: Partial<InputEditModalProps>): JSX.Element => (
   <InputEditModal
     isOpen={true}
     mood="positive"
@@ -14,7 +15,7 @@ const InputEditModalWrapper = (
     onDismiss={(): void => undefined}
     {...props}
   >
-    Example modal body
+    {children}
   </InputEditModal>
 )
 
