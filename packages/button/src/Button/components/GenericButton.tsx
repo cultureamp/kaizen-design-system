@@ -201,7 +201,9 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
   } = props
   const customProps = getCustomProps(rest)
 
-  const target = newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
+  const target = newTabAndIUnderstandTheAccessibilityImplications
+    ? "_blank"
+    : "_self"
 
   return (
     <a

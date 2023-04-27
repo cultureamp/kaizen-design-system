@@ -10,9 +10,10 @@ const RoadblockModalWrapper = (
     isOpen={true}
     title="Example modal title"
     onDismiss={(): void => undefined}
-    children="Example modal body"
     {...props}
-  />
+  >
+    Example modal body
+  </RoadblockModal>
 )
 
 describe("<RoadblockModal />", () => {

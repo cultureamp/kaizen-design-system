@@ -7,9 +7,7 @@ describe("<RadioGroup />", () => {
     it("renders a title", () => {
       const title = "Label"
 
-      const { queryByText } = render(
-        <RadioGroup labelText={title} children={null} />
-      )
+      const { queryByText } = render(<RadioGroup labelText={title} />)
       expect(queryByText(title)).toBeTruthy()
     })
   })

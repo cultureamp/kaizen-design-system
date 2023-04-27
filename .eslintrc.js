@@ -290,7 +290,6 @@ module.exports = {
     "valid-typeof": "off",
     "react/no-unescaped-entities": "off",
     "react/jsx-key": "off",
-    "react/no-children-prop": "off",
   },
   overrides: [
     {

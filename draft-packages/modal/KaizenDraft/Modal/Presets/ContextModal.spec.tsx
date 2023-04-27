@@ -11,11 +11,12 @@ const ContextModalWrapper = (
     title="Example modal title"
     onConfirm={(): void => undefined}
     onDismiss={(): void => undefined}
-    children="Example modal body"
     secondaryLabel="Example secondary"
     onSecondaryAction={(): void => undefined}
     {...props}
-  />
+  >
+    Example modal body
+  </ContextModal>
 )
 
 describe("<ContextModal />", () => {

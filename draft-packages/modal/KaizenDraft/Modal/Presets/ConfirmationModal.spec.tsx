@@ -12,9 +12,10 @@ const ConfirmationModalWrapper = (
     title="Example Modal Title"
     onDismiss={(): void => undefined}
     onConfirm={(): void => undefined}
-    children="Example Modal body"
     {...props}
-  />
+  >
+    Example Modal body
+  </ConfirmationModal>
 )
 
 describe("<ConfirmationModal />", () => {

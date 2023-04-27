@@ -12,9 +12,10 @@ const InputEditModalWrapper = (
     title="Example modal title"
     onSubmit={(): void => undefined}
     onDismiss={(): void => undefined}
-    children="Example modal body"
     {...props}
-  />
+  >
+    Example modal body
+  </InputEditModal>
 )
 
 describe("<InputEditModal />", () => {
