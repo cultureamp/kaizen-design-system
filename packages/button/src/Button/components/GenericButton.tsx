@@ -201,13 +201,14 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
   } = props
   const customProps = getCustomProps(rest)
 
+  const target = newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
+
   return (
     <a
       id={id}
       href={href}
-      target={
-        newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
-      }
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={buttonClass(props)}
       onClick={onClick}
       onFocus={onFocus}

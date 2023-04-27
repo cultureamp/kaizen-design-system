@@ -291,7 +291,6 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "react/jsx-key": "off",
     "react/no-children-prop": "off",
-    "react/jsx-no-target-blank": "off",
   },
   overrides: [
     {
