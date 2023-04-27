@@ -5,6 +5,8 @@ import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { useFilterBarContext } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
 import { FilterAddButton } from "../subcomponents/FilterAddButton"
+import { FilterClearAllButton } from "../subcomponents/FilterClearAllButton"
+import { FilterDRP } from "../subcomponents/FilterDRP"
 import { FilterPancake } from "../subcomponents/FilterPancake"
 import { FilterBarSelect } from "../subcomponents/FilterSelect"
 
@@ -48,6 +50,15 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
           )}
         />
 
+        <FilterDRP
+          id="drp"
+          locale="en-AU"
+          label="Dates"
+          renderTrigger={(triggerProps): JSX.Element => (
+            <FilterButton {...triggerProps} />
+          )}
+        />
+
         <VanillaPancake />
 
         <FilterBarSelect
@@ -71,6 +82,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
         />
 
         <FilterAddButton />
+        <FilterClearAllButton />
       </FilterBar>
 
       <Highlight className="json">

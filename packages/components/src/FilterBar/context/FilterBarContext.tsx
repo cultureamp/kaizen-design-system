@@ -23,6 +23,7 @@ type FilterBarContextValue = {
   showFilter: (label: string) => void
   hideFilter: (label: string) => void
   getHiddenFilters: () => FilterAttr[]
+  clearFilters: () => void
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue | null>(null)
@@ -98,7 +99,28 @@ export const FilterBarProvider = ({
         [label]: { ...current[label], isHidden: true },
       }))
     },
-    getHiddenFilters: (): FilterAttr[] => Object.values(state).filter(({ isHidden }) => isHidden)
+    getHiddenFilters: (): FilterAttr[] =>
+      Object.values(state).filter(({ isHidden }) => isHidden),
+    clearFilters: (): void => {
+      setState(current =>
+        Object.values(current).reduce<FilterBarContextValue["state"]>(
+          (acc, filter) => {
+            const newState = filter
+            if (filter.isRemovable) {
+              newState["isHidden"] = true
+            }
+            newState["selectedValue"] = undefined
+
+            acc[filter.label] = {
+              ...filter,
+              ...newState,
+            }
+            return acc
+          },
+          {}
+        )
+      )
+    },
   } satisfies FilterBarContextValue
 
   useEffect(() => {
