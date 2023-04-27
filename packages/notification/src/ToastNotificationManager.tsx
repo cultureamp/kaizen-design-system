@@ -50,12 +50,9 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     portal = document.createElement("div")
     portal.setAttribute(
       "data-automation-id",
-      "toast-notification-manager-portal",
+      "toast-notification-manager-portal"
     )
-    portal.setAttribute(
-      "role",
-      "status",
-    )
+    portal.setAttribute("role", "status")
     document.body.appendChild(portal)
   }
 
