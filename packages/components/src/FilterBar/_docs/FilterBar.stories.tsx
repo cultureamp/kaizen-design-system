@@ -19,14 +19,15 @@ export default meta
 // Component must be created to access the context.
 // Provider is in FilterBar, thus hook cannot be called in instantiating component.
 const VanillaPancake = (): JSX.Element => {
-  const { setOpenFilter } = useFilterBarContext()
+  const { setOpenFilter, hideFilter } = useFilterBarContext()
+  const label = "Vanilla"
   return (
     <FilterPancake
-      label="Vanilla"
+      label={label}
       renderTrigger={(triggerProps): JSX.Element => (
         <FilterButtonRemovable
           triggerButtonProps={{ ...triggerProps }}
-          removeButtonProps={{ onClick: () => undefined }}
+          removeButtonProps={{ onClick: () => hideFilter(label) }}
         />
       )}
       onChange={(): void => setOpenFilter("Coffee")}

@@ -21,13 +21,11 @@ export const FilterPancake = ({
     useFilterBarContext()
 
   useEffect(() => {
-    addFilter(
-      label,
-      {
-        isRemovable: renderTrigger({ label }).props?.removeButtonProps !== undefined,
-        isHidden: isDefaultHidden,
-      }
-    )
+    addFilter(label, {
+      isRemovable:
+        renderTrigger({ label }).props?.removeButtonProps !== undefined,
+      isHidden: isDefaultHidden,
+    })
   }, [])
 
   useEffect(() => {

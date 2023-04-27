@@ -17,12 +17,10 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>(
   const { label, onSelectionChange, renderTrigger } = props
 
   useEffect(() => {
-    addFilter(
-      label,
-      {
-        isRemovable: renderTrigger({ label }).props?.removeButtonProps !== undefined,
-      }
-    )
+    addFilter(label, {
+      isRemovable:
+        renderTrigger({ label }).props?.removeButtonProps !== undefined,
+    })
   }, [])
 
   if (!state[label]) return null

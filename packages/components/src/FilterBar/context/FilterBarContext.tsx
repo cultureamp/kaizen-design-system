@@ -11,13 +11,18 @@ type FilterBarContextValue = {
       isHidden?: boolean
     }
   >
-  addFilter: (label: string, data: {
-    isRemovable: boolean,
-    isHidden?: boolean,
-  }) => void
+  addFilter: (
+    label: string,
+    data: {
+      isRemovable: boolean
+      isHidden?: boolean
+    }
+  ) => void
   updateSelectedValue: (label: string, value: any) => void
   toggleOpenFilter: (label: string, isOpen: boolean) => void
   setOpenFilter: (label: string) => void
+  showFilter: (label: string) => void
+  hideFilter: (label: string) => void
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue | null>(null)
@@ -65,19 +70,34 @@ export const FilterBarProvider = ({
     toggleOpenFilter: (label: string, isOpen: boolean): void => {
       setState(current => ({
         ...current,
-        [label]: { ...current[label], isOpen: isOpen || undefined },
+        [label]: { ...current[label], isOpen },
       }))
     },
     setOpenFilter: (label: string): void =>
       setState(current =>
-        Object.values(current).reduce((acc, filter) => {
-          acc[filter.label] = {
-            ...filter,
-            isOpen: filter.label === label || undefined,
-          }
-          return acc
-        }, {})
+        Object.values(current).reduce<FilterBarContextValue["state"]>(
+          (acc, filter) => {
+            acc[filter.label] = {
+              ...filter,
+              isOpen: filter.label === label,
+            }
+            return acc
+          },
+          {}
+        )
       ),
+    showFilter: (label: string): void => {
+      setState(current => ({
+        ...current,
+        [label]: { ...current[label], isHidden: false },
+      }))
+    },
+    hideFilter: (label: string): void => {
+      setState(current => ({
+        ...current,
+        [label]: { ...current[label], isHidden: true },
+      }))
+    },
   } satisfies FilterBarContextValue
 
   useEffect(() => {
