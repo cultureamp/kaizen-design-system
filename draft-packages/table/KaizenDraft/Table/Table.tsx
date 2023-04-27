@@ -266,8 +266,9 @@ export const TableHeaderRowCell = ({
   cellContents =
     tooltipInfo != null ? (
       <Tooltip
-        text={tooltipInfo}
+        animationDuration={0}
         classNameOverride={styles.headerRowCellTooltip}
+        text={tooltipInfo}
       >
         {cellContents}
       </Tooltip>

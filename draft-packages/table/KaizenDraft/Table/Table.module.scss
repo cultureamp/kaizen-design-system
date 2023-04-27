@@ -62,7 +62,7 @@ $row-height-data-variant: 48px;
 }
 
 .headerRowCellCheckbox {
-  margin-right: 10px;
+  margin-inline-end: 10px;
 }
 
 // The .headerRowCell wrapper is required to increase the specificity, as so
@@ -96,7 +96,7 @@ $row-height-data-variant: 48px;
 
 .headerRowCellTooltipIcon {
   color: $color-blue-500;
-  margin-right: $spacing-xs;
+  margin-inline-end: $spacing-xs;
 }
 
 .headerRowCellIcon {
@@ -223,6 +223,6 @@ $row-height-data-variant: 48px;
 
 .headerRowCellIconAlignCenter,
 .headerRowCellIconAlignEnd {
-  //makes sure the label doesn't move on hover when not left aligned
-  margin-right: -20px;
+  // makes sure the label doesn't move on hover when not left aligned
+  margin-inline-end: -20px;
 }
