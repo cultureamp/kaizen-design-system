@@ -37,6 +37,27 @@ const VanillaPancake = (): JSX.Element => {
   )
 }
 
+const CurrySelect = (): JSX.Element => {
+  const { hideFilter } = useFilterBarContext()
+  const label = "Curry"
+
+  return (
+    <FilterBarSelect
+      label={label}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButtonRemovable
+          triggerButtonProps={{ ...triggerProps }}
+          removeButtonProps={{ onClick: () => hideFilter(label) }}
+        />
+      )}
+      items={[
+        { label: "Lamb", value: "lamb" },
+        { label: "Beef", value: "beef" },
+      ]}
+    />
+  )
+}
+
 export const Playground: StoryFn<typeof FilterBar> = () => {
   const [filtersState, setFiltersState] = useState({})
 
@@ -72,6 +93,8 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
             { label: "Batch brew", value: "batch-brew" },
           ]}
         />
+
+        <CurrySelect />
 
         <FilterPancake
           label="Carrots"

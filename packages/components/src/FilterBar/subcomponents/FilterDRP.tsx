@@ -24,7 +24,7 @@ export const FilterDRP = (props: FilterDRPProps): JSX.Element | null => {
     })
   }, [])
 
-  if (!state[label]) return null
+  if (!state[label] || state[label].isHidden) return null
 
   return (
     <FilterDateRangePicker

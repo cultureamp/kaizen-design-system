@@ -23,7 +23,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>(
     })
   }, [])
 
-  if (!state[label]) return null
+  if (!state[label] || state[label].isHidden) return null
 
   return (
     <FilterSelect<Option>
