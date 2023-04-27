@@ -6,7 +6,9 @@ interface DescriptionInputFormatProps {
   locale: Locale
 }
 
-const DescriptionInputFormat = ({ locale }): JSX.Element => (
+const DescriptionInputFormat = ({
+  locale,
+}: DescriptionInputFormatProps): JSX.Element => (
   <span className={styles.descriptionInputFormat}>
     <span>Input format</span>
     <span className={styles.labelSeparator}>:</span>

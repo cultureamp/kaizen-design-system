@@ -11,7 +11,9 @@ import {
 import styles from "./EditableRichTextContent.module.scss"
 
 export interface EditableRichTextContentProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onClick">> {
+  extends OverrideClassName<
+    Omit<HTMLAttributes<HTMLDivElement>, "onClick" | "content">
+  > {
   onClick: (event: MouseEvent<HTMLElement>) => void
   content: EditorContentArray
   labelText: string

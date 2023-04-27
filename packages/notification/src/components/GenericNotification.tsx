@@ -200,10 +200,15 @@ const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
   </button>
 )
 
+type NotificationHeadingProps = {
+  titleProp?: HeadingProps["children"]
+  headingProps?: HeadingProps
+}
+
 const NotificationHeading = ({
   titleProp,
   headingProps,
-}): JSX.Element | null => {
+}: NotificationHeadingProps): JSX.Element | null => {
   if (headingProps) {
     return (
       <Heading
