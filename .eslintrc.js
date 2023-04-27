@@ -16,6 +16,9 @@ module.exports = {
     "import/resolver": {
       typescript: {}, // this empty key is required for eslint-import-resolver-typescript
     },
+    react: {
+      version: "detect",
+    },
   },
   extends: [
     "prettier",
@@ -266,6 +269,7 @@ module.exports = {
     "quote-props": ["error", "as-needed"],
     radix: "error",
     "react/button-has-type": ["error"],
+    "react/prop-types": "off",
     "space-before-function-paren": [
       "error",
       {
@@ -284,6 +288,11 @@ module.exports = {
     ],
     "use-isnan": "error",
     "valid-typeof": "off",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-key": "off",
+    "react/no-children-prop": "off",
+    "react/jsx-no-target-blank": "off",
+    "react/display-name": "off",
   },
   overrides: [
     {
