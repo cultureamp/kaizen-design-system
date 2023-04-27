@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.15.0
+
+### Minor Changes
+
+- 78b937ee6: \* Upgrade `react-aria`, `shared-types`, `react-stately`
+  - Fix type errors where value can now be `null`
+  - Add type `MultiSelectItem` and replaced usage of `Node<T>`
+  - Fix broken selector in Playwright causing false negatives
+
+### Patch Changes
+
+- Updated dependencies [fb901eec2]
+  - @kaizen/component-library@16.7.0
+
 ## 6.14.1
 
 ### Patch Changes
