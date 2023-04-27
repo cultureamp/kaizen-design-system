@@ -1,5 +1,11 @@
 # Change Log
 
+## 16.7.1
+
+### Patch Changes
+
+- [#3536](https://github.com/cultureamp/kaizen-design-system/pull/3536) [`82ba2fa0d`](https://github.com/cultureamp/kaizen-design-system/commit/82ba2fa0d20c66a1688d2609d4bd7775b129349c) - - enforced no-implicit-any across kaizen
+
 ## 16.7.0
 
 ### Minor Changes

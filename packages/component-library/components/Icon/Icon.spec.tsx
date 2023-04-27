@@ -74,8 +74,7 @@ describe("<Icon />", () => {
       )
 
       const icon = getByLabelText(title)
-
-      expect(icon.attributes["aria-hidden"]).toBeUndefined()
+      expect(icon).not.toHaveAttribute("aria-hidden")
     })
   })
 })

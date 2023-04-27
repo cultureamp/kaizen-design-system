@@ -108,14 +108,17 @@ export const Select = ({
   const state = useSelectState(ariaSelectProps)
   const renderChildren = children
     ? children
-    : ({ items }): JSX.Element =>
-        items.map((item: Node<SingleItemType>) =>
-          item.type === "section" ? (
-            <ListBoxSection key={item.key} section={item} />
-          ) : (
-            <Option key={item.key} item={item} />
-          )
-        )
+    : ({ items }: SelectOptionsProps): JSX.Element => (
+        <>
+          {items.map(item =>
+            item.type === "section" ? (
+              <ListBoxSection key={item.key} section={item} />
+            ) : (
+              <Option key={item.key} item={item} />
+            )
+          )}
+        </>
+      )
 
   const {
     labelProps,

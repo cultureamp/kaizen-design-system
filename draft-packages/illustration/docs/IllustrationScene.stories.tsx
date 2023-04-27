@@ -113,24 +113,31 @@ type AnimatedScene = (props: AnimatedSceneProps) => JSX.Element
 type StaticScene = (props: StaticSceneProps) => JSX.Element
 type IllustrationScene = AnimatedScene | StaticScene
 
-type SceneComponents = Array<{
+type SceneComponent = {
   Component: IllustrationScene
   heading: string
   width?: string
-}>
+}
+type SceneComponents = SceneComponent[]
+
+type IllustrationScenesTemplateProps = (
+  | AnimatedSceneProps
+  | StaticSceneProps
+) & { sceneComponents: SceneComponents }
 
 const isAnimatedScene = (
   Component: IllustrationScene
 ): Component is AnimatedScene => Component.toString().includes("isAnimated")
 
-const IllustrationScenesTemplate: StoryFn<
-  (AnimatedSceneProps | StaticSceneProps) & { sceneComponents: SceneComponents }
-> = ({ sceneComponents, ...restArgs }) => {
+const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
+  sceneComponents,
+  ...restArgs
+}: IllustrationScenesTemplateProps) => {
   const { isAnimated, loop, autoplay, alt = "", ...restProps } = restArgs
   const isAnimatedStory = IS_CHROMATIC ? false : isAnimated
   return (
     <>
-      {sceneComponents.map(({ Component, heading, width }) => {
+      {sceneComponents.map(({ Component, heading, width }: SceneComponent) => {
         const sceneWrapperProps = {
           key: heading,
           width: width || "450px",
