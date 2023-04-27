@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.8.0
+
+### Minor Changes
+
+- a7ffc2239: \* Add FilterDateRangePicker component
+  - Filter which allows user to select a date range
+  - Add LabelledMessage component
+    - Utility component which helps create colon-separated text which supports right-to-left i18n
+
+### Patch Changes
+
+- Updated dependencies [a7ffc2239]
+- Updated dependencies [fb901eec2]
+  - @kaizen/date-picker@5.21.9
+  - @kaizen/component-library@16.7.0
+
 ## 1.7.13
 
 ### Patch Changes
