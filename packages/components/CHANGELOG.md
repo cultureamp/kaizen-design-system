@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.8.1
+
+### Patch Changes
+
+- [#3536](https://github.com/cultureamp/kaizen-design-system/pull/3536) [`82ba2fa0d`](https://github.com/cultureamp/kaizen-design-system/commit/82ba2fa0d20c66a1688d2609d4bd7775b129349c) - - enforced no-implicit-any across kaizen
+
+- Updated dependencies [[`82ba2fa0d`](https://github.com/cultureamp/kaizen-design-system/commit/82ba2fa0d20c66a1688d2609d4bd7775b129349c)]:
+  - @kaizen/component-library@16.7.1
+  - @kaizen/draft-tooltip@5.4.40
+  - @kaizen/date-picker@5.21.10
+
 ## 1.8.0
 
 ### Minor Changes
