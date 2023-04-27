@@ -61,13 +61,14 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     <>
       There’s a problem connecting to your HRIS. Check your HRIS is working and
       check your <a href="/">integration settings</a>, or if you require more
-      assistance please <a href="/">contact support</a>... or just don't do
+      assistance please <a href="/">contact support</a>... or just don&#39;t do
       anything and observe that this notification contains an absurd amount of
       text that is purposely verbose in order to demonstrate that verbosity is,
-      in most cases, just in general really, i guess it's debatable, unnecessary
-      and to demonstrate that verbosity makes this notification's body text spit
-      into multiple lines because there is, surely, unequivocally, no way that
-      all of this can fit into one line of text on an average screen...
+      in most cases, just in general really, i guess it&#39;s debatable,
+      unnecessary and to demonstrate that verbosity makes this
+      notification&#39;s body text spit into multiple lines because there is,
+      surely, unequivocally, no way that all of this can fit into one line of
+      text on an average screen...
     </>
   )
   return (
@@ -82,8 +83,8 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </Heading>
         <StoryWrapper.Row rowTitle="Informative">
           <InlineNotification type="informative" title="Informative title">
-            "All Employees - North America" status has been changed to
-            'Archived'.
+            &#34;All Employees - North America&#34; status has been changed to
+            &#39;Archived&#39;.
             <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
@@ -94,8 +95,8 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             title="Informative title"
             hideCloseIcon
           >
-            "All Employees - North America" status has been changed to
-            'Archived'. <a href="/">View all</a>
+            &#34;All Employees - North America&#34; status has been changed to
+            &#39;Archived&#39;. <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Positive">

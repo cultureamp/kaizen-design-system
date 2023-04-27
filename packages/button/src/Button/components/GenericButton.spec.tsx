@@ -9,7 +9,7 @@ describe("<GenericButton />", () => {
         label="button label"
         component={(props): React.ReactElement => (
           <div>
-            <div>I'm custom</div>
+            <div>I&#39;m custom</div>
             <div>{props.children}</div>
           </div>
         )}

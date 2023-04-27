@@ -43,7 +43,7 @@ export const DefaultStory: StoryFn = () => (
           and bringing up the rear of every funeral I meet; and especially
           whenever my hypos get such an upper hand of me, that it requires a
           strong moral principle to prevent me from deliberately stepping into
-          the street, and methodically knocking people's hats off - then, I
+          the street, and methodically knocking people&#39;s hats off - then, I
           account it high time to get to sea as soon as I can. This is my
           substitute for pistol and ball. With a philosophical flourish Cato
           throws himself upon his sword; I quietly take to the ship.
@@ -69,10 +69,11 @@ export const FullBleedBackgroundStory: StoryFn = () => (
           warehouses, and bringing up the rear of every funeral I meet; and
           especially whenever my hypos get such an upper hand of me, that it
           requires a strong moral principle to prevent me from deliberately
-          stepping into the street, and methodically knocking people's hats off
-          - then, I account it high time to get to sea as soon as I can. This is
-          my substitute for pistol and ball. With a philosophical flourish Cato
-          throws himself upon his sword; I quietly take to the ship.
+          stepping into the street, and methodically knocking people&#39;s hats
+          off - then, I account it high time to get to sea as soon as I can.
+          This is my substitute for pistol and ball. With a philosophical
+          flourish Cato throws himself upon his sword; I quietly take to the
+          ship.
         </Paragraph>
       </Content>
     </Container>

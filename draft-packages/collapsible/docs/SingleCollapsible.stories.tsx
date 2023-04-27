@@ -52,7 +52,7 @@ const SingleCollapsibleNoPadding = (): JSX.Element => (
     </ListItem>
     <ListItem>
       <Paragraph variant="body">
-        In that case you should use the 'noSectionPadding' prop.
+        In that case you should use the &#39;noSectionPadding&#39; prop.
       </Paragraph>
     </ListItem>
   </Collapsible>
@@ -99,8 +99,8 @@ const SingleCollapsibleCustomHeader = (): JSX.Element => (
 const SingleCollapsibleLazyLoad = (): JSX.Element => (
   <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
     <Paragraph variant="body">
-      This content won't be rendered until the collapsible is opened. This is
-      particularly useful when you have data being queried inside your
+      This content won&#39;t be rendered until the collapsible is opened. This
+      is particularly useful when you have data being queried inside your
       collapsible content.
     </Paragraph>
     <Paragraph variant="body">

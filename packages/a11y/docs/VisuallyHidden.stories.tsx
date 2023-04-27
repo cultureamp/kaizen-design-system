@@ -17,8 +17,8 @@ export default {
 
 export const TextWithVisuallyHidden: StoryFn = () => (
   <div>
-    There is visually hidden text between the two brackets (click "Show code" to
-    see more): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]
+    There is visually hidden text between the two brackets (click &#34;Show
+    code&#34; to see more): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]
   </div>
 )
 TextWithVisuallyHidden.storyName = "Hidden text embedded in visible text"
