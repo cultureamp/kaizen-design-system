@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.9.23
+
+### Patch Changes
+
+- [#3540](https://github.com/cultureamp/kaizen-design-system/pull/3540) [`1228800bc`](https://github.com/cultureamp/kaizen-design-system/commit/1228800bc215bc33731888bc81ef68be1a3c19d9) - Add type="button" to buttons missing an explicit type
+
+- Updated dependencies [[`1228800bc`](https://github.com/cultureamp/kaizen-design-system/commit/1228800bc215bc33731888bc81ef68be1a3c19d9), [`11691d3dd`](https://github.com/cultureamp/kaizen-design-system/commit/11691d3dd152f013241233474ea9409fe76e7796)]:
+  - @kaizen/component-library@16.7.2
+  - @kaizen/draft-tag@3.4.11
+  - @kaizen/button@2.1.4
+
 ## 7.9.22
 
 ### Patch Changes
