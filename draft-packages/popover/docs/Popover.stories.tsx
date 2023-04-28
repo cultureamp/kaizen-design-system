@@ -37,7 +37,7 @@ const Container = ({
   <>
     <p>
       Default Placement is &#39;above&#39;. Scroll horizontally or vertically to
-      view the Popover &#34;flip&#34; and move according to the space of the
+      view the Popover &quot;flip&quot; and move according to the space of the
       viewport. Ensuring the Popover does not get cut off.
     </p>
     <div

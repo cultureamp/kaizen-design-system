@@ -105,8 +105,8 @@ export const AutoHideBehaviours: StoryFn = () => (
         </Menu>
         <Box mt={1}>
           <Paragraph variant="body">
-            <strong>autoHide=&#34;on&#34;</strong> menu will close when clicking
-            inside or outside the menu
+            <strong>autoHide=&quot;on&quot;</strong> menu will close when
+            clicking inside or outside the menu
           </Paragraph>
         </Box>
       </div>
@@ -122,7 +122,7 @@ export const AutoHideBehaviours: StoryFn = () => (
         </Menu>
         <Box mt={1}>
           <Paragraph variant="body">
-            <strong>autoHide=&#34;outside-click-only&#34;</strong> menu will
+            <strong>autoHide=&quot;outside-click-only&quot;</strong> menu will
             close when clicking outside the menu, but not inside the menu
           </Paragraph>
         </Box>
@@ -139,7 +139,7 @@ export const AutoHideBehaviours: StoryFn = () => (
         </Menu>
         <Box mt={1}>
           <Paragraph variant="body">
-            <strong>autoHide=&#34;off&#34;</strong> menu will closes only when
+            <strong>autoHide=&quot;off&quot;</strong> menu will closes only when
             button is pressed
           </Paragraph>
         </Box>
@@ -226,9 +226,9 @@ export const MenuWithActiveItem: StoryFn = () => (
   <>
     <Box mb={1}>
       <Paragraph variant="body">
-        Menus don&#39;t usually have &#34;active&#34; items, since they are just
-        a collection of links or actions, but in non-standard cases like the
-        navigation bar, the `isActive` prop provides a way to do this.
+        Menus don&#39;t usually have &quot;active&quot; items, since they are
+        just a collection of links or actions, but in non-standard cases like
+        the navigation bar, the `isActive` prop provides a way to do this.
       </Paragraph>
     </Box>
     <Menu

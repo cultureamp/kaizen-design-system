@@ -108,7 +108,7 @@ export const Div: StoryFn<typeof Text> = () => (
 
 export const DivWithPageTitleStyles: StoryFn<typeof Text> = () => (
   <Text tag="div" style="page-title">
-    Div with &#34;Page Title&#34; styles
+    Div with &quot;Page Title&quot; styles
   </Text>
 )
 DivWithPageTitleStyles.storyName = "Div with Page Title styles"
@@ -119,27 +119,27 @@ export const Span: StoryFn<typeof Text> = () => (
 
 export const BodyBold: StoryFn<typeof Text> = () => (
   <Text tag="div" style="body-bold">
-    Div with &#34;Body Bold&#34; styles
+    Div with &quot;Body Bold&quot; styles
   </Text>
 )
 BodyBold.storyName = "Body-bold"
 
 export const Small: StoryFn<typeof Text> = () => (
   <Text tag="div" style="small">
-    Div with &#34;Small&#34; styles
+    Div with &quot;Small&quot; styles
   </Text>
 )
 
 export const SmallBold: StoryFn<typeof Text> = () => (
   <Text tag="div" style="small-bold">
-    Div with &#34;Small Bold&#34; styles
+    Div with &quot;Small Bold&quot; styles
   </Text>
 )
 SmallBold.storyName = "Small-bold"
 
 export const Notification: StoryFn<typeof Text> = () => (
   <Text tag="div" style="notification">
-    Div with &#34;Notification&#34; styles
+    Div with &quot;Notification&quot; styles
     <br />
     that have a smaller line-height
   </Text>
@@ -147,20 +147,20 @@ export const Notification: StoryFn<typeof Text> = () => (
 
 export const Label: StoryFn<typeof Text> = () => (
   <Text tag="div" style="label">
-    Div with &#34;Label&#34; styles
+    Div with &quot;Label&quot; styles
   </Text>
 )
 
 export const ControlAction: StoryFn<typeof Text> = () => (
   <Text tag="div" style="control-action">
-    Div with &#34;Control Action&#34; styles
+    Div with &quot;Control Action&quot; styles
   </Text>
 )
 ControlAction.storyName = "Control-action"
 
 export const Button: StoryFn<typeof Text> = () => (
   <Text tag="div" style="button">
-    Div with &#34;Button&#34; styles
+    Div with &quot;Button&quot; styles
   </Text>
 )
 

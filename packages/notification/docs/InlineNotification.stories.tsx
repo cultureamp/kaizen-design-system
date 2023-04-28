@@ -83,7 +83,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </Heading>
         <StoryWrapper.Row rowTitle="Informative">
           <InlineNotification type="informative" title="Informative title">
-            &#34;All Employees - North America&#34; status has been changed to
+            &quot;All Employees - North America&quot; status has been changed to
             &#39;Archived&#39;.
             <a href="/">View all</a>
           </InlineNotification>
@@ -95,7 +95,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             title="Informative title"
             hideCloseIcon
           >
-            &#34;All Employees - North America&#34; status has been changed to
+            &quot;All Employees - North America&quot; status has been changed to
             &#39;Archived&#39;. <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>

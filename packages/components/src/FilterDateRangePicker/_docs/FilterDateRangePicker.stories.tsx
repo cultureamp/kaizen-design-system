@@ -353,7 +353,7 @@ const ValidationHelpText = ({
     <ul>
       <li>
         <code>isInvalid</code>: A date that cannot be parsed. e.g
-        &#34;potato&#34;.
+        &quot;potato&quot;.
       </li>
       <li>
         <code>isDisabled</code>: A date that have been set as disabled through

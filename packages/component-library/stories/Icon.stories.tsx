@@ -110,8 +110,9 @@ const StickerSheetTemplate: StoryFn = () => {
           backgroundColor: "#E5E5E5",
         }}
       >
-        import <strong>draft</strong> from &#34;@kaizen/component-library/icons/
-        <strong>writing</strong>.icon.svg&#34;
+        import <strong>draft</strong> from
+        &quot;@kaizen/component-library/icons/
+        <strong>writing</strong>.icon.svg&quot;
       </code>
 
       <Heading
