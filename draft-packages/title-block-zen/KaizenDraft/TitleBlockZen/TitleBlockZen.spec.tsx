@@ -538,7 +538,7 @@ describe("<TitleBlockZen />", () => {
     it("renders a custom element in section title", async () => {
       const expectedText = "This is a button"
       const CustomComponent = (props: SectionTitleRenderProps): JSX.Element => (
-        <button>{props.sectionTitle}</button>
+        <button type="button">{props.sectionTitle}</button>
       )
       render(
         <TitleBlockZen
@@ -870,6 +870,7 @@ describe("<TitleBlockZen />", () => {
     )
     const MockButtonComponent = (props: any): JSX.Element => (
       <button
+        type="button"
         className={props.className}
         onClick={props.onClick}
         data-automation-id={props.automationId}

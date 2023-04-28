@@ -496,13 +496,14 @@ export const Tooltip: StoryFn = () => (
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              The header of this cell has a tooltip. It's content is wrapped.
+              The header of this cell has a tooltip. It&apos;s content is
+              wrapped.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              The header of this cell has a tooltip. It's content is end (right)
-              aligned. It does not have a tooltip icon.
+              The header of this cell has a tooltip. It&apos;s content is end
+              (right) aligned. It does not have a tooltip icon.
             </Paragraph>
           </TableRowCell>
         </TableRow>
@@ -547,8 +548,8 @@ export const AnchorLink: StoryFn = () => (
           </TableRowCell>
           <TableRowCell width={1 / 2}>
             <Paragraph tag="div" variant="body">
-              Typically you'd need to hook this up with your routing library
-              (eg. react-router)
+              Typically you&apos;d need to hook this up with your routing
+              library (eg. react-router)
             </Paragraph>
           </TableRowCell>
         </TableRow>

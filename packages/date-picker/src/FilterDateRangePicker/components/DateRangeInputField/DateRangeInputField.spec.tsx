@@ -96,7 +96,9 @@ describe("<DateRangeInputField />", () => {
               inputRangeEndProps={{ labelText: "End" }}
               locale={enAU}
             />
-            <button onClick={handleClick}>Click me</button>
+            <button type="button" onClick={handleClick}>
+              Click me
+            </button>
           </>
         )
       }

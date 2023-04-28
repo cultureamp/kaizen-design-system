@@ -144,6 +144,7 @@ export const DateRangePicker = ({
       <div ref={containerRef} className={classNameOverride}>
         <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
         <button
+          type="button"
           id={id}
           className={cx(
             dateRangePickerStyles.button,
