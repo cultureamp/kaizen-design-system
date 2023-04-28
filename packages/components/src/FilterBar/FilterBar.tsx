@@ -1,16 +1,8 @@
 import React from "react"
-import { FilterButtonProps } from ".."
 import { AllFiltersState, FilterBarProvider } from "./context/FilterBarContext"
 
-type FilterReqProps = {
-  label: string
-  renderTrigger: (a: FilterButtonProps) => JSX.Element
-}
-
 export type FilterBarProps = {
-  children:
-    | React.ReactElement<FilterReqProps>
-    | Array<React.ReactElement<FilterReqProps>>
+  children: React.ReactNode
   onChange: (state: AllFiltersState) => void
 }
 

@@ -206,3 +206,50 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
     </div>
   )
 }
+
+// @note: Maybe removable ones can be figured out by us to handle the hideFilter?
+const DynamicFilter = ({ label }: { label: string }): JSX.Element => {
+  const { hideFilter } = useFilterBarContext()
+  return (
+    <FilterPancake
+      label={label}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButtonRemovable
+          triggerButtonProps={{ ...triggerProps }}
+          removeButtonProps={{ onClick: () => hideFilter(label) }}
+        />
+      )}
+      isDefaultHidden
+    />
+  )
+}
+
+// @note: Filters currently slot themselves in their virtual dom order instead of only at the end
+// Need to change to append instead
+export const ManyFilters: StoryFn<typeof FilterBar> = () => {
+  const [filtersState, setFiltersState] = useState({})
+
+  return (
+    <div>
+      <FilterBar onChange={setFiltersState}>
+        <FilterPancake
+          label="Default"
+          renderTrigger={(triggerProps): JSX.Element => (
+            <FilterButton {...triggerProps} />
+          )}
+        />
+
+        {[...Array(100)].map((_, n) => (
+          <DynamicFilter key={n} label={`${n}`} />
+        ))}
+
+        <FilterAddButton />
+        <FilterClearAllButton />
+      </FilterBar>
+
+      <Highlight className="json">
+        {JSON.stringify(filtersState, null, 4)}
+      </Highlight>
+    </div>
+  )
+}
