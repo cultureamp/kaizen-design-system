@@ -14,7 +14,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Container, Content } from "@kaizen/draft-page-layout"',
+          'import { Container, Content } from "@kaizen/draft-page-layout"<br><strong>Caution:</strong> Please disable Strict Mode in Next.js if you experience problems with the Skirt component.',
       },
     },
   },
