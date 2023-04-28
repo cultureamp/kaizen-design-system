@@ -3,7 +3,7 @@ import { Filter, FilterContents } from "~components/Filter"
 import {
   IsUsableWhen,
   useFilterBarContext,
-} from "~components/FilterBar/context/FilterBarContext"
+} from "~components/FilterBarChildren/context/FilterBarContext"
 import { FilterButtonProps } from "~components/FilterButton"
 
 export interface FilterPancakeProps {

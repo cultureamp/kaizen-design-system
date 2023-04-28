@@ -12,7 +12,7 @@ import { FilterBarSelect } from "../subcomponents/FilterSelect"
 
 const meta = {
   tags: ["autodocs"],
-  title: "Components/__Filter Bar",
+  title: "Components/__Filter Bar (Children)",
   component: FilterBar,
 } satisfies Meta<typeof FilterBar>
 
