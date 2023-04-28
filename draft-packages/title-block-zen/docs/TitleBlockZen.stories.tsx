@@ -98,12 +98,12 @@ Default.args = {
     handleClick: (): void => alert("breadcrumb clicked!"),
   },
   navigationTabs: [
-    <NavigationTab text="Label" href="#" active />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
+    <NavigationTab key="1" text="Label" href="#" active />,
+    <NavigationTab key="2" text="Label" href="#" />,
+    <NavigationTab key="3" text="Label" href="#" />,
+    <NavigationTab key="4" text="Label" href="#" />,
+    <NavigationTab key="5" text="Label" href="#" />,
+    <NavigationTab key="6" text="Label" href="#" />,
   ],
 }
 
@@ -221,12 +221,12 @@ export const DefaultWithMenuButton: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -283,12 +283,12 @@ export const AdminVariantWithNavTabs: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
+        <NavigationTab key="1" text="Label" href="#" active variant="admin" />,
+        <NavigationTab key="2" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="3" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="4" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="5" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="6" text="Label" href="#" variant="admin" />,
       ]}
     />
   </OffsetPadding>
@@ -375,16 +375,17 @@ export const Engagement: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Summary" href="#" />,
+        <NavigationTab key="summary" text="Summary" href="#" />,
         <NavigationTab
+          key="insight"
           text="Insight"
           href="#"
           handleClick={(): void => alert("Label clicked!")}
         />,
-        <NavigationTab text="Participation" href="#" />,
-        <NavigationTab text="Questions" href="#" active />,
-        <NavigationTab text="Heatmap" href="#" />,
-        <NavigationTab text="Comments" href="#" />,
+        <NavigationTab key="participation" text="Participation" href="#" />,
+        <NavigationTab key="questions" text="Questions" href="#" active />,
+        <NavigationTab key="heatmap" text="Heatmap" href="#" />,
+        <NavigationTab key="comments" text="Comments" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -424,15 +425,16 @@ export const Performance: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="self-reflection"
           text="Self-reflection"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Goal" href="#" />,
-        <NavigationTab text="Evaluations" href="#" />,
-        <NavigationTab text="Notes" href="#" />,
+        <NavigationTab key="goal" text="Goal" href="#" />,
+        <NavigationTab key="evaluations" text="Evaluations" href="#" />,
+        <NavigationTab key="notes" text="Notes" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -475,15 +477,16 @@ export const PerformanceWithAvatarProps: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="self-reflection"
           text="Self-reflection"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Goal" href="#" />,
-        <NavigationTab text="Evaluations" href="#" />,
-        <NavigationTab text="Notes" href="#" />,
+        <NavigationTab key="goal" text="Goal" href="#" />,
+        <NavigationTab key="evaluations" text="Evaluations" href="#" />,
+        <NavigationTab key="notes" text="Notes" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -523,15 +526,16 @@ export const PerformanceWithEmptyAvatarProps: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="self-reflection"
           text="Self-reflection"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Goal" href="#" />,
-        <NavigationTab text="Evaluations" href="#" />,
-        <NavigationTab text="Notes" href="#" />,
+        <NavigationTab key="goal" text="Goal" href="#" />,
+        <NavigationTab key="evaluations" text="Evaluations" href="#" />,
+        <NavigationTab key="notes" text="Notes" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -573,15 +577,16 @@ export const LongLabels: StoryFn = () => (
       avatar={<img alt="" src={assetUrl("site/empty-state.png")} />}
       subtitle="Wissenschaftlicher Mitarbeiter (Habilitation)"
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="Feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="Selbstreflexion"
           text="Selbstreflexion"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Tor" href="#" />,
-        <NavigationTab text="Bewertungen" href="#" />,
-        <NavigationTab text="Anmerkungen" href="#" />,
+        <NavigationTab key="Tor" text="Tor" href="#" />,
+        <NavigationTab key="Bewertungen" text="Bewertungen" href="#" />,
+        <NavigationTab key="Anmerkungen" text="Anmerkungen" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -631,12 +636,12 @@ export const DefaultWithContent: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
     <Container>
@@ -744,12 +749,12 @@ export const DefaultNoSecondary: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
     {/* <Skirt>
@@ -851,12 +856,12 @@ export const DefaultOnlyPrimary: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -876,12 +881,12 @@ export const DefaultOnlySecondary: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -927,12 +932,12 @@ export const DefaultWithReportSwitcher: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -974,12 +979,12 @@ export const DefaultNoLink: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
     <Skirt titleBlockHasNavigation={false}>
@@ -1133,9 +1138,15 @@ export const RenderProps: StoryFn = () => {
           ),
         }}
         navigationTabs={[
-          <NavigationTab text="Label" href="#" active render={CustomTab} />,
-          <NavigationTab text="Label" href="#" render={CustomTab} />,
-          <NavigationTab text="Label" href="#" render={CustomTab} />,
+          <NavigationTab
+            key="1"
+            text="Label"
+            href="#"
+            active
+            render={CustomTab}
+          />,
+          <NavigationTab key="2" text="Label" href="#" render={CustomTab} />,
+          <NavigationTab key="3" text="Label" href="#" render={CustomTab} />,
         ]}
       />
     </OffsetPadding>
@@ -1200,6 +1211,7 @@ const MockRouterLink = ({
   ...otherProps
 }: MockRouterPropsType): JSX.Element => (
   <button
+    type="button"
     {...otherProps}
     // this is in place of using Link's `to` prop
     onClick={(): void => alert(`Mock route change to ${href}`)}
@@ -1289,7 +1301,7 @@ export const MenuHierarchyExample: StoryFn = () => (
             icon: reportSharingIcon,
             iconPosition: "end",
             onClick: (): void => alert("a primary action"),
-            component: props => <button {...props} />,
+            component: props => <button type="button" {...props} />,
           },
         ],
       }}

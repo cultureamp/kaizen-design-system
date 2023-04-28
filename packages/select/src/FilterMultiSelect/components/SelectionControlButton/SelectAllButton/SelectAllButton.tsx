@@ -18,6 +18,7 @@ export const SelectAllButton = (): JSX.Element => {
 
   return (
     <button
+      type="button"
       className={classNames(styles.button, {
         [styles.isDisabled]: selectionState.selectionManager.isSelectAll,
       })}
