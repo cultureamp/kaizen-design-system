@@ -1,0 +1,17 @@
+{
+  "smartling": {
+    "string_format": "icu",
+    "translate_paths": [
+      {
+        "instruction": "*/description",
+        "key": "{*}/message",
+        "path": "*/message"
+      }
+    ],
+    "variants_enabled": true
+  },
+  "buttonGroup.testMessage": {
+    "description": "Test Description for FilterButton - en source",
+    "message": "Test message for FilterButton- en source"
+  }
+}
