@@ -40,13 +40,11 @@ exports[`<InlineNotification /> renders a basic notification correctly 1`] = `
     type="button"
   >
     <svg
+      aria-label="close notification"
       class="icon"
       focusable="false"
       role="img"
     >
-      <title>
-        close notification
-      </title>
       <use
         xlink:href="#undefined"
       />
