@@ -46,7 +46,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <Card variant={isReversed ? "highlight" : "default"}>
         <Box p={0.75}>
           <Heading variant="heading-4" color="dark">
-            Understands people&#39;s agenda and perspectives
+            Understands people&apos;s agenda and perspectives
           </Heading>
           <Box pt={0.25}>
             <Paragraph variant="small" color="dark-reduced-opacity">

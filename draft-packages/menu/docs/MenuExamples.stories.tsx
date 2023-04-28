@@ -226,7 +226,7 @@ export const MenuWithActiveItem: StoryFn = () => (
   <>
     <Box mb={1}>
       <Paragraph variant="body">
-        Menus don&#39;t usually have &quot;active&quot; items, since they are
+        Menus don&apos;t usually have &quot;active&quot; items, since they are
         just a collection of links or actions, but in non-standard cases like
         the navigation bar, the `isActive` prop provides a way to do this.
       </Paragraph>

@@ -61,12 +61,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     <>
       There’s a problem connecting to your HRIS. Check your HRIS is working and
       check your <a href="/">integration settings</a>, or if you require more
-      assistance please <a href="/">contact support</a>... or just don&#39;t do
+      assistance please <a href="/">contact support</a>... or just don&apos;t do
       anything and observe that this notification contains an absurd amount of
       text that is purposely verbose in order to demonstrate that verbosity is,
-      in most cases, just in general really, i guess it&#39;s debatable,
+      in most cases, just in general really, i guess it&apos;s debatable,
       unnecessary and to demonstrate that verbosity makes this
-      notification&#39;s body text spit into multiple lines because there is,
+      notification&apos;s body text spit into multiple lines because there is,
       surely, unequivocally, no way that all of this can fit into one line of
       text on an average screen...
     </>
@@ -84,7 +84,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         <StoryWrapper.Row rowTitle="Informative">
           <InlineNotification type="informative" title="Informative title">
             &quot;All Employees - North America&quot; status has been changed to
-            &#39;Archived&#39;.
+            &apos;Archived&apos;.
             <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
@@ -96,7 +96,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             hideCloseIcon
           >
             &quot;All Employees - North America&quot; status has been changed to
-            &#39;Archived&#39;. <a href="/">View all</a>
+            &apos;Archived&apos;. <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Positive">

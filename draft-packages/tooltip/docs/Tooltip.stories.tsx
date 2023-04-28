@@ -274,9 +274,9 @@ StickerSheet.parameters = { chromatic: { disable: false } }
 export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
   <>
     <p>
-      Default Placement is &#39;above&#39;. Scroll horizontally or vertically to
-      view the Tooltip &quot;flip&quot; and move according to the space of the
-      viewport. Ensuring the Tooltip does not get cut off.
+      Default Placement is &apos;above&apos;. Scroll horizontally or vertically
+      to view the Tooltip &quot;flip&quot; and move according to the space of
+      the viewport. Ensuring the Tooltip does not get cut off.
     </p>
 
     <div

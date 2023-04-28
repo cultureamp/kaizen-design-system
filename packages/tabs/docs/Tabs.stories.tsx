@@ -111,7 +111,7 @@ export const ManualKeyboardActivation: StoryFn = () => (
           <Box mb={0.5}>
             <Paragraph variant="body">
               When using arrow keys to navigate these tabs, the tab will only be
-              focused (rather than automatically made active). You&#39;ll need
+              focused (rather than automatically made active). You&apos;ll need
               to press enter/space to then active the tab.
             </Paragraph>
           </Box>

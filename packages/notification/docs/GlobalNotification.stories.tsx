@@ -50,7 +50,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           automationId="notification2"
           persistent
         >
-          [Survey name]&#39;s status has been changed to &#39;Archived&#39;.{" "}
+          [Survey name]&apos;s status has been changed to &apos;Archived&apos;.{" "}
           <a href="/">View all</a>
         </GlobalNotification>
       </StoryWrapper.Row>
@@ -85,7 +85,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Informative">
         <GlobalNotification type="informative" automationId="notification2">
-          [Survey name]&#39;s status has been changed to &#39;Archived&#39;.{" "}
+          [Survey name]&apos;s status has been changed to &apos;Archived&apos;.{" "}
           <a href="/">View all</a>
         </GlobalNotification>
       </StoryWrapper.Row>
