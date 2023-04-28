@@ -1,6 +1,6 @@
 import React from "react"
 import { FilterButtonProps } from ".."
-import { FilterBarProvider } from "./context/FilterBarContext"
+import { AllFiltersState, FilterBarProvider } from "./context/FilterBarContext"
 
 type FilterReqProps = {
   label: string
@@ -11,7 +11,7 @@ export type FilterBarProps = {
   children:
     | React.ReactElement<FilterReqProps>
     | Array<React.ReactElement<FilterReqProps>>
-  onChange: (state) => void
+  onChange: (state: AllFiltersState) => void
 }
 
 export const FilterBar = ({

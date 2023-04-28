@@ -12,7 +12,7 @@ export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
 export const FilterBarSelect = <Option extends SelectOption = SelectOption>(
   props: FilterBarSelectProps<Option>
 ): JSX.Element | null => {
-  const { addFilter, updateSelectedValue, state, toggleOpenFilter } =
+  const { addFilter, updateSelectedValue, getFilterState, toggleOpenFilter } =
     useFilterBarContext()
   const { label, onSelectionChange, renderTrigger } = props
 
@@ -23,7 +23,9 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>(
     })
   }, [])
 
-  if (!state[label] || state[label].isHidden) return null
+  const state = getFilterState(label)
+
+  if (!state || state.isHidden) return null
 
   return (
     <FilterSelect<Option>
@@ -32,7 +34,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>(
         updateSelectedValue(label, key)
         onSelectionChange?.(key)
       }}
-      isOpen={state[label].isOpen ?? false}
+      isOpen={state.isOpen ?? false}
       setIsOpen={(open): void => toggleOpenFilter(label, open)}
     />
   )

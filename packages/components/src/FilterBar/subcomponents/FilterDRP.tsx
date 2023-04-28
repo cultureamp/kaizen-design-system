@@ -13,7 +13,7 @@ export type FilterDRPProps = Omit<
 }
 
 export const FilterDRP = (props: FilterDRPProps): JSX.Element | null => {
-  const { addFilter, updateSelectedValue, state, toggleOpenFilter } =
+  const { addFilter, updateSelectedValue, getFilterState, toggleOpenFilter } =
     useFilterBarContext()
   const { label, renderTrigger } = props
 
@@ -24,14 +24,16 @@ export const FilterDRP = (props: FilterDRPProps): JSX.Element | null => {
     })
   }, [])
 
-  if (!state[label] || state[label].isHidden) return null
+  const state = getFilterState(label)
+
+  if (!state || state.isHidden) return null
 
   return (
     <FilterDateRangePicker
       {...props}
-      selectedRange={state[label].selectedValue}
+      selectedRange={state.selectedValue}
       onRangeChange={(range): void => updateSelectedValue(label, range)}
-      isOpen={state[label].isOpen ?? false}
+      isOpen={state.isOpen ?? false}
       setIsOpen={(open): void => toggleOpenFilter(label, open)}
     />
   )

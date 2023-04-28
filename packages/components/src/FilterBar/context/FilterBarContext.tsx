@@ -1,5 +1,9 @@
 import React, { useContext, useEffect, useState } from "react"
 
+export type AllFiltersState = Record<string, FilterAttr>
+
+export type IsUsableWhen = (state: AllFiltersState) => boolean
+
 type FilterAttr = {
   label: string
   isRemovable: boolean
@@ -7,17 +11,20 @@ type FilterAttr = {
   isOpen?: boolean
   isHidden?: boolean
   isUsable?: boolean
+  isUsableWhen?: IsUsableWhen
+}
+
+type AddFilterData = {
+  isRemovable: boolean
+  isHidden?: boolean
+  isUsableWhen?: IsUsableWhen
 }
 
 export type FilterBarContextValue = {
   state: Record<string, FilterAttr>
-  addFilter: (
-    label: string,
-    data: {
-      isRemovable: boolean
-      isHidden?: boolean
-    }
-  ) => void
+  // getAllFiltersState: () => AllFiltersState | undefined
+  getFilterState: (label: string) => FilterAttr | undefined
+  addFilter: (label: string, data: AddFilterData) => void
   updateSelectedValue: (label: string, value: any) => void
   toggleOpenFilter: (label: string, isOpen: boolean) => void
   setOpenFilter: (label: string) => void
@@ -43,18 +50,36 @@ export const useFilterBarContext = (): FilterBarContextValue => {
 
 type FilterBarProviderProps = {
   children: React.ReactNode
-  onChange: (state: FilterBarContextValue["state"]) => void
+  onChange: (state: AllFiltersState) => void
 }
 
 export const FilterBarProvider = ({
   children,
   onChange,
 }: FilterBarProviderProps): JSX.Element => {
-  const [state, setState] = useState<FilterBarContextValue["state"]>({})
+  const [state, setState] = useState<AllFiltersState>({})
+
+  const getTransformedState = (): AllFiltersState =>
+    // @note: maybe an array would be better after all
+    Object.values(state).reduce<AllFiltersState>((acc, filter) => {
+      acc[filter.label] = {
+        ...filter,
+        isUsable: filter.isUsableWhen?.(state) ?? true,
+      }
+      return acc
+    }, {})
 
   const value = {
     state,
-    addFilter: (label: string, data: { isRemovable: boolean }): void => {
+    // getAllFiltersState,
+    getFilterState: (label: string): FilterAttr | undefined => {
+      if (!state[label]) return undefined
+      return {
+        ...state[label],
+        isUsable: state[label].isUsableWhen?.(state) ?? true,
+      }
+    },
+    addFilter: (label: string, data: AddFilterData): void => {
       setState(current => ({
         ...current,
         [label]: { label, ...data },
@@ -77,16 +102,13 @@ export const FilterBarProvider = ({
     },
     setOpenFilter: (label: string): void =>
       setState(current =>
-        Object.values(current).reduce<FilterBarContextValue["state"]>(
-          (acc, filter) => {
-            acc[filter.label] = {
-              ...filter,
-              isOpen: filter.label === label,
-            }
-            return acc
-          },
-          {}
-        )
+        Object.values(current).reduce<AllFiltersState>((acc, filter) => {
+          acc[filter.label] = {
+            ...filter,
+            isOpen: filter.label === label,
+          }
+          return acc
+        }, {})
       ),
     showFilter: (label: string): void => {
       setState(current => ({
@@ -101,31 +123,30 @@ export const FilterBarProvider = ({
       }))
     },
     getHiddenFilters: (): FilterAttr[] =>
-      Object.values(state).filter(({ isHidden }) => isHidden),
+      Object.values(getTransformedState()).filter(
+        ({ isHidden, isUsable }) => isUsable && isHidden
+      ),
     clearFilters: (): void => {
       setState(current =>
-        Object.values(current).reduce<FilterBarContextValue["state"]>(
-          (acc, filter) => {
-            const newState = filter
-            if (filter.isRemovable) {
-              newState["isHidden"] = true
-            }
-            newState["selectedValue"] = undefined
+        Object.values(current).reduce<AllFiltersState>((acc, filter) => {
+          const newState = filter
+          if (filter.isRemovable) {
+            newState["isHidden"] = true
+          }
+          newState["selectedValue"] = undefined
 
-            acc[filter.label] = {
-              ...filter,
-              ...newState,
-            }
-            return acc
-          },
-          {}
-        )
+          acc[filter.label] = {
+            ...filter,
+            ...newState,
+          }
+          return acc
+        }, {})
       )
     },
   } satisfies FilterBarContextValue
 
   useEffect(() => {
-    onChange(state)
+    onChange(getTransformedState())
   }, [state])
 
   return (

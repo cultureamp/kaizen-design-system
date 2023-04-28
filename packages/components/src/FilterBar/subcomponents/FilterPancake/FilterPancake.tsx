@@ -1,6 +1,9 @@
 import React, { useEffect } from "react"
 import { Filter, FilterContents } from "~components/Filter"
-import { FilterBarContextValue, useFilterBarContext } from "~components/FilterBar/context/FilterBarContext"
+import {
+  IsUsableWhen,
+  useFilterBarContext,
+} from "~components/FilterBar/context/FilterBarContext"
 import { FilterButtonProps } from "~components/FilterButton"
 
 export interface FilterPancakeProps {
@@ -8,7 +11,7 @@ export interface FilterPancakeProps {
   label: string
   isDefaultHidden?: boolean
   onChange?: (value: string | undefined) => void
-  isUsableWhen?: (state: FilterBarContextValue["state"]) => boolean
+  isUsableWhen?: IsUsableWhen
 }
 
 export const FilterPancake = ({
@@ -18,7 +21,7 @@ export const FilterPancake = ({
   onChange,
   isUsableWhen,
 }: FilterPancakeProps): JSX.Element | null => {
-  const { addFilter, updateSelectedValue, state, toggleOpenFilter } =
+  const { addFilter, updateSelectedValue, getFilterState, toggleOpenFilter } =
     useFilterBarContext()
 
   useEffect(() => {
@@ -26,16 +29,19 @@ export const FilterPancake = ({
       isRemovable:
         renderTrigger({ label }).props?.removeButtonProps !== undefined,
       isHidden: isDefaultHidden,
+      isUsableWhen,
     })
   }, [])
 
-  if (!state[label] || state[label].isHidden) return null
+  const state = getFilterState(label)
 
-  const contents = state[label].selectedValue
+  if (!state || !state.isUsable || state.isHidden) return null
+
+  const contents = state.selectedValue
 
   return (
     <Filter
-      isOpen={state[label].isOpen ?? false}
+      isOpen={state.isOpen ?? false}
       setIsOpen={(open): void => toggleOpenFilter(label, open)}
       renderTrigger={(triggerProps): JSX.Element =>
         renderTrigger({

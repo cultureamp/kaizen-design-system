@@ -33,7 +33,9 @@ const VanillaPancake = (): JSX.Element => {
         />
       )}
       onChange={(): void => setOpenFilter("Coffee")}
-      isUsableWhen={(state): boolean => state["Chocolate"].selectedValue !== undefined}
+      isUsableWhen={(state): boolean =>
+        state["Chocolate"]?.selectedValue !== undefined
+      }
     />
   )
 }
@@ -104,6 +106,95 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
           )}
           isDefaultHidden
         />
+
+        <FilterAddButton />
+        <FilterClearAllButton />
+      </FilterBar>
+
+      <Highlight className="json">
+        {JSON.stringify(filtersState, null, 4)}
+      </Highlight>
+    </div>
+  )
+}
+
+const ReportsFilter = (): JSX.Element => {
+  const { hideFilter } = useFilterBarContext()
+  const label = "Reports"
+  return (
+    <FilterPancake
+      label={label}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButtonRemovable
+          triggerButtonProps={{ ...triggerProps }}
+          removeButtonProps={{ onClick: () => hideFilter(label) }}
+        />
+      )}
+      isDefaultHidden
+    />
+  )
+}
+const GenderFilter = (): JSX.Element => {
+  const { hideFilter } = useFilterBarContext()
+  const label = "Gender"
+  return (
+    <FilterPancake
+      label={label}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButtonRemovable
+          triggerButtonProps={{ ...triggerProps }}
+          removeButtonProps={{ onClick: () => hideFilter(label) }}
+        />
+      )}
+      isDefaultHidden
+      isUsableWhen={(state): boolean => state["Reports"]?.isHidden !== true}
+    />
+  )
+}
+const DepartmentsFilter = (): JSX.Element => {
+  const { hideFilter } = useFilterBarContext()
+  const label = "Departments"
+  return (
+    <FilterPancake
+      label={label}
+      renderTrigger={(triggerProps): JSX.Element => (
+        <FilterButtonRemovable
+          triggerButtonProps={{ ...triggerProps }}
+          removeButtonProps={{ onClick: () => hideFilter(label) }}
+        />
+      )}
+      isDefaultHidden
+      isUsableWhen={(state): boolean => state["Reports"]?.isHidden !== true}
+    />
+  )
+}
+
+export const AnotherExample: StoryFn<typeof FilterBar> = () => {
+  const [filtersState, setFiltersState] = useState({})
+
+  return (
+    <div>
+      <FilterBar onChange={setFiltersState}>
+        <FilterDRP
+          id="drp"
+          locale="en-AU"
+          label="Dates"
+          renderTrigger={(triggerProps): JSX.Element => (
+            <FilterButton {...triggerProps} />
+          )}
+        />
+
+        <FilterPancake
+          label="Managers"
+          renderTrigger={(triggerProps): JSX.Element => (
+            <FilterButton {...triggerProps} />
+          )}
+        />
+
+        <ReportsFilter />
+
+        <GenderFilter />
+        <DepartmentsFilter />
 
         <FilterAddButton />
         <FilterClearAllButton />
