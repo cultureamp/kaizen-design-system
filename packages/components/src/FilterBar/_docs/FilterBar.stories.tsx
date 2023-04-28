@@ -33,6 +33,7 @@ const VanillaPancake = (): JSX.Element => {
         />
       )}
       onChange={(): void => setOpenFilter("Coffee")}
+      isUsableWhen={(state): boolean => state["Chocolate"].selectedValue !== undefined}
     />
   )
 }

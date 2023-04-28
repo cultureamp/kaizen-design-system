@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { Filter, FilterContents } from "~components/Filter"
-import { useFilterBarContext } from "~components/FilterBar/context/FilterBarContext"
+import { FilterBarContextValue, useFilterBarContext } from "~components/FilterBar/context/FilterBarContext"
 import { FilterButtonProps } from "~components/FilterButton"
 
 export interface FilterPancakeProps {
@@ -8,6 +8,7 @@ export interface FilterPancakeProps {
   label: string
   isDefaultHidden?: boolean
   onChange?: (value: string | undefined) => void
+  isUsableWhen?: (state: FilterBarContextValue["state"]) => boolean
 }
 
 export const FilterPancake = ({
@@ -15,6 +16,7 @@ export const FilterPancake = ({
   label,
   isDefaultHidden,
   onChange,
+  isUsableWhen,
 }: FilterPancakeProps): JSX.Element | null => {
   const { addFilter, updateSelectedValue, state, toggleOpenFilter } =
     useFilterBarContext()

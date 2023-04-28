@@ -6,9 +6,10 @@ type FilterAttr = {
   selectedValue?: any
   isOpen?: boolean
   isHidden?: boolean
+  isUsable?: boolean
 }
 
-type FilterBarContextValue = {
+export type FilterBarContextValue = {
   state: Record<string, FilterAttr>
   addFilter: (
     label: string,
