@@ -14,8 +14,8 @@ describe("<ClearButton /> - interaction", () => {
       const spy = jest.fn()
       const selectedAndFocused = "selectedAndFocused"
       const selectedButNotFocused = "selectedButNotFocused"
-      const selectedKeys = [selectedAndFocused, selectedButNotFocused]
-      const filteredKeys = [selectedAndFocused]
+      const selectedKeys: string[] = [selectedAndFocused, selectedButNotFocused]
+      const filteredKeys: string[] = [selectedAndFocused]
       ;(useSelectionContext as jest.Mock).mockReturnValue({
         selectionState: {
           collection: {
@@ -25,7 +25,7 @@ describe("<ClearButton /> - interaction", () => {
             isEmpty: false,
             setSelectedKeys: spy,
             selectedKeys,
-            isSelected: id => selectedKeys.includes(id),
+            isSelected: (id: string) => selectedKeys.includes(id),
           },
         },
       })
@@ -40,8 +40,8 @@ describe("<ClearButton /> - interaction", () => {
   describe("Given selection is empty", () => {
     it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", async () => {
       const spy = jest.fn()
-      const filteredKeys = []
-      const selectedKeys = []
+      const filteredKeys: string[] = []
+      const selectedKeys: string[] = []
       ;(useSelectionContext as jest.Mock).mockReturnValue({
         selectionState: {
           collection: {

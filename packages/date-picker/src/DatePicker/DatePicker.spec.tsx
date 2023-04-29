@@ -213,7 +213,7 @@ describe("<DatePicker /> - Focus element", () => {
   })
 
   describe("Keydown enter on calendar button", () => {
-    let calendarButton
+    let calendarButton: HTMLElement
 
     beforeEach(async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)

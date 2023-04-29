@@ -129,6 +129,7 @@ import {
   Templates,
   CalendarSync,
   AnimatedSpotProps,
+  SpotProps,
 } from ".."
 
 export default {
@@ -145,6 +146,8 @@ export default {
   },
 }
 
+type IllustrationSpot = (props: SpotProps) => JSX.Element
+
 export const SpotStoryForKaizenSite: StoryFn<typeof AccountBasics> = args => (
   <div style={{ width: "150px" }}>
     <AccountBasics {...args} />
@@ -155,7 +158,13 @@ SpotStoryForKaizenSite.args = {
   alt: "",
 }
 
-const IllustrationExampleTile = ({ Component, name }): JSX.Element => (
+const IllustrationExampleTile = ({
+  Component,
+  name,
+}: {
+  Component: IllustrationSpot
+  name: string
+}): JSX.Element => (
   <div style={{ width: "150px", display: "inline-block", padding: "2rem" }}>
     <Component alt="" />
     <Paragraph variant="small">{name}</Paragraph>
