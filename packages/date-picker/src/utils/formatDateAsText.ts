@@ -1,12 +1,12 @@
 import { format } from "date-fns"
 import { DateFormat } from "../enums"
-import { Matcher } from "../types"
+import { DisabledDays } from "../types"
 import { isDisabledDate } from "./isDisabledDate"
 import { isInvalidDate } from "./isInvalidDate"
 
 export const formatDateAsText = (
   date: Date,
-  disabledDays: Matcher[] | undefined,
+  disabledDays: DisabledDays,
   locale: Locale
 ): string => {
   if (isDisabledDate(date, disabledDays)) {

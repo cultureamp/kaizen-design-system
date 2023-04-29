@@ -26,7 +26,7 @@ export const AnimationProvider = ({
   isVisible,
   animationDuration = ANIM_DURATION_MS,
   ...otherProps
-}): JSX.Element => {
+}: AnimationProps & { children?: React.ReactNode }): JSX.Element => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
   const [prevIsOpen, setPrevIsOpen] = useState(false)

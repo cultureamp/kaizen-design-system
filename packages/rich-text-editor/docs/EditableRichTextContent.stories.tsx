@@ -3,9 +3,10 @@ import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import {
+  EditorContentArray,
   EditableRichTextContent,
   RichTextEditor,
-  EditorContentArray,
+  RichTextEditorProps,
 } from "@kaizen/rich-text-editor"
 import dummyContent from "./dummyContent.json"
 
@@ -40,7 +41,7 @@ function InlineEditor(props: {
   const [rteData, setRTEData] = useState<EditorContentArray>(
     props.content || dummyContent
   )
-  const handleOnChange = (editorState): void =>
+  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
   const handleContentClick = (): void => setEditMode(true)
   const handleCancel = (): void => setEditMode(false)

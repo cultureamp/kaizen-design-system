@@ -180,16 +180,14 @@ const createInitialControls = (
     new Set(Object.values(controlGroupIndex))
   )
 
-  const initialControlObject = uniqueGroups.reduce(
-    (controlObject, controlKey) => {
+  const initialControlObject: Record<string, ToolbarControl[]> =
+    uniqueGroups.reduce((controlObject, controlKey) => {
       if (controlKey === "ungrouped") return controlObject
       return {
         ...controlObject,
         [controlKey]: [],
       }
-    },
-    {}
-  )
+    }, {})
   // This ensure that ungrouped controls are always last
   initialControlObject["ungrouped"] = []
   return initialControlObject
@@ -198,8 +196,13 @@ const createInitialControls = (
 /** Retrieves the name of the group a control belongs to */
 const getGroupIndex = (
   controlGroupIndex: ControlGroupTypes,
-  controlType: string | undefined
-): string => (controlType ? controlGroupIndex[controlType] : "ungrouped")
+  controlType?: ToolbarControlTypes
+): string => {
+  if (controlType) {
+    return controlGroupIndex[controlType] ?? "ungrouped"
+  }
+  return "ungrouped"
+}
 
 /** Filters out empty control groups and returns a multi dimensional array  */
 const filterToolbarControls = (

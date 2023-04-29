@@ -53,7 +53,7 @@ describe("<DateRangeInputField />", () => {
     )
     const inputStart = screen.getByRole("textbox", { name: "Date from" })
     expect(inputStart).toHaveAccessibleDescription(
-      "Error message Date Start has an error Input format : dd/mm/yyyy"
+      "Date Start has an error Input format : dd/mm/yyyy"
     )
     expect(screen.getByText("Date Start has an error")).toBeVisible()
   })
@@ -96,7 +96,9 @@ describe("<DateRangeInputField />", () => {
               inputRangeEndProps={{ labelText: "End" }}
               locale={enAU}
             />
-            <button onClick={handleClick}>Click me</button>
+            <button type="button" onClick={handleClick}>
+              Click me
+            </button>
           </>
         )
       }
