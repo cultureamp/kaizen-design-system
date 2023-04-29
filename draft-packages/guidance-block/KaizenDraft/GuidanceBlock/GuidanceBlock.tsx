@@ -178,11 +178,11 @@ class GuidanceBlock extends React.Component<
     }
   }
 
-  bannerClassName(props): string {
+  bannerClassName(props: GuidanceBlockProps): string {
     return classnames(
       styles.banner,
-      styles[props.variant],
-      styles[props.layout],
+      props.variant && styles[props.variant],
+      props.layout && styles[props.layout],
       {
         [styles.hidden]: this.state.hidden,
         [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
@@ -310,7 +310,10 @@ class GuidanceBlock extends React.Component<
     )
   }
 
-  renderIllustrationType = (illustration, illustrationType): JSX.Element =>
+  renderIllustrationType = (
+    illustration: React.ReactElement<SpotProps | SceneProps>,
+    illustrationType?: IllustrationType
+  ): JSX.Element =>
     illustrationType === "scene"
       ? React.cloneElement(illustration, { enableAspectRatio: true })
       : illustration

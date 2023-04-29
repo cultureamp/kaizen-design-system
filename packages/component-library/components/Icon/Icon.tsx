@@ -39,23 +39,18 @@ export const Icon = ({
       Assistive technologies that enable vision-impaired users to read web pages
       can treat images (including icons) as either decorative or meaningful. Only
       images with a role of "img" (meaningful) will be read aloud to the user.
-      These images must therefore have a title attribute to provide the text that
-      will be read aloud.
+      These images must therefore have a aria-label attribute to provide the text
+      that will be read aloud.
 
       Either add the missing title prop, or set this icon's role to
       "presentation" to indicate it is not meaningful.
     `)
   }
 
-  const renderTitle = (): JSX.Element | false =>
-    isMeaningfulImg && !!title && <title>{title}</title>
-
-  const renderDesc = (): JSX.Element | false =>
-    isMeaningfulImg && !!desc && <desc>{desc}</desc>
-
   const accessibilityProps = {
     role,
     ["aria-hidden"]: isMeaningfulImg ? undefined : true,
+    ["aria-label"]: isMeaningfulImg && !!title ? title : undefined,
   }
 
   return (
@@ -70,8 +65,7 @@ export const Icon = ({
       {...accessibilityProps}
       {...props}
     >
-      {renderTitle()}
-      {renderDesc()}
+      {isMeaningfulImg && !!desc ? <desc>{desc}</desc> : null}
       <use xlinkHref={`#${icon.id}`} />
     </svg>
   )

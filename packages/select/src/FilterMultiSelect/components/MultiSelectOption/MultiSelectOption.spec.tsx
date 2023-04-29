@@ -2,7 +2,6 @@
 
 import React from "react"
 import { useOption } from "@react-aria/listbox"
-import { Node } from "@react-types/shared"
 import { render, screen } from "@testing-library/react"
 import { ItemType } from "../../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
@@ -25,7 +24,7 @@ jest.mock("../../provider", () => ({
   }),
 }))
 
-const itemMock: Node<ItemType> = {
+const itemMock: MultiSelectOptionProps["item"] & { value: ItemType } = {
   type: "type-mock",
   key: "key-mock",
   value: { label: "label-mock", value: "value-mock" },
