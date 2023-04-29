@@ -150,6 +150,7 @@ export const Pagination = ({
       {...restProps}
     >
       <button
+        type="button"
         className={classnames(styles.arrowIconWrapper)}
         aria-label={ariaLabelPreviousPage}
         disabled={previousPageDisabled}
@@ -158,8 +159,11 @@ export const Pagination = ({
         <Icon icon={arrowBackward} role="presentation" />
         <div className={styles.pageIndicatorFocusRing} />
       </button>
+
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
+
       <button
+        type="button"
         className={classnames(styles.arrowIconWrapper, {
           [styles.arrowIconWrapperDisabled]: nextPageDisabled,
         })}

@@ -59,7 +59,7 @@ describe("<LikertScaleLegacy />", () => {
 
     expect(
       screen.getByRole("radiogroup", {
-        description: "Error message This is an error",
+        description: "This is an error",
       })
     ).toBeInTheDocument()
   })
