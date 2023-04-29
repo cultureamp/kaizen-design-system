@@ -26,7 +26,10 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
     <StoryWrapper.Row rowTitle="hover">
       <p className="font-family-paragraph">hover:bg-blue-200</p>
       <p className="font-family-paragraph">background-color: #bde2f5</p>
-      <button className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded-default hover:bg-blue-200 py-16 px-12 text-center">
+      <button
+        type="button"
+        className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded-default hover:bg-blue-200 py-16 px-12 text-center"
+      >
         Hover me
       </button>
     </StoryWrapper.Row>
@@ -34,6 +37,7 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
       <p className="font-family-paragraph">focus:bg-blue-200</p>
       <p className="font-family-paragraph">background-color: #bde2f5</p>
       <button
+        type="button"
         tabIndex={0}
         className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded-default focus:bg-blue-200 py-16 px-12 text-center"
       >

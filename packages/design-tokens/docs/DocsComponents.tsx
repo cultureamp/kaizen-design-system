@@ -104,7 +104,9 @@ const themesBlocks: Array<
     language: "typescript",
     code: heartThemeSrc,
     caption: (
-      <code>import {"{ heartTheme }"} from "@kaizen/design-tokens"</code>
+      <code>
+        import {"{ heartTheme }"} from &quot;@kaizen/design-tokens&quot;
+      </code>
     ),
   },
   {
@@ -130,43 +132,61 @@ const sassBlocks: Array<
     name: "Color",
     language: "scss",
     code: colorsSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/color.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/color.scss&quot;</code>
+    ),
   },
   {
     name: "Typography",
     language: "scss",
     code: typographySass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/typography.scss"</code>,
+    caption: (
+      <code>
+        @import &quot;~@kaizen/design-tokens/sass/typography.scss&quot;
+      </code>
+    ),
   },
   {
     name: "Spacing",
     language: "scss",
     code: spacingSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/spacing.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/spacing.scss&quot;</code>
+    ),
   },
   {
     name: "Border",
     language: "scss",
     code: borderSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/border.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/border.scss&quot;</code>
+    ),
   },
   {
     name: "Layout",
     language: "scss",
     code: layoutSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/layout.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/layout.scss&quot;</code>
+    ),
   },
   {
     name: "Shadow",
     language: "scss",
     code: shadowSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/shadow.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/shadow.scss&quot;</code>
+    ),
   },
   {
     name: "Animation",
     language: "scss",
     code: animationSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/animation.scss"</code>,
+    caption: (
+      <code>
+        @import &quot;~@kaizen/design-tokens/sass/animation.scss&quot;
+      </code>
+    ),
   },
 ]
 

@@ -40,8 +40,8 @@ function createSchema(
     })
   }
 
-  const newNodes = { ...defaultNodes }
-  const newMarks = {}
+  const newNodes: typeof coreNodes = { ...defaultNodes }
+  const newMarks: typeof coreMarks = {}
 
   if (controls.includes("bold")) {
     newMarks["strong"] = coreMarks.strong

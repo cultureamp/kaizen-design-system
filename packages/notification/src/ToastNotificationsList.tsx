@@ -17,7 +17,6 @@ export const ToastNotificationsList = ({
         style="toast"
         type={notification.type}
         title={notification.title}
-        children={notification.message}
         autohide={notification.autohide}
         autohideDelay={notification.autohideDelay}
         automationId={notification.automationId}
@@ -28,7 +27,9 @@ export const ToastNotificationsList = ({
           }
           onHide(notification.id)
         }}
-      />
+      >
+        {notification.message}
+      </GenericNotification>
     ))}
   </div>
 )

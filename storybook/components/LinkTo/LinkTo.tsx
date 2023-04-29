@@ -15,6 +15,7 @@ export const LinkTo = ({
   ...restButtonAttributes
 }: LinkToProps): JSX.Element => (
   <button
+    type="button"
     onClick={linkTo(pageId, sectionName)}
     className={classnames(
       "bg-transparent border-none text-blue-400 hover:underline cursor-pointer p-0",

@@ -22,7 +22,9 @@ import { Toolbar, ToolbarSection, ToggleIconButton } from "./"
 import styles from "./RichTextEditor.module.scss"
 
 export interface BaseRichTextEditorProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onChange">> {
+  extends OverrideClassName<
+    Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "content">
+  > {
   onChange: (content: ProseMirrorState.EditorState) => void
   value: EditorContentArray
   controls?: ToolbarItems[]
