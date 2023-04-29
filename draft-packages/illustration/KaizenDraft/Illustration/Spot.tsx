@@ -209,6 +209,7 @@ export const Assertive = ({
 const SPOT_ILLUSTRATION_BASE_PATH = "illustrations/heart/spot/"
 const createSpotIllustration =
   (fileName: string) =>
+  // eslint-disable-next-line react/display-name
   ({ enableAspectRatio, ...props }: SpotProps): JSX.Element =>
     (
       <Base

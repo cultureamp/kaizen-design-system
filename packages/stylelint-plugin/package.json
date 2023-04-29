@@ -4,10 +4,7 @@
   "types": "dist/**/*.d.ts",
   "main": "dist/src/index.js",
   "license": "MIT",
-  "files": [
-    "dist",
-    "types"
-  ],
+  "files": ["dist", "types"],
   "scripts": {
     "cli": "yarn build && node ./dist/src/cli.js",
     "test": "cd ../../ && yarn jest ./packages/stylelint-plugin",

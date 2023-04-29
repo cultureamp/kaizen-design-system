@@ -181,7 +181,8 @@ export const ValidationStory: StoryFn = () => {
         />
         <ul>
           <li>
-            <code>isInvalid</code>: A date that cannot be parsed. e.g "potato".
+            <code>isInvalid</code>: A date that cannot be parsed. e.g
+            &quot;potato&quot;.
           </li>
           <li>
             <code>isDisabled</code>: A date that have been set as disabled

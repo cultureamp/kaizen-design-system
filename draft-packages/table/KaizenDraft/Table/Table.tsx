@@ -242,6 +242,7 @@ export const TableHeaderRowCell = ({
     </a>
   ) : onClick ? (
     <button
+      type="button"
       data-automation-id={automationId}
       className={classNames(styles.headerRowCellButton, {
         [styles.headerRowCellButtonReversed]: !!reversed,
@@ -266,8 +267,9 @@ export const TableHeaderRowCell = ({
   cellContents =
     tooltipInfo != null ? (
       <Tooltip
-        text={tooltipInfo}
+        animationDuration={0}
         classNameOverride={styles.headerRowCellTooltip}
+        text={tooltipInfo}
       >
         {cellContents}
       </Tooltip>
@@ -356,6 +358,7 @@ export const TableCard = ({
     </a>
   ) : onClick ? (
     <button
+      type="button"
       className={className}
       onClick={onClick as ButtonClickEvent}
       {...otherProps}

@@ -243,6 +243,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
   if (typeof action === "function") {
     return (
       <button
+        type="button"
         onClick={action}
         className={classnames(
           styles.mobileActionsPrimaryLabel,
@@ -272,6 +273,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
   // when there's no action (e.g. primary button is disabled)
   return (
     <button
+      type="button"
       className={classnames(
         styles.mobileActionsPrimaryLabel,
         styles.mobileActionsPrimaryButton
@@ -337,6 +339,7 @@ const DrawerHandle = ({
           data-automation-id="title-block-mobile-actions-drawer-handle"
         >
           <button
+            type="button"
             className={classnames(
               styles.mobileActionsExpandButton,
               styles.mobileActionsPrimaryLabel
@@ -391,6 +394,7 @@ const DrawerHandle = ({
           {/* If there are no secondary etc. actions, just show the button without drawer */}
           {showDrawer && (
             <button
+              type="button"
               className={styles.mobileActionsExpandButton}
               onClick={toggleDisplay}
               aria-expanded={isOpen}
@@ -417,6 +421,7 @@ const DrawerHandle = ({
         data-automation-id="title-block-mobile-actions-drawer-handle"
       >
         <button
+          type="button"
           className={classnames(
             styles.mobileActionsExpandButton,
             styles.mobileActionsPrimaryLabel
