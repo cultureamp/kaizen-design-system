@@ -84,8 +84,8 @@
     "@types/node": "^18.11.18",
     "@types/postcss-flexbugs-fixes": "^5.0.0",
     "@types/postcss-import": "^14.0.0",
-    "@types/react": "^18.0.38",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "babel-loader": "^9.1.2",
@@ -136,7 +136,7 @@
     "webpack": "^5.78.0"
   },
   "resolutions": {
-    "@types/react": "^18.0.38"
+    "@types/react": "^18.2.0"
   },
   "resolutionsComments": {
     "@types/react": "@testing-library/react-12 has an incorrect dep (instead of peerDep) of @types/react@^17 which we don't want"
