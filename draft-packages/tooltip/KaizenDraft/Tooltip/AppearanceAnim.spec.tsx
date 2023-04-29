@@ -6,7 +6,7 @@ import "@testing-library/jest-dom"
 jest.mock("use-debounce")
 const useDebouncedCallback = useDebounce.useDebouncedCallback as jest.Mock
 
-let mockReturnValue
+let mockReturnValue: Record<string, any>
 
 describe("<AnimationProvider />", () => {
   beforeEach(() => {

@@ -14,6 +14,7 @@ export const FilterBaseButton = forwardRef<
 >(({ children, classNameOverride, ...restProps }, ref) => (
   <button
     ref={ref}
+    type="button"
     className={classNames(styles.filterBaseButton, classNameOverride)}
     {...restProps}
   >

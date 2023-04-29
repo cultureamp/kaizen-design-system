@@ -4,7 +4,6 @@ import postcssFlexbugsFixes from "postcss-flexbugs-fixes"
 import postcssImport from "postcss-import"
 import postcssPresetEnv from "postcss-preset-env"
 import tailwindcss from "tailwindcss"
-import tailwindcssNesting from "tailwindcss/nesting"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
 import babelConfig from "../../.babelrc.json"
 import { browsersList } from "./browserslist"
@@ -24,7 +23,6 @@ export const stylePreprocessors: RuleSetUseItem[] = [
           postcssFlexbugsFixes,
           postcssImport,
           tailwindcss,
-          tailwindcssNesting,
           postcssPresetEnv({
             autoprefixer: {
               flexbox: "no-2009",

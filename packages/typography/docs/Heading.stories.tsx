@@ -94,7 +94,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper isReversed={isReversed} hasRowDivider>
         <StoryWrapper.Row rowTitle="Display 0">
           <Heading variant="display-0" color={fontColour}>
-            Let's create a better world of work
+            Let&apos;s create a better world of work
           </Heading>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 1">
