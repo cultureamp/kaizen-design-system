@@ -24,9 +24,10 @@ const ExampleModalWithState = (props: {
       onOutsideModalClick={handleDismiss}
       onEscapeKeyup={handleDismiss}
       onAfterLeave={props.onAfterLeave}
-      children={props.children}
       automationId="GenericModalAutomationId"
-    />
+    >
+      {props.children}
+    </GenericModal>
   )
 }
 

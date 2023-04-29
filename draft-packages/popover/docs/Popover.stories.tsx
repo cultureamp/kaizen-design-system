@@ -36,9 +36,9 @@ const Container = ({
 }): JSX.Element => (
   <>
     <p>
-      Default Placement is 'above'. Scroll horizontally or vertically to view
-      the Popover "flip" and move according to the space of the viewport.
-      Ensuring the Popover does not get cut off.
+      Default Placement is &apos;above&apos;. Scroll horizontally or vertically
+      to view the Popover &quot;flip&quot; and move according to the space of
+      the viewport. Ensuring the Popover does not get cut off.
     </p>
     <div
       style={{

@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from "react"
-import { Node } from "@react-types/shared"
+import { Collection } from "@react-types/shared"
 import classNames from "classnames"
-import { ItemType } from "../../../types"
+import { MultiSelectItem } from "../../../types"
 import { useSelectionContext } from "../../provider/SelectionProvider"
 import styles from "./ListBox.module.scss"
 
+type ListBoxItems = {
+  selectedItems: MultiSelectItem[]
+  unselectedItems: MultiSelectItem[]
+  disabledItems: MultiSelectItem[]
+  allItems: MultiSelectItem[]
+  hasNoItems: boolean
+}
+
 export interface ListBoxProps {
-  children: (items: {
-    selectedItems: Array<Node<ItemType>>
-    unselectedItems: Array<Node<ItemType>>
-    disabledItems: Array<Node<ItemType>>
-    allItems: Array<Node<ItemType>>
-    hasNoItems: boolean
-  }) => React.ReactNode
+  children: (items: ListBoxItems) => React.ReactNode
+}
+
+const getItemsFromKeys = (
+  items: Collection<MultiSelectItem>,
+  keys: Set<React.Key>
+): MultiSelectItem[] => {
+  const itemKeys = Array.from(keys)
+  return itemKeys.reduce<MultiSelectItem[]>((acc, itemKey) => {
+    const item = items.getItem(itemKey)
+    return item ? [...acc, item] : acc
+  }, [])
 }
 
 export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
@@ -30,19 +43,17 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
     disabledKeys,
     selectionManager: { selectedKeys },
   } = selectionState
-  const disabledItems = Array.from(disabledKeys)
-    .map(key => items.getItem(key))
-    .filter(item => item !== undefined)
-  const selectedItems = Array.from(selectedKeys)
-    .map(key => items.getItem(key))
-    .filter(item => item !== undefined)
+
+  const disabledItems = getItemsFromKeys(items, disabledKeys)
+  const selectedItems = getItemsFromKeys(items, selectedKeys)
+
   const unselectedItems = Array.from(items).filter(
     item => !disabledKeys.has(item.key) && !selectedKeys.has(item.key)
   )
   const allItems = Array.from(items)
   const hasNoItems = allItems.length === 0
 
-  const [itemsState, setItemsState] = useState({
+  const [itemsState, setItemsState] = useState<ListBoxItems>({
     selectedItems,
     unselectedItems,
     disabledItems,

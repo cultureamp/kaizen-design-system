@@ -319,6 +319,7 @@ export const FilterBarDemo = (): JSX.Element => {
         <div className={styles.filters}>
           {selectedGroups.map(({ name, id }) => (
             <DemographicValueSelect
+              key={id}
               label={name}
               selectedKeys={new Set(selectedDemographicValues[id])}
               id={id}

@@ -20,6 +20,7 @@ export const ClearButton = (): JSX.Element => {
 
   return (
     <button
+      type="button"
       className={classNames(styles.button, isDisabled ? styles.isDisabled : "")}
       aria-disabled={isDisabled}
       onClick={

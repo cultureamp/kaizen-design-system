@@ -27,7 +27,7 @@ export default {
 
 export const Default: RTEStory = ({ labelText, ...args }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
-  const handleOnChange = (editorState): void =>
+  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
@@ -55,7 +55,7 @@ Default.args = {
 
 export const WithData: RTEStory = ({ labelText, ...args }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
-  const handleOnChange = (editorState): void =>
+  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
@@ -84,7 +84,7 @@ export const WithBadData: RTEStory = ({ labelText, ...args }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(
     dummyMalformedContent
   )
-  const handleOnChange = (editorState): void =>
+  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
@@ -115,7 +115,7 @@ export const WithDescriptionAndValidationMessage: RTEStory = ({
   ...args
 }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
-  const handleOnChange = (editorState): void =>
+  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
   return (
     <>
