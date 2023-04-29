@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { JestConfigWithTsJest } from "ts-jest"
+// @ts-ignore
 import sharedConfig from "../../jest.config.js"
 
 const jestConfig: JestConfigWithTsJest = {

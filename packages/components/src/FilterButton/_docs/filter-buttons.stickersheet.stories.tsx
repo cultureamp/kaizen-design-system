@@ -6,8 +6,11 @@ import { FilterButtonRemovable } from "../FilterButtonRemovable"
 import { FilterButtonBase } from "../_subcomponents/FilterButtonBase"
 
 export default {
-  tags: ["autodocs"],
-  title: "Components/Filter/Filter Button",
+  title: "Components/Filter/Filter Buttons",
+  parameters: {
+    chromatic: { disable: false },
+    controls: { disable: true },
+  },
 } as Meta
 
 const StickerSheetTemplate: StoryFn = () => (
@@ -79,7 +82,3 @@ const StickerSheetTemplate: StoryFn = () => (
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-}

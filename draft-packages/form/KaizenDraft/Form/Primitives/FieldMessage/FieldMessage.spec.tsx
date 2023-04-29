@@ -70,13 +70,13 @@ describe("<FieldMessage />", () => {
     const { container } = renderFieldMessage({ status: "error" })
 
     expect(container.querySelector(".warningIcon")).toBeTruthy()
-    expect(screen.getByTitle("Error message")).toBeInTheDocument()
+    expect(screen.getByLabelText("Error message")).toBeInTheDocument()
   })
 
   it("renders a warning icon with an error status", () => {
     const { container } = renderFieldMessage({ status: "caution" })
 
     expect(container.querySelector(".warningIcon")).toBeTruthy()
-    expect(screen.getByTitle("Caution message")).toBeInTheDocument()
+    expect(screen.getByLabelText("Caution message")).toBeInTheDocument()
   })
 })

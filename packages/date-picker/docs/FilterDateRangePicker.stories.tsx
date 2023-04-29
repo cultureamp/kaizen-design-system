@@ -19,7 +19,7 @@ const IS_CHROMATIC = isChromatic()
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Filter Date Range Picker",
+  title: "Deprecated/Filter Date Range Picker",
   component: FilterDateRangePicker,
   parameters: {
     actions: {
@@ -28,7 +28,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { FilterDateRangePicker } from "@kaizen/date-picker"',
+          '⛔️ This component is deprecated. No further changes will be made to it as it will be superseded by `<FilterDateRangePicker>` from `@kaizen/components`.<br/><br/>`import { FilterDateRangePicker } from "@kaizen/date-picker"`',
       },
     },
   },
