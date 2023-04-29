@@ -28,9 +28,7 @@ describe("<CheckboxGroup />", () => {
   it("renders a title", () => {
     const title = "Label"
 
-    const { queryByText } = render(
-      <CheckboxGroup labelText={title} children={null} />
-    )
+    const { queryByText } = render(<CheckboxGroup labelText={title} />)
     expect(queryByText(title)).toBeTruthy()
   })
 

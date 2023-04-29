@@ -20,6 +20,7 @@ export const TriggerButtonBase = ({
 
   return (
     <button
+      type="button"
       {...buttonProps}
       ref={buttonRef}
       className={classNames(styles.button, classNameOverride)}

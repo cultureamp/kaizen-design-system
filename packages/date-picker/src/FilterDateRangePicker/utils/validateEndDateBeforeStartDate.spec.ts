@@ -6,7 +6,7 @@ describe("validateEndDateBeforeStartDate()", () => {
     const startDateFieldLabel = "Start date"
     const endDate = new Date("2022-05-01")
     const endDateInputValue = "01/05/2022"
-    let result
+    let result: ReturnType<typeof validateEndDateBeforeStartDate>
 
     beforeEach(() => {
       result = validateEndDateBeforeStartDate({
@@ -40,7 +40,7 @@ describe("validateEndDateBeforeStartDate()", () => {
     const startDateFieldLabel = "Start date"
     const endDate = new Date("2022-05-01")
     const endDateInputValue = "01/05/2022"
-    let result
+    let result: ReturnType<typeof validateEndDateBeforeStartDate>
 
     beforeEach(() => {
       result = validateEndDateBeforeStartDate({
@@ -74,7 +74,7 @@ describe("validateEndDateBeforeStartDate()", () => {
     const startDateFieldLabel = "Start date"
     const endDate = new Date("2022-04-03")
     const endDateInputValue = "03/04/2022"
-    let result
+    let result: ReturnType<typeof validateEndDateBeforeStartDate>
 
     beforeEach(() => {
       result = validateEndDateBeforeStartDate({

@@ -63,7 +63,9 @@ describe("<FilterButtonRemovable />", () => {
                 id: "test__remove-button",
               }}
             />
-            <button onClick={handleClick}>Click me</button>
+            <button type="button" onClick={handleClick}>
+              Click me
+            </button>
           </>
         )
       }

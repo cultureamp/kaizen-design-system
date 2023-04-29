@@ -1,0 +1,50 @@
+import { Canvas, Controls, DocsStory, Meta, Source } from "@storybook/blocks"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import * as FilterButtonExamples from "./FilterButton.stories"
+import * as FilterButtonRemovableExamples from "./FilterButtonRemovable.stories"
+
+<Meta title="Components/Filter/Filter Buttons" />
+
+# Filter Buttons
+
+<ul className="!list-none !p-0 !m-0 flex gap-4 items-center">
+  <li className="!mt-0 !text-paragraph">
+    <a
+      href="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterButton"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+    >Source Code</a>
+  </li>
+</ul>
+
+Filter-compatible trigger buttons.
+
+<div>
+  <h2 id="installation">Installation</h2>
+  <Source code="npm install @kaizen/components" language="tsx" />
+  <Source code='import { FilterButton, FilterButtonRemovable } from "@kaizen/components"' language="tsx" />
+</div>
+
+## Filter Button
+
+<Canvas of={FilterButtonExamples.Playground} />
+
+<Controls of={FilterButtonExamples.Playground} />
+
+<DocsStory of={FilterButtonExamples.SelectedValue} />
+
+<DocsStory of={FilterButtonExamples.IsOpen} />
+
+## Filter Button Removable
+
+<Canvas of={FilterButtonRemovableExamples.Playground} />
+
+<Controls of={FilterButtonRemovableExamples.Playground} />
+
+### Trigger Button Props
+
+Props for the trigger button. See [Filter Button](#filter-button).
+
+<Canvas of={FilterButtonRemovableExamples.TriggerButtonProps} />
+
+<DocsStory of={FilterButtonRemovableExamples.RemoveButtonProps} />
