@@ -150,6 +150,7 @@ export const Tag = (props: TagProps): JSX.Element => {
           {dismissible && (
             <>
               <button
+                type="button"
                 className={styles.dismissButton}
                 onClick={onDismiss}
                 onMouseDown={onMouseDown}

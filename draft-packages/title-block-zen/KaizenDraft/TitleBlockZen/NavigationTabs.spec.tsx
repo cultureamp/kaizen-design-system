@@ -5,6 +5,7 @@ import { NavigationTab, CustomNavigationTabProps } from "./NavigationTabs"
 
 const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
   <button
+    type="button"
     onClick={props.handleClick}
     className={props.className}
   >{`${props.href} - ${props.text} - ${props.active}`}</button>
