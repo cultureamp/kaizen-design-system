@@ -1,5 +1,42 @@
 # Change Log
 
+## 1.8.2
+
+### Patch Changes
+
+- [#3540](https://github.com/cultureamp/kaizen-design-system/pull/3540) [`1228800bc`](https://github.com/cultureamp/kaizen-design-system/commit/1228800bc215bc33731888bc81ef68be1a3c19d9) - Add type="button" to buttons missing an explicit type
+
+- Updated dependencies [[`1228800bc`](https://github.com/cultureamp/kaizen-design-system/commit/1228800bc215bc33731888bc81ef68be1a3c19d9), [`11691d3dd`](https://github.com/cultureamp/kaizen-design-system/commit/11691d3dd152f013241233474ea9409fe76e7796)]:
+  - @kaizen/component-library@16.7.2
+  - @kaizen/date-picker@5.21.11
+
+## 1.8.1
+
+### Patch Changes
+
+- [#3536](https://github.com/cultureamp/kaizen-design-system/pull/3536) [`82ba2fa0d`](https://github.com/cultureamp/kaizen-design-system/commit/82ba2fa0d20c66a1688d2609d4bd7775b129349c) - - enforced no-implicit-any across kaizen
+
+- Updated dependencies [[`82ba2fa0d`](https://github.com/cultureamp/kaizen-design-system/commit/82ba2fa0d20c66a1688d2609d4bd7775b129349c)]:
+  - @kaizen/component-library@16.7.1
+  - @kaizen/draft-tooltip@5.4.40
+  - @kaizen/date-picker@5.21.10
+
+## 1.8.0
+
+### Minor Changes
+
+- a7ffc2239: \* Add FilterDateRangePicker component
+  - Filter which allows user to select a date range
+  - Add LabelledMessage component
+    - Utility component which helps create colon-separated text which supports right-to-left i18n
+
+### Patch Changes
+
+- Updated dependencies [a7ffc2239]
+- Updated dependencies [fb901eec2]
+  - @kaizen/date-picker@5.21.9
+  - @kaizen/component-library@16.7.0
+
 ## 1.7.13
 
 ### Patch Changes

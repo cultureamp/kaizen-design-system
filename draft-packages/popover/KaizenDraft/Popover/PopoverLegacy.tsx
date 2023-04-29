@@ -114,7 +114,7 @@ export const PopoverLegacy = React.forwardRef<
             )}
             <div className={styles.singleLine}>{heading}</div>
             {dismissible && (
-              <button className={styles.close} onClick={onClose}>
+              <button type="button" className={styles.close} onClick={onClose}>
                 <Icon role="presentation" icon={closeIcon} />
               </button>
             )}
@@ -140,3 +140,5 @@ export const PopoverLegacy = React.forwardRef<
     </div>
   )
 )
+
+PopoverLegacy.displayName = "PopoverLegacy"
