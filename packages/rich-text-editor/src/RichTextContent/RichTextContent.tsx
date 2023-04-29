@@ -11,7 +11,7 @@ import { EditorContentArray } from "../types"
 import styles from "./RichTextContent.module.scss"
 
 export interface RichTextContentProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "content">> {
   content: EditorContentArray
 }
 

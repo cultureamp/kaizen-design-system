@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Pagination } from "@kaizen/pagination"
 
 export default {
@@ -26,7 +26,7 @@ export default {
       </div>
     ),
   ],
-}
+} as Meta<typeof Pagination>
 
 export const Default: StoryFn<typeof Pagination> = args => {
   const [currentPage, setCurrentPage] = useState(1)
