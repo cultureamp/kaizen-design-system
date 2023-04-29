@@ -6,19 +6,18 @@ exports[`<Dropdown /> renders control action dropdown 1`] = `
 >
   <button
     class="dropdownButton dropdownControlAction"
+    type="button"
   >
     <span
       class="dropdownIcon"
     >
       <svg
+        aria-label="Open menu"
         class="icon"
         focusable="false"
         role="img"
         viewBox="0 0 20 20"
       >
-        <title>
-          Open menu
-        </title>
         <use
           xlink:href="#my-icon"
         />
@@ -33,13 +32,11 @@ exports[`<Dropdown /> renders control action dropdown 1`] = `
       class="chevronIcon"
     >
       <svg
+        aria-label="Open menu"
         class="icon"
         focusable="false"
         role="img"
       >
-        <title>
-          Open menu
-        </title>
         <use
           xlink:href="#undefined"
         />
@@ -55,18 +52,17 @@ exports[`<Dropdown /> renders default view 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownIcon"
     >
       <svg
+        aria-label="Open menu"
         class="icon"
         focusable="false"
         role="img"
       >
-        <title>
-          Open menu
-        </title>
         <use
           xlink:href="#undefined"
         />
@@ -82,19 +78,18 @@ exports[`<Dropdown /> renders drop down with icon 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownIcon"
     >
       <svg
+        aria-label="Open menu"
         class="icon"
         focusable="false"
         role="img"
         viewBox="0 0 20 20"
       >
-        <title>
-          Open menu
-        </title>
         <use
           xlink:href="#my-icon"
         />
@@ -110,19 +105,18 @@ exports[`<Dropdown /> renders drop down with icon and label 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownIcon"
     >
       <svg
+        aria-label="Open menu"
         class="icon"
         focusable="false"
         role="img"
         viewBox="0 0 20 20"
       >
-        <title>
-          Open menu
-        </title>
         <use
           xlink:href="#my-icon"
         />
@@ -143,6 +137,7 @@ exports[`<Dropdown /> renders drop down with only label 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownLabel"
@@ -159,19 +154,18 @@ exports[`<Dropdown /> renders reversed color control action dropdown 1`] = `
 >
   <button
     class="dropdownButton dropdownControlAction reversedColor"
+    type="button"
   >
     <span
       class="dropdownIcon"
     >
       <svg
+        aria-label="Open menu"
         class="icon"
         focusable="false"
         role="img"
         viewBox="0 0 20 20"
       >
-        <title>
-          Open menu
-        </title>
         <use
           xlink:href="#my-icon"
         />
@@ -186,13 +180,11 @@ exports[`<Dropdown /> renders reversed color control action dropdown 1`] = `
       class="chevronIcon"
     >
       <svg
+        aria-label="Open menu"
         class="icon"
         focusable="false"
         role="img"
       >
-        <title>
-          Open menu
-        </title>
         <use
           xlink:href="#undefined"
         />

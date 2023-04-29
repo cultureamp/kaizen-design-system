@@ -26,6 +26,7 @@ export const RemovableFilterTrigger = ({
       <div className={styles.divider} />
       <Tooltip text={removeButtonLabel} position="below">
         <button
+          type="button"
           className={styles.removeButton}
           aria-label={removeButtonLabel}
           onClick={onRemove}
