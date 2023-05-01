@@ -1,6 +1,5 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { Button, IconButton } from "@kaizen/button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
@@ -8,13 +7,12 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Menu, MenuList, MenuItem } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
-  title: `${CATEGORIES.components}/Menu`,
+  tags: ["autodocs"],
+  title: "Components/Menu",
   component: Menu,
   parameters: {
     docs: {
@@ -23,14 +21,10 @@ export default {
           'import { Menu, MenuList, MenuItem, StatelessMenu } from "@kaizen/draft-menu";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=6262%3A1233"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof Menu>
 
-export const DefaultStory: ComponentStory<typeof Menu> = args => (
+export const DefaultStory: StoryFn<typeof Menu> = args => (
   <Menu
     {...args}
     button={
@@ -82,7 +76,7 @@ export const DefaultStory: ComponentStory<typeof Menu> = args => (
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>
@@ -139,7 +133,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.decorators = [
-  (StoryComponent: Story): JSX.Element => (
+  (StoryComponent: StoryFn): JSX.Element => (
     <div style={{ minHeight: "500px" }}>
       <StoryComponent />
     </div>
@@ -154,7 +148,7 @@ export const StickerSheetReversed = StickerSheetTemplate.bind({})
 StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
 StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.decorators = [
-  (StoryComponent: Story): JSX.Element => (
+  (StoryComponent: StoryFn): JSX.Element => (
     <div style={{ minHeight: "500px" }}>
       <StoryComponent />
     </div>

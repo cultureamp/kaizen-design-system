@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { Button, IconButton } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -11,13 +10,12 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.menu}/Examples`,
+  tags: ["autodocs"],
+  title: "Components/Menu/Examples",
   component: Menu,
   parameters: {
     docs: {
@@ -26,14 +24,10 @@ export default {
           'import { Menu, MenuList, MenuItem, StatelessMenu } from "@kaizen/draft-menu";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=6262%3A1233"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof Menu>
 
-export const DefaultStory: ComponentStory<typeof Menu> = args => (
+export const DefaultStory: StoryFn<typeof Menu> = args => (
   <Menu
     {...args}
     button={
@@ -71,7 +65,7 @@ export const DefaultStory: ComponentStory<typeof Menu> = args => (
 )
 DefaultStory.storyName = "Basic example"
 
-export const IconExample: Story = () => (
+export const IconExample: StoryFn = () => (
   <StoryWrapper>
     <StoryWrapper.RowHeader headings={["Default", "Primary", "Secondary"]} />
     <StoryWrapper.Row rowTitle="Variant">
@@ -95,7 +89,7 @@ export const IconExample: Story = () => (
 )
 IconExample.storyName = "Icon button menus"
 
-export const AutoHideBehaviours: Story = () => (
+export const AutoHideBehaviours: StoryFn = () => (
   <StoryWrapper>
     <StoryWrapper.RowHeader headings={["Default", "Primary", "Secondary"]} />
     <StoryWrapper.Row rowTitle="Behaviour">
@@ -111,8 +105,8 @@ export const AutoHideBehaviours: Story = () => (
         </Menu>
         <Box mt={1}>
           <Paragraph variant="body">
-            <strong>autoHide="on"</strong> menu will close when clicking inside
-            or outside the menu
+            <strong>autoHide=&quot;on&quot;</strong> menu will close when
+            clicking inside or outside the menu
           </Paragraph>
         </Box>
       </div>
@@ -128,8 +122,8 @@ export const AutoHideBehaviours: Story = () => (
         </Menu>
         <Box mt={1}>
           <Paragraph variant="body">
-            <strong>autoHide="outside-click-only"</strong> menu will close when
-            clicking outside the menu, but not inside the menu
+            <strong>autoHide=&quot;outside-click-only&quot;</strong> menu will
+            close when clicking outside the menu, but not inside the menu
           </Paragraph>
         </Box>
       </div>
@@ -145,8 +139,8 @@ export const AutoHideBehaviours: Story = () => (
         </Menu>
         <Box mt={1}>
           <Paragraph variant="body">
-            <strong>autoHide="off"</strong> menu will closes only when button is
-            pressed
+            <strong>autoHide=&quot;off&quot;</strong> menu will closes only when
+            button is pressed
           </Paragraph>
         </Box>
       </div>
@@ -155,7 +149,7 @@ export const AutoHideBehaviours: Story = () => (
 )
 AutoHideBehaviours.storyName = "Auto hide behaviors"
 
-export const DefaultStatelessMenu: Story = () => {
+export const DefaultStatelessMenu: StoryFn = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
 
   const toggleMenu = (): void => setIsMenuVisible(!isMenuVisible)
@@ -214,7 +208,7 @@ export const DefaultStatelessMenu: Story = () => {
 DefaultStatelessMenu.storyName =
   "Exposed menu state with <StatelessMenu/> component"
 
-export const DropdownWidthContain: Story = () => (
+export const DropdownWidthContain: StoryFn = () => (
   <Menu
     button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
     dropdownWidth="contain"
@@ -228,13 +222,13 @@ export const DropdownWidthContain: Story = () => (
 DropdownWidthContain.storyName =
   "Flexible dropdown container width with dropdownWidth prop"
 
-export const MenuWithActiveItem: Story = () => (
+export const MenuWithActiveItem: StoryFn = () => (
   <>
     <Box mb={1}>
       <Paragraph variant="body">
-        Menus don't usually have "active" items, since they are just a
-        collection of links or actions, but in non-standard cases like the
-        navigation bar, the `isActive` prop provides a way to do this.
+        Menus don&apos;t usually have &quot;active&quot; items, since they are
+        just a collection of links or actions, but in non-standard cases like
+        the navigation bar, the `isActive` prop provides a way to do this.
       </Paragraph>
     </Box>
     <Menu
@@ -254,7 +248,7 @@ export const MenuWithActiveItem: Story = () => (
 )
 MenuWithActiveItem.storyName = "Displaying active menu items in Menu"
 
-export const OverflowScroll: Story = () => (
+export const OverflowScroll: StoryFn = () => (
   <>
     <div style={{ overflowX: "scroll", width: "200px", height: "100px" }}>
       <div style={{ width: "500px", textAlign: "center" }}>
@@ -279,7 +273,7 @@ export const OverflowScroll: Story = () => (
 OverflowScroll.storyName =
   "Menu behavior with overflow: scroll parent container"
 
-export const ContentAndList: Story = () => (
+export const ContentAndList: StoryFn = () => (
   <>
     <Menu
       button={<Button label="Label" icon={chevronDown} iconPosition="end" />}

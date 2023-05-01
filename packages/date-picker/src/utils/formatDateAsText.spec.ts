@@ -16,7 +16,7 @@ describe("formatDateAsText", () => {
     })
 
     it("formats disabled date and remains in a in numeral format", () => {
-      const disabledDays = [{ before: new Date("2022-02-16") }]
+      const disabledDays = { before: new Date("2022-02-16") }
 
       expect(
         formatDateAsText(new Date("2022-01-16"), disabledDays, enAU)
@@ -31,7 +31,7 @@ describe("formatDateAsText", () => {
       )
     })
     it("formats disabled date in and remains in a numeral format", () => {
-      const disabledDays = [{ before: new Date("2022-02-16") }]
+      const disabledDays = { before: new Date("2022-02-16") }
 
       expect(
         formatDateAsText(new Date("2022-01-16"), disabledDays, enUS)

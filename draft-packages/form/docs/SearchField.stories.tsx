@@ -1,25 +1,22 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { SearchField, SearchFieldProps } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Search Field`,
+  tags: ["autodocs"],
+  title: "Components/Search Field",
   component: SearchField,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { SearchField } from "@kaizen/draft-form"',
       },
     },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof SearchField>
+} satisfies Meta<typeof SearchField>
 
-export const DefaultKaizenDemo: ComponentStory<typeof SearchField> = args => {
+export const DefaultKaizenDemo: StoryFn<typeof SearchField> = args => {
   const [value, setValue] = useState("Some value")
 
   return (
@@ -38,7 +35,7 @@ DefaultKaizenDemo.args = {
   labelText: "Label",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const variants: Array<{
@@ -64,7 +61,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
   return (
     <>
       {variants.map(({ heading, variantProps }) => (
-        <>
+        <React.Fragment key={heading}>
           <StickerSheet isReversed={isReversed} heading={heading}>
             <StickerSheet.Header headings={["Base", "Filled", "Loading"]} />
             <StickerSheet.Body>
@@ -116,7 +113,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
               </StickerSheet.Row>
             </StickerSheet.Body>
           </StickerSheet>
-        </>
+        </React.Fragment>
       ))}
     </>
   )

@@ -2,19 +2,27 @@
 // See: https://storybook.js.org/docs/addons/using-addons/
 import React from "react"
 import { addons } from "@storybook/addons"
+import { API_SidebarOptions as SidebarOptions } from "@storybook/types"
 import { defaultTheme } from "@kaizen/design-tokens"
-import { CATEGORIES_ICON } from "./constants"
 import KaizenTheme from "./theme"
+
+const CATEGORIES_ICON: Record<string, string> = {
+  Introduction: "👋",
+  Guides: "📚",
+  Components: "⚙️",
+  Helpers: "🤝",
+  "Design Tokens": "🎨",
+  Deprecated: "💣",
+  Systems: "🤖",
+  AIO: "📦",
+}
 
 const colors = defaultTheme.color
 
 addons.setConfig({
   theme: KaizenTheme,
-  analyticsGTM: {
-    gtmId: "GTM-KS4VWLT",
-  },
   sidebar: {
-    renderLabel: item =>
+    renderLabel: (item): JSX.Element =>
       item.type === "root" ? (
         <span
           style={{
@@ -31,7 +39,7 @@ addons.setConfig({
           {item.name}
         </span>
       ) : (
-        item.name
+        <span style={{ margin: "1px 0" }}>{item.name}</span>
       ),
-  },
+  } satisfies SidebarOptions,
 })

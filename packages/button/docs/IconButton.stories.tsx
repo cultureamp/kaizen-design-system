@@ -1,17 +1,15 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { IconButtonProps } from "@kaizen/button"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { IconButton, ButtonProps } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.button}/Icon Button`,
+  tags: ["autodocs"],
+  title: "Components/Icon Button",
   component: IconButton,
   parameters: {
     actions: {
@@ -23,23 +21,19 @@ export default {
           'import { IconButton } from "@kaizen/button". This Button supersedes "@kaizen/draft-button".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13555%3A0"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof IconButton>
 
-export const DefaultKaizenSiteDemo: ComponentStory<
-  typeof IconButton
-> = args => <IconButton {...args} />
+export const DefaultKaizenSiteDemo: StoryFn<typeof IconButton> = args => (
+  <IconButton {...args} />
+)
 DefaultKaizenSiteDemo.storyName = "Icon Button"
 DefaultKaizenSiteDemo.args = {
   label: "Icon label",
   icon: trashIcon,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const WORKING_PROPS: ButtonProps = {
@@ -111,7 +105,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
         />
         {VARIANTS_PROPS.map(({ title, props }) => (
-          <StoryWrapper.Row rowTitle={title}>
+          <StoryWrapper.Row key={title} rowTitle={title}>
             <IconButton reversed={isReversed} {...props} />
             <IconButton
               reversed={isReversed}

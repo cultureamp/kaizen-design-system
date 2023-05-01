@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tabs",
-  "version": "5.2.34",
+  "version": "5.2.37",
   "description": "The draft Tabs component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -30,7 +30,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^16.5.3",
+    "@kaizen/component-library": "^16.7.1",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2"

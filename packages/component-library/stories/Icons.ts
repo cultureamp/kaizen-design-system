@@ -21,6 +21,7 @@ import actionOn from "../icons/action-on.icon.svg"
 import actionOff from "../icons/action-off.icon.svg"
 import comment from "../icons/comment.icon.svg"
 import commentAdd from "../icons/comment-add.icon.svg"
+import commentBank from "../icons/comment-bank.icon.svg"
 import commentDisabled from "../icons/comment-disabled.icon.svg"
 import clear from "../icons/clear.icon.svg"
 import add from "../icons/add.icon.svg"
@@ -206,6 +207,7 @@ export const Actions = {
   comment,
   commentAdd,
   commentDisabled,
+  commentBank,
   clear,
   add,
   subtract,

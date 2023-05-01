@@ -1,6 +1,9 @@
 name: ci
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - changeset-release/main
 
 jobs:
   yarn-integrity:
@@ -8,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: yarn
           node-version-file: .nvmrc
@@ -23,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: yarn
           node-version-file: .nvmrc
@@ -39,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: yarn
           node-version-file: .nvmrc
@@ -54,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: yarn
           node-version-file: .nvmrc
@@ -70,7 +73,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: yarn
           node-version-file: .nvmrc
@@ -86,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           cache: yarn
           node-version-file: .nvmrc

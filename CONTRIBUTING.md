@@ -39,16 +39,6 @@ Once it's approved, click "Squash and merge" to publish your changes. Share the 
 
 ## Contributing code
 
-### Need to know
-
-Every contribution must be **design reviewed** and **communicated**.
-
-- **Kaizen Site** changes use `docs:` at the start of the first commit message and PR title.
-- **New features** in components use `feat:` at the start of PR titles. For 1 commit, use `feat:` in the commit message too.
-- **Fixes** in components use `fix:` at the start of PR titles. For 1 commit, use `fix:` in the commit message too.
-- **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE:` in the body of a commit message.
-- **Design token** changes… let's talk about that.
-
 ### Quality and reviews
 
 Every code contribution **must** have:
@@ -128,10 +118,12 @@ Automated releases to the npm public registry are triggered for all pull request
 To release a new version of a package, create a pull request that:
 
 - Modifies only the package(s) you wish to release ([see below](#updating-multiple-packages))
-- Has a conventional pull request title ([see below](#conventional-commit))
-- If there is only one commit, it has a commit message which matches the pull request title
+- Has a Changeset file ([see below](#creating-a-changeset))
+    - This step is optional, but recommended. Exceptions are for things like docs or tooling changes.
 
-Once that pull request is merged into main, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
+Once that pull request is merged into main, a Changeset PR will automatically be created with the details of your change, and once the Changeset PR is merged, an automated release process will be triggered and the newly published package version will be available on the npm public registry.
+
+Note: This process is so we can roll more than one change in a single release eg. Person A adds Feature X to `@kaizen/components` and person B adds Feature Y to `@kaizen/components`, changesets will combine these into a single minor version, rather than 2.
 
 ### Semantic Versioning
 
@@ -145,59 +137,27 @@ All npm packages follow strict semantic versioning (or _semver_). Semantic versi
 
 — <https://semver.org/>
 
-**Note that we do not update package version numbers directly**, but instead depend on a [Conventional Commit](#conventional-commit) workflow which will version and release packages according to the content of our pull requests.
+**Note that we do not update package version numbers directly**, but instead depend on a [Changeset](#creating-a-changese) workflow which will version and release packages according to the content of changeset files.
 
-### Conventional Commit
+### Creating a Changeset
 
-Our pull requests need to be structured in a certain way for the CI pipeline to correctly update version numbers when releasing packages. By following the [release workflow outlined above](#release-workflow), our pull requests will result in a Conventional Commit to the main branch when merged (see the [Conventional Commit 1.0.0 spec](https://www.conventionalcommits.org/en/v1.0.0/)).
+Kaizen utilises [Changesets](https://github.com/changesets/changesets) to outline the changes made to specific packages as well as keeps all depenencies of the changed packages up to date.
 
-This workflow requires that all pull requests have a title formatted as follows:
+Creating a changeset is straight forward:
 
-```
-<type>: <description>
-```
+1. Run `yarn changeset` (or `yarn commit`)
+2. Select the packages you have made changes to with spacebar, followed by enter
+3. You will then be asked which packages should have a Major, Minor or Patch. So following [Semantic Versioning](#semantic-versioning), select the packages that apply and hit enter (you can also hit enter to skip)
+4. Add a short [description](#description).
 
-To help you, we have [`commitizen`](https://github.com/commitizen/cz-cli) installed, so you can run `yarn commit` and follow the prompts and commitizen will format your commit for you.
+A changeset `md` file will be added to your branch which you are free to modify the details of if necessary.
+
 
 #### Description
 
 The `description` should be a short (less than ~60 characters) summary of changes introduced in the release. This summary will be included in the CHANGELOG (see the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)), along with the commit type, a link to the pull request which triggered the release, and a detailed summary of any breaking changes.
 
 Note that since the `description` will be included in the CHANGELOG — and may be the only summary of the changes that your colleagues will encounter — it is helpful for you to include a concise summary of _how the package is different_ following the release, written in the [imperative mood](https://chris.beams.io/posts/git-commit/#imperative). For example `fix: Address accessibility bug in the Gizmo component`.
-
-#### Type
-
-The commit `type` is used to indicate the type of update (i.e. PATCH or MINOR in [Semantic Versioning](#semantic-versioning)) that was included in the release, as well as the context in which that update was made. There are a number of valid commit types (e.g. `style`, `build`, `refactor`, `test` etc.) — for a detailed list of commit types used in this repository, refer to the [Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) docs.
-
-Most commit types describe changes which do not modify the behaviour of the published package, and will result in a PATCH version update, along with an entry in the CHANGELOG noting that the package implementation has not changed. For example:
-
-- `docs` — indicates that documentation has been updated, e.g. editing a README that corresponds to a component's documentation on the Kaizen Site
-
-- `chore` — indicates that some otherwise-unspecified work has been performed on the package with no consequence on the published code, e.g. updating package metadata in `package.json`
-
-However, **two commit types have special meaning** for the purpose of versioning package releases, and signify changes in the behaviour or implementation of published code which may affect consumers of the package. These are:
-
-- `fix` — indicates that a change addressed a bug or security concern in the published code, but otherwise had no consequence for the released package's features or API (corresponding to a PATCH version)
-
-- `feat` — indicates that a change added something new to the released package's API or features without affecting existing functionality (corresponding to a MINOR version)
-
-#### Breaking changes
-
-In addition to `feat` and `fix` releases, if a pull request includes changes which modify existing behaviour or APIs in a way that is **not backwards compatible**, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to main. Doing so will trigger a MAJOR version update in the corresponding release, irrespective of the commit type.
-
-Since we are using a squash-and-merge strategy for our pull requests, we recommend that you introduce breaking changes in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, with any additional notes in the commit body.
-
-> **Note:** Pull requests for branches containing a single commit are a special case, and should contain a commit with a conventional commit message (and a matching pull request title), with any `BREAKING CHANGE` annotations included in the commit body. To avoid this edge case, you can push an additional commit to your branch! (you can use `git commit --allow-empty` if you don't have any code to add). Note that merge commits don't count, so you will still need to do this if there are two commits but one is a merge commit.
-
-For example, a pull request might have the title `feat: Add color option to Gizmo component`, and include the following commit in the branch for the pull request (including additional detail in the commit body):
-
-```
-BREAKING CHANGE: Add a compulsory color option to the Gizmo API
-
-There is no default color for Gizmos, so one needs to be provided.
-```
-
-As well as triggering a major version update, this will make breaking changes clearly visible from the pull request summary in GitHub, and provide detailed information in the CHANGELOG (including any additional notes from the body of the BREAKING CHANGE commit), clearly documenting all breaking changes to our published APIs.
 
 #### Updating multiple packages
 

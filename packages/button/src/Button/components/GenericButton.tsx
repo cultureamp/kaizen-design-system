@@ -72,7 +72,7 @@ export type ButtonRef = { focus: () => void }
 // This is so we can support properties like aria-* or data-*
 const getCustomProps = (props: Record<string, any>): Record<string, string> => {
   const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
-  return keys.reduce((acc, val) => {
+  return keys.reduce<Record<string, any>>((acc, val) => {
     acc[val] = props[val]
     return acc
   }, {})
@@ -104,6 +104,7 @@ const GenericButton = forwardRef(
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
         })}
+        aria-live="polite"
       >
         {determineButtonRenderer()}
       </span>
@@ -120,6 +121,7 @@ GenericButton.defaultProps = {
   disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
   type: "button",
 }
+GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
@@ -163,6 +165,8 @@ const renderButton = (
 
   return (
     <button
+      // eslint-disable-next-line react/button-has-type
+      type={type}
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
@@ -170,7 +174,6 @@ const renderButton = (
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
-      type={type}
       aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
       tabIndex={
@@ -198,13 +201,16 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
   } = props
   const customProps = getCustomProps(rest)
 
+  const target = newTabAndIUnderstandTheAccessibilityImplications
+    ? "_blank"
+    : "_self"
+
   return (
     <a
       id={id}
       href={href}
-      target={
-        newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
-      }
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={buttonClass(props)}
       onClick={onClick}
       onFocus={onFocus}

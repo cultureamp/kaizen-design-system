@@ -1,19 +1,18 @@
 import React from "react"
 import {
   Title,
-  Subtitle,
   Description,
   Primary,
-  ArgsTable,
+  Controls,
   Stories,
-  PRIMARY_STORY,
-} from "@storybook/addon-docs"
-import { ComponentStory, Story } from "@storybook/react"
+} from "@storybook/blocks"
+import { Meta, StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import { Heading, Paragraph } from "../"
+
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.typography}/Heading`,
+  tags: ["autodocs"],
+  title: "Components/Heading",
   component: Heading,
   parameters: {
     docs: {
@@ -23,26 +22,25 @@ export default {
       page: (): JSX.Element => (
         <>
           <Title />
-          <Subtitle />
           <Description />
           <Documentation />
           <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls />
           <Stories />
         </>
       ),
     },
   },
-}
+} satisfies Meta<typeof Heading>
 
-export const Display0: ComponentStory<typeof Heading> = args => (
+export const DefaultStory: StoryFn<typeof Heading> = args => (
   <Heading {...args}>Have the courage to be vulnerable.</Heading>
 )
-Display0.storyName = "Heading"
-Display0.args = { variant: "heading-1", color: "dark" }
+DefaultStory.storyName = "Heading"
+DefaultStory.args = { variant: "heading-1", color: "dark" }
 
 const Documentation = (): JSX.Element => (
-  <Paragraph variant="body">
+  <Paragraph tag="div" variant="body">
     <ul>
       <li>
         The <code>variant</code> prop is required, but the <code>tag</code> prop
@@ -87,7 +85,7 @@ const Documentation = (): JSX.Element => (
   </Paragraph>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const fontColour = isReversed ? "white" : "dark"
@@ -96,7 +94,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       <StoryWrapper isReversed={isReversed} hasRowDivider>
         <StoryWrapper.Row rowTitle="Display 0">
           <Heading variant="display-0" color={fontColour}>
-            Let's create a better world of work
+            Let&apos;s create a better world of work
           </Heading>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Heading 1">
@@ -198,6 +196,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     </>
   )
 }
+
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {

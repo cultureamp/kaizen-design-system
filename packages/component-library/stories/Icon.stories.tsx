@@ -1,8 +1,7 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Icon } from "@kaizen/component-library"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import {
   Logo,
   Actions,
@@ -18,7 +17,8 @@ import {
 } from "./Icons"
 
 export default {
-  title: `${CATEGORIES.components}/Icon`,
+  tags: ["autodocs"],
+  title: "Components/Icon",
   component: Icon,
   parameters: {
     docs: {
@@ -27,26 +27,18 @@ export default {
       },
     },
   },
-}
+} satisfies Meta<typeof Icon>
 
-export const MeaningfulKaizenSiteDemo: Story = () => (
-  // the wrapper with the fixed with is to solve a problem when this is used
-  // as a site demo: the iframe was getting a height of 0px in Firefox
-  <div
-    style={{
-      width: "20px",
-    }}
-  >
-    <Icon
-      icon={Actions.configure}
-      title="Warning"
-      desc="Aliens approaching!"
-      role="img"
-      inheritSize={true}
-    />
-  </div>
+export const MeaningfulKaizenSiteDemo: StoryFn<typeof Icon> = args => (
+  <Icon {...args} />
 )
 MeaningfulKaizenSiteDemo.storyName = "Icon"
+MeaningfulKaizenSiteDemo.args = {
+  icon: Actions.configure,
+  title: "Warning",
+  desc: "Aliens approaching!",
+  role: "img",
+}
 
 const IconExampleTile = ({
   icon,
@@ -79,7 +71,7 @@ const IconExampleTile = ({
   </div>
 )
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const logoIcons = [...Object.entries(Logo)]
   const actionIcons = [...Object.entries(Actions)]
   const formationalIcons = [...Object.entries(Informational)]
@@ -118,8 +110,9 @@ const StickerSheetTemplate: Story = () => {
           backgroundColor: "#E5E5E5",
         }}
       >
-        import <strong>draft</strong> from "@kaizen/component-library/icons/
-        <strong>writing</strong>.icon.svg"
+        import <strong>draft</strong> from
+        &quot;@kaizen/component-library/icons/
+        <strong>writing</strong>.icon.svg&quot;
       </code>
 
       <Heading

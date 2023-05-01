@@ -18,12 +18,14 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
 
   return (
     <button
+      type="button"
       className="flex bg-[#00182e] h-min rounded-default justify-between items-center px-12 border-none cursor-pointer w-100"
       onClick={(): void => handleCopy(text)}
       onBlur={(): void => setCopyIconIsChecked(false)}
     >
       <p className="font-family-paragraph text-white mr-16">{text}</p>
       <Icon
+        title={`Copy text: ${text}`}
         color={copyIconIsChecked ? "#18d992" : "white"}
         icon={copyIconIsChecked ? clipboardChecked : clipboard}
       />

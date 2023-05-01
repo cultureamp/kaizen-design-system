@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { ComponentStory } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Pagination } from "@kaizen/pagination"
-import { CATEGORIES } from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/Pagination`,
+  tags: ["autodocs"],
+  title: "Components/Pagination",
   component: Pagination,
   parameters: {
     docs: {
@@ -26,9 +26,9 @@ export default {
       </div>
     ),
   ],
-}
+} as Meta<typeof Pagination>
 
-export const Default: ComponentStory<typeof Pagination> = args => {
+export const Default: StoryFn<typeof Pagination> = args => {
   const [currentPage, setCurrentPage] = useState(1)
 
   return (

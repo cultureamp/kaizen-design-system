@@ -1,0 +1,17 @@
+import { Description, Meta, Story, Unstyled } from "@storybook/blocks"
+import { Heading } from "@kaizen/typography"
+import * as Examples from "./media-queries.stories"
+
+<Meta of={Examples} />
+
+# Media Queries
+
+<Description />
+
+## Mobile first breakpoints
+
+<Story of={Examples.MobileFirstBreakpoints} />
+
+## Non-mobile first breakpoints
+
+<Story of={Examples.NonMobileFirstBreakpoints} />

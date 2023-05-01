@@ -1,13 +1,11 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { GlobalNotification } from "@kaizen/notification"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Global Notification`,
+  tags: ["autodocs"],
+  title: "Components/Notification/Global Notification",
   component: GlobalNotification,
   parameters: {
     docs: {
@@ -15,14 +13,10 @@ export default {
         component: 'import { GlobalNotification } from "@kaizen/notification";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A39077"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof GlobalNotification>
 
-export const DefaultStory: ComponentStory<typeof GlobalNotification> = args => (
+export const DefaultStory: StoryFn<typeof GlobalNotification> = args => (
   <GlobalNotification {...args}>
     Emails will be sent notifying coaches and inviting reviewers to give their
     feedback. <a href="/">View all</a>
@@ -34,7 +28,7 @@ DefaultStory.args = {
   persistent: true,
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>
@@ -56,7 +50,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
           automationId="notification2"
           persistent
         >
-          [Survey name]'s status has been changed to 'Archived'.{" "}
+          [Survey name]&apos;s status has been changed to &apos;Archived&apos;.{" "}
           <a href="/">View all</a>
         </GlobalNotification>
       </StoryWrapper.Row>
@@ -91,7 +85,7 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Informative">
         <GlobalNotification type="informative" automationId="notification2">
-          [Survey name]'s status has been changed to 'Archived'.{" "}
+          [Survey name]&apos;s status has been changed to &apos;Archived&apos;.{" "}
           <a href="/">View all</a>
         </GlobalNotification>
       </StoryWrapper.Row>

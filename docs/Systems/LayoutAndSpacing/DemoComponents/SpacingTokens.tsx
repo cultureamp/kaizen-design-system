@@ -1,7 +1,7 @@
 import React from "react"
 import { kzSpacing } from "@kaizen/tailwind/src/kz-spacing"
 
-const SpacingTokens = (): React.ReactNode => {
+export const SpacingTokens = (): JSX.Element => {
   const keyValuePairs = Object.entries(kzSpacing)
 
   return (
@@ -33,4 +33,4 @@ const SpacingTokens = (): React.ReactNode => {
   )
 }
 
-export default SpacingTokens
+SpacingTokens.displayName = "SpacingTokens"

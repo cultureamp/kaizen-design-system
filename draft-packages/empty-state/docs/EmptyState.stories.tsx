@@ -1,19 +1,17 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
-import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { EmptyState, EmptyStateProps } from ".."
 import styles from "./EmptyState.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: `${CATEGORIES.components}/Empty State`,
+  tags: ["autodocs"],
+  title: "Components/Empty State",
   component: EmptyState,
   parameters: {
     docs: {
@@ -21,9 +19,6 @@ export default {
         component: 'import { EmptyState } from "@kaizen/draft-empty-state";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A33123"
-    ),
   },
   argTypes: {
     children: {
@@ -40,8 +35,7 @@ export default {
       },
     },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof EmptyState>
+} satisfies Meta<typeof EmptyState>
 
 const BUTTON = (
   <div className={styles.buttonContainer}>
@@ -49,7 +43,7 @@ const BUTTON = (
   </div>
 )
 
-const EmptyStateTemplate: ComponentStory<typeof EmptyState> = ({
+const EmptyStateTemplate: StoryFn<typeof EmptyState> = ({
   isAnimated,
   ...args
 }) => <EmptyState isAnimated={IS_CHROMATIC ? false : isAnimated} {...args} />
@@ -147,7 +141,7 @@ const CUSTOM_HEADING_PROPS: EmptyStateProps = {
   },
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

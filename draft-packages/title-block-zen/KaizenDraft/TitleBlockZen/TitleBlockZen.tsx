@@ -17,7 +17,7 @@ import { useMediaQueries } from "@kaizen/responsive"
 import { Heading } from "@kaizen/typography"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
-import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
+import { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
 import styles from "./TitleBlockZen.module.scss"
 
@@ -410,7 +410,11 @@ const renderNavigationTabs = (
       {!collapse && navigationTabs !== undefined && (
         <>
           <span className={styles.navigationTabEdgeShadowLeft} />
-          {navigationTabs}
+          {navigationTabs.map((navigationTab, index) =>
+            React.cloneElement(navigationTab, {
+              key: index,
+            })
+          )}
           <span className={styles.navigationTabEdgeShadowRight} />
         </>
       )}
@@ -537,7 +541,7 @@ const createTabletOverflowMenuItems = (
  * please be aware of the intended order mentioned above.
  */
 
-const TitleBlockZen = ({
+export const TitleBlockZen = ({
   title,
   variant,
   breadcrumb,
@@ -727,5 +731,4 @@ const TitleBlockZen = ({
   )
 }
 
-export default TitleBlockZen
-export { NavigationTab, NavigationTabProps }
+TitleBlockZen.displayName = "TitleBlockZen"

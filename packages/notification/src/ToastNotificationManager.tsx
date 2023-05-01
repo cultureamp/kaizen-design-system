@@ -52,6 +52,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
       "data-automation-id",
       "toast-notification-manager-portal"
     )
+    portal.setAttribute("role", "status")
     document.body.appendChild(portal)
   }
 

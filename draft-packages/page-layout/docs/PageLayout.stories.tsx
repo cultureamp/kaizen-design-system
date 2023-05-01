@@ -1,29 +1,23 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { Container, Content, Skirt, SkirtCard } from ".."
 import styles from "./PageLayout.stories.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/Page Layout`,
+  tags: ["autodocs"],
+  title: "Components/Page Layout",
   component: Container,
   parameters: {
     docs: {
       description: {
         component:
-          'import { Container, Content } from "@kaizen/draft-page-layout"',
+          'import { Container, Content } from "@kaizen/draft-page-layout"<br><strong>Caution:</strong> Please disable Strict Mode in Next.js if you experience problems with the Skirt component.',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=6243%3A4094"
-    ),
   },
-  decorators: [withDesign],
 }
 
 const OffsetPadding = ({
@@ -32,7 +26,7 @@ const OffsetPadding = ({
   children: React.ReactNode
 }): JSX.Element => <div style={{ margin: "-1rem" }}>{children}</div>
 
-export const DefaultStory: Story = () => (
+export const DefaultStory: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
     <Container>
@@ -49,7 +43,7 @@ export const DefaultStory: Story = () => (
           and bringing up the rear of every funeral I meet; and especially
           whenever my hypos get such an upper hand of me, that it requires a
           strong moral principle to prevent me from deliberately stepping into
-          the street, and methodically knocking people's hats off - then, I
+          the street, and methodically knocking people&apos;s hats off - then, I
           account it high time to get to sea as soon as I can. This is my
           substitute for pistol and ball. With a philosophical flourish Cato
           throws himself upon his sword; I quietly take to the ship.
@@ -60,7 +54,7 @@ export const DefaultStory: Story = () => (
 )
 DefaultStory.storyName = "Container/Content (default)"
 
-export const FullBleedBackgroundStory: Story = () => (
+export const FullBleedBackgroundStory: StoryFn = () => (
   <OffsetPadding>
     <Container classNameOverride={styles.pink}>
       <Content classNameOverride={styles.white}>
@@ -75,10 +69,11 @@ export const FullBleedBackgroundStory: Story = () => (
           warehouses, and bringing up the rear of every funeral I meet; and
           especially whenever my hypos get such an upper hand of me, that it
           requires a strong moral principle to prevent me from deliberately
-          stepping into the street, and methodically knocking people's hats off
-          - then, I account it high time to get to sea as soon as I can. This is
-          my substitute for pistol and ball. With a philosophical flourish Cato
-          throws himself upon his sword; I quietly take to the ship.
+          stepping into the street, and methodically knocking people&apos;s hats
+          off - then, I account it high time to get to sea as soon as I can.
+          This is my substitute for pistol and ball. With a philosophical
+          flourish Cato throws himself upon his sword; I quietly take to the
+          ship.
         </Paragraph>
       </Content>
     </Container>
@@ -87,7 +82,7 @@ export const FullBleedBackgroundStory: Story = () => (
 FullBleedBackgroundStory.storyName = "Container/Content (Full-bleed background)"
 FullBleedBackgroundStory.parameters = { chromatic: { disable: false } }
 
-export const SkirtStory: Story = () => (
+export const SkirtStory: StoryFn = () => (
   <>
     <TitleBlockZen
       title="Skirt"
@@ -96,7 +91,9 @@ export const SkirtStory: Story = () => (
         text: "Back to home",
         handleClick: () => alert("breadcrumb clicked!"),
       }}
-      navigationTabs={[<NavigationTab text="Label" href="#" active />]}
+      navigationTabs={[
+        <NavigationTab key="Label" text="Label" href="#" active />,
+      ]}
     />
     <Skirt>
       <SkirtCard>
@@ -147,7 +144,7 @@ export const SkirtStory: Story = () => (
 )
 SkirtStory.storyName = "Skirt (default)"
 
-export const SkirtEducationVariant: Story = () => (
+export const SkirtEducationVariant: StoryFn = () => (
   <>
     <TitleBlockZen
       variant="education"
@@ -158,7 +155,13 @@ export const SkirtEducationVariant: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab variant="education" text="Label" href="#" active />,
+        <NavigationTab
+          key="Label"
+          variant="education"
+          text="Label"
+          href="#"
+          active
+        />,
       ]}
     />
     <Skirt variant="education">
@@ -176,7 +179,7 @@ export const SkirtEducationVariant: Story = () => (
 SkirtEducationVariant.storyName = "Skirt (Education variant)"
 SkirtEducationVariant.parameters = { chromatic: { disable: false } }
 
-export const SkirtWithoutTitleBlockNavigation: Story = () => (
+export const SkirtWithoutTitleBlockNavigation: StoryFn = () => (
   <>
     <TitleBlockZen
       title="Without Title Block navigation"
@@ -244,7 +247,7 @@ SkirtWithoutTitleBlockNavigation.storyName =
   "Skirt (Title Block without navigation)"
 SkirtWithoutTitleBlockNavigation.parameters = { chromatic: { disable: false } }
 
-export const WithoutSkirtCard: Story = () => (
+export const WithoutSkirtCard: StoryFn = () => (
   <>
     <TitleBlockZen
       title="Without Skirt Card"

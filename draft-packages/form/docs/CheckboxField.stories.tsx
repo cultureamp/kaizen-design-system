@@ -1,34 +1,27 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Checkbox Field`,
+  tags: ["autodocs"],
+  title: "Components/Checkbox Field",
   component: CheckboxField,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { CheckboxField } from "@kaizen/draft-form";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14462%3A196"
-    ),
   },
   argTypes: {
     checkedStatus: {
       control: "disabled",
     },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof CheckboxField>
+} satisfies Meta<typeof CheckboxField>
 
-export const InteractiveKaizenSiteDemo: ComponentStory<
+export const InteractiveKaizenSiteDemo: StoryFn<
   typeof CheckboxField
 > = args => {
   const [status, setStatus] = useState<CheckedStatus>()
@@ -48,7 +41,7 @@ export const InteractiveKaizenSiteDemo: ComponentStory<
 }
 InteractiveKaizenSiteDemo.storyName = "Checkbox Field"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

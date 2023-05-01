@@ -1,13 +1,11 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { TextAreaField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Text Area Field`,
+  tags: ["autodocs"],
+  title: "Components/Text Area Field",
   component: TextAreaField,
   parameters: {
     docs: {
@@ -15,9 +13,6 @@ export default {
         component: 'import { TextAreaField } from "@kaizen/draft-form"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14539%3A69482"
-    ),
   },
   args: {
     status: "default",
@@ -28,10 +23,9 @@ export default {
       table: { defaultValue: { summary: false } },
     },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof TextAreaField>
+} satisfies Meta<typeof TextAreaField>
 
-export const DefaultStory: ComponentStory<typeof TextAreaField> = args => (
+export const DefaultStory: StoryFn<typeof TextAreaField> = args => (
   <TextAreaField {...args} />
 )
 DefaultStory.args = {
@@ -52,7 +46,7 @@ DefaultStory.argTypes = {
 }
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

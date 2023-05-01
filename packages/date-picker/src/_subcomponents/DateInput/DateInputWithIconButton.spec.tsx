@@ -75,7 +75,9 @@ describe("<DateInputWithIconButton />", () => {
               labelText="label"
               onButtonClick={jest.fn<void, []>()}
             />
-            <button onClick={handleClick}>Click me</button>
+            <button type="button" onClick={handleClick}>
+              Click me
+            </button>
           </>
         )
       }

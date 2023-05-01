@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.10.1...@kaizen/draft-tile@5.10.2) (2023-04-06)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [5.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.10.0...@kaizen/draft-tile@5.10.1) (2023-04-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+# [5.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.9.35...@kaizen/draft-tile@5.10.0) (2023-03-30)
+
+
+### Features
+
+* 71-working-button-state-needs-to-be-announced-with-a-live-region ([#3406](https://github.com/cultureamp/kaizen-design-system/issues/3406)) ([ae55e7a](https://github.com/cultureamp/kaizen-design-system/commit/ae55e7acd8ef6d9d0797a5f9adc9e206a9995f66))
+
+
+
+
+
 ## [5.9.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@5.9.34...@kaizen/draft-tile@5.9.35) (2023-03-29)
 
 **Note:** Version bump only for package @kaizen/draft-tile
