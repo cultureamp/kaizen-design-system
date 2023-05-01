@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.7.0
+
+### Minor Changes
+
+- [#3539](https://github.com/cultureamp/kaizen-design-system/pull/3539) [`cb07ba539`](https://github.com/cultureamp/kaizen-design-system/commit/cb07ba539c4aef20d2b7c6dca17a281dc25ac36d) - \* Removed the margin that was added as a fix for hover state
+
 ## 5.6.30
 
 ### Patch Changes
