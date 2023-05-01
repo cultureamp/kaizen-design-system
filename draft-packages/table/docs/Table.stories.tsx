@@ -204,6 +204,8 @@ export const IconVariant: StoryFn = () => (
           <TableHeaderRowCell
             labelText="Comment"
             icon={commentIcon}
+            onClick={(): void => alert("Sort!")}
+            sortingArrowsOnHover={"descending"}
             width={1 / 3}
           />
           <TableHeaderRowCell
@@ -241,7 +243,9 @@ export const IconVariant: StoryFn = () => (
       <TableCard>
         <TableRow>
           <TableRowCell width={1 / 3}>
-            <Paragraph variant="body">24</Paragraph>
+            <Paragraph variant="body">
+              The header of this row also has sortingArrowsOnHover.
+            </Paragraph>
           </TableRowCell>
           <TableRowCell classNameOverride="px-sm" width={1 / 3}>
             <Paragraph variant="body">
@@ -463,10 +467,7 @@ export const Tooltip: StoryFn = () => (
             wrapping="wrap"
             tooltipInfo="This is a tooltip"
             sorting="ascending"
-            onClick={(e: React.MouseEvent): void => {
-              e.preventDefault()
-              alert("Header was clicked")
-            }}
+            onClick={(): void => alert("Sort!")}
           />
           <TableHeaderRowCell
             labelText="End aligned, no icon"
@@ -475,10 +476,7 @@ export const Tooltip: StoryFn = () => (
             isTooltipIconHidden={true}
             align="end"
             sorting="ascending"
-            onClick={(e: React.MouseEvent): void => {
-              e.preventDefault()
-              alert("Header was clicked")
-            }}
+            onClick={(): void => alert("Sort!")}
           />
         </TableHeaderRow>
       </TableHeader>

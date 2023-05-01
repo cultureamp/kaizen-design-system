@@ -220,9 +220,3 @@ $row-height-data-variant: 48px;
   justify-content: flex-end;
   text-align: right;
 }
-
-.headerRowCellIconAlignCenter,
-.headerRowCellIconAlignEnd {
-  // makes sure the label doesn't move on hover when not left aligned
-  margin-inline-end: -20px;
-}
