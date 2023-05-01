@@ -6,6 +6,7 @@ exports[`<Dropdown /> renders control action dropdown 1`] = `
 >
   <button
     class="dropdownButton dropdownControlAction"
+    type="button"
   >
     <span
       class="dropdownIcon"
@@ -51,6 +52,7 @@ exports[`<Dropdown /> renders default view 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownIcon"
@@ -76,6 +78,7 @@ exports[`<Dropdown /> renders drop down with icon 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownIcon"
@@ -102,6 +105,7 @@ exports[`<Dropdown /> renders drop down with icon and label 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownIcon"
@@ -133,6 +137,7 @@ exports[`<Dropdown /> renders drop down with only label 1`] = `
 >
   <button
     class="dropdownButton"
+    type="button"
   >
     <span
       class="dropdownLabel"
@@ -149,6 +154,7 @@ exports[`<Dropdown /> renders reversed color control action dropdown 1`] = `
 >
   <button
     class="dropdownButton dropdownControlAction reversedColor"
+    type="button"
   >
     <span
       class="dropdownIcon"

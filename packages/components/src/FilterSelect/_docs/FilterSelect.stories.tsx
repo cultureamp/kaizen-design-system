@@ -85,6 +85,7 @@ export const AdditionalProperties: StoryFn = () => {
         items.map(item =>
           item.type === "item" ? (
             <FilterSelect.Option
+              key={item.key}
               item={{
                 ...item,
                 rendered: item.value.isFruit
@@ -93,7 +94,7 @@ export const AdditionalProperties: StoryFn = () => {
               }}
             />
           ) : (
-            <FilterSelect.ItemDefaultRender item={item} />
+            <FilterSelect.ItemDefaultRender key={item.key} item={item} />
           )
         )
       }
