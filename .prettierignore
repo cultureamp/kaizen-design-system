@@ -16,4 +16,3 @@
 **/node_modules/
 /storybook/public/
 /packages/**/dist
-package.json
