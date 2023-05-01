@@ -1,6 +1,6 @@
-import * as React from "react"
+import React from "react"
 import { render, screen } from "@testing-library/react"
-import ToastNotification from "./ToastNotification"
+import { ToastNotification } from "./ToastNotification"
 
 describe("<ToastNotification />", () => {
   it("renders a basic notification correctly", async () => {

@@ -16,6 +16,7 @@ export const PageIndicator = ({
   onPageClick,
 }: PageIndicatorProps): JSX.Element => (
   <button
+    type="button"
     className={cx(styles.pageIndicator, {
       [styles.pageIndicatorSelected]: selected,
     })}

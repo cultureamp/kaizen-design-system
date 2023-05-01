@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import { DecoratorFunction } from "@storybook/addons"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Decorator, Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
-import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/button"
 import { AddImage } from "@kaizen/draft-illustration"
-import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"
+import {
+  ContextModal,
+  ContextModalProps,
+  ModalAccessibleDescription,
+} from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ContextModal.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
@@ -17,16 +17,21 @@ const IS_CHROMATIC = isChromatic()
 // Modals have fixed position and would be cropped from snapshot tests.
 // Setting height to 100vh ensures we capture as much content of the
 // modal, as it's height responds to the content within it.
-const withMinHeight: DecoratorFunction<JSX.Element> = Story => {
+const withMinHeight: Decorator<ContextModalProps> = Story => {
   if (IS_CHROMATIC) {
-    return <div style={{ minHeight: "100vh" }}>{Story()}</div>
+    return (
+      <div style={{ minHeight: "100vh" }}>
+        <Story />
+      </div>
+    )
   }
 
-  return Story()
+  return <Story />
 }
 
 export default {
-  title: `${CATEGORIES.components}/Modal`,
+  tags: ["autodocs"],
+  title: "Components/Modal/Context Modal",
   component: ContextModal,
   parameters: {
     chromatic: {
@@ -40,17 +45,15 @@ export default {
           'import { ContextModal, ModalAccessibleDescription } from "@kaizen/draft-modal"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
-    ),
+
     actions: {
       argTypesRegex: "^on.*",
     },
   },
-  decorators: [withDesign, withMinHeight],
-} as ComponentMeta<typeof ContextModal>
+  decorators: [withMinHeight],
+} satisfies Meta<typeof ContextModal>
 
-const ContextModalTemplate: ComponentStory<typeof ContextModal> = args => {
+const ContextModalTemplate: StoryFn<typeof ContextModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
 
   const handleOpen = (): void => setIsOpen(true)

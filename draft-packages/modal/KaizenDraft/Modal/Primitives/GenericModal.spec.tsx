@@ -7,7 +7,7 @@ import {
   screen,
 } from "@testing-library/react"
 import GenericModal from "./GenericModal"
-import ModalAccessibleLabel from "./ModalAccessibleLabel"
+import { ModalAccessibleLabel } from "./ModalAccessibleLabel"
 
 configure({ testIdAttribute: "data-automation-id" })
 
@@ -24,9 +24,10 @@ const ExampleModalWithState = (props: {
       onOutsideModalClick={handleDismiss}
       onEscapeKeyup={handleDismiss}
       onAfterLeave={props.onAfterLeave}
-      children={props.children}
       automationId="GenericModalAutomationId"
-    />
+    >
+      {props.children}
+    </GenericModal>
   )
 }
 

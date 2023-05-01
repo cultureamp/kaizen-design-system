@@ -1,15 +1,11 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { ClearButton } from "@kaizen/draft-form"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Clear Button`,
+  tags: ["autodocs"],
+  title: "Components/Clear Button",
   component: ClearButton,
   parameters: {
     actions: {
@@ -21,26 +17,31 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ClearButton>
+} satisfies Meta<typeof ClearButton>
 
-export const DefaultStory: ComponentStory<typeof ClearButton> = args => (
+export const DefaultStory: StoryFn<typeof ClearButton> = args => (
   <ClearButton {...args} />
 )
 DefaultStory.storyName = "Clear Button"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StickerSheet isReversed={isReversed}>
     <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
-    <StickerSheet.Row>
-      <ClearButton isReversed={isReversed} />
-      <ClearButton
-        isReversed={isReversed}
-        classNameOverride="story__clear-button-hover"
-      />
-      <ClearButton isReversed={isReversed} classNameOverride="focus-visible" />
-    </StickerSheet.Row>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <ClearButton isReversed={isReversed} />
+        <ClearButton
+          isReversed={isReversed}
+          classNameOverride="story__clear-button-hover"
+        />
+        <ClearButton
+          isReversed={isReversed}
+          classNameOverride="focus-visible"
+        />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
   </StickerSheet>
 )
 

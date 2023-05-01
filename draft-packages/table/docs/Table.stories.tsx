@@ -1,6 +1,5 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { IconButton } from "@kaizen/button"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
@@ -9,8 +8,6 @@ import effectivenessIcon from "@kaizen/component-library/icons/effectiveness.ico
 import { CheckboxField } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import {
   TableCard,
   TableContainer,
@@ -127,8 +124,9 @@ const ExampleTableRow = ({
 )
 
 export default {
-  title: `${CATEGORIES.components}/Table`,
-  component: TableCard,
+  tags: ["autodocs"],
+  title: "Components/Table",
+  component: TableContainer,
   parameters: {
     docs: {
       description: {
@@ -136,14 +134,10 @@ export default {
           'import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A28358"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof TableContainer>
 
-export const DefaultKaizenSiteDemo: Story = () => (
+export const DefaultKaizenSiteDemo: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -182,7 +176,7 @@ const Multiline = ({ isReversed }: { isReversed: boolean }): JSX.Element => (
   </Container>
 )
 
-export const DataVariant: Story = () => (
+export const DataVariant: StoryFn = () => (
   <Container>
     <TableContainer variant="data">
       <TableHeader>
@@ -202,7 +196,7 @@ export const DataVariant: Story = () => (
 )
 DataVariant.parameters = { chromatic: { disable: false } }
 
-export const IconVariant: Story = () => (
+export const IconVariant: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -210,6 +204,8 @@ export const IconVariant: Story = () => (
           <TableHeaderRowCell
             labelText="Comment"
             icon={commentIcon}
+            onClick={(): void => alert("Sort!")}
+            sortingArrowsOnHover={"descending"}
             width={1 / 3}
           />
           <TableHeaderRowCell
@@ -247,7 +243,9 @@ export const IconVariant: Story = () => (
       <TableCard>
         <TableRow>
           <TableRowCell width={1 / 3}>
-            <Paragraph variant="body">24</Paragraph>
+            <Paragraph variant="body">
+              The header of this row also has sortingArrowsOnHover.
+            </Paragraph>
           </TableRowCell>
           <TableRowCell classNameOverride="px-sm" width={1 / 3}>
             <Paragraph variant="body">
@@ -264,7 +262,7 @@ export const IconVariant: Story = () => (
 )
 IconVariant.parameters = { chromatic: { disable: false } }
 
-export const LinkVariant: Story = () => (
+export const LinkVariant: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -393,7 +391,7 @@ const Default = (): JSX.Element => (
   </Container>
 )
 
-export const HeaderAlignmentAndWrapping: Story = () => (
+export const HeaderAlignmentAndWrapping: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -451,7 +449,7 @@ export const HeaderAlignmentAndWrapping: Story = () => (
 )
 HeaderAlignmentAndWrapping.parameters = { chromatic: { disable: false } }
 
-export const Tooltip: Story = () => (
+export const Tooltip: StoryFn = () => (
   // Extra margin added, so we can see the tooltip above
   <Container style={{ marginTop: "200px" }}>
     <TableContainer>
@@ -468,6 +466,8 @@ export const Tooltip: Story = () => (
             width={1 / 4}
             wrapping="wrap"
             tooltipInfo="This is a tooltip"
+            sorting="ascending"
+            onClick={(): void => alert("Sort!")}
           />
           <TableHeaderRowCell
             labelText="End aligned, no icon"
@@ -475,6 +475,8 @@ export const Tooltip: Story = () => (
             tooltipInfo="This is a tooltip even though there was no icon"
             isTooltipIconHidden={true}
             align="end"
+            sorting="ascending"
+            onClick={(): void => alert("Sort!")}
           />
         </TableHeaderRow>
       </TableHeader>
@@ -487,17 +489,18 @@ export const Tooltip: Story = () => (
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell has a tooltip.
+              The header of this cell has a tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell has a tooltip. It's content is wrapped.
+              The header of this cell has a tooltip. It&apos;s content is
+              wrapped.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell has a tooltip. It's content is end
+              The header of this cell has a tooltip. It&apos;s content is end
               (right) aligned. It does not have a tooltip icon.
             </Paragraph>
           </TableRowCell>
@@ -508,7 +511,7 @@ export const Tooltip: Story = () => (
 )
 Tooltip.parameters = { chromatic: { disable: false } }
 
-export const AnchorLink: Story = () => (
+export const AnchorLink: StoryFn = () => (
   <Container>
     <TableContainer>
       <TableHeader>
@@ -543,8 +546,8 @@ export const AnchorLink: Story = () => (
           </TableRowCell>
           <TableRowCell width={1 / 2}>
             <Paragraph tag="div" variant="body">
-              Typically you'd need to hook this up with your routing library
-              (eg. react-router)
+              Typically you&apos;d need to hook this up with your routing
+              library (eg. react-router)
             </Paragraph>
           </TableRowCell>
         </TableRow>
@@ -553,7 +556,7 @@ export const AnchorLink: Story = () => (
   </Container>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

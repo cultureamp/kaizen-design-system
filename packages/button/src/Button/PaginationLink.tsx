@@ -12,7 +12,7 @@ export interface PaginationLinkProps extends GenericProps {
  * {@link https://cultureamp.design/components/pagination/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/story/components-button-pagination-buttons--default-kaizen-pagination-link Storybook}
  */
-const PaginationLink = (props: PaginationLinkProps): JSX.Element => (
+export const PaginationLink = (props: PaginationLinkProps): JSX.Element => (
   <GenericButton
     {...props}
     paginationLink
@@ -27,5 +27,3 @@ PaginationLink.defaultProps = {
 }
 
 PaginationLink.displayName = "PaginationLink"
-
-export default PaginationLink

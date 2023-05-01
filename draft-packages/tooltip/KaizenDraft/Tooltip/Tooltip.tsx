@@ -58,13 +58,18 @@ const positionToPlacement = new Map<Position, Placement>([
 const arrowHeight = 7
 const arrowWidth = 14
 
+type TooltipContentProps = Pick<TooltipProps, "position" | "text" | "mood"> & {
+  tooltipId: string
+  referenceElement: HTMLDivElement | null
+}
+
 const TooltipContent = ({
   position,
   text,
   referenceElement,
   tooltipId,
   mood = "default",
-}): JSX.Element | null => {
+}: TooltipContentProps): JSX.Element | null => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -109,7 +114,7 @@ const TooltipContent = ({
           },
         },
       ],
-      placement: positionToPlacement.get(position),
+      placement: position ? positionToPlacement.get(position) : undefined,
     }
   )
   const { isVisible, isAnimIn, isAnimOut } = useAnimation()
@@ -228,6 +233,4 @@ export const Tooltip = ({
   )
 }
 
-Tooltip.defaultProps = {
-  position: "above",
-}
+Tooltip.displayName = "Tooltip"

@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test"
 
 const iframePath = "iframe.html?args=&id="
-const storyId =
-  "components-select-filter-multi-select--default-kaizen-site-demo"
+const storyId = "components-filter-multi-select--default"
 test.beforeEach(async ({ page }) => {
   // Go to the starting url before each test.
   await page.goto(`./${iframePath}${storyId}`)
@@ -58,7 +57,7 @@ test.describe("Clicking 'Clear'", async () => {
 
       const dropdown = page.locator("ul[aria-multiselectable]")
       const selectedAndNonDisabledOptions = dropdown.locator(
-        "li[aria-disabled=false] >> svg"
+        'li:not([aria-disabled="true"]) >> svg'
       )
       expect(await selectedAndNonDisabledOptions.count()).toBe(0)
     })
@@ -80,10 +79,10 @@ test.describe("Clicking 'Clear'", async () => {
 
       const dropdown = page.locator("ul[aria-multiselectable]")
       const numberOfNonDisabledItems = await dropdown
-        .locator("li[aria-disabled=false]")
+        .locator('li:not([aria-disabled="true"])')
         .count()
       const numberOfselectedAndNonDisabledOptions = await dropdown
-        .locator("li[aria-disabled=false] >> svg")
+        .locator('li:not([aria-disabled="true"]) >> svg')
         .count()
       // Expect all to be selected, except one
       expect(numberOfselectedAndNonDisabledOptions).toBe(
@@ -107,10 +106,10 @@ test.describe("Clicking 'Select all'", async () => {
 
       const dropdown = page.locator("ul[aria-multiselectable]")
       const numberOfNonDisabledItems = await dropdown
-        .locator("li[aria-disabled=false]")
+        .locator('li:not([aria-disabled="true"])')
         .count()
       const numberOfSelectedAndNonDisabledOptions = await dropdown
-        .locator("[aria-disabled=false] >> svg")
+        .locator('li:not([aria-disabled="true"]) >> svg')
         .count()
       expect(numberOfSelectedAndNonDisabledOptions).toBe(
         numberOfNonDisabledItems
@@ -132,7 +131,7 @@ test.describe("Clicking 'Select all'", async () => {
 
       const dropdown = page.locator("ul[aria-multiselectable]")
       const numberOfSelectedAndNonDisabledOptions = await dropdown
-        .locator("li[aria-disabled=false] >> svg")
+        .locator('li[role="option"]:not([aria-disabled="true"]) >> svg')
         .count()
       expect(numberOfSelectedAndNonDisabledOptions).toBe(1)
       // Expect the "Others" option to be selected

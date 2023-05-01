@@ -1,10 +1,10 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
+import { StoryFn } from "@storybook/react"
 import { VisuallyHidden } from ".."
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.a11y}/Visually Hidden`,
+  tags: ["autodocs"],
+  title: "Components/Visually Hidden",
   component: VisuallyHidden,
   parameters: {
     docs: {
@@ -15,10 +15,10 @@ export default {
   },
 }
 
-export const TextWithVisuallyHidden: Story = () => (
+export const TextWithVisuallyHidden: StoryFn = () => (
   <div>
-    There is visually hidden text between the two brackets (click "Show code" to
-    see more): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]
+    There is visually hidden text between the two brackets (click &quot;Show
+    code&quot; to see more): [<VisuallyHidden>👋 Hello!</VisuallyHidden>]
   </div>
 )
 TextWithVisuallyHidden.storyName = "Hidden text embedded in visible text"

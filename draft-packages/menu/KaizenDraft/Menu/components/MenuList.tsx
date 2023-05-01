@@ -2,13 +2,14 @@ import React from "react"
 import { v4 } from "uuid"
 import styles from "./MenuList.module.scss"
 
-type MenuListProps = {
+export type MenuListProps = {
   heading?: React.ReactNode
   children: React.ReactNode
 }
 
 const listHeadingID = v4()
-const MenuList = (props: MenuListProps): JSX.Element => {
+
+export const MenuList = (props: MenuListProps): JSX.Element => {
   const { heading, children } = props
   return (
     <>
@@ -28,5 +29,3 @@ const MenuList = (props: MenuListProps): JSX.Element => {
 }
 
 MenuList.displayName = "MenuList"
-
-export default MenuList

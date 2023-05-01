@@ -1,11 +1,6 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
 import { CalendarRange, CalendarSingle } from "../src/_subcomponents/Calendar"
 import {
   FloatingCalendarWrapper,
@@ -15,7 +10,8 @@ import {
 const SUPPORTED_LOCALES = ["en-US", "en-AU"]
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Floating Calendar Wrapper`,
+  tags: ["autodocs"],
+  title: "Components/Date Picker/Subcomponents/Floating Calendar Wrapper",
   component: FloatingCalendarWrapper,
   parameters: {
     docs: {
@@ -68,7 +64,7 @@ const FloatingCalenderWrapperExample = ({
   )
 }
 
-const StickerSheetCalendarTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetCalendarTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

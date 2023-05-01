@@ -1,7 +1,10 @@
 import { isMatch } from "react-day-picker"
-import { Matcher } from "../types"
+import { DisabledDays } from "../types"
 
 export const isDisabledDate = (
   date: Date,
-  disabledDays: Matcher[] | undefined
-): boolean => (disabledDays === undefined ? false : isMatch(date, disabledDays))
+  disabledDays: DisabledDays
+): boolean =>
+  disabledDays === undefined
+    ? false
+    : isMatch(date, Array.isArray(disabledDays) ? disabledDays : [disabledDays])

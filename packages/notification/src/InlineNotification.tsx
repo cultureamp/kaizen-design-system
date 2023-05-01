@@ -3,8 +3,9 @@ import { HeadingProps } from "@kaizen/typography"
 import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"
+import styles from "./components/GenericNotification.module.scss"
 
-type InlineNotificationProps = {
+export type InlineNotificationProps = {
   type: NotificationType
   children?: React.ReactNode
   autohide?: boolean
@@ -16,6 +17,7 @@ type InlineNotificationProps = {
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
+  isSubtle?: boolean
   /**
    * **Deprecated:** Use headingProps
    * @deprecated
@@ -27,14 +29,16 @@ type InlineNotificationProps = {
  * {@link https://cultureamp.design/components/inline-notification/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-notification-inline-notification--default-kaizen-demo Storybook}
  */
-const InlineNotification = ({
+export const InlineNotification = ({
   persistent,
   hideCloseIcon,
+  isSubtle,
   ...otherProps
 }: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
     persistent={persistent || hideCloseIcon}
+    classNameOverride={isSubtle ? styles.subtle : undefined}
     {...otherProps}
   />
 )
@@ -46,4 +50,4 @@ InlineNotification.defaultProps = {
   persistent: false,
 }
 
-export default InlineNotification
+InlineNotification.displayName = "InlineNotification"

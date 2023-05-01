@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.30...@kaizen/draft-collapsible@3.5.31) (2023-04-06)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [3.5.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.29...@kaizen/draft-collapsible@3.5.30) (2023-04-05)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
 ## [3.5.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@3.5.28...@kaizen/draft-collapsible@3.5.29) (2023-03-30)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible

@@ -23,12 +23,12 @@ type Variant =
   | "statusDraft"
   | "statusClosed"
   | "statusAction"
-interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
+export interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
   variant: "profile"
   avatar: JSX.Element | AvatarProps
 }
 
-interface DefaultTagProps {
+export interface DefaultTagProps {
   variant?: Variant
   children: React.ReactNode
   size?: "medium" | "small"
@@ -60,7 +60,7 @@ const renderAvatar = (
  * {@link https://cultureamp.design/components/tag/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tag--default-story Storybook}
  */
-const Tag = (props: TagProps): JSX.Element => {
+export const Tag = (props: TagProps): JSX.Element => {
   const {
     children,
     variant = "default",
@@ -150,6 +150,7 @@ const Tag = (props: TagProps): JSX.Element => {
           {dismissible && (
             <>
               <button
+                type="button"
                 className={styles.dismissButton}
                 onClick={onDismiss}
                 onMouseDown={onMouseDown}
@@ -177,4 +178,4 @@ const Tag = (props: TagProps): JSX.Element => {
   )
 }
 
-export default Tag
+Tag.displayName = "Tag"

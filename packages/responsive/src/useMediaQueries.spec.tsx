@@ -10,13 +10,15 @@ const ExampleComponent = (): JSX.Element => {
 
   return (
     <div>
-      {queries.isSmall && <button>Small only boolean</button>}
+      {queries.isSmall && <button type="button">Small only boolean</button>}
       <MediumOnly>
-        <button>Medium only component</button>
+        <button type="button">Medium only component</button>
       </MediumOnly>
-      {queries.prefersReducedMotion && <button>Prefers reduced boolean</button>}
+      {queries.prefersReducedMotion && (
+        <button type="button">Prefers reduced boolean</button>
+      )}
       <PrefersReducedMotion>
-        <button>Prefers reduced component</button>
+        <button type="button">Prefers reduced component</button>
       </PrefersReducedMotion>
     </div>
   )

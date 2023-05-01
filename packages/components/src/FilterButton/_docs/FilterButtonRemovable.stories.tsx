@@ -1,24 +1,46 @@
-import React from "react"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
 
-export default {
-  title: "Components/Filter/Filter Button",
+const meta = {
+  title: "Components/Filter/Filter Buttons/Filter Button Removable",
   component: FilterButtonRemovable,
+  args: {
+    triggerButtonProps: {
+      label: "Label",
+    },
+    removeButtonProps: {
+      onClick: (): void => alert("Remove clicked!"),
+    },
+  },
+} satisfies Meta<typeof FilterButtonRemovable>
+
+export default meta
+
+export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {
-      description: {
-        component:
-          "Filter Button with a remove button. To be used with Filter.",
+      canvas: {
+        sourceState: "shown",
       },
     },
   },
-} as ComponentMeta<typeof FilterButtonRemovable>
+}
 
-export const FilterButtonRemovableStory: ComponentStory<
-  typeof FilterButtonRemovable
-> = args => <FilterButtonRemovable {...args} />
-FilterButtonRemovableStory.storyName = "Filter Button Removable"
-FilterButtonRemovableStory.args = {
-  triggerButtonProps: { label: "Label" },
+export const TriggerButtonProps: StoryObj<typeof meta> = {
+  args: {
+    triggerButtonProps: {
+      label: "Ice cream flavour",
+      selectedValue: "Vanilla",
+      "data-testid": "testid__ice-cream-sandwich",
+    },
+  },
+}
+
+export const RemoveButtonProps: StoryObj<typeof meta> = {
+  args: {
+    removeButtonProps: {
+      tooltipText: "Custom tooltip :)",
+      "data-testid": "testid__carrot-cake",
+    },
+  },
 }

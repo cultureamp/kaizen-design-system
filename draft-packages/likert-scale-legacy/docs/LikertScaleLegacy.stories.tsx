@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import {
   LikertScaleLegacy,
   Scale,
@@ -7,11 +7,10 @@ import {
 } from "@kaizen/draft-likert-scale-legacy"
 import { Heading } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Likert Scale`,
+  tags: ["autodocs"],
+  title: "Components/Likert Scale",
   component: LikertScaleLegacy,
   parameters: {
     chromatic: { disable: false },
@@ -21,9 +20,6 @@ export default {
           'import { LikertScale } from "@kaizen/draft-likert-scale-legacy";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14473%3A61902"
-    ),
   },
 }
 
@@ -54,7 +50,7 @@ const scale: Scale = [
   },
 ]
 
-export const DefaultStory: ComponentStory<typeof LikertScaleLegacy> = args => {
+export const DefaultStory: StoryFn<typeof LikertScaleLegacy> = args => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
   return (
@@ -82,7 +78,7 @@ DefaultStory.args = {
   labelId: "456",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const SectionHeading = ({ heading }: { heading: string }): JSX.Element => (

@@ -1,8 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import React from "react"
-import LinkTo from "@storybook/addon-links/react"
-import { Meta } from "@storybook/react"
+import { Unstyled } from "@storybook/blocks"
 import classNames from "classnames"
 import Highlight from "react-highlight"
 import { Box } from "@kaizen/component-library"
@@ -26,21 +25,25 @@ export const CodeBlock = (props: {
   caption?: React.ReactNode
   code: string
 }): JSX.Element => (
-  <Box py={0.5}>
-    <Card>
-      <div className={styles.codeWrapper}>
-        <Highlight className={props.language}>{props.code}</Highlight>
-      </div>
-    </Card>
+  <Unstyled>
+    <Box py={0.5}>
+      <Card>
+        <div className={styles.codeWrapper}>
+          <Highlight className={props.language}>{props.code}</Highlight>
+        </div>
+      </Card>
 
-    {props.caption && (
-      <div className={styles.codeWrapperCaption}>
-        <Paragraph variant="small">
-          <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
-        </Paragraph>
-      </div>
-    )}
-  </Box>
+      {props.caption && (
+        <div className={styles.codeWrapperCaption}>
+          <Paragraph variant="small">
+            <span className={styles.codeWrapperCaptionText}>
+              {props.caption}
+            </span>
+          </Paragraph>
+        </div>
+      )}
+    </Box>
+  </Unstyled>
 )
 
 const TabbedCodeBlocks = ({
@@ -101,7 +104,9 @@ const themesBlocks: Array<
     language: "typescript",
     code: heartThemeSrc,
     caption: (
-      <code>import {"{ heartTheme }"} from "@kaizen/design-tokens"</code>
+      <code>
+        import {"{ heartTheme }"} from &quot;@kaizen/design-tokens&quot;
+      </code>
     ),
   },
   {
@@ -127,67 +132,66 @@ const sassBlocks: Array<
     name: "Color",
     language: "scss",
     code: colorsSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/color.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/color.scss&quot;</code>
+    ),
   },
   {
     name: "Typography",
     language: "scss",
     code: typographySass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/typography.scss"</code>,
+    caption: (
+      <code>
+        @import &quot;~@kaizen/design-tokens/sass/typography.scss&quot;
+      </code>
+    ),
   },
   {
     name: "Spacing",
     language: "scss",
     code: spacingSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/spacing.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/spacing.scss&quot;</code>
+    ),
   },
   {
     name: "Border",
     language: "scss",
     code: borderSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/border.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/border.scss&quot;</code>
+    ),
   },
   {
     name: "Layout",
     language: "scss",
     code: layoutSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/layout.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/layout.scss&quot;</code>
+    ),
   },
   {
     name: "Shadow",
     language: "scss",
     code: shadowSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/shadow.scss"</code>,
+    caption: (
+      <code>@import &quot;~@kaizen/design-tokens/sass/shadow.scss&quot;</code>
+    ),
   },
   {
     name: "Animation",
     language: "scss",
     code: animationSass,
-    caption: <code>@import "~@kaizen/design-tokens/sass/animation.scss"</code>,
+    caption: (
+      <code>
+        @import &quot;~@kaizen/design-tokens/sass/animation.scss&quot;
+      </code>
+    ),
   },
 ]
 
 export const SassVariablesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={sassBlocks} />
-)
-
-export const getStoryLinkName = (
-  storyTitle: string | undefined
-): string | undefined => storyTitle?.replace(/.*\//, "")
-
-export const LinkToStory = ({
-  storyModule,
-  children,
-  hash: _hash, // not used
-}: {
-  storyModule: Meta
-  hash?: string
-  /* Children can be used to override the Link text */
-  children?: React.ReactNode
-}): JSX.Element => (
-  <LinkTo kind={storyModule.title}>
-    {children || getStoryLinkName(storyModule.title!)}
-  </LinkTo>
 )
 
 export default {}

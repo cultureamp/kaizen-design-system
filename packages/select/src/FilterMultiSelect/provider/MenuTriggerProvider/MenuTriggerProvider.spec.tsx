@@ -15,7 +15,7 @@ const MenuTriggerProviderWrapper = (
     <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
     <MenuPopup>
       <span>menu-content-mock</span>
-      <button>menu-content-button-mock</button>
+      <button type="button">menu-content-button-mock</button>
     </MenuPopup>
   </MenuTriggerProvider>
 )

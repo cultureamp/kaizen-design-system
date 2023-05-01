@@ -1,12 +1,9 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContent = (): JSX.Element => (
   <div style={{ padding: "1rem" }}>
@@ -29,7 +26,8 @@ const ExampleContent = (): JSX.Element => (
 )
 
 export default {
-  title: `${CATEGORIES.components}/Well`,
+  tags: ["autodocs"],
+  title: "Components/Well",
   component: Well,
   parameters: {
     docs: {
@@ -37,14 +35,10 @@ export default {
         component: 'import { Well } from "@kaizen/draft-well"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14168"
-    ),
   },
-  decorators: [withDesign],
 }
 
-export const DefaultWithSolidBorderKaizenSiteDemo: ComponentStory<
+export const DefaultWithSolidBorderKaizenSiteDemo: StoryFn<
   typeof Well
 > = args => (
   <Well {...args}>
@@ -56,7 +50,7 @@ DefaultWithSolidBorderKaizenSiteDemo.parameters = {
   chromatic: { disable: false },
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

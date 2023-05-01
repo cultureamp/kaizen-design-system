@@ -1,15 +1,13 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Badge, BadgeAnimated, BadgeProps } from "@kaizen/draft-badge"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/Badge`,
+  tags: ["autodocs"],
+  title: "Components/Badge",
   component: Badge,
   parameters: {
     docs: {
@@ -20,12 +18,8 @@ export default {
     actions: {
       argTypesRegex: "^on.*",
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A14398"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof Badge>
+} satisfies Meta<typeof Badge>
 
 type BadgeAnimationStoryWrapperProps = {
   children: (badgeCount: string, useAnimation: boolean) => void
@@ -56,7 +50,7 @@ const BadgeAnimationStoryWrapper = ({
   )
 }
 
-export const DefaultStory: Story<Omit<BadgeProps, "children">> = ({
+export const DefaultStory: StoryFn<Omit<BadgeProps, "children">> = ({
   variant,
   ...args
 }) => (
@@ -84,7 +78,7 @@ export const DefaultStory: Story<Omit<BadgeProps, "children">> = ({
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

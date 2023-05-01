@@ -1,14 +1,11 @@
 import React from "react"
-import { Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import {
   BrandMomentPositiveOutro,
   Informative,
 } from "@kaizen/draft-illustration"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import {
   LoadingGraphic,
   LoadingHeading,
@@ -18,7 +15,8 @@ import {
 import styles from "./LoadingSkeleton.stories.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.loadingSkeleton}`,
+  tags: ["autodocs"],
+  title: "Components/Loading",
   parameters: {
     docs: {
       description: {
@@ -26,11 +24,7 @@ export default {
           'import { LoadingHeading, LoadingParagraph, LoadingInput, LoadingGraphic } from "@kaizen/loading-skeleton"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=4496%3A1"
-    ),
   },
-  decorators: [withDesign],
 }
 
 type GuidanceBlockSkeletonTemplateProps = {
@@ -62,7 +56,7 @@ const GuidanceBlockSkeletonTemplate = ({
   </div>
 )
 
-const ExampleUsageTemplate: Story = () => {
+const ExampleUsageTemplate: StoryFn = () => {
   const GUIDANCE_BLOCK_TEXT = {
     title: "This is the Guidance block title",
     description:

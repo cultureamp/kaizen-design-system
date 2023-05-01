@@ -1,15 +1,11 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/${SUB_COMPONENTS_FOLDER_NAME}/Label`,
+  tags: ["autodocs"],
+  title: "Components/Label",
   component: Label,
   parameters: {
     docs: {
@@ -18,21 +14,15 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Label>
+} satisfies Meta<typeof Label>
 
-export const DefaultKaizenSiteDemo: ComponentStory<typeof Label> = args => (
+export const DefaultKaizenSiteDemo: StoryFn<typeof Label> = args => (
   <Label {...args}></Label>
 )
 DefaultKaizenSiteDemo.storyName = "Label"
 DefaultKaizenSiteDemo.args = { labelText: "Label Text" }
-DefaultKaizenSiteDemo.parameters = {
-  backgrounds: {
-    default: DefaultKaizenSiteDemo.args.reversed ? "Purple 700" : "white",
-  },
-  chromatic: { disable: false },
-}
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>
