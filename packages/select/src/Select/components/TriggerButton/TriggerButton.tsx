@@ -49,6 +49,7 @@ export const TriggerButton = React.forwardRef<
 
     return (
       <button
+        type="button"
         {...mergeProps(buttonProps, restProps)}
         ref={ref}
         className={classnames([

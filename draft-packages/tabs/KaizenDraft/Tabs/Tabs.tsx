@@ -53,7 +53,11 @@ const Tabs = ({
   )
 }
 
-const RowTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
+const RowTab = ({
+  tabs,
+  renderTab,
+  textDirection,
+}: Omit<TabsProps, "orientation">): JSX.Element => (
   <div className={styles.container} dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (
@@ -70,7 +74,7 @@ const RowTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
           data-automation-id={t.automationId}
           key={t.label}
           onClick={t.onClick}
-          href={!t.disabled ? t.href : null}
+          href={!t.disabled ? t.href : undefined}
           className={classnames({
             [styles.horizontalTab]: !t.active && !t.disabled,
             [styles.horizontalTabActive]: t.active,
@@ -84,7 +88,11 @@ const RowTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
   </div>
 )
 
-const VerticalTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
+const VerticalTab = ({
+  tabs,
+  renderTab,
+  textDirection,
+}: Omit<TabsProps, "orientation">): JSX.Element => (
   <div dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (
@@ -101,7 +109,7 @@ const VerticalTab = ({ tabs, renderTab, textDirection }): JSX.Element => (
           data-automation-id={t.automationId}
           key={t.label}
           onClick={t.onClick}
-          href={!t.disabled ? t.href : null}
+          href={!t.disabled ? t.href : undefined}
           className={classnames({
             [styles.verticalTab]: !t.active && !t.disabled,
             [styles.verticalTabActive]: t.active,

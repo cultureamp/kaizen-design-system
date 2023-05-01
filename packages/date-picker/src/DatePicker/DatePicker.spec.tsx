@@ -213,7 +213,7 @@ describe("<DatePicker /> - Focus element", () => {
   })
 
   describe("Keydown enter on calendar button", () => {
-    let calendarButton
+    let calendarButton: HTMLElement
 
     beforeEach(async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
@@ -301,7 +301,9 @@ describe("<DatePicker /> - Validation", () => {
           selectedDay={new Date("potato")}
         />
       )
-      expect(screen.getByTitle("Error message")).toBeInTheDocument()
+      const icon = screen.getByLabelText("Error message")
+
+      expect(icon).toBeInTheDocument()
       expect(screen.getByText("Custom validation message")).toBeVisible()
       expect(screen.queryByText("Date is invalid")).not.toBeInTheDocument()
     })
@@ -382,8 +384,10 @@ describe("<DatePicker /> - Validation", () => {
   describe("Inbuilt Validation", () => {
     it("displays error message when selected day is invalid", () => {
       render(<DatePickerWrapper selectedDay={new Date("potato")} />)
+      const icon = screen.getByLabelText("Error message")
+
       expect(screen.getByText("Date is invalid")).toBeVisible()
-      expect(screen.getByTitle("Error message")).toBeInTheDocument()
+      expect(icon).toBeInTheDocument()
     })
 
     it("displays error message when selected day is disabled", () => {

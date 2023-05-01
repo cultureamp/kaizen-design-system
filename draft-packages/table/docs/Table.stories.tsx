@@ -204,6 +204,8 @@ export const IconVariant: StoryFn = () => (
           <TableHeaderRowCell
             labelText="Comment"
             icon={commentIcon}
+            onClick={(): void => alert("Sort!")}
+            sortingArrowsOnHover={"descending"}
             width={1 / 3}
           />
           <TableHeaderRowCell
@@ -241,7 +243,9 @@ export const IconVariant: StoryFn = () => (
       <TableCard>
         <TableRow>
           <TableRowCell width={1 / 3}>
-            <Paragraph variant="body">24</Paragraph>
+            <Paragraph variant="body">
+              The header of this row also has sortingArrowsOnHover.
+            </Paragraph>
           </TableRowCell>
           <TableRowCell classNameOverride="px-sm" width={1 / 3}>
             <Paragraph variant="body">
@@ -462,6 +466,8 @@ export const Tooltip: StoryFn = () => (
             width={1 / 4}
             wrapping="wrap"
             tooltipInfo="This is a tooltip"
+            sorting="ascending"
+            onClick={(): void => alert("Sort!")}
           />
           <TableHeaderRowCell
             labelText="End aligned, no icon"
@@ -469,6 +475,8 @@ export const Tooltip: StoryFn = () => (
             tooltipInfo="This is a tooltip even though there was no icon"
             isTooltipIconHidden={true}
             align="end"
+            sorting="ascending"
+            onClick={(): void => alert("Sort!")}
           />
         </TableHeaderRow>
       </TableHeader>
@@ -481,17 +489,18 @@ export const Tooltip: StoryFn = () => (
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell has a tooltip.
+              The header of this cell has a tooltip.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell has a tooltip. It's content is wrapped.
+              The header of this cell has a tooltip. It&apos;s content is
+              wrapped.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 4}>
             <Paragraph tag="div" variant="body">
-              This header of this cell has a tooltip. It's content is end
+              The header of this cell has a tooltip. It&apos;s content is end
               (right) aligned. It does not have a tooltip icon.
             </Paragraph>
           </TableRowCell>
@@ -537,8 +546,8 @@ export const AnchorLink: StoryFn = () => (
           </TableRowCell>
           <TableRowCell width={1 / 2}>
             <Paragraph tag="div" variant="body">
-              Typically you'd need to hook this up with your routing library
-              (eg. react-router)
+              Typically you&apos;d need to hook this up with your routing
+              library (eg. react-router)
             </Paragraph>
           </TableRowCell>
         </TableRow>

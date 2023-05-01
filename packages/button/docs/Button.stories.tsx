@@ -34,10 +34,7 @@ const meta = {
       designGuidelines:
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button",
     },
-    alternatives: [
-      "components-icon-button--docs",
-      "components-button-group--docs",
-    ],
+    alternatives: ["components-icon-button--docs"],
   },
 } satisfies Meta<typeof Button>
 

@@ -27,7 +27,7 @@ describe("<SelectAllButton /> - interaction", () => {
             isSelectAll: false,
             selectedKeys,
             setSelectedKeys: spy,
-            isSelected: id => selectedKeys.includes(id),
+            isSelected: (id: string) => selectedKeys.includes(id),
           },
         },
       })
@@ -55,7 +55,7 @@ describe("<SelectAllButton /> - interaction", () => {
             isSelectAll: true,
             selectedKeys,
             setSelectedKeys: spy,
-            isSelected: id => selectedKeys.includes(id),
+            isSelected: (id: string) => selectedKeys.includes(id),
           },
         },
       })
@@ -86,7 +86,7 @@ describe("<SelectAllButton /> - interaction", () => {
             isSelectAll: false,
             selectedKeys,
             setSelectedKeys: spy,
-            isSelected: id => selectedKeys.includes(id),
+            isSelected: (id: string) => selectedKeys.includes(id),
           },
         },
       })
