@@ -30,33 +30,29 @@
     font-weight: $typography-heading-4-font-weight;
   }
 
-  // Use JS polyfill to simulate :focus-visible, not yet supported by bhorizontalsers
-  // https://github.com/WICG/focus-visible#backwards-compatibility
-  :global(.js-focus-visible) & {
-    // hide native focus ring when :focus but not :focus-visible
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 
-    &:focus-visible {
-      color: $color-blue-500;
-      text-decoration: none;
-      background-color: $color-blue-100;
-      font-weight: $typography-heading-4-font-weight;
+  &:focus-visible,
+  &:global(.focus-visible) {
+    color: $color-blue-500;
+    text-decoration: none;
+    background-color: $color-blue-100;
+    font-weight: $typography-heading-4-font-weight;
 
-      &:after {
-        content: "";
-        position: absolute;
-        background: transparent;
-        $focus-ring-offset: calc(#{$border-focus-ring-border-width} - 1px);
-        border-width: $border-focus-ring-border-width;
-        border-style: $border-focus-ring-border-style;
-        border-color: $color-blue-500;
-        top: calc(-1 * #{$focus-ring-offset});
-        left: calc(-1 * #{$focus-ring-offset});
-        right: calc(-1 * #{$focus-ring-offset});
-        bottom: calc(-1 * #{$focus-ring-offset});
-      }
+    &:after {
+      content: "";
+      position: absolute;
+      background: transparent;
+      $focus-ring-offset: calc(#{$border-focus-ring-border-width} - 1px);
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
     }
   }
 }
@@ -77,7 +73,8 @@
   justify-content: center;
   min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
 
-  :focus-visible:after {
+  :focus-visible:after,
+  :global(.focus-visible):after {
     border-radius: $border-borderless-border-radius
       $border-borderless-border-radius 0 0;
   }
@@ -143,7 +140,8 @@
     padding-left: $spacing-sm;
   }
 
-  :focus-visible:after {
+  :focus-visible:after,
+  :global(.focus-visible):after {
     border-radius: $border-borderless-border-radius;
     z-index: 1; // pop the border out so sibling tabs don't overlap
   }

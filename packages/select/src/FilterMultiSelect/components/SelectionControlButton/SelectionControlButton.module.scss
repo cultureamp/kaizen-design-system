@@ -40,7 +40,8 @@ $focus-ring-offset: 1px;
     outline: none;
   }
 
-  &:focus-visible::after {
+  &:focus-visible::after,
+  &:global(.focus-visible)::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
     content: "";
     position: absolute;
@@ -70,7 +71,8 @@ $focus-ring-offset: 1px;
       border: 2px solid transparent;
     }
 
-    &:focus-visible::after {
+    &:focus-visible::after,
+    &:global(.focus-visible)::after {
       border-style: $border-dashed-border-style;
       border-color: $color-gray-400;
     }

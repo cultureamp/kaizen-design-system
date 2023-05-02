@@ -153,7 +153,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
               isReversed={isReversed}
               actionButtonProps={{
                 ...ACTION_BUTTON_PROPS__BUTTON,
-                classNameOverride: "__focus",
+                classNameOverride: "focus-visible",
               }}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
             />
@@ -175,7 +175,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
               isReversed={isReversed}
               actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              dropdownButtonProps={{ classNameOverride: "__focus" }}
+              dropdownButtonProps={{ classNameOverride: "focus-visible" }}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>

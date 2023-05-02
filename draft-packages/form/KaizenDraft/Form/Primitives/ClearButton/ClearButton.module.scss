@@ -7,7 +7,7 @@ $story-className--clear-button-hover: ":global(.story__clear-button-hover)";
 
 // Combined pseudo state classes
 $selectors--clear-button-hover: "&:hover, &#{$story-className--clear-button-hover}";
-$selectors--clear-button-focus: "&:focus-visible";
+$selectors--clear-button-focus: "&:focus-visible, &:global(.focus-visible)";
 
 .clearButton {
   @include button-reset;

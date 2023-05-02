@@ -36,9 +36,12 @@
 
   &:focus {
     background-color: $color-blue-200;
-    &:focus-visible {
+
+    &:focus-visible,
+    &:global(.focus-visible) {
       outline: none;
     }
+
     .pageIndicatorFocusRing {
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
@@ -83,7 +86,8 @@
   &:hover {
     background-color: $color-blue-100;
   }
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     outline: none;
   }
   &:focus {

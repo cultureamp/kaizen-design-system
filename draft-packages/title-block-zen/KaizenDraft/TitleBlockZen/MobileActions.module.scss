@@ -100,7 +100,8 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
     outline: none;
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     height: $layout-mobile-actions-drawer-height - $space-for-focus-ring;
 
     &::after {
@@ -130,7 +131,8 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   border-start-start-radius: $border-solid-border-radius;
   border-start-end-radius: $border-solid-border-radius;
 
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     flex-basis: calc(100% - #{$space-for-focus-ring});
 
     &::after {
@@ -144,7 +146,8 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 .mobileActionsPrimaryButton:not(:only-child) {
   flex: 0 0 calc(100% - #{$expand-button-width});
 
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     flex-basis: calc(100% - #{$expand-button-width} - #{$space-for-focus-ring});
     margin-left: $focus-ring-border-width * 2;
     border-start-start-radius: $border-solid-border-radius;
@@ -164,7 +167,8 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   border-left: 2px solid $color-blue-200;
   justify-content: center;
 
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     border-color: $color-white;
     flex-basis: calc(#{$expand-button-width} - #{$space-for-focus-ring});
     margin-right: $focus-ring-border-width * 2;

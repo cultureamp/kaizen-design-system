@@ -39,7 +39,8 @@
   }
 
   &.isFocused,
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     background-color: $color-blue-100;
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);

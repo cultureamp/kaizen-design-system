@@ -35,7 +35,8 @@ $ca-breakpoint-small-mobile: 375px;
     outline: none;
   }
 
-  &:focus-visible::after {
+  &:focus-visible::after,
+  &:global(.focus-visible)::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
     content: "";
     position: absolute;

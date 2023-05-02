@@ -30,7 +30,8 @@ $input-disabled-opacity: 0.3;
     outline: none;
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     outline-offset: -2px;
     outline: $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;

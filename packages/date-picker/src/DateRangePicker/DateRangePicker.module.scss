@@ -33,13 +33,15 @@ $placeholder-opacity: 0.7;
   padding: 0 $button-base-padding-horizontal;
 
   &:focus-visible:not([disabled]),
+  &:global(.focus-visible):not([disabled]),
   &:hover:not([disabled]) {
     background-color: $color-gray-200;
     border-color: $color-gray-600;
     color: $color-purple-800;
   }
 
-  &:focus-visible:not([disabled]) {
+  &:focus-visible:not([disabled]),
+  &:global(.focus-visible):not([disabled]) {
     outline: $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
     outline-offset: 1px;

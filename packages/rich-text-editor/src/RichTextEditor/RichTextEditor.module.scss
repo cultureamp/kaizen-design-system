@@ -23,7 +23,8 @@
     outline: none;
   }
 
-  &:focus-visible::after {
+  &:focus-visible::after,
+  &:global(.focus-visible):after {
     $focus-ring-offset: 5px;
     content: "";
     pointer-events: none;

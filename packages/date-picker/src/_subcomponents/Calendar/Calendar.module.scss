@@ -7,13 +7,13 @@
 $button-border-radius: 3px;
 $rdp-cell-size: 40px;
 
-$selectors--button-focus: "&:focus-visible";
+$selectors--button-focus: "&:focus-visible, &:global(.focus-visible)";
 
 %focus-ring {
   position: relative;
 
   &:focus,
-  &:focus-visible {
+  #{$selectors--button-focus} {
     outline: none;
   }
 

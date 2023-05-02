@@ -37,7 +37,8 @@
     outline: none;
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:global(.focus-visible) {
     background: $color-blue-100;
     color: $color-blue-500;
     border-color: $color-blue-500;
@@ -77,7 +78,8 @@
   .tab {
     border: 2px solid transparent;
 
-    &:focus-visible::after {
+    &:focus-visible::after,
+    &:global(.focus-visible)::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
       content: "";
       position: absolute;
