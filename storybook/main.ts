@@ -20,16 +20,23 @@ const getStoryPathsFromEnv = (): string[] | false => {
   }
   return [storyPath]
 }
-
 const defaultStoryPaths = [
   "../(docs|draft-packages|packages)/**/*.mdx",
   "../(docs|draft-packages|packages)/**/*.stories.tsx",
 ]
-
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
-  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
-  staticDirs: [{ from: "./assets", to: "/static/media" }],
+  addons: [
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+    "@storybook/addon-mdx-gfm",
+  ],
+  staticDirs: [
+    {
+      from: "./assets",
+      to: "/static/media",
+    },
+  ],
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
@@ -42,11 +49,12 @@ const config = {
       propFilter: (prop): boolean => {
         const isHTMLElementProp =
           prop.parent?.fileName.includes("node_modules/@types/react") ?? false
-
         return !isHTMLElementProp
       },
     },
   },
+  docs: {
+    autodocs: true,
+  },
 } satisfies StorybookConfig
-
 export default config
