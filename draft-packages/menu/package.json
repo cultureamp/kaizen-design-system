@@ -33,6 +33,7 @@
     "@kaizen/button": "^2.1.5",
     "@kaizen/component-library": "^16.6.1",
     "@kaizen/draft-divider": "^2.2.8",
+    "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2",
