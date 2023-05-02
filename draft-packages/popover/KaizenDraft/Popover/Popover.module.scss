@@ -164,7 +164,7 @@ $negative-box-border-color: $color-red-300;
     color: $color-purple-800;
   }
 
-  :focus {
+  &:focus {
     outline: none;
   }
 
