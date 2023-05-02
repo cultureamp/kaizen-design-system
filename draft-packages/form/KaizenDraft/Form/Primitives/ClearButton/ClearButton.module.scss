@@ -2,15 +2,12 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "../../mixins";
 
-// Polyfill
-$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
-
 // Classnames to simulate pseudo states in storybook
 $story-className--clear-button-hover: ":global(.story__clear-button-hover)";
 
 // Combined pseudo state classes
 $selectors--clear-button-hover: "&:hover, &#{$story-className--clear-button-hover}";
-$selectors--clear-button-focus: "&:focus-visible, #{$polyfill--focus-visible}";
+$selectors--clear-button-focus: "&:focus-visible";
 
 .clearButton {
   @include button-reset;

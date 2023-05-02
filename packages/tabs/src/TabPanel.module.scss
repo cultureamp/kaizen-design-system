@@ -7,7 +7,7 @@
   &:focus {
     outline: none;
   }
-  &:global(.focus-visible) {
+  &:focus-visible {
     border-color: $color-blue-500;
     border-radius: $border-focus-ring-border-radius;
   }
