@@ -1,7 +1,12 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useRef, useEffect } from "react"
+import classnames from "classnames"
+import { IconButton } from "@kaizen/button"
+
 import { assetUrl } from "@kaizen/hosted-assets"
 import styles from "../Base.module.scss"
 import { canPlayWebm } from "../utils"
+
+import { usePausePlay } from "./usePausePlay"
 
 export type VideoPlayerProps = {
   /**
@@ -146,15 +151,7 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
-  const pausePlay = (): void => {
-    if (!videoRef.current) return
-
-    if (videoRef.current.paused) {
-      videoRef.current.play()
-    } else {
-      videoRef.current.pause()
-    }
-  }
+  const pausePlay = usePausePlay(videoRef)
 
   const videoPlayer = (
     <>
@@ -182,19 +179,23 @@ export const VideoPlayer = ({
         )}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
       </video>
-      <button type="button" onClick={(): void => pausePlay()}>
-        PAUSE
-      </button>
+      <IconButton
+        onClick={(): void => pausePlay.toggle()}
+        icon={pausePlay.icon}
+        label={pausePlay.label}
+        classNameOverride={styles.pausePlayButton}
+      />
     </>
   )
 
-  if (aspectRatio) {
-    return (
-      <figure className={`${styles[aspectRatio]} ${styles.aspectRatioWrapper}`}>
-        {videoPlayer}
-      </figure>
-    )
-  }
-
-  return videoPlayer
+  return (
+    <figure
+      className={classnames(styles.figure, {
+        [`${styles[aspectRatio!]} ${styles.aspectRatioWrapper}`]:
+          Boolean(aspectRatio),
+      })}
+    >
+      {videoPlayer}
+    </figure>
+  )
 }

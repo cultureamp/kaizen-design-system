@@ -3,6 +3,19 @@
   margin: 0;
 }
 
+.figure {
+  margin: 0;
+  position: relative;
+
+  // nested to get more specificity, beat out the generic button styles
+  .pausePlayButton {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    background-color: white !important;
+  }
+}
+
 .aspectRatioWrapper {
   margin: 0;
   display: flex;
