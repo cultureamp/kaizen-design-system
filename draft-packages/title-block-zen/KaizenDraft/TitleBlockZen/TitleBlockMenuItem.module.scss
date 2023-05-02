@@ -49,9 +49,12 @@
     }
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &:focus-visible {
     border-color: $color-blue-500;
-    outline: none;
   }
 
   [dir="rtl"] & {

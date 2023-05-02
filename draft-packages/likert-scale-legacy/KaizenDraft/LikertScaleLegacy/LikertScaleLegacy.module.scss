@@ -118,10 +118,6 @@ $fifth: $color-red-500;
   outline: none;
 }
 
-.reversed:not(.rated) .likertItem:focus-visible .likertItemFill {
-  outline-color: $color-blue-300;
-}
-
 .likertItem:focus-visible .likertItemFill {
   outline-offset: 1px;
   outline: $color-blue-500 $border-focus-ring-border-style

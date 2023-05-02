@@ -89,7 +89,7 @@ $small: $spacing-md;
     position: relative;
   }
 
-  :focus {
+  &:focus {
     outline: none;
   }
 

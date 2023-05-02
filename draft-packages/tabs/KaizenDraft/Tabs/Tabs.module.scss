@@ -72,7 +72,7 @@
   justify-content: center;
   min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
 
-  :focus-visible:after {
+  &:focus-visible::after {
     border-radius: $border-borderless-border-radius
       $border-borderless-border-radius 0 0;
   }
@@ -138,7 +138,7 @@
     padding-left: $spacing-sm;
   }
 
-  :focus-visible:after {
+  &:focus-visible::after {
     border-radius: $border-borderless-border-radius;
     z-index: 1; // pop the border out so sibling tabs don't overlap
   }
