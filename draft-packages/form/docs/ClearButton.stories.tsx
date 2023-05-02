@@ -38,7 +38,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         />
         <ClearButton
           isReversed={isReversed}
-          classNameOverride="focus-visible"
+          classNameOverride="story__clear-button-focus"
         />
       </StickerSheet.Row>
     </StickerSheet.Body>

@@ -4,10 +4,11 @@
 
 // Classnames to simulate pseudo states in storybook
 $story-className--clear-button-hover: ":global(.story__clear-button-hover)";
+$story-className--clear-button-focus: ":global(.story__clear-button-focus)";
 
 // Combined pseudo state classes
 $selectors--clear-button-hover: "&:hover, &#{$story-className--clear-button-hover}";
-$selectors--clear-button-focus: "&:focus-visible, &:global(.focus-visible)";
+$selectors--clear-button-focus: "&:focus-visible, &#{$story-className--clear-button-focus}";
 
 .clearButton {
   @include button-reset;

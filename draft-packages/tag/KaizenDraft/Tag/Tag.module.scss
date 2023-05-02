@@ -93,8 +93,7 @@ $small: $spacing-md;
     outline: none;
   }
 
-  &:focus-visible .iconWrapper,
-  &:global(.focus-visible) .iconWrapper {
+  &:focus-visible .iconWrapper {
     color: $color-purple-800;
 
     &::after {

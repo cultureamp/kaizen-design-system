@@ -69,8 +69,7 @@ input[type="range"].ratingScaleRange {
     outline: 0;
   }
 
-  &:focus-visible,
-  &:global(.focus-visible) {
+  &:focus-visible {
     outline: 2px solid $color-blue-500;
   }
 

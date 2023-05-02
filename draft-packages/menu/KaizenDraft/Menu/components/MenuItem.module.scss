@@ -53,8 +53,7 @@
     outline: none;
   }
 
-  &:focus-visible,
-  &:global(.focus-visible) {
+  &:focus-visible {
     border-color: $color-blue-500;
   }
 

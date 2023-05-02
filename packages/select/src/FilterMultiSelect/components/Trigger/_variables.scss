@@ -4,4 +4,4 @@
 $button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
 
 // Combined pseudo state classes
-$selectors--button-focus: "&:focus-visible, &:global(.focus-visible)";
+$selectors--button-focus: "&:focus-visible";

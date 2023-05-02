@@ -37,8 +37,7 @@
   &:focus {
     background-color: $color-blue-200;
 
-    &:focus-visible,
-    &:global(.focus-visible) {
+    &:focus-visible {
       outline: none;
     }
 
@@ -86,8 +85,7 @@
   &:hover {
     background-color: $color-blue-100;
   }
-  &:focus-visible,
-  &:global(.focus-visible) {
+  &:focus-visible {
     outline: none;
   }
   &:focus {

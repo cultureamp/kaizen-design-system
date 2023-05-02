@@ -14,4 +14,4 @@ $story-className--filter-button--focus: ":global(.story__filter-button--focus)";
 // Combined pseudo state classes
 $selectors--filter-button--hover: "&:hover, &#{$story-className--filter-button--hover}";
 $selectors--filter-button--active: "&:active, &#{$story-className--filter-button--active}";
-$selectors--filter-button--focus: "&:focus-visible, &:global(.focus-visible), &#{$story-className--filter-button--focus}";
+$selectors--filter-button--focus: "&:focus-visible, &#{$story-className--filter-button--focus}";
