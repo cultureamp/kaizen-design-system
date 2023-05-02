@@ -7,7 +7,10 @@
 $button-border-radius: 3px;
 $rdp-cell-size: 40px;
 
-$selectors--button-focus: "&:focus-visible";
+$story-className--calendar--hover: ":global(.story__datepicker__calendar--hover)";
+$story-className--calendar--focus: ":global(.story__datepicker__calendar--focus)";
+
+$selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus}";
 
 %focus-ring {
   position: relative;
@@ -93,7 +96,7 @@ $selectors--button-focus: "&:focus-visible";
   border-radius: $button-border-radius;
 
   &:hover,
-  &:global(.story__datepicker__calendar--hover) {
+  &#{$story-className--calendar--hover} {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
@@ -159,7 +162,7 @@ $selectors--button-focus: "&:focus-visible";
   color: $color-purple-800;
 
   &:hover,
-  &:global(.story__datepicker__calendar--hover) {
+  &#{$story-className--calendar--hover} {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
@@ -180,7 +183,7 @@ $selectors--button-focus: "&:focus-visible";
   color: $color-white;
 
   &:hover,
-  &:global(.story__datepicker__calendar--hover),
+  &#{$story-className--calendar--hover},
   #{$selectors--button-focus} {
     background-color: $color-blue-400;
     color: $color-white;
