@@ -90,7 +90,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               id={`${textDirection}-stickersheet--filter-drp-field--default`}
               label="Dates"
               locale="en-US"
-              defaultMonth={new Date("2023-05-01")}
+              defaultMonth={new Date("2022-05-01")}
               selectedRange={rangeFieldDefault}
               onRangeChange={setRangeFieldDefault}
             />
