@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.29
+
+### Patch Changes
+
+- [#3556](https://github.com/cultureamp/kaizen-design-system/pull/3556) [`9c6951493`](https://github.com/cultureamp/kaizen-design-system/commit/9c6951493fee3e4b4d38852b25847684a82e56a1) - Fix for Illustration to work with Next.js SSR
+
 ## 6.0.28
 
 ### Patch Changes

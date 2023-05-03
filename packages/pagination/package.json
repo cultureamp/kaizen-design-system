@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/pagination",
-  "version": "1.6.38",
+  "version": "1.6.39",
   "description": "The pagination component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
