@@ -4,6 +4,7 @@
     "allowJs": false,
     "declaration": true,
     "noEmit": false,
-    "sourceMap": true
+    "sourceMap": true,
+    "outDir": "dist"
   }
 }

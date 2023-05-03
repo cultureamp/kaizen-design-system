@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["index.ts"],
+  "include": ["index.ts", "KaizenDraft/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
 }
