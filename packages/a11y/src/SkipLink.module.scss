@@ -59,8 +59,8 @@ $caButtonIcon-height: 20px;
   background: $color-white;
   border-color: $border-borderless-border-color;
   color: $color-purple-800;
-  // show custom focus ring when :focus-visible
-  &:global(.focus-visible)::after {
+
+  &:focus-visible::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
     content: "";
     position: absolute;

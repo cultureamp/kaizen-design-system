@@ -31,10 +31,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   &:focus {
     outline: none;
   }
-  &:global(.focus-visible)::after {
+
+  &:focus-visible::after {
     content: "";
     $focus-ring-offset: 6px;
     pointer-events: none;
