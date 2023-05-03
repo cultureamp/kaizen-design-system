@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { v4 } from "uuid"
 import styles from "./MenuList.module.scss"
 
@@ -7,9 +7,8 @@ export type MenuListProps = {
   children: React.ReactNode
 }
 
-const listHeadingID = v4()
-
 export const MenuList = (props: MenuListProps): JSX.Element => {
+  const [listHeadingID] = useState<string>(v4())
   const { heading, children } = props
   return (
     <>
