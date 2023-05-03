@@ -2,10 +2,6 @@ import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import {
-  FilterButton,
-  // FilterButtonRemovable
-} from "~components/FilterButton"
-import {
   AllFiltersState,
   Filter,
   // useFilterBarContext
@@ -35,25 +31,11 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     {
       label: "Chocolate",
       // selectedValue: param,
-      Component: (
-        <FilterPancake
-          label="Chocolate"
-          renderTrigger={(triggerProps): JSX.Element => (
-            <FilterButton {...triggerProps} />
-          )}
-        />
-      ),
+      Component: <FilterPancake label="Chocolate" />,
     },
     {
       label: "Vanilla",
-      Component: (
-        <FilterPancake
-          label="Vanilla"
-          renderTrigger={(triggerProps): JSX.Element => (
-            <FilterButton {...triggerProps} />
-          )}
-        />
-      ),
+      Component: <FilterPancake label="Vanilla" />,
       isRemovable: true,
     },
   ]

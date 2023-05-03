@@ -1,25 +1,25 @@
 import React from "react"
 import { Filter, FilterContents } from "~components/Filter"
-import { FilterButtonProps } from "~components/FilterButton"
+import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import {
   // IsUsableWhen,
   useFilterBarContext,
 } from "../../context/FilterBarContext"
 
 export interface FilterPancakeProps {
-  renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
+  // renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
   label: string
   onChange?: (value: string | undefined) => void
   // isUsableWhen?: IsUsableWhen
 }
 
 export const FilterPancake = ({
-  renderTrigger,
+  // renderTrigger,
   label,
   onChange,
 }: // isUsableWhen,
 FilterPancakeProps): JSX.Element | null => {
-  const { getFilterState, updateSelectedValue, toggleOpenFilter } =
+  const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     useFilterBarContext()
 
   const filterState = getFilterState(label)
@@ -30,13 +30,24 @@ FilterPancakeProps): JSX.Element | null => {
     <Filter
       isOpen={filterState.isOpen ?? false}
       setIsOpen={(open): void => toggleOpenFilter(label, open)}
-      renderTrigger={(triggerProps): JSX.Element =>
-        renderTrigger({
+      renderTrigger={(triggerProps): JSX.Element => {
+        const props = {
           selectedValue: contents,
           label,
           ...triggerProps,
-        })
-      }
+        }
+
+        return filterState.isRemovable ? (
+          <FilterButtonRemovable
+            triggerButtonProps={props}
+            removeButtonProps={{
+              onClick: () => hideFilter(label),
+            }}
+          />
+        ) : (
+          <FilterButton {...props} />
+        )
+      }}
     >
       <FilterContents>
         <p>{contents ?? "Nothing!"}</p>
