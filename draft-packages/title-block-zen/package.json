@@ -5,10 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsup KaizenDraft/TitleBlockZen/index.ts dist --loader '.module.scss=copy' && tsc --project tsconfig.dist.json",
+    "prepublish": "tsup index.ts dist --loader '.module.scss=copy' && tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'dist'"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",

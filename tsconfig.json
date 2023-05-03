@@ -10,7 +10,6 @@
     "noImplicitAny": true,
     "strict": true,
     "allowJs": false,
-    "noEmit": true,
     "paths": {
       "~types/*": ["packages/components/src/types/*"],
       "~utils/*": ["packages/components/src/utils/*"],

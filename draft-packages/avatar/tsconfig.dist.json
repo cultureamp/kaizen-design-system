@@ -1,14 +1,7 @@
 {
   "extends": "../../tsconfig.dist.json",
   "compilerOptions": {
-    "allowJs": false,
-    "jsx": "react",
-    "sourceMap": true,
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "outDir": "dist",
-    "skipLibCheck": true
+    "outDir": "dist"
   },
   "include": ["index.ts", "KaizenDraft/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
