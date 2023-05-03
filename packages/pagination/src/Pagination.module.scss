@@ -36,9 +36,11 @@
 
   &:focus {
     background-color: $color-blue-200;
+
     &:focus-visible {
       outline: none;
     }
+
     .pageIndicatorFocusRing {
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;

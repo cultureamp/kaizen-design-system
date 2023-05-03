@@ -27,7 +27,6 @@
     &:active,
     &#{$story-className--active},
     &:focus-visible,
-    &#{$polyfill--focus-visible},
     &#{$story-className__focus} {
       left: calc(-1 * #{$border-solid-border-width});
       margin-left: unset;
