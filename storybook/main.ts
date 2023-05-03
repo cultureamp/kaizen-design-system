@@ -26,11 +26,7 @@ const defaultStoryPaths = [
 ]
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
-  addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "@storybook/addon-mdx-gfm",
-  ],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
   staticDirs: [
     {
       from: "./assets",
@@ -52,9 +48,6 @@ const config = {
         return !isHTMLElementProp
       },
     },
-  },
-  docs: {
-    autodocs: true,
   },
 } satisfies StorybookConfig
 export default config

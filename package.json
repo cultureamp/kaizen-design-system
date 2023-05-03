@@ -73,7 +73,6 @@
     "@storybook/addon-a11y": "^7.0.7",
     "@storybook/addon-essentials": "^7.0.7",
     "@storybook/addon-links": "^7.0.7",
-    "@storybook/addon-mdx-gfm": "^7.0.7",
     "@storybook/node-logger": "^7.0.7",
     "@storybook/react-webpack5": "^7.0.7",
     "@storybook/testing-library": "^0.1.0",
