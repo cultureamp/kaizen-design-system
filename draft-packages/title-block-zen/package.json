@@ -2,11 +2,14 @@
   "name": "@kaizen/draft-title-block-zen",
   "version": "7.9.23",
   "description": "The draft Title Block (Zen) component",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsc --project tsconfig.dist.json && yarn copy:styles",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "copy:styles": "cp ./KaizenDraft/**/*.module.scss dist/KaizenDraft/TitleBlockZen",
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map' 'dist'"
   },
   "repository": {
     "type": "git",
@@ -17,13 +20,7 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "dist"
   ],
   "author": "",
   "private": false,

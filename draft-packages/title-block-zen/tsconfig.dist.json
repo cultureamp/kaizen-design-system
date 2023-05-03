@@ -1,5 +1,8 @@
 {
   "extends": "../../tsconfig.dist.json",
-  "include": ["index.ts", "KaizenDraft/**/*"],
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["index.ts"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
 }
