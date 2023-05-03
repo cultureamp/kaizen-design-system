@@ -34,7 +34,6 @@
     }
 
     &:focus-visible,
-    &#{$polyfill--focus-visible},
     &#{$story-className__focus} {
       z-index: 3;
       outline-width: $border-solid-border-width;
@@ -60,7 +59,6 @@
     &:active,
     &#{$story-className--active},
     &:focus-visible,
-    &#{$polyfill--focus-visible},
     &#{$story-className__focus} {
       background-color: $color-gray-200;
       border-color: $color-gray-600;
@@ -68,7 +66,6 @@
     }
 
     &:focus-visible,
-    &#{$polyfill--focus-visible},
     &#{$story-className__focus} {
       outline-color: $color-blue-500;
     }
@@ -87,7 +84,6 @@
     &:active,
     &#{$story-className--active},
     &:focus-visible,
-    &#{$polyfill--focus-visible},
     &#{$story-className__focus} {
       background-color: rgba($color-white-rgb, 0.1);
       border-color: $color-white;
@@ -95,7 +91,6 @@
     }
 
     &:focus-visible,
-    &#{$polyfill--focus-visible},
     &#{$story-className__focus} {
       outline-color: $color-blue-300;
     }

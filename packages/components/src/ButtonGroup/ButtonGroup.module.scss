@@ -4,14 +4,11 @@
 $focus-ring-offset: 1px;
 $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
 
-// Polyfill
-$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
-
 // Classnames to simulate pseudo states in storybook
 $story-className--button-group--focus: ":global(.story__button-group--focus)";
 
 // Combined pseudo state classes
-$selectors--button-group--focus: "&:focus-visible, #{$polyfill--focus-visible}, &#{$story-className--button-group--focus}";
+$selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-group--focus}";
 
 %firstChildBorders {
   border-start-start-radius: $border-focus-ring-border-radius;
