@@ -5,6 +5,7 @@ export type AllFiltersState = Record<string, FilterAttr>
 export type IsUsableWhen = (state: AllFiltersState) => boolean
 
 type FilterAttr = {
+  id: string
   label: string
   isRemovable: boolean
   selectedValue?: any
@@ -16,12 +17,12 @@ type FilterAttr = {
 
 export type FilterBarContextValue = {
   state: Record<string, FilterAttr>
-  getFilterState: (label: string) => FilterAttr
-  updateSelectedValue: (label: string, value: any) => void
-  toggleOpenFilter: (label: string, isOpen: boolean) => void
-  setOpenFilter: (label: string) => void
-  showFilter: (label: string) => void
-  hideFilter: (label: string) => void
+  getFilterState: (id: string) => FilterAttr
+  updateSelectedValue: (id: string, value: any) => void
+  toggleOpenFilter: (id: string, isOpen: boolean) => void
+  setOpenFilter: (id: string) => void
+  showFilter: (id: string) => void
+  hideFilter: (id: string) => void
   getHiddenFilters: () => FilterAttr[]
   clearFilters: () => void
 }
@@ -41,13 +42,15 @@ export const useFilterBarContext = (): FilterBarContextValue => {
 }
 
 export type Filter = {
+  id: string
   label: string
   Component: React.ReactElement
   isRemovable?: boolean
+  isInitHidden?: boolean
 }
 
 export type FilterBarProviderProps = {
-  children: React.ReactNode
+  children: (activeFilterIds: string[]) => JSX.Element
   filters: Filter[]
   onChange?: (state: AllFiltersState) => void
   selectedValues: Record<string, any>
@@ -63,9 +66,12 @@ export const FilterBarProvider = ({
   selectedValues,
   setSelectedValues,
 }: FilterBarProviderProps): JSX.Element => {
+  const [activeFilterIds, setActiveFilterIds] = useState<string[]>(
+    filters.filter(({ isInitHidden }) => !isInitHidden).map(({ id }) => id)
+  )
   const [state, setState] = useState<AllFiltersState>(
     filters.reduce<AllFiltersState>((acc, { Component: _, ...filter }) => {
-      acc[filter.label] = {
+      acc[filter.id] = {
         isRemovable: false,
         isOpen: false,
         isHidden: false,
@@ -79,52 +85,54 @@ export const FilterBarProvider = ({
   const getTransformedState = (): AllFiltersState =>
     // @note: maybe an array would be better after all
     Object.values(state).reduce<AllFiltersState>((acc, filter) => {
-      acc[filter.label] = {
+      acc[filter.id] = {
         ...filter,
         isUsable: filter.isUsableWhen?.(state) ?? true,
-        selectedValue: selectedValues[filter.label],
+        selectedValue: selectedValues[filter.id],
       }
       return acc
     }, {})
 
   const value = {
     state,
-    getFilterState: (label: string): FilterAttr => {
-      if (!state[label]) throw Error("Filter doesn't exist!")
-      return getTransformedState()[label]
+    getFilterState: (id: string): FilterAttr => {
+      if (!state[id]) throw Error("Filter doesn't exist!")
+      return getTransformedState()[id]
     },
-    updateSelectedValue: (label: string, newValue: any): void => {
+    updateSelectedValue: (id: string, newValue: any): void => {
       setSelectedValues(current => ({
         ...current,
-        [label]: newValue,
+        [id]: newValue,
       }))
     },
-    toggleOpenFilter: (label: string, isOpen: boolean): void => {
+    toggleOpenFilter: (id: string, isOpen: boolean): void => {
       setState(current => ({
         ...current,
-        [label]: { ...current[label], isOpen },
+        [id]: { ...current[id], isOpen },
       }))
     },
-    setOpenFilter: (label: string): void =>
+    setOpenFilter: (id: string): void =>
       setState(current =>
         Object.values(current).reduce<AllFiltersState>((acc, filter) => {
-          acc[filter.label] = {
+          acc[filter.id] = {
             ...filter,
-            isOpen: filter.label === label,
+            isOpen: filter.id === id,
           }
           return acc
         }, {})
       ),
-    showFilter: (label: string): void => {
+    showFilter: (id: string): void => {
+      setActiveFilterIds(current => [...current, id])
       setState(current => ({
         ...current,
-        [label]: { ...current[label], isHidden: false },
+        [id]: { ...current[id], isHidden: false },
       }))
     },
-    hideFilter: (label: string): void => {
+    hideFilter: (id: string): void => {
+      setActiveFilterIds(current => current.filter(activeId => activeId !== id))
       setState(current => ({
         ...current,
-        [label]: { ...current[label], isHidden: true },
+        [id]: { ...current[id], isHidden: true },
       }))
     },
     getHiddenFilters: (): FilterAttr[] =>
@@ -132,6 +140,12 @@ export const FilterBarProvider = ({
         ({ isHidden, isUsable }) => isUsable && isHidden
       ),
     clearFilters: (): void => {
+      setActiveFilterIds(
+        Object.values(state)
+          .filter(({ isRemovable }) => !isRemovable)
+          .map(({ id }) => id)
+      )
+      setSelectedValues({})
       setState(current =>
         Object.values(current).reduce<AllFiltersState>((acc, filter) => {
           const newState = filter
@@ -140,7 +154,7 @@ export const FilterBarProvider = ({
           }
           newState["selectedValue"] = undefined
 
-          acc[filter.label] = {
+          acc[filter.id] = {
             ...filter,
             ...newState,
           }
@@ -156,7 +170,7 @@ export const FilterBarProvider = ({
 
   return (
     <FilterBarContext.Provider value={value}>
-      {children}
+      {children(activeFilterIds)}
     </FilterBarContext.Provider>
   )
 }

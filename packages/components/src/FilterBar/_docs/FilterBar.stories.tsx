@@ -23,19 +23,32 @@ export default meta
 
 export const Playground: StoryFn<typeof FilterBar> = () => {
   const [selectedValues, setSelectedValues] = useState<Record<string, any>>({
-    Chocolate: "boo",
+    chocolate: "boo",
   })
   const [filtersState, setFiltersState] = useState<AllFiltersState>()
 
   const filters: Filter[] = [
     {
+      id: "chocolate",
       label: "Chocolate",
-      // selectedValue: param,
-      Component: <FilterPancake label="Chocolate" />,
+      Component: <FilterPancake id="chocolate" />,
     },
     {
+      id: "vanilla",
       label: "Vanilla",
-      Component: <FilterPancake label="Vanilla" />,
+      Component: <FilterPancake id="vanilla" />,
+      isRemovable: true,
+    },
+    {
+      id: "strawberry",
+      label: "Strawberry",
+      Component: <FilterPancake id="strawberry" />,
+      isRemovable: true,
+    },
+    {
+      id: "apple",
+      label: "Apple",
+      Component: <FilterPancake id="apple" />,
       isRemovable: true,
     },
   ]
@@ -49,21 +62,30 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
         setSelectedValues={setSelectedValues}
       />
 
-      <Highlight className="json">
-        {JSON.stringify(filtersState, null, 4)}
-      </Highlight>
-
       <button
         type="button"
         onClick={(): void =>
           setSelectedValues({
             ...selectedValues,
-            Chocolate: "Hello!",
+            chocolate: "Hello!",
           })
         }
+        className="mt-16"
       >
-        Update param
+        Update chocolate value
       </button>
+
+      <Highlight className="json">
+        /* selectedValues */
+        <br />
+        {JSON.stringify(selectedValues, null, 4)}
+      </Highlight>
+
+      <Highlight className="json">
+        /* filtersState */
+        <br />
+        {JSON.stringify(filtersState, null, 4)}
+      </Highlight>
     </div>
   )
 }

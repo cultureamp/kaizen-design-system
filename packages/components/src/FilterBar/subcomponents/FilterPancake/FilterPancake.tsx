@@ -8,32 +8,34 @@ import {
 
 export interface FilterPancakeProps {
   // renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
-  label: string
+  id: string
+  // label: string
   onChange?: (value: string | undefined) => void
   // isUsableWhen?: IsUsableWhen
 }
 
 export const FilterPancake = ({
   // renderTrigger,
-  label,
+  id,
+  // label,
   onChange,
 }: // isUsableWhen,
 FilterPancakeProps): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     useFilterBarContext()
 
-  const filterState = getFilterState(label)
+  const filterState = getFilterState(id)
 
   const contents = filterState.selectedValue
 
   return (
     <Filter
       isOpen={filterState.isOpen ?? false}
-      setIsOpen={(open): void => toggleOpenFilter(label, open)}
+      setIsOpen={(open): void => toggleOpenFilter(id, open)}
       renderTrigger={(triggerProps): JSX.Element => {
         const props = {
           selectedValue: contents,
-          label,
+          label: filterState.label,
           ...triggerProps,
         }
 
@@ -41,7 +43,7 @@ FilterPancakeProps): JSX.Element | null => {
           <FilterButtonRemovable
             triggerButtonProps={props}
             removeButtonProps={{
-              onClick: () => hideFilter(label),
+              onClick: () => hideFilter(id),
             }}
           />
         ) : (
@@ -54,7 +56,7 @@ FilterPancakeProps): JSX.Element | null => {
         <button
           onClick={(): void => {
             const newValue = contents === "meep" ? undefined : "meep"
-            updateSelectedValue(label, newValue)
+            updateSelectedValue(id, newValue)
             onChange?.(newValue)
           }}
         >

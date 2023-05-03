@@ -8,11 +8,11 @@ export const FilterAddButton = (): JSX.Element => {
   return (
     <Menu button={<button>Add filter</button>}>
       <MenuList>
-        {getHiddenFilters().map(({ label }) => (
+        {getHiddenFilters().map(({ id, label }) => (
           <MenuItem
-            key={label}
+            key={id}
             label={label}
-            onClick={(): void => showFilter(label)}
+            onClick={(): void => showFilter(id)}
           />
         ))}
       </MenuList>
