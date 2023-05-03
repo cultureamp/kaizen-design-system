@@ -262,7 +262,7 @@ export const DatePicker = ({
         handleValidation(validationResponse)
       }
     }
-  }, [])
+  }, [selectedDay])
 
   const calendarId = `${id}-calendar-dialog`
 

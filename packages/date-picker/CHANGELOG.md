@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.21.12
+
+### Patch Changes
+
+- [#3565](https://github.com/cultureamp/kaizen-design-system/pull/3565) [`2fcba667e`](https://github.com/cultureamp/kaizen-design-system/commit/2fcba667e576ff974d9f790172e894351eba3875) - \* Add selectedDay to DatePicker useEffect Hook to trigger a re-render on change
+
+  - Adds test to validate async return of selectedDay from server
+
+- [#3558](https://github.com/cultureamp/kaizen-design-system/pull/3558) [`f09c085ee`](https://github.com/cultureamp/kaizen-design-system/commit/f09c085ee78c6dc79afc291faa6e284b333d1e93) - Use native focus-visible selector for focus styling instead of polyfill class
+
+- Updated dependencies [[`f09c085ee`](https://github.com/cultureamp/kaizen-design-system/commit/f09c085ee78c6dc79afc291faa6e284b333d1e93)]:
+  - @kaizen/draft-form@10.3.12
+  - @kaizen/a11y@1.7.10
+
 ## 5.21.11
 
 ### Patch Changes

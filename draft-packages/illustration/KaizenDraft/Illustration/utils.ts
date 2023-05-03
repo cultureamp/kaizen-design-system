@@ -108,6 +108,8 @@ const parseAnimationData = async (
  * Detect whether the current browser can play webm files
  */
 export const canPlayWebm = (): boolean => {
+  if (typeof window === "undefined") return false
+
   // Don't trust Safari's canPlayType implementation, as there is partial support for webm
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
   if (isSafari) {
