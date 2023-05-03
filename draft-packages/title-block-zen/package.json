@@ -9,7 +9,7 @@
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "copy:styles": "cp ./KaizenDraft/**/*.module.scss dist/KaizenDraft/TitleBlockZen",
-    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map' 'dist'"
+    "clean": "rimraf 'dist'"
   },
   "repository": {
     "type": "git",
