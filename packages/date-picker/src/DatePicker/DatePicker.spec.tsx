@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { ValidationResponse } from "../types"
@@ -38,6 +38,34 @@ describe("<DatePicker />", () => {
   it("should pre-fill the input when an initial date is provided", () => {
     render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
+  })
+
+  it("re-renders the displayed input when an selectedDay is updated after initial render", async () => {
+    const DelayedSelectedDate = (): JSX.Element => {
+      const [selectedDate, setValueDate] = useState<Date | undefined>(undefined)
+
+      // mocks a slow server response
+      useEffect(() => {
+        setTimeout(() => setValueDate(new Date("2022-03-01")), 1000)
+      }, [])
+
+      return (
+        <DatePicker
+          id="test__date-picker"
+          labelText="Input label"
+          onDayChange={setValueDate}
+          selectedDay={selectedDate}
+          locale="en-US"
+        />
+      )
+    }
+
+    render(<DelayedSelectedDate />)
+    expect(screen.getByRole("combobox")).toBeInTheDocument()
+    expect(screen.getByRole("combobox")).toHaveValue("")
+    await waitFor(() => {
+      expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
+    })
   })
 
   it("allows you to tab through input, button and calendar", async () => {
