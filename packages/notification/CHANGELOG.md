@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.5.4
+
+### Patch Changes
+
+- [#3558](https://github.com/cultureamp/kaizen-design-system/pull/3558) [`f09c085ee`](https://github.com/cultureamp/kaizen-design-system/commit/f09c085ee78c6dc79afc291faa6e284b333d1e93) - Use native focus-visible selector for focus styling instead of polyfill class
+
 ## 1.5.3
 
 ### Patch Changes
