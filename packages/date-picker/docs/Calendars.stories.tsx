@@ -158,7 +158,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
       "story__datepicker__calendar--hover"
     )
     getElementWithinCalendar(`${row}-focus`, buttonDescription).classList.add(
-      "focus-visible"
+      "story__datepicker__calendar--focus"
     )
   })
 }
