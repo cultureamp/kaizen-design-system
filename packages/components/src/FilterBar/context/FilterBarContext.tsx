@@ -14,17 +14,9 @@ type FilterAttr = {
   isUsableWhen?: IsUsableWhen
 }
 
-type AddFilterData = {
-  isRemovable: boolean
-  isHidden?: boolean
-  isUsableWhen?: IsUsableWhen
-}
-
 export type FilterBarContextValue = {
   state: Record<string, FilterAttr>
-  // getAllFiltersState: () => AllFiltersState | undefined
-  getFilterState: (label: string) => FilterAttr | undefined
-  addFilter: (label: string, data: AddFilterData) => void
+  getFilterState: (label: string) => FilterAttr
   updateSelectedValue: (label: string, value: any) => void
   toggleOpenFilter: (label: string, isOpen: boolean) => void
   setOpenFilter: (label: string) => void
@@ -48,16 +40,41 @@ export const useFilterBarContext = (): FilterBarContextValue => {
   return context
 }
 
-type FilterBarProviderProps = {
+export type Filter = {
+  label: string
+  Component: React.ReactElement
+  isRemovable?: boolean
+}
+
+export type FilterBarProviderProps = {
   children: React.ReactNode
-  onChange: (state: AllFiltersState) => void
+  filters: Filter[]
+  onChange?: (state: AllFiltersState) => void
+  selectedValues: Record<string, any>
+  // setSelectedValues: (values: Record<string, any>) => void
+  setSelectedValues: React.Dispatch<React.SetStateAction<Record<string, any>>>
+  // updateStateFromOutside?: () => void
 }
 
 export const FilterBarProvider = ({
   children,
+  filters,
   onChange,
+  selectedValues,
+  setSelectedValues,
 }: FilterBarProviderProps): JSX.Element => {
-  const [state, setState] = useState<AllFiltersState>({})
+  const [state, setState] = useState<AllFiltersState>(
+    filters.reduce<AllFiltersState>((acc, { Component: _, ...filter }) => {
+      acc[filter.label] = {
+        isRemovable: false,
+        isOpen: false,
+        isHidden: false,
+        isUsable: false,
+        ...filter,
+      }
+      return acc
+    }, {})
+  )
 
   const getTransformedState = (): AllFiltersState =>
     // @note: maybe an array would be better after all
@@ -65,33 +82,21 @@ export const FilterBarProvider = ({
       acc[filter.label] = {
         ...filter,
         isUsable: filter.isUsableWhen?.(state) ?? true,
+        selectedValue: selectedValues[filter.label],
       }
       return acc
     }, {})
 
   const value = {
     state,
-    // getAllFiltersState,
-    getFilterState: (label: string): FilterAttr | undefined => {
-      if (!state[label]) return undefined
-      return {
-        ...state[label],
-        isUsable: state[label].isUsableWhen?.(state) ?? true,
-      }
-    },
-    addFilter: (label: string, data: AddFilterData): void => {
-      setState(current => ({
-        ...current,
-        [label]: { label, ...data },
-      }))
+    getFilterState: (label: string): FilterAttr => {
+      if (!state[label]) throw Error("Filter doesn't exist!")
+      return getTransformedState()[label]
     },
     updateSelectedValue: (label: string, newValue: any): void => {
-      setState(current => ({
+      setSelectedValues(current => ({
         ...current,
-        [label]: {
-          ...current[label],
-          selectedValue: newValue,
-        },
+        [label]: newValue,
       }))
     },
     toggleOpenFilter: (label: string, isOpen: boolean): void => {
@@ -146,8 +151,8 @@ export const FilterBarProvider = ({
   } satisfies FilterBarContextValue
 
   useEffect(() => {
-    onChange(getTransformedState())
-  }, [state])
+    onChange?.(getTransformedState())
+  }, [state, selectedValues])
 
   return (
     <FilterBarContext.Provider value={value}>

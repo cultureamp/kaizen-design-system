@@ -1,47 +1,34 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
 import {
-  IsUsableWhen,
+  // IsUsableWhen,
   useFilterBarContext,
 } from "../../context/FilterBarContext"
 
 export interface FilterPancakeProps {
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
   label: string
-  isDefaultHidden?: boolean
   onChange?: (value: string | undefined) => void
-  isUsableWhen?: IsUsableWhen
+  // isUsableWhen?: IsUsableWhen
 }
 
 export const FilterPancake = ({
   renderTrigger,
   label,
-  isDefaultHidden,
   onChange,
-  isUsableWhen,
-}: FilterPancakeProps): JSX.Element | null => {
-  const { addFilter, updateSelectedValue, getFilterState, toggleOpenFilter } =
+}: // isUsableWhen,
+FilterPancakeProps): JSX.Element | null => {
+  const { getFilterState, updateSelectedValue, toggleOpenFilter } =
     useFilterBarContext()
 
-  useEffect(() => {
-    addFilter(label, {
-      isRemovable:
-        renderTrigger({ label }).props?.removeButtonProps !== undefined,
-      isHidden: isDefaultHidden,
-      isUsableWhen,
-    })
-  }, [])
+  const filterState = getFilterState(label)
 
-  const state = getFilterState(label)
-
-  if (!state || !state.isUsable || state.isHidden) return null
-
-  const contents = state.selectedValue
+  const contents = filterState.selectedValue
 
   return (
     <Filter
-      isOpen={state.isOpen ?? false}
+      isOpen={filterState.isOpen ?? false}
       setIsOpen={(open): void => toggleOpenFilter(label, open)}
       renderTrigger={(triggerProps): JSX.Element =>
         renderTrigger({
@@ -55,7 +42,7 @@ export const FilterPancake = ({
         <p>{contents ?? "Nothing!"}</p>
         <button
           onClick={(): void => {
-            const newValue = contents ? undefined : "meep"
+            const newValue = contents === "meep" ? undefined : "meep"
             updateSelectedValue(label, newValue)
             onChange?.(newValue)
           }}
