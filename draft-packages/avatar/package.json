@@ -3,7 +3,7 @@
   "version": "2.8.36",
   "description": "The draft avatar component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsup KaizenDraft/Avatar/index.ts dist --loader '.module.scss=copy' && tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
