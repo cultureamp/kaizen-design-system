@@ -77,11 +77,15 @@ The base package.json will look like this, where:
   "name": "@kaizen/{{ PACKAGE_NAME }}",
   "version": "1.0.0",
   "description": "The {{ COMPONENT_NAME }} component",
+    "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
+    "prepublish": "tsup index.ts dist --loader='.module.scss=copy' --format esm,cjs --dts && yarn copy:scss",
+    "copy:scss": "copyfiles */**/*.scss dist -u -f",
+    "build": "yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",

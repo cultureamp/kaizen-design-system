@@ -2,11 +2,15 @@
   "name": "@kaizen/pagination",
   "version": "1.6.39",
   "description": "The pagination component",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
+    "prepublish": "tsup index.ts dist --loader='.module.scss=copy' --format esm,cjs --dts && yarn copy:scss",
+    "copy:scss": "copyfiles */**/*.scss dist -u -f",
+    "build": "yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -17,13 +21,8 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "dist",
+    "src"
   ],
   "author": "",
   "private": false,

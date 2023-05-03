@@ -2,10 +2,16 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["**/*.d.ts", "**/*.js", "**/*.map", "dist/**"],
+      "dependsOn": ["^clean"],
+      "outputs": ["dist/**"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
-    "clean": {}
+    "clean": {
+      "cache": false,
+      "inputs": ["packages/**", "draft-packages/**"]
+    },
+    "@kaizen/components": {
+      "dependsOn": ["@kaizen/design-tokens#build", "@kaizen/tailwind#build"]
+    }
   }
 }

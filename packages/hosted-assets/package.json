@@ -17,10 +17,13 @@
     "dist",
     "_index.scss"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
+    "build": "yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'"
+    "clean": "rimraf dist"
   }
 }

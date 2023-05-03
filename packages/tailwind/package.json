@@ -2,12 +2,15 @@
   "name": "@kaizen/tailwind",
   "version": "0.6.5",
   "description": "Kaizen Tailwind presets",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "yarn clean && yarn prepublish",
+    "build": "yarn prepublish",
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "prepublish": "tsc --project tsconfig.dist.json",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -23,7 +26,6 @@
     "!**/*.spec.*",
     "!docs"
   ],
-  "main": "dist/index.js",
   "author": "",
   "private": false,
   "license": "MIT",
