@@ -17,7 +17,8 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "dist"
+    "dist",
+    "KaizenDraft/*"
   ],
   "author": "",
   "private": false,
