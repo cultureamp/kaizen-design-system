@@ -12,7 +12,7 @@
     "cli": "yarn build && node ./dist/src/cli.js",
     "test": "cd ../../ && yarn jest ./packages/stylelint-plugin",
     "build": "yarn tsc --project tsconfig.dist.json",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist './src/**/*.js*' './src/**/*.d.ts'",
     "prepare": "yarn clean && yarn test && yarn build"
   },
   "dependencies": {

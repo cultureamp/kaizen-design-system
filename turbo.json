@@ -6,9 +6,6 @@
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map", "dist/**"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
-    "clean": {
-      "cache": false,
-      "inputs": ["packages/**", "draft-packages/**"]
-    }
+    "clean": {}
   }
 }
