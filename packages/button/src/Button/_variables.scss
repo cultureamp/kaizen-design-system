@@ -5,9 +5,9 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 $button-height: $spacing-xl;
-$button-form-height: calc(#{$spacing-md} * 5 / 3);
+$button-small-height: calc(#{$spacing-md} * 5 / 3);
 $button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
-$button-vertical-padding--form: calc(
+$button-vertical-padding--small: calc(
   #{$spacing-md / 3} - #{$border-solid-border-width}
 );
 

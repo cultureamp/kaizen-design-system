@@ -232,7 +232,7 @@ const buttonClass = (props: Props): string => {
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
-    props.form && styles.form,
+    props.size && styles[props.size],
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,

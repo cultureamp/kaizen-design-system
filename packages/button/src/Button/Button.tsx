@@ -13,7 +13,8 @@ export type ButtonProps = GenericProps &
     primary?: boolean
     destructive?: boolean
     secondary?: boolean
-    form?: boolean
+    /** @default "regular" */
+    size?: "small" | "regular"
     badge?: BadgeProps
     type?: "submit" | "reset" | "button"
     fullWidth?: boolean
@@ -34,7 +35,7 @@ export const Button = forwardRef(
 
 Button.defaultProps = {
   fullWidth: false,
-  form: false,
+  size: "regular",
   primary: false,
   secondary: false,
   destructive: false,

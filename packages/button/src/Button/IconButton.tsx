@@ -12,7 +12,8 @@ export type IconButtonProps = GenericProps &
     primary?: boolean
     destructive?: boolean
     secondary?: boolean
-    form?: boolean
+    /** @default "regular" */
+    size?: "small" | "regular"
     badge?: BadgeProps
     type?: "submit" | "reset" | "button"
     fullWidth?: boolean
@@ -29,7 +30,7 @@ export const IconButton = (props: IconButtonProps): JSX.Element => (
 )
 
 IconButton.defaultProps = {
-  form: false,
+  size: "regular",
   primary: false,
   destructive: false,
   disabled: false,
