@@ -24,5 +24,5 @@ export const DefaultStory: StoryFn<typeof MenuList> = args => (
 )
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
 DefaultStory.args = {
-  heading: "Menu example list",
+  heading: { children: "Menu example list" },
 }

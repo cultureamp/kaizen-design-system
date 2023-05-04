@@ -1,29 +1,33 @@
 import React, { useState } from "react"
+import classnames from "classnames"
 import { v4 } from "uuid"
 import { Heading, HeadingProps } from "@kaizen/typography"
 import styles from "./MenuList.module.scss"
 
+type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>
 export type MenuListProps = {
-  heading?: React.ReactNode
-  headingProps?: Omit<Partial<HeadingProps>, "children">
+  heading?: Optional<HeadingProps, "variant">
   children: React.ReactNode
 }
 
 export const MenuList = (props: MenuListProps): JSX.Element => {
-  const [listHeadingID] = useState<string>(v4())
-  const { heading, headingProps, children } = props
+  const { heading, children } = props
+  const { classNameOverride: headingClassNameOverride, ...headingProps } =
+    heading
+  const [listHeadingID] = useState<string>(heading.id || v4())
   return (
     <>
       {heading && (
         <Heading
           variant="heading-6"
           tag="span"
-          classNameOverride={styles.header}
+          classNameOverride={classnames(
+            styles.header,
+            headingClassNameOverride
+          )}
           id={listHeadingID}
           {...headingProps}
-        >
-          {heading}
-        </Heading>
+        />
       )}
       <ul
         className={styles.menuSection}
