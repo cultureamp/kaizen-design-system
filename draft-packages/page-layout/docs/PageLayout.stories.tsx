@@ -14,7 +14,7 @@ export default {
     docs: {
       description: {
         component:
-          'import { Container, Content } from "@kaizen/draft-page-layout"',
+          'import { Container, Content } from "@kaizen/draft-page-layout"<br><strong>Caution:</strong> Please disable Strict Mode in Next.js if you experience problems with the Skirt component.',
       },
     },
   },
@@ -43,7 +43,7 @@ export const DefaultStory: StoryFn = () => (
           and bringing up the rear of every funeral I meet; and especially
           whenever my hypos get such an upper hand of me, that it requires a
           strong moral principle to prevent me from deliberately stepping into
-          the street, and methodically knocking people's hats off - then, I
+          the street, and methodically knocking people&apos;s hats off - then, I
           account it high time to get to sea as soon as I can. This is my
           substitute for pistol and ball. With a philosophical flourish Cato
           throws himself upon his sword; I quietly take to the ship.
@@ -69,10 +69,11 @@ export const FullBleedBackgroundStory: StoryFn = () => (
           warehouses, and bringing up the rear of every funeral I meet; and
           especially whenever my hypos get such an upper hand of me, that it
           requires a strong moral principle to prevent me from deliberately
-          stepping into the street, and methodically knocking people's hats off
-          - then, I account it high time to get to sea as soon as I can. This is
-          my substitute for pistol and ball. With a philosophical flourish Cato
-          throws himself upon his sword; I quietly take to the ship.
+          stepping into the street, and methodically knocking people&apos;s hats
+          off - then, I account it high time to get to sea as soon as I can.
+          This is my substitute for pistol and ball. With a philosophical
+          flourish Cato throws himself upon his sword; I quietly take to the
+          ship.
         </Paragraph>
       </Content>
     </Container>
@@ -90,7 +91,9 @@ export const SkirtStory: StoryFn = () => (
         text: "Back to home",
         handleClick: () => alert("breadcrumb clicked!"),
       }}
-      navigationTabs={[<NavigationTab text="Label" href="#" active />]}
+      navigationTabs={[
+        <NavigationTab key="Label" text="Label" href="#" active />,
+      ]}
     />
     <Skirt>
       <SkirtCard>
@@ -152,7 +155,13 @@ export const SkirtEducationVariant: StoryFn = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab variant="education" text="Label" href="#" active />,
+        <NavigationTab
+          key="Label"
+          variant="education"
+          text="Label"
+          href="#"
+          active
+        />,
       ]}
     />
     <Skirt variant="education">

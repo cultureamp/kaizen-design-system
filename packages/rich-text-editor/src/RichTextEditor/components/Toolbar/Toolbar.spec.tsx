@@ -62,7 +62,7 @@ describe("Tabbing out of the toolbar", () => {
     render(
       <>
         <ExampleToolbar />
-        <button>I'm here for the focus</button>
+        <button type="button">I&apos;m here for the focus</button>
       </>
     )
     screen.getByRole("toolbar").focus()

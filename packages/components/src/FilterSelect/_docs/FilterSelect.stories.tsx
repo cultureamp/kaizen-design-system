@@ -1,13 +1,9 @@
 import React, { useState } from "react"
-import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import {
-  FilterButton,
-  FilterButtonProps,
-  FilterButtonRemovable,
-} from "../../FilterButton"
+import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
 import { SelectOption } from "../types"
 import {
@@ -27,23 +23,7 @@ export default {
   argTypes: {
     isOpen: { control: "disabled" },
     setIsOpen: { control: "disabled" },
-    renderTrigger: {
-      options: ["Filter Button", "Filter Button Removable"],
-      control: { type: "radio" },
-      mapping: {
-        "Filter Button": (
-          triggerButtonProps: FilterButtonProps
-        ): JSX.Element => <FilterButton {...triggerButtonProps} />,
-        "Filter Button Removable": (
-          triggerButtonProps: FilterButtonProps
-        ): JSX.Element => (
-          <FilterButtonRemovable
-            triggerButtonProps={{ ...triggerButtonProps }}
-            removeButtonProps={{ onClick: action("remove button onClick") }}
-          />
-        ),
-      },
-    },
+    renderTrigger: renderTriggerControls,
     items: {
       options: ["Single", "Grouped"],
       control: { type: "radio" },
@@ -105,15 +85,16 @@ export const AdditionalProperties: StoryFn = () => {
         items.map(item =>
           item.type === "item" ? (
             <FilterSelect.Option
+              key={item.key}
               item={{
                 ...item,
-                rendered: item.value.isFruit
+                rendered: item.value?.isFruit
                   ? `${item.rendered} (Fruit)`
                   : item.rendered,
               }}
             />
           ) : (
-            <FilterSelect.ItemDefaultRender item={item} />
+            <FilterSelect.ItemDefaultRender key={item.key} item={item} />
           )
         )
       }

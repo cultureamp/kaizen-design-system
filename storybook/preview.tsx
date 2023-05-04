@@ -7,10 +7,6 @@ import { DefaultDocsContainer } from "./components/DocsContainer"
 
 import "highlight.js/styles/a11y-light.css"
 
-// Polyfill for :focus-visible pseudo-selector
-// See: https://github.com/WICG/focus-visible
-import "focus-visible"
-
 // Standard base stylesheet used across Culture Amp products
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
@@ -54,6 +50,7 @@ const preview = {
       container: DefaultDocsContainer,
       source: {
         excludeDecorators: true,
+        language: "tsx",
       },
     },
     options: {
@@ -88,6 +85,13 @@ const preview = {
   },
   globalTypes,
   decorators,
+  argTypes: {
+    classNameOverride: {
+      type: "string",
+      description:
+        "Add extra classnames to the component. Try out some Tailwind classes (eg. `!mb-48`) to see!",
+    },
+  },
 } satisfies Preview
 
 export default preview

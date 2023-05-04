@@ -16,6 +16,9 @@ module.exports = {
     "import/resolver": {
       typescript: {}, // this empty key is required for eslint-import-resolver-typescript
     },
+    react: {
+      version: "detect",
+    },
   },
   extends: [
     "prettier",
@@ -23,6 +26,7 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "plugin:storybook/recommended",
     "plugin:import/typescript",
+    "plugin:react/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -264,6 +268,8 @@ module.exports = {
     "prefer-object-spread": "error",
     "quote-props": ["error", "as-needed"],
     radix: "error",
+    "react/button-has-type": ["error"],
+    "react/prop-types": "off",
     "space-before-function-paren": [
       "error",
       {
@@ -287,7 +293,9 @@ module.exports = {
     {
       files: [
         "storybook/*",
+        "**/_docs/**/*",
         "*.stories.tsx",
+        "*.spec.ts",
         "*.spec.tsx",
         "*.docsExample.tsx",
       ],
@@ -298,7 +306,10 @@ module.exports = {
     {
       files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
       rules: {
-        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          { allowExpressions: true },
+        ],
       },
     },
   ],

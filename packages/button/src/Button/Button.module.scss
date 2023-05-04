@@ -39,7 +39,6 @@
       transform: translateY(1px);
     }
 
-    // hide native focus ring when :focus but not :focus-visible
     &:focus {
       outline: none;
     }

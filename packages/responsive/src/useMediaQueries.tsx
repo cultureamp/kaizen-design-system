@@ -130,7 +130,7 @@ export const useMediaQueries = (
   // Create custom queries matches for initial state
   // ---------------------------------------
   const customQueryMatchMedias = new Map()
-  const customQueryMatches = {}
+  const customQueryMatches: Record<string, boolean> = {}
   new Map(Object.entries(propQueries)).forEach((queryString, queryName) => {
     const matchMedia = window.matchMedia(queryString)
     customQueryMatches[queryName] = matchMedia.matches || false
@@ -139,9 +139,8 @@ export const useMediaQueries = (
     customQueryMatchMedias.set(queryName, matchMedia)
   })
 
-  const [customMatches, setCustomMatches] = useState<{
-    [key: string]: boolean
-  }>(customQueryMatches)
+  const [customMatches, setCustomMatches] =
+    useState<Record<string, boolean>>(customQueryMatches)
 
   // ---------------------------------------
   // Create an event listener for each custom query
@@ -207,7 +206,10 @@ export const useMediaQueries = (
   // ---------------------------------------
   // Create custom query helper components
   // ---------------------------------------
-  const customComponents = {}
+  const customComponents: Record<
+    string,
+    (props: GenericChildrenType) => JSX.Element
+  > = {}
   Object.keys(propQueries).map(key => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
     customComponents[componentName] = (

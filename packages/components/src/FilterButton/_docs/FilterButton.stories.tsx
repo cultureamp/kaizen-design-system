@@ -1,24 +1,54 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { FilterButton } from "../FilterButton"
 
-export default {
-  tags: ["autodocs"],
-  title: "Components/Filter/Filter Button",
+const meta = {
+  title: "Components/Filter/Filter Buttons/Filter Button",
   component: FilterButton,
-  parameters: {
-    docs: {
-      description: {
-        component: "To be used with Filter.",
-      },
-    },
+  args: {
+    label: "Label",
   },
 } satisfies Meta<typeof FilterButton>
 
-export const FilterButtonStory: StoryFn<typeof FilterButton> = args => (
-  <FilterButton {...args} />
-)
-FilterButtonStory.storyName = "Filter Button"
-FilterButtonStory.args = {
-  label: "Label",
+export default meta
+
+export const Playground: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+}
+
+/**
+ * A string or JSX.Element (most common for values with dom formatting).
+ */
+export const SelectedValue: StoryObj<typeof meta> = {
+  render: args => (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <FilterButton {...args} selectedValue="Pancakes" />
+      <FilterButton
+        {...args}
+        selectedValue={
+          <span>
+            <span>3 Apr 2023</span> - <span>1 May 2023</span>
+          </span>
+        }
+      />
+    </div>
+  ),
+}
+
+/**
+ * Controls the open state (chevron changes direction).
+ */
+export const IsOpen: StoryObj<typeof meta> = {
+  render: args => (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <FilterButton {...args} />
+      <FilterButton {...args} isOpen />
+    </div>
+  ),
 }

@@ -185,9 +185,9 @@ describe("FilterSelect generic", () => {
         {({ items }): JSX.Element[] =>
           items.map(item =>
             item.type === "item" ? (
-              <li>{item.value.isRubberDuck}</li>
+              <li key={item.key}>{item.value?.isRubberDuck}</li>
             ) : (
-              <li>Section</li>
+              <li key={item.key}>Section</li>
             )
           )
         }

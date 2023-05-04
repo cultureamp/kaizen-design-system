@@ -141,6 +141,8 @@ const noInvalidEquations = (
         }
       }
     }
+
+    return undefined
   })
 
   if (options.fix && amended && !isVariable(postcssNode)) {

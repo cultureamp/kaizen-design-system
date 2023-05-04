@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { ValidationResponse } from "../types"
@@ -38,6 +38,34 @@ describe("<DatePicker />", () => {
   it("should pre-fill the input when an initial date is provided", () => {
     render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
     expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
+  })
+
+  it("re-renders the displayed input when an selectedDay is updated after initial render", async () => {
+    const DelayedSelectedDate = (): JSX.Element => {
+      const [selectedDate, setValueDate] = useState<Date | undefined>(undefined)
+
+      // mocks a slow server response
+      useEffect(() => {
+        setTimeout(() => setValueDate(new Date("2022-03-01")), 1000)
+      }, [])
+
+      return (
+        <DatePicker
+          id="test__date-picker"
+          labelText="Input label"
+          onDayChange={setValueDate}
+          selectedDay={selectedDate}
+          locale="en-US"
+        />
+      )
+    }
+
+    render(<DelayedSelectedDate />)
+    expect(screen.getByRole("combobox")).toBeInTheDocument()
+    expect(screen.getByRole("combobox")).toHaveValue("")
+    await waitFor(() => {
+      expect(screen.getByDisplayValue("Mar 1, 2022")).toBeInTheDocument()
+    })
   })
 
   it("allows you to tab through input, button and calendar", async () => {
@@ -213,7 +241,7 @@ describe("<DatePicker /> - Focus element", () => {
   })
 
   describe("Keydown enter on calendar button", () => {
-    let calendarButton
+    let calendarButton: HTMLElement
 
     beforeEach(async () => {
       render(<DatePickerWrapper selectedDay={new Date("2022-03-01")} />)
@@ -301,7 +329,9 @@ describe("<DatePicker /> - Validation", () => {
           selectedDay={new Date("potato")}
         />
       )
-      expect(screen.getByTitle("Error message")).toBeInTheDocument()
+      const icon = screen.getByLabelText("Error message")
+
+      expect(icon).toBeInTheDocument()
       expect(screen.getByText("Custom validation message")).toBeVisible()
       expect(screen.queryByText("Date is invalid")).not.toBeInTheDocument()
     })
@@ -382,8 +412,10 @@ describe("<DatePicker /> - Validation", () => {
   describe("Inbuilt Validation", () => {
     it("displays error message when selected day is invalid", () => {
       render(<DatePickerWrapper selectedDay={new Date("potato")} />)
+      const icon = screen.getByLabelText("Error message")
+
       expect(screen.getByText("Date is invalid")).toBeVisible()
-      expect(screen.getByTitle("Error message")).toBeInTheDocument()
+      expect(icon).toBeInTheDocument()
     })
 
     it("displays error message when selected day is disabled", () => {

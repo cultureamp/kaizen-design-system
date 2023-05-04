@@ -18,8 +18,7 @@
     outline: none;
   }
 
-  &:global(.focus-visible)::after,
-  &:focus-visible:after {
+  &:focus-visible::after {
     $focus-ring-offset: 3px;
     content: "";
     position: absolute;
@@ -36,7 +35,7 @@
 
   &.disabled {
     opacity: 0.3;
-    &:global(.focus-visible)::after,
+
     &:focus-visible:after {
       color: rgba($color-purple-800-rgb, 0.3);
       outline-offset: -2px;
@@ -56,7 +55,7 @@
 
   &:not(.disabled) {
     &:hover:not(.active),
-    &:global(.focus-visible):not(.active) {
+    &:focus-visible:not(.active) {
       background-color: $color-gray-200;
     }
 
@@ -73,7 +72,7 @@
 
   &:not(.disabled) {
     &:hover:not(.active),
-    &:global(.focus-visible):not(.active) {
+    &:focus-visible:not(.active) {
       background-color: $color-blue-100;
     }
 
@@ -89,7 +88,7 @@
 
   &:not(.disabled) {
     &:hover:not(.active),
-    &:global(.focus-visible):not(.active) {
+    &:focus-visible:not(.active) {
       background-color: $color-blue-600;
     }
 
@@ -105,7 +104,7 @@
 
   &:not(.disabled) {
     &:hover:not(.active),
-    &:global(.focus-visible):not(.active) {
+    &:focus-visible:not(.active) {
       background-color: $color-red-600;
     }
 
@@ -121,7 +120,7 @@
 
   &:not(.disabled) {
     &:hover:not(.active),
-    &:global(.focus-visible):not(.active) {
+    &:focus-visible:not(.active) {
       background-color: $color-red-100;
     }
 
