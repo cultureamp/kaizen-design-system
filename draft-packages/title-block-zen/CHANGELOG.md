@@ -1,5 +1,16 @@
 # Change Log
 
+## 7.10.0
+
+### Minor Changes
+
+- [#3571](https://github.com/cultureamp/kaizen-design-system/pull/3571) [`83f3e8481`](https://github.com/cultureamp/kaizen-design-system/commit/83f3e8481f6fae7bb21b590fb7c051604b85dddb) - Introduced bundling to TitleBlock creates a `dist` folder and fixes the imports
+
+### Patch Changes
+
+- Updated dependencies [[`f9f2c4f48`](https://github.com/cultureamp/kaizen-design-system/commit/f9f2c4f48d9923939c8badbfb4002385318e4700)]:
+  - @kaizen/draft-menu@4.9.4
+
 ## 7.9.24
 
 ### Patch Changes
