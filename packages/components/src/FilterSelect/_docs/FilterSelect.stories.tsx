@@ -88,7 +88,7 @@ export const AdditionalProperties: StoryFn = () => {
               key={item.key}
               item={{
                 ...item,
-                rendered: item.value.isFruit
+                rendered: item.value?.isFruit
                   ? `${item.rendered} (Fruit)`
                   : item.rendered,
               }}
