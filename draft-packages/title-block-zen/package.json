@@ -2,11 +2,14 @@
   "name": "@kaizen/draft-title-block-zen",
   "version": "7.9.24",
   "description": "The draft Title Block (Zen) component",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsup index.ts --loader '.module.scss=copy' --format cjs,esm --dts && yarn copyfiles KaizenDraft/**/*.scss dist -uf",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -17,13 +20,8 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "dist",
+    "KaizenDraft"
   ],
   "author": "",
   "private": false,
@@ -42,7 +40,9 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "rimraf": "^4.4.1"
+    "copyfiles": "^2.4.1",
+    "rimraf": "^4.4.1",
+    "tsup": "^6.7.0"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
