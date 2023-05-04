@@ -32,12 +32,9 @@ const filterActions = (
   menuItems: TitleBlockMenuItemProps[],
   filterType: "link" | "action"
 ): TitleBlockMenuItemProps[] =>
-  menuItems.filter(item => {
-    if (filterType === "link") {
-      return menuItemIsLink(item)
-    }
-    if (filterType === "action") return !menuItemIsLink(item)
-  })
+  menuItems.filter(item =>
+    filterType === "link" ? menuItemIsLink(item) : !menuItemIsLink(item)
+  )
 
 /** Returns a filtered array of TitleBlockMenuItem based on actionType
  * This is use to sort a selectively render the action into a specifc order
@@ -45,8 +42,9 @@ const filterActions = (
 const renderPrimaryActionDrawerContent = (
   primaryAction: PrimaryActionProps,
   actionType: "link" | "action"
-): JSX.Element[] | null | undefined => {
+): JSX.Element[] | null => {
   if (!primaryAction) return null
+
   if (isMenuGroupNotButton(primaryAction)) {
     const filteredActions = filterActions(primaryAction.menuItems, actionType)
     return filteredActions.map((item, idx) => {
@@ -61,6 +59,8 @@ const renderPrimaryActionDrawerContent = (
       )
     })
   }
+
+  return null
 }
 
 const renderDefaultLink = (
@@ -90,7 +90,7 @@ const renderDefaultLink = (
 
 const renderDefaultAction = (
   defaultAction: DefaultActionProps
-): JSX.Element | undefined => {
+): JSX.Element | null => {
   if (!defaultActionIsLink(defaultAction)) {
     return (
       <TitleBlockMenuItem
@@ -100,6 +100,8 @@ const renderDefaultAction = (
       />
     )
   }
+
+  return null
 }
 
 const renderSecondaryActions = (
@@ -301,9 +303,9 @@ const getAction = (
     if (primaryAction.href) {
       return primaryAction.href
     }
-  } else {
-    return undefined
   }
+
+  return undefined
 }
 
 type DrawerHandleProps = {
@@ -357,59 +359,60 @@ const DrawerHandle = ({
           </button>
         </div>
       )
-    } else {
-      // If the primary action is a button, or has no onClick/href/action
-      return (
-        <div
-          className={classnames(styles.mobileActionsTopRow, {
-            [styles.mobileActionsTopRowSingleButton]: !showDrawer,
-          })}
-          data-automation-id="title-block-mobile-actions-drawer-handle"
-        >
-          {"component" in primaryAction ? (
-            <primaryAction.component
-              className={classnames(
-                styles.mobileActionsPrimaryLabel,
-                styles.mobileActionsPrimaryButton
-              )}
-              {...primaryAction}
-            >
-              {primaryAction.label &&
-                renderDrawerHandleLabel(
-                  primaryAction.label,
-                  primaryAction.icon,
-                  drawerHandleLabelIconPosition
-                )}
-            </primaryAction.component>
-          ) : (
-            <ButtonOrLink action={getAction(primaryAction)}>
-              {renderDrawerHandleLabel(
+    }
+
+    // If the primary action is a button, or has no onClick/href/action
+    return (
+      <div
+        className={classnames(styles.mobileActionsTopRow, {
+          [styles.mobileActionsTopRowSingleButton]: !showDrawer,
+        })}
+        data-automation-id="title-block-mobile-actions-drawer-handle"
+      >
+        {"component" in primaryAction ? (
+          <primaryAction.component
+            className={classnames(
+              styles.mobileActionsPrimaryLabel,
+              styles.mobileActionsPrimaryButton
+            )}
+            {...primaryAction}
+          >
+            {primaryAction.label &&
+              renderDrawerHandleLabel(
                 primaryAction.label,
                 primaryAction.icon,
                 drawerHandleLabelIconPosition
               )}
-            </ButtonOrLink>
-          )}
+          </primaryAction.component>
+        ) : (
+          <ButtonOrLink action={getAction(primaryAction)}>
+            {renderDrawerHandleLabel(
+              primaryAction.label,
+              primaryAction.icon,
+              drawerHandleLabelIconPosition
+            )}
+          </ButtonOrLink>
+        )}
 
-          {/* If there are no secondary etc. actions, just show the button without drawer */}
-          {showDrawer && (
-            <button
-              type="button"
-              className={styles.mobileActionsExpandButton}
-              onClick={toggleDisplay}
-              aria-expanded={isOpen}
-              aria-label="Other actions"
-            >
-              <Icon
-                icon={isOpen ? chevronDownIcon : chevronUpIcon}
-                role="presentation"
-              />
-            </button>
-          )}
-        </div>
-      )
-    }
+        {/* If there are no secondary etc. actions, just show the button without drawer */}
+        {showDrawer && (
+          <button
+            type="button"
+            className={styles.mobileActionsExpandButton}
+            onClick={toggleDisplay}
+            aria-expanded={isOpen}
+            aria-label="Other actions"
+          >
+            <Icon
+              icon={isOpen ? chevronDownIcon : chevronUpIcon}
+              role="presentation"
+            />
+          </button>
+        )}
+      </div>
+    )
   }
+
   // if there are default/secondary actions but no primary action
   if (showDrawer) {
     return (
