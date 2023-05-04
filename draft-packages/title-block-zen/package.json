@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-title-block-zen",
-  "version": "7.9.24",
+  "version": "7.10.0",
   "description": "The draft Title Block (Zen) component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -31,7 +31,7 @@
     "@kaizen/component-library": "^16.7.2",
     "@kaizen/draft-avatar": "^2.8.36",
     "@kaizen/draft-badge": "^1.13.8",
-    "@kaizen/draft-menu": "^4.9.3",
+    "@kaizen/draft-menu": "^4.9.4",
     "@kaizen/draft-select": "^2.10.34",
     "@kaizen/draft-tag": "^3.4.12",
     "@kaizen/responsive": "^1.8.8",
