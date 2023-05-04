@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.9.4
+
+### Patch Changes
+
+- [#3562](https://github.com/cultureamp/kaizen-design-system/pull/3562) [`f9f2c4f48`](https://github.com/cultureamp/kaizen-design-system/commit/f9f2c4f48d9923939c8badbfb4002385318e4700) - Fix duplicate ID issue with menu headings
+
 ## 4.9.3
 
 ### Patch Changes
