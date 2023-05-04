@@ -82,9 +82,8 @@ The base package.json will look like this, where:
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsup index.ts dist --loader='.module.scss=copy' --format esm,cjs --dts && yarn copy:scss",
-    "copy:scss": "copyfiles */**/*.scss dist -u -f",
-    "build": "yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "copy:scss": "copyfiles **/*.scss dist -u -f",
+    "build": "yarn clean && yarn prepublish", 
     "clean": "rimraf dist"
   },
   "repository": {
@@ -96,13 +95,9 @@ The base package.json will look like this, where:
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts", // This must be below `.ts` to override
-    "!**/*.spec.*",
-    "!docs",
-    "!tsconfig.dist.json"
+    "dist",
+    "src",
+    "!**/*.spec.*"
   ],
   "author": "",
   "private": false,

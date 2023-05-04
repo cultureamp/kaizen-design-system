@@ -40,10 +40,8 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsup index.ts dist --loader='.module.scss=copy' --format esm,cjs --dts && yarn copy:scss",
-    "copy:scss": "copyfiles */**/*.scss dist -u -f",
-    "build": "yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "prepublish": "rollup -c",
+    "build": "yarn clean && yarn prepublish",
     "clean": "rimraf dist"
   }
 }

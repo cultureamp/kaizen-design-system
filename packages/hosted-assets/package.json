@@ -22,8 +22,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build": "yarn clean && yarn prepublish",
     "clean": "rimraf dist"
   }
 }

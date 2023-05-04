@@ -7,10 +7,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsup index.ts dist --loader='.module.scss=copy' --format esm,cjs && yarn compile && yarn copy:scss",
-    "copy:scss": "copyfiles */**/*.scss dist -u -f",
+    "copy:scss": "copyfiles **/*.scss dist -u -f",
     "compile": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build": "yarn clean && yarn prepublish",
     "clean": "rimraf dist"
   },
   "repository": {

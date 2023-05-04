@@ -6,9 +6,8 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "yarn prepublish",
+    "build": "yarn clean && yarn prepublish",
     "build:ts": "tsc --project tsconfig.dist.json",
-    "build:watch": "yarn clean && yarn prepublish --watch",
     "prepublish": "tsc --project tsconfig.dist.json",
     "clean": "rimraf dist"
   },
@@ -21,8 +20,8 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "src",
     "dist",
+    "src",
     "!**/*.spec.*",
     "!docs"
   ],

@@ -19,3 +19,5 @@ export const ClearIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
     </g>
   </SVG>
 )
+
+ClearIcon.displayName = "ClearIcon"

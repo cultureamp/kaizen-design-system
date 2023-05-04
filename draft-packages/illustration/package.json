@@ -7,9 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsup index.ts dist --loader='.module.scss=copy' --format esm,cjs --dts && yarn copy:scss",
-    "copy:scss": "copyfiles */**/*.scss dist -u -f",
-    "build": "yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "copy:scss": "copyfiles **/*.scss dist -u -f",
+    "build": "yarn clean && yarn prepublish",
     "clean": "rimraf dist"
   },
   "repository": {
@@ -21,14 +20,10 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
+    "dist",
+    "src",
     "!**/*.spec.*",
-    "!**/*.snap",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "!**/*.spec.*"
   ],
   "author": "",
   "private": false,

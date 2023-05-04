@@ -21,3 +21,5 @@ export const ChevronUpIcon = (
     </g>
   </SVG>
 )
+
+ChevronUpIcon.displayName = "ChevronUpIcon"

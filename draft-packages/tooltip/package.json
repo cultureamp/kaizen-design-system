@@ -7,9 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "tsup index.ts dist --loader='.module.scss=copy' --format esm,cjs --dts && yarn copy:scss",
-    "copy:scss": "copyfiles */**/*.scss dist -u -f",
-    "build": "yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "copy:scss": "copyfiles KaizenDraft/**/*.scss dist -u -f",
+    "build": "yarn clean && yarn prepublish",
     "clean": "rimraf dist"
   },
   "repository": {
@@ -22,7 +21,8 @@
   },
   "files": [
     "dist",
-    "KaizenDraft"
+    "KaizenDraft",
+    "!**/*.spec.*"
   ],
   "author": "",
   "private": false,
