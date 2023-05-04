@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import {
-  AllFiltersState,
   Filter,
+  StateWithoutComponent,
   // useFilterBarContext
 } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
@@ -25,7 +25,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
   const [selectedValues, setSelectedValues] = useState<Record<string, any>>({
     chocolate: "boo",
   })
-  const [filtersState, setFiltersState] = useState<AllFiltersState>()
+  const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
 
   const filters: Filter[] = [
     {
@@ -34,16 +34,19 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       Component: <FilterPancake id="chocolate" />,
     },
     {
-      id: "vanilla",
-      label: "Vanilla",
-      Component: <FilterPancake id="vanilla" />,
-      isRemovable: true,
-    },
-    {
       id: "strawberry",
       label: "Strawberry",
       Component: <FilterPancake id="strawberry" />,
       isRemovable: true,
+      isInitHidden: true,
+    },
+    {
+      id: "vanilla",
+      label: "Vanilla",
+      Component: <FilterPancake id="vanilla" />,
+      isRemovable: true,
+      isUsableWhen: state => !state["strawberry"].isHidden,
+      isInitHidden: true,
     },
     {
       id: "apple",
@@ -52,7 +55,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       isRemovable: true,
     },
   ]
-
+console.log("filtersState", filtersState)
   return (
     <div>
       <FilterBar
@@ -75,15 +78,13 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
         Update chocolate value
       </button>
 
+      <p>/* selectedValues */</p>
       <Highlight className="json">
-        /* selectedValues */
-        <br />
         {JSON.stringify(selectedValues, null, 4)}
       </Highlight>
 
+      <p>/* filtersState */</p>
       <Highlight className="json">
-        /* filtersState */
-        <br />
         {JSON.stringify(filtersState, null, 4)}
       </Highlight>
     </div>

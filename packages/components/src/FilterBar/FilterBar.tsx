@@ -18,17 +18,20 @@ export const FilterBar = ({
 }: FilterBarProps): JSX.Element => (
   <div style={{ display: "flex", gap: "1rem" }}>
     <FilterBarProvider filters={filters} {...providerProps}>
-      {(activeFilterIds): JSX.Element => (
+      {(activeFilters): JSX.Element => {
+        console.log("activeFilters", activeFilters)
+        return (
         <>
-          {activeFilterIds.map(activeFilterId => (
-            <React.Fragment key={activeFilterId}>
-              {filters.find(({ id }) => id === activeFilterId)?.Component}
+          {Object.values(activeFilters).map(({ id, Component }) => (
+            <React.Fragment key={id}>
+              {Component}
             </React.Fragment>
           ))}
           <FilterAddButton />
           <FilterClearAllButton />
         </>
-      )}
+      )
+}}
     </FilterBarProvider>
   </div>
 )

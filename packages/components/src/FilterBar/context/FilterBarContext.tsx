@@ -1,29 +1,36 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useReducer, useState } from "react"
 
-export type AllFiltersState = Record<string, FilterAttr>
+export type IsUsableWhen = (state: InternalFiltersState) => boolean
 
-export type IsUsableWhen = (state: AllFiltersState) => boolean
-
-type FilterAttr = {
+type InternalFilterAttr = {
   id: string
   label: string
+  Component: React.ReactElement
   isRemovable: boolean
-  selectedValue?: any
-  isOpen?: boolean
-  isHidden?: boolean
-  isUsable?: boolean
+  isOpen: boolean
+  isHidden: boolean
+  // isUsable: boolean
   isUsableWhen?: IsUsableWhen
 }
 
+export type InternalFiltersState = Record<string, InternalFilterAttr>
+
+export type TransformedFilterAttr = Omit<InternalFilterAttr, "isUsableWhen"> & {
+  isUsable: boolean
+  selectedValue: any
+}
+
+export type TransformedState = Record<string, TransformedFilterAttr>
+
 export type FilterBarContextValue = {
-  state: Record<string, FilterAttr>
-  getFilterState: (id: string) => FilterAttr
+  state: Record<string, InternalFilterAttr>
+  getFilterState: (id: string) => TransformedFilterAttr
   updateSelectedValue: (id: string, value: any) => void
   toggleOpenFilter: (id: string, isOpen: boolean) => void
   setOpenFilter: (id: string) => void
   showFilter: (id: string) => void
   hideFilter: (id: string) => void
-  getHiddenFilters: () => FilterAttr[]
+  getHiddenFilters: () => TransformedFilterAttr[]
   clearFilters: () => void
 }
 
@@ -47,12 +54,16 @@ export type Filter = {
   Component: React.ReactElement
   isRemovable?: boolean
   isInitHidden?: boolean
+  isUsableWhen?: IsUsableWhen
 }
 
+export type StateWithoutComponent = Record<string, Omit<TransformedFilterAttr, "Component">>
+
 export type FilterBarProviderProps = {
-  children: (activeFilterIds: string[]) => JSX.Element
+  // children: (activeFilterIds: string[]) => JSX.Element
+  children: (activeFilters: TransformedState) => JSX.Element
   filters: Filter[]
-  onChange?: (state: AllFiltersState) => void
+  onChange?: (state: StateWithoutComponent) => void
   selectedValues: Record<string, any>
   // setSelectedValues: (values: Record<string, any>) => void
   setSelectedValues: React.Dispatch<React.SetStateAction<Record<string, any>>>
@@ -66,38 +77,43 @@ export const FilterBarProvider = ({
   selectedValues,
   setSelectedValues,
 }: FilterBarProviderProps): JSX.Element => {
-  const [activeFilterIds, setActiveFilterIds] = useState<string[]>(
-    filters.filter(({ isInitHidden }) => !isInitHidden).map(({ id }) => id)
-  )
-  const [state, setState] = useState<AllFiltersState>(
-    filters.reduce<AllFiltersState>((acc, { Component: _, ...filter }) => {
+  const initState: InternalFiltersState =
+    filters.reduce<InternalFiltersState>((acc, { isInitHidden, ...filter }) => {
       acc[filter.id] = {
         isRemovable: false,
         isOpen: false,
-        isHidden: false,
-        isUsable: false,
+        isHidden: isInitHidden ?? false,
         ...filter,
       }
       return acc
     }, {})
-  )
 
-  const getTransformedState = (): AllFiltersState =>
-    // @note: maybe an array would be better after all
-    Object.values(state).reduce<AllFiltersState>((acc, filter) => {
+  const getTransformedState = (theState: InternalFiltersState): TransformedState => Object.values(theState).reduce<TransformedState>((acc, filter) => {
       acc[filter.id] = {
         ...filter,
-        isUsable: filter.isUsableWhen?.(state) ?? true,
+        isUsable: filter.isUsableWhen?.(theState) ?? true,
         selectedValue: selectedValues[filter.id],
       }
       return acc
     }, {})
 
+  const initTransformedState = getTransformedState(initState)
+
+  const [activeFilters, setActiveFilters] = useState<TransformedState>(
+    Object.values(initTransformedState)
+      .filter(({ isHidden, isUsable }) => isUsable && !isHidden)
+      .reduce<TransformedState>((acc, filter) => {
+        acc[filter.id] = filter
+        return acc
+      }, {})
+  )
+  const [state, setState] = useState<InternalFiltersState>(initState)
+
   const value = {
     state,
-    getFilterState: (id: string): FilterAttr => {
+    getFilterState: (id: string): TransformedFilterAttr => {
       if (!state[id]) throw Error("Filter doesn't exist!")
-      return getTransformedState()[id]
+      return getTransformedState(state)[id]
     },
     updateSelectedValue: (id: string, newValue: any): void => {
       setSelectedValues(current => ({
@@ -113,7 +129,7 @@ export const FilterBarProvider = ({
     },
     setOpenFilter: (id: string): void =>
       setState(current =>
-        Object.values(current).reduce<AllFiltersState>((acc, filter) => {
+        Object.values(current).reduce<InternalFiltersState>((acc, filter) => {
           acc[filter.id] = {
             ...filter,
             isOpen: filter.id === id,
@@ -122,37 +138,39 @@ export const FilterBarProvider = ({
         }, {})
       ),
     showFilter: (id: string): void => {
-      setActiveFilterIds(current => [...current, id])
-      setState(current => ({
-        ...current,
-        [id]: { ...current[id], isHidden: false },
-      }))
+      setState(current => {
+        const newState = {
+          ...current,
+          [id]: { ...current[id], isHidden: false },
+        }
+
+        // setActiveFilters(active => [...active, newState[id]])
+        return newState
+    })
     },
     hideFilter: (id: string): void => {
-      setActiveFilterIds(current => current.filter(activeId => activeId !== id))
+      // setActiveFilters(current => current.filter(filter => filter.id !== id))
       setState(current => ({
         ...current,
         [id]: { ...current[id], isHidden: true },
       }))
     },
-    getHiddenFilters: (): FilterAttr[] =>
-      Object.values(getTransformedState()).filter(
+    getHiddenFilters: (): TransformedFilterAttr[] =>
+      Object.values(getTransformedState(state)).filter(
         ({ isHidden, isUsable }) => isUsable && isHidden
       ),
     clearFilters: (): void => {
-      setActiveFilterIds(
-        Object.values(state)
-          .filter(({ isRemovable }) => !isRemovable)
-          .map(({ id }) => id)
-      )
+      // setActiveFilters(
+      //   Object.values(state)
+      //     .filter(({ isRemovable }) => !isRemovable)
+      // )
       setSelectedValues({})
       setState(current =>
-        Object.values(current).reduce<AllFiltersState>((acc, filter) => {
+        Object.values(current).reduce<InternalFiltersState>((acc, filter) => {
           const newState = filter
           if (filter.isRemovable) {
             newState["isHidden"] = true
           }
-          newState["selectedValue"] = undefined
 
           acc[filter.id] = {
             ...filter,
@@ -165,12 +183,43 @@ export const FilterBarProvider = ({
   } satisfies FilterBarContextValue
 
   useEffect(() => {
-    onChange?.(getTransformedState())
-  }, [state, selectedValues])
+    setActiveFilters(current => {
+      const transformedState = getTransformedState(state)
+
+      const newActiveFilters = Object.values(transformedState).filter(filter => {
+        const { isHidden, isUsable } = filter
+        return isUsable && !isHidden
+      })
+
+      const newActiveFilterIds = newActiveFilters.map(({ id }) => id)
+
+      const currentWithoutRemoved = Object.values(current)
+        .reduce<TransformedState>((acc, filter) => {
+          if (newActiveFilterIds.includes(filter.id)) {
+            acc[filter.id] = filter
+          }
+          return acc
+        }, {})
+
+      return newActiveFilters.reduce((acc, filter) => {
+        acc[filter.id] = filter
+        return acc
+      }, currentWithoutRemoved)
+    })
+  }, [state])
+
+  useEffect(() => {
+    const arg = Object.values(getTransformedState(state))
+      .reduce<StateWithoutComponent>((acc, { Component: _, ...filter}) => {
+        acc[filter.id] = filter
+        return acc
+      }, {})
+    onChange?.(arg)
+  }, [state])
 
   return (
     <FilterBarContext.Provider value={value}>
-      {children(activeFilterIds)}
+      {children(activeFilters)}
     </FilterBarContext.Provider>
   )
 }
