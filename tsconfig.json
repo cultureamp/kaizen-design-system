@@ -8,6 +8,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
+    "noImplicitReturns": true,
     "strict": true,
     "allowJs": false,
     "noEmit": true,
