@@ -22,6 +22,11 @@ steps:
       - docker-compose#v3.9.0:
           run: release
     notify:
+      - slack:
+          if: build.state == "passed"
+          channels:
+            - "#wol_kaizen"
+          message: "Packages have been released!"
       - slack: "#wol_kaizen"
         if: build.state == "failed"
 
