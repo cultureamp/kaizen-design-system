@@ -98,12 +98,11 @@ export const FilterBarProvider = ({
     theState: InternalFiltersState
   ): TransformedState =>
     Object.values(theState).reduce<TransformedState>((acc, filter) => {
+      const isUsable = filter.isUsableWhen?.(theState) ?? true
+
       acc[filter.id] = {
         ...filter,
-        isUsable:
-          filter.isUsableWhen?.({
-            ...theState,
-          }) ?? true,
+        isUsable,
         selectedValue: selectedValues[filter.id],
       }
       return acc
@@ -190,6 +189,19 @@ export const FilterBarProvider = ({
   useEffect(() => {
     setState(current => getTransformedState(current))
   }, [selectedValues])
+
+  useEffect(() => {
+    const transformedState = getTransformedState(state)
+
+    Object.values(transformedState).forEach(filter => {
+      if (!filter.isUsable && selectedValues[filter.id]) {
+        setSelectedValues(current => ({
+          ...current,
+          [filter.id]: undefined,
+        }))
+      }
+    })
+  }, [state])
 
   useEffect(() => {
     setActiveFilters(current => {
