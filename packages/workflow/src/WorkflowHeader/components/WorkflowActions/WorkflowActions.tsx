@@ -11,7 +11,8 @@ export interface WorkflowActionsProps {
   modalConfirmLabel: string
   modalDismissLabel: string
   modalConfirmAction?: () => void
-  mood?: ConfirmationModalProps["mood"]
+  /** * @default: "cautionary" */
+  modalMood?: ConfirmationModalProps["mood"]
 }
 
 export const WorkflowActions = ({
@@ -21,7 +22,7 @@ export const WorkflowActions = ({
   modalDismissLabel,
   modalConfirmAction,
   confirmationTriggerLabel,
-  mood = "cautionary",
+  modalMood = "cautionary",
   children,
 }: PropsWithChildren<WorkflowActionsProps>): JSX.Element => {
   const [showModal, setShowModal] = useState<boolean>(false)
@@ -40,7 +41,7 @@ export const WorkflowActions = ({
       />
       <ConfirmationModal
         isOpen={showModal}
-        mood={mood}
+        mood={modalMood}
         isProminent={true}
         title={modalTitle}
         confirmLabel={modalConfirmLabel}
@@ -58,4 +59,4 @@ export const WorkflowActions = ({
   )
 }
 
-WorkflowActions.name = "WorkflowActions"
+WorkflowActions.displayName = "WorkflowActions"

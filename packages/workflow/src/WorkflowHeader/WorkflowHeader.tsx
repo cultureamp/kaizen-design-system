@@ -7,17 +7,16 @@ import {
   WorkflowActions,
   WorkflowActionsProps,
   WorkflowBranding,
+  WorflowBrandingProps,
 } from "./"
 import styles from "./WorkflowHeader.module.scss"
-/**
- * @todo: Replace `HTMLAttributes<HTMLDivElement>` with attributes/props you need to extend
- */
 
 export interface WorkflowHeaderProps
   extends WorkflowTitlesProps,
     WorkflowActionsProps,
+    WorflowBrandingProps,
     OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  // what was this for?
+  // TODO: Check with Dale what the renderChild props was meant for (it didn't get used / called anywhere)
   // renderChild?: JSX.Element
 }
 
@@ -34,7 +33,9 @@ export const WorkflowHeader = ({
   modalConfirmLabel,
   modalDismissLabel,
   modalConfirmAction,
-  mood,
+  modalMood,
+  brandingAlt,
+  brandingVariant,
   ...restProps
 }: WorkflowHeaderProps): JSX.Element => (
   <div
@@ -45,7 +46,10 @@ export const WorkflowHeader = ({
     )}
     {...restProps}
   >
-    <WorkflowBranding alt={"Culture amp"} />
+    <WorkflowBranding
+      brandingAlt={brandingAlt || "CA"}
+      brandingVariant={brandingVariant}
+    />
     <WorkflowTitles
       prefixTitle={prefixTitle}
       // Tags are provided options for more accessible layouts / future proofixing the heading hirarchy
@@ -62,7 +66,7 @@ export const WorkflowHeader = ({
       modalConfirmLabel={modalConfirmLabel}
       modalConfirmAction={modalConfirmAction}
       modalDismissLabel={modalDismissLabel}
-      mood={mood}
+      modalMood={modalMood}
     >
       {/* can now take children to be used as a diplsay for multiple items. We could lock this down to "actions" and type the compatible components? */}
     </WorkflowActions>
