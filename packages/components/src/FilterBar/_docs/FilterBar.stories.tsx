@@ -184,94 +184,96 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
   )
 }
 
-// const ReportsFilter = (): JSX.Element => {
-//   const { hideFilter } = useFilterBarContext()
-//   const label = "Reports"
-//   return (
-//     <FilterPancake
-//       label={label}
-//       renderTrigger={(triggerProps): JSX.Element => (
-//         <FilterButtonRemovable
-//           triggerButtonProps={{ ...triggerProps }}
-//           removeButtonProps={{ onClick: () => hideFilter(label) }}
-//         />
-//       )}
-//       isDefaultHidden
-//     />
-//   )
-// }
-// const GenderFilter = (): JSX.Element => {
-//   const { hideFilter } = useFilterBarContext()
-//   const label = "Gender"
-//   return (
-//     <FilterPancake
-//       label={label}
-//       renderTrigger={(triggerProps): JSX.Element => (
-//         <FilterButtonRemovable
-//           triggerButtonProps={{ ...triggerProps }}
-//           removeButtonProps={{ onClick: () => hideFilter(label) }}
-//         />
-//       )}
-//       isDefaultHidden
-//       isUsableWhen={(state): boolean => state["Reports"]?.isHidden !== true}
-//     />
-//   )
-// }
-// const DepartmentsFilter = (): JSX.Element => {
-//   const { hideFilter } = useFilterBarContext()
-//   const label = "Departments"
-//   return (
-//     <FilterPancake
-//       label={label}
-//       renderTrigger={(triggerProps): JSX.Element => (
-//         <FilterButtonRemovable
-//           triggerButtonProps={{ ...triggerProps }}
-//           removeButtonProps={{ onClick: () => hideFilter(label) }}
-//         />
-//       )}
-//       isDefaultHidden
-//       isUsableWhen={(state): boolean => state["Reports"]?.isHidden !== true}
-//     />
-//   )
-// }
+export const AnotherExample: StoryFn<typeof FilterBar> = () => {
+  const [selectedValues, setSelectedValues] = useState<Record<string, any>>({})
+  const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
 
-// export const AnotherExample: StoryFn<typeof FilterBar> = () => {
-//   const [filtersState, setFiltersState] = useState({})
+  const filters: Filter[] = [
+    {
+      id: "managers",
+      label: "Managers",
+      Component: (
+        <FilterBarSelect
+          id="managers"
+          items={[
+            { label: "Geoff Chong", value: "the-g" },
+            { label: "Christian Klammer", value: "ck" },
+          ]}
+        />
+      ),
+    },
+    {
+      id: "reports",
+      label: "Reports",
+      Component: (
+        <FilterBarSelect
+          id="reports"
+          items={[
+            { label: "Directs", value: "directs" },
+            { label: "Indirects", value: "indirects" },
+          ]}
+        />
+      ),
+      isRemovable: true,
+      isInitHidden: true,
+    },
+    {
+      id: "departments",
+      label: "Departments",
+      Component: (
+        <FilterBarSelect
+          id="departments"
+          items={[
+            { label: "Beauty", value: "beauty" },
+            { label: "Electronics", value: "electronics" },
+          ]}
+        />
+      ),
+      isRemovable: true,
+      isInitHidden: true,
+      isUsableWhen: state => !state["reports"].isHidden,
+    },
+    {
+      id: "gender",
+      label: "Gender",
+      Component: (
+        <FilterBarSelect
+          id="gender"
+          items={[
+            { label: "Prefer not to say", value: "no-to-say" },
+            { label: "Female", value: "female" },
+            { label: "Make", value: "male" },
+            { label: "Non-binary", value: "non-binary" },
+          ]}
+        />
+      ),
+      isRemovable: true,
+      isInitHidden: true,
+      isUsableWhen: state => !state["reports"].isHidden,
+    },
+  ]
 
-//   return (
-//     <div>
-//       <FilterBar onChange={setFiltersState}>
-//         <FilterDRP
-//           id="drp"
-//           locale="en-AU"
-//           label="Dates"
-//           renderTrigger={(triggerProps): JSX.Element => (
-//             <FilterButton {...triggerProps} />
-//           )}
-//         />
+  return (
+    <div>
+      <FilterBar
+        filters={filters}
+        onChange={setFiltersState}
+        selectedValues={selectedValues}
+        setSelectedValues={setSelectedValues}
+      />
 
-//         <FilterPancake
-//           label="Managers"
-//           renderTrigger={(triggerProps): JSX.Element => (
-//             <FilterButton {...triggerProps} />
-//           )}
-//         />
+      <p>selectedValues</p>
+      <Highlight className="json">
+        {JSON.stringify(selectedValues, null, 4)}
+      </Highlight>
 
-//         <ReportsFilter />
-
-//         <GenderFilter />
-//         <DepartmentsFilter />
-
-//         <FilterAddButton />
-//         <FilterClearAllButton />
-//       </FilterBar>
-
-//       <Highlight className="json">
-//         {JSON.stringify(filtersState, null, 4)}
-//       </Highlight>
-//     </div>
-//   )
-// }
+      <p>filtersState</p>
+      <Highlight className="json">
+        {JSON.stringify(filtersState, null, 4)}
+      </Highlight>
+    </div>
+  )
+}
 
 // // @note: Maybe removable ones can be figured out by us to handle the hideFilter?
 // const DynamicFilter = ({ label }: { label: string }): JSX.Element => {
