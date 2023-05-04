@@ -2,8 +2,11 @@
   "name": "@kaizen/draft-title-block-zen",
   "version": "7.9.24",
   "description": "The draft Title Block (Zen) component",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "tsup index.ts --loader '.module.scss=copy' --dts && yarn copyfiles KaizenDraft/**/*.scss dist -uf",
+    "prepublish": "tsup index.ts --loader '.module.scss=copy' --format cjs,esm --dts && yarn copyfiles KaizenDraft/**/*.scss dist -uf",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf dist"
