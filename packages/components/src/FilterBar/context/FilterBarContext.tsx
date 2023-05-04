@@ -158,6 +158,10 @@ export const FilterBarProvider = ({
       })
     },
     hideFilter: (id: string): void => {
+      setSelectedValues(current => ({
+        ...current,
+        [id]: undefined,
+      }))
       setState(current => ({
         ...current,
         [id]: { ...current[id], isHidden: true },
