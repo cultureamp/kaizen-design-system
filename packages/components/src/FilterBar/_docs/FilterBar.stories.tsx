@@ -7,11 +7,9 @@ import {
   useFilterBarContext,
 } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
-// import { FilterAddButton } from "../subcomponents/FilterAddButton"
-// import { FilterClearAllButton } from "../subcomponents/FilterClearAllButton"
 import { FilterDRP } from "../subcomponents/FilterDRP"
 import { FilterPancake } from "../subcomponents/FilterPancake"
-// import { FilterBarSelect } from "../subcomponents/FilterSelect"
+import { FilterBarSelect } from "../subcomponents/FilterSelect"
 
 const meta = {
   tags: ["autodocs"],
@@ -132,7 +130,17 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
     {
       id: "coffee",
       label: "Coffee",
-      Component: <FilterPancake id="coffee" />,
+      Component: (
+        <FilterBarSelect
+          id="coffee"
+          items={[
+            { label: "Short black", value: "short-black" },
+            { label: "Long black", value: "long-black" },
+            { label: "Batch brew", value: "batch-brew" },
+          ]}
+        />
+      ),
+      isRemovable: true,
     },
     {
       id: "carrots",

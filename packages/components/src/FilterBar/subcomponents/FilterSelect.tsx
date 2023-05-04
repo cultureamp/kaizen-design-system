@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
+import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import {
   FilterSelect,
   FilterSelectProps,
@@ -7,35 +8,44 @@ import {
 import { useFilterBarContext } from "../context/FilterBarContext"
 
 export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
-  Omit<FilterSelectProps<Option>, "isOpen" | "setIsOpen">
+  Omit<
+    FilterSelectProps<Option>,
+    "isOpen" | "setIsOpen" | "renderTrigger" | "label"
+  > & {
+    id: string
+  }
 
-export const FilterBarSelect = <Option extends SelectOption = SelectOption>(
-  props: FilterBarSelectProps<Option>
-): JSX.Element | null => {
-  const { addFilter, updateSelectedValue, getFilterState, toggleOpenFilter } =
+export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
+  onSelectionChange,
+  ...props
+}: FilterBarSelectProps<Option>): JSX.Element | null => {
+  const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     useFilterBarContext()
-  const { label, onSelectionChange, renderTrigger } = props
 
-  useEffect(() => {
-    addFilter(label, {
-      isRemovable:
-        renderTrigger({ label }).props?.removeButtonProps !== undefined,
-    })
-  }, [])
-
-  const state = getFilterState(label)
-
-  if (!state || state.isHidden) return null
+  const filterState = getFilterState(props.id)
 
   return (
     <FilterSelect<Option>
       {...props}
+      label={filterState.label}
+      renderTrigger={(triggerProps): JSX.Element =>
+        filterState.isRemovable ? (
+          <FilterButtonRemovable
+            triggerButtonProps={{ ...triggerProps }}
+            removeButtonProps={{
+              onClick: () => hideFilter(props.id),
+            }}
+          />
+        ) : (
+          <FilterButton {...triggerProps} />
+        )
+      }
       onSelectionChange={(key): void => {
-        updateSelectedValue(label, key)
+        updateSelectedValue(props.id, key)
         onSelectionChange?.(key)
       }}
-      isOpen={state.isOpen ?? false}
-      setIsOpen={(open): void => toggleOpenFilter(label, open)}
+      isOpen={filterState.isOpen ?? false}
+      setIsOpen={(open): void => toggleOpenFilter(props.id, open)}
     />
   )
 }
