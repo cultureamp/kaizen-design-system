@@ -140,7 +140,6 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
           ]}
         />
       ),
-      isRemovable: true,
     },
     {
       id: "carrots",

@@ -27,6 +27,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   return (
     <FilterSelect<Option>
       {...props}
+      selectedKey={filterState.selectedValue || null}
       label={filterState.label}
       renderTrigger={(triggerProps): JSX.Element =>
         filterState.isRemovable ? (
