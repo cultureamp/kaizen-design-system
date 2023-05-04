@@ -72,10 +72,6 @@ const TimeFieldComponent = ({
 
   const state = useTimeFieldState({
     ...restProps,
-    // @ts-expect-error controlled values should not be undefined and library throws warning if such is supplied for value,
-    // however library does not allow for null values despite handling properly
-    // https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/utils/src/useControlledState.ts#L23
-    // https://github.com/adobe/react-spectrum/blob/main/packages/%40react-stately/datepicker/src/useTimeFieldState.ts
     value: value ? new Time(value.hour, value.minutes) : null,
     onChange: handleOnChange,
     isDisabled,
