@@ -293,7 +293,7 @@ export const ContentAndList: StoryFn = () => (
           <a href="/">Custom anchor link</a>
         </li>
       </ul>
-      <MenuList heading="Menu primitives">
+      <MenuList heading={{ children: "Menu primitives" }}>
         <MenuItem
           href="https://www.cultureamp.com/"
           label="MenuItem primitive link"

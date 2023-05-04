@@ -160,7 +160,9 @@ const DrawerMenuContent = ({
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuList
-          heading={showOtherActionsHeading ? "Other actions" : undefined}
+          heading={
+            showOtherActionsHeading ? { children: "Other actions" } : undefined
+          }
         >
           {defaultAction && renderDefaultAction(defaultAction)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
