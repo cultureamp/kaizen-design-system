@@ -54,6 +54,7 @@ export const FilterPancake = ({
       <FilterContents>
         <p>{contents ?? "Nothing!"}</p>
         <button
+          type="button"
           onClick={(): void => {
             const newValue = contents ? undefined : "meep"
             updateSelectedValue(label, newValue)

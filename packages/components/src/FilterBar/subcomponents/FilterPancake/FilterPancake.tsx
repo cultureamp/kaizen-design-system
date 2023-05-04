@@ -54,6 +54,7 @@ FilterPancakeProps): JSX.Element | null => {
       <FilterContents>
         <p>{contents ?? "Nothing!"}</p>
         <button
+          type="button"
           onClick={(): void => {
             const newValue = contents === "meep" ? undefined : "meep"
             updateSelectedValue(id, newValue)

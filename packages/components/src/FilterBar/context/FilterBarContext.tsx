@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useReducer, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 
 export type IsUsableWhen = (state: InternalFiltersState) => boolean
 
@@ -57,7 +57,10 @@ export type Filter = {
   isUsableWhen?: IsUsableWhen
 }
 
-export type StateWithoutComponent = Record<string, Omit<TransformedFilterAttr, "Component">>
+export type StateWithoutComponent = Record<
+  string,
+  Omit<TransformedFilterAttr, "Component">
+>
 
 export type FilterBarProviderProps = {
   // children: (activeFilterIds: string[]) => JSX.Element
@@ -77,8 +80,8 @@ export const FilterBarProvider = ({
   selectedValues,
   setSelectedValues,
 }: FilterBarProviderProps): JSX.Element => {
-  const initState: InternalFiltersState =
-    filters.reduce<InternalFiltersState>((acc, { isInitHidden, ...filter }) => {
+  const initState: InternalFiltersState = filters.reduce<InternalFiltersState>(
+    (acc, { isInitHidden, ...filter }) => {
       acc[filter.id] = {
         isRemovable: false,
         isOpen: false,
@@ -86,9 +89,14 @@ export const FilterBarProvider = ({
         ...filter,
       }
       return acc
-    }, {})
+    },
+    {}
+  )
 
-  const getTransformedState = (theState: InternalFiltersState): TransformedState => Object.values(theState).reduce<TransformedState>((acc, filter) => {
+  const getTransformedState = (
+    theState: InternalFiltersState
+  ): TransformedState =>
+    Object.values(theState).reduce<TransformedState>((acc, filter) => {
       acc[filter.id] = {
         ...filter,
         isUsable: filter.isUsableWhen?.(theState) ?? true,
@@ -146,7 +154,7 @@ export const FilterBarProvider = ({
 
         // setActiveFilters(active => [...active, newState[id]])
         return newState
-    })
+      })
     },
     hideFilter: (id: string): void => {
       // setActiveFilters(current => current.filter(filter => filter.id !== id))
@@ -186,20 +194,23 @@ export const FilterBarProvider = ({
     setActiveFilters(current => {
       const transformedState = getTransformedState(state)
 
-      const newActiveFilters = Object.values(transformedState).filter(filter => {
-        const { isHidden, isUsable } = filter
-        return isUsable && !isHidden
-      })
+      const newActiveFilters = Object.values(transformedState).filter(
+        filter => {
+          const { isHidden, isUsable } = filter
+          return isUsable && !isHidden
+        }
+      )
 
       const newActiveFilterIds = newActiveFilters.map(({ id }) => id)
 
-      const currentWithoutRemoved = Object.values(current)
-        .reduce<TransformedState>((acc, filter) => {
-          if (newActiveFilterIds.includes(filter.id)) {
-            acc[filter.id] = filter
-          }
-          return acc
-        }, {})
+      const currentWithoutRemoved = Object.values(
+        current
+      ).reduce<TransformedState>((acc, filter) => {
+        if (newActiveFilterIds.includes(filter.id)) {
+          acc[filter.id] = filter
+        }
+        return acc
+      }, {})
 
       return newActiveFilters.reduce((acc, filter) => {
         acc[filter.id] = filter
@@ -209,11 +220,12 @@ export const FilterBarProvider = ({
   }, [state])
 
   useEffect(() => {
-    const arg = Object.values(getTransformedState(state))
-      .reduce<StateWithoutComponent>((acc, { Component: _, ...filter}) => {
-        acc[filter.id] = filter
-        return acc
-      }, {})
+    const arg = Object.values(
+      getTransformedState(state)
+    ).reduce<StateWithoutComponent>((acc, { Component: _, ...filter }) => {
+      acc[filter.id] = filter
+      return acc
+    }, {})
     onChange?.(arg)
   }, [state])
 

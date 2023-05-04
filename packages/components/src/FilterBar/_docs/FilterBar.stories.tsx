@@ -55,7 +55,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       isRemovable: true,
     },
   ]
-console.log("filtersState", filtersState)
+
   return (
     <div>
       <FilterBar
@@ -78,12 +78,12 @@ console.log("filtersState", filtersState)
         Update chocolate value
       </button>
 
-      <p>/* selectedValues */</p>
+      <p>selectedValues</p>
       <Highlight className="json">
         {JSON.stringify(selectedValues, null, 4)}
       </Highlight>
 
-      <p>/* filtersState */</p>
+      <p>filtersState</p>
       <Highlight className="json">
         {JSON.stringify(filtersState, null, 4)}
       </Highlight>
