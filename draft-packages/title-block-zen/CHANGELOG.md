@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.10.1
+
+### Patch Changes
+
+- [#3573](https://github.com/cultureamp/kaizen-design-system/pull/3573) [`4d1c06517`](https://github.com/cultureamp/kaizen-design-system/commit/4d1c06517e5a52e1cc29dff0dff2985ee2f8d617) - Add explicit returns in MobileActions where they were missing.
+
 ## 7.10.0
 
 ### Minor Changes
