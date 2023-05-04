@@ -57,7 +57,7 @@ export const WorkflowTitles = ({
       tag={prefixTitleTag || "h1"}
     />
     <Title variant="heading-1" content={pageTitle} tag={pageTitleTag || "h2"} />
-    <Tag variant={status?.vairant}>{status?.content}</Tag>
+    {status && <Tag variant={status?.vairant}>{status?.content}</Tag>}
   </div>
 )
 

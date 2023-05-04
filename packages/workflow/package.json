@@ -30,13 +30,13 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/brand": "^1.5.6",
+    "@kaizen/button": "^2.1.5",
     "@kaizen/component-base": "^1.1.0",
+    "@kaizen/component-library": "^16.7.2",
+    "@kaizen/draft-modal": "^10.6.15",
     "@kaizen/draft-tag": "^3.4.11",
     "@kaizen/loading-skeleton": "^2.0.4",
     "@kaizen/typography": "^2.3.8",
-    "@kaizen/draft-modal": "^10.6.15",
-    "@kaizen/button": "^2.1.5",
-    "@kaizen/component-library": "^16.7.2",
     "classnames": "^2.3.1"
   },
   "devDependencies": {
