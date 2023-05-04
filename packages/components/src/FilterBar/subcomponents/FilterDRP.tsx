@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
+import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import {
   FilterDateRangePicker,
   FilterDateRangePickerProps,
@@ -7,34 +8,42 @@ import { useFilterBarContext } from "../context/FilterBarContext"
 
 export type FilterDRPProps = Omit<
   FilterDateRangePickerProps,
-  "isOpen" | "setIsOpen" | "selectedRange" | "onRangeChange"
+  | "isOpen"
+  | "setIsOpen"
+  | "selectedRange"
+  | "onRangeChange"
+  | "renderTrigger"
+  | "label"
 > & {
   onRangeChange?: FilterDateRangePickerProps["onRangeChange"]
 }
 
 export const FilterDRP = (props: FilterDRPProps): JSX.Element | null => {
-  const { addFilter, updateSelectedValue, getFilterState, toggleOpenFilter } =
+  const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     useFilterBarContext()
-  const { label, renderTrigger } = props
 
-  useEffect(() => {
-    addFilter(label, {
-      isRemovable:
-        renderTrigger({ label }).props?.removeButtonProps !== undefined,
-    })
-  }, [])
-
-  const state = getFilterState(label)
-
-  if (!state || state.isHidden) return null
+  const filterState = getFilterState(props.id)
 
   return (
     <FilterDateRangePicker
       {...props}
-      selectedRange={state.selectedValue}
-      onRangeChange={(range): void => updateSelectedValue(label, range)}
-      isOpen={state.isOpen ?? false}
-      setIsOpen={(open): void => toggleOpenFilter(label, open)}
+      label={filterState.label}
+      renderTrigger={(triggerProps): JSX.Element =>
+        filterState.isRemovable ? (
+          <FilterButtonRemovable
+            triggerButtonProps={{ ...triggerProps }}
+            removeButtonProps={{
+              onClick: () => hideFilter(props.id),
+            }}
+          />
+        ) : (
+          <FilterButton {...triggerProps} />
+        )
+      }
+      selectedRange={filterState.selectedValue}
+      onRangeChange={(range): void => updateSelectedValue(props.id, range)}
+      isOpen={filterState.isOpen ?? false}
+      setIsOpen={(open): void => toggleOpenFilter(props.id, open)}
     />
   )
 }

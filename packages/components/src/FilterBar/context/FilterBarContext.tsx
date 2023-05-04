@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react"
 
-export type IsUsableWhen = (state: InternalFiltersState) => boolean
+export type IsUsableWhen = (
+  state: Record<string, Pick<InternalFilterAttr, "isHidden" | "selectedValue">>
+) => boolean
 
 type InternalFilterAttr = {
   id: string
@@ -11,13 +13,14 @@ type InternalFilterAttr = {
   isHidden: boolean
   // isUsable: boolean
   isUsableWhen?: IsUsableWhen
+  selectedValue: any
 }
 
 export type InternalFiltersState = Record<string, InternalFilterAttr>
 
 export type TransformedFilterAttr = Omit<InternalFilterAttr, "isUsableWhen"> & {
   isUsable: boolean
-  selectedValue: any
+  // selectedValue: any
 }
 
 export type TransformedState = Record<string, TransformedFilterAttr>
@@ -63,14 +66,11 @@ export type StateWithoutComponent = Record<
 >
 
 export type FilterBarProviderProps = {
-  // children: (activeFilterIds: string[]) => JSX.Element
   children: (activeFilters: TransformedState) => JSX.Element
   filters: Filter[]
   onChange?: (state: StateWithoutComponent) => void
   selectedValues: Record<string, any>
-  // setSelectedValues: (values: Record<string, any>) => void
   setSelectedValues: React.Dispatch<React.SetStateAction<Record<string, any>>>
-  // updateStateFromOutside?: () => void
 }
 
 export const FilterBarProvider = ({
@@ -87,6 +87,7 @@ export const FilterBarProvider = ({
         isOpen: false,
         isHidden: isInitHidden ?? false,
         ...filter,
+        selectedValue: selectedValues[filter.id],
       }
       return acc
     },
@@ -99,7 +100,10 @@ export const FilterBarProvider = ({
     Object.values(theState).reduce<TransformedState>((acc, filter) => {
       acc[filter.id] = {
         ...filter,
-        isUsable: filter.isUsableWhen?.(theState) ?? true,
+        isUsable:
+          filter.isUsableWhen?.({
+            ...theState,
+          }) ?? true,
         selectedValue: selectedValues[filter.id],
       }
       return acc
@@ -151,13 +155,10 @@ export const FilterBarProvider = ({
           ...current,
           [id]: { ...current[id], isHidden: false },
         }
-
-        // setActiveFilters(active => [...active, newState[id]])
         return newState
       })
     },
     hideFilter: (id: string): void => {
-      // setActiveFilters(current => current.filter(filter => filter.id !== id))
       setState(current => ({
         ...current,
         [id]: { ...current[id], isHidden: true },
@@ -168,10 +169,6 @@ export const FilterBarProvider = ({
         ({ isHidden, isUsable }) => isUsable && isHidden
       ),
     clearFilters: (): void => {
-      // setActiveFilters(
-      //   Object.values(state)
-      //     .filter(({ isRemovable }) => !isRemovable)
-      // )
       setSelectedValues({})
       setState(current =>
         Object.values(current).reduce<InternalFiltersState>((acc, filter) => {
@@ -189,6 +186,10 @@ export const FilterBarProvider = ({
       )
     },
   } satisfies FilterBarContextValue
+
+  useEffect(() => {
+    setState(current => getTransformedState(current))
+  }, [selectedValues])
 
   useEffect(() => {
     setActiveFilters(current => {

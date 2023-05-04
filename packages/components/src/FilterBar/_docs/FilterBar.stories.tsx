@@ -4,12 +4,12 @@ import Highlight from "react-highlight"
 import {
   Filter,
   StateWithoutComponent,
-  // useFilterBarContext
+  useFilterBarContext,
 } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
 // import { FilterAddButton } from "../subcomponents/FilterAddButton"
 // import { FilterClearAllButton } from "../subcomponents/FilterClearAllButton"
-// import { FilterDRP } from "../subcomponents/FilterDRP"
+import { FilterDRP } from "../subcomponents/FilterDRP"
 import { FilterPancake } from "../subcomponents/FilterPancake"
 // import { FilterBarSelect } from "../subcomponents/FilterSelect"
 
@@ -27,6 +27,10 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
   })
   const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
 
+  // @note: `id` for filter must match `id` in the consuming component
+  // Perhaps it's worth cloning the active filters and passing it in for the consumer?
+  // The only problem is if the `id` is a different prop name,
+  // although we could also make an attribute to override that if needed
   const filters: Filter[] = [
     {
       id: "chocolate",
@@ -91,105 +95,87 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
   )
 }
 
-// // Component must be created to access the context.
-// // Provider is in FilterBar, thus hook cannot be called in instantiating component.
-// const VanillaPancake = (): JSX.Element => {
-//   const { setOpenFilter, hideFilter } = useFilterBarContext()
-//   const label = "Vanilla"
-//   return (
-//     <FilterPancake
-//       label={label}
-//       renderTrigger={(triggerProps): JSX.Element => (
-//         <FilterButtonRemovable
-//           triggerButtonProps={{ ...triggerProps }}
-//           removeButtonProps={{ onClick: () => hideFilter(label) }}
-//         />
-//       )}
-//       onChange={(): void => setOpenFilter("Coffee")}
-//       isUsableWhen={(state): boolean =>
-//         state["Chocolate"]?.selectedValue !== undefined
-//       }
-//     />
-//   )
-// }
+// Component must be created to access the context.
+// Provider is in FilterBar, thus hook cannot be called in instantiating component.
+const VanillaPancake = (props: { id: string }): JSX.Element => {
+  const { setOpenFilter } = useFilterBarContext()
+  return (
+    <FilterPancake
+      id={props.id}
+      onChange={(): void => setOpenFilter("coffee")}
+    />
+  )
+}
 
-// const CurrySelect = (): JSX.Element => {
-//   const { hideFilter } = useFilterBarContext()
-//   const label = "Curry"
+export const Playground2: StoryFn<typeof FilterBar> = () => {
+  const [selectedValues, setSelectedValues] = useState<Record<string, any>>({})
+  const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
 
-//   return (
-//     <FilterBarSelect
-//       label={label}
-//       renderTrigger={(triggerProps): JSX.Element => (
-//         <FilterButtonRemovable
-//           triggerButtonProps={{ ...triggerProps }}
-//           removeButtonProps={{ onClick: () => hideFilter(label) }}
-//         />
-//       )}
-//       items={[
-//         { label: "Lamb", value: "lamb" },
-//         { label: "Beef", value: "beef" },
-//       ]}
-//     />
-//   )
-// }
+  const filters: Filter[] = [
+    {
+      id: "chocolate",
+      label: "Chocolate",
+      Component: <FilterPancake id="chocolate" />,
+    },
+    {
+      id: "drp",
+      label: "Dates",
+      Component: <FilterDRP id="drp" locale="en-AU" />,
+    },
+    {
+      id: "vanilla",
+      label: "Vanilla",
+      Component: <VanillaPancake id="vanilla" />,
+      isRemovable: true,
+      isUsableWhen: state => state["chocolate"]?.selectedValue !== undefined,
+    },
+    {
+      id: "coffee",
+      label: "Coffee",
+      Component: <FilterPancake id="coffee" />,
+    },
+    {
+      id: "carrots",
+      label: "Carrots",
+      Component: <FilterPancake id="carrots" />,
+      isInitHidden: true,
+    },
+  ]
 
-// export const OldPlayground: StoryFn<typeof FilterBar> = () => {
-//   const [filtersState, setFiltersState] = useState({})
+  return (
+    <div>
+      <FilterBar
+        filters={filters}
+        onChange={setFiltersState}
+        selectedValues={selectedValues}
+        setSelectedValues={setSelectedValues}
+      />
 
-//   return (
-//     <div>
-//       <FilterBar onChange={setFiltersState}>
-//         <FilterPancake
-//           label="Chocolate"
-//           renderTrigger={(triggerProps): JSX.Element => (
-//             <FilterButton {...triggerProps} />
-//           )}
-//         />
+      <button
+        type="button"
+        onClick={(): void =>
+          setSelectedValues({
+            ...selectedValues,
+            chocolate: "Hello!",
+          })
+        }
+        className="mt-16"
+      >
+        Update chocolate value
+      </button>
 
-//         <FilterDRP
-//           id="drp"
-//           locale="en-AU"
-//           label="Dates"
-//           renderTrigger={(triggerProps): JSX.Element => (
-//             <FilterButton {...triggerProps} />
-//           )}
-//         />
+      <p>selectedValues</p>
+      <Highlight className="json">
+        {JSON.stringify(selectedValues, null, 4)}
+      </Highlight>
 
-//         <VanillaPancake />
-
-//         <FilterBarSelect
-//           label="Coffee"
-//           renderTrigger={(triggerProps): JSX.Element => (
-//             <FilterButton {...triggerProps} />
-//           )}
-//           items={[
-//             { label: "Short black", value: "short-black" },
-//             { label: "Long black", value: "long-black" },
-//             { label: "Batch brew", value: "batch-brew" },
-//           ]}
-//         />
-
-//         <CurrySelect />
-
-//         <FilterPancake
-//           label="Carrots"
-//           renderTrigger={(triggerProps): JSX.Element => (
-//             <FilterButton {...triggerProps} />
-//           )}
-//           isDefaultHidden
-//         />
-
-//         <FilterAddButton />
-//         <FilterClearAllButton />
-//       </FilterBar>
-
-//       <Highlight className="json">
-//         {JSON.stringify(filtersState, null, 4)}
-//       </Highlight>
-//     </div>
-//   )
-// }
+      <p>filtersState</p>
+      <Highlight className="json">
+        {JSON.stringify(filtersState, null, 4)}
+      </Highlight>
+    </div>
+  )
+}
 
 // const ReportsFilter = (): JSX.Element => {
 //   const { hideFilter } = useFilterBarContext()
