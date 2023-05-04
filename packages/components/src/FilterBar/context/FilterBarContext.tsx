@@ -208,16 +208,35 @@ export const FilterBarProvider = ({
   }, [state])
 
   useEffect(() => {
-    setActiveFilters(current => {
-      const transformedState = getTransformedState(state)
+    const transformedState = getTransformedState(state)
 
-      const newActiveFilters = Object.values(transformedState).filter(
-        filter => {
-          const { isHidden, isUsable } = filter
-          return isUsable && !isHidden
+    const { newActiveFilters, hiddenFilters } = Object.values(
+      transformedState
+    ).reduce<{
+      newActiveFilters: TransformedFilterAttr[]
+      hiddenFilters: TransformedFilterAttr[]
+    }>(
+      (acc, filter) => {
+        const { isHidden, isUsable } = filter
+        if (isUsable && !isHidden) {
+          acc["newActiveFilters"] = [...acc["newActiveFilters"], filter]
+          return acc
         }
-      )
+        acc["hiddenFilters"] = [...acc["hiddenFilters"], filter]
+        return acc
+      },
+      { newActiveFilters: [], hiddenFilters: [] }
+    )
 
+    setSelectedValues(current => {
+      const updated = current
+      hiddenFilters.forEach(({ id }) => {
+        updated[id] = undefined
+      })
+      return updated
+    })
+
+    setActiveFilters(current => {
       const newActiveFilterIds = newActiveFilters.map(({ id }) => id)
 
       const currentWithoutRemoved = Object.values(
