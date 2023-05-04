@@ -17,8 +17,10 @@ export type WorkflowStatus = {
 export interface WorkflowTitlesProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   prefixTitle?: string
+  /** * @default: "h1" */
   prefixTitleTag?: AllowedHeadingTags
   pageTitle?: string
+  /** * @default: "h2" */
   pageTitleTag?: AllowedHeadingTags
   status?: WorkflowStatus
 }

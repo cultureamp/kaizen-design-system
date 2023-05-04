@@ -1,12 +1,12 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { Brand } from "@kaizen/brand"
 import { OverrideClassName } from "@kaizen/component-base"
 import {
   WorkflowTitles,
   WorkflowTitlesProps,
   WorkflowActions,
   WorkflowActionsProps,
+  WorkflowBranding,
 } from "./"
 import styles from "./WorkflowHeader.module.scss"
 /**
@@ -45,14 +45,14 @@ export const WorkflowHeader = ({
     )}
     {...restProps}
   >
-    <div className="flex items-start max-w-[120px] pt-3 ">
-      <Brand variant="logo-horizontal" alt="Culture Amp logo" />
-    </div>
+    <WorkflowBranding alt={"Culture amp"} />
     <WorkflowTitles
       prefixTitle={prefixTitle}
+      // Tags are provided options for more accessible layouts / future proofixing the heading hirarchy
       prefixTitleTag={prefixTitleTag}
       pageTitle={pageTitle}
       pageTitleTag={pageTitleTag}
+      // This is now changed to a object instead of two seperate props
       status={status}
     />
     <WorkflowActions
@@ -63,7 +63,9 @@ export const WorkflowHeader = ({
       modalConfirmAction={modalConfirmAction}
       modalDismissLabel={modalDismissLabel}
       mood={mood}
-    ></WorkflowActions>
+    >
+      {/* can now take children to be used as a diplsay for multiple items. We could lock this down to "actions" and type the compatible components? */}
+    </WorkflowActions>
   </div>
 )
 
