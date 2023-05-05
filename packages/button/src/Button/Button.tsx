@@ -37,7 +37,6 @@ export const Button = forwardRef(
 
 Button.defaultProps = {
   fullWidth: false,
-  size: "regular",
   primary: false,
   secondary: false,
   destructive: false,

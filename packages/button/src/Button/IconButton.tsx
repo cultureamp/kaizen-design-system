@@ -32,7 +32,6 @@ export const IconButton = (props: IconButtonProps): JSX.Element => (
 )
 
 IconButton.defaultProps = {
-  size: "regular",
   primary: false,
   destructive: false,
   disabled: false,
