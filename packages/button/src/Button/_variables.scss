@@ -5,17 +5,14 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 $button-height: $spacing-xl;
-$button-form-height: calc(#{$spacing-md} * 5 / 3);
+$button-small-height: calc(#{$spacing-md} * 5 / 3);
 $button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
-$button-vertical-padding--form: calc(
+$button-vertical-padding--small: calc(
   #{$spacing-md / 3} - #{$border-solid-border-width}
 );
 
 // Elements
 $className--content: ".content";
-
-// Polyfill
-$polyfill--focus-visible: ":global(.js-focus-visible) &:global(.focus-visible)";
 
 // Classnames to simulate pseudo states in storybook
 $story-className--button-hover: ":global(.story__button-hover)";
@@ -25,4 +22,4 @@ $story-className--button-focus: ":global(.story__button-focus)";
 // Combined pseudo state classes
 $selectors--button-hover: "&:hover, &#{$story-className--button-hover}";
 $selectors--button-active: "&:active, &#{$story-className--button-active}";
-$selectors--button-focus: "&:focus-visible, #{$polyfill--focus-visible}, &#{$story-className--button-focus}";
+$selectors--button-focus: "&:focus-visible, &#{$story-className--button-focus}";

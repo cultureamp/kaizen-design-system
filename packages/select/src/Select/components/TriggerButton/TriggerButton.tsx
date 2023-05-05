@@ -12,9 +12,17 @@ import styles from "./TriggerButton.module.scss"
 export interface TriggerButtonProps
   extends OverrideClassName<HTMLAttributes<HTMLButtonElement>> {
   placeholder?: string
+  /**
+   * Use the `reversed` styles.
+   */
   isReversed?: boolean
+  /** Props for the popup trigger element. */
   triggerProps: AriaButtonProps<"button">
+  /** Props for the element representing the selected value. */
   valueProps: DOMAttributes<FocusableElement>
+  /**
+   * Updates the styling of the validation.
+   */
   status?: "error" | "caution"
 }
 
@@ -41,6 +49,7 @@ export const TriggerButton = React.forwardRef<
 
     return (
       <button
+        type="button"
         {...mergeProps(buttonProps, restProps)}
         ref={ref}
         className={classnames([

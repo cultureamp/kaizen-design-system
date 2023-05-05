@@ -1,17 +1,18 @@
 import React, { useState } from "react"
-import { ComponentStory } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import {
+  EditorContentArray,
   EditableRichTextContent,
   RichTextEditor,
-  EditorContentArray,
+  RichTextEditorProps,
 } from "@kaizen/rich-text-editor"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import dummyContent from "./dummyContent.json"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.richTextEditor}/Editable Rich Text Content`,
+  tags: ["autodocs"],
+  title: "Components/Rich Text Content/Editable Rich Text Content",
   component: EditableRichTextContent,
   parameters: {
     docs: {
@@ -23,7 +24,7 @@ export default {
   },
 }
 
-export const EditableRichTextContentStory: ComponentStory<
+export const EditableRichTextContentStory: StoryFn<
   typeof InlineEditor
 > = args => <InlineEditor {...args} />
 EditableRichTextContentStory.storyName = "Default"
@@ -40,6 +41,8 @@ function InlineEditor(props: {
   const [rteData, setRTEData] = useState<EditorContentArray>(
     props.content || dummyContent
   )
+  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
+    setRTEData(editorState.toJSON().doc.content)
   const handleContentClick = (): void => setEditMode(true)
   const handleCancel = (): void => setEditMode(false)
 
@@ -57,7 +60,7 @@ function InlineEditor(props: {
             { name: "link", group: "link" },
           ]}
           value={rteData}
-          onChange={setRTEData}
+          onChange={handleOnChange}
         />
         <Box mt={0.5} style={{ display: "flex", justifyContent: "end" }}>
           <Button label="Cancel" secondary onClick={handleCancel} />

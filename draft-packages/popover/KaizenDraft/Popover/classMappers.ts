@@ -1,5 +1,6 @@
 import React from "react"
-import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import cautionIcon from "@kaizen/component-library/icons/caution.icon.svg"
+import errorIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Size, Variant } from "./types"
@@ -44,9 +45,9 @@ export const mapVariantToIcon = (
     case "positive":
       return positiveIcon
     case "negative":
-      return negativeIcon
+      return errorIcon
     case "cautionary":
-      return negativeIcon
+      return cautionIcon
     default:
       return informativeIcon
   }

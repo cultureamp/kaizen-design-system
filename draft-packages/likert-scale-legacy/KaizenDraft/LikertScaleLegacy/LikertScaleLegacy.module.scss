@@ -113,31 +113,19 @@ $fifth: $color-red-500;
   }
 }
 
-:global(.js-focus-visible) {
-  .likertItem:focus,
-  .likertItemFill:focus {
-    outline: none;
-  }
+.likertItem:focus,
+.likertItemFill:focus {
+  outline: none;
+}
 
-  .reversed:not(.rated)
-    :global([data-focus-visible-added]).likertItem:focus
-    .likertItemFill {
-    outline-color: $color-blue-300;
-  }
+.likertItem:focus-visible .likertItemFill {
+  outline-offset: 1px;
+  outline: $color-blue-500 $border-focus-ring-border-style
+    $border-focus-ring-border-width;
+}
 
-  // React seems to be causing the .focus-visible class to only be added sometimes,
-  // so we need to use [data-focus-visible-added] here instead.
-  // See https://github.com/WICG/focus-visible#2-update-your-css
-
-  :global([data-focus-visible-added]).likertItem .likertItemFill {
-    outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style
-      $border-focus-ring-border-width;
-  }
-
-  .reversed :global([data-focus-visible-added]).likertItem .likertItemFill {
-    outline-color: $color-blue-300;
-  }
+.reversed .likertItem:focus-visible .likertItemFill {
+  outline-color: $color-blue-300;
 }
 
 .itemContainer {
@@ -187,6 +175,22 @@ $fifth: $color-red-500;
   &:last-child {
     margin-left: 2px;
     margin-right: 0;
+  }
+
+  // Hack to bridge the gaps between items so mouse always hovers on something
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 2px;
+    height: 100%;
+  }
+
+  &:after {
+    right: auto;
+    left: 100%;
   }
 
   &.suggested,
@@ -247,6 +251,47 @@ $fifth: $color-red-500;
 
 .reversed .likertItemFill {
   border-color: rgba($color-white-rgb, 0.65);
+}
+
+.check {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  color: black;
+
+  .likertItem1 & {
+    margin-left: -9px;
+
+    [dir="rtl"] & {
+      margin-left: -11px;
+    }
+  }
+
+  .likertItem5 & {
+    margin-left: -12px;
+
+    [dir="rtl"] & {
+      margin-left: -9px;
+    }
+  }
+}
+
+:where(.likertItem4, .likertItem5) .check {
+  color: white;
+}
+
+.hovered :where(.likertItem4, .likertItem5) .check {
+  color: black;
+}
+
+:is(.likertItem4.suggested, .likertItem5.suggested) .check {
+  color: white;
+}
+
+.hovered.reversed .itemContainer > :not(.suggested.likertItem) .check {
+  color: white;
 }
 
 @media only screen and (max-width: 767px) {

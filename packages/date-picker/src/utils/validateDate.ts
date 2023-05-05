@@ -1,18 +1,23 @@
-import { Matcher } from "react-day-picker"
-import { ValidationResponse } from "../types"
+import { DisabledDays, ValidationResponse } from "../types"
 import { isDisabledDate } from "./isDisabledDate"
 import { isInvalidDate } from "./isInvalidDate"
+
+export type ValidateDateArgs = {
+  date: Date | undefined
+  inputValue: string | undefined
+  disabledDays?: DisabledDays
+}
 
 export type ValidateDateResponse = {
   validationResponse: ValidationResponse
   newDate: Date | undefined
 }
 
-export const validateDate = (
-  date: Date | undefined,
-  inputValue: string | undefined,
-  disabledDays?: Matcher[]
-): ValidateDateResponse => {
+export const validateDate = ({
+  date,
+  inputValue,
+  disabledDays,
+}: ValidateDateArgs): ValidateDateResponse => {
   const baseResponse = {
     date,
     inputValue,

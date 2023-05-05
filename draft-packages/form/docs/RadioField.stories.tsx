@@ -1,36 +1,27 @@
 import React, { useState } from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { Meta, StoryFn } from "@storybook/react"
 import { RadioField } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.form}/Radio Field`,
+  tags: ["autodocs"],
+  title: "Components/Radio Field",
   component: RadioField,
   parameters: {
-    chromatic: { disable: false },
     docs: {
       description: {
         component: 'import { RadioField } from "@kaizen/draft-form"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=14354%3A68219"
-    ),
   },
   argTypes: {
     selectedStatus: {
       control: "disabled",
     },
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof RadioField>
+} satisfies Meta<typeof RadioField>
 
-export const InteractiveKaizenSiteDemo: ComponentStory<
-  typeof RadioField
-> = args => {
+export const InteractiveKaizenSiteDemo: StoryFn<typeof RadioField> = args => {
   const [status, setStatus] = useState<boolean>()
   const onCheckHandler = (): void => setStatus(!status)
 
@@ -46,7 +37,7 @@ export const InteractiveKaizenSiteDemo: ComponentStory<
 }
 InteractiveKaizenSiteDemo.storyName = "Radio Field"
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <>

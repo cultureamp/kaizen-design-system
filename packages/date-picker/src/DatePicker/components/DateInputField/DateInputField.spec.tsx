@@ -113,7 +113,9 @@ describe("<DateInputField />", () => {
               onButtonClick={jest.fn<void, []>()}
               locale={enUS}
             />
-            <button onClick={handleClick}>Click me</button>
+            <button type="button" onClick={handleClick}>
+              Click me
+            </button>
           </>
         )
       }

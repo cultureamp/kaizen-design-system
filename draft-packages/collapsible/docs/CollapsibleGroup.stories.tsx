@@ -1,9 +1,8 @@
 import React from "react"
-import { ComponentMeta, ComponentStory, Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES } from "../../../storybook/constants"
 
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
 ac scelerisque sem, vel ultricies justo. Donec eu porttitor ante,
@@ -15,7 +14,8 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: `${CATEGORIES.components}/Collapsible/Collapsible Group`,
+  tags: ["autodocs"],
+  title: "Components/Collapsible Group",
   component: CollapsibleGroup,
   parameters: {
     backgrounds: { default: "Gray 100" },
@@ -26,9 +26,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof CollapsibleGroup>
+} satisfies Meta<typeof CollapsibleGroup>
 
-export const CollapsibleGroupDefault: ComponentStory<
+export const CollapsibleGroupDefault: StoryFn<
   typeof CollapsibleGroup
 > = args => (
   <CollapsibleGroup {...args}>
@@ -105,7 +105,7 @@ const CollapsibleGroupStickyHeaders = (): JSX.Element => (
   </CollapsibleGroup>
 )
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>

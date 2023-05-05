@@ -51,7 +51,7 @@ $small: $spacing-md;
 .profile {
   margin-inline-start: calc(#{$spacing-md} * -0.15);
   margin-inline-end: $spacing-xs;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 
@@ -89,27 +89,26 @@ $small: $spacing-md;
     position: relative;
   }
 
-  :global(.js-focus-visible) & {
+  &:focus {
     outline: none;
+  }
 
-    // show custom focus ring when :focus-visible
-    &:global(.focus-visible) .iconWrapper {
-      color: $color-purple-800;
+  &:focus-visible .iconWrapper {
+    color: $color-purple-800;
 
-      &::after {
-        $focus-ring-offset: calc((#{$border-focus-ring-border-width}));
-        content: "";
-        position: absolute;
-        background: transparent;
-        border-radius: 50%;
-        border-width: $border-focus-ring-border-width;
-        border-style: $border-focus-ring-border-style;
-        border-color: $color-blue-500;
-        top: calc(-1 * #{$focus-ring-offset});
-        left: calc(-1 * #{$focus-ring-offset});
-        right: calc(-1 * #{$focus-ring-offset});
-        bottom: calc(-1 * #{$focus-ring-offset});
-      }
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width}));
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-radius: 50%;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
     }
   }
 }

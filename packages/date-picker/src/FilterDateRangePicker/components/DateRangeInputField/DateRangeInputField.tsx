@@ -2,13 +2,17 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
-import { FieldMessage, FieldMessageStatus } from "@kaizen/draft-form"
+import { FieldMessage } from "@kaizen/draft-form"
 import { DateInput, DateInputProps } from "../../../_subcomponents/DateInput"
 import {
   DateInputDescription,
   DateInputDescriptionProps,
 } from "../../../_subcomponents/DateInputDescription"
 import { isRefObject } from "../../../utils/isRefObject"
+import {
+  DateRangeValidationMessage,
+  DateRangeValidationMessageProps,
+} from "../DateRangeValidationMessage"
 import styles from "./DateRangeInputField.module.scss"
 
 export interface DateRangeInputFieldProps
@@ -28,11 +32,11 @@ export interface DateRangeInputFieldProps
   /**
    * Updates the styling of the validation FieldMessage
    */
-  status?: FieldMessageStatus
+  status?: DateRangeValidationMessageProps["status"]
   /**
    * A descriptive message for `status` states
    */
-  validationMessage?: React.ReactNode
+  validationMessage?: DateRangeValidationMessageProps["validationMessage"]
   disabled?: boolean
 }
 
@@ -67,11 +71,28 @@ export const DateRangeInputField = React.forwardRef<
     const inputRangeEndRef = customRefObject?.inputRangeEndRef
 
     const descriptionId = `${id}--field-message`
-    const errorMessageId = `${id}--error-message`
 
-    const inputDescribedBy = validationMessage
-      ? `${errorMessageId} ${descriptionId}`
+    // Date Start aria labels
+    const dateStartErrorMessageId = validationMessage?.dateStart
+      ? `${id}--date-start-error-message`
+      : undefined
+
+    const dateStartInputDescribedBy = dateStartErrorMessageId
+      ? `${dateStartErrorMessageId} ${descriptionId}`
       : descriptionId
+
+    const dateStartIsInvalid = dateStartErrorMessageId !== undefined
+
+    // Date End aria labels
+    const dateEndErrorMessageId = validationMessage?.dateEnd
+      ? `${id}--date-end-error-message`
+      : undefined
+
+    const dateEndInputDescribedBy = dateEndErrorMessageId
+      ? `${dateEndErrorMessageId} ${descriptionId}`
+      : descriptionId
+
+    const dateEndIsInvalid = dateEndErrorMessageId !== undefined
 
     return (
       <div className={classNameOverride} {...restProps}>
@@ -82,10 +103,12 @@ export const DateRangeInputField = React.forwardRef<
           <DateInput
             ref={inputRangeStartRef}
             id={`${id}--from`}
-            aria-describedby={inputDescribedBy}
+            aria-describedby={dateStartInputDescribedBy}
+            aria-errormessage={dateStartErrorMessageId}
+            aria-invalid={dateStartIsInvalid}
             autoComplete="off"
             disabled={disabled}
-            status={status}
+            status={status?.dateStart}
             {...inputRangeStartProps}
             classNameOverride={classnames(
               styles.inputRangeStart,
@@ -95,10 +118,12 @@ export const DateRangeInputField = React.forwardRef<
           <DateInput
             ref={inputRangeEndRef}
             id={`${id}--to`}
-            aria-describedby={inputDescribedBy}
+            aria-describedby={dateEndInputDescribedBy}
+            aria-errormessage={dateEndErrorMessageId}
+            aria-invalid={dateEndIsInvalid}
             autoComplete="off"
             disabled={disabled}
-            status={status}
+            status={status?.dateEnd}
             {...inputRangeEndProps}
             classNameOverride={classnames(
               styles.inputRangeEnd,
@@ -107,14 +132,16 @@ export const DateRangeInputField = React.forwardRef<
           />
         </fieldset>
 
-        {validationMessage && (
-          <FieldMessage
-            id={errorMessageId}
-            message={validationMessage}
+        {(validationMessage?.dateStart || validationMessage?.dateEnd) && (
+          <DateRangeValidationMessage
             status={status}
-            reversed={isReversed}
+            validationMessage={validationMessage}
+            isReversed={isReversed}
+            dateStartId={dateStartErrorMessageId}
+            dateEndId={dateEndErrorMessageId}
           />
         )}
+
         <FieldMessage
           id={descriptionId}
           message={

@@ -1,7 +1,6 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
-import { withDesign } from "storybook-addon-designs"
 import { v4 } from "uuid"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
@@ -14,8 +13,6 @@ import {
   ToastNotification,
 } from "@kaizen/notification"
 import { ToastNotificationWithOptionals } from "@kaizen/notification/src/types"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./ToastNotification.stories.module.scss"
 
 const IS_CHROMATIC = isChromatic()
@@ -67,7 +64,8 @@ const Triggers = ({
 }
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Toast Notification`,
+  tags: ["autodocs"],
+  title: "Components/Notification/Toast Notification",
   component: ToastNotification,
   parameters: {
     docs: {
@@ -76,14 +74,11 @@ export default {
           'import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/notification"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A21830"
-    ),
   },
-  decorators: [withDesign, withNavigation],
+  decorators: [withNavigation],
 }
 
-export const PositiveKaizenSiteDemo: Story<
+export const PositiveKaizenSiteDemo: StoryFn<
   ToastNotificationWithOptionals
 > = args => {
   React.useEffect(() => {
@@ -107,7 +102,7 @@ PositiveKaizenSiteDemo.args = {
 
 PositiveKaizenSiteDemo.storyName = "Toast Notification"
 
-export const OverflowNotifications: ComponentStory<typeof Triggers> = () => {
+export const OverflowNotifications: StoryFn<typeof Triggers> = () => {
   const seed = Math.random() * 1000
   return (
     <Triggers
@@ -128,7 +123,7 @@ export const OverflowNotifications: ComponentStory<typeof Triggers> = () => {
 }
 OverflowNotifications.storyName = "Overflow notifications"
 
-export const UpdatedNotification: Story = () => (
+export const UpdatedNotification: StoryFn = () => (
   <Container>
     <Content>
       <Box py={1} classNameOverride={styles.triggerContainer}>
@@ -175,7 +170,7 @@ export const UpdatedNotification: Story = () => (
 )
 UpdatedNotification.storyName = "Updated notification"
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   React.useEffect(() => {
     addToastNotification({
       type: "positive",
@@ -223,6 +218,21 @@ const StickerSheetTemplate: Story = () => {
         </>
       ),
       autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
+      type: "positive",
+      title:
+        "Very long Title Example Very long title Example VerylongTitleExampleVerylongtitleExample ",
+      automationId: "notification1",
+      message: (
+        <>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper
+          odio vitae sem gravida rutrum. Praesent vel sapien eget eros dictum
+          luctus scelerisque eu nibh. Etiam ullamcorper lobortis gravida.
+          Suspendisse massa tortor, ultricies et ipsum at, iaculis bibendum est.
+        </>
+      ),
+      autohide: false,
     })
   })
   return <></>

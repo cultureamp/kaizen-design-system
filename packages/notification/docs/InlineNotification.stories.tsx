@@ -1,14 +1,12 @@
 import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import { StoryFn } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.notification}/Inline Notification`,
+  tags: ["autodocs"],
+  title: "Components/Notification/Inline Notification",
   component: InlineNotification,
   parameters: {
     docs: {
@@ -16,16 +14,10 @@ export default {
         component: 'import { InlineNotification } from "@kaizen/notification";',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=13877%3A66008"
-    ),
   },
-  decorators: [withDesign],
 }
 
-export const DefaultKaizenDemo: ComponentStory<
-  typeof InlineNotification
-> = props => (
+export const DefaultKaizenDemo: StoryFn<typeof InlineNotification> = props => (
   <InlineNotification {...props}>
     New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
     <a href="/">Manage users is now available</a>
@@ -42,9 +34,7 @@ const customHeadingProps: HeadingProps = {
   tag: "h2",
   children: "Custom",
 }
-export const CustomHeadingLevel: ComponentStory<
-  typeof InlineNotification
-> = props => (
+export const CustomHeadingLevel: StoryFn<typeof InlineNotification> = props => (
   <InlineNotification headingProps={customHeadingProps} {...props}>
     New user data
   </InlineNotification>
@@ -54,7 +44,7 @@ CustomHeadingLevel.args = {
   type: "positive",
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const forceMultilineText = (
@@ -71,13 +61,14 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
     <>
       There’s a problem connecting to your HRIS. Check your HRIS is working and
       check your <a href="/">integration settings</a>, or if you require more
-      assistance please <a href="/">contact support</a>... or just don't do
+      assistance please <a href="/">contact support</a>... or just don&apos;t do
       anything and observe that this notification contains an absurd amount of
       text that is purposely verbose in order to demonstrate that verbosity is,
-      in most cases, just in general really, i guess it's debatable, unnecessary
-      and to demonstrate that verbosity makes this notification's body text spit
-      into multiple lines because there is, surely, unequivocally, no way that
-      all of this can fit into one line of text on an average screen...
+      in most cases, just in general really, i guess it&apos;s debatable,
+      unnecessary and to demonstrate that verbosity makes this
+      notification&apos;s body text spit into multiple lines because there is,
+      surely, unequivocally, no way that all of this can fit into one line of
+      text on an average screen...
     </>
   )
   return (
@@ -92,9 +83,20 @@ const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
         </Heading>
         <StoryWrapper.Row rowTitle="Informative">
           <InlineNotification type="informative" title="Informative title">
-            "All Employees - North America" status has been changed to
-            'Archived'.
+            &quot;All Employees - North America&quot; status has been changed to
+            &apos;Archived&apos;.
             <a href="/">View all</a>
+          </InlineNotification>
+        </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Subtle">
+          <InlineNotification
+            type="informative"
+            isSubtle
+            title="Informative title"
+            hideCloseIcon
+          >
+            &quot;All Employees - North America&quot; status has been changed to
+            &apos;Archived&apos;. <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Positive">
@@ -164,9 +166,7 @@ StickerSheetReversed.parameters = {
   controls: { disable: true },
 }
 
-export const AutohideDemo: ComponentStory<
-  typeof InlineNotification
-> = props => (
+export const AutohideDemo: StoryFn<typeof InlineNotification> = props => (
   <>
     <InlineNotification
       title="Success"

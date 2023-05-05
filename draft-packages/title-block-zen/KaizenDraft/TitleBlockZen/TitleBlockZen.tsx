@@ -1,6 +1,6 @@
 import React from "react"
 import classNames from "classnames"
-import { IconButton, ButtonProps } from "@kaizen/button"
+import { IconButton, ButtonProps, CustomButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -17,7 +17,7 @@ import { useMediaQueries } from "@kaizen/responsive"
 import { Heading } from "@kaizen/typography"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
-import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
+import { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
 import styles from "./TitleBlockZen.module.scss"
 
@@ -37,6 +37,10 @@ type AvatarProps =
   | Omit<CompanyAvatarProps, "size">
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
+
+export type DefaultActionProps =
+  | TitleBlockButtonProps
+  | TitleBlockCustomButtonProps
 
 export type SectionTitleRenderProps = Pick<
   TitleBlockProps,
@@ -69,7 +73,7 @@ export interface TitleBlockProps {
   pageSwitcherSelect?: SelectProps
   handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryAction?: PrimaryActionProps
-  defaultAction?: TitleBlockButtonProps
+  defaultAction?: DefaultActionProps
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
@@ -90,13 +94,26 @@ export type BadgeProps = {
   animateChange?: boolean
 }
 
-export type TitleBlockButtonProps = DistributiveOmit<ButtonProps, "onClick"> & {
+export type TitleBlockButtonProps = DistributiveOmit<
+  ButtonProps,
+  "onClick" | "component"
+> & {
   onClick?: (e: any) => void
 }
 
-export type TitleBlockMenuItemProps = Omit<MenuItemProps, "action"> & {
-  action: ((e: any) => void) | string
+export type TitleBlockCustomButtonProps = DistributiveOmit<
+  TitleBlockButtonProps,
+  "component"
+> & {
+  className?: string
+  component: (props: CustomButtonProps) => JSX.Element
 }
+
+export type TitleBlockMenuItemProps =
+  | (Omit<MenuItemProps, "action"> & {
+      action: ((e: any) => void) | string
+    })
+  | TitleBlockCustomButtonProps
 
 export type ButtonWithHrefNotOnClick = DistributiveOmit<ButtonProps, "onClick">
 export type ButtonWithOnClickNotHref = DistributiveOmit<
@@ -130,9 +147,10 @@ export type SelectProps = React.ComponentProps<typeof Select>
  * Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
  * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
  */
+
 export type PrimaryActionProps =
   | (MenuGroup & { badge?: BadgeProps })
-  | (TitleBlockButtonProps & {
+  | ((TitleBlockButtonProps | TitleBlockCustomButtonProps) & {
       badge?: BadgeProps
     })
 
@@ -165,14 +183,18 @@ export type SecondaryActionsProps = SecondaryActionItemProps[]
 
 export type SecondaryActionItemProps =
   | MenuGroup
-  | (ButtonWithHrefNotOnClick | ButtonWithOnClickNotHref)
+  | (
+      | ButtonWithHrefNotOnClick
+      | ButtonWithOnClickNotHref
+      | TitleBlockCustomButtonProps
+    )
 
 export const isMenuItemNotButton = (
   value: TitleBlockButtonProps | MenuItemProps
 ): value is MenuItemProps => "action" in value
 
 export const isMenuGroupNotButton = (
-  value: TitleBlockButtonProps | MenuGroup
+  value: (TitleBlockButtonProps | TitleBlockCustomButtonProps) | MenuGroup
 ): value is MenuGroup => "menuItems" in value
 
 export type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
@@ -388,7 +410,11 @@ const renderNavigationTabs = (
       {!collapse && navigationTabs !== undefined && (
         <>
           <span className={styles.navigationTabEdgeShadowLeft} />
-          {navigationTabs}
+          {navigationTabs.map((navigationTab, index) =>
+            React.cloneElement(navigationTab, {
+              key: index,
+            })
+          )}
           <span className={styles.navigationTabEdgeShadowRight} />
         </>
       )}
@@ -409,6 +435,11 @@ export const convertSecondaryActionsToMenuItems = (
     if ("menuItems" in cur) {
       return [...acc, ...cur.menuItems]
     }
+
+    if ("component" in cur) {
+      return [...acc, cur]
+    }
+
     const out = {
       label: cur.label,
       icon: cur.icon,
@@ -510,7 +541,7 @@ const createTabletOverflowMenuItems = (
  * please be aware of the intended order mentioned above.
  */
 
-const TitleBlockZen = ({
+export const TitleBlockZen = ({
   title,
   variant,
   breadcrumb,
@@ -700,5 +731,4 @@ const TitleBlockZen = ({
   )
 }
 
-export default TitleBlockZen
-export { NavigationTab, NavigationTabProps }
+TitleBlockZen.displayName = "TitleBlockZen"

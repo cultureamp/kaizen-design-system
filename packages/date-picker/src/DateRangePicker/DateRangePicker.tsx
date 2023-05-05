@@ -56,7 +56,7 @@ export interface DateRangePickerProps extends DisabledDayMatchers {
 export const DateRangePicker = ({
   id,
   buttonRef = useRef<HTMLButtonElement>(null),
-  description,
+  description: _description, // not used
   labelText,
   isDisabled = false,
   classNameOverride,
@@ -141,9 +141,10 @@ export const DateRangePicker = ({
 
   return (
     <div>
-      <div ref={containerRef}>
+      <div ref={containerRef} className={classNameOverride}>
         <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
         <button
+          type="button"
           id={id}
           className={cx(
             dateRangePickerStyles.button,

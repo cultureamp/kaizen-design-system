@@ -1,12 +1,12 @@
 {
   "name": "@kaizen/draft-title-block-zen",
-  "version": "7.8.3",
+  "version": "7.10.1",
   "description": "The draft Title Block (Zen) component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -29,20 +29,20 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/button": "^2.0.17",
-    "@kaizen/component-library": "^16.2.1",
-    "@kaizen/draft-avatar": "^2.8.23",
-    "@kaizen/draft-badge": "^1.13.6",
-    "@kaizen/draft-menu": "^4.8.28",
-    "@kaizen/draft-select": "^2.10.13",
-    "@kaizen/draft-tag": "^3.3.2",
-    "@kaizen/responsive": "^1.8.5",
-    "@kaizen/typography": "^2.3.6",
+    "@kaizen/button": "^2.1.5",
+    "@kaizen/component-library": "^16.7.2",
+    "@kaizen/draft-avatar": "^2.8.36",
+    "@kaizen/draft-badge": "^1.13.8",
+    "@kaizen/draft-menu": "^4.9.4",
+    "@kaizen/draft-select": "^2.10.34",
+    "@kaizen/draft-tag": "^3.4.12",
+    "@kaizen/responsive": "^1.8.8",
+    "@kaizen/typography": "^2.3.8",
     "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "rimraf": "^4.1.2"
+    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

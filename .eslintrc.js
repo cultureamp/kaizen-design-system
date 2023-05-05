@@ -16,12 +16,17 @@ module.exports = {
     "import/resolver": {
       typescript: {}, // this empty key is required for eslint-import-resolver-typescript
     },
+    react: {
+      version: "detect",
+    },
   },
   extends: [
     "prettier",
     "plugin:ssr-friendly/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:storybook/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -33,6 +38,7 @@ module.exports = {
     "sort-imports-es6-autofix",
     "ssr-friendly",
     "jsx-a11y",
+    "jest",
   ],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
@@ -74,7 +80,7 @@ module.exports = {
     "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": [
       "off",
       {
@@ -179,6 +185,11 @@ module.exports = {
             position: "after",
           },
           {
+            pattern: "~*/**",
+            group: "internal",
+            position: "before",
+          },
+          {
             pattern: "..",
             group: "parent",
             position: "after",
@@ -192,6 +203,19 @@ module.exports = {
         pathGroupsExcludedImportTypes: [],
       },
     ],
+    "jest/consistent-test-it": ["error", { fn: "it" }],
+    "jest/expect-expect": "error",
+    "jest/no-commented-out-tests": "error",
+    "jest/no-conditional-expect": "error",
+    "jest/no-focused-tests": "error",
+    "jest/no-disabled-tests": "error",
+    "jest/no-standalone-expect": "error",
+    "jest/no-test-return-statement": "error",
+    "jest/prefer-equality-matcher": "error",
+    "jest/require-top-level-describe": "error",
+    "jest/valid-describe-callback": "error",
+    "jest/valid-expect": "error",
+    "jest/valid-title": "error",
     "jsdoc/check-alignment": "off",
     "jsdoc/check-indentation": "off",
     "jsdoc/newline-after-description": "off",
@@ -229,6 +253,14 @@ module.exports = {
     "no-underscore-dangle": "error",
     "no-unsafe-finally": "error",
     "no-unused-labels": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        varsIgnorePattern: "^_",
+        argsIgnorePattern: "^_",
+      },
+    ],
     "no-var": "error",
     "object-shorthand": "error",
     "one-var": ["error", "never"],
@@ -236,6 +268,8 @@ module.exports = {
     "prefer-object-spread": "error",
     "quote-props": ["error", "as-needed"],
     radix: "error",
+    "react/button-has-type": ["error"],
+    "react/prop-types": "off",
     "space-before-function-paren": [
       "error",
       {
@@ -257,9 +291,25 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.stories.tsx", "*.spec.tsx", "*.docsExample.tsx"],
+      files: [
+        "storybook/*",
+        "**/_docs/**/*",
+        "*.stories.tsx",
+        "*.spec.ts",
+        "*.spec.tsx",
+        "*.docsExample.tsx",
+      ],
       rules: {
         "import/no-extraneous-dependencies": "off",
+      },
+    },
+    {
+      files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
+      rules: {
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          { allowExpressions: true },
+        ],
       },
     },
   ],

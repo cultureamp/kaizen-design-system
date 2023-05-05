@@ -1,6 +1,6 @@
 import React from "react"
 import { configure, fireEvent } from "@testing-library/dom"
-import { render, waitFor, screen } from "@testing-library/react"
+import { render, waitFor, screen, within } from "@testing-library/react"
 import {
   TitleBlockZen,
   CustomBreadcrumbProps,
@@ -237,7 +237,7 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("passes the primary menu items to the mobile actions drawer", () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
         </TitleBlockZen>
@@ -538,7 +538,7 @@ describe("<TitleBlockZen />", () => {
     it("renders a custom element in section title", async () => {
       const expectedText = "This is a button"
       const CustomComponent = (props: SectionTitleRenderProps): JSX.Element => (
-        <button>{props.sectionTitle}</button>
+        <button type="button">{props.sectionTitle}</button>
       )
       render(
         <TitleBlockZen
@@ -658,7 +658,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("survey status", () => {
-    it("it doesn't render tag when field is omitted", async () => {
+    it("doesn't render tag when field is omitted", async () => {
       render(<TitleBlockZen title="Test Title">Example</TitleBlockZen>)
 
       await waitFor(() => {
@@ -674,7 +674,7 @@ describe("<TitleBlockZen />", () => {
       ["closed", "statusClosed"],
       ["scheduled", "statusClosed"],
     ])(
-      "it renders tag with correct text and variant when %s status",
+      "renders tag with correct text and variant when %s status",
       async (status, expectedClassName) => {
         render(
           <TitleBlockZen
@@ -701,6 +701,7 @@ describe("<TitleBlockZen />", () => {
       }
     )
   })
+
   describe("automation ID behaviour", () => {
     describe("when default automation IDs are not provided alongside required conditional renders", () => {
       it("renders the default automation IDs", () => {
@@ -735,7 +736,7 @@ describe("<TitleBlockZen />", () => {
         for (const automationId of Object.values(automationdIds)) {
           expect(
             container.querySelector(`[data-automation-id="${automationId}"]`)
-          ).toBeTruthy
+          ).toBeTruthy()
         }
       })
     })
@@ -854,6 +855,256 @@ describe("<TitleBlockZen />", () => {
       expect(customElement).toHaveTextContent("Back")
       fireEvent.click(customElement)
       expect(mockFn).toBeCalled()
+    })
+  })
+
+  describe("renders a custom component when you pass a 'component' prop to a action", () => {
+    const MockLinkComponent = (props: any): JSX.Element => (
+      <a
+        className={props.className}
+        href={props.href}
+        data-automation-id={props.automationId}
+      >
+        {props.children}
+      </a>
+    )
+    const MockButtonComponent = (props: any): JSX.Element => (
+      <button
+        type="button"
+        className={props.className}
+        onClick={props.onClick}
+        data-automation-id={props.automationId}
+      >
+        {props.children}
+      </button>
+    )
+
+    describe("primaryAction", () => {
+      it("will render a custom anchor component in the main action toolbar", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              href: "#test-primary",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const toolbar = screen.getByTestId("title-block-main-actions-toolbar")
+        within(toolbar).getByRole("link", {
+          name: "Primary action",
+        })
+        expect(
+          within(toolbar).getByRole("link", {
+            name: "Primary action",
+          })
+        ).toHaveAttribute("href", "#test-primary")
+      })
+
+      it("will render a custom anchor component in the mobile drawer", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              href: "#test-primary",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const drawer = screen.getByTestId(
+          "title-block-mobile-actions-drawer-handle"
+        )
+        within(drawer).getByRole("link", {
+          name: "Primary action",
+        })
+        expect(
+          within(drawer).getByRole("link", {
+            name: "Primary action",
+          })
+        ).toHaveAttribute("href", "#test-primary")
+      })
+
+      it("will render custom button with functional onClick", () => {
+        const testClickFunc = jest.fn()
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              onClick: testClickFunc,
+              component: MockButtonComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const drawer = screen.getByTestId(
+          "title-block-mobile-actions-drawer-handle"
+        )
+        const drawerBtn = within(drawer).getByRole("button", {
+          name: "Primary action",
+        })
+        fireEvent.click(drawerBtn)
+        expect(testClickFunc).toBeCalledTimes(1)
+      })
+
+      it("will render custom button with children and not label", () => {
+        const testClickFunc = jest.fn()
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            primaryAction={{
+              label: "Primary action",
+              onClick: testClickFunc,
+              component: (props): JSX.Element => (
+                <MockButtonComponent {...props}>
+                  This will replace label
+                </MockButtonComponent>
+              ),
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const drawer = screen.getByTestId(
+          "title-block-mobile-actions-drawer-handle"
+        )
+        within(drawer).getByRole("button", {
+          name: "This will replace label",
+        })
+        expect(
+          within(drawer).queryByRole("button", {
+            name: "Primary action",
+          })
+        ).toBeFalsy()
+      })
+    })
+
+    describe("secondaryActions", () => {
+      it("will render multiple custom anchor components in the secondary actions toolbar", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            secondaryActions={[
+              {
+                label: "Secondary action 1",
+                href: "#test-secondary",
+                component: MockLinkComponent,
+              },
+              {
+                label: "Secondary action 2",
+                href: "#test-secondary-2",
+                component: MockLinkComponent,
+              },
+            ]}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const toolbar = screen.getByTestId(
+          "title-block-secondary-actions-toolbar"
+        )
+        const links = within(toolbar).getAllByRole("link")
+        expect(links.length).toBe(2)
+        expect(links[0]).toHaveAttribute("href", "#test-secondary")
+        expect(links[1]).toHaveAttribute("href", "#test-secondary-2")
+      })
+
+      it("will render multiple custom anchor components in the secondary actions mobile Drawer", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            secondaryActions={[
+              {
+                label: "Secondary action 1",
+                href: "#test-secondary",
+                component: MockLinkComponent,
+              },
+              {
+                label: "Secondary action 2",
+                href: "#test-secondary-2",
+                component: MockLinkComponent,
+              },
+            ]}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const links = screen.getAllByTestId(
+          "title-block-mobile-actions-secondary-action"
+        )
+        expect(links.length).toBe(2)
+        expect(links[0]).toHaveAttribute("href", "#test-secondary")
+        expect(links[1]).toHaveAttribute("href", "#test-secondary-2")
+      })
+    })
+
+    describe("defaultAction", () => {
+      it("will render a custom anchor components in the main action toolbar", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            defaultAction={{
+              label: "Default action",
+              href: "#test-default",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const toolbar = screen.getByTestId("title-block-main-actions-toolbar")
+        const defaultActionAnchor = within(toolbar).getByRole("link", {
+          name: "Default action",
+        })
+        expect(defaultActionAnchor).toHaveAttribute("href", "#test-default")
+      })
+
+      it("will render the component above primary action in the Drawer content if it is a link", () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            defaultAction={{
+              label: "Default action",
+              href: "#test-default",
+              component: MockLinkComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        const mobileActionLink = screen.getByTestId(
+          "title-block-mobile-actions-default-link"
+        )
+
+        expect(mobileActionLink).toBeInTheDocument()
+      })
+
+      it("will render the component in the top list of the Drawer content if it is a clickable button", () => {
+        const testClickFunc = jest.fn()
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            defaultAction={{
+              label: "Default action",
+              onClick: testClickFunc,
+              component: MockButtonComponent,
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+        expect(
+          screen.queryByTestId("title-block-mobile-actions-default-link")
+        ).toBeFalsy()
+        screen.getByTestId("title-block-mobile-actions-default-action")
+      })
     })
   })
 })

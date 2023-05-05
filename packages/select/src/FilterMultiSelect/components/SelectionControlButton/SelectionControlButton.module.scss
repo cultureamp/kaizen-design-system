@@ -40,7 +40,7 @@ $focus-ring-offset: 1px;
     outline: none;
   }
 
-  &:global(.focus-visible)::after {
+  &:focus-visible::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
     content: "";
     position: absolute;
@@ -65,17 +65,14 @@ $focus-ring-offset: 1px;
     color: rgba($color-purple-800-rgb, 0.3);
     opacity: 1;
 
-    :global(.js-focus-visible) & {
-      // hide native focus ring when :focus but not :focus-visible
-      &:focus {
-        outline: none;
-        border: 2px solid transparent;
-      }
+    &:focus {
+      outline: none;
+      border: 2px solid transparent;
+    }
 
-      &:global(.focus-visible)::after {
-        border-style: $border-dashed-border-style;
-        border-color: $color-gray-400;
-      }
+    &:focus-visible::after {
+      border-style: $border-dashed-border-style;
+      border-color: $color-gray-400;
     }
   }
 }

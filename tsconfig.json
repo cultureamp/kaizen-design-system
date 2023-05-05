@@ -1,17 +1,25 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "lib": ["es2019", "dom"],
     "module": "commonjs",
     "jsx": "react",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "strict": true,
     "allowJs": false,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "~types/*": ["packages/components/src/types/*"],
+      "~utils/*": ["packages/components/src/utils/*"],
+      "~components/*": ["packages/components/src/*"],
+      "~icons/*": ["packages/components/src/SVG/icons/*"]
+    }
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],
-  "exclude": ["**/node_modules"]
+  "exclude": ["**/node_modules", "packages/components/**/*"]
 }

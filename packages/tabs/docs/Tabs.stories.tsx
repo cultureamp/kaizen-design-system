@@ -1,16 +1,15 @@
 import React, { useState } from "react"
-import { Story } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 import { Tabs, TabList, TabPanels, TabPanel, Tab } from "../index"
 
 export default {
-  title: `${CATEGORIES.components}/Tabs`,
+  tags: ["autodocs"],
+  title: "Components/Tabs",
   component: Tabs,
-  subcomponents: { Tab, TabList, TabPanels, TabPanel },
   parameters: {
     docs: {
       description: {
@@ -19,9 +18,9 @@ export default {
       },
     },
   },
-}
+} satisfies Meta<typeof Tabs>
 
-export const Uncontrolled: Story = () => (
+export const Uncontrolled: StoryFn = () => (
   <Tabs
     defaultIndex={1}
     // eslint-disable-next-line no-console
@@ -58,7 +57,7 @@ export const Uncontrolled: Story = () => (
 )
 Uncontrolled.parameters = { chromatic: { disable: false } }
 
-export const Controlled: Story = () => {
+export const Controlled: StoryFn = () => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   return (
     <>
@@ -99,7 +98,7 @@ export const Controlled: Story = () => {
   )
 }
 
-export const ManualKeyboardActivation: Story = () => (
+export const ManualKeyboardActivation: StoryFn = () => (
   <Tabs keyboardActivation="manual">
     <TabList aria-label="Tabs">
       <Tab>Tab 1</Tab>
@@ -112,8 +111,8 @@ export const ManualKeyboardActivation: Story = () => (
           <Box mb={0.5}>
             <Paragraph variant="body">
               When using arrow keys to navigate these tabs, the tab will only be
-              focused (rather than automatically made active). You'll need to
-              press enter/space to then active the tab.
+              focused (rather than automatically made active). You&apos;ll need
+              to press enter/space to then active the tab.
             </Paragraph>
           </Box>
           <Paragraph variant="body">
@@ -136,7 +135,7 @@ export const ManualKeyboardActivation: Story = () => (
   </Tabs>
 )
 
-export const UsageInCard: Story = () => (
+export const UsageInCard: StoryFn = () => (
   <Card>
     <Tabs
       // eslint-disable-next-line no-console

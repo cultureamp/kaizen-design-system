@@ -1,9 +1,8 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
 import {
   EmptyStatesAction,
   EmptyStatesInformative,
@@ -65,7 +64,8 @@ const STATIC_SCENE_CONTROLS = {
 }
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.illustration}/Scene`,
+  tags: ["autodocs"],
+  title: "Components/Scene",
   component: BrandMomentCaptureIntro,
   parameters: {
     chromatic: { disable: false },
@@ -113,32 +113,38 @@ type AnimatedScene = (props: AnimatedSceneProps) => JSX.Element
 type StaticScene = (props: StaticSceneProps) => JSX.Element
 type IllustrationScene = AnimatedScene | StaticScene
 
-type SceneComponents = Array<{
+type SceneComponent = {
   Component: IllustrationScene
   heading: string
   width?: string
-}>
+}
+type SceneComponents = SceneComponent[]
+
+type IllustrationScenesTemplateProps = (
+  | AnimatedSceneProps
+  | StaticSceneProps
+) & { sceneComponents: SceneComponents }
 
 const isAnimatedScene = (
   Component: IllustrationScene
 ): Component is AnimatedScene => Component.toString().includes("isAnimated")
 
-const IllustrationScenesTemplate: Story<
-  (AnimatedSceneProps | StaticSceneProps) & { sceneComponents: SceneComponents }
-> = ({ sceneComponents, ...restArgs }) => {
+const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
+  sceneComponents,
+  ...restArgs
+}: IllustrationScenesTemplateProps) => {
   const { isAnimated, loop, autoplay, alt = "", ...restProps } = restArgs
   const isAnimatedStory = IS_CHROMATIC ? false : isAnimated
   return (
     <>
-      {sceneComponents.map(({ Component, heading, width }) => {
+      {sceneComponents.map(({ Component, heading, width }: SceneComponent) => {
         const sceneWrapperProps = {
-          key: heading,
           width: width || "450px",
           heading,
         }
         if (isAnimatedScene(Component)) {
           return (
-            <SceneWrapper {...sceneWrapperProps}>
+            <SceneWrapper key={heading} {...sceneWrapperProps}>
               {isAnimatedStory ? (
                 <Component
                   isAnimated={true}
@@ -154,7 +160,7 @@ const IllustrationScenesTemplate: Story<
         }
 
         return (
-          <SceneWrapper {...sceneWrapperProps}>
+          <SceneWrapper key={heading} {...sceneWrapperProps}>
             <Component alt={alt} {...restProps} />
           </SceneWrapper>
         )

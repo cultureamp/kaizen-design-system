@@ -1,12 +1,7 @@
 import React from "react"
-import { Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { within } from "@storybook/testing-library"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import {
-  CATEGORIES,
-  SUB_CATEGORIES,
-  SUB_COMPONENTS_FOLDER_NAME,
-} from "../../../storybook/constants"
 import {
   CalendarRange,
   CalendarSingle,
@@ -15,11 +10,8 @@ import {
 import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/${SUB_COMPONENTS_FOLDER_NAME}/Calendars`,
-  subcomponents: {
-    CalendarSingle,
-    CalendarRange,
-  },
+  tags: ["autodocs"],
+  title: "Components/Calendar",
   parameters: {
     docs: {
       description: {
@@ -38,7 +30,7 @@ const CalendarSingleExample = (
   </div>
 )
 
-const StickerSheetTemplate: Story = () => (
+const StickerSheetTemplate: StoryFn = () => (
   <>
     <StickerSheet heading="Calendars - Day">
       <StickerSheet.Header headings={["Hover", "Focus", "Disabled"]} />
@@ -166,7 +158,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
       "story__datepicker__calendar--hover"
     )
     getElementWithinCalendar(`${row}-focus`, buttonDescription).classList.add(
-      "focus-visible"
+      "story__datepicker__calendar--focus"
     )
   })
 }

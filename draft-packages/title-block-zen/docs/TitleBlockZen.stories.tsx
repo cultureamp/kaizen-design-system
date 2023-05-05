@@ -1,6 +1,6 @@
-import React from "react"
-import { ComponentStory, Story } from "@storybook/react"
-import { withDesign } from "storybook-addon-designs"
+import React, { ReactNode } from "react"
+import { Meta, StoryFn } from "@storybook/react"
+import { CustomButtonProps } from "packages/button"
 import { Box } from "@kaizen/component-library"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
@@ -11,15 +11,15 @@ import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
 import { Tag } from "@kaizen/draft-tag"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
 import { NavigationTab, SectionTitleRenderProps, TitleBlockZen } from ".."
 import styles from "./TitleBlockZen.stories.module.scss"
 
 const TESTING_VIEWPORTS = [320, 768, 1200]
 
 export default {
-  title: `${CATEGORIES.components}/Title Block`,
+  tags: ["autodocs"],
+  title: "Components/Title Block",
+  component: TitleBlockZen,
   parameters: {
     chromatic: { viewports: TESTING_VIEWPORTS },
     docs: {
@@ -28,12 +28,8 @@ export default {
           'import { TitleBlockZen } from "@kaizen/draft-title-block-zen"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4619%3A17068"
-    ),
   },
-  decorators: [withDesign],
-}
+} satisfies Meta<typeof TitleBlockZen>
 
 const OffsetPadding = ({
   children,
@@ -58,19 +54,17 @@ const SECONDARY_ACTIONS = [
   },
   {
     onClick: (): void => alert("test"),
-    href: "foo",
     label: "Secondary action",
   },
 ]
 
-const DefaultTemplate: ComponentStory<typeof TitleBlockZen> = args => (
+const DefaultTemplate: StoryFn<typeof TitleBlockZen> = args => (
   <OffsetPadding>
     <TitleBlockZen {...args} />
   </OffsetPadding>
 )
 
-export const Default: ComponentStory<typeof TitleBlockZen> =
-  DefaultTemplate.bind({})
+export const Default: StoryFn<typeof TitleBlockZen> = DefaultTemplate.bind({})
 Default.args = {
   title: "Page title",
   surveyStatus: { text: "Live", status: "live" },
@@ -104,16 +98,16 @@ Default.args = {
     handleClick: (): void => alert("breadcrumb clicked!"),
   },
   navigationTabs: [
-    <NavigationTab text="Label" href="#" active />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
-    <NavigationTab text="Label" href="#" />,
+    <NavigationTab key="1" text="Label" href="#" active />,
+    <NavigationTab key="2" text="Label" href="#" />,
+    <NavigationTab key="3" text="Label" href="#" />,
+    <NavigationTab key="4" text="Label" href="#" />,
+    <NavigationTab key="5" text="Label" href="#" />,
+    <NavigationTab key="6" text="Label" href="#" />,
   ],
 }
 
-export const WithBadge: Story = () => {
+export const WithBadge: StoryFn = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
   return (
     <OffsetPadding>
@@ -148,7 +142,7 @@ export const WithBadge: Story = () => {
 WithBadge.storyName = "With Primary Action Badge"
 WithBadge.parameters = { chromatic: { disable: false } }
 
-export const WithDefaultTag: Story = () => (
+export const WithDefaultTag: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -170,7 +164,7 @@ export const WithDefaultTag: Story = () => (
 WithDefaultTag.storyName = "With Default Survey Status (Tag)"
 WithDefaultTag.parameters = { chromatic: { disable: false } }
 
-export const AdminWithDefaultTag: Story = () => (
+export const AdminWithDefaultTag: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       variant="admin"
@@ -193,7 +187,7 @@ export const AdminWithDefaultTag: Story = () => (
 AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 AdminWithDefaultTag.parameters = { chromatic: { disable: false } }
 
-export const DefaultWithMenuButton: Story = () => (
+export const DefaultWithMenuButton: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -227,12 +221,12 @@ export const DefaultWithMenuButton: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -240,7 +234,7 @@ export const DefaultWithMenuButton: Story = () => (
 DefaultWithMenuButton.storyName = "Default (Menu Button)"
 DefaultWithMenuButton.parameters = { chromatic: { disable: false } }
 
-export const AdminVariant: Story = () => (
+export const AdminVariant: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -274,7 +268,7 @@ export const AdminVariant: Story = () => (
 AdminVariant.storyName = "Admin variant"
 AdminVariant.parameters = { chromatic: { disable: false } }
 
-export const AdminVariantWithNavTabs: Story = () => (
+export const AdminVariantWithNavTabs: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -289,12 +283,12 @@ export const AdminVariantWithNavTabs: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
-        <NavigationTab text="Label" href="#" variant="admin" />,
+        <NavigationTab key="1" text="Label" href="#" active variant="admin" />,
+        <NavigationTab key="2" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="3" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="4" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="5" text="Label" href="#" variant="admin" />,
+        <NavigationTab key="6" text="Label" href="#" variant="admin" />,
       ]}
     />
   </OffsetPadding>
@@ -302,7 +296,7 @@ export const AdminVariantWithNavTabs: Story = () => (
 AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 AdminVariantWithNavTabs.parameters = { chromatic: { disable: false } }
 
-export const EducationVariant: Story = () => (
+export const EducationVariant: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -358,7 +352,7 @@ export const EducationVariant: Story = () => (
 EducationVariant.storyName = "Education variant"
 EducationVariant.parameters = { chromatic: { disable: false } }
 
-export const Engagement: Story = () => (
+export const Engagement: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Baseline Engagement Survey"
@@ -381,23 +375,24 @@ export const Engagement: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Summary" href="#" />,
+        <NavigationTab key="summary" text="Summary" href="#" />,
         <NavigationTab
+          key="insight"
           text="Insight"
           href="#"
           handleClick={(): void => alert("Label clicked!")}
         />,
-        <NavigationTab text="Participation" href="#" />,
-        <NavigationTab text="Questions" href="#" active />,
-        <NavigationTab text="Heatmap" href="#" />,
-        <NavigationTab text="Comments" href="#" />,
+        <NavigationTab key="participation" text="Participation" href="#" />,
+        <NavigationTab key="questions" text="Questions" href="#" active />,
+        <NavigationTab key="heatmap" text="Heatmap" href="#" />,
+        <NavigationTab key="comments" text="Comments" href="#" />,
       ]}
     />
   </OffsetPadding>
 )
 Engagement.parameters = { chromatic: { disable: false } }
 
-export const Performance: Story = () => (
+export const Performance: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -430,22 +425,23 @@ export const Performance: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="self-reflection"
           text="Self-reflection"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Goal" href="#" />,
-        <NavigationTab text="Evaluations" href="#" />,
-        <NavigationTab text="Notes" href="#" />,
+        <NavigationTab key="goal" text="Goal" href="#" />,
+        <NavigationTab key="evaluations" text="Evaluations" href="#" />,
+        <NavigationTab key="notes" text="Notes" href="#" />,
       ]}
     />
   </OffsetPadding>
 )
 Performance.parameters = { chromatic: { disable: false } }
 
-export const PerformanceWithAvatarProps: Story = () => (
+export const PerformanceWithAvatarProps: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -481,22 +477,23 @@ export const PerformanceWithAvatarProps: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="self-reflection"
           text="Self-reflection"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Goal" href="#" />,
-        <NavigationTab text="Evaluations" href="#" />,
-        <NavigationTab text="Notes" href="#" />,
+        <NavigationTab key="goal" text="Goal" href="#" />,
+        <NavigationTab key="evaluations" text="Evaluations" href="#" />,
+        <NavigationTab key="notes" text="Notes" href="#" />,
       ]}
     />
   </OffsetPadding>
 )
 PerformanceWithAvatarProps.storyName = "Performance with AvatarProps"
 
-export const PerformanceWithEmptyAvatarProps: Story = () => (
+export const PerformanceWithEmptyAvatarProps: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
@@ -529,22 +526,23 @@ export const PerformanceWithEmptyAvatarProps: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="self-reflection"
           text="Self-reflection"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Goal" href="#" />,
-        <NavigationTab text="Evaluations" href="#" />,
-        <NavigationTab text="Notes" href="#" />,
+        <NavigationTab key="goal" text="Goal" href="#" />,
+        <NavigationTab key="evaluations" text="Evaluations" href="#" />,
+        <NavigationTab key="notes" text="Notes" href="#" />,
       ]}
     />
   </OffsetPadding>
 )
 PerformanceWithEmptyAvatarProps.storyName = "Performance with Empty AvatarProps"
 
-export const LongLabels: Story = () => (
+export const LongLabels: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Wolfeschlegelsteino Hausenbergerdorffsch Hausenbergerdorffsch"
@@ -579,15 +577,16 @@ export const LongLabels: Story = () => (
       avatar={<img alt="" src={assetUrl("site/empty-state.png")} />}
       subtitle="Wissenschaftlicher Mitarbeiter (Habilitation)"
       navigationTabs={[
-        <NavigationTab text="Feedback" href="#" active />,
+        <NavigationTab key="Feedback" text="Feedback" href="#" active />,
         <NavigationTab
+          key="Selbstreflexion"
           text="Selbstreflexion"
           href="#"
           handleClick={(): void => alert("Self-reflection clicked!")}
         />,
-        <NavigationTab text="Tor" href="#" />,
-        <NavigationTab text="Bewertungen" href="#" />,
-        <NavigationTab text="Anmerkungen" href="#" />,
+        <NavigationTab key="Tor" text="Tor" href="#" />,
+        <NavigationTab key="Bewertungen" text="Bewertungen" href="#" />,
+        <NavigationTab key="Anmerkungen" text="Anmerkungen" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -615,7 +614,7 @@ const MENU_LINKS = [
   },
 ]
 
-export const DefaultWithContent: Story = () => (
+export const DefaultWithContent: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -637,12 +636,12 @@ export const DefaultWithContent: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
     <Container>
@@ -729,7 +728,7 @@ export const DefaultWithContent: Story = () => (
 DefaultWithContent.storyName = "Default with content"
 DefaultWithContent.parameters = { chromatic: { disable: false } }
 
-export const DefaultNoSecondary: Story = () => (
+export const DefaultNoSecondary: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -750,12 +749,12 @@ export const DefaultNoSecondary: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
     {/* <Skirt>
@@ -840,7 +839,7 @@ export const DefaultNoSecondary: Story = () => (
 )
 DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
-export const DefaultOnlyPrimary: Story = () => (
+export const DefaultOnlyPrimary: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -857,19 +856,43 @@ export const DefaultOnlyPrimary: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
   </OffsetPadding>
 )
 DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
-export const DefaultWithReportSwitcher: Story = () => (
+export const DefaultOnlySecondary: StoryFn = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      surveyStatus={{ text: "Live", status: "live" }}
+      secondaryActions={SECONDARY_ACTIONS}
+      handleHamburgerClick={(): void => alert("Hamburger clicked")}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: () => alert("breadcrumb clicked!"),
+      }}
+      navigationTabs={[
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
+      ]}
+    />
+  </OffsetPadding>
+)
+DefaultOnlySecondary.storyName = "Default (only secondary action)"
+export const DefaultWithReportSwitcher: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -909,12 +932,12 @@ export const DefaultWithReportSwitcher: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
   </OffsetPadding>
@@ -922,7 +945,7 @@ export const DefaultWithReportSwitcher: Story = () => (
 DefaultWithReportSwitcher.storyName = "Default with report switcher"
 DefaultWithReportSwitcher.parameters = { chromatic: { disable: false } }
 
-export const DefaultNoLink: Story = () => (
+export const DefaultNoLink: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -956,12 +979,12 @@ export const DefaultNoLink: Story = () => (
         handleClick: () => alert("breadcrumb clicked!"),
       }}
       navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
+        <NavigationTab key="1" text="Label" href="#" active />,
+        <NavigationTab key="2" text="Label" href="#" />,
+        <NavigationTab key="3" text="Label" href="#" />,
+        <NavigationTab key="4" text="Label" href="#" />,
+        <NavigationTab key="5" text="Label" href="#" />,
+        <NavigationTab key="6" text="Label" href="#" />,
       ]}
     />
     <Skirt titleBlockHasNavigation={false}>
@@ -977,7 +1000,7 @@ export const DefaultNoLink: Story = () => (
 )
 DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
-export const DefaultOnlyLongTitle: Story = () => (
+export const DefaultOnlyLongTitle: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -993,7 +1016,7 @@ export const DefaultOnlyLongTitle: Story = () => (
 )
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
 
-export const DefaultCollapsedNavigation: Story = () => (
+export const DefaultCollapsedNavigation: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -1018,7 +1041,7 @@ export const DefaultCollapsedNavigation: Story = () => (
 DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
 DefaultCollapsedNavigation.parameters = { chromatic: { disable: false } }
 
-export const DefaultCollapsedNavigationCard: Story = () => (
+export const DefaultCollapsedNavigationCard: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       title="Page title"
@@ -1045,7 +1068,7 @@ export const DefaultCollapsedNavigationCard: Story = () => (
 DefaultCollapsedNavigationCard.storyName =
   "Default (collapsed navigation with card)"
 
-export const AdminVariantNavigation: Story = () => (
+export const AdminVariantNavigation: StoryFn = () => (
   <OffsetPadding>
     <TitleBlockZen
       variant="admin"
@@ -1072,7 +1095,7 @@ export const AdminVariantNavigation: Story = () => (
 )
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
 
-export const RenderProps: Story = () => {
+export const RenderProps: StoryFn = () => {
   const CustomTab = (props: {
     href: string
     className: string
@@ -1099,6 +1122,11 @@ export const RenderProps: Story = () => {
             </a>
           ),
         }}
+        secondaryActions={SECONDARY_ACTIONS}
+        defaultAction={{
+          href: "#",
+          label: "Default action",
+        }}
         breadcrumb={{
           path: "#",
           text: "Back to home",
@@ -1110,16 +1138,22 @@ export const RenderProps: Story = () => {
           ),
         }}
         navigationTabs={[
-          <NavigationTab text="Label" href="#" active render={CustomTab} />,
-          <NavigationTab text="Label" href="#" render={CustomTab} />,
-          <NavigationTab text="Label" href="#" render={CustomTab} />,
+          <NavigationTab
+            key="1"
+            text="Label"
+            href="#"
+            active
+            render={CustomTab}
+          />,
+          <NavigationTab key="2" text="Label" href="#" render={CustomTab} />,
+          <NavigationTab key="3" text="Label" href="#" render={CustomTab} />,
         ]}
       />
     </OffsetPadding>
   )
 }
 
-export const WithCustomSectionTitle: Story = () => {
+export const WithCustomSectionTitle: StoryFn = () => {
   const CustomComponent = (props: SectionTitleRenderProps): JSX.Element => (
     <div className={styles["flex-wrapper"]}>
       <Heading color="white" variant="heading-3">
@@ -1149,3 +1183,152 @@ export const WithCustomSectionTitle: Story = () => {
 }
 WithCustomSectionTitle.storyName = "With custom section title"
 WithCustomSectionTitle.parameters = { chromatic: { disable: false } }
+
+RenderProps.storyName = "Navigation tabs with render props"
+
+/** A mock implementation of Next.js's Link types */
+type MockRouterPropsType = {
+  href: string | undefined
+  as?: string
+  replace?: boolean
+  scroll?: boolean
+  shallow?: boolean
+  passHref?: boolean
+  prefetch?: boolean
+  locale?: string | false
+  legacyBehavior?: boolean
+  onMouseEnter?: (e: any) => void
+  onTouchStart?: (e: any) => void
+  onClick?: (e: any) => void
+  children?: ReactNode
+  automationId?: string
+}
+/** A mock implementation of Next.js's Link component */
+const MockRouterLink = ({
+  href,
+  automationId,
+  children,
+  ...otherProps
+}: MockRouterPropsType): JSX.Element => (
+  <button
+    type="button"
+    {...otherProps}
+    // this is in place of using Link's `to` prop
+    onClick={(): void => alert(`Mock route change to ${href}`)}
+    data-automation-id={automationId}
+  >
+    {children}
+  </button>
+)
+
+export const ActionRenderProps: StoryFn = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default action",
+        // if you want to use sort your custom components in the top half for with links
+        // you will need to pass href in like this
+        href: "#default",
+        icon: starIcon,
+        // while this *could* take children it would not be able to use the custom button's
+        // `renderContent` for label and icon styling. If you do use children here you will
+        // have to byo styles
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      primaryAction={{
+        label: "Primary action",
+        icon: arrowForwardIcon,
+        iconPosition: "end",
+        component: props => <MockRouterLink href="#primary" {...props} />,
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          icon: reportSharingIcon,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary" {...props} />
+          ),
+        },
+        {
+          label: "secondary action 2",
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-2" {...props} />
+          ),
+        },
+        {
+          label: "secondary action 3",
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-3" {...props} />
+          ),
+        },
+      ]}
+    />
+  </OffsetPadding>
+)
+
+ActionRenderProps.storyName = "Custom actions with component render props"
+
+export const MenuHierarchyExample: StoryFn = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      defaultAction={{
+        label: "default link action",
+        href: "#default",
+        icon: starIcon,
+        component: props => <MockRouterLink href={props.href} {...props} />,
+      }}
+      primaryAction={{
+        label: "Primary actions",
+        menuItems: [
+          {
+            label: "Component prop with link 1",
+
+            href: "#priamry-2",
+            component: props => <MockRouterLink href={props.href} {...props} />,
+          },
+          {
+            label: "Component prop with link 2",
+            href: "#priamry-3",
+            component: props => <a {...props}>{props.children}</a>,
+          },
+          // on mobile, anything not supplied an href will be sorted below the default (link) action
+          // to match to the existing pattern of link on top, actions on bottom. See "Default
+          // with content" Story for example.
+          {
+            label: "Component prop with onclick",
+            icon: reportSharingIcon,
+            iconPosition: "end",
+            onClick: (): void => alert("a primary action"),
+            component: props => <button type="button" {...props} />,
+          },
+        ],
+      }}
+      secondaryActions={[
+        {
+          label: "secondary action",
+          icon: reportSharingIcon,
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary" {...props} />
+          ),
+        },
+        {
+          label: "secondary action 2",
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-2" {...props} />
+          ),
+        },
+        {
+          label: "secondary action 3",
+          component: (props: CustomButtonProps) => (
+            <MockRouterLink href="#secondary-3" {...props} />
+          ),
+        },
+      ]}
+    />
+  </OffsetPadding>
+)
+
+MenuHierarchyExample.storyName =
+  "Sorting menu list actions using component render props"

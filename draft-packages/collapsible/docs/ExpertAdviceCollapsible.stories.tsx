@@ -1,9 +1,7 @@
 import React from "react"
-import { ComponentMeta, Story } from "@storybook/react"
-import { Box } from "@kaizen/component-library"
+import { Meta, StoryFn } from "@storybook/react"
 import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible"
 import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES } from "../../../storybook/constants"
 
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
 ac scelerisque sem, vel ultricies justo. Donec eu porttitor ante,
@@ -15,24 +13,23 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 export default {
-  title: `${CATEGORIES.components}/Collapsible/Expert Advice Collapsible`,
+  tags: ["autodocs"],
+  title: "Components/Expert Advice Collapsible",
   component: ExpertAdviceCollapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },
     docs: {
       description: {
         component:
-          'import { Collapsible, CollapsibleGroup, ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
+          'import { ExpertAdviceCollapsible } from "@kaizen/draft-collapsible";',
       },
     },
   },
-} as ComponentMeta<typeof ExpertAdviceCollapsible>
+} satisfies Meta<typeof ExpertAdviceCollapsible>
 
-export const DefaultStory: Story = () => (
-  <Box m={1}>
-    <ExpertAdviceCollapsible id="123" title="Expert advice collapsible">
-      <Paragraph variant="body">{lipsum}</Paragraph>
-    </ExpertAdviceCollapsible>
-  </Box>
+export const DefaultStory: StoryFn = args => (
+  <ExpertAdviceCollapsible id="123" title="Expert advice collapsible" {...args}>
+    <Paragraph variant="body">{lipsum}</Paragraph>
+  </ExpertAdviceCollapsible>
 )
 DefaultStory.storyName = "Single Expert Advice Collapsible"

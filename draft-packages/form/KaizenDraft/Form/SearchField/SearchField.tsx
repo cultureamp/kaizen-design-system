@@ -1,5 +1,7 @@
 import React from "react"
-import { InputSearch, InputSearchProps, FieldGroup, Label } from "../Primitives"
+import { InputSearch, InputSearchProps, Label } from "../Primitives"
+import styles from "./SearchField.module.scss"
+
 export interface SearchFieldProps extends InputSearchProps {
   id: string
   labelText: string
@@ -18,18 +20,20 @@ export const SearchField = ({
   disabled,
   reversed = false,
   secondary = false,
+  classNameOverride,
   ...restProps
 }: SearchFieldProps): JSX.Element => {
   const showVisibleLabel = !secondary
 
   return (
-    <FieldGroup>
+    <div className={classNameOverride}>
       {showVisibleLabel && (
         <Label
           htmlFor={id}
           labelText={labelText}
           reversed={reversed}
           disabled={disabled}
+          classNameOverride={styles.label}
         />
       )}
       <InputSearch
@@ -40,7 +44,7 @@ export const SearchField = ({
         secondary={secondary}
         {...restProps}
       />
-    </FieldGroup>
+    </div>
   )
 }
 

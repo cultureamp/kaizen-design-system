@@ -1,59 +1,18 @@
-/* eslint import/no-extraneous-dependencies: 0 */
 import "./tailwind.scss"
 import React from "react"
-import { addParameters } from "@storybook/react"
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { backgrounds } from "./backgrounds"
-import { CATEGORIES } from "./constants"
+import { DefaultDocsContainer } from "./components/DocsContainer"
 
-const queryClient = new QueryClient()
-
-const withQueryProvider = (Story): JSX.Element => (
-  <QueryClientProvider client={queryClient}>{Story()}</QueryClientProvider>
-)
-// Polyfill for :focus-visible pseudo-selector
-// See: https://github.com/WICG/focus-visible
-require("focus-visible")
+import "highlight.js/styles/a11y-light.css"
 
 // Standard base stylesheet used across Culture Amp products
 // See: https://github.com/necolas/normalize.css/
-require("normalize.css")
+import "normalize.css"
+import "@kaizen/component-library/styles/fonts.scss"
 
-require("@kaizen/component-library/styles/fonts.scss")
-require("./global.scss")
-
-addParameters({
-  backgrounds: {
-    default: "White",
-    values: backgrounds,
-  },
-  options: {
-    storySort: {
-      method: "alphabetical",
-      order: [
-        CATEGORIES.introduction,
-        CATEGORIES.systems,
-        CATEGORIES.tailwind,
-        CATEGORIES.components,
-        CATEGORIES.helpers,
-        CATEGORIES.designTokens,
-        CATEGORIES.deprecated,
-      ],
-    },
-  },
-  docs: {
-    extractComponentDescription: (component, { notes }) => {
-      if (notes) {
-        return typeof notes === "string" ? notes : notes.markdown || notes.text
-      }
-      return null
-    },
-  },
-  chromatic: { disable: true },
-})
-
-export const globalTypes = {
+const globalTypes = {
   textDirection: {
     name: "Text direction",
     description: "",
@@ -63,10 +22,10 @@ export const globalTypes = {
       items: ["ltr", "rtl"],
     },
   },
-}
+} satisfies Preview["globalTypes"]
 
-export const decorators = [
-  (Story: React.ComponentType): JSX.Element => (
+const decorators = [
+  (Story): JSX.Element => (
     <ThemeContext.Provider value={defaultTheme}>
       <Story />
     </ThemeContext.Provider>
@@ -79,5 +38,60 @@ export const decorators = [
       </div>
     )
   },
-  withQueryProvider,
-]
+] satisfies Preview["decorators"]
+
+const preview = {
+  parameters: {
+    backgrounds: {
+      default: "White",
+      values: backgrounds,
+    },
+    docs: {
+      container: DefaultDocsContainer,
+      source: {
+        excludeDecorators: true,
+        language: "tsx",
+      },
+    },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: [
+          "Introduction",
+          "Guides",
+          "Systems",
+          [
+            "*",
+            "Tailwind",
+            [
+              "Overview",
+              "Getting Started",
+              "Configuration",
+              "Working with Tailwind",
+              "*",
+              "Utility Class References",
+              ["Overview", "*"],
+            ],
+          ],
+          "Components",
+          "Helpers",
+          "Design Tokens",
+          "Deprecated",
+          "AIO",
+        ],
+      },
+    },
+    chromatic: { disable: true },
+  },
+  globalTypes,
+  decorators,
+  argTypes: {
+    classNameOverride: {
+      type: "string",
+      description:
+        "Add extra classnames to the component. Try out some Tailwind classes (eg. `!mb-48`) to see!",
+    },
+  },
+} satisfies Preview
+
+export default preview

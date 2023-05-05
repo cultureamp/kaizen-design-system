@@ -1,22 +1,22 @@
 import React from "react"
-import { cleanup, render, fireEvent } from "@testing-library/react"
-import ConfirmationModal, { ConfirmationModalProps } from "./ConfirmationModal"
+import { render, fireEvent } from "@testing-library/react"
+import { ConfirmationModal, ConfirmationModalProps } from "./ConfirmationModal"
 import "./matchMedia.mock"
 
-afterEach(cleanup)
-
-const ConfirmationModalWrapper = (
-  props: Partial<ConfirmationModalProps>
-): JSX.Element => (
+const ConfirmationModalWrapper = ({
+  children,
+  ...props
+}: Partial<ConfirmationModalProps>): JSX.Element => (
   <ConfirmationModal
     mood="informative"
     isOpen={true}
     title="Example Modal Title"
     onDismiss={(): void => undefined}
     onConfirm={(): void => undefined}
-    children="Example Modal body"
     {...props}
-  />
+  >
+    {children}
+  </ConfirmationModal>
 )
 
 describe("<ConfirmationModal />", () => {

@@ -1,13 +1,11 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
+import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
 import { DatePicker } from "../src/DatePicker"
 import { ValidationResponse } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
@@ -16,7 +14,8 @@ import { datePickerLocaleControls } from "./controls/localeControls"
 import { weekStartsOnControls } from "./controls/weekStartsOnControls"
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Date Picker`,
+  tags: ["autodocs"],
+  title: "Components/Date Picker",
   component: DatePicker,
   parameters: {
     actions: {
@@ -27,9 +26,6 @@ export default {
         component: 'import { DatePicker } from "@kaizen/date-picker"',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=10458%3A45652"
-    ),
   },
   argTypes: {
     ...datePickerLocaleControls,
@@ -78,7 +74,7 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<typeof DatePicker> = props => {
+export const DefaultStory: StoryFn<typeof DatePicker> = props => {
   const [selectedDate, setValueDate] = useState<Date | undefined>()
 
   return (
@@ -100,7 +96,7 @@ DefaultStory.args = {
   onValidate: undefined,
 }
 
-export const ValidationStory: Story = () => {
+export const ValidationStory: StoryFn = () => {
   const [selectedDate, setValueDate] = useState<Date | undefined>(
     new Date("2022-05-05")
   )
@@ -185,7 +181,8 @@ export const ValidationStory: Story = () => {
         />
         <ul>
           <li>
-            <code>isInvalid</code>: A date that cannot be parsed. e.g "potato".
+            <code>isInvalid</code>: A date that cannot be parsed. e.g
+            &quot;potato&quot;.
           </li>
           <li>
             <code>isDisabled</code>: A date that have been set as disabled
@@ -210,7 +207,7 @@ ValidationStory.parameters = {
   controls: { disable: true },
 }
 
-const StickerSheetTemplate: Story<{ isReversed: boolean }> = ({
+const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => {
   const [selectedDate, setValueDate] = useState<Date | undefined>()

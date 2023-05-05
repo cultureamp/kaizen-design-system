@@ -1,21 +1,25 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { ComponentStory, Story } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
-import { FilterDateRangePicker } from "../src/FilterDateRangePicker"
+import {
+  DateRangeValidationStatus,
+  FilterDateRangePicker,
+  FilterDateRangePickerProps,
+} from "../src/FilterDateRangePicker"
 import { DateRange } from "../src/types"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
 import { dateRangePickerLocaleControls } from "./controls/localeControls"
+import { validationControls } from "./controls/validationControls"
 
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.datePicker}/Filter Date Range Picker`,
+  tags: ["autodocs"],
+  title: "Deprecated/Filter Date Range Picker",
   component: FilterDateRangePicker,
   parameters: {
     actions: {
@@ -24,12 +28,9 @@ export default {
     docs: {
       description: {
         component:
-          'import { FilterDateRangePicker } from "@kaizen/date-picker"',
+          '⛔️ This component is deprecated. No further changes will be made to it as it will be superseded by `<FilterDateRangePicker>` from `@kaizen/components`.<br/><br/>`import { FilterDateRangePicker } from "@kaizen/date-picker"`',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=45526%3A98760&t=67y0ZhpSLd5K7Rpn-4"
-    ),
   },
   args: {
     label: "Dates",
@@ -39,6 +40,7 @@ export default {
     ...dateRangePickerLocaleControls,
     ...defaultMonthControls,
     ...disabledDayMatchersControls,
+    ...validationControls,
     description: {
       control: "text",
     },
@@ -57,10 +59,14 @@ export default {
   },
 }
 
-export const DefaultStory: ComponentStory<
-  typeof FilterDateRangePicker
-> = props => {
+export const DefaultStory = (
+  props: FilterDateRangePickerProps & {
+    validation?: DateRangeValidationStatus
+  }
+): JSX.Element => {
+  const { validation, status: _s, validationMessage: _v, ...restProps } = props
   const [range, setRange] = useState<DateRange | undefined>()
+  const mergedProps = { ...restProps, ...validation }
 
   return (
     <FilterDateRangePicker
@@ -68,14 +74,13 @@ export const DefaultStory: ComponentStory<
       // a full re-render which disassociates the floating wrapper
       // as it uses ref.
       // Add key to force re-render when onRemoveFiler is changed.
-      key={props.onRemoveFilter ? "defined" : "undefined"}
-      {...props}
+      key={restProps.onRemoveFilter ? "defined" : "undefined"}
+      {...mergedProps}
       selectedRange={range}
       onRangeChange={setRange}
     />
   )
 }
-DefaultStory.storyName = "Filter Date Range Picker"
 DefaultStory.parameters = {
   docs: { source: { type: "code" } },
 }
@@ -84,7 +89,7 @@ DefaultStory.args = {
   onRemoveFilter: undefined,
 }
 
-const StickerSheetTemplate: Story = () => {
+const StickerSheetTemplate: StoryFn = () => {
   const [rangeDefaultBase, setRangeDefaultBase] = useState<
     DateRange | undefined
   >()

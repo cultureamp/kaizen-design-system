@@ -143,7 +143,12 @@ export const Popover = ({
               {heading}
             </Heading>
             {dismissible && (
-              <button className={styles.close} onClick={onClose} type="button">
+              <button
+                className={styles.close}
+                onClick={onClose}
+                type="button"
+                aria-label="close"
+              >
                 <Icon role="presentation" icon={closeIcon} />
               </button>
             )}
@@ -208,6 +213,7 @@ export const usePopover = (): [
   // In this situation however, the value is rarely going to change, and
   // popovers aren't going to include content with expensive render times.
   const PopoverWithRef = useMemo(
+    // eslint-disable-next-line react/display-name
     () => (props: PopoverPropsWithoutRef) =>
       referenceElement ? (
         <Popover {...props} referenceElement={referenceElement} />

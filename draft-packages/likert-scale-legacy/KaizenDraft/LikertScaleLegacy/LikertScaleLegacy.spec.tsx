@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor, configure } from "@testing-library/react"
 import { LikertScaleLegacy, LikertScaleProps } from "./LikertScaleLegacy"
 import { Scale } from "./types"
 
@@ -42,7 +42,11 @@ const LikertScaleLegacyWrapper = (
   />
 )
 
-describe("<TextField />", () => {
+describe("<LikertScaleLegacy />", () => {
+  configure({
+    testIdAttribute: "data-automation-id",
+  })
+
   it("shows a validation message when provided and status is error", () => {
     render(
       <LikertScaleLegacyWrapper
@@ -51,13 +55,13 @@ describe("<TextField />", () => {
       />
     )
 
-    expect(screen.getByText("This is an error")).toBeVisible
+    expect(screen.getByText("This is an error")).toBeVisible()
 
     expect(
       screen.getByRole("radiogroup", {
-        description: "Error message This is an error",
+        description: "This is an error",
       })
-    ).toBeInTheDocument
+    ).toBeInTheDocument()
   })
 
   it("does not show a validation message when provided and status is default", () => {
@@ -71,6 +75,22 @@ describe("<TextField />", () => {
       screen.getByRole("radiogroup", {
         description: undefined,
       })
-    ).toBeInTheDocument
+    ).toBeInTheDocument()
+  })
+
+  describe("Keyboard navigation", () => {
+    it("shows the correct legend when using tab to go through the scale", async () => {
+      render(<LikertScaleLegacyWrapper automationId="ID" />)
+      const scaleSteps = screen.getAllByRole("radio")
+      const legend = screen.getByTestId("ID-legend")
+
+      expect(legend).toHaveTextContent("Not rated")
+
+      scaleSteps[2].focus()
+
+      await waitFor(() => {
+        expect(legend).toHaveTextContent("Neither agree or disagree")
+      })
+    })
   })
 })

@@ -37,6 +37,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   &%ca-notification---toast {
+    container-type: inline-size;
     width: 25rem;
     box-shadow: $shadow-small-box-shadow;
     max-width: 100%;
@@ -134,6 +135,13 @@ $notification-slide-right: transform 300ms ease-out;
   &%ca-notification---noBottomMargin {
     margin-bottom: 0;
   }
+
+  // this is only for inline notifications
+  &%ca-notification---subtle {
+    background: none;
+    border: none;
+    padding: 0;
+  }
 }
 
 %ca-notification__icon {
@@ -201,6 +209,13 @@ $notification-slide-right: transform 300ms ease-out;
     margin-left: 6px;
   }
 
+  %ca-notification---toast & {
+    margin-left: 6px;
+    max-width: calc(100% - #{$spacing-xl});
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
   %ca-notification---global & {
     margin-left: 14px;
     padding: calc(0.25 * #{$spacing-md}) 0;
@@ -256,6 +271,9 @@ $notification-slide-right: transform 300ms ease-out;
     flex: 0 1 auto;
     padding-bottom: $spacing-sm;
     top: 0.21em;
+  }
+  %ca-notification---toast & {
+    width: 100%;
   }
 
   %ca-notification---global & {
@@ -326,22 +344,6 @@ $notification-slide-right: transform 300ms ease-out;
     margin-top: calc(-1 * #{$spacing-sm});
     margin-bottom: calc(-1 * #{$spacing-sm});
   }
-}
-
-%ca-notification__cancel__inner {
-  margin-right: $spacing-sm;
-  margin-left: 0;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    margin-right: 0;
-    margin-left: $spacing-sm;
-  }
-  // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
-  line-height: 0;
-  float: right;
-  display: flex;
-  align-items: center;
 }
 
 %ca-notification__cancel__label {

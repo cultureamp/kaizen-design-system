@@ -40,6 +40,9 @@ export const DemographicValueSelect = ({
       })
     ) ?? []
 
+  const demographicValueOptions: Key[] = demographicValueItems.map(
+    item => item.value
+  )
   // Mock loading
   const [isLoading, setLoading] = useState(true)
   useEffect(() => {
@@ -57,7 +60,7 @@ export const DemographicValueSelect = ({
       loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
       label={label}
       items={demographicValueItems}
-      selectedKeys={selectedKeys}
+      defaultSelectedKeys={new Set(demographicValueOptions)}
       onSelectionChange={handleSelectionChange}
       trigger={(): JSX.Element => (
         <FilterMultiSelect.RemovableTrigger

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import {
   TableCard,
   TableContainer,
@@ -9,8 +9,6 @@ import {
   TableRow,
   TableRowCell,
 } from "."
-
-afterEach(cleanup)
 
 // eslint-disable-next-line @typescript-eslint/no-shadow
 enum TestId {
@@ -71,7 +69,7 @@ const Wrapper = (): JSX.Element => (
   </TableContainer>
 )
 
-describe("Table", () => {
+describe("<Table />", () => {
   describe("Custom HTML props", () => {
     for (const [key, value] of Object.entries(TestId)) {
       it(`${key} accepts custom data-* attributes`, () => {

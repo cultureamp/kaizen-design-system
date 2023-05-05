@@ -3,15 +3,22 @@ import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label } from "@kaizen/draft-form"
-import { EditorContentArray, RichTextContent } from "../../"
+import {
+  EditorContentArray,
+  RichTextContent,
+  RichTextContentProps,
+} from "../../"
 import styles from "./EditableRichTextContent.module.scss"
 
 export interface EditableRichTextContentProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "onClick">> {
+  extends OverrideClassName<
+    Omit<HTMLAttributes<HTMLDivElement>, "onClick" | "content">
+  > {
   onClick: (event: MouseEvent<HTMLElement>) => void
   content: EditorContentArray
   labelText: string
   isLabelHidden?: boolean
+  contentProps?: Omit<RichTextContentProps, "content">
 }
 
 const handleEditableClick = (
@@ -33,6 +40,7 @@ export const EditableRichTextContent = (
     classNameOverride,
     labelText,
     isLabelHidden = false,
+    contentProps,
     ...restProps
   } = props
 
@@ -53,7 +61,7 @@ export const EditableRichTextContent = (
             aria-label={`Edit ${labelText}`}
           />
         </VisuallyHidden>
-        <RichTextContent content={content} />
+        <RichTextContent content={content} {...contentProps} />
       </div>
     </>
   )

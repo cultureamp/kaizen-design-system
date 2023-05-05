@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/typography@2.3.7...@kaizen/typography@2.3.8) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/typography
+
+
+
+
+
+## [2.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/typography@2.3.6...@kaizen/typography@2.3.7) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/typography
+
+
+
+
+
 ## [2.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/typography@2.3.5...@kaizen/typography@2.3.6) (2023-01-30)
 
 **Note:** Version bump only for package @kaizen/typography

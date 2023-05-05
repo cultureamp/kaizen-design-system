@@ -3,6 +3,110 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.28...@kaizen/progress-bar@2.3.29) (2023-04-06)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.27...@kaizen/progress-bar@2.3.28) (2023-04-05)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.26...@kaizen/progress-bar@2.3.27) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.25...@kaizen/progress-bar@2.3.26) (2023-03-29)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.24...@kaizen/progress-bar@2.3.25) (2023-03-23)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.23...@kaizen/progress-bar@2.3.24) (2023-03-22)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.22...@kaizen/progress-bar@2.3.23) (2023-03-14)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.21...@kaizen/progress-bar@2.3.22) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.20...@kaizen/progress-bar@2.3.21) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.19...@kaizen/progress-bar@2.3.20) (2023-03-02)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.18...@kaizen/progress-bar@2.3.19) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.17...@kaizen/progress-bar@2.3.18) (2023-02-23)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
+## [2.3.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.16...@kaizen/progress-bar@2.3.17) (2023-02-22)
+
+**Note:** Version bump only for package @kaizen/progress-bar
+
+
+
+
+
 ## [2.3.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/progress-bar@2.3.15...@kaizen/progress-bar@2.3.16) (2023-02-09)
 
 **Note:** Version bump only for package @kaizen/progress-bar

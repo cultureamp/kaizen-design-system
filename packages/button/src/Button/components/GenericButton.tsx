@@ -25,6 +25,16 @@ export type CustomButtonProps = {
   children?: React.ReactNode
 }
 
+export type ButtonFormAttributes = Pick<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  | "form"
+  | "formAction"
+  | "formMethod"
+  | "formEncType"
+  | "formTarget"
+  | "formNoValidate"
+>
+
 export type GenericProps = {
   id?: string
   reversed?: boolean
@@ -72,7 +82,7 @@ export type ButtonRef = { focus: () => void }
 // This is so we can support properties like aria-* or data-*
 const getCustomProps = (props: Record<string, any>): Record<string, string> => {
   const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
-  return keys.reduce((acc, val) => {
+  return keys.reduce<Record<string, any>>((acc, val) => {
     acc[val] = props[val]
     return acc
   }, {})
@@ -104,6 +114,7 @@ const GenericButton = forwardRef(
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
         })}
+        aria-live="polite"
       >
         {determineButtonRenderer()}
       </span>
@@ -120,24 +131,30 @@ GenericButton.defaultProps = {
   disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
   type: "button",
 }
+GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
   props: Props
-): JSX.Element => (
-  <CustomComponent
-    id={props.id}
-    className={buttonClass(props)}
-    disabled={props.disabled}
-    href={props.href}
-    onClick={props.onClick}
-    onFocus={props.onFocus}
-    onBlur={props.onBlur}
-    aria-label={generateAriaLabel(props)}
-  >
-    {renderContent(props)}
-  </CustomComponent>
-)
+): JSX.Element => {
+  const { id, disabled, href, onClick, onFocus, onBlur, ...rest } = props
+  const customProps = getCustomProps(rest)
+  return (
+    <CustomComponent
+      id={id}
+      className={buttonClass(props)}
+      disabled={disabled}
+      href={href}
+      onClick={onClick}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      aria-label={generateAriaLabel(props)}
+      {...customProps}
+    >
+      {renderContent(props)}
+    </CustomComponent>
+  )
+}
 
 const renderButton = (
   props: Props,
@@ -152,13 +169,14 @@ const renderButton = (
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    iconButton,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
 
   return (
     <button
+      // eslint-disable-next-line react/button-has-type
+      type={type}
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
@@ -166,7 +184,6 @@ const renderButton = (
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
-      type={type}
       aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
       tabIndex={
@@ -190,18 +207,20 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    iconButton,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
+
+  const target = newTabAndIUnderstandTheAccessibilityImplications
+    ? "_blank"
+    : "_self"
 
   return (
     <a
       id={id}
       href={href}
-      target={
-        newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
-      }
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={buttonClass(props)}
       onClick={onClick}
       onFocus={onFocus}
@@ -223,7 +242,7 @@ const buttonClass = (props: Props): string => {
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
-    props.form && styles.form,
+    props.size && styles[props.size],
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,

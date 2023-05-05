@@ -23,9 +23,9 @@ const TestRTE = (
   }
 ): JSX.Element => {
   const { rteMockData, ...rest } = args
-  const [rteData, setRTEData] = useState<EditorContentArray>(
-    args.rteMockData || []
-  )
+  const [rteData, setRTEData] = useState<EditorContentArray>(rteMockData || [])
+  const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
+    setRTEData(editorState.toJSON().doc.content)
   return (
     <RichTextEditor
       labelText="List RTE"
@@ -35,7 +35,7 @@ const TestRTE = (
         { name: "bulletList", group: "list" },
       ]}
       value={rteData}
-      onChange={setRTEData}
+      onChange={handleOnChange}
       {...rest}
     />
   )

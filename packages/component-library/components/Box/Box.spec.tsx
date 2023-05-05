@@ -1,8 +1,6 @@
 import * as React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { Box } from "./index"
-
-afterEach(cleanup)
 
 describe("<Box />", () => {
   it("renders the correct classes for a default box", () => {

@@ -4,16 +4,16 @@ import { act, render } from "@testing-library/react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 
-afterEach(() => {
-  jest.runAllTimers()
-})
-
-beforeEach(() => {
-  jest.useFakeTimers()
-})
-
 describe("<GenericNotification />", () => {
-  test('Begins "hidden" but transitions out of it immediately', () => {
+  afterEach(() => {
+    jest.runAllTimers()
+  })
+
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+
+  it('begins "hidden" but transitions out of it immediately', async () => {
     const { container } = render(
       <GenericNotification type="positive" style="inline" title="Success">
         This is my positive notification
@@ -21,12 +21,13 @@ describe("<GenericNotification />", () => {
     )
 
     expect(container.querySelector(".hidden")).toBeInTheDocument()
-    process.nextTick(() => {
+
+    await waitFor(() => {
       expect(container.querySelector(".hidden")).not.toBeInTheDocument()
     })
   })
 
-  test("The cancel button hides the notification and triggers the onHide callback", async () => {
+  it("hides the notification and triggers the onHide callback when the cancel button is clicked", async () => {
     const onHide = jest.fn()
     const { container, getByTestId } = render(
       <GenericNotification
@@ -67,7 +68,7 @@ describe("<GenericNotification />", () => {
     await waitFor(() => expect(onHide).toHaveBeenCalledTimes(1))
   })
 
-  test("If autohide is specified, we should start hiding after 5s", async () => {
+  it("starts hiding after 5s when autohide is specified", async () => {
     const { container } = render(
       <GenericNotification
         type="positive"

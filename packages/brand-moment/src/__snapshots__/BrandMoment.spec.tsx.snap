@@ -80,6 +80,7 @@ exports[`<BrandMoment /> matches the snapshot 1`] = `
                 class="actions"
               >
                 <span
+                  aria-live="polite"
                   class="container"
                 >
                   <a
@@ -102,6 +103,7 @@ exports[`<BrandMoment /> matches the snapshot 1`] = `
                   class="secondaryAction"
                 >
                   <span
+                    aria-live="polite"
                     class="container"
                   >
                     <a

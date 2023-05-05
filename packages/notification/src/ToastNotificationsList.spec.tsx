@@ -15,6 +15,7 @@ describe("<ToastNotificationsListContainer />", () => {
         removeToastNotification={jest.fn()}
       />
     )
+
     expect(registerCallback).toHaveBeenCalledTimes(1)
   })
 
@@ -22,7 +23,7 @@ describe("<ToastNotificationsListContainer />", () => {
     let callback: (notifications: ToastNotification[]) => void | undefined
     const registerCallback = jest.fn(cb => (callback = cb))
     const removeToastNotification = jest.fn()
-    const { getByRole } = render(
+    render(
       <ToastNotificationsListContainer
         registerSetNotificationsCallback={registerCallback}
         removeToastNotification={removeToastNotification}
@@ -40,7 +41,8 @@ describe("<ToastNotificationsListContainer />", () => {
         },
       ])
     })
-    await screen.findByText("Title goes here")
+
+    expect(await screen.findByText("Title goes here")).toBeInTheDocument()
   })
 
   it("calls removeToastNotification when a notification is hidden", async () => {
@@ -67,6 +69,7 @@ describe("<ToastNotificationsListContainer />", () => {
     })
     const button = getByRole("button")
     fireEvent.click(button)
+
     waitFor(() => {
       expect(removeToastNotification).toHaveBeenCalled()
     })

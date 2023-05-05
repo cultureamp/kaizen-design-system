@@ -1,9 +1,7 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { WellProps } from "./Well"
 import { Well } from "."
-
-afterEach(cleanup)
 
 const defaultWellProps = {
   id: "testId",
@@ -19,7 +17,7 @@ const renderWell = (props?: WellProps): ReturnType<typeof render> => {
 
 describe("<Well />", () => {
   describe("default", () => {
-    it("should render a default well variant with default styles", () => {
+    it("renders a default well variant with default styles", () => {
       const { container } = renderWell({})
 
       expect(container.querySelector(".default")).toBeTruthy()
@@ -29,28 +27,28 @@ describe("<Well />", () => {
   })
 
   describe("with different variants", () => {
-    it("should render a default well", () => {
+    it("renders a default well", () => {
       const { container } = renderWell({ variant: "default" })
 
       expect(container.querySelector(".default")).toBeTruthy()
     })
-    it("should render a negative well", () => {
+    it("renders a negative well", () => {
       const { container } = renderWell({ variant: "negative" })
 
       expect(container.querySelector(".negative")).toBeTruthy()
     })
 
-    it("should render a positive well", () => {
+    it("renders a positive well", () => {
       const { container } = renderWell({ variant: "positive" })
 
       expect(container.querySelector(".positive")).toBeTruthy()
     })
-    it("should render a informative well", () => {
+    it("renders a informative well", () => {
       const { container } = renderWell({ variant: "informative" })
 
       expect(container.querySelector(".informative")).toBeTruthy()
     })
-    it("should render a cautionary well", () => {
+    it("renders a cautionary well", () => {
       const { container } = renderWell({ variant: "cautionary" })
 
       expect(container.querySelector(".cautionary")).toBeTruthy()
@@ -58,18 +56,18 @@ describe("<Well />", () => {
   })
 
   describe("with borders", () => {
-    it("should render a well with solid border", () => {
+    it("renders a well with solid border", () => {
       const { container } = renderWell({ borderStyle: "solid" })
 
       expect(container.querySelector(".solid")).toBeTruthy()
     })
-    it("should render a well without border", () => {
+    it("renders a well without border", () => {
       const { container } = renderWell({ borderStyle: "none" })
 
       expect(container.querySelector(".none")).toBeTruthy()
     })
 
-    it("should render a well with dashed border", () => {
+    it("renders a well with dashed border", () => {
       const { container } = renderWell({ borderStyle: "dashed" })
 
       expect(container.querySelector(".dashed")).toBeTruthy()

@@ -23,7 +23,7 @@
     outline: none;
   }
 
-  &:global(.focus-visible)::after {
+  &:focus-visible::after {
     $focus-ring-offset: 5px;
     content: "";
     pointer-events: none;
@@ -92,6 +92,9 @@
 
 @for $i from 1 through 20 {
   .editor.rows#{$i} > :global(.ProseMirror) {
-    min-height: calc(#{$typography-paragraph-body-line-height} * #{$i});
+    min-height: calc(
+      ((#{$typography-paragraph-body-line-height} + #{$spacing-16}) * #{$i}) -
+        #{$spacing-16}
+    );
   }
 }

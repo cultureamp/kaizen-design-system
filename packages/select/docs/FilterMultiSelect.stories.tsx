@@ -1,27 +1,35 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query"
-import { withDesign } from "storybook-addon-designs"
-import { Button, ButtonRef } from "@kaizen/button"
-import { CodeBlock } from "@kaizen/design-tokens/docs/DocsComponents"
-import { Label } from "@kaizen/draft-form"
+import { Decorator, Meta, StoryFn } from "@storybook/react"
 import {
-  FilterMultiSelect,
-  getSelectedOptionLabels,
-  ItemType,
-} from "@kaizen/select"
-import { Paragraph } from "@kaizen/typography"
-import { CATEGORIES, SUB_CATEGORIES } from "../../../storybook/constants"
-import { figmaEmbed } from "../../../storybook/helpers"
+  QueryClientProvider,
+  QueryClient,
+  useInfiniteQuery,
+  useQueryClient,
+} from "@tanstack/react-query"
+import { Label } from "../../../draft-packages/form"
+import { Button, ButtonRef } from "../../button"
+import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
+import { Paragraph } from "../../typography"
+import { FilterMultiSelectProps } from "../src/FilterMultiSelect/components/Root"
+import { FilterMultiSelect, getSelectedOptionLabels } from ".."
 import { DemographicMenu } from "./FilterBarExample/DemographicMenu"
 import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelect"
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
 import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
 
+const client = new QueryClient()
+
+const withQueryProvider: Decorator<FilterMultiSelectProps> = Story => (
+  <QueryClientProvider client={client}>
+    <Story />
+  </QueryClientProvider>
+)
+
 export default {
-  title: `${CATEGORIES.components}/${SUB_CATEGORIES.select}/Filter Multi-Select`,
+  tags: ["autodocs"],
+  title: "Components/Filter Multi-Select",
   component: FilterMultiSelect,
   parameters: {
     docs: {
@@ -30,14 +38,10 @@ export default {
         component: 'import { FilterMultiSelect } from "@kaizen/select".',
       },
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=22814%3A96966"
-    ),
   },
-  decorators: [withDesign],
-} as ComponentMeta<typeof FilterMultiSelect>
+} satisfies Meta<typeof FilterMultiSelect>
 
-export const DefaultKaizenSiteDemo: ComponentStory<
+export const DefaultKaizenSiteDemo: StoryFn<
   typeof FilterMultiSelect
 > = args => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
@@ -90,10 +94,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
         <Paragraph variant="body">Items: </Paragraph>{" "}
-        <CodeBlock
-          language="json"
-          code={JSON.stringify(mockItems, null, "\t")}
-        />
+        <CodeBlock language="json" code={JSON.stringify(mockItems, null, 2)} />
       </div>
     </>
   )
@@ -102,7 +103,7 @@ export const DefaultKaizenSiteDemo: ComponentStory<
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
-export const Loading: ComponentStory<typeof FilterMultiSelect> = args => (
+export const Loading: StoryFn<typeof FilterMultiSelect> = args => (
   <>
     <FilterMultiSelect
       {...args}
@@ -127,7 +128,7 @@ Loading.parameters = {
   controls: { disable: true },
 }
 
-export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
+export const WithSections: StoryFn<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
@@ -222,7 +223,7 @@ export const WithSections: ComponentStory<typeof FilterMultiSelect> = () => {
   )
 }
 
-export const TruncatedLabels: ComponentStory<typeof FilterMultiSelect> = () => {
+export const TruncatedLabels: StoryFn<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
@@ -318,6 +319,7 @@ export const FilterBarDemo = (): JSX.Element => {
         <div className={styles.filters}>
           {selectedGroups.map(({ name, id }) => (
             <DemographicValueSelect
+              key={id}
               label={name}
               selectedKeys={new Set(selectedDemographicValues[id])}
               id={id}
@@ -326,7 +328,7 @@ export const FilterBarDemo = (): JSX.Element => {
 
                 // exclude demographic from both selectedGroups and selectedDemographicValues
                 removeFilter(id)
-                const { [id]: omitted, ...rest } = selectedDemographicValues
+                const { [id]: _omitted, ...rest } = selectedDemographicValues
                 setSelectedDemographicValues(rest)
               }}
               onSelectionChange={(selectedKeys): void => {
@@ -348,7 +350,7 @@ export const FilterBarDemo = (): JSX.Element => {
         <Button label="Clear All" onClick={clearFilters} secondary />
       </div>
 
-      <Paragraph variant="body">
+      <Paragraph tag="div" variant="body">
         Selected Values:{" "}
         <CodeBlock
           language="json"
@@ -415,7 +417,7 @@ export const DefaultKaizenSiteDemoWithoutScrollbar = (): JSX.Element => {
 
 DefaultKaizenSiteDemoWithoutScrollbar.storyName = "With no scrollbar"
 
-export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
+export const Async: StoryFn<typeof FilterMultiSelect> = args => {
   const [open, setOpen] = useState(false)
   const [selectedPeople, setSelectedPeople] = useState<string[]>([])
   const [searchState, setSearchState] = useState("")
@@ -596,3 +598,4 @@ export const Async: ComponentStory<typeof FilterMultiSelect> = args => {
     </>
   )
 }
+Async.decorators = [withQueryProvider]

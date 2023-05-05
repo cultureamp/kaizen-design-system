@@ -1,8 +1,6 @@
-import { DateInterval, DateRange } from "react-day-picker"
+import { DateInterval, DateRange, DayPickerProps } from "react-day-picker"
 import { FieldMessageStatus } from "@kaizen/draft-form"
 import { DayOfWeek } from "./enums"
-
-export type { Matcher } from "react-day-picker"
 
 export type { DateInterval, DateRange }
 
@@ -21,12 +19,14 @@ export type ValidationResponse = {
   date: Date | undefined
   inputValue: string | undefined // Input value upon validation
   status: FieldMessageStatus | undefined
-  validationMessage?: string
+  validationMessage: string | undefined
   isDisabled: boolean
   isInvalid: boolean
   isEmpty: boolean
   isValidDate: boolean // A date is !isDisabled && !isInvalid && !isEmpty
 }
+
+export type DisabledDays = DayPickerProps["disabled"]
 
 export interface DisabledDayMatchers {
   /**

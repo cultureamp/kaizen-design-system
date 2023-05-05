@@ -15,7 +15,7 @@ const MenuTriggerProviderWrapper = (
     <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
     <MenuPopup>
       <span>menu-content-mock</span>
-      <button>menu-content-button-mock</button>
+      <button type="button">menu-content-button-mock</button>
     </MenuPopup>
   </MenuTriggerProvider>
 )
@@ -27,13 +27,6 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
       name: "trigger-display-label-mock",
     })
     expect(trigger).toBeVisible()
-  })
-
-  it("makes sure the menu to be labelled by trigger", () => {
-    render(<MenuTriggerProviderWrapper defaultOpen />)
-    const menu = screen.getByLabelText("trigger-display-label-mock")
-
-    expect(menu).toHaveTextContent("menu-content-mock")
   })
 
   describe("when uncontrolled", () => {

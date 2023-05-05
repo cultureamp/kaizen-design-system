@@ -153,11 +153,11 @@ export const DatePicker = ({
     date: Date | undefined,
     newInputValue?: string
   ): void => {
-    const { validationResponse, newDate } = validateDate(
+    const { validationResponse, newDate } = validateDate({
       date,
-      newInputValue,
-      disabledDays
-    )
+      inputValue: newInputValue,
+      disabledDays,
+    })
     handleValidation(validationResponse)
     onDayChange(newDate)
   }
@@ -252,17 +252,17 @@ export const DatePicker = ({
       setInputValue(formatDateAsText(selectedDay, disabledDays, locale))
 
       const formattedDate = formatDateAsNumeral(selectedDay, locale)
-      const { validationResponse } = validateDate(
-        selectedDay,
-        formattedDate,
-        disabledDays
-      )
+      const { validationResponse } = validateDate({
+        date: selectedDay,
+        inputValue: formattedDate,
+        disabledDays,
+      })
 
       if (!validationResponse.isValidDate && !validationResponse.isEmpty) {
         handleValidation(validationResponse)
       }
     }
-  }, [])
+  }, [selectedDay])
 
   const calendarId = `${id}-calendar-dialog`
 

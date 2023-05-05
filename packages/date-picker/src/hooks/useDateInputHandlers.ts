@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
 import { DateInputProps } from "../_subcomponents/DateInput"
-import { Matcher } from "../types"
+import { DisabledDays } from "../types"
 import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
 import { formatDateAsText } from "../utils/formatDateAsText"
 import { isDisabledDate } from "../utils/isDisabledDate"
@@ -11,8 +11,8 @@ import { parseDateFromTextFormatValue } from "../utils/parseDateFromTextFormatVa
 
 export type UseDateInputHandlersArgs = {
   locale: Locale
-  disabledDays: Matcher[] | undefined
-  setInputValue: Dispatch<SetStateAction<DateInputProps["value"]>>
+  disabledDays?: DisabledDays
+  setInputValue: Dispatch<SetStateAction<string>>
   onDateChange: (date: Date | undefined) => void
   onChange?: DateInputProps["onChange"]
   onFocus?: DateInputProps["onFocus"]
@@ -57,17 +57,20 @@ export const useDateInputHandlers = ({
   const handleBlur: DateInputProps["onBlur"] = e => {
     if (isSelectingDayInCalendar(e.relatedTarget)) return
 
+    if (e.currentTarget.value === "") {
+      onDateChange(undefined)
+      onBlur?.(e)
+      return
+    }
+
     const date = parseDateFromNumeralFormatValue(e.currentTarget.value, locale)
 
     if (isValidDate(date)) {
       const newInputValue = formatDateAsText(date, disabledDays, locale)
       setInputValue(newInputValue)
-      onDateChange(date)
-      onBlur?.(e)
-      return
     }
 
-    onDateChange(undefined)
+    onDateChange(date)
     onBlur?.(e)
   }
 

@@ -7,7 +7,7 @@ import {
   screen,
 } from "@testing-library/react"
 import GenericModal from "./GenericModal"
-import ModalAccessibleLabel from "./ModalAccessibleLabel"
+import { ModalAccessibleLabel } from "./ModalAccessibleLabel"
 
 configure({ testIdAttribute: "data-automation-id" })
 
@@ -24,9 +24,10 @@ const ExampleModalWithState = (props: {
       onOutsideModalClick={handleDismiss}
       onEscapeKeyup={handleDismiss}
       onAfterLeave={props.onAfterLeave}
-      children={props.children}
       automationId="GenericModalAutomationId"
-    />
+    >
+      {props.children}
+    </GenericModal>
   )
 }
 
@@ -80,9 +81,7 @@ describe("<GenericModal />", () => {
     const spy = jest
       .spyOn(global.console, "warn")
       .mockImplementation(mockWarnFn)
-    const { getByText } = render(
-      <GenericModal isOpen={true}>Catch me if you can</GenericModal>
-    )
+    render(<GenericModal isOpen={true}>Catch me if you can</GenericModal>)
     await waitFor(() => {
       expect(mockWarnFn).toBeCalled()
       expect(mockWarnFn).toBeCalledWith(

@@ -1,23 +1,23 @@
 import React from "react"
-import { cleanup, render, fireEvent } from "@testing-library/react"
-import ContextModal, { ContextModalProps } from "./ContextModal"
+import { render, fireEvent } from "@testing-library/react"
+import { ContextModal, ContextModalProps } from "./ContextModal"
 import "./matchMedia.mock"
 
-afterEach(cleanup)
-
-const ContextModalWrapper = (
-  props: Partial<ContextModalProps>
-): JSX.Element => (
+const ContextModalWrapper = ({
+  children,
+  ...props
+}: Partial<ContextModalProps>): JSX.Element => (
   <ContextModal
     isOpen={true}
     title="Example modal title"
     onConfirm={(): void => undefined}
     onDismiss={(): void => undefined}
-    children="Example modal body"
     secondaryLabel="Example secondary"
     onSecondaryAction={(): void => undefined}
     {...props}
-  />
+  >
+    {children}
+  </ContextModal>
 )
 
 describe("<ContextModal />", () => {

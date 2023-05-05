@@ -1,11 +1,11 @@
 node_modules
 yarn-*.log
-lerna-*.log
 /storybook/public/
 /draft-packages/**/*.js
 /draft-packages/**/*.js.map
 /draft-packages/**/*.d.ts
 /packages/**/*.js
+!/packages/**/*.config.js
 /packages/**/*.js.map
 /packages/**/*.d.ts
 /playwright/test-results
@@ -14,3 +14,4 @@ dist
 .cache
 .yalc
 yalc.loc
+.turbo

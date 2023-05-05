@@ -39,7 +39,6 @@
       transform: translateY(1px);
     }
 
-    // hide native focus ring when :focus but not :focus-visible
     &:focus {
       outline: none;
     }
@@ -194,11 +193,11 @@
   );
 }
 
-%variant-form {
-  min-height: $button-form-height;
+%variant-small {
+  min-height: $button-small-height;
 
   #{$className--content} {
-    padding-top: $button-vertical-padding--form;
-    padding-bottom: $button-vertical-padding--form;
+    padding-top: $button-vertical-padding--small;
+    padding-bottom: $button-vertical-padding--small;
   }
 }

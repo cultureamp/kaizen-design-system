@@ -10,13 +10,15 @@ const ExampleComponent = (): JSX.Element => {
 
   return (
     <div>
-      {queries.isSmall && <button>Small only boolean</button>}
+      {queries.isSmall && <button type="button">Small only boolean</button>}
       <MediumOnly>
-        <button>Medium only component</button>
+        <button type="button">Medium only component</button>
       </MediumOnly>
-      {queries.prefersReducedMotion && <button>Prefers reduced boolean</button>}
+      {queries.prefersReducedMotion && (
+        <button type="button">Prefers reduced boolean</button>
+      )}
       <PrefersReducedMotion>
-        <button>Prefers reduced component</button>
+        <button type="button">Prefers reduced component</button>
       </PrefersReducedMotion>
     </div>
   )
@@ -38,46 +40,51 @@ const mockMatchMedia = (matches: boolean): void => {
   })
 }
 
-it("shows and hides content based on Kaizen break points", () => {
-  mockMatchMedia(false)
-  render(<ExampleComponent />)
-  expect(
-    screen.queryByRole("button", { name: /Small only boolean/i })
-  ).not.toBeInTheDocument()
-  expect(
-    screen.queryByRole("button", { name: /Medium only component/i })
-  ).not.toBeInTheDocument()
+describe("useMediaQueries()", () => {
+  it("shows and hides content based on Kaizen break points", () => {
+    mockMatchMedia(false)
+    render(<ExampleComponent />)
+    expect(
+      screen.queryByRole("button", { name: /Small only boolean/i })
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole("button", { name: /Medium only component/i })
+    ).not.toBeInTheDocument()
 
-  mockMatchMedia(true)
-  render(<ExampleComponent />)
-  expect(
-    screen.queryByRole("button", { name: /Small only boolean/i })
-  ).toBeInTheDocument()
-  expect(
-    screen.queryByRole("button", { name: /Medium only component/i })
-  ).toBeInTheDocument()
-})
+    mockMatchMedia(true)
+    render(<ExampleComponent />)
 
-it("shows and hides content based on based on custom queries passed in", () => {
-  mockMatchMedia(false)
-  render(<ExampleComponent />)
-  expect(
-    screen.queryByRole("button", { name: /Prefers reduced boolean/i })
-  ).not.toBeInTheDocument()
-  expect(
-    screen.queryByRole("button", { name: /Prefers reduced component/i })
-  ).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole("button", { name: /Small only boolean/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByRole("button", { name: /Medium only component/i })
+    ).toBeInTheDocument()
+  })
 
-  mockMatchMedia(true)
-  render(<ExampleComponent />)
-  expect(
-    screen.queryByRole("button", { name: /Prefers reduced boolean/i })
-  ).toBeInTheDocument()
-  expect(
-    screen.queryByRole("button", { name: /Prefers reduced component/i })
-  ).toBeInTheDocument()
-})
+  it("shows and hides content based on based on custom queries passed in", () => {
+    mockMatchMedia(false)
+    render(<ExampleComponent />)
 
-it("subtracts 1px correctly", () => {
-  expect(subtractOnePixel("1080px")).toEqual("1079px")
+    expect(
+      screen.queryByRole("button", { name: /Prefers reduced boolean/i })
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole("button", { name: /Prefers reduced component/i })
+    ).not.toBeInTheDocument()
+
+    mockMatchMedia(true)
+    render(<ExampleComponent />)
+
+    expect(
+      screen.queryByRole("button", { name: /Prefers reduced boolean/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByRole("button", { name: /Prefers reduced component/i })
+    ).toBeInTheDocument()
+  })
+
+  it("subtracts 1px correctly", () => {
+    expect(subtractOnePixel("1080px")).toEqual("1079px")
+  })
 })

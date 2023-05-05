@@ -1,5 +1,7 @@
 @import "../styles";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
 
 .notification {
   @extend %ca-notification;
@@ -25,10 +27,30 @@
 
 .cancel {
   @extend %ca-notification__cancel;
-}
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.cancelInner {
-  @extend %ca-notification__cancel__inner;
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible::after {
+    content: "";
+    $focus-ring-offset: 6px;
+    pointer-events: none;
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    top: $focus-ring-offset;
+    bottom: $focus-ring-offset;
+    left: $focus-ring-offset;
+    right: $focus-ring-offset;
+  }
 }
 
 .cancelLabel {
@@ -41,6 +63,11 @@
   line-height: $typography-heading-6-line-height;
 }
 
+@container (max-width: 25rem) {
+  .notificationTitle {
+    width: 100%;
+  }
+}
 // Animation
 
 .hidden {
@@ -87,4 +114,9 @@
 
 .forceMultiline {
   @extend %ca-notification---forceMultiline;
+}
+
+// this is only for inline notifications, but is here due to specificity issues in the _styles.scss file
+.subtle {
+  @extend %ca-notification---subtle;
 }

@@ -1,5 +1,7 @@
 import React, { useState, createRef } from "react"
 import classnames from "classnames"
+import { Icon } from "@kaizen/component-library"
+import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
 import { FieldMessage } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
@@ -22,6 +24,10 @@ export interface LikertScaleProps {
   onSelect: (value: ScaleItem | null) => void
 }
 
+const SelectedItemIcon = (): JSX.Element => (
+  <Icon role="presentation" icon={checkIcon} classNameOverride={styles.check} />
+)
+
 /**
  * {@link https://cultureamp.design/components/likert-scale/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-likert-scale--default-story Storybook}
@@ -43,27 +49,16 @@ export const LikertScaleLegacy = ({
   }))
 
   const handleRadioClick = (item: ScaleItem): void => {
-    const newValue =
-      selectedItem && item.value === selectedItem.value
-        ? scale.find(s => s.value === -1) || null
-        : item
-    onSelect(newValue)
+    // Is this a click on the item that is currently selected?
+    const isClickOnSelectedItem = selectedItem?.value === item.value
 
-    // Remove hover state
-    setHoveredItem(null)
-  }
+    // Grab "Not rated" state item from the scale, its value is -1
+    const notYetRated = scale.find(s => s.value === -1) || null
 
-  const handleRadioMouseEnter = (item: ScaleItem): void => {
-    if (selectedItem && selectedItem.value > 0) {
-      return // Disable hover when there is a selection
-    }
-    setHoveredItem(item)
-  }
+    // Clear or set new selection
+    const newItem = isClickOnSelectedItem ? notYetRated : item
 
-  const handleRadioMouseLeave = (): void => {
-    if (selectedItem && selectedItem.value > 0) {
-      return // Disable hover when there is a selection
-    }
+    onSelect(newItem)
     setHoveredItem(null)
   }
 
@@ -90,12 +85,7 @@ export const LikertScaleLegacy = ({
     }
   }
 
-  let legend = "Not rated"
-  if (hoveredItem) {
-    legend = hoveredItem.label
-  } else if (selectedItem) {
-    legend = selectedItem.label
-  }
+  const legend = hoveredItem?.label || selectedItem?.label || "Not rated"
 
   const shouldDisplayValidationMessage =
     status !== "default" && validationMessage !== undefined
@@ -109,6 +99,7 @@ export const LikertScaleLegacy = ({
       className={classnames(styles.container, {
         [styles.rated]: selectedItem && selectedItem.value > 0,
         [styles.reversed]: reversed,
+        [styles.hovered]: hoveredItem !== null,
       })}
       aria-labelledby={labelId}
       role="radiogroup"
@@ -135,6 +126,7 @@ export const LikertScaleLegacy = ({
             return
           }
 
+          const isSelectedItem = selectedItem?.value === item.value
           const itemRef = itemRefs.find(i => item.value === i.value)
 
           // Make control tabbable
@@ -150,42 +142,48 @@ export const LikertScaleLegacy = ({
 
           return (
             <div
-              className={classnames(styles.likertItem, {
-                [styles.selected]:
-                  selectedItem && item.value <= selectedItem.value,
-                [styles.suggested]:
-                  hoveredItem && hoveredItem.value >= item.value,
-                [styles.unselected]:
-                  selectedItem && selectedItem.value < item.value,
-              })}
-              onClick={(): void => handleRadioClick(item)}
+              className={classnames(
+                styles.likertItem,
+                styles[`likertItem${item.value}`],
+                {
+                  [styles.selected]:
+                    selectedItem &&
+                    item.value <= selectedItem?.value &&
+                    !hoveredItem,
+                  [styles.suggested]:
+                    hoveredItem && hoveredItem.value >= item.value,
+                  [styles.unselected]:
+                    selectedItem && selectedItem.value < item.value,
+                }
+              )}
               key={item.value}
               data-automation-id={
                 automationId && `${automationId}-item-${item.value}`
               }
-              onMouseEnter={(): void => handleRadioMouseEnter(item)}
-              onMouseLeave={handleRadioMouseLeave}
+              onClick={(): void => handleRadioClick(item)}
+              onMouseEnter={(): void => setHoveredItem(item)}
+              onMouseLeave={(): void => setHoveredItem(null)}
+              onKeyDown={(event): void => handleKeyDown(event, item)}
+              onFocus={(): void => setHoveredItem(item)}
+              onBlur={(): void => setHoveredItem(null)}
               role="radio"
               aria-label={item.label}
-              aria-checked={
-                selectedItem ? item.value === selectedItem.value : false
-              }
+              aria-checked={isSelectedItem}
               aria-posinset={item.value}
               aria-setsize={5}
               tabIndex={tabIndex}
               ref={itemRef && itemRef.ref}
-              onKeyDown={(event): void => handleKeyDown(event, item)}
             >
               <div
                 className={classnames(
                   styles.likertItemFill,
                   styles[`field${item.value}`],
                   {
-                    [styles.pop]:
-                      selectedItem && item.value === selectedItem.value,
+                    [styles.pop]: isSelectedItem,
                   }
                 )}
               />
+              {isSelectedItem ? <SelectedItemIcon /> : null}
             </div>
           )
         })}

@@ -1,8 +1,9 @@
 import React from "react"
 import classNames from "classnames"
 import { Icon } from "@kaizen/component-library"
+import cautionIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import errorIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
@@ -22,12 +23,12 @@ type Variant =
   | "statusDraft"
   | "statusClosed"
   | "statusAction"
-interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
+export interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
   variant: "profile"
   avatar: JSX.Element | AvatarProps
 }
 
-interface DefaultTagProps {
+export interface DefaultTagProps {
   variant?: Variant
   children: React.ReactNode
   size?: "medium" | "small"
@@ -59,7 +60,7 @@ const renderAvatar = (
  * {@link https://cultureamp.design/components/tag/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tag--default-story Storybook}
  */
-const Tag = (props: TagProps): JSX.Element => {
+export const Tag = (props: TagProps): JSX.Element => {
   const {
     children,
     variant = "default",
@@ -111,13 +112,13 @@ const Tag = (props: TagProps): JSX.Element => {
                 case "validationNegative":
                   return (
                     <span className={styles.validationIcon}>
-                      <Icon icon={exclamationIcon} role="presentation" />
+                      <Icon icon={errorIcon} role="presentation" />
                     </span>
                   )
                 case "validationCautionary":
                   return (
                     <span className={styles.validationIcon}>
-                      <Icon icon={exclamationIcon} role="presentation" />
+                      <Icon icon={cautionIcon} role="presentation" />
                     </span>
                   )
                 case "validationInformative":
@@ -149,6 +150,7 @@ const Tag = (props: TagProps): JSX.Element => {
           {dismissible && (
             <>
               <button
+                type="button"
                 className={styles.dismissButton}
                 onClick={onDismiss}
                 onMouseDown={onMouseDown}
@@ -176,4 +178,4 @@ const Tag = (props: TagProps): JSX.Element => {
   )
 }
 
-export default Tag
+Tag.displayName = "Tag"
