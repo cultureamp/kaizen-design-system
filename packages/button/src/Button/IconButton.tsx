@@ -1,12 +1,14 @@
 import React from "react"
 import GenericButton, {
   GenericProps,
+  ButtonFormAttributes,
   BadgeProps,
   WorkingProps,
   WorkingUndefinedProps,
 } from "./components/GenericButton"
 
 export type IconButtonProps = GenericProps &
+  ButtonFormAttributes &
   (WorkingProps | WorkingUndefinedProps) & {
     label: string
     primary?: boolean

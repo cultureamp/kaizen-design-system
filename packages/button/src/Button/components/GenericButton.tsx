@@ -25,6 +25,16 @@ export type CustomButtonProps = {
   children?: React.ReactNode
 }
 
+export type ButtonFormAttributes = Pick<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  | "form"
+  | "formAction"
+  | "formMethod"
+  | "formEncType"
+  | "formTarget"
+  | "formNoValidate"
+>
+
 export type GenericProps = {
   id?: string
   reversed?: boolean
