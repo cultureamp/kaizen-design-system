@@ -329,7 +329,7 @@ describe("<DatePicker /> - Validation", () => {
           selectedDay={new Date("potato")}
         />
       )
-      const icon = screen.getByLabelText("Error message")
+      const icon = screen.getByLabelText("error message")
 
       expect(icon).toBeInTheDocument()
       expect(screen.getByText("Custom validation message")).toBeVisible()
@@ -339,7 +339,7 @@ describe("<DatePicker /> - Validation", () => {
     it("does not show inbuilt validation message when onValidate is set", () => {
       const onValidate = jest.fn<void, [ValidationResponse]>()
       render(<DatePickerWrapper onValidate={onValidate} />)
-      expect(screen.queryByTitle("Error message")).not.toBeInTheDocument()
+      expect(screen.queryByTitle("error message")).not.toBeInTheDocument()
       expect(
         screen.queryByText("Custom validation message")
       ).not.toBeInTheDocument()
@@ -412,7 +412,7 @@ describe("<DatePicker /> - Validation", () => {
   describe("Inbuilt Validation", () => {
     it("displays error message when selected day is invalid", () => {
       render(<DatePickerWrapper selectedDay={new Date("potato")} />)
-      const icon = screen.getByLabelText("Error message")
+      const icon = screen.getByLabelText("error message")
 
       expect(screen.getByText("Date is invalid")).toBeVisible()
       expect(icon).toBeInTheDocument()
