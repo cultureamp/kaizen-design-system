@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Decorator, Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { Button } from "@kaizen/button"
 import { Box } from "@kaizen/component-library"
+import { StatelessMenu, MenuItem, MenuList } from "@kaizen/draft-menu"
 import {
   InputEditModal,
   InputEditModalProps,
@@ -51,6 +52,12 @@ export default {
 
 const InputEditModalTemplate: StoryFn<typeof InputEditModal> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(IS_CHROMATIC)
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+  const [menuAutoHide, setMenuAutoHide] = useState<boolean>(false)
+
+  useEffect(() => {
+    setMenuAutoHide(!isOpen)
+  }, [isOpen])
 
   const handleOpen = (): void => setIsOpen(true)
   const handleClose = (): void => setIsOpen(false)
@@ -69,7 +76,23 @@ const InputEditModalTemplate: StoryFn<typeof InputEditModal> = args => {
 
   return (
     <>
-      <Button label="Open modal" onClick={handleOpen} />
+      {/* <Button label="Open modal" onClick={handleOpen} /> */}
+      <StatelessMenu
+        isMenuVisible={isMenuOpen}
+        toggleMenuDropdown={() => setIsMenuOpen(!isMenuOpen)}
+        hideMenuDropdown={() => setIsMenuOpen(false)}
+        autoHide={menuAutoHide ? "outside-click-only" : "off"}
+        renderButton={() => (
+          <Button
+            label="Open menu"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          />
+        )}
+      >
+        <MenuList>
+          <MenuItem onClick={handleOpen} label="Open modal" />
+        </MenuList>
+      </StatelessMenu>
 
       <InputEditModal
         {...args}
