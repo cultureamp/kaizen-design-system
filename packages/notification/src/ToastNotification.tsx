@@ -19,7 +19,7 @@ const ToastNotification = ({
   id,
   hideCloseIcon = false,
   autohide = false,
-  autohideDelay = "short",
+  autohideDelay = "long",
   ...otherProps
 }: ToastNotificationProps): null => {
   const [localID] = React.useState(id || v4())

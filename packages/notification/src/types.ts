@@ -7,7 +7,6 @@ export type ToastNotification = {
   type: NotificationType
   title: string
   message: React.ReactNode
-  autohideDelay?: "short" | "long"
   onHide?: () => void
   automationId?: string
   persistent?: boolean
@@ -16,6 +15,11 @@ export type ToastNotification = {
    * @deprecated Automatic hiding is an accessibility anti-pattern, violating WCAG '2.2 Enough Time' criteria. This prop will be removed in an upcoming breaking change.
    */
   autohide?: boolean
+  /**
+   * **Deprecated:**
+   * @deprecated Automatic hiding is an accessibility anti-pattern, violating WCAG '2.2 Enough Time' criteria. This prop will be removed in an upcoming breaking change.
+   */
+  autohideDelay?: "short" | "long"
 }
 
 export type ToastNotificationWithOptionals = Modify<
