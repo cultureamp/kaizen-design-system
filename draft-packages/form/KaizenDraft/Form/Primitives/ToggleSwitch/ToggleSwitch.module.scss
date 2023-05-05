@@ -15,7 +15,7 @@ $focus-ring-offset: 1px;
 
 .track {
   position: relative;
-  background-color: $color-gray-400;
+  background-color: $color-gray-500;
   border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
   border-radius: $spacing-md;
@@ -32,7 +32,7 @@ $focus-ring-offset: 1px;
     border-color: transparent;
     outline: 2px solid $color-blue-500;
     outline-offset: $focus-ring-offset;
-    background-color: $color-gray-500;
+    background-color: $color-gray-600;
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -41,7 +41,7 @@ $focus-ring-offset: 1px;
       // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
       // (the non-css variable token)
       background-color: $color-purple-500;
-      background-color: $color-gray-500;
+      background-color: $color-gray-600;
     }
   }
 }
@@ -57,10 +57,20 @@ $focus-ring-offset: 1px;
   transition: left $animation-timing, right $animation-timing;
 }
 
+.checkIcon {
+  color: $color-green-500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -9px;
+  opacity: 0;
+  transition-duration: 0.2s;
+}
+
 .on {
   .checkbox + .track {
     border-color: $border-borderless-border-color;
-    background-color: $color-green-400;
+    background-color: $color-green-500;
   }
 
   .checkbox:focus:not([disabled]) + .track {
@@ -80,10 +90,16 @@ $focus-ring-offset: 1px;
     }
   }
 
+  .checkIcon {
+    opacity: 1;
+    transition-delay: 0.1s;
+    transition-duration: 0.3s;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .checkbox:not([disabled]) + .track:hover,
     label:hover & .checkbox:not([disabled]) + .track {
-      background-color: $color-green-500;
+      background-color: $color-green-600;
     }
   }
 }
