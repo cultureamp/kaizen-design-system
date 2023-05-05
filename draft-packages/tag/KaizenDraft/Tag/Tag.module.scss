@@ -51,7 +51,7 @@ $small: $spacing-md;
 .profile {
   margin-inline-start: calc(#{$spacing-md} * -0.15);
   margin-inline-end: $spacing-xs;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
 

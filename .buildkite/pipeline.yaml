@@ -23,6 +23,8 @@ steps:
           run: release
     notify:
       - slack: "#wol_kaizen"
+        if: build.state == "passed"
+      - slack: "#wol_kaizen"
         if: build.state == "failed"
 
   - name: ":hatched_chick: Release (canary)"
