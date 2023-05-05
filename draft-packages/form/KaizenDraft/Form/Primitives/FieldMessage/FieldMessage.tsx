@@ -7,10 +7,6 @@ import errorWhiteIcon from "@kaizen/component-library/icons/exclamation-white.ic
 import { Paragraph } from "@kaizen/typography"
 import styles from "./FieldMessage.module.scss"
 
-function capitalize(word: string): string {
-  return word[0].toUpperCase() + word.slice(1)
-}
-
 export type FieldMessageStatus = "default" | "success" | "error" | "caution"
 
 export interface FieldMessageProps
@@ -56,7 +52,7 @@ export const FieldMessage = ({
         <span className={styles.warningIcon}>
           <Icon
             icon={status === "error" ? errorWhiteIcon : cautionWhiteIcon}
-            title={`${capitalize(status)} message`}
+            title={`${status} message`}
             role="img"
             inheritSize={false}
           />
