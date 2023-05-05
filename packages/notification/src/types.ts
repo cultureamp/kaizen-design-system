@@ -13,7 +13,7 @@ export type ToastNotification = {
   persistent?: boolean
   /**
    * **Deprecated:**
-   * @deprecated
+   * @deprecated Automatic hiding is an accessibility anti-pattern, violating WCAG '2.2 Enough Time' criteria. This prop will be removed in an upcoming breaking change.
    */
   autohide?: boolean
 }
