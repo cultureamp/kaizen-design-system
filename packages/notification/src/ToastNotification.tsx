@@ -18,7 +18,7 @@ type ToastNotificationProps = Omit<
 const ToastNotification = ({
   id,
   hideCloseIcon = false,
-  autohide = true,
+  autohide = false,
   autohideDelay = "short",
   ...otherProps
 }: ToastNotificationProps): null => {

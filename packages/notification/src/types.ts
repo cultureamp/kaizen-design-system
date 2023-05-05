@@ -7,11 +7,15 @@ export type ToastNotification = {
   type: NotificationType
   title: string
   message: React.ReactNode
-  autohide: boolean
   autohideDelay?: "short" | "long"
   onHide?: () => void
   automationId?: string
   persistent?: boolean
+  /**
+   * **Deprecated:**
+   * @deprecated
+   */
+  autohide?: boolean
 }
 
 export type ToastNotificationWithOptionals = Modify<
