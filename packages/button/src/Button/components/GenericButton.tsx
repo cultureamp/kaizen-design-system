@@ -25,6 +25,16 @@ export type CustomButtonProps = {
   children?: React.ReactNode
 }
 
+export type ButtonFormAttributes = Pick<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  | "form"
+  | "formAction"
+  | "formMethod"
+  | "formEncType"
+  | "formTarget"
+  | "formNoValidate"
+>
+
 export type GenericProps = {
   id?: string
   reversed?: boolean
@@ -232,7 +242,7 @@ const buttonClass = (props: Props): string => {
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
-    props.form && styles.form,
+    props.size && styles[props.size],
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,
