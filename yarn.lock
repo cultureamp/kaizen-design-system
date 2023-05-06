@@ -3359,10 +3359,10 @@
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.18.0.tgz#4f2bacad5912eba6667695ee3f9e8ac9f79849f7"
   integrity sha512-WJj7RAPj7NLdR/VzFObgvCju9NMDktWSruSPJ3DrL5qyrrvJoyMW67L4YjNoVp2b7Y+k10E0q4fSMV0PlJoL0w==
 
-"@rollup/plugin-alias@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-4.0.3.tgz#571f6fb26387df91d0363905a7fd835757727ae2"
-  integrity sha512-ZuDWE1q4PQDhvm/zc5Prun8sBpLJy41DMptYrS6MhAy9s9kL/doN1613BWfEchGVfKxzliJ3BjbOPizXX38DbQ==
+"@rollup/plugin-alias@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-4.0.4.tgz#67734ec44a7747916aa52a3b1a0e8d459dbf3ae2"
+  integrity sha512-0CaAY238SMtYAWEXXptWSR8iz8NYZnH7zNBKuJ14xFJSGwLtPgjvXYsoApAHfzYXXH1ejxpVw7WlHss3zhh9SQ==
   dependencies:
     slash "^4.0.0"
 
