@@ -93,7 +93,7 @@
     "babel-loader": "^9.1.2",
     "chromatic": "^6.17.4",
     "css-loader": "^6.7.3",
-    "danger": "^11.2.4",
+    "danger": "^11.2.6",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.4",
