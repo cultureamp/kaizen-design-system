@@ -91,7 +91,7 @@
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "babel-loader": "^9.1.2",
-    "chromatic": "^6.17.2",
+    "chromatic": "^6.17.4",
     "css-loader": "^6.7.3",
     "danger": "^11.2.4",
     "eslint": "^8.37.0",
