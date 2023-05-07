@@ -38,7 +38,7 @@
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
     "@react-aria/datepicker": "^3.3.0",
-    "@react-aria/i18n": "^3.7.0",
+    "@react-aria/i18n": "^3.7.1",
     "@react-stately/datepicker": "^3.4.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
