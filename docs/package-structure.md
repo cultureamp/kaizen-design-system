@@ -81,7 +81,7 @@ The base package.json will look like this, where:
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",

@@ -24,7 +24,7 @@
     "build": "yarn build:clean && yarn prepublish",
     "build:clean": "rimraf 'dist'",
     "build:components": "rollup -c",
-    "clean": "yarn build:clean && rimraf '.turbo'",
+    "clean": "yarn build:clean",
     "compile": "tsc",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
