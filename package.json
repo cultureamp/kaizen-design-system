@@ -19,7 +19,7 @@
     "playwright:debug": "IS_DEV=true PWDEBUG=1 npx playwright test",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "compile": "tsc",
-    "build": "yarn turbo build",
+    "build": "yarn turbo publish",
     "lint": "yarn eslint --max-warnings=0 && yarn prettier && yarn stylelint",
     "lint:fix": "yarn stylelint --fix && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
@@ -31,8 +31,8 @@
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test",
     "pkg:aio:compile": "yarn pkg:aio compile",
-    "ci:version": "yarn build && yarn changeset version",
-    "ci:publish": "yarn build && yarn changeset publish"
+    "ci:version": "yarn turbo publish && yarn changeset version",
+    "ci:publish": "yarn turbo publish && yarn changeset publish"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",

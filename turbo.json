@@ -1,25 +1,28 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build": {
-      "dependsOn": ["^build", "clean"],
+    "publish": {
+      "dependsOn": ["^publish", "clean"],
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
     "clean": {
       "cache": false
     },
-    "@kaizen/components#build": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
+    "@kaizen/components#publish": {
+      "dependsOn": [
+        "@kaizen/tailwind#publish",
+        "@kaizen/design-tokens#publish"
+      ],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
-    "@kaizen/tailwind#build": {
-      "dependsOn": ["@kaizen/design-tokens#build"],
+    "@kaizen/tailwind#publish": {
+      "dependsOn": ["@kaizen/design-tokens#publish"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
-    "@kaizen/design-tokens#build": {
+    "@kaizen/design-tokens#publish": {
       "inputs": ["css/**", "less/**", "sass/**", "src/**", "tokens/**"],
       "outputs": ["dist/**"]
     }

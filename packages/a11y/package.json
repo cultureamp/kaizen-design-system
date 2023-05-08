@@ -3,8 +3,8 @@
   "version": "1.7.10",
   "description": "A collection of accessibility utils",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "publish": "tsc --project tsconfig.dist.json",
+    "build": "yarn publish",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

@@ -44,8 +44,8 @@
     "rimraf": "^4.4.1"
   },
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "publish": "tsc --project tsconfig.dist.json",
+    "build": "yarn publish",
     "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts'"
   }
 }
