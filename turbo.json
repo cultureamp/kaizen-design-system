@@ -1,24 +1,24 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "publish": {
-      "dependsOn": ["^publish", "clean"],
+    "prepublish": {
+      "dependsOn": ["^prepublish", "clean"],
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
     "clean": {
       "cache": false
     },
-    "@kaizen/components#publish": {
+    "@kaizen/components#prepublish": {
       "dependsOn": [
-        "@kaizen/tailwind#publish",
-        "@kaizen/design-tokens#publish"
+        "@kaizen/tailwind#prepublish",
+        "@kaizen/design-tokens#prepublish"
       ],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
     "@kaizen/tailwind#publish": {
-      "dependsOn": ["@kaizen/design-tokens#publish"],
+      "dependsOn": ["@kaizen/design-tokens#prepublish"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
