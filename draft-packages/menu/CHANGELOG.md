@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.9.5
+
+### Patch Changes
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`e9ec5c174`](https://github.com/cultureamp/kaizen-design-system/commit/e9ec5c17466b4e21b7a7cfeb5778b967fdea4995), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/button@3.0.0
+  - @kaizen/design-tokens@10.3.6
+
 ## 4.9.4
 
 ### Patch Changes

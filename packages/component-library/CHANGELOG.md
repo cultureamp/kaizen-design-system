@@ -1,5 +1,14 @@
 # Change Log
 
+## 16.7.3
+
+### Patch Changes
+
+- [#3585](https://github.com/cultureamp/kaizen-design-system/pull/3585) [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c) - Update dependencies:
+  - `@types/lodash` to `^4.14.194`
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/design-tokens@10.3.6
+
 ## 16.7.2
 
 ### Patch Changes
