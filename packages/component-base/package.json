@@ -6,7 +6,7 @@
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,5 @@
   ],
   "author": "",
   "private": false,
-  "license": "MIT",
-  "devDependencies": {
-    "rimraf": "^4.4.1"
-  }
+  "license": "MIT"
 }
