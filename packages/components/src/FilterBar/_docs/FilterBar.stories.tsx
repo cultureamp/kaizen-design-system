@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { FilterSelect, SelectOption } from "~components/FilterSelect"
 import {
   Filter,
   StateWithoutComponent,
@@ -139,6 +140,40 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
             { label: "Batch brew", value: "batch-brew" },
           ]}
         />
+      ),
+    },
+    {
+      id: "pickle",
+      label: "Pickle",
+      Component: (
+        <FilterBarSelect<SelectOption & { isFruit: boolean }>
+          id="pickle"
+          items={[
+            { label: "Bubblegum", value: "bubblegum", isFruit: false },
+            { label: "Strawberry", value: "strawberry", isFruit: true },
+            { label: "Chocolate", value: "chocolate", isFruit: false },
+            { label: "Apple", value: "apple", isFruit: true },
+            { label: "Lemon", value: "lemon", isFruit: true },
+          ]}
+        >
+          {({ items }): JSX.Element[] =>
+            items.map(item =>
+              item.type === "item" ? (
+                <FilterSelect.Option
+                  key={item.key}
+                  item={{
+                    ...item,
+                    rendered: item.value?.isFruit
+                      ? `${item.rendered} (Fruit)`
+                      : item.rendered,
+                  }}
+                />
+              ) : (
+                <FilterSelect.ItemDefaultRender key={item.key} item={item} />
+              )
+            )
+          }
+        </FilterBarSelect>
       ),
     },
     {
