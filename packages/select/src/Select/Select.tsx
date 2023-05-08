@@ -30,6 +30,7 @@ export const getSelectChildren: CollectionChildren<SingleItemType> = item =>
   ) : (
     <Item key={item.value}>{item.label}</Item>
   )
+
 export interface SelectProps
   extends OverrideClassName<
     Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
@@ -109,16 +110,16 @@ export const Select = ({
   const renderChildren = children
     ? children
     : ({ items }: SelectOptionsProps): JSX.Element => (
-      <>
-        {items.map(item =>
-          item.type === "section" ? (
-            <ListBoxSection key={item.key} section={item} />
-          ) : (
-            <Option key={item.key} item={item} />
-          )
-        )}
-      </>
-    )
+        <>
+          {items.map(item =>
+            item.type === "section" ? (
+              <ListBoxSection key={item.key} section={item} />
+            ) : (
+              <Option key={item.key} item={item} />
+            )
+          )}
+        </>
+      )
 
   const {
     labelProps,
