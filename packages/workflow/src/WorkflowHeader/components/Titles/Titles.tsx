@@ -5,23 +5,25 @@ import { Tag, DefaultTagProps } from "@kaizen/draft-tag"
 import { LoadingHeading } from "@kaizen/loading-skeleton"
 import {
   Heading,
+  HeadingProps,
   AllowedHeadingTags,
   HeadingVariants,
 } from "@kaizen/typography"
 
 export type WorkflowStatus = {
+  /** @default: "statusDraft" */
   vairant?: DefaultTagProps["variant"]
   content?: string
 }
 
 export interface WorkflowTitlesProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  prefixTitle?: string
+  prefix?: string
   /** * @default: "h1" */
-  prefixTitleTag?: AllowedHeadingTags
-  pageTitle?: string
+  prefixTag?: AllowedHeadingTags
+  title?: string
   /** * @default: "h2" */
-  pageTitleTag?: AllowedHeadingTags
+  titleTag?: AllowedHeadingTags
   status?: WorkflowStatus
 }
 
@@ -31,36 +33,48 @@ type TitleProps = {
   variant: HeadingVariants
 }
 
-const Title: (props: TitleProps) => JSX.Element = ({ tag, content, variant }) =>
-  content ? (
+const Title: (props: HeadingProps) => JSX.Element = ({
+  tag,
+  color,
+  children,
+  variant,
+  classNameOverride,
+}) =>
+  children ? (
     <Heading
       variant={variant}
       tag={tag}
-      color={"dark-reduced-opacity"}
-      classNameOverride="!mb-12 first-letter:capitalize"
+      color={color}
+      classNameOverride={classNameOverride}
     >
-      <>{content}</>
+      <>{children}</>
     </Heading>
   ) : (
     <LoadingHeading variant={variant} width={50} />
   )
 
-export const WorkflowTitles = ({
-  prefixTitle,
-  prefixTitleTag,
-  pageTitle,
-  pageTitleTag,
+export const Titles = ({
+  prefix,
+  prefixTag,
+  title,
+  titleTag,
   status,
+  ...restProps
 }: WorkflowTitlesProps): JSX.Element => (
-  <div className="flex flex-col items-center justify-center">
-    <Title
-      variant="heading-6"
-      content={prefixTitle}
-      tag={prefixTitleTag || "h1"}
-    />
-    <Title variant="heading-1" content={pageTitle} tag={pageTitleTag || "h2"} />
-    {status && <Tag variant={status?.vairant}>{status?.content}</Tag>}
+  <div
+    className="flex grow-2 flex-col items-center justify-center"
+    {...restProps}
+  >
+    <Title variant="heading-6" tag={prefixTag || "h1"}>
+      {prefix}
+    </Title>
+    <Title variant="heading-1" tag={titleTag || "h2"}>
+      {title}
+    </Title>
+    {status && (
+      <Tag variant={status?.vairant || "statusDraft"}>{status?.content}</Tag>
+    )}
   </div>
 )
 
-WorkflowTitles.displayName = "WorkflowTitles"
+Titles.displayName = "Titles"

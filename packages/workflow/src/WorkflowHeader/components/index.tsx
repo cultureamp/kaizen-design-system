@@ -1,3 +1,4 @@
-export * from "./WorkflowTitles"
-export * from "./WorkflowActions"
-export * from "./WorkflowBranding"
+export * from "./Titles"
+export * from "./Actions"
+export * from "./Branding"
+export * from "./Root"
