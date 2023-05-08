@@ -82,7 +82,7 @@ export const Select = ({
   defaultOpen,
   validationMessage,
   classNameOverride,
-  trigger = (triggerProps): JSX.Element => (
+  trigger = (triggerProps, buttonRef): JSX.Element => (
     <TriggerButton {...triggerProps} ref={buttonRef} />
   ),
   children,
@@ -109,16 +109,16 @@ export const Select = ({
   const renderChildren = children
     ? children
     : ({ items }: SelectOptionsProps): JSX.Element => (
-        <>
-          {items.map(item =>
-            item.type === "section" ? (
-              <ListBoxSection key={item.key} section={item} />
-            ) : (
-              <Option key={item.key} item={item} />
-            )
-          )}
-        </>
-      )
+      <>
+        {items.map(item =>
+          item.type === "section" ? (
+            <ListBoxSection key={item.key} section={item} />
+          ) : (
+            <Option key={item.key} item={item} />
+          )
+        )}
+      </>
+    )
 
   const {
     labelProps,
