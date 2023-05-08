@@ -1,6 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "storybook:build": {
+      "dependsOn": [
+        "@kaizen/tailwind#prepublish",
+        "@kaizen/design-tokens#prepublish"
+      ]
+    },
     "prepublish": {
       "dependsOn": ["^prepublish", "clean"],
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
