@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "10.3.5",
+  "version": "10.3.6",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/design-tokens",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
-    "clean": "rimraf '?(docs|react|src|bin)/**/?(*.js|*.d.ts)' '?(*.js^|*.js.map|*.d.ts)'",
+    "clean": "rimraf 'dist'",
     "prepublish": "yarn build:json && yarn build:less && yarn build:sass && yarn build:ts"
   },
   "devDependencies": {
