@@ -29,7 +29,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@internationalized/date": "^3.1.0",
+    "@internationalized/date": "^3.2.0",
     "@kaizen/a11y": "^1.7.10",
     "@kaizen/component-base": "^1.1.5",
     "@kaizen/component-library": "^16.7.2",
@@ -38,12 +38,12 @@
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
     "@react-aria/datepicker": "^3.3.0",
-    "@react-aria/i18n": "^3.7.0",
+    "@react-aria/i18n": "^3.7.1",
     "@react-stately/datepicker": "^3.4.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "react-day-picker": "8.4.1",
-    "react-focus-on": "^3.8.0",
+    "react-focus-on": "^3.8.1",
     "react-popper": "^2.3.0"
   },
   "peerDependencies": {
