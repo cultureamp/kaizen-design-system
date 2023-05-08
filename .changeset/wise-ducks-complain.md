@@ -2,4 +2,4 @@
 "@kaizen/select": patch
 ---
 
-Update tigger deftaul function to have buttonRef reference
+Update trigger default function to have buttonRef reference
