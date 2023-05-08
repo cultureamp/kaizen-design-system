@@ -391,7 +391,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .navigationTabsContainer {
-  // display: flex;
   height: $tab-container-height-default;
 
   @include title-block-small {
