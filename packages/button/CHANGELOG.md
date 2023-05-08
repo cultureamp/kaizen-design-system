@@ -1,5 +1,22 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+- [#3576](https://github.com/cultureamp/kaizen-design-system/pull/3576) [`e9ec5c174`](https://github.com/cultureamp/kaizen-design-system/commit/e9ec5c17466b4e21b7a7cfeb5778b967fdea4995) - - Replace form with size prop
+  - size prop can take "small" or "regular" as a value
+  - "small" will acheive the previous form style
+  - "regular" will be the default and will be unstyled
+  - Extend native button form HTML attributes
+    - Button can now take all native button form attributes
+
+### Patch Changes
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/design-tokens@10.3.6
+
 ## 2.1.5
 
 ### Patch Changes

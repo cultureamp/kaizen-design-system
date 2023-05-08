@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.4.13
+
+### Patch Changes
+
+- [#3492](https://github.com/cultureamp/kaizen-design-system/pull/3492) [`ee8778f46`](https://github.com/cultureamp/kaizen-design-system/commit/ee8778f46aef3582710cf6650d6b7369e08fdec4) - Fix Tag's `profile` variant display property from flex to inline-flex to match other variant's inline behaviour
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/design-tokens@10.3.6
+
 ## 3.4.12
 
 ### Patch Changes
