@@ -6,7 +6,7 @@
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -32,9 +32,6 @@
     "@kaizen/component-library": "^16.7.3",
     "@kaizen/draft-avatar": "^2.8.36",
     "classnames": "^2.3.2"
-  },
-  "devDependencies": {
-    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",

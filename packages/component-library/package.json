@@ -34,19 +34,17 @@
     "@kaizen/component-base": "^1.1.5",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/hosted-assets": "^2.0.1",
-    "@types/classnames": "^2.3.0",
     "@types/lodash": "^4.14.194",
     "@types/uuid": "^9.0.1",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@testing-library/dom": "^9.2.0",
-    "rimraf": "^4.4.1"
+    "@testing-library/dom": "^9.2.0"
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '?(components|draft|draft-templates|util|bin|stories)/**/?(*.js*|*.d.ts)' '**/*.js.map' 'index.js*' 'index.d.ts'"
+    "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts'"
   }
 }
