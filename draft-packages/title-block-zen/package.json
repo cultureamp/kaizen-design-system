@@ -40,9 +40,6 @@
     "@kaizen/typography": "^2.3.8",
     "classnames": "^2.3.2"
   },
-  "devDependencies": {
-    "rimraf": "^4.4.1"
-  },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"

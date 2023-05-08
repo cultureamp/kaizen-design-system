@@ -33,9 +33,6 @@
     "@kaizen/component-base": "^1.1.5",
     "classnames": "^2.3.2"
   },
-  "devDependencies": {
-    "rimraf": "^4.4.1"
-  },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"

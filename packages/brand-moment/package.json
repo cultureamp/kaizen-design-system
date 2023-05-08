@@ -40,8 +40,7 @@
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/draft-select": "^2.10.36",
-    "rimraf": "^4.4.1"
+    "@kaizen/draft-select": "^2.10.36"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",
