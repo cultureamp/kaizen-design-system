@@ -13,7 +13,7 @@ export const Root = ({
 }: WorkflowRootProps): JSX.Element => (
   <div
     className={classnames(
-      "flex grow-1 w-100 items-start justify-center p-24 text-center shadow-sm",
+      "flex grow-1 w-100 items-start justify-between p-24 text-center shadow-sm",
       classNameOverride
     )}
     {...restProps}

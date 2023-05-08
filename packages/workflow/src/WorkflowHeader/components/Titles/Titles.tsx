@@ -65,7 +65,11 @@ export const Titles = ({
     className="flex grow-2 flex-col items-center justify-center"
     {...restProps}
   >
-    <Title variant="heading-6" tag={prefixTag || "h1"}>
+    <Title
+      variant="heading-6"
+      tag={prefixTag || "h1"}
+      color="dark-reduced-opacity"
+    >
       {prefix}
     </Title>
     <Title variant="heading-1" tag={titleTag || "h2"}>

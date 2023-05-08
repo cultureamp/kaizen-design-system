@@ -81,22 +81,10 @@ export const DefaultKaizenSiteDemo: StoryFn<WorkflowHeaderCompositionProps> = ({
   </WorkflowHeader>
 )
 
-const WorflowHeaderComponent: () => JSX.Element = () => (
-  <WorkflowHeader>
-    <>
-      <WorkflowHeader.Branding {...WorkflowHeaderDefault.branding} />
-      <WorkflowHeader.Titles {...WorkflowHeaderDefault.titles} />
-      <WorkflowHeader.Actions {...WorkflowHeaderDefault.actions}>
-        <div>Help icon</div>
-      </WorkflowHeader.Actions>
-    </>
-  </WorkflowHeader>
-)
-
 const meta = {
   tags: ["autodocs"],
   title: "Components/Workflow Header",
-  component: WorflowHeaderComponent,
+  component: WorkflowHeader,
   parameters: {
     docs: {
       source: { type: "code" },
@@ -169,23 +157,3 @@ DefaultKaizenSiteDemo.args = WorkflowHeaderDefault
 // // Reversed.parameters = {
 // //   backgrounds: { default: "Purple 700" },
 // // }
-
-// // TODO: The number of props is pretty gnarly - explore adding these as more composable elements like below:
-// {
-//   /*
-//   <WorkflowHeader>
-//     <WorkflowBrand />
-//     <WorkflowTitles
-//       prefixTitle="Create a self reflection cycke"
-//       prefixTag="h1"
-//       pageTitle="Settings"
-//       pageTitleTag="h2"
-//       status={{ content: "Draft", varint: "draft" }}
-//     />
-//     <WorkflowActions
-//       actions={[<Button />]}
-//       confirmationAction={{ prop1: "thing" }}
-//     />
-//   </WorkflowHeader>
-// */
-// }
