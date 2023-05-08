@@ -1,5 +1,15 @@
 # Change Log
 
+## 10.3.13
+
+### Patch Changes
+
+- [#3581](https://github.com/cultureamp/kaizen-design-system/pull/3581) [`c2f5be19e`](https://github.com/cultureamp/kaizen-design-system/commit/c2f5be19e5868aafd6771bab3a15e016664aa949) - - Remove capitalize function from field message title string
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/design-tokens@10.3.6
+
 ## 10.3.12
 
 ### Patch Changes

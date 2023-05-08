@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.1.30
+
+### Patch Changes
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`acb0fdf3d`](https://github.com/cultureamp/kaizen-design-system/commit/acb0fdf3de2c1e852971b30fa0db4691e2a4ad0d), [`e9ec5c174`](https://github.com/cultureamp/kaizen-design-system/commit/e9ec5c17466b4e21b7a7cfeb5778b967fdea4995), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/draft-tooltip@5.4.41
+  - @kaizen/button@3.0.0
+  - @kaizen/design-tokens@10.3.6
+
 ## 6.1.29
 
 ### Patch Changes
