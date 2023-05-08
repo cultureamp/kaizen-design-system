@@ -2,10 +2,26 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["**/*.d.ts", "**/*.js", "**/*.map", "dist/**"],
+      "dependsOn": ["^build", "clean"],
+      "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
-    "clean": {}
+    "clean": {
+      "cache": false
+    },
+    "@kaizen/components#build": {
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
+      "inputs": ["src/**"],
+      "outputs": ["dist/**"]
+    },
+    "@kaizen/tailwind#build": {
+      "dependsOn": ["@kaizen/design-tokens#build"],
+      "inputs": ["src/**"],
+      "outputs": ["dist/**"]
+    },
+    "@kaizen/design-tokens#build": {
+      "inputs": ["css/**", "less/**", "sass/**", "src/**", "tokens/**"],
+      "outputs": ["dist/**"]
+    }
   }
 }
