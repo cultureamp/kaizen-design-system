@@ -22,8 +22,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "yarn prepublish",
-    "build:clean": "rimraf dist",
     "build:components": "rollup -c",
+    "clean": "rimraf dist",
     "compile": "tsc",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
