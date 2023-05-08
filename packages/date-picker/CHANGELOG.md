@@ -1,5 +1,23 @@
 # Change Log
 
+## 5.21.14
+
+### Patch Changes
+
+- [#3592](https://github.com/cultureamp/kaizen-design-system/pull/3592) [`dcd98eb9f`](https://github.com/cultureamp/kaizen-design-system/commit/dcd98eb9fbb5d03356d803bb90685e33b151075d) - Update dependencies:
+
+  - `@react-aria/datepicker` to `^3.4.0`
+
+- [#3585](https://github.com/cultureamp/kaizen-design-system/pull/3585) [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c) - Update dependencies:
+  - `@internationalized/date` to `^3.2.0`
+  - `@react-aria/i18n` to `^3.7.1`
+  - `react-focus-on` to `^3.8.1`
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`acb0fdf3d`](https://github.com/cultureamp/kaizen-design-system/commit/acb0fdf3de2c1e852971b30fa0db4691e2a4ad0d), [`c2f5be19e`](https://github.com/cultureamp/kaizen-design-system/commit/c2f5be19e5868aafd6771bab3a15e016664aa949), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/draft-tooltip@5.4.41
+  - @kaizen/draft-form@10.3.13
+  - @kaizen/design-tokens@10.3.6
+
 ## 5.21.13
 
 ### Patch Changes
