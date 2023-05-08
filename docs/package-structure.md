@@ -81,7 +81,7 @@ The base package.json will look like this, where:
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -107,19 +107,16 @@ The base package.json will look like this, where:
     "@kaizen/component-base": "^1.1.0",
     "classnames": "^2.3.1"
   },
-  "devDependencies": {
-    "rimraf": "^3.0.2"
-  },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"  
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }
 ```
 
 ### tsconfig.dist.json
 
-This config extends the dist file in the root. 
+This config extends the dist file in the root.
 
 It is important to have the `include` attribute set as files are included relative to the config file which has it (in this case, it would include files relative to the root of the repo, which includes all other packages).
 
