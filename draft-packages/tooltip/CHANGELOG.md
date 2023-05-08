@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.4.41
+
+### Patch Changes
+
+- [#3593](https://github.com/cultureamp/kaizen-design-system/pull/3593) [`acb0fdf3d`](https://github.com/cultureamp/kaizen-design-system/commit/acb0fdf3de2c1e852971b30fa0db4691e2a4ad0d) - Update dependencies:
+  - `use-debounce` to `^9.0.4`
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/design-tokens@10.3.6
+
 ## 5.4.40
 
 ### Patch Changes
