@@ -64,7 +64,7 @@ $focus-ring-offset: 1px;
   left: 50%;
   margin: -10px 0 0 -9px;
   opacity: 0;
-  transition-duration: 0.2s;
+  transition-duration: $animation-duration-rapid;
 }
 
 .on {
@@ -92,8 +92,8 @@ $focus-ring-offset: 1px;
 
   .checkIcon {
     opacity: 1;
-    transition-delay: 0.1s;
-    transition-duration: 0.3s;
+    transition-delay: $animation-duration-immediate;
+    transition-duration: $animation-duration-fast;
   }
 
   @media (hover: hover) and (pointer: fine) {
