@@ -38,7 +38,6 @@
     "@kaizen/draft-illustration": "^6.0.29",
     "@kaizen/responsive": "^1.8.7",
     "@kaizen/typography": "^2.3.8",
-    "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2",
     "react-focus-lock": "^2.9.4",
     "uuid": "^9.0.0"

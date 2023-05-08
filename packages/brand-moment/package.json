@@ -37,7 +37,6 @@
     "@kaizen/hosted-assets": "^2.0.1",
     "@kaizen/responsive": "^1.8.8",
     "@kaizen/typography": "^2.3.8",
-    "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2"
   },
   "devDependencies": {

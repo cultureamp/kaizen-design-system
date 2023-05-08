@@ -38,7 +38,6 @@
     "react-animate-height": "^3.1.1"
   },
   "devDependencies": {
-    "@types/classnames": "^2.3.0",
     "rimraf": "^4.4.1"
   },
   "peerDependencies": {

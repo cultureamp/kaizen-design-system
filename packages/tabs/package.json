@@ -31,7 +31,6 @@
   "dependencies": {
     "@kaizen/draft-badge": "^1.13.8",
     "@reach/tabs": "^0.18.0",
-    "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
