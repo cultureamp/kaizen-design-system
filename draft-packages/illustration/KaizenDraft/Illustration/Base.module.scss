@@ -15,6 +15,7 @@
     position: absolute;
     right: 1rem;
     bottom: 1rem;
+    /* stylelint-disable declaration-no-important */
     background-color: $color-white !important;
     border: 1px solid $color-gray-400;
     transition: all $animation-duration-immediate;
@@ -25,6 +26,7 @@
     }
 
     &:hover {
+      /* stylelint-disable declaration-no-important */
       background-color: $color-gray-200 !important;
 
       svg {
