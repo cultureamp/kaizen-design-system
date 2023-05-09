@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.4.0
+
+### Minor Changes
+
+- [#3579](https://github.com/cultureamp/kaizen-design-system/pull/3579) [`8de6f6701`](https://github.com/cultureamp/kaizen-design-system/commit/8de6f67017c62a905634d8388f4dd68d579325d3) - Accessibility fix: improved color contrast for ToggleSwitchField; it also now shows a check icon when active/on
+
 ## 10.3.13
 
 ### Patch Changes

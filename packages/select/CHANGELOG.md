@@ -1,5 +1,14 @@
 # Change Log
 
+## 6.15.5
+
+### Patch Changes
+
+- [#3600](https://github.com/cultureamp/kaizen-design-system/pull/3600) [`d7c88f39b`](https://github.com/cultureamp/kaizen-design-system/commit/d7c88f39bc3b759ed442e2272bf330442609c540) - Update trigger default function to have buttonRef reference
+
+- Updated dependencies [[`8de6f6701`](https://github.com/cultureamp/kaizen-design-system/commit/8de6f67017c62a905634d8388f4dd68d579325d3)]:
+  - @kaizen/draft-form@10.4.0
+
 ## 6.15.4
 
 ### Patch Changes
