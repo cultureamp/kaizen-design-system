@@ -23,7 +23,8 @@
     "!**/*.spec.*",
     "!**/*.snap",
     "!docs/**/*",
-    "!tsconfig.dist.json"
+    "!tsconfig.dist.json",
+    "!.turbo"
   ],
   "author": "",
   "private": false,

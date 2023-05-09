@@ -20,7 +20,8 @@
     "!**/*.ts",
     "!**/*.tsx",
     "**/*.d.ts",
-    "!tsconfig.dist.json"
+    "!tsconfig.dist.json",
+    "!.turbo"
   ],
   "author": "",
   "private": false,

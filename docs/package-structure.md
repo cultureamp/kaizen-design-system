@@ -98,7 +98,8 @@ The base package.json will look like this, where:
     "**/*.d.ts", // This must be below `.ts` to override
     "!**/*.spec.*",
     "!docs",
-    "!tsconfig.dist.json"
+    "!tsconfig.dist.json",
+    "!.turbo"
   ],
   "author": "",
   "private": false,

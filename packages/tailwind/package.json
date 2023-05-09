@@ -20,7 +20,8 @@
     "src",
     "dist",
     "!**/*.spec.*",
-    "!docs"
+    "!docs",
+    "!.turbo"
   ],
   "main": "dist/index.js",
   "author": "",
