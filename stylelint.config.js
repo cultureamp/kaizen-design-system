@@ -1,5 +1,4 @@
 module.exports = {
-  extends: ["./packages/stylelint-plugin/dev-config.js"],
   overrides: [
     {
       files: ["*.scss", "**/*.scss"],
