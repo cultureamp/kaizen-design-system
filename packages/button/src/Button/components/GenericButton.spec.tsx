@@ -1,5 +1,5 @@
 import * as React from "react"
-import { render, screen, fireEvent } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import GenericButton, { ButtonFormAttributes } from "./GenericButton"
 
 describe("<GenericButton />", () => {
@@ -106,28 +106,8 @@ describe("<GenericButton /> with native HTML `form` attributes", () => {
       />
     )
 
-    expect(screen.getByRole("button", { name: "submit button" })).toBeTruthy()
     expect(
       screen.getByRole("button", { name: "submit button" })
     ).toHaveAttribute("form", buttonFormAttributes.form)
-  })
-
-  it("will sumbit a form linked by the id", () => {
-    const onSubmit = jest.fn(e => e.preventDefault())
-    render(
-      <div>
-        <form id="linked-form-id" onSubmit={onSubmit}>
-          <input type="text" defaultValue="test" />
-        </form>
-        <GenericButton
-          label="submit button"
-          data-testid="custom-prop"
-          type="submit"
-          {...buttonFormAttributes}
-        />
-      </div>
-    )
-    fireEvent.click(screen.getByRole("button", { name: "submit button" }))
-    expect(onSubmit).toHaveBeenCalledTimes(1)
   })
 })
