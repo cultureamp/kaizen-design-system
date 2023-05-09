@@ -97,9 +97,7 @@ const renderInitials = (
     fallbackIcon(fullName)
   ) : (
     <abbr
-      className={classnames(styles.initials, {
-        [styles.longName]: isLongName,
-      })}
+      className={classnames(styles.initials, isLongName && styles.longName)}
       title={fullName || ""}
     >
       {isLongName ? (
@@ -149,22 +147,25 @@ export const Avatar = ({
 
   return (
     <span
-      className={classnames(styles.wrapper, styles[size], classNameOverride, {
-        [styles.company]: isCompany,
-        [styles.personal]:
-          isCurrentUser && (avatarState === "none" || avatarState === "error"),
-        [styles.otherUser]:
-          !isCurrentUser && (avatarState === "none" || avatarState === "error"),
-        [styles.loading]: avatarState === "loading" || avatarState === "error",
-      })}
+      className={classnames(
+        styles.wrapper,
+        styles[size],
+        classNameOverride,
+        isCompany && styles.company,
+        (avatarState === "none" || avatarState === "error") && isCurrentUser
+          ? styles.personal
+          : styles.otherUser,
+        (avatarState === "loading" || avatarState === "error") && styles.loading
+      )}
       {...restProps}
     >
       {avatarState !== "none" && (
         <img
           ref={image}
-          className={classnames(styles.avatarImage, {
-            [styles.companyAvatarImage]: isCompany,
-          })}
+          className={classnames(
+            styles.avatarImage,
+            isCompany && styles.companyAvatarImage
+          )}
           src={avatarSrc}
           onError={onImageFailure}
           onLoad={onImageSuccess}

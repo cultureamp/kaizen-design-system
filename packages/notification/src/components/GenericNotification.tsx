@@ -133,18 +133,17 @@ class GenericNotification extends React.Component<
       styles.notification,
       styles[this.props.type],
       styles[this.props.style],
-      {
-        [styles.hidden]: this.state.hidden,
-        [styles.noBottomMargin]: this.props.noBottomMargin,
-      },
+      this.state.hidden && styles.hidden,
+      this.props.noBottomMargin && styles.noBottomMargin,
       this.props.classNameOverride
     )
   }
 
   textContainerClassName(): string {
-    return classnames(styles.textContainer, {
-      [styles.forceMultiline]: this.props.forceMultiline,
-    })
+    return classnames(
+      styles.textContainer,
+      this.props.forceMultiline && styles.forceMultiline
+    )
   }
 
   marginTop(): string {

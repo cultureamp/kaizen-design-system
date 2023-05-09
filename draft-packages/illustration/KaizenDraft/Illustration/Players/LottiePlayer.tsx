@@ -96,11 +96,11 @@ export const AnimatedBase = ({
 
   return (
     <figure
-      className={classnames([
+      className={classnames(
         styles.wrapper,
         aspectRatio && styles[aspectRatio],
-        classNameOverride,
-      ])}
+        classNameOverride
+      )}
     >
       <figcaption className={styles.visuallyHidden}>{alt}</figcaption>
       {playerLoaded === AssetStatus.Loading && LoadingState}

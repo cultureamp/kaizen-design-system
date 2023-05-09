@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import ReactSelect, {
   components,
   Props as ReactSelectProps,
@@ -67,15 +67,17 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
       ? false
       : true
 
-  const classes = classNames(props.className, styles.specificityIncreaser, {
-    [styles.default]: !reversed || variant === "default",
-    [styles.reversed]: reversed,
-    [styles.secondary]: variant === "secondary",
-    [styles.secondarySmall]: variant === "secondary-small",
-    [styles.notFullWidth]: !fullWidth,
-    [styles.disabled]: props.isDisabled,
-    [styles.error]: status === "error",
-  })
+  const classes = classnames(
+    props.className,
+    styles.specificityIncreaser,
+    !reversed || (variant === "default" && styles.default),
+    reversed && styles.reversed,
+    variant === "secondary" && styles.secondary,
+    variant === "secondary-small" && styles.secondarySmall,
+    !fullWidth && styles.notFullWidth,
+    props.isDisabled && styles.disabled,
+    status === "error" && styles.error
+  )
   return (
     <>
       {label ? <Label reversed={reversed}>{label}</Label> : null}
@@ -134,7 +136,7 @@ export const AsyncSelect = React.forwardRef(
         IndicatorSeparator: null,
         LoadingMessage,
       }}
-      className={classNames(styles.specificityIncreaser, props.className)}
+      className={classnames(styles.specificityIncreaser, props.className)}
     />
   )
 )
@@ -144,10 +146,11 @@ const Control: typeof components.Control = props => (
   <div data-automation-id="Select__Control">
     <components.Control
       {...props}
-      className={classNames(styles.control, {
-        [styles.focusedControl]: props.isFocused,
-        [styles.disabled]: props.isDisabled,
-      })}
+      className={classnames(
+        styles.control,
+        props.isFocused && styles.focusedControl,
+        props.isDisabled && styles.disabled
+      )}
     />
   </div>
 )
@@ -176,21 +179,19 @@ const Menu: typeof components.Menu = props => (
 )
 
 const GroupHeading: typeof components.GroupHeading = props => (
-  <components.GroupHeading
-    {...props}
-    className={classNames(styles.groupHeading)}
-  />
+  <components.GroupHeading {...props} className={styles.groupHeading} />
 )
 
 const Option: typeof components.Option = props => (
   <div data-automation-id="Select__Option">
     <components.Option
       {...props}
-      className={classNames(styles.option, {
-        [styles.focusedOption]: props.isFocused,
-        [styles.selectedOption]: props.isSelected,
-        [styles.disabledOption]: props.isDisabled,
-      })}
+      className={classnames(
+        styles.option,
+        props.isFocused && styles.focusedOption,
+        props.isSelected && styles.selectedOption,
+        props.isDisabled && styles.disabledOption
+      )}
     />
   </div>
 )

@@ -96,11 +96,12 @@ export const LikertScaleLegacy = ({
 
   return (
     <div
-      className={classnames(styles.container, {
-        [styles.rated]: selectedItem && selectedItem.value > 0,
-        [styles.reversed]: reversed,
-        [styles.hovered]: hoveredItem !== null,
-      })}
+      className={classnames(
+        styles.container,
+        selectedItem && selectedItem.value > 0 && styles.rated,
+        reversed && [styles.reversed],
+        hoveredItem !== null && styles.hovered
+      )}
       aria-labelledby={labelId}
       role="radiogroup"
       tabIndex={-1}
@@ -116,10 +117,11 @@ export const LikertScaleLegacy = ({
         </Paragraph>
       </div>
       <div
-        className={classnames(styles.itemContainer, {
-          [styles.rated]: selectedItem && selectedItem.value > 0,
-          [styles.reversed]: reversed,
-        })}
+        className={classnames(
+          styles.itemContainer,
+          selectedItem && selectedItem.value > 0 && styles.rated,
+          reversed && styles.reversed
+        )}
       >
         {scale.map((item: ScaleItem) => {
           if (item.value <= 0) {
@@ -145,16 +147,16 @@ export const LikertScaleLegacy = ({
               className={classnames(
                 styles.likertItem,
                 styles[`likertItem${item.value}`],
-                {
-                  [styles.selected]:
-                    selectedItem &&
-                    item.value <= selectedItem?.value &&
-                    !hoveredItem,
-                  [styles.suggested]:
-                    hoveredItem && hoveredItem.value >= item.value,
-                  [styles.unselected]:
-                    selectedItem && selectedItem.value < item.value,
-                }
+                selectedItem &&
+                  item.value <= selectedItem?.value &&
+                  !hoveredItem &&
+                  styles.selected,
+                hoveredItem &&
+                  hoveredItem.value >= item.value &&
+                  styles.suggested,
+                selectedItem &&
+                  selectedItem.value < item.value &&
+                  styles.unselected
               )}
               key={item.value}
               data-automation-id={
@@ -178,9 +180,7 @@ export const LikertScaleLegacy = ({
                 className={classnames(
                   styles.likertItemFill,
                   styles[`field${item.value}`],
-                  {
-                    [styles.pop]: isSelectedItem,
-                  }
+                  isSelectedItem && styles.pop
                 )}
               />
               {isSelectedItem ? <SelectedItemIcon /> : null}

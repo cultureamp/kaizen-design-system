@@ -122,9 +122,7 @@ const TooltipContent = ({
   return isVisible || isAnimOut || isAnimIn ? (
     <div
       ref={setPopperElement}
-      className={classnames({
-        [styles.tooltip]: true,
-      })}
+      className={styles.tooltip}
       style={popperStyles.popper}
       {...attributes.popper}
       role="tooltip"
@@ -135,9 +133,7 @@ const TooltipContent = ({
       </div>
       <div
         ref={setArrowElement}
-        className={classnames({
-          [styles.arrow]: true,
-        })}
+        className={styles.arrow}
         style={popperStyles.arrow}
       >
         <div className={styles.arrowInner}>
@@ -209,13 +205,14 @@ export const Tooltip = ({
       <>
         <div
           ref={setReferenceElement}
-          className={classnames(classNameOverride, {
-            [styles.displayInline]: displayToUse === "inline",
-            [styles.displayBlock]: displayToUse === "block",
-            [styles.displayInlineBlock]: displayToUse === "inline-block",
-            [styles.displayFlex]: displayToUse === "flex",
-            [styles.displayInlineFlex]: displayToUse === "inline-flex",
-          })}
+          className={classnames(
+            classNameOverride,
+            displayToUse === "inline" && styles.displayInline,
+            displayToUse === "block" && styles.displayBlock,
+            displayToUse === "inline-block" && styles.displayInlineBlock,
+            displayToUse === "flex" && styles.displayFlex,
+            displayToUse === "inline-flex" && styles.displayInlineFlex
+          )}
           onMouseEnter={(): void => setIsHover(true)}
           onMouseLeave={(): void => setIsHover(false)}
           onFocusCapture={(): void => setIsFocus(true)}

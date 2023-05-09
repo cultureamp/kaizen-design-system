@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
@@ -25,10 +25,11 @@ export const TableContainer = ({
 }: TableContainerProps): JSX.Element => (
   <div
     role="table"
-    className={classNames(styles.container, {
-      [styles.defaultSpacing]: variant === "default",
-      [styles.dataVariant]: variant === "data",
-    })}
+    className={classnames(
+      styles.container,
+      variant === "default" && styles.defaultSpacing,
+      variant === "data" && styles.dataVariant
+    )}
     {...otherProps}
   >
     {children}
@@ -71,7 +72,7 @@ export const TableHeaderRow = ({
   children,
   ...otherProps
 }: TableHeaderRowProps): JSX.Element => (
-  <div className={classNames(styles.row)} role="rowheader" {...otherProps}>
+  <div className={styles.row} role="rowheader" {...otherProps}>
     {children}
   </div>
 )
@@ -205,10 +206,10 @@ export const TableHeaderRowCell = ({
       ) : null}
       {(sorting || (isHovered && sortingArrowsOnHover)) && (
         <div
-          className={classNames({
-            [styles.headerRowCellIconAlignCenter]: align === "center",
-            [styles.headerRowCellIconAlignEnd]: align === "end",
-          })}
+          className={classnames(
+            align === "center" && styles.headerRowCellIconAlignCenter,
+            align === "end" && styles.headerRowCellIconAlignEnd
+          )}
         >
           <Icon
             icon={
@@ -226,9 +227,10 @@ export const TableHeaderRowCell = ({
   cellContents = href ? (
     <a
       data-automation-id={automationId}
-      className={classNames(styles.headerRowCellButton, {
-        [styles.headerRowCellButtonReversed]: !!reversed,
-      })}
+      className={classnames(
+        styles.headerRowCellButton,
+        reversed && styles.headerRowCellButtonReversed
+      )}
       href={href}
       onClick={
         onClick as (e: React.MouseEvent<HTMLAnchorElement>) => any | undefined
@@ -244,9 +246,10 @@ export const TableHeaderRowCell = ({
     <button
       type="button"
       data-automation-id={automationId}
-      className={classNames(styles.headerRowCellButton, {
-        [styles.headerRowCellButtonReversed]: !!reversed,
-      })}
+      className={classnames(
+        styles.headerRowCellButton,
+        reversed && styles.headerRowCellButtonReversed
+      )}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
       onMouseEnter={(): void => updateHoverState(true)}
       onFocus={(): void => updateHoverState(true)}
@@ -259,7 +262,7 @@ export const TableHeaderRowCell = ({
     // This div wrapper probably isn't needed, but it's a bit easier
     // for this flex positioning, to have the dom tree depth match for
     // each permutation.
-    <div className={classNames(styles.headerRowCellNoButton)}>
+    <div className={classnames(styles.headerRowCellNoButton)}>
       {cellContents}
     </div>
   )
@@ -281,14 +284,12 @@ export const TableHeaderRowCell = ({
 
   return (
     <div
-      className={classNames(
+      className={classnames(
         styles.headerRowCell,
-        {
-          [styles.headerRowCellNoWrap]: wrapping === "nowrap",
-          [styles.headerRowCellAlignCenter]: align === "center",
-          [styles.headerRowCellAlignEnd]: align === "end",
-          [styles.headerRowCellActive]: !!sorting,
-        },
+        wrapping === "nowrap" && styles.headerRowCellNoWrap,
+        align === "center" && styles.headerRowCellAlignCenter,
+        align === "end" && styles.headerRowCellAlignEnd,
+        sorting && styles.headerRowCellActive,
         classNameOverride
       )}
       style={{
@@ -342,11 +343,12 @@ export const TableCard = ({
   forceHoverState = false,
   ...otherProps
 }: TableCardProps): JSX.Element => {
-  const className = classNames(styles.card, {
-    [styles.expanded]: expanded,
-    [styles[expandedStyle]]: expanded,
-    [styles.hasHoverState]: forceHoverState || onClick != null || href != null,
-  })
+  const className = classnames(
+    styles.card,
+    expanded && styles.expanded,
+    expanded && styles[expandedStyle],
+    (forceHoverState || onClick != null || href != null) && styles.hasHoverState
+  )
   return href != null ? (
     <a
       href={href}
@@ -421,7 +423,7 @@ export const TableRowCell = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={classNames(styles.rowCell, classNameOverride)}
+      className={classnames(styles.rowCell, classNameOverride)}
       href={href}
       {...otherProps}
     >
@@ -434,7 +436,7 @@ export const TableRowCell = ({
         width: ratioToPercent(width),
         flex,
       }}
-      className={classNames(styles.rowCell, classNameOverride)}
+      className={classnames(styles.rowCell, classNameOverride)}
       {...otherProps}
     >
       {children}

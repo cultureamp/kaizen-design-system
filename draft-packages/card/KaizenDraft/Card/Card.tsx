@@ -48,9 +48,7 @@ export const Card = ({
         styles.wrapper,
         styles[variant],
         classNameOverride,
-        {
-          [styles.elevated]: isElevated,
-        }
+        isElevated && styles.elevated
       )}
       {...props}
     >

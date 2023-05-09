@@ -99,9 +99,7 @@ export const ContextModal = ({
         {renderBackground && renderBackground()}
         <ModalHeader onDismiss={onDismiss}>
           <div
-            className={classnames(styles.header, {
-              [styles.padded]: !unpadded,
-            })}
+            className={classnames(styles.header, !unpadded && styles.padded)}
           >
             <ModalAccessibleLabel>
               <Heading variant="heading-2" tag="h2">
@@ -115,10 +113,10 @@ export const ContextModal = ({
         )}
         <ModalBody>
           <div
-            className={classnames(styles.contentLayout, {
-              [styles.portraitContentlayout]: layout === "portrait",
-              [styles.landscapeContentlayout]: layout === "landscape",
-            })}
+            className={classnames(
+              styles.contentLayout,
+              styles[`${layout}ContentLayout`]
+            )}
           >
             {image && <div className={styles.image}>{image}</div>}
             <div className={styles.content}>

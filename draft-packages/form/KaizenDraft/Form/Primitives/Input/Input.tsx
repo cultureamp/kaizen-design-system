@@ -74,12 +74,10 @@ export const Input = ({
   <div
     className={classnames(
       styles.wrapper,
-      {
-        [styles.withReversed]: reversed,
-        [styles.withDisabled]: disabled,
-        [styles.withStartIconAdornment]: startIconAdornment,
-        [styles.withEndIconAdornment]: endIconAdornment,
-      },
+      reversed && styles.withReversed,
+      disabled && styles.withDisabled,
+      startIconAdornment && styles.withStartIconAdornment,
+      endIconAdornment && styles.withEndIconAdornment,
       status != "default" && styles.hasStatus
     )}
   >
@@ -96,14 +94,14 @@ export const Input = ({
       aria-describedby={ariaDescribedBy} // will be replaced by `aria-describedby` in restProps
       aria-label={ariaLabel} // will be replaced by `aria-label` in restProps
       disabled={disabled}
-      className={classnames([
+      className={classnames(
         styles.input,
         styles[status],
         className,
         classNameOverride,
         reversed ? styles.reversed : styles.default,
-        disabled && styles.disabled,
-      ])}
+        disabled && styles.disabled
+      )}
       {...restProps}
     />
 
