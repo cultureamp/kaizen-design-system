@@ -115,7 +115,7 @@ export const ContextModal = ({
           <div
             className={classnames(
               styles.contentLayout,
-              styles[`${layout}ContentLayout`]
+              styles[`${layout}Contentlayout`]
             )}
           >
             {image && <div className={styles.image}>{image}</div>}

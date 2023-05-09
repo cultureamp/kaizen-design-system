@@ -36,12 +36,12 @@ export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
       <table className={utilityClass}>
         <tbody>
           <tr>
-            <td className={"outline-[black] outline-1 outline"}>Tutant</td>
-            <td className={"outline-[black] outline-1 outline"}>Meenage</td>
+            <td className="outline-[black] outline-1 outline">Tutant</td>
+            <td className="outline-[black] outline-1 outline">Meenage</td>
           </tr>
           <tr>
-            <td className={"outline-[black] outline-1 outline"}>Neetle</td>
-            <td className={"outline-[black] outline-1 outline"}>Teetles</td>
+            <td className="outline-[black] outline-1 outline">Neetle</td>
+            <td className="outline-[black] outline-1 outline">Teetles</td>
           </tr>
         </tbody>
       </table>

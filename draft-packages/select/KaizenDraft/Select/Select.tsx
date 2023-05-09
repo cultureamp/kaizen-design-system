@@ -70,7 +70,7 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
   const classes = classnames(
     props.className,
     styles.specificityIncreaser,
-    !reversed || (variant === "default" && styles.default),
+    (!reversed || variant === "default") && styles.default,
     reversed && styles.reversed,
     variant === "secondary" && styles.secondary,
     variant === "secondary-small" && styles.secondarySmall,
