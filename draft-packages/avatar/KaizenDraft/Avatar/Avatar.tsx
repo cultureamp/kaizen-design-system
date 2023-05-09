@@ -145,6 +145,10 @@ export const Avatar = ({
     if (image?.current?.complete) onImageSuccess()
   }, [image])
 
+  const isNoneOrError = avatarState === "none" || avatarState === "error"
+  const isPersonal = isNoneOrError && isCurrentUser
+  const isOtherUser = isNoneOrError && !isCurrentUser
+
   return (
     <span
       className={classnames(
@@ -152,9 +156,8 @@ export const Avatar = ({
         styles[size],
         classNameOverride,
         isCompany && styles.company,
-        (avatarState === "none" || avatarState === "error") && isCurrentUser
-          ? styles.personal
-          : styles.otherUser,
+        isPersonal && styles.personal,
+        isOtherUser && styles.otherUser,
         (avatarState === "loading" || avatarState === "error") && styles.loading
       )}
       {...restProps}
