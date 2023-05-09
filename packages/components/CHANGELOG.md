@@ -1,5 +1,34 @@
 # Change Log
 
+## 1.8.4
+
+### Patch Changes
+
+- [#3592](https://github.com/cultureamp/kaizen-design-system/pull/3592) [`dcd98eb9f`](https://github.com/cultureamp/kaizen-design-system/commit/dcd98eb9fbb5d03356d803bb90685e33b151075d) - Update dependencies:
+
+  - `@react-aria/focus` to `^3.12.0`
+  - `@react-aria/listbox` to `^3.9.0`
+  - `@react-aria/overlays` to `^3.14.0`
+  - `@react-aria/select` to `^3.10.0`
+  - `@react-aria/utils` to `^3.16.0`
+  - `@react-stately/collections` to `^3.7.0`
+  - `@react-stately/select` to `^3.5.0`
+
+- [#3585](https://github.com/cultureamp/kaizen-design-system/pull/3585) [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c) - Update dependencies:
+  - `@react-aria/button` to `^3.7.1`
+  - `@react-types/shared` to `^3.18.0`
+  - `react-focus-on` to `^3.8.1`
+  - `@rollup/plugin-alias` to `^4.0.4`
+  - `@rollup/plugin-node-resolve` to `^15.0.2`
+  - `esbuild` to `^0.17.18`
+  - `sass` to `^1.62.1`
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`acb0fdf3d`](https://github.com/cultureamp/kaizen-design-system/commit/acb0fdf3de2c1e852971b30fa0db4691e2a4ad0d), [`dcd98eb9f`](https://github.com/cultureamp/kaizen-design-system/commit/dcd98eb9fbb5d03356d803bb90685e33b151075d), [`c2f5be19e`](https://github.com/cultureamp/kaizen-design-system/commit/c2f5be19e5868aafd6771bab3a15e016664aa949), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/draft-tooltip@5.4.41
+  - @kaizen/date-picker@5.21.14
+  - @kaizen/draft-form@10.3.13
+  - @kaizen/design-tokens@10.3.6
+
 ## 1.8.3
 
 ### Patch Changes
