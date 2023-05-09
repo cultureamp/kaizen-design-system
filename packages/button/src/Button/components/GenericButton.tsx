@@ -169,6 +169,12 @@ const renderButton = (
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    form,
+    formAction,
+    formMethod,
+    formEncType,
+    formTarget,
+    formNoValidate,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
@@ -186,6 +192,12 @@ const renderButton = (
       onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
       aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
+      form={form}
+      formAction={formAction}
+      formMethod={formMethod}
+      formEncType={formEncType}
+      formTarget={formTarget}
+      formNoValidate={formNoValidate}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
