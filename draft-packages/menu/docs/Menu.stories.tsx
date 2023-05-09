@@ -27,9 +27,7 @@ export default {
 export const DefaultStory: StoryFn<typeof Menu> = args => (
   <Menu
     {...args}
-    button={
-      <Button label={"Edit menu"} icon={chevronDown} iconPosition="end" />
-    }
+    button={<Button label="Edit menu" icon={chevronDown} iconPosition="end" />}
   >
     <MenuList>
       <MenuItem

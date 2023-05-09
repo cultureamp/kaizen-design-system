@@ -71,7 +71,7 @@ const renderDefaultLink = (
     return (
       <TitleBlockMenuItem
         {...defaultAction}
-        key={"title-block-mobile-actions-default-link"}
+        key="title-block-mobile-actions-default-link"
         automationId="title-block-mobile-actions-default-link"
       />
     )
@@ -82,7 +82,7 @@ const renderDefaultLink = (
       label={defaultAction.label}
       icon={defaultAction.icon}
       disabled={defaultAction.disabled}
-      key={"title-block-mobile-actions-default-link"}
+      key="title-block-mobile-actions-default-link"
       automationId="title-block-mobile-actions-default-link"
     />
   )
@@ -95,7 +95,7 @@ const renderDefaultAction = (
     return (
       <TitleBlockMenuItem
         {...defaultAction}
-        key={"title-block-mobile-actions-default-action"}
+        key="title-block-mobile-actions-default-action"
         automationId="title-block-mobile-actions-default-action"
       />
     )
@@ -115,7 +115,7 @@ const renderSecondaryActions = (
     <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-secondary-action-${idx}`}
-      automationId={"title-block-mobile-actions-secondary-action"}
+      automationId="title-block-mobile-actions-secondary-action"
     />
   ))
 }
@@ -127,7 +127,7 @@ const renderSecondaryOverflowMenuItems = (
     <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-overflow-menu-item-${idx}`}
-      automationId={"title-block-mobile-actions-overflow-menu-item"}
+      automationId="title-block-mobile-actions-overflow-menu-item"
     />
   ))
 
