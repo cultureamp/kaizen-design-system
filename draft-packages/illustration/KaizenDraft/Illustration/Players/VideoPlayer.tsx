@@ -153,8 +153,13 @@ export const VideoPlayer = ({
 
   const pausePlay = usePausePlay(videoRef)
 
-  const videoPlayer = (
-    <>
+  return (
+    <figure
+      className={classnames(styles.figure, {
+        [`${styles[aspectRatio!]} ${styles.aspectRatioWrapper}`]:
+          Boolean(aspectRatio),
+      })}
+    >
       <video
         muted={true}
         aria-hidden={true}
@@ -185,17 +190,6 @@ export const VideoPlayer = ({
         label={pausePlay.label}
         classNameOverride={styles.pausePlayButton}
       />
-    </>
-  )
-
-  return (
-    <figure
-      className={classnames(styles.figure, {
-        [`${styles[aspectRatio!]} ${styles.aspectRatioWrapper}`]:
-          Boolean(aspectRatio),
-      })}
-    >
-      {videoPlayer}
     </figure>
   )
 }
