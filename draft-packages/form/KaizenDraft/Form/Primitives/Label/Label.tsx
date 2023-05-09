@@ -38,11 +38,8 @@ export const Label = ({
     className={classnames(
       styles.label,
       classNameOverride,
+      styles[labelType],
       reversed && styles.reversed,
-      labelType === "text" && styles.text,
-      labelType === "checkbox" && styles.checkbox,
-      labelType === "toggle" && styles.toggle,
-      labelType === "radio" && styles.radio,
       variant === "prominent" && styles.prominent,
       disabled && styles.disabled
     )}

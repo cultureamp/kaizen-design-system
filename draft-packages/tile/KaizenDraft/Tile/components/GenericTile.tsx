@@ -170,3 +170,5 @@ export const GenericTile = ({
     </div>
   )
 }
+
+GenericTile.displayName = "GenericTile"

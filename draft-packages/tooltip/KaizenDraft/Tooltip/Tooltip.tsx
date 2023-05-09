@@ -167,9 +167,6 @@ export const Tooltip = ({
     useState<HTMLDivElement | null>(null)
   const tooltipId = useUuid()
 
-  // Legacy support for the inline prop
-  const displayToUse = inline != null ? (inline ? "inline" : "block") : display
-
   const tooltip = (
     <TooltipContent
       text={text}
@@ -197,6 +194,26 @@ export const Tooltip = ({
     }
   }, [portalSelectorElementRef, portalSelector])
 
+  // Legacy support for the inline prop
+  const displayToUse = inline != null ? (inline ? "inline" : "block") : display
+
+  const getDisplayClassName = (): string | undefined => {
+    switch (displayToUse) {
+      case "inline":
+        return styles.displayInline
+      case "block":
+        return styles.displayBlock
+      case "inline-block":
+        return styles.displayInlineBlock
+      case "flex":
+        return styles.displayFlex
+      case "inline-flex":
+        return styles.displayInlineFlex
+      default:
+        return undefined
+    }
+  }
+
   return (
     <AnimationProvider
       isVisible={isHover || isFocus}
@@ -205,14 +222,7 @@ export const Tooltip = ({
       <>
         <div
           ref={setReferenceElement}
-          className={classnames(
-            classNameOverride,
-            displayToUse === "inline" && styles.displayInline,
-            displayToUse === "block" && styles.displayBlock,
-            displayToUse === "inline-block" && styles.displayInlineBlock,
-            displayToUse === "flex" && styles.displayFlex,
-            displayToUse === "inline-flex" && styles.displayInlineFlex
-          )}
+          className={classnames(classNameOverride, getDisplayClassName())}
           onMouseEnter={(): void => setIsHover(true)}
           onMouseLeave={(): void => setIsHover(false)}
           onFocusCapture={(): void => setIsFocus(true)}

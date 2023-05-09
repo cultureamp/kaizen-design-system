@@ -262,9 +262,7 @@ export const TableHeaderRowCell = ({
     // This div wrapper probably isn't needed, but it's a bit easier
     // for this flex positioning, to have the dom tree depth match for
     // each permutation.
-    <div className={classnames(styles.headerRowCellNoButton)}>
-      {cellContents}
-    </div>
+    <div className={styles.headerRowCellNoButton}>{cellContents}</div>
   )
 
   cellContents =

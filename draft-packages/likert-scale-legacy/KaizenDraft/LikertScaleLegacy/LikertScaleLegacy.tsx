@@ -94,11 +94,13 @@ export const LikertScaleLegacy = ({
     ? `${labelId}-field-validation-message`
     : undefined
 
+  const isRated = selectedItem && selectedItem.value > 0
+
   return (
     <div
       className={classnames(
         styles.container,
-        selectedItem && selectedItem.value > 0 && styles.rated,
+        isRated && styles.rated,
         reversed && [styles.reversed],
         hoveredItem !== null && styles.hovered
       )}
@@ -119,7 +121,7 @@ export const LikertScaleLegacy = ({
       <div
         className={classnames(
           styles.itemContainer,
-          selectedItem && selectedItem.value > 0 && styles.rated,
+          isRated && styles.rated,
           reversed && styles.reversed
         )}
       >
@@ -142,21 +144,19 @@ export const LikertScaleLegacy = ({
             tabIndex = -1
           }
 
+          const isSelected =
+            selectedItem && item.value <= selectedItem?.value && !hoveredItem
+          const isSuggested = hoveredItem && hoveredItem.value >= item.value
+          const isUnselected = selectedItem && selectedItem.value < item.value
+
           return (
             <div
               className={classnames(
                 styles.likertItem,
                 styles[`likertItem${item.value}`],
-                selectedItem &&
-                  item.value <= selectedItem?.value &&
-                  !hoveredItem &&
-                  styles.selected,
-                hoveredItem &&
-                  hoveredItem.value >= item.value &&
-                  styles.suggested,
-                selectedItem &&
-                  selectedItem.value < item.value &&
-                  styles.unselected
+                isSelected && styles.selected,
+                isSuggested && styles.suggested,
+                isUnselected && styles.unselected
               )}
               key={item.value}
               data-automation-id={
