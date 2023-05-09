@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/extend-expect"
 import * as React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { VideoPlayer } from "./VideoPlayer"
 
@@ -158,25 +158,22 @@ describe("<VideoPlayer />", () => {
   })
 
   describe("Pausing/Playing animations", () => {
-    describe("when the animation is paused", () => {
-      it("restarts the animation when pause button is clicked", () => {
-        const { container, getByText } = render(
-          <VideoPlayer
-            // autoplay
-            fallback="illustrations/heart/spot/moods-cautionary.svg"
-            source="illustrations/heart/spot/moods-cautionary.webm"
-          />
-        )
+    it("restarts the animation when pause button is clicked", () => {
+      const { container, getByRole } = render(
+        <VideoPlayer
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+          source="illustrations/heart/spot/moods-cautionary.webm"
+        />
+      )
 
-        const videoElement = container.querySelector("video")!
+      const videoElement = container.querySelector("video")!
 
-        expect(videoElement.paused).toEqual(true)
+      expect(videoElement.paused).toEqual(true)
 
-        const button = getByText("PAUSE")
-        userEvent.click(button)
+      const button = getByRole("button")
+      userEvent.click(button)
 
-        expect(mockPlay).toHaveBeenCalled()
-      })
+      expect(mockPlay).toHaveBeenCalled()
     })
   })
 })
