@@ -36,12 +36,10 @@
     "@kaizen/hosted-assets": "^2.0.1",
     "@kaizen/responsive": "^1.8.8",
     "@kaizen/typography": "^2.3.8",
-    "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/draft-select": "^2.10.36",
-    "rimraf": "^4.4.1"
+    "@kaizen/draft-select": "^2.10.36"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",

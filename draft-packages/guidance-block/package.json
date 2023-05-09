@@ -33,13 +33,11 @@
     "@kaizen/draft-illustration": "^6.0.28",
     "@kaizen/draft-tooltip": "^5.4.41",
     "@kaizen/typography": "^2.3.8",
-    "@types/classnames": "^2.3.1",
     "classnames": "^2.3.2",
     "react-media": "^1.10.0"
   },
   "devDependencies": {
-    "@kaizen/draft-tag": "^3.4.13",
-    "rimraf": "^4.4.1"
+    "@kaizen/draft-tag": "^3.4.13"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",

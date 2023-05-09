@@ -24,8 +24,5 @@
   ],
   "author": "",
   "private": false,
-  "license": "MIT",
-  "devDependencies": {
-    "rimraf": "^4.4.1"
-  }
+  "license": "MIT"
 }

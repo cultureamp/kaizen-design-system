@@ -399,7 +399,8 @@ const Breadcrumb = ({
 // important for the flex-based layout (it pushes Secondary Actions over to the right)
 const renderNavigationTabs = (
   navigationTabs: NavigationTabs | undefined,
-  collapse: boolean
+  collapse: boolean,
+  ariaLabel: string
 ): JSX.Element => (
   <div className={styles.navigationTabScrollerContainer}>
     <div
@@ -410,11 +411,13 @@ const renderNavigationTabs = (
       {!collapse && navigationTabs !== undefined && (
         <>
           <span className={styles.navigationTabEdgeShadowLeft} />
-          {navigationTabs.map((navigationTab, index) =>
-            React.cloneElement(navigationTab, {
-              key: index,
-            })
-          )}
+          <nav className={styles.navigationTabsNav} aria-label={ariaLabel}>
+            <ul className={styles.navigationTabsList}>
+              {navigationTabs.map((navigationTab, index) => (
+                <li key={index}>{navigationTab}</li>
+              ))}
+            </ul>
+          </nav>
           <span className={styles.navigationTabEdgeShadowRight} />
         </>
       )}
@@ -704,7 +707,11 @@ export const TitleBlockZen = ({
                   </div>
                 </div>
               )}
-              {renderNavigationTabs(navigationTabs, collapseNavigationArea)}
+              {renderNavigationTabs(
+                navigationTabs,
+                collapseNavigationArea,
+                title
+              )}
               {(secondaryActions || secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}

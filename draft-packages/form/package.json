@@ -34,12 +34,8 @@
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/loading-spinner": "^2.3.9",
     "@kaizen/typography": "^2.3.8",
-    "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",

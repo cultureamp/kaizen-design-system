@@ -33,10 +33,6 @@
     "@kaizen/loading-spinner": "^2.3.9",
     "classnames": "^2.3.2"
   },
-  "devDependencies": {
-    "@types/classnames": "^2.3.0",
-    "rimraf": "^4.4.1"
-  },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"

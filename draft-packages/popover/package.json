@@ -33,13 +33,9 @@
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
-    "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2",
     "react-popper": "^2.3.0",
     "use-debounce": "^9.0.4"
-  },
-  "devDependencies": {
-    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^10.3.6",
