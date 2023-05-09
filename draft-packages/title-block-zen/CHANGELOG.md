@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.10.3
+
+### Patch Changes
+
+- [#3589](https://github.com/cultureamp/kaizen-design-system/pull/3589) [`e01148b0a`](https://github.com/cultureamp/kaizen-design-system/commit/e01148b0acdedfeecfbb165c7ff3568cd447952f) - Wrap navigation tabs in nav and list elements for accessibility
+
 ## 7.10.2
 
 ### Patch Changes
