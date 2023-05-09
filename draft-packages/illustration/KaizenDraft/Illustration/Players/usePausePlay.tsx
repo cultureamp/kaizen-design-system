@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, RefObject } from "react"
 import playIcon from "@kaizen/component-library/icons/launch.icon.svg"
 import pauseIcon from "@kaizen/component-library/icons/pause.icon.svg"
 
@@ -7,13 +7,15 @@ type IconType = {
   viewBox: string
 }
 
-type usePausePlayHook = {
+export type usePausePlayHook = {
   toggle: () => void
   icon: IconType
   label: string
 }
 
-export const usePausePlay = (videoRef): usePausePlayHook => {
+export const usePausePlay = (
+  videoRef: RefObject<HTMLVideoElement>
+): usePausePlayHook => {
   const [isPaused, setPaused] = useState(false)
 
   return {
