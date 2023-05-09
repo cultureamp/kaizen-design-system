@@ -4,81 +4,57 @@ import { ComponentDocsTemplate } from "../../../storybook/components/DocsContain
 // import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import {
   WorkflowHeader,
-  WorkflowRootProps,
-  WorflowBrandingProps,
-  WorkflowActionsProps,
-  ConfirmationTriggerProps,
-  WorkflowTitlesProps,
+  WorkflowHeaderProps,
+  // WorkflowRootProps,
+  // WorkflowActionsProps,
+  // ExitTriggerProps,
+  // WorkflowTitlesProps,
 } from "../index"
 
 /** This is an example of how to put together a header type.
  * Not having this an exported as an actual type mean the data
  * can be passed to the components as the consumer pleases */
-interface WorkflowHeaderCompositionProps extends WorkflowRootProps {
-  branding: WorflowBrandingProps
-  titles: WorkflowTitlesProps
-  actions: WorkflowActionsProps & {
-    confirmationTrigger: ConfirmationTriggerProps
-  }
+
+const WorkflowHeaderDefault: WorkflowHeaderProps = {
+  workflowName: "Create a self-reflection cycle",
+  stepName: "Settings",
+  status: {
+    content: "Draft",
+    vairant: "statusDraft",
+  },
+  exitLabel: "Save and close",
+  exitTitle: "Before you exit",
+  exitDescription:
+    "Your content has not yet been saved. Click the button below or discard the changes",
+  confirmExitLabel: "Close and save",
+  dismissExitLabel: "Dismiss",
+  onExit: (): void => alert("mock example of a save action"),
 }
 
-const WorkflowHeaderDefault: WorkflowHeaderCompositionProps = {
-  branding: {
-    alt: "Culture amp alt (prop for a11y reasons)",
-    variant: "logo-horizontal",
-  },
-  titles: {
-    prefix: "Create a self-reflection cycle",
-    prefixTag: "h1",
-    title: "Settings",
-    titleTag: "h2",
-    status: {
-      content: "Draft",
-      vairant: "statusDraft",
-    },
-  },
-  actions: {
-    confirmationTrigger: {
-      triggerLabel: "Save and close",
-      title: "Before you exit",
-      content:
-        "Your content has not yet been saved. Click the button below or discard the changes",
-      confirmLabel: "Save and close",
-      dismissLabel: "Dismiss",
-      confirmAction: (): void => alert("mock example of a save action"),
-      mood: "cautionary",
-    },
-  },
-}
-
-export const DefaultKaizenSiteDemo: StoryFn<WorkflowHeaderCompositionProps> = ({
-  branding,
-  titles,
-  actions: { confirmationTrigger, ...otherActionProps },
+export const DefaultKaizenSiteDemo: StoryFn<WorkflowHeaderProps> = ({
+  workflowName,
+  stepName,
+  status,
+  exitLabel,
+  exitTitle,
+  exitDescription,
+  confirmExitLabel,
+  dismissExitLabel,
+  onExit,
   ...rootProps
 }) => (
-  <WorkflowHeader {...rootProps}>
-    {/* // TODO: bake in alt text and remove from composable layout */}
-    <WorkflowHeader.Branding alt={branding.alt} variant={branding.variant} />
-    <WorkflowHeader.Titles
-      // TODO: change to workflowName, stepName remove the tags and enforce h1
-      // prefix={titles.prefix}
-      // title={titles.title}
-      status={titles.status}
-    />
-    <WorkflowHeader.Actions {...otherActionProps}>
-      {/* save and close */}
-      <WorkflowHeader.ConfirmationTrigger
-        triggerLabel={confirmationTrigger.triggerLabel}
-        title={confirmationTrigger.title}
-        content={confirmationTrigger.content}
-        dismissLabel={confirmationTrigger.dismissLabel}
-        confirmLabel={confirmationTrigger.confirmLabel}
-        confirmAction={confirmationTrigger.confirmAction}
-        mood={confirmationTrigger.mood}
-      />
-    </WorkflowHeader.Actions>
-  </WorkflowHeader>
+  <WorkflowHeader
+    workflowName={workflowName}
+    stepName={stepName}
+    status={status}
+    exitLabel={exitLabel}
+    exitTitle={exitTitle}
+    exitDescription={exitDescription}
+    confirmExitLabel={confirmExitLabel}
+    dismissExitLabel={dismissExitLabel}
+    onExit={onExit}
+    {...rootProps}
+  />
 )
 
 // Export the internals but create sensible default component with smaller props pool wew
@@ -112,36 +88,36 @@ export default meta
 /**
  * This is the workflow header component used to create per cycles... Better description to come!
  */
-export const Playground: StoryObj<typeof meta> = {
-  parameters: {
-    docs: {
-      canvas: {
-        source: { type: "code" },
-        container: ComponentDocsTemplate,
-      },
-    },
-  },
-}
+// export const Playground: StoryObj<typeof meta> = {
+//   parameters: {
+//     docs: {
+//       canvas: {
+//         source: { type: "code" },
+//         container: ComponentDocsTemplate,
+//       },
+//     },
+//   },
+// }
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = WorkflowHeaderDefault
 
-export const WorkflowHeaderWrapper: StoryObj<typeof meta> = {
-  tags: ["autodocs"],
-  parameters: {
-    component: WorkflowHeader,
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
-    },
-  },
-}
-WorkflowHeaderWrapper.storyName = "WorkflowHeader root wrapper"
-WorkflowHeaderWrapper.args = {
-  children: "",
-  classNameOverride: "",
-}
+// export const WorkflowHeaderWrapper: StoryObj<typeof meta> = {
+//   tags: ["autodocs"],
+//   parameters: {
+//     component: WorkflowHeader,
+//     docs: {
+//       canvas: {
+//         sourceState: "shown",
+//       },
+//     },
+//   },
+// }
+// WorkflowHeaderWrapper.storyName = "WorkflowHeader root wrapper"
+// WorkflowHeaderWrapper.args = {
+//   children: "",
+//   classNameOverride: "",
+// }
 
 // /** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below */
 

@@ -5,11 +5,11 @@ import React, {
   ComponentType,
 } from "react"
 import { OverrideClassName } from "@kaizen/component-base"
-import { ConfirmationTriggerProps } from "./ConfirmationTrigger"
+import { WorkflowExitProps } from "./WorkflowExit"
 
 export interface WorkflowActionsProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">> {
-  children?: ComponentType<ConfirmationTriggerProps> | ReactNode
+  children?: ComponentType<WorkflowExitProps> | ReactNode
 }
 
 /** A wrapper for the exit trigger (and other) actions of the Header Workflow  */

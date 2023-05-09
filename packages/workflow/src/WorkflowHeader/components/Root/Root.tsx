@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 
 export type WorkflowRootProps = OverrideClassName<
-  HTMLAttributes<HTMLDivElement>
+  HTMLAttributes<HTMLHeadingElement>
 >
 
 export const Root = ({
@@ -11,7 +11,7 @@ export const Root = ({
   classNameOverride,
   ...restProps
 }: WorkflowRootProps): JSX.Element => (
-  <div
+  <header
     className={classnames(
       "flex grow-1 w-100 items-start justify-between p-24 text-center shadow-sm",
       classNameOverride
@@ -19,7 +19,7 @@ export const Root = ({
     {...restProps}
   >
     {children}
-  </div>
+  </header>
 )
 
 Root.displayName = "Root"

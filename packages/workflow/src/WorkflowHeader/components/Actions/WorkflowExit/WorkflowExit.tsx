@@ -4,33 +4,33 @@ import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { ConfirmationModal, ConfirmationModalProps } from "@kaizen/draft-modal"
 import { Paragraph } from "@kaizen/typography"
 
-export interface ConfirmationTriggerProps {
-  triggerLabel: string
-  title: string
-  content: ReactNode
-  confirmLabel: string
-  dismissLabel: string
-  confirmAction?: () => void
+export interface WorkflowExitProps {
+  exitLabel: string
+  exitTitle: string
+  exitDescription: ReactNode
+  confirmExitLabel: string
+  dismissExitLabel: string
+  onExit?: () => void
   /** * @default: "cautionary" */
   mood?: ConfirmationModalProps["mood"]
 }
 
 /** A confirmation trigger and modal for exiting a workflow */
-export const ConfirmationTrigger = ({
-  triggerLabel,
-  title,
-  content,
-  confirmLabel,
-  dismissLabel,
-  confirmAction,
+export const WorkflowExit = ({
+  exitLabel,
+  exitTitle,
+  exitDescription,
+  confirmExitLabel,
+  dismissExitLabel,
+  onExit,
   mood = "cautionary",
-}: ConfirmationTriggerProps): JSX.Element => {
+}: WorkflowExitProps): JSX.Element => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   return (
     <>
       <Button
-        label={triggerLabel}
+        label={exitLabel}
         icon={closeIcon}
         iconPosition={"end"}
         secondary
@@ -42,20 +42,20 @@ export const ConfirmationTrigger = ({
         isOpen={showModal}
         mood={mood}
         isProminent={true}
-        title={title}
-        confirmLabel={confirmLabel}
-        dismissLabel={dismissLabel}
-        onConfirm={confirmAction}
+        title={exitTitle}
+        confirmLabel={confirmExitLabel}
+        dismissLabel={dismissExitLabel}
+        onConfirm={onExit}
         onDismiss={() => {
           setShowModal(false)
         }}
       >
         <div>
-          <Paragraph variant="body">{content}</Paragraph>
+          <Paragraph variant="body">{exitDescription}</Paragraph>
         </div>
       </ConfirmationModal>
     </>
   )
 }
 
-ConfirmationTrigger.displayName = "ConfirmationTrigger"
+WorkflowExit.displayName = "WorkflowExit"
