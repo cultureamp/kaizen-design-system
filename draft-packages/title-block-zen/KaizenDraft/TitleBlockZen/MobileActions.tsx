@@ -4,7 +4,7 @@ import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { MenuItem, MenuList, MenuHeading } from "@kaizen/draft-menu"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 
 import {
@@ -159,14 +159,23 @@ const DrawerMenuContent = ({
           renderPrimaryActionDrawerContent(primaryAction, "action")}
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
-        <MenuList
-          heading={showOtherActionsHeading ? "Other actions" : undefined}
-        >
-          {defaultAction && renderDefaultAction(defaultAction)}
-          {secondaryActions && renderSecondaryActions(secondaryActions)}
-          {secondaryOverflowMenuItems &&
-            renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-        </MenuList>
+        <>
+          {showOtherActionsHeading && (
+            <MenuHeading id="other-actions-menu-heading">
+              Other actions
+            </MenuHeading>
+          )}
+          <MenuList
+            aria-labelledby={
+              showOtherActionsHeading ? "other-actions-menu-heading" : undefined
+            }
+          >
+            {defaultAction && renderDefaultAction(defaultAction)}
+            {secondaryActions && renderSecondaryActions(secondaryActions)}
+            {secondaryOverflowMenuItems &&
+              renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+          </MenuList>
+        </>
       )}
     </>
   )

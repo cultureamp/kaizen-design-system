@@ -1,29 +1,18 @@
-import React, { useState } from "react"
-import { v4 } from "uuid"
+import React, { HTMLAttributes } from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./MenuList.module.scss"
 
-export type MenuListProps = {
-  heading?: React.ReactNode
+export interface MenuListProps
+  extends OverrideClassName<HTMLAttributes<HTMLUListElement>> {
   children: React.ReactNode
 }
 
 export const MenuList = (props: MenuListProps): JSX.Element => {
-  const [listHeadingID] = useState<string>(v4())
-  const { heading, children } = props
+  const { children, ...restProps } = props
   return (
-    <>
-      {heading && (
-        <span className={styles.header} id={listHeadingID}>
-          {heading}
-        </span>
-      )}
-      <ul
-        className={styles.menuSection}
-        aria-labelledby={heading ? listHeadingID : undefined}
-      >
-        {children}
-      </ul>
-    </>
+    <ul className={styles.menuSection} {...restProps}>
+      {children}
+    </ul>
   )
 }
 
