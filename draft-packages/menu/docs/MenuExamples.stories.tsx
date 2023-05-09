@@ -285,8 +285,7 @@ export const ContentAndList: StoryFn = () => (
           <a href="/">Custom anchor link</a>
         </li>
       </ul>
-      <MenuHeading id="menu-primitives-heading">Menu primitives</MenuHeading>
-      <MenuList aria-labelledby="menu-primitives-heading">
+      <MenuList heading={<MenuHeading>Menu primitives</MenuHeading>}>
         <MenuItem
           href="https://www.cultureamp.com/"
           label="MenuItem primitive link"

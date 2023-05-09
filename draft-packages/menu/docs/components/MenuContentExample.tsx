@@ -11,14 +11,12 @@ import { MenuList, MenuItem, MenuHeading } from "../.."
  */
 export const MenuContentExample = (): JSX.Element => (
   <>
-    <MenuHeading id="menu-links-heading">Links</MenuHeading>
-    <MenuList aria-labelledby="menu-links-heading">
+    <MenuList heading={<MenuHeading>Links</MenuHeading>}>
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
     </MenuList>
-    <MenuHeading id="menu-buttons-heading">Buttons</MenuHeading>
-    <MenuList aria-labelledby="menu-buttons-heading">
+    <MenuList heading={<MenuHeading>Buttons</MenuHeading>}>
       <MenuItem
         onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
           alert("Hello")
@@ -60,8 +58,7 @@ export const MenuContentExample = (): JSX.Element => (
         label="Disabled Destructive Menu button"
       />
     </MenuList>
-    <MenuHeading id="buttons-no-icons-heading">Buttons (no icons)</MenuHeading>
-    <MenuList aria-labelledby="buttons-no-icons-heading">
+    <MenuList heading={<MenuHeading>Buttons (no icons)</MenuHeading>}>
       <MenuItem
         onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
           e.preventDefault()

@@ -59,10 +59,7 @@ export const DefaultStory: StoryFn<typeof Menu> = args => (
         href="https://cultureamp.design/components/menu/"
         label="Learn more about Menu"
       />
-      <MenuHeading id="default-menu-deprecated-props">
-        Deprecated props
-      </MenuHeading>
-      <MenuList aria-labelledby="default-menu-deprecated-props">
+      <MenuList heading={<MenuHeading>Deprecated props</MenuHeading>}>
         <MenuItem
           action={(e): void => {
             e.preventDefault()

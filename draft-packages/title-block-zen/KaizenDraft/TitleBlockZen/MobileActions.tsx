@@ -159,23 +159,16 @@ const DrawerMenuContent = ({
           renderPrimaryActionDrawerContent(primaryAction, "action")}
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
-        <>
-          {showOtherActionsHeading && (
-            <MenuHeading id="other-actions-menu-heading">
-              Other actions
-            </MenuHeading>
-          )}
-          <MenuList
-            aria-labelledby={
-              showOtherActionsHeading ? "other-actions-menu-heading" : undefined
-            }
-          >
-            {defaultAction && renderDefaultAction(defaultAction)}
-            {secondaryActions && renderSecondaryActions(secondaryActions)}
-            {secondaryOverflowMenuItems &&
-              renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-          </MenuList>
-        </>
+        <MenuList
+          heading={
+            showOtherActionsHeading && <MenuHeading>Other actions</MenuHeading>
+          }
+        >
+          {defaultAction && renderDefaultAction(defaultAction)}
+          {secondaryActions && renderSecondaryActions(secondaryActions)}
+          {secondaryOverflowMenuItems &&
+            renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+        </MenuList>
       )}
     </>
   )

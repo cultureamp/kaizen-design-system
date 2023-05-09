@@ -4,10 +4,6 @@ import { Heading, HeadingProps } from "@kaizen/typography"
 import styles from "./MenuHeading.module.scss"
 
 export interface MenuHeadingProps extends Partial<HeadingProps> {
-  /**
-   * For accessibility, you should use the same id here in the `aria-labelledby` on MenuList
-   */
-  id: string
   children: React.ReactNode
 }
 
