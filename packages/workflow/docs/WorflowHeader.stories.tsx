@@ -58,16 +58,16 @@ export const DefaultKaizenSiteDemo: StoryFn<WorkflowHeaderCompositionProps> = ({
   ...rootProps
 }) => (
   <WorkflowHeader {...rootProps}>
+    {/* // TODO: bake in alt text and remove from composable layout */}
     <WorkflowHeader.Branding alt={branding.alt} variant={branding.variant} />
     <WorkflowHeader.Titles
-      prefix={titles.prefix}
-      prefixTag={titles.prefixTag}
-      title={titles.title}
-      titleTag={titles.titleTag}
+      // TODO: change to workflowName, stepName remove the tags and enforce h1
+      // prefix={titles.prefix}
+      // title={titles.title}
       status={titles.status}
     />
     <WorkflowHeader.Actions {...otherActionProps}>
-      <div>Help icon</div>
+      {/* save and close */}
       <WorkflowHeader.ConfirmationTrigger
         triggerLabel={confirmationTrigger.triggerLabel}
         title={confirmationTrigger.title}
@@ -80,6 +80,8 @@ export const DefaultKaizenSiteDemo: StoryFn<WorkflowHeaderCompositionProps> = ({
     </WorkflowHeader.Actions>
   </WorkflowHeader>
 )
+
+// Export the internals but create sensible default component with smaller props pool wew
 
 const meta = {
   tags: ["autodocs"],
@@ -114,7 +116,8 @@ export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {
       canvas: {
-        sourceState: "shown",
+        source: { type: "code" },
+        container: ComponentDocsTemplate,
       },
     },
   },
@@ -122,6 +125,23 @@ export const Playground: StoryObj<typeof meta> = {
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = WorkflowHeaderDefault
+
+export const WorkflowHeaderWrapper: StoryObj<typeof meta> = {
+  tags: ["autodocs"],
+  parameters: {
+    component: WorkflowHeader,
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+}
+WorkflowHeaderWrapper.storyName = "WorkflowHeader root wrapper"
+WorkflowHeaderWrapper.args = {
+  children: "",
+  classNameOverride: "",
+}
 
 // /** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below */
 

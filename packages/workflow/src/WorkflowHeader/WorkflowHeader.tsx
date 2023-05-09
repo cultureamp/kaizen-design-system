@@ -1,6 +1,3 @@
-// import React, { HTMLAttributes } from "react"
-// import classnames from "classnames"
-// import { OverrideClassName } from "@kaizen/component-base"
 import {
   Root,
   Branding,
@@ -10,6 +7,9 @@ import {
 } from "./components"
 // import styles from "./WorkflowHeader.module.scss"
 
+/** WorkflowHeader is composable component using dot notation to access its child components
+ * ie: <WorkflowHeader.Branding />
+ */
 export const WorkflowHeader = Object.assign(Root, {
   Branding,
   Titles,
@@ -22,10 +22,11 @@ export const WorkflowHeader = Object.assign(Root, {
 //     WorkflowActionsProps,
 //     WorflowBrandingProps,
 //     OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-//   // TODO: Check with Dale what the renderChild props was meant for (it didn't get used / called anywhere)
+//   // TODO: Check with Dale what the renderChild props was meant for (it didn't get used / called anywhere) in the original
 //   // renderChild?: JSX.Element
 // }
 
+// TODO: remove once checked
 // export const WorkflowHeader = ({
 //   classNameOverride,
 //   prefixTitle,
