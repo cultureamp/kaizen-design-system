@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.5.5
+
+### Patch Changes
+
+- [#3582](https://github.com/cultureamp/kaizen-design-system/pull/3582) [`0ab615756`](https://github.com/cultureamp/kaizen-design-system/commit/0ab615756d0cb4bda40db2c2811171acccb478b0) - Deprecate autohide props on toasts and set more a11y friendly defaults
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/design-tokens@10.3.6
+
 ## 1.5.4
 
 ### Patch Changes

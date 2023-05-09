@@ -1,5 +1,21 @@
 # Change Log
 
+## 10.4.0
+
+### Minor Changes
+
+- [#3579](https://github.com/cultureamp/kaizen-design-system/pull/3579) [`8de6f6701`](https://github.com/cultureamp/kaizen-design-system/commit/8de6f67017c62a905634d8388f4dd68d579325d3) - Accessibility fix: improved color contrast for ToggleSwitchField; it also now shows a check icon when active/on
+
+## 10.3.13
+
+### Patch Changes
+
+- [#3581](https://github.com/cultureamp/kaizen-design-system/pull/3581) [`c2f5be19e`](https://github.com/cultureamp/kaizen-design-system/commit/c2f5be19e5868aafd6771bab3a15e016664aa949) - - Remove capitalize function from field message title string
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/design-tokens@10.3.6
+
 ## 10.3.12
 
 ### Patch Changes
