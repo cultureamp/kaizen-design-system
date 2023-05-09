@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import stylesSCSS from "./ExampleComponent.module.css"
+import stylesSCSS from "./ExampleComponent.module.scss"
 
 export interface CommonProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {

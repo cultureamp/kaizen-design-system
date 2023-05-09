@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import { StorybookConfig } from "@storybook/react-webpack5"
+import sass from "sass"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -26,7 +27,19 @@ const defaultStoryPaths = [
 ]
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
-  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
+  addons: [
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+    {
+      name: "@storybook/addon-styling",
+      options: {
+        sass: {
+          implementation: sass,
+        },
+        postCss: true,
+      },
+    },
+  ],
   staticDirs: [
     {
       from: "./assets",

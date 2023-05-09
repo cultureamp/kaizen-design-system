@@ -6,7 +6,6 @@ import {
   svgs,
   svgIcons,
   removeSvgFromTest,
-  tailwind,
   styles,
 } from "./webpack/rules"
 
@@ -24,7 +23,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
   config.module.rules = config.module.rules.map(removeSvgFromTest)
 
   config.module.rules.push(
-    ...[babel, styles, tailwind].map(excludeExternalModules),
+    ...[babel, styles].map(excludeExternalModules),
     svgs,
     svgIcons
   )
