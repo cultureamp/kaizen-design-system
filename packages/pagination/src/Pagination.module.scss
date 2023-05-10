@@ -85,12 +85,15 @@
   &:hover {
     background-color: $color-blue-100;
   }
+
   &:focus-visible {
     outline: none;
   }
+
   &:focus {
     &:not(.pageIndicatorSelected) {
       background-color: $color-blue-100;
+
       .pageIndicatorFocusRing {
         border: $border-focus-ring-border-width $border-focus-ring-border-style
           $color-blue-500;
@@ -102,12 +105,14 @@
 .pageIndicatorSelected {
   background-color: $color-blue-500;
   color: $color-white;
+
   &:focus {
     .pageIndicatorFocusRing {
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
     }
   }
+
   &:hover {
     background-color: $color-blue-500;
   }

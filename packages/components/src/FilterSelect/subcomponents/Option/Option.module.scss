@@ -30,6 +30,7 @@
   &:global(.story__option-hover):not(.disabled) {
     background-color: $color-blue-100;
     color: $color-blue-500;
+
     .icon {
       color: $color-blue-500;
     }
@@ -39,6 +40,7 @@
   &:global(.story__option-focus) {
     background-color: $color-blue-100;
     color: $color-blue-500;
+
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
@@ -51,6 +53,7 @@
       inset: calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset});
       z-index: 1; // show border when sibling option is hovered
     }
+
     .icon {
       color: $color-blue-500;
     }
@@ -71,6 +74,7 @@ $iconAndBadgeHeight: $spacing-md;
 .isSelected {
   font-weight: $typography-paragraph-bold-font-weight;
   color: $color-blue-500;
+
   &.icon {
     color: $color-blue-500;
   }

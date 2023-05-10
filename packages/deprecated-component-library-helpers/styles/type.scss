@@ -52,9 +52,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $letter-spacing: normal
 ) {
   font-family: $family;
+
   html:lang(he) & {
     font-family: $ca-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-locale-ar-font-family;
   }
@@ -168,9 +170,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $weight,
     $args...
   );
+
   html:lang(he) & {
     font-family: $ca-ideal-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-ideal-locale-ar-font-family;
   }
@@ -255,6 +259,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   text-decoration-skip-ink: auto;
   color: $color-blue-500;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
@@ -283,9 +288,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $weight,
     $args...
   );
+
   html:lang(he) & {
     font-family: $ca-inter-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-inter-locale-ar-font-family;
   }
@@ -370,6 +377,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   text-decoration-skip-ink: auto;
   color: $color-blue-500;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
@@ -381,6 +389,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin debug-vertical-rhythm-grid() {
   position: relative;
+
   &:after {
     content: "";
     position: absolute;
@@ -649,6 +658,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   text-decoration-skip-ink: auto;
   color: $color-blue-500;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }

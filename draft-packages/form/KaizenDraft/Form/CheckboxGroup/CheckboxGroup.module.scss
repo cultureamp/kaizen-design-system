@@ -3,10 +3,12 @@
 .checkboxGroupLabel {
   margin-bottom: $spacing-sm;
 }
+
 .checkboxGroupContainer {
   display: flex;
   flex-direction: column;
   margin-bottom: $spacing-sm;
+
   &.noBottomMargin {
     margin-bottom: 0;
   }

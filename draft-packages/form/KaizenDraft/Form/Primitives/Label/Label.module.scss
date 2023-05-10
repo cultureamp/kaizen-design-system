@@ -24,8 +24,10 @@ $label-start-margin: $spacing-xs;
 
 .reversed {
   color: $color-white;
+
   a {
     color: $color-white;
+
     &:hover {
       text-decoration: none;
     }

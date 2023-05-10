@@ -42,15 +42,19 @@
   &.positive {
     background-color: $color-green-100;
   }
+
   &.negative {
     background-color: $color-red-100;
   }
+
   &.action {
     background-color: $color-orange-100;
   }
+
   &.neutral {
     background-color: $color-purple-100;
   }
+
   &.informative {
     background-color: $color-blue-100;
   }

@@ -184,6 +184,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     letter-spacing: $typography-heading-2-letter-spacing;
     padding: 2px 0;
   }
+
   .hasLongTitle & {
     @include title-block-under-1366 {
       font-family: $typography-heading-3-font-family;
@@ -633,6 +634,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .breadcrumb:hover,
 .breadcrumbText {
   color: $color-white;
+
   .educationVariant &,
   .adminVariant & {
     color: $color-purple-800;
@@ -686,11 +688,13 @@ $tab-container-height-medium-and-small-collapsed: 0;
     display: none;
     opacity: 0;
   }
+
   1% {
     display: block;
     opacity: 0;
     transform: translateX(-30px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0px);
@@ -702,11 +706,13 @@ $tab-container-height-medium-and-small-collapsed: 0;
     display: none;
     opacity: 0;
   }
+
   1% {
     display: block;
     opacity: 0;
     transform: translateX(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0px);

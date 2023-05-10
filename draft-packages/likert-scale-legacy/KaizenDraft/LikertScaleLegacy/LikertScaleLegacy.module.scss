@@ -75,6 +75,7 @@ $fifth: $color-red-500;
     opacity: 0.5;
     -webkit-transform: scale(1);
   }
+
   100% {
     opacity: 0;
     -webkit-transform: scale(1.78);
@@ -161,6 +162,7 @@ $fifth: $color-red-500;
     margin-right: 2px;
     margin-left: 0;
   }
+
   &:last-child {
     margin-left: 2px;
     margin-right: 0;
@@ -186,30 +188,39 @@ $fifth: $color-red-500;
   &.selected {
     .field1 {
       background-color: $first;
+
       &:after {
         background-color: $first;
       }
     }
+
     .field2 {
       background-color: $second;
+
       &:after {
         background-color: $second;
       }
     }
+
     .field3 {
       background-color: $third;
+
       &:after {
         background-color: $third;
       }
     }
+
     .field4 {
       background-color: $fourth;
+
       &:after {
         background-color: $fourth;
       }
     }
+
     .field5 {
       background-color: $fifth;
+
       &:after {
         background-color: $fifth;
       }
@@ -225,6 +236,7 @@ $fifth: $color-red-500;
   &:hover {
     transition: background 0s, border-color 0s;
   }
+
   &:after {
     content: " ";
     display: block;

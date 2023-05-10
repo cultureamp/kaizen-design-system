@@ -113,15 +113,19 @@ p.default-style {
 .defaultStyle {
   composes: default-style;
 }
+
 .pageTitle {
   composes: page-title;
 }
+
 .bodyBold {
   composes: body-bold;
 }
+
 .smallBold {
   composes: small-bold;
 }
+
 .controlAction {
   composes: control-action;
 }

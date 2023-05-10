@@ -69,11 +69,13 @@ $caButton-verticalPadding: calc(
 .dropdownHoverArea {
   .dropdownIcon {
     opacity: 0;
+
     &.isOpen,
     &:focus {
       opacity: 1;
     }
   }
+
   &:hover .dropdownIcon {
     opacity: 1;
   }

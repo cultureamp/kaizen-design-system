@@ -35,6 +35,7 @@
 
   #{$selectors--button-focus} {
     background-color: $color-blue-200;
+
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 

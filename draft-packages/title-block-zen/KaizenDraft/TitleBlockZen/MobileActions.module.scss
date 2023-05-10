@@ -187,9 +187,11 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   0% {
     transform: translateY(100%);
   }
+
   50% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
   }

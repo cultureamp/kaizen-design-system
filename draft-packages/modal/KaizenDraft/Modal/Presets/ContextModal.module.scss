@@ -15,6 +15,7 @@
 .header {
   color: $color-purple-800;
   text-align: left;
+
   &.padded {
     padding: $spacing-md;
     @media (min-width: $layout-breakpoints-medium) {

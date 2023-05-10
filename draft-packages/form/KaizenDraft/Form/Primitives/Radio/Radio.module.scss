@@ -82,6 +82,7 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
     .radioInput:focus:not([disabled]) + & {
       border-color: $color-white;
     }
+
     .radioInput:focus:not([disabled]) + &::after {
       border-color: $dt-color-radio-border-color-focus-reversed;
     }
@@ -93,6 +94,7 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
       }
     }
   }
+
   &.error {
     border-color: $color-red-500;
   }

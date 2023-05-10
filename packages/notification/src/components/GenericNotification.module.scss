@@ -8,7 +8,6 @@
 }
 
 // Structure
-
 .icon {
   @extend %ca-notification__icon;
 }
@@ -55,6 +54,7 @@
 .cancelLabel {
   @extend %ca-notification__cancel__label;
 }
+
 .notificationTitle {
   top: 0.42em;
   position: relative;
@@ -68,13 +68,11 @@
   }
 }
 // Animation
-
 .hidden {
   @extend %ca-notification---hidden;
 }
 
 // Variant
-
 .inline {
   @extend %ca-notification---inline;
 }
@@ -88,7 +86,6 @@
 }
 
 // Type
-
 .positive {
   @extend %ca-notification---positive;
 }
@@ -106,7 +103,6 @@
 }
 
 // Modifiers
-
 .noBottomMargin {
   @extend %ca-notification---noBottomMargin;
 }

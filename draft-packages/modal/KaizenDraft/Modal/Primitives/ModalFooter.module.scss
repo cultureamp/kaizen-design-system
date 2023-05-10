@@ -21,12 +21,14 @@
     flex-direction: row-reverse;
   }
 }
+
 .actionButton {
   width: 100%;
   @media (min-width: $layout-breakpoints-medium) {
     width: inherit;
   }
 }
+
 .actionButton + .actionButton {
   margin-right: $spacing-sm;
   @media (max-width: $layout-breakpoints-medium - 1px) {
@@ -64,6 +66,7 @@
   bottom: 0;
   left: 0;
 }
+
 .filler {
   visibility: hidden;
 }

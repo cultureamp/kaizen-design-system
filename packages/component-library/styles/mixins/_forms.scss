@@ -61,6 +61,7 @@ $input-placeholder-line-height: 2.9rem;
 @mixin form-input-visually-hidden() {
   opacity: 0;
   position: absolute;
+
   :global(.ideal-sans) & {
     // This is to override bootstrap styles. Remove when appropriate
     position: absolute;

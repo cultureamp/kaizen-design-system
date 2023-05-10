@@ -23,16 +23,19 @@
 
 .interactiveIconWrapper {
   cursor: pointer;
+
   .icon {
     opacity: 0.7;
     transition: $animation-duration-fast opacity;
   }
+
   &:disabled,
   &.disabled {
     .icon {
       opacity: 0.3;
     }
   }
+
   &:not(:disabled):not(.disabled) {
     &:hover,
     &:focus,
@@ -41,6 +44,7 @@
         opacity: 1;
       }
     }
+
     &:active,
     &.active {
       .icon {
@@ -52,9 +56,11 @@
 
 .reversedInteractiveIconWrapper {
   composes: interactiveIconWrapper;
+
   .icon {
     opacity: 1;
   }
+
   &:not(:disabled, .disabled) {
     &:active,
     &.active {

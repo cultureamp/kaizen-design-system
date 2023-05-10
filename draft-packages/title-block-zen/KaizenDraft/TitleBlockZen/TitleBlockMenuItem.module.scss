@@ -6,6 +6,7 @@
 .menuListItem {
   display: flex;
 }
+
 .menuItem {
   display: flex;
   align-items: center;
@@ -64,6 +65,7 @@
 
 .menuItem--disabled {
   color: rgba($color-purple-800-rgb, 0.3);
+
   .menuItem__Icon {
     color: rgba($color-purple-800-rgb, 0.3);
   }
@@ -76,6 +78,7 @@
 
 .menuItem--destructive {
   color: $color-red-600;
+
   .menuItem__Icon {
     color: $color-red-600;
   }
@@ -83,6 +86,7 @@
 
 .menuItem--destructive.menuItem--disabled {
   color: rgba($color-red-600-rgb, 0.3);
+
   .menuItem__Icon {
     color: rgba($color-red-600-rgb, 0.3);
   }

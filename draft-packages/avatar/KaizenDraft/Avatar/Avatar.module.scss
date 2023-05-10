@@ -40,7 +40,6 @@ $avatar-xxl: 7.75rem;
   }
 
   // Sizes
-
   &.small {
     width: $avatar-sm;
     height: $avatar-sm;
@@ -111,16 +110,20 @@ $avatar-xxl: 7.75rem;
   .xxlarge & {
     width: 75px;
   }
+
   .xlarge & {
     width: 60px;
   }
+
   .large & {
     width: 35px;
   }
+
   .medium & {
     width: 25px;
     margin-bottom: -1px;
   }
+
   .small & {
     width: 10px;
     margin-bottom: -1px;

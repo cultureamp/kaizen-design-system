@@ -203,6 +203,7 @@ $negative-box-border-color: $color-red-300;
  * the placement.
  * Hence, the confusion below.
  */
+
 .arrowSideTop,
 [data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
@@ -223,6 +224,7 @@ $negative-box-border-color: $color-red-300;
     transform: rotate(270deg);
   }
 }
+
 .arrowSideRight,
 [data-popper-placement^="right"] .arrowWrapper {
   left: 0;

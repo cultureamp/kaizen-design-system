@@ -47,6 +47,7 @@ $height: 10px;
 .positive {
   composes: progress;
   background: $color-green-400;
+
   &::after {
     @include animation-background($color-green-300);
   }
@@ -55,6 +56,7 @@ $height: 10px;
 .informative {
   composes: progress;
   background: $color-blue-400;
+
   &::after {
     @include animation-background($color-blue-300);
   }
@@ -63,6 +65,7 @@ $height: 10px;
 .cautionary {
   composes: progress;
   background: $color-yellow-400;
+
   &::after {
     @include animation-background($color-yellow-300);
   }

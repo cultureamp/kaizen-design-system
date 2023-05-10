@@ -43,6 +43,7 @@ $dt-assertive-header-background: $color-orange-100;
   display: grid;
   grid-template-columns: 0.2fr 2fr;
   align-items: center;
+
   &.prominent {
     grid-template-columns: 1.1fr 2fr;
     @media (max-width: $layout-breakpoints-medium) {
@@ -52,6 +53,7 @@ $dt-assertive-header-background: $color-orange-100;
       justify-content: center;
       align-items: flex-start;
     }
+
     .iconContainer {
       position: absolute;
       top: 8%;
@@ -61,6 +63,7 @@ $dt-assertive-header-background: $color-orange-100;
         margin-bottom: $spacing-sm;
       }
     }
+
     .spotIcon,
     .svgIcon > svg {
       width: 155px;
@@ -73,12 +76,14 @@ $dt-assertive-header-background: $color-orange-100;
       }
     }
   }
+
   .iconContainer {
     align-self: flex-start;
     @media (min-width: $layout-breakpoints-medium) {
       align-self: center;
     }
   }
+
   .spotIcon,
   .svgIcon > svg {
     width: 30px;

@@ -72,6 +72,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 
 .menuItem--destructive {
   color: $color-red-600;
+
   .menuItem__Icon {
     color: $color-red-600;
   }
@@ -94,6 +95,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   .hoverIcon & {
     opacity: 0;
   }
+
   .menuItem--active &,
   .hoverIcon:hover &,
   .hoverIcon:focus & {

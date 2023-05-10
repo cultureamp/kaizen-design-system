@@ -89,6 +89,7 @@ input[type="range"].ratingScaleRange {
     -webkit-appearance: none;
     margin-top: ($thumb-height-with-border/2) * -1;
   }
+
   &::-moz-range-thumb {
     @include thumb;
   }
@@ -96,6 +97,7 @@ input[type="range"].ratingScaleRange {
   &.hideThumb::-webkit-slider-thumb {
     @include hiddenThumb;
   }
+
   &.hideThumb::-moz-range-thumb {
     @include hiddenThumb;
   }

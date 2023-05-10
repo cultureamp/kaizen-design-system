@@ -60,7 +60,6 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   // Types
-
   &%ca-notification---positive {
     background: $color-green-100;
     border-color: $color-green-300;
@@ -102,7 +101,6 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   // Hidden state
-
   &%ca-notification---hidden {
     opacity: 0;
 
@@ -117,6 +115,7 @@ $notification-slide-right: transform 300ms ease-out;
       transition-timing-function: ease-in;
       transform: translateY(-50%);
     }
+
     &%ca-notification---toast {
       // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
       // We want it moving the fastest when it is the furthest off screen.
@@ -131,7 +130,6 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   // Modifiers
-
   &%ca-notification---noBottomMargin {
     margin-bottom: 0;
   }

@@ -83,12 +83,15 @@
 
   [data-popper-placement^="left"] & {
     right: 0;
+
     .arrowInner {
       transform: rotate(270deg);
     }
   }
+
   [data-popper-placement^="right"] & {
     left: 0;
+
     .arrowInner {
       transform: rotate(90deg);
     }

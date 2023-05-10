@@ -68,6 +68,7 @@
 
 .additionalContentWrapper {
   display: inherit;
+
   &:not(:last-child) {
     @include ca-margin($end: 0.5em, $start: null);
   }
