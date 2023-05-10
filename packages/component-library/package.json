@@ -14,6 +14,7 @@
     "**/*.js",
     "**/*.js.map",
     "**/*.d.ts",
+    "**/*.module.scss",
     "icons/**",
     "styles",
     "bin/**"

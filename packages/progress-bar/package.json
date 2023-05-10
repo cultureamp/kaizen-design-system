@@ -18,7 +18,8 @@
   "files": [
     "**/*.js",
     "**/*.js.map",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "**/*.module.scss"
   ],
   "author": "",
   "private": false,
