@@ -34,6 +34,7 @@
     ],
     "font-family-no-duplicate-names": true,
     "length-zero-no-unit": true,
+    "media-feature-range-notation": null,
     "no-descending-specificity": true,
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
