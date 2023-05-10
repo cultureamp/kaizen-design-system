@@ -73,12 +73,12 @@ $fifth: $color-red-500;
 
 @keyframes pop {
   0% {
-    opacity: 0.5;
+    opacity: 50%;
     -webkit-transform: scale(1);
   }
 
   100% {
-    opacity: 0;
+    opacity: 0%;
     -webkit-transform: scale(1.78);
   }
 }

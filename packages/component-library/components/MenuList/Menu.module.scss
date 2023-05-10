@@ -94,13 +94,13 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   top: 3px;
 
   .hoverIcon & {
-    opacity: 0;
+    opacity: 0%;
   }
 
   .menuItem--active &,
   .hoverIcon:hover &,
   .hoverIcon:focus & {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 

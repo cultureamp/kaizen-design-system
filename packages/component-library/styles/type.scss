@@ -405,7 +405,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=");
     pointer-events: none;
     z-index: $ca-z-index-popover;
-    opacity: 0.5;
+    opacity: 50%;
   }
 }
 

@@ -196,12 +196,12 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
   background: none;
   pointer-events: none;
   color: rgba($color-purple-800-rgb, 0.3);
-  opacity: 1;
+  opacity: 100%;
 
   #{$selectors--button-focus} {
     color: rgba($color-purple-800-rgb, 0.3);
     background-color: transparent;
-    opacity: 1;
+    opacity: 100%;
   }
 }
 

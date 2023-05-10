@@ -36,7 +36,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   @include form-input-reset;
 
   @include form-input-placeholder {
-    opacity: 1;
+    opacity: 100%;
   }
 
   display: flex;
@@ -66,7 +66,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   &:hover,
   #{$story-className--input-search-hover} & {
     @include form-input-placeholder {
-      opacity: 0;
+      opacity: 0%;
     }
   }
 }
@@ -148,7 +148,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   &#{$story-className--input-search-focus} {
     #{$classname--input} {
       @include form-input-placeholder {
-        opacity: 1;
+        opacity: 100%;
       }
 
       border-color: $color-gray-600;
@@ -156,7 +156,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
     }
 
     .startIconAdornment {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 }
@@ -189,7 +189,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   &#{$story-className--input-search-focus} {
     #{$classname--input} {
       @include form-input-placeholder {
-        opacity: 1;
+        opacity: 100%;
       }
 
       border-color: transparent;
@@ -197,7 +197,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
     }
 
     .startIconAdornment {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 }

@@ -79,12 +79,12 @@ $caButtonIcon-height: 20px;
   top: 0.5rem;
   left: 0.5rem;
   z-index: 1040; // Navigation z-index + 10
-  opacity: 0;
+  opacity: 0%;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
 
   &:focus {
-    opacity: 1;
+    opacity: 100%;
     clip: auto;
     clip-path: none;
   }

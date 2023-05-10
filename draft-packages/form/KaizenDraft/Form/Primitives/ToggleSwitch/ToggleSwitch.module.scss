@@ -62,7 +62,7 @@ $focus-ring-offset: 1px;
 
 .checkIcon {
   color: $color-green-500;
-  opacity: 0;
+  opacity: 0%;
   transition-duration: $animation-duration-rapid;
 }
 
@@ -91,7 +91,7 @@ $focus-ring-offset: 1px;
   }
 
   .checkIcon {
-    opacity: 1;
+    opacity: 100%;
     transition-delay: $animation-duration-immediate;
     transition-duration: $animation-duration-fast;
   }

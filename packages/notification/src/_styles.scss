@@ -102,7 +102,7 @@ $notification-slide-right: transform 300ms ease-out;
 
   // Hidden state
   &%ca-notification---hidden {
-    opacity: 0;
+    opacity: 0%;
 
     &%ca-notification---inline,
     &%ca-notification---global {
@@ -125,7 +125,7 @@ $notification-slide-right: transform 300ms ease-out;
 
     &%ca-notification---global {
       z-index: 1029;
-      opacity: 1;
+      opacity: 100%;
     }
   }
 

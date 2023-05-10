@@ -14,7 +14,7 @@ $height: 10px;
 .subtext {
   color: $color-purple-800;
   text-align: center;
-  opacity: 0.8;
+  opacity: 80%;
 }
 
 .progressBackground {
@@ -78,7 +78,7 @@ $height: 10px;
 
 .isAnimating {
   &::after {
-    opacity: 1;
+    opacity: 100%;
     content: "";
     position: absolute;
     top: 0;

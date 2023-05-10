@@ -73,7 +73,7 @@
   &:disabled,
   &.working {
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 30%;
   }
 
   #{$className--content} {

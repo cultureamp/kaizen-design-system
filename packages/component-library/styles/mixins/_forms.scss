@@ -59,7 +59,7 @@ $input-placeholder-line-height: 2.9rem;
 // Visually hide a native input but not prevent it from being keyboard focusable
 // Useful in situations such as applying custom styling to checkboxes
 @mixin form-input-visually-hidden() {
-  opacity: 0;
+  opacity: 0%;
   position: absolute;
 
   :global(.ideal-sans) & {

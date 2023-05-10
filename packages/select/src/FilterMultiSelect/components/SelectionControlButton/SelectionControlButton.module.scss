@@ -56,7 +56,7 @@ $focus-ring-offset: 1px;
   &.isDisabled {
     pointer-events: none;
     color: rgba($color-purple-800-rgb, 0.3);
-    opacity: 1;
+    opacity: 100%;
 
     &:focus {
       outline: none;

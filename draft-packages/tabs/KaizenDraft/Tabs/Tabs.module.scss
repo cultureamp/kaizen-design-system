@@ -102,7 +102,7 @@
   composes: tab;
   composes: horizontalTab;
   cursor: inherit;
-  opacity: 0.3;
+  opacity: 30%;
   font-weight: normal;
 
   &.horizontalTabActive:hover {
@@ -152,7 +152,7 @@
   composes: tab;
   composes: verticalTab;
   cursor: inherit;
-  opacity: 0.3;
+  opacity: 30%;
 
   &.verticalTabActive:hover {
     background-color: transparent;

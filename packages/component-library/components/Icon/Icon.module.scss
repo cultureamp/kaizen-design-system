@@ -25,14 +25,14 @@
   cursor: pointer;
 
   .icon {
-    opacity: 0.7;
+    opacity: 70%;
     transition: $animation-duration-fast opacity;
   }
 
   &:disabled,
   &.disabled {
     .icon {
-      opacity: 0.3;
+      opacity: 30%;
     }
   }
 
@@ -41,14 +41,14 @@
     &:focus,
     &.hover {
       .icon {
-        opacity: 1;
+        opacity: 100%;
       }
     }
 
     &:active,
     &.active {
       .icon {
-        opacity: 1;
+        opacity: 100%;
       }
     }
   }
@@ -59,14 +59,14 @@
   composes: interactiveIconWrapper;
 
   .icon {
-    opacity: 1;
+    opacity: 100%;
   }
 
   &:not(:disabled, .disabled) {
     &:active,
     &.active {
       .icon {
-        opacity: 0.5;
+        opacity: 50%;
       }
     }
   }

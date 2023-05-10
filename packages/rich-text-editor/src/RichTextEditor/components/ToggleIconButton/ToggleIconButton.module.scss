@@ -32,14 +32,14 @@
   }
 
   &.disabled {
-    opacity: 0.3;
+    opacity: 30%;
 
     &:focus-visible:after {
       color: rgba($color-purple-800-rgb, 0.3);
       outline-offset: -2px;
       background-color: transparent;
       border-color: transparent;
-      opacity: 1;
+      opacity: 100%;
       outline: $color-purple-800 $border-dashed-border-style $border-focus-ring-border-width;
     }
   }

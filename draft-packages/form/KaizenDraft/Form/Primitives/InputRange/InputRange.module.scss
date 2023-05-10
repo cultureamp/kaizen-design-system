@@ -58,7 +58,7 @@ input[type="range"].ratingScaleRange {
   margin: 0; //performance-ui materialize override
 
   &.disabled {
-    opacity: 0.4;
+    opacity: 40%;
   }
 
   &::-moz-focus-outer {
@@ -135,7 +135,7 @@ input[type="range"].ratingScaleRange {
 }
 
 .spokes.disabled {
-  opacity: 0.4;
+  opacity: 40%;
 }
 
 .spokeContainer {
@@ -166,7 +166,7 @@ input[type="range"].ratingScaleRange {
 }
 
 .sliderLabels.disabled {
-  opacity: 0.4;
+  opacity: 40%;
 }
 
 // If the .visually-hidden class is applied to natively focusable elements

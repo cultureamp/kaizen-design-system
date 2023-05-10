@@ -30,7 +30,7 @@ $validation-message-padding: 0.5625rem;
 
 .error {
   background: $color-red-100;
-  opacity: 1;
+  opacity: 100%;
 
   &.reversed {
     background: $color-red-300;
@@ -39,7 +39,7 @@ $validation-message-padding: 0.5625rem;
 
 .caution {
   background: $color-yellow-100;
-  opacity: 1;
+  opacity: 100%;
 
   &.reversed {
     background: $color-yellow-400;
