@@ -164,11 +164,21 @@ export const Loading: StoryFn = () => <LoadingInput isAnimated width={13} />
  * <p>You can use this to submit a `form` using `Button` with a matching form id</p>
  */
 export const NativeFormButton: StoryFn = () => (
-  <Button
-    label="Sumbit"
-    form="form-submit-id"
-    icon={arrowRight}
-    iconPosition="end"
-    type="submit"
-  />
+  <>
+    <form className="mb-6" id="unique-form-id">
+      <input type="text" defaultValue="content" />
+    </form>
+    <Button
+      label="Sumbit"
+      form="unique-form-id"
+      formTarget="_blank"
+      formAction="/"
+      formMethod="get"
+      formEncType="text/plain"
+      formNoValidate={false}
+      icon={arrowRight}
+      iconPosition="end"
+      type="submit"
+    />
+  </>
 )
