@@ -114,9 +114,10 @@ export const MenuDropdown = ({
       ref={setPopperElement}
       {...attributes.popper}
       style={popperStyles.popper}
-      className={classnames(styles.menuContainer, {
-        [styles.defaultWidth]: width == "default",
-      })}
+      className={classnames(
+        styles.menuContainer,
+        width == "default" && styles.defaultWidth
+      )}
       onClick={handleRootClick}
     >
       {children}

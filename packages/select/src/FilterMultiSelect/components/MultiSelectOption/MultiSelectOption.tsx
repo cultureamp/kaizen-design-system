@@ -2,7 +2,7 @@ import React, { useMemo } from "react"
 import { useFocusRing } from "@react-aria/focus"
 import { useOption } from "@react-aria/listbox"
 import { mergeProps } from "@react-aria/utils"
-import classNames from "classnames"
+import classnames from "classnames"
 import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { Icon } from "@kaizen/component-library"
@@ -37,17 +37,17 @@ export const MultiSelectOption = ({
     <li
       {...mergeProps(optionProps, focusProps)}
       ref={ref}
-      className={classNames(
+      className={classnames(
         styles.option,
-        isSelected ? styles.isSelected : "",
-        isFocusVisible ? styles.isFocusVisible : "",
-        isDisabled ? styles.isDisabled : ""
+        isSelected && styles.isSelected,
+        isFocusVisible && styles.isFocusVisible,
+        isDisabled && styles.isDisabled
       )}
       aria-label={item.value?.label}
       aria-describedby={item.value?.count ? countElementId : undefined}
     >
       <span
-        className={classNames(styles.icon, isSelected ? styles.isSelected : "")}
+        className={classnames(styles.icon, isSelected && styles.isSelected)}
       >
         {isSelected && <Icon icon={check} role="presentation" />}
       </span>

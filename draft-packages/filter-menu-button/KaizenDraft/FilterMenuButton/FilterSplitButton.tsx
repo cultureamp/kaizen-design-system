@@ -33,10 +33,11 @@ export const FilterSplitButton = ({
         <button
           onClick={onClick}
           type="button"
-          className={classnames(styles.primaryActionButton, {
-            [styles.noClearButton]: !onFilterClear,
-            [styles.splitButtonFocus]: isDropdownVisible,
-          })}
+          className={classnames(
+            styles.primaryActionButton,
+            !onFilterClear && styles.noClearButton,
+            isDropdownVisible && styles.splitButtonFocus
+          )}
         >
           <span className={styles.filterName}>{labelText}</span>
           <span className={styles.metadata}>{metadata}</span>
@@ -45,9 +46,10 @@ export const FilterSplitButton = ({
           <button
             onClick={onFilterClear}
             type="button"
-            className={classnames(styles.clearButton, {
-              [styles.splitButtonFocus]: isDropdownVisible,
-            })}
+            className={classnames(
+              styles.clearButton,
+              isDropdownVisible && styles.splitButtonFocus
+            )}
           >
             <Icon icon={clearIcon} role="img" />
           </button>
@@ -58,9 +60,10 @@ export const FilterSplitButton = ({
 
   return (
     <div
-      className={classnames(styles.button, {
-        [styles.buttonActive]: isDropdownVisible,
-      })}
+      className={classnames(
+        styles.button,
+        isDropdownVisible && styles.buttonActive
+      )}
     >
       <Button
         secondary={true}

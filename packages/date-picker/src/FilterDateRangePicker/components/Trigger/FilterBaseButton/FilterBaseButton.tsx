@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./FilterBaseButton.module.scss"
 
@@ -15,7 +15,7 @@ export const FilterBaseButton = forwardRef<
   <button
     ref={ref}
     type="button"
-    className={classNames(styles.filterBaseButton, classNameOverride)}
+    className={classnames(styles.filterBaseButton, classNameOverride)}
     {...restProps}
   >
     {children}

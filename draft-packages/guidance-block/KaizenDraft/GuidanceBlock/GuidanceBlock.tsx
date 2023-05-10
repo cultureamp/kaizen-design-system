@@ -183,14 +183,12 @@ class GuidanceBlock extends React.Component<
       styles.banner,
       props.variant && styles[props.variant],
       props.layout && styles[props.layout],
-      {
-        [styles.hidden]: this.state.hidden,
-        [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
-        [styles.noMaxWidth]: props.noMaxWidth,
-        [styles.hasSceneIllustration]: props.illustrationType === "scene",
-        [styles.smallScreenTextAlignment]:
-          props.smallScreenTextAlignment === "left",
-      }
+      this.state.hidden && styles.hidden,
+      this.state.mediaQueryLayout === "centerContent" && styles.centerContent,
+      props.noMaxWidth && styles.noMaxWidth,
+      props.illustrationType === "scene" && styles.hasSceneIllustration,
+      props.smallScreenTextAlignment === "left" &&
+        styles.smallScreenTextAlignment
     )
   }
 
@@ -274,9 +272,10 @@ class GuidanceBlock extends React.Component<
             }
           >
             <div
-              className={classnames(styles.buttonContainer, {
-                [styles.secondaryAction]: actions?.secondary,
-              })}
+              className={classnames(
+                styles.buttonContainer,
+                actions?.secondary && styles.secondaryAction
+              )}
             >
               <WithTooltip tooltipProps={actions.primary.tooltip}>
                 <Button

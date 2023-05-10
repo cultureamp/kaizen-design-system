@@ -81,11 +81,12 @@ export const TextArea = ({
   return (
     <div className={styles.wrapper} style={getWrapperStyle()}>
       <textarea
-        className={classnames(styles.textarea, styles[status], {
-          [styles.default]: !reversed,
-          [styles.reversed]: reversed,
-          [styles.disabled]: disabled,
-        })}
+        className={classnames(
+          styles.textarea,
+          styles[status],
+          reversed ? styles.reversed : styles.default,
+          disabled && styles.disabled
+        )}
         rows={rows}
         onChange={onChange || propsOnChange}
         data-automation-id={automationId}

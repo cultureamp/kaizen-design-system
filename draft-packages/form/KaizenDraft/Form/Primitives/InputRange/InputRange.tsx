@@ -44,10 +44,12 @@ export const InputRange = (props: InputRangeProps): JSX.Element => {
     <>
       <input
         id={id}
-        className={classnames(styles.ratingScaleRange, classNameOverride, {
-          [styles.hideThumb]: readOnlyWithNoValue,
-          [styles.disabled]: disabled,
-        })}
+        className={classnames(
+          styles.ratingScaleRange,
+          classNameOverride,
+          readOnlyWithNoValue && styles.hideThumb,
+          disabled && styles.disabled
+        )}
         disabled={disabled || readOnly}
         type="range"
         min={min}
@@ -67,11 +69,7 @@ export const InputRange = (props: InputRangeProps): JSX.Element => {
         }}
         {...restProps}
       />
-      <div
-        className={classnames(styles.spokes, {
-          [styles.disabled]: disabled,
-        })}
-      >
+      <div className={classnames(styles.spokes, disabled && styles.disabled)}>
         {[...Array(max)].map((_, index) => (
           <div key={`${id}-spoke-${index}`} className={styles.spokeContainer}>
             <div className={styles.spoke} />
@@ -84,9 +82,10 @@ export const InputRange = (props: InputRangeProps): JSX.Element => {
       <div className={styles.labelsContainer}>
         {!readOnlyWithNoValue && (
           <div
-            className={classnames(styles.sliderLabels, {
-              [styles.disabled]: disabled,
-            })}
+            className={classnames(
+              styles.sliderLabels,
+              disabled && styles.disabled
+            )}
           >
             <Paragraph variant="small" color="dark-reduced-opacity" tag="span">
               {minLabel}

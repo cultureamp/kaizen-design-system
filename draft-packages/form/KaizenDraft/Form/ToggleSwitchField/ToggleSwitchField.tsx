@@ -39,10 +39,11 @@ export const ToggleSwitchField = ({
     id={`${id}-field-group`}
     inline={inline}
     automationId={`${id}-field-group`}
-    classNameOverride={classnames(styles.container, {
-      [styles.fullWidth]: fullWidth,
-      [styles.on]: toggledStatus === ToggledStatus.ON,
-    })}
+    classNameOverride={classnames(
+      styles.container,
+      fullWidth && styles.fullWidth,
+      toggledStatus === ToggledStatus.ON && styles.on
+    )}
   >
     <div className={styles.inner}>
       <Label

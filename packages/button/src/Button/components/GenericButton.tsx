@@ -7,7 +7,7 @@ import React, {
   FocusEvent,
   MouseEvent,
 } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
@@ -111,9 +111,10 @@ const GenericButton = forwardRef(
 
     return (
       <span
-        className={classNames(styles.container, {
-          [styles.fullWidth]: props.fullWidth,
-        })}
+        className={classnames(
+          styles.container,
+          props.fullWidth && styles.fullWidth
+        )}
         aria-live="polite"
       >
         {determineButtonRenderer()}
@@ -236,7 +237,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
 
 const buttonClass = (props: Props): string => {
   const isDefault = !props.primary && !props.destructive && !props.secondary
-  return classNames([
+  return classnames(
     styles.button,
     isDefault && styles.default,
     props.primary && styles.primary,
@@ -250,8 +251,8 @@ const buttonClass = (props: Props): string => {
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,
-    props.classNameOverride,
-  ])
+    props.classNameOverride
+  )
 }
 
 const renderLoadingSpinner = (): JSX.Element => (

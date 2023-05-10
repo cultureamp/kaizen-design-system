@@ -1,7 +1,7 @@
 /* !!! This component is deprecated. Please do not use for new code  !!! */
 
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Icon } from "../Icon"
 
 import styles from "./Menu.module.scss"
@@ -41,12 +41,12 @@ const MenuItem = (props: {
     </span>
   )
 
-  const className = classNames({
-    [styles.menuItem]: true,
-    [styles.hoverIcon]: icon && hoverIcon,
-    [styles["menuItem--active"]]: active,
-    [styles["menuItem--destructive"]]: destructive,
-  })
+  const className = classnames(
+    styles.menuItem,
+    icon && hoverIcon && styles.hoverIcon,
+    active && styles["menuItem--active"],
+    destructive && styles["menuItem--destructive"]
+  )
 
   if (typeof action === "string") {
     return (

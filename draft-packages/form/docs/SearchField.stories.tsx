@@ -70,7 +70,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
                   id={`search-field--base--${heading}`}
                   {...variantProps}
                   {...COMMON_PROPS}
-                  value={""}
+                  value=""
                 />
                 <SearchField
                   id={`search-field--filled--${heading}`}
@@ -95,7 +95,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
                   id={`search-field--disabled--${heading}`}
                   {...variantProps}
                   {...COMMON_PROPS}
-                  value={""}
+                  value=""
                   disabled
                 />
                 <SearchField

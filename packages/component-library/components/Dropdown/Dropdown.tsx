@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import chevronDownIcon from "../../icons/chevron-down.icon.svg"
 import ellipsisIcon from "../../icons/ellipsis.icon.svg"
 import { Icon } from "../Icon"
@@ -61,11 +61,12 @@ class Dropdown extends React.Component<DropdownProps, DropdownState> {
       this.props
 
     const reverseIcon = iconPosition === "end"
-    const btnClass = classNames(styles.dropdownButton, {
-      [styles.dropdownControlAction]: controlAction,
-      [styles.isOpen]: this.state.isMenuVisible,
-      [styles.reversedColor]: reversedColor,
-    })
+    const btnClass = classnames(
+      styles.dropdownButton,
+      controlAction && styles.dropdownControlAction,
+      this.state.isMenuVisible && styles.isOpen,
+      reversedColor && styles.reversedColor
+    )
     return (
       <div className={styles.dropdown}>
         <button

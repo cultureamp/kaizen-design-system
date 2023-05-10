@@ -84,14 +84,16 @@ export const GenericTile = ({
 
   const renderFront = (): JSX.Element => (
     <div
-      className={classnames(styles.face, styles.faceFront, {
-        [styles.faceMoodPositive]: mood === "positive",
-        [styles.faceMoodInformative]: mood === "informative",
-        [styles.faceMoodCautionary]: mood === "cautionary",
-        [styles.faceMoodAssertive]: mood === "assertive",
-        [styles.faceMoodNegative]: mood === "negative",
-        [styles.faceMoodProminent]: mood === "prominent",
-      })}
+      className={classnames(
+        styles.face,
+        styles.faceFront,
+        mood === "positive" && styles.faceMoodPositive,
+        mood === "informative" && styles.faceMoodInformative,
+        mood === "cautionary" && styles.faceMoodCautionary,
+        mood === "assertive" && styles.faceMoodAssertive,
+        mood === "negative" && styles.faceMoodNegative,
+        mood === "prominent" && styles.faceMoodProminent
+      )}
     >
       {information && (
         <div className={styles.informationBtn}>
@@ -159,11 +161,7 @@ export const GenericTile = ({
 
   return (
     <div className={classnames(styles.root, classNameOverride)} {...restProps}>
-      <div
-        className={classnames(styles.tile, {
-          [styles.isFlipped]: isFlipped,
-        })}
-      >
+      <div className={classnames(styles.tile, isFlipped && styles.isFlipped)}>
         <>
           {renderFront()}
           {renderBack()}

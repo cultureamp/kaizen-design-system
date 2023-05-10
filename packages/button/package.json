@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/button",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "The Button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,13 +29,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^16.7.3",
-    "@kaizen/draft-badge": "^1.13.8",
+    "@kaizen/component-library": "^16.7.4",
+    "@kaizen/draft-badge": "^1.13.9",
     "@kaizen/loading-spinner": "^2.3.9",
     "classnames": "^2.3.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^10.3.6",
+    "@kaizen/design-tokens": "^10.3.7",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "0.6.6",
+  "version": "1.0.0",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "yarn prepublish",
@@ -28,11 +28,11 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "^10.3.6",
+    "@kaizen/design-tokens": "^10.3.7",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/draft-divider": "^2.2.8",
+    "@kaizen/draft-divider": "^2.2.9",
     "tailwindcss": "^3.3.2"
   },
   "peerDependencies": {
