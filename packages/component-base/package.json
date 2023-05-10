@@ -4,8 +4,7 @@
   "description": "Base setup and shared helpers for components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build": "yarn prepublish",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
@@ -21,7 +20,8 @@
     "!**/*.ts",
     "!**/*.tsx",
     "**/*.d.ts",
-    "!tsconfig.dist.json"
+    "!tsconfig.dist.json",
+    "!.turbo"
   ],
   "author": "",
   "private": false,
