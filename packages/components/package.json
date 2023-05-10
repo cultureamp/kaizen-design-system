@@ -53,7 +53,7 @@
     "@react-stately/select": "^3.5.0",
     "@react-types/shared": "^3.18.0",
     "classnames": "^2.3.2",
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "react-focus-on": "^3.8.1",
     "react-popper": "^2.3.0"
   },
