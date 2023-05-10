@@ -21,6 +21,7 @@
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-extra-semicolons": true,
+    "selector-class-pattern": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {
