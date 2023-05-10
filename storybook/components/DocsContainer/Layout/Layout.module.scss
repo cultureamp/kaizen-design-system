@@ -4,7 +4,7 @@
   display: grid;
   // Content width = 100% - TOC width - gap
   grid-template: "content sidebar" 1fr / minmax(calc(100% - 224px), 1fr) 200px;
-  grid-gap: 0px 24px;
+  grid-gap: 0 24px;
 }
 
 .sidebar {

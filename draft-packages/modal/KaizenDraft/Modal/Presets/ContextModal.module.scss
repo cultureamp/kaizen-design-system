@@ -70,7 +70,7 @@
   }
 
   .content {
-    padding-left: 0rem;
+    padding-left: 0;
     @media (min-width: $layout-breakpoints-medium) {
       max-width: 100%;
     }

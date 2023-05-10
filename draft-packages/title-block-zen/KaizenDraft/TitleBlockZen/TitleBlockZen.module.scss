@@ -698,7 +698,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
   100% {
     opacity: 100%;
-    transform: translateX(0px);
+    transform: translateX(0);
   }
 }
 
@@ -716,7 +716,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
   100% {
     opacity: 100%;
-    transform: translateX(0px);
+    transform: translateX(0);
   }
 }
 /* stylelint-enable no-descending-specificity */
