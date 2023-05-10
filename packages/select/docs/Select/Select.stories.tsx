@@ -90,7 +90,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           label="label"
           items={singleMockItems}
           description="This is a description"
-          selectedKey={"id-sre"}
+          selectedKey="id-sre"
           trigger={(triggerProps): JSX.Element => (
             <Select.TriggerButton
               {...triggerProps}
@@ -212,7 +212,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             },
           ]}
           description="This is a description"
-          selectedKey={"id-long"}
+          selectedKey="id-long"
           isReversed={isReversed}
         />
       </StoryWrapper.Row>

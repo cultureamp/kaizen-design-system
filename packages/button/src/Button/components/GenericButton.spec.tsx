@@ -39,7 +39,7 @@ describe("<GenericButton />", () => {
         label="My link"
         href="/to-infinity"
         working={true}
-        workingLabel={"My link working"}
+        workingLabel="My link working"
       />
     )
 

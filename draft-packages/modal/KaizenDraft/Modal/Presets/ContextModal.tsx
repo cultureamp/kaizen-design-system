@@ -136,7 +136,7 @@ export const ContextModal = ({
         <ModalFooter
           variant={image ? "context" : undefined}
           actions={footerActions}
-          appearance={"primary"}
+          appearance="primary"
           automationId={automationId}
           unpadded={unpadded}
         />

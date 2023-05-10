@@ -33,7 +33,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <StoryWrapper isReversed={isReversed}>
-    <StoryWrapper.Row rowTitle={"Positive"}>
+    <StoryWrapper.Row rowTitle="Positive">
       <ProgressBar
         value={25}
         max={100}
@@ -44,7 +44,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         isReversed={isReversed}
       />
     </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle={"Informative"}>
+    <StoryWrapper.Row rowTitle="Informative">
       <ProgressBar
         value={25}
         max={100}
@@ -55,7 +55,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         isReversed={isReversed}
       />
     </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle={"Negative"}>
+    <StoryWrapper.Row rowTitle="Negative">
       <ProgressBar
         value={25}
         max={100}
@@ -66,7 +66,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         isReversed={isReversed}
       />
     </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle={"Cautionary"}>
+    <StoryWrapper.Row rowTitle="Cautionary">
       <ProgressBar
         value={25}
         max={100}
