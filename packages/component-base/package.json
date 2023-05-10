@@ -18,10 +18,7 @@
   },
   "files": [
     "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!tsconfig.dist.json"
+    "**/*.d.ts"
   ],
   "author": "",
   "private": false,
