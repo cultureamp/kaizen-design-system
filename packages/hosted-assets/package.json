@@ -15,8 +15,7 @@
   "main": "dist",
   "files": [
     "dist",
-    "_index.scss",
-    "!.turbo"
+    "_index.scss"
   ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
