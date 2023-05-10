@@ -14,11 +14,7 @@
     "tokens",
     "sass",
     "less",
-    "src",
-    "dist",
-    "!**/*.spec.*",
-    "!docs",
-    "!.turbo"
+    "dist"
   ],
   "main": "dist/index.js",
   "private": false,
