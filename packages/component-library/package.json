@@ -11,16 +11,12 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
+    "**/*.js",
+    "**/*.js.map",
     "**/*.d.ts",
-    "!**/*.spec.*",
-    "!**/*.snap",
-    "!draft-templates/**/*",
-    "!stories/**/*",
-    "!tsconfig.dist.json",
-    "!.turbo"
+    "icons/**",
+    "styles",
+    "bin/**"
   ],
   "sideEffects": false,
   "version": "16.7.4",

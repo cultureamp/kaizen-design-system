@@ -158,3 +158,27 @@ export const Working: StoryFn = () => (
  * `import { LoadingInput } from "@kaizen/loading-skeleton"`
  */
 export const Loading: StoryFn = () => <LoadingInput isAnimated width={13} />
+
+/**
+ * <p>Button now extends native HTML "form" attributes for `button`</p>
+ * <p>You can use this to submit a `form` using `Button` with a matching form id</p>
+ */
+export const NativeFormButton: StoryFn = () => (
+  <>
+    <form className="mb-6" id="unique-form-id">
+      <input type="text" defaultValue="content" />
+    </form>
+    <Button
+      label="Sumbit"
+      form="unique-form-id"
+      formTarget="_blank"
+      formAction="/"
+      formMethod="get"
+      formEncType="text/plain"
+      formNoValidate={false}
+      icon={arrowRight}
+      iconPosition="end"
+      type="submit"
+    />
+  </>
+)
