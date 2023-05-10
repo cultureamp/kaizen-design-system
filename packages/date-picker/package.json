@@ -41,10 +41,13 @@
     "@react-aria/i18n": "^3.7.1",
     "@react-stately/datepicker": "^3.4.0",
     "classnames": "^2.3.2",
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "react-day-picker": "8.4.1",
     "react-focus-on": "^3.8.1",
     "react-popper": "^2.3.0"
+  },
+  "dependenciesComments": {
+    "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
