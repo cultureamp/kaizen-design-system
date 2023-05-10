@@ -4,6 +4,11 @@
 @import "./mixins";
 @import "./variables";
 
+.icon {
+  margin-left: $spacing-sm;
+  color: $color-gray-500;
+}
+
 .button {
   @include button;
 
@@ -28,11 +33,6 @@
   }
 }
 
-.icon {
-  margin-left: $spacing-sm;
-  color: $color-gray-500;
-}
-
 .error {
   border: $border-solid-border-width $border-solid-border-style $color-red-500;
 }
@@ -42,6 +42,15 @@
     $color-yellow-600;
 }
 
+.value {
+  width: 100%;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* stylelint-disable no-descending-specificity */
 .disabled:not(.reversed) {
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
   background-color: $color-gray-100;
@@ -51,14 +60,6 @@
   &:hover .icon {
     color: $color-gray-400;
   }
-}
-
-.value {
-  width: 100%;
-  text-align: start;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .reversed:not(.disabled) {
@@ -136,3 +137,4 @@
     color: rgba($color-white-rgb, 0.3);
   }
 }
+/* stylelint-enable no-descending-specificity */

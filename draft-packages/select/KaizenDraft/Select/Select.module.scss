@@ -31,6 +31,7 @@ $focus-border-color: $color-blue-500;
   color: $color-purple-800;
 }
 
+/* stylelint-disable no-descending-specificity */
 .specificityIncreaser {
   .multiValue {
     margin: 0.2375rem;
@@ -394,3 +395,4 @@ $focus-border-color: $color-blue-500;
     }
   }
 }
+/* stylelint-enable no-descending-specificity */

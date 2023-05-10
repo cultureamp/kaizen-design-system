@@ -81,6 +81,7 @@ $placeholder-opacity: 0.7;
   transform: translateY(-50%);
 }
 
+/* stylelint-disable no-descending-specificity */
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
@@ -115,3 +116,4 @@ $placeholder-opacity: 0.7;
     }
   }
 }
+/* stylelint-enable no-descending-specificity */

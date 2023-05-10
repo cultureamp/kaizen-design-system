@@ -5,21 +5,11 @@
 %firstChildBorders {
   border-start-start-radius: $border-focus-ring-border-radius;
   border-end-start-radius: $border-focus-ring-border-radius;
-
-  [dir="ltr"] [dir="rtl"] & {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
 }
 
 %lastChildBorders {
   border-start-end-radius: $border-focus-ring-border-radius;
   border-end-end-radius: $border-focus-ring-border-radius;
-
-  [dir="ltr"] [dir="rtl"] & {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
 }
 
 .filterButtonGroup {
@@ -42,20 +32,12 @@
           @extend %firstChildBorders;
 
           inset-inline-end: $focus-ring-offset-inner;
-
-          [dir="ltr"] [dir="rtl"] & {
-            right: $focus-ring-offset-outer;
-          }
         }
       }
     }
 
     &:not(.firstChild) {
       border-inline-start: 1px solid $color-blue-300;
-
-      [dir="ltr"] [dir="rtl"] & {
-        border-left: 0;
-      }
     }
 
     &:not(.firstChild, .lastChild) {
@@ -75,10 +57,6 @@
           @extend %lastChildBorders;
 
           inset-inline-start: $focus-ring-offset-inner;
-
-          [dir="ltr"] [dir="rtl"] & {
-            left: $focus-ring-offset-outer;
-          }
         }
       }
     }

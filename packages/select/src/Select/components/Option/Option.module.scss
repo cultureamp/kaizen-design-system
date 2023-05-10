@@ -3,6 +3,15 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
 
+.icon {
+  line-height: 1;
+  height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .option {
   height: fit-content;
   align-items: center;
@@ -23,17 +32,6 @@
 
   &:focus {
     outline: none;
-  }
-
-  &:hover:not(.disabled),
-  &:active:not(.disabled),
-  &:global(.story__option-hover):not(.disabled) {
-    background-color: $color-blue-100;
-    color: $color-blue-500;
-
-    .icon {
-      color: $color-blue-500;
-    }
   }
 
   &.isFocusVisible,
@@ -58,18 +56,20 @@
       color: $color-blue-500;
     }
   }
+
+  &:hover:not(.disabled),
+  &:active:not(.disabled),
+  &:global(.story__option-hover):not(.disabled) {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+
+    .icon {
+      color: $color-blue-500;
+    }
+  }
 }
 
 $iconAndBadgeHeight: $spacing-md;
-
-.icon {
-  line-height: 1;
-  height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
-  width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .isSelected {
   font-weight: $typography-paragraph-bold-font-weight;

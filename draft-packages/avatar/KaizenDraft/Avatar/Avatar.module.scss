@@ -9,6 +9,7 @@ $avatar-lg: 4.5rem;
 $avatar-xl: 6rem;
 $avatar-xxl: 7.75rem;
 
+/* stylelint-disable no-descending-specificity */
 .wrapper {
   background: $color-gray-300;
   border-radius: 100%;
@@ -167,3 +168,4 @@ $avatar-xxl: 7.75rem;
     letter-spacing: $typography-heading-5-letter-spacing;
   }
 }
+/* stylelint-enable no-descending-specificity */

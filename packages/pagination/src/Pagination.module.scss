@@ -48,6 +48,7 @@
   }
 }
 
+/* stylelint-disable no-descending-specificity */
 // Page indicator
 .pagesIndicatorWrapper {
   display: flex;
@@ -117,6 +118,7 @@
     background-color: $color-blue-500;
   }
 }
+/* stylelint-enable no-descending-specificity */
 
 // Truncate indicator
 .truncateIndicatorWrapper {

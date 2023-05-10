@@ -115,6 +115,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   opacity: $input-disabled-opacity;
 }
 
+/* stylelint-disable no-descending-specificity */
 ///////////////////////////////////////////////////
 // THEMES
 ///////////////////////////////////////////////////
@@ -238,3 +239,4 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
     }
   }
 }
+/* stylelint-enable no-descending-specificity */

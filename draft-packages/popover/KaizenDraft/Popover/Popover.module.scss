@@ -195,6 +195,7 @@ $negative-box-border-color: $color-red-300;
   height: $arrow-height;
 }
 
+/* stylelint-disable no-descending-specificity */
 /**
  * In the legacy popover, the "side" described the location of the arrow, and
  * we use css classes to determine the placement.
@@ -269,3 +270,4 @@ $negative-box-border-color: $color-red-300;
   white-space: nowrap;
   overflow: hidden;
 }
+/* stylelint-enable no-descending-specificity */

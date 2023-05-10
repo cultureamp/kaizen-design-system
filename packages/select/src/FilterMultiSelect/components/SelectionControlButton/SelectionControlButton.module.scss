@@ -21,9 +21,11 @@ $focus-ring-offset: 1px;
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
+  padding: $spacing-4 $spacing-8;
 
-  //       4px       8px
-  padding: 0.25rem 0.5rem;
+  &:focus {
+    outline: none;
+  }
 
   &:hover,
   &:active,
@@ -31,10 +33,6 @@ $focus-ring-offset: 1px;
     &:not(.isDisabled) {
       background-color: $color-blue-100;
     }
-  }
-
-  &:focus {
-    outline: none;
   }
 
   &:focus-visible::after {

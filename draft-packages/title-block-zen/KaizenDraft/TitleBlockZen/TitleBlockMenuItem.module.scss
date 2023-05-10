@@ -2,6 +2,8 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 
+/* stylelint-disable no-descending-specificity */
+
 // We're duplicating the CSS instead of manipulating the Menu package to accept the alternate props
 .menuListItem {
   display: flex;
@@ -103,3 +105,4 @@
   transform: translateY(0.2em);
   color: rgba($color-purple-800-rgb, 0.75);
 }
+/* stylelint-enable no-descending-specificity */

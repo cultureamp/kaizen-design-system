@@ -3,6 +3,20 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
 
+$iconAndBadgeHeight: $spacing-md;
+
+.icon {
+  line-height: 1;
+  height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .option {
   height: fit-content;
   align-items: flex-start;
@@ -58,34 +72,21 @@
     outline: none; // cancel browser style
   }
 
-  &.isDisabled {
-    opacity: 0.3;
-    background: none;
-
-    &:hover {
-      .icon {
-        border-color: $color-gray-500;
-      }
-
-      .badge {
-        background-color: $color-gray-300;
-      }
-    }
-  }
 }
 
-$iconAndBadgeHeight: $spacing-md;
+.isDisabled {
+  opacity: 0.3;
+  background: none;
 
-.icon {
-  line-height: 1;
-  height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
-  width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
-  border: $border-solid-border-width $border-solid-border-style;
-  border-color: $color-gray-500;
-  border-radius: $border-solid-border-radius;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  &:hover {
+    .icon {
+      border-color: $color-gray-500;
+    }
+
+    .badge {
+      background-color: $color-gray-300;
+    }
+  }
 }
 
 .badgeContainer {

@@ -8,6 +8,33 @@ $heading-active-color: $color-gray-200;
 // ^This is just a temporary hex to get us by for now until we rearrange our neutrals and introduce something that can used here.
 $border-color: rgba($color-gray-600-rgb, 0.2);
 
+.header {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: $color-white;
+  border: none;
+  transition: background-color $animation-duration-rapid;
+  padding: $spacing-sm $spacing-sm $spacing-sm $spacing-md;
+
+  &:hover {
+    background-color: $heading-active-color;
+  }
+
+  [dir="rtl"] & {
+    text-align: right;
+    padding-left: $spacing-sm;
+    padding-right: $spacing-md;
+  }
+
+  // Round the bottom corners of the header so when the container is open, the
+  // header background is not rounded on the corners and flush with the content beneath.
+  .open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
 // We need a full border radius on this container element, then have classes
 // beneath to toggle nested borders off and on for different use cases.
 .container {
@@ -50,33 +77,6 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   &:last-of-type > .header:not(.open) {
     border-bottom-left-radius: $border-borderless-border-radius;
     border-bottom-right-radius: $border-borderless-border-radius;
-  }
-}
-
-// Round the bottom corners of the header so when the container is open, the
-// header background is not rounded on the corners and flush with the content beneath.
-.open .header {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  background-color: $color-white;
-  border: none;
-  transition: background-color $animation-duration-rapid;
-  padding: $spacing-sm $spacing-sm $spacing-sm $spacing-md;
-
-  &:hover {
-    background-color: $heading-active-color;
-  }
-
-  [dir="rtl"] & {
-    text-align: right;
-    padding-left: $spacing-sm;
-    padding-right: $spacing-md;
   }
 }
 

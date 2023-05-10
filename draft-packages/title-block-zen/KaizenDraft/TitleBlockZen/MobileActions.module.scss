@@ -14,6 +14,7 @@ $focus-ring-border-width: 2px;
 // ^should be $border-focus-ring-border-width but CSS vars makes this hard
 $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 
+/* stylelint-disable no-descending-specificity */
 .mobileActionsContainer {
   display: none;
   z-index: $ca-z-index-fixed;
@@ -196,3 +197,4 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
     transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
   }
 }
+/* stylelint-enable no-descending-specificity */

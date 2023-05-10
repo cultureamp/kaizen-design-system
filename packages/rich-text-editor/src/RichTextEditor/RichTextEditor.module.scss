@@ -61,6 +61,7 @@
     }
   }
 
+  /* stylelint-disable no-descending-specificity */
   &.error {
     &,
     .toolbar {
@@ -88,6 +89,7 @@
       }
     }
   }
+  /* stylelint-enable no-descending-specificity */
 }
 
 @for $i from 1 through 20 {

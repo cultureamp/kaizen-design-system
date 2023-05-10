@@ -54,6 +54,7 @@
   }
 }
 
+/* stylelint-disable no-descending-specificity */
 .reversedInteractiveIconWrapper {
   composes: interactiveIconWrapper;
 
@@ -70,3 +71,4 @@
     }
   }
 }
+/* stylelint-enable no-descending-specificity */

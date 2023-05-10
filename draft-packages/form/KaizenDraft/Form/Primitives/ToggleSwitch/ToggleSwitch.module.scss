@@ -66,6 +66,7 @@ $focus-ring-offset: 1px;
   transition-duration: $animation-duration-rapid;
 }
 
+/* stylelint-disable no-descending-specificity */
 .on {
   .checkbox + .track {
     border-color: $border-borderless-border-color;
@@ -141,3 +142,4 @@ $focus-ring-offset: 1px;
     }
   }
 }
+/* stylelint-enable no-descending-specificity */

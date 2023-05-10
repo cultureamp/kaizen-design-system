@@ -32,6 +32,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   display: block;
 }
 
+/* stylelint-disable no-descending-specificity */
 .menuItem {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
@@ -111,3 +112,4 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   visibility: visible;
   margin: 5px 0;
 }
+/* stylelint-enable no-descending-specificity */

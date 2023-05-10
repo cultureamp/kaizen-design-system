@@ -6,6 +6,7 @@
   display: flex;
 }
 
+/* stylelint-disable no-descending-specificity */
 .menuItem {
   display: flex;
   align-items: center;
@@ -102,3 +103,4 @@
   transform: translateY(0.2em);
   color: rgba($color-purple-800-rgb, 0.75);
 }
+/* stylelint-enable no-descending-specificity */

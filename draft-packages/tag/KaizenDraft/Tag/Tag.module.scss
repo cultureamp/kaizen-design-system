@@ -65,6 +65,12 @@ $small: $spacing-md;
   white-space: nowrap;
 }
 
+.iconWrapper {
+  position: relative;
+  height: 16px;
+  width: 16px;
+}
+
 .dismissButton {
   @include button-reset;
 
@@ -124,12 +130,6 @@ $small: $spacing-md;
   background-color: white;
   left: 10px;
   top: 10px;
-}
-
-.iconWrapper {
-  position: relative;
-  height: 16px;
-  width: 16px;
 }
 
 .truncate {

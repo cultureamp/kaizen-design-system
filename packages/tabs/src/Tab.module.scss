@@ -24,15 +24,6 @@
   letter-spacing: $typography-heading-4-letter-spacing;
   color: $color-purple-800;
 
-  &:not(:first-child) {
-    margin-inline-start: $spacing-xs;
-  }
-
-  &:not(:disabled):hover {
-    background: $color-blue-100;
-    color: $color-blue-500;
-  }
-
   &:focus {
     outline: none;
   }
@@ -41,6 +32,19 @@
     background: $color-blue-100;
     color: $color-blue-500;
     border-color: $color-blue-500;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+
+  &:not(:first-child) {
+    margin-inline-start: $spacing-xs;
+  }
+
+  &:not(:disabled):hover {
+    background: $color-blue-100;
+    color: $color-blue-500;
   }
 }
 
@@ -61,10 +65,6 @@
     right: 0;
     bottom: 0;
   }
-}
-
-.tab:disabled {
-  opacity: 0.3;
 }
 
 .badge {
