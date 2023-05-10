@@ -1,5 +1,20 @@
 # Change Log
 
+## 10.6.17
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/draft-illustration@6.0.30
+  - @kaizen/component-library@16.7.4
+  - @kaizen/draft-divider@2.2.9
+  - @kaizen/design-tokens@10.3.7
+  - @kaizen/draft-form@10.4.1
+  - @kaizen/typography@2.3.9
+  - @kaizen/button@3.0.1
+
 ## 10.6.16
 
 ### Patch Changes
