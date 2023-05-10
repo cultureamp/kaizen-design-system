@@ -52,6 +52,10 @@
     ],
     "selector-pseudo-element-colon-notation": "double",
     "shorthand-property-no-redundant-values": true,
-    "string-quotes": "double"
+    "string-quotes": "double",
+    "value-keyword-case": [
+      "lower",
+      { "ignoreProperties": ["composes", "/font-family/"] }
+    ]
   }
 }
