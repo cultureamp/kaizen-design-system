@@ -25,7 +25,7 @@
   color: $color-purple-800;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
 
-  &:not(.disabled):not(.reversed) {
+  &:not(.disabled, .reversed) {
     #{$story-className--button-active},
     #{$selectors--button-hover} {
       background-color: $color-gray-200;

@@ -31,6 +31,7 @@
       { "except": ["after-single-line-comment", "first-nested"] }
     ],
     "selector-class-pattern": null,
+    "selector-not-notation": "complex",
     "selector-pseudo-class-no-unknown": [
       true,
       { "ignorePseudoClasses": ["global", "export"] }

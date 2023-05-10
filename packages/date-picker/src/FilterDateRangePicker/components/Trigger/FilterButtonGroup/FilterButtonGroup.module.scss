@@ -58,7 +58,7 @@
       }
     }
 
-    &:not(.firstChild):not(.lastChild) {
+    &:not(.firstChild, .lastChild) {
       #{$selectors--filter-button--focus} {
         &::after {
           inset-inline-start: $focus-ring-offset-inner;

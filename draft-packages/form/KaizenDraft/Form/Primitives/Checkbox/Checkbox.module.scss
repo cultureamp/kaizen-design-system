@@ -111,7 +111,7 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .checkbox:not([checked]):not([disabled]):hover + & {
+    .checkbox:not([checked], [disabled]):hover + & {
       border-color: $color-white;
       background: rgba($color-white-rgb, 0.1);
     }

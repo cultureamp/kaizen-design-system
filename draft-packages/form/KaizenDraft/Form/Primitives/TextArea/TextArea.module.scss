@@ -56,7 +56,7 @@ $input-disabled-border-alpha: 50%;
     border-color: $color-blue-500;
   }
 
-  &:not(.error):not(.caution) {
+  &:not(.error, .caution) {
     &:disabled {
       border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
     }
