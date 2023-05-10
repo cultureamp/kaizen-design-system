@@ -17,11 +17,9 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!tsconfig.dist.json"
+    "**/*.js",
+    "**/*.js.map",
+    "**/*.d.ts"
   ],
   "author": "",
   "private": false,
