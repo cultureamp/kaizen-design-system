@@ -39,9 +39,7 @@ export const CollapsibleGroup = ({
   ...props
 }: CollapsibleGroupProps): JSX.Element => (
   <div
-    className={classnames(classNameOverride, {
-      [styles.container]: !separated,
-    })}
+    className={classnames(classNameOverride, !separated && styles.container)}
     data-automation-id={automationId}
     {...props}
   >

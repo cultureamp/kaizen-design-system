@@ -151,7 +151,7 @@ export const Pagination = ({
     >
       <button
         type="button"
-        className={classnames(styles.arrowIconWrapper)}
+        className={styles.arrowIconWrapper}
         aria-label={ariaLabelPreviousPage}
         disabled={previousPageDisabled}
         onClick={(): void => handleButtonClick(PageAction.PREV)}
@@ -164,9 +164,10 @@ export const Pagination = ({
 
       <button
         type="button"
-        className={classnames(styles.arrowIconWrapper, {
-          [styles.arrowIconWrapperDisabled]: nextPageDisabled,
-        })}
+        className={classnames(
+          styles.arrowIconWrapper,
+          nextPageDisabled && styles.arrowIconWrapperDisabled
+        )}
         aria-label={ariaLabelNextPage}
         disabled={nextPageDisabled}
         onClick={(): void => handleButtonClick(PageAction.NEXT)}

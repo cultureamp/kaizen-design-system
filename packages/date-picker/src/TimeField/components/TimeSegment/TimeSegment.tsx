@@ -1,7 +1,7 @@
 import React from "react"
 import { useDateSegment } from "@react-aria/datepicker"
 import { DateSegment, DateFieldState } from "@react-stately/datepicker"
-import classNames from "classnames"
+import classnames from "classnames"
 import { generateSegmentDisplayText } from "./utils/generateSegmentDisplayText"
 import styles from "./TimeSegment.module.scss"
 
@@ -27,7 +27,7 @@ export const TimeSegment = ({
       <div
         {...segmentProps}
         ref={ref}
-        className={classNames(
+        className={classnames(
           styles.timeSegment,
           segment.type === "literal" && styles.literal,
           segment.isPlaceholder && styles.placeholder,

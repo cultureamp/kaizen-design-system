@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Container, Content, ContentProps } from "../../"
 import { DOMRectReadOnly, useResizeObserver } from "../useResizeObserver"
 import styles from "./Skirt.module.scss"
@@ -40,7 +40,7 @@ export const Skirt = ({
   return (
     <Container
       ref={ref}
-      classNameOverride={classNames(
+      classNameOverride={classnames(
         styles.container,
         className,
         classNameOverride
@@ -49,10 +49,7 @@ export const Skirt = ({
     >
       <div
         style={{ ...(skirtHeight && { height: `${skirtHeight}px` }) }}
-        className={classNames(styles.underlay, {
-          [styles.defaultVariant]: variant === "default",
-          [styles.educationVariant]: variant === "education",
-        })}
+        className={classnames(styles.underlay, styles[`${variant}Variant`])}
       />
       <Content classNameOverride={styles.content}>{children}</Content>
     </Container>

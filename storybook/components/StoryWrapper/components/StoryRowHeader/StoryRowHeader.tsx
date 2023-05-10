@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Heading } from "../../../../../packages/typography"
 import styles from "../../StoryWrapper.module.scss"
 
@@ -16,7 +16,7 @@ export const StoryRowHeader = ({
 }: StoryRowHeaderProps): JSX.Element => (
   <div className={styles.storyRow}>
     <div
-      className={classNames(styles.storyRowContainer, styles.topHeader)}
+      className={classnames(styles.storyRowContainer, styles.topHeader)}
       style={{
         gridTemplateColumns: `repeat(${gridColumns || headings.length}, 1fr)`,
       }}

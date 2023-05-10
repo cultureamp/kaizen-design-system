@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import styles from "./GenericModalSection.module.scss"
 
 export interface GenericModalSectionProps {
@@ -11,13 +11,7 @@ const GenericModalSection = ({
   inputEdit = false,
   children,
 }: GenericModalSectionProps): JSX.Element => (
-  <div
-    className={classNames({
-      [styles.inputEdit]: inputEdit,
-    })}
-  >
-    {children}
-  </div>
+  <div className={classnames(inputEdit && styles.inputEdit)}>{children}</div>
 )
 
 export default GenericModalSection

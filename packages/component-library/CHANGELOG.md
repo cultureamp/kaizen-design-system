@@ -1,5 +1,14 @@
 # Change Log
 
+## 16.7.4
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/design-tokens@10.3.7
+
 ## 16.7.3
 
 ### Patch Changes

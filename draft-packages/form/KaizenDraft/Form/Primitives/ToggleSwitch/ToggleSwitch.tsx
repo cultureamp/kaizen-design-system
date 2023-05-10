@@ -38,11 +38,10 @@ export const ToggleSwitch = ({
 
   return (
     <span
-      className={classnames({
-        [styles.on]: isOn,
-        [styles.off]: !isOn,
-        [styles.reversed]: reversed,
-      })}
+      className={classnames(
+        isOn ? styles.on : styles.off,
+        reversed && styles.reversed
+      )}
     >
       <input
         type="checkbox"

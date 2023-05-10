@@ -25,11 +25,7 @@ const renderSelected = (
 ): React.ReactNode => {
   if (selectedStatus) {
     return (
-      <div
-        className={classnames(styles.icon, {
-          [styles.reversed]: reversed,
-        })}
-      />
+      <div className={classnames(styles.icon, reversed && styles.reversed)} />
     )
   }
   return
@@ -54,18 +50,16 @@ export const Radio = ({
       name={name}
       value={value}
       checked={selectedStatus}
-      className={classnames(styles.radioInput, classNameOverride, {
-        [styles.reversed]: reversed,
-      })}
+      className={classnames(
+        styles.radioInput,
+        classNameOverride,
+        reversed && styles.reversed
+      )}
       onChange={onChange}
       readOnly={onChange === undefined}
       {...restProps}
     />
-    <span
-      className={classnames(styles.box, {
-        [styles.reversed]: reversed,
-      })}
-    >
+    <span className={classnames(styles.box, reversed && styles.reversed)}>
       {renderSelected(selectedStatus, reversed)}
     </span>
   </span>

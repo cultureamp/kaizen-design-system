@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { IconButton, ButtonProps, CustomButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
@@ -263,7 +263,7 @@ const renderAvatar = (
   isJSXElement(imageElementOrAvatarProps) ? (
     <div
       data-automation-id={avatarAutomationId}
-      className={classNames(styles.avatar, styles.withBorder)}
+      className={classnames(styles.avatar, styles.withBorder)}
     >
       {imageElementOrAvatarProps}
     </div>
@@ -310,9 +310,10 @@ const defaultRenderSectionTitle = (
     {sectionTitleDescription && (
       <div
         data-automation-id={sectionTitleDescriptionAutomationId}
-        className={classNames(styles.sectionTitleDescription, {
-          [styles.dark]: !isReversed(variant),
-        })}
+        className={classnames(
+          styles.sectionTitleDescription,
+          !isReversed(variant) && styles.dark
+        )}
       >
         {sectionTitleDescription}
       </div>
@@ -404,9 +405,10 @@ const renderNavigationTabs = (
 ): JSX.Element => (
   <div className={styles.navigationTabScrollerContainer}>
     <div
-      className={classNames(styles.navigationTabsContainer, {
-        [styles.navigationTabsContainerCollapsed]: collapse,
-      })}
+      className={classnames(
+        styles.navigationTabsContainer,
+        collapse && styles.navigationTabsContainerCollapsed
+      )}
     >
       {!collapse && navigationTabs !== undefined && (
         <>
@@ -584,19 +586,21 @@ export const TitleBlockZen = ({
   return (
     <>
       <div
-        className={classNames(styles.titleBlock, {
-          [styles.hasSubtitle]: Boolean(subtitle),
-          [styles.hasPageSwitcherSelect]: Boolean(pageSwitcherSelect),
-          [styles.educationVariant]: variant === "education",
-          [styles.adminVariant]: variant === "admin",
-          [styles.collapseNavigationArea]:
-            collapseNavigationArea &&
-            !(sectionTitle || sectionTitleDescription || renderSectionTitle),
-          [styles.hasLongTitle]: title && title.length >= 30,
-          [styles.hasLongSubtitle]:
-            subtitle && typeof subtitle === "string" && subtitle.length >= 18,
-          [styles.hasNavigationTabs]: hasNavigationTabs,
-        })}
+        className={classnames(
+          styles.titleBlock,
+          styles[`${variant}Variant`],
+          Boolean(subtitle) && styles.hasSubtitle,
+          Boolean(pageSwitcherSelect) && styles.hasPageSwitcherSelect,
+          collapseNavigationArea &&
+            !(sectionTitle || sectionTitleDescription || renderSectionTitle) &&
+            styles.collapseNavigationArea,
+          title && title.length >= 30 && styles.hasLongTitle,
+          subtitle &&
+            typeof subtitle === "string" &&
+            subtitle.length >= 18 &&
+            styles.hasLongSubtitle,
+          hasNavigationTabs && styles.hasNavigationTabs
+        )}
       >
         <div className={styles.titleRow}>
           <div className={styles.titleRowInner}>

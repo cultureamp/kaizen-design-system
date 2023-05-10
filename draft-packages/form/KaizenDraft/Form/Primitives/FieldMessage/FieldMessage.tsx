@@ -41,11 +41,14 @@ export const FieldMessage = ({
   return (
     <div
       data-automation-id={automationId}
-      className={classnames(styles.message, styles[status], classNameOverride, {
-        [styles.reversed]: reversed,
-        [styles.positionBottom]: position === "bottom",
-        [styles.positionTop]: position === "top",
-      })}
+      className={classnames(
+        styles.message,
+        styles[status],
+        classNameOverride,
+        reversed && styles.reversed,
+        position === "bottom" && styles.positionBottom,
+        position === "top" && styles.positionTop
+      )}
       {...restProps}
     >
       {(status === "error" || status === "caution") && (

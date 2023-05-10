@@ -22,13 +22,7 @@ const progressClassNames = ({
   mood,
   isAnimating,
 }: Pick<ProgressBarProps, "mood" | "isAnimating">): string =>
-  classnames({
-    [styles.positive]: mood === "positive",
-    [styles.informative]: mood === "informative",
-    [styles.cautionary]: mood === "cautionary",
-    [styles.negative]: mood === "negative",
-    [styles.isAnimating]: isAnimating,
-  })
+  classnames(styles[mood], isAnimating && styles.isAnimating)
 
 function calculatePercentage({
   value,

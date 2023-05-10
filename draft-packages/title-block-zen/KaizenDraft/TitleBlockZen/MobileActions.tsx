@@ -364,9 +364,10 @@ const DrawerHandle = ({
     // If the primary action is a button, or has no onClick/href/action
     return (
       <div
-        className={classnames(styles.mobileActionsTopRow, {
-          [styles.mobileActionsTopRowSingleButton]: !showDrawer,
-        })}
+        className={classnames(
+          styles.mobileActionsTopRow,
+          !showDrawer && styles.mobileActionsTopRowSingleButton
+        )}
         data-automation-id="title-block-mobile-actions-drawer-handle"
       >
         {"component" in primaryAction ? (
@@ -475,9 +476,10 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
 
     return (
       <div
-        className={classnames(styles.mobileActionsContainer, {
-          [styles.isOpen]: this.state.isOpen,
-        })}
+        className={classnames(
+          styles.mobileActionsContainer,
+          this.state.isOpen && styles.isOpen
+        )}
       >
         <DrawerHandle
           primaryAction={primaryAction}

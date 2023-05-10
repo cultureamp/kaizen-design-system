@@ -166,7 +166,7 @@ export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
             styles.editor,
             styles[`rows${rows}`],
             classNameOverride,
-            { [styles.hasToolbar]: controls != null && controls.length > 0 }
+            controls != null && controls.length > 0 && styles.hasToolbar
           )}
           aria-describedby={ariaDescribedBy}
           {...restProps}

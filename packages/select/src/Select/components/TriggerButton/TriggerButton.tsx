@@ -52,15 +52,15 @@ export const TriggerButton = React.forwardRef<
         type="button"
         {...mergeProps(buttonProps, restProps)}
         ref={ref}
-        className={classnames([
+        className={classnames(
           styles.button,
           (value === null || value === undefined) && styles.placeholder,
           status === "error" && styles.error,
           status === "caution" && styles.caution,
           triggerProps.isDisabled && styles.disabled,
           isReversed && styles.reversed,
-          classNameOverride,
-        ])}
+          classNameOverride
+        )}
       >
         <span {...valueProps} className={styles.value}>
           {value ?? placeholder}

@@ -67,9 +67,10 @@ export const TextField = ({
       id={`${id}-field-group`}
       automationId={`${id}-field-group`}
       inline={inline}
-      classNameOverride={classnames(styles.withLabel, {
-        [styles.withDisabled]: disabled,
-      })}
+      classNameOverride={classnames(
+        styles.withLabel,
+        disabled && styles.withDisabled
+      )}
     >
       <Label
         id={`${id}-field-label`}
@@ -96,9 +97,10 @@ export const TextField = ({
         endIconAdornment={
           status === "success" && (
             <div
-              className={classnames(styles.success, {
-                [styles.disabled]: disabled,
-              })}
+              className={classnames(
+                styles.success,
+                disabled && styles.disabled
+              )}
             >
               <Icon icon={successIcon} role="presentation" />
             </div>
@@ -109,9 +111,7 @@ export const TextField = ({
 
       {validationMessage && (
         <div
-          className={classnames(styles.message, {
-            [styles.disabled]: disabled,
-          })}
+          className={classnames(styles.message, disabled && styles.disabled)}
         >
           <FieldMessage
             id={validationMessageAria}
@@ -125,9 +125,7 @@ export const TextField = ({
 
       {description && (
         <div
-          className={classnames(styles.message, {
-            [styles.disabled]: disabled,
-          })}
+          className={classnames(styles.message, disabled && styles.disabled)}
         >
           <FieldMessage
             id={descriptionAria}
