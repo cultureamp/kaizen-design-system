@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./Content.module.scss"
 
@@ -47,7 +47,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContentProps>(
     <div
       data-automation-id={automationId}
       ref={ref}
-      className={classNames(styles.container, classNameOverride)}
+      className={classnames(styles.container, classNameOverride)}
       style={style}
       {...restProps}
     >
@@ -67,7 +67,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(
     <div
       data-automation-id={automationId}
       ref={ref}
-      className={classNames(styles.content, classNameOverride)}
+      className={classnames(styles.content, classNameOverride)}
       style={style}
       {...restProps}
     >

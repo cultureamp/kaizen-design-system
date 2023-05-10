@@ -49,11 +49,7 @@ export const TextAreaField = ({
   ): JSX.Element | null => {
     if (!description) return null
     return (
-      <div
-        className={classnames(styles.message, {
-          [styles.disabled]: disabled,
-        })}
-      >
+      <div className={classnames(styles.message, disabled && styles.disabled)}>
         <FieldMessage
           id={descriptionAria}
           automationId={`${id}-field-description`}
@@ -73,9 +69,10 @@ export const TextAreaField = ({
       classNameOverride={disabled ? styles.disabled : undefined}
     >
       <div
-        className={classnames(styles.textareaLabel, {
-          [styles.textareaLabelProminent]: variant === "prominent",
-        })}
+        className={classnames(
+          styles.textareaLabel,
+          variant === "prominent" && styles.textareaLabelProminent
+        )}
       >
         <Label
           id={`${id}-field-label`}
@@ -110,5 +107,3 @@ export const TextAreaField = ({
     </FieldGroup>
   )
 }
-
-TextAreaField.displayName = "TextAreaField"

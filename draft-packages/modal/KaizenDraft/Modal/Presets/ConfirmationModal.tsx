@@ -135,20 +135,18 @@ export const ConfirmationModal = ({
       <div className={styles.modal}>
         <ModalHeader onDismiss={onDismiss}>
           <div
-            className={classnames(styles.header, {
-              [styles.cautionaryHeader]: mood === "cautionary",
-              [styles.informativeHeader]: mood === "informative",
-              [styles.negativeHeader]: mood === "negative",
-              [styles.positiveHeader]: mood === "positive",
-              [styles.assertiveHeader]: mood === "assertive",
-              [styles.prominent]: isProminent,
-              [styles.padded]: !unpadded,
-            })}
+            className={classnames(
+              styles.header,
+              styles[`${mood}Header`],
+              isProminent && styles.prominent,
+              !unpadded && styles.padded
+            )}
           >
             <div
-              className={classnames(styles.iconContainer, {
-                [styles.prominent]: isProminent,
-              })}
+              className={classnames(
+                styles.iconContainer,
+                isProminent && styles.prominent
+              )}
             >
               <div className={styles.spotIcon}>
                 {getIcon(mood, isProminent)}
@@ -163,10 +161,10 @@ export const ConfirmationModal = ({
         </ModalHeader>
         <ModalBody>
           <div
-            className={classnames({
-              [styles.prominent]: isProminent,
-              [styles.padded]: !unpadded,
-            })}
+            className={classnames(
+              isProminent && styles.prominent,
+              !unpadded && styles.padded
+            )}
           >
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>

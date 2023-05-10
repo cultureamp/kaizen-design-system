@@ -6,7 +6,7 @@ import {
   useTimeFieldState,
   TimeFieldStateOptions,
 } from "@react-stately/datepicker"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { FieldMessage } from "@kaizen/draft-form"
 import { Heading } from "@kaizen/typography"
@@ -103,7 +103,7 @@ const TimeFieldComponent = ({
           {...fieldProps}
           id={id}
           ref={inputRef}
-          className={classNames(
+          className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
             state.validationState === "invalid" && styles.error

@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import { ToolbarSectionProps } from "../ToolbarSection"
 import styles from "./Toolbar.module.scss"
@@ -59,7 +59,7 @@ export const Toolbar = (props: ToolbarProps): JSX.Element => {
 
   return (
     <div
-      className={classNames(styles.toolbar, classNameOverride)}
+      className={classnames(styles.toolbar, classNameOverride)}
       role="toolbar"
       {...toolbarProps}
     >

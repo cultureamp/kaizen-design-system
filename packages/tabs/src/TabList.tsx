@@ -23,9 +23,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
   return (
     <ReachTabList
       aria-label={ariaLabel}
-      className={classnames(styles.tabList, {
-        [styles.noPadding]: noPadding,
-      })}
+      className={classnames(styles.tabList, noPadding && styles.noPadding)}
     >
       {children}
     </ReachTabList>

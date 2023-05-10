@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { useSelectionContext } from "../../../provider"
 
 import styles from "../SelectionControlButton.module.scss"
@@ -21,7 +21,7 @@ export const ClearButton = (): JSX.Element => {
   return (
     <button
       type="button"
-      className={classNames(styles.button, isDisabled ? styles.isDisabled : "")}
+      className={classnames(styles.button, isDisabled && styles.isDisabled)}
       aria-disabled={isDisabled}
       onClick={
         (): void => {

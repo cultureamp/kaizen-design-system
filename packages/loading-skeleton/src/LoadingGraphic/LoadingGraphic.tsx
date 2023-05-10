@@ -40,10 +40,8 @@ export const LoadingGraphic = ({
       skeletonStyles.base,
       graphicStyles.graphic,
       classNameOverride,
-      {
-        [skeletonStyles.animated]: isAnimated,
-        [graphicStyles.reversed]: isReversed,
-      }
+      isAnimated && skeletonStyles.animated,
+      isReversed && graphicStyles.reversed
     )}
     style={{
       width: `${graphicSizesRem.get(size)}rem`,

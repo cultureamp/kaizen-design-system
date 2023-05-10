@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
@@ -23,7 +23,7 @@ export const TriggerButtonBase = ({
       type="button"
       {...buttonProps}
       ref={buttonRef}
-      className={classNames(styles.button, classNameOverride)}
+      className={classnames(styles.button, classNameOverride)}
     >
       {children}
 

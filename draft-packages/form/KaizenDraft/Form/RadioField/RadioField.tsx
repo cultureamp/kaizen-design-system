@@ -34,11 +34,13 @@ export const RadioField = ({
 }: RadioFieldProps): JSX.Element => (
   <div
     data-automation-id={automationId}
-    className={classnames(styles.container, classNameOverride, {
-      [styles.selected]: selectedStatus,
-      [styles.inline]: inline,
-      [styles.reversed]: reversed,
-    })}
+    className={classnames(
+      styles.container,
+      classNameOverride,
+      selectedStatus && styles.selected,
+      inline && styles.inline,
+      reversed && styles.reversed
+    )}
   >
     <Label
       automationId={`${id}-field-label`}
