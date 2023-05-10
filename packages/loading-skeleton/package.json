@@ -4,8 +4,7 @@
   "description": "A collection of loading placeholders that display a non-interactive preview of the app’s actual UI",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build": "yarn prepublish",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
@@ -23,7 +22,8 @@
     "**/*.d.ts",
     "!**/*.spec.*",
     "!docs/**/*",
-    "!tsconfig.dist.json"
+    "!tsconfig.dist.json",
+    "!.turbo"
   ],
   "author": "",
   "private": false,

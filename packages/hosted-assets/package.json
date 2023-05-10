@@ -15,12 +15,12 @@
   "main": "dist",
   "files": [
     "dist",
-    "_index.scss"
+    "_index.scss",
+    "!.turbo"
   ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build": "yarn prepublish",
     "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'"
   }
 }
