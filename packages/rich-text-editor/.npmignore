@@ -1,6 +1,0 @@
-**/*.ts
-**/*.tsx
-**/*.spec.*
-.turbo/*
-docs
-tsconfig.dist.json

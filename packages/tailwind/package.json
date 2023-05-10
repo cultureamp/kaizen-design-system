@@ -19,7 +19,9 @@
   },
   "files": [
     "src",
-    "dist"
+    "dist",
+    "!**/*.spec.*",
+    "!docs"
   ],
   "main": "dist/index.js",
   "author": "",
