@@ -79,8 +79,8 @@ The base package.json will look like this, where:
   "description": "The {{ COMPONENT_NAME }} component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build": "yarn prepublish",
+    
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
@@ -98,7 +98,8 @@ The base package.json will look like this, where:
     "**/*.d.ts", // This must be below `.ts` to override
     "!**/*.spec.*",
     "!docs",
-    "!tsconfig.dist.json"
+    "!tsconfig.dist.json",
+    "!.turbo"
   ],
   "author": "",
   "private": false,

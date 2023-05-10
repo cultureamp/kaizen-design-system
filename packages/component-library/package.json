@@ -37,8 +37,7 @@
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts'"
+    "build": "yarn prepublish",
+    "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts' 'components/**/*.js' 'components/**/*.js.map' 'components/**/*.d.ts' 'util/**/*.js' 'util/**/*.js.map' 'util/**/*.d.ts'"
   }
 }
