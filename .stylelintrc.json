@@ -10,6 +10,7 @@
     "alpha-value-notation": "percentage",
     "block-no-empty": true,
     "block-opening-brace-space-before": "always",
+    "color-function-notation": "modern",
     "comment-no-empty": true,
     "declaration-bang-space-after": "never",
     "declaration-block-no-redundant-longhand-properties": true,
