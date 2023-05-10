@@ -39,6 +39,10 @@
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-extra-semicolons": true,
+    "property-no-unknown": [
+      true,
+      { "ignoreProperties": ["composes"] }
+    ],
     "property-no-vendor-prefix": null,
     "rule-empty-line-before": [
       "always",
