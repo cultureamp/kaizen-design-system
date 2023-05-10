@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Collection } from "@react-types/shared"
-import classNames from "classnames"
+import classnames from "classnames"
 import { MultiSelectItem } from "../../../types"
 import { useSelectionContext } from "../../provider/SelectionProvider"
 import styles from "./ListBox.module.scss"
@@ -87,10 +87,7 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
     <ul
       {...listBoxProps}
       ref={listRef}
-      className={classNames(
-        styles.listBox,
-        isOverflown ? styles.overflown : null
-      )}
+      className={classnames(styles.listBox, isOverflown && styles.overflown)}
     >
       {children(itemsState)}
     </ul>

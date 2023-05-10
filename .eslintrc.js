@@ -269,6 +269,10 @@ module.exports = {
     "quote-props": ["error", "as-needed"],
     radix: "error",
     "react/button-has-type": ["error"],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { props: "never", children: "never", propElementValues: "always" },
+    ],
     "react/prop-types": "off",
     "space-before-function-paren": [
       "error",

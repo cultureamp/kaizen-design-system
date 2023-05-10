@@ -50,11 +50,13 @@ export const ToggleIconButton = React.forwardRef<
         aria-disabled={disabled}
         onMouseDown={(e): void => e.preventDefault()}
         onClick={!disabled ? onClick : undefined}
-        className={classnames(styles.button, classNameOverride, {
-          [styles.active]: isActive,
-          [styles[mood]]: mood,
-          [styles.disabled]: disabled,
-        })}
+        className={classnames(
+          styles.button,
+          classNameOverride,
+          styles[mood],
+          isActive && styles.active,
+          disabled && styles.disabled
+        )}
         {...nativeButtonProps}
       >
         <Icon icon={icon} role="presentation" />

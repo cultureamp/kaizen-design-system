@@ -38,9 +38,11 @@ export const HeroCard = ({
   ...props
 }: HeroCardProps): JSX.Element => (
   <div
-    className={classnames(styles.root, classNameOverride, {
-      [styles.fullWidth]: fullWidth,
-    })}
+    className={classnames(
+      styles.root,
+      classNameOverride,
+      fullWidth && styles.fullWidth
+    )}
     {...props} // `title` is missing as it is used as a heading; requires breaking change to fix
   >
     <div
@@ -50,9 +52,7 @@ export const HeroCard = ({
       {badge && <div className={styles.badge}>{badge}</div>}
       {leftContent && (
         <div
-          className={classnames(styles.leftContent, {
-            [styles.withBadge]: !!badge,
-          })}
+          className={classnames(styles.leftContent, badge && styles.withBadge)}
         >
           {leftContent}
         </div>

@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import styles from "./Text.module.scss"
 
 type TextProps = {
@@ -48,10 +48,11 @@ const Text = ({
   React.createElement(
     tag,
     {
-      className: classNames(styles[style], {
-        [styles.inheritBaseline]: inheritBaseline,
-        [styles.inline]: inline,
-      }),
+      className: classnames(
+        styles[style],
+        inheritBaseline && styles.inheritBaseline,
+        inline && styles.inline
+      ),
     },
     children
   )

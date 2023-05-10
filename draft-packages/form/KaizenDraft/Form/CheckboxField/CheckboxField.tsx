@@ -34,12 +34,14 @@ export const CheckboxField = ({
 }: CheckboxFieldProps): JSX.Element => (
   <div
     data-automation-id={automationId}
-    className={classnames(styles.container, classNameOverride, {
-      [styles.checked]: checkedStatus === "on",
-      [styles.mixed]: checkedStatus === "mixed",
-      [styles.reversed]: reversed,
-      [styles.noBottomMargin]: noBottomMargin,
-    })}
+    className={classnames(
+      styles.container,
+      classNameOverride,
+      checkedStatus === "on" && styles.checked,
+      checkedStatus === "mixed" && styles.mixed,
+      reversed && styles.reversed,
+      noBottomMargin && styles.noBottomMargin
+    )}
   >
     <Label
       id={`${id}-field-label`}

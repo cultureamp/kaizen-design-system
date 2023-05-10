@@ -39,10 +39,12 @@ export const CheckboxGroup = ({
       data-automation-id={
         automationId && `${automationId}-field-checkbox-group`
       }
-      className={classnames(styles.checkboxGroupContainer, classNameOverride, {
-        [styles.noBottomMargin]: noBottomMargin,
-        [styles.reversed]: reversed,
-      })}
+      className={classnames(
+        styles.checkboxGroupContainer,
+        classNameOverride,
+        noBottomMargin && styles.noBottomMargin,
+        reversed && styles.reversed
+      )}
       role="group"
       aria-labelledby={labelId}
       {...restProps}

@@ -41,7 +41,7 @@ const ExampleTableHeaderRow = ({
   <TableHeaderRow>
     <TableHeaderRowCell
       checkable={checkable}
-      checkedStatus={"on"}
+      checkedStatus="on"
       onCheck={(evt): void => alert(evt.target.value)}
       sorting="descending"
       onClick={(): void => alert("Sort!")}
@@ -205,7 +205,7 @@ export const IconVariant: StoryFn = () => (
             labelText="Comment"
             icon={commentIcon}
             onClick={(): void => alert("Sort!")}
-            sortingArrowsOnHover={"descending"}
+            sortingArrowsOnHover="descending"
             width={1 / 3}
           />
           <TableHeaderRowCell

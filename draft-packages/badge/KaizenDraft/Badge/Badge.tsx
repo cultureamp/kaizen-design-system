@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, useLayoutEffect, useState } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./Badge.module.scss"
 
@@ -40,10 +40,13 @@ export const Badge = ({
   ...restProps
 }: BadgeProps): JSX.Element => (
   <span
-    className={classNames(styles.badge, styles[variant], classNameOverride, {
-      [styles.reversed]: reversed,
-      [styles.large]: size === "large",
-    })}
+    className={classnames(
+      styles.badge,
+      styles[variant],
+      classNameOverride,
+      reversed && styles.reversed,
+      size === "large" && styles.large
+    )}
     {...restProps}
   >
     {variant !== "dot" && children}
@@ -62,9 +65,7 @@ export const BadgeAnimated = (props: BadgeProps): JSX.Element => {
 
   return (
     <span
-      className={classNames(styles.animation, {
-        [styles.animationOn]: isFocused,
-      })}
+      className={classnames(styles.animation, isFocused && styles.animationOn)}
     >
       <Badge {...props} />
     </span>

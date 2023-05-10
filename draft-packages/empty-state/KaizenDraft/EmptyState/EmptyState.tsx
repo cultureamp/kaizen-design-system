@@ -77,13 +77,14 @@ export const EmptyState = ({
 
   return (
     <div
-      className={classnames(classNameOverride, [
+      className={classnames(
+        classNameOverride,
         styles[illustrationType],
         styles.container,
         styles.zen,
         styles[layoutContext],
-        { [styles.straightCorners]: straightCorners },
-      ])}
+        straightCorners && styles.straightCorners
+      )}
       id={id}
       data-automation-id={automationId}
       {...props}

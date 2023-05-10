@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/notification",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "Collection of notification components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,15 +31,15 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-base": "^1.1.5",
-    "@kaizen/component-library": "^16.7.3",
+    "@kaizen/component-library": "^16.7.4",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@kaizen/typography": "^2.3.8"
+    "@kaizen/typography": "^2.3.9"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^10.3.6",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }

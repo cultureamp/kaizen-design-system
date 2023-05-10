@@ -32,11 +32,9 @@ export const LoadingHeading = ({
       headingStyles.heading,
       classNameOverride,
       headingStyles[variant],
-      {
-        [skeletonStyles.animated]: isAnimated,
-        [headingStyles.reversed]: isReversed,
-        [headingStyles.link]: isLink,
-      }
+      isAnimated && skeletonStyles.animated,
+      isReversed && headingStyles.reversed,
+      isLink && headingStyles.link
     )}
     style={{ width: `${width}%` }}
     {...props}

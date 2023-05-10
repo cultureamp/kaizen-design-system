@@ -36,15 +36,13 @@ export const LoadingParagraph = ({
       skeletonStyles.base,
       paragraphStyles.paragraph,
       classNameOverride,
-      {
-        [skeletonStyles.animated]: isAnimated,
-        [paragraphStyles.centered]: isCentred,
-        [paragraphStyles.reversed]: isReversed,
-        [paragraphStyles.link]: isLink,
-        [paragraphStyles.inheritBaseline]: inheritBaseline,
-        [paragraphStyles.inline]: isInline,
-        [paragraphStyles.noBottomMargin]: noBottomMargin,
-      }
+      isAnimated && skeletonStyles.animated,
+      isCentred && paragraphStyles.centered,
+      isReversed && paragraphStyles.reversed,
+      isLink && paragraphStyles.link,
+      inheritBaseline && paragraphStyles.inheritBaseline,
+      isInline && paragraphStyles.inline,
+      noBottomMargin && paragraphStyles.noBottomMargin
     )}
     style={{ width: `${width}%` }}
     {...props}

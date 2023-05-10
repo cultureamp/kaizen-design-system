@@ -168,7 +168,7 @@ export const Select = ({
           triggerRef={buttonRef}
         />
 
-        <div className={classnames([selectStyles.container])}>
+        <div className={classnames(selectStyles.container)}>
           {trigger(
             { placeholder, triggerProps, valueProps, status, isReversed },
             buttonRef
