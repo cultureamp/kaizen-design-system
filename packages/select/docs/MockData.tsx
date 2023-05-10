@@ -1,3 +1,4 @@
+import React from "react"
 import { ItemType, SingleItemType } from "../src/types"
 
 export const singleMockItems: SingleItemType[] = [
@@ -14,13 +15,53 @@ export const singleMockItems: SingleItemType[] = [
   { label: "AnotherExample", value: "id-another" },
 ]
 
+const LanguageItem = (props: {
+  language: string
+  languageInEnglish: string
+  languageCode: string
+}): JSX.Element => {
+  const { language, languageInEnglish, languageCode } = props
+  return (
+    <>
+      <span lang={languageCode}>{language}</span> ({languageInEnglish})
+    </>
+  )
+}
+
 export const groupedMockItems: SingleItemType[] = [
   {
-    label: "Colours",
+    label: "Languages",
     value: [
-      { label: "Blue", value: "blue" },
-      { label: "Red", value: "red" },
-      { label: "Green", value: "green" },
+      {
+        value: "ja",
+        label: (
+          <LanguageItem
+            languageCode="ja"
+            languageInEnglish="Japanese"
+            language="日本語"
+          />
+        ),
+      },
+      {
+        value: "th",
+        label: (
+          <LanguageItem
+            languageCode="th"
+            languageInEnglish="Thai"
+            language="ไทย"
+          />
+        ),
+      },
+      {
+        value: "de",
+        label: (
+          <LanguageItem
+            languageCode="de"
+            languageInEnglish="German"
+            language="Deutsch"
+          />
+        ),
+      },
     ],
   },
   {

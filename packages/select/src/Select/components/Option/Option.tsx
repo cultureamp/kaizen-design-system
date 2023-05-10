@@ -41,7 +41,6 @@ export const Option = ({
         isDisabled && styles.disabled,
         classNameOverride
       )}
-      aria-label={item.textValue}
     >
       {item.rendered}
       <span

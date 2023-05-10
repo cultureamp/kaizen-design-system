@@ -1,22 +1,23 @@
+import React from "react"
 import { SelectState } from "@react-stately/select"
 import { Node } from "@react-types/shared"
 
 export type ValueType = React.Key
 
 export interface ItemType {
-  label: string
+  label: React.ReactNode
   value: ValueType
   count?: string
   isDisabled?: boolean
 }
 
 export interface SingleItemType {
-  label: string
+  label: React.ReactNode
   value: ValueType | SectionChildType[]
 }
 
 export type SectionChildType = {
-  label: string
+  label: React.ReactNode
   value: ValueType
 }
 
