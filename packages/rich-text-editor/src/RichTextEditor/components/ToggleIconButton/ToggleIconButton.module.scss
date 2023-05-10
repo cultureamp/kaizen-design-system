@@ -34,7 +34,7 @@
   &.disabled {
     opacity: 30%;
 
-    &:focus-visible:after {
+    &:focus-visible::after {
       color: rgba($color-purple-800-rgb, 0.3);
       outline-offset: -2px;
       background-color: transparent;

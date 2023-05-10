@@ -398,7 +398,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
   position: relative;
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
     inset: 0;

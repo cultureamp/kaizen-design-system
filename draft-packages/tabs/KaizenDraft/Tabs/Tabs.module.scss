@@ -41,7 +41,7 @@
     background-color: $color-blue-100;
     font-weight: $typography-heading-4-font-weight;
 
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       background: transparent;

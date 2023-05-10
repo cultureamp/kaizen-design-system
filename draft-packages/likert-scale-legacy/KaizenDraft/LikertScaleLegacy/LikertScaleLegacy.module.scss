@@ -42,7 +42,7 @@ $fifth: $color-red-500;
       border-radius: $height 0 $height 0;
     }
 
-    &:after {
+    &::after {
       border-top-left-radius: $height;
       border-bottom-left-radius: $height;
 
@@ -60,7 +60,7 @@ $fifth: $color-red-500;
       border-radius: 0 $height 0 $height;
     }
 
-    &:after {
+    &::after {
       border-top-right-radius: $height;
       border-bottom-right-radius: $height;
 
@@ -170,8 +170,8 @@ $fifth: $color-red-500;
   }
 
   // Hack to bridge the gaps between items so mouse always hovers on something
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: "";
     position: absolute;
     top: 0;
@@ -180,7 +180,7 @@ $fifth: $color-red-500;
     height: 100%;
   }
 
-  &:after {
+  &::after {
     right: auto;
     left: 100%;
   }
@@ -190,7 +190,7 @@ $fifth: $color-red-500;
     .field1 {
       background-color: $first;
 
-      &:after {
+      &::after {
         background-color: $first;
       }
     }
@@ -198,7 +198,7 @@ $fifth: $color-red-500;
     .field2 {
       background-color: $second;
 
-      &:after {
+      &::after {
         background-color: $second;
       }
     }
@@ -206,7 +206,7 @@ $fifth: $color-red-500;
     .field3 {
       background-color: $third;
 
-      &:after {
+      &::after {
         background-color: $third;
       }
     }
@@ -214,7 +214,7 @@ $fifth: $color-red-500;
     .field4 {
       background-color: $fourth;
 
-      &:after {
+      &::after {
         background-color: $fourth;
       }
     }
@@ -222,7 +222,7 @@ $fifth: $color-red-500;
     .field5 {
       background-color: $fifth;
 
-      &:after {
+      &::after {
         background-color: $fifth;
       }
     }
@@ -238,7 +238,7 @@ $fifth: $color-red-500;
     transition: background 0s, border-color 0s;
   }
 
-  &:after {
+  &::after {
     content: " ";
     display: block;
     height: 100%;
@@ -246,7 +246,7 @@ $fifth: $color-red-500;
     pointer-events: none;
   }
 
-  &.pop:after {
+  &.pop::after {
     @include pop;
   }
 }

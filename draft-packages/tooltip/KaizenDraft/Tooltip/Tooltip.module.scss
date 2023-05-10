@@ -130,7 +130,7 @@
     border-top: $arrow-height solid $color-yellow-300;
   }
   // after styles
-  &:after {
+  &::after {
     margin-top: -3px;
   }
 

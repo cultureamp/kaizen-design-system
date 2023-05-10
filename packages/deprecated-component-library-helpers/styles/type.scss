@@ -390,7 +390,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 @mixin debug-vertical-rhythm-grid() {
   position: relative;
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
     inset: 0;
