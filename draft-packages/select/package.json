@@ -34,7 +34,7 @@
     "@kaizen/draft-form": "^10.4.1",
     "@kaizen/draft-tag": "^3.4.14",
     "classnames": "^2.3.2",
-    "react-select": "^5.7.2"
+    "react-select": "^5.7.3"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
