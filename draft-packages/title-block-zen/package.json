@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-title-block-zen",
-  "version": "7.10.3",
+  "version": "7.10.4",
   "description": "The draft Title Block (Zen) component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,19 +29,19 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/button": "^3.0.0",
-    "@kaizen/component-library": "^16.7.3",
-    "@kaizen/draft-avatar": "^2.8.36",
-    "@kaizen/draft-badge": "^1.13.8",
-    "@kaizen/draft-menu": "^4.9.5",
-    "@kaizen/draft-select": "^2.10.36",
-    "@kaizen/draft-tag": "^3.4.13",
+    "@kaizen/button": "^3.0.1",
+    "@kaizen/component-library": "^16.7.4",
+    "@kaizen/draft-avatar": "^2.8.37",
+    "@kaizen/draft-badge": "^1.13.9",
+    "@kaizen/draft-menu": "^4.9.6",
+    "@kaizen/draft-select": "^2.10.37",
+    "@kaizen/draft-tag": "^3.4.14",
     "@kaizen/responsive": "^1.8.8",
-    "@kaizen/typography": "^2.3.8",
+    "@kaizen/typography": "^2.3.9",
     "classnames": "^2.3.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^10.3.6",
+    "@kaizen/design-tokens": "^10.3.7",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }
