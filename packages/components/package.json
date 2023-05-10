@@ -21,10 +21,9 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "yarn build:clean && yarn prepublish",
-    "build:clean": "rimraf 'dist'",
+    "build": "yarn prepublish",
     "build:components": "rollup -c",
-    "clean": "yarn build:clean",
+    "clean": "rimraf dist",
     "compile": "tsc",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
