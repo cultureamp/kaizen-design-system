@@ -54,6 +54,7 @@ $-mui-custom: 0;
     @if type-of($value) == "string" {
       $value: unquote($value);
     }
+
     #{$prop}: $value;
   }
 }

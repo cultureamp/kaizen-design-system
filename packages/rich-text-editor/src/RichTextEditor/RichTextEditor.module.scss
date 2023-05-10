@@ -7,6 +7,7 @@
 
 .editor > :global(.ProseMirror) {
   @include contentStyles;
+
   border-radius: $border-solid-border-radius;
   padding: $spacing-sm calc(#{$spacing-xs} * 3);
   position: relative;
@@ -25,6 +26,7 @@
 
   &:focus-visible::after {
     $focus-ring-offset: 5px;
+
     content: "";
     pointer-events: none;
     position: absolute;

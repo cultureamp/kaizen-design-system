@@ -12,6 +12,7 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
 // override bootstrap styles
 .checkbox.checkbox {
   @include form-input-visually-hidden();
+
   width: $checkbox-size;
   height: $checkbox-size;
   margin: 0;

@@ -75,6 +75,7 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-runnable-track {
     @include track;
+
     margin: $spacing-sm 0;
   }
 
@@ -84,6 +85,7 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-thumb {
     @include thumb;
+
     -webkit-appearance: none;
     margin-top: ($thumb-height-with-border/2) * -1;
   }
@@ -100,6 +102,7 @@ input[type="range"].ratingScaleRange {
 
   &::-ms-track {
     @include track;
+
     color: transparent;
     border-width: $thumb-width 0;
     border-color: transparent;

@@ -40,6 +40,7 @@
       #{$selectors--filter-button--focus} {
         &::after {
           @extend %firstChildBorders;
+
           inset-inline-end: $focus-ring-offset-inner;
 
           [dir="ltr"] [dir="rtl"] & {
@@ -72,6 +73,7 @@
       #{$selectors--filter-button--focus} {
         &::after {
           @extend %lastChildBorders;
+
           inset-inline-start: $focus-ring-offset-inner;
 
           [dir="ltr"] [dir="rtl"] & {

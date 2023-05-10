@@ -26,7 +26,6 @@ $input-disabled-opacity: 0.3;
 .inputRangeEnd {
   position: relative;
   inset-inline-start: calc(-1 * #{$border-solid-border-width});
-
   border-start-start-radius: 0;
   border-end-start-radius: 0;
 

@@ -75,6 +75,7 @@ $informative-box-border-color: $color-blue-300;
 
 .informativeBox {
   @extend %box;
+
   background: $color-blue-100;
   border-color: $informative-box-border-color;
 }
@@ -87,6 +88,7 @@ $positive-box-border-color: $color-green-300;
 
 .positiveBox {
   @extend %box;
+
   background: $color-green-100;
   border-color: $positive-box-border-color;
 }
@@ -99,6 +101,7 @@ $negative-box-border-color: $color-red-300;
 
 .negativeBox {
   @extend %box;
+
   background: $color-red-100;
   border-color: $negative-box-border-color;
 }
@@ -109,6 +112,7 @@ $negative-box-border-color: $color-red-300;
 
 .cautionaryBox {
   @extend %box;
+
   background: $color-yellow-100;
   border-color: $color-yellow-400;
 }
@@ -154,6 +158,7 @@ $negative-box-border-color: $color-red-300;
 
 .close {
   @include button-reset;
+
   position: absolute;
   right: 0;
   margin-left: auto;

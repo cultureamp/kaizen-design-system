@@ -1,7 +1,6 @@
 .main {
   max-width: 1200px;
   margin: auto;
-
   display: grid;
   // Content width = 100% - TOC width - gap
   grid-template-columns: minmax(calc(100% - 224px), 1fr) 200px;

@@ -67,6 +67,7 @@ $small: $spacing-md;
 
 .dismissButton {
   @include button-reset;
+
   position: relative;
   display: flex;
   height: 100%;
@@ -98,6 +99,7 @@ $small: $spacing-md;
 
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width}));
+
       content: "";
       position: absolute;
       background: transparent;

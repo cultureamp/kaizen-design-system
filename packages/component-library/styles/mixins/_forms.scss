@@ -34,6 +34,7 @@ $input-placeholder-line-height: 2.9rem;
   &:-moz-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
+
     line-height: $input-placeholder-line-height;
     @content;
   }
@@ -41,6 +42,7 @@ $input-placeholder-line-height: 2.9rem;
   &::-moz-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
+
     line-height: $input-placeholder-line-height;
     @content;
   }
@@ -48,6 +50,7 @@ $input-placeholder-line-height: 2.9rem;
   &:-ms-input-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
+
     line-height: $input-placeholder-line-height;
     @content;
   }

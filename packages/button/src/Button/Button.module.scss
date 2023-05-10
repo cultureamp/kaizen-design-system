@@ -10,7 +10,6 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   font-size: $typography-button-primary-font-size;
@@ -48,6 +47,7 @@
         $focus-ring-offset: calc(
           (#{$border-focus-ring-border-width} * 2) + 1px
         );
+
         content: "";
         position: absolute;
         background: transparent;
@@ -83,7 +83,6 @@
     height: 100%;
     display: flex;
     align-items: center;
-
     padding: $button-vertical-padding
       calc(#{$spacing-md} - #{$border-solid-border-width});
   }
@@ -158,7 +157,6 @@
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
-
   background-color: transparent;
   border-color: $border-borderless-border-color;
   color: $color-blue-500;

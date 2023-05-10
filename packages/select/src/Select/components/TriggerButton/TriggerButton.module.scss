@@ -6,6 +6,7 @@
 
 .button {
   @include button;
+
   border-radius: $border-solid-border-radius;
   margin-top: $spacing-xs;
   width: 100%;
@@ -98,6 +99,7 @@
 
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
       content: "";
       position: absolute;
       background: transparent;

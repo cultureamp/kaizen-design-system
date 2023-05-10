@@ -75,6 +75,7 @@ $row-height-data-variant: 48px;
 
 .headerRowCellButton {
   @include button-reset;
+
   composes: anchorReset;
 }
 
@@ -110,6 +111,7 @@ $row-height-data-variant: 48px;
 
 .card {
   @include button-reset;
+
   background: $color-white;
   border: solid 1px rgba($color-purple-700-rgb, 0.1);
   transition: box-shadow $animation-duration-rapid,

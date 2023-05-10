@@ -11,6 +11,7 @@ $focus-border-color: $color-blue-500;
 
 %focus-border {
   $focus-ring-offset: calc((#{$border-focus-ring-border-width} * -2) - 1px);
+
   content: "";
   position: absolute;
   background: transparent;
@@ -50,6 +51,7 @@ $focus-border-color: $color-blue-500;
     &.disabled {
       opacity: 0.3;
     }
+
     min-height: $input-height;
     border: $border-solid-border-width $border-solid-border-style
       $color-gray-500;
@@ -91,6 +93,7 @@ $focus-border-color: $color-blue-500;
 
   .placeholder {
     @include base-font-style();
+
     opacity: $input-placeholder-opacity;
   }
 
@@ -121,6 +124,7 @@ $focus-border-color: $color-blue-500;
 
   .option {
     @include base-font-style();
+
     cursor: pointer;
     border-radius: $border-focus-ring-border-radius;
     border-width: $border-focus-ring-border-width;
@@ -149,6 +153,7 @@ $focus-border-color: $color-blue-500;
     &:not(.focusedOption) {
       background-color: transparent;
     }
+
     font-weight: $typography-paragraph-bold-font-weight;
     color: $color-blue-500;
   }

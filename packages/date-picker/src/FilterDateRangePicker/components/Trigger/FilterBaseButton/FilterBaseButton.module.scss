@@ -10,19 +10,14 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   position: relative;
   display: inline-flex;
   align-items: center;
-
   height: 48px;
   padding: $spacing-sm;
-
   border-width: 0;
   border-radius: $border-solid-border-radius;
-
   background-color: $color-blue-100;
-
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;

@@ -173,6 +173,7 @@ $notification-slide-right: transform 300ms ease-out;
 
   %ca-notification---global & {
     $size: calc(#{$spacing-md} * 1.25);
+
     width: $size;
     height: $size;
     padding: calc(((#{$spacing-md} * 2) - #{$size}) / 2);
@@ -311,6 +312,7 @@ $notification-slide-right: transform 300ms ease-out;
 
 %ca-notification__cancel {
   @include button-reset;
+
   composes: interactiveIconWrapper from from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   color: $color-purple-800;
   transform: none;

@@ -5,12 +5,14 @@
 
 @mixin ca-animation-pop($duration: $ca-duration-slow, $delay: null) {
   @include ca-animation(pop());
+
   animation-duration: $duration;
   animation-delay: $delay;
 }
 
 @mixin ca-animation-pulsate($duration: $ca-duration-slow, $delay: null) {
   @include ca-animation(pulsate());
+
   animation-duration: $duration;
   animation-delay: $delay;
 }
@@ -27,6 +29,7 @@
     $to: 0;
   }
   @include ca-animation(fade($from: $from, $to: $to));
+
   animation-duration: $duration;
   animation-delay: $delay;
   animation-fill-mode: forwards;
@@ -55,6 +58,7 @@
   );
 
   @include mui-animation(fade(in));
+
   animation-duration: $duration;
   animation-delay: $delay;
   animation-fill-mode: forwards;

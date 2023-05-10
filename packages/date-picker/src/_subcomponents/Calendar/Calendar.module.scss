@@ -25,6 +25,7 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
       $focus-ring-offset: calc(
         -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
       );
+
       content: "";
       position: absolute;
       top: $focus-ring-offset;
@@ -195,7 +196,6 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
   // disabled days do not receive focus, and keyboard navigation only lands on available days.
   // https://github.com/gpbl/react-day-picker/pull/1519
   // https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033
-
   background: none;
   pointer-events: none;
   color: rgba($color-purple-800-rgb, 0.3);

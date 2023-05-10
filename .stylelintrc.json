@@ -11,6 +11,10 @@
     "block-opening-brace-space-before": "always",
     "comment-no-empty": true,
     "declaration-bang-space-after": "never",
+    "declaration-empty-line-before": [
+      "always",
+      { "except": ["after-comment", "after-declaration", "first-nested"] }
+    ],
     "declaration-no-important": [
       true,
       {

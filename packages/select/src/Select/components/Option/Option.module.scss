@@ -5,24 +5,20 @@
 
 .option {
   height: fit-content;
-
   align-items: center;
   display: inline-grid;
   grid-template-columns: auto $spacing-md;
   gap: $spacing-xs;
   padding: 0.5rem $spacing-xs 0.5rem $spacing-sm;
   position: relative;
-
   font-family: $typography-paragraph-body-font-family;
   font-size: $typography-paragraph-body-font-size;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   font-weight: $typography-paragraph-body-font-weight;
   line-height: $typography-paragraph-body-line-height;
-
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
   border-radius: 4px;
-
   cursor: default;
 
   &:focus {
@@ -45,6 +41,7 @@
     color: $color-blue-500;
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
       content: "";
       position: absolute;
       background: transparent;

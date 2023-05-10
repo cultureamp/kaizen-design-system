@@ -29,7 +29,6 @@ $caButtonIcon-height: 20px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   font-size: $typography-button-primary-font-size;
@@ -48,9 +47,7 @@ $caButtonIcon-height: 20px;
   cursor: pointer;
   text-align: center;
   overflow: visible; // Required for the focus ring on IE11
-
   text-decoration: none;
-
   padding: $caButton-verticalPadding
     calc(#{$spacing-md} - #{$border-solid-border-width});
 }
@@ -62,6 +59,7 @@ $caButtonIcon-height: 20px;
 
   &:focus-visible::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
     content: "";
     position: absolute;
     background: transparent;
@@ -79,6 +77,7 @@ $caButtonIcon-height: 20px;
 .skipLinkContainer {
   @include button();
   @include primary();
+
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;

@@ -4,6 +4,7 @@
 
 .dismissButton {
   @include ca-position($end: 0, $top: 0);
+
   position: absolute;
   z-index: $ca-z-index-popover;
 }

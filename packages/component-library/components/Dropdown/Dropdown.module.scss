@@ -32,6 +32,7 @@ $caButton-verticalPadding: calc(
 .dropdownButton {
   @include kz-type-inter-button-primary;
   @include ca-inherit-baseline;
+
   composes: buttonReset;
   cursor: pointer;
   display: flex;

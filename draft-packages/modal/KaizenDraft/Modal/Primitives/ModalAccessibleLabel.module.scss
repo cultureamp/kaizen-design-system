@@ -37,6 +37,7 @@ $ca-breakpoint-small-mobile: 375px;
 
   &:focus-visible::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
     content: "";
     position: absolute;
     background: transparent;

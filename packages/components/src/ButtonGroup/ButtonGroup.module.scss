@@ -38,6 +38,7 @@ $selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-g
       #{$selectors--button-group--focus} {
         &::after {
           @extend %firstChildBorders;
+
           inset-inline-end: $focus-ring-offset-inner;
         }
       }
@@ -62,6 +63,7 @@ $selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-g
       #{$selectors--button-group--focus} {
         &::after {
           @extend %lastChildBorders;
+
           inset-inline-start: $focus-ring-offset-inner;
         }
       }

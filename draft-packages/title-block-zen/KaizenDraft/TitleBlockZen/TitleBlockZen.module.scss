@@ -119,6 +119,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
       transform: translateY(-0.38333em);
     }
   }
+
   transform: translateY(-0.0833333em);
 }
 
@@ -367,6 +368,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .tag {
   @include ca-margin($start: calc(#{$ca-grid} / 2));
+
   display: flex;
   align-items: center;
 
@@ -381,6 +383,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .pageSwitcherSelectNextToTitle {
   @include ca-margin($start: calc(#{$ca-grid} / 2));
+
   flex-shrink: 0;
   width: 10 * $ca-grid;
 }
@@ -539,6 +542,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   @include ca-position(
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
   );
+
   align-self: normal;
 
   &:hover .breadcrumbTextLink {
@@ -549,6 +553,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     position: relative;
     @include ca-margin($end: calc(#{$ca-grid} / 2));
     @include ca-position($start: 0);
+
     transform: translateY(0);
   }
 
@@ -581,8 +586,10 @@ $tab-container-height-medium-and-small-collapsed: 0;
   // We are using visually hidden here instead of display:none so that a screen reader
   // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
   @include visually-hidden;
+
   z-index: $ca-z-index-sticky - 1;
   @include ca-position($start: -2 * $ca-grid);
+
   position: absolute;
 
   @include title-block-under-1645 {
@@ -634,6 +641,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .circle {
   $border-width: 3px;
+
   flex: 0 0 $breadcrumb-circle-width;
   box-sizing: border-box;
   width: $breadcrumb-circle-width;
