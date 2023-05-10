@@ -201,8 +201,7 @@ $notification-slide-right: transform 300ms ease-out;
 %ca-notification__text-container {
   box-sizing: content-box;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   flex: 1 0 0;
 
   %ca-notification---inline &,

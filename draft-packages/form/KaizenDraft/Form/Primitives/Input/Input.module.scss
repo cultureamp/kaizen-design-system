@@ -78,10 +78,7 @@ $input-with-icon-padding: calc(
   border-width: $border-focus-ring-border-width;
   border-style: $border-focus-ring-border-style;
   border-color: transparent;
-  top: -$focus-ring-offset;
-  left: -$focus-ring-offset;
-  right: -$focus-ring-offset;
-  bottom: -$focus-ring-offset;
+  inset: -$focus-ring-offset -$focus-ring-offset -$focus-ring-offset -$focus-ring-offset;
   pointer-events: none;
 }
 

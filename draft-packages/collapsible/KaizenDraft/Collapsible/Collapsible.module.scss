@@ -67,10 +67,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   background-color: $color-white;
   border: none;
   transition: background-color $animation-duration-rapid;
-  padding-top: $spacing-sm;
-  padding-bottom: $spacing-sm;
-  padding-left: $spacing-md;
-  padding-right: $spacing-sm;
+  padding: $spacing-sm $spacing-sm $spacing-sm $spacing-md;
 
   &:hover {
     background-color: $heading-active-color;

@@ -81,10 +81,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
     border-radius: $border-solid-border-radius-curved;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
-    top: -$focus-ring-offset;
-    left: -$focus-ring-offset;
-    right: -$focus-ring-offset;
-    bottom: -$focus-ring-offset;
+    inset: -$focus-ring-offset -$focus-ring-offset -$focus-ring-offset -$focus-ring-offset;
     pointer-events: none;
   }
 }

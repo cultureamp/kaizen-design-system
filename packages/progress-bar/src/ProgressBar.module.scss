@@ -38,12 +38,9 @@ $height: 10px;
 
 .progress {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  inset: 0 0 0 0;
   border-radius: $height;
   overflow: hidden;
-  right: 0;
   transition: transform 200ms ease;
 }
 

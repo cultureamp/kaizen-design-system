@@ -19,10 +19,7 @@ $focus-border-color: $color-blue-500;
   border-width: $border-focus-ring-border-width;
   border-style: $border-focus-ring-border-style;
   border-color: $focus-border-color;
-  top: $focus-ring-offset;
-  left: $focus-ring-offset;
-  right: $focus-ring-offset;
-  bottom: $focus-ring-offset;
+  inset: $focus-ring-offset $focus-ring-offset $focus-ring-offset $focus-ring-offset;
 }
 
 @mixin base-font-style() {

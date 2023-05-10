@@ -7,10 +7,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: $spacing-md;
-  padding-right: $spacing-md;
+  padding: 2% $spacing-md 2% $spacing-md;
   color: $color-purple-800;
   border: $border-solid-border-width $border-solid-border-style
     $border-borderless-border-color-id;

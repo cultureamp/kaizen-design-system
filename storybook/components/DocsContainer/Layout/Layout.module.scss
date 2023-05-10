@@ -3,11 +3,8 @@
   margin: auto;
   display: grid;
   // Content width = 100% - TOC width - gap
-  grid-template-columns: minmax(calc(100% - 224px), 1fr) 200px;
-  grid-template-rows: 1fr;
-  grid-column-gap: 24px;
-  grid-row-gap: 0px;
-  grid-template-areas: "content sidebar";
+  grid-template: "content sidebar" 1fr / minmax(calc(100% - 224px), 1fr) 200px;
+  grid-gap: 0px 24px;
 }
 
 .sidebar {

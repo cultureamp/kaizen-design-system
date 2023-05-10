@@ -38,10 +38,7 @@ $fifth: $color-red-500;
     border-bottom-left-radius: $height;
 
     [dir="rtl"] & {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      border-top-right-radius: $height;
-      border-bottom-right-radius: $height;
+      border-radius: $height 0 $height 0;
     }
 
     &:after {
@@ -49,10 +46,7 @@ $fifth: $color-red-500;
       border-bottom-left-radius: $height;
 
       [dir="rtl"] & {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: $height;
-        border-bottom-right-radius: $height;
+        border-radius: $height 0 $height 0;
       }
     }
   }
@@ -62,10 +56,7 @@ $fifth: $color-red-500;
     border-bottom-right-radius: $height;
 
     [dir="rtl"] & {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-top-left-radius: $height;
-      border-bottom-left-radius: $height;
+      border-radius: 0 $height 0 $height;
     }
 
     &:after {
@@ -73,10 +64,7 @@ $fifth: $color-red-500;
       border-bottom-right-radius: $height;
 
       [dir="rtl"] & {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-top-left-radius: $height;
-        border-bottom-left-radius: $height;
+        border-radius: 0 $height 0 $height;
       }
     }
   }

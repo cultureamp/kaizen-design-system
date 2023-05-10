@@ -196,11 +196,10 @@ $scene-illustration-size: 300px;
 
 .inline,
 .stacked {
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: unset;
   gap: $spacing-md;
   min-width: unset;
-  flex-wrap: wrap;
 
   @include ca-media-tablet-and-under {
     flex-direction: unset;

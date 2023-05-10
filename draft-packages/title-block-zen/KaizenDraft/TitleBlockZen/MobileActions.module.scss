@@ -112,10 +112,7 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
       border-width: $focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
       border-color: $color-blue-500;
-      top: calc(-1 * #{$focus-ring-offset});
-      left: calc(-1 * #{$focus-ring-offset});
-      right: calc(-1 * #{$focus-ring-offset});
-      bottom: calc(-1 * #{$focus-ring-offset});
+      inset: calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset});
     }
   }
 

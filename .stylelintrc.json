@@ -11,6 +11,7 @@
     "block-opening-brace-space-before": "always",
     "comment-no-empty": true,
     "declaration-bang-space-after": "never",
+    "declaration-block-no-redundant-longhand-properties": true,
     "declaration-empty-line-before": [
       "always",
       { "except": ["after-comment", "after-declaration", "first-nested"] }
