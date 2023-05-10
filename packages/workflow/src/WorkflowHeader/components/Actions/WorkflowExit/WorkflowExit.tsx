@@ -1,4 +1,4 @@
-import React, { useState, PropsWithChildren, ReactNode } from "react"
+import React, { useState, ReactNode } from "react"
 import { Button } from "@kaizen/button"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { ConfirmationModal, ConfirmationModalProps } from "@kaizen/draft-modal"
@@ -15,7 +15,7 @@ export interface WorkflowExitProps {
   mood?: ConfirmationModalProps["mood"]
 }
 
-/** A confirmation trigger and modal for exiting a workflow */
+/** A button that triggers a modal to confirm saving and exiting from the current workflow*/
 export const WorkflowExit = ({
   exitLabel,
   exitTitle,

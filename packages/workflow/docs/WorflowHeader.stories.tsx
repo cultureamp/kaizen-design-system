@@ -1,63 +1,20 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
+import { Button } from "@kaizen/button"
+import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 // import { StickerSheet } from "../../../storybook/components/StickerSheet"
-import {
-  WorkflowHeader,
-  WorkflowHeaderProps,
-  // WorkflowRootProps,
-  // WorkflowActionsProps,
-  // ExitTriggerProps,
-  // WorkflowTitlesProps,
-} from "../index"
+import { WorkflowExit, WorkflowHeader, WorkflowHeaderProps } from "../index"
 
-/** This is an example of how to put together a header type.
- * Not having this an exported as an actual type mean the data
- * can be passed to the components as the consumer pleases */
-
-const WorkflowHeaderDefault: WorkflowHeaderProps = {
+const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
   stepName: "Settings",
   status: {
     content: "Draft",
     vairant: "statusDraft",
   },
-  exitLabel: "Save and close",
-  exitTitle: "Before you exit",
-  exitDescription:
-    "Your content has not yet been saved. Click the button below or discard the changes",
-  confirmExitLabel: "Close and save",
-  dismissExitLabel: "Dismiss",
-  onExit: (): void => alert("mock example of a save action"),
-}
-
-export const DefaultKaizenSiteDemo: StoryFn<WorkflowHeaderProps> = ({
-  workflowName,
-  stepName,
-  status,
-  exitLabel,
-  exitTitle,
-  exitDescription,
-  confirmExitLabel,
-  dismissExitLabel,
-  onExit,
-  ...rootProps
-}) => (
-  <WorkflowHeader
-    workflowName={workflowName}
-    stepName={stepName}
-    status={status}
-    exitLabel={exitLabel}
-    exitTitle={exitTitle}
-    exitDescription={exitDescription}
-    confirmExitLabel={confirmExitLabel}
-    dismissExitLabel={dismissExitLabel}
-    onExit={onExit}
-    {...rootProps}
-  />
-)
-
-// Export the internals but create sensible default component with smaller props pool wew
+  actions: [],
+} satisfies WorkflowHeaderProps
 
 const meta = {
   tags: ["autodocs"],
@@ -78,7 +35,8 @@ const meta = {
       figma:
         "https://www.figma.com/file/IJTy1JpS4Xyop5cQwroRje/%F0%9F%9B%A0%EF%B8%8F-Self-reflection%3A-Build-Handoff?node-id=188%3A62005&t=x4zyx07E2G3BmKGw-1",
       /** @todo (optional): Add Confluence link */
-      designGuidelines: "Add Confluence link here",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
   },
 } satisfies Meta<typeof WorkflowHeader>
@@ -86,70 +44,76 @@ const meta = {
 export default meta
 
 /**
- * This is the workflow header component used to create per cycles... Better description to come!
+ * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
  */
-// export const Playground: StoryObj<typeof meta> = {
-//   parameters: {
-//     docs: {
-//       canvas: {
-//         source: { type: "code" },
-//         container: ComponentDocsTemplate,
-//       },
-//     },
-//   },
-// }
+export const Playground: StoryFn<WorkflowHeaderProps> = ({
+  workflowName,
+  stepName,
+  status,
+  actions = [],
+  ...restProps
+}) => (
+  <WorkflowHeader
+    workflowName={workflowName}
+    stepName={stepName}
+    status={status}
+    actions={[
+      ...actions,
+      <WorkflowExit
+        key={"would-use-uui"}
+        exitLabel="Save and close"
+        exitTitle="Before you exit"
+        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
+        confirmExitLabel="Close and save"
+        dismissExitLabel="Dismiss"
+        onExit={(): void => alert("mock example of a save action")}
+      />,
+    ]}
+    {...restProps}
+  />
+)
 
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
-DefaultKaizenSiteDemo.args = WorkflowHeaderDefault
+const VariantTemplate: StoryFn<WorkflowHeaderProps> = ({
+  workflowName,
+  stepName,
+  status,
+  actions,
+  ...restProps
+}) => (
+  <WorkflowHeader
+    workflowName={workflowName}
+    stepName={stepName}
+    status={status}
+    actions={actions}
+    {...restProps}
+  />
+)
 
-// export const WorkflowHeaderWrapper: StoryObj<typeof meta> = {
-//   tags: ["autodocs"],
-//   parameters: {
-//     component: WorkflowHeader,
-//     docs: {
-//       canvas: {
-//         sourceState: "shown",
-//       },
-//     },
-//   },
-// }
-// WorkflowHeaderWrapper.storyName = "WorkflowHeader root wrapper"
-// WorkflowHeaderWrapper.args = {
-//   children: "",
-//   classNameOverride: "",
-// }
+Playground.args = { ...defaultArgs }
 
-// /** @todo: Add extra stories to showcase props which don't appear in sticker sheets - Delete the unused example stories below */
+/** <p>`actions` gives consumers the ability to add multiple `JSX Element`'s to top of the Workflow Header.</p>
+ * <p>We have provided a sensible default button: `WorkflowExit` that can trigger a modal to handle a customer leaving the workflow</p>
+ * <p>There is no limit to the number of actions you can pass in, but please consider the limited realesate with labels.<p>  */
+export const MultipleActions = VariantTemplate.bind({})
 
-// const VariantsTemplate: StoryFn = () => (
-//   <StickerSheet>
-//     <StickerSheet.Body>
-//       <StickerSheet.Row>
-//         <WorkflowHeader>
-//           <WorkflowHeader.Branding {...WorkflowHeaderDefault.branding} />
-//           <WorkflowHeader.Titles {...WorkflowHeaderDefault.titles} />
-//           <WorkflowHeader.Actions {...WorkflowHeaderDefault.actions}>
-//             <div>Help icon</div>
-//           </WorkflowHeader.Actions>
-//         </WorkflowHeader>
-//       </StickerSheet.Row>
-//     </StickerSheet.Body>
-//   </StickerSheet>
-// )
-
-// /**
-//  * @todo: Add neccessary variants
-//  */
-// export const Variants = VariantsTemplate.bind({})
-
-// // export const WithHelpIcon = VariantsTemplate.bind({})
-// // Reversed.args = { isReversed: true }
-// // Reversed.parameters = {
-// //   backgrounds: { default: "Purple 700" },
-// // }
-
-// // export const ContentLoadingHeaders = VariantsTemplate.bind({})
-// // Reversed.args = { isReversed: true }
-// // Reversed.parameters = {
-// //   backgrounds: { default: "Purple 700" },
-// // }
+MultipleActions.args = {
+  ...defaultArgs,
+  actions: [
+    <Button
+      key="would-use-uui-1"
+      label="Preview"
+      icon={VisibleIcon}
+      secondary
+      iconPosition="start"
+    />,
+    <WorkflowExit
+      key={"would-use-uui-2"}
+      exitLabel="Save and close"
+      exitTitle="Before you exit"
+      exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
+      confirmExitLabel="Close and save"
+      dismissExitLabel="Dismiss"
+      onExit={(): void => alert("mock example of a save action")}
+    />,
+  ],
+}

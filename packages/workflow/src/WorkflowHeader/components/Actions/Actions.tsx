@@ -1,24 +1,18 @@
-import React, {
-  ReactNode,
-  PropsWithChildren,
-  HTMLAttributes,
-  ComponentType,
-} from "react"
+import React, { PropsWithChildren, HTMLAttributes } from "react"
 import { OverrideClassName } from "@kaizen/component-base"
-import { WorkflowExitProps } from "./WorkflowExit"
 
 export interface WorkflowActionsProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">> {
-  children?: ComponentType<WorkflowExitProps> | ReactNode
+  actions?: JSX.Element[]
 }
 
 /** A wrapper for the exit trigger (and other) actions of the Header Workflow  */
 export const Actions = ({
-  children,
+  actions,
   ...restProps
 }: PropsWithChildren<WorkflowActionsProps>): JSX.Element => (
   <div className="flex grow-1 justify-end items-center" {...restProps}>
-    {children}
+    {actions?.map(action => React.createElement(action.type, action.props))}
   </div>
 )
 
