@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.8.5",
+  "version": "1.8.6",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -34,14 +34,14 @@
     "test": "yarn jest"
   },
   "dependencies": {
-    "@kaizen/a11y": "^1.7.10",
-    "@kaizen/component-library": "^16.7.4",
-    "@kaizen/date-picker": "^5.21.15",
-    "@kaizen/draft-divider": "^2.2.9",
-    "@kaizen/draft-form": "^10.4.1",
-    "@kaizen/draft-tooltip": "^5.4.42",
-    "@kaizen/hosted-assets": "^2.0.1",
-    "@kaizen/typography": "^2.3.9",
+    "@kaizen/a11y": "^1.7.11",
+    "@kaizen/component-library": "^16.7.5",
+    "@kaizen/date-picker": "^5.21.16",
+    "@kaizen/draft-divider": "^2.2.10",
+    "@kaizen/draft-form": "^10.4.2",
+    "@kaizen/draft-tooltip": "^5.4.43",
+    "@kaizen/hosted-assets": "^2.0.2",
+    "@kaizen/typography": "^2.3.10",
     "@popperjs/core": "^2.11.7",
     "@react-aria/button": "^3.7.1",
     "@react-aria/focus": "^3.12.0",
@@ -58,7 +58,7 @@
     "react-popper": "^2.3.0"
   },
   "devDependencies": {
-    "@kaizen/tailwind": "^1.0.0",
+    "@kaizen/tailwind": "^1.0.1",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-image": "^3.0.2",
