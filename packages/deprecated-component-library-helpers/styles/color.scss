@@ -14,6 +14,7 @@ $black: black;
 @function add-alpha($color, $percentage) {
   $decimal: $percentage / 100%;
   $inverse: 1 - $decimal;
+
   @return transparentize($color, $inverse);
 }
 

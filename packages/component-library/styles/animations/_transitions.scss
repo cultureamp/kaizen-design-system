@@ -61,6 +61,7 @@
 
   @for $i from 1 through length($defaultProperties) {
     $p: null;
+
     @if $i <= length($transition) {
       $p: nth($transition, $i);
     } @else {

@@ -7,11 +7,13 @@ $deprecation-warning: "@kaizen/component-library/styles/color is completely depr
 
 @function add-tint($color, $percentage) {
   @warn $deprecation-warning;
+
   @return mix($white, $color, $percentage);
 }
 
 @function add-shade($color, $percentage) {
   @warn $deprecation-warning;
+
   @return mix($black, $color, $percentage);
 }
 
@@ -19,6 +21,7 @@ $deprecation-warning: "@kaizen/component-library/styles/color is completely depr
   @warn $deprecation-warning;
   $decimal: $percentage / 100%;
   $inverse: 1 - $decimal;
+
   @return transparentize($color, $inverse);
 }
 

@@ -243,6 +243,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-ideal-label($size: 12, $args...) {
   $letter-spacing-in-px: 0.5;
+
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-medium,
@@ -361,6 +362,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-inter-label($size: 12, $args...) {
   $letter-spacing-in-px: 0.5;
+
   @include ca-type-inter(
     $size: $size,
     $weight: 600,

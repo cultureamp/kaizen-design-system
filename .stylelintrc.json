@@ -8,6 +8,14 @@
   ],
   "rules": {
     "alpha-value-notation": "percentage",
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"],
+        "ignoreAtRules": ["else"]
+      }
+    ],
     "block-no-empty": true,
     "block-opening-brace-space-before": "always",
     "color-function-notation": "modern",

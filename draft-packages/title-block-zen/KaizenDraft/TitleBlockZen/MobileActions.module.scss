@@ -63,6 +63,7 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   display: flex;
   justify-content: center;
   align-items: center;
+
   @include ca-margin($end: calc(#{$ca-grid} / 2));
 
   .drawerHandleLabelText + & {
@@ -181,6 +182,7 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   align-items: center;
   height: 100%;
   position: absolute;
+
   @include ca-position($end: 20px);
 }
 

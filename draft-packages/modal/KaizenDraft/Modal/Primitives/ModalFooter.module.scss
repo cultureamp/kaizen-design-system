@@ -16,6 +16,7 @@
 .padded {
   padding: $spacing-md;
   flex-direction: column;
+
   @media (min-width: $layout-breakpoints-medium) {
     padding: 0 $spacing-lg $spacing-lg $spacing-lg;
     flex-direction: row-reverse;
@@ -24,6 +25,7 @@
 
 .actionButton {
   width: 100%;
+
   @media (min-width: $layout-breakpoints-medium) {
     width: inherit;
   }
@@ -31,6 +33,7 @@
 
 .actionButton + .actionButton {
   margin-right: $spacing-sm;
+
   @media (max-width: $layout-breakpoints-medium - 1px) {
     margin-top: $spacing-sm;
   }

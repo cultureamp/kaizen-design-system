@@ -38,9 +38,11 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 
 @mixin ca-position($start: null, $end: null, $top: null, $bottom: null) {
   @include deprecate-legacy-layout-mixins;
+
   @if ($start == null and $end != null) {
     $start: auto;
   }
+
   @if ($end == null and $start != null) {
     $end: auto;
   }

@@ -24,6 +24,7 @@ $dt-assertive-header-background: $color-orange-100;
 
   &.padded {
     padding: $spacing-md $spacing-lg;
+
     @media (max-width: $layout-breakpoints-medium) {
       padding: $spacing-md;
     }
@@ -95,6 +96,7 @@ $dt-assertive-header-background: $color-orange-100;
 
   .iconContainer {
     align-self: flex-start;
+
     @media (min-width: $layout-breakpoints-medium) {
       align-self: center;
     }
@@ -104,6 +106,7 @@ $dt-assertive-header-background: $color-orange-100;
   .svgIcon > svg {
     width: 30px;
     height: 30px;
+
     @media (max-width: $layout-breakpoints-medium) {
       margin-right: 0.9375rem;
       position: relative;
@@ -113,6 +116,7 @@ $dt-assertive-header-background: $color-orange-100;
 
   &.prominent {
     grid-template-columns: 1.1fr 2fr;
+
     @media (max-width: $layout-breakpoints-medium) {
       display: flex;
       flex-direction: column;
@@ -124,6 +128,7 @@ $dt-assertive-header-background: $color-orange-100;
     .iconContainer {
       position: absolute;
       top: 8%;
+
       @media (max-width: $layout-breakpoints-medium) {
         position: relative;
         top: 0;
@@ -137,6 +142,7 @@ $dt-assertive-header-background: $color-orange-100;
       height: 155px;
       margin: 0 auto;
       color: $color-purple-800;
+
       @media (max-width: $layout-breakpoints-medium) {
         width: 86px;
         height: 86px;
@@ -149,6 +155,7 @@ $dt-assertive-header-background: $color-orange-100;
   display: grid;
   grid-template-columns: 1.1fr 2fr;
   align-items: center;
+
   @media (max-width: $layout-breakpoints-medium) {
     grid-template-columns: 1fr;
   }
@@ -156,6 +163,7 @@ $dt-assertive-header-background: $color-orange-100;
 
 .padded {
   padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+
   @media (max-width: $layout-breakpoints-medium) {
     padding: $spacing-md;
   }

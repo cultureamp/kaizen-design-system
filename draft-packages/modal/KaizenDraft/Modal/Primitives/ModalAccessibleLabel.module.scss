@@ -20,6 +20,7 @@ $ca-breakpoint-small-mobile: 375px;
       font-size: 1.625rem;
       line-height: 2rem;
     }
+
     @include ca-media-small-mobile {
       font-size: 1.5rem;
       line-height: 1.875rem;

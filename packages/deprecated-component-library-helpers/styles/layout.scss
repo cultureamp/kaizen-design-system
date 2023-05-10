@@ -32,6 +32,7 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
   @if ($start == null and $end != null) {
     $start: auto;
   }
+
   @if ($end == null and $start != null) {
     $end: auto;
   }

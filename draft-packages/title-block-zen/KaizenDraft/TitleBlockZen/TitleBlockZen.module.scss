@@ -177,6 +177,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     line-height: $typography-heading-2-line-height;
     letter-spacing: $typography-heading-2-letter-spacing;
   }
+
   @include title-block-under-1366 {
     font-family: $typography-heading-2-font-family;
     font-weight: $typography-heading-2-font-weight;
@@ -213,6 +214,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   overflow: hidden;
   height: $ca-grid * 2;
   width: $ca-grid * 2;
+
   @include ca-margin($end: calc(#{$ca-grid} / 2));
 
   > * {
@@ -235,6 +237,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .hamburger {
   display: none;
+
   @include ca-margin($end: $spacing-xs);
 
   @include title-block-medium-and-small {
@@ -311,6 +314,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     line-height: $typography-heading-3-line-height;
     letter-spacing: $typography-heading-3-letter-spacing;
   }
+
   @include title-block-medium-and-small {
     font-family: $typography-heading-4-font-family;
     font-weight: $typography-heading-4-font-weight;
@@ -405,6 +409,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .navigationTabsContainerCollapsed {
   height: $tab-container-height-default-collapsed;
+
   @include title-block-medium-and-small {
     height: $tab-container-height-medium-and-small-collapsed;
   }
@@ -505,6 +510,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   align-items: flex-start;
   justify-content: flex-end;
   padding: (calc(#{$ca-grid} / 2)) 0;
+
   @include ca-margin($start: $ca-grid * 1.5);
 
   // To be removed eventually – the Dropdown does not
@@ -541,6 +547,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   align-items: center;
   top: 50%;
   transform: translateY(-50%);
+
   @include ca-position(
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
   );
@@ -553,6 +560,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     position: relative;
+
     @include ca-margin($end: calc(#{$ca-grid} / 2));
     @include ca-position($start: 0);
 
@@ -590,6 +598,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   @include visually-hidden;
 
   z-index: $ca-z-index-sticky - 1;
+
   @include ca-position($start: -2 * $ca-grid);
 
   position: absolute;

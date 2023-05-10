@@ -18,6 +18,7 @@
 
   &.padded {
     padding: $spacing-md;
+
     @media (min-width: $layout-breakpoints-medium) {
       padding: $spacing-md $spacing-lg;
     }
@@ -26,6 +27,7 @@
 
 .footer {
   white-space: initial;
+
   @media (min-width: $layout-breakpoints-medium) {
     white-space: nowrap;
   }
@@ -44,6 +46,7 @@
   padding: $spacing-md;
   display: block;
   box-sizing: content-box;
+
   @media (min-width: $layout-breakpoints-medium) {
     display: grid;
     max-width: 800px;
@@ -58,6 +61,7 @@
   display: flex;
   padding: $spacing-md;
   flex-direction: column;
+
   @media (min-width: $layout-breakpoints-medium) {
     padding: $spacing-md $spacing-lg;
   }
@@ -71,6 +75,7 @@
 
   .content {
     padding-left: 0;
+
     @media (min-width: $layout-breakpoints-medium) {
       max-width: 100%;
     }
