@@ -1,0 +1,11 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+
+.footerRoot {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-24 $spacing-32;
+  background: $color-blue-500;
+}
