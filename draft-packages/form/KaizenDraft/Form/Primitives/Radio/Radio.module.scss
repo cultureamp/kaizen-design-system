@@ -14,7 +14,7 @@ $dt-color-radio-border-color-focus: $color-blue-500;
 $dt-color-radio-border-color-focus-reversed: $color-blue-300;
 
 .radioInput {
-  @include form-input-visually-hidden();
+  @include form-input-visually-hidden;
 }
 
 .icon {

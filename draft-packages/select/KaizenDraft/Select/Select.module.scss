@@ -79,7 +79,7 @@ $focus-border-color: $color-blue-500;
   }
 
   .loadingMessage {
-    @include base-font-style();
+    @include base-font-style;
   }
 
   .focusedControl {
@@ -91,7 +91,7 @@ $focus-border-color: $color-blue-500;
   }
 
   .placeholder {
-    @include base-font-style();
+    @include base-font-style;
 
     opacity: $input-placeholder-opacity;
   }
@@ -122,7 +122,7 @@ $focus-border-color: $color-blue-500;
   }
 
   .option {
-    @include base-font-style();
+    @include base-font-style;
 
     cursor: pointer;
     border-radius: $border-focus-ring-border-radius;
@@ -164,11 +164,11 @@ $focus-border-color: $color-blue-500;
   }
 
   .noOptionsMessage {
-    @include base-font-style();
+    @include base-font-style;
   }
 
   .singleValue {
-    @include base-font-style();
+    @include base-font-style;
   }
 
   &.reversed {

@@ -10,7 +10,7 @@ $animation-timing: $animation-duration-immediate
 $focus-ring-offset: 1px;
 
 .checkbox {
-  @include form-input-visually-hidden();
+  @include form-input-visually-hidden;
 }
 
 .track {

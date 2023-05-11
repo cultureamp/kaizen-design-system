@@ -71,8 +71,8 @@ $caButtonIcon-height: 20px;
 }
 
 .skipLinkContainer {
-  @include button();
-  @include primary();
+  @include button;
+  @include primary;
 
   position: absolute;
   top: 0.5rem;
