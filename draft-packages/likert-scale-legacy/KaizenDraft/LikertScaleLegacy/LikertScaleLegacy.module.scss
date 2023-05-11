@@ -39,7 +39,7 @@ $fifth: $color-red-500;
     border-bottom-left-radius: $height;
 
     [dir="rtl"] & {
-      border-radius: $height 0 $height 0;
+      border-radius: $height 0;
     }
 
     &::after {
@@ -47,7 +47,7 @@ $fifth: $color-red-500;
       border-bottom-left-radius: $height;
 
       [dir="rtl"] & {
-        border-radius: $height 0 $height 0;
+        border-radius: $height 0;
       }
     }
   }
@@ -57,7 +57,7 @@ $fifth: $color-red-500;
     border-bottom-right-radius: $height;
 
     [dir="rtl"] & {
-      border-radius: 0 $height 0 $height;
+      border-radius: 0 $height;
     }
 
     &::after {
@@ -65,7 +65,7 @@ $fifth: $color-red-500;
       border-bottom-right-radius: $height;
 
       [dir="rtl"] & {
-        border-radius: 0 $height 0 $height;
+        border-radius: 0 $height;
       }
     }
   }
