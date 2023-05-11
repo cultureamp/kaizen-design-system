@@ -4,7 +4,7 @@ import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { MenuItem, MenuList, MenuHeading } from "@kaizen/draft-menu"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 
 import {
@@ -160,7 +160,9 @@ const DrawerMenuContent = ({
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuList
-          heading={showOtherActionsHeading ? "Other actions" : undefined}
+          heading={
+            showOtherActionsHeading && <MenuHeading>Other actions</MenuHeading>
+          }
         >
           {defaultAction && renderDefaultAction(defaultAction)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
