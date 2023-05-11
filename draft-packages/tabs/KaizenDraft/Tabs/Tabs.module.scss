@@ -45,6 +45,7 @@
       content: "";
       position: absolute;
       background: transparent;
+
       $focus-ring-offset: calc(#{$border-focus-ring-border-width} - 1px);
 
       border-width: $border-focus-ring-border-width;

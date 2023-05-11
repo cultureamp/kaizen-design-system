@@ -62,7 +62,13 @@
       { "except": ["after-single-line-comment", "first-nested"] }
     ],
     "scss/at-rule-conditional-no-parentheses": null,
-    "scss/dollar-variable-empty-line-before": null,
+    "scss/dollar-variable-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment", "after-dollar-variable"]
+      }
+    ],
     "scss/dollar-variable-pattern": null,
     "scss/double-slash-comment-empty-line-before": null,
     "scss/double-slash-comment-whitespace-inside": null,

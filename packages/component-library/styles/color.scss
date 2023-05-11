@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+
 $white: white;
 $black: black;
 
@@ -19,6 +20,7 @@ $deprecation-warning: "@kaizen/component-library/styles/color is completely depr
 
 @function add-alpha($color, $percentage) {
   @warn $deprecation-warning;
+
   $decimal: $percentage / 100%;
   $inverse: 1 - $decimal;
 

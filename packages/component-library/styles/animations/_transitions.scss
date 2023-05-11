@@ -69,6 +69,7 @@
     } @else {
       $p: nth($defaultProperties, $i);
     }
+
     $unfoldedTransition: append($unfoldedTransition, $p);
   }
 
