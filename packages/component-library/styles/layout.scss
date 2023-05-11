@@ -1,3 +1,4 @@
+/* stylelint-disable scss/at-if-no-null */
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $ca-layout-max-width: 1416px;
@@ -55,3 +56,5 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
     left: $end;
   }
 }
+
+/* stylelint-enable scss/at-if-no-null */

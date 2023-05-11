@@ -1,3 +1,5 @@
+/* stylelint-disable scss/at-if-no-null */
+
 /// Convert any string to a "safe" string that can be used anywhere in CSS (as class or keyframe name for example).
 /// Unsupported characters are replaced by the given `$delimiter` ("-").
 /// Several unsupported characters following each others are replaced by a single delimiter.
@@ -27,3 +29,5 @@
 
   @return $ret;
 }
+
+/* stylelint-enable scss/at-if-no-null */

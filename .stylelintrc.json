@@ -61,7 +61,6 @@
       "always",
       { "except": ["after-single-line-comment", "first-nested"] }
     ],
-    "scss/at-if-no-null": null,
     "scss/at-import-partial-extension": null,
     "scss/at-mixin-argumentless-call-parentheses": null,
     "scss/at-mixin-pattern": null,
