@@ -4,7 +4,7 @@ import { cleanup, render } from "@testing-library/react"
 import { act } from "@testing-library/react-hooks"
 import * as ReactTestUtils from "react-dom/test-utils"
 import { Informative } from "@kaizen/draft-illustration"
-import GuidanceBlock from "./GuidanceBlock"
+import { GuidanceBlock, GuidanceBlockHeading } from "./"
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = jest.fn().mockImplementation(() => ({
@@ -23,7 +23,11 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
@@ -43,7 +47,11 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
@@ -71,7 +79,11 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
@@ -90,7 +102,11 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
@@ -120,7 +136,11 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
@@ -140,7 +160,11 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
@@ -163,7 +187,11 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
@@ -182,10 +210,13 @@ describe("GuidanceBlock", () => {
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "This is the call to action title",
+          heading: (
+            <GuidanceBlockHeading tag="h2">
+              This is the call to action title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
-          titleTag: "h2",
         }}
       />
     )

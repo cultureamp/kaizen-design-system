@@ -1,7 +1,10 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import { Box } from "@kaizen/component-library"
-import { GuidanceBlock } from "@kaizen/draft-guidance-block"
+import {
+  GuidanceBlock,
+  GuidanceBlockHeading,
+} from "@kaizen/draft-guidance-block"
 import {
   Informative,
   SkillsCoachManagerHub,
@@ -34,7 +37,11 @@ export default {
 }
 
 const GUIDANCE_BLOCK_TEXT = {
-  title: "This is the Guidance block title",
+  heading: (
+    <GuidanceBlockHeading tag="h3">
+      This is the Guidance block title
+    </GuidanceBlockHeading>
+  ),
   description:
     "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
@@ -120,7 +127,7 @@ const CustomContent = (): JSX.Element => (
     </Box>
     <Box mb={1}>
       <Heading tag="h3" variant="heading-3">
-        {GUIDANCE_BLOCK_TEXT.title}
+        {GUIDANCE_BLOCK_TEXT.heading}
       </Heading>
     </Box>
     <Paragraph tag="p" variant="body">
@@ -192,7 +199,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
-          title: "Informative guidance block title",
+          heading: (
+            <GuidanceBlockHeading tag="h3">
+              Informative guidance block title
+            </GuidanceBlockHeading>
+          ),
           description:
             "Providing further details to suggest a path forward or promote a feature that allows the user" +
             " to progress with confidence.",

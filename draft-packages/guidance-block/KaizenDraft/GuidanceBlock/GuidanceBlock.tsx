@@ -7,7 +7,7 @@ import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.sv
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
-import { Heading, HeadingProps, Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@kaizen/typography"
 import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {
@@ -63,8 +63,7 @@ interface BaseGuidanceBlockProps {
 
 interface GuidanceBlockWithText extends BaseGuidanceBlockProps {
   text: {
-    title: string
-    titleTag?: HeadingProps["tag"]
+    heading: JSX.Element
     description: string | React.ReactNode
   }
 }
@@ -234,12 +233,7 @@ class GuidanceBlock extends React.Component<
             {"text" in this.props && (
               <>
                 <div className={styles.headingWrapper}>
-                  <Heading
-                    tag={this.props.text.titleTag ?? "h3"}
-                    variant="heading-3"
-                  >
-                    {this.props.text.title}
-                  </Heading>
+                  {this.props.text.heading}
                 </div>
                 <Paragraph tag="p" variant="body">
                   {this.props.text.description}
