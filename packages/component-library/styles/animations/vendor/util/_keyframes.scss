@@ -52,6 +52,7 @@ $-mui-custom: 0;
   @each $prop, $value in $map or () {
     // Some keyframe maps store transforms as quoted strings
     @if type-of($value) == "string" {
+      /* stylelint-disable-next-line scss/function-unquote-no-unquoted-strings-inside */
       $value: unquote($value);
     }
 

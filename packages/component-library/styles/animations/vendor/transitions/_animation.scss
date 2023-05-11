@@ -7,5 +7,6 @@
 
   @include mui-keyframes($name, $args...);
 
+  /* stylelint-disable-next-line scss/function-unquote-no-unquoted-strings-inside */
   animation-name: unquote($name);
 }
