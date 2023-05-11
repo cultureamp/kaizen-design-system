@@ -17,7 +17,6 @@
       }
     ],
     "block-no-empty": true,
-    "block-opening-brace-space-before": "always",
     "color-function-notation": "modern",
     "comment-empty-line-before": [
       "always",
@@ -27,7 +26,6 @@
       }
     ],
     "comment-no-empty": true,
-    "declaration-bang-space-after": "never",
     "declaration-block-no-duplicate-properties": [
       true,
       {
@@ -56,7 +54,6 @@
     "no-descending-specificity": true,
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
-    "no-extra-semicolons": true,
     "number-max-precision": 4,
     "property-no-unknown": [
       true,
@@ -94,7 +91,6 @@
     ],
     "selector-pseudo-element-colon-notation": "double",
     "shorthand-property-no-redundant-values": true,
-    "string-quotes": "double",
     "value-keyword-case": [
       "lower",
       { "ignoreProperties": ["composes", "/font-family/"] }
