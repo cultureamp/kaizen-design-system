@@ -7,7 +7,7 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { Menu, MenuList, MenuItem } from ".."
+import { Menu, MenuList, MenuItem, MenuHeading } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
@@ -59,7 +59,7 @@ export const DefaultStory: StoryFn<typeof Menu> = args => (
         href="https://cultureamp.design/components/menu/"
         label="Learn more about Menu"
       />
-      <MenuList heading="Deprecated props">
+      <MenuList heading={<MenuHeading>Deprecated props</MenuHeading>}>
         <MenuItem
           action={(e): void => {
             e.preventDefault()

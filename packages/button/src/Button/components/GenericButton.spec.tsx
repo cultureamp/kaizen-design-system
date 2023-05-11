@@ -1,6 +1,6 @@
 import * as React from "react"
 import { render, screen } from "@testing-library/react"
-import GenericButton from "./GenericButton"
+import GenericButton, { ButtonFormAttributes } from "./GenericButton"
 
 describe("<GenericButton />", () => {
   it("renders the custom component element when passed the component prop", () => {
@@ -84,5 +84,30 @@ describe("<GenericButton />", () => {
   it("passes custom props to a button", () => {
     render(<GenericButton label="button label" data-testid="custom-prop" />)
     expect(screen.getByTestId("custom-prop")).toBeInTheDocument()
+  })
+})
+
+describe("<GenericButton /> with native HTML `form` attributes", () => {
+  const buttonFormAttributes = {
+    form: "linked-form-id",
+    formAction: "/",
+    formMethod: "post",
+    formEncType: "text/plain",
+    formTarget: "_self",
+    formNoValidate: false,
+  } satisfies ButtonFormAttributes
+
+  it("will pass form props into the button", () => {
+    render(
+      <GenericButton
+        label="submit button"
+        data-testid="custom-prop"
+        {...buttonFormAttributes}
+      />
+    )
+
+    expect(
+      screen.getByRole("button", { name: "submit button" })
+    ).toHaveAttribute("form", buttonFormAttributes.form)
   })
 })

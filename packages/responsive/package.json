@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/responsive",
-  "version": "1.8.8",
+  "version": "1.8.10",
   "description": "A collection of helpers for responsive UIs",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -16,14 +16,10 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
+    "**/*.js",
+    "**/*.js.map",
     "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json",
-    "!.turbo"
+    "**/*.scss"
   ],
   "author": "",
   "private": false,

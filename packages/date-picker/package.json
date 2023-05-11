@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "5.21.15",
+  "version": "5.21.17",
   "description": "Date Picker component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -16,35 +16,34 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
+    "**/*.js",
+    "**/*.js.map",
     "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json",
-    "!.turbo"
+    "**/*.scss"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
     "@internationalized/date": "^3.2.0",
-    "@kaizen/a11y": "^1.7.10",
-    "@kaizen/component-base": "^1.1.5",
-    "@kaizen/component-library": "^16.7.4",
-    "@kaizen/draft-form": "^10.4.1",
-    "@kaizen/draft-tooltip": "^5.4.42",
-    "@kaizen/typography": "^2.3.9",
+    "@kaizen/a11y": "^1.7.12",
+    "@kaizen/component-base": "^1.1.7",
+    "@kaizen/component-library": "^16.7.6",
+    "@kaizen/draft-form": "^10.4.3",
+    "@kaizen/draft-tooltip": "^5.4.44",
+    "@kaizen/typography": "^2.3.11",
     "@popperjs/core": "^2.11.7",
     "@react-aria/datepicker": "^3.4.0",
     "@react-aria/i18n": "^3.7.1",
     "@react-stately/datepicker": "^3.4.0",
     "classnames": "^2.3.2",
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "react-day-picker": "8.4.1",
     "react-focus-on": "^3.8.1",
     "react-popper": "^2.3.0"
+  },
+  "dependenciesComments": {
+    "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

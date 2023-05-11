@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/hosted-assets",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "Hosted assets for Culture Amp's Kaizen Design System.",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/packages/hosted-assets#readme",
   "license": "MIT",
@@ -15,8 +15,7 @@
   "main": "dist",
   "files": [
     "dist",
-    "_index.scss",
-    "!.turbo"
+    "_index.scss"
   ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
