@@ -115,18 +115,6 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
-@mixin ca-type-ideal-small-bold($args...) {
-  @include ca-type-ideal-small;
-
-  font-weight: $ca-weight-semibold;
-}
-
-@mixin ca-type-inter-small-bold($args...) {
-  @include ca-type-inter-small;
-
-  font-weight: 600;
-}
-
 @mixin ca-type-display($args...) {
   @include ca-type($size-ratio: 10/7, $weight: $ca-weight-medium, $args...);
 }
