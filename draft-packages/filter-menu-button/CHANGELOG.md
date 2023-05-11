@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.6.49
+
+### Patch Changes
+
+- Updated dependencies [[`07e3fac40`](https://github.com/cultureamp/kaizen-design-system/commit/07e3fac40669e86f6f05ac40b56cf0cd5ea4ab21)]:
+  - @kaizen/draft-menu@5.0.0
+
 ## 2.6.48
 
 ### Patch Changes
