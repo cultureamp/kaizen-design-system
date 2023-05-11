@@ -91,9 +91,9 @@ const VariantTemplate: StoryFn<WorkflowHeaderProps> = ({
 
 Playground.args = { ...defaultArgs }
 
-/** <p>`actions` gives consumers the ability to add multiple `JSX Element`'s to top of the Workflow Header.</p>
- * <p>We have provided a sensible default button: `WorkflowExit` that can trigger a modal to handle a customer leaving the workflow</p>
- * <p>There is no limit to the number of actions you can pass in, but please consider the limited realesate with labels.<p>  */
+/** <p>`actions` gives consumers the ability to add multiple `JSX Element`'s to top of the Workflow Header. We assume these will be Button or Button-like components</p>
+ * <p>We have provided a sensible default button: `WorkflowExit` that can trigger a modal to handle a customer leaving the workflow.</p>
+ * <p>There is no limit to the number of actions you can pass in, but please consider the limited realesate with labels.</p>  */
 export const MultipleActions = VariantTemplate.bind({})
 
 MultipleActions.args = {

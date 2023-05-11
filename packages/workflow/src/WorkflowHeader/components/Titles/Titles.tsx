@@ -24,7 +24,7 @@ export const Titles = ({
   ...restProps
 }: WorkflowTitlesProps): JSX.Element => (
   <div
-    className="flex grow-2 flex-col items-center justify-center"
+    className="flex flex-grow flex-col items-center justify-center"
     {...restProps}
   >
     <Heading
@@ -33,14 +33,21 @@ export const Titles = ({
       color="dark"
       classNameOverride=" flex flex-col"
     >
-      <Heading variant="heading-6" tag="span" color="dark-reduced-opacity">
+      <Heading
+        classNameOverride="mb-4"
+        variant="heading-6"
+        tag="span"
+        color="dark-reduced-opacity"
+      >
         {workflowName}
       </Heading>
-      {stepName}
+      <span>{stepName}</span>
     </Heading>
     {status && (
       // status may need to be update by a fetch
-      <Tag variant={status?.vairant || "statusDraft"}>{status?.content}</Tag>
+      <div className="mt-8">
+        <Tag variant={status?.vairant || "statusDraft"}>{status?.content}</Tag>
+      </div>
     )}
   </div>
 )

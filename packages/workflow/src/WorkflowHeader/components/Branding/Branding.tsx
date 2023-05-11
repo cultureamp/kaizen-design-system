@@ -13,8 +13,8 @@ export const Branding = ({
   variant = "logo-horizontal",
   alt,
 }: WorflowBrandingProps): JSX.Element => (
-  <div className="flex grow-1 pt-16">
-    <Brand variant={variant} alt={alt} />
+  <div className="flex grow pt-4">
+    <Brand classNameOverride="basis-[7.5rem]" variant={variant} alt={alt} />
   </div>
 )
 

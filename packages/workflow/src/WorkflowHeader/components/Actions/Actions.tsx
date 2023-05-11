@@ -3,6 +3,9 @@ import { OverrideClassName } from "@kaizen/component-base"
 
 export interface WorkflowActionsProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">> {
+  /**
+   * Header actions will render in order of the array.
+   */
   actions?: JSX.Element[]
 }
 
@@ -11,8 +14,8 @@ export const Actions = ({
   actions,
   ...restProps
 }: PropsWithChildren<WorkflowActionsProps>): JSX.Element => (
-  <div className="flex grow-1 justify-end items-center" {...restProps}>
-    {actions?.map(action => React.createElement(action.type, action.props))}
+  <div className="flex grow justify-end -mt-12 content-start" {...restProps}>
+    {actions?.map(action => action)}
   </div>
 )
 
