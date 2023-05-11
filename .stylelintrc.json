@@ -48,6 +48,7 @@
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-extra-semicolons": true,
+    "number-max-precision": 4,
     "property-no-unknown": [
       true,
       { "ignoreProperties": ["composes"] }

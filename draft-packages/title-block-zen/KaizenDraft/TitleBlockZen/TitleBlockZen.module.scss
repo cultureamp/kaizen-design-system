@@ -117,11 +117,11 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
   .hasSubtitle & {
     @include title-block-under-1366 {
-      transform: translateY(-0.38333em);
+      transform: translateY(-0.3833em);
     }
   }
 
-  transform: translateY(-0.0833333em);
+  transform: translateY(-0.0833em);
 }
 
 .titleAndSubtitleInner {
