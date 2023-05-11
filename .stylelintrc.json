@@ -21,6 +21,13 @@
     "color-function-notation": "modern",
     "comment-no-empty": true,
     "declaration-bang-space-after": "never",
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": [ "consecutive-duplicates" ],
+        "ignoreProperties": ["composes"]
+      }
+    ],
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-empty-line-before": [
       "always",
