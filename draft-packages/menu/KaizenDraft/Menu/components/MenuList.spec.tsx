@@ -26,4 +26,17 @@ describe("MenuList", () => {
       ).toBeInTheDocument()
     })
   })
+
+  it("still links ids correctly when a heading id provided", () => {
+    render(
+      <MenuList
+        heading={<MenuHeading id="custom-id">A menu section</MenuHeading>}
+      >
+        <MenuItem label="Item one" />
+      </MenuList>
+    )
+    expect(
+      screen.getByRole("list", { name: "A menu section" })
+    ).toBeInTheDocument()
+  })
 })
