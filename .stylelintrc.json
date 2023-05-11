@@ -19,6 +19,13 @@
     "block-no-empty": true,
     "block-opening-brace-space-before": "always",
     "color-function-notation": "modern",
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment", "stylelint-commands"]
+      }
+    ],
     "comment-no-empty": true,
     "declaration-bang-space-after": "never",
     "declaration-block-no-duplicate-properties": [

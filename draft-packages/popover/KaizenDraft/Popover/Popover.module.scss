@@ -266,8 +266,7 @@ $negative-box-border-color: $color-red-300;
 
 .singleLine {
   text-overflow: ellipsis;
-  /* white-space and overflow are required for text-overflow to do anything */
-  white-space: nowrap;
+  white-space: nowrap; /* white-space and overflow are required for text-overflow to do anything */
   overflow: hidden;
 }
 /* stylelint-enable no-descending-specificity */
