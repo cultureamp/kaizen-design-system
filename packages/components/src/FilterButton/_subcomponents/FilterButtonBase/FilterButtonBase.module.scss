@@ -48,7 +48,7 @@
       content: "";
       z-index: 3;
       position: absolute;
-      inset: $focus-ring-offset-outer $focus-ring-offset-outer $focus-ring-offset-outer $focus-ring-offset-outer;
+      inset: $focus-ring-offset-outer;
       border-radius: $border-focus-ring-border-radius;
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;

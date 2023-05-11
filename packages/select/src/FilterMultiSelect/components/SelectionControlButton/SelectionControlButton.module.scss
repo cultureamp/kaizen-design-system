@@ -45,7 +45,7 @@ $focus-ring-offset: 1px;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    inset: calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset});
+    inset: calc(-1 * #{$focus-ring-offset});
   }
 
   display: inline-flex;

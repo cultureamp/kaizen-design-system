@@ -28,7 +28,7 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
 
       content: "";
       position: absolute;
-      inset: $focus-ring-offset $focus-ring-offset $focus-ring-offset $focus-ring-offset;
+      inset: $focus-ring-offset;
       border-radius: $button-border-radius;
     }
   }

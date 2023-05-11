@@ -7,7 +7,7 @@
  * _Most_ of these styles have been copied over from the generic button
  * in @kaizen/button. Although the appearance closely resembles reversed primary
  * button, some necessary modifications to make this component visuallyHidden and
- * other slight visual tweaks did not make this appropriate for reuse. 
+ * other slight visual tweaks did not make this appropriate for reuse.
  */
 $caButton-height: $spacing-xl;
 $caButton-verticalPadding: calc(#{$spacing-sm} - #{$border-solid-border-width});
@@ -66,7 +66,7 @@ $caButtonIcon-height: 20px;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    inset: calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset});
+    inset: calc(-1 * #{$focus-ring-offset});
   }
 }
 

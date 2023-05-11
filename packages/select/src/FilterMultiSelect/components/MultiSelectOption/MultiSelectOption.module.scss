@@ -63,7 +63,7 @@ $iconAndBadgeHeight: $spacing-md;
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
       border-radius: $border-focus-ring-border-radius;
-      inset: calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset}) calc(-1 * #{$focus-ring-offset});
+      inset: calc(-1 * #{$focus-ring-offset});
       z-index: 1; // show border when sibling option is hovered
     }
   }
@@ -71,7 +71,6 @@ $iconAndBadgeHeight: $spacing-md;
   &:focus {
     outline: none; // cancel browser style
   }
-
 }
 
 .isDisabled {
