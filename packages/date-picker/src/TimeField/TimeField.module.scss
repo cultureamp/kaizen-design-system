@@ -56,7 +56,7 @@ $story-className--timefield-focus: ":global(.story__timefield-focus)";
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    inset: -$focus-ring-offset -$focus-ring-offset -$focus-ring-offset -$focus-ring-offset;
+    inset: -$focus-ring-offset;
     pointer-events: none;
   }
 }

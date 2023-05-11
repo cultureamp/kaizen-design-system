@@ -23,7 +23,7 @@ $cell-border-radius: 3px;
     &::before {
       position: absolute;
       content: "";
-      inset: calc(-1 * #{$spacing-md}) 0 calc(-1 * #{$spacing-md}) 0;
+      inset: calc(-1 * #{$spacing-md}) 0;
       border-inline-start: 1px solid $color-gray-300;
     }
   }
