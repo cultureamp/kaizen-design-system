@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.3
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-library@16.7.6
+  - @kaizen/loading-spinner@2.3.11
+  - @kaizen/draft-badge@1.13.11
+
 ## 3.0.2
 
 ### Patch Changes

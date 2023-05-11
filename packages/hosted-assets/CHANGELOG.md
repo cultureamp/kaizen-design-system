@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.3
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
 ## 2.0.2
 
 ### Patch Changes
@@ -75,7 +81,6 @@ Updates the package API to export the asset URL functions from the root of the m
 ```js
 // TS/JS
 import { assetUrl } from "@kaizen/hosted-assets"
-
 ;<SomeComponent
   image={assetUrl("illustrations/plant-based-ham-substitute.png")}
 />

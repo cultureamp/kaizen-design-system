@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.2.11
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-base@1.1.7
+
 ## 2.2.10
 
 ### Patch Changes
