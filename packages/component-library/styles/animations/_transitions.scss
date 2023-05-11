@@ -46,7 +46,7 @@
   );
 }
 
-/* stylelint-disable function-name-case */
+/* stylelint-disable function-name-case, scss/at-function-pattern */
 
 ////////////////////////////////////////
 // Transition utilities
@@ -91,4 +91,4 @@
   transition: $unfoldedTransitions;
 }
 
-/* stylelint-enable function-name-case */
+/* stylelint-enable function-name-case, scss/at-function-pattern */
