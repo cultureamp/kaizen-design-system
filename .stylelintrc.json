@@ -77,7 +77,6 @@
         "ignore": ["between-comments", "stylelint-commands", "inside-block"]
       }
     ],
-    "scss/double-slash-comment-whitespace-inside": null,
     "scss/function-unquote-no-unquoted-strings-inside": null,
     "scss/no-duplicate-mixins": null,
     "scss/no-global-function-names": null,

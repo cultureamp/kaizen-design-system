@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/layout";
 
-//TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
+// TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
 $ca-breakpoint-small-mobile: 375px;
 
 @mixin ca-media-small-mobile {
@@ -14,7 +14,7 @@ $ca-breakpoint-small-mobile: 375px;
 .modalLabel {
   position: relative;
 
-  //TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
+  // TODO - Remove below styles for Heading once responsive styling has been added to the Heading Component
   h2 {
     @media (max-width: $layout-breakpoints-medium) {
       font-size: 1.625rem;

@@ -275,7 +275,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    //Inherit baseline because the parent selector doesn't.
+    // Inherit baseline because the parent selector doesn't.
     position: static;
     font-weight: $typography-paragraph-body-font-weight;
     font-size: $typography-paragraph-body-font-size;
