@@ -40,6 +40,7 @@
       }
     ],
     "font-family-no-duplicate-names": true,
+    "function-name-case": "lower",
     "length-zero-no-unit": true,
     "media-feature-range-notation": null,
     "no-descending-specificity": true,

@@ -46,6 +46,8 @@
   );
 }
 
+/* stylelint-disable function-name-case */
+
 ////////////////////////////////////////
 // Transition utilities
 ////////////////////////////////////////
@@ -88,3 +90,5 @@
 
   transition: $unfoldedTransitions;
 }
+
+/* stylelint-enable function-name-case */
