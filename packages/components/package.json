@@ -42,6 +42,7 @@
     "@kaizen/draft-form": "^10.3.12",
     "@kaizen/draft-tooltip": "^5.4.40",
     "@kaizen/hosted-assets": "^2.0.1",
+    "@kaizen/select": "^6.15.8",
     "@kaizen/typography": "^2.3.8",
     "@popperjs/core": "^2.11.7",
     "@react-aria/button": "^3.7.0",

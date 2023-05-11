@@ -2516,6 +2516,158 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
+"@kaizen/a11y@^1.7.12":
+  version "1.7.12"
+  resolved "https://registry.yarnpkg.com/@kaizen/a11y/-/a11y-1.7.12.tgz#448fb57ade9d657e51cc820684f28dd928495007"
+  integrity sha512-E+PxnewE98q8NIRsM7v1zY7O2WRUAY8HQePsqgVYGeyjx+aGBI7AbsASNebglqtIWcCZRB+DSN16HEZ0IgUMWw==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    "@kaizen/component-library" "^16.7.6"
+
+"@kaizen/button@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.3.tgz#8bb038acded721365aaab2c8ad31e010c0be67f0"
+  integrity sha512-c+nmhXKdPSDtVPNWxPeD8E015/AcMhsvsHCpIWB8C6KvBAJttp/JYSTsn68N7zzFPApG3b0wfMWMTqB7vxjnkA==
+  dependencies:
+    "@kaizen/component-library" "^16.7.6"
+    "@kaizen/draft-badge" "^1.13.11"
+    "@kaizen/loading-spinner" "^2.3.11"
+    classnames "^2.3.2"
+
+"@kaizen/component-base@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
+  integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
+
+"@kaizen/component-library@^16.7.6":
+  version "16.7.6"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.7.6.tgz#05edd54357fb49e1eb52d2981d322bbb7dd49ec9"
+  integrity sha512-uMZBA+o82hOqix8vv8U/9xECbq+IVkBqjP5G9dBlxOxKeop56i/4QZgPQkvK42yAtffiCqXfzs7UpIvMYLNHZA==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
+    "@kaizen/hosted-assets" "^2.0.3"
+    "@types/lodash" "^4.14.194"
+    "@types/uuid" "^9.0.1"
+    classnames "^2.3.2"
+
+"@kaizen/draft-badge@^1.13.11":
+  version "1.13.11"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-badge/-/draft-badge-1.13.11.tgz#be71f3483ba5db5aa1cef7ed8b8ba426ce7c35df"
+  integrity sha512-eCaJ0LgF8HWXN/bw8Powzmzs/JTjbokAHZbX70n5Yx34HQwnPiTfqLsBuEwgxR62gLkAjA6ocT8tM/39QHa7gA==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    classnames "^2.3.2"
+
+"@kaizen/draft-divider@^2.2.11":
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-divider/-/draft-divider-2.2.11.tgz#48620384673c899a26b8861d0799890c762a1d11"
+  integrity sha512-b2GKnLXouASTlzzcKubG1ELxSQx44F4KfvaP7emDZSxFC1gnVSX4rdudSRG/DifVNH6MrsO8+/g8xhFDQLrMQg==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    classnames "^2.3.2"
+
+"@kaizen/draft-form@^10.4.3":
+  version "10.4.3"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-10.4.3.tgz#e017cde8f5a6b8abb7260c5d82ab3f03e9b90dc7"
+  integrity sha512-vvpctRQ2E8K8cXdrmdpJod82/enqjPMn7A4hnlDkWvsrfePEVL+7ahcriEiIZ4UQxI+yKvYXW21E+yBRIXTpTw==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    "@kaizen/component-library" "^16.7.6"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
+    "@kaizen/loading-spinner" "^2.3.11"
+    "@kaizen/typography" "^2.3.11"
+    classnames "^2.3.2"
+    uuid "^9.0.0"
+
+"@kaizen/draft-menu@^4.9.8":
+  version "4.9.8"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-menu/-/draft-menu-4.9.8.tgz#da210b3e6dc4cabead1df2f2e42cbc07bae3308a"
+  integrity sha512-7XvIqCn0rCqa6gXawr/d4xkNLubPhrP7rkA18J7BJvvQL74YaB9n1s3aVt/q4dFGJbpwzCDfBlvqEPfmCm08Yg==
+  dependencies:
+    "@kaizen/button" "^3.0.3"
+    "@kaizen/component-library" "^16.7.6"
+    "@kaizen/draft-divider" "^2.2.11"
+    "@popperjs/core" "^2.11.7"
+    classnames "^2.3.2"
+    react-popper "^2.3.0"
+    uuid "^9.0.0"
+
+"@kaizen/draft-tooltip@^5.4.44":
+  version "5.4.44"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-tooltip/-/draft-tooltip-5.4.44.tgz#e8b12b84ac4b8132a03eaa713530b78b04934adc"
+  integrity sha512-WZHL9t3wZbv77w4eYBc9aJxki00kjaJlZ0iW4KVc++6Z2jeV6t7lwnQ3AwuJI/sRNRCzHg2JL877pKbJKccU3A==
+  dependencies:
+    "@kaizen/component-library" "^16.7.6"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
+    "@popperjs/core" "^2.11.7"
+    classnames "^2.3.2"
+    react-popper "^2.3.0"
+    use-debounce "^9.0.4"
+    uuid "^9.0.0"
+
+"@kaizen/hosted-assets@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-2.0.3.tgz#2e961812814f217596007eedad343912c52bcb3e"
+  integrity sha512-rHOJiRx4l6lGzj1gYulqzlgL3ppiTe6ra9Po0qT8im1yeAg7gezR6sqWJultgiSVjOSZ0K8GnYS0Ee93+OBdhg==
+
+"@kaizen/loading-skeleton@^2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@kaizen/loading-skeleton/-/loading-skeleton-2.0.7.tgz#541efcd0128b640340cf559d366ea520f13ad2db"
+  integrity sha512-CoALgqTRBiR3Iw1OHMg/SHCICKBmZyv3haIJPw0+AxNwa1kF5Q8U2j5aRENdPNbKRJ/yAzG68ViQ8jirPJ2rRw==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    "@kaizen/typography" "^2.3.11"
+    classnames "^2.3.2"
+
+"@kaizen/loading-spinner@^2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@kaizen/loading-spinner/-/loading-spinner-2.3.11.tgz#225128f3eaf67444153049fef3677b18fb9d6cc0"
+  integrity sha512-BSN+KLPykEDLttvjdh8x4pwjb/Il/40FyINnrnk9S9AxYK8knwxvmtvQlqzGe2hK7caKWLjJ0CVbTpfZ+JdNWw==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    classnames "^2.3.2"
+
+"@kaizen/select@^6.15.8":
+  version "6.15.8"
+  resolved "https://registry.yarnpkg.com/@kaizen/select/-/select-6.15.8.tgz#81efb209c6c3923959c620f7457cab4e75ac932c"
+  integrity sha512-gQvFtbzRNM8DRxyJTfhuntZPgTwLS2dVEzfDZ+4m2JCQMZkIsh6R58Nkd7+q4zsE7vNBgiqgG/O3cyUDrluteQ==
+  dependencies:
+    "@kaizen/a11y" "^1.7.12"
+    "@kaizen/button" "^3.0.3"
+    "@kaizen/component-base" "^1.1.7"
+    "@kaizen/component-library" "^16.7.6"
+    "@kaizen/draft-badge" "^1.13.11"
+    "@kaizen/draft-divider" "^2.2.11"
+    "@kaizen/draft-form" "^10.4.3"
+    "@kaizen/draft-menu" "^4.9.8"
+    "@kaizen/draft-tooltip" "^5.4.44"
+    "@kaizen/loading-skeleton" "^2.0.7"
+    "@kaizen/typography" "^2.3.11"
+    "@react-aria/button" "^3.7.1"
+    "@react-aria/focus" "^3.12.0"
+    "@react-aria/listbox" "^3.9.0"
+    "@react-aria/menu" "^3.9.0"
+    "@react-aria/overlays" "^3.14.0"
+    "@react-aria/select" "^3.10.0"
+    "@react-aria/utils" "^3.16.0"
+    "@react-stately/collections" "^3.7.0"
+    "@react-stately/list" "^3.8.0"
+    "@react-stately/menu" "^3.5.1"
+    "@react-stately/select" "^3.5.0"
+    "@react-types/button" "^3.7.2"
+    "@react-types/shared" "^3.18.0"
+    classnames "^2.3.2"
+    uuid "^9.0.0"
+
+"@kaizen/typography@^2.3.11":
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/@kaizen/typography/-/typography-2.3.11.tgz#d1b8883d077ceccd339ab884f68dcb4bba74b64f"
+  integrity sha512-TCVMXFB4fRja9dRVMYAR2KuN8BWwTIGACpNZZfXR+PrPBqPVwV8QLi4+pQX/aUMnAvtU3cVnEqLlAEI3o0CcOg==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    classnames "^2.3.2"
+
 "@manypkg/find-root@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@manypkg/find-root/-/find-root-1.1.0.tgz#a62d8ed1cd7e7d4c11d9d52a8397460b5d4ad29f"
@@ -4936,6 +5088,11 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.192.tgz#5790406361a2852d332d41635d927f1600811285"
   integrity sha512-km+Vyn3BYm5ytMO13k9KTp27O75rbQ0NFw+U//g+PX7VZyjCioXaRFisqSIJRECljcTv73G3i6BpglNGHgUQ5A==
 
+"@types/lodash@^4.14.194":
+  version "4.14.194"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.194.tgz#b71eb6f7a0ff11bff59fc987134a093029258a76"
+  integrity sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==
+
 "@types/mdast@^3.0.0":
   version "3.0.10"
   resolved "https://registry.yarnpkg.com/@types/mdast/-/mdast-3.0.10.tgz#4724244a82a4598884cbbe9bcfd73dff927ee8af"
@@ -5097,10 +5254,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@>=16", "@types/react@^17", "@types/react@^18.0.32":
+"@types/react@*", "@types/react@>=16", "@types/react@^18.0.32":
   version "18.0.32"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.32.tgz#5e88b2af6833251d54ec7fe86d393224499f41d5"
   integrity sha512-gYGXdtPQ9Cj0w2Fwqg5/ak6BcK3Z15YgjSqtyDizWUfx7mQ8drs0NBUzRRsAdoFVTO8kJ8L2TL8Skm7OFPnLUw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17":
+  version "17.0.59"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.59.tgz#5aa4e161a356fcb824d81f166e01bad9e82243bb"
+  integrity sha512-gSON5zWYIGyoBcycCE75E9+r6dCC2dHdsrVkOEiIYNU5+Q28HcBAuqvDuxHcCbMfHBHdeT5Tva/AFn3rnMKE4g==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -17172,6 +17338,11 @@ use-debounce@^9.0.3:
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-9.0.3.tgz#bac660c19ab7b38662e08608fee23c7ad303f532"
   integrity sha512-FhtlbDtDXILJV7Lix5OZj5yX/fW1tzq+VrvK1fnT2bUrPOGruU9Rw8NCEn+UI9wopfERBEZAOQ8lfeCJPllgnw==
+
+use-debounce@^9.0.4:
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-9.0.4.tgz#51d25d856fbdfeb537553972ce3943b897f1ac85"
+  integrity sha512-6X8H/mikbrt0XE8e+JXRtZ8yYVvKkdYRfmIhWZYsP8rcNs9hk3APV8Ua2mFkKRLcJKVdnX2/Vwrmg2GWKUQEaQ==
 
 use-isomorphic-layout-effect@^1.1.2:
   version "1.1.2"
