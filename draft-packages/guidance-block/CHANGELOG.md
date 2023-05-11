@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+- [#3625](https://github.com/cultureamp/kaizen-design-system/pull/3625) [`308c65a3d`](https://github.com/cultureamp/kaizen-design-system/commit/308c65a3d79ec8e08ac1f213ee3e18abbfa7c806) - allow users to override the title tag
+
 ## 6.1.33
 
 ### Patch Changes

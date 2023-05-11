@@ -1,5 +1,14 @@
 # Change Log
 
+## 7.10.7
+
+### Patch Changes
+
+- [#3604](https://github.com/cultureamp/kaizen-design-system/pull/3604) [`07e3fac40`](https://github.com/cultureamp/kaizen-design-system/commit/07e3fac40669e86f6f05ac40b56cf0cd5ea4ab21) - Create a MenuHeading component replacing the heading prop on MenuList
+
+- Updated dependencies [[`07e3fac40`](https://github.com/cultureamp/kaizen-design-system/commit/07e3fac40669e86f6f05ac40b56cf0cd5ea4ab21)]:
+  - @kaizen/draft-menu@5.0.0
+
 ## 7.10.6
 
 ### Patch Changes
