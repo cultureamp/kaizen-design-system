@@ -46,6 +46,7 @@
         "severity": "error"
       }
     ],
+    "font-family-name-quotes": "always-unless-keyword",
     "font-family-no-duplicate-names": true,
     "function-linear-gradient-no-nonstandard-direction": true,
     "function-name-case": "lower",
