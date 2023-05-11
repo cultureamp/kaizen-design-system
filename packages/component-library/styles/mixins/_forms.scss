@@ -19,14 +19,16 @@ $input-placeholder-line-height: 2.9rem;
   box-shadow: 0 0 0 1px $color; // fake a 2px border without moving input
 }
 
-// Cross browser mixin for styling of text input placeholder
-//
-// Example usage:
-// ```
-// @include input-placeholder {
-//  color: $kz-var-color-white;
-// }
-// ```
+/*
+ * Cross browser mixin for styling of text input placeholder
+ *
+ * Example usage:
+ * ```
+ * @include input-placeholder {
+ *  color: $kz-var-color-white;
+ * }
+ * ```
+ */
 @mixin form-input-placeholder() {
   &::-webkit-input-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
