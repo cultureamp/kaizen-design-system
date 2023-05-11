@@ -78,6 +78,7 @@
     "value-keyword-case": [
       "lower",
       { "ignoreProperties": ["composes", "/font-family/"] }
-    ]
+    ],
+    "value-no-vendor-prefix": true
   }
 }

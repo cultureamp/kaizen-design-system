@@ -98,7 +98,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .sticky {
-  position: -webkit-sticky;
+  position: -webkit-sticky; /* stylelint-disable-line value-no-vendor-prefix */
   position: sticky;
   z-index: 10;
 }
