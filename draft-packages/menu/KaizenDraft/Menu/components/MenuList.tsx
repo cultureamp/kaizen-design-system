@@ -10,8 +10,8 @@ export interface MenuListProps
 }
 
 export const MenuList = (props: MenuListProps): JSX.Element => {
-  const [listHeadingID] = useState<string>(v4())
   const { heading, children, ...restProps } = props
+  const [listHeadingID] = useState<string>(heading?.props.id || v4())
   return (
     <>
       {heading && cloneElement(heading, { id: listHeadingID })}
