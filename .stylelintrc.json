@@ -56,6 +56,7 @@
       { "except": ["after-single-line-comment", "first-nested"] }
     ],
     "selector-class-pattern": null,
+    "selector-no-vendor-prefix": true,
     "selector-not-notation": "complex",
     "selector-pseudo-class-no-unknown": [
       true,

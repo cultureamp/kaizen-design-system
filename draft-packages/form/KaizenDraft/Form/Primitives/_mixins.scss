@@ -1,5 +1,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
+/* stylelint-disable selector-no-vendor-prefix */
+
 $input-placeholder-line-height: 2.9rem;
 
 @mixin form-input-placeholder() {
@@ -63,3 +65,5 @@ $input-placeholder-line-height: 2.9rem;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   position: static;
 }
+
+/* stylelint-enable selector-no-vendor-prefix */

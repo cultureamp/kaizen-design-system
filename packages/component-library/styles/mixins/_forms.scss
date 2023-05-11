@@ -1,6 +1,8 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
+/* stylelint-disable selector-no-vendor-prefix */
+
 $input-placeholder-line-height: 2.9rem;
 
 // Simple form input css reset
@@ -68,3 +70,5 @@ $input-placeholder-line-height: 2.9rem;
     position: absolute;
   }
 }
+
+/* stylelint-enable selector-no-vendor-prefix */
