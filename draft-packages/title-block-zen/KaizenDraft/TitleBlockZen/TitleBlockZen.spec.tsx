@@ -1,6 +1,7 @@
 import React from "react"
 import { configure, fireEvent } from "@testing-library/dom"
 import { render, waitFor, screen, within } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import {
   TitleBlockZen,
   CustomBreadcrumbProps,
@@ -229,7 +230,8 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getByTestId("title-block-primary-action-button")
       expect(btn.textContent).toEqual(primaryActionAsMenu.label)
-      fireEvent.click(btn)
+      userEvent.click(btn)
+
       await waitFor(() => {
         const menuItems = getAllByTestId(/^main-action-primary-menu-item-/)
         expect(menuItems.length).toEqual(2)
@@ -832,6 +834,7 @@ describe("<TitleBlockZen />", () => {
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
         <div
           data-automation-id="custom-component"
+          data-testid="custom-component"
           onClick={props.breadcrumb.handleClick}
         >
           {props.children}
@@ -864,6 +867,7 @@ describe("<TitleBlockZen />", () => {
         className={props.className}
         href={props.href}
         data-automation-id={props.automationId}
+        data-testid={props.automationId}
       >
         {props.children}
       </a>
@@ -874,6 +878,7 @@ describe("<TitleBlockZen />", () => {
         className={props.className}
         onClick={props.onClick}
         data-automation-id={props.automationId}
+        data-testid={props.automationId}
       >
         {props.children}
       </button>
@@ -1103,7 +1108,9 @@ describe("<TitleBlockZen />", () => {
         expect(
           screen.queryByTestId("title-block-mobile-actions-default-link")
         ).toBeFalsy()
-        screen.getByTestId("title-block-mobile-actions-default-action")
+        expect(
+          screen.getByTestId("title-block-mobile-actions-default-action")
+        ).toBeInTheDocument()
       })
     })
   })
