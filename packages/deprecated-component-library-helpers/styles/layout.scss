@@ -1,4 +1,4 @@
-/* stylelint-disable scss/at-if-no-null */
+/* stylelint-disable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */
 @import "type";
 
 $ca-layout-max-width: 1416px;
@@ -10,7 +10,10 @@ $ca-layout-title-block-mobile-height: 2.5 * $ca-grid;
 $ca-layout-sidebar-width: 10 * $ca-grid;
 
 @mixin ca-margin($start: 0, $end: 0, $top: null, $bottom: null) {
-  margin: $top $end $bottom $start;
+  margin-top: $top;
+  margin-bottom: $bottom;
+  margin-right: $end;
+  margin-left: $start;
 
   &[dir="rtl"],
   [dir="rtl"] & {
@@ -20,7 +23,10 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 }
 
 @mixin ca-padding($start: 0, $end: 0, $top: null, $bottom: null) {
-  padding: $top $end $bottom $start;
+  padding-top: $top;
+  padding-bottom: $bottom;
+  padding-right: $end;
+  padding-left: $start;
 
   &[dir="rtl"],
   [dir="rtl"] & {
@@ -38,7 +44,10 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
     $end: auto;
   }
 
-  inset: $top $end $bottom $start;
+  top: $top;
+  bottom: $bottom;
+  right: $end;
+  left: $start;
 
   &[dir="rtl"],
   [dir="rtl"] & {
@@ -47,4 +56,4 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
   }
 }
 
-/* stylelint-enable scss/at-if-no-null */
+/* stylelint-enable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */
