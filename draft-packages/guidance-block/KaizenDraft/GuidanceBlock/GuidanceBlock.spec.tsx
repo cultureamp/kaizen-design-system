@@ -157,4 +157,43 @@ describe("GuidanceBlock", () => {
     const secondaryAction = container.querySelector(".secondaryAction")
     expect(secondaryAction).not.toBeNull()
   })
+
+  it("has a default title tag of h3", () => {
+    const { getByRole } = render(
+      <GuidanceBlock
+        illustration={<Informative alt="" />}
+        text={{
+          title: "This is the call to action title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+        }}
+      />
+    )
+    expect(
+      getByRole("heading", {
+        level: 3,
+        name: "This is the call to action title",
+      })
+    ).toBeInTheDocument()
+  })
+
+  it("can allow the user to override the title tag", () => {
+    const { getByRole } = render(
+      <GuidanceBlock
+        illustration={<Informative alt="" />}
+        text={{
+          title: "This is the call to action title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+          titleTag: "h2",
+        }}
+      />
+    )
+    expect(
+      getByRole("heading", {
+        level: 2,
+        name: "This is the call to action title",
+      })
+    ).toBeInTheDocument()
+  })
 })
