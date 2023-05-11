@@ -70,7 +70,13 @@
       }
     ],
     "scss/dollar-variable-pattern": null,
-    "scss/double-slash-comment-empty-line-before": null,
+    "scss/double-slash-comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["between-comments", "stylelint-commands", "inside-block"]
+      }
+    ],
     "scss/double-slash-comment-whitespace-inside": null,
     "scss/function-unquote-no-unquoted-strings-inside": null,
     "scss/no-duplicate-mixins": null,

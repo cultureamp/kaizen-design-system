@@ -10,8 +10,7 @@
 
 $expand-button-width: 3.75rem;
 $focus-spacing: 2px;
-$focus-ring-border-width: 2px;
-// ^should be $border-focus-ring-border-width but CSS vars makes this hard
+$focus-ring-border-width: 2px; // should be $border-focus-ring-border-width but CSS vars makes this hard
 $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 
 /* stylelint-disable no-descending-specificity */
