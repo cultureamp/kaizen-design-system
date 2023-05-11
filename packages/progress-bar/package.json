@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/progress-bar",
-  "version": "2.3.31",
+  "version": "2.3.32",
   "description": "The progress bar component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,9 +29,9 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@kaizen/component-base": "^1.1.6",
-    "@kaizen/component-library": "^16.7.5",
-    "@kaizen/typography": "^2.3.10",
+    "@kaizen/component-base": "^1.1.7",
+    "@kaizen/component-library": "^16.7.6",
+    "@kaizen/typography": "^2.3.11",
     "classnames": "^2.3.2"
   }
 }

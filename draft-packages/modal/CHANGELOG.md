@@ -1,5 +1,20 @@
 # Change Log
 
+## 10.6.19
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/draft-illustration@6.0.32
+  - @kaizen/component-library@16.7.6
+  - @kaizen/draft-divider@2.2.11
+  - @kaizen/draft-form@10.4.3
+  - @kaizen/responsive@1.8.10
+  - @kaizen/typography@2.3.11
+  - @kaizen/button@3.0.3
+
 ## 10.6.18
 
 ### Patch Changes

@@ -20,7 +20,7 @@
     "bin/**"
   ],
   "sideEffects": false,
-  "version": "16.7.5",
+  "version": "16.7.6",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -29,9 +29,9 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@kaizen/component-base": "^1.1.6",
+    "@kaizen/component-base": "^1.1.7",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
-    "@kaizen/hosted-assets": "^2.0.2",
+    "@kaizen/hosted-assets": "^2.0.3",
     "@types/lodash": "^4.14.194",
     "@types/uuid": "^9.0.1",
     "classnames": "^2.3.2"
