@@ -61,7 +61,6 @@
       "always",
       { "except": ["after-single-line-comment", "first-nested"] }
     ],
-    "scss/at-mixin-pattern": null,
     "scss/at-rule-conditional-no-parentheses": null,
     "scss/comment-no-empty": null,
     "scss/dollar-variable-empty-line-before": null,

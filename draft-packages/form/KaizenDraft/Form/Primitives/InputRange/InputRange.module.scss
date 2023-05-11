@@ -44,7 +44,7 @@ $track-radius: 4px;
   }
 }
 
-@mixin hiddenThumb {
+@mixin hidden-thumb {
   width: 0;
   height: 0;
   border: none;
@@ -95,11 +95,11 @@ input[type="range"].ratingScaleRange {
   }
 
   &.hideThumb::-webkit-slider-thumb {
-    @include hiddenThumb;
+    @include hidden-thumb;
   }
 
   &.hideThumb::-moz-range-thumb {
-    @include hiddenThumb;
+    @include hidden-thumb;
   }
 
   &::-ms-track {

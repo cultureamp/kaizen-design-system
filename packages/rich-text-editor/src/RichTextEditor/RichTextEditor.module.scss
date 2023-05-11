@@ -6,7 +6,7 @@
 @import "../mixins";
 
 .editor > :global(.ProseMirror) {
-  @include contentStyles;
+  @include content-styles;
 
   border-radius: $border-solid-border-radius;
   padding: $spacing-sm calc(#{$spacing-xs} * 3);

@@ -2,7 +2,7 @@
 @import "@kaizen/design-tokens/sass/typography";
 @import "@kaizen/design-tokens/sass/color";
 
-@mixin contentStyles {
+@mixin content-styles {
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
@@ -44,12 +44,12 @@
     }
   }
 
-  @include nestedListStyles {
-    @include nestedListStyles;
+  @include nested-list-styles {
+    @include nested-list-styles;
   }
 }
 
-@mixin nestedListStyles {
+@mixin nested-list-styles {
   ul,
   ol {
     padding-inline-start: $spacing-40; // default browser styling
