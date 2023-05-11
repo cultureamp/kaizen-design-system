@@ -453,7 +453,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     width: $tab-container-height-small;
     height: $tab-container-height-small;
     background: linear-gradient(
-      0,
+      0deg,
       $color-purple-600,
       rgba($color-purple-600-rgb, 0)
     );
@@ -463,7 +463,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   .adminVariant & {
     @include title-block-small {
       background: linear-gradient(
-        0,
+        0deg,
         $color-gray-100,
         rgba($color-gray-100-rgb, 0)
       );
@@ -473,7 +473,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   .educationVariant & {
     @include title-block-small {
       background: linear-gradient(
-        0,
+        0deg,
         $color-blue-200,
         rgba($color-blue-200-rgb, 0)
       );
