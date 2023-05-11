@@ -49,6 +49,7 @@
     "font-family-no-duplicate-names": true,
     "function-linear-gradient-no-nonstandard-direction": true,
     "function-name-case": "lower",
+    "function-url-quotes": "always",
     "length-zero-no-unit": true,
     "media-feature-range-notation": null,
     "no-descending-specificity": true,
