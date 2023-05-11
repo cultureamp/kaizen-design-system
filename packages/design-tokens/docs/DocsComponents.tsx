@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Unstyled } from "@storybook/blocks"
-import classNames from "classnames"
+import classnames from "classnames"
 import Highlight from "react-highlight"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
@@ -74,11 +74,11 @@ const TabbedCodeBlocks = ({
                 key={tab.label}
                 onClick={tab.onClick}
                 href={!tab.disabled ? tab.href : undefined}
-                className={classNames({
-                  [tabClassName]: !tab.active && !tab.disabled,
-                  [activeTabClassName]: tab.active,
-                  [disabledTabClassName]: tab.disabled,
-                })}
+                className={classnames(
+                  !tab.active && !tab.disabled && tabClassName,
+                  tab.active && activeTabClassName,
+                  tab.disabled && disabledTabClassName
+                )}
               >
                 {tab.label}
               </a>

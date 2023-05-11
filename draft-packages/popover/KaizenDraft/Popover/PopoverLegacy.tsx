@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import {
@@ -91,7 +91,7 @@ export const PopoverLegacy = React.forwardRef<
     ref
   ) => (
     <div
-      className={classNames(styles.root, mapSizeToClass(size))}
+      className={classnames(styles.root, mapSizeToClass(size))}
       style={{ transform: "translateX(-50%)" }}
       ref={ref}
       data-automation-id={automationId}
@@ -101,7 +101,7 @@ export const PopoverLegacy = React.forwardRef<
           <div className={styles.header}>
             {variant !== "default" && (
               <span
-                className={classNames(
+                className={classnames(
                   styles.icon,
                   mapVariantToIconClass(variant)
                 )}
@@ -121,20 +121,20 @@ export const PopoverLegacy = React.forwardRef<
           </div>
         )}
         <div
-          className={classNames(styles.container, mapLineVariant(singleLine))}
+          className={classnames(styles.container, mapLineVariant(singleLine))}
         >
           {children}
         </div>
       </div>
       <div
-        className={classNames(
+        className={classnames(
           styles.arrowWrapper,
           mapArrowSideToClass(side),
           mapArrowPositionToClass(position)
         )}
       >
         <div
-          className={classNames(styles.arrow, mapArrowVariantToClass(variant))}
+          className={classnames(styles.arrow, mapArrowVariantToClass(variant))}
         />
       </div>
     </div>

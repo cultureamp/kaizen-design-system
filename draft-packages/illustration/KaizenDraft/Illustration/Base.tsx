@@ -36,14 +36,14 @@ export const Base = ({
   aspectRatio,
   ...otherProps
 }: BaseProps): JSX.Element => {
-  const className = classnames([styles.wrapper, classNameOverride])
+  const className = classnames(styles.wrapper, classNameOverride)
 
   return aspectRatio ? (
     <figure
-      className={classnames([
+      className={classnames(
         styles.aspectRatioWrapper,
-        aspectRatio && styles[aspectRatio],
-      ])}
+        aspectRatio && styles[aspectRatio]
+      )}
     >
       <img
         {...otherProps}

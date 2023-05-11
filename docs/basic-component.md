@@ -144,11 +144,11 @@ export const PancakeStack = ({
 
   return (
     <div
-      className={classnames([
+      className={classnames(
         styles.pancakeStack,
         classNameOverride,
         isBooleanProp && styles.someClass,
-      ])}
+      )}
       onSomething={handleCustomFunction}
       {...restProps}
     >
@@ -246,11 +246,11 @@ export const PancakeStack = ({
 
   return (
     <div
-      className={classnames([
+      className={classnames(
         styles.pancakeStack,
         classNameOverride,
         isBooleanProp && styles.someClass,
-      ])}
+      )}
       onSomething={handleCustomFunction}
       {...restProps}
     >

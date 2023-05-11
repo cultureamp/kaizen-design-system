@@ -81,10 +81,11 @@ export const InputEditModal = ({
       <div className={styles.modal} dir={localeDirection}>
         <ModalHeader onDismiss={onDismiss}>
           <div
-            className={classnames(styles.header, {
-              [styles.textAlignRTL]: localeDirection === "rtl",
-              [styles.padded]: !unpadded,
-            })}
+            className={classnames(
+              styles.header,
+              localeDirection === "rtl" && styles.textAlignRTL,
+              !unpadded && styles.padded
+            )}
           >
             <ModalAccessibleLabel>
               <Heading tag="h2" variant="heading-2">
@@ -95,7 +96,7 @@ export const InputEditModal = ({
         </ModalHeader>
         <ModalBody>
           <div
-            className={classnames(styles.body, { [styles.padded]: !unpadded })}
+            className={classnames(styles.body, !unpadded && styles.padded)}
             dir={localeDirection}
           >
             {children}

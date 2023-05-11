@@ -3,7 +3,7 @@
 // grouping component for buttons/dropdowns/etc
 
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { ButtonProps } from "@kaizen/button"
 import { MenuProps } from "@kaizen/draft-menu"
 import styles from "./Toolbar.module.scss"
@@ -29,9 +29,7 @@ const Toolbar = ({
     <div className={styles.toolbar} data-automation-id={automationId}>
       {items.map(item => (
         <div
-          className={classNames(styles.toolbarItem, {
-            [styles.noGap]: noGap,
-          })}
+          className={classnames(styles.toolbarItem, noGap && styles.noGap)}
           key={item.key}
         >
           {item.node}

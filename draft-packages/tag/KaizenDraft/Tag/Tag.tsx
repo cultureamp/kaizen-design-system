@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import cautionIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
@@ -77,26 +77,14 @@ export const Tag = (props: TagProps): JSX.Element => {
   const canShowIcon = size === "medium"
   return (
     <div
-      className={classNames(styles.root, {
-        [styles.default]: variant === "default" || variant === "profile",
-        [styles.profile]: variant === "profile",
-        [styles.sentimentPositive]: variant === "sentimentPositive",
-        [styles.sentimentNeutral]: variant === "sentimentNeutral",
-        [styles.sentimentNegative]: variant === "sentimentNegative",
-        [styles.sentimentNone]: variant === "sentimentNone",
-        [styles.validationPositive]: variant === "validationPositive",
-        [styles.validationInformative]: variant === "validationInformative",
-        [styles.validationNegative]: variant === "validationNegative",
-        [styles.validationCautionary]: variant === "validationCautionary",
-        [styles.statusLive]: variant === "statusLive",
-        [styles.statusDraft]: variant === "statusDraft",
-        [styles.statusClosed]: variant === "statusClosed",
-        [styles.statusAction]: variant === "statusAction",
-        [styles.medium]: size === "medium",
-        [styles.small]: size === "small",
-        [styles.inline]: inline,
-        [styles.dismissible]: dismissible,
-      })}
+      className={classnames(
+        styles.root,
+        styles[variant],
+        variant === "profile" && styles.default,
+        styles[size],
+        inline && styles.inline,
+        dismissible && styles.dismissible
+      )}
     >
       <div className={styles.layoutContainer}>
         <>
@@ -138,9 +126,10 @@ export const Tag = (props: TagProps): JSX.Element => {
               }
             })()}
           <span
-            className={classNames(styles.textContent, {
-              [styles.truncate]: isTruncated,
-            })}
+            className={classnames(
+              styles.textContent,
+              isTruncated && styles.truncate
+            )}
             style={{
               maxWidth: isTruncated ? truncateWidth : undefined,
             }}

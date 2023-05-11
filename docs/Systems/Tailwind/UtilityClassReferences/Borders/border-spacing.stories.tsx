@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
@@ -37,20 +36,12 @@ export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
       <table className={utilityClass}>
         <tbody>
           <tr>
-            <td className={classnames("outline-[black] outline-1 outline")}>
-              Tutant
-            </td>
-            <td className={classnames("outline-[black] outline-1 outline")}>
-              Meenage
-            </td>
+            <td className="outline-[black] outline-1 outline">Tutant</td>
+            <td className="outline-[black] outline-1 outline">Meenage</td>
           </tr>
           <tr>
-            <td className={classnames("outline-[black] outline-1 outline")}>
-              Neetle
-            </td>
-            <td className={classnames("outline-[black] outline-1 outline")}>
-              Teetles
-            </td>
+            <td className="outline-[black] outline-1 outline">Neetle</td>
+            <td className="outline-[black] outline-1 outline">Teetles</td>
           </tr>
         </tbody>
       </table>

@@ -42,7 +42,7 @@ export const Tab = (props: TabProps): JSX.Element => {
   return (
     <ReachTab
       disabled={disabled}
-      className={classnames(styles.tab, { [styles.selected]: isSelected })}
+      className={classnames(styles.tab, isSelected && styles.selected)}
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseEnter={(): void => setIsHovered(true)}

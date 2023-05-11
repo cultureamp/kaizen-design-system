@@ -65,13 +65,13 @@ export const Heading = ({
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 
-  const className = classnames([
+  const className = classnames(
     styles.heading,
     styles[variant],
     classNameOverride,
     styles[color],
-    VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
-  ])
+    VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small
+  )
 
   return createElement(inferredTag, { ...restProps, className }, children)
 }

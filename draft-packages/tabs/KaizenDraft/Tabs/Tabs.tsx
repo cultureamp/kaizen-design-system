@@ -75,11 +75,11 @@ const RowTab = ({
           key={t.label}
           onClick={t.onClick}
           href={!t.disabled ? t.href : undefined}
-          className={classnames({
-            [styles.horizontalTab]: !t.active && !t.disabled,
-            [styles.horizontalTabActive]: t.active,
-            [styles.horizontalTabDisabled]: t.disabled,
-          })}
+          className={classnames(
+            !t.active && !t.disabled && styles.horizontalTab,
+            t.active && styles.horizontalTabActive,
+            t.disabled && styles.horizontalTabDisabled
+          )}
         >
           {t.label}
         </a>
@@ -110,11 +110,11 @@ const VerticalTab = ({
           key={t.label}
           onClick={t.onClick}
           href={!t.disabled ? t.href : undefined}
-          className={classnames({
-            [styles.verticalTab]: !t.active && !t.disabled,
-            [styles.verticalTabActive]: t.active,
-            [styles.verticalTabDisabled]: t.disabled,
-          })}
+          className={classnames(
+            !t.active && !t.disabled && styles.verticalTab,
+            t.active && styles.verticalTabActive,
+            t.disabled && styles.verticalTabDisabled
+          )}
         >
           {t.label}
         </a>

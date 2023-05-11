@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Heading } from "../../../../../packages/typography"
 import styles from "../../StoryWrapper.module.scss"
 
@@ -31,10 +31,11 @@ export const StoryRow = ({
         </Heading>
       </div>
       <div
-        className={classNames(styles.storyRowContainer, {
-          [styles.columnDivider]: hasColumnDivider,
-          [styles.reversed]: isReversed,
-        })}
+        className={classnames(
+          styles.storyRowContainer,
+          hasColumnDivider && styles.columnDivider,
+          isReversed && styles.reversed
+        )}
         style={{
           gridTemplateColumns: `repeat(${gridColumns || childrenCount}, 1fr)`,
         }}
