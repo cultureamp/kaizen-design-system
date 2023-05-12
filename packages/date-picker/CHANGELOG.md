@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.0.0
+
+### Major Changes
+
+- [#3628](https://github.com/cultureamp/kaizen-design-system/pull/3628) [`21e381314`](https://github.com/cultureamp/kaizen-design-system/commit/21e381314daffd8171208f33e3627bccf54ddd6a) - Delete `<FilterDateRangePicker>` from `@kaizen/date-picker` as it has been moved to `@kaizen/components`.
+
+### Patch Changes
+
+- Updated dependencies [[`b6480c659`](https://github.com/cultureamp/kaizen-design-system/commit/b6480c6591a6f1b73ce4388ee9c341b5c421666c)]:
+  - @kaizen/draft-form@10.4.4
+
 ## 5.21.17
 
 ### Patch Changes
