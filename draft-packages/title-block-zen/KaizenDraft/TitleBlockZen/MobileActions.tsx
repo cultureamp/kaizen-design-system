@@ -55,6 +55,7 @@ const renderPrimaryActionDrawerContent = (
           {...item}
           key={`title-block-mobile-actions-primary-${itemType}-${idx}`}
           automationId={`title-block-mobile-actions-primary-${itemType}-${idx}`}
+          data-testid={`title-block-mobile-actions-primary-${itemType}-${idx}`}
         />
       )
     })
@@ -73,6 +74,7 @@ const renderDefaultLink = (
         {...defaultAction}
         key="title-block-mobile-actions-default-link"
         automationId="title-block-mobile-actions-default-link"
+        data-testid="title-block-mobile-actions-default-link"
       />
     )
   }
@@ -84,6 +86,7 @@ const renderDefaultLink = (
       disabled={defaultAction.disabled}
       key="title-block-mobile-actions-default-link"
       automationId="title-block-mobile-actions-default-link"
+      data-testid="title-block-mobile-actions-default-link"
     />
   )
 }
@@ -97,6 +100,7 @@ const renderDefaultAction = (
         {...defaultAction}
         key="title-block-mobile-actions-default-action"
         automationId="title-block-mobile-actions-default-action"
+        data-testid="title-block-mobile-actions-default-action"
       />
     )
   }
@@ -116,6 +120,7 @@ const renderSecondaryActions = (
       {...item}
       key={`title-block-mobile-actions-secondary-action-${idx}`}
       automationId="title-block-mobile-actions-secondary-action"
+      data-testid="title-block-mobile-actions-secondary-action"
     />
   ))
 }
@@ -128,6 +133,7 @@ const renderSecondaryOverflowMenuItems = (
       {...item}
       key={`title-block-mobile-actions-overflow-menu-item-${idx}`}
       automationId="title-block-mobile-actions-overflow-menu-item"
+      data-testid="title-block-mobile-actions-overflow-menu-item"
     />
   ))
 
@@ -185,6 +191,7 @@ const renderDrawerHandleLabel = (
         <span
           className={styles.drawerHandleLabelText}
           data-automation-id="drawer-handle-lable-text"
+          data-testid="drawer-handle-lable-text"
         >
           {label}
         </span>
@@ -210,6 +217,7 @@ const renderDrawerHandleLabel = (
         <span
           className={styles.drawerHandleLabelText}
           data-automation-id="drawer-handle-lable-text"
+          data-testid="drawer-handle-lable-text"
         >
           {label}
         </span>
@@ -239,6 +247,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryButton
         )}
         data-automation-id="title-block-mobile-actions-primary-button"
+        data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </a>
@@ -254,6 +263,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryButton
         )}
         data-automation-id="title-block-mobile-actions-primary-button"
+        data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </button>
@@ -268,6 +278,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryButton
         )}
         data-automation-id="title-block-mobile-actions-primary-button"
+        data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </a>
@@ -283,6 +294,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
         styles.mobileActionsPrimaryButton
       )}
       data-automation-id="title-block-mobile-actions-primary-button"
+      data-testid="title-block-mobile-actions-primary-button"
     >
       {children}
     </button>
@@ -341,6 +353,7 @@ const DrawerHandle = ({
             styles.mobileActionsTopRowSingleButton
           )}
           data-automation-id="title-block-mobile-actions-drawer-handle"
+          data-testid="title-block-mobile-actions-drawer-handle"
         >
           <button
             type="button"
@@ -371,6 +384,7 @@ const DrawerHandle = ({
           !showDrawer && styles.mobileActionsTopRowSingleButton
         )}
         data-automation-id="title-block-mobile-actions-drawer-handle"
+        data-testid="title-block-mobile-actions-drawer-handle"
       >
         {"component" in primaryAction ? (
           <primaryAction.component
@@ -425,6 +439,7 @@ const DrawerHandle = ({
           styles.mobileActionsTopRowSingleButton
         )}
         data-automation-id="title-block-mobile-actions-drawer-handle"
+        data-testid="title-block-mobile-actions-drawer-handle"
       >
         <button
           type="button"

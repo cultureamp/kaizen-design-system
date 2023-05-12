@@ -3,6 +3,8 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import MobileActions from "./MobileActions"
 
+const user = userEvent.setup()
+
 const MENU_LINKS = [
   {
     label: "Primary menu link 1",
@@ -55,13 +57,13 @@ describe("<MobileActions />", () => {
       })
       expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
 
-      await userEvent.click(mobileActionsButton)
+      await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
           "true"
         )
       })
-      await userEvent.click(mobileActionsButton)
+      await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
           "false"
@@ -89,13 +91,13 @@ describe("<MobileActions />", () => {
       })
       expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
 
-      await userEvent.click(mobileActionsButton)
+      await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
           "true"
         )
       })
-      await userEvent.click(mobileActionsButton)
+      await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
           "false"
@@ -120,13 +122,13 @@ describe("<MobileActions />", () => {
       })
       expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
 
-      await userEvent.click(mobileActionsButton)
+      await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
           "true"
         )
       })
-      await userEvent.click(mobileActionsButton)
+      await user.click(mobileActionsButton)
       await waitFor(() => {
         expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
           "false"

@@ -1,23 +1,23 @@
 import React, { useState } from "react"
-import { fireEvent, render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { TimeField, TimeFieldProps } from "./TimeField"
 import { ValueType } from "./types"
+
+const user = userEvent.setup()
 
 const mockOnChange = jest.fn()
 const LABEL = "Launch Time Label"
 
 const pressArrowKey =
   (direction: "ArrowUp" | "ArrowDown") =>
-  (element: HTMLElement): void => {
-    fireEvent.keyDown(element, {
-      key: direction,
-      code: direction,
-    })
+  async (element: HTMLElement): Promise<void> => {
+    await user.click(element)
+    await user.keyboard(`{${direction}}`)
   }
 
-const pressArrowUpKey: (element: HTMLElement) => void = pressArrowKey("ArrowUp")
-const pressArrowDownKey: (element: HTMLElement) => void =
-  pressArrowKey("ArrowDown")
+const pressArrowUpKey = pressArrowKey("ArrowUp")
+const pressArrowDownKey = pressArrowKey("ArrowDown")
 
 const TimeFieldWrapper = ({
   value: propsValue = null,
@@ -57,41 +57,55 @@ describe("component formats time appropriate to locale", () => {
 })
 
 describe("spin button functionality", () => {
-  it("changes hour on key press", () => {
+  it("changes hour on key press", async () => {
     render(<TimeFieldWrapper />)
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} hour`,
     })
-    pressArrowUpKey(hourSpinner)
-    expect(hourSpinner).toHaveTextContent(/^0$/)
+    await pressArrowUpKey(hourSpinner)
+    await waitFor(() => {
+      expect(hourSpinner).toHaveTextContent(/^0$/)
+    })
 
-    pressArrowUpKey(hourSpinner)
-    expect(hourSpinner).toHaveTextContent(/^1$/)
+    await pressArrowUpKey(hourSpinner)
+    await waitFor(() => {
+      expect(hourSpinner).toHaveTextContent(/^1$/)
+    })
 
-    pressArrowUpKey(hourSpinner)
-    expect(hourSpinner).toHaveTextContent(/^2$/)
+    await pressArrowUpKey(hourSpinner)
+    await waitFor(() => {
+      expect(hourSpinner).toHaveTextContent(/^2$/)
+    })
 
-    pressArrowDownKey(hourSpinner)
-    expect(hourSpinner).toHaveTextContent(/^1$/)
+    await pressArrowDownKey(hourSpinner)
+    await waitFor(() => {
+      expect(hourSpinner).toHaveTextContent(/^1$/)
+    })
   })
 
-  it("changes minutes on key press", () => {
+  it("changes minutes on key press", async () => {
     render(<TimeFieldWrapper />)
     const minuteSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} minute`,
     })
-    pressArrowUpKey(minuteSpinner)
-    pressArrowUpKey(minuteSpinner)
-    expect(minuteSpinner).toHaveTextContent(/^01$/)
+    await pressArrowUpKey(minuteSpinner)
+    await pressArrowUpKey(minuteSpinner)
+    await waitFor(() => {
+      expect(minuteSpinner).toHaveTextContent(/^01$/)
+    })
 
-    pressArrowUpKey(minuteSpinner)
-    expect(minuteSpinner).toHaveTextContent(/^02$/)
+    await pressArrowUpKey(minuteSpinner)
+    await waitFor(() => {
+      expect(minuteSpinner).toHaveTextContent(/^02$/)
+    })
 
-    pressArrowDownKey(minuteSpinner)
-    expect(minuteSpinner).toHaveTextContent(/^01$/)
+    await pressArrowDownKey(minuteSpinner)
+    await waitFor(() => {
+      expect(minuteSpinner).toHaveTextContent(/^01$/)
+    })
   })
 
-  it("changes segments orthogonally", () => {
+  it("changes segments orthogonally", async () => {
     // tests whether changing minute changes hour
     render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
     const hourSpinner = screen.getByRole("spinbutton", {
@@ -100,13 +114,15 @@ describe("spin button functionality", () => {
     const minuteSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} minute`,
     })
-    pressArrowUpKey(hourSpinner)
-    pressArrowDownKey(minuteSpinner)
-    expect(hourSpinner).toHaveTextContent(/^5$/)
-    expect(minuteSpinner).toHaveTextContent(/^43$/)
+    await pressArrowUpKey(hourSpinner)
+    await pressArrowDownKey(minuteSpinner)
+    await waitFor(() => {
+      expect(hourSpinner).toHaveTextContent(/^5$/)
+      expect(minuteSpinner).toHaveTextContent(/^43$/)
+    })
   })
 
-  it("allows uers to backspace to remove values", () => {
+  it("allows uers to backspace to remove values", async () => {
     render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
     const hourSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} hour`,
@@ -114,21 +130,19 @@ describe("spin button functionality", () => {
     const minuteSpinner = screen.getByRole("spinbutton", {
       name: `${LABEL} minute`,
     })
-    fireEvent.keyDown(minuteSpinner, {
-      key: "Backspace",
-      code: "Backspace",
+    await user.click(minuteSpinner)
+    await user.keyboard("{Backspace}")
+
+    await user.keyboard("{Backspace}")
+    await waitFor(() => {
+      expect(minuteSpinner).toHaveTextContent(/^--$/)
+      expect(hourSpinner).toHaveTextContent(/^4$/)
     })
-    fireEvent.keyDown(minuteSpinner, {
-      key: "Backspace",
-      code: "Backspace",
-    })
-    expect(minuteSpinner).toHaveTextContent(/^--$/)
-    expect(hourSpinner).toHaveTextContent(/^4$/)
   })
 })
 
 describe("onChange", () => {
-  it("returns correct time from 12 hour format display", () => {
+  it("returns correct time from 12 hour format display", async () => {
     render(
       <TimeFieldWrapper
         value={{ hour: 16, minutes: 44 }}
@@ -141,11 +155,13 @@ describe("onChange", () => {
     })
     expect(hourSpinner).toHaveTextContent("4")
 
-    pressArrowUpKey(hourSpinner)
-    expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
+    await pressArrowUpKey(hourSpinner)
+    await waitFor(() => {
+      expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
+    })
   })
 
-  it("returns correct time from 24 hour format display", () => {
+  it("returns correct time from 24 hour format display", async () => {
     render(
       <TimeFieldWrapper
         value={{ hour: 16, minutes: 44 }}
@@ -158,7 +174,9 @@ describe("onChange", () => {
     })
     expect(hourSpinner).toHaveTextContent("16")
 
-    pressArrowUpKey(hourSpinner)
-    expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
+    await pressArrowUpKey(hourSpinner)
+    await waitFor(() => {
+      expect(mockOnChange).toHaveBeenCalledWith({ hour: 17, minutes: 44 })
+    })
   })
 })
