@@ -12,6 +12,8 @@ import {
 } from "../../components/SelectionControlButton"
 import { SelectionProvider, SelectionProviderProps } from "./SelectionProvider"
 
+const user = userEvent.setup()
+
 const itemsMock: ItemType[] = [
   {
     label: "option-1-label-mock",
@@ -189,7 +191,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "option-1-label-mock",
     })
 
-    userEvent.click(option1)
+    await user.click(option1)
 
     await waitFor(() => {
       expect(
@@ -208,7 +210,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "option-1-label-mock",
     })
 
-    userEvent.click(option1)
+    await user.click(option1)
 
     await waitFor(() => {
       expect(spy).toHaveBeenCalledTimes(1)
@@ -221,7 +223,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "Select all",
     })
 
-    userEvent.click(selectAll)
+    await user.click(selectAll)
 
     await waitFor(() => {
       expect(
@@ -254,7 +256,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "Select all",
     })
 
-    userEvent.click(selectAll)
+    await user.click(selectAll)
 
     await waitFor(() => {
       expect(spy).toHaveBeenCalledTimes(1)
@@ -271,7 +273,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "Clear",
     })
 
-    userEvent.click(clear)
+    await user.click(clear)
 
     await waitFor(() => {
       expect(
@@ -307,7 +309,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       name: "Clear",
     })
 
-    userEvent.click(clear)
+    await user.click(clear)
 
     await waitFor(() => {
       expect(spy).toHaveBeenCalledTimes(1)
@@ -325,7 +327,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       selected: true,
     })
 
-    userEvent.click(option2)
+    await user.click(option2)
 
     await waitFor(() => {
       expect(
@@ -342,7 +344,7 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
   describe("Given no selectedKeys", () => {
     it("focuses on the frist option when tabs onto the list", async () => {
       render(<SelectionProviderWrapper />)
-      userEvent.tab()
+      await user.tab()
 
       await waitFor(() => {
         expect(
@@ -359,7 +361,7 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
           selectedKeys={new Set(["option-2-value-mock"])}
         />
       )
-      userEvent.tab()
+      await user.tab()
 
       await waitFor(() => {
         expect(
@@ -371,8 +373,8 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
 
   it("moves the focus down when hits arrow down key", async () => {
     render(<SelectionProviderWrapper />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowDown}")
+    await user.tab()
+    await user.keyboard("{ArrowDown}")
 
     await waitFor(() => {
       expect(
@@ -387,8 +389,8 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
         selectedKeys={new Set(["option-3-value-mock"])}
       />
     )
-    userEvent.tab()
-    userEvent.keyboard("{ArrowDown}")
+    await user.tab()
+    await user.keyboard("{ArrowDown}")
 
     await waitFor(() => {
       expect(
@@ -403,8 +405,8 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
         selectedKeys={new Set(["option-3-value-mock"])}
       />
     )
-    userEvent.tab()
-    userEvent.keyboard("{ArrowUp}")
+    await user.tab()
+    await user.keyboard("{ArrowUp}")
 
     await waitFor(() => {
       expect(
@@ -415,8 +417,8 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
 
   it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
     render(<SelectionProviderWrapper />)
-    userEvent.tab()
-    userEvent.keyboard("{ArrowUp}")
+    await user.tab()
+    await user.keyboard("{ArrowUp}")
 
     await waitFor(() => {
       expect(
@@ -428,8 +430,8 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
   it("selects the option when hits enter on a non-selected option", async () => {
     render(<SelectionProviderWrapper />)
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
+    await user.tab()
+    await user.keyboard("{Enter}")
 
     await waitFor(() => {
       expect(
@@ -448,8 +450,8 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
       />
     )
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
+    await user.tab()
+    await user.keyboard("{Enter}")
 
     await waitFor(() => {
       expect(
@@ -465,8 +467,8 @@ describe("<SelectionProviderWrapper /> - Keyboard interaction", () => {
     const spy = jest.fn()
     render(<SelectionProviderWrapper onSelectionChange={spy} />)
 
-    userEvent.tab()
-    userEvent.keyboard("{Enter}")
+    await user.tab()
+    await user.keyboard("{Enter}")
 
     await waitFor(() => {
       expect(spy).toHaveBeenCalledTimes(1)
@@ -479,7 +481,7 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
     it("shows only the matched options", async () => {
       render(<SelectionProviderWrapper />)
       const searchInput = screen.getByRole("searchbox")
-      userEvent.type(searchInput, "1")
+      await user.type(searchInput, "1")
 
       await waitFor(() => {
         expect(
@@ -509,7 +511,7 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
       )
       const searchInput = screen.getByRole("searchbox")
       const searchString = "1"
-      userEvent.type(searchInput, searchString)
+      await user.type(searchInput, searchString)
 
       await waitFor(() => {
         expect(
@@ -538,7 +540,7 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
       )
       const searchInput = screen.getByRole("searchbox")
       const searchString = "1"
-      userEvent.type(searchInput, searchString)
+      await user.type(searchInput, searchString)
 
       await waitFor(() => {
         expect(onSearchInputChange).toBeCalledTimes(2)
