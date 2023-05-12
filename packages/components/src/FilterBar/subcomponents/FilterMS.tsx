@@ -8,7 +8,6 @@ export type FilterBarMultiSelectProps = Omit<RootProps, "trigger" | "label"> & {
 }
 
 export const FilterBarMultiSelect = ({
-  onSelectionChange,
   items,
   children,
   ...props
@@ -21,11 +20,12 @@ export const FilterBarMultiSelect = ({
   return (
     <FilterMultiSelect
       label={filterState.label}
-      onSelectionChange={(key): void => {
-        updateSelectedValue(props.id, key)
-        onSelectionChange?.(key)
+      // Convert the incoming FilterBar state to a Set (internal FilterMultiSelect state)
+      selectedKeys={new Set(filterState.selectedValue)}
+      onSelectionChange={(keys): void => {
+        // Convert the internal FilterMultiSelect state (Set) to an Array for FilterBar state
+        updateSelectedValue(props.id, Array.from(keys))
       }}
-      selectedKeys={filterState.selectedValue}
       items={items}
       isOpen={filterState.isOpen ?? false}
       onOpenChange={(open): void => toggleOpenFilter(props.id, open)}
@@ -49,6 +49,7 @@ export const FilterBarMultiSelect = ({
           />
         )
       }
+      {...props}
     >
       {children}
     </FilterMultiSelect>

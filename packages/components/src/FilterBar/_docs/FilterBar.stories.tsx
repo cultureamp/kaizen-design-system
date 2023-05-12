@@ -24,7 +24,7 @@ export default meta
 
 export const Playground: StoryFn<typeof FilterBar> = () => {
   const [selectedValues, setSelectedValues] = useState<Record<string, any>>({
-    department: "id-fe",
+    department: ["id-fe"],
   })
   const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
 
@@ -36,7 +36,6 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     {
       id: "department",
       label: "Dept",
-      isRemovable: true,
       Component: (
         <FilterBarMultiSelect
           id="department"
@@ -93,7 +92,8 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       label: "Vanilla",
       Component: <FilterPancake id="vanilla" />,
       isRemovable: true,
-      isUsableWhen: state => !state["strawberry"].isHidden,
+      isUsableWhen: state =>
+        state["department"]?.selectedValue.includes("id-be"),
       isInitHidden: true,
     },
     {

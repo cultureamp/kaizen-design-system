@@ -105,6 +105,7 @@ export const FilterBarProvider = ({
         isUsable,
         selectedValue: selectedValues[filter.id],
       }
+
       return acc
     }, {})
 
