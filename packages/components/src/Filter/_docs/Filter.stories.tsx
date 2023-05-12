@@ -3,6 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
+import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { Filter, FilterContents } from ".."
 
@@ -14,15 +15,31 @@ export default {
   component: Filter,
   parameters: {
     docs: {
-      description: {
-        component:
-          '`import { Filter, FilterContents, FilterButton, FilterButtonRemovable } from "@kaizen/components"`<br />Use a Filter Button for the renderTrigger.<br />Use FilterContents to wrap the contents within a Filter.',
-      },
+      container: ComponentDocsTemplate,
+    },
+    isInKaio: true,
+    installation: [
+      "yarn add @kaizen/components",
+      "import { Filter } from `@kaizen/components`",
+    ],
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Filter",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=6-28579&t=bowQ0LWOQKOd0UYS-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
     },
   },
 } satisfies Meta<typeof Filter>
 
-export const DefaultStory: StoryFn<typeof Filter> = () => {
+/**
+ * These components are mainly used for constructing Filters (eg. FilterSelect):
+ *
+ * - `FilterButton`for the renderTrigger.
+ * - `FilterContents` to wrap the contents within a Filter.
+ */
+export const Playground: StoryFn<typeof Filter> = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Filter
@@ -36,7 +53,7 @@ export const DefaultStory: StoryFn<typeof Filter> = () => {
     </Filter>
   )
 }
-DefaultStory.storyName = "Filter"
+Playground.storyName = "Filter"
 
 export const RemovableFilter: StoryFn = () => {
   const [isOpen, setIsOpen] = useState(false)

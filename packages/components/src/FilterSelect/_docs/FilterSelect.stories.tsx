@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
+import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
@@ -38,9 +39,20 @@ export default {
       argTypesRegex: "^on.*",
     },
     docs: {
-      description: {
-        component: '`import { FilterSelect } from "@kaizen/components"`',
-      },
+      container: ComponentDocsTemplate,
+    },
+    isInKaio: true,
+    installation: [
+      "yarn add @kaizen/components",
+      "import { FilterSelect } from `@kaizen/components`",
+    ],
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Filter",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=6-28579&t=bowQ0LWOQKOd0UYS-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
     },
   },
 } satisfies Meta<typeof FilterSelect>
