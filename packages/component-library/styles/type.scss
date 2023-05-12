@@ -52,13 +52,17 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $letter-spacing: normal
 ) {
   @include deprecate-legacy-typography-mixins;
+
   font-family: $family;
+
   html:lang(he) & {
     font-family: $ca-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-locale-ar-font-family;
   }
+
   font-weight: $weight;
   letter-spacing: $letter-spacing;
 
@@ -66,9 +70,9 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
   $line-height-ratio: $absolute-line-height / $font-size; // unitless number
   $line-spacing: $line-height-ratio - 1;
+
   font-size: $font-size;
   line-height: $line-height-ratio;
-
   position: relative;
   top: #{$descender-height + $line-spacing / 2}em;
   // If `position: relative` creates issues, we could alternatively use a transform,
@@ -80,17 +84,20 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 // Creates whitespace for the contained text to shift “into”
 @mixin ca-type-block($display: block) {
   @include deprecate-legacy-typography-mixins;
+
   display: $display;
   padding-bottom: $ca-grid / 2;
 }
 
 @mixin ca-inherit-baseline {
   @include deprecate-legacy-typography-mixins;
+
   position: static;
 }
 
 @mixin ca-type-reverse {
   @include deprecate-legacy-typography-mixins;
+
   color: white;
   // Without these non-standard anti-aliasing properties, white Ideal Sans on a dark background appears to have a heavier font weight
   -webkit-font-smoothing: antialiased;
@@ -106,16 +113,6 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $ca-weight-medium,
     $args...
   );
-}
-
-@mixin ca-type-ideal-small-bold($args...) {
-  @include ca-type-ideal-small;
-  font-weight: $ca-weight-semibold;
-}
-
-@mixin ca-type-inter-small-bold($args...) {
-  @include ca-type-inter-small;
-  font-weight: 600;
 }
 
 @mixin ca-type-display($args...) {
@@ -144,6 +141,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-labels-and-legends($args...) {
   @include ca-type($size-ratio: 6/7, $letter-spacing: 0.04em, $args...);
+
   text-transform: uppercase;
 }
 
@@ -166,9 +164,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $weight,
     $args...
   );
+
   html:lang(he) & {
     font-family: $ca-ideal-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-ideal-locale-ar-font-family;
   }
@@ -231,12 +231,14 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-ideal-label($size: 12, $args...) {
   $letter-spacing-in-px: 0.5;
+
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-medium,
     $letter-spacing: $letter-spacing-in-px / $size * 1em,
     $args...
   );
+
   text-transform: uppercase;
 }
 
@@ -247,10 +249,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-ideal-control-action($size: 16, $args...) {
   @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: $color-blue-500;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
@@ -279,9 +283,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $weight,
     $args...
   );
+
   html:lang(he) & {
     font-family: $ca-inter-locale-he-font-family;
   }
+
   html:lang(ar) & {
     font-family: $ca-inter-locale-ar-font-family;
   }
@@ -344,12 +350,14 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-inter-label($size: 12, $args...) {
   $letter-spacing-in-px: 0.5;
+
   @include ca-type-inter(
     $size: $size,
     $weight: 600,
     $letter-spacing: $letter-spacing-in-px / $size * 1em,
     $args...
   );
+
   text-transform: uppercase;
 }
 
@@ -360,10 +368,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-inter-control-action($size: 16, $args...) {
   @include ca-type-inter($size: $size, $weight: 500, $args...);
+
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: $color-blue-500;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
@@ -375,23 +385,23 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin debug-vertical-rhythm-grid() {
   @include deprecate-legacy-typography-mixins;
+
   position: relative;
-  &:after {
+
+  &::after {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=");
     pointer-events: none;
     z-index: $ca-z-index-popover;
-    opacity: 0.5;
+    opacity: 50%;
   }
 }
 
 @mixin ca-type-align-start() {
   @include deprecate-legacy-typography-mixins;
+
   text-align: left; // fallback for IE and Edge
   text-align: start;
 
@@ -404,6 +414,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-align-end() {
   @include deprecate-legacy-typography-mixins;
+
   text-align: right; // fallback for IE and Edge
   text-align: end;
 

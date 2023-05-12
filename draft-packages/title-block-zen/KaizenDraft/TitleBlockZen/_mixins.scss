@@ -11,21 +11,25 @@
     @content;
   }
 }
+
 @mixin title-block-under-1366 {
   @media (max-width: 1365px) {
     @content;
   }
 }
+
 @mixin title-block-medium-and-small {
   @media (max-width: calc(#{$layout-breakpoints-large} - 1px)) {
     @content;
   }
 }
+
 @mixin title-block-under-1024 {
   @media (max-width: 1023px) {
     @content;
   }
 }
+
 @mixin title-block-small {
   @media (max-width: $layout-breakpoints-medium - 1px) {
     @content;

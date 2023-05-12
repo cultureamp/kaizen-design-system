@@ -2,7 +2,7 @@
 $anim-duration-ms: 0.2s;
 
 .defaultHiddenState {
-  opacity: 0;
+  opacity: 0%;
   pointer-events: none;
   transition: opacity $anim-duration-ms ease-out;
   will-change: opacity;
@@ -10,6 +10,6 @@ $anim-duration-ms: 0.2s;
 }
 
 .visibleState {
-  opacity: 1;
+  opacity: 100%;
   pointer-events: initial;
 }

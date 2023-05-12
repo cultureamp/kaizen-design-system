@@ -6,7 +6,8 @@
 @import "../mixins";
 
 .editor > :global(.ProseMirror) {
-  @include contentStyles;
+  @include content-styles;
+
   border-radius: $border-solid-border-radius;
   padding: $spacing-sm calc(#{$spacing-xs} * 3);
   position: relative;
@@ -25,6 +26,7 @@
 
   &:focus-visible::after {
     $focus-ring-offset: 5px;
+
     content: "";
     pointer-events: none;
     position: absolute;
@@ -34,16 +36,13 @@
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    top: calc(-1 * #{$focus-ring-offset});
-    left: calc(-1 * #{$focus-ring-offset});
-    right: calc(-1 * #{$focus-ring-offset});
-    bottom: calc(-1 * #{$focus-ring-offset});
+    inset: calc(-1 * #{$focus-ring-offset});
   }
 }
 
 .editor.hasToolbar > :global(.ProseMirror) {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .editorWrapper {
@@ -56,11 +55,13 @@
   &:hover,
   &:focus-within {
     border-color: $color-gray-600;
+
     .toolbar {
       border-color: $color-gray-600;
     }
   }
 
+  /* stylelint-disable no-descending-specificity */
   &.error {
     &,
     .toolbar {
@@ -88,6 +89,7 @@
       }
     }
   }
+  /* stylelint-enable no-descending-specificity */
 }
 
 @for $i from 1 through 20 {

@@ -7,7 +7,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 // Body
 // --------------------------------
-
 .body {
   width: 100%;
   min-height: 100vh;
@@ -31,7 +30,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 // Reusable container
 // --------------------------------
-
 .container {
   max-width: $layout-content-max-width;
   margin: 0 auto;
@@ -53,7 +51,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 // Header
 // --------------------------------
-
 .header {
   inline-size: 100%;
   margin-block-end: $spacing-md;
@@ -62,7 +59,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 // Main
 // --------------------------------
-
 .main {
   flex: 1 0 auto;
   display: flex;
@@ -144,7 +140,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 // Footer
 // --------------------------------
-
 .footer {
   flex: 0 0 auto;
 }

@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+
 $white: white;
 $black: black;
 
@@ -14,6 +15,7 @@ $black: black;
 @function add-alpha($color, $percentage) {
   $decimal: $percentage / 100%;
   $inverse: 1 - $decimal;
+
   @return transparentize($color, $inverse);
 }
 
@@ -35,6 +37,7 @@ $ca-palette-stone: #f9f9f9; // previously add-tint($ca-palette-ink, 97%);
 $ca-palette-ash: #f3f4f4; // previously add-tint($ca-palette-ink, 94%)
 $ca-palette-positive: #7dc6b1; // previously add-tint($ca-palette-seedling, 30%);
 $ca-palette-negative: $ca-palette-coral;
+
 // Delta colours are to be phased out. Please do not use.
 $ca-palette-positive-delta: #43e699;
 $ca-palette-negative-delta: #ff4757;

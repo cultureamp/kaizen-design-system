@@ -2,10 +2,13 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 
+/* stylelint-disable no-descending-specificity */
+
 // We're duplicating the CSS instead of manipulating the Menu package to accept the alternate props
 .menuListItem {
   display: flex;
 }
+
 .menuItem {
   display: flex;
   align-items: center;
@@ -64,6 +67,7 @@
 
 .menuItem--disabled {
   color: rgba($color-purple-800-rgb, 0.3);
+
   .menuItem__Icon {
     color: rgba($color-purple-800-rgb, 0.3);
   }
@@ -76,6 +80,7 @@
 
 .menuItem--destructive {
   color: $color-red-600;
+
   .menuItem__Icon {
     color: $color-red-600;
   }
@@ -83,6 +88,7 @@
 
 .menuItem--destructive.menuItem--disabled {
   color: rgba($color-red-600-rgb, 0.3);
+
   .menuItem__Icon {
     color: rgba($color-red-600-rgb, 0.3);
   }
@@ -99,3 +105,4 @@
   transform: translateY(0.2em);
   color: rgba($color-purple-800-rgb, 0.75);
 }
+/* stylelint-enable no-descending-specificity */

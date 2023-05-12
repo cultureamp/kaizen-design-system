@@ -49,16 +49,14 @@ $story-className--timefield-focus: ":global(.story__timefield-focus)";
 #{$story-className--timefield-focus} .input {
   .focusRing {
     $focus-ring-offset: 3px;
+
     position: absolute;
     background: transparent;
     border-radius: $border-focus-ring-border-radius;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    top: -$focus-ring-offset;
-    left: -$focus-ring-offset;
-    right: -$focus-ring-offset;
-    bottom: -$focus-ring-offset;
+    inset: -$focus-ring-offset;
     pointer-events: none;
   }
 }
@@ -67,7 +65,7 @@ $story-className--timefield-focus: ":global(.story__timefield-focus)";
   pointer-events: none;
   background-color: transparent;
   border-color: $color-gray-500;
-  opacity: 0.3;
+  opacity: 30%;
 }
 
 .error {
