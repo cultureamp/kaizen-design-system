@@ -1,5 +1,4 @@
 import React from "react"
-import { fireEvent } from "@testing-library/dom"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Button } from "@kaizen/button"
@@ -27,7 +26,7 @@ describe("Dropdown", () => {
 
     expect(screen.queryByText("Item")).toBeFalsy()
     const button = screen.getByText("Button")
-    fireEvent.click(button)
+    await user.click(button)
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeInTheDocument()
     })
