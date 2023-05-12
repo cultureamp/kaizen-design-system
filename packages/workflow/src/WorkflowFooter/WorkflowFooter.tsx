@@ -18,7 +18,7 @@ export interface WorkflowFooterProps
 
 export const WorkflowFooter = ({
   steps,
-  currentStep,
+  stepName,
   isComplete,
   previousAction,
   nextAction,
@@ -28,9 +28,11 @@ export const WorkflowFooter = ({
     <FooterAction action={previousAction} />
     <ProgressStepper
       steps={steps}
-      currentStep={currentStep}
+      stepName={stepName}
       isComplete={isComplete}
     />
     <FooterAction action={nextAction} alignTo="End" />
   </FooterRoot>
 )
+
+WorkflowFooter.displayName = "WorkflowFooter"

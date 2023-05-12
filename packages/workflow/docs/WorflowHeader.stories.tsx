@@ -3,7 +3,6 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-// import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { WorkflowExit, WorkflowHeader, WorkflowHeaderProps } from "../index"
 
 const defaultArgs = {

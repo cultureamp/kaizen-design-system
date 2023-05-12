@@ -3,50 +3,69 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 
-$step-indicator-width: $spacing-12;
-$step-indicator-height: $spacing-12;
-
 .stepContainer {
   display: flex;
-  min-width: 16%;
-  flex-grow: 1;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  display: flex;
   align-items: center;
-  margin-top: $spacing-sm;
+  padding-top: $spacing-24;
+  box-sizing: border-box;
 }
 
 .stepIndicator {
-  width: $step-indicator-width;
-  height: $step-indicator-height;
-  border-radius: 100%;
-  border: $border-solid-border-style $border-solid-border-width $color-white;
-  opacity: 0.8;
+  width: $spacing-12;
+  height: $spacing-12;
   position: relative;
 }
 
-.stepIndicator.currentStep {
+.stepIndicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $spacing-12;
+  height: $spacing-12;
+  border-radius: 100%;
+  border: $border-solid-border-style $border-solid-border-width $color-white;
+  opacity: 0.65;
+}
+
+.stepIndicator.stepActive {
+  opacity: 1;
+}
+
+.stepIndicator.stepActive::before {
   opacity: 1;
 }
 
 .stepIndicator.completedStep {
   background-color: transparent;
-  opacity: 1;
 }
 
 .stepName {
   position: absolute;
-  top: calc(-1.1 * #{$spacing-md});
-  transform: translateX(calc(-50% + 6px));
+  margin-bottom: $spacing-12;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(calc(-50%));
   font-weight: $typography-paragraph-bold-font-weight;
 }
 
 .stepDivider {
   height: 0;
   display: flex;
-  flex-grow: 2;
+  min-width: $spacing-72;
   border: solid 1px $color-white;
-  opacity: 0.8;
-  margin: 0 3px;
+  opacity: 0.65;
+  margin: 0 4px;
   border-radius: $border-solid-border-radius;
 }
 

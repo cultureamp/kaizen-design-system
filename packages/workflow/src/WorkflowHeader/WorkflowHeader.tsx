@@ -17,3 +17,5 @@ export const WorkflowHeader = ({
     <Actions actions={actions} />
   </HeaderRoot>
 )
+
+WorkflowHeader.displayName = "WorkflowHeader"

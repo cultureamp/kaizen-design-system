@@ -7,7 +7,7 @@ import { ComponentDocsTemplate } from "../../../storybook/components/DocsContain
 import { WorkflowFooter, WorkflowFooterProps } from "../"
 
 const defaultArgs = {
-  currentStep: "Preview",
+  stepName: "Preview",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   previousAction: <Button reversed label="back" />,
@@ -45,13 +45,13 @@ export default meta
  * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
  */
 export const Playground: StoryFn<WorkflowFooterProps> = ({
-  currentStep,
+  stepName,
   steps,
   isComplete,
   ...restProps
 }) => (
   <WorkflowFooter
-    currentStep={currentStep}
+    stepName={stepName}
     steps={steps}
     isComplete={isComplete}
     {...restProps}
@@ -61,13 +61,13 @@ export const Playground: StoryFn<WorkflowFooterProps> = ({
 Playground.args = { ...defaultArgs }
 
 const VariantTemplate: StoryFn<WorkflowFooterProps> = ({
-  currentStep,
+  stepName,
   steps,
   isComplete,
   ...restProps
 }) => (
   <WorkflowFooter
-    currentStep={currentStep}
+    stepName={stepName}
     steps={steps}
     isComplete={isComplete}
     {...restProps}
@@ -78,7 +78,7 @@ const VariantTemplate: StoryFn<WorkflowFooterProps> = ({
 export const FirstStep = VariantTemplate.bind({})
 
 FirstStep.args = {
-  currentStep: "Settings",
+  stepName: "Settings",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   nextAction: <Button reversed label="Next" />,
@@ -87,7 +87,7 @@ FirstStep.args = {
 export const NextStepDisabled = VariantTemplate.bind({})
 
 NextStepDisabled.args = {
-  currentStep: "Preview",
+  stepName: "Preview",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   nextAction: <Button disabled reversed label="Next" />,
@@ -97,7 +97,7 @@ NextStepDisabled.args = {
 export const LastStep = VariantTemplate.bind({})
 
 LastStep.args = {
-  currentStep: "Schedule",
+  stepName: "Schedule",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   nextAction: <Button reversed primary label="Finish" />,
@@ -107,31 +107,9 @@ LastStep.args = {
 export const AllStepsComplete = VariantTemplate.bind({})
 
 AllStepsComplete.args = {
-  currentStep: "Schedule",
+  stepName: "Schedule",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: true,
   nextAction: <Button reversed primary label="Finish" />,
   previousAction: <Button reversed label="Back" />,
 }
-
-// MultipleActions.args = {
-//   ...defaultArgs,
-//   actions: [
-//     <Button
-//       key="would-use-uui-1"
-//       label="Preview"
-//       icon={VisibleIcon}
-//       secondary
-//       iconPosition="start"
-//     />,
-//     <WorkflowExit
-//       key={"would-use-uui-2"}
-//       exitLabel="Save and close"
-//       exitTitle="Before you exit"
-//       exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-//       confirmExitLabel="Close and save"
-//       dismissExitLabel="Dismiss"
-//       onExit={(): void => alert("mock example of a save action")}
-//     />,
-//   ],
-// }

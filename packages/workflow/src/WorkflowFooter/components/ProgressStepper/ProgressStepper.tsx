@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import SuccessIcon from "@kaizen/component-library/icons/success.icon.svg"
@@ -6,23 +6,24 @@ import { Paragraph } from "@kaizen/typography"
 import styles from "./ProgressStepper.module.scss"
 
 export interface ProgressStepperProps {
-  currentStep: string
-  steps: string[]
+  stepName: string
+  steps: [string, ...string[]]
   isComplete?: boolean
 }
 
 export const ProgressStepper = ({
-  currentStep,
+  stepName,
   steps,
   isComplete = false,
   ...restprops
 }: ProgressStepperProps): JSX.Element => {
-  const currentStepIndex = steps.indexOf(currentStep)
+  const currentStepIndex = steps.indexOf(stepName)
 
   return (
-    <div
+    <ol
       className={styles.stepContainer}
       {...restprops}
+      // will need to be translated
       aria-label={`This is step number: ${
         currentStepIndex + 1
       }. The total number of steps to complete is: ${steps.length}`}
@@ -31,14 +32,16 @@ export const ProgressStepper = ({
         const isCurrentStep = currentStepIndex === index
         const isCompletedStep = index < currentStepIndex || isComplete
         const isActiveStep = isCompletedStep || isCurrentStep
-        // const isFirst = index === 0
-
         return (
-          <Fragment key={`${index}-${step}`}>
+          <li
+            className={styles.step}
+            key={`${index}-${step}`}
+            // aria-current="page"
+          >
             <div
               className={classnames({
                 [styles.stepIndicator]: true,
-                [styles.currentStep]: isCurrentStep,
+                [styles.stepActive]: isCurrentStep || isCompletedStep,
                 [styles.completedStep]: isCompletedStep,
               })}
             >
@@ -63,9 +66,9 @@ export const ProgressStepper = ({
                 ])}
               />
             )}
-          </Fragment>
+          </li>
         )
       })}
-    </div>
+    </ol>
   )
 }
