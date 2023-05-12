@@ -7,6 +7,8 @@ import { ToggleIconButton } from "../ToggleIconButton"
 import { ToolbarSection } from "../ToolbarSection"
 import { Toolbar } from "./"
 
+const user = userEvent.setup()
+
 const ExampleToolbar = (): JSX.Element => (
   <Toolbar aria-label="Toolbar" aria-controls="editable-id">
     <ToolbarSection>
@@ -21,7 +23,7 @@ describe("Navigate using the arrow keys", () => {
   it("will focus to the first item in the list", async () => {
     render(<ExampleToolbar />)
     screen.getByRole("toolbar").focus()
-    userEvent.tab()
+    await user.tab()
     await waitFor(() => {
       const firstFoundElement = screen.getByLabelText("Bold")
       expect(firstFoundElement).toHaveFocus()
@@ -31,12 +33,12 @@ describe("Navigate using the arrow keys", () => {
   it("will navigate to the left and right with arrow keys", async () => {
     render(<ExampleToolbar />)
     screen.getByRole("toolbar").focus()
-    userEvent.tab()
-    userEvent.keyboard("{arrowright}")
+    await user.tab()
+    await user.keyboard("{arrowright}")
     await waitFor(() => {
       expect(screen.getByLabelText("Italic")).toHaveFocus()
     })
-    userEvent.keyboard("{arrowleft}")
+    await user.keyboard("{arrowleft}")
     await waitFor(() => {
       expect(screen.getByLabelText("Bold")).toHaveFocus()
     })
@@ -45,12 +47,12 @@ describe("Navigate using the arrow keys", () => {
   it("will loop selection on either side of the toolbar", async () => {
     render(<ExampleToolbar />)
     screen.getByRole("toolbar").focus()
-    userEvent.tab()
-    userEvent.keyboard("{arrowleft}")
+    await user.tab()
+    await user.keyboard("{arrowleft}")
     await waitFor(() => {
       expect(screen.getByLabelText("Underline")).toHaveFocus()
     })
-    userEvent.keyboard("{arrowright}")
+    await user.keyboard("{arrowright}")
     await waitFor(() => {
       expect(screen.getByLabelText("Bold")).toHaveFocus()
     })
@@ -66,10 +68,10 @@ describe("Tabbing out of the toolbar", () => {
       </>
     )
     screen.getByRole("toolbar").focus()
-    userEvent.tab()
-    userEvent.keyboard("{arrowright}")
-    userEvent.tab()
-    userEvent.tab({ shift: true })
+    await user.tab()
+    await user.keyboard("{arrowright}")
+    await user.tab()
+    await user.tab({ shift: true })
     await waitFor(() => {
       expect(screen.getByLabelText("Italic")).toHaveFocus()
     })
