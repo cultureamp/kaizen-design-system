@@ -1,7 +1,10 @@
 import React from "react"
-import { render, fireEvent } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { RoadblockModal, RoadblockModalProps } from "./RoadblockModal"
 import "./matchMedia.mock"
+
+const user = userEvent.setup()
 
 const RoadblockModalWrapper = ({
   children,
@@ -25,36 +28,43 @@ describe("<RoadblockModal />", () => {
     expect(getByText("Example modal body")).toBeTruthy()
   })
 
-  it("supports a dismiss action when escape key is pressed", () => {
+  it("supports a dismiss action when escape key is pressed", async () => {
     const handleDismiss = jest.fn()
-    const document = render(
+    render(
       <RoadblockModalWrapper onDismiss={handleDismiss}>
         Example modal body
       </RoadblockModalWrapper>
     )
-    fireEvent.keyUp(document.container, { key: "Escape", code: "Escape" })
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+
+    await user.keyboard("{Escape}")
+    await waitFor(() => {
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("supports a dismiss action when dismiss button is pressed", () => {
+  it("supports a dismiss action when dismiss button is pressed", async () => {
     const handleDismiss = jest.fn()
     const { getByLabelText } = render(
       <RoadblockModalWrapper onDismiss={handleDismiss}>
         Example modal body
       </RoadblockModalWrapper>
     )
-    fireEvent.click(getByLabelText(/Dismiss/i))
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    await user.click(getByLabelText(/Dismiss/i))
+    await waitFor(() => {
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("supports a dismiss action when back button is pressed", () => {
+  it("supports a dismiss action when back button is pressed", async () => {
     const handleDismiss = jest.fn()
     const { getByText } = render(
       <RoadblockModalWrapper onDismiss={handleDismiss}>
         Example modal body
       </RoadblockModalWrapper>
     )
-    fireEvent.click(getByText(/Back/i))
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    await user.click(getByText(/Back/i))
+    await waitFor(() => {
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 })

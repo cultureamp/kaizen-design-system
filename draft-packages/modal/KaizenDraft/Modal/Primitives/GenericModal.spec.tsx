@@ -1,7 +1,10 @@
 import React from "react"
-import { render, fireEvent, waitFor, screen } from "@testing-library/react"
+import { render, waitFor, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import GenericModal from "./GenericModal"
 import { ModalAccessibleLabel } from "./ModalAccessibleLabel"
+
+const user = userEvent.setup()
 
 const ExampleModalWithState = (props: {
   onAfterLeave: () => void
@@ -42,18 +45,21 @@ describe("<GenericModal />", () => {
     expect(() => getByText("Example")).toThrow()
   })
 
-  it("closes the modal when escape key is pressed", () => {
+  it("closes the modal when escape key is pressed", async () => {
     const handleDismiss = jest.fn()
-    const document = render(
+    render(
       <GenericModal isOpen={true} onEscapeKeyup={handleDismiss}>
         <ModalAccessibleLabel>Example</ModalAccessibleLabel>
       </GenericModal>
     )
-    fireEvent.keyUp(document.container, { key: "Escape", code: "Escape" })
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+
+    await user.keyboard("{Escape}")
+    await waitFor(() => {
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("closes the modal when a click is outside of the modal content", () => {
+  it("closes the modal when a click is outside of the modal content", async () => {
     const handleDismiss = jest.fn()
     const { getByTestId } = render(
       <GenericModal
@@ -64,8 +70,10 @@ describe("<GenericModal />", () => {
         <ModalAccessibleLabel>Example</ModalAccessibleLabel>
       </GenericModal>
     )
-    fireEvent.click(getByTestId("GenericModalAutomationId-scrollLayer"))
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    await user.click(getByTestId("GenericModalAutomationId-scrollLayer"))
+    await waitFor(() => {
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
   it("warns when a <ModalAccessibleLabel /> is not rendered", async () => {
@@ -93,7 +101,7 @@ describe("<GenericModal />", () => {
         Catch me if you can
       </ExampleModalWithState>
     )
-    fireEvent.click(screen.getByTestId("GenericModalAutomationId-scrollLayer"))
+    await user.click(screen.getByTestId("GenericModalAutomationId-scrollLayer"))
     await waitFor(() => expect(mockOnAfterLeave).toHaveBeenCalledTimes(1))
   })
 })
