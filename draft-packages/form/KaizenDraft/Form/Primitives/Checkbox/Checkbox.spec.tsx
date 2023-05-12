@@ -1,18 +1,19 @@
 import React from "react"
-import { fireEvent } from "@testing-library/dom"
-import { render } from "@testing-library/react"
-
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { CheckboxProps } from "./Checkbox"
 import { Checkbox } from "."
 
-const defaultProps: CheckboxProps = {
+const user = userEvent.setup()
+
+const defaultProps = {
   id: "someCheckboxId",
   automationId: "someCheckboxAutomationId",
   checkedStatus: "off",
   disabled: false,
   name: "someCheckboxName",
   onCheck: jest.fn(),
-}
+} satisfies CheckboxProps
 
 const renderCheckbox = (props?: CheckboxProps): ReturnType<typeof render> => {
   const mergedInputProps = { ...defaultProps, ...props }
@@ -21,15 +22,14 @@ const renderCheckbox = (props?: CheckboxProps): ReturnType<typeof render> => {
 }
 
 describe("<Checkbox />", () => {
-  it("calls the `onCheck` event when clicked", () => {
-    const { container } = render(<Checkbox {...defaultProps} />)
-    const checkbox = container.querySelector(
-      `[data-automation-id="${defaultProps.automationId}"]`
-    ) as Node
+  it("calls the `onCheck` event when clicked", async () => {
+    const { getByTestId } = render(<Checkbox {...defaultProps} />)
+    const checkbox = getByTestId(defaultProps.automationId)
 
-    fireEvent.click(checkbox)
-
-    expect(defaultProps.onCheck).toBeCalledTimes(1)
+    await user.click(checkbox)
+    await waitFor(() => {
+      expect(defaultProps.onCheck).toBeCalledTimes(1)
+    })
   })
 
   it("renders a disabled checkbox", () => {
