@@ -1,5 +1,7 @@
-import { Meta, StoryObj } from "@storybook/react"
+import React from "react"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
+import { StickerSheet } from "../../../storybook/components/StickerSheet"
 import { MenuLoadingSkeleton } from "../src/FilterMultiSelect/components/MenuLayout/MenuLoadingSkeleton/index"
 
 const meta = {
@@ -10,6 +12,11 @@ const meta = {
     isAnimated: false,
   },
   parameters: {
+    installation: [
+      "npm install @kaizen/select",
+      "import { FilterMultiSelect } from `@kaizen/select`",
+    ],
+    chromatic: { disable: false },
     docs: {
       container: ComponentDocsTemplate,
     },
@@ -37,3 +44,13 @@ export const Playground: StoryObj<typeof meta> = {
     },
   },
 }
+
+export const Animated: StoryFn = () => (
+  <StickerSheet>
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <MenuLoadingSkeleton isAnimated={true} />
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
+)
