@@ -84,7 +84,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
       status={status}
       actions={actions}
     />
-    <div className="flex flex-col content-center min-h-[250px]">
+    <main className="flex flex-col content-center min-h-[250px]">
       <h3>Content</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
@@ -92,7 +92,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
         obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
         quibusdam vero?
       </p>
-    </div>
+    </main>
     <WorkflowFooter
       stepName={stepName}
       steps={steps}

@@ -24,9 +24,7 @@ export const ProgressStepper = ({
       className={styles.stepContainer}
       {...restprops}
       // will need to be translated
-      aria-label={`This is step number: ${
-        currentStepIndex + 1
-      }. The total number of steps to complete is: ${steps.length}`}
+      aria-label={`Step ${currentStepIndex + 1} of ${steps.length}.`}
     >
       {steps.map((step: string, index: number) => {
         const isCurrentStep = currentStepIndex === index
@@ -36,7 +34,7 @@ export const ProgressStepper = ({
           <li
             className={styles.step}
             key={`${index}-${step}`}
-            // aria-current="page"
+            aria-current={isCurrentStep}
           >
             <div
               className={classnames({
@@ -55,6 +53,12 @@ export const ProgressStepper = ({
                 variant={"small"}
                 color={isActiveStep ? "white" : "white-reduced-opacity"}
               >
+                {
+                  <span className="sr-only">
+                    {/* will need to be translated */}
+                    {isCompletedStep ? "Completed: " : "In progress: "}
+                  </span>
+                }
                 {step}
               </Paragraph>
             </div>
