@@ -1,5 +1,5 @@
 import React from "react"
-import { configure, fireEvent } from "@testing-library/dom"
+import { configure } from "@testing-library/dom"
 import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import {
@@ -9,6 +9,8 @@ import {
 } from "./index"
 import "@testing-library/jest-dom"
 import "./matchMedia.mock"
+
+const user = userEvent.setup()
 
 configure({
   testIdAttribute: "data-automation-id",
@@ -56,7 +58,7 @@ describe("<TitleBlockZen />", () => {
       testOnClickFn.mockClear()
     })
 
-    it("renders the primary action button label and onClick", () => {
+    it("renders the primary action button label and onClick", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
@@ -64,11 +66,14 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getByTestId("title-block-primary-action-button")
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
-      fireEvent.click(btn)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
     })
 
-    it("creates a mobile actions primary button", () => {
+    it("creates a mobile actions primary button", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
@@ -77,8 +82,10 @@ describe("<TitleBlockZen />", () => {
 
       const btn = getByTestId("title-block-mobile-actions-primary-button")
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
-      fireEvent.click(btn)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(btn)
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
     })
   })
 
@@ -100,7 +107,7 @@ describe("<TitleBlockZen />", () => {
       testOnClickFn.mockClear()
     })
 
-    it("renders a disabled primary action button", () => {
+    it("renders a disabled primary action button", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
@@ -111,8 +118,11 @@ describe("<TitleBlockZen />", () => {
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
       expect(btn.disabled).toBeTruthy()
-      fireEvent.click(btn)
-      expect(testOnClickFn).not.toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).not.toHaveBeenCalled()
+      })
     })
 
     it("renders a disabled primary action link button", () => {
@@ -128,7 +138,7 @@ describe("<TitleBlockZen />", () => {
       expect(btn.getAttribute("href")).not.toEqual(primaryActionAsLink.href)
     })
 
-    it("creates a mobile actions primary button with disabled styles and no onClick", () => {
+    it("creates a mobile actions primary button with disabled styles and no onClick", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
@@ -139,8 +149,11 @@ describe("<TitleBlockZen />", () => {
         "title-block-mobile-actions-primary-button"
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(primaryActionAsButton.label)
-      fireEvent.click(btn)
-      expect(testOnClickFn).not.toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).not.toHaveBeenCalled()
+      })
     })
 
     it("creates a mobile actions primary button with disabled styles and no href", () => {
@@ -171,7 +184,7 @@ describe("<TitleBlockZen />", () => {
       testOnClickFn.mockClear()
     })
 
-    it("renders the primary action button label, href and onClick", () => {
+    it("renders the primary action button label, href and onClick", async () => {
       const { getByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -185,11 +198,14 @@ describe("<TitleBlockZen />", () => {
       expect(btn.getAttribute("href")).toEqual(
         primaryActionAsLinkAndOnClick.href
       )
-      fireEvent.click(btn)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
     })
 
-    it("passes both the href and onClick to the mobile action drawer button", () => {
+    it("passes both the href and onClick to the mobile action drawer button", async () => {
       const { getByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -202,8 +218,11 @@ describe("<TitleBlockZen />", () => {
       expect(btn.getAttribute("href")).toEqual(
         primaryActionAsLinkAndOnClick.href
       )
-      fireEvent.click(btn)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
     })
   })
 
@@ -230,7 +249,7 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getByTestId("title-block-primary-action-button")
       expect(btn.textContent).toEqual(primaryActionAsMenu.label)
-      userEvent.click(btn)
+      await user.click(btn)
 
       await waitFor(() => {
         const menuItems = getAllByTestId(/^main-action-primary-menu-item-/)
@@ -304,7 +323,7 @@ describe("<TitleBlockZen />", () => {
       testOnClickFn.mockClear()
     })
 
-    it("renders the default action button label and onClick", () => {
+    it("renders the default action button label and onClick", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
@@ -312,11 +331,14 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getByTestId("title-block-default-action-button")
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
-      fireEvent.click(btn)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
     })
 
-    it("creates a mobile actions default action menu item", () => {
+    it("creates a mobile actions default action menu item", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
@@ -325,8 +347,11 @@ describe("<TitleBlockZen />", () => {
 
       const menuItem = getByTestId("title-block-mobile-actions-default-action")
       expect(menuItem.textContent).toEqual(defaultActionAsButton.label)
-      fireEvent.click(menuItem)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(menuItem)
+
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
     })
 
     it("renders the mobile actions menu drawer handle even with no primary action", () => {
@@ -354,7 +379,7 @@ describe("<TitleBlockZen />", () => {
       testOnClickFn.mockClear()
     })
 
-    it("renders the default action button label, href and onClick", () => {
+    it("renders the default action button label, href and onClick", async () => {
       const { getByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -368,8 +393,11 @@ describe("<TitleBlockZen />", () => {
       expect(btn.getAttribute("href")).toEqual(
         defaultActionAsLinkAndOnClick.href
       )
-      fireEvent.click(btn)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
     })
 
     it("creates a single mobile actions default link menu item with both href and onClick", async () => {
@@ -391,7 +419,8 @@ describe("<TitleBlockZen />", () => {
         defaultActionAsLinkAndOnClick.href
       )
       expect(menuItem.textContent).toEqual(defaultActionAsLinkAndOnClick.label)
-      fireEvent.click(menuItem)
+      await user.click(menuItem)
+
       await waitFor(() => {
         expect(testOnClickFn).not.toHaveBeenCalled()
       })
@@ -415,7 +444,7 @@ describe("<TitleBlockZen />", () => {
       testOnClickFn.mockClear()
     })
 
-    it("renders a disabled default action button", () => {
+    it("renders a disabled default action button", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
@@ -426,8 +455,11 @@ describe("<TitleBlockZen />", () => {
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
       expect(btn.disabled).toBeTruthy()
-      fireEvent.click(btn)
-      expect(testOnClickFn).not.toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).not.toHaveBeenCalled()
+      })
     })
 
     it("renders a disabled default action link button", () => {
@@ -443,7 +475,7 @@ describe("<TitleBlockZen />", () => {
       expect(btn.getAttribute("href")).not.toEqual(defaultActionAsLink.href)
     })
 
-    it("creates a mobile actions default action menu item with disabled styles and no onClick", () => {
+    it("creates a mobile actions default action menu item with disabled styles and no onClick", async () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
@@ -454,8 +486,11 @@ describe("<TitleBlockZen />", () => {
         "title-block-mobile-actions-default-action"
       ) as HTMLButtonElement
       expect(btn.textContent).toEqual(defaultActionAsButton.label)
-      fireEvent.click(btn)
-      expect(testOnClickFn).not.toHaveBeenCalled()
+      await user.click(btn)
+
+      await waitFor(() => {
+        expect(testOnClickFn).not.toHaveBeenCalled()
+      })
     })
 
     it("creates a mobile actions default link menu item with disabled styles and no href", () => {
@@ -505,14 +540,14 @@ describe("<TitleBlockZen />", () => {
       expect(btn.getAttribute("href")).toEqual(
         secondaryActionWithLinkAndOnClick.href
       )
-      fireEvent.click(btn)
+      await user.click(btn)
       await waitFor(() => {
         expect(testOnClickFn).toHaveBeenCalled()
       })
       spy.mockRestore()
     })
 
-    it("renders the action as a single mobile actions drawer item with an onClick", () => {
+    it("renders the action as a single mobile actions drawer item with an onClick", async () => {
       const mockWarnFn = jest.fn()
       const spy = jest
         .spyOn(global.console, "warn")
@@ -530,8 +565,11 @@ describe("<TitleBlockZen />", () => {
       expect(btn[0].getAttribute("href")).not.toEqual(
         secondaryActionWithLinkAndOnClick.href
       )
-      fireEvent.click(btn[0])
-      expect(testOnClickFn).toHaveBeenCalled()
+      await user.click(btn[0])
+
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
       spy.mockRestore()
     })
   })
@@ -616,7 +654,7 @@ describe("<TitleBlockZen />", () => {
       disabled: true,
     }
 
-    it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
+    it("renders the action as a single disabled mobile actions drawer item with no onClick", async () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -627,8 +665,11 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
-      fireEvent.click(btn[0])
-      expect(testOnClickFn).not.toHaveBeenCalled()
+      await user.click(btn[0])
+
+      await waitFor(() => {
+        expect(testOnClickFn).not.toHaveBeenCalled()
+      })
     })
   })
 
@@ -640,7 +681,7 @@ describe("<TitleBlockZen />", () => {
       disabled: true,
     }
 
-    it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
+    it("renders the action as a single disabled mobile actions drawer item with no onClick", async () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -654,8 +695,11 @@ describe("<TitleBlockZen />", () => {
         "title-block-mobile-actions-overflow-menu-item"
       )
       expect(btn.length).toEqual(1)
-      fireEvent.click(btn[0])
-      expect(testOnClickFn).not.toHaveBeenCalled()
+      await user.click(btn[0])
+
+      await waitFor(() => {
+        expect(testOnClickFn).not.toHaveBeenCalled()
+      })
     })
   })
 
@@ -827,7 +871,7 @@ describe("<TitleBlockZen />", () => {
       expect(screen.getByRole("button", { name: "Back" })).toBeInTheDocument()
     })
 
-    it("renders a custom component when you pass a 'render' prop", () => {
+    it("renders a custom component when you pass a 'render' prop", async () => {
       const mockFn = jest.fn()
 
       const CustomComponent = (props: CustomBreadcrumbProps): JSX.Element => (
@@ -856,8 +900,11 @@ describe("<TitleBlockZen />", () => {
 
       const customElement = screen.getByTestId("custom-component")
       expect(customElement).toHaveTextContent("Back")
-      fireEvent.click(customElement)
-      expect(mockFn).toBeCalled()
+      await user.click(customElement)
+
+      await waitFor(() => {
+        expect(mockFn).toBeCalled()
+      })
     })
   })
 
@@ -935,7 +982,7 @@ describe("<TitleBlockZen />", () => {
         ).toHaveAttribute("href", "#test-primary")
       })
 
-      it("will render custom button with functional onClick", () => {
+      it("will render custom button with functional onClick", async () => {
         const testClickFunc = jest.fn()
         render(
           <TitleBlockZen
@@ -955,8 +1002,11 @@ describe("<TitleBlockZen />", () => {
         const drawerBtn = within(drawer).getByRole("button", {
           name: "Primary action",
         })
-        fireEvent.click(drawerBtn)
-        expect(testClickFunc).toBeCalledTimes(1)
+        await user.click(drawerBtn)
+
+        await waitFor(() => {
+          expect(testClickFunc).toBeCalledTimes(1)
+        })
       })
 
       it("will render custom button with children and not label", () => {
