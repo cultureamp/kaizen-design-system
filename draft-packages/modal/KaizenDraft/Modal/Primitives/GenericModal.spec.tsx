@@ -1,15 +1,7 @@
 import React from "react"
-import {
-  render,
-  fireEvent,
-  configure,
-  waitFor,
-  screen,
-} from "@testing-library/react"
+import { render, fireEvent, waitFor, screen } from "@testing-library/react"
 import GenericModal from "./GenericModal"
 import { ModalAccessibleLabel } from "./ModalAccessibleLabel"
-
-configure({ testIdAttribute: "data-automation-id" })
 
 const ExampleModalWithState = (props: {
   onAfterLeave: () => void
