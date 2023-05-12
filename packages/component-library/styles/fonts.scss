@@ -1,3 +1,4 @@
+/* stylelint-disable function-url-quotes */
 @import "~@kaizen/hosted-assets/index";
 
 // =============== TIEMPOS ===============
@@ -100,3 +101,5 @@
   src: url(asset-url("fonts/ibm-plex-mono/ibm-plex-mono-regular.woff2")),
     url(asset-url("fonts/ibm-plex-mono/ibm-plex-mono-regular.woff"));
 }
+
+/* stylelint-enable function-url-quotes */

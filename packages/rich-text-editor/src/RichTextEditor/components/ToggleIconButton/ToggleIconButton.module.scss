@@ -20,6 +20,7 @@
 
   &:focus-visible::after {
     $focus-ring-offset: 3px;
+
     content: "";
     position: absolute;
     background: transparent;
@@ -27,24 +28,20 @@
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    top: calc(-1 * #{$focus-ring-offset});
-    left: calc(-1 * #{$focus-ring-offset});
-    right: calc(-1 * #{$focus-ring-offset});
-    bottom: calc(-1 * #{$focus-ring-offset});
+    inset: calc(-1 * #{$focus-ring-offset});
   }
 
   &.disabled {
-    opacity: 0.3;
+    opacity: 30%;
 
-    &:focus-visible:after {
+    &:focus-visible::after {
       color: rgba($color-purple-800-rgb, 0.3);
       outline-offset: -2px;
       background-color: transparent;
       border-color: transparent;
-      opacity: 1;
-      outline-style: $border-dashed-border-style;
-      outline-width: $border-focus-ring-border-width;
-      outline-color: $color-purple-800;
+      opacity: 100%;
+      outline: $color-purple-800 $border-dashed-border-style
+        $border-focus-ring-border-width;
     }
   }
 }

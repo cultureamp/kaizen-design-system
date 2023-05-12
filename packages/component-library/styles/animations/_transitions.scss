@@ -46,6 +46,8 @@
   );
 }
 
+/* stylelint-disable function-name-case, scss/at-function-pattern */
+
 ////////////////////////////////////////
 // Transition utilities
 ////////////////////////////////////////
@@ -61,11 +63,13 @@
 
   @for $i from 1 through length($defaultProperties) {
     $p: null;
+
     @if $i <= length($transition) {
       $p: nth($transition, $i);
     } @else {
       $p: nth($defaultProperties, $i);
     }
+
     $unfoldedTransition: append($unfoldedTransition, $p);
   }
 
@@ -87,3 +91,5 @@
 
   transition: $unfoldedTransitions;
 }
+
+/* stylelint-enable function-name-case, scss/at-function-pattern */

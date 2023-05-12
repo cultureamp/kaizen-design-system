@@ -9,7 +9,6 @@
   border-style: $border-solid-border-style;
   padding: calc(#{$spacing-sm} - #{$border-borderless-border-width})
     calc(#{$spacing-md} - #{$border-borderless-border-width});
-
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   letter-spacing: $typography-button-primary-letter-spacing;
@@ -43,12 +42,13 @@
   }
 
   &:disabled {
-    opacity: 0.3;
+    opacity: 30%;
   }
 }
 
 .themeDefault {
   $default-text-color: $color-purple-800;
+
   background-color: $color-white;
   border-color: $color-gray-500;
   color: $default-text-color;
@@ -74,6 +74,7 @@
 
 .themeReversed {
   $reversed-text-color: $color-white;
+
   background-color: transparent;
   border-color: rgba($color-white-rgb, 0.65);
   color: $reversed-text-color;

@@ -11,22 +11,21 @@ $focus-ring-offset: 1px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
   position: relative;
-
   color: $color-blue-500;
-
   border: $border-solid-border-width $border-solid-border-style;
   border-color: $border-borderless-border-color;
   border-radius: $border-solid-border-radius;
+  padding: $spacing-4 $spacing-8;
 
-  //       4px       8px
-  padding: 0.25rem 0.5rem;
+  &:focus {
+    outline: none;
+  }
 
   &:hover,
   &:active,
@@ -36,12 +35,9 @@ $focus-ring-offset: 1px;
     }
   }
 
-  &:focus {
-    outline: none;
-  }
-
   &:focus-visible::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
     content: "";
     position: absolute;
     background: transparent;
@@ -49,10 +45,7 @@ $focus-ring-offset: 1px;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    top: calc(-1 * #{$focus-ring-offset});
-    left: calc(-1 * #{$focus-ring-offset});
-    right: calc(-1 * #{$focus-ring-offset});
-    bottom: calc(-1 * #{$focus-ring-offset});
+    inset: calc(-1 * #{$focus-ring-offset});
   }
 
   display: inline-flex;
@@ -63,7 +56,7 @@ $focus-ring-offset: 1px;
   &.isDisabled {
     pointer-events: none;
     color: rgba($color-purple-800-rgb, 0.3);
-    opacity: 1;
+    opacity: 100%;
 
     &:focus {
       outline: none;

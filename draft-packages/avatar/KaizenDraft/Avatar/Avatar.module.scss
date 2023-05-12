@@ -9,6 +9,7 @@ $avatar-lg: 4.5rem;
 $avatar-xl: 6rem;
 $avatar-xxl: 7.75rem;
 
+/* stylelint-disable no-descending-specificity */
 .wrapper {
   background: $color-gray-300;
   border-radius: 100%;
@@ -33,14 +34,13 @@ $avatar-xxl: 7.75rem;
   }
 
   &.company {
-    border: 0px;
+    border: 0;
     background: $color-white;
     padding: 6px;
     border-radius: $border-solid-border-radius;
   }
 
   // Sizes
-
   &.small {
     width: $avatar-sm;
     height: $avatar-sm;
@@ -92,6 +92,7 @@ $avatar-xxl: 7.75rem;
   .loading & {
     display: none;
   }
+
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -110,16 +111,20 @@ $avatar-xxl: 7.75rem;
   .xxlarge & {
     width: 75px;
   }
+
   .xlarge & {
     width: 60px;
   }
+
   .large & {
     width: 35px;
   }
+
   .medium & {
     width: 25px;
     margin-bottom: -1px;
   }
+
   .small & {
     width: 10px;
     margin-bottom: -1px;
@@ -163,3 +168,4 @@ $avatar-xxl: 7.75rem;
     letter-spacing: $typography-heading-5-letter-spacing;
   }
 }
+/* stylelint-enable no-descending-specificity */

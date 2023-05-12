@@ -32,6 +32,7 @@ $caButton-verticalPadding: calc(
 .dropdownButton {
   @include kz-type-inter-button-primary;
   @include ca-inherit-baseline;
+
   composes: buttonReset;
   cursor: pointer;
   display: flex;
@@ -67,14 +68,16 @@ $caButton-verticalPadding: calc(
 // always be visible.
 .dropdownHoverArea {
   .dropdownIcon {
-    opacity: 0;
+    opacity: 0%;
+
     &.isOpen,
     &:focus {
-      opacity: 1;
+      opacity: 100%;
     }
   }
+
   &:hover .dropdownIcon {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 

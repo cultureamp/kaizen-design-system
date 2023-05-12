@@ -7,10 +7,12 @@
   border: 2px $border-solid-border-style $color-purple-300;
   box-shadow: none;
   color: $color-purple-800;
+
   > div {
     &:first-of-type {
       background-color: $color-purple-100;
       border-radius: $border-borderless-border-radius;
+
       &:hover {
         background-color: $color-purple-100;
       }
@@ -31,6 +33,7 @@
 
 .expertAdviceHeading {
   color: $color-purple-600;
+
   .expertAdviceContainer:hover & {
     color: $color-purple-700;
   }

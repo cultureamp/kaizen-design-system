@@ -10,7 +10,7 @@ $animation-timing: $animation-duration-immediate
 $focus-ring-offset: 1px;
 
 .checkbox {
-  @include form-input-visually-hidden();
+  @include form-input-visually-hidden;
 }
 
 .track {
@@ -62,10 +62,11 @@ $focus-ring-offset: 1px;
 
 .checkIcon {
   color: $color-green-500;
-  opacity: 0;
+  opacity: 0%;
   transition-duration: $animation-duration-rapid;
 }
 
+/* stylelint-disable no-descending-specificity */
 .on {
   .checkbox + .track {
     border-color: $border-borderless-border-color;
@@ -90,7 +91,7 @@ $focus-ring-offset: 1px;
   }
 
   .checkIcon {
-    opacity: 1;
+    opacity: 100%;
     transition-delay: $animation-duration-immediate;
     transition-duration: $animation-duration-fast;
   }
@@ -141,3 +142,4 @@ $focus-ring-offset: 1px;
     }
   }
 }
+/* stylelint-enable no-descending-specificity */
