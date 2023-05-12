@@ -56,6 +56,7 @@ export const Checkbox = ({
         }
       }}
       data-automation-id={automationId}
+      data-testid={automationId}
       // This is only used as a handle for unit testing
       data-indeterminate={checkedStatus === "mixed"}
       type="checkbox"

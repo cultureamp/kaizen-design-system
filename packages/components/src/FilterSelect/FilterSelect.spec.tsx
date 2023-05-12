@@ -6,6 +6,8 @@ import { FilterSelect, FilterSelectProps } from "./FilterSelect"
 import { mixedMockItemsUnordered, singleMockItems } from "./_docs/mockData"
 import { SelectOption } from "./types"
 
+const user = userEvent.setup()
+
 const FilterSelectWrapper = ({
   isOpen: propsIsOpen = false,
   items = mixedMockItemsUnordered,
@@ -63,7 +65,7 @@ describe("<FilterSelect>", () => {
       it("shows the options when the filter button is clicked", async () => {
         render(<FilterSelectWrapper />)
         const trigger = screen.getByRole("button", { name: "Coffee" })
-        await userEvent.click(trigger)
+        await user.click(trigger)
         await waitFor(() => {
           expect(screen.queryByRole("listbox")).toBeVisible()
         })
@@ -71,7 +73,7 @@ describe("<FilterSelect>", () => {
 
       it("closes when user clicks outside of the menu", async () => {
         render(<FilterSelectWrapper isOpen />)
-        userEvent.click(document.body)
+        await user.click(document.body)
         await waitFor(() => {
           expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
         })
@@ -80,7 +82,7 @@ describe("<FilterSelect>", () => {
       it("closes when user clicks on an option", async () => {
         render(<FilterSelectWrapper isOpen />)
         const option = screen.getByRole("option", { name: "Magic" })
-        userEvent.click(option)
+        await user.click(option)
         await waitFor(() => {
           expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
         })
@@ -91,11 +93,11 @@ describe("<FilterSelect>", () => {
       it("opens the menu when user hits enter key", async () => {
         render(<FilterSelectWrapper />)
         const trigger = screen.getByRole("button", { name: "Coffee" })
-        userEvent.tab()
+        await user.tab()
         await waitFor(() => {
           expect(trigger).toHaveFocus()
         })
-        userEvent.keyboard("{Enter}")
+        await user.keyboard("{Enter}")
         await waitFor(() => {
           expect(screen.queryByRole("listbox")).toBeVisible()
         })
@@ -114,7 +116,7 @@ describe("<FilterSelect>", () => {
       it("closes when user hits the escape key", async () => {
         render(<FilterSelectWrapper isOpen />)
         expect(screen.queryByRole("listbox")).toBeVisible()
-        userEvent.keyboard("{Escape}")
+        await user.keyboard("{Escape}")
         await waitFor(() => {
           expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
         })
@@ -135,13 +137,13 @@ describe("<FilterSelect>", () => {
       // Use testid because when the filter is open, the button is inaccessible
       expect(screen.getByTestId("test__trigger").textContent).toBe("Coffee")
 
-      await userEvent.tab()
+      await user.tab()
       await waitFor(() => {
         expect(screen.queryByRole("listbox")).toBeVisible()
       })
 
       const option = screen.getByRole("option", { name: "Magic" })
-      await userEvent.click(option)
+      await user.click(option)
 
       await waitFor(() => {
         expect(
