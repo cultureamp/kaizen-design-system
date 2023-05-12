@@ -5,6 +5,8 @@ import userEvent from "@testing-library/user-event"
 import { Button } from "@kaizen/button"
 import { Menu } from "./Menu"
 
+const user = userEvent.setup()
+
 describe("Dropdown", () => {
   it("renders default view", () => {
     const { container } = render(
@@ -43,7 +45,7 @@ describe("Dropdown", () => {
     expect(screen.queryByText("Item")).not.toBeInTheDocument()
 
     const button = screen.getByText("Button")
-    await userEvent.click(button)
+    await user.click(button)
 
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeVisible()
@@ -62,7 +64,7 @@ describe("Dropdown", () => {
     expect(screen.queryByText("Item")).not.toBeInTheDocument()
 
     const button = screen.getByText("Button")
-    await userEvent.click(button)
+    await user.click(button)
 
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeVisible()
