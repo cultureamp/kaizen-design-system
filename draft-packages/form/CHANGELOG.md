@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.4.4
+
+### Patch Changes
+
+- [#3634](https://github.com/cultureamp/kaizen-design-system/pull/3634) [`b6480c659`](https://github.com/cultureamp/kaizen-design-system/commit/b6480c6591a6f1b73ce4388ee9c341b5c421666c) - A11y fix: Added role=presentation to icon within ToggleSwitch
+
 ## 10.4.3
 
 ### Patch Changes
