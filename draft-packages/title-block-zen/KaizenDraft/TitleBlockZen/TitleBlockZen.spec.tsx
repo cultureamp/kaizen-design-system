@@ -1,5 +1,4 @@
 import React from "react"
-import { configure } from "@testing-library/dom"
 import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import {
@@ -11,10 +10,6 @@ import "@testing-library/jest-dom"
 import "./matchMedia.mock"
 
 const user = userEvent.setup()
-
-configure({
-  testIdAttribute: "data-automation-id",
-})
 
 describe("<TitleBlockZen />", () => {
   describe("when the primary action is a button with only an href", () => {
