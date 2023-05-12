@@ -1,9 +1,7 @@
 import React from "react"
-import { fireEvent, configure, queryByTestId } from "@testing-library/dom"
+import { fireEvent, queryByTestId } from "@testing-library/dom"
 import { render } from "@testing-library/react"
 import { Collapsible, CollapsibleGroup } from ".."
-
-configure({ testIdAttribute: "data-automation-id" })
 
 describe("<Collapsible />", () => {
   it("renders closed by default", () => {
