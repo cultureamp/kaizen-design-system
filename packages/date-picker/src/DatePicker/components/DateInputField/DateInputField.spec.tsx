@@ -4,6 +4,8 @@ import userEvent from "@testing-library/user-event"
 import { enUS } from "date-fns/locale"
 import { DateInputField, DateInputFieldProps } from "./DateInputField"
 
+const user = userEvent.setup()
+
 const defaultProps: DateInputFieldProps = {
   id: "test__date-input-field",
   labelText: "Bacon expiry",
@@ -122,7 +124,7 @@ describe("<DateInputField />", () => {
 
       render(<Wrapper />)
 
-      await userEvent.click(screen.getByText("Click me"))
+      await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toBeCalledWith(
         "test__date-input-field--ref",
         "Choose date"

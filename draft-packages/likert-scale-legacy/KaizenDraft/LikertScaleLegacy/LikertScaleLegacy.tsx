@@ -109,10 +109,12 @@ export const LikertScaleLegacy = ({
       tabIndex={-1}
       aria-describedby={validationMessageId}
       data-automation-id={automationId}
+      data-testid={automationId}
     >
       <div
         className={styles.legend}
         data-automation-id={automationId && `${automationId}-legend`}
+        data-testid={automationId && `${automationId}-legend`}
       >
         <Paragraph variant="small" color={reversed ? "white" : "dark"}>
           {legend}
@@ -162,6 +164,7 @@ export const LikertScaleLegacy = ({
               data-automation-id={
                 automationId && `${automationId}-item-${item.value}`
               }
+              data-testid={automationId && `${automationId}-item-${item.value}`}
               onClick={(): void => handleRadioClick(item)}
               onMouseEnter={(): void => setHoveredItem(item)}
               onMouseLeave={(): void => setHoveredItem(null)}

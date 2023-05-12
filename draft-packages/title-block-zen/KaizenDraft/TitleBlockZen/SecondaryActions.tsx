@@ -92,6 +92,7 @@ const SecondaryActions = ({
                 reversed={reversed}
                 {...action}
                 data-automation-id="title-block-secondary-actions-button"
+                data-testid="title-block-secondary-actions-button"
               />
             ),
           }

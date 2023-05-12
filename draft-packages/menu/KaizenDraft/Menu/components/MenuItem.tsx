@@ -74,6 +74,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
           disabled={true}
           className={className}
           data-automation-id={automationId}
+          data-testid={automationId}
         >
           {iconNode}
           {wrappedLabel}
@@ -92,6 +93,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
           }
           className={className}
           data-automation-id={automationId}
+          data-testid={automationId}
           target={target}
           // this tells screenreaders that this link represents the current page
           // (only intended for use in things like a nav with dropdowns)
@@ -113,6 +115,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
         }
         className={className}
         data-automation-id={automationId}
+        data-testid={automationId}
       >
         {iconNode}
         {wrappedLabel}
