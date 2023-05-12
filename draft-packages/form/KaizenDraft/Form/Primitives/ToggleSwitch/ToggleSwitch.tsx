@@ -53,7 +53,11 @@ export const ToggleSwitch = ({
       />
       <span className={styles.track}>
         <span className={styles.thumb}>
-          <Icon icon={checkIcon} classNameOverride={styles.checkIcon} />
+          <Icon
+            icon={checkIcon}
+            classNameOverride={styles.checkIcon}
+            role="presentation"
+          />
         </span>
       </span>
     </span>
