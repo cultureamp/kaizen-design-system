@@ -96,6 +96,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           !group && styles.single
         )}
         data-automation-id={automationId || `collapsible-container-${id}`}
+        data-testid={automationId || `collapsible-container-${id}`}
         {...props} // `title` is missing because it is used for the header; requires breaking change to fix
       >
         {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
@@ -112,6 +113,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           style={sticky && { top: sticky.top }}
           onClick={this.handleSectionToggle}
           data-automation-id={`collapsible-header-${id}`}
+          data-testid={`collapsible-header-${id}`}
         >
           {renderHeader !== undefined ? (
             renderHeader(title)
@@ -119,6 +121,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
             <div
               className={styles.title}
               data-automation-id={`collapsible-button-title-${id}`}
+              data-testid={`collapsible-button-title-${id}`}
             >
               <Heading variant="heading-4" tag="span">
                 {title}
@@ -133,6 +136,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
               aria-expanded={open}
               aria-controls={sectionId}
               data-automation-id={`collapsible-button-${id}`}
+              data-testid={`collapsible-button-${id}`}
               id={buttonId}
               onClick={this.handleButtonPress}
               classNameOverride={styles.chevronButton}
@@ -143,6 +147,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           <AnimateHeight
             height={open ? "auto" : 0}
             data-automation-id={`collapsible-section-${id}`}
+            data-testid={`collapsible-section-${id}`}
           >
             <div
               id={sectionId}

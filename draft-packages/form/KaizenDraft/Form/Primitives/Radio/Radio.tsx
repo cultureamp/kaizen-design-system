@@ -45,6 +45,7 @@ export const Radio = ({
   <span>
     <input
       data-automation-id={automationId}
+      data-testid={automationId}
       type="radio"
       id={id}
       name={name}
