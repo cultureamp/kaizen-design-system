@@ -7,6 +7,7 @@
 
 .navigationBar {
   @extend %navigation-bar;
+
   box-sizing: border-box;
   top: 0;
   z-index: $ca-z-index-fixed;
@@ -14,17 +15,20 @@
 
 .page {
   @extend %page;
+
   box-sizing: border-box;
   position: relative;
 }
 
 .header {
   @extend %header;
+
   box-sizing: border-box;
 }
 
 .body {
   @extend %body;
+
   box-sizing: border-box;
 }
 
@@ -34,16 +38,19 @@
 
 .sidebar {
   @extend %sidebar;
+
   box-sizing: border-box;
 }
 
 .content {
   @extend %content;
+
   box-sizing: border-box;
 }
 
 .footer {
   @extend %footer;
+
   box-sizing: border-box;
 }
 
@@ -54,5 +61,5 @@
 }
 
 .announcers {
-  @include sr-only();
+  @include sr-only;
 }

@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "../fonts.scss";
+@import "../fonts";
 
 .paragraph {
   margin: 0;
@@ -44,22 +44,22 @@
 
 .dark {
   color: $color-purple-800;
-  opacity: 1;
+  opacity: 100%;
 }
 
 .dark-reduced-opacity {
   color: $color-purple-800;
-  opacity: 0.7;
+  opacity: 70%;
 }
 
 .white {
   color: $color-white;
-  opacity: 1;
+  opacity: 100%;
 }
 
 .white-reduced-opacity {
   color: $color-white;
-  opacity: 0.8;
+  opacity: 80%;
 }
 
 .positive {

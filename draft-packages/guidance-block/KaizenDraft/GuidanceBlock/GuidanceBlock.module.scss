@@ -152,7 +152,7 @@ $scene-illustration-size: 300px;
 }
 
 .hidden {
-  opacity: 0;
+  opacity: 0%;
   margin-bottom: 0;
 }
 
@@ -162,6 +162,7 @@ $scene-illustration-size: 300px;
 
 .cancel {
   @include button-reset;
+
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   position: absolute;
   top: $spacing-sm;
@@ -195,11 +196,10 @@ $scene-illustration-size: 300px;
 
 .inline,
 .stacked {
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: unset;
   gap: $spacing-md;
   min-width: unset;
-  flex-wrap: wrap;
 
   @include ca-media-tablet-and-under {
     flex-direction: unset;
@@ -312,6 +312,7 @@ $scene-illustration-size: 300px;
   }
 }
 
+/* stylelint-disable no-descending-specificity */
 .stacked {
   .descriptionAndActions {
     flex-direction: column;
@@ -322,3 +323,4 @@ $scene-illustration-size: 300px;
     align-self: flex-start;
   }
 }
+/* stylelint-enable no-descending-specificity */

@@ -1,12 +1,15 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
+/* stylelint-disable selector-no-vendor-prefix */
+
 $input-placeholder-line-height: 2.9rem;
 
 // Simple form input css reset
 @mixin form-input-reset() {
   outline: 0;
   box-sizing: border-box;
+
   @include ca-type-inter($size: 16, $weight: $ca-weight-light);
   @include ca-inherit-baseline;
 }
@@ -16,14 +19,16 @@ $input-placeholder-line-height: 2.9rem;
   box-shadow: 0 0 0 1px $color; // fake a 2px border without moving input
 }
 
-// Cross browser mixin for styling of text input placeholder
-//
-// Example usage:
-// ```
-// @include input-placeholder {
-//  color: $kz-var-color-white;
-// }
-// ```
+/*
+ * Cross browser mixin for styling of text input placeholder
+ *
+ * Example usage:
+ * ```
+ * @include input-placeholder {
+ *  color: $kz-var-color-white;
+ * }
+ * ```
+ */
 @mixin form-input-placeholder() {
   &::-webkit-input-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
@@ -34,6 +39,7 @@ $input-placeholder-line-height: 2.9rem;
   &:-moz-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
+
     line-height: $input-placeholder-line-height;
     @content;
   }
@@ -41,6 +47,7 @@ $input-placeholder-line-height: 2.9rem;
   &::-moz-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
+
     line-height: $input-placeholder-line-height;
     @content;
   }
@@ -48,6 +55,7 @@ $input-placeholder-line-height: 2.9rem;
   &:-ms-input-placeholder {
     @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
+
     line-height: $input-placeholder-line-height;
     @content;
   }
@@ -56,10 +64,13 @@ $input-placeholder-line-height: 2.9rem;
 // Visually hide a native input but not prevent it from being keyboard focusable
 // Useful in situations such as applying custom styling to checkboxes
 @mixin form-input-visually-hidden() {
-  opacity: 0;
+  opacity: 0%;
   position: absolute;
+
   :global(.ideal-sans) & {
     // This is to override bootstrap styles. Remove when appropriate
     position: absolute;
   }
 }
+
+/* stylelint-enable selector-no-vendor-prefix */

@@ -35,6 +35,7 @@ $dt-content-border-color: rgba($color-gray-600-rgb, 0.1);
 }
 
 .menuSeparator {
-  @extend .content;
+  @extend .content; /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
+
   margin: 5px 0;
 }
