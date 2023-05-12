@@ -60,7 +60,6 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   // Types
-
   &%ca-notification---positive {
     background: $color-green-100;
     border-color: $color-green-300;
@@ -102,9 +101,8 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   // Hidden state
-
   &%ca-notification---hidden {
-    opacity: 0;
+    opacity: 0%;
 
     &%ca-notification---inline,
     &%ca-notification---global {
@@ -117,6 +115,7 @@ $notification-slide-right: transform 300ms ease-out;
       transition-timing-function: ease-in;
       transform: translateY(-50%);
     }
+
     &%ca-notification---toast {
       // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
       // We want it moving the fastest when it is the furthest off screen.
@@ -126,12 +125,11 @@ $notification-slide-right: transform 300ms ease-out;
 
     &%ca-notification---global {
       z-index: 1029;
-      opacity: 1;
+      opacity: 100%;
     }
   }
 
   // Modifiers
-
   &%ca-notification---noBottomMargin {
     margin-bottom: 0;
   }
@@ -173,6 +171,7 @@ $notification-slide-right: transform 300ms ease-out;
 
   %ca-notification---global & {
     $size: calc(#{$spacing-md} * 1.25);
+
     width: $size;
     height: $size;
     padding: calc(((#{$spacing-md} * 2) - #{$size}) / 2);
@@ -200,8 +199,7 @@ $notification-slide-right: transform 300ms ease-out;
 %ca-notification__text-container {
   box-sizing: content-box;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   flex: 1 0 0;
 
   %ca-notification---inline &,
@@ -277,7 +275,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    //Inherit baseline because the parent selector doesn't.
+    // Inherit baseline because the parent selector doesn't.
     position: static;
     font-weight: $typography-paragraph-body-font-weight;
     font-size: $typography-paragraph-body-font-size;
@@ -311,6 +309,7 @@ $notification-slide-right: transform 300ms ease-out;
 
 %ca-notification__cancel {
   @include button-reset;
+
   composes: interactiveIconWrapper from from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   color: $color-purple-800;
   transform: none;

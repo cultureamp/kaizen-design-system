@@ -24,15 +24,6 @@
   letter-spacing: $typography-heading-4-letter-spacing;
   color: $color-purple-800;
 
-  &:not(:first-child) {
-    margin-inline-start: $spacing-xs;
-  }
-
-  &:not(:disabled):hover {
-    background: $color-blue-100;
-    color: $color-blue-500;
-  }
-
   &:focus {
     outline: none;
   }
@@ -41,6 +32,19 @@
     background: $color-blue-100;
     color: $color-blue-500;
     border-color: $color-blue-500;
+  }
+
+  &:disabled {
+    opacity: 30%;
+  }
+
+  &:not(:first-child) {
+    margin-inline-start: $spacing-xs;
+  }
+
+  &:not(:disabled):hover {
+    background: $color-blue-100;
+    color: $color-blue-500;
   }
 }
 
@@ -53,7 +57,7 @@
     display: block;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: currentColor;
+    background-color: currentcolor;
     height: 5px;
     width: 100%;
     position: absolute;
@@ -61,10 +65,6 @@
     right: 0;
     bottom: 0;
   }
-}
-
-.tab:disabled {
-  opacity: 0.3;
 }
 
 .badge {
@@ -79,6 +79,7 @@
 
     &:focus-visible::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
       content: "";
       position: absolute;
       background: transparent;
@@ -86,10 +87,7 @@
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
       border-color: transparent;
-      top: calc(-1 * #{$focus-ring-offset});
-      left: calc(-1 * #{$focus-ring-offset});
-      right: calc(-1 * #{$focus-ring-offset});
-      bottom: calc(-1 * #{$focus-ring-offset});
+      inset: calc(-1 * #{$focus-ring-offset});
     }
   }
 

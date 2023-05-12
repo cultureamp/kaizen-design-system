@@ -14,7 +14,7 @@
 
 .tooltipContent {
   max-width: 400px;
-  padding: 0.4375rem 0.53125rem;
+  padding: 0.4375rem 0.5313rem;
   color: $color-purple-800;
   text-align: center;
   font-family: $typography-paragraph-body-font-family;
@@ -83,12 +83,15 @@
 
   [data-popper-placement^="left"] & {
     right: 0;
+
     .arrowInner {
       transform: rotate(270deg);
     }
   }
+
   [data-popper-placement^="right"] & {
     left: 0;
+
     .arrowInner {
       transform: rotate(90deg);
     }
@@ -127,7 +130,7 @@
     border-top: $arrow-height solid $color-yellow-300;
   }
   // after styles
-  &:after {
+  &::after {
     margin-top: -3px;
   }
 
@@ -153,7 +156,7 @@
 }
 
 .arrowShadow::before {
-  border-top: 0px solid $color-gray-300;
+  border-top: 0 solid $color-gray-300;
 }
 
 // Triangle portion is a little darker to bring out shadow

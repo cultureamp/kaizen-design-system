@@ -10,7 +10,7 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
+import { Menu, MenuList, MenuItem, StatelessMenu, MenuHeading } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
@@ -285,7 +285,7 @@ export const ContentAndList: StoryFn = () => (
           <a href="/">Custom anchor link</a>
         </li>
       </ul>
-      <MenuList heading="Menu primitives">
+      <MenuList heading={<MenuHeading>Menu primitives</MenuHeading>}>
         <MenuItem
           href="https://www.cultureamp.com/"
           label="MenuItem primitive link"

@@ -1,5 +1,5 @@
 @import "../mixins";
 
 .content > :global(.ProseMirror) {
-  @include contentStyles;
+  @include content-styles;
 }

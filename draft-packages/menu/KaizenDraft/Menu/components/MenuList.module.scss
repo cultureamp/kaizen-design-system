@@ -1,21 +1,4 @@
-@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/typography";
-
-$gutter: calc(#{$spacing-md} * 1 / 6);
-
-.header {
-  padding: 10px $spacing-sm 5px;
-  color: $color-purple-800;
-  margin: 0 $gutter;
-  font-family: $typography-heading-6-font-family;
-  font-weight: $typography-heading-6-font-weight;
-  font-size: $typography-heading-6-font-size;
-  line-height: $typography-heading-6-line-height;
-  letter-spacing: $typography-heading-6-letter-spacing;
-  display: block;
-}
 
 .menuSection {
   list-style: none;

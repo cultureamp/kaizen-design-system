@@ -5,8 +5,34 @@
 @import "~@kaizen/design-tokens/sass/animation";
 
 $heading-active-color: $color-gray-200;
-// ^This is just a temporary hex to get us by for now until we rearrange our neutrals and introduce something that can used here.
 $border-color: rgba($color-gray-600-rgb, 0.2);
+
+.header {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  background-color: $color-white;
+  border: none;
+  transition: background-color $animation-duration-rapid;
+  padding: $spacing-sm $spacing-sm $spacing-sm $spacing-md;
+
+  &:hover {
+    background-color: $heading-active-color;
+  }
+
+  [dir="rtl"] & {
+    text-align: right;
+    padding-left: $spacing-sm;
+    padding-right: $spacing-md;
+  }
+
+  // Round the bottom corners of the header so when the container is open, the
+  // header background is not rounded on the corners and flush with the content beneath.
+  .open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
 
 // We need a full border radius on this container element, then have classes
 // beneath to toggle nested borders off and on for different use cases.
@@ -53,36 +79,6 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
   }
 }
 
-// Round the bottom corners of the header so when the container is open, the
-// header background is not rounded on the corners and flush with the content beneath.
-.open .header {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  background-color: $color-white;
-  border: none;
-  transition: background-color $animation-duration-rapid;
-  padding-top: $spacing-sm;
-  padding-bottom: $spacing-sm;
-  padding-left: $spacing-md;
-  padding-right: $spacing-sm;
-
-  &:hover {
-    background-color: $heading-active-color;
-  }
-
-  [dir="rtl"] & {
-    text-align: right;
-    padding-left: $spacing-sm;
-    padding-right: $spacing-md;
-  }
-}
-
 .chevronButton:hover {
   // hack to get rid of the IconButton hover styling because it clashes with the hover styling on the Collapsible header
   background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
@@ -101,7 +97,7 @@ $border-color: rgba($color-gray-600-rgb, 0.2);
 }
 
 .sticky {
-  position: -webkit-sticky;
+  position: -webkit-sticky; /* stylelint-disable-line value-no-vendor-prefix */
   position: sticky;
   z-index: 10;
 }

@@ -19,7 +19,6 @@ $input-disabled-opacity: 0.3;
 ///////////////////////////////////////////////////
 // VALIDATION STYLES
 ///////////////////////////////////////////////////
-
 .success {
   @include input-icon($color-green-500, $color-green-400);
   @include ca-animation-fade(in);
