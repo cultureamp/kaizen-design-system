@@ -1,12 +1,10 @@
 import React from "react"
-import {
-  fireEvent,
-  render,
-  RenderResult,
-  waitFor,
-} from "@testing-library/react"
+import { render, RenderResult, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { MenuItem, MenuList } from "@kaizen/draft-menu"
 import { SplitButton, SplitButtonProps } from "./SplitButton"
+
+const user = userEvent.setup()
 
 const DEFAULT_PROPS: SplitButtonProps = {
   actionButtonProps: {
@@ -39,7 +37,7 @@ describe("<SplitButton />", () => {
 
     const dropdownButton = getByLabelText("Dropdown Label")
     expect(dropdownButton).toBeInTheDocument()
-    fireEvent.click(dropdownButton)
+    await user.click(dropdownButton)
 
     await waitFor(() => {
       expect(getByText("Menu Item 1")).toBeInTheDocument()
