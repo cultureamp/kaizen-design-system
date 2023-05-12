@@ -7,6 +7,8 @@ import {
   DateInputWithIconButtonProps,
 } from "./DateInputWithIconButton"
 
+const user = userEvent.setup()
+
 const defaultProps: DateInputWithIconButtonProps = {
   id: "test__date-input-with-icon-button",
   labelText: "Due date",
@@ -84,7 +86,7 @@ describe("<DateInputWithIconButton />", () => {
 
       render(<Wrapper />)
 
-      await userEvent.click(screen.getByText("Click me"))
+      await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toBeCalledWith(
         "test__date-input-field--ref",
         "Choose date"
