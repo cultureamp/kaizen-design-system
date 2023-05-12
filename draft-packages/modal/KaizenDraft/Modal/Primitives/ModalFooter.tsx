@@ -51,6 +51,7 @@ export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
               destructive={index === 0 && appearance === "destructive"}
               secondary={index > 0}
               data-automation-id={`${automationId}-action-${index}`}
+              data-testid={`${automationId}-action-${index}`}
               fullWidth={queries.isSmall}
               {...action}
             />

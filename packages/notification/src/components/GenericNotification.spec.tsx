@@ -1,7 +1,7 @@
 import React from "react"
 import { fireEvent, waitFor } from "@testing-library/dom"
 import { act, render } from "@testing-library/react"
-import * as ReactTestUtils from "react-dom/test-utils"
+import ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 
 describe("<GenericNotification />", () => {
@@ -20,7 +20,13 @@ describe("<GenericNotification />", () => {
       </GenericNotification>
     )
 
-    expect(container.querySelector(".hidden")).toBeInTheDocument()
+    await waitFor(() => {
+      expect(container.querySelector(".hidden")).toBeInTheDocument()
+    })
+
+    await act(async () => {
+      jest.advanceTimersByTime(50)
+    })
 
     await waitFor(() => {
       expect(container.querySelector(".hidden")).not.toBeInTheDocument()
@@ -88,8 +94,10 @@ describe("<GenericNotification />", () => {
 
     expect(container.querySelector(".hidden")).not.toBeInTheDocument()
 
-    await waitFor(() => {
-      expect(container.querySelector(".hidden")).toBeInTheDocument()
+    await act(async () => {
+      jest.advanceTimersByTime(1)
     })
+
+    expect(container.querySelector(".hidden")).toBeInTheDocument()
   })
 })

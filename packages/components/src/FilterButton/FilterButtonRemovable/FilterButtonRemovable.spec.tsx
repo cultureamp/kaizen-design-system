@@ -7,6 +7,8 @@ import {
   FilterButtonRemovableRefs,
 } from "."
 
+const user = userEvent.setup()
+
 const FilterButtonRemovableWrapper = ({
   triggerButtonProps,
   removeButtonProps,
@@ -72,7 +74,7 @@ describe("<FilterButtonRemovable />", () => {
 
       render(<Wrapper />)
 
-      await userEvent.click(screen.getByText("Click me"))
+      await user.click(screen.getByText("Click me"))
       expect(onClick).toBeCalledWith(
         "test__trigger-button",
         "test__remove-button"

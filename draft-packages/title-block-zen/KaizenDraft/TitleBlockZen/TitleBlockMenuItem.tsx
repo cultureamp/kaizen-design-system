@@ -20,6 +20,7 @@ export const TitleBlockMenuItem = (
     styles.disabled && styles["menuItem--disabled"],
     styles.isActive && styles["menuItem--active"]
   )
+
   if ("component" in props) {
     const { component: CustomMenuItem, label, icon, ...otherProps } = props
     const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>

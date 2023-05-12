@@ -243,7 +243,11 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
   }
 
   return (
-    <div data-automation-id="survey-status-tag" className={styles.tag}>
+    <div
+      data-automation-id="survey-status-tag"
+      data-testid="survey-status-tag"
+      className={styles.tag}
+    >
       <Tag variant={tagVariant} size="small">
         {surveyStatus.text}
       </Tag>
@@ -263,12 +267,17 @@ const renderAvatar = (
   isJSXElement(imageElementOrAvatarProps) ? (
     <div
       data-automation-id={avatarAutomationId}
+      data-testid={avatarAutomationId}
       className={classnames(styles.avatar, styles.withBorder)}
     >
       {imageElementOrAvatarProps}
     </div>
   ) : (
-    <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+    <div
+      data-automation-id={avatarAutomationId}
+      data-testid={avatarAutomationId}
+      className={styles.avatar}
+    >
       <Avatar {...imageElementOrAvatarProps} size="medium" />
     </div>
   )
@@ -280,6 +289,7 @@ const renderSubtitle = (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
+      data-testid={subtitleAutomationId}
       className={styles.subtitleText}
     >
       {subtitle}
@@ -302,6 +312,7 @@ const defaultRenderSectionTitle = (
           color={isReversed(variant) ? "white" : "dark"}
           classNameOverride={styles.sectionTitleOverride}
           data-automation-id={sectionTitleAutomationId}
+          data-testid={sectionTitleAutomationId}
         >
           {sectionTitle}
         </Heading>
@@ -310,6 +321,7 @@ const defaultRenderSectionTitle = (
     {sectionTitleDescription && (
       <div
         data-automation-id={sectionTitleDescriptionAutomationId}
+        data-testid={sectionTitleDescriptionAutomationId}
         className={classnames(
           styles.sectionTitleDescription,
           !isReversed(variant) && styles.dark
@@ -361,6 +373,7 @@ const Breadcrumb = ({
       <span
         className={styles.breadcrumbTextLink}
         data-automation-id={textAutomationId}
+        data-testid={textAutomationId}
       >
         <span className={styles.breadcrumbText}>{text}</span>
       </span>
@@ -389,6 +402,7 @@ const Breadcrumb = ({
       {...(path && { href: path })}
       className={styles.breadcrumb}
       data-automation-id={automationId}
+      data-testid={automationId}
       onClick={handleClick}
     >
       <InnerContents />
@@ -635,6 +649,7 @@ export const TitleBlockZen = ({
                             color={isReversed(variant) ? "white" : "dark"}
                             classNameOverride={styles.titleTextOverride}
                             data-automation-id={titleAutomationId}
+                            data-testid={titleAutomationId}
                           >
                             {title}
                           </Heading>

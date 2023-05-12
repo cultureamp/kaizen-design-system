@@ -1,9 +1,11 @@
 import React from "react"
-import { fireEvent } from "@testing-library/dom"
-import { render } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Radio, RadioProps } from "./Radio"
 
-const defaultRadioProps: RadioProps = {
+const user = userEvent.setup()
+
+const defaultRadioProps = {
   id: "testRadioId",
   automationId: "RadioAutomationId",
   selectedStatus: false,
@@ -11,21 +13,23 @@ const defaultRadioProps: RadioProps = {
   name: "RadioName",
   onChange: jest.fn(),
   value: "radio-1",
-}
+} satisfies RadioProps
+
 const renderRadio = (props?: RadioProps): ReturnType<typeof render> => {
   const mergedRadioProps = { ...defaultRadioProps, ...props }
 
   return render(<Radio {...mergedRadioProps} />)
 }
-describe("<Radio />", () => {
-  it("calls the `onChange` event when clicked", () => {
-    const { container } = render(<Radio {...defaultRadioProps} />)
-    const radioInput = container.querySelector(
-      `[data-automation-id="${defaultRadioProps.automationId}"]`
-    ) as Node
 
-    fireEvent.click(radioInput)
-    expect(defaultRadioProps.onChange).toBeCalledTimes(1)
+describe("<Radio />", () => {
+  it("calls the `onChange` event when clicked", async () => {
+    const { getByTestId } = render(<Radio {...defaultRadioProps} />)
+    const radioInput = getByTestId(defaultRadioProps.automationId)
+
+    await user.click(radioInput)
+    await waitFor(() => {
+      expect(defaultRadioProps.onChange).toBeCalledTimes(1)
+    })
   })
 
   it("has the disabled attribute applied if the disabled prop is true", () => {
