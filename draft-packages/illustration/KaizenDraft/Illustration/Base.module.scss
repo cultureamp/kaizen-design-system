@@ -21,6 +21,10 @@
     border: 1px solid $color-gray-400;
     transition: all $animation-duration-immediate;
 
+    @media (hover: none) and (pointer: coarse) {
+      opacity: 1;
+    }
+
     svg {
       color: $color-purple-800;
       opacity: 0.7;
