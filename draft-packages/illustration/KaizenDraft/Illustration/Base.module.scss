@@ -12,6 +12,7 @@
 
   // nested to get more specificity, beat out the generic button styles
   .pausePlayButton {
+    opacity: 0;
     position: absolute;
     right: 1rem;
     bottom: 1rem;
@@ -31,6 +32,12 @@
       svg {
         opacity: 1;
       }
+    }
+  }
+
+  &:hover {
+    .pausePlayButton {
+      opacity: 1;
     }
   }
 }
