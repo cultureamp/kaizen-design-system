@@ -37,6 +37,7 @@ const MainActions = ({
         {...item}
         key={`main-action-primary-menu-item-${idx}`}
         automationId={`main-action-primary-menu-item-${idx}`}
+        data-testid={`main-action-primary-menu-item-${idx}`}
       />
     ))
 
@@ -55,6 +56,7 @@ const MainActions = ({
                         : reversed,
                   }}
                   data-automation-id="title-block-default-action-button"
+                  data-testid="title-block-default-action-button"
                 />
               ),
             },
@@ -75,6 +77,7 @@ const MainActions = ({
                       icon={chevronDownIcon}
                       iconPosition="end"
                       data-automation-id="title-block-primary-action-button"
+                      data-testid="title-block-primary-action-button"
                       badge={
                         primaryAction.badge
                           ? {
@@ -109,6 +112,7 @@ const MainActions = ({
                         : reversed,
                   }}
                   data-automation-id="title-block-default-action-button"
+                  data-testid="title-block-default-action-button"
                 />
               ),
             },
@@ -132,6 +136,7 @@ const MainActions = ({
                         : reversed,
                   }}
                   data-automation-id="title-block-primary-action-button"
+                  data-testid="title-block-primary-action-button"
                   badge={
                     primaryAction.badge
                       ? {
@@ -180,7 +185,11 @@ const MainActions = ({
 
   return (
     <div className={styles.mainActionsContainer}>
-      <Toolbar items={items} automationId="title-block-main-actions-toolbar" />
+      <Toolbar
+        items={items}
+        automationId="title-block-main-actions-toolbar"
+        data-testid="title-block-main-actions-toolbar"
+      />
     </div>
   )
 }

@@ -1,8 +1,10 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { useSelectionContext } from "../../../provider"
 import { SelectAllButton } from "./"
+
+const user = userEvent.setup()
 
 jest.mock("../../../provider", () => ({
   useSelectionContext: jest.fn(),
@@ -32,10 +34,12 @@ describe("<SelectAllButton /> - interaction", () => {
         },
       })
       render(<SelectAllButton />)
-      await userEvent.click(screen.getByRole("button"))
+      await user.click(screen.getByRole("button"))
 
-      expect(spy).toHaveBeenCalledTimes(1)
-      expect(spy).toHaveBeenCalledWith([...selectedKeys, ...filteredKeys])
+      await waitFor(() => {
+        expect(spy).toHaveBeenCalledTimes(1)
+        expect(spy).toHaveBeenCalledWith([...selectedKeys, ...filteredKeys])
+      })
     })
   })
 
@@ -60,9 +64,11 @@ describe("<SelectAllButton /> - interaction", () => {
         },
       })
       render(<SelectAllButton />)
-      await userEvent.click(screen.getByRole("button"))
+      await user.click(screen.getByRole("button"))
 
-      expect(spy).toHaveBeenCalledTimes(0)
+      await waitFor(() => {
+        expect(spy).toHaveBeenCalledTimes(0)
+      })
     })
   })
 
@@ -91,13 +97,17 @@ describe("<SelectAllButton /> - interaction", () => {
         },
       })
       render(<SelectAllButton />)
-      await userEvent.click(screen.getByRole("button"))
+      await user.click(screen.getByRole("button"))
 
-      expect(spy).toHaveBeenCalledTimes(1)
-      expect(spy).toHaveBeenCalledWith(
-        expect.arrayContaining([filtered, filteredAndSelected])
-      )
-      expect(spy).not.toHaveBeenCalledWith(expect.arrayContaining(disabledKeys))
+      await waitFor(() => {
+        expect(spy).toHaveBeenCalledTimes(1)
+        expect(spy).toHaveBeenCalledWith(
+          expect.arrayContaining([filtered, filteredAndSelected])
+        )
+        expect(spy).not.toHaveBeenCalledWith(
+          expect.arrayContaining(disabledKeys)
+        )
+      })
     })
   })
 })

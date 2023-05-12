@@ -2,8 +2,9 @@ import React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { useSelectionContext } from "../../provider"
-
 import { SearchInput } from "./"
+
+const user = userEvent.setup()
 
 jest.mock("../../provider", () => ({
   useSelectionContext: jest.fn(),
@@ -30,7 +31,7 @@ describe("<SearchInput /> - interaction", () => {
 
     render(<SearchInputWrapper />)
     const search = screen.getByRole("searchbox")
-    await userEvent.type(search, "want to search this text")
+    await user.type(search, "want to search this text")
 
     expect(spy).toHaveBeenLastCalledWith("want to search this text")
   })
@@ -44,7 +45,7 @@ describe("<SearchInput /> - interaction", () => {
 
     render(<SearchInputWrapper />)
     const clearButton = screen.getByRole("button")
-    await userEvent.click(clearButton)
+    await user.click(clearButton)
 
     expect(spy).toHaveBeenLastCalledWith("")
   })

@@ -4,6 +4,8 @@ import userEvent from "@testing-library/user-event"
 import { FilterButton } from "../FilterButton"
 import { Filter, FilterProps } from "./Filter"
 
+const user = userEvent.setup()
+
 const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false)
   return (
@@ -37,7 +39,7 @@ describe("<Filter />", () => {
   it("shows content when trigger button is clicked", async () => {
     render(<FilterWrapper />)
     const filterButton = screen.getByRole("button", { name: "Label" })
-    await userEvent.click(filterButton)
+    await user.click(filterButton)
     await waitFor(() => {
       expect(screen.getByRole("dialog")).toBeVisible()
       expect(screen.getByText("Filter Contents")).toBeVisible()
@@ -47,9 +49,9 @@ describe("<Filter />", () => {
   it("shows content when trigger button on keydown enter", async () => {
     render(<FilterWrapper />)
     const filterButton = screen.getByRole("button", { name: "Label" })
-    await userEvent.tab()
+    await user.tab()
     expect(filterButton).toHaveFocus()
-    userEvent.keyboard("{Enter}")
+    await user.keyboard("{Enter}")
 
     await waitFor(() => {
       expect(screen.getByRole("dialog")).toBeVisible()

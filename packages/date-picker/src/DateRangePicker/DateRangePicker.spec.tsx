@@ -5,6 +5,8 @@ import { DateRange } from "react-day-picker"
 import { DateRangePicker, DateRangePickerProps } from "./DateRangePicker"
 import { formatDateRangeValue } from "./utils/formatDateRangeValue"
 
+const user = userEvent.setup()
+
 const DateRangePickerWrapper = (
   props: Partial<DateRangePickerProps>
 ): JSX.Element => {
@@ -44,7 +46,7 @@ describe("<DateRangePicker />", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
     const button = screen.getByRole("button")
-    await userEvent.click(button)
+    await user.click(button)
 
     await waitFor(() => {
       expect(screen.queryByRole("dialog")).toBeInTheDocument()
@@ -57,10 +59,8 @@ describe("<DateRangePicker />", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
     const button = screen.getByRole("button")
-    await waitFor(async () => {
-      button.focus()
-      await userEvent.keyboard("{enter}")
-    })
+    button.focus()
+    await user.keyboard("{enter}")
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument()
   })

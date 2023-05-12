@@ -1,6 +1,9 @@
-import * as React from "react"
-import { render, screen, fireEvent } from "@testing-library/react"
+import React from "react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import Dropdown from "./Dropdown"
+
+const user = userEvent.setup()
 
 const svgIcon = {
   id: "my-icon",
@@ -48,7 +51,7 @@ describe("<Dropdown />", () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it("shows dropdown menu when clicking on the button", () => {
+  it("shows dropdown menu when clicking on the button", async () => {
     const { container } = render(
       <Dropdown>
         <div>Item</div>
@@ -56,8 +59,10 @@ describe("<Dropdown />", () => {
     )
 
     const button = container.querySelector(".dropdownButton")
-    button && fireEvent.click(button)
+    button && (await user.click(button))
 
-    expect(screen.queryByText("Item")).toBeTruthy()
+    await waitFor(() => {
+      expect(screen.queryByText("Item")).toBeTruthy()
+    })
   })
 })

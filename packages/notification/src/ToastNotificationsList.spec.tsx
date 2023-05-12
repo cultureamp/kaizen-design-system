@@ -1,10 +1,8 @@
-import * as React from "react"
+import React from "react"
 import { fireEvent } from "@testing-library/dom"
-import { act, configure, render, waitFor, screen } from "@testing-library/react"
+import { act, render, waitFor, screen } from "@testing-library/react"
 import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 import { ToastNotification } from "./types"
-
-configure({ testIdAttribute: "data-automation-id" })
 
 describe("<ToastNotificationsListContainer />", () => {
   it("passes the setNotifications callback", () => {

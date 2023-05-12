@@ -1,10 +1,13 @@
 import React from "react"
-import { fireEvent, waitFor } from "@testing-library/dom"
+import { waitFor } from "@testing-library/dom"
 import { cleanup, render } from "@testing-library/react"
 import { act } from "@testing-library/react-hooks"
-import * as ReactTestUtils from "react-dom/test-utils"
+import userEvent from "@testing-library/user-event"
+import ReactTestUtils from "react-dom/test-utils"
 import { Informative } from "@kaizen/draft-illustration"
 import GuidanceBlock from "./GuidanceBlock"
+
+const user = userEvent.setup()
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = jest.fn().mockImplementation(() => ({
@@ -37,7 +40,7 @@ describe("GuidanceBlock", () => {
     expect(container.querySelector(".hidden")).toBeFalsy()
   })
 
-  it("hides the notification when the cancel button is clicked and calls the on dismiss function", () => {
+  it("hides the notification when the cancel button is clicked and calls the on dismiss function", async () => {
     const onDismiss = jest.fn()
     const { container } = render(
       <GuidanceBlock
@@ -59,10 +62,12 @@ describe("GuidanceBlock", () => {
 
     // After clicking, the element should fade out
     const cancelButton = container.querySelector(".cancel")
-    cancelButton && fireEvent.click(cancelButton)
+    cancelButton && (await user.click(cancelButton))
 
-    expect(container.querySelector(".hidden")).toBeTruthy()
-    expect(onDismiss).toHaveBeenCalledTimes(1)
+    await waitFor(() => {
+      expect(container.querySelector(".hidden")).toBeTruthy()
+      expect(onDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
   it("calls the action function when action button is clicked", async () => {
@@ -81,8 +86,11 @@ describe("GuidanceBlock", () => {
       />
     )
     const actionButton = container.querySelector("button")
-    actionButton && fireEvent.click(actionButton)
-    expect(onAction).toHaveBeenCalledTimes(1)
+    actionButton && (await user.click(actionButton))
+
+    await waitFor(() => {
+      expect(onAction).toHaveBeenCalledTimes(1)
+    })
   })
 
   it("removes the banner element when the animation ends", async () => {
@@ -101,7 +109,8 @@ describe("GuidanceBlock", () => {
     )
     // After clicking, the element should fade out
     const cancelButton = container.querySelector(".cancel")
-    cancelButton && fireEvent.click(cancelButton)
+    cancelButton && (await user.click(cancelButton))
+
     const banner = container.querySelector(".banner")
     // Simulate fade out
     act(() => {
