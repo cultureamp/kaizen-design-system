@@ -53,7 +53,6 @@ export const Playground: StoryFn<typeof Filter> = () => {
     </Filter>
   )
 }
-Playground.storyName = "Filter"
 
 export const RemovableFilter: StoryFn = () => {
   const [isOpen, setIsOpen] = useState(false)
