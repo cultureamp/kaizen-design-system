@@ -36,7 +36,7 @@ export default {
 /**
  * These components are mainly used for constructing Filters (eg. FilterSelect):
  *
- * - `FilterButton`for the renderTrigger.
+ * - `FilterButton` for the renderTrigger.
  * - `FilterContents` to wrap the contents within a Filter.
  */
 export const Playground: StoryFn<typeof Filter> = () => {
