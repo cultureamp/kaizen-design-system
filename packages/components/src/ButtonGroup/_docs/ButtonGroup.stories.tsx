@@ -39,7 +39,6 @@ export const Playground: StoryFn<typeof ButtonGroup> = args => (
     <FilterButtonBase>Last</FilterButtonBase>
   </ButtonGroup>
 )
-Playground.storyName = "Button Group"
 
 const StickerSheetTemplate: StoryFn = () => (
   <>
