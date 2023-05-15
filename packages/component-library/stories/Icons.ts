@@ -23,6 +23,7 @@ import comment from "../icons/comment.icon.svg"
 import commentAdd from "../icons/comment-add.icon.svg"
 import commentBank from "../icons/comment-bank.icon.svg"
 import commentDisabled from "../icons/comment-disabled.icon.svg"
+import connectLine from "../icons/connect-line.icon.svg"
 import clear from "../icons/clear.icon.svg"
 import add from "../icons/add.icon.svg"
 import subtract from "../icons/subtract.icon.svg"
@@ -183,6 +184,7 @@ import heatmap from "../icons/heatmap.icon.svg"
 import insight from "../icons/insight.icon.svg"
 import tasks from "../icons/tasks.icon.svg"
 import textAnalytics from "../icons/text-analytics.icon.svg"
+import insights from "../icons/insights.icon.svg"
 
 export const Logo = {
   caMonogram,
@@ -208,6 +210,7 @@ export const Actions = {
   commentAdd,
   commentDisabled,
   commentBank,
+  connectLine,
   clear,
   add,
   subtract,
@@ -376,4 +379,5 @@ export const Miscellaneous = {
   insight,
   tasks,
   textAnalytics,
+  insights,
 }
