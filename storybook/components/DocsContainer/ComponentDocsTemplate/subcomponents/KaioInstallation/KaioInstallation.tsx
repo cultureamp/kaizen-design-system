@@ -1,7 +1,7 @@
 import React from "react"
 import { KaioNotification } from "./KaioNotification"
 
-export type TitleProps = {
+export type KaioInstallationProps = {
   //   context: DocsContainerProps["context"]
   // TODO: Find correct type
   context: any
