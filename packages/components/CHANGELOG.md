@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.8.7
+
+### Patch Changes
+
+- Updated dependencies [[`21e381314`](https://github.com/cultureamp/kaizen-design-system/commit/21e381314daffd8171208f33e3627bccf54ddd6a), [`b6480c659`](https://github.com/cultureamp/kaizen-design-system/commit/b6480c6591a6f1b73ce4388ee9c341b5c421666c)]:
+  - @kaizen/date-picker@6.0.0
+  - @kaizen/draft-form@10.4.4
+
 ## 1.8.6
 
 ### Patch Changes

@@ -1,9 +1,10 @@
 import React from "react"
-import { fireEvent } from "@testing-library/dom"
-import { render } from "@testing-library/react"
-
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Tabs } from "."
 import styles from "./styles.scss"
+
+const user = userEvent.setup()
 
 describe("<Tabs />", () => {
   it("renders basic tabs", () => {
@@ -33,15 +34,17 @@ describe("<Tabs />", () => {
     ).toBe(true)
   })
 
-  it("renders a tab with an onClick", () => {
+  it("renders a tab with an onClick", async () => {
     const onClick = jest.fn()
     const tabs = [{ label: "One", onClick }, { label: "Two" }]
     const { container, getByText } = render(<Tabs tabs={tabs} />)
 
     expect(container.firstChild).toMatchSnapshot()
 
-    fireEvent.click(getByText("One"))
-    expect(onClick).toHaveBeenCalled()
+    await user.click(getByText("One"))
+    await waitFor(() => {
+      expect(onClick).toHaveBeenCalled()
+    })
   })
 
   it("renders a tab with a href", () => {

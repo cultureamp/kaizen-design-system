@@ -1,8 +1,9 @@
-import * as React from "react"
+import React from "react"
 import { render } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { SkipLink } from "./SkipLink"
-import "@testing-library/jest-dom"
+
+const user = userEvent.setup()
 
 describe("<SkipLink />", () => {
   it("SkipLink is focusable", async () => {
@@ -10,7 +11,7 @@ describe("<SkipLink />", () => {
       <SkipLink label="Skip to main content" skipTo="mainContent" />
     )
     expect(document.body).toHaveFocus()
-    await userEvent.tab()
+    await user.tab()
     expect(getByText("Skip to main content").closest("a")).toHaveFocus()
   })
 })

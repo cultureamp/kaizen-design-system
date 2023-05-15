@@ -1,8 +1,10 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { useSelectionContext } from "../../../provider"
 import { ClearButton } from "./"
+
+const user = userEvent.setup()
 
 jest.mock("../../../provider", () => ({
   useSelectionContext: jest.fn(),
@@ -30,10 +32,12 @@ describe("<ClearButton /> - interaction", () => {
         },
       })
       render(<ClearButton />)
-      await userEvent.click(screen.getByRole("button"))
+      await user.click(screen.getByRole("button"))
 
-      expect(spy).toHaveBeenCalledTimes(1)
-      expect(spy).toHaveBeenCalledWith([selectedButNotFocused])
+      await waitFor(() => {
+        expect(spy).toHaveBeenCalledTimes(1)
+        expect(spy).toHaveBeenCalledWith([selectedButNotFocused])
+      })
     })
   })
 
@@ -55,9 +59,11 @@ describe("<ClearButton /> - interaction", () => {
         },
       })
       render(<ClearButton />)
-      await userEvent.click(screen.getByRole("button"))
+      await user.click(screen.getByRole("button"))
 
-      expect(spy).toHaveBeenCalledTimes(0)
+      await waitFor(() => {
+        expect(spy).toHaveBeenCalledTimes(0)
+      })
     })
   })
 })

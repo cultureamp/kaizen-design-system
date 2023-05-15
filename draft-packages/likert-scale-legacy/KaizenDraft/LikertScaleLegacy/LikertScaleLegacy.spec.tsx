@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen, waitFor, configure } from "@testing-library/react"
+import { render, screen, waitFor, act } from "@testing-library/react"
 import { LikertScaleLegacy, LikertScaleProps } from "./LikertScaleLegacy"
 import { Scale } from "./types"
 
@@ -43,10 +43,6 @@ const LikertScaleLegacyWrapper = (
 )
 
 describe("<LikertScaleLegacy />", () => {
-  configure({
-    testIdAttribute: "data-automation-id",
-  })
-
   it("shows a validation message when provided and status is error", () => {
     render(
       <LikertScaleLegacyWrapper
@@ -86,7 +82,9 @@ describe("<LikertScaleLegacy />", () => {
 
       expect(legend).toHaveTextContent("Not rated")
 
-      scaleSteps[2].focus()
+      act(() => {
+        scaleSteps[2].focus()
+      })
 
       await waitFor(() => {
         expect(legend).toHaveTextContent("Neither agree or disagree")

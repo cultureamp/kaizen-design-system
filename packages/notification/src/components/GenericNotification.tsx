@@ -103,6 +103,7 @@ class GenericNotification extends React.Component<
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
         data-automation-id={this.props.automationId}
+        data-testid={this.props.automationId}
         data-automation-class={classnames(
           "generic-notification",
           this.props.type,

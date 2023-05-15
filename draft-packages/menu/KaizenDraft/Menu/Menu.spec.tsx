@@ -1,9 +1,10 @@
 import React from "react"
-import { fireEvent } from "@testing-library/dom"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Button } from "@kaizen/button"
 import { Menu } from "./Menu"
+
+const user = userEvent.setup()
 
 describe("Dropdown", () => {
   it("renders default view", () => {
@@ -25,7 +26,7 @@ describe("Dropdown", () => {
 
     expect(screen.queryByText("Item")).toBeFalsy()
     const button = screen.getByText("Button")
-    fireEvent.click(button)
+    await user.click(button)
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeInTheDocument()
     })
@@ -43,7 +44,7 @@ describe("Dropdown", () => {
     expect(screen.queryByText("Item")).not.toBeInTheDocument()
 
     const button = screen.getByText("Button")
-    await userEvent.click(button)
+    await user.click(button)
 
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeVisible()
@@ -62,7 +63,7 @@ describe("Dropdown", () => {
     expect(screen.queryByText("Item")).not.toBeInTheDocument()
 
     const button = screen.getByText("Button")
-    await userEvent.click(button)
+    await user.click(button)
 
     await waitFor(() => {
       expect(screen.getByText("Item")).toBeVisible()

@@ -1,7 +1,9 @@
 import React from "react"
-import { fireEvent } from "@storybook/testing-library"
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { NavigationTab, CustomNavigationTabProps } from "./NavigationTabs"
+
+const user = userEvent.setup()
 
 const CustomComponent = (props: CustomNavigationTabProps): JSX.Element => (
   <button
@@ -30,7 +32,7 @@ describe("NavigationTabs", () => {
   })
 
   describe("with a render prop", () => {
-    it("renders the component passed with the navigation tab props", () => {
+    it("renders the component passed with the navigation tab props", async () => {
       const handleClick = jest.fn()
       const text = "I am also navigation tabs"
       const href = "www.cultureamp.com"
@@ -50,8 +52,10 @@ describe("NavigationTabs", () => {
       })
       expect(button).toHaveClass("linkAnchor", "active", "lightBackground")
 
-      fireEvent.click(button)
-      expect(handleClick).toBeCalledTimes(1)
+      await user.click(button)
+      await waitFor(() => {
+        expect(handleClick).toBeCalledTimes(1)
+      })
     })
   })
 })
