@@ -41,9 +41,7 @@ export const ComponentDocsTemplate = ({
       <Content>
         <Title context={context} />
         <Links context={context} />
-        <div className="!mt-8">
-          <KaioInstallation context={context} />
-        </div>
+        <KaioInstallation context={context} />
         <Description of="story" />
         <Installation context={context} />
         <h2 id="playground">Playground</h2>

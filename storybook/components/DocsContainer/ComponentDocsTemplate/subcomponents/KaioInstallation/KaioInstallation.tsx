@@ -9,12 +9,16 @@ export type KaioInstallationProps = {
 
 export const KaioInstallation = ({
   context,
-}: TitleProps): JSX.Element | null => {
+}: KaioInstallationProps): JSX.Element | null => {
   const isInKaio = context.attachedCSFFile.meta.parameters.isInKaio
 
   if (!isInKaio) return null
 
-  return <KaioNotification />
+  return (
+    <div className="!mt-8">
+      <KaioNotification />
+    </div>
+  )
 }
 
 KaioInstallation.displayName = "KaioInstallation"
