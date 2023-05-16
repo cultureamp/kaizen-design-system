@@ -37,6 +37,10 @@
         opacity: 100%;
       }
     }
+
+    &:focus {
+      opacity: 100%;
+    }
   }
 
   &:hover {
