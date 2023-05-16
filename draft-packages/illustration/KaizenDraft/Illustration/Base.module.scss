@@ -30,16 +30,13 @@
       opacity: 70%;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $color-gray-200 !important;
 
       svg {
         opacity: 100%;
       }
-    }
-
-    &:focus {
-      opacity: 100%;
     }
   }
 
