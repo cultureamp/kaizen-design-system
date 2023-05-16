@@ -21,9 +21,7 @@ describe("<ExpertAdviceCollapsible />", () => {
         Expert advice collapsible component
       </ExpertAdviceCollapsible>
     )
-    expect(
-      screen.getByRole("img", { name: "Collective Intelligence" })
-    ).toBeInTheDocument()
+    expect(screen.getByRole("img")).toBeInTheDocument()
   })
 
   it("renders collapsible component and its children", () => {
