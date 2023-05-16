@@ -7,20 +7,22 @@
   top: calc(#{$spacing-md} * 0.175);
 }
 
-@keyframes fadeInOut {
+@keyframes fade-in-out {
   0% {
-    opacity: 0.6;
+    opacity: 60%;
   }
+
   50% {
-    opacity: 1;
+    opacity: 100%;
   }
+
   100% {
-    opacity: 0.6;
+    opacity: 60%;
   }
 }
 
 .animated {
-  animation-name: fadeInOut;
+  animation-name: fade-in-out;
   animation-duration: calc(#{$animation-duration-deliberate} * 2);
   animation-iteration-count: infinite;
 }

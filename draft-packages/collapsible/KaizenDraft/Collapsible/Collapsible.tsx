@@ -86,30 +86,34 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     return (
       <div
         id={id}
-        className={classnames(classNameOverride, {
-          [styles.container]: isContainer,
-          [styles.stickyContainer]: isContainer && sticky,
-          [styles.groupItem]: group && !separated,
-          [styles.separated]: separated,
-          [styles.open]: open,
-          [styles.single]: !group,
-        })}
+        className={classnames(
+          classNameOverride,
+          isContainer && styles.container,
+          isContainer && sticky && styles.stickyContainer,
+          group && !separated && styles.groupItem,
+          separated && styles.separated,
+          open && styles.open,
+          !group && styles.single
+        )}
         data-automation-id={automationId || `collapsible-container-${id}`}
+        data-testid={automationId || `collapsible-container-${id}`}
         {...props} // `title` is missing because it is used for the header; requires breaking change to fix
       >
         {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
         jsx-a11y/no-static-element-interactions */}
         <div
-          className={classnames(styles.header, {
-            [styles.defaultVariant]: open && variant === "default",
-            [styles.clearVariant]: open && variant === "clear",
-            [styles.sticky]: sticky,
-            [styles.open]: open,
-          })}
+          className={classnames(
+            styles.header,
+            open && styles.open,
+            sticky && styles.sticky,
+            open && variant === "default" && styles.defaultVariant,
+            open && variant === "clear" && styles.clearVariant
+          )}
           style={sticky && { top: sticky.top }}
           onClick={this.handleSectionToggle}
           data-automation-id={`collapsible-header-${id}`}
+          data-testid={`collapsible-header-${id}`}
         >
           {renderHeader !== undefined ? (
             renderHeader(title)
@@ -117,6 +121,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
             <div
               className={styles.title}
               data-automation-id={`collapsible-button-title-${id}`}
+              data-testid={`collapsible-button-title-${id}`}
             >
               <Heading variant="heading-4" tag="span">
                 {title}
@@ -131,6 +136,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
               aria-expanded={open}
               aria-controls={sectionId}
               data-automation-id={`collapsible-button-${id}`}
+              data-testid={`collapsible-button-${id}`}
               id={buttonId}
               onClick={this.handleButtonPress}
               classNameOverride={styles.chevronButton}
@@ -141,12 +147,14 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           <AnimateHeight
             height={open ? "auto" : 0}
             data-automation-id={`collapsible-section-${id}`}
+            data-testid={`collapsible-section-${id}`}
           >
             <div
               id={sectionId}
-              className={classnames(styles.section, {
-                [styles.noPadding]: noSectionPadding,
-              })}
+              className={classnames(
+                styles.section,
+                noSectionPadding && styles.noPadding
+              )}
               role="region"
               aria-labelledby={buttonId}
             >

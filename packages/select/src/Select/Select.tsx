@@ -30,6 +30,7 @@ export const getSelectChildren: CollectionChildren<SingleItemType> = item =>
   ) : (
     <Item key={item.value}>{item.label}</Item>
   )
+
 export interface SelectProps
   extends OverrideClassName<
     Omit<AriaSelectProps<SingleItemType>, "children" | "disabledKeys">
@@ -82,7 +83,7 @@ export const Select = ({
   defaultOpen,
   validationMessage,
   classNameOverride,
-  trigger = (triggerProps): JSX.Element => (
+  trigger = (triggerProps, buttonRef): JSX.Element => (
     <TriggerButton {...triggerProps} ref={buttonRef} />
   ),
   children,
@@ -167,7 +168,7 @@ export const Select = ({
           triggerRef={buttonRef}
         />
 
-        <div className={classnames([selectStyles.container])}>
+        <div className={classnames(selectStyles.container)}>
           {trigger(
             { placeholder, triggerProps, valueProps, status, isReversed },
             buttonRef

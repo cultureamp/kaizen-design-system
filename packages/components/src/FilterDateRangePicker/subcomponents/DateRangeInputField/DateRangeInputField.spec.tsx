@@ -7,6 +7,8 @@ import {
   DateRangeInputFieldProps,
 } from "./DateRangeInputField"
 
+const user = userEvent.setup()
+
 const DateRangeInputFieldWrapper = (
   props: Partial<DateRangeInputFieldProps>
 ): JSX.Element => (
@@ -107,7 +109,7 @@ describe("<DateRangeInputField />", () => {
 
       render(<Wrapper />)
 
-      await userEvent.click(screen.getByText("Click me"))
+      await user.click(screen.getByText("Click me"))
       expect(onButtonClick).toBeCalledWith("test__id--from", "test__id--to")
     })
   })

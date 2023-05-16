@@ -27,10 +27,11 @@ const isLight = (variant: Variant | undefined): boolean =>
   variant !== undefined && NON_REVERSED_VARIANTS.includes(variant)
 
 export const NavigationTab = (props: NavigationTabProps): JSX.Element => {
-  const className = classnames(styles.linkAnchor, {
-    [styles.lightBackground]: isLight(props.variant),
-    [styles.active]: props.active,
-  })
+  const className = classnames(
+    styles.linkAnchor,
+    isLight(props.variant) && styles.lightBackground,
+    props.active && styles.active
+  )
 
   if (props.render) {
     const { render: Component, ...otherProps } = props
@@ -44,6 +45,7 @@ export const NavigationTab = (props: NavigationTabProps): JSX.Element => {
       onClick={props.handleClick}
       id={props.id}
       data-automation-id={props.automationId}
+      data-testid={props.automationId}
       aria-current={props.active ? "page" : undefined}
     >
       {props.text}

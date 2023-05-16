@@ -1,12 +1,11 @@
 {
   "name": "@kaizen/draft-popover",
-  "version": "5.3.12",
+  "version": "5.3.16",
   "description": "The draft Popover component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "build": "yarn prepublish",
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -17,30 +16,23 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
+    "**/*.js",
+    "**/*.js.map",
     "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "**/*.scss"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-base": "^1.1.5",
-    "@kaizen/component-library": "^16.7.2",
+    "@kaizen/component-base": "^1.1.7",
+    "@kaizen/component-library": "^16.7.6",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
-    "@kaizen/typography": "^2.3.8",
+    "@kaizen/typography": "^2.3.11",
     "@popperjs/core": "^2.11.7",
-    "@types/classnames": "^2.3.0",
     "classnames": "^2.3.2",
     "react-popper": "^2.3.0",
-    "use-debounce": "^9.0.3"
-  },
-  "devDependencies": {
-    "rimraf": "^4.4.1"
+    "use-debounce": "^9.0.4"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

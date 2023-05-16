@@ -4,19 +4,19 @@ import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 
-import { MenuList, MenuItem } from "../.."
+import { MenuList, MenuItem, MenuHeading } from "../.."
 
 /**
  * This is an mocked example of a Menu's children using all of the subcomponents.
  */
 export const MenuContentExample = (): JSX.Element => (
   <>
-    <MenuList heading="Links">
+    <MenuList heading={<MenuHeading>Links</MenuHeading>}>
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
       <MenuItem href="https://www.cultureamp.com/" label="Menu link" />
     </MenuList>
-    <MenuList heading="Buttons">
+    <MenuList heading={<MenuHeading>Buttons</MenuHeading>}>
       <MenuItem
         onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
           alert("Hello")
@@ -58,7 +58,7 @@ export const MenuContentExample = (): JSX.Element => (
         label="Disabled Destructive Menu button"
       />
     </MenuList>
-    <MenuList heading="Buttons (no icons)">
+    <MenuList heading={<MenuHeading>Buttons (no icons)</MenuHeading>}>
       <MenuItem
         onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
           e.preventDefault()

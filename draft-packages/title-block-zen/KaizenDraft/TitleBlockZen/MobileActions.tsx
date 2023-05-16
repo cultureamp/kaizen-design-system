@@ -4,7 +4,7 @@ import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { MenuItem, MenuList, MenuHeading } from "@kaizen/draft-menu"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 
 import {
@@ -55,6 +55,7 @@ const renderPrimaryActionDrawerContent = (
           {...item}
           key={`title-block-mobile-actions-primary-${itemType}-${idx}`}
           automationId={`title-block-mobile-actions-primary-${itemType}-${idx}`}
+          data-testid={`title-block-mobile-actions-primary-${itemType}-${idx}`}
         />
       )
     })
@@ -71,8 +72,9 @@ const renderDefaultLink = (
     return (
       <TitleBlockMenuItem
         {...defaultAction}
-        key={"title-block-mobile-actions-default-link"}
+        key="title-block-mobile-actions-default-link"
         automationId="title-block-mobile-actions-default-link"
+        data-testid="title-block-mobile-actions-default-link"
       />
     )
   }
@@ -82,8 +84,9 @@ const renderDefaultLink = (
       label={defaultAction.label}
       icon={defaultAction.icon}
       disabled={defaultAction.disabled}
-      key={"title-block-mobile-actions-default-link"}
+      key="title-block-mobile-actions-default-link"
       automationId="title-block-mobile-actions-default-link"
+      data-testid="title-block-mobile-actions-default-link"
     />
   )
 }
@@ -95,8 +98,9 @@ const renderDefaultAction = (
     return (
       <TitleBlockMenuItem
         {...defaultAction}
-        key={"title-block-mobile-actions-default-action"}
+        key="title-block-mobile-actions-default-action"
         automationId="title-block-mobile-actions-default-action"
+        data-testid="title-block-mobile-actions-default-action"
       />
     )
   }
@@ -115,7 +119,8 @@ const renderSecondaryActions = (
     <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-secondary-action-${idx}`}
-      automationId={"title-block-mobile-actions-secondary-action"}
+      automationId="title-block-mobile-actions-secondary-action"
+      data-testid="title-block-mobile-actions-secondary-action"
     />
   ))
 }
@@ -127,7 +132,8 @@ const renderSecondaryOverflowMenuItems = (
     <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-overflow-menu-item-${idx}`}
-      automationId={"title-block-mobile-actions-overflow-menu-item"}
+      automationId="title-block-mobile-actions-overflow-menu-item"
+      data-testid="title-block-mobile-actions-overflow-menu-item"
     />
   ))
 
@@ -160,7 +166,9 @@ const DrawerMenuContent = ({
       </MenuList>
       {(defaultAction || secondaryActions || secondaryOverflowMenuItems) && (
         <MenuList
-          heading={showOtherActionsHeading ? "Other actions" : undefined}
+          heading={
+            showOtherActionsHeading && <MenuHeading>Other actions</MenuHeading>
+          }
         >
           {defaultAction && renderDefaultAction(defaultAction)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
@@ -183,6 +191,7 @@ const renderDrawerHandleLabel = (
         <span
           className={styles.drawerHandleLabelText}
           data-automation-id="drawer-handle-lable-text"
+          data-testid="drawer-handle-lable-text"
         >
           {label}
         </span>
@@ -208,6 +217,7 @@ const renderDrawerHandleLabel = (
         <span
           className={styles.drawerHandleLabelText}
           data-automation-id="drawer-handle-lable-text"
+          data-testid="drawer-handle-lable-text"
         >
           {label}
         </span>
@@ -237,6 +247,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryButton
         )}
         data-automation-id="title-block-mobile-actions-primary-button"
+        data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </a>
@@ -252,6 +263,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryButton
         )}
         data-automation-id="title-block-mobile-actions-primary-button"
+        data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </button>
@@ -266,6 +278,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryButton
         )}
         data-automation-id="title-block-mobile-actions-primary-button"
+        data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
       </a>
@@ -281,6 +294,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
         styles.mobileActionsPrimaryButton
       )}
       data-automation-id="title-block-mobile-actions-primary-button"
+      data-testid="title-block-mobile-actions-primary-button"
     >
       {children}
     </button>
@@ -339,6 +353,7 @@ const DrawerHandle = ({
             styles.mobileActionsTopRowSingleButton
           )}
           data-automation-id="title-block-mobile-actions-drawer-handle"
+          data-testid="title-block-mobile-actions-drawer-handle"
         >
           <button
             type="button"
@@ -364,10 +379,12 @@ const DrawerHandle = ({
     // If the primary action is a button, or has no onClick/href/action
     return (
       <div
-        className={classnames(styles.mobileActionsTopRow, {
-          [styles.mobileActionsTopRowSingleButton]: !showDrawer,
-        })}
+        className={classnames(
+          styles.mobileActionsTopRow,
+          !showDrawer && styles.mobileActionsTopRowSingleButton
+        )}
         data-automation-id="title-block-mobile-actions-drawer-handle"
+        data-testid="title-block-mobile-actions-drawer-handle"
       >
         {"component" in primaryAction ? (
           <primaryAction.component
@@ -422,6 +439,7 @@ const DrawerHandle = ({
           styles.mobileActionsTopRowSingleButton
         )}
         data-automation-id="title-block-mobile-actions-drawer-handle"
+        data-testid="title-block-mobile-actions-drawer-handle"
       >
         <button
           type="button"
@@ -475,9 +493,10 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
 
     return (
       <div
-        className={classnames(styles.mobileActionsContainer, {
-          [styles.isOpen]: this.state.isOpen,
-        })}
+        className={classnames(
+          styles.mobileActionsContainer,
+          this.state.isOpen && styles.isOpen
+        )}
       >
         <DrawerHandle
           primaryAction={primaryAction}

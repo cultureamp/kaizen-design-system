@@ -1,12 +1,11 @@
 {
   "name": "@kaizen/rich-text-editor",
-  "version": "2.2.5",
+  "version": "2.2.8",
   "description": "The RichTextEditor component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "build": "yarn prepublish",
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -17,31 +16,24 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
+    "**/*.js",
+    "**/*.js.map",
     "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "**/*.scss"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@cultureamp/rich-text-toolkit": "^2.0.1",
-    "@kaizen/a11y": "^1.7.10",
-    "@kaizen/component-base": "^1.1.5",
-    "@kaizen/component-library": "^16.7.1",
-    "@kaizen/draft-form": "^10.3.12",
-    "@kaizen/draft-tooltip": "^5.4.40",
-    "@kaizen/notification": "^1.5.4",
+    "@cultureamp/rich-text-toolkit": "^2.0.2",
+    "@kaizen/a11y": "^1.7.12",
+    "@kaizen/component-base": "^1.1.7",
+    "@kaizen/component-library": "^16.7.6",
+    "@kaizen/draft-form": "^10.4.3",
+    "@kaizen/draft-tooltip": "^5.4.44",
+    "@kaizen/notification": "^1.5.8",
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "@types/classnames": "^2.3.0",
-    "rimraf": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",

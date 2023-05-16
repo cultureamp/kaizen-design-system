@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/hosted-assets",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "Hosted assets for Culture Amp's Kaizen Design System.",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/packages/hosted-assets#readme",
   "license": "MIT",
@@ -19,8 +19,7 @@
   ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "build": "yarn prepublish",
     "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'"
   }
 }

@@ -36,32 +36,50 @@ const QueryInfo = ({
   </div>
 )
 
-export const MobileFirstBreakpoints: StoryFn = () => (
+export const MediaQueries: StoryFn = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="text-center">
       These breakpoints activate <em>over</em> a certain screen width. Meaning
       that bg-blue-400 will be applied when the screen gets <em>wider</em>.
     </Heading>
     <QueryInfo selector="md" selectorValue="768px">
-      <div className="h-[50px] w-100 rounded-default border-solid  md:bg-blue-400" />
+      <div className="border-solid md:bg-blue-400 h-[50px] w-100 rounded-default" />
     </QueryInfo>
     <QueryInfo selector="lg" selectorValue="1080px">
-      <div className="h-[50px] w-100 rounded-default border-solid  lg:bg-blue-400" />
+      <div className="border-solid lg:bg-blue-400 h-[50px] w-100 rounded-default" />
     </QueryInfo>
   </div>
 )
 
-export const NonMobileFirstBreakpoints: StoryFn = () => (
+export const ArbitraryMediaQueries: StoryFn = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="text-center">
-      These breakpoints activate <em>under</em> a certain screen width. Meaning
-      that bg-blue-400 will be applied when the screen gets <em>slimmer</em>.
+      Bespoke, one-off media queries can be created with arbitrary values. See
+      the{" "}
+      <a href="https://tailwindcss.com/docs/responsive-design#arbitrary-values">
+        Tailwind docs
+      </a>{" "}
+      for more info.
     </Heading>
-    <QueryInfo selector="md-max" selectorValue="768px">
-      <div className="h-[50px] w-100 rounded-default border-solid  md-max:bg-blue-400" />
-    </QueryInfo>
-    <QueryInfo selector="lg-max" selectorValue="1080px">
-      <div className="h-[50px] w-100 rounded-default border-solid  lg-max:bg-blue-400" />
-    </QueryInfo>
+
+    <div className="py-32">
+      <Paragraph variant="body">
+        <strong>Min-width breakpoint</strong> (applied when the screen gets{" "}
+        <em>wider</em>)
+      </Paragraph>
+      <Paragraph variant="body">
+        In this example: min-[500px]:bg-blue-400
+      </Paragraph>
+      <div className="border-solid min-[500px]:bg-blue-400 h-[50px] w-100 rounded-default" />
+    </div>
+
+    <Paragraph variant="body">
+      <strong>Max-width breakpoint</strong> (applied when the screen gets{" "}
+      <em>slimmer</em>)
+    </Paragraph>
+    <Paragraph variant="body">
+      In this example: max-[500px]:bg-blue-400
+    </Paragraph>
+    <div className="border-solid max-[500px]:bg-blue-400 h-[50px] w-100 rounded-default" />
   </div>
 )

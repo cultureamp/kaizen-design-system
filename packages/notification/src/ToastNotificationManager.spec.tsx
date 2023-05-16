@@ -1,18 +1,11 @@
 import React from "react"
-import {
-  configure,
-  queryByTestId,
-  getByTestId,
-  waitFor,
-} from "@testing-library/dom"
+import { queryByTestId, getByTestId, waitFor } from "@testing-library/dom"
 import { act, screen } from "@testing-library/react"
 import {
   addToastNotification,
   removeToastNotification,
   clearToastNotifications,
 } from "."
-
-configure({ testIdAttribute: "data-automation-id" })
 
 describe("ToastNotificationsManager", () => {
   beforeEach(() => {

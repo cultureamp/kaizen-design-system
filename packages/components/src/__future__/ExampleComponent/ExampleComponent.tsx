@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import stylesSCSS from "./ExampleComponent.module.scss"
 
@@ -15,7 +15,7 @@ export const ExampleComponent = ({
   ...restProps
 }: CommonProps): JSX.Element => (
   <div
-    className={classNames(
+    className={classnames(
       stylesSCSS.exampleComponent,
       "bg-green-300",
       classNameOverride

@@ -1,8 +1,10 @@
 import React from "react"
-import { fireEvent, render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { ToggledStatus, ToggleSwitchProps } from "./ToggleSwitch"
 import { ToggleSwitch } from "."
-import "@testing-library/jest-dom"
+
+const user = userEvent.setup()
 
 const defaultToggleSwitchProps = {
   id: "someToggleSwitchId",
@@ -18,11 +20,13 @@ const renderToggleSwitch = (
 }
 
 describe("<ToggleSwitch />", () => {
-  it("calls onToggle when toggle is changed", () => {
+  it("calls onToggle when toggle is changed", async () => {
     renderToggleSwitch()
 
-    fireEvent.click(screen.getByRole("checkbox"))
-    expect(defaultToggleSwitchProps.onToggle).toHaveBeenCalledTimes(1)
+    await user.click(screen.getByRole("checkbox"))
+    await waitFor(() => {
+      expect(defaultToggleSwitchProps.onToggle).toHaveBeenCalledTimes(1)
+    })
   })
 
   it("shows toggledStatus class when status is passed through", async () => {

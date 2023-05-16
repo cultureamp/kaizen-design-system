@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Button, ButtonProps } from "@kaizen/button"
 import { useMediaQueries } from "@kaizen/responsive"
 import GenericModalSection from "./GenericModalSection"
@@ -36,7 +36,7 @@ export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
   return (
     <GenericModalSection inputEdit={variant === "inputEdit"}>
       <div
-        className={classNames(
+        className={classnames(
           styles.actions,
           !unpadded && styles.padded,
           variant === "context" && styles.informationPadded,
@@ -51,6 +51,7 @@ export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
               destructive={index === 0 && appearance === "destructive"}
               secondary={index > 0}
               data-automation-id={`${automationId}-action-${index}`}
+              data-testid={`${automationId}-action-${index}`}
               fullWidth={queries.isSmall}
               {...action}
             />

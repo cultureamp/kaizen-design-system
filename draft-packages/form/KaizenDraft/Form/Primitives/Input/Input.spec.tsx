@@ -1,8 +1,10 @@
 import React from "react"
-import { fireEvent } from "@testing-library/dom"
-import { render } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { InputProps } from "./Input"
 import { Input } from "."
+
+const user = userEvent.setup()
 
 const defaultInputProps = {
   id: "someInputId",
@@ -25,16 +27,15 @@ describe("<Input />", () => {
     ).toBeTruthy()
   })
 
-  it("calls the `onChange` event when text value is updated", () => {
+  it("calls the `onChange` event when text value is updated", async () => {
     const placeholder = "someInputPlaceholder"
     const utils = renderInput({ inputValue: "", placeholder })
     const input = utils.getByPlaceholderText(placeholder)
 
-    fireEvent.change(input, {
-      target: { value: defaultInputProps.inputValue },
+    await user.type(input, "Hello")
+    await waitFor(() => {
+      expect(defaultInputProps.onChange).toBeCalledTimes(5)
     })
-
-    expect(defaultInputProps.onChange).toBeCalledTimes(1)
   })
 
   it("renders a disabled inside of input", () => {

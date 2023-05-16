@@ -18,8 +18,8 @@ export type ToastNotificationProps = Omit<
 export const ToastNotification = ({
   id,
   hideCloseIcon = false,
-  autohide = true,
-  autohideDelay = "short",
+  autohide = false,
+  autohideDelay = "long",
   ...otherProps
 }: ToastNotificationProps): null => {
   const [localID] = React.useState(id || v4())

@@ -1,5 +1,77 @@
 # Change Log
 
+## 1.8.7
+
+### Patch Changes
+
+- Updated dependencies [[`21e381314`](https://github.com/cultureamp/kaizen-design-system/commit/21e381314daffd8171208f33e3627bccf54ddd6a), [`b6480c659`](https://github.com/cultureamp/kaizen-design-system/commit/b6480c6591a6f1b73ce4388ee9c341b5c421666c)]:
+  - @kaizen/date-picker@6.0.0
+  - @kaizen/draft-form@10.4.4
+
+## 1.8.6
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3618](https://github.com/cultureamp/kaizen-design-system/pull/3618) [`b4eaa8c45`](https://github.com/cultureamp/kaizen-design-system/commit/b4eaa8c45b10abe795138638f273fabe416580da) - Update dependency date-fns to ^2.30.0
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`b4eaa8c45`](https://github.com/cultureamp/kaizen-design-system/commit/b4eaa8c45b10abe795138638f273fabe416580da), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f), [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29)]:
+  - @kaizen/component-library@16.7.5
+  - @kaizen/draft-divider@2.2.10
+  - @kaizen/draft-tooltip@5.4.43
+  - @kaizen/hosted-assets@2.0.2
+  - @kaizen/date-picker@5.21.16
+  - @kaizen/draft-form@10.4.2
+  - @kaizen/typography@2.3.10
+  - @kaizen/a11y@1.7.11
+
+## 1.8.5
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/component-library@16.7.4
+  - @kaizen/draft-divider@2.2.9
+  - @kaizen/draft-tooltip@5.4.42
+  - @kaizen/design-tokens@10.3.7
+  - @kaizen/date-picker@5.21.15
+  - @kaizen/draft-form@10.4.1
+  - @kaizen/typography@2.3.9
+
+## 1.8.4
+
+### Patch Changes
+
+- [#3592](https://github.com/cultureamp/kaizen-design-system/pull/3592) [`dcd98eb9f`](https://github.com/cultureamp/kaizen-design-system/commit/dcd98eb9fbb5d03356d803bb90685e33b151075d) - Update dependencies:
+
+  - `@react-aria/focus` to `^3.12.0`
+  - `@react-aria/listbox` to `^3.9.0`
+  - `@react-aria/overlays` to `^3.14.0`
+  - `@react-aria/select` to `^3.10.0`
+  - `@react-aria/utils` to `^3.16.0`
+  - `@react-stately/collections` to `^3.7.0`
+  - `@react-stately/select` to `^3.5.0`
+
+- [#3585](https://github.com/cultureamp/kaizen-design-system/pull/3585) [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c) - Update dependencies:
+  - `@react-aria/button` to `^3.7.1`
+  - `@react-types/shared` to `^3.18.0`
+  - `react-focus-on` to `^3.8.1`
+  - `@rollup/plugin-alias` to `^4.0.4`
+  - `@rollup/plugin-node-resolve` to `^15.0.2`
+  - `esbuild` to `^0.17.18`
+  - `sass` to `^1.62.1`
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`acb0fdf3d`](https://github.com/cultureamp/kaizen-design-system/commit/acb0fdf3de2c1e852971b30fa0db4691e2a4ad0d), [`dcd98eb9f`](https://github.com/cultureamp/kaizen-design-system/commit/dcd98eb9fbb5d03356d803bb90685e33b151075d), [`c2f5be19e`](https://github.com/cultureamp/kaizen-design-system/commit/c2f5be19e5868aafd6771bab3a15e016664aa949), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/draft-tooltip@5.4.41
+  - @kaizen/date-picker@5.21.14
+  - @kaizen/draft-form@10.3.13
+  - @kaizen/design-tokens@10.3.6
+
 ## 1.8.3
 
 ### Patch Changes

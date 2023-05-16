@@ -3,20 +3,24 @@
 
 .radioGroupLabel {
   margin-bottom: $spacing-sm;
+
   label {
     :global(.ideal-sans) & {
       // This is to override bootstrap styles. Remove when appropriate
       padding-top: 0;
     }
   }
+
   &.reversed {
     color: $color-white;
   }
 }
+
 .radioGroupContainer {
   display: flex;
   flex-direction: column;
   margin-bottom: $spacing-sm;
+
   &.noBottomMargin {
     margin-bottom: 0;
   }

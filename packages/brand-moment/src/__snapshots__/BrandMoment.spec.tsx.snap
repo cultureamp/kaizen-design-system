@@ -23,24 +23,57 @@ exports[`<BrandMoment /> matches the snapshot 1`] = `
             <div
               class="leftInner"
             >
-              <video
-                aria-hidden="true"
-                autoplay=""
-                class="wrapper"
-                data-testid="kz-video-player"
-                loop=""
-                muted=""
-                playsinline=""
-                poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-error.png"
-                preload="metadata"
-                tabindex="-1"
-                width="100%"
+              <figure
+                class="figure"
               >
-                <source
-                  src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-error.mp4"
-                  type="video/mp4"
-                />
-              </video>
+                <video
+                  aria-hidden="true"
+                  autoplay=""
+                  class="wrapper"
+                  data-testid="kz-video-player"
+                  loop=""
+                  muted=""
+                  playsinline=""
+                  poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-error.png"
+                  preload="metadata"
+                  tabindex="-1"
+                  width="100%"
+                >
+                  <source
+                    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-error.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <span
+                  aria-live="polite"
+                  class="container"
+                >
+                  <button
+                    aria-label="Pause animation"
+                    class="button default iconButton pausePlayButton"
+                    type="button"
+                  >
+                    <span
+                      class="content"
+                    >
+                      <span
+                        class="iconWrapper"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="icon"
+                          focusable="false"
+                          role="presentation"
+                        >
+                          <use
+                            xlink:href="#undefined"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </button>
+                </span>
+              </figure>
             </div>
           </div>
           <div

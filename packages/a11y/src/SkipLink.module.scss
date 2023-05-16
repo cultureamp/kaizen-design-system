@@ -7,7 +7,7 @@
  * _Most_ of these styles have been copied over from the generic button
  * in @kaizen/button. Although the appearance closely resembles reversed primary
  * button, some necessary modifications to make this component visuallyHidden and
- * other slight visual tweaks did not make this appropriate for reuse. 
+ * other slight visual tweaks did not make this appropriate for reuse.
  */
 $caButton-height: $spacing-xl;
 $caButton-verticalPadding: calc(#{$spacing-sm} - #{$border-solid-border-width});
@@ -29,7 +29,6 @@ $caButtonIcon-height: 20px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   font-size: $typography-button-primary-font-size;
@@ -44,13 +43,10 @@ $caButtonIcon-height: 20px;
   border: $border-solid-border-width $border-solid-border-style;
   border-radius: $border-solid-border-radius;
   position: relative;
-  text-align: center;
   cursor: pointer;
   text-align: center;
   overflow: visible; // Required for the focus ring on IE11
-
   text-decoration: none;
-
   padding: $caButton-verticalPadding
     calc(#{$spacing-md} - #{$border-solid-border-width});
 }
@@ -62,6 +58,7 @@ $caButtonIcon-height: 20px;
 
   &:focus-visible::after {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
     content: "";
     position: absolute;
     background: transparent;
@@ -69,26 +66,24 @@ $caButtonIcon-height: 20px;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    top: calc(-1 * #{$focus-ring-offset});
-    left: calc(-1 * #{$focus-ring-offset});
-    right: calc(-1 * #{$focus-ring-offset});
-    bottom: calc(-1 * #{$focus-ring-offset});
+    inset: calc(-1 * #{$focus-ring-offset});
   }
 }
 
 .skipLinkContainer {
-  @include button();
-  @include primary();
+  @include button;
+  @include primary;
+
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
   z-index: 1040; // Navigation z-index + 10
-  opacity: 0;
+  opacity: 0%;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
 
   &:focus {
-    opacity: 1;
+    opacity: 100%;
     clip: auto;
     clip-path: none;
   }

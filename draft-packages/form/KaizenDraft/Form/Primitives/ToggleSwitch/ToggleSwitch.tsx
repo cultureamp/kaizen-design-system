@@ -1,6 +1,8 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
+import { Icon } from "@kaizen/component-library"
+import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
 import styles from "./ToggleSwitch.module.scss"
 
 export enum ToggledStatus {
@@ -36,11 +38,10 @@ export const ToggleSwitch = ({
 
   return (
     <span
-      className={classnames({
-        [styles.on]: isOn,
-        [styles.off]: !isOn,
-        [styles.reversed]: reversed,
-      })}
+      className={classnames(
+        isOn ? styles.on : styles.off,
+        reversed && styles.reversed
+      )}
     >
       <input
         type="checkbox"
@@ -51,7 +52,13 @@ export const ToggleSwitch = ({
         {...restProps}
       />
       <span className={styles.track}>
-        <span className={styles.thumb} />
+        <span className={styles.thumb}>
+          <Icon
+            icon={checkIcon}
+            classNameOverride={styles.checkIcon}
+            role="presentation"
+          />
+        </span>
       </span>
     </span>
   )

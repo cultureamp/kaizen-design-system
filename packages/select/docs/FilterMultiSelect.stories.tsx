@@ -148,7 +148,7 @@ export const WithSections: StoryFn<typeof FilterMultiSelect> = () => {
               selectedKeys,
               mockItems
             )}
-            label={"Engineer"}
+            label="Engineer"
           />
         )}
       >
@@ -213,7 +213,7 @@ export const WithSections: StoryFn<typeof FilterMultiSelect> = () => {
         )}
       </FilterMultiSelect>
       <div style={{ marginTop: 4 }}>
-        <Paragraph variant={"body"}>Items: </Paragraph>
+        <Paragraph variant="body">Items: </Paragraph>
         <CodeBlock
           language="json"
           code={JSON.stringify(mockItems, null, "\t")}
@@ -502,7 +502,7 @@ export const Async: StoryFn<typeof FilterMultiSelect> = args => {
               new Set(selectedPeople),
               cachedPeople
             )}
-            label={"People"}
+            label="People"
           />
         )}
         onSearchInputChange={setSearchState}
@@ -576,8 +576,8 @@ export const Async: StoryFn<typeof FilterMultiSelect> = args => {
                   </FilterMultiSelect.ListBoxSection>
                   {hasNextPage && (
                     <FilterMultiSelect.LoadMoreButton
-                      label={"View more"}
-                      workingLabel={"Loading…"}
+                      label="View more"
+                      workingLabel="Loading…"
                       working={isFetchingNextPage}
                       onClick={(): ReturnType<typeof fetchNextPage> =>
                         fetchNextPage()

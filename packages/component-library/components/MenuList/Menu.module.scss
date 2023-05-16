@@ -28,21 +28,22 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 .header__title {
   @include kz-typography-heading-6;
   @include ca-inherit-baseline;
+
   display: block;
 }
 
+/* stylelint-disable no-descending-specificity */
 .menuItem {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
+
   composes: interactiveIconWrapper from "../Icon/Icon.module.scss";
   background: transparent;
   color: $color-purple-800;
   cursor: pointer;
   text-align: left;
-
   transition: $ca-duration-immediate background-color ease,
     $ca-duration-immediate color ease;
-
   padding: 10px $side-padding;
   text-decoration: none;
   display: flex;
@@ -72,6 +73,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 
 .menuItem--destructive {
   color: $color-red-600;
+
   .menuItem__Icon {
     color: $color-red-600;
   }
@@ -92,12 +94,13 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   top: 3px;
 
   .hoverIcon & {
-    opacity: 0;
+    opacity: 0%;
   }
+
   .menuItem--active &,
   .hoverIcon:hover &,
   .hoverIcon:focus & {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
@@ -109,3 +112,4 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   visibility: visible;
   margin: 5px 0;
 }
+/* stylelint-enable no-descending-specificity */

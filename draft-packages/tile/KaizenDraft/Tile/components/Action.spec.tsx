@@ -1,9 +1,12 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import Action from "./Action"
 
+const user = userEvent.setup()
+
 describe("<Action />", () => {
-  it("renders anchor tag with href and onClick when both is provided", () => {
+  it("renders anchor tag with href and onClick when both is provided", async () => {
     const onClickMock = jest.fn()
     const { getByRole } = render(
       <Action
@@ -16,13 +19,14 @@ describe("<Action />", () => {
     )
 
     const anchor = getByRole("link")
-    fireEvent.click(anchor)
-
-    expect(anchor).toHaveAttribute("href", "https://example.com")
-    expect(onClickMock).toHaveBeenCalledTimes(1)
+    await user.click(anchor)
+    await waitFor(() => {
+      expect(anchor).toHaveAttribute("href", "https://example.com")
+      expect(onClickMock).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("renders a button when href is not provided", () => {
+  it("renders a button when href is not provided", async () => {
     const onClickMock = jest.fn()
     const { getByRole } = render(
       <Action
@@ -34,8 +38,9 @@ describe("<Action />", () => {
     )
 
     const button = getByRole("button")
-    fireEvent.click(button)
-
-    expect(onClickMock).toHaveBeenCalledTimes(1)
+    await user.click(button)
+    await waitFor(() => {
+      expect(onClickMock).toHaveBeenCalledTimes(1)
+    })
   })
 })

@@ -7,7 +7,7 @@ import React, {
   FocusEvent,
   MouseEvent,
 } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
@@ -24,6 +24,16 @@ export type CustomButtonProps = {
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   children?: React.ReactNode
 }
+
+export type ButtonFormAttributes = Pick<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  | "form"
+  | "formAction"
+  | "formMethod"
+  | "formEncType"
+  | "formTarget"
+  | "formNoValidate"
+>
 
 export type GenericProps = {
   id?: string
@@ -101,9 +111,10 @@ const GenericButton = forwardRef(
 
     return (
       <span
-        className={classNames(styles.container, {
-          [styles.fullWidth]: props.fullWidth,
-        })}
+        className={classnames(
+          styles.container,
+          props.fullWidth && styles.fullWidth
+        )}
         aria-live="polite"
       >
         {determineButtonRenderer()}
@@ -159,6 +170,12 @@ const renderButton = (
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    form,
+    formAction,
+    formMethod,
+    formEncType,
+    formTarget,
+    formNoValidate,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
@@ -176,6 +193,12 @@ const renderButton = (
       onMouseDown={(e): void => onMouseDown && onMouseDown(e)}
       aria-label={generateAriaLabel(props)}
       aria-disabled={disabled || props.working ? true : undefined}
+      form={form}
+      formAction={formAction}
+      formMethod={formMethod}
+      formEncType={formEncType}
+      formTarget={formTarget}
+      formNoValidate={formNoValidate}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -226,13 +249,13 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
 
 const buttonClass = (props: Props): string => {
   const isDefault = !props.primary && !props.destructive && !props.secondary
-  return classNames([
+  return classnames(
     styles.button,
     isDefault && styles.default,
     props.primary && styles.primary,
     props.destructive && styles.destructive,
     props.secondary && styles.secondary,
-    props.form && styles.form,
+    props.size && styles[props.size],
     props.reversed && styles.reversed,
     props.iconButton && styles.iconButton,
     props.working && styles.working,
@@ -240,8 +263,8 @@ const buttonClass = (props: Props): string => {
     props.directionalLink && styles.directionalLink,
     props.paginationLink && styles.paginationLink,
     props.isActive && styles.isPaginationLinkActive,
-    props.classNameOverride,
-  ])
+    props.classNameOverride
+  )
 }
 
 const renderLoadingSpinner = (): JSX.Element => (

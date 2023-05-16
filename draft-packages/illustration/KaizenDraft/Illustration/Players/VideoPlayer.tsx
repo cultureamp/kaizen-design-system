@@ -1,7 +1,12 @@
 import React, { useRef, useEffect } from "react"
+import classnames from "classnames"
+import { IconButton } from "@kaizen/button"
+
 import { assetUrl } from "@kaizen/hosted-assets"
 import styles from "../Base.module.scss"
 import { canPlayWebm } from "../utils"
+
+import { usePausePlay } from "./usePausePlay"
 
 export type VideoPlayerProps = {
   /**
@@ -146,40 +151,45 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
-  const videoPlayer = (
-    <video
-      muted={true}
-      aria-hidden={true}
-      preload="metadata"
-      ref={videoRef}
-      width="100%"
-      data-testid="kz-video-player"
-      className={styles.wrapper}
-      loop={loop}
-      poster={assetUrl(`${fallback}.png`)}
-      autoPlay={prefersReducedMotion ? false : autoplay}
-      playsInline={true}
-      tabIndex={-1}
+  const pausePlay = usePausePlay(videoRef)
+
+  return (
+    <figure
+      className={classnames(styles.figure, {
+        [`${styles[aspectRatio!]} ${styles.aspectRatioWrapper}`]:
+          Boolean(aspectRatio),
+      })}
     >
-      {/**
-       * This seems counter-intuitive, but webm support is codec specific.
-       * Only offer webm if we are positive the browser supports it.
-       * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
-       */}
-      {canPlayWebm() && (
-        <source src={assetUrl(`${source}.webm`)} type="video/webm" />
-      )}
-      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
-    </video>
+      <video
+        muted={true}
+        aria-hidden={true}
+        preload="metadata"
+        ref={videoRef}
+        width="100%"
+        data-testid="kz-video-player"
+        className={styles.wrapper}
+        loop={loop}
+        poster={assetUrl(`${fallback}.png`)}
+        autoPlay={prefersReducedMotion ? false : autoplay}
+        playsInline={true}
+        tabIndex={-1}
+      >
+        {/**
+         * This seems counter-intuitive, but webm support is codec specific.
+         * Only offer webm if we are positive the browser supports it.
+         * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
+         */}
+        {canPlayWebm() && (
+          <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+        )}
+        <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
+      </video>
+      <IconButton
+        onClick={(): void => pausePlay.toggle()}
+        icon={pausePlay.icon}
+        label={pausePlay.label}
+        classNameOverride={styles.pausePlayButton}
+      />
+    </figure>
   )
-
-  if (aspectRatio) {
-    return (
-      <figure className={`${styles[aspectRatio]} ${styles.aspectRatioWrapper}`}>
-        {videoPlayer}
-      </figure>
-    )
-  }
-
-  return videoPlayer
 }

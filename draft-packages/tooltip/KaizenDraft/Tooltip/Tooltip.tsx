@@ -122,9 +122,7 @@ const TooltipContent = ({
   return isVisible || isAnimOut || isAnimIn ? (
     <div
       ref={setPopperElement}
-      className={classnames({
-        [styles.tooltip]: true,
-      })}
+      className={styles.tooltip}
       style={popperStyles.popper}
       {...attributes.popper}
       role="tooltip"
@@ -135,9 +133,7 @@ const TooltipContent = ({
       </div>
       <div
         ref={setArrowElement}
-        className={classnames({
-          [styles.arrow]: true,
-        })}
+        className={styles.arrow}
         style={popperStyles.arrow}
       >
         <div className={styles.arrowInner}>
@@ -171,9 +167,6 @@ export const Tooltip = ({
     useState<HTMLDivElement | null>(null)
   const tooltipId = useUuid()
 
-  // Legacy support for the inline prop
-  const displayToUse = inline != null ? (inline ? "inline" : "block") : display
-
   const tooltip = (
     <TooltipContent
       text={text}
@@ -201,6 +194,26 @@ export const Tooltip = ({
     }
   }, [portalSelectorElementRef, portalSelector])
 
+  // Legacy support for the inline prop
+  const displayToUse = inline != null ? (inline ? "inline" : "block") : display
+
+  const getDisplayClassName = (): string | undefined => {
+    switch (displayToUse) {
+      case "inline":
+        return styles.displayInline
+      case "block":
+        return styles.displayBlock
+      case "inline-block":
+        return styles.displayInlineBlock
+      case "flex":
+        return styles.displayFlex
+      case "inline-flex":
+        return styles.displayInlineFlex
+      default:
+        return undefined
+    }
+  }
+
   return (
     <AnimationProvider
       isVisible={isHover || isFocus}
@@ -209,13 +222,7 @@ export const Tooltip = ({
       <>
         <div
           ref={setReferenceElement}
-          className={classnames(classNameOverride, {
-            [styles.displayInline]: displayToUse === "inline",
-            [styles.displayBlock]: displayToUse === "block",
-            [styles.displayInlineBlock]: displayToUse === "inline-block",
-            [styles.displayFlex]: displayToUse === "flex",
-            [styles.displayInlineFlex]: displayToUse === "inline-flex",
-          })}
+          className={classnames(classNameOverride, getDisplayClassName())}
           onMouseEnter={(): void => setIsHover(true)}
           onMouseLeave={(): void => setIsHover(false)}
           onFocusCapture={(): void => setIsFocus(true)}
