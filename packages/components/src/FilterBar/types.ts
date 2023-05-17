@@ -24,7 +24,7 @@ type FiltersState<T> = { [K in keyof T]: FilterAttr<K, T[K]> }
 const tomato: FiltersState<SelectedValues> = {
   strawberry: { id: "strawberry", selectedValue: 3 },
   chocolate: { id: "chocolate", selectedValue: "a" },
-  pancake: { id: "strawberry", selectedValue: 3 },
+  pancake: { id: "pancake", selectedValue: true },
 }
 
 export const a = tomato.pancake.selectedValue
