@@ -4,6 +4,11 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
 .stepContainer {
+  width: 100%;
+  grid-area: stepper;
+}
+
+.stepList {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -14,9 +19,18 @@
 
 .step {
   display: flex;
+  flex-grow: 1;
+  flex-basis: 100%;
+  justify-content: center;
+  max-width: $spacing-96;
+  position: relative;
+  container-type: inline-size;
+}
+
+.stepContent {
+  display: flex;
   align-items: center;
-  padding-top: $spacing-24;
-  box-sizing: border-box;
+  flex-direction: column;
 }
 
 .stepIndicator {
@@ -51,26 +65,9 @@
 }
 
 .stepName {
-  position: absolute;
+  text-align: center;
   margin-bottom: $spacing-12;
-  left: 50%;
-  bottom: 100%;
-  transform: translateX(calc(-50%));
   font-weight: $typography-paragraph-bold-font-weight;
-}
-
-.stepDivider {
-  height: 0;
-  display: flex;
-  min-width: $spacing-72;
-  border: solid 1px $color-white;
-  opacity: 0.65;
-  margin: 0 4px;
-  border-radius: $border-solid-border-radius;
-}
-
-.stepDivider.completedStep {
-  opacity: 1;
 }
 
 .completedIcon {
@@ -81,4 +78,55 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.stepDivider {
+  height: 0;
+  display: flex;
+  position: absolute;
+  flex-grow: 1;
+  min-width: calc(100% - #{$spacing-24});
+  border: solid $spacing-1 $color-white;
+  opacity: 0.65;
+  margin: 0;
+  border-radius: $border-solid-border-radius;
+  left: 100%;
+  top: calc(100% - #{$spacing-6});
+  transform: translateX(-50%);
+}
+
+.stepDivider.completedStep {
+  opacity: 1;
+}
+
+// this need to be on the item
+.stepDisplayName {
+  display: none;
+}
+
+.stepperDescription {
+  display: block;
+  text-align: center;
+}
+
+.stepperDescription {
+  display: none;
+}
+
+@container (min-width: 72px) {
+  .stepDisplayName {
+    display: inline;
+  }
+
+  .step {
+    align-self: center;
+  }
+
+  .stepContainer {
+    align-self: center;
+  }
+
+  .stepperDescription {
+    dispay: block;
+  }
 }

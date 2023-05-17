@@ -31,7 +31,7 @@ export const WorkflowFooter = ({
       stepName={stepName}
       isComplete={isComplete}
     />
-    <FooterAction action={nextAction} alignTo="End" />
+    <FooterAction action={nextAction} actionType="Next" />
   </FooterRoot>
 )
 

@@ -2,10 +2,20 @@
 @import "~@kaizen/design-tokens/sass/color";
 
 .footerRoot {
-  display: flex;
+  display: grid;
+  grid-template-areas:
+    "stepper stepper"
+    "prev next";
+  grid-template-columns: 1fr 1fr;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
   padding: $spacing-24 $spacing-32;
   background: $color-blue-500;
+  gap: $spacing-16;
+
+  @media (min-width: 768px) {
+    grid-template-areas: "prev stepper next";
+    grid-template-columns: 1fr 3fr 1fr;
+  }
 }

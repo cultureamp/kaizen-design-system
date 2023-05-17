@@ -20,59 +20,77 @@ export const ProgressStepper = ({
   const currentStepIndex = steps.indexOf(stepName)
 
   return (
-    <ol
-      className={styles.stepContainer}
-      {...restprops}
-      // will need to be translated
-      aria-label={`Step ${currentStepIndex + 1} of ${steps.length}.`}
-    >
-      {steps.map((step: string, index: number) => {
-        const isCurrentStep = currentStepIndex === index
-        const isCompletedStep = index < currentStepIndex || isComplete
-        const isActiveStep = isCompletedStep || isCurrentStep
-        return (
-          <li
-            className={styles.step}
-            key={`${index}-${step}`}
-            aria-current={isCurrentStep}
-          >
-            <div
-              className={classnames({
-                [styles.stepIndicator]: true,
-                [styles.stepActive]: isCurrentStep || isCompletedStep,
-                [styles.completedStep]: isCompletedStep,
-              })}
+    <div className={styles.stepContainer}>
+      <Paragraph
+        classNameOverride={styles.stepperDescription}
+        variant={"small"}
+        color={"white"}
+        id="stepper-description"
+      >
+        Step {currentStepIndex + 1} out of {steps.length}
+      </Paragraph>
+      <ol
+        className={styles.stepList}
+        {...restprops}
+        aria-labelledby="stepper-description"
+      >
+        {steps.map((step: string, index: number) => {
+          const isCurrentStep = currentStepIndex === index
+          const isCompletedStep = index < currentStepIndex || isComplete
+          return (
+            <li
+              className={styles.step}
+              key={`${index}-${step}`}
+              aria-current={isCurrentStep}
             >
-              {isCompletedStep && (
-                <span className={styles.completedIcon}>
-                  <Icon role={"presentation"} icon={SuccessIcon} inheritSize />
-                </span>
-              )}
-              <Paragraph
-                classNameOverride={styles.stepName}
-                variant={"small"}
-                color={isActiveStep ? "white" : "white-reduced-opacity"}
-              >
-                {
-                  <span className="sr-only">
-                    {/* will need to be translated */}
-                    {isCompletedStep ? "Completed: " : "In progress: "}
+              <div className={styles.stepContent}>
+                <Paragraph
+                  classNameOverride={styles.stepName}
+                  variant={"small"}
+                  color={"white"}
+                >
+                  {
+                    <span className="sr-only">
+                      {/* will need to be translated */}
+                      {isCompletedStep
+                        ? `Completed: ${step}`
+                        : `In progress: ${step}`}
+                    </span>
+                  }
+                  <span className={styles.stepDisplayName} aria-hidden>
+                    {step}
                   </span>
-                }
-                {step}
-              </Paragraph>
-            </div>
-            {index < steps.length - 1 && (
-              <div
-                className={classnames([
-                  styles.stepDivider,
-                  isCompletedStep && styles.completedStep,
-                ])}
-              />
-            )}
-          </li>
-        )
-      })}
-    </ol>
+                </Paragraph>
+                <div
+                  className={classnames({
+                    [styles.stepIndicator]: true,
+                    [styles.stepActive]: isCurrentStep || isCompletedStep,
+                    [styles.completedStep]: isCompletedStep,
+                  })}
+                >
+                  {isCompletedStep && (
+                    <span className={styles.completedIcon}>
+                      <Icon
+                        role={"presentation"}
+                        icon={SuccessIcon}
+                        inheritSize
+                      />
+                    </span>
+                  )}
+                </div>
+                {index < steps.length - 1 && (
+                  <div
+                    className={classnames([
+                      styles.stepDivider,
+                      isCompletedStep && styles.completedStep,
+                    ])}
+                  />
+                )}
+              </div>
+            </li>
+          )
+        })}
+      </ol>
+    </div>
   )
 }

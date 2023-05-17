@@ -113,3 +113,31 @@ AllStepsComplete.args = {
   nextAction: <Button reversed primary label="Finish" />,
   previousAction: <Button reversed label="Back" />,
 }
+
+export const FewerSteps = VariantTemplate.bind({})
+
+FewerSteps.args = {
+  stepName: "Questions",
+  steps: ["Settings", "Questions", "Preview"],
+  isComplete: false,
+  nextAction: <Button reversed label="Next" />,
+  previousAction: <Button reversed label="Back" />,
+}
+export const SevenSteps = VariantTemplate.bind({})
+
+SevenSteps.args = {
+  stepName: "Questions",
+  steps: [
+    "Settings",
+    "Questions",
+    "Preview",
+    "Employees",
+    "Schedule",
+    "Plan",
+    "Provision",
+    "Another thing",
+  ],
+  isComplete: false,
+  nextAction: <Button reversed label="Next" />,
+  previousAction: <Button reversed label="Back" />,
+}

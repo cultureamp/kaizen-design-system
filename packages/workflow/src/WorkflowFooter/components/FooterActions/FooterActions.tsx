@@ -6,18 +6,21 @@ import styles from "./FooterActions.module.scss"
 export interface WorkflowFooterActionsProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">> {
   /** @default "start" */
-  alignTo?: "Start" | "End"
+  actionType?: "Previous" | "Next"
   action?: JSX.Element
 }
 
 /** A simple wrapper for a Footer previous or next action  */
 export const FooterAction = ({
-  alignTo = "Start",
+  actionType = "Previous",
   action,
   ...restProps
 }: WorkflowFooterActionsProps): JSX.Element => (
   <div
-    className={classnames([styles.footerAction, styles[`align${alignTo}`]])}
+    className={classnames([
+      styles.footerAction,
+      styles[`footerAction${actionType}`],
+    ])}
     {...restProps}
   >
     {action}
