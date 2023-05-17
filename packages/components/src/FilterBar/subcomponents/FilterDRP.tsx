@@ -27,7 +27,7 @@ export const FilterDRP = (props: FilterDRPProps): JSX.Element | null => {
   return (
     <FilterDateRangePicker
       {...props}
-      label={filterState.label}
+      label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element =>
         filterState.isRemovable ? (
           <FilterButtonRemovable

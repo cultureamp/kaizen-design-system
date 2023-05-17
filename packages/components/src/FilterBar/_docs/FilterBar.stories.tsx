@@ -35,12 +35,12 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
   const filters: Filter[] = [
     {
       id: "chocolate",
-      label: "Chocolate",
+      name: "Chocolate",
       Component: <FilterPancake id="chocolate" />,
     },
     {
       id: "department",
-      label: "Dept",
+      name: "Dept",
       Component: (
         <FilterBarMultiSelect
           id="department"
@@ -87,7 +87,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "strawberry",
-      label: "Req choc val",
+      name: "Req choc val",
       Component: <FilterPancake id="strawberry" />,
       isRemovable: true,
       isInitHidden: true,
@@ -95,7 +95,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "vanilla",
-      label: "Req dept BE",
+      name: "Req dept BE",
       Component: <FilterPancake id="vanilla" />,
       isRemovable: true,
       isUsableWhen: state =>
@@ -104,13 +104,13 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "apple",
-      label: "Apple",
+      name: "Apple",
       Component: <FilterPancake id="apple" />,
       isRemovable: true,
     },
     {
       id: "penguin",
-      label: "Penguin",
+      name: "Penguin",
       Component: (
         <FilterBarMultiSelect
           id="penguin"
@@ -213,24 +213,24 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
   const filters: Filter[] = [
     {
       id: "chocolate",
-      label: "Chocolate",
+      name: "Chocolate",
       Component: <FilterPancake id="chocolate" />,
     },
     {
       id: "drp",
-      label: "Dates",
+      name: "Dates",
       Component: <FilterDRP id="drp" locale="en-AU" />,
     },
     {
       id: "vanilla",
-      label: "Vanilla",
+      name: "Vanilla",
       Component: <VanillaPancake id="vanilla" />,
       isRemovable: true,
       isUsableWhen: state => state["chocolate"]?.selectedValue !== undefined,
     },
     {
       id: "coffee",
-      label: "Coffee",
+      name: "Coffee",
       Component: (
         <FilterBarSelect
           id="coffee"
@@ -244,7 +244,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "pickle",
-      label: "Pickle",
+      name: "Pickle",
       Component: (
         <FilterBarSelect<SelectOption & { isFruit: boolean }>
           id="pickle"
@@ -278,7 +278,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "carrots",
-      label: "Carrots",
+      name: "Carrots",
       Component: <FilterPancake id="carrots" />,
       isInitHidden: true,
     },
@@ -326,7 +326,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
   const filters: Filter[] = [
     {
       id: "managers",
-      label: "Managers",
+      name: "Managers",
       Component: (
         <FilterBarSelect
           id="managers"
@@ -339,7 +339,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "reports",
-      label: "Reports",
+      name: "Reports",
       Component: (
         <FilterBarSelect
           id="reports"
@@ -354,7 +354,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "departments",
-      label: "Departments",
+      name: "Departments",
       Component: (
         <FilterBarSelect
           id="departments"
@@ -370,7 +370,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
     },
     {
       id: "gender",
-      label: "Gender",
+      name: "Gender",
       Component: (
         <FilterBarSelect
           id="gender"
@@ -416,7 +416,7 @@ export const ManyFilters: StoryFn<typeof FilterBar> = () => {
 
   const dynamicFilters: Filter[] = [...Array(100)].map((_, i) => ({
     id: `filter-${i}`,
-    label: `${i}`,
+    name: `${i}`,
     Component: <FilterPancake id={`filter-${i}`} />,
     isRemovable: true,
     isInitHidden: true,
@@ -425,7 +425,7 @@ export const ManyFilters: StoryFn<typeof FilterBar> = () => {
   const filters: Filter[] = [
     {
       id: "default",
-      label: "Default",
+      name: "Default",
       Component: <FilterPancake id="default" />,
     },
     ...dynamicFilters,

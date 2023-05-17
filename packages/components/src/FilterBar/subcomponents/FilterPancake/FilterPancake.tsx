@@ -35,7 +35,7 @@ FilterPancakeProps): JSX.Element | null => {
       renderTrigger={(triggerProps): JSX.Element => {
         const props = {
           selectedValue: contents,
-          label: filterState.label,
+          label: filterState.name,
           ...triggerProps,
         }
 

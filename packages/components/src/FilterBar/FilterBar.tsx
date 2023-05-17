@@ -16,7 +16,7 @@ export const FilterBar = ({
   filters,
   ...providerProps
 }: FilterBarProps): JSX.Element => (
-  <div style={{ display: "flex", gap: "1rem" }}>
+  <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
     <FilterBarProvider filters={filters} {...providerProps}>
       {(activeFilters): JSX.Element => (
         <>

@@ -19,7 +19,7 @@ export const FilterBarMultiSelect = ({
 
   return (
     <FilterMultiSelect
-      label={filterState.label}
+      label={filterState.name}
       // Convert the incoming FilterBar state to a Set (internal FilterMultiSelect state)
       selectedKeys={new Set(filterState.selectedValue)}
       onSelectionChange={(keys): void => {
@@ -37,7 +37,7 @@ export const FilterBarMultiSelect = ({
               items
             )}
             onRemove={() => hideFilter(props.id)}
-            label={filterState.label}
+            label={filterState.name}
           />
         ) : (
           <FilterMultiSelect.TriggerButton
@@ -45,7 +45,7 @@ export const FilterBarMultiSelect = ({
               filterState.selectedValue,
               items
             )}
-            label={filterState.label}
+            label={filterState.name}
           />
         )
       }

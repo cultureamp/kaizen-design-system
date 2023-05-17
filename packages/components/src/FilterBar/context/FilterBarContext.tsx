@@ -6,7 +6,7 @@ export type IsUsableWhen = (
 
 type InternalFilterAttr = {
   id: string
-  label: string
+  name: string
   Component: React.ReactElement
   isRemovable: boolean
   isOpen: boolean
@@ -53,7 +53,7 @@ export const useFilterBarContext = (): FilterBarContextValue => {
 
 export type Filter = {
   id: string
-  label: string
+  name: string
   Component: React.ReactElement
   isRemovable?: boolean
   isInitHidden?: boolean
@@ -98,7 +98,9 @@ export const FilterBarProvider = ({
     theState: InternalFiltersState
   ): TransformedState =>
     Object.values(theState).reduce<TransformedState>((acc, filter) => {
-      const isUsable = filter.isUsableWhen?.(theState) ?? true
+      const isUsable = filter.isUsableWhen
+        ? filter.isUsableWhen(theState)
+        : true
 
       acc[filter.id] = {
         ...filter,

@@ -5,13 +5,19 @@ import { useFilterBarContext } from "../context/FilterBarContext"
 
 export const FilterAddButton = (): JSX.Element => {
   const { getHiddenFilters, showFilter } = useFilterBarContext()
+
+  const hiddenFilters = getHiddenFilters()
   return (
-    <Menu button={<button type="button">Add filter</button>}>
+    <Menu
+      button={
+        <button type="button">Add filter ({hiddenFilters.length})</button>
+      }
+    >
       <MenuList>
-        {getHiddenFilters().map(({ id, label }) => (
+        {hiddenFilters.map(({ id, name }) => (
           <MenuItem
             key={id}
-            label={label}
+            label={name}
             onClick={(): void => showFilter(id)}
           />
         ))}

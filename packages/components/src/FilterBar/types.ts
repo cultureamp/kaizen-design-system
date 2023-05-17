@@ -2,6 +2,7 @@ type SelectedValues = {
   chocolate: string
   strawberry: number
   pancake: boolean
+  waffle: boolean
 }
 
 type IsUsableWhen<T> = (state: {
@@ -24,7 +25,10 @@ type FiltersState<T> = { [K in keyof T]: FilterAttr<K, T[K]> }
 const tomato: FiltersState<SelectedValues> = {
   strawberry: { id: "strawberry", selectedValue: 3 },
   chocolate: { id: "chocolate", selectedValue: "a" },
-  pancake: { id: "pancake", selectedValue: true },
+  // @ts-expect-error
+  pancake: { id: "tomato", selectedValue: true },
+  // @ts-expect-error
+  waffle: { id: "waffle", selectedValue: 3 },
 }
 
 export const a = tomato.pancake.selectedValue
