@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { FilterMultiSelect } from "@kaizen/select"
 import { FilterSelect, SelectOption } from "~components/FilterSelect"
 import {
   Filter,
@@ -9,6 +10,7 @@ import {
 } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
 import { FilterDRP } from "../subcomponents/FilterDRP"
+import { FilterBarMultiSelect } from "../subcomponents/FilterMS"
 import { FilterPancake } from "../subcomponents/FilterPancake"
 import { FilterBarSelect } from "../subcomponents/FilterSelect"
 
@@ -22,7 +24,7 @@ export default meta
 
 export const Playground: StoryFn<typeof FilterBar> = () => {
   const [selectedValues, setSelectedValues] = useState<Record<string, any>>({
-    chocolate: "boo",
+    department: ["id-fe"],
   })
   const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
 
@@ -37,18 +39,67 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       Component: <FilterPancake id="chocolate" />,
     },
     {
+      id: "department",
+      label: "Dept",
+      Component: (
+        <FilterBarMultiSelect
+          id="department"
+          items={[
+            { label: "Front-End", value: "id-fe" },
+            { label: "Back-End", value: "id-be" },
+            { label: "SRE", value: "id-sre" },
+            { label: "Dev-ops", value: "id-devops" },
+            { label: "Others", value: "id-others" },
+            {
+              label:
+                "Super long option where the container is fixed width and the selected option goes multiline",
+              value: "id-long",
+            },
+            { label: "AnotherExample", value: "id-another" },
+          ]}
+        >
+          {(): JSX.Element => (
+            <>
+              <FilterMultiSelect.SearchInput />
+              <FilterMultiSelect.ListBox>
+                {({ allItems, hasNoItems }): JSX.Element | JSX.Element[] => {
+                  if (hasNoItems) {
+                    return (
+                      <FilterMultiSelect.NoResults>
+                        No results found.
+                      </FilterMultiSelect.NoResults>
+                    )
+                  }
+
+                  return allItems.map(item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
+                  ))
+                }}
+              </FilterMultiSelect.ListBox>
+              <FilterMultiSelect.MenuFooter>
+                <FilterMultiSelect.SelectAllButton />
+                <FilterMultiSelect.ClearButton />
+              </FilterMultiSelect.MenuFooter>
+            </>
+          )}
+        </FilterBarMultiSelect>
+      ),
+    },
+    {
       id: "strawberry",
-      label: "Strawberry",
+      label: "Req choc val",
       Component: <FilterPancake id="strawberry" />,
       isRemovable: true,
       isInitHidden: true,
+      isUsableWhen: state => state["chocolate"].selectedValue !== undefined,
     },
     {
       id: "vanilla",
-      label: "Vanilla",
+      label: "Req dept BE",
       Component: <FilterPancake id="vanilla" />,
       isRemovable: true,
-      isUsableWhen: state => !state["strawberry"].isHidden,
+      isUsableWhen: state =>
+        state["department"]?.selectedValue?.includes("id-be") === true,
       isInitHidden: true,
     },
     {
@@ -56,6 +107,55 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       label: "Apple",
       Component: <FilterPancake id="apple" />,
       isRemovable: true,
+    },
+    {
+      id: "penguin",
+      label: "Penguin",
+      Component: (
+        <FilterBarMultiSelect
+          id="penguin"
+          items={[
+            { label: "Front-End", value: "id-fe" },
+            { label: "Back-End", value: "id-be" },
+            { label: "SRE", value: "id-sre" },
+            { label: "Dev-ops", value: "id-devops" },
+            { label: "Others", value: "id-others" },
+            {
+              label:
+                "Super long option where the container is fixed width and the selected option goes multiline",
+              value: "id-long",
+            },
+            { label: "AnotherExample", value: "id-another" },
+          ]}
+        >
+          {(): JSX.Element => (
+            <>
+              <FilterMultiSelect.SearchInput />
+              <FilterMultiSelect.ListBox>
+                {({ allItems, hasNoItems }): JSX.Element | JSX.Element[] => {
+                  if (hasNoItems) {
+                    return (
+                      <FilterMultiSelect.NoResults>
+                        No results found.
+                      </FilterMultiSelect.NoResults>
+                    )
+                  }
+
+                  return allItems.map(item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
+                  ))
+                }}
+              </FilterMultiSelect.ListBox>
+              <FilterMultiSelect.MenuFooter>
+                <FilterMultiSelect.SelectAllButton />
+                <FilterMultiSelect.ClearButton />
+              </FilterMultiSelect.MenuFooter>
+            </>
+          )}
+        </FilterBarMultiSelect>
+      ),
+      isRemovable: true,
+      isInitHidden: true,
     },
   ]
 

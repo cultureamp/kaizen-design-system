@@ -103,8 +103,10 @@ export const FilterBarProvider = ({
       acc[filter.id] = {
         ...filter,
         isUsable,
+        isHidden: !isUsable || filter.isHidden,
         selectedValue: selectedValues[filter.id],
       }
+
       return acc
     }, {})
 
