@@ -34,6 +34,11 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
   // although we could also make an attribute to override that if needed
   const filters: Filter[] = [
     {
+      id: "chocolate",
+      label: "Chocolate",
+      Component: <FilterPancake id="chocolate" />,
+    },
+    {
       id: "department",
       label: "Dept",
       Component: (
@@ -93,7 +98,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       Component: <FilterPancake id="vanilla" />,
       isRemovable: true,
       isUsableWhen: state =>
-        state["department"]?.selectedValue.includes("id-be"),
+        state["department"]?.selectedValue?.includes("id-be"),
       isInitHidden: true,
     },
     {
@@ -101,6 +106,55 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       label: "Apple",
       Component: <FilterPancake id="apple" />,
       isRemovable: true,
+    },
+    {
+      id: "penguin",
+      label: "Penguin",
+      Component: (
+        <FilterBarMultiSelect
+          id="penguin"
+          items={[
+            { label: "Front-End", value: "id-fe" },
+            { label: "Back-End", value: "id-be" },
+            { label: "SRE", value: "id-sre" },
+            { label: "Dev-ops", value: "id-devops" },
+            { label: "Others", value: "id-others" },
+            {
+              label:
+                "Super long option where the container is fixed width and the selected option goes multiline",
+              value: "id-long",
+            },
+            { label: "AnotherExample", value: "id-another" },
+          ]}
+        >
+          {(): JSX.Element => (
+            <>
+              <FilterMultiSelect.SearchInput />
+              <FilterMultiSelect.ListBox>
+                {({ allItems, hasNoItems }): JSX.Element | JSX.Element[] => {
+                  if (hasNoItems) {
+                    return (
+                      <FilterMultiSelect.NoResults>
+                        No results found.
+                      </FilterMultiSelect.NoResults>
+                    )
+                  }
+
+                  return allItems.map(item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
+                  ))
+                }}
+              </FilterMultiSelect.ListBox>
+              <FilterMultiSelect.MenuFooter>
+                <FilterMultiSelect.SelectAllButton />
+                <FilterMultiSelect.ClearButton />
+              </FilterMultiSelect.MenuFooter>
+            </>
+          )}
+        </FilterBarMultiSelect>
+      ),
+      isRemovable: true,
+      isInitHidden: true,
     },
   ]
 
