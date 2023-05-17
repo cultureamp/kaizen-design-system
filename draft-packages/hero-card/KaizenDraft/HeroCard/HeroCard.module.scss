@@ -86,14 +86,12 @@ $left-content__width: 221px;
 
 .badge {
   font-family: $typography-heading-3-font-family;
-  font-size: $typography-heading-3-font-size;
   font-weight: $typography-heading-3-font-weight;
-  line-height: $typography-heading-3-line-height;
   letter-spacing: $typography-heading-3-letter-spacing;
   display: flex;
   font-size: 42px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
   align-self: flex-start;
   line-height: 80px;
   min-width: 80px;

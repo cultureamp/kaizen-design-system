@@ -1,13 +1,12 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "0.6.5",
+  "version": "1.0.2",
   "description": "Kaizen Tailwind presets",
   "scripts": {
-    "build": "yarn clean && yarn prepublish",
+    "build": "yarn prepublish",
     "build:ts": "tsc --project tsconfig.dist.json",
-    "build:watch": "yarn clean && yarn prepublish --watch",
     "prepublish": "tsc --project tsconfig.dist.json",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -19,22 +18,19 @@
   },
   "files": [
     "src",
-    "dist",
-    "!**/*.spec.*",
-    "!docs"
+    "dist"
   ],
   "main": "dist/index.js",
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "^10.3.5",
+    "@kaizen/design-tokens": "^10.3.9",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@kaizen/draft-divider": "^2.2.8",
-    "rimraf": "^4.4.1",
-    "tailwindcss": "^3.3.1"
+    "@kaizen/draft-divider": "^2.2.11",
+    "tailwindcss": "^3.3.2"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"

@@ -1,0 +1,99 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "overrides": [
+    {
+      "files": ["*.scss", "**/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ],
+  "rules": {
+    "alpha-value-notation": "percentage",
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"],
+        "ignoreAtRules": ["else"]
+      }
+    ],
+    "block-no-empty": true,
+    "color-function-notation": "modern",
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment", "stylelint-commands"]
+      }
+    ],
+    "comment-no-empty": true,
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates"],
+        "ignoreProperties": ["composes"]
+      }
+    ],
+    "declaration-block-no-redundant-longhand-properties": true,
+    "declaration-empty-line-before": [
+      "always",
+      { "except": ["after-comment", "after-declaration", "first-nested"] }
+    ],
+    "declaration-no-important": [
+      true,
+      {
+        "severity": "error"
+      }
+    ],
+    "font-family-name-quotes": "always-unless-keyword",
+    "font-family-no-duplicate-names": true,
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "function-name-case": "lower",
+    "function-url-quotes": "always",
+    "length-zero-no-unit": true,
+    "media-feature-range-notation": null,
+    "no-descending-specificity": true,
+    "no-duplicate-at-import-rules": true,
+    "no-duplicate-selectors": true,
+    "number-max-precision": 4,
+    "property-no-unknown": [true, { "ignoreProperties": ["composes"] }],
+    "property-no-vendor-prefix": null,
+    "rule-empty-line-before": [
+      "always",
+      { "except": ["after-single-line-comment", "first-nested"] }
+    ],
+    "scss/at-rule-conditional-no-parentheses": null,
+    "scss/dollar-variable-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment", "after-dollar-variable"]
+      }
+    ],
+    "scss/dollar-variable-pattern": null,
+    "scss/double-slash-comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["between-comments", "stylelint-commands", "inside-block"]
+      }
+    ],
+    "scss/no-global-function-names": null,
+    "scss/operator-no-newline-after": null,
+    "scss/operator-no-unspaced": null,
+    "scss/percent-placeholder-pattern": null,
+    "selector-class-pattern": null,
+    "selector-no-vendor-prefix": true,
+    "selector-not-notation": "complex",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { "ignorePseudoClasses": ["global", "export"] }
+    ],
+    "selector-pseudo-element-colon-notation": "double",
+    "shorthand-property-no-redundant-values": true,
+    "value-keyword-case": [
+      "lower",
+      { "ignoreProperties": ["composes", "/font-family/"] }
+    ],
+    "value-no-vendor-prefix": true
+  }
+}

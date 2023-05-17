@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/spacing";
+
 $menuContentHorizontalPadding: 4px; // this comes from the MenuContent component, which should be using tokens
 $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, which should be using tokens
 
@@ -9,9 +10,11 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
 
 .content {
   width: 264px;
+
   & label {
     width: auto;
   }
+
   padding: calc(#{$spacing-sm} - #{$menuContentVerticalPadding})
     calc(#{$spacing-sm} - #{$menuContentHorizontalPadding});
 }

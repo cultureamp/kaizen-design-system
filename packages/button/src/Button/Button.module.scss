@@ -10,7 +10,6 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: $typography-button-primary-font-family;
   font-weight: $typography-button-primary-font-weight;
   font-size: $typography-button-primary-font-size;
@@ -48,6 +47,7 @@
         $focus-ring-offset: calc(
           (#{$border-focus-ring-border-width} * 2) + 1px
         );
+
         content: "";
         position: absolute;
         background: transparent;
@@ -55,10 +55,7 @@
         border-radius: $border-focus-ring-border-radius;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
-        top: calc(-1 * #{$focus-ring-offset});
-        left: calc(-1 * #{$focus-ring-offset});
-        right: calc(-1 * #{$focus-ring-offset});
-        bottom: calc(-1 * #{$focus-ring-offset});
+        inset: calc(-1 * #{$focus-ring-offset});
       }
     }
   }
@@ -76,14 +73,13 @@
   &:disabled,
   &.working {
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 30%;
   }
 
   #{$className--content} {
     height: 100%;
     display: flex;
     align-items: center;
-
     padding: $button-vertical-padding
       calc(#{$spacing-md} - #{$border-solid-border-width});
   }
@@ -158,7 +154,6 @@
   font-size: $typography-button-secondary-font-size;
   line-height: $typography-button-secondary-line-height;
   letter-spacing: $typography-button-secondary-letter-spacing;
-
   background-color: transparent;
   border-color: $border-borderless-border-color;
   color: $color-blue-500;
@@ -193,11 +188,11 @@
   );
 }
 
-%variant-form {
-  min-height: $button-form-height;
+%variant-small {
+  min-height: $button-small-height;
 
   #{$className--content} {
-    padding-top: $button-vertical-padding--form;
-    padding-bottom: $button-vertical-padding--form;
+    padding-top: $button-vertical-padding--small;
+    padding-bottom: $button-vertical-padding--small;
   }
 }

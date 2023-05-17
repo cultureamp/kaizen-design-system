@@ -53,12 +53,12 @@ export const Paragraph = ({
   classNameOverride,
   ...restProps
 }: ParagraphProps): JSX.Element => {
-  const className = classnames([
+  const className = classnames(
     styles.paragraph,
     styles[variant],
     styles[color],
-    classNameOverride,
-  ])
+    classNameOverride
+  )
 
   return createElement(
     tag === undefined ? "p" : tag,
@@ -66,5 +66,3 @@ export const Paragraph = ({
     children
   )
 }
-
-Paragraph.displayName = "Paragraph"

@@ -1,7 +1,10 @@
 import React from "react"
-import { render, fireEvent } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { ConfirmationModal, ConfirmationModalProps } from "./ConfirmationModal"
 import "./matchMedia.mock"
+
+const user = userEvent.setup()
 
 const ConfirmationModalWrapper = ({
   children,
@@ -52,10 +55,11 @@ describe("<ConfirmationModal />", () => {
     expect(queryByText("Confirm")).toBeNull()
   })
 
-  it("supports a dismiss action when escape key is pressed", () => {
+  it("supports a dismiss action when escape key is pressed", async () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
-    const document = render(
+
+    render(
       <ConfirmationModalWrapper
         onDismiss={handleDismiss}
         onConfirm={handleConfirm}
@@ -63,12 +67,15 @@ describe("<ConfirmationModal />", () => {
         Example modal body
       </ConfirmationModalWrapper>
     )
-    fireEvent.keyUp(document.container, { key: "Escape", code: "Escape" })
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
-    expect(handleConfirm).toHaveBeenCalledTimes(0)
+
+    await user.keyboard("{Escape}")
+    await waitFor(() => {
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+      expect(handleConfirm).toHaveBeenCalledTimes(0)
+    })
   })
 
-  it("supports a dismiss action when dismiss button is pressed", () => {
+  it("supports a dismiss action when dismiss button is pressed", async () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByLabelText } = render(
@@ -79,12 +86,14 @@ describe("<ConfirmationModal />", () => {
         Example modal body
       </ConfirmationModalWrapper>
     )
-    fireEvent.click(getByLabelText(/Dismiss/i))
-    expect(handleConfirm).toHaveBeenCalledTimes(0)
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    await user.click(getByLabelText(/Dismiss/i))
+    await waitFor(() => {
+      expect(handleConfirm).toHaveBeenCalledTimes(0)
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("supports a dismiss action when cancel button is pressed", () => {
+  it("supports a dismiss action when cancel button is pressed", async () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
@@ -95,12 +104,14 @@ describe("<ConfirmationModal />", () => {
         Example modal body
       </ConfirmationModalWrapper>
     )
-    fireEvent.click(getByText(/Cancel/i))
-    expect(handleConfirm).toHaveBeenCalledTimes(0)
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    await user.click(getByText(/Cancel/i))
+    await waitFor(() => {
+      expect(handleConfirm).toHaveBeenCalledTimes(0)
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("supports a confirm action when confirm button is pressed", () => {
+  it("supports a confirm action when confirm button is pressed", async () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
@@ -111,8 +122,10 @@ describe("<ConfirmationModal />", () => {
         Example modal body
       </ConfirmationModalWrapper>
     )
-    fireEvent.click(getByText(/Confirm/i))
-    expect(handleConfirm).toHaveBeenCalledTimes(1)
-    expect(handleDismiss).toHaveBeenCalledTimes(0)
+    await user.click(getByText(/Confirm/i))
+    await waitFor(() => {
+      expect(handleConfirm).toHaveBeenCalledTimes(1)
+      expect(handleDismiss).toHaveBeenCalledTimes(0)
+    })
   })
 })

@@ -31,10 +31,8 @@ export const LoadingInput = ({
       skeletonStyles.base,
       inputStyles.input,
       classNameOverride,
-      {
-        [skeletonStyles.animated]: isAnimated,
-        [inputStyles.reversed]: isReversed,
-      }
+      isAnimated && skeletonStyles.animated,
+      isReversed && inputStyles.reversed
     )}
     style={{ width: `${width}%`, height: `${height}px` }}
     {...props}

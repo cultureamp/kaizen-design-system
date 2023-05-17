@@ -20,6 +20,7 @@ $grid-gap: 1.5rem;
       padding-bottom: 1.5rem;
     }
   }
+
   .rowDivider.reversed & {
     &:not(:last-child) {
       border-bottom: 2px rgba($color-white-rgb, 0.1) solid;

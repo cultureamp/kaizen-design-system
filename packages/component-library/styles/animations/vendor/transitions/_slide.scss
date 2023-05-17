@@ -25,7 +25,7 @@
 
     @if $fade {
       transition-property: transform, opacity;
-      opacity: if($state == in, 0, 1);
+      opacity: if($state == in, 0%, 100%);
     } @else {
       transition-property: transform, opacity;
     }
@@ -37,7 +37,7 @@
     @include -mui-keyframe-get($slide, 100);
 
     @if $fade {
-      opacity: if($state == in, 1, 0);
+      opacity: if($state == in, 100%, 0%);
     }
   }
 }

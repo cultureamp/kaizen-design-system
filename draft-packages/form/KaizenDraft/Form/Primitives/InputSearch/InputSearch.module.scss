@@ -36,7 +36,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   @include form-input-reset;
 
   @include form-input-placeholder {
-    opacity: 1;
+    opacity: 100%;
   }
 
   display: flex;
@@ -66,7 +66,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   &:hover,
   #{$story-className--input-search-hover} & {
     @include form-input-placeholder {
-      opacity: 0;
+      opacity: 0%;
     }
   }
 }
@@ -75,15 +75,13 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   #{$classname--input}:focus + &,
   #{$story-className--input-search-focus} & {
     $focus-ring-offset: 3px;
+
     position: absolute;
     background: transparent;
     border-radius: $border-solid-border-radius-curved;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
-    top: -$focus-ring-offset;
-    left: -$focus-ring-offset;
-    right: -$focus-ring-offset;
-    bottom: -$focus-ring-offset;
+    inset: -$focus-ring-offset;
     pointer-events: none;
   }
 }
@@ -98,6 +96,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
 
 .startIconAdornment {
   @include vertically-center-icon;
+
   inset-inline-start: $input-padding-before-start-icon;
 }
 
@@ -107,6 +106,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
 
 .endIconAdornment {
   @include vertically-center-icon;
+
   inset-inline-end: $input-padding-after-end-icon;
 }
 
@@ -115,6 +115,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   opacity: $input-disabled-opacity;
 }
 
+/* stylelint-disable no-descending-specificity */
 ///////////////////////////////////////////////////
 // THEMES
 ///////////////////////////////////////////////////
@@ -147,14 +148,15 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   &#{$story-className--input-search-focus} {
     #{$classname--input} {
       @include form-input-placeholder {
-        opacity: 1;
+        opacity: 100%;
       }
+
       border-color: $color-gray-600;
       background-color: $color-gray-200;
     }
 
     .startIconAdornment {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 }
@@ -187,14 +189,15 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   &#{$story-className--input-search-focus} {
     #{$classname--input} {
       @include form-input-placeholder {
-        opacity: 1;
+        opacity: 100%;
       }
+
       border-color: transparent;
       background-color: $color-gray-300;
     }
 
     .startIconAdornment {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 }
@@ -236,3 +239,4 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
     }
   }
 }
+/* stylelint-enable no-descending-specificity */

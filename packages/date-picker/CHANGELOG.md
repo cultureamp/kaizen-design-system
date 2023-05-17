@@ -1,5 +1,93 @@
 # Change Log
 
+## 6.0.0
+
+### Major Changes
+
+- [#3628](https://github.com/cultureamp/kaizen-design-system/pull/3628) [`21e381314`](https://github.com/cultureamp/kaizen-design-system/commit/21e381314daffd8171208f33e3627bccf54ddd6a) - Delete `<FilterDateRangePicker>` from `@kaizen/date-picker` as it has been moved to `@kaizen/components`.
+
+### Patch Changes
+
+- Updated dependencies [[`b6480c659`](https://github.com/cultureamp/kaizen-design-system/commit/b6480c6591a6f1b73ce4388ee9c341b5c421666c)]:
+  - @kaizen/draft-form@10.4.4
+
+## 5.21.17
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-library@16.7.6
+  - @kaizen/component-base@1.1.7
+  - @kaizen/draft-tooltip@5.4.44
+  - @kaizen/draft-form@10.4.3
+  - @kaizen/typography@2.3.11
+  - @kaizen/a11y@1.7.12
+
+## 5.21.16
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3618](https://github.com/cultureamp/kaizen-design-system/pull/3618) [`b4eaa8c45`](https://github.com/cultureamp/kaizen-design-system/commit/b4eaa8c45b10abe795138638f273fabe416580da) - Update dependency date-fns to ^2.30.0
+
+- [#3616](https://github.com/cultureamp/kaizen-design-system/pull/3616) [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f) - Fix packagejson files whitelist to only include publish files
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f), [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29)]:
+  - @kaizen/component-library@16.7.5
+  - @kaizen/component-base@1.1.6
+  - @kaizen/draft-tooltip@5.4.43
+  - @kaizen/draft-form@10.4.2
+  - @kaizen/typography@2.3.10
+  - @kaizen/a11y@1.7.11
+
+## 5.21.15
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/component-library@16.7.4
+  - @kaizen/draft-tooltip@5.4.42
+  - @kaizen/design-tokens@10.3.7
+  - @kaizen/draft-form@10.4.1
+  - @kaizen/typography@2.3.9
+
+## 5.21.14
+
+### Patch Changes
+
+- [#3592](https://github.com/cultureamp/kaizen-design-system/pull/3592) [`dcd98eb9f`](https://github.com/cultureamp/kaizen-design-system/commit/dcd98eb9fbb5d03356d803bb90685e33b151075d) - Update dependencies:
+
+  - `@react-aria/datepicker` to `^3.4.0`
+
+- [#3585](https://github.com/cultureamp/kaizen-design-system/pull/3585) [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c) - Update dependencies:
+  - `@internationalized/date` to `^3.2.0`
+  - `@react-aria/i18n` to `^3.7.1`
+  - `react-focus-on` to `^3.8.1`
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`acb0fdf3d`](https://github.com/cultureamp/kaizen-design-system/commit/acb0fdf3de2c1e852971b30fa0db4691e2a4ad0d), [`c2f5be19e`](https://github.com/cultureamp/kaizen-design-system/commit/c2f5be19e5868aafd6771bab3a15e016664aa949), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/draft-tooltip@5.4.41
+  - @kaizen/draft-form@10.3.13
+  - @kaizen/design-tokens@10.3.6
+
+## 5.21.13
+
+### Patch Changes
+
+- [#3563](https://github.com/cultureamp/kaizen-design-system/pull/3563) [`3244a9f39`](https://github.com/cultureamp/kaizen-design-system/commit/3244a9f398e7a78cc6c3ab9226e1f182ee3f21b8) - Fix a typescript error by bumping the minimum required @react-stately/datepicker package
+
+  Version 3.3.0 of react-stately/datepicker generated a TS issue, which was handled in Kaizen with a @ts-expect-error comment. But newer releases (3.4.0 onwards) don't have the problem, and so no error is found.
+
+  Because of a problem with Kaizen packaging accidentally shipping TS source files, consuming projects, which had different versions of this package, got TS errors saying that the "ts-expect-error" was unnecessary.
+
+  In this release we have bumped the minimum version for this package and removed the `@ts-expect-error`.
+
 ## 5.21.12
 
 ### Patch Changes

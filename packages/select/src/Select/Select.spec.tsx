@@ -4,6 +4,8 @@ import userEvent from "@testing-library/user-event"
 import { singleMockItems } from "../../docs/MockData"
 import { Select, SelectProps } from "./Select"
 
+const user = userEvent.setup()
+
 const SelectWrapper = ({
   items = singleMockItems,
   selectedKey,
@@ -82,7 +84,7 @@ describe("<Select>", () => {
         const trigger = screen.getByRole("button", {
           name: "Mock Label SRE",
         })
-        userEvent.click(trigger)
+        await user.click(trigger)
         await waitFor(() => {
           expect(onOpenChange).toBeCalledTimes(1)
           expect(onOpenChange).toBeCalledWith(false)
@@ -97,7 +99,7 @@ describe("<Select>", () => {
           const trigger = screen.getByRole("button", {
             name: "Mock Label SRE",
           })
-          userEvent.click(trigger)
+          await user.click(trigger)
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).toBeVisible()
           })
@@ -111,7 +113,7 @@ describe("<Select>", () => {
             name: "Mock Label SRE",
           })
 
-          userEvent.click(trigger)
+          await user.click(trigger)
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
           })
@@ -119,7 +121,7 @@ describe("<Select>", () => {
 
         it("is closed when user clicks outside of the menu", async () => {
           render(<SelectWrapper defaultOpen />)
-          userEvent.click(document.body)
+          await user.click(document.body)
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
           })
@@ -130,7 +132,7 @@ describe("<Select>", () => {
           const buttonInsideMenu = screen.getByRole("option", {
             name: "Others",
           })
-          userEvent.click(buttonInsideMenu)
+          await user.click(buttonInsideMenu)
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
           })
@@ -145,28 +147,28 @@ describe("<Select>", () => {
           const trigger = screen.getByRole("button", {
             name: "Mock Label SRE",
           })
-          userEvent.tab()
-          userEvent.tab()
+          await user.tab()
           await waitFor(() => {
             expect(trigger).toHaveFocus()
           })
         })
+
         it("opens the menu when hits enter key", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           const trigger = screen.getByRole("button", {
             name: "Mock Label SRE",
           })
-          userEvent.tab()
-          userEvent.tab()
+          await user.tab()
           await waitFor(() => {
             expect(trigger).toHaveFocus()
           })
-          userEvent.keyboard("{Enter}")
+          await user.keyboard("{Enter}")
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).toBeVisible()
           })
         })
       })
+
       describe("Given the menu is opened", () => {
         it("moves the focus to the first focusable element inside the menu initially", async () => {
           render(<SelectWrapper defaultOpen />)
@@ -182,7 +184,7 @@ describe("<Select>", () => {
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).toBeVisible()
           })
-          userEvent.keyboard("{Escape}")
+          await user.keyboard("{Escape}")
           await waitFor(() => {
             expect(screen.queryByRole("listbox")).not.toBeInTheDocument()
           })
@@ -258,7 +260,7 @@ describe("<Select>", () => {
           name: "SRE",
         })
 
-        await userEvent.click(option1)
+        await user.click(option1)
         await waitFor(() => {
           expect(spy).toHaveBeenCalledTimes(1)
         })
@@ -269,8 +271,8 @@ describe("<Select>", () => {
       describe("Given no selectedKeys", () => {
         it("focuses on the first option when tabs onto the list", async () => {
           render(<SelectWrapper />)
-          await userEvent.tab()
-          await userEvent.keyboard("{Enter}")
+          await user.tab()
+          await user.keyboard("{Enter}")
           await waitFor(() => {
             expect(
               screen.getByRole("option", { name: "Front-End" })
@@ -282,8 +284,8 @@ describe("<Select>", () => {
       describe("Given selectedKey is id-sre", () => {
         it("focuses the first selected option when tabs onto the list", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
-          await userEvent.tab()
-          await userEvent.keyboard("{Enter}")
+          await user.tab()
+          await user.keyboard("{Enter}")
           await waitFor(() => {
             expect(screen.getByRole("option", { name: "SRE" })).toHaveFocus()
           })
@@ -292,8 +294,8 @@ describe("<Select>", () => {
 
       it("keeps the focus ring at the first element when hits arrow up key on it", async () => {
         render(<SelectWrapper />)
-        userEvent.tab()
-        userEvent.keyboard("{ArrowUp}")
+        await user.tab()
+        await user.keyboard("{ArrowUp}")
         await waitFor(() => {
           expect(
             screen.getByRole("option", { name: "Front-End" })
@@ -304,7 +306,7 @@ describe("<Select>", () => {
       it("selects the option when hits enter on a non-selected option", async () => {
         render(<SelectWrapper defaultOpen />)
 
-        await userEvent.tab()
+        await user.tab()
         await waitFor(() => {
           expect(
             screen.getByRole("option", {
@@ -313,8 +315,8 @@ describe("<Select>", () => {
             })
           ).toBeVisible()
         })
-        await userEvent.keyboard("{Enter}")
-        await userEvent.keyboard("{Enter}")
+        await user.keyboard("{Enter}")
+        await user.keyboard("{Enter}")
         await waitFor(() => {
           expect(
             screen.getByRole("option", {
@@ -331,7 +333,7 @@ describe("<Select>", () => {
         const trigger = screen.getByRole("button", {
           name: "Mock Label Select",
         })
-        await userEvent.tab()
+        await user.tab()
         await waitFor(() => {
           expect(
             screen.getByRole("option", {
@@ -340,7 +342,7 @@ describe("<Select>", () => {
             })
           ).toBeVisible()
         })
-        await userEvent.keyboard("{Enter}")
+        await user.keyboard("{Enter}")
 
         await waitFor(() => {
           expect(spy).toHaveBeenCalledTimes(1)

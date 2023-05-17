@@ -8,7 +8,6 @@
 }
 
 // Structure
-
 .icon {
   @extend %ca-notification__icon;
 }
@@ -27,6 +26,7 @@
 
 .cancel {
   @extend %ca-notification__cancel;
+
   position: relative;
   display: flex;
   align-items: center;
@@ -38,7 +38,9 @@
 
   &:focus-visible::after {
     content: "";
+
     $focus-ring-offset: 6px;
+
     pointer-events: none;
     position: absolute;
     background: transparent;
@@ -46,16 +48,14 @@
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $color-blue-500;
-    top: $focus-ring-offset;
-    bottom: $focus-ring-offset;
-    left: $focus-ring-offset;
-    right: $focus-ring-offset;
+    inset: $focus-ring-offset;
   }
 }
 
 .cancelLabel {
   @extend %ca-notification__cancel__label;
 }
+
 .notificationTitle {
   top: 0.42em;
   position: relative;
@@ -68,14 +68,13 @@
     width: 100%;
   }
 }
-// Animation
 
+// Animation
 .hidden {
   @extend %ca-notification---hidden;
 }
 
 // Variant
-
 .inline {
   @extend %ca-notification---inline;
 }
@@ -89,7 +88,6 @@
 }
 
 // Type
-
 .positive {
   @extend %ca-notification---positive;
 }
@@ -107,7 +105,6 @@
 }
 
 // Modifiers
-
 .noBottomMargin {
   @extend %ca-notification---noBottomMargin;
 }

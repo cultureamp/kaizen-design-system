@@ -10,7 +10,7 @@ import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
-import { Menu, MenuList, MenuItem, StatelessMenu } from ".."
+import { Menu, MenuList, MenuItem, StatelessMenu, MenuHeading } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 
 export default {
@@ -30,9 +30,7 @@ export default {
 export const DefaultStory: StoryFn<typeof Menu> = args => (
   <Menu
     {...args}
-    button={
-      <Button label={"Edit menu"} icon={chevronDown} iconPosition="end" />
-    }
+    button={<Button label="Edit menu" icon={chevronDown} iconPosition="end" />}
   >
     <MenuList>
       <MenuItem
@@ -69,18 +67,16 @@ export const IconExample: StoryFn = () => (
   <StoryWrapper>
     <StoryWrapper.RowHeader headings={["Default", "Primary", "Secondary"]} />
     <StoryWrapper.Row rowTitle="Variant">
-      <Menu button={<IconButton label={"Edit menu"} icon={meatballsIcon} />}>
+      <Menu button={<IconButton label="Edit menu" icon={meatballsIcon} />}>
         <MenuContentExample />
       </Menu>
       <Menu
-        button={<IconButton primary label={"Edit menu"} icon={meatballsIcon} />}
+        button={<IconButton primary label="Edit menu" icon={meatballsIcon} />}
       >
         <MenuContentExample />
       </Menu>
       <Menu
-        button={
-          <IconButton secondary label={"Edit menu"} icon={meatballsIcon} />
-        }
+        button={<IconButton secondary label="Edit menu" icon={meatballsIcon} />}
       >
         <MenuContentExample />
       </Menu>
@@ -192,11 +188,7 @@ export const DefaultStatelessMenu: StoryFn = () => {
           state changes, but it requires more work to configure. It can be used
           instead of `Menu` if this level of flexibility is required. This
           component is used in the FilterDrawer component. View the source code{" "}
-          <a
-            href={
-              "https://github.com/cultureamp/kaizen-design-system/blob/main/draft-packages/stories/Menu.stories.tsx"
-            }
-          >
+          <a href="https://github.com/cultureamp/kaizen-design-system/blob/main/draft-packages/stories/Menu.stories.tsx">
             here
           </a>
           .
@@ -293,7 +285,7 @@ export const ContentAndList: StoryFn = () => (
           <a href="/">Custom anchor link</a>
         </li>
       </ul>
-      <MenuList heading="Menu primitives">
+      <MenuList heading={<MenuHeading>Menu primitives</MenuHeading>}>
         <MenuItem
           href="https://www.cultureamp.com/"
           label="MenuItem primitive link"

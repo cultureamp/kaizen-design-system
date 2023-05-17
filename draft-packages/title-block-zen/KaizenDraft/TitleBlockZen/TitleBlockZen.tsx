@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { IconButton, ButtonProps, CustomButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
@@ -243,7 +243,11 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
   }
 
   return (
-    <div data-automation-id="survey-status-tag" className={styles.tag}>
+    <div
+      data-automation-id="survey-status-tag"
+      data-testid="survey-status-tag"
+      className={styles.tag}
+    >
       <Tag variant={tagVariant} size="small">
         {surveyStatus.text}
       </Tag>
@@ -263,12 +267,17 @@ const renderAvatar = (
   isJSXElement(imageElementOrAvatarProps) ? (
     <div
       data-automation-id={avatarAutomationId}
-      className={classNames(styles.avatar, styles.withBorder)}
+      data-testid={avatarAutomationId}
+      className={classnames(styles.avatar, styles.withBorder)}
     >
       {imageElementOrAvatarProps}
     </div>
   ) : (
-    <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+    <div
+      data-automation-id={avatarAutomationId}
+      data-testid={avatarAutomationId}
+      className={styles.avatar}
+    >
       <Avatar {...imageElementOrAvatarProps} size="medium" />
     </div>
   )
@@ -280,6 +289,7 @@ const renderSubtitle = (
   <div className={styles.subtitle}>
     <span
       data-automation-id={subtitleAutomationId}
+      data-testid={subtitleAutomationId}
       className={styles.subtitleText}
     >
       {subtitle}
@@ -302,6 +312,7 @@ const defaultRenderSectionTitle = (
           color={isReversed(variant) ? "white" : "dark"}
           classNameOverride={styles.sectionTitleOverride}
           data-automation-id={sectionTitleAutomationId}
+          data-testid={sectionTitleAutomationId}
         >
           {sectionTitle}
         </Heading>
@@ -310,9 +321,11 @@ const defaultRenderSectionTitle = (
     {sectionTitleDescription && (
       <div
         data-automation-id={sectionTitleDescriptionAutomationId}
-        className={classNames(styles.sectionTitleDescription, {
-          [styles.dark]: !isReversed(variant),
-        })}
+        data-testid={sectionTitleDescriptionAutomationId}
+        className={classnames(
+          styles.sectionTitleDescription,
+          !isReversed(variant) && styles.dark
+        )}
       >
         {sectionTitleDescription}
       </div>
@@ -360,6 +373,7 @@ const Breadcrumb = ({
       <span
         className={styles.breadcrumbTextLink}
         data-automation-id={textAutomationId}
+        data-testid={textAutomationId}
       >
         <span className={styles.breadcrumbText}>{text}</span>
       </span>
@@ -388,6 +402,7 @@ const Breadcrumb = ({
       {...(path && { href: path })}
       className={styles.breadcrumb}
       data-automation-id={automationId}
+      data-testid={automationId}
       onClick={handleClick}
     >
       <InnerContents />
@@ -399,22 +414,26 @@ const Breadcrumb = ({
 // important for the flex-based layout (it pushes Secondary Actions over to the right)
 const renderNavigationTabs = (
   navigationTabs: NavigationTabs | undefined,
-  collapse: boolean
+  collapse: boolean,
+  ariaLabel: string
 ): JSX.Element => (
   <div className={styles.navigationTabScrollerContainer}>
     <div
-      className={classNames(styles.navigationTabsContainer, {
-        [styles.navigationTabsContainerCollapsed]: collapse,
-      })}
+      className={classnames(
+        styles.navigationTabsContainer,
+        collapse && styles.navigationTabsContainerCollapsed
+      )}
     >
       {!collapse && navigationTabs !== undefined && (
         <>
           <span className={styles.navigationTabEdgeShadowLeft} />
-          {navigationTabs.map((navigationTab, index) =>
-            React.cloneElement(navigationTab, {
-              key: index,
-            })
-          )}
+          <nav className={styles.navigationTabsNav} aria-label={ariaLabel}>
+            <ul className={styles.navigationTabsList}>
+              {navigationTabs.map((navigationTab, index) => (
+                <li key={index}>{navigationTab}</li>
+              ))}
+            </ul>
+          </nav>
           <span className={styles.navigationTabEdgeShadowRight} />
         </>
       )}
@@ -581,19 +600,21 @@ export const TitleBlockZen = ({
   return (
     <>
       <div
-        className={classNames(styles.titleBlock, {
-          [styles.hasSubtitle]: Boolean(subtitle),
-          [styles.hasPageSwitcherSelect]: Boolean(pageSwitcherSelect),
-          [styles.educationVariant]: variant === "education",
-          [styles.adminVariant]: variant === "admin",
-          [styles.collapseNavigationArea]:
-            collapseNavigationArea &&
-            !(sectionTitle || sectionTitleDescription || renderSectionTitle),
-          [styles.hasLongTitle]: title && title.length >= 30,
-          [styles.hasLongSubtitle]:
-            subtitle && typeof subtitle === "string" && subtitle.length >= 18,
-          [styles.hasNavigationTabs]: hasNavigationTabs,
-        })}
+        className={classnames(
+          styles.titleBlock,
+          styles[`${variant}Variant`],
+          Boolean(subtitle) && styles.hasSubtitle,
+          Boolean(pageSwitcherSelect) && styles.hasPageSwitcherSelect,
+          collapseNavigationArea &&
+            !(sectionTitle || sectionTitleDescription || renderSectionTitle) &&
+            styles.collapseNavigationArea,
+          title && title.length >= 30 && styles.hasLongTitle,
+          subtitle &&
+            typeof subtitle === "string" &&
+            subtitle.length >= 18 &&
+            styles.hasLongSubtitle,
+          hasNavigationTabs && styles.hasNavigationTabs
+        )}
       >
         <div className={styles.titleRow}>
           <div className={styles.titleRowInner}>
@@ -628,6 +649,7 @@ export const TitleBlockZen = ({
                             color={isReversed(variant) ? "white" : "dark"}
                             classNameOverride={styles.titleTextOverride}
                             data-automation-id={titleAutomationId}
+                            data-testid={titleAutomationId}
                           >
                             {title}
                           </Heading>
@@ -704,7 +726,11 @@ export const TitleBlockZen = ({
                   </div>
                 </div>
               )}
-              {renderNavigationTabs(navigationTabs, collapseNavigationArea)}
+              {renderNavigationTabs(
+                navigationTabs,
+                collapseNavigationArea,
+                title
+              )}
               {(secondaryActions || secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}

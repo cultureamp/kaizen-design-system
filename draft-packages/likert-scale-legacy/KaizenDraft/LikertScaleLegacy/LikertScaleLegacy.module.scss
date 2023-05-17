@@ -2,6 +2,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 
+/* stylelint-disable no-descending-specificity */
 @mixin respond-to($media) {
   @if $media == print {
     @media only print {
@@ -38,21 +39,15 @@ $fifth: $color-red-500;
     border-bottom-left-radius: $height;
 
     [dir="rtl"] & {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      border-top-right-radius: $height;
-      border-bottom-right-radius: $height;
+      border-radius: $height 0;
     }
 
-    &:after {
+    &::after {
       border-top-left-radius: $height;
       border-bottom-left-radius: $height;
 
       [dir="rtl"] & {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: $height;
-        border-bottom-right-radius: $height;
+        border-radius: $height 0;
       }
     }
   }
@@ -62,21 +57,15 @@ $fifth: $color-red-500;
     border-bottom-right-radius: $height;
 
     [dir="rtl"] & {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-top-left-radius: $height;
-      border-bottom-left-radius: $height;
+      border-radius: 0 $height;
     }
 
-    &:after {
+    &::after {
       border-top-right-radius: $height;
       border-bottom-right-radius: $height;
 
       [dir="rtl"] & {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-top-left-radius: $height;
-        border-bottom-left-radius: $height;
+        border-radius: 0 $height;
       }
     }
   }
@@ -84,11 +73,12 @@ $fifth: $color-red-500;
 
 @keyframes pop {
   0% {
-    opacity: 0.5;
+    opacity: 50%;
     -webkit-transform: scale(1);
   }
+
   100% {
-    opacity: 0;
+    opacity: 0%;
     -webkit-transform: scale(1.78);
   }
 }
@@ -160,6 +150,7 @@ $fifth: $color-red-500;
   }
 
   @include fill($block-height);
+
   font-size: 1px;
   line-height: 1;
   padding: 0;
@@ -172,14 +163,15 @@ $fifth: $color-red-500;
     margin-right: 2px;
     margin-left: 0;
   }
+
   &:last-child {
     margin-left: 2px;
     margin-right: 0;
   }
 
   // Hack to bridge the gaps between items so mouse always hovers on something
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: "";
     position: absolute;
     top: 0;
@@ -188,7 +180,7 @@ $fifth: $color-red-500;
     height: 100%;
   }
 
-  &:after {
+  &::after {
     right: auto;
     left: 100%;
   }
@@ -197,31 +189,40 @@ $fifth: $color-red-500;
   &.selected {
     .field1 {
       background-color: $first;
-      &:after {
+
+      &::after {
         background-color: $first;
       }
     }
+
     .field2 {
       background-color: $second;
-      &:after {
+
+      &::after {
         background-color: $second;
       }
     }
+
     .field3 {
       background-color: $third;
-      &:after {
+
+      &::after {
         background-color: $third;
       }
     }
+
     .field4 {
       background-color: $fourth;
-      &:after {
+
+      &::after {
         background-color: $fourth;
       }
     }
+
     .field5 {
       background-color: $fifth;
-      &:after {
+
+      &::after {
         background-color: $fifth;
       }
     }
@@ -236,7 +237,8 @@ $fifth: $color-red-500;
   &:hover {
     transition: background 0s, border-color 0s;
   }
-  &:after {
+
+  &::after {
     content: " ";
     display: block;
     height: 100%;
@@ -244,7 +246,7 @@ $fifth: $color-red-500;
     pointer-events: none;
   }
 
-  &.pop:after {
+  &.pop::after {
     @include pop;
   }
 }
@@ -341,3 +343,4 @@ $fifth: $color-red-500;
     }
   }
 }
+/* stylelint-enable no-descending-specificity */

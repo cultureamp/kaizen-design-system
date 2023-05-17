@@ -46,7 +46,7 @@ const Wrapper = (): JSX.Element => (
       <TableHeaderRow data-testid={TestId.tableHeaderRow}>
         <TableHeaderRowCell
           checkable={true}
-          checkedStatus={"on"}
+          checkedStatus="on"
           onCheck={(): void => undefined}
           active={true}
           onClick={(): void => undefined}

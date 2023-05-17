@@ -7,7 +7,7 @@ import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.sv
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Heading, HeadingProps, Paragraph } from "@kaizen/typography"
 import styles from "./GuidanceBlock.module.scss"
 
 export type ActionProps = ButtonProps & {
@@ -64,6 +64,7 @@ interface BaseGuidanceBlockProps {
 interface GuidanceBlockWithText extends BaseGuidanceBlockProps {
   text: {
     title: string
+    titleTag?: HeadingProps["tag"]
     description: string | React.ReactNode
   }
 }
@@ -183,14 +184,12 @@ class GuidanceBlock extends React.Component<
       styles.banner,
       props.variant && styles[props.variant],
       props.layout && styles[props.layout],
-      {
-        [styles.hidden]: this.state.hidden,
-        [styles.centerContent]: this.state.mediaQueryLayout === "centerContent",
-        [styles.noMaxWidth]: props.noMaxWidth,
-        [styles.hasSceneIllustration]: props.illustrationType === "scene",
-        [styles.smallScreenTextAlignment]:
-          props.smallScreenTextAlignment === "left",
-      }
+      this.state.hidden && styles.hidden,
+      this.state.mediaQueryLayout === "centerContent" && styles.centerContent,
+      props.noMaxWidth && styles.noMaxWidth,
+      props.illustrationType === "scene" && styles.hasSceneIllustration,
+      props.smallScreenTextAlignment === "left" &&
+        styles.smallScreenTextAlignment
     )
   }
 
@@ -235,7 +234,10 @@ class GuidanceBlock extends React.Component<
             {"text" in this.props && (
               <>
                 <div className={styles.headingWrapper}>
-                  <Heading tag="h3" variant="heading-3">
+                  <Heading
+                    tag={this.props.text.titleTag ?? "h3"}
+                    variant="heading-3"
+                  >
                     {this.props.text.title}
                   </Heading>
                 </div>
@@ -274,9 +276,10 @@ class GuidanceBlock extends React.Component<
             }
           >
             <div
-              className={classnames(styles.buttonContainer, {
-                [styles.secondaryAction]: actions?.secondary,
-              })}
+              className={classnames(
+                styles.buttonContainer,
+                actions?.secondary && styles.secondaryAction
+              )}
             >
               <WithTooltip tooltipProps={actions.primary.tooltip}>
                 <Button

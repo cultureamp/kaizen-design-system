@@ -21,11 +21,6 @@ $input-disabled-opacity: 0.3;
     right: 0.25rem;
   }
 
-  &:hover:not([disabled]) {
-    background-color: $color-blue-100;
-    color: $color-blue-500;
-  }
-
   :focus {
     outline: none;
   }
@@ -34,6 +29,11 @@ $input-disabled-opacity: 0.3;
     outline-offset: -2px;
     outline: $color-blue-500 $border-focus-ring-border-style
       $border-focus-ring-border-width;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
   }
 
   svg {

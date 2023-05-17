@@ -7,7 +7,7 @@
 
 // Taken from design-tokens/sass/shadow
 // we need control of the x and y offset in this component
-$box-shadow-color-sm: rgba(53, 55, 74, 0.09);
+$box-shadow-color-sm: rgb(53 55 74 / 9%);
 $row-height: 60px;
 $row-height-data-variant: 48px;
 
@@ -15,6 +15,7 @@ $row-height-data-variant: 48px;
   text-decoration: none;
   color: $color-purple-800;
   display: block;
+
   &:hover,
   &:active,
   &:focus {
@@ -75,6 +76,7 @@ $row-height-data-variant: 48px;
 
 .headerRowCellButton {
   @include button-reset;
+
   composes: anchorReset;
 }
 
@@ -110,6 +112,7 @@ $row-height-data-variant: 48px;
 
 .card {
   @include button-reset;
+
   background: $color-white;
   border: solid 1px rgba($color-purple-700-rgb, 0.1);
   transition: box-shadow $animation-duration-rapid,
@@ -118,7 +121,7 @@ $row-height-data-variant: 48px;
 
   // This is an optical hack to stop the card shadow from overlapping over
   // the proceeding cards
-  box-shadow: 0px 4px 6px rgba(53, 55, 74, 0.04);
+  box-shadow: 0 4px 6px rgb(53 55 74 / 4%);
 
   // These css properties are required for when the rows are anchor elements
   composes: anchorReset;

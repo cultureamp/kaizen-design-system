@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom/extend-expect"
 import * as React from "react"
 import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { VideoPlayer } from "./VideoPlayer"
 
 const matchMedia = {
@@ -153,6 +154,26 @@ describe("<VideoPlayer />", () => {
       )
       expect(container.querySelector(".aspectRatioWrapper")).toBeFalsy()
       expect(container.querySelector(".landscape")).toBeFalsy()
+    })
+  })
+
+  describe("Pausing/Playing animations", () => {
+    it("restarts the animation when pause button is clicked", () => {
+      const { container, getByRole } = render(
+        <VideoPlayer
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+          source="illustrations/heart/spot/moods-cautionary.webm"
+        />
+      )
+
+      const videoElement = container.querySelector("video")!
+
+      expect(videoElement.paused).toEqual(true)
+
+      const button = getByRole("button")
+      userEvent.click(button)
+
+      expect(mockPlay).toHaveBeenCalled()
     })
   })
 })

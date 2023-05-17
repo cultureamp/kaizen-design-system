@@ -1,18 +1,21 @@
 import React from "react"
 import GenericButton, {
   GenericProps,
+  ButtonFormAttributes,
   BadgeProps,
   WorkingProps,
   WorkingUndefinedProps,
 } from "./components/GenericButton"
 
 export type IconButtonProps = GenericProps &
+  ButtonFormAttributes &
   (WorkingProps | WorkingUndefinedProps) & {
     label: string
     primary?: boolean
     destructive?: boolean
     secondary?: boolean
-    form?: boolean
+    /** @default "regular" */
+    size?: "small" | "regular"
     badge?: BadgeProps
     type?: "submit" | "reset" | "button"
     fullWidth?: boolean
@@ -29,7 +32,6 @@ export const IconButton = (props: IconButtonProps): JSX.Element => (
 )
 
 IconButton.defaultProps = {
-  form: false,
   primary: false,
   destructive: false,
   disabled: false,

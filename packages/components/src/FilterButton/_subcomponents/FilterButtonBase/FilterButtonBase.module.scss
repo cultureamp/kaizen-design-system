@@ -10,19 +10,14 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   position: relative;
   display: inline-flex;
   align-items: center;
-
   height: 3rem; // 48px
   padding: $spacing-sm;
-
   border-width: 0;
   border-radius: $border-solid-border-radius;
-
   background-color: $color-blue-100;
-
   font-family: $typography-button-secondary-font-family;
   font-weight: $typography-button-secondary-font-weight;
   font-size: $typography-button-secondary-font-size;
@@ -53,10 +48,7 @@
       content: "";
       z-index: 3;
       position: absolute;
-      top: $focus-ring-offset-outer;
-      bottom: $focus-ring-offset-outer;
-      left: $focus-ring-offset-outer;
-      right: $focus-ring-offset-outer;
+      inset: $focus-ring-offset-outer;
       border-radius: $border-focus-ring-border-radius;
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;

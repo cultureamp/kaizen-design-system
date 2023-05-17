@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./Divider.module.scss"
 
@@ -21,12 +21,12 @@ export const Divider = ({
 }: DividerProps): JSX.Element => (
   <hr
     aria-hidden="true"
-    className={classNames(styles.wrapper, classNameOverride, {
-      [styles.reversed]: isReversed,
-      [styles.content]: variant === "content",
-      [styles.canvas]: variant === "canvas",
-      [styles.menuSeparator]: variant === "menuSeparator",
-    })}
+    className={classnames(
+      styles.wrapper,
+      classNameOverride,
+      isReversed && styles.reversed,
+      styles[variant]
+    )}
     {...props}
   />
 )

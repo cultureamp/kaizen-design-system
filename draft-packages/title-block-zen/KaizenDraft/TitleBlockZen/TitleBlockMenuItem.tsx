@@ -14,11 +14,13 @@ export type TitleBlockMenuItemProps =
 export const TitleBlockMenuItem = (
   props: TitleBlockMenuItemProps
 ): JSX.Element | null => {
-  const className = classnames(styles.menuItem, {
-    [styles["menuItem--destructive"]]: styles.destructive,
-    [styles["menuItem--disabled"]]: styles.disabled,
-    [styles["menuItem--active"]]: styles.isActive,
-  })
+  const className = classnames(
+    styles.menuItem,
+    styles.destructive && styles["menuItem--destructive"],
+    styles.disabled && styles["menuItem--disabled"],
+    styles.isActive && styles["menuItem--active"]
+  )
+
   if ("component" in props) {
     const { component: CustomMenuItem, label, icon, ...otherProps } = props
     const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>

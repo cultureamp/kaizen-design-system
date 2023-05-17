@@ -1,3 +1,4 @@
+/* stylelint-disable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */
 @import "type";
 
 $ca-layout-max-width: 1416px;
@@ -38,6 +39,7 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
   @if ($start == null and $end != null) {
     $start: auto;
   }
+
   @if ($end == null and $start != null) {
     $end: auto;
   }
@@ -53,3 +55,5 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
     left: $end;
   }
 }
+
+/* stylelint-enable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */

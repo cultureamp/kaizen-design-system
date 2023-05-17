@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
 import styles from "./MenuItem.module.scss"
 
@@ -53,11 +53,12 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
     </span>
   )
 
-  const className = classNames(styles.menuItem, {
-    [styles["menuItem--destructive"]]: destructive,
-    [styles["menuItem--disabled"]]: disabled,
-    [styles["menuItem--active"]]: isActive,
-  })
+  const className = classnames(
+    styles.menuItem,
+    destructive && styles["menuItem--destructive"],
+    disabled && styles["menuItem--disabled"],
+    isActive && styles["menuItem--active"]
+  )
 
   // Use the legacy `action` property, if the new onClick or href as not supplied
   const onClickCombined =
@@ -73,6 +74,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
           disabled={true}
           className={className}
           data-automation-id={automationId}
+          data-testid={automationId}
         >
           {iconNode}
           {wrappedLabel}
@@ -91,6 +93,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
           }
           className={className}
           data-automation-id={automationId}
+          data-testid={automationId}
           target={target}
           // this tells screenreaders that this link represents the current page
           // (only intended for use in things like a nav with dropdowns)
@@ -112,6 +115,7 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
         }
         className={className}
         data-automation-id={automationId}
+        data-testid={automationId}
       >
         {iconNode}
         {wrappedLabel}

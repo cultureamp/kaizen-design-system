@@ -1,5 +1,58 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+- [#3604](https://github.com/cultureamp/kaizen-design-system/pull/3604) [`07e3fac40`](https://github.com/cultureamp/kaizen-design-system/commit/07e3fac40669e86f6f05ac40b56cf0cd5ea4ab21) - Create a MenuHeading component replacing the heading prop on MenuList
+
+## 4.9.8
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-library@16.7.6
+  - @kaizen/draft-divider@2.2.11
+  - @kaizen/button@3.0.3
+
+## 4.9.7
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3616](https://github.com/cultureamp/kaizen-design-system/pull/3616) [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f) - Fix packagejson files whitelist to only include publish files
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`de50c2b00`](https://github.com/cultureamp/kaizen-design-system/commit/de50c2b00ebd44d0cf5d7c62ac789c57d9a3c00d), [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f), [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29)]:
+  - @kaizen/button@3.0.2
+  - @kaizen/component-library@16.7.5
+  - @kaizen/draft-divider@2.2.10
+
+## 4.9.6
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/component-library@16.7.4
+  - @kaizen/draft-divider@2.2.9
+  - @kaizen/design-tokens@10.3.7
+  - @kaizen/button@3.0.1
+
+## 4.9.5
+
+### Patch Changes
+
+- Updated dependencies [[`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c), [`e9ec5c174`](https://github.com/cultureamp/kaizen-design-system/commit/e9ec5c17466b4e21b7a7cfeb5778b967fdea4995), [`739d87b0c`](https://github.com/cultureamp/kaizen-design-system/commit/739d87b0cd917e7c0f3becf2cc0fd8f9667f7a6c)]:
+  - @kaizen/component-library@16.7.3
+  - @kaizen/button@3.0.0
+  - @kaizen/design-tokens@10.3.6
+
 ## 4.9.4
 
 ### Patch Changes

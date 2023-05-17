@@ -1,7 +1,7 @@
 @import "../variables";
-@import "../Button.module.scss";
-@import "../IconButton.module.scss";
-@import "../PaginationButtons.module.scss";
+@import "../Button.module";
+@import "../IconButton.module";
+@import "../PaginationButtons.module";
 
 .container {
   display: inline-block;
@@ -31,8 +31,8 @@
   }
 }
 
-.form {
-  @extend %variant-form;
+.small {
+  @extend %variant-small;
 }
 
 .label {
@@ -68,6 +68,7 @@
 
 .additionalContentWrapper {
   display: inherit;
+
   &:not(:last-child) {
     @include ca-margin($end: 0.5em, $start: null);
   }

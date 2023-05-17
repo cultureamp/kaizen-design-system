@@ -11,18 +11,16 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
+    "**/*.js",
+    "**/*.js.map",
     "**/*.d.ts",
-    "!**/*.spec.*",
-    "!**/*.snap",
-    "!draft-templates/**/*",
-    "!stories/**/*",
-    "!tsconfig.dist.json"
+    "**/*.scss",
+    "icons/**",
+    "styles",
+    "bin/**"
   ],
   "sideEffects": false,
-  "version": "16.7.2",
+  "version": "16.7.6",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -31,22 +29,16 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@kaizen/component-base": "^1.1.5",
+    "@kaizen/component-base": "^1.1.7",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
-    "@kaizen/hosted-assets": "^2.0.1",
-    "@types/classnames": "^2.3.0",
-    "@types/lodash": "^4.14.192",
+    "@kaizen/hosted-assets": "^2.0.3",
+    "@types/lodash": "^4.14.194",
     "@types/uuid": "^9.0.1",
     "classnames": "^2.3.2"
   },
-  "devDependencies": {
-    "@testing-library/dom": "^9.2.0",
-    "rimraf": "^4.4.1"
-  },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts'"
+    "build": "yarn prepublish",
+    "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts' 'components/**/*.js' 'components/**/*.js.map' 'components/**/*.d.ts' 'util/**/*.js' 'util/**/*.js.map' 'util/**/*.d.ts'"
   }
 }

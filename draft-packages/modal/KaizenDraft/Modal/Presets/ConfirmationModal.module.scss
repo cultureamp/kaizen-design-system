@@ -24,6 +24,7 @@ $dt-assertive-header-background: $color-orange-100;
 
   &.padded {
     padding: $spacing-md $spacing-lg;
+
     @media (max-width: $layout-breakpoints-medium) {
       padding: $spacing-md;
     }
@@ -35,60 +36,8 @@ $dt-assertive-header-background: $color-orange-100;
   }
 }
 
-.positiveHeader,
-.informativeHeader,
-.negativeHeader,
-.cautionaryHeader,
-.assertiveHeader {
-  display: grid;
-  grid-template-columns: 0.2fr 2fr;
-  align-items: center;
-  &.prominent {
-    grid-template-columns: 1.1fr 2fr;
-    @media (max-width: $layout-breakpoints-medium) {
-      display: flex;
-      flex-direction: column;
-      align-content: flex-start;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .iconContainer {
-      position: absolute;
-      top: 8%;
-      @media (max-width: $layout-breakpoints-medium) {
-        position: relative;
-        top: 0;
-        margin-bottom: $spacing-sm;
-      }
-    }
-    .spotIcon,
-    .svgIcon > svg {
-      width: 155px;
-      height: 155px;
-      margin: 0 auto;
-      color: $color-purple-800;
-      @media (max-width: $layout-breakpoints-medium) {
-        width: 86px;
-        height: 86px;
-      }
-    }
-  }
-  .iconContainer {
-    align-self: flex-start;
-    @media (min-width: $layout-breakpoints-medium) {
-      align-self: center;
-    }
-  }
-  .spotIcon,
-  .svgIcon > svg {
-    width: 30px;
-    height: 30px;
-    @media (max-width: $layout-breakpoints-medium) {
-      margin-right: 0.9375rem;
-      position: relative;
-      top: 0.125rem;
-    }
-  }
+.iconContainer {
+  position: relative;
 }
 
 .positiveHeader {
@@ -136,10 +85,77 @@ $dt-assertive-header-background: $color-orange-100;
   }
 }
 
+.positiveHeader,
+.informativeHeader,
+.negativeHeader,
+.cautionaryHeader,
+.assertiveHeader {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr;
+  align-items: center;
+
+  .iconContainer {
+    align-self: flex-start;
+
+    @media (min-width: $layout-breakpoints-medium) {
+      align-self: center;
+    }
+  }
+
+  .spotIcon,
+  .svgIcon > svg {
+    width: 30px;
+    height: 30px;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      margin-right: 0.9375rem;
+      position: relative;
+      top: 0.125rem;
+    }
+  }
+
+  &.prominent {
+    grid-template-columns: 1.1fr 2fr;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      display: flex;
+      flex-direction: column;
+      align-content: flex-start;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .iconContainer {
+      position: absolute;
+      top: 8%;
+
+      @media (max-width: $layout-breakpoints-medium) {
+        position: relative;
+        top: 0;
+        margin-bottom: $spacing-sm;
+      }
+    }
+
+    .spotIcon,
+    .svgIcon > svg {
+      width: 155px;
+      height: 155px;
+      margin: 0 auto;
+      color: $color-purple-800;
+
+      @media (max-width: $layout-breakpoints-medium) {
+        width: 86px;
+        height: 86px;
+      }
+    }
+  }
+}
+
 .prominent {
   display: grid;
   grid-template-columns: 1.1fr 2fr;
   align-items: center;
+
   @media (max-width: $layout-breakpoints-medium) {
     grid-template-columns: 1fr;
   }
@@ -147,11 +163,8 @@ $dt-assertive-header-background: $color-orange-100;
 
 .padded {
   padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+
   @media (max-width: $layout-breakpoints-medium) {
     padding: $spacing-md;
   }
-}
-
-.iconContainer {
-  position: relative;
 }
