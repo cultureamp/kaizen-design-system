@@ -11,7 +11,8 @@ type IsUsableWhen<T> = (state: {
   }
 }) => boolean
 
-export const q: IsUsableWhen<SelectedValues> = state => state.pancake.selectedValue
+export const q: IsUsableWhen<SelectedValues> = state =>
+  state.pancake.selectedValue
 
 type FilterAttr<Id, SelectedValue> = {
   id: Id

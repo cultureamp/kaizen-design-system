@@ -91,7 +91,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       Component: <FilterPancake id="strawberry" />,
       isRemovable: true,
       isInitHidden: true,
-      isUsableWhen: state => state["chocolate"].selectedValue !== undefined
+      isUsableWhen: state => state["chocolate"].selectedValue !== undefined,
     },
     {
       id: "vanilla",
