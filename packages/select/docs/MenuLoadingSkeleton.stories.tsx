@@ -16,7 +16,6 @@ const meta = {
       "npm install @kaizen/select",
       "import { FilterMultiSelect } from `@kaizen/select`",
     ],
-    chromatic: { disable: false },
     docs: {
       container: ComponentDocsTemplate,
     },
@@ -37,6 +36,7 @@ export default meta
  */
 export const Playground: StoryObj<typeof meta> = {
   parameters: {
+    chromatic: { disable: false },
     docs: {
       canvas: {
         sourceState: "shown",
