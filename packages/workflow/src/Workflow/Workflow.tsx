@@ -2,10 +2,10 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import {
-  WorkflowFooterProps,
-  WorkflowHeaderProps,
-  WorkflowHeader,
   WorkflowFooter,
+  WorkflowFooterProps,
+  WorkflowHeader,
+  WorkflowHeaderProps,
 } from "../../"
 
 export type WorkflowProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> &
@@ -32,7 +32,7 @@ export const Workflow = ({
       status={status}
       actions={actions}
     />
-    {children}
+    <main>{children}</main>
     <WorkflowFooter
       stepName={stepName}
       steps={steps}

@@ -1,0 +1,23 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.root {
+  display: grid;
+  grid-template-areas: "branding" "titles" "actions";
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content max-content min-content;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: $shadow-small-box-shadow;
+  padding: $spacing-24;
+  gap: $spacing-16;
+
+  @media (min-width: 768px) {
+    align-items: start;
+    grid-template-areas: "branding titles actions";
+    grid-template-rows: min-content;
+    grid-template-columns: 1fr max-content 1fr;
+  }
+}

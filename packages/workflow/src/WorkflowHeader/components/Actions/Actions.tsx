@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, HTMLAttributes } from "react"
 import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./Actions.module.scss"
 
 export interface WorkflowActionsProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">> {
@@ -14,7 +15,7 @@ export const Actions = ({
   actions,
   ...restProps
 }: PropsWithChildren<WorkflowActionsProps>): JSX.Element => (
-  <div className="flex grow justify-end -mt-12 content-start" {...restProps}>
+  <div className={styles.actions} {...restProps}>
     {actions?.map(action => action)}
   </div>
 )

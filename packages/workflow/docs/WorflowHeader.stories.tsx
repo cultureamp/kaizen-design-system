@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import { WorkflowExit, WorkflowHeader, WorkflowHeaderProps } from "../index"
+import { WorkflowExit, WorkflowHeader, WorkflowHeaderProps } from "../"
 
 const defaultArgs = {
   workflowName: "Create a self-reflection cycle",

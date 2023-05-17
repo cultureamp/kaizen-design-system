@@ -1,7 +1,5 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-// import { Button } from "@kaizen/button"
-// import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { Button } from "@kaizen/button"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
 import { WorkflowFooter, WorkflowFooterProps } from "../"

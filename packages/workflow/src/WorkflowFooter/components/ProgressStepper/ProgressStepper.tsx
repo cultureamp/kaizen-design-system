@@ -44,22 +44,19 @@ export const ProgressStepper = ({
               aria-current={isCurrentStep}
             >
               <div className={styles.stepContent}>
+                <span className="sr-only">
+                  {/* will need to be translated */}
+                  {isCompletedStep
+                    ? `Completed: ${step}`
+                    : `In progress: ${step}`}
+                </span>
                 <Paragraph
                   classNameOverride={styles.stepName}
                   variant={"small"}
                   color={"white"}
+                  aria-hidden
                 >
-                  {
-                    <span className="sr-only">
-                      {/* will need to be translated */}
-                      {isCompletedStep
-                        ? `Completed: ${step}`
-                        : `In progress: ${step}`}
-                    </span>
-                  }
-                  <span className={styles.stepDisplayName} aria-hidden>
-                    {step}
-                  </span>
+                  {step}
                 </Paragraph>
                 <div
                   className={classnames({

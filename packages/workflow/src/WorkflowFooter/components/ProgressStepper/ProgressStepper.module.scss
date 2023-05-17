@@ -31,6 +31,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: $spacing-2;
 }
 
 .stepIndicator {
@@ -91,7 +92,8 @@
   margin: 0;
   border-radius: $border-solid-border-radius;
   left: 100%;
-  top: calc(100% - #{$spacing-6});
+  // sets fron the bottom to the centre of the dot
+  top: calc(100% - #{$spacing-8});
   transform: translateX(-50%);
 }
 
@@ -99,8 +101,7 @@
   opacity: 1;
 }
 
-// this need to be on the item
-.stepDisplayName {
+.stepName {
   display: none;
 }
 
@@ -114,7 +115,7 @@
 }
 
 @container (min-width: 72px) {
-  .stepDisplayName {
+  .stepName {
     display: inline;
   }
 
@@ -122,7 +123,7 @@
     align-self: center;
   }
 
-  .stepContainer {
+  .stepContent {
     align-self: center;
   }
 

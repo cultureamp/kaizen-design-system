@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { Brand, BrandProps } from "@kaizen/brand"
 import { OverrideClassName } from "@kaizen/component-base"
+import styles from "./Branding.module.scss"
 
 export interface WorflowBrandingProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -13,8 +14,8 @@ export const Branding = ({
   variant = "logo-horizontal",
   alt,
 }: WorflowBrandingProps): JSX.Element => (
-  <div className="flex grow pt-4">
-    <Brand classNameOverride="basis-[7.5rem]" variant={variant} alt={alt} />
+  <div className={styles.branding}>
+    <Brand classNameOverride={styles.logo} variant={variant} alt={alt} />
   </div>
 )
 
