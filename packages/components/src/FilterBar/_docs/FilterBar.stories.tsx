@@ -232,8 +232,6 @@ type Playground2Params = {
 const VanillaPancake = ({ id }: { id?: string }): JSX.Element => {
   const { setOpenFilter } = useFilterBarContext<string, Playground2Params>()
 
-  if (!id) throw Error("Missing `id` prop")
-
   return (
     <FilterPancake id={id} onChange={(): void => setOpenFilter("coffee")} />
   )

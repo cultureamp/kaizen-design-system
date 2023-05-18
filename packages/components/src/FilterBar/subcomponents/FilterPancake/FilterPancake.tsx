@@ -20,7 +20,7 @@ export const FilterPancake = ({
   // label,
   onChange,
 }: // isUsableWhen,
-FilterPancakeProps): JSX.Element | null => {
+FilterPancakeProps): JSX.Element => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     // useFilterBarContext<Record<string, string>>()
     useFilterBarContext<string>()
@@ -33,7 +33,7 @@ FilterPancakeProps): JSX.Element | null => {
 
   return (
     <Filter
-      isOpen={filterState.isOpen ?? false}
+      isOpen={filterState.isOpen}
       setIsOpen={(open): void => toggleOpenFilter(id, open)}
       renderTrigger={(triggerProps): JSX.Element => {
         const props = {
