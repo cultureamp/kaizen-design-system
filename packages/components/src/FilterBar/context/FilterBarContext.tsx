@@ -50,26 +50,32 @@ type FilterSelectedValue = any
 export type FiltersSelectedValues = Record<string, FilterSelectedValue>
 
 export type FilterBarContextValue<
-  SelectedValues extends FiltersSelectedValues = any
+  SelectedValue,
+  SelectedValues extends FiltersSelectedValues = Record<string, any>
 > = {
   // state: Record<string, InternalFilterAttr>
   getFilterState: (
     id: string
-  ) => TransformedFilterAttr<SelectedValues, SelectedValues[typeof id]>
+  ) => TransformedFilterAttr<SelectedValues, SelectedValue>
   updateSelectedValue: (id: string, value: FilterSelectedValue) => void
   toggleOpenFilter: (id: string, isOpen: boolean) => void
   setOpenFilter: (id: string) => void
   showFilter: (id: string) => void
   hideFilter: (id: string) => void
   getHiddenFilters: () => Array<
-    TransformedFilterAttr<SelectedValues, SelectedValues[keyof SelectedValues]>
+    TransformedFilterAttr<SelectedValues, SelectedValue>
   >
   clearFilters: () => void
 }
 
-const FilterBarContext = React.createContext<FilterBarContextValue | null>(null)
+const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
+  null
+)
 
-export const useFilterBarContext = (): FilterBarContextValue => {
+export const useFilterBarContext = <
+  SelectedValue,
+  SelectedValues extends FiltersSelectedValues = Record<string, any>
+>(): FilterBarContextValue<SelectedValue, SelectedValues> => {
   const context = useContext(FilterBarContext)
 
   if (!context) {

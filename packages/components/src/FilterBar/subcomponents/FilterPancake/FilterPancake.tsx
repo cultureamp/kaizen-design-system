@@ -22,7 +22,8 @@ export const FilterPancake = ({
 }: // isUsableWhen,
 FilterPancakeProps): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
-    useFilterBarContext()
+    // useFilterBarContext<Record<string, string>>()
+    useFilterBarContext<string>()
 
   const filterState = getFilterState(id)
 

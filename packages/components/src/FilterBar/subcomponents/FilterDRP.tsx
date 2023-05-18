@@ -1,6 +1,7 @@
 import React from "react"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import {
+  DateRange,
   FilterDateRangePicker,
   FilterDateRangePickerProps,
 } from "~components/FilterDateRangePicker"
@@ -23,7 +24,7 @@ export const FilterDRP = ({
   ...props
 }: FilterDRPProps): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
-    useFilterBarContext()
+    useFilterBarContext<DateRange>()
 
   const filterState = getFilterState(props.id)
 
@@ -48,7 +49,7 @@ export const FilterDRP = ({
         updateSelectedValue(props.id, range)
         onRangeChange?.(range)
       }}
-      isOpen={filterState.isOpen ?? false}
+      isOpen={filterState.isOpen}
       setIsOpen={(open): void => toggleOpenFilter(props.id, open)}
     />
   )

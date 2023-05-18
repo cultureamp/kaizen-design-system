@@ -20,7 +20,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   ...props
 }: FilterBarSelectProps<Option>): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
-    useFilterBarContext()
+    useFilterBarContext<Option["value"]>()
 
   const filterState = getFilterState(props.id)
 
@@ -45,7 +45,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
         updateSelectedValue(props.id, key)
         onSelectionChange?.(key)
       }}
-      isOpen={filterState.isOpen ?? false}
+      isOpen={filterState.isOpen}
       setIsOpen={(open): void => toggleOpenFilter(props.id, open)}
     />
   )

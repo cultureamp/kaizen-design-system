@@ -1,4 +1,5 @@
 import React from "react"
+import { Selection } from "@react-types/shared"
 import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { RootProps } from "@kaizen/select/src/FilterMultiSelect/components/Root"
 import { useFilterBarContext } from "../context/FilterBarContext"
@@ -17,7 +18,7 @@ export const FilterBarMultiSelect = ({
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
-    useFilterBarContext()
+    useFilterBarContext<Selection>()
 
   const filterState = getFilterState(props.id)
 
@@ -32,7 +33,7 @@ export const FilterBarMultiSelect = ({
         onSelectionChange?.(keys)
       }}
       items={items}
-      isOpen={filterState.isOpen ?? false}
+      isOpen={filterState.isOpen}
       onOpenChange={(open): void => toggleOpenFilter(props.id, open)}
       trigger={(): JSX.Element =>
         filterState.isRemovable ? (
