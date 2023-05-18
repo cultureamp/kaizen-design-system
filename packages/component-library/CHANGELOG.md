@@ -1,5 +1,17 @@
 # Change Log
 
+## 16.8.0
+
+### Minor Changes
+
+- [#3623](https://github.com/cultureamp/kaizen-design-system/pull/3623) [`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f) - Added new icons, connect-line and insights
+
+### Patch Changes
+
+- [#3644](https://github.com/cultureamp/kaizen-design-system/pull/3644) [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671) - Add missing motion-ui util imports to component-library
+
+- [#3642](https://github.com/cultureamp/kaizen-design-system/pull/3642) [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d) - Add missing motion-ui-settings to component-library's animations settings to fix an issue with certain animations being unable to access settings
+
 ## 16.7.6
 
 ### Patch Changes

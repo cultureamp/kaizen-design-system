@@ -1,5 +1,14 @@
 # Change Log
 
+## 10.4.5
+
+### Patch Changes
+
+- [#3647](https://github.com/cultureamp/kaizen-design-system/pull/3647) [`066d044d2`](https://github.com/cultureamp/kaizen-design-system/commit/066d044d2eee90bf63d2fd0b033b522eda30d027) - Add custom aria label 'clear search' to InputSearch for improved screen reader context
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+
 ## 10.4.4
 
 ### Patch Changes
