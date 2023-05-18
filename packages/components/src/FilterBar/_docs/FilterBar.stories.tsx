@@ -6,7 +6,7 @@ import { FilterMultiSelect } from "@kaizen/select"
 import { FilterSelect, SelectOption } from "~components/FilterSelect"
 import {
   Filters,
-  StateWithoutComponent,
+  FiltersState,
   useFilterBarContext,
 } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
@@ -36,9 +36,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
   const [selectedValues, setSelectedValues] = useState<Partial<Params>>({
     department: ["id-fe"],
   })
-  const [filtersState, setFiltersState] = useState<
-    StateWithoutComponent<Params>
-  >({})
+  const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
 
   // @note: While this can identify if something shouldn't exist,
   // it can't tell if something is missing.
@@ -227,9 +225,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
   }
 
   const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
-  const [filtersState, setFiltersState] = useState<
-    StateWithoutComponent<Params>
-  >({})
+  const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
 
   const filters = [
     {
@@ -349,9 +345,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
   }
 
   const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
-  const [filtersState, setFiltersState] = useState<
-    StateWithoutComponent<Params>
-  >({})
+  const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
 
   const filters = [
     {
@@ -449,9 +443,7 @@ export const ManyFilters: StoryFn<typeof FilterBar> = () => {
   }
 
   const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
-  const [filtersState, setFiltersState] = useState<
-    StateWithoutComponent<Params>
-  >({})
+  const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
 
   const dynamicFilters = [...Array(100)].map((_, i) => ({
     id: `filter-${i}`,

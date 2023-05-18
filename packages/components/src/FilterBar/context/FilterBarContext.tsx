@@ -105,6 +105,10 @@ export type StateWithoutComponent<
   >
 >
 
+export type FiltersState<SelectedValues extends FiltersSelectedValues> =
+  | StateWithoutComponent<SelectedValues>
+  | Record<string, never>
+
 export type FilterBarProviderProps<
   SelectedValues extends FiltersSelectedValues
 > = {
