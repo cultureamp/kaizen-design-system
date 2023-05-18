@@ -1,8 +1,11 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
 
 .root {
   display: grid;
+  background-color: $color-white;
+  top: 0;
   grid-template-areas: "branding" "titles" "actions";
   grid-template-columns: 1fr;
   grid-template-rows: min-content max-content min-content;
@@ -15,6 +18,7 @@
   gap: $spacing-16;
 
   @media (min-width: 768px) {
+    position: sticky;
     align-items: start;
     grid-template-areas: "branding titles actions";
     grid-template-rows: min-content;

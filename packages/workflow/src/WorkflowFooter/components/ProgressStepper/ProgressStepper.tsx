@@ -11,6 +11,20 @@ export interface ProgressStepperProps {
   isComplete?: boolean
 }
 
+const getA11yStepStatus = (
+  isComplete: boolean,
+  isCurrentStep: boolean,
+  step: string
+): string => {
+  if (isComplete) {
+    return `Completed: ${step}`
+  }
+  if (isCurrentStep) {
+    return `Current: ${step}`
+  }
+  return `Not started: ${step}`
+}
+
 export const ProgressStepper = ({
   stepName,
   steps,
@@ -20,15 +34,7 @@ export const ProgressStepper = ({
   const currentStepIndex = steps.indexOf(stepName)
 
   return (
-    <div className={styles.stepContainer}>
-      <Paragraph
-        classNameOverride={styles.stepperDescription}
-        variant={"small"}
-        color={"white"}
-        id="stepper-description"
-      >
-        Step {currentStepIndex + 1} out of {steps.length}
-      </Paragraph>
+    <div className={styles.stepsContainer}>
       <ol
         className={styles.stepList}
         {...restprops}
@@ -46,9 +52,7 @@ export const ProgressStepper = ({
               <div className={styles.stepContent}>
                 <span className="sr-only">
                   {/* will need to be translated */}
-                  {isCompletedStep
-                    ? `Completed: ${step}`
-                    : `In progress: ${step}`}
+                  {getA11yStepStatus(isCompletedStep, isCurrentStep, step)}
                 </span>
                 <Paragraph
                   classNameOverride={styles.stepName}
@@ -59,11 +63,11 @@ export const ProgressStepper = ({
                   {step}
                 </Paragraph>
                 <div
-                  className={classnames({
-                    [styles.stepIndicator]: true,
-                    [styles.stepActive]: isCurrentStep || isCompletedStep,
-                    [styles.completedStep]: isCompletedStep,
-                  })}
+                  className={classnames([
+                    styles.stepIndicator,
+                    isCurrentStep && styles.stepCurrent,
+                    isCompletedStep && styles.completedStep,
+                  ])}
                 >
                   {isCompletedStep && (
                     <span className={styles.completedIcon}>
@@ -88,6 +92,14 @@ export const ProgressStepper = ({
           )
         })}
       </ol>
+      <Paragraph
+        classNameOverride="sr-only"
+        variant={"small"}
+        color={"white"}
+        id="stepper-description"
+      >
+        Step {currentStepIndex + 1} out of {steps.length}.
+      </Paragraph>
     </div>
   )
 }

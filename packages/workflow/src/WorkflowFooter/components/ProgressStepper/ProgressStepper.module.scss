@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 
-.stepContainer {
+.stepsContainer {
   width: 100%;
   grid-area: stepper;
 }
@@ -24,7 +24,7 @@
   justify-content: center;
   max-width: $spacing-96;
   position: relative;
-  container-type: inline-size;
+  container: step / inline-size;
 }
 
 .stepContent {
@@ -53,19 +53,34 @@
   opacity: 0.65;
 }
 
-.stepIndicator.stepActive {
+.stepCurrent {
   opacity: 1;
 }
 
-.stepIndicator.stepActive::before {
+.stepCurrent::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $spacing-8;
+  height: $spacing-8;
+  background-color: $color-white;
+  border-radius: 100%;
+}
+
+.stepCurrent::before,
+.stepCurrent::after,
+.completedStep::before {
   opacity: 1;
 }
 
-.stepIndicator.completedStep {
+.completedStep {
   background-color: transparent;
 }
 
 .stepName {
+  display: none;
   text-align: center;
   margin-bottom: $spacing-12;
   font-weight: $typography-paragraph-bold-font-weight;
@@ -101,20 +116,12 @@
   opacity: 1;
 }
 
-.stepName {
-  display: none;
-}
-
 .stepperDescription {
-  display: block;
+  display: none;
   text-align: center;
 }
 
-.stepperDescription {
-  display: none;
-}
-
-@container (min-width: 72px) {
+@container step (min-width: 4.5rem) {
   .stepName {
     display: inline;
   }
@@ -125,9 +132,5 @@
 
   .stepContent {
     align-self: center;
-  }
-
-  .stepperDescription {
-    dispay: block;
   }
 }
