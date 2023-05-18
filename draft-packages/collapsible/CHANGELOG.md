@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.5.36
+
+### Patch Changes
+
+- [#3641](https://github.com/cultureamp/kaizen-design-system/pull/3641) [`9e64e823f`](https://github.com/cultureamp/kaizen-design-system/commit/9e64e823f4bc3129a819ced73d77ba568ccab35b) - set alt to empty string for decorative img
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+
 ## 3.5.35
 
 ### Patch Changes
