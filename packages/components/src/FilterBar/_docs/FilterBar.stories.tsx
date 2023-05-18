@@ -10,10 +10,7 @@ import {
   useFilterBarContext,
 } from "../context/FilterBarContext"
 import { FilterBar } from "../index"
-import { FilterDRP } from "../subcomponents/FilterDRP"
-import { FilterBarMultiSelect } from "../subcomponents/FilterMS"
 import { FilterPancake } from "../subcomponents/FilterPancake"
-import { FilterBarSelect } from "../subcomponents/FilterSelect"
 
 const meta = {
   tags: ["autodocs"],
@@ -54,7 +51,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       id: "department",
       name: "Dept",
       Component: (
-        <FilterBarMultiSelect
+        <FilterBar.MultiSelect
           // id="department"
           items={[
             { label: "Front-End", value: "id-fe" },
@@ -94,7 +91,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
               </FilterMultiSelect.MenuFooter>
             </>
           )}
-        </FilterBarMultiSelect>
+        </FilterBar.MultiSelect>
       ),
     },
     {
@@ -136,7 +133,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       id: "penguin",
       name: "Penguin",
       Component: (
-        <FilterBarMultiSelect
+        <FilterBar.MultiSelect
           // id="penguin"
           items={[
             { label: "Front-End", value: "id-fe" },
@@ -176,7 +173,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
               </FilterMultiSelect.MenuFooter>
             </>
           )}
-        </FilterBarMultiSelect>
+        </FilterBar.MultiSelect>
       ),
       isRemovable: true,
       isInitHidden: true,
@@ -259,7 +256,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       id: "drp",
       name: "Dates",
       Component: (
-        <FilterDRP
+        <FilterBar.DateRangePicker
           // id="drp"
           locale="en-AU"
         />
@@ -280,7 +277,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       id: "coffee",
       name: "Coffee",
       Component: (
-        <FilterBarSelect
+        <FilterBar.Select
           // id="coffee"
           items={[
             { label: "Short black", value: "short-black" },
@@ -294,7 +291,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       id: "pickle",
       name: "Pickle",
       Component: (
-        <FilterBarSelect<SelectOption & { isFruit: boolean }>
+        <FilterBar.Select<SelectOption & { isFruit: boolean }>
           // id="pickle"
           items={[
             { label: "Bubblegum", value: "bubblegum", isFruit: false },
@@ -321,7 +318,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
               )
             )
           }
-        </FilterBarSelect>
+        </FilterBar.Select>
       ),
     },
     {
@@ -383,7 +380,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       id: "managers",
       name: "Managers",
       Component: (
-        <FilterBarSelect
+        <FilterBar.Select
           // id="managers"
           items={[
             { label: "Geoff Chong", value: "the-g" },
@@ -396,7 +393,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       id: "reports",
       name: "Reports",
       Component: (
-        <FilterBarSelect
+        <FilterBar.Select
           // id="reports"
           items={[
             { label: "Directs", value: "directs" },
@@ -411,7 +408,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       id: "departments",
       name: "Departments",
       Component: (
-        <FilterBarSelect
+        <FilterBar.Select
           // id="departments"
           items={[
             { label: "Beauty", value: "beauty" },
@@ -427,7 +424,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       id: "gender",
       name: "Gender",
       Component: (
-        <FilterBarSelect
+        <FilterBar.Select
           // id="gender"
           items={[
             { label: "Prefer not to say", value: "no-to-say" },

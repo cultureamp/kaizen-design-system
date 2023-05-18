@@ -6,6 +6,9 @@ import {
 } from "./context/FilterBarContext"
 import { FilterAddButton } from "./subcomponents/FilterAddButton"
 import { FilterClearAllButton } from "./subcomponents/FilterClearAllButton"
+import { FilterDRP } from "./subcomponents/FilterDRP"
+import { FilterBarMultiSelect } from "./subcomponents/FilterMS"
+import { FilterBarSelect } from "./subcomponents/FilterSelect"
 
 export type FilterBarProps<SelectedValues extends FiltersSelectedValues> = Omit<
   FilterBarProviderProps<SelectedValues>,
@@ -36,3 +39,7 @@ export const FilterBar = <SelectedValues extends FiltersSelectedValues>({
     </FilterBarProvider>
   </div>
 )
+
+FilterBar.Select = FilterBarSelect
+FilterBar.DateRangePicker = FilterDRP
+FilterBar.MultiSelect = FilterBarMultiSelect
