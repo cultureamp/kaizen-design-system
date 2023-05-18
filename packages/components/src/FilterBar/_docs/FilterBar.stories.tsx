@@ -33,7 +33,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     penguin: string
   }
 
-  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({
+  const [activeValues, onActiveValuesChange] = useState<Partial<Params>>({
     department: ["id-fe"],
   })
   const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
@@ -172,15 +172,15 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
-        selectedValues={selectedValues}
-        setSelectedValues={setSelectedValues}
+        activeValues={activeValues}
+        onActiveValuesChange={onActiveValuesChange}
       />
 
       <button
         type="button"
         onClick={(): void =>
-          setSelectedValues({
-            ...selectedValues,
+          onActiveValuesChange({
+            ...activeValues,
             chocolate: "Hello!",
           })
         }
@@ -189,9 +189,9 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
         Update chocolate value
       </button>
 
-      <p>selectedValues</p>
+      <p>activeValues</p>
       <Highlight className="json">
-        {JSON.stringify(selectedValues, null, 4)}
+        {JSON.stringify(activeValues, null, 4)}
       </Highlight>
 
       <p>filtersState</p>
@@ -224,7 +224,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
     carrots: string
   }
 
-  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
+  const [activeValues, onActiveValuesChange] = useState<Partial<Params>>({})
   const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
 
   const filters = [
@@ -306,15 +306,15 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
-        selectedValues={selectedValues}
-        setSelectedValues={setSelectedValues}
+        activeValues={activeValues}
+        onActiveValuesChange={onActiveValuesChange}
       />
 
       <button
         type="button"
         onClick={(): void =>
-          setSelectedValues({
-            ...selectedValues,
+          onActiveValuesChange({
+            ...activeValues,
             chocolate: "Hello!",
           })
         }
@@ -323,9 +323,9 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
         Update chocolate value
       </button>
 
-      <p>selectedValues</p>
+      <p>activeValues</p>
       <Highlight className="json">
-        {JSON.stringify(selectedValues, null, 4)}
+        {JSON.stringify(activeValues, null, 4)}
       </Highlight>
 
       <p>filtersState</p>
@@ -344,7 +344,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
     gender: string
   }
 
-  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
+  const [activeValues, onActiveValuesChange] = useState<Partial<Params>>({})
   const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
 
   const filters = [
@@ -417,13 +417,13 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
-        selectedValues={selectedValues}
-        setSelectedValues={setSelectedValues}
+        activeValues={activeValues}
+        onActiveValuesChange={onActiveValuesChange}
       />
 
-      <p>selectedValues</p>
+      <p>activeValues</p>
       <Highlight className="json">
-        {JSON.stringify(selectedValues, null, 4)}
+        {JSON.stringify(activeValues, null, 4)}
       </Highlight>
 
       <p>filtersState</p>
@@ -442,7 +442,7 @@ export const ManyFilters: StoryFn<typeof FilterBar> = () => {
     default: string
   }
 
-  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
+  const [activeValues, onActiveValuesChange] = useState<Partial<Params>>({})
   const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
 
   const dynamicFilters = [...Array(100)].map((_, i) => ({
@@ -467,13 +467,13 @@ export const ManyFilters: StoryFn<typeof FilterBar> = () => {
       <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
-        selectedValues={selectedValues}
-        setSelectedValues={setSelectedValues}
+        activeValues={activeValues}
+        onActiveValuesChange={onActiveValuesChange}
       />
 
-      <p>selectedValues</p>
+      <p>activeValues</p>
       <Highlight className="json">
-        {JSON.stringify(selectedValues, null, 4)}
+        {JSON.stringify(activeValues, null, 4)}
       </Highlight>
 
       <p>filtersState</p>

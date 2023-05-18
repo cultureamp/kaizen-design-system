@@ -115,10 +115,8 @@ export type FilterBarProviderProps<
   children: (activeFilters: TransformedState<SelectedValues>) => JSX.Element
   filters: Filters<SelectedValues>
   onChange?: (state: StateWithoutComponent<SelectedValues>) => void
-  selectedValues: Partial<SelectedValues>
-  setSelectedValues: React.Dispatch<
-    React.SetStateAction<Partial<SelectedValues>>
-  >
+  activeValues: Partial<SelectedValues>
+  onActiveValuesChange: (activeValues: Partial<SelectedValues>) => void
 }
 
 export const FilterBarProvider = <
@@ -127,8 +125,8 @@ export const FilterBarProvider = <
   children,
   filters,
   onChange,
-  selectedValues,
-  setSelectedValues,
+  activeValues,
+  onActiveValuesChange,
 }: FilterBarProviderProps<SelectedValues>): JSX.Element => {
   const initState: InternalFiltersState<SelectedValues> = filters.reduce<
     InternalFiltersState<SelectedValues>
@@ -141,7 +139,7 @@ export const FilterBarProvider = <
         isOpen: false,
         isHidden: isInitHidden ?? false,
         ...filter,
-        selectedValue: selectedValues[filter.id],
+        selectedValue: activeValues[filter.id],
       }
       return acc
     },
@@ -162,7 +160,7 @@ export const FilterBarProvider = <
           ...filter,
           isUsable,
           isHidden: !isUsable || filter.isHidden,
-          selectedValue: selectedValues[filter.id],
+          selectedValue: activeValues[filter.id],
         }
 
         return acc
@@ -198,10 +196,10 @@ export const FilterBarProvider = <
       return getTransformedState(state)[id]
     },
     updateSelectedValue: (id: string, newValue: any): void => {
-      setSelectedValues(current => ({
-        ...current,
+      onActiveValuesChange({
+        ...activeValues,
         [id]: newValue,
-      }))
+      })
     },
     toggleOpenFilter: (id: string, isOpen: boolean): void => {
       setState(current => ({
@@ -233,10 +231,10 @@ export const FilterBarProvider = <
       })
     },
     hideFilter: (id: string): void => {
-      setSelectedValues(current => ({
-        ...current,
+      onActiveValuesChange({
+        ...activeValues,
         [id]: undefined,
-      }))
+      })
       setState(current => ({
         ...current,
         [id]: { ...current[id], isHidden: true },
@@ -247,7 +245,7 @@ export const FilterBarProvider = <
         ({ isHidden, isUsable }) => isUsable && isHidden
       ),
     clearFilters: (): void => {
-      setSelectedValues({})
+      onActiveValuesChange({})
       setState(current =>
         Object.values(current).reduce<InternalFiltersState<SelectedValues>>(
           (acc, filter) => {
@@ -271,17 +269,17 @@ export const FilterBarProvider = <
 
   useEffect(() => {
     setState(current => getTransformedState(current))
-  }, [selectedValues])
+  }, [activeValues])
 
   useEffect(() => {
     const transformedState = getTransformedState(state)
 
     Object.values(transformedState).forEach(filter => {
-      if (!filter.isUsable && selectedValues[filter.id]) {
-        setSelectedValues(current => ({
-          ...current,
+      if (!filter.isUsable && activeValues[filter.id]) {
+        onActiveValuesChange({
+          ...activeValues,
           [filter.id]: undefined,
-        }))
+        })
       }
     })
   }, [state])
@@ -307,13 +305,11 @@ export const FilterBarProvider = <
       { newActiveFilters: [], hiddenFilters: [] }
     )
 
-    setSelectedValues(current => {
-      const updated = current
-      hiddenFilters.forEach(({ id }) => {
-        updated[id as keyof SelectedValues] = undefined
-      })
-      return updated
+    const newActiveValues = activeValues
+    hiddenFilters.forEach(({ id }) => {
+      newActiveValues[id as keyof SelectedValues] = undefined
     })
+    onActiveValuesChange(newActiveValues)
 
     setActiveFilters(current => {
       const newActiveFilterIds = newActiveFilters.map(({ id }) => id)
