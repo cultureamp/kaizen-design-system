@@ -7,7 +7,7 @@ import {
 import { FilterAddButton } from "./subcomponents/FilterAddButton"
 import { FilterClearAllButton } from "./subcomponents/FilterClearAllButton"
 
-export type FilterBarProps<SelectedValues> = Omit<
+export type FilterBarProps<SelectedValues extends FiltersSelectedValues> = Omit<
   FilterBarProviderProps<SelectedValues>,
   "children"
 > & {
