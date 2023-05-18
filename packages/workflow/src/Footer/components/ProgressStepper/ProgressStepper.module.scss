@@ -75,7 +75,8 @@
   opacity: 1;
 }
 
-.completedStep {
+.completedStep,
+.completedStep::after {
   background-color: transparent;
 }
 

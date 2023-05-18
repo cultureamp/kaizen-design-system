@@ -17,7 +17,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Workflow/Header",
+  title: "Workflow/Components/Header",
   component: Header,
   parameters: {
     docs: {
@@ -59,7 +59,7 @@ export const Playground: StoryFn<HeaderProps> = ({
     actions={[
       ...actions,
       <WorkflowExit
-        key={"would-use-uui"}
+        key="would-use-uui"
         exitLabel="Save and close"
         exitTitle="Before you exit"
         exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
@@ -106,7 +106,7 @@ MultipleActions.args = {
       iconPosition="start"
     />,
     <WorkflowExit
-      key={"would-use-uui-2"}
+      key="would-use-uui-2"
       exitLabel="Save and close"
       exitTitle="Before you exit"
       exitDescription="Your content has not yet been saved. Click the button below or discard the changes"

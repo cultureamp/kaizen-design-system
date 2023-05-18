@@ -19,7 +19,7 @@ const defaultArgs = {
   nextAction: <Button reversed label="next" />,
   actions: [
     <WorkflowExit
-      key={"would-use-uui"}
+      key="would-use-uui"
       exitLabel="Save and close"
       exitTitle="Before you exit"
       exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
@@ -32,7 +32,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Workflow/Custom Workflow",
+  title: "Workflow/Components/Custom Workflow",
   component: Workflow,
   parameters: {
     docs: {
