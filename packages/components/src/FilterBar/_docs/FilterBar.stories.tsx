@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { DateRange } from "@kaizen/date-picker"
 import { FilterMultiSelect } from "@kaizen/select"
 import { FilterSelect, SelectOption } from "~components/FilterSelect"
 import {
-  Filter,
+  Filters,
   StateWithoutComponent,
   useFilterBarContext,
 } from "../context/FilterBarContext"
@@ -23,16 +24,25 @@ const meta = {
 export default meta
 
 export const Playground: StoryFn<typeof FilterBar> = () => {
-  const [selectedValues, setSelectedValues] = useState<Record<string, any>>({
+  type Params = {
+    chocolate: string
+    department: string[]
+    strawberry: string
+    vanilla: string
+    apple: string
+    penguin: string
+  }
+
+  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({
     department: ["id-fe"],
   })
-  const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
+  const [filtersState, setFiltersState] = useState<
+    StateWithoutComponent<Params>
+  >({})
 
-  // @note: `id` for filter must match `id` in the consuming component
-  // Perhaps it's worth cloning the active filters and passing it in for the consumer?
-  // The only problem is if the `id` is a different prop name,
-  // although we could also make an attribute to override that if needed
-  const filters: Filter[] = [
+  // @note: While this can identify if something shouldn't exist,
+  // it can't tell if something is missing.
+  const filters = [
     {
       id: "chocolate",
       name: "Chocolate",
@@ -99,7 +109,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       Component: <FilterPancake id="vanilla" />,
       isRemovable: true,
       isUsableWhen: state =>
-        state["department"]?.selectedValue?.includes("id-be") === true,
+        state["department"].selectedValue?.includes("id-be") === true,
       isInitHidden: true,
     },
     {
@@ -157,11 +167,11 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       isRemovable: true,
       isInitHidden: true,
     },
-  ]
+  ] satisfies Filters<Params>
 
   return (
     <div>
-      <FilterBar
+      <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
         selectedValues={selectedValues}
@@ -207,10 +217,21 @@ const VanillaPancake = (props: { id: string }): JSX.Element => {
 }
 
 export const Playground2: StoryFn<typeof FilterBar> = () => {
-  const [selectedValues, setSelectedValues] = useState<Record<string, any>>({})
-  const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
+  type Params = {
+    chocolate: string
+    drp: DateRange
+    vanilla: string
+    coffee: string
+    pickle: string
+    carrots: string
+  }
 
-  const filters: Filter[] = [
+  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
+  const [filtersState, setFiltersState] = useState<
+    StateWithoutComponent<Params>
+  >({})
+
+  const filters = [
     {
       id: "chocolate",
       name: "Chocolate",
@@ -226,7 +247,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       name: "Vanilla",
       Component: <VanillaPancake id="vanilla" />,
       isRemovable: true,
-      isUsableWhen: state => state["chocolate"]?.selectedValue !== undefined,
+      isUsableWhen: state => state["chocolate"].selectedValue !== undefined,
     },
     {
       id: "coffee",
@@ -282,11 +303,11 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       Component: <FilterPancake id="carrots" />,
       isInitHidden: true,
     },
-  ]
+  ] satisfies Filters<Params>
 
   return (
     <div>
-      <FilterBar
+      <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
         selectedValues={selectedValues}
@@ -320,10 +341,19 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
 }
 
 export const AnotherExample: StoryFn<typeof FilterBar> = () => {
-  const [selectedValues, setSelectedValues] = useState<Record<string, any>>({})
-  const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
+  type Params = {
+    managers: string
+    reports: string
+    departments: string
+    gender: string
+  }
 
-  const filters: Filter[] = [
+  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
+  const [filtersState, setFiltersState] = useState<
+    StateWithoutComponent<Params>
+  >({})
+
+  const filters = [
     {
       id: "managers",
       name: "Managers",
@@ -386,11 +416,11 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       isInitHidden: true,
       isUsableWhen: state => !state["reports"].isHidden,
     },
-  ]
+  ] satisfies Filters<Params>
 
   return (
     <div>
-      <FilterBar
+      <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
         selectedValues={selectedValues}
@@ -411,29 +441,38 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
 }
 
 export const ManyFilters: StoryFn<typeof FilterBar> = () => {
-  const [selectedValues, setSelectedValues] = useState<Record<string, any>>({})
-  const [filtersState, setFiltersState] = useState<StateWithoutComponent>({})
+  type DynamicParams = {
+    [key: string]: string
+  }
+  type Params = DynamicParams & {
+    default: string
+  }
 
-  const dynamicFilters: Filter[] = [...Array(100)].map((_, i) => ({
+  const [selectedValues, setSelectedValues] = useState<Partial<Params>>({})
+  const [filtersState, setFiltersState] = useState<
+    StateWithoutComponent<Params>
+  >({})
+
+  const dynamicFilters = [...Array(100)].map((_, i) => ({
     id: `filter-${i}`,
     name: `${i}`,
     Component: <FilterPancake id={`filter-${i}`} />,
     isRemovable: true,
     isInitHidden: true,
-  }))
+  })) satisfies Filters<DynamicParams>
 
-  const filters: Filter[] = [
+  const filters = [
     {
       id: "default",
       name: "Default",
       Component: <FilterPancake id="default" />,
     },
     ...dynamicFilters,
-  ]
+  ] satisfies Filters<Params>
 
   return (
     <div>
-      <FilterBar
+      <FilterBar<Params>
         filters={filters}
         onChange={setFiltersState}
         selectedValues={selectedValues}

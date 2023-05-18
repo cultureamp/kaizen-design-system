@@ -1,10 +1,17 @@
 import React, { useContext, useEffect, useState } from "react"
 
-export type IsUsableWhen = (
-  state: Record<string, Pick<InternalFilterAttr, "isHidden" | "selectedValue">>
-) => boolean
+export type IsUsableWhen<SelectedValues extends FiltersSelectedValues> =
+  (state: {
+    [K in keyof SelectedValues]: Omit<
+      TransformedFilterAttr<SelectedValues, SelectedValues[K]>,
+      "Component"
+    >
+  }) => boolean
 
-type InternalFilterAttr = {
+type InternalFilterAttr<
+  SelectedValues extends FiltersSelectedValues,
+  SelectedValue
+> = {
   id: string
   name: string
   Component: React.ReactElement
@@ -12,28 +19,51 @@ type InternalFilterAttr = {
   isOpen: boolean
   isHidden: boolean
   // isUsable: boolean
-  isUsableWhen?: IsUsableWhen
-  selectedValue: any
+  isUsableWhen?: IsUsableWhen<SelectedValues>
+  selectedValue: SelectedValue
 }
 
-export type InternalFiltersState = Record<string, InternalFilterAttr>
+export type InternalFiltersState<SelectedValues extends FiltersSelectedValues> =
+  {
+    [K in keyof SelectedValues]: InternalFilterAttr<
+      SelectedValues,
+      SelectedValues[K]
+    >
+  }
 
-export type TransformedFilterAttr = Omit<InternalFilterAttr, "isUsableWhen"> & {
+export type TransformedFilterAttr<
+  SelectedValues extends FiltersSelectedValues,
+  SelectedValue = SelectedValues[keyof SelectedValues]
+> = Omit<InternalFilterAttr<SelectedValues, SelectedValue>, "isUsableWhen"> & {
   isUsable: boolean
   // selectedValue: any
 }
 
-export type TransformedState = Record<string, TransformedFilterAttr>
+export type TransformedState<SelectedValues extends FiltersSelectedValues> = {
+  [K in keyof SelectedValues]: TransformedFilterAttr<
+    SelectedValues,
+    SelectedValues[K]
+  >
+}
 
-export type FilterBarContextValue = {
-  state: Record<string, InternalFilterAttr>
-  getFilterState: (id: string) => TransformedFilterAttr
-  updateSelectedValue: (id: string, value: any) => void
+type FilterSelectedValue = any
+export type FiltersSelectedValues = Record<string, FilterSelectedValue>
+
+export type FilterBarContextValue<
+  SelectedValues extends FiltersSelectedValues = any
+> = {
+  // state: Record<string, InternalFilterAttr>
+  getFilterState: (
+    id: string
+  ) => TransformedFilterAttr<SelectedValues, SelectedValues[typeof id]>
+  updateSelectedValue: (id: string, value: FilterSelectedValue) => void
   toggleOpenFilter: (id: string, isOpen: boolean) => void
   setOpenFilter: (id: string) => void
   showFilter: (id: string) => void
   hideFilter: (id: string) => void
-  getHiddenFilters: () => TransformedFilterAttr[]
+  getHiddenFilters: () => Array<
+    TransformedFilterAttr<SelectedValues, SelectedValues[keyof SelectedValues]>
+  >
   clearFilters: () => void
 }
 
@@ -51,38 +81,58 @@ export const useFilterBarContext = (): FilterBarContextValue => {
   return context
 }
 
-export type Filter = {
-  id: string
+export type Filter<SelectedValues extends FiltersSelectedValues> = {
+  id: keyof SelectedValues
+  // id: string
   name: string
   Component: React.ReactElement
   isRemovable?: boolean
   isInitHidden?: boolean
-  isUsableWhen?: IsUsableWhen
+  isUsableWhen?: IsUsableWhen<SelectedValues>
 }
 
-export type StateWithoutComponent = Record<
-  string,
-  Omit<TransformedFilterAttr, "Component">
+export type Filters<SelectedValues extends FiltersSelectedValues> = Array<
+  Filter<SelectedValues>
 >
 
-export type FilterBarProviderProps = {
-  children: (activeFilters: TransformedState) => JSX.Element
-  filters: Filter[]
-  onChange?: (state: StateWithoutComponent) => void
-  selectedValues: Record<string, any>
-  setSelectedValues: React.Dispatch<React.SetStateAction<Record<string, any>>>
+export type StateWithoutComponent<
+  SelectedValues extends FiltersSelectedValues
+> = Record<
+  keyof SelectedValues,
+  Omit<
+    TransformedFilterAttr<SelectedValues, SelectedValues[keyof SelectedValues]>,
+    "Component"
+  >
+>
+
+export type FilterBarProviderProps<
+  SelectedValues extends FiltersSelectedValues
+> = {
+  children: (activeFilters: TransformedState<SelectedValues>) => JSX.Element
+  filters: Filters<SelectedValues>
+  onChange?: (state: StateWithoutComponent<SelectedValues>) => void
+  selectedValues: Partial<SelectedValues>
+  setSelectedValues: React.Dispatch<
+    React.SetStateAction<Partial<SelectedValues>>
+  >
 }
 
-export const FilterBarProvider = ({
+export const FilterBarProvider = <
+  SelectedValues extends FiltersSelectedValues
+>({
   children,
   filters,
   onChange,
   selectedValues,
   setSelectedValues,
-}: FilterBarProviderProps): JSX.Element => {
-  const initState: InternalFiltersState = filters.reduce<InternalFiltersState>(
+}: FilterBarProviderProps<SelectedValues>): JSX.Element => {
+  const initState: InternalFiltersState<SelectedValues> = filters.reduce<
+    InternalFiltersState<SelectedValues>
+  >(
     (acc, { isInitHidden, ...filter }) => {
-      acc[filter.id] = {
+      // @note type cast doesn't work due to `keyof SelectedValues`
+      // @ts-expect-error
+      acc[filter.id as keyof SelectedValues] = {
         isRemovable: false,
         isOpen: false,
         isHidden: isInitHidden ?? false,
@@ -91,42 +141,55 @@ export const FilterBarProvider = ({
       }
       return acc
     },
-    {}
+    {} as InternalFiltersState<SelectedValues> // @note type cast
   )
 
   const getTransformedState = (
-    theState: InternalFiltersState
-  ): TransformedState =>
-    Object.values(theState).reduce<TransformedState>((acc, filter) => {
-      const isUsable = filter.isUsableWhen
-        ? filter.isUsableWhen(theState)
-        : true
+    theState: InternalFiltersState<SelectedValues>
+  ): TransformedState<SelectedValues> =>
+    Object.values(theState).reduce<TransformedState<SelectedValues>>(
+      (acc, filter) => {
+        const isUsable = filter.isUsableWhen
+          ? filter.isUsableWhen(theState)
+          : true
 
-      acc[filter.id] = {
-        ...filter,
-        isUsable,
-        isHidden: !isUsable || filter.isHidden,
-        selectedValue: selectedValues[filter.id],
-      }
+        // @note type cast
+        acc[filter.id as keyof SelectedValues] = {
+          ...filter,
+          isUsable,
+          isHidden: !isUsable || filter.isHidden,
+          selectedValue: selectedValues[filter.id],
+        }
 
-      return acc
-    }, {})
+        return acc
+      },
+      {} as TransformedState<SelectedValues> // @note type cast
+    )
 
   const initTransformedState = getTransformedState(initState)
 
-  const [activeFilters, setActiveFilters] = useState<TransformedState>(
+  const [activeFilters, setActiveFilters] = useState<
+    TransformedState<SelectedValues>
+  >(
     Object.values(initTransformedState)
       .filter(({ isHidden, isUsable }) => isUsable && !isHidden)
-      .reduce<TransformedState>((acc, filter) => {
-        acc[filter.id] = filter
-        return acc
-      }, {})
+      .reduce<TransformedState<SelectedValues>>(
+        (acc, filter) => {
+          // @note type cast
+          acc[filter.id as keyof SelectedValues] = filter
+          return acc
+        },
+        {} as TransformedState<SelectedValues> // @note type cast
+      )
   )
-  const [state, setState] = useState<InternalFiltersState>(initState)
+  const [state, setState] =
+    useState<InternalFiltersState<SelectedValues>>(initState)
 
   const value = {
-    state,
-    getFilterState: (id: string): TransformedFilterAttr => {
+    // state,
+    getFilterState: (
+      id: string
+    ): TransformedFilterAttr<SelectedValues, SelectedValues[typeof id]> => {
       if (!state[id]) throw Error("Filter doesn't exist!")
       return getTransformedState(state)[id]
     },
@@ -144,13 +207,17 @@ export const FilterBarProvider = ({
     },
     setOpenFilter: (id: string): void =>
       setState(current =>
-        Object.values(current).reduce<InternalFiltersState>((acc, filter) => {
-          acc[filter.id] = {
-            ...filter,
-            isOpen: filter.id === id,
-          }
-          return acc
-        }, {})
+        Object.values(current).reduce<InternalFiltersState<SelectedValues>>(
+          (acc, filter) => {
+            // @note type cast
+            acc[filter.id as keyof SelectedValues] = {
+              ...filter,
+              isOpen: filter.id === id,
+            }
+            return acc
+          },
+          {} as InternalFiltersState<SelectedValues> // @note type cast
+        )
       ),
     showFilter: (id: string): void => {
       setState(current => {
@@ -171,28 +238,32 @@ export const FilterBarProvider = ({
         [id]: { ...current[id], isHidden: true },
       }))
     },
-    getHiddenFilters: (): TransformedFilterAttr[] =>
+    getHiddenFilters: (): Array<TransformedFilterAttr<SelectedValues>> =>
       Object.values(getTransformedState(state)).filter(
         ({ isHidden, isUsable }) => isUsable && isHidden
       ),
     clearFilters: (): void => {
       setSelectedValues({})
       setState(current =>
-        Object.values(current).reduce<InternalFiltersState>((acc, filter) => {
-          const newState = filter
-          if (filter.isRemovable) {
-            newState["isHidden"] = true
-          }
+        Object.values(current).reduce<InternalFiltersState<SelectedValues>>(
+          (acc, filter) => {
+            const newState = filter
+            if (filter.isRemovable) {
+              newState["isHidden"] = true
+            }
 
-          acc[filter.id] = {
-            ...filter,
-            ...newState,
-          }
-          return acc
-        }, {})
+            // @note type cast
+            acc[filter.id as keyof SelectedValues] = {
+              ...filter,
+              ...newState,
+            }
+            return acc
+          },
+          {} as InternalFiltersState<SelectedValues> // @note type cast
+        )
       )
     },
-  } satisfies FilterBarContextValue
+  } satisfies FilterBarContextValue<SelectedValues>
 
   useEffect(() => {
     setState(current => getTransformedState(current))
@@ -217,8 +288,8 @@ export const FilterBarProvider = ({
     const { newActiveFilters, hiddenFilters } = Object.values(
       transformedState
     ).reduce<{
-      newActiveFilters: TransformedFilterAttr[]
-      hiddenFilters: TransformedFilterAttr[]
+      newActiveFilters: Array<TransformedFilterAttr<SelectedValues>>
+      hiddenFilters: Array<TransformedFilterAttr<SelectedValues>>
     }>(
       (acc, filter) => {
         const { isHidden, isUsable } = filter
@@ -235,7 +306,7 @@ export const FilterBarProvider = ({
     setSelectedValues(current => {
       const updated = current
       hiddenFilters.forEach(({ id }) => {
-        updated[id] = undefined
+        updated[id as keyof SelectedValues] = undefined
       })
       return updated
     })
@@ -243,29 +314,38 @@ export const FilterBarProvider = ({
     setActiveFilters(current => {
       const newActiveFilterIds = newActiveFilters.map(({ id }) => id)
 
-      const currentWithoutRemoved = Object.values(
-        current
-      ).reduce<TransformedState>((acc, filter) => {
-        if (newActiveFilterIds.includes(filter.id)) {
-          acc[filter.id] = filter
-        }
-        return acc
-      }, {})
+      const currentWithoutRemoved = Object.values(current).reduce<
+        TransformedState<SelectedValues>
+      >(
+        (acc, filter) => {
+          if (newActiveFilterIds.includes(filter.id)) {
+            // @note type cast
+            acc[filter.id as keyof SelectedValues] = filter
+          }
+          return acc
+        },
+        {} as TransformedState<SelectedValues> // @note type cast
+      )
 
       return newActiveFilters.reduce((acc, filter) => {
-        acc[filter.id] = filter
+        // @note type cast
+        acc[filter.id as keyof SelectedValues] = filter
         return acc
       }, currentWithoutRemoved)
     })
   }, [state])
 
   useEffect(() => {
-    const arg = Object.values(
-      getTransformedState(state)
-    ).reduce<StateWithoutComponent>((acc, { Component: _, ...filter }) => {
-      acc[filter.id] = filter
-      return acc
-    }, {})
+    const arg = Object.values(getTransformedState(state)).reduce<
+      StateWithoutComponent<SelectedValues>
+    >(
+      (acc, { Component: _, ...filter }) => {
+        // @note type cast
+        acc[filter.id as keyof SelectedValues] = filter
+        return acc
+      },
+      {} as StateWithoutComponent<SelectedValues> // @note: type cast
+    )
     onChange?.(arg)
   }, [state])
 

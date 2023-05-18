@@ -2,22 +2,26 @@ import React from "react"
 import {
   FilterBarProvider,
   FilterBarProviderProps,
+  FiltersSelectedValues,
 } from "./context/FilterBarContext"
 import { FilterAddButton } from "./subcomponents/FilterAddButton"
 import { FilterClearAllButton } from "./subcomponents/FilterClearAllButton"
 
-export type FilterBarProps = Omit<FilterBarProviderProps, "children"> & {
+export type FilterBarProps<SelectedValues> = Omit<
+  FilterBarProviderProps<SelectedValues>,
+  "children"
+> & {
   // children: React.ReactNode
   // filters: FilterBarProviderProps["filters"]
   // onChange: (state: AllFiltersState) => void
 }
 
-export const FilterBar = ({
+export const FilterBar = <SelectedValues extends FiltersSelectedValues>({
   filters,
   ...providerProps
-}: FilterBarProps): JSX.Element => (
+}: FilterBarProps<SelectedValues>): JSX.Element => (
   <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-    <FilterBarProvider filters={filters} {...providerProps}>
+    <FilterBarProvider<SelectedValues> filters={filters} {...providerProps}>
       {(activeFilters): JSX.Element => (
         <>
           {Object.values(activeFilters).map(({ id, Component }) => (
