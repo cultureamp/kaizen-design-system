@@ -8,7 +8,7 @@ import {
 
 export interface FilterPancakeProps {
   // renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
-  id: string
+  id?: string
   // label: string
   onChange?: (value: string | undefined) => void
   // isUsableWhen?: IsUsableWhen
@@ -24,6 +24,8 @@ FilterPancakeProps): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     // useFilterBarContext<Record<string, string>>()
     useFilterBarContext<string>()
+
+  if (!id) throw Error("Missing `id` prop")
 
   const filterState = getFilterState(id)
 

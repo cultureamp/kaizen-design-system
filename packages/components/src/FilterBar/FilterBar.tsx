@@ -25,7 +25,9 @@ export const FilterBar = <SelectedValues extends FiltersSelectedValues>({
       {(activeFilters): JSX.Element => (
         <>
           {Object.values(activeFilters).map(({ id, Component }) => (
-            <React.Fragment key={id}>{Component}</React.Fragment>
+            <React.Fragment key={id}>
+              {React.cloneElement(Component, { id })}
+            </React.Fragment>
           ))}
           <FilterAddButton />
           <FilterClearAllButton />

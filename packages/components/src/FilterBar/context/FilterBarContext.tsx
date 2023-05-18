@@ -55,13 +55,16 @@ export type FilterBarContextValue<
 > = {
   // state: Record<string, InternalFilterAttr>
   getFilterState: (
-    id: string
+    id: keyof SelectedValues
   ) => TransformedFilterAttr<SelectedValues, SelectedValue>
-  updateSelectedValue: (id: string, value: FilterSelectedValue) => void
-  toggleOpenFilter: (id: string, isOpen: boolean) => void
-  setOpenFilter: (id: string) => void
-  showFilter: (id: string) => void
-  hideFilter: (id: string) => void
+  updateSelectedValue: (
+    id: keyof SelectedValues,
+    value: FilterSelectedValue
+  ) => void
+  toggleOpenFilter: (id: keyof SelectedValues, isOpen: boolean) => void
+  setOpenFilter: (id: keyof SelectedValues) => void
+  showFilter: (id: keyof SelectedValues) => void
+  hideFilter: (id: keyof SelectedValues) => void
   getHiddenFilters: () => Array<
     TransformedFilterAttr<SelectedValues, SelectedValue>
   >
@@ -84,7 +87,7 @@ export const useFilterBarContext = <
     )
   }
 
-  return context
+  return context as FilterBarContextValue<SelectedValue, SelectedValues>
 }
 
 export type Filter<SelectedValues extends FiltersSelectedValues> = {

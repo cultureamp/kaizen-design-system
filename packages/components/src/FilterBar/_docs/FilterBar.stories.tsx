@@ -44,14 +44,18 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     {
       id: "chocolate",
       name: "Chocolate",
-      Component: <FilterPancake id="chocolate" />,
+      Component: (
+        <FilterPancake
+        // id="chocolate"
+        />
+      ),
     },
     {
       id: "department",
       name: "Dept",
       Component: (
         <FilterBarMultiSelect
-          id="department"
+          // id="department"
           items={[
             { label: "Front-End", value: "id-fe" },
             { label: "Back-End", value: "id-be" },
@@ -96,7 +100,11 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     {
       id: "strawberry",
       name: "Req choc val",
-      Component: <FilterPancake id="strawberry" />,
+      Component: (
+        <FilterPancake
+        // id="strawberry"
+        />
+      ),
       isRemovable: true,
       isInitHidden: true,
       isUsableWhen: state => state["chocolate"].selectedValue !== undefined,
@@ -104,7 +112,11 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     {
       id: "vanilla",
       name: "Req dept BE",
-      Component: <FilterPancake id="vanilla" />,
+      Component: (
+        <FilterPancake
+        // id="vanilla"
+        />
+      ),
       isRemovable: true,
       isUsableWhen: state =>
         state["department"].selectedValue?.includes("id-be") === true,
@@ -113,7 +125,11 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
     {
       id: "apple",
       name: "Apple",
-      Component: <FilterPancake id="apple" />,
+      Component: (
+        <FilterPancake
+        // id="apple"
+        />
+      ),
       isRemovable: true,
     },
     {
@@ -121,7 +137,7 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       name: "Penguin",
       Component: (
         <FilterBarMultiSelect
-          id="penguin"
+          // id="penguin"
           items={[
             { label: "Front-End", value: "id-fe" },
             { label: "Back-End", value: "id-be" },
@@ -202,46 +218,63 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
   )
 }
 
+type Playground2Params = {
+  chocolate: string
+  drp: DateRange
+  vanilla: string
+  coffee: string
+  pickle: string
+  carrots: string
+}
+
 // Component must be created to access the context.
 // Provider is in FilterBar, thus hook cannot be called in instantiating component.
-const VanillaPancake = (props: { id: string }): JSX.Element => {
-  const { setOpenFilter } = useFilterBarContext()
+const VanillaPancake = ({ id }: { id?: string }): JSX.Element => {
+  const { setOpenFilter } = useFilterBarContext<string, Playground2Params>()
+
+  if (!id) throw Error("Missing `id` prop")
+
   return (
-    <FilterPancake
-      id={props.id}
-      onChange={(): void => setOpenFilter("coffee")}
-    />
+    <FilterPancake id={id} onChange={(): void => setOpenFilter("coffee")} />
   )
 }
 
 export const Playground2: StoryFn<typeof FilterBar> = () => {
-  type Params = {
-    chocolate: string
-    drp: DateRange
-    vanilla: string
-    coffee: string
-    pickle: string
-    carrots: string
-  }
-
-  const [activeValues, onActiveValuesChange] = useState<Partial<Params>>({})
-  const [filtersState, setFiltersState] = useState<FiltersState<Params>>({})
+  const [activeValues, onActiveValuesChange] = useState<
+    Partial<Playground2Params>
+  >({})
+  const [filtersState, setFiltersState] = useState<
+    FiltersState<Playground2Params>
+  >({})
 
   const filters = [
     {
       id: "chocolate",
       name: "Chocolate",
-      Component: <FilterPancake id="chocolate" />,
+      Component: (
+        <FilterPancake
+        // id="chocolate"
+        />
+      ),
     },
     {
       id: "drp",
       name: "Dates",
-      Component: <FilterDRP id="drp" locale="en-AU" />,
+      Component: (
+        <FilterDRP
+          // id="drp"
+          locale="en-AU"
+        />
+      ),
     },
     {
       id: "vanilla",
       name: "Vanilla",
-      Component: <VanillaPancake id="vanilla" />,
+      Component: (
+        <VanillaPancake
+        // id="vanilla"
+        />
+      ),
       isRemovable: true,
       isUsableWhen: state => state["chocolate"].selectedValue !== undefined,
     },
@@ -250,7 +283,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       name: "Coffee",
       Component: (
         <FilterBarSelect
-          id="coffee"
+          // id="coffee"
           items={[
             { label: "Short black", value: "short-black" },
             { label: "Long black", value: "long-black" },
@@ -264,7 +297,7 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       name: "Pickle",
       Component: (
         <FilterBarSelect<SelectOption & { isFruit: boolean }>
-          id="pickle"
+          // id="pickle"
           items={[
             { label: "Bubblegum", value: "bubblegum", isFruit: false },
             { label: "Strawberry", value: "strawberry", isFruit: true },
@@ -299,11 +332,11 @@ export const Playground2: StoryFn<typeof FilterBar> = () => {
       Component: <FilterPancake id="carrots" />,
       isInitHidden: true,
     },
-  ] satisfies Filters<Params>
+  ] satisfies Filters<Playground2Params>
 
   return (
     <div>
-      <FilterBar<Params>
+      <FilterBar<Playground2Params>
         filters={filters}
         onChange={setFiltersState}
         activeValues={activeValues}
@@ -353,7 +386,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       name: "Managers",
       Component: (
         <FilterBarSelect
-          id="managers"
+          // id="managers"
           items={[
             { label: "Geoff Chong", value: "the-g" },
             { label: "Christian Klammer", value: "ck" },
@@ -366,7 +399,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       name: "Reports",
       Component: (
         <FilterBarSelect
-          id="reports"
+          // id="reports"
           items={[
             { label: "Directs", value: "directs" },
             { label: "Indirects", value: "indirects" },
@@ -381,7 +414,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       name: "Departments",
       Component: (
         <FilterBarSelect
-          id="departments"
+          // id="departments"
           items={[
             { label: "Beauty", value: "beauty" },
             { label: "Electronics", value: "electronics" },
@@ -397,7 +430,7 @@ export const AnotherExample: StoryFn<typeof FilterBar> = () => {
       name: "Gender",
       Component: (
         <FilterBarSelect
-          id="gender"
+          // id="gender"
           items={[
             { label: "Prefer not to say", value: "no-to-say" },
             { label: "Female", value: "female" },
@@ -448,7 +481,11 @@ export const ManyFilters: StoryFn<typeof FilterBar> = () => {
   const dynamicFilters = [...Array(100)].map((_, i) => ({
     id: `filter-${i}`,
     name: `${i}`,
-    Component: <FilterPancake id={`filter-${i}`} />,
+    Component: (
+      <FilterPancake
+      // id={`filter-${i}`}
+      />
+    ),
     isRemovable: true,
     isInitHidden: true,
   })) satisfies Filters<DynamicParams>
@@ -457,7 +494,11 @@ export const ManyFilters: StoryFn<typeof FilterBar> = () => {
     {
       id: "default",
       name: "Default",
-      Component: <FilterPancake id="default" />,
+      Component: (
+        <FilterPancake
+        // id="default"
+        />
+      ),
     },
     ...dynamicFilters,
   ] satisfies Filters<Params>

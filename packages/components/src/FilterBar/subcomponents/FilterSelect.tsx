@@ -12,17 +12,20 @@ export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
     FilterSelectProps<Option>,
     "isOpen" | "setIsOpen" | "renderTrigger" | "label" | "selectedKey"
   > & {
-    id: string
+    id?: string
   }
 
 export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
+  id,
   onSelectionChange,
   ...props
 }: FilterBarSelectProps<Option>): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     useFilterBarContext<Option["value"]>()
 
-  const filterState = getFilterState(props.id)
+  if (!id) throw Error("Missing `id` prop")
+
+  const filterState = getFilterState(id)
 
   return (
     <FilterSelect<Option>
@@ -34,7 +37,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
           <FilterButtonRemovable
             triggerButtonProps={{ ...triggerProps }}
             removeButtonProps={{
-              onClick: () => hideFilter(props.id),
+              onClick: () => hideFilter(id),
             }}
           />
         ) : (
@@ -42,11 +45,11 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
         )
       }
       onSelectionChange={(key): void => {
-        updateSelectedValue(props.id, key)
+        updateSelectedValue(id, key)
         onSelectionChange?.(key)
       }}
       isOpen={filterState.isOpen}
-      setIsOpen={(open): void => toggleOpenFilter(props.id, open)}
+      setIsOpen={(open): void => toggleOpenFilter(id, open)}
     />
   )
 }

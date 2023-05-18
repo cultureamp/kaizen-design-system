@@ -8,10 +8,11 @@ export type FilterBarMultiSelectProps = Omit<
   RootProps,
   "trigger" | "label" | "selectedKeys" | "isOpen" | "isOpenChange"
 > & {
-  id: string
+  id?: string
 }
 
 export const FilterBarMultiSelect = ({
+  id,
   items,
   children,
   onSelectionChange,
@@ -20,7 +21,9 @@ export const FilterBarMultiSelect = ({
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     useFilterBarContext<Selection>()
 
-  const filterState = getFilterState(props.id)
+  if (!id) throw Error("Missing `id` prop")
+
+  const filterState = getFilterState(id)
 
   return (
     <FilterMultiSelect
@@ -29,12 +32,12 @@ export const FilterBarMultiSelect = ({
       selectedKeys={new Set(filterState.selectedValue)}
       onSelectionChange={(keys): void => {
         // Convert the internal FilterMultiSelect state (Set) to an Array for FilterBar state
-        updateSelectedValue(props.id, Array.from(keys))
+        updateSelectedValue(id, Array.from(keys))
         onSelectionChange?.(keys)
       }}
       items={items}
       isOpen={filterState.isOpen}
-      onOpenChange={(open): void => toggleOpenFilter(props.id, open)}
+      onOpenChange={(open): void => toggleOpenFilter(id, open)}
       trigger={(): JSX.Element =>
         filterState.isRemovable ? (
           <FilterMultiSelect.RemovableTrigger
@@ -42,7 +45,7 @@ export const FilterBarMultiSelect = ({
               filterState.selectedValue,
               items
             )}
-            onRemove={() => hideFilter(props.id)}
+            onRemove={() => hideFilter(id)}
             label={filterState.name}
           />
         ) : (
