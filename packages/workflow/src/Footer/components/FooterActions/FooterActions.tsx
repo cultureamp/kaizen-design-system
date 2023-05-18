@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./FooterActions.module.scss"
 
-export interface WorkflowFooterActionsProps
+export interface FooterActionsProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">> {
   /** @default "start" */
   actionType?: "Previous" | "Next"
@@ -15,7 +15,7 @@ export const FooterAction = ({
   actionType = "Previous",
   action,
   ...restProps
-}: WorkflowFooterActionsProps): JSX.Element => (
+}: FooterActionsProps): JSX.Element => (
   <div
     className={classnames([
       styles.footerAction,

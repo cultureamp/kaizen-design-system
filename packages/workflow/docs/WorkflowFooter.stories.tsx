@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import { WorkflowFooter, WorkflowFooterProps } from "../"
+import { Footer, FooterProps } from "../"
 
 const defaultArgs = {
   stepName: "Preview",
@@ -10,12 +10,12 @@ const defaultArgs = {
   isComplete: false,
   previousAction: <Button reversed label="back" />,
   nextAction: <Button reversed label="next" />,
-} satisfies WorkflowFooterProps
+} satisfies FooterProps
 
 const meta = {
   tags: ["autodocs"],
   title: "Workflow/Footer",
-  component: WorkflowFooter,
+  component: Footer,
   parameters: {
     docs: {
       source: { type: "code" },
@@ -23,7 +23,7 @@ const meta = {
     },
     installation: [
       "npm install @kaizen/workflow",
-      "import { WorkflowFooter } from `@kaizen/workflow`",
+      "import { Footer } from `@kaizen/workflow`",
     ],
     resourceLinks: {
       sourceCode:
@@ -35,20 +35,20 @@ const meta = {
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
   },
-} satisfies Meta<typeof WorkflowFooter>
+} satisfies Meta<typeof Footer>
 
 export default meta
 
 /**
  * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
  */
-export const Playground: StoryFn<WorkflowFooterProps> = ({
+export const Playground: StoryFn<FooterProps> = ({
   stepName,
   steps,
   isComplete,
   ...restProps
 }) => (
-  <WorkflowFooter
+  <Footer
     stepName={stepName}
     steps={steps}
     isComplete={isComplete}
@@ -58,13 +58,13 @@ export const Playground: StoryFn<WorkflowFooterProps> = ({
 
 Playground.args = { ...defaultArgs }
 
-const VariantTemplate: StoryFn<WorkflowFooterProps> = ({
+const VariantTemplate: StoryFn<FooterProps> = ({
   stepName,
   steps,
   isComplete,
   ...restProps
 }) => (
-  <WorkflowFooter
+  <Footer
     stepName={stepName}
     steps={steps}
     isComplete={isComplete}

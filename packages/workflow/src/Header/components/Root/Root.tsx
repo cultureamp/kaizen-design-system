@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./Root.module.scss"
 
-export type WorkflowHeaderRootProps = OverrideClassName<
+export type HeaderRootProps = OverrideClassName<
   HTMLAttributes<HTMLHeadingElement>
 >
 
@@ -11,7 +11,7 @@ export const HeaderRoot = ({
   children,
   classNameOverride,
   ...restProps
-}: WorkflowHeaderRootProps): JSX.Element => (
+}: HeaderRootProps): JSX.Element => (
   <header className={classnames(styles.root, classNameOverride)} {...restProps}>
     {children}
   </header>

@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./FooterRoot.module.scss"
 
-export type WorkflowFooterRootProps = OverrideClassName<
+export type FooterRootProps = OverrideClassName<
   HTMLAttributes<HTMLHeadingElement>
 >
 
@@ -11,7 +11,7 @@ export const FooterRoot = ({
   children,
   classNameOverride,
   ...restProps
-}: WorkflowFooterRootProps): JSX.Element => (
+}: FooterRootProps): JSX.Element => (
   <footer
     className={classnames(styles.footerRoot, classNameOverride)}
     {...restProps}

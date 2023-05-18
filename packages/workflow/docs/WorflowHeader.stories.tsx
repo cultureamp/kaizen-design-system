@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import { WorkflowExit, WorkflowHeader, WorkflowHeaderProps } from "../"
+import { WorkflowExit, Header, HeaderProps } from "../"
 
 const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
@@ -13,12 +13,12 @@ const defaultArgs = {
     vairant: "statusDraft",
   },
   actions: [],
-} satisfies WorkflowHeaderProps
+} satisfies HeaderProps
 
 const meta = {
   tags: ["autodocs"],
   title: "Workflow/Header",
-  component: WorkflowHeader,
+  component: Header,
   parameters: {
     docs: {
       source: { type: "code" },
@@ -26,7 +26,7 @@ const meta = {
     },
     installation: [
       "npm install @kaizen/workflow",
-      "import { WorflowHeader } from `@kaizen/workflow`",
+      "import { Header } from `@kaizen/workflow`",
     ],
     resourceLinks: {
       sourceCode:
@@ -38,21 +38,21 @@ const meta = {
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
   },
-} satisfies Meta<typeof WorkflowHeader>
+} satisfies Meta<typeof Header>
 
 export default meta
 
 /**
  * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
  */
-export const Playground: StoryFn<WorkflowHeaderProps> = ({
+export const Playground: StoryFn<HeaderProps> = ({
   workflowName,
   stepName,
   status,
   actions = [],
   ...restProps
 }) => (
-  <WorkflowHeader
+  <Header
     workflowName={workflowName}
     stepName={stepName}
     status={status}
@@ -72,14 +72,14 @@ export const Playground: StoryFn<WorkflowHeaderProps> = ({
   />
 )
 
-const VariantTemplate: StoryFn<WorkflowHeaderProps> = ({
+const VariantTemplate: StoryFn<HeaderProps> = ({
   workflowName,
   stepName,
   status,
   actions,
   ...restProps
 }) => (
-  <WorkflowHeader
+  <Header
     workflowName={workflowName}
     stepName={stepName}
     status={status}

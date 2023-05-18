@@ -4,13 +4,7 @@ import { Meta, StoryFn } from "@storybook/react"
 // import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { Button } from "@kaizen/button"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import {
-  Workflow,
-  WorkflowExit,
-  WorkflowFooter,
-  WorkflowHeader,
-  WorkflowProps,
-} from "../"
+import { Workflow, WorkflowExit, Footer, Header, WorkflowProps } from "../"
 
 const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
@@ -78,7 +72,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
   ...restProps
 }) => (
   <div {...restProps}>
-    <WorkflowHeader
+    <Header
       workflowName={workflowName}
       stepName={stepName}
       status={status}
@@ -93,7 +87,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
         quibusdam vero?
       </p>
     </main>
-    <WorkflowFooter
+    <Footer
       stepName={stepName}
       steps={steps}
       isComplete={isComplete}

@@ -7,7 +7,7 @@ import {
   ProgressStepperProps,
 } from "./"
 
-export interface WorkflowFooterProps
+export interface FooterProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "children">>,
     ProgressStepperProps {
   /** An action the return to a previous step */
@@ -16,14 +16,14 @@ export interface WorkflowFooterProps
   nextAction?: JSX.Element
 }
 
-export const WorkflowFooter = ({
+export const Footer = ({
   steps,
   stepName,
   isComplete,
   previousAction,
   nextAction,
   ...restProps
-}: WorkflowFooterProps): JSX.Element => (
+}: FooterProps): JSX.Element => (
   <FooterRoot {...restProps}>
     <FooterAction action={previousAction} actionType="Previous" />
     <ProgressStepper
@@ -35,4 +35,4 @@ export const WorkflowFooter = ({
   </FooterRoot>
 )
 
-WorkflowFooter.displayName = "WorkflowFooter"
+Footer.displayName = "Footer"
