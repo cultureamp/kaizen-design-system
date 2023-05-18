@@ -28,6 +28,8 @@
     "chromatic": "chromatic",
     "commit": "yarn changeset",
     "plop": "plop",
+    "test:component-library-sass": "yarn pkg:component-library test-scss-compile",
+    "pkg:component-library": "yarn workspace @kaizen/component-library",
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test",
     "pkg:aio:compile": "yarn pkg:aio compile",
