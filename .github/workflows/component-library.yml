@@ -1,8 +1,7 @@
 name: component-library
 
 on:
-  [pull_rqeust, push]:
-    types: [synchronize]
+  push:
     paths:
       - packages/component-library/**
 
