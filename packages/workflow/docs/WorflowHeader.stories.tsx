@@ -10,7 +10,7 @@ const defaultArgs = {
   stepName: "Settings",
   status: {
     content: "Draft",
-    vairant: "statusDraft",
+    variant: "statusDraft",
   },
   actions: [],
 } satisfies HeaderProps

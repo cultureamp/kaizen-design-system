@@ -13,7 +13,7 @@ const defaultArgs = {
   isComplete: false,
   status: {
     content: "Draft",
-    vairant: "statusDraft",
+    variant: "statusDraft",
   },
   previousAction: <Button reversed label="back" />,
   nextAction: <Button reversed label="next" />,

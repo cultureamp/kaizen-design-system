@@ -7,7 +7,7 @@ import styles from "./Titles.module.scss"
 
 export type WorkflowStatus = {
   /** @default: "statusDraft" */
-  vairant?: DefaultTagProps["variant"]
+  variant?: DefaultTagProps["variant"]
   content?: string
 }
 
@@ -48,7 +48,7 @@ export const Titles = ({
     {status && (
       // status may need to be update by a fetch
       <div className={styles.status}>
-        <Tag variant={status?.vairant || "statusDraft"}>{status?.content}</Tag>
+        <Tag variant={status?.variant || "statusDraft"}>{status?.content}</Tag>
       </div>
     )}
   </div>
