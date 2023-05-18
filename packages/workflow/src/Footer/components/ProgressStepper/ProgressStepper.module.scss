@@ -50,11 +50,11 @@
   height: $spacing-12;
   border-radius: 100%;
   border: $border-solid-border-style $border-solid-border-width $color-white;
-  opacity: 0.65;
+  opacity: 65%;
 }
 
 .stepCurrent {
-  opacity: 1;
+  opacity: 100%;
 }
 
 .stepCurrent::after {
@@ -72,7 +72,7 @@
 .stepCurrent::before,
 .stepCurrent::after,
 .completedStep::before {
-  opacity: 1;
+  opacity: 100%;
 }
 
 .completedStep,
@@ -104,7 +104,7 @@
   flex-grow: 1;
   min-width: calc(100% - #{$spacing-24});
   border: solid $spacing-1 $color-white;
-  opacity: 0.65;
+  opacity: 65%;
   margin: 0;
   border-radius: $border-solid-border-radius;
   left: 100%;
@@ -114,7 +114,7 @@
 }
 
 .stepDivider.completedStep {
-  opacity: 1;
+  opacity: 100%;
 }
 
 .stepperDescription {

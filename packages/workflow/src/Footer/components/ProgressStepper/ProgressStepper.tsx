@@ -56,8 +56,8 @@ export const ProgressStepper = ({
                 </span>
                 <Paragraph
                   classNameOverride={styles.stepName}
-                  variant={"small"}
-                  color={"white"}
+                  variant="small"
+                  color="white"
                   aria-hidden
                 >
                   {step}
@@ -72,7 +72,7 @@ export const ProgressStepper = ({
                   {isCompletedStep && (
                     <span className={styles.completedIcon}>
                       <Icon
-                        role={"presentation"}
+                        role="presentation"
                         icon={SuccessIcon}
                         inheritSize
                       />
@@ -94,8 +94,8 @@ export const ProgressStepper = ({
       </ol>
       <Paragraph
         classNameOverride="sr-only"
-        variant={"small"}
-        color={"white"}
+        variant="small"
+        color="white"
         id="stepper-description"
       >
         Step {currentStepIndex + 1} out of {steps.length}.

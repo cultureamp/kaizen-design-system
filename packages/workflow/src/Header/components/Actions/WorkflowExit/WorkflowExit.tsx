@@ -32,7 +32,7 @@ export const WorkflowExit = ({
       <Button
         label={exitLabel}
         icon={closeIcon}
-        iconPosition={"end"}
+        iconPosition="end"
         secondary
         onClick={() => {
           setShowModal(true)
