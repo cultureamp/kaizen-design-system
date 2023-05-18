@@ -1,10 +1,8 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-// import { Button } from "@kaizen/button"
-// import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { Button } from "@kaizen/button"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import { Workflow, WorkflowExit, Footer, Header, WorkflowProps } from "../"
+import { Workflow, WorkflowExit, WorkflowProps } from "../"
 
 const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
@@ -32,7 +30,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Workflow/Custom Workflow",
+  title: "Workflow",
   component: Workflow,
   parameters: {
     docs: {
@@ -41,7 +39,7 @@ const meta = {
     },
     installation: [
       "npm install @kaizen/workflow",
-      "import { Header, Footer } from `@kaizen/workflow`",
+      "import { Workflow } from `@kaizen/workflow`",
     ],
     resourceLinks: {
       sourceCode:
@@ -58,7 +56,9 @@ const meta = {
 export default meta
 
 /**
-<p>This is a custom version of the `Workflow` assembled using the `Header` and `Footer` exported from `@kaizen/workflow`.</p>
+<p>The `Workflow` component offers a page wrapper that props down to it `Header` and `Footer` components.</p>
+<p>Each component is exported from the `@kaizen/workflow` package so it can be assembled individually if a custom solution is needed.</p>
+<p>See the `Custom Workflow` story for an example of how to assemble with a header and footer.</p>
  */
 export const Playground: StoryFn<WorkflowProps> = ({
   steps,
@@ -71,13 +71,17 @@ export const Playground: StoryFn<WorkflowProps> = ({
   nextAction,
   ...restProps
 }) => (
-  <div {...restProps}>
-    <Header
-      workflowName={workflowName}
-      stepName={stepName}
-      status={status}
-      actions={actions}
-    />
+  <Workflow
+    workflowName={workflowName}
+    stepName={stepName}
+    status={status}
+    actions={actions}
+    steps={steps}
+    isComplete={isComplete}
+    nextAction={nextAction}
+    previousAction={previousAction}
+    {...restProps}
+  >
     <main className="flex flex-col content-center min-h-[100vh]">
       <h3>Content</h3>
       <p>
@@ -86,15 +90,14 @@ export const Playground: StoryFn<WorkflowProps> = ({
         obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
         quibusdam vero?
       </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
+        labore dolorum debitis eaque laboriosam qui quidem itaque necessitatibus
+        obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
+        quibusdam vero?
+      </p>
     </main>
-    <Footer
-      stepName={stepName}
-      steps={steps}
-      isComplete={isComplete}
-      nextAction={nextAction}
-      previousAction={previousAction}
-    />
-  </div>
+  </Workflow>
 )
 
 Playground.args = { ...defaultArgs }
