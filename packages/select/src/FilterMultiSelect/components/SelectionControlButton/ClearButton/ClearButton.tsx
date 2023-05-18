@@ -36,7 +36,7 @@ export const ClearButton = (): JSX.Element => {
         // TODO: add announcement here to inform selection cleared
       }
     >
-      Clear<VisuallyHidden>selections</VisuallyHidden>
+      Clear<VisuallyHidden> selections</VisuallyHidden>
     </button>
   )
 }
