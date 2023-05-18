@@ -4,12 +4,15 @@ import migrationToV1 from "!!raw-loader!./code-diffs/migration-to-v1.diff"
 import migrationBonus from "!!raw-loader!./code-diffs/migration-bonus.diff"
 import migrationFETToV1 from "!!raw-loader!./code-diffs/migration-fe-template-to-v1.diff"
 import migrationFETBonus from "!!raw-loader!./code-diffs/migration-fe-template-bonus.diff"
+import { KaioNotification } from "../../../../../storybook/components/DocsContainer/ComponentDocsTemplate/subcomponents/KaioInstallation/KaioNotification"
 
 <Meta title="Components/KaizenProvider/Installation" />
 
 # KaizenProvider
 
 Provides the necessary global contexts for all Kaizen components, as well as any global level Kaizen component/wrappers.
+
+<KaioNotification />
 
 ## Usage
 
@@ -29,18 +32,20 @@ import { KaizenProvider } from '@kaizen/components';
 
 `KaizenProvider` at this version is a direct replacement for `ThemeProvider`, and is safe to do a 1 to 1 replacement.
 
-<Highlight className="diff">{migrationToV1}</Highlight>
+
+<Highlight className="diff shadow-sm">{migrationToV1}</Highlight>
+
 
 If you're using the [frontend-template](https://github.com/cultureamp/frontend-template), you can replace it like this:
 
 Note: `defaultPreset` comes from the `frontend-template`.
 
-<Highlight className="diff">{migrationFETToV1}</Highlight>
+<Highlight className="diff shadow-sm">{migrationFETToV1}</Highlight>
 
 ### Bonus
 
 If you're using the `defaultTheme`, this is already setup within the provider, so depending on your team's setup you might be able to remove config that sets this up for you.
 
-<Highlight className="diff">{migrationBonus}</Highlight>
+<Highlight className="diff shadow-sm mb-16">{migrationBonus}</Highlight>
 
-<Highlight className="diff">{migrationFETBonus}</Highlight>
+<Highlight className="diff shadow-sm">{migrationFETBonus}</Highlight>
