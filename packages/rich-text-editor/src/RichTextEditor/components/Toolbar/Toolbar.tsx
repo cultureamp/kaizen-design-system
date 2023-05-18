@@ -87,7 +87,6 @@ export const Toolbar = (props: ToolbarProps): JSX.Element => {
               return (
                 <toolbarButton.type
                   {...toolbarButton.props}
-                  id={`rte-button-${buttonIndex}`}
                   key={`rte-button-${buttonIndex}`}
                   tabIndex={buttonIndex === buttonFocusIndex ? 0 : -1}
                   onKeyDown={(e: React.KeyboardEvent<HTMLElement>): void =>
