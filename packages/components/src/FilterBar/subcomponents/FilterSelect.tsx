@@ -10,7 +10,7 @@ import { useFilterBarContext } from "../context/FilterBarContext"
 export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
   Omit<
     FilterSelectProps<Option>,
-    "isOpen" | "setIsOpen" | "renderTrigger" | "label"
+    "isOpen" | "setIsOpen" | "renderTrigger" | "label" | "selectedKey"
   > & {
     id: string
   }

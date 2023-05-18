@@ -3,13 +3,17 @@ import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
 import { RootProps } from "@kaizen/select/src/FilterMultiSelect/components/Root"
 import { useFilterBarContext } from "../context/FilterBarContext"
 
-export type FilterBarMultiSelectProps = Omit<RootProps, "trigger" | "label"> & {
+export type FilterBarMultiSelectProps = Omit<
+  RootProps,
+  "trigger" | "label" | "selectedKeys" | "isOpen" | "isOpenChange"
+> & {
   id: string
 }
 
 export const FilterBarMultiSelect = ({
   items,
   children,
+  onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
@@ -25,6 +29,7 @@ export const FilterBarMultiSelect = ({
       onSelectionChange={(keys): void => {
         // Convert the internal FilterMultiSelect state (Set) to an Array for FilterBar state
         updateSelectedValue(props.id, Array.from(keys))
+        onSelectionChange?.(keys)
       }}
       items={items}
       isOpen={filterState.isOpen ?? false}

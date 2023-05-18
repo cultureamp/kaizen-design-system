@@ -18,7 +18,10 @@ export type FilterDRPProps = Omit<
   onRangeChange?: FilterDateRangePickerProps["onRangeChange"]
 }
 
-export const FilterDRP = (props: FilterDRPProps): JSX.Element | null => {
+export const FilterDRP = ({
+  onRangeChange,
+  ...props
+}: FilterDRPProps): JSX.Element | null => {
   const { getFilterState, updateSelectedValue, toggleOpenFilter, hideFilter } =
     useFilterBarContext()
 
@@ -41,7 +44,10 @@ export const FilterDRP = (props: FilterDRPProps): JSX.Element | null => {
         )
       }
       selectedRange={filterState.selectedValue}
-      onRangeChange={(range): void => updateSelectedValue(props.id, range)}
+      onRangeChange={(range): void => {
+        updateSelectedValue(props.id, range)
+        onRangeChange?.(range)
+      }}
       isOpen={filterState.isOpen ?? false}
       setIsOpen={(open): void => toggleOpenFilter(props.id, open)}
     />
