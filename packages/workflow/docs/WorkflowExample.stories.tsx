@@ -38,7 +38,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Components/Workflow",
+  title: "Workflow",
   component: Workflow,
   parameters: {
     docs: {
@@ -84,7 +84,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
       status={status}
       actions={actions}
     />
-    <main className="flex flex-col content-center min-h-[250px]">
+    <main className="flex flex-col content-center min-h-[100vh]">
       <h3>Content</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error

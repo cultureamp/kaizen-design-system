@@ -14,7 +14,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Components/Workflow Footer",
+  title: "Workflow/Footer",
   component: WorkflowFooter,
   parameters: {
     docs: {
