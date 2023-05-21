@@ -130,7 +130,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           )}
           <div>
             <IconButton
-              label="Toggle section"
+              label={title}
               icon={open ? chevronUp : chevronDown}
               type="button"
               aria-expanded={open}
