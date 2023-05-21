@@ -12,7 +12,7 @@ const defaultArgs = {
     content: "Draft",
     variant: "statusDraft",
   },
-  actions: [],
+  headerActions: [],
 } satisfies HeaderProps
 
 const meta = {
@@ -25,7 +25,7 @@ const meta = {
       container: ComponentDocsTemplate,
     },
     installation: [
-      "npm install @kaizen/workflow",
+      "yarn add @kaizen/workflow",
       "import { Header } from `@kaizen/workflow`",
     ],
     resourceLinks: {
@@ -49,15 +49,15 @@ export const Playground: StoryFn<HeaderProps> = ({
   workflowName,
   stepName,
   status,
-  actions = [],
+  headerActions = [],
   ...restProps
 }) => (
   <Header
     workflowName={workflowName}
     stepName={stepName}
     status={status}
-    actions={[
-      ...actions,
+    headerActions={[
+      ...headerActions,
       <WorkflowExit
         key="would-use-uui"
         exitLabel="Save and close"
@@ -76,14 +76,14 @@ const VariantTemplate: StoryFn<HeaderProps> = ({
   workflowName,
   stepName,
   status,
-  actions,
+  headerActions,
   ...restProps
 }) => (
   <Header
     workflowName={workflowName}
     stepName={stepName}
     status={status}
-    actions={actions}
+    headerActions={headerActions}
     {...restProps}
   />
 )
@@ -97,7 +97,7 @@ export const MultipleActions = VariantTemplate.bind({})
 
 MultipleActions.args = {
   ...defaultArgs,
-  actions: [
+  headerActions: [
     <Button
       key="would-use-uui-1"
       label="Preview"

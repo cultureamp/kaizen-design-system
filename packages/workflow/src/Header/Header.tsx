@@ -8,13 +8,13 @@ export const Header = ({
   workflowName,
   stepName,
   status,
-  actions,
+  headerActions,
   ...restProps
 }: HeaderProps): JSX.Element => (
   <HeaderRoot {...restProps}>
     <Branding alt="Cultureamp" />
     <Titles workflowName={workflowName} stepName={stepName} status={status} />
-    <Actions actions={actions} />
+    <Actions headerActions={headerActions} />
   </HeaderRoot>
 )
 

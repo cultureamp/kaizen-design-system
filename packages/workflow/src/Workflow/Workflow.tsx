@@ -13,7 +13,7 @@ export const Workflow = ({
   isComplete,
   workflowName,
   status,
-  actions,
+  headerActions,
   children,
   nextAction,
   previousAction,
@@ -25,7 +25,7 @@ export const Workflow = ({
       workflowName={workflowName}
       stepName={stepName}
       status={status}
-      actions={actions}
+      headerActions={headerActions}
     />
     <main>{children}</main>
     <Footer

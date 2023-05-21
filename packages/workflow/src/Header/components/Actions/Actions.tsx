@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, HTMLAttributes } from "react"
+import React, { HTMLAttributes } from "react"
 import { OverrideClassName } from "@kaizen/component-base"
 import styles from "./Actions.module.scss"
 
@@ -7,16 +7,18 @@ export interface WorkflowActionsProps
   /**
    * Header actions will render in order of the array.
    */
-  actions?: JSX.Element[]
+  headerActions?: JSX.Element[]
 }
 
 /** A wrapper for the exit trigger (and other) actions of the Header Workflow  */
 export const Actions = ({
-  actions,
+  headerActions,
   ...restProps
-}: PropsWithChildren<WorkflowActionsProps>): JSX.Element => (
+}: WorkflowActionsProps): JSX.Element => (
   <div className={styles.actions} {...restProps}>
-    {actions?.map(action => action)}
+    {headerActions?.map((action, index) => (
+      <action.type key={`header-actions ${index}`} {...action.props} />
+    ))}
   </div>
 )
 

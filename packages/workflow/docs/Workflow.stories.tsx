@@ -15,7 +15,7 @@ const defaultArgs = {
   },
   previousAction: <Button reversed label="back" />,
   nextAction: <Button reversed label="next" />,
-  actions: [
+  headerActions: [
     <WorkflowExit
       key="would-use-uui"
       exitLabel="Save and close"
@@ -38,7 +38,7 @@ const meta = {
       container: ComponentDocsTemplate,
     },
     installation: [
-      "npm install @kaizen/workflow",
+      "yarn add @kaizen/workflow",
       "import { Workflow } from `@kaizen/workflow`",
     ],
     resourceLinks: {
@@ -66,7 +66,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
   workflowName,
   stepName,
   status,
-  actions,
+  headerActions,
   previousAction,
   nextAction,
   ...restProps
@@ -75,7 +75,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
     workflowName={workflowName}
     stepName={stepName}
     status={status}
-    actions={actions}
+    headerActions={headerActions}
     steps={steps}
     isComplete={isComplete}
     nextAction={nextAction}

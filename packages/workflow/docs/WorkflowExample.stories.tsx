@@ -40,7 +40,7 @@ const meta = {
       container: ComponentDocsTemplate,
     },
     installation: [
-      "npm install @kaizen/workflow",
+      "yarn add @kaizen/workflow",
       "import { Header, Footer } from `@kaizen/workflow`",
     ],
     resourceLinks: {
