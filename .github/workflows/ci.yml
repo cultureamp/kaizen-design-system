@@ -21,6 +21,17 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn check --integrity
 
+  changeset:
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn install --frozen-lockfile
+      - run: "changeset status --since=main"
+
   typescript:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
