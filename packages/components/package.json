@@ -34,6 +34,7 @@
     "test": "yarn jest"
   },
   "dependencies": {
+    "@cultureamp/i18n-react-intl": "^1.1.8",
     "@kaizen/a11y": "^1.7.11",
     "@kaizen/component-library": "^16.7.5",
     "@kaizen/date-picker": "^6.0.0",
