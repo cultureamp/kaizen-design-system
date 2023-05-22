@@ -2432,7 +2432,7 @@
     picocolors "^1.0.0"
     tslib "^2.5.0"
 
-"@playwright/test@^1.33.0":
+"@playwright/test@^1.34.0":
   version "1.34.0"
   resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.34.0.tgz#1f3359523c3fd7460c83fe83c8152751a9e21f49"
   integrity sha512-GIALJVODOIrMflLV54H3Cow635OfrTwOu24ZTDyKC66uchtFX2NcCRq83cLdakMjZKYK78lODNLQSYBj2OgaTw==
