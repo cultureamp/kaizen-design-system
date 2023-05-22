@@ -1,5 +1,29 @@
 # Change Log
 
+## 16.8.2
+
+### Patch Changes
+
+- [#3657](https://github.com/cultureamp/kaizen-design-system/pull/3657) [`4ae08d4d0`](https://github.com/cultureamp/kaizen-design-system/commit/4ae08d4d0f629dc948fac4d2934c2f9d39779b69) - Fix connect-line icon centering
+
+## 16.8.1
+
+### Patch Changes
+
+- [#3649](https://github.com/cultureamp/kaizen-design-system/pull/3649) [`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2) - fix: "color-function-notation": "modern" not working with sass
+
+## 16.8.0
+
+### Minor Changes
+
+- [#3623](https://github.com/cultureamp/kaizen-design-system/pull/3623) [`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f) - Added new icons, connect-line and insights
+
+### Patch Changes
+
+- [#3644](https://github.com/cultureamp/kaizen-design-system/pull/3644) [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671) - Add missing motion-ui util imports to component-library
+
+- [#3642](https://github.com/cultureamp/kaizen-design-system/pull/3642) [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d) - Add missing motion-ui-settings to component-library's animations settings to fix an issue with certain animations being unable to access settings
+
 ## 16.7.6
 
 ### Patch Changes

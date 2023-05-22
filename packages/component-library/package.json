@@ -20,7 +20,7 @@
     "bin/**"
   ],
   "sideEffects": false,
-  "version": "16.7.6",
+  "version": "16.8.2",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -39,6 +39,10 @@
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn prepublish",
+    "test-scss-compile": "webpack build --config ./styles/__test/webpack.config.js",
     "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts' 'components/**/*.js' 'components/**/*.js.map' 'components/**/*.d.ts' 'util/**/*.js' 'util/**/*.js.map' 'util/**/*.d.ts'"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.1"
   }
 }

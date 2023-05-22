@@ -1,7 +1,6 @@
 @import "./vendor/effects/fade";
 @import "./vendor/effects/slide";
 @import "./vendor/effects/zoom";
-@import "./vendor/util/args";
 
 @mixin ca-animation-pop($duration: $ca-duration-slow, $delay: null) {
   @include ca-animation(pop());

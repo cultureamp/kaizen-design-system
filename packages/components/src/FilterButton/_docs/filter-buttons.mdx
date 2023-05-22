@@ -2,12 +2,13 @@ import { Canvas, Controls, DocsStory, Meta, Source } from "@storybook/blocks"
 import { LinkTo } from "../../../../../storybook/components/LinkTo"
 import * as FilterButtonExamples from "./FilterButton.stories"
 import * as FilterButtonRemovableExamples from "./FilterButtonRemovable.stories"
+import { KaioNotification } from "../../../../../storybook/components/DocsContainer/ComponentDocsTemplate/subcomponents/KaioInstallation/KaioNotification"
 
 <Meta title="Components/Filter/Filter Buttons" />
 
 # Filter Buttons
 
-<ul className="!list-none !p-0 !m-0 flex gap-4 items-center">
+<ul className="!list-none !p-0 flex gap-4 items-center mb-8">
   <li className="!mt-0 !text-paragraph">
     <a
       href="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterButton"
@@ -17,11 +18,13 @@ import * as FilterButtonRemovableExamples from "./FilterButtonRemovable.stories"
   </li>
 </ul>
 
+<KaioNotification />
+
 Filter-compatible trigger buttons.
 
 <div>
   <h2 id="installation">Installation</h2>
-  <Source code="npm install @kaizen/components" language="tsx" />
+  <Source code="yarn add @kaizen/components" language="tsx" />
   <Source code='import { FilterButton, FilterButtonRemovable } from "@kaizen/components"' language="tsx" />
 </div>
 
