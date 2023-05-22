@@ -53,7 +53,7 @@ test.describe("Clicking 'Clear'", async () => {
       // Click trigger button
       await page.locator("role=button").click()
       // Click Clear button
-      await page.locator('role=button[name="Clear"]').click()
+      await page.locator('role=button[name="Clear selections"]').click()
 
       const dropdown = page.locator("ul[aria-multiselectable]")
       const selectedAndNonDisabledOptions = dropdown.locator(
@@ -73,9 +73,9 @@ test.describe("Clicking 'Clear'", async () => {
       // Filter "Others" option
       await page.locator('[placeholder="Search…"]').fill("Others")
       // Click "Clear" button
-      await page.locator('role=button[name="Clear"]').click()
+      await page.locator('role=button[name="Clear selections"]').click()
       // Empty search field
-      await page.locator('[aria-label="clear"]').click()
+      await page.locator('[aria-label="clear search"]').click()
 
       const dropdown = page.locator("ul[aria-multiselectable]")
       const numberOfNonDisabledItems = await dropdown
@@ -123,11 +123,11 @@ test.describe("Clicking 'Select all'", async () => {
       // Click trigger button
       await page.locator("role=button").click()
       // Click clear button
-      await page.locator('role=button[name="Clear"]').click()
+      await page.locator('role=button[name="Clear selections"]').click()
       await page.locator('[placeholder="Search…"]').fill("Others")
       await page.locator('role=button[name="Select all"]').click()
       // Empty search field
-      await page.locator('[aria-label="clear"]').click()
+      await page.locator('[aria-label="clear search"]').click()
 
       const dropdown = page.locator("ul[aria-multiselectable]")
       const numberOfSelectedAndNonDisabledOptions = await dropdown

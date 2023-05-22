@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.16.2
+
+### Patch Changes
+
+- [#3660](https://github.com/cultureamp/kaizen-design-system/pull/3660) [`cabc3dcef`](https://github.com/cultureamp/kaizen-design-system/commit/cabc3dcef6318c9207487ef8ebe0e6899e1e3c9c) - Fixed an issue with rgb functions accepting 4 args, refactored them to rgba instead.
+
+## 6.16.1
+
+### Patch Changes
+
+- [#3649](https://github.com/cultureamp/kaizen-design-system/pull/3649) [`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2) - fix: "color-function-notation": "modern" not working with sass
+
+- Updated dependencies [[`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2)]:
+  - @kaizen/component-library@16.8.1
+
 ## 6.16.0
 
 ### Minor Changes
