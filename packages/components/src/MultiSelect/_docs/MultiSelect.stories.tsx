@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { ComponentDocsTemplate } from "../../../../../../storybook/components/DocsContainer"
+import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { MultiSelect } from "../MultiSelect"
 
 export default {
@@ -27,4 +27,6 @@ export default {
   },
 } satisfies Meta<typeof MultiSelect>
 
-export const Playground: StoryFn<typeof MultiSelect> = () => <MultiSelect />
+export const Playground: StoryFn<typeof MultiSelect> = () => (
+  <MultiSelect label="Hello" />
+)
