@@ -1,4 +1,5 @@
 import React, { PropsWithChildren, HTMLAttributes } from "react"
+import classnames from "classnames"
 import { OverrideClassName } from "@kaizen/component-base"
 
 export type WorkflowMainProps = PropsWithChildren<
@@ -11,7 +12,7 @@ export const Main = ({
   classNameOverride,
   ...restProps
 }: WorkflowMainProps): JSX.Element => (
-  <main className={classNameOverride} {...restProps}>
+  <main className={classnames([classNameOverride])} {...restProps}>
     {children}
   </main>
 )

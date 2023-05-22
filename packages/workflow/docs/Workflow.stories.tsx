@@ -2,7 +2,14 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import { Workflow, WorkflowExit, WorkflowProps } from "../"
+import {
+  Workflow,
+  WorkflowExit,
+  WorkflowProps,
+  Header,
+  Footer,
+  Main,
+} from "../"
 
 const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
@@ -56,9 +63,8 @@ const meta = {
 export default meta
 
 /**
-<p>The `Workflow` component offers a page wrapper that props down to it `Header` and `Footer` components.</p>
-<p>Each component is exported from the `@kaizen/workflow` package so it can be assembled individually if a custom solution is needed.</p>
-<p>See the `Custom Workflow` story for an example of how to assemble with a header and footer.</p>
+<p>This is a page template component containing the header, footer and main landmarks that compose a Workflow page. Its purpose is to guide an customer through a multi-step form to create a Workflow.</p>
+<p>The Worflow's children will be wrapped in a unstyled main landmark to provide felxibility of content styles.</p>
  */
 export const Playground: StoryFn<WorkflowProps> = ({
   steps,
@@ -82,7 +88,7 @@ export const Playground: StoryFn<WorkflowProps> = ({
     previousAction={previousAction}
     {...restProps}
   >
-    <main className="flex flex-col content-center min-h-[100vh]">
+    <div>
       <h3>Content</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
@@ -96,8 +102,50 @@ export const Playground: StoryFn<WorkflowProps> = ({
         obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
         quibusdam vero?
       </p>
-    </main>
+    </div>
   </Workflow>
 )
 
 Playground.args = { ...defaultArgs }
+
+/**
+<p>While we advise against it, each component is exported from the `@kaizen/workflow` package so a custom workflow can be composed from its children if absolutely neccessary</p>
+ */
+export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
+  steps,
+  isComplete,
+  workflowName,
+  stepName,
+  status,
+  headerActions,
+  previousAction,
+  nextAction,
+  ...restProps
+}) => (
+  <div {...restProps}>
+    <Header
+      workflowName={workflowName}
+      stepName={stepName}
+      status={status}
+      headerActions={headerActions}
+    />
+    <Main>
+      <h3>Content</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
+        labore dolorum debitis eaque laboriosam qui quidem itaque necessitatibus
+        obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
+        quibusdam vero?
+      </p>
+    </Main>
+    <Footer
+      stepName={stepName}
+      steps={steps}
+      isComplete={isComplete}
+      nextAction={nextAction}
+      previousAction={previousAction}
+    />
+  </div>
+)
+
+ComposableWorkflow.args = { ...defaultArgs }

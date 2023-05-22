@@ -48,7 +48,9 @@ export const Titles = ({
     {status && (
       // status may need to be update by a fetch
       <div className={styles.status}>
-        <Tag variant={status?.variant || "statusDraft"}>{status?.content}</Tag>
+        <Tag inline variant={status?.variant || "statusDraft"}>
+          {status?.content}
+        </Tag>
       </div>
     )}
   </div>
