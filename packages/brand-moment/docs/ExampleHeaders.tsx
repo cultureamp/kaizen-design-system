@@ -4,7 +4,7 @@ import { Box } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { Select } from "@kaizen/draft-select"
 import { assetUrl } from "@kaizen/hosted-assets"
-import styles from "./ExampleHeaders.scss"
+import styles from "./ExampleHeaders.module.scss"
 
 export const MinimalBasic = (): JSX.Element => (
   <div className={styles.header}>
