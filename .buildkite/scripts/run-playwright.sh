@@ -9,6 +9,7 @@ if [ "$KAIZEN_DOMAIN_NAME" = "dev.cultureamp.design" ]; then
 
     echo "--- :yarnpkg: Install Playwright dependencies"
     yarn install --frozen-lockfile
+    npx playwright install
 
     KAIZEN_DEV_BRANCH="${KAIZEN_DOMAIN_NAME}/${BUILDKITE_BRANCH}/"
 
