@@ -4,4 +4,4 @@
 "@kaizen/select": patch
 ---
 
-Fix an issue with rgb functions accepting 4 args, refactored them to rgba instead.
+Fixed an issue with rgb functions accepting 4 args, refactored them to rgba instead.
