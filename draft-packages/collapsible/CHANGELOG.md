@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.5.37
+
+### Patch Changes
+
+- [#3656](https://github.com/cultureamp/kaizen-design-system/pull/3656) [`73fe20135`](https://github.com/cultureamp/kaizen-design-system/commit/73fe2013550940b54642897ee9d7d9bea6fcf00c) - Use the Collapsible title as a better accessible label for the toggle button
+
 ## 3.5.36
 
 ### Patch Changes
