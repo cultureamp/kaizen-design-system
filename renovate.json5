@@ -4,6 +4,7 @@
   "ignoreDeps": [
     // We can't always stick to latest due to infra and compatibility with other plugins
     "node",
+    "typescript",
     // We include older versions of React things in order to test against React 16 & 17
     "react-16",
     "react-17",
