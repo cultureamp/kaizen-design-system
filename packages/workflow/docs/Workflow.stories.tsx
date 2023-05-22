@@ -62,6 +62,31 @@ const meta = {
 
 export default meta
 
+const MockContent = (): JSX.Element => (
+  <div className="flex flex-col flex-1 m-24 items-center">
+    <div className="max-w-[1392px] w-100">
+      <h3>Name and schedule the self-reflection cycle</h3>
+      <div className="bg-white rounded-default shadow-sm my-32 p-64">
+        <h4>Name the cycle</h4>
+        <label
+          className="block font-weight-paragraph-bold"
+          htmlFor="input-workflow"
+        >
+          Cycle name
+        </label>
+        <input
+          type="text"
+          id="input-workflow"
+          aria-describedby="input-workflow-desc"
+        />
+        <p id="input-workflow-desc">
+          This is the name that will be displayed across the cycle for everyone
+        </p>
+      </div>
+    </div>
+  </div>
+)
+
 /**
 <p>This is a page template component containing the header, footer and main landmarks that compose a Workflow page. Its purpose is to guide an customer through a multi-step form to create a Workflow.</p>
 <p>The Worflow's children will be wrapped in a unstyled main landmark to provide felxibility of content styles.</p>
@@ -88,25 +113,73 @@ export const Playground: StoryFn<WorkflowProps> = ({
     previousAction={previousAction}
     {...restProps}
   >
-    <div>
-      <h3>Content</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
-        labore dolorum debitis eaque laboriosam qui quidem itaque necessitatibus
-        obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
-        quibusdam vero?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
-        labore dolorum debitis eaque laboriosam qui quidem itaque necessitatibus
-        obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
-        quibusdam vero?
-      </p>
-    </div>
+    <MockContent />
   </Workflow>
 )
 
 Playground.args = { ...defaultArgs }
+
+/**
+<p>The progress stepper will update its completed and in progress indicators by comparing the stepName to the array of steps.</p>
+<p>While the footer actions can take any JSX elements we recommend using the @kaizen/button component to handle page routing and submit requests for visual continuity</p>
+ */
+export const FinalStep: StoryFn<WorkflowProps> = () => (
+  <Workflow
+    workflowName="Create a self-reflection cycle"
+    stepName="Schedule"
+    status={{
+      content: "Draft",
+    }}
+    headerActions={[
+      <WorkflowExit
+        key="would-use-uui"
+        exitLabel="Save and close"
+        exitTitle="Before you exit"
+        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
+        confirmExitLabel="Close and save"
+        dismissExitLabel="Dismiss"
+        onExit={(): void => alert("mock example of a save action")}
+      />,
+    ]}
+    steps={["Settings", "Questions", "Preview", "Employees", "Schedule"]}
+    isComplete={false}
+    nextAction={<Button reversed primary label="Finish" />}
+    previousAction={<Button reversed label="Back" />}
+  >
+    <MockContent />
+  </Workflow>
+)
+
+FinalStep.storyName = "Final step of workflow"
+
+/**
+<p>In stances where users are returning to a completed worklow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will be reflected in their aria title</p>
+ */
+export const CompletedWorkflow = Playground.bind({})
+
+CompletedWorkflow.storyName = "Returning to a completed workflow"
+CompletedWorkflow.args = {
+  workflowName: "Create a self-reflection cycle",
+  stepName: "Settings",
+  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+  isComplete: true,
+  status: {
+    content: "Draft",
+    variant: "statusDraft",
+  },
+  nextAction: <Button reversed label="Next" />,
+  headerActions: [
+    <WorkflowExit
+      key="would-use-uui"
+      exitLabel="Save and close"
+      exitTitle="Before you exit"
+      exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
+      confirmExitLabel="Close and save"
+      dismissExitLabel="Dismiss"
+      onExit={(): void => alert("mock example of a save action")}
+    />,
+  ],
+}
 
 /**
 <p>While we advise against it, each component is exported from the `@kaizen/workflow` package so a custom workflow can be composed from its children if absolutely neccessary</p>
