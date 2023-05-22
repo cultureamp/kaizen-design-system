@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-collapsible",
-  "version": "3.5.36",
+  "version": "3.5.37",
   "description": "The draft Collapsible component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
