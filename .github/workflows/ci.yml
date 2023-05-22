@@ -30,7 +30,7 @@ jobs:
           node-version-file: .nvmrc
           registry-url: https://npm.pkg.github.com/
       - run: yarn install --frozen-lockfile
-      - run: changeset status --since=main
+      - run: yarn changeset status --since=main
 
   typescript:
     if: github.ref != 'refs/heads/main'
