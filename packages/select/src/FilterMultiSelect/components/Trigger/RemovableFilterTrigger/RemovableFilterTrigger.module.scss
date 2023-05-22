@@ -7,20 +7,15 @@
   display: inline-flex;
 
   .triggerButton {
-    border-top-left-radius: $border-solid-border-radius;
-    border-bottom-left-radius: $border-solid-border-radius;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 0 $border-solid-border-radius;
   }
 
   .removeButton {
     @include button;
+
     width: $spacing-xl;
     justify-content: center;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: $border-solid-border-radius;
-    border-bottom-right-radius: $border-solid-border-radius;
+    border-radius: $border-solid-border-radius 0;
   }
 
   .divider {

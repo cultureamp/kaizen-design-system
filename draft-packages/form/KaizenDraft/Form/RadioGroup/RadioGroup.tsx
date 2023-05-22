@@ -33,10 +33,12 @@ export const RadioGroup = ({
   return (
     <div
       data-automation-id={automationId}
-      className={classnames(styles.radioGroupContainer, classNameOverride, {
-        [styles.noBottomMargin]: noBottomMargin,
-        [styles.reversed]: reversed,
-      })}
+      className={classnames(
+        styles.radioGroupContainer,
+        classNameOverride,
+        noBottomMargin && styles.noBottomMargin,
+        reversed && styles.reversed
+      )}
       role="radiogroup"
       aria-labelledby={labelId}
       {...restProps}

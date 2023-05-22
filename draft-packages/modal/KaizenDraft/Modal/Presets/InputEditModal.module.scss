@@ -18,6 +18,7 @@
 
   &.padded {
     padding: $spacing-md $spacing-lg;
+
     @media (max-width: $layout-breakpoints-medium) {
       padding: $spacing-md;
     }
@@ -29,6 +30,7 @@
 
   &.padded {
     padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+
     @media (max-width: $layout-breakpoints-medium) {
       padding: $spacing-md;
     }

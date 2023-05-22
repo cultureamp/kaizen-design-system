@@ -1,5 +1,112 @@
 # Change Log
 
+## 6.16.2
+
+### Patch Changes
+
+- [#3660](https://github.com/cultureamp/kaizen-design-system/pull/3660) [`cabc3dcef`](https://github.com/cultureamp/kaizen-design-system/commit/cabc3dcef6318c9207487ef8ebe0e6899e1e3c9c) - Fixed an issue with rgb functions accepting 4 args, refactored them to rgba instead.
+
+## 6.16.1
+
+### Patch Changes
+
+- [#3649](https://github.com/cultureamp/kaizen-design-system/pull/3649) [`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2) - fix: "color-function-notation": "modern" not working with sass
+
+- Updated dependencies [[`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2)]:
+  - @kaizen/component-library@16.8.1
+
+## 6.16.0
+
+### Minor Changes
+
+- [#3630](https://github.com/cultureamp/kaizen-design-system/pull/3630) [`f16332333`](https://github.com/cultureamp/kaizen-design-system/commit/f16332333a83078e92e430182cc31c734ca57d7a) - Add isAnimated prop to FilterMultiSelect MenuLoadingSkeleton. Setting this to true animates all the child loading skeletons.
+
+### Patch Changes
+
+- [#3645](https://github.com/cultureamp/kaizen-design-system/pull/3645) [`120f97aae`](https://github.com/cultureamp/kaizen-design-system/commit/120f97aaee6160e2460530dbb6352e89f4756793) - Select background is now always white (not transparent) to address potential contrast issues
+
+- [#3647](https://github.com/cultureamp/kaizen-design-system/pull/3647) [`066d044d2`](https://github.com/cultureamp/kaizen-design-system/commit/066d044d2eee90bf63d2fd0b033b522eda30d027) - Add visually hidden text to improve screen reader context of clear button in FilterMultiSelect
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`066d044d2`](https://github.com/cultureamp/kaizen-design-system/commit/066d044d2eee90bf63d2fd0b033b522eda30d027), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+  - @kaizen/draft-form@10.4.5
+
+## 6.15.9
+
+### Patch Changes
+
+- Updated dependencies [[`07e3fac40`](https://github.com/cultureamp/kaizen-design-system/commit/07e3fac40669e86f6f05ac40b56cf0cd5ea4ab21)]:
+  - @kaizen/draft-menu@5.0.0
+
+## 6.15.8
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-library@16.7.6
+  - @kaizen/loading-skeleton@2.0.7
+  - @kaizen/component-base@1.1.7
+  - @kaizen/draft-divider@2.2.11
+  - @kaizen/draft-tooltip@5.4.44
+  - @kaizen/draft-badge@1.13.11
+  - @kaizen/draft-form@10.4.3
+  - @kaizen/draft-menu@4.9.8
+  - @kaizen/typography@2.3.11
+  - @kaizen/button@3.0.3
+  - @kaizen/a11y@1.7.12
+
+## 6.15.7
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3616](https://github.com/cultureamp/kaizen-design-system/pull/3616) [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f) - Fix packagejson files whitelist to only include publish files
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`de50c2b00`](https://github.com/cultureamp/kaizen-design-system/commit/de50c2b00ebd44d0cf5d7c62ac789c57d9a3c00d), [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f), [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29)]:
+  - @kaizen/button@3.0.2
+  - @kaizen/component-library@16.7.5
+  - @kaizen/loading-skeleton@2.0.6
+  - @kaizen/component-base@1.1.6
+  - @kaizen/draft-divider@2.2.10
+  - @kaizen/draft-tooltip@5.4.43
+  - @kaizen/draft-badge@1.13.10
+  - @kaizen/draft-form@10.4.2
+  - @kaizen/draft-menu@4.9.7
+  - @kaizen/typography@2.3.10
+  - @kaizen/a11y@1.7.11
+
+## 6.15.6
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/component-library@16.7.4
+  - @kaizen/loading-skeleton@2.0.5
+  - @kaizen/draft-divider@2.2.9
+  - @kaizen/draft-tooltip@5.4.42
+  - @kaizen/design-tokens@10.3.7
+  - @kaizen/draft-badge@1.13.9
+  - @kaizen/draft-form@10.4.1
+  - @kaizen/draft-menu@4.9.6
+  - @kaizen/typography@2.3.9
+  - @kaizen/button@3.0.1
+
+## 6.15.5
+
+### Patch Changes
+
+- [#3600](https://github.com/cultureamp/kaizen-design-system/pull/3600) [`d7c88f39b`](https://github.com/cultureamp/kaizen-design-system/commit/d7c88f39bc3b759ed442e2272bf330442609c540) - Update trigger default function to have buttonRef reference
+
+- Updated dependencies [[`8de6f6701`](https://github.com/cultureamp/kaizen-design-system/commit/8de6f67017c62a905634d8388f4dd68d579325d3)]:
+  - @kaizen/draft-form@10.4.0
+
 ## 6.15.4
 
 ### Patch Changes

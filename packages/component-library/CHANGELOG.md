@@ -1,5 +1,56 @@
 # Change Log
 
+## 16.8.1
+
+### Patch Changes
+
+- [#3649](https://github.com/cultureamp/kaizen-design-system/pull/3649) [`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2) - fix: "color-function-notation": "modern" not working with sass
+
+## 16.8.0
+
+### Minor Changes
+
+- [#3623](https://github.com/cultureamp/kaizen-design-system/pull/3623) [`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f) - Added new icons, connect-line and insights
+
+### Patch Changes
+
+- [#3644](https://github.com/cultureamp/kaizen-design-system/pull/3644) [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671) - Add missing motion-ui util imports to component-library
+
+- [#3642](https://github.com/cultureamp/kaizen-design-system/pull/3642) [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d) - Add missing motion-ui-settings to component-library's animations settings to fix an issue with certain animations being unable to access settings
+
+## 16.7.6
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-base@1.1.7
+  - @kaizen/hosted-assets@2.0.3
+
+## 16.7.5
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3616](https://github.com/cultureamp/kaizen-design-system/pull/3616) [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f) - Fix packagejson files whitelist to only include publish files
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f)]:
+  - @kaizen/component-base@1.1.6
+  - @kaizen/hosted-assets@2.0.2
+
+## 16.7.4
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/design-tokens@10.3.7
+
 ## 16.7.3
 
 ### Patch Changes

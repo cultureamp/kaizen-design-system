@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { StoryRow, StoryRowProps } from "./components/StoryRow"
 import {
   StoryRowHeader,
@@ -37,11 +37,12 @@ export const StoryWrapper = ({
 
   return (
     <div
-      className={classNames(styles.storyRowContainer, {
-        [styles.noRowTitles]: hasNoRowTitles,
-        [styles.rowDivider]: hasRowDivider,
-        [styles.reversed]: isReversed,
-      })}
+      className={classnames(
+        styles.storyRowContainer,
+        hasNoRowTitles && styles.noRowTitles,
+        hasRowDivider && styles.rowDivider,
+        isReversed && styles.reversed
+      )}
       style={{
         gridTemplateRows: `repeat(${childrenCount}, min-content)`,
       }}

@@ -1,7 +1,10 @@
 import React from "react"
-import { render, fireEvent } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { InputEditModal, InputEditModalProps } from "./InputEditModal"
 import "./matchMedia.mock"
+
+const user = userEvent.setup()
 
 const InputEditModalWrapper = ({
   children,
@@ -27,18 +30,21 @@ describe("<InputEditModal />", () => {
     expect(getByText("Example modal body")).toBeTruthy()
   })
 
-  it("supports a dismiss action when escape key is pressed", () => {
+  it("supports a dismiss action when escape key is pressed", async () => {
     const handleDismiss = jest.fn()
-    const document = render(
+    render(
       <InputEditModalWrapper onDismiss={handleDismiss}>
         Example modal body
       </InputEditModalWrapper>
     )
-    fireEvent.keyUp(document.container, { key: "Escape", code: "Escape" })
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+
+    await user.keyboard("{Escape}")
+    await waitFor(() => {
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("supports a dismiss action when dismiss button is pressed", () => {
+  it("supports a dismiss action when dismiss button is pressed", async () => {
     const handleSubmit = jest.fn()
     const handleDismiss = jest.fn()
     const { getByLabelText } = render(
@@ -46,12 +52,14 @@ describe("<InputEditModal />", () => {
         Example modal body
       </InputEditModalWrapper>
     )
-    fireEvent.click(getByLabelText(/Dismiss/i))
-    expect(handleSubmit).toHaveBeenCalledTimes(0)
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    await user.click(getByLabelText(/Dismiss/i))
+    await waitFor(() => {
+      expect(handleSubmit).toHaveBeenCalledTimes(0)
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("supports a dismiss action when cancel button is pressed", () => {
+  it("supports a dismiss action when cancel button is pressed", async () => {
     const handleSubmit = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
@@ -59,12 +67,14 @@ describe("<InputEditModal />", () => {
         Example modal body
       </InputEditModalWrapper>
     )
-    fireEvent.click(getByText(/Cancel/i))
-    expect(handleSubmit).toHaveBeenCalledTimes(0)
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
+    await user.click(getByText(/Cancel/i))
+    await waitFor(() => {
+      expect(handleSubmit).toHaveBeenCalledTimes(0)
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("supports a submit action when submit button is pressed", () => {
+  it("supports a submit action when submit button is pressed", async () => {
     const handleSubmit = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
@@ -72,12 +82,14 @@ describe("<InputEditModal />", () => {
         Example modal body
       </InputEditModalWrapper>
     )
-    fireEvent.click(getByText(/Submit/i))
-    expect(handleSubmit).toHaveBeenCalledTimes(1)
-    expect(handleDismiss).toHaveBeenCalledTimes(0)
+    await user.click(getByText(/Submit/i))
+    await waitFor(() => {
+      expect(handleSubmit).toHaveBeenCalledTimes(1)
+      expect(handleDismiss).toHaveBeenCalledTimes(0)
+    })
   })
 
-  it("supports a secondary action when secondary-action and secondary-label both props are provided", () => {
+  it("supports a secondary action when secondary-action and secondary-label both props are provided", async () => {
     const handleSubmit = jest.fn()
     const handleDismiss = jest.fn()
     const handleSecondaryAction = jest.fn()
@@ -92,13 +104,15 @@ describe("<InputEditModal />", () => {
         Example modal body
       </InputEditModalWrapper>
     )
-    fireEvent.click(getByText(/Secondary button/i))
-    expect(handleSubmit).toHaveBeenCalledTimes(0)
-    expect(handleDismiss).toHaveBeenCalledTimes(0)
-    expect(handleSecondaryAction).toHaveBeenCalledTimes(1)
+    await user.click(getByText(/Secondary button/i))
+    await waitFor(() => {
+      expect(handleSubmit).toHaveBeenCalledTimes(0)
+      expect(handleDismiss).toHaveBeenCalledTimes(0)
+      expect(handleSecondaryAction).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it("dismiss works as usual when only one of the prop (secondary-action / secondary-label) is provided", () => {
+  it("dismiss works as usual when only one of the prop (secondary-action / secondary-label) is provided", async () => {
     const handleSubmit = jest.fn()
     const handleDismiss = jest.fn()
     const handleSecondaryAction = jest.fn()
@@ -112,9 +126,11 @@ describe("<InputEditModal />", () => {
         Example modal body
       </InputEditModalWrapper>
     )
-    fireEvent.click(getByText(/Cancel/i))
-    expect(handleSubmit).toHaveBeenCalledTimes(0)
-    expect(handleDismiss).toHaveBeenCalledTimes(1)
-    expect(handleSecondaryAction).toHaveBeenCalledTimes(0)
+    await user.click(getByText(/Cancel/i))
+    await waitFor(() => {
+      expect(handleSubmit).toHaveBeenCalledTimes(0)
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
+      expect(handleSecondaryAction).toHaveBeenCalledTimes(0)
+    })
   })
 })

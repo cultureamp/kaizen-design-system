@@ -1,5 +1,62 @@
 # Change Log
 
+## 3.5.37
+
+### Patch Changes
+
+- [#3656](https://github.com/cultureamp/kaizen-design-system/pull/3656) [`73fe20135`](https://github.com/cultureamp/kaizen-design-system/commit/73fe2013550940b54642897ee9d7d9bea6fcf00c) - Use the Collapsible title as a better accessible label for the toggle button
+
+## 3.5.36
+
+### Patch Changes
+
+- [#3641](https://github.com/cultureamp/kaizen-design-system/pull/3641) [`9e64e823f`](https://github.com/cultureamp/kaizen-design-system/commit/9e64e823f4bc3129a819ced73d77ba568ccab35b) - set alt to empty string for decorative img
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+
+## 3.5.35
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-library@16.7.6
+  - @kaizen/component-base@1.1.7
+  - @kaizen/typography@2.3.11
+  - @kaizen/button@3.0.3
+  - @kaizen/brand@1.5.8
+
+## 3.5.34
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3616](https://github.com/cultureamp/kaizen-design-system/pull/3616) [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f) - Fix packagejson files whitelist to only include publish files
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`de50c2b00`](https://github.com/cultureamp/kaizen-design-system/commit/de50c2b00ebd44d0cf5d7c62ac789c57d9a3c00d), [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f), [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29)]:
+  - @kaizen/button@3.0.2
+  - @kaizen/component-library@16.7.5
+  - @kaizen/component-base@1.1.6
+  - @kaizen/typography@2.3.10
+  - @kaizen/brand@1.5.7
+
+## 3.5.33
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/component-library@16.7.4
+  - @kaizen/design-tokens@10.3.7
+  - @kaizen/typography@2.3.9
+  - @kaizen/button@3.0.1
+
 ## 3.5.32
 
 ### Patch Changes

@@ -1,5 +1,60 @@
 # Change Log
 
+## 2.2.9
+
+### Patch Changes
+
+- [#3646](https://github.com/cultureamp/kaizen-design-system/pull/3646) [`2623b828b`](https://github.com/cultureamp/kaizen-design-system/commit/2623b828bf897e57db9e9f14416cbecb5b4cfe56) - Removed unused id attribute for rich text editor toolbar buttons
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`066d044d2`](https://github.com/cultureamp/kaizen-design-system/commit/066d044d2eee90bf63d2fd0b033b522eda30d027), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+  - @kaizen/draft-form@10.4.5
+
+## 2.2.8
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/component-library@16.7.6
+  - @kaizen/component-base@1.1.7
+  - @kaizen/draft-tooltip@5.4.44
+  - @kaizen/notification@1.5.8
+  - @kaizen/draft-form@10.4.3
+  - @kaizen/a11y@1.7.12
+
+## 2.2.7
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3616](https://github.com/cultureamp/kaizen-design-system/pull/3616) [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f) - Fix packagejson files whitelist to only include publish files
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f), [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29)]:
+  - @kaizen/component-library@16.7.5
+  - @kaizen/component-base@1.1.6
+  - @kaizen/draft-tooltip@5.4.43
+  - @kaizen/notification@1.5.7
+  - @kaizen/draft-form@10.4.2
+  - @kaizen/a11y@1.7.11
+
+## 2.2.6
+
+### Patch Changes
+
+- [#3608](https://github.com/cultureamp/kaizen-design-system/pull/3608) [`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57) - Update usages of classnames to not use object syntax
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/component-library@16.7.4
+  - @kaizen/draft-tooltip@5.4.42
+  - @kaizen/design-tokens@10.3.7
+  - @kaizen/notification@1.5.6
+  - @kaizen/draft-form@10.4.1
+
 ## 2.2.5
 
 ### Patch Changes

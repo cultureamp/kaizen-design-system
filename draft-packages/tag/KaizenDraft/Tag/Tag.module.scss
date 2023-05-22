@@ -65,8 +65,15 @@ $small: $spacing-md;
   white-space: nowrap;
 }
 
+.iconWrapper {
+  position: relative;
+  height: 16px;
+  width: 16px;
+}
+
 .dismissButton {
   @include button-reset;
+
   position: relative;
   display: flex;
   height: 100%;
@@ -98,6 +105,7 @@ $small: $spacing-md;
 
     &::after {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width}));
+
       content: "";
       position: absolute;
       background: transparent;
@@ -105,10 +113,7 @@ $small: $spacing-md;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
       border-color: $color-blue-500;
-      top: calc(-1 * #{$focus-ring-offset});
-      left: calc(-1 * #{$focus-ring-offset});
-      right: calc(-1 * #{$focus-ring-offset});
-      bottom: calc(-1 * #{$focus-ring-offset});
+      inset: calc(-1 * #{$focus-ring-offset});
     }
   }
 }
@@ -125,12 +130,6 @@ $small: $spacing-md;
   background-color: white;
   left: 10px;
   top: 10px;
-}
-
-.iconWrapper {
-  position: relative;
-  height: 16px;
-  width: 16px;
 }
 
 .truncate {
@@ -239,7 +238,7 @@ $pulse-ring-position: calc(
   background-color: $color-blue-500;
   display: inline-block;
   position: relative;
-  opacity: 0.5;
+  opacity: 50%;
 }
 
 .pulseRing {
@@ -257,11 +256,12 @@ $pulse-ring-position: calc(
 @keyframes pulsate {
   0% {
     transform: scale(0);
-    opacity: 1;
+    opacity: 100%;
   }
+
   50%,
   100% {
     transform: scale(1);
-    opacity: 0;
+    opacity: 0%;
   }
 }

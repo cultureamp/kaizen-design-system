@@ -33,3 +33,18 @@ $motion-ui-easings: (
   bounce-out: $animation-easing-function-bounce-out,
   bounce-in-out: $animation-easing-function-bounce-in-out,
 );
+
+/// Miscellaneous settings related to Motion UI.
+/// @type Map
+/// @prop {Boolean} slide-and-fade [false] - Defines if slide motions should also fade in/out.
+/// @prop {Boolean} slide-and-fade [true] - Defines if hinge motions should also fade in/out.
+/// @prop {Boolean} slide-and-fade [true] - Defines if scale motions should also fade in/out.
+/// @prop {Boolean} slide-and-fade [true] - Defines if spin motions should also fade in/out.
+$motion-ui-settings: (
+  slide-and-fade: false,
+  hinge-and-fade: true,
+  scale-and-fade: true,
+  spin-and-fade: true,
+  pause-queue-class: "is-paused",
+  activate-queue-class: "is-animating",
+) !default;

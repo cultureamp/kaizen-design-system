@@ -29,9 +29,12 @@ export const FieldGroup = ({
 }: FieldGroupProps): JSX.Element => (
   <div
     data-automation-id={automationId}
-    className={classnames(styles.group, className, classNameOverride, {
-      [styles.inline]: inline,
-    })}
+    className={classnames(
+      styles.group,
+      className,
+      classNameOverride,
+      inline && styles.inline
+    )}
     {...restProps}
   >
     {children}

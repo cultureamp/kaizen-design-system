@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, useMemo, useState } from "react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { usePopper } from "react-popper"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
@@ -115,7 +115,7 @@ export const Popover = ({
       ref={setPopperElement}
       style={popperStyles.popper}
       {...attributes.popper}
-      className={classNames(
+      className={classnames(
         styles.root,
         mapSizeToClass(size),
         classNameOverride
@@ -128,7 +128,7 @@ export const Popover = ({
           <div className={styles.header}>
             {variant !== "default" && (
               <span
-                className={classNames(
+                className={classnames(
                   styles.icon,
                   mapVariantToIconClass(variant)
                 )}
@@ -156,7 +156,7 @@ export const Popover = ({
         )}
         <Paragraph
           variant="small"
-          classNameOverride={classNames(
+          classNameOverride={classnames(
             styles.container,
             mapLineVariant(singleLine)
           )}
@@ -170,7 +170,7 @@ export const Popover = ({
         className={styles.arrowWrapper}
       >
         <div
-          className={classNames(styles.arrow, mapArrowVariantToClass(variant))}
+          className={classnames(styles.arrow, mapArrowVariantToClass(variant))}
         />
       </div>
     </div>

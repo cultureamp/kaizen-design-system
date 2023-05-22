@@ -2,6 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { FilterButtonBase } from "~components/FilterButton/_subcomponents/FilterButtonBase"
+import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { ButtonGroup } from ".."
 
@@ -11,21 +12,33 @@ export default {
   component: ButtonGroup,
   parameters: {
     docs: {
-      description: {
-        component:
-          "Used to group buttons. Compatible with buttons wrapped by Tooltip. Currently only compatible with Filter Buttons.",
-      },
+      container: ComponentDocsTemplate,
+    },
+    isInKaio: true,
+    installation: [
+      "yarn add @kaizen/components",
+      "import { ButtonGroup } from `@kaizen/components`",
+    ],
+    resourceLinks: {
+      sourceCode:
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/ButtonGroup",
+      figma:
+        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=6-28579&t=bowQ0LWOQKOd0UYS-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
     },
   },
 } satisfies Meta<typeof ButtonGroup>
 
-export const DefaultStory: StoryFn<typeof ButtonGroup> = args => (
+/**
+ * Used to group buttons. Compatible with buttons wrapped by Tooltip. Currently only compatible with Filter Buttons.
+ */
+export const Playground: StoryFn<typeof ButtonGroup> = args => (
   <ButtonGroup {...args}>
     <FilterButtonBase>First</FilterButtonBase>
     <FilterButtonBase>Last</FilterButtonBase>
   </ButtonGroup>
 )
-DefaultStory.storyName = "Button Group"
 
 const StickerSheetTemplate: StoryFn = () => (
   <>

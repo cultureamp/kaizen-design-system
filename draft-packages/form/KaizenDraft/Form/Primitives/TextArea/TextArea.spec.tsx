@@ -1,6 +1,9 @@
 import React from "react"
-import { fireEvent, render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { TextArea, TextAreaProps } from "./index"
+
+const user = userEvent.setup()
 
 const defaultTextAreaProps = {
   id: "someTextAreaId",
@@ -29,14 +32,14 @@ describe("<TextArea />", () => {
     expect(queryByText("default value")).toBeTruthy()
   })
 
-  it("calls the `onChange` event when the value is updated", () => {
+  it("calls the `onChange` event when the value is updated", async () => {
     renderTextArea()
 
-    fireEvent.change(screen.getByRole("textbox"), {
-      target: { value: "Hello" },
-    })
+    await user.type(screen.getByRole("textbox"), "Hello")
 
-    expect(defaultTextAreaProps.onChange).toBeCalledTimes(1)
+    await waitFor(() => {
+      expect(defaultTextAreaProps.onChange).toBeCalledTimes(5)
+    })
   })
 
   it("renders a reversed text area", () => {

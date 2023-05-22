@@ -129,7 +129,7 @@ export const UpdatedNotification: StoryFn = () => (
       <Box py={1} classNameOverride={styles.triggerContainer}>
         <Box mr={0.25}>
           <Button
-            label={"Create initial notification"}
+            label="Create initial notification"
             onClick={(): void => {
               addToastNotification({
                 id: "consistent-id",
@@ -147,7 +147,7 @@ export const UpdatedNotification: StoryFn = () => (
           />
         </Box>
         <Button
-          label={"Update initial notification"}
+          label="Update initial notification"
           onClick={(): void => {
             addToastNotification({
               id: "consistent-id",

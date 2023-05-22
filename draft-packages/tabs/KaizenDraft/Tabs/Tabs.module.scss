@@ -13,6 +13,7 @@
 
 .tab {
   @include ca-inherit-baseline;
+
   font-family: $typography-heading-4-font-family;
   font-size: $typography-heading-4-font-size;
   line-height: $typography-heading-4-line-height;
@@ -40,18 +41,17 @@
     background-color: $color-blue-100;
     font-weight: $typography-heading-4-font-weight;
 
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       background: transparent;
+
       $focus-ring-offset: calc(#{$border-focus-ring-border-width} - 1px);
+
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
       border-color: $color-blue-500;
-      top: calc(-1 * #{$focus-ring-offset});
-      left: calc(-1 * #{$focus-ring-offset});
-      right: calc(-1 * #{$focus-ring-offset});
-      bottom: calc(-1 * #{$focus-ring-offset});
+      inset: calc(-1 * #{$focus-ring-offset});
     }
   }
 }
@@ -63,10 +63,8 @@
   border-top-right-radius: $border-borderless-border-radius;
   padding: 0 $ca-grid * 0.75;
   height: 3 * $ca-grid;
-
   top: 0; // this overrides baseline shift. @include ca-inherit-baseline does not work because
   // we need to make this position: relative, for the absolutely positioned underline.
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,11 +84,12 @@
 
   &::before {
     $underline-height: 5px;
+
     content: "";
     display: block;
     border-top-left-radius: $underline-height;
     border-top-right-radius: $underline-height;
-    background-color: currentColor;
+    background-color: currentcolor;
     height: $underline-height;
     width: 100%;
     position: absolute;
@@ -104,7 +103,7 @@
   composes: tab;
   composes: horizontalTab;
   cursor: inherit;
-  opacity: 0.3;
+  opacity: 30%;
   font-weight: normal;
 
   &.horizontalTabActive:hover {
@@ -154,7 +153,7 @@
   composes: tab;
   composes: verticalTab;
   cursor: inherit;
-  opacity: 0.3;
+  opacity: 30%;
 
   &.verticalTabActive:hover {
     background-color: transparent;

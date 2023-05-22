@@ -1,5 +1,49 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- [#3621](https://github.com/cultureamp/kaizen-design-system/pull/3621) [`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f) - Fix files whitelist to include scss files
+
+- Updated dependencies [[`4967215eb`](https://github.com/cultureamp/kaizen-design-system/commit/4967215eb05298f69dbdf8e9cb44f4e0665e7d8f)]:
+  - @kaizen/design-tokens@10.3.9
+
+## 1.0.1
+
+### Patch Changes
+
+- [#3595](https://github.com/cultureamp/kaizen-design-system/pull/3595) [`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705) - Remove .turbo from distributed files
+
+- [#3616](https://github.com/cultureamp/kaizen-design-system/pull/3616) [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f) - Fix packagejson files whitelist to only include publish files
+
+- [#3611](https://github.com/cultureamp/kaizen-design-system/pull/3611) [`589244ad0`](https://github.com/cultureamp/kaizen-design-system/commit/589244ad0c307edca845d19843f2db282050fe29) - Fix supported design-tokens versions
+
+- Updated dependencies [[`0e0750e87`](https://github.com/cultureamp/kaizen-design-system/commit/0e0750e872e3381420df7bf2947d9deb9db8b705), [`e4f5f5ce5`](https://github.com/cultureamp/kaizen-design-system/commit/e4f5f5ce50b4e1a4aa8b189c247d0f2a8fea722f)]:
+  - @kaizen/design-tokens@10.3.8
+
+## 1.0.0
+
+### Major Changes
+
+- [#3591](https://github.com/cultureamp/kaizen-design-system/pull/3591) [`2aecb899e`](https://github.com/cultureamp/kaizen-design-system/commit/2aecb899e9f47c9324a2c06a0f76d641cb8620e5) - First official release. Reverts height, maxHeight, width and maxWidth to TW defaults, and removes custom max-width breakpoints.
+
+  BREAKING CHANGES:
+  Non-arbitrary uses of `w-`, `h-`, `max-w` and `max-h` utilities will need to be updated inline with Tailwind's defaults (if there is an equivalent). For example:
+  `w-25` becomes `w-1/4`.
+  If there is no equivalent in the TW default, an arbitrary value can be used. For example:
+  `max-w-25` becomes `max-w-[25%]`
+
+  Max width breakpoints have been removed, and will need to be replaced with an equivalent min-width breakpoint, or arbitrary breakpoint.
+  For example: `bg-red-500 md-max:bg-green-500`
+  This would ideally be reversed to it's mobile-first equivalent: `bg-green-500 md:bg-red-500`.
+  If this isn't plausible, a max-width breakpoint can still be achieved with an arbitrary value: `bg-red-500 max-[768px]:bg-green-500`.
+
+### Patch Changes
+
+- Updated dependencies [[`cc96d9835`](https://github.com/cultureamp/kaizen-design-system/commit/cc96d98351ae380fe1a1e8a33d65d80232ed7a57)]:
+  - @kaizen/design-tokens@10.3.7
+
 ## 0.6.6
 
 ### Patch Changes

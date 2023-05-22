@@ -30,11 +30,7 @@ const renderCheckOrMixedIcon = (
   if (status === "off") return
   const icon = status === "on" ? checkIcon : minusIcon
   return (
-    <span
-      className={classnames(styles.icon, {
-        [styles.reversed]: reversed,
-      })}
-    >
+    <span className={classnames(styles.icon, reversed && styles.reversed)}>
       <Icon icon={icon} role="presentation" inheritSize />
     </span>
   )
@@ -60,23 +56,22 @@ export const Checkbox = ({
         }
       }}
       data-automation-id={automationId}
+      data-testid={automationId}
       // This is only used as a handle for unit testing
       data-indeterminate={checkedStatus === "mixed"}
       type="checkbox"
-      className={classnames(styles.checkbox, classNameOverride, {
-        [styles.reversed]: reversed,
-      })}
+      className={classnames(
+        styles.checkbox,
+        classNameOverride,
+        reversed && styles.reversed
+      )}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
       value={value || checkedStatus}
       readOnly={onCheck === undefined}
       {...restProps}
     />
-    <span
-      className={classnames(styles.box, {
-        [styles.reversed]: reversed,
-      })}
-    >
+    <span className={classnames(styles.box, reversed && styles.reversed)}>
       {renderCheckOrMixedIcon(checkedStatus, reversed)}
     </span>
   </span>

@@ -25,7 +25,7 @@ export const ExpertAdviceCollapsible = (
         <div className={styles.expertAdviceHeader}>
           <Brand
             classNameOverride={styles.expertAdviceIcon}
-            alt="Collective Intelligence"
+            alt=""
             variant="collective-intelligence"
             reversed
           />

@@ -44,21 +44,21 @@ $track-radius: 4px;
   }
 }
 
-@mixin hiddenThumb {
+@mixin hidden-thumb {
   width: 0;
   height: 0;
   border: none;
 }
 
-//extra input[type="range"] is required to override materialize.css in performance-ui
+// extra input[type="range"] is required to override materialize.css in performance-ui
 input[type="range"].ratingScaleRange {
   all: unset;
   appearance: none;
   width: 100%;
-  margin: 0; //performance-ui materialize override
+  margin: 0; // performance-ui materialize override
 
   &.disabled {
-    opacity: 0.4;
+    opacity: 40%;
   }
 
   &::-moz-focus-outer {
@@ -75,6 +75,7 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-runnable-track {
     @include track;
+
     margin: $spacing-sm 0;
   }
 
@@ -84,22 +85,26 @@ input[type="range"].ratingScaleRange {
 
   &::-webkit-slider-thumb {
     @include thumb;
+
     -webkit-appearance: none;
     margin-top: ($thumb-height-with-border/2) * -1;
   }
+
   &::-moz-range-thumb {
     @include thumb;
   }
 
   &.hideThumb::-webkit-slider-thumb {
-    @include hiddenThumb;
+    @include hidden-thumb;
   }
+
   &.hideThumb::-moz-range-thumb {
-    @include hiddenThumb;
+    @include hidden-thumb;
   }
 
   &::-ms-track {
     @include track;
+
     color: transparent;
     border-width: $thumb-width 0;
     border-color: transparent;
@@ -130,7 +135,7 @@ input[type="range"].ratingScaleRange {
 }
 
 .spokes.disabled {
-  opacity: 0.4;
+  opacity: 40%;
 }
 
 .spokeContainer {
@@ -161,14 +166,14 @@ input[type="range"].ratingScaleRange {
 }
 
 .sliderLabels.disabled {
-  opacity: 0.4;
+  opacity: 40%;
 }
 
 // If the .visually-hidden class is applied to natively focusable elements
 // (such as a, button, input, etc) they must become visible when they receive
 // keyboard focus. Otherwise, a sighted keyboard user would have to try and
 // figure out where their visible focus indicator had gone to.
-.visuallyHidden:not(:focus):not(:active) {
+.visuallyHidden:not(:focus, :active) {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   position: absolute;

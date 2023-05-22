@@ -34,6 +34,7 @@ $input-with-icon-padding: calc(
 
 .input {
   @include form-input-reset;
+
   background-color: transparent;
   background-clip: padding-box;
   border: $border-solid-border-width $border-solid-border-style transparent;
@@ -47,13 +48,13 @@ $input-with-icon-padding: calc(
   margin-bottom: 2px;
 
   @include form-input-placeholder {
-    opacity: 1;
+    opacity: 100%;
   }
 
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
     @include form-input-placeholder {
-      opacity: 0;
+      opacity: 0%;
     }
   }
 
@@ -70,19 +71,18 @@ $input-with-icon-padding: calc(
 
 .input:focus + .focusRing {
   $focus-ring-offset: 3px;
+
   position: absolute;
   background: transparent;
   border-radius: $border-focus-ring-border-radius;
   border-width: $border-focus-ring-border-width;
   border-style: $border-focus-ring-border-style;
   border-color: transparent;
-  top: -$focus-ring-offset;
-  left: -$focus-ring-offset;
-  right: -$focus-ring-offset;
-  bottom: -$focus-ring-offset;
+  inset: -$focus-ring-offset;
   pointer-events: none;
 }
 
+/* stylelint-disable no-descending-specificity */
 ///////////////////////////////////////////////////
 // ICON ADORNMENT STYLES
 ///////////////////////////////////////////////////
@@ -98,6 +98,7 @@ $input-with-icon-padding: calc(
 .withStartIconAdornment {
   .startIconAdornment {
     @include vertically-center-icon;
+
     right: auto;
     left: $spacing-sm;
 
@@ -129,6 +130,7 @@ $input-with-icon-padding: calc(
 .withEndIconAdornment {
   .endIconAdornment {
     @include vertically-center-icon;
+
     right: $spacing-sm;
     left: auto;
 
@@ -176,14 +178,14 @@ $input-with-icon-padding: calc(
   /* stylelint-disable-next-line no-duplicate-selectors */
   .startIconAdornment {
     color: $color-purple-800;
-    opacity: 0.5;
+    opacity: 50%;
   }
 
   /* stylelint-disable-next-line no-duplicate-selectors */
   &.withDisabled {
     /* stylelint-disable-next-line no-duplicate-selectors */
     .startIconAdornment {
-      opacity: 0.3;
+      opacity: 30%;
     }
   }
 
@@ -191,7 +193,7 @@ $input-with-icon-padding: calc(
   &:hover:not(.withDisabled),
   &:focus-within:not(.withDisabled) {
     .startIconAdornment {
-      opacity: 0.7;
+      opacity: 70%;
     }
   }
 }
@@ -200,22 +202,24 @@ $input-with-icon-padding: calc(
 .withStartIconAdornment.withReversed {
   .startIconAdornment {
     color: $color-white;
-    opacity: 1;
+    opacity: 100%;
   }
 
   &.withDisabled {
     .startIconAdornment {
-      opacity: 0.3;
+      opacity: 30%;
     }
   }
 
   &:hover:not(.withDisabled),
   &:focus-within:not(.withDisabled) {
     .startIconAdornment {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 }
+/* stylelint-enable no-descending-specificity */
+
 ///////////////////////////////////////////////////
 // THEMES
 ///////////////////////////////////////////////////
@@ -250,7 +254,7 @@ $input-with-icon-padding: calc(
     }
   }
 
-  &:not(.error):not(.caution) {
+  &:not(.error, .caution) {
     border-color: $color-gray-500;
 
     &:disabled {
@@ -297,7 +301,7 @@ $input-with-icon-padding: calc(
     border-color: $color-blue-300;
   }
 
-  &:not(.error):not(.caution) {
+  &:not(.error, .caution) {
     border-color: rgba($color-white-rgb, 0.65);
 
     &:disabled {

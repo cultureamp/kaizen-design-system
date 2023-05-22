@@ -35,9 +35,10 @@ export const Slider = (props: SliderFieldProps): JSX.Element => {
   return (
     <FieldGroup inline>
       <div
-        className={classnames(styles.wrapper, {
-          [styles.labelInline]: labelPosition === "inline",
-        })}
+        className={classnames(
+          styles.wrapper,
+          labelPosition === "inline" && styles.labelInline
+        )}
       >
         <div className={styles.labelWrapper}>
           <Box mb={0.25}>

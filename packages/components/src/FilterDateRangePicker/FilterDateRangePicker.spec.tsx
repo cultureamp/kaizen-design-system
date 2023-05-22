@@ -4,6 +4,8 @@ import userEvent from "@testing-library/user-event"
 import { FilterButton } from "~components/FilterButton"
 import { DateRange, FilterDateRangePicker, FilterDateRangePickerProps } from "."
 
+const user = userEvent.setup()
+
 const FilterDateRangePickerWrapper = ({
   selectedRange,
   ...restProps
@@ -75,7 +77,7 @@ describe("<FilterDateRangePicker />", () => {
       const filterButton = screen.getByRole("button", {
         name: "Dates",
       })
-      await userEvent.click(filterButton)
+      await user.click(filterButton)
       await waitFor(() => {
         expect(screen.getByText("May 2022")).toBeVisible()
       })

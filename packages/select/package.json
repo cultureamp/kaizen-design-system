@@ -1,12 +1,11 @@
 {
   "name": "@kaizen/select",
-  "version": "6.15.4",
+  "version": "6.16.2",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "build": "yarn prepublish",
+    "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -17,29 +16,26 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
+    "**/*.js",
+    "**/*.js.map",
     "**/*.d.ts",
-    "!**/*.spec.*",
-    "!docs/**/*",
-    "!tsconfig.dist.json"
+    "**/*.scss"
   ],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/a11y": "^1.7.10",
-    "@kaizen/button": "^3.0.0",
-    "@kaizen/component-base": "^1.1.5",
-    "@kaizen/component-library": "^16.7.3",
-    "@kaizen/draft-badge": "^1.13.8",
-    "@kaizen/draft-divider": "^2.2.8",
-    "@kaizen/draft-form": "^10.3.13",
-    "@kaizen/draft-menu": "^4.9.5",
-    "@kaizen/draft-tooltip": "^5.4.41",
-    "@kaizen/loading-skeleton": "^2.0.4",
-    "@kaizen/typography": "^2.3.8",
+    "@kaizen/a11y": "^1.7.12",
+    "@kaizen/button": "^3.0.3",
+    "@kaizen/component-base": "^1.1.7",
+    "@kaizen/component-library": "^16.8.1",
+    "@kaizen/draft-badge": "^1.13.11",
+    "@kaizen/draft-divider": "^2.2.11",
+    "@kaizen/draft-form": "^10.4.5",
+    "@kaizen/draft-menu": "^5.0.0",
+    "@kaizen/draft-tooltip": "^5.4.44",
+    "@kaizen/loading-skeleton": "^2.0.7",
+    "@kaizen/typography": "^2.3.11",
     "@react-aria/button": "^3.7.1",
     "@react-aria/focus": "^3.12.0",
     "@react-aria/listbox": "^3.9.0",
@@ -56,11 +52,8 @@
     "classnames": "^2.3.2",
     "uuid": "^9.0.0"
   },
-  "devDependencies": {
-    "rimraf": "^4.4.1"
-  },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^10.3.6",
+    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

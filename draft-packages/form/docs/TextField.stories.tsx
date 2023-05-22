@@ -200,7 +200,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
+  chromatic: { disable: false, pauseAnimationAtEnd: true },
   controls: { disable: true },
 }
 
@@ -210,5 +210,5 @@ StickerSheetReversed.args = { isReversed: true }
 StickerSheetReversed.parameters = {
   controls: { disable: true },
   backgrounds: { default: "Purple 700" },
-  chromatic: { disable: false },
+  chromatic: { disable: false, pauseAnimationAtEnd: true },
 }

@@ -1,3 +1,4 @@
+/* stylelint-disable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $ca-layout-max-width: 1416px;
@@ -14,6 +15,7 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 
 @mixin ca-margin($start: 0, $end: 0, $top: null, $bottom: null) {
   @include deprecate-legacy-layout-mixins;
+
   margin-top: $top;
   margin-bottom: $bottom;
   margin-right: $end;
@@ -28,6 +30,7 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 
 @mixin ca-padding($start: 0, $end: 0, $top: null, $bottom: null) {
   @include deprecate-legacy-layout-mixins;
+
   padding-top: $top;
   padding-bottom: $bottom;
   padding-right: $end;
@@ -42,9 +45,11 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 
 @mixin ca-position($start: null, $end: null, $top: null, $bottom: null) {
   @include deprecate-legacy-layout-mixins;
+
   @if ($start == null and $end != null) {
     $start: auto;
   }
+
   @if ($end == null and $start != null) {
     $end: auto;
   }
@@ -60,3 +65,5 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
     left: $end;
   }
 }
+
+/* stylelint-enable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */

@@ -12,6 +12,7 @@ import { Content, Main, Sidebar } from "../Layout"
 import { TableOfContents } from "../TableOfContents"
 import { Alternatives } from "./subcomponents/Alternatives"
 import { Installation } from "./subcomponents/Installation"
+import { KaioInstallation } from "./subcomponents/KaioInstallation"
 import { Links } from "./subcomponents/Links"
 import { CustomStories } from "./subcomponents/Stories"
 import { Title } from "./subcomponents/Title"
@@ -40,6 +41,7 @@ export const ComponentDocsTemplate = ({
       <Content>
         <Title context={context} />
         <Links context={context} />
+        <KaioInstallation context={context} />
         <Description of="story" />
         <Installation context={context} />
         <h2 id="playground">Playground</h2>

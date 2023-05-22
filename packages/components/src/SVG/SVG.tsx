@@ -60,9 +60,11 @@ export const SVG = ({
 
   return (
     <svg
-      className={classnames(styles.icon, classNameOverride, {
-        [styles.inheritSize]: inheritSize,
-      })}
+      className={classnames(
+        styles.icon,
+        classNameOverride,
+        inheritSize && styles.inheritSize
+      )}
       viewBox={viewBox}
       // Work around IE11 making all SVGs focusable.
       // See http://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-4

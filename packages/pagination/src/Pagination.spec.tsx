@@ -1,7 +1,9 @@
 import React from "react"
-import { fireEvent } from "@testing-library/dom"
-import { render, screen } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Pagination } from "./Pagination"
+
+const user = userEvent.setup()
 
 const defaultProps = {
   currentPage: 1,
@@ -60,8 +62,9 @@ describe("<Pagination />", () => {
 
     expect(onPageChange).toHaveBeenCalledTimes(0)
 
-    fireEvent.click(screen.getByRole("button", { name: "Page 1" }))
-
-    expect(onPageChange).toHaveBeenCalledTimes(1)
+    await user.click(screen.getByRole("button", { name: "Page 1" }))
+    await waitFor(() => {
+      expect(onPageChange).toHaveBeenCalledTimes(1)
+    })
   })
 })

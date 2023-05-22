@@ -28,8 +28,9 @@ export default {
     docs: {
       container: ComponentDocsTemplate,
     },
+    isInKaio: true,
     installation: [
-      "npm install @kaizen/components",
+      "yarn add @kaizen/components",
       'import { FilterDateRangePicker } from "@kaizen/components"',
     ],
     resourceLinks: {

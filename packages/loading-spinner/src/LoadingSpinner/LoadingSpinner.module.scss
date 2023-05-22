@@ -16,7 +16,7 @@
 }
 
 .visuallyHidden {
-  @include sr-only();
+  @include sr-only;
 }
 
 .spinner {

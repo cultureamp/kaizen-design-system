@@ -1,9 +1,10 @@
 import React from "react"
-import { fireEvent, configure, queryByTestId } from "@testing-library/dom"
-import { render } from "@testing-library/react"
+import { queryByTestId } from "@testing-library/dom"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import { Collapsible, CollapsibleGroup } from ".."
 
-configure({ testIdAttribute: "data-automation-id" })
+const user = userEvent.setup()
 
 describe("<Collapsible />", () => {
   it("renders closed by default", () => {
@@ -74,15 +75,18 @@ describe("<Collapsible />", () => {
     const button = getByTestId("collapsible-button-1")
     const section = getByTestId("collapsible-section-1")
 
-    fireEvent.click(button)
-    expect(section.style.height).toEqual("0px")
+    await user.click(button)
+    await waitFor(() => {
+      expect(section.style.height).toEqual("0px")
+    })
 
-    // TODO: for some reason trying to open a closed section isn't working here
-    // fireEvent.click(button)
-    // expect(section.style.height).toEqual("auto")
+    await user.click(button)
+    await waitFor(() => {
+      expect(section.style.height).toEqual("auto")
+    })
   })
 
-  it("only toggles the height of the clicked panel in a group", () => {
+  it("only toggles the height of the clicked panel in a group", async () => {
     const { getByTestId } = render(
       <CollapsibleGroup>
         <Collapsible id="1" open title="First panel">
@@ -97,8 +101,10 @@ describe("<Collapsible />", () => {
     const button = getByTestId("collapsible-button-1")
     const section = getByTestId("collapsible-section-2")
 
-    fireEvent.click(button)
-    expect(section.style.height).toEqual("auto")
+    await user.click(button)
+    await waitFor(() => {
+      expect(section.style.height).toEqual("auto")
+    })
   })
 
   it("gives precedence to renderHeader over title", () => {
@@ -135,7 +141,7 @@ describe("<Collapsible />", () => {
     ).toBeNull()
   })
 
-  it("runs the onToggle callback", () => {
+  it("runs the onToggle callback", async () => {
     const onToggle = jest.fn()
 
     const { getByTestId } = render(
@@ -146,16 +152,20 @@ describe("<Collapsible />", () => {
 
     const button = getByTestId("collapsible-button-1")
 
-    fireEvent.click(button)
-    expect(onToggle).toHaveBeenCalledTimes(1)
-    expect(onToggle).toHaveBeenCalledWith(false, "1")
+    await user.click(button)
+    await waitFor(() => {
+      expect(onToggle).toHaveBeenCalledTimes(1)
+      expect(onToggle).toHaveBeenCalledWith(false, "1")
+    })
 
-    fireEvent.click(button)
-    expect(onToggle).toHaveBeenCalledTimes(2)
-    expect(onToggle).toHaveBeenCalledWith(true, "1")
+    await user.click(button)
+    await waitFor(() => {
+      expect(onToggle).toHaveBeenCalledTimes(2)
+      expect(onToggle).toHaveBeenCalledWith(true, "1")
+    })
   })
 
-  it("respects controlled mode (stays open after click)", () => {
+  it("respects controlled mode (stays open after click)", async () => {
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel" controlled>
         First panel content
@@ -165,8 +175,10 @@ describe("<Collapsible />", () => {
     const button = getByTestId("collapsible-button-1")
     const section = getByTestId("collapsible-section-1")
 
-    fireEvent.click(button)
-    expect(section.style.height).toEqual("auto")
+    await user.click(button)
+    await waitFor(() => {
+      expect(section.style.height).toEqual("auto")
+    })
   })
 
   it("clear variant has correct class", () => {

@@ -23,11 +23,11 @@ export const BaseButton = ({
   classNameOverride,
   ...attributes
 }: BaseButtonProps): JSX.Element => {
-  const className = classnames([
+  const className = classnames(
     styles.baseButton,
     classNameOverride,
-    isReversed ? styles.themeReversed : styles.themeDefault,
-  ])
+    isReversed ? styles.themeReversed : styles.themeDefault
+  )
 
   const contentProps = icon
     ? {

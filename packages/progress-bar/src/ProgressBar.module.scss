@@ -14,7 +14,7 @@ $height: 10px;
 .subtext {
   color: $color-purple-800;
   text-align: center;
-  opacity: 0.8;
+  opacity: 80%;
 }
 
 .progressBackground {
@@ -38,18 +38,16 @@ $height: 10px;
 
 .progress {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  inset: 0;
   border-radius: $height;
   overflow: hidden;
-  right: 0;
   transition: transform 200ms ease;
 }
 
 .positive {
   composes: progress;
   background: $color-green-400;
+
   &::after {
     @include animation-background($color-green-300);
   }
@@ -58,6 +56,7 @@ $height: 10px;
 .informative {
   composes: progress;
   background: $color-blue-400;
+
   &::after {
     @include animation-background($color-blue-300);
   }
@@ -66,6 +65,7 @@ $height: 10px;
 .cautionary {
   composes: progress;
   background: $color-yellow-400;
+
   &::after {
     @include animation-background($color-yellow-300);
   }
@@ -78,7 +78,7 @@ $height: 10px;
 
 .isAnimating {
   &::after {
-    opacity: 1;
+    opacity: 100%;
     content: "";
     position: absolute;
     top: 0;
