@@ -1,5 +1,3 @@
-@import "~@kaizen/design-tokens/sass/color";
-
 /* stylelint-disable */
 @tailwind base;
 @tailwind components;
@@ -28,7 +26,7 @@ pre code {
   }
 
   .sbdocs-a {
-    color: $color-blue-400;
+    color: --color-blue-400;
 
     &:hover {
       text-decoration: underline;

@@ -76,6 +76,7 @@
     "@storybook/addon-a11y": "^7.0.12",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
+    "@storybook/addon-styling": "^1.0.8",
     "@storybook/node-logger": "^7.0.12",
     "@storybook/react-webpack5": "^7.0.12",
     "@storybook/testing-library": "^0.1.0",

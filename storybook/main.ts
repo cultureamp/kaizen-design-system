@@ -1,7 +1,6 @@
 import fs from "fs"
 import path from "path"
 import { StorybookConfig } from "@storybook/react-webpack5"
-import sass from "sass"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -34,9 +33,11 @@ const config = {
       name: "@storybook/addon-styling",
       options: {
         sass: {
-          implementation: sass,
+          implementation: require("node-sass"),
         },
-        postCss: true,
+        postCss: {
+          implementation: require("postcss"),
+        },
       },
     },
   ],

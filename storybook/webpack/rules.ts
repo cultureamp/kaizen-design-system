@@ -9,25 +9,6 @@ export const babel: RuleSetRule = {
   options: babelConfig,
 }
 
-export const styles: RuleSetRule = {
-  test: /\.css$/i,
-  use: [
-    {
-      loader: "style-loader",
-    },
-    {
-      loader: "css-loader",
-      options: {
-        importLoaders: 2,
-        sourceMap: true,
-        modules: {
-          localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
-        },
-      },
-    },
-  ],
-}
-
 export const svgs: RuleSetRule = {
   test: /\.svg$/,
   use: [
