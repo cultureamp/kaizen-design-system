@@ -1,5 +1,11 @@
 # Change Log
 
+## 16.8.2
+
+### Patch Changes
+
+- [#3657](https://github.com/cultureamp/kaizen-design-system/pull/3657) [`4ae08d4d0`](https://github.com/cultureamp/kaizen-design-system/commit/4ae08d4d0f629dc948fac4d2934c2f9d39779b69) - Fix connect-line icon centering
+
 ## 16.8.1
 
 ### Patch Changes
