@@ -1,3 +1,6 @@
+export * from "./src/_subcomponents/Calendar"
+export * from "./src/_subcomponents/DateInput"
+export * from "./src/hooks/useDateInputHandlers"
 export * from "./src/DatePicker"
 export * from "./src/DateRangePicker"
 export * from "./src/TimeField"
