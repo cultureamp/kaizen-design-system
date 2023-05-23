@@ -2222,16 +2222,6 @@
     "@kaizen/loading-spinner" "^2.3.9"
     classnames "^2.3.2"
 
-"@kaizen/button@^2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-2.1.5.tgz#752d2bbef2d868c11bd78d3451ec5b278b935adf"
-  integrity sha512-MtKzs722lQt3tgIN7bWYA/H1CdY6zO0n7P2i01AOdcR3hmCLBRlGcy9TRDy3LVi441z07ZnIJatshsvC02pPBA==
-  dependencies:
-    "@kaizen/component-library" "^16.7.2"
-    "@kaizen/draft-badge" "^1.13.8"
-    "@kaizen/loading-spinner" "^2.3.9"
-    classnames "^2.3.2"
-
 "@manypkg/find-root@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@manypkg/find-root/-/find-root-1.1.0.tgz#a62d8ed1cd7e7d4c11d9d52a8397460b5d4ad29f"
@@ -6045,7 +6035,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@*, classnames@^2.3.1, classnames@^2.3.2:
+classnames@*, classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
