@@ -10,10 +10,9 @@ import {
 } from "~components/FilterButton"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import {
-  DateRange,
-  DateRangeFieldValidationMessage,
   DateValidationResponse,
   FilterDatePicker,
+  ValidationMessage,
 } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
@@ -87,7 +86,7 @@ import {
 } from "@kaizen/components"
 
 const [isOpen, setIsOpen] = useState<boolean>(false)
-const [range, setRange] = useState<DateRange | undefined>()
+const [range, setRange] = useState<Date | undefined>()
 
 return (
   <FilterDatePicker
@@ -107,8 +106,8 @@ return (
     // )}
     isOpen={isOpen}
     setIsOpen={setIsOpen}
-    selectedRange={range}
-    onRangeChange={setRange}
+    selectedDate={range}
+    onDateChange={setRange}
   />
 )
 `
@@ -157,9 +156,9 @@ Playground.args = {
  */
 export const RenderTrigger: StoryFn = () => {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false)
-  const [rangeButton, setRangeButton] = useState<DateRange | undefined>()
+  const [dateButton, setDateButton] = useState<Date | undefined>()
   const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
-  const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+  const [rangeRemovable, setRangeRemovable] = useState<Date | undefined>()
 
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
@@ -172,8 +171,8 @@ export const RenderTrigger: StoryFn = () => {
         )}
         isOpen={isOpenButton}
         setIsOpen={setIsOpenButton}
-        selectedRange={rangeButton}
-        onRangeChange={setRangeButton}
+        selectedDate={dateButton}
+        onDateChange={setDateButton}
       />
       <FilterDatePicker
         id="filterdrp--filter-button-removable"
@@ -189,8 +188,8 @@ export const RenderTrigger: StoryFn = () => {
         )}
         isOpen={isOpenRemovable}
         setIsOpen={setIsOpenRemovable}
-        selectedRange={rangeRemovable}
-        onRangeChange={setRangeRemovable}
+        selectedDate={rangeRemovable}
+        onDateChange={setRangeRemovable}
       />
     </div>
   )
@@ -210,16 +209,11 @@ export const SelectedRange: StoryFn = () => {
   const [isOpenNotSelected, setIsOpenNotSelected] = useState<boolean>(false)
   const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
   const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
-  const [rangeNotSelected, setRangeNotSelected] = useState<
-    DateRange | undefined
-  >()
-  const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
-    from: new Date(),
-  })
-  const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
-    from: new Date("2022-05-01"),
-    to: new Date("2022-05-12"),
-  })
+  const [rangeNotSelected, setRangeNotSelected] = useState<Date | undefined>()
+  const [rangePartial, setRangePartial] = useState<Date | undefined>(new Date())
+  const [rangeComplete, setRangeComplete] = useState<Date | undefined>(
+    new Date("2022-05-01")
+  )
 
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
@@ -229,8 +223,8 @@ export const SelectedRange: StoryFn = () => {
         label="Not selected"
         isOpen={isOpenNotSelected}
         setIsOpen={setIsOpenNotSelected}
-        selectedRange={rangeNotSelected}
-        onRangeChange={setRangeNotSelected}
+        selectedDate={rangeNotSelected}
+        onDateChange={setRangeNotSelected}
       />
       <FilterDatePicker
         {...commonProps}
@@ -238,8 +232,8 @@ export const SelectedRange: StoryFn = () => {
         label="Partial range"
         isOpen={isOpenPartial}
         setIsOpen={setIsOpenPartial}
-        selectedRange={rangePartial}
-        onRangeChange={setRangePartial}
+        selectedDate={rangePartial}
+        onDateChange={setRangePartial}
       />
       <FilterDatePicker
         {...commonProps}
@@ -247,8 +241,8 @@ export const SelectedRange: StoryFn = () => {
         label="Complete range"
         isOpen={isOpenComplete}
         setIsOpen={setIsOpenComplete}
-        selectedRange={rangeComplete}
-        onRangeChange={setRangeComplete}
+        selectedDate={rangeComplete}
+        onDateChange={setRangeComplete}
       />
     </div>
   )
@@ -270,8 +264,8 @@ export const Description: StoryFn = () => {
       )}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      selectedRange={undefined}
-      onRangeChange={(): void => undefined}
+      selectedDate={undefined}
+      onDateChange={(): void => undefined}
       description="This is a custom description"
     />
   )
@@ -294,14 +288,9 @@ export const ExtendInputProps: StoryFn = () => {
       )}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      selectedRange={undefined}
-      onRangeChange={(): void => undefined}
-      inputStartDateProps={{
-        "data-testid": "filterdrp--input-start-testid",
-      }}
-      inputEndDateProps={{
-        "data-testid": "filterdrp--input-end-testid",
-      }}
+      selectedDate={undefined}
+      onDateChange={(): void => undefined}
+      data-testid="filterdp--input-testid"
     />
   )
 }
@@ -362,70 +351,35 @@ const ValidationHelpText = ({
  * Contents extracted from within the Filter to showcase the validation.
  */
 export const Validation: StoryFn = () => {
-  const [range, setRange] = useState<DateRange | undefined>()
+  const [range, setRange] = useState<Date | undefined>()
   const [response, setResponse] = useState<DateValidationResponse | undefined>()
   const [validationMessage, setValidationMessage] = useState<
-    DateRangeFieldValidationMessage | undefined
+    ValidationMessage | undefined
   >()
 
-  const handleValidate = (
-    validationResponse: DateValidationResponse,
-    input: "dateStart" | "dateEnd"
-  ): void => {
+  const handleValidate = (validationResponse: DateValidationResponse): void => {
     setResponse(validationResponse)
     // An example of additional validation
-    if (
-      validationResponse.isValidDate &&
-      validationResponse.date?.getFullYear() !== new Date().getFullYear()
-    ) {
-      setValidationMessage(currentValue => ({
-        ...currentValue,
-        [input]: {
-          status: "caution",
-          message: `(${input}) Date is not this year`,
-        },
-      }))
+    if (validationResponse.isValidDate) {
+      setValidationMessage({
+        status: "caution",
+        message: "Date is not this year",
+      })
       return
     }
 
-    setValidationMessage(currentValue => ({
-      ...currentValue,
-      [input]: validationResponse.validationMessage,
-    }))
+    setValidationMessage(validationResponse.validationMessage)
   }
 
   const handleDateStartValidate = (
     validationResponse: DateValidationResponse
-  ): void => handleValidate(validationResponse, "dateStart")
-
-  const handleDateEndValidate = (
-    validationResponse: DateValidationResponse
-  ): void => handleValidate(validationResponse, "dateEnd")
+  ): void => handleValidate(validationResponse)
 
   const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
 
-    let errors: DateRangeFieldValidationMessage | undefined
-
-    if (validationMessage?.dateStart) {
-      errors = {
-        dateStart: { status: "error", message: "Error for start date" },
-      }
-    }
-
-    if (validationMessage?.dateEnd) {
-      errors = {
-        ...errors,
-        dateEnd: { status: "error", message: "Error for end date" },
-      }
-    }
-
-    if (errors) {
-      setValidationMessage(errors)
-      return alert("Error")
-    }
-
-    alert("Success")
+    setValidationMessage({ status: "error", message: "Error for start date" })
+    return alert("Error")
   }
 
   return (
@@ -434,12 +388,9 @@ export const Validation: StoryFn = () => {
         <FilterDatePickerField
           id="datepicker-default"
           label="Label"
-          selectedRange={range}
-          onRangeChange={setRange}
-          onValidate={{
-            dateStart: handleDateStartValidate,
-            dateEnd: handleDateEndValidate,
-          }}
+          selectedDate={range}
+          onDateChange={setRange}
+          onValidate={handleDateStartValidate}
           validationMessage={validationMessage}
           disabledDays={new Date()}
           locale="en-AU"

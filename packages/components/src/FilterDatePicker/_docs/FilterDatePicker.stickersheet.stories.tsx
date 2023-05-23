@@ -5,7 +5,7 @@ import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
-import { DateRange, FilterDatePicker } from "../index"
+import { FilterDatePicker } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
 
 const IS_CHROMATIC = isChromatic()
@@ -22,29 +22,12 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   textDirection,
 }) => {
   const [isOpenPartial, setIsOpenPartial] = useState<boolean>(IS_CHROMATIC)
-  const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
-    from: new Date("2022-05-15"),
-  })
-  const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
-  const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
-    from: new Date("2022-05-15"),
-    to: new Date("2022-06-22"),
-  })
 
-  const [rangeFieldDefault, setRangeFieldDefault] = useState<
-    DateRange | undefined
-  >()
-  const [rangeFieldExisting, setRangeFieldExisting] = useState<
-    DateRange | undefined
-  >({
-    from: new Date("2022-05-15"),
-    to: new Date("2022-06-22"),
-  })
-  const [rangeFieldValidation, setRangeFieldValidation] = useState<
-    DateRange | undefined
-  >({
-    from: new Date("2022-05-15"),
-  })
+  const [noDateValue, setNoDateValue] = useState<Date | undefined>()
+
+  const [dateValue, setDateValue] = useState<Date | undefined>(
+    new Date("2022-05-15")
+  )
 
   return (
     <>
@@ -52,32 +35,32 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         heading="Filter Date Range Picker"
         style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
       >
-        <StickerSheet.Header headings={["Partial range", "Complete range"]} />
+        <StickerSheet.Header headings={["No value display", "Value display"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-drp--partial-range`}
+              id={`${textDirection}-stickersheet--filter-dp--no-value-display`}
               isOpen={isOpenPartial}
               setIsOpen={setIsOpenPartial}
               renderTrigger={(triggerButtonProps): JSX.Element => (
                 <FilterButton {...triggerButtonProps} />
               )}
-              label="Dates"
+              label="Date"
               locale="en-US"
-              selectedRange={rangePartial}
-              onRangeChange={setRangePartial}
+              selectedDate={noDateValue}
+              onDateChange={setNoDateValue}
             />
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-drp--complete-range`}
-              isOpen={isOpenComplete}
-              setIsOpen={setIsOpenComplete}
+              id={`${textDirection}-stickersheet--filter-dp-value-display`}
+              isOpen={isOpenPartial}
+              setIsOpen={setIsOpenPartial}
               renderTrigger={(triggerButtonProps): JSX.Element => (
                 <FilterButton {...triggerButtonProps} />
               )}
-              label="Dates"
+              label="Date"
               locale="en-US"
-              selectedRange={rangeComplete}
-              onRangeChange={setRangeComplete}
+              selectedDate={dateValue}
+              onDateChange={setDateValue}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -88,42 +71,36 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           <StickerSheet.Row rowTitle="Default">
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-drp-field--default`}
-              label="Dates"
+              label="Date"
               locale="en-US"
               defaultMonth={new Date("2022-05-01")}
-              selectedRange={rangeFieldDefault}
-              onRangeChange={setRangeFieldDefault}
+              selectedDate={dateValue}
+              onDateChange={setDateValue}
             />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Existing value">
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-drp-field--existing`}
-              label="Dates"
+              label="Date"
               locale="en-US"
-              selectedRange={rangeFieldExisting}
-              onRangeChange={setRangeFieldExisting}
+              selectedDate={dateValue}
+              onDateChange={setDateValue}
             />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Validation">
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-drp-field--validation`}
-              label="Dates"
+              label="Date"
               locale="en-US"
-              selectedRange={rangeFieldValidation}
-              onRangeChange={setRangeFieldValidation}
-              onValidate={{
-                dateStart: action("Validation story: date start onValidate"),
-              }}
+              selectedDate={dateValue}
+              onDateChange={setDateValue}
+              onValidate={action("Validation story: date start onValidate")}
               validationMessage={{
-                dateStart: {
-                  status: "error",
-                  message:
-                    "(Start date custom message) Jelly-filled doughnuts are my favourite!",
-                },
+                status: "error",
+                message:
+                  "(Start date custom message) Jelly-filled doughnuts are my favourite!",
               }}
-              inputEndDateProps={{
-                "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
-              }}
+              data-testid={`${textDirection}-test__filter-drp-field--validation--end`}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>

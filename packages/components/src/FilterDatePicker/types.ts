@@ -21,8 +21,3 @@ export type ValidationMessage = {
   status: FieldMessageStatus
   message: string | React.ReactElement
 }
-
-export type DateRangeFieldValidationMessage = {
-  dateStart?: ValidationMessage
-  dateEnd?: ValidationMessage
-}
