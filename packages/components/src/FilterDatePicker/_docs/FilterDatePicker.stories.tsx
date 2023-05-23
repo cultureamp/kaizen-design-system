@@ -90,7 +90,7 @@ const [range, setRange] = useState<Date | undefined>()
 
 return (
   <FilterDatePicker
-    id="filter-drp--default"
+    id="filter-dp--default"
     label="Dates"
     locale="en-AU"
     renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -113,7 +113,7 @@ return (
 `
 
 /**
- * Date Range Picker to use for Filtering.
+ * For selecting a date which filters data.
  */
 export const Playground: StoryFn<typeof FilterDatePicker> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -163,7 +163,7 @@ export const RenderTrigger: StoryFn = () => {
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
       <FilterDatePicker
-        id="filterdrp--filter-button"
+        id="filterdp--filter-button"
         label="FilterButton"
         locale="en-AU"
         renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -175,7 +175,7 @@ export const RenderTrigger: StoryFn = () => {
         onDateChange={setDateButton}
       />
       <FilterDatePicker
-        id="filterdrp--filter-button-removable"
+        id="filterdp--filter-button-removable"
         label="FilterButtonRemovable"
         locale="en-AU"
         renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -196,59 +196,6 @@ export const RenderTrigger: StoryFn = () => {
 }
 
 /**
- * Selected value will only be passed into the Filter Button when date range has both a Start and End date.
- */
-export const SelectedRange: StoryFn = () => {
-  const commonProps = {
-    locale: "en-AU",
-    renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
-      <FilterButton {...triggerButtonProps} />
-    ),
-  }
-
-  const [isOpenNotSelected, setIsOpenNotSelected] = useState<boolean>(false)
-  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
-  const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
-  const [rangeNotSelected, setRangeNotSelected] = useState<Date | undefined>()
-  const [rangePartial, setRangePartial] = useState<Date | undefined>(new Date())
-  const [rangeComplete, setRangeComplete] = useState<Date | undefined>(
-    new Date("2022-05-01")
-  )
-
-  return (
-    <div style={{ display: "flex", gap: "1rem" }}>
-      <FilterDatePicker
-        {...commonProps}
-        id="filterdrp--not-selected"
-        label="Not selected"
-        isOpen={isOpenNotSelected}
-        setIsOpen={setIsOpenNotSelected}
-        selectedDate={rangeNotSelected}
-        onDateChange={setRangeNotSelected}
-      />
-      <FilterDatePicker
-        {...commonProps}
-        id="filterdrp--partial-range"
-        label="Partial range"
-        isOpen={isOpenPartial}
-        setIsOpen={setIsOpenPartial}
-        selectedDate={rangePartial}
-        onDateChange={setRangePartial}
-      />
-      <FilterDatePicker
-        {...commonProps}
-        id="filterdrp--complete"
-        label="Complete range"
-        isOpen={isOpenComplete}
-        setIsOpen={setIsOpenComplete}
-        selectedDate={rangeComplete}
-        onDateChange={setRangeComplete}
-      />
-    </div>
-  )
-}
-
-/**
  * Custom description to provide extra context (input format help text remains).
  */
 export const Description: StoryFn = () => {
@@ -256,7 +203,7 @@ export const Description: StoryFn = () => {
 
   return (
     <FilterDatePicker
-      id="filterdrp--description"
+      id="filterdp--description"
       label="Open to see description"
       locale="en-AU"
       renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -272,15 +219,14 @@ export const Description: StoryFn = () => {
 }
 
 /**
- * Add extra props (eg. data-attributes) to the Start or End date inputs
- * using `inputStartDateProps` and/or `inputEndDateProps`.
+ * Add extra props (eg. data-attributes)
  */
 export const ExtendInputProps: StoryFn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
     <FilterDatePicker
-      id="filterdrp--extend-input-props"
+      id="filterdp--extend-input-props"
       label="Check the DOM for the inputs"
       locale="en-AU"
       renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
