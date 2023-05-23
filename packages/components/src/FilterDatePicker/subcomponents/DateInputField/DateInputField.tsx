@@ -1,13 +1,13 @@
 import React from "react"
 import { DateInput, DateInputProps } from "@kaizen/date-picker"
 import { FieldMessage } from "@kaizen/draft-form"
-import { isRefObject } from "~utils/isRefObject"
 import {
   DateInputDescription,
   DateInputDescriptionProps,
-} from "../DateInputDescription"
+} from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
+import { isRefObject } from "~utils/isRefObject"
 
-import { ValidationMessage } from "../FilterDatePickerField/types"
+import { ValidationMessage } from "../../types"
 import styles from "./DateInputField.module.scss"
 
 export interface DateInputFieldProps extends Omit<DateInputProps, "id"> {

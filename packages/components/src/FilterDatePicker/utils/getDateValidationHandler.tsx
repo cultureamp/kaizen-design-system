@@ -1,7 +1,7 @@
 import React from "react"
 import { LabelledMessage } from "~components/LabelledMessage"
-import { getNodeText } from "../../../../utils/getNodeText"
-import { ValidationMessage, DateValidationResponse } from "../types"
+import { getNodeText } from "~utils/getNodeText"
+import { DateValidationResponse, ValidationMessage } from "../types"
 
 export type GetDateValidationHandlerArgs = {
   onValidate: ((validationResponse: DateValidationResponse) => void) | undefined

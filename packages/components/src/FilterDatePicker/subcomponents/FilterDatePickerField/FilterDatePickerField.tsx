@@ -4,21 +4,21 @@ import {
   CalendarSingle,
   CalendarSingleProps,
   useDateInputHandlers,
+  isInvalidDate,
+  formatDateAsText,
+  getLocale,
 } from "@kaizen/date-picker"
-import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
-import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
-import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
 import { FilterProps } from "~components/Filter"
+import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
-import { DateInputDescriptionProps } from "../DateInputDescription"
-import { DateInputField, DateInputFieldProps } from "../DateInputField"
-import { useDateValidation } from "./hooks/useDateValidation"
 import {
   DisabledDays,
   DateValidationResponse,
   FilterDPSupportedLocales,
   ValidationMessage,
-} from "./types"
+} from "../../types"
+import { DateInputField, DateInputFieldProps } from "../DateInputField"
+import { useSingleDateValidation } from "./hooks/useSingleDateValidation"
 import styles from "./FilterDatePickerField.module.scss"
 
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
@@ -93,7 +93,7 @@ export const FilterDatePickerField = ({
       : defaultMonth || new Date()
   )
 
-  const dateValidation = useDateValidation({
+  const dateValidation = useSingleDateValidation({
     inputLabel: label,
     disabledDays,
     validationMessage,
@@ -137,6 +137,7 @@ export const FilterDatePickerField = ({
         labelText=""
         value={inputDateValue}
         description={description}
+        validationMessage={dateValidation.validationMessage}
         {...inputDateHandlers}
       />
       <CalendarSingle

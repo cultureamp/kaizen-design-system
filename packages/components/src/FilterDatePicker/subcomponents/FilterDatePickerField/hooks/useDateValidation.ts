@@ -1,36 +1,61 @@
-import { ValidationMessage } from "../types"
+import { useState } from "react"
+import { validateDate } from "../../../utils/validateDate"
+import { getDateValidationHandler } from "../../../utils/getDateValidationHandler"
 import {
-  useRangeDateValidation,
-  UseRangeDateValidationArgs,
-} from "./useRangeDateValidation"
+  ValidationMessage,
+  DateValidationResponse,
+  DisabledDays,
+} from "../../../types"
 
-export type UseDateValidationArgs = UseRangeDateValidationArgs
+export type UseDateValidationArgs = {
+  inputLabel: React.ReactNode
+  disabledDays?: DisabledDays
+  validationMessage?: ValidationMessage
+  onValidate?: (validationResponse: DateValidationResponse) => void
+}
 
 export type UseDateValidationValue = {
   validationMessage: ValidationMessage | undefined
   validateDate: (args: {
     date: Date | undefined
     inputValue: string
-  }) => Date | undefined
+  }) => ReturnType<typeof validateDate>
+  updateValidation: (validationResponse: DateValidationResponse) => void
 }
 
-export const useDateValidation = (
-  args: UseDateValidationArgs
-): UseDateValidationValue => {
-  const { validationMessage, validateDate, updateValidation } =
-    useRangeDateValidation(args)
+export const useDateValidation = ({
+  inputLabel,
+  disabledDays,
+  validationMessage,
+  onValidate,
+}: UseDateValidationArgs): UseDateValidationValue => {
+  const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
+    ValidationMessage | undefined
+  >()
 
-  const validateStartDate: UseDateValidationValue["validateDate"] = ({
+  const shouldUseInbuiltDateValidation = onValidate === undefined
+
+  const updateValidation = getDateValidationHandler({
+    onValidate,
+    setInbuiltValidationMessage,
+    inputLabel,
+  })
+
+  const validateRangeDate: UseDateValidationValue["validateDate"] = ({
     date,
     inputValue,
-  }) => {
-    const { validationResponse, newDate } = validateDate({ date, inputValue })
-    updateValidation(validationResponse)
-    return newDate
-  }
+  }) =>
+    validateDate({
+      date,
+      inputValue,
+      disabledDays,
+    })
 
   return {
-    validationMessage,
-    validateDate: validateStartDate,
+    validationMessage: shouldUseInbuiltDateValidation
+      ? inbuiltValidationMessage
+      : validationMessage,
+    validateDate: validateRangeDate,
+    updateValidation,
   }
 }

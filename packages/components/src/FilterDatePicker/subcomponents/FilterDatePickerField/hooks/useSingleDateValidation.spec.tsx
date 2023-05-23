@@ -1,13 +1,13 @@
 import React from "react"
 import { renderHook, act } from "@testing-library/react-hooks"
 import { LabelledMessage } from "~components/LabelledMessage"
-import { useStartDateValidation } from "./useDateValidation"
+import { useSingleDateValidation } from "./useSingleDateValidation"
 
 describe("useStartDateValidation()", () => {
   describe("validateDate()", () => {
     it("returns a validation message and no date", () => {
       const { result } = renderHook(() =>
-        useStartDateValidation({
+        useSingleDateValidation({
           inputLabel: "Start date",
         })
       )

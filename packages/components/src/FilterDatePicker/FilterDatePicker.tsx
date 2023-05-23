@@ -7,7 +7,6 @@ import {
   FilterDatePickerField,
   FilterDatePickerFieldProps,
 } from "./subcomponents/FilterDatePickerField"
-import { isCompleteDate } from "./utils/isCompleteDateRange"
 
 export interface FilterDatePickerProps extends FilterDatePickerFieldProps {
   isOpen: FilterProps["isOpen"]
@@ -29,7 +28,7 @@ export const FilterDatePicker = ({
     setIsOpen={setIsOpen}
     renderTrigger={(triggerProps): JSX.Element =>
       renderTrigger({
-        selectedValue: isCompleteDate(selectedDate)
+        selectedValue: selectedDate
           ? formatDateAsText(selectedDate, undefined, getLocale(locale))
           : undefined,
         label,
