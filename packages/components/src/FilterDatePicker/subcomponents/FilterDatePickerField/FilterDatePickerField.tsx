@@ -83,7 +83,6 @@ export const FilterDatePickerField = ({
   const [inputDateValue, setInputDateValue] = useState<string>(transformedDate)
 
   const handleDateChange = (date: Date | undefined): void => {
-    setFilterOpen?.(false)
     onDateChange(date)
   }
 
@@ -122,7 +121,11 @@ export const FilterDatePickerField = ({
 
     setInputDateValue(transformDateToInputValue(newDate))
 
-    handleDateChange(newDate)
+    if (newDate) {
+      // Close the filter when a date is selected
+      setFilterOpen?.(false)
+      handleDateChange(newDate)
+    }
   }
 
   return (
