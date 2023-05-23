@@ -21,7 +21,8 @@ export default {
 const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   textDirection,
 }) => {
-  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(IS_CHROMATIC)
+  const [isOpenNoValue, setIsOpenNoValue] = useState<boolean>(IS_CHROMATIC)
+  const [isOpenValue, setIsOpenValue] = useState<boolean>(IS_CHROMATIC)
 
   const [noDateValue, setNoDateValue] = useState<Date | undefined>()
 
@@ -40,24 +41,24 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           <StickerSheet.Row>
             <FilterDatePicker
               id={`${textDirection}-stickersheet--filter-dp--no-value-display`}
-              isOpen={isOpenPartial}
-              setIsOpen={setIsOpenPartial}
+              isOpen={isOpenNoValue}
+              setIsOpen={setIsOpenNoValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (
                 <FilterButton {...triggerButtonProps} />
               )}
-              label="Date"
+              label="Start day"
               locale="en-US"
               selectedDate={noDateValue}
               onDateChange={setNoDateValue}
             />
             <FilterDatePicker
               id={`${textDirection}-stickersheet--filter-dp-value-display`}
-              isOpen={isOpenPartial}
-              setIsOpen={setIsOpenPartial}
+              isOpen={isOpenValue}
+              setIsOpen={setIsOpenValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (
                 <FilterButton {...triggerButtonProps} />
               )}
-              label="Date"
+              label="Start day"
               locale="en-US"
               selectedDate={dateValue}
               onDateChange={setDateValue}

@@ -133,8 +133,7 @@ export const FilterDatePickerField = ({
       <DateInputField
         id={id}
         locale={locale}
-        aria-label={label}
-        labelText=""
+        labelText="Date"
         value={inputDateValue}
         description={description}
         validationMessage={dateValidation.validationMessage}

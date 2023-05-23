@@ -351,7 +351,7 @@ const ValidationHelpText = ({
  * Contents extracted from within the Filter to showcase the validation.
  */
 export const Validation: StoryFn = () => {
-  const [range, setRange] = useState<Date | undefined>()
+  const [value, setValue] = useState<Date | undefined>()
   const [response, setResponse] = useState<DateValidationResponse | undefined>()
   const [validationMessage, setValidationMessage] = useState<
     ValidationMessage | undefined
@@ -360,7 +360,10 @@ export const Validation: StoryFn = () => {
   const handleValidate = (validationResponse: DateValidationResponse): void => {
     setResponse(validationResponse)
     // An example of additional validation
-    if (validationResponse.isValidDate) {
+    if (
+      validationResponse.isValidDate &&
+      validationResponse.date?.getFullYear() !== new Date().getFullYear()
+    ) {
       setValidationMessage({
         status: "caution",
         message: "Date is not this year",
@@ -371,14 +374,10 @@ export const Validation: StoryFn = () => {
     setValidationMessage(validationResponse.validationMessage)
   }
 
-  const handleDateStartValidate = (
-    validationResponse: DateValidationResponse
-  ): void => handleValidate(validationResponse)
-
   const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
 
-    setValidationMessage({ status: "error", message: "Error for start date" })
+    setValidationMessage({ status: "error", message: "Error for date" })
     return alert("Error")
   }
 
@@ -388,9 +387,9 @@ export const Validation: StoryFn = () => {
         <FilterDatePickerField
           id="datepicker-default"
           label="Label"
-          selectedDate={range}
-          onDateChange={setRange}
-          onValidate={handleDateStartValidate}
+          selectedDate={value}
+          onDateChange={setValue}
+          onValidate={handleValidate}
           validationMessage={validationMessage}
           disabledDays={new Date()}
           locale="en-AU"
