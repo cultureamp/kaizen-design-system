@@ -35,6 +35,20 @@ const config = {
         sass: {
           implementation: require("node-sass"),
         },
+        scssBuildRule: {
+          test: /\.module.scss$/,
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                sourceMap: true,
+                modules: {
+                  localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
+                },
+              },
+            },
+          ],
+        },
         postCss: {
           implementation: require("postcss"),
         },
