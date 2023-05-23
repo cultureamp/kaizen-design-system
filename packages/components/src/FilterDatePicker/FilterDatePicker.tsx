@@ -1,7 +1,6 @@
 import React from "react"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
-import { LabelledMessage } from "~components/LabelledMessage"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import {
@@ -43,6 +42,7 @@ export const FilterDatePicker = ({
         label={label}
         locale={locale}
         selectedDate={selectedDate}
+        setFilterOpen={setIsOpen}
         {...restProps}
       />
     </FilterContents>

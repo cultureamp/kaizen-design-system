@@ -8,10 +8,11 @@ import {
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
+import { FilterProps } from "~components/Filter"
 import { DataAttributes } from "~types/DataAttributes"
 import { DateInputDescriptionProps } from "../DateInputDescription"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
-import { useDateValidation } from "./hooks/useStartDateValidation"
+import { useDateValidation } from "./hooks/useDateValidation"
 import {
   DisabledDays,
   DateValidationResponse,
@@ -54,6 +55,7 @@ export interface FilterDatePickerFieldProps
    * Callback when a date is selected. Utilises internal validation if not set.
    */
   onValidate?: (validationResponse: DateValidationResponse) => void
+  setFilterOpen?: FilterProps["setIsOpen"]
 }
 
 export const FilterDatePickerField = ({
@@ -68,6 +70,7 @@ export const FilterDatePickerField = ({
   validationMessage,
   onValidate,
   classNameOverride,
+  setFilterOpen,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
   const locale = getLocale(propsLocale)
@@ -80,6 +83,7 @@ export const FilterDatePickerField = ({
   const [inputDateValue, setInputDateValue] = useState<string>(transformedDate)
 
   const handleDateChange = (date: Date | undefined): void => {
+    setFilterOpen?.(false)
     onDateChange(date)
   }
 

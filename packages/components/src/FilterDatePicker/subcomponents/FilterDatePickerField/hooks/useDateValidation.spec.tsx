@@ -1,7 +1,7 @@
 import React from "react"
 import { renderHook, act } from "@testing-library/react-hooks"
 import { LabelledMessage } from "~components/LabelledMessage"
-import { useStartDateValidation } from "./useStartDateValidation"
+import { useStartDateValidation } from "./useDateValidation"
 
 describe("useStartDateValidation()", () => {
   describe("validateDate()", () => {
