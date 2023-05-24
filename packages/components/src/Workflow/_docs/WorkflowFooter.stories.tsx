@@ -19,7 +19,7 @@ const meta = {
   component: Footer,
   parameters: {
     docs: {
-      source: { type: "code" },
+      sourceState: "shown",
       container: ComponentDocsTemplate,
     },
     installation: [
@@ -94,7 +94,7 @@ NextStepDisabled.args = {
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   nextAction: <Button disabled reversed label="Next" />,
-  previousAction: <Button reversed label="Back" />,
+  previousAction: <Button reversed label="Back" form="workflow-form-id" />,
 }
 
 export const LastStep = VariantTemplate.bind({})
@@ -103,7 +103,7 @@ LastStep.args = {
   stepName: "Schedule",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
-  nextAction: <Button reversed primary label="Finish" />,
+  nextAction: <Button reversed primary disabled label="Finish" />,
   previousAction: <Button reversed label="Back" />,
 }
 
@@ -113,8 +113,7 @@ AllStepsComplete.args = {
   stepName: "Schedule",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: true,
-  nextAction: <Button reversed primary label="Finish" />,
-  previousAction: <Button reversed label="Back" />,
+  nextAction: <Button reversed label="Next" />,
 }
 
 export const FewerSteps = VariantTemplate.bind({})

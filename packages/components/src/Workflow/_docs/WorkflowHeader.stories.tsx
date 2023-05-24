@@ -22,7 +22,7 @@ const meta = {
   component: Header,
   parameters: {
     docs: {
-      source: { type: "code" },
+      sourceState: "shown",
       container: ComponentDocsTemplate,
     },
     installation: [

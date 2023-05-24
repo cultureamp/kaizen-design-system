@@ -1,6 +1,8 @@
-import { Canvas, Controls, DocsStory, Meta, Source } from "@storybook/blocks"
+import { Canvas, Controls, DocsStory, Meta, Source, ArgTypes  } from "@storybook/blocks"
 import { LinkTo } from "../../../../../storybook/components/LinkTo"
 import * as Workflow from "./Workflow.stories"
+import * as WorkflowFooter from "./WorkflowFooter.stories"
+import * as WorkflowHeader from "./WorkflowHeader.stories"
 import { KaioNotification } from "../../../../../storybook/components/DocsContainer/ComponentDocsTemplate/subcomponents/KaioInstallation/KaioNotification"
 
 <Meta title="Workflow" />
@@ -35,25 +37,46 @@ This component has responsiveness baked in to support 400% zoom and smaller scre
 
 <Canvas layout="fullscreen" of={Workflow.Playground} />
 
-<Controls of={Workflow.Playground} exclude={["children"]} />
+## Header actions
 
-## Final step
+The `headerActions` prop  takes array of JSX elements that will render in the top right of the `Header` component.
 
-While the footer actions can take any JSX elements we recommend using the @kaizen/button component to handle page routing and submit requests for visual continuity
+While the number of JSX element is not limited, is important to consider the realestate in the `Header` and how larger strings or components may be rendered on smaller screen sizes.
 
-The progress stepper will update its completed and in progress indicators by comparing the stepName to the array of steps.
-
-<Canvas layout="fullscreen" of={Workflow.FinalStep} />
-
-## Completed Workflow
-
-Instances where users are returning to a completed worklow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will be reflected in their aria title
-
-<Canvas layout="fullscreen" of={Workflow.CompletedWorkflow} />
+<Canvas layout="fullscreen" of={WorkflowHeader.MultipleActions} />
 
 
-## Composable Workflow
+## Handling a Workflow exit
 
-While we advise against it, each component is exported from the `@kaizen/workflow` package so a custom workflow can be composed from its children if absolutely neccessary
+This package also exports a `WorkflowExit` component that can be  used to handle a customer leaving a Workflow page.
+
+This triggers a modal that can provide context to a customers and confirm thier intention to exit the workflow. The `onExit` callback is triggered by a button labelled with the `confirmExitLabel` prop.
+
+<Canvas layout="fullscreen" of={WorkflowHeader.Playground} />
+
+## Tracking progress
+
+The Footer tracks the progress of the form by comparing the current step, indicated by `stepName`, against its position in the `steps` array.
+
+<Canvas layout="fullscreen" of={WorkflowFooter.FirstStep} />
+
+The Footer is agnostic to the JSX elements that are used in the `previousAction` and `nextAction`. We recommend using the `Button` component but an alternative JSX component can be used if you require NextJS Routing.
+
+To hide, disable or change the appearance of the Footer buttons you can leverage the props available for the `@kaizen/button` or pass in undefined to not render the component.
+
+<Canvas layout="fullscreen" of={WorkflowFooter.LastStep} />
+
+Instances where users are returning to a completed worklow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their aria title.
+
+<Canvas layout="fullscreen" of={WorkflowFooter.AllStepsComplete} />
+
+## Compsable Worflow
+
+While we do not advise this path, a composable Workflow may be created if required. Refer to the components stories on how to consume each subcomponent
 
 <Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
+
+## Worflow API at a glance
+
+<ArgTypes of={Workflow.Playground} />
+
