@@ -3,13 +3,14 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { Footer, FooterProps } from "../"
+import { WorkflowControls } from "./controls"
 
 const defaultArgs = {
   stepName: "Preview",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
-  previousAction: <Button reversed label="back" />,
-  nextAction: <Button reversed label="next" />,
+  previousAction: <Button reversed label="Back" />,
+  nextAction: <Button reversed label="Next" />,
 } satisfies FooterProps
 
 const meta = {
@@ -34,6 +35,10 @@ const meta = {
       designGuidelines:
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
+  },
+  argTypes: {
+    nextAction: WorkflowControls.nextAction,
+    previousAction: WorkflowControls.previousAction,
   },
 } satisfies Meta<typeof Footer>
 

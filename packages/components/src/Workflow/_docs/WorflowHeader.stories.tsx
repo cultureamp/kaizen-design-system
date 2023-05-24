@@ -4,6 +4,7 @@ import { Button } from "@kaizen/button"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { WorkflowExit, Header, HeaderProps } from "../"
+import { WorkflowControls } from "./controls"
 
 const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
@@ -37,6 +38,9 @@ const meta = {
       designGuidelines:
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
+  },
+  argTypes: {
+    headerActions: WorkflowControls.headerActions,
   },
 } satisfies Meta<typeof Header>
 

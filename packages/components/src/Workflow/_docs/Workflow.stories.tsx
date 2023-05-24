@@ -9,12 +9,16 @@ import {
   Footer,
   Main,
 } from "../"
+import { WorkflowControls } from "./controls"
 
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
     <div className="max-w-[1392px] w-100">
       <h3>Name and schedule the self-reflection cycle</h3>
-      <div className="bg-white rounded-default shadow-sm my-32 p-64">
+      <form
+        id="workflow-form-id"
+        className="bg-white rounded-default shadow-sm my-32 p-64"
+      >
         <h4>Name the cycle</h4>
         <label
           className="block font-weight-paragraph-bold"
@@ -30,7 +34,7 @@ const MockContent = (): JSX.Element => (
         <p id="input-workflow-desc">
           This is the name that will be displayed across the cycle for everyone
         </p>
-      </div>
+      </form>
     </div>
   </div>
 )
@@ -44,8 +48,8 @@ const defaultArgs = {
     content: "Draft",
     variant: "statusDraft",
   },
-  previousAction: <Button reversed label="back" />,
-  nextAction: <Button reversed label="next" />,
+  previousAction: <Button reversed label="Back" />,
+  nextAction: <Button reversed label="Next" />,
   headerActions: [
     <WorkflowExit
       key="would-use-uui"
@@ -64,6 +68,7 @@ const meta = {
   title: "Workflow/Components/Workflow",
   component: Workflow,
   args: defaultArgs,
+  argTypes: WorkflowControls,
 } satisfies Meta<typeof Workflow>
 
 export default meta
@@ -85,7 +90,7 @@ export const FinalStep: StoryObj<typeof meta> = {
     workflowName: "Create a self-reflection cycle",
     stepName: "Settings",
     steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-    isComplete: true,
+    isComplete: false,
     status: {
       content: "Draft",
       variant: "statusDraft",
@@ -166,9 +171,3 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
     />
   </div>
 )
-
-// ComposableWorkflow.args = { ...defaultArgs }
-
-// /**
-// <p>While we advise against it, each component is exported from the `@kaizen/workflow` package so a custom workflow can be composed from its children if absolutely neccessary</p>
-//  */

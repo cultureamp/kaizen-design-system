@@ -10,9 +10,9 @@ import {
 export interface FooterProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "children">>,
     ProgressStepperProps {
-  /** An action the return to a previous step */
+  /** An action to return to a previous step */
   previousAction?: JSX.Element
-  /** An action the progress to the next step */
+  /** An action to progress to the next step or submit the form */
   nextAction?: JSX.Element
 }
 
