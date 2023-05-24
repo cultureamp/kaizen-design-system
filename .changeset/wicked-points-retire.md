@@ -4,5 +4,5 @@
 "@kaizen/select": minor
 ---
 
-- changed percentage value to opacity value
+- changed opacity percentage values to decimal values
 - removed percentage rule from stylelint
