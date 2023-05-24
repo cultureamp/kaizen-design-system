@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.17.0
+
+### Minor Changes
+
+- [#3669](https://github.com/cultureamp/kaizen-design-system/pull/3669) [`1cfc21a2c`](https://github.com/cultureamp/kaizen-design-system/commit/1cfc21a2cb47d9256a37d2ffc201aa8c3453a3b6) - - changed opacity percentage values to decimal values
+  - removed percentage rule from stylelint
+
 ## 6.16.2
 
 ### Patch Changes
