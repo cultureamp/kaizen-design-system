@@ -1,6 +1,8 @@
 import React from "react"
 import classnames from "classnames"
 import { Icon } from "@kaizen/component-library"
+import emptyIcon from "@kaizen/component-library/icons/empty.icon.svg"
+import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
 import SuccessIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Paragraph } from "@kaizen/typography"
 import styles from "./ProgressStepper.module.scss"
@@ -11,18 +13,27 @@ export interface ProgressStepperProps {
   isComplete?: boolean
 }
 
-const getA11yStepStatus = (
+const getStepStatus = (
   isComplete: boolean,
   isCurrentStep: boolean,
   step: string
-): string => {
+): { icon: React.SVGAttributes<SVGSymbolElement>; accessibleName: string } => {
   if (isComplete) {
-    return `Completed: ${step}`
+    return {
+      icon: SuccessIcon,
+      accessibleName: `Completed: ${step}`,
+    }
   }
   if (isCurrentStep) {
-    return `Current: ${step}`
+    return {
+      icon: fullIcon,
+      accessibleName: `Current: ${step}`,
+    }
   }
-  return `Not started: ${step}`
+  return {
+    icon: emptyIcon,
+    accessibleName: `Not started: ${step}`,
+  }
 }
 
 export const ProgressStepper = ({
@@ -43,6 +54,7 @@ export const ProgressStepper = ({
         {steps.map((step: string, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
+          const stepStatus = getStepStatus(isCompletedStep, isCurrentStep, step)
           return (
             <li
               className={styles.step}
@@ -52,7 +64,7 @@ export const ProgressStepper = ({
               <div className={styles.stepContent}>
                 <span className="sr-only">
                   {/* will need to be translated */}
-                  {getA11yStepStatus(isCompletedStep, isCurrentStep, step)}
+                  {stepStatus.accessibleName}
                 </span>
                 <Paragraph
                   classNameOverride={styles.stepName}
@@ -62,22 +74,14 @@ export const ProgressStepper = ({
                 >
                   {step}
                 </Paragraph>
-                <div
-                  className={classnames([
-                    styles.stepIndicator,
-                    isCurrentStep && styles.stepCurrent,
-                    isCompletedStep && styles.completedStep,
-                  ])}
-                >
-                  {isCompletedStep && (
-                    <span className={styles.completedIcon}>
-                      <Icon
-                        role="presentation"
-                        icon={SuccessIcon}
-                        inheritSize
-                      />
-                    </span>
-                  )}
+                <div className={styles.stepIndicator}>
+                  <span className={styles.stepIcon}>
+                    <Icon
+                      role="presentation"
+                      icon={stepStatus.icon}
+                      inheritSize
+                    />
+                  </span>
                 </div>
                 {index < steps.length - 1 && (
                   <div

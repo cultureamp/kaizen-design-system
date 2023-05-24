@@ -31,46 +31,12 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: $spacing-2;
 }
 
 .stepIndicator {
-  width: $spacing-12;
-  height: $spacing-12;
+  width: $spacing-16;
+  height: $spacing-16;
   position: relative;
-}
-
-.stepIndicator::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: $spacing-12;
-  height: $spacing-12;
-  border-radius: 100%;
-  border: $border-solid-border-style $border-solid-border-width $color-white;
-}
-
-.stepCurrent {
-  opacity: 100%;
-}
-
-.stepCurrent::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: $spacing-8;
-  height: $spacing-8;
-  background-color: $color-white;
-  border-radius: 100%;
-}
-
-.completedStep,
-.completedStep::after {
-  background-color: transparent;
 }
 
 .stepName {
@@ -80,7 +46,7 @@
   font-weight: $typography-paragraph-bold-font-weight;
 }
 
-.completedIcon {
+.stepIcon {
   color: $color-white;
   position: absolute;
   width: $spacing-16;
