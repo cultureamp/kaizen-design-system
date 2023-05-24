@@ -41,7 +41,7 @@ export const FilterDatePicker = ({
       <FilterDatePickerField
         locale={locale}
         selectedDate={selectedDate}
-        setFilterOpen={setIsOpen}
+        setIsFilterOpen={setIsOpen}
         {...restProps}
       />
     </FilterContents>
