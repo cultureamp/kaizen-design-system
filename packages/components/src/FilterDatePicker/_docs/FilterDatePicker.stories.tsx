@@ -144,7 +144,7 @@ Playground.parameters = {
   },
 }
 Playground.args = {
-  id: "filter-drp--default",
+  id: "filter-dp--default",
   /* @ts-expect-error: Storybook controls key; see argTypes in default export */
   renderTrigger: "Filter Button",
 }
@@ -332,7 +332,7 @@ export const Validation: StoryFn = () => {
       <form onSubmit={submitRequest}>
         <FilterDatePickerField
           id="datepicker-default"
-          label="Label"
+          inputProps={{ labelText: "Label" }}
           selectedDate={value}
           onDateChange={setValue}
           onValidate={handleValidate}

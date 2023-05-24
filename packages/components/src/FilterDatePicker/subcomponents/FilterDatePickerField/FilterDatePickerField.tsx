@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import classnames from "classnames"
 import {
   CalendarSingle,
@@ -27,7 +27,6 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 export interface FilterDatePickerFieldProps
   extends FilterInputProps<Omit<DateInputFieldProps, "id" | "locale">> {
   id: string
-  label: string
   locale: FilterDPSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
@@ -46,6 +45,7 @@ export interface FilterDatePickerFieldProps
    * See https://react-day-picker.js.org/api/types/Matcher
    */
   disabledDays?: DisabledDays
+  inputProps?: FilterInputProps<DateInputFieldProps>
   /**
    * Custom description to provide extra context (input format help text remains).
    */
@@ -55,12 +55,12 @@ export interface FilterDatePickerFieldProps
    * Callback when a date is selected. Utilises internal validation if not set.
    */
   onValidate?: (validationResponse: DateValidationResponse) => void
-  setFilterOpen?: FilterProps["setIsOpen"]
+  setIsFilterOpen?: FilterProps["setIsOpen"]
 }
 
 export const FilterDatePickerField = ({
   id,
-  label,
+  inputProps,
   locale: propsLocale,
   defaultMonth,
   selectedDate,
@@ -70,21 +70,16 @@ export const FilterDatePickerField = ({
   validationMessage,
   onValidate,
   classNameOverride,
-  setFilterOpen,
+  setIsFilterOpen,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
   const locale = getLocale(propsLocale)
+  const inputLabel = inputProps?.labelText || "Date"
 
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""
 
   const transformedDate = transformDateToInputValue(selectedDate)
-
-  const [inputDateValue, setInputDateValue] = useState<string>(transformedDate)
-
-  const handleDateChange = (date: Date | undefined): void => {
-    onDateChange(date)
-  }
 
   const [startMonth, setStartMonth] = useState<Date>(
     selectedDate && !isInvalidDate(selectedDate)
@@ -92,8 +87,14 @@ export const FilterDatePickerField = ({
       : defaultMonth || new Date()
   )
 
+  const [inputDateValue, setInputDateValue] = useState<string>(transformedDate)
+
+  const handleDateChange = (date: Date | undefined): void => {
+    onDateChange(date)
+  }
+
   const dateValidation = useSingleDateValidation({
-    inputLabel: label,
+    inputLabel: inputProps?.labelText || "Date",
     disabledDays,
     validationMessage,
     onValidate,
@@ -109,24 +110,27 @@ export const FilterDatePickerField = ({
     onDateChange: date => {
       const newDate = validateDate(date)
 
-      handleDateChange(newDate)
-
-      if (newDate) setStartMonth(newDate)
+      if (newDate) {
+        setStartMonth(newDate)
+        handleDateChange(newDate)
+      }
     },
-    ...restProps,
+    ...inputProps,
   })
 
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
     const newDate = validateDate(date)
-
     setInputDateValue(transformDateToInputValue(newDate))
+    handleDateChange(newDate)
 
-    if (newDate) {
-      // Close the filter when a date is selected
-      setFilterOpen?.(false)
-      handleDateChange(newDate)
-    }
+    // Close the filter when a date is selected
+    setIsFilterOpen?.(false)
   }
+
+  useEffect(() => {
+    const newDate = validateDate(selectedDate)
+    handleDateChange(newDate)
+  }, [])
 
   return (
     <div
@@ -134,13 +138,14 @@ export const FilterDatePickerField = ({
       {...restProps}
     >
       <DateInputField
-        id={id}
-        locale={locale}
-        labelText="Date"
+        id={`${id}--input`}
+        labelText={inputLabel}
         value={inputDateValue}
+        locale={locale}
         description={description}
         validationMessage={dateValidation.validationMessage}
         {...inputDateHandlers}
+        {...inputProps}
       />
       <CalendarSingle
         disabled={disabledDays}

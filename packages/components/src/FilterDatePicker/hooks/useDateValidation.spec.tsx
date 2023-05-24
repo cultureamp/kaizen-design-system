@@ -26,7 +26,7 @@ describe("useDateValidation()", () => {
     it("returns a validation message and no date", () => {
       const { result } = renderHook(() =>
         useDateValidation({
-          inputLabel: "Start date",
+          inputLabel: "Date",
         })
       )
       const { validateDate, updateValidation } = result.current
@@ -42,10 +42,7 @@ describe("useDateValidation()", () => {
       expect(result.current.validationMessage).toStrictEqual({
         status: "error",
         message: (
-          <LabelledMessage
-            label="Start date"
-            message="potato is an invalid date"
-          />
+          <LabelledMessage label="Date" message="potato is an invalid date" />
         ),
       })
       expect(newDate).toBeUndefined()

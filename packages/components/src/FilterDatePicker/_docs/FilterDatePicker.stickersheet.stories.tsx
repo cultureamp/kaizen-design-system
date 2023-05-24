@@ -71,8 +71,8 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--default`}
-              label="Date"
+              id={`${textDirection}-stickersheet--filter-dp-field--default`}
+              labelText="Date"
               locale="en-US"
               defaultMonth={new Date("2022-05-01")}
               selectedDate={dateValue}
@@ -81,8 +81,8 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Existing value">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--existing`}
-              label="Date"
+              id={`${textDirection}-stickersheet--filter-dp-field--existing`}
+              labelText="Date"
               locale="en-US"
               selectedDate={dateValue}
               onDateChange={setDateValue}
@@ -90,8 +90,8 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Validation">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--validation`}
-              label="Date"
+              id={`${textDirection}-stickersheet--filter-dp-field--validation`}
+              labelText="Date"
               locale="en-US"
               selectedDate={dateValue}
               onDateChange={setDateValue}
@@ -101,7 +101,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
                 message:
                   "(Start date custom message) Jelly-filled doughnuts are my favourite!",
               }}
-              data-testid={`${textDirection}-test__filter-drp-field--validation--end`}
+              data-testid={`${textDirection}-test__filter-dp-field--validation`}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -116,7 +116,7 @@ const applyStickerSheetStyles = (
 ): void => {
   const canvas = within(canvasElement)
   const inputEndDate = canvas.getByTestId(
-    `${textDirection}-test__filter-drp-field--validation--end`
+    `${textDirection}-test__filter-dp-field--validation`
   )
   userEvent.click(inputEndDate)
   userEvent.type(inputEndDate, "potato")

@@ -3,12 +3,12 @@ import { renderHook, act } from "@testing-library/react-hooks"
 import { LabelledMessage } from "~components/LabelledMessage"
 import { useSingleDateValidation } from "./useSingleDateValidation"
 
-describe("useStartDateValidation()", () => {
+describe("useSingleDateValidation()", () => {
   describe("validateDate()", () => {
     it("returns a validation message and no date", () => {
       const { result } = renderHook(() =>
         useSingleDateValidation({
-          inputLabel: "Start date",
+          inputLabel: "Date",
         })
       )
       const { validateDate } = result.current
@@ -24,10 +24,7 @@ describe("useStartDateValidation()", () => {
       expect(result.current.validationMessage).toStrictEqual({
         status: "error",
         message: (
-          <LabelledMessage
-            label="Start date"
-            message="potato is an invalid date"
-          />
+          <LabelledMessage label="Date" message="potato is an invalid date" />
         ),
       })
     })

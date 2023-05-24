@@ -9,6 +9,7 @@ import {
 } from "./subcomponents/FilterDatePickerField"
 
 export interface FilterDatePickerProps extends FilterDatePickerFieldProps {
+  label: string
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
@@ -38,7 +39,6 @@ export const FilterDatePicker = ({
   >
     <FilterContents>
       <FilterDatePickerField
-        label={label}
         locale={locale}
         selectedDate={selectedDate}
         setFilterOpen={setIsOpen}
