@@ -46,7 +46,9 @@ describe("<FilterDatePickerField />", () => {
       render(
         <FilterDatePickerFieldWrapper
           selectedDate={new Date("2022-05-01")}
-          labelText="Due date"
+          inputProps={{
+            labelText: "Due date",
+          }}
         />
       )
 
@@ -236,13 +238,14 @@ describe("<FilterDatePickerField />", () => {
 
       await waitFor(() => {
         expect(dateErrorContainer).toHaveTextContent(
-          "Date:potato is an invalid date"
+          "Date:Invalid Date is an invalid date"
         )
       })
 
       const targetDay = screen.getByRole("button", {
-        name: "12th May (Thursday)",
+        name: "12th May (Friday)",
       })
+
       await user.click(targetDay)
 
       await waitFor(() => {
