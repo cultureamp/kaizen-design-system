@@ -1,7 +1,6 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import {
   Workflow,
   WorkflowExit,
@@ -10,57 +9,6 @@ import {
   Footer,
   Main,
 } from "../"
-
-const defaultArgs = {
-  workflowName: "Create a self-reflection cycle",
-  stepName: "Settings",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: false,
-  status: {
-    content: "Draft",
-    variant: "statusDraft",
-  },
-  previousAction: <Button reversed label="back" />,
-  nextAction: <Button reversed label="next" />,
-  headerActions: [
-    <WorkflowExit
-      key="would-use-uui"
-      exitLabel="Save and close"
-      exitTitle="Before you exit"
-      exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-      confirmExitLabel="Close and save"
-      dismissExitLabel="Dismiss"
-      onExit={(): void => alert("mock example of a save action")}
-    />,
-  ],
-} satisfies WorkflowProps
-
-const meta = {
-  tags: ["autodocs"],
-  title: "Workflow",
-  component: Workflow,
-  parameters: {
-    docs: {
-      source: { type: "code" },
-      container: ComponentDocsTemplate,
-    },
-    installation: [
-      "yarn add @kaizen/workflow",
-      "import { Workflow } from `@kaizen/workflow`",
-    ],
-    resourceLinks: {
-      sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/workflow/",
-      figma:
-        "https://www.figma.com/file/IJTy1JpS4Xyop5cQwroRje/%F0%9F%9B%A0%EF%B8%8F-Self-reflection%3A-Build-Handoff?node-id=188%3A62005&t=x4zyx07E2G3BmKGw-1",
-      /** @todo (optional): Add Confluence link */
-      designGuidelines:
-        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
-    },
-  },
-} satisfies Meta<typeof Workflow>
-
-export default meta
 
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
@@ -87,87 +35,17 @@ const MockContent = (): JSX.Element => (
   </div>
 )
 
-/**
-<p>This is a page template component containing the header, footer and main landmarks that compose a Workflow page. Its purpose is to guide an customer through a multi-step form to create a Workflow.</p>
-<p>The Worflow's children will be wrapped in a unstyled main landmark to provide felxibility of content styles.</p>
- */
-export const Playground: StoryFn<WorkflowProps> = ({
-  steps,
-  isComplete,
-  workflowName,
-  stepName,
-  status,
-  headerActions,
-  previousAction,
-  nextAction,
-  ...restProps
-}) => (
-  <Workflow
-    workflowName={workflowName}
-    stepName={stepName}
-    status={status}
-    headerActions={headerActions}
-    steps={steps}
-    isComplete={isComplete}
-    nextAction={nextAction}
-    previousAction={previousAction}
-    {...restProps}
-  >
-    <MockContent />
-  </Workflow>
-)
-
-Playground.args = { ...defaultArgs }
-
-/**
-<p>The progress stepper will update its completed and in progress indicators by comparing the stepName to the array of steps.</p>
-<p>While the footer actions can take any JSX elements we recommend using the @kaizen/button component to handle page routing and submit requests for visual continuity</p>
- */
-export const FinalStep: StoryFn<WorkflowProps> = () => (
-  <Workflow
-    workflowName="Create a self-reflection cycle"
-    stepName="Schedule"
-    status={{
-      content: "Draft",
-    }}
-    headerActions={[
-      <WorkflowExit
-        key="would-use-uui"
-        exitLabel="Save and close"
-        exitTitle="Before you exit"
-        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-        confirmExitLabel="Close and save"
-        dismissExitLabel="Dismiss"
-        onExit={(): void => alert("mock example of a save action")}
-      />,
-    ]}
-    steps={["Settings", "Questions", "Preview", "Employees", "Schedule"]}
-    isComplete={false}
-    nextAction={<Button reversed primary label="Finish" />}
-    previousAction={<Button reversed label="Back" />}
-  >
-    <MockContent />
-  </Workflow>
-)
-
-FinalStep.storyName = "Final step of workflow"
-
-/**
-<p>In stances where users are returning to a completed worklow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will be reflected in their aria title</p>
- */
-export const CompletedWorkflow = Playground.bind({})
-
-CompletedWorkflow.storyName = "Returning to a completed workflow"
-CompletedWorkflow.args = {
+const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
   stepName: "Settings",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: true,
+  isComplete: false,
   status: {
     content: "Draft",
     variant: "statusDraft",
   },
-  nextAction: <Button reversed label="Next" />,
+  previousAction: <Button reversed label="back" />,
+  nextAction: <Button reversed label="next" />,
   headerActions: [
     <WorkflowExit
       key="would-use-uui"
@@ -179,11 +57,79 @@ CompletedWorkflow.args = {
       onExit={(): void => alert("mock example of a save action")}
     />,
   ],
+  children: <MockContent />,
+} satisfies WorkflowProps
+
+const meta = {
+  title: "Workflow/Components/Workflow",
+  component: Workflow,
+  args: defaultArgs,
+} satisfies Meta<typeof Workflow>
+
+export default meta
+
+export const Playground: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
 }
 
-/**
-<p>While we advise against it, each component is exported from the `@kaizen/workflow` package so a custom workflow can be composed from its children if absolutely neccessary</p>
- */
+Playground.args = { ...defaultArgs }
+
+export const FinalStep: StoryObj<typeof meta> = {
+  args: {
+    workflowName: "Create a self-reflection cycle",
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: true,
+    status: {
+      content: "Draft",
+      variant: "statusDraft",
+    },
+    nextAction: <Button reversed label="Next" />,
+    headerActions: [
+      <WorkflowExit
+        key="would-use-uui"
+        exitLabel="Save and close"
+        exitTitle="Before you exit"
+        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
+        confirmExitLabel="Close and save"
+        dismissExitLabel="Dismiss"
+        onExit={(): void => alert("mock example of a save action")}
+      />,
+    ],
+  },
+}
+
+export const CompletedWorkflow: StoryObj<typeof meta> = {
+  args: {
+    workflowName: "Create a self-reflection cycle",
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: true,
+    status: {
+      content: "Draft",
+      variant: "statusDraft",
+    },
+    nextAction: <Button reversed label="Next" />,
+    headerActions: [
+      <WorkflowExit
+        key="would-use-uui"
+        exitLabel="Save and close"
+        exitTitle="Before you exit"
+        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
+        confirmExitLabel="Close and save"
+        dismissExitLabel="Dismiss"
+        onExit={(): void => alert("mock example of a save action")}
+      />,
+    ],
+  },
+}
+
 export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
   steps,
   isComplete,
@@ -221,4 +167,8 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
   </div>
 )
 
-ComposableWorkflow.args = { ...defaultArgs }
+// ComposableWorkflow.args = { ...defaultArgs }
+
+// /**
+// <p>While we advise against it, each component is exported from the `@kaizen/workflow` package so a custom workflow can be composed from its children if absolutely neccessary</p>
+//  */

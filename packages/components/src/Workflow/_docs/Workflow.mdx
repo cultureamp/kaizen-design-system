@@ -1,0 +1,59 @@
+import { Canvas, Controls, DocsStory, Meta, Source } from "@storybook/blocks"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import * as Workflow from "./Workflow.stories"
+import { KaioNotification } from "../../../../../storybook/components/DocsContainer/ComponentDocsTemplate/subcomponents/KaioInstallation/KaioNotification"
+
+<Meta title="Workflow" />
+
+# Workflow
+
+<ul className="!list-none !p-0 flex gap-4 items-center mb-8">
+  <li className="!mt-0 !text-paragraph">
+    <a
+      href="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Workflow"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+    >Source Code</a>
+  </li>
+</ul>
+
+<KaioNotification />
+
+<div>
+  <h2 id="installation">Installation</h2>
+  <Source code="yarn add @kaizen/components" language="tsx" />
+  <Source code='import { Workflow } from "@kaizen/components"' language="tsx" />
+</div>
+
+## Playground
+
+This is a page template component containing the header, footer and main landmarks that compose a Workflow page. Its purpose is to guide an customer through a multi-step form to create a Workflow.
+
+The Worflow is intended as a page wrapper and sets minimum height of `100vh` with a sticky `Header` component. The `Children` will be wrapped in a unstyled main landmark to provide flexibility for inner content layouts.
+
+This component has responsiveness baked in to support 400% zoom and smaller screen sizes. This will also un-stick the `Header` to provide more realestate for the user.
+
+<Canvas layout="fullscreen" of={Workflow.Playground} />
+
+<Controls of={Workflow.Playground} exclude={["children"]} />
+
+## Final step
+
+While the footer actions can take any JSX elements we recommend using the @kaizen/button component to handle page routing and submit requests for visual continuity
+
+The progress stepper will update its completed and in progress indicators by comparing the stepName to the array of steps.
+
+<Canvas layout="fullscreen" of={Workflow.FinalStep} />
+
+## Completed Workflow
+
+Instances where users are returning to a completed worklow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will be reflected in their aria title
+
+<Canvas layout="fullscreen" of={Workflow.CompletedWorkflow} />
+
+
+## Composable Workflow
+
+While we advise against it, each component is exported from the `@kaizen/workflow` package so a custom workflow can be composed from its children if absolutely neccessary
+
+<Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
