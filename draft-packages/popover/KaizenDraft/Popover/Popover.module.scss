@@ -56,7 +56,7 @@ $large-width: 450px;
 %box {
   background: $color-white;
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
-  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 10%));
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $border-solid-border-radius;
   color: $color-purple-800;
   text-align: left;
