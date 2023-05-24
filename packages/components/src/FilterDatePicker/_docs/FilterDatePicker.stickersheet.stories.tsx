@@ -72,7 +72,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           <StickerSheet.Row rowTitle="Default">
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-dp-field--default`}
-              labelText="Date"
+              inputProps={{ labelText: "Date" }}
               locale="en-US"
               defaultMonth={new Date("2022-05-01")}
               selectedDate={dateValue}
@@ -82,7 +82,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           <StickerSheet.Row rowTitle="Existing value">
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-dp-field--existing`}
-              labelText="Date"
+              inputProps={{ labelText: "Date" }}
               locale="en-US"
               selectedDate={dateValue}
               onDateChange={setDateValue}
@@ -91,7 +91,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           <StickerSheet.Row rowTitle="Validation">
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-dp-field--validation`}
-              labelText="Date"
+              inputProps={{ labelText: "Date" }}
               locale="en-US"
               selectedDate={dateValue}
               onDateChange={setDateValue}

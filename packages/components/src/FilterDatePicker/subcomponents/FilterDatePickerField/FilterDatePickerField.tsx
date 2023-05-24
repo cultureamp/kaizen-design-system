@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { HTMLAttributes, useEffect, useState } from "react"
 import classnames from "classnames"
 import {
   CalendarSingle,
@@ -11,6 +11,7 @@ import {
 import { FilterProps } from "~components/Filter"
 import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
+import { OverrideClassName } from "~types/OverrideClassName"
 import {
   DisabledDays,
   DateValidationResponse,
@@ -25,7 +26,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
 export interface FilterDatePickerFieldProps
-  extends FilterInputProps<Omit<DateInputFieldProps, "id" | "locale">> {
+  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   locale: FilterDPSupportedLocales
   /**
