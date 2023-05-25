@@ -1,7 +1,8 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { WorkflowExit, WorkflowExitProps } from "../"
+import { WorkflowExitProps } from "../subcomponents"
+import { Workflow } from "../"
 
 const defaultArgs = {
   exitLabel: "Save and close",
@@ -16,7 +17,7 @@ const defaultArgs = {
 const meta = {
   tags: ["autodocs"],
   title: "Pages/Workflow/Components/Workflow Exit Button",
-  component: WorkflowExit,
+  component: Workflow.WorkflowExit,
   parameters: {
     docs: {
       source: { type: "code" },
@@ -24,7 +25,7 @@ const meta = {
     },
     installation: [
       "yarn add @kaizen/workflow",
-      "import { WorkflowExit } from `@kaizen/workflow`",
+      "import { Workflow } from `@kaizen/components`",
     ],
     resourceLinks: {
       sourceCode:
@@ -36,7 +37,7 @@ const meta = {
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
   },
-} satisfies Meta<typeof WorkflowExit>
+} satisfies Meta<typeof Workflow.WorkflowExit>
 
 export default meta
 
@@ -54,7 +55,7 @@ export const Playground: StoryFn<WorkflowExitProps> = ({
   ...restProps
 }) => (
   <div {...restProps}>
-    <WorkflowExit
+    <Workflow.WorkflowExit
       exitLabel={exitLabel}
       exitTitle={exitTitle}
       exitDescription={exitDescription}

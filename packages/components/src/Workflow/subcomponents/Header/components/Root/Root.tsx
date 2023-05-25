@@ -17,4 +17,4 @@ export const HeaderRoot = ({
   </header>
 )
 
-HeaderRoot.displayName = "HeaderRoot"
+HeaderRoot.displayName = "Workflow.HeaderRoot"

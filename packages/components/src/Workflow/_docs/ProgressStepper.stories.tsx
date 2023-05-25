@@ -1,7 +1,8 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { ProgressStepper, ProgressStepperProps } from "../"
+import { ProgressStepperProps } from "../subcomponents"
+import { Workflow } from "../"
 
 const defaultArgs = {
   stepName: "Settings",
@@ -12,7 +13,7 @@ const defaultArgs = {
 const meta = {
   tags: ["autodocs"],
   title: "Pages/Workflow/Components/Progress Stepper",
-  component: ProgressStepper,
+  component: Workflow.ProgressStepper,
   parameters: {
     docs: {
       source: { type: "code" },
@@ -20,7 +21,7 @@ const meta = {
     },
     installation: [
       "yarn add @kaizen/workflow",
-      "import { ProgressStepper } from `@kaizen/workflow`",
+      "import { ProgressStepper } from `@kaizen/components`",
     ],
     resourceLinks: {
       sourceCode:
@@ -32,7 +33,7 @@ const meta = {
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
   },
-} satisfies Meta<typeof ProgressStepper>
+} satisfies Meta<typeof Workflow.ProgressStepper>
 
 export default meta
 
@@ -47,7 +48,7 @@ export const Playground: StoryFn<ProgressStepperProps> = ({
   ...restProps
 }) => (
   <div className="bg-blue-500 p-8">
-    <ProgressStepper
+    <Workflow.ProgressStepper
       stepName={stepName}
       steps={steps}
       isComplete={isComplete}
@@ -65,7 +66,7 @@ const VariantTemplate: StoryFn<ProgressStepperProps> = ({
   ...restProps
 }) => (
   <div className="bg-blue-500 p-8">
-    <ProgressStepper
+    <Workflow.ProgressStepper
       stepName={stepName}
       steps={steps}
       isComplete={isComplete}

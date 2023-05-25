@@ -56,4 +56,4 @@ export const Titles = ({
   </div>
 )
 
-Titles.displayName = "Titles"
+Titles.displayName = "Workflow.Titles"

@@ -35,4 +35,4 @@ export const Footer = ({
   </FooterRoot>
 )
 
-Footer.displayName = "Footer"
+Footer.displayName = "Workflow.Footer"

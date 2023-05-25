@@ -107,3 +107,5 @@ export const ProgressStepper = ({
     </div>
   )
 }
+
+ProgressStepper.displayName = "Workflow.ProgressStepper"

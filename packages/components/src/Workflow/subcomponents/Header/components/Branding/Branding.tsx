@@ -19,4 +19,4 @@ export const Branding = ({
   </div>
 )
 
-Branding.displayName = "Branding"
+Branding.displayName = "Workflow.Branding"

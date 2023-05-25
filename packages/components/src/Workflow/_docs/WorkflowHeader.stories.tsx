@@ -3,7 +3,8 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { WorkflowExit, Header, HeaderProps } from "../"
+import { HeaderProps } from "../subcomponents/Header"
+import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const defaultArgs = {
@@ -19,7 +20,7 @@ const defaultArgs = {
 const meta = {
   tags: ["autodocs"],
   title: "Pages/Workflow/Components/Header",
-  component: Header,
+  component: Workflow.Header,
   parameters: {
     docs: {
       sourceState: "shown",
@@ -27,7 +28,7 @@ const meta = {
     },
     installation: [
       "yarn add @kaizen/workflow",
-      "import { Header } from `@kaizen/workflow`",
+      "import { Workflow } from `@kaizen/components`",
     ],
     resourceLinks: {
       sourceCode:
@@ -42,7 +43,7 @@ const meta = {
   argTypes: {
     headerActions: WorkflowControls.headerActions,
   },
-} satisfies Meta<typeof Header>
+} satisfies Meta<typeof Workflow.Header>
 
 export default meta
 
@@ -56,13 +57,13 @@ export const Playground: StoryFn<HeaderProps> = ({
   headerActions = [],
   ...restProps
 }) => (
-  <Header
+  <Workflow.Header
     workflowName={workflowName}
     stepName={stepName}
     status={status}
     headerActions={[
       ...headerActions,
-      <WorkflowExit
+      <Workflow.WorkflowExit
         key="would-use-uui"
         exitLabel="Save and close"
         exitTitle="Before you exit"
@@ -83,7 +84,7 @@ const VariantTemplate: StoryFn<HeaderProps> = ({
   headerActions,
   ...restProps
 }) => (
-  <Header
+  <Workflow.Header
     workflowName={workflowName}
     stepName={stepName}
     status={status}
@@ -109,7 +110,7 @@ MultipleActions.args = {
       secondary
       iconPosition="start"
     />,
-    <WorkflowExit
+    <Workflow.WorkflowExit
       key="would-use-uui-2"
       exitLabel="Save and close"
       exitTitle="Before you exit"

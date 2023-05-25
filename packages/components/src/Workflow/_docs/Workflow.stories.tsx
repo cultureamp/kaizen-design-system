@@ -2,14 +2,7 @@ import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
-import {
-  Workflow,
-  WorkflowExit,
-  WorkflowProps,
-  Header,
-  Footer,
-  Main,
-} from "../"
+import { Workflow, WorkflowProps } from "../"
 import { WorkflowControls } from "./controls"
 
 const MockContent = (): JSX.Element => (
@@ -52,7 +45,7 @@ const defaultArgs = {
   previousAction: <Button reversed label="Back" />,
   nextAction: <Button reversed label="Next" />,
   headerActions: [
-    <WorkflowExit
+    <Workflow.WorkflowExit
       key="would-use-uui"
       exitLabel="Save and close"
       exitTitle="Before you exit"
@@ -105,7 +98,7 @@ export const MultipleActions: StoryObj<typeof meta> = {
         secondary
         iconPosition="start"
       />,
-      <WorkflowExit
+      <Workflow.WorkflowExit
         key="would-use-uui-2"
         exitLabel="Save and close"
         exitTitle="Before you exit"
@@ -130,7 +123,7 @@ export const FinalStep: StoryObj<typeof meta> = {
     },
     nextAction: <Button reversed label="Next" />,
     headerActions: [
-      <WorkflowExit
+      <Workflow.WorkflowExit
         key="would-use-uui"
         exitLabel="Save and close"
         exitTitle="Before you exit"
@@ -155,7 +148,7 @@ export const CompletedWorkflow: StoryObj<typeof meta> = {
     },
     nextAction: <Button reversed label="Next" />,
     headerActions: [
-      <WorkflowExit
+      <Workflow.WorkflowExit
         key="would-use-uui"
         exitLabel="Save and close"
         exitTitle="Before you exit"
@@ -180,13 +173,13 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
   ...restProps
 }) => (
   <div {...restProps}>
-    <Header
+    <Workflow.Header
       workflowName={workflowName}
       stepName={stepName}
       status={status}
       headerActions={headerActions}
     />
-    <Main>
+    <Workflow.Main>
       <h3>Content</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
@@ -194,8 +187,8 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
         obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
         quibusdam vero?
       </p>
-    </Main>
-    <Footer
+    </Workflow.Main>
+    <Workflow.Footer
       stepName={stepName}
       steps={steps}
       isComplete={isComplete}

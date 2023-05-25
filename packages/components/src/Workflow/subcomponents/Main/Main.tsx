@@ -17,4 +17,4 @@ export const Main = ({
   </main>
 )
 
-Main.displayName = "Main"
+Main.displayName = "Workflow.Main"

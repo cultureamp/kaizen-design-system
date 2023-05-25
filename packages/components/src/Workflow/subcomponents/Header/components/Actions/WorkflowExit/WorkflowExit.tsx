@@ -58,4 +58,4 @@ export const WorkflowExit = ({
   )
 }
 
-WorkflowExit.displayName = "WorkflowExit"
+WorkflowExit.displayName = "Workflow.WorkflowExit"

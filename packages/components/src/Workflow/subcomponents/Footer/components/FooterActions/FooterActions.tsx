@@ -27,4 +27,4 @@ export const FooterAction = ({
   </div>
 )
 
-FooterAction.displayName = "FooterAction"
+FooterAction.displayName = "Workflow.FooterActions"

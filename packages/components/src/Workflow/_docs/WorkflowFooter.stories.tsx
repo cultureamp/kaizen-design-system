@@ -2,7 +2,8 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { Footer, FooterProps } from "../"
+import { FooterProps } from "../subcomponents/Footer"
+import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const defaultArgs = {
@@ -16,7 +17,7 @@ const defaultArgs = {
 const meta = {
   tags: ["autodocs"],
   title: "Pages/Workflow/Components/Footer",
-  component: Footer,
+  component: Workflow.Footer,
   parameters: {
     docs: {
       sourceState: "shown",
@@ -24,7 +25,7 @@ const meta = {
     },
     installation: [
       "yarn add @kaizen/workflow",
-      "import { Footer } from `@kaizen/workflow`",
+      "import { Workflow } from `@kaizen/components`",
     ],
     resourceLinks: {
       sourceCode:
@@ -40,7 +41,7 @@ const meta = {
     nextAction: WorkflowControls.nextAction,
     previousAction: WorkflowControls.previousAction,
   },
-} satisfies Meta<typeof Footer>
+} satisfies Meta<typeof Workflow.Footer>
 
 export default meta
 
@@ -53,7 +54,7 @@ export const Playground: StoryFn<FooterProps> = ({
   isComplete,
   ...restProps
 }) => (
-  <Footer
+  <Workflow.Footer
     stepName={stepName}
     steps={steps}
     isComplete={isComplete}
@@ -69,7 +70,7 @@ const VariantTemplate: StoryFn<FooterProps> = ({
   isComplete,
   ...restProps
 }) => (
-  <Footer
+  <Workflow.Footer
     stepName={stepName}
     steps={steps}
     isComplete={isComplete}

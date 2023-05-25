@@ -22,4 +22,4 @@ export const Actions = ({
   </div>
 )
 
-Actions.displayName = "Actions"
+Actions.displayName = "Workflow.Actions"
