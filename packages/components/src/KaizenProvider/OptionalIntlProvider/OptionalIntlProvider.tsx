@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import { IntlContext } from "react-intl"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
+import { IntlContext } from "react-intl"
 
 type Props = {
   locale: string

@@ -1,6 +1,6 @@
 import React from "react"
-import { ThemeProvider, ThemeManager } from "./ThemeProvider"
 import { OptionalIntlProvider } from "./OptionalIntlProvider"
+import { ThemeProvider, ThemeManager } from "./ThemeProvider"
 
 export interface KaizenProviderProps {
   children: React.ReactNode
