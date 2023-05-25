@@ -22,7 +22,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   textDirection,
 }) => {
   const [isOpenNoValue, setIsOpenNoValue] = useState<boolean>(IS_CHROMATIC)
-  const [isOpenValue, setIsOpenValue] = useState<boolean>(IS_CHROMATIC)
+  const [isOpenValue, setIsOpenValue] = useState<boolean>(false)
 
   const [noDateValue, setNoDateValue] = useState<Date | undefined>()
 
