@@ -10,7 +10,7 @@ jest.mock("@cultureamp/i18n-react-intl", () => ({
 }))
 
 describe("<OptionalIntlProvider>", () => {
-  it("adds an intl provider to the app's context when IntlContext is not present", async () => {
+  it("wraps the children in a StaticIntlProvider when no other react-intl provider is present", async () => {
     render(
       <OptionalIntlProvider locale="en">
         <div>children</div>
