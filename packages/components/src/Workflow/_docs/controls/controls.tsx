@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "@kaizen/button"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
-import { WorkflowExit } from "../../"
+import { Workflow } from "../../"
 
 export const WorkflowControls = {
   headerActions: {
@@ -10,7 +10,7 @@ export const WorkflowControls = {
     },
     options: {
       "ExitWorkflow action": [
-        <WorkflowExit
+        <Workflow.WorkflowExit
           key="would-use-uui"
           exitLabel="Save and close"
           exitTitle="Before you exit"
@@ -28,7 +28,7 @@ export const WorkflowControls = {
           secondary
           iconPosition="start"
         />,
-        <WorkflowExit
+        <Workflow.WorkflowExit
           key="would-use-uui"
           exitLabel="Save and close"
           exitTitle="Before you exit"
