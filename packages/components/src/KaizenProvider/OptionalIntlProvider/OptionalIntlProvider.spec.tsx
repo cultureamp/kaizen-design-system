@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { OptionalIntlProvider } from "../OptionalIntlProvider"
 import { IntlProvider } from "react-intl"
+import { OptionalIntlProvider } from "../OptionalIntlProvider"
 
 jest.mock("@cultureamp/i18n-react-intl", () => ({
   StaticIntlProvider: ({ children }: { children: React.ReactElement }) => (
@@ -21,7 +21,7 @@ describe("<OptionalIntlProvider>", () => {
     const childrenResult = await screen.findByText("children")
     expect(childrenResult).toBeInTheDocument()
   })
-  it("does not render a new provider", async () => {
+  it("does not wrap the children in a StaticIntlProvider when a react-intl provider is present", async () => {
     render(
       <IntlProvider locale="en">
         <OptionalIntlProvider locale="en">

@@ -4865,10 +4865,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@>=16", "@types/react@^17", "@types/react@^18.2.6":
+"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@>=16", "@types/react@^18.2.6":
   version "18.2.6"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.6.tgz#5cd53ee0d30ffc193b159d3516c8c8ad2f19d571"
   integrity sha512-wRZClXn//zxCFW+ye/D2qY65UsYP1Fpex2YXorHc8awoNamkMZSvBxwxdYVInsHOZZd2Ppq8isnSzJL5Mpf8OA==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17":
+  version "17.0.59"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.59.tgz#5aa4e161a356fcb824d81f166e01bad9e82243bb"
+  integrity sha512-gSON5zWYIGyoBcycCE75E9+r6dCC2dHdsrVkOEiIYNU5+Q28HcBAuqvDuxHcCbMfHBHdeT5Tva/AFn3rnMKE4g==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -14426,7 +14435,7 @@ react-inspector@^6.0.0:
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-6.0.1.tgz#1a37f0165d9df81ee804d63259eaaeabe841287d"
   integrity sha512-cxKSeFTf7jpSSVddm66sKdolG90qURAX3g1roTeaN6x0YEbtWc8JpmFN9+yIqLNH2uEkYerWLtJZIXRIFuBKrg==
 
-react-intl@^6.2.10:
+react-intl@^6.2.10, react-intl@^6.4.2:
   version "6.4.2"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.4.2.tgz#cf4f49f5f89e66e0975927783d0d270e708314fd"
   integrity sha512-q8QyLZfbyqV3Ifa7vtjRrgfSQPGTR6Fi+u9tP/CuzhUPl9DJEPIrvUFhlBryKtRW2qNASqchaP/79Obip+h6oA==

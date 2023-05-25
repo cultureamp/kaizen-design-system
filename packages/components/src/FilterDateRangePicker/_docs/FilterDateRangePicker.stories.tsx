@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
-import { createIntl, createIntlCache, RawIntlProvider } from "react-intl"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
