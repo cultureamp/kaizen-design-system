@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { Button } from "@kaizen/button"
+import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import {
   Workflow,
   WorkflowExit,
@@ -84,6 +85,38 @@ export const Playground: StoryObj<typeof meta> = {
 }
 
 Playground.args = { ...defaultArgs }
+
+export const MultipleActions: StoryObj<typeof meta> = {
+  args: {
+    workflowName: "Create a self-reflection cycle",
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: false,
+    status: {
+      content: "Draft",
+      variant: "statusDraft",
+    },
+    nextAction: <Button reversed label="Next" />,
+    headerActions: [
+      <Button
+        key="would-use-uui-1"
+        label="Preview"
+        icon={VisibleIcon}
+        secondary
+        iconPosition="start"
+      />,
+      <WorkflowExit
+        key="would-use-uui-2"
+        exitLabel="Save and close"
+        exitTitle="Before you exit"
+        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
+        confirmExitLabel="Close and save"
+        dismissExitLabel="Dismiss"
+        onExit={(): void => alert("mock example of a save action")}
+      />,
+    ],
+  },
+}
 
 export const FinalStep: StoryObj<typeof meta> = {
   args: {

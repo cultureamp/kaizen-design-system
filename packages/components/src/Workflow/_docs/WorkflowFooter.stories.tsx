@@ -103,7 +103,15 @@ LastStep.args = {
   stepName: "Schedule",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
-  nextAction: <Button reversed primary disabled label="Finish" />,
+  nextAction: (
+    <Button
+      reversed
+      primary
+      disabled
+      form="worflow-form-id-for-submit"
+      label="Finish"
+    />
+  ),
   previousAction: <Button reversed label="Back" />,
 }
 
