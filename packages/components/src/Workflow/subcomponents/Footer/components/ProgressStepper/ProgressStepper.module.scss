@@ -1,0 +1,97 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.stepsContainer {
+  width: 100%;
+  grid-area: stepper;
+}
+
+.stepList {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 100%;
+  justify-content: center;
+  max-width: $spacing-96;
+  position: relative;
+  container: step / inline-size;
+}
+
+.stepContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.stepIndicator {
+  width: $spacing-16;
+  height: $spacing-16;
+  position: relative;
+}
+
+.stepName {
+  display: none;
+  text-align: center;
+  margin-bottom: $spacing-12;
+  font-weight: $typography-paragraph-bold-font-weight;
+}
+
+.stepIcon {
+  color: $color-white;
+  position: absolute;
+  width: $spacing-16;
+  height: $spacing-16;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stepDivider {
+  height: 0;
+  display: flex;
+  position: absolute;
+  flex-grow: 1;
+  min-width: calc(100% - #{$spacing-24});
+  border: solid $spacing-1 $color-white;
+  margin: 0;
+  border-radius: $border-solid-border-radius;
+  left: 100%;
+  // sets fron the bottom to the centre of the dot
+  top: calc(100% - #{$spacing-8});
+  transform: translateX(-50%);
+
+  [dir="rtl"] & {
+    left: unset;
+    right: 100%;
+    transform: translateX(50%);
+  }
+}
+
+.stepperDescription {
+  display: none;
+  text-align: center;
+}
+
+@container step (min-width: 4.5rem) {
+  .stepName {
+    display: inline;
+  }
+
+  .step {
+    align-self: center;
+  }
+
+  .stepContent {
+    align-self: center;
+  }
+}
