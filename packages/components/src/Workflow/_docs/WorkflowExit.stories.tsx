@@ -15,7 +15,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Workflow/Components/Workflow Exit Button",
+  title: "Pages/Workflow/Components/Workflow Exit Button",
   component: WorkflowExit,
   parameters: {
     docs: {

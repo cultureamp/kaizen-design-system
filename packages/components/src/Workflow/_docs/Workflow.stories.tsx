@@ -66,7 +66,7 @@ const defaultArgs = {
 } satisfies WorkflowProps
 
 const meta = {
-  title: "Workflow/Components/Workflow",
+  title: "Pages/Workflow/Components/Workflow",
   component: Workflow,
   args: defaultArgs,
   argTypes: WorkflowControls,

@@ -11,7 +11,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Workflow/Components/Progress Stepper",
+  title: "Pages/Workflow/Components/Progress Stepper",
   component: ProgressStepper,
   parameters: {
     docs: {
