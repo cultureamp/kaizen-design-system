@@ -7,7 +7,7 @@
 
 // Taken from design-tokens/sass/shadow
 // we need control of the x and y offset in this component
-$box-shadow-color-sm: rgba(53, 55, 74, 9%);
+$box-shadow-color-sm: rgba(53, 55, 74, 0.09);
 $row-height: 60px;
 $row-height-data-variant: 48px;
 
@@ -121,7 +121,7 @@ $row-height-data-variant: 48px;
 
   // This is an optical hack to stop the card shadow from overlapping over
   // the proceeding cards
-  box-shadow: 0 4px 6px rgba(53, 55, 74, 4%);
+  box-shadow: 0 4px 6px rgba(53, 55, 74, 0.04);
 
   // These css properties are required for when the rows are anchor elements
   composes: anchorReset;
