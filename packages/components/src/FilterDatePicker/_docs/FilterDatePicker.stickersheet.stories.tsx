@@ -33,7 +33,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   return (
     <>
       <StickerSheet
-        heading="Filter Date Range Picker"
+        heading="Filter Date Picker"
         style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
       >
         <StickerSheet.Header headings={["No value display", "Value display"]} />
@@ -67,7 +67,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         </StickerSheet.Body>
       </StickerSheet>
 
-      <StickerSheet heading="Filter Date Range Picker Field">
+      <StickerSheet heading="Filter Date Picker Field">
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <FilterDatePickerField
