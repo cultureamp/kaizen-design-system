@@ -14,7 +14,7 @@
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
     "stylelint": "stylelint '**/*.scss'",
-    "test": "jest",
+    "test": "jest && yarn pkg:aio:test",
     "playwright": "IS_DEV=true npx playwright test",
     "playwright:debug": "IS_DEV=true PWDEBUG=1 npx playwright test",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
