@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/button": "^3.0.3",
-    "@kaizen/component-library": "^16.7.6",
+    "@kaizen/component-library": "^16.8.2",
     "@kaizen/draft-illustration": "^6.0.32",
     "@kaizen/draft-tooltip": "^5.4.44",
     "@kaizen/typography": "^2.3.11",
