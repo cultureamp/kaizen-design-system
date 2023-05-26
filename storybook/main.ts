@@ -35,7 +35,10 @@ const config = {
         sass: {
           implementation: require("node-sass"),
         },
-        cssModules: true,
+        cssModules: {
+          mode: "local",
+          localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
+        },
         postCss: {
           implementation: require("postcss"),
         },
