@@ -3,7 +3,7 @@ import { ExampleComponent } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/ExampleComponent",
+  title: "Deprecated/ExampleComponent",
   component: ExampleComponent,
   parameters: {
     docs: {
