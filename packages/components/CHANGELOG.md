@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.9.0
+
+### Minor Changes
+
+- [#3643](https://github.com/cultureamp/kaizen-design-system/pull/3643) [`7ea62ca13`](https://github.com/cultureamp/kaizen-design-system/commit/7ea62ca13e2dd8ed92618bcb388035b6fcf36bbe) - Adds Workflow Components and Workflow documentation folder to storybook
+
 ## 1.8.7
 
 ### Patch Changes

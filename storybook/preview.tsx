@@ -74,6 +74,7 @@ const preview = {
             ],
           ],
           "Components",
+          "Pages",
           "Helpers",
           "Design Tokens",
           "Deprecated",

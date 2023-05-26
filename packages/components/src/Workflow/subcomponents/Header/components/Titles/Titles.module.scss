@@ -1,0 +1,23 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.titles {
+  grid-area: titles;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.pageTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.prefix {
+  margin-bottom: $spacing-4;
+}
+
+.status {
+  margin-top: $spacing-8;
+}
