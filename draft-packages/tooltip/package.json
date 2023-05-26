@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tooltip",
-  "version": "5.4.44",
+  "version": "5.4.45",
   "description": "The draft Tooltip component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
