@@ -1,0 +1,17 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.actions {
+  grid-area: actions;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-top: calc(-1 * #{$spacing-12});
+  }
+}
