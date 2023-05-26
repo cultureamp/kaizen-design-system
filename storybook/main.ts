@@ -36,6 +36,7 @@ const config = {
           implementation: require("node-sass"),
         },
         cssModules: {
+          // refer to css-loader module options on webpack: https://github.com/webpack-contrib/css-loader#object-2
           mode: "local",
           localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
         },
