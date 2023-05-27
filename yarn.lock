@@ -2212,16 +2212,6 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/button@^2.1.4":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-2.1.5.tgz#752d2bbef2d868c11bd78d3451ec5b278b935adf"
-  integrity sha512-MtKzs722lQt3tgIN7bWYA/H1CdY6zO0n7P2i01AOdcR3hmCLBRlGcy9TRDy3LVi441z07ZnIJatshsvC02pPBA==
-  dependencies:
-    "@kaizen/component-library" "^16.7.2"
-    "@kaizen/draft-badge" "^1.13.8"
-    "@kaizen/loading-spinner" "^2.3.9"
-    classnames "^2.3.2"
-
 "@manypkg/find-root@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@manypkg/find-root/-/find-root-1.1.0.tgz#a62d8ed1cd7e7d4c11d9d52a8397460b5d4ad29f"
@@ -2432,13 +2422,13 @@
     picocolors "^1.0.0"
     tslib "^2.5.0"
 
-"@playwright/test@^1.34.0":
-  version "1.34.0"
-  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.34.0.tgz#1f3359523c3fd7460c83fe83c8152751a9e21f49"
-  integrity sha512-GIALJVODOIrMflLV54H3Cow635OfrTwOu24ZTDyKC66uchtFX2NcCRq83cLdakMjZKYK78lODNLQSYBj2OgaTw==
+"@playwright/test@^1.34.3":
+  version "1.34.3"
+  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.34.3.tgz#d9f1ac3f1a09633b5ca5351c50c308bf802bde53"
+  integrity sha512-zPLef6w9P6T/iT6XDYG3mvGOqOyb6eHaV9XtkunYs0+OzxBtrPAAaHotc0X+PJ00WPPnLfFBTl7mf45Mn8DBmw==
   dependencies:
     "@types/node" "*"
-    playwright-core "1.34.0"
+    playwright-core "1.34.3"
   optionalDependencies:
     fsevents "2.3.2"
 
@@ -12333,10 +12323,10 @@ pkg-dir@^5.0.0:
   dependencies:
     find-up "^5.0.0"
 
-playwright-core@1.34.0:
-  version "1.34.0"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.34.0.tgz#6a8f05c657400677591ed82b6749ef7e120a152d"
-  integrity sha512-fMUY1+iR6kYbJF/EsOOqzBA99ZHXbw9sYPNjwA4X/oV0hVF/1aGlWYBGPVUEqxBkGANDKMziYoOdKGU5DIP5Gg==
+playwright-core@1.34.3:
+  version "1.34.3"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.34.3.tgz#bc906ea1b26bb66116ce329436ee59ba2e78fe9f"
+  integrity sha512-2pWd6G7OHKemc5x1r1rp8aQcpvDh7goMBZlJv6Co5vCNLVcQJdhxRL09SGaY6HcyHH9aT4tiynZabMofVasBYw==
 
 plop@^3.1.2:
   version "3.1.2"
