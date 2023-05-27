@@ -33,7 +33,7 @@
     "@kaizen/draft-tooltip": "^5.4.45",
     "@kaizen/typography": "^2.3.11",
     "@popperjs/core": "^2.11.8",
-    "@react-aria/datepicker": "^3.4.0",
+    "@react-aria/datepicker": "^3.4.1",
     "@react-aria/i18n": "^3.7.1",
     "@react-stately/datepicker": "^3.4.0",
     "classnames": "^2.3.2",
