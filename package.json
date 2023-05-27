@@ -79,7 +79,7 @@
     "@storybook/node-logger": "^7.0.18",
     "@storybook/react-webpack5": "^7.0.18",
     "@storybook/testing-library": "^0.1.0",
-    "@tanstack/react-query": "^4.29.7",
+    "@tanstack/react-query": "^4.29.11",
     "@testing-library/dom": "^9.3.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
