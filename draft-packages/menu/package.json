@@ -30,7 +30,7 @@
     "@kaizen/component-library": "^16.8.2",
     "@kaizen/draft-divider": "^2.2.11",
     "@kaizen/typography": "^2.3.11",
-    "@popperjs/core": "^2.11.7",
+    "@popperjs/core": "^2.11.8",
     "classnames": "^2.3.2",
     "react-popper": "^2.3.0",
     "uuid": "^9.0.0"
