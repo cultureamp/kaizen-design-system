@@ -36,7 +36,7 @@
     "@kaizen/draft-tooltip": "^5.4.45",
     "@kaizen/loading-skeleton": "^2.0.7",
     "@kaizen/typography": "^2.3.11",
-    "@react-aria/button": "^3.7.1",
+    "@react-aria/button": "^3.7.2",
     "@react-aria/focus": "^3.12.0",
     "@react-aria/listbox": "^3.9.0",
     "@react-aria/menu": "^3.9.0",
