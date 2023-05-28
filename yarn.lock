@@ -2627,6 +2627,22 @@
     "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
 
+"@react-aria/listbox@^3.9.1":
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/@react-aria/listbox/-/listbox-3.9.1.tgz#8b077a02fc9a6179c7660d0f3aca83bbf43eb714"
+  integrity sha512-tRcqNHGx9Vtspth9zdOLEfbGGaLrTN/rDXg0xN2FT++qxwALuYV7R4qFUX7eTPCT+NDOqeQNOCsHyQF4gQN+JQ==
+  dependencies:
+    "@react-aria/focus" "^3.12.1"
+    "@react-aria/interactions" "^3.15.1"
+    "@react-aria/label" "^3.5.2"
+    "@react-aria/selection" "^3.15.0"
+    "@react-aria/utils" "^3.17.0"
+    "@react-stately/collections" "^3.8.0"
+    "@react-stately/list" "^3.8.1"
+    "@react-types/listbox" "^3.4.2"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.4.14"
+
 "@react-aria/live-announcer@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@react-aria/live-announcer/-/live-announcer-3.3.0.tgz#04a2a233c2f48c53994f83cafdc4336ec1ea3700"
@@ -2702,6 +2718,20 @@
     "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
 
+"@react-aria/selection@^3.15.0":
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/@react-aria/selection/-/selection-3.15.0.tgz#928acf8adffea1afe64a152b6fe425a5424e52f5"
+  integrity sha512-v3AXsau6BobbM5Fu7X+HhX5K/Ey3drVBaoevGDiYX8kGS9jlFNDXENKYPtnMpcTCvSX0yuxTITukOEBokzkb6Q==
+  dependencies:
+    "@react-aria/focus" "^3.12.1"
+    "@react-aria/i18n" "^3.7.2"
+    "@react-aria/interactions" "^3.15.1"
+    "@react-aria/utils" "^3.17.0"
+    "@react-stately/collections" "^3.8.0"
+    "@react-stately/selection" "^3.13.1"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.4.14"
+
 "@react-aria/spinbutton@^3.4.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@react-aria/spinbutton/-/spinbutton-3.4.1.tgz#627db560317fee187854d48c6e31a4f2f0591a3e"
@@ -2762,6 +2792,14 @@
     "@react-types/shared" "^3.18.0"
     "@swc/helpers" "^0.4.14"
 
+"@react-stately/collections@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.8.0.tgz#4b2b71866d12fd6b4f4aea495e2d4ecb2954d4e6"
+  integrity sha512-NIRE8Gha0XZTnbvh9JRZM7oI/6uLf6ozjB7myja29IX7hDvsZxITe0RFXBapcujlpXLU2uufssJPKpiwJm3vZQ==
+  dependencies:
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.4.14"
+
 "@react-stately/datepicker@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.4.0.tgz#d531cf792edafa14733de17528b7b17df8e0a696"
@@ -2797,6 +2835,17 @@
     "@react-stately/selection" "^3.13.0"
     "@react-stately/utils" "^3.6.0"
     "@react-types/shared" "^3.18.0"
+    "@swc/helpers" "^0.4.14"
+
+"@react-stately/list@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.8.1.tgz#19ed21dc2929e6a5a1e05a1858dbc7ee1f55f761"
+  integrity sha512-QO2hKRnXaz2L1v/KYPmDKeD+PfEScp4KiJMFzU/T9vvjxIratSTg314B25Xj4LJq+JhyxlguylxBF9r/R6qUjQ==
+  dependencies:
+    "@react-stately/collections" "^3.8.0"
+    "@react-stately/selection" "^3.13.1"
+    "@react-stately/utils" "^3.6.0"
+    "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
 "@react-stately/menu@^3.5.1":
@@ -2850,6 +2899,16 @@
     "@react-stately/collections" "^3.7.0"
     "@react-stately/utils" "^3.6.0"
     "@react-types/shared" "^3.18.0"
+    "@swc/helpers" "^0.4.14"
+
+"@react-stately/selection@^3.13.1":
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.13.1.tgz#17752ed81bf0f3246cd010818c460fa0d749d3a1"
+  integrity sha512-0B+gT6hyei/pzUSmrNliphoztOPZJ7v/xVT9b4HViRTwuOUQlmwi5BQai84EbVtgQaQghc07sJ/Y/Ec8WXCRHA==
+  dependencies:
+    "@react-stately/collections" "^3.8.0"
+    "@react-stately/utils" "^3.6.0"
+    "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
 "@react-stately/toggle@^3.5.2":
@@ -2955,6 +3014,13 @@
   integrity sha512-2h1zJDQI3v4BFBwpjKc+OYXM2EzN2uxG5DiZ4MZUcWJDpa1+rOlfaPtBNUPiEVHt6fm6qeuoYVPf3r65Lo3IDw==
   dependencies:
     "@react-types/shared" "^3.18.0"
+
+"@react-types/listbox@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@react-types/listbox/-/listbox-3.4.2.tgz#13a217ca2c31e4e5c0ef46f00f770bf0d1b24726"
+  integrity sha512-qg980T+tl15pqgfuK8V6z+vsvsIrJEEPxcupQXP3T1O0LxWxJDakZHF0lV9qwfyB9XlnVSMZfkjDiZp9Wgf8QQ==
+  dependencies:
+    "@react-types/shared" "^3.18.1"
 
 "@react-types/menu@^3.9.0":
   version "3.9.0"
