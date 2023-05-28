@@ -14,6 +14,7 @@ const meta = {
     docs: {
       container: ComponentDocsTemplate,
     },
+    isInKaio: true,
     installation: [
       "npm install @kaizen/components",
       'import { LabelledMessage } from "@kaizen/components"',

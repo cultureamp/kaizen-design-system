@@ -79,6 +79,7 @@ export const InputSearch = (props: InputSearchProps): JSX.Element => {
           onClick={handleOnClear}
           disabled={disabled}
           classNameOverride={styles.endIconAdornment}
+          aria-label="clear search"
         />
       )}
     </div>

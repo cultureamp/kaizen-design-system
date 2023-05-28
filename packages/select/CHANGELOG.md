@@ -1,5 +1,55 @@
 # Change Log
 
+## 6.17.1
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/draft-tooltip@5.4.45
+  - @kaizen/draft-form@10.4.6
+  - @kaizen/draft-menu@5.0.1
+  - @kaizen/button@3.0.4
+
+## 6.17.0
+
+### Minor Changes
+
+- [#3669](https://github.com/cultureamp/kaizen-design-system/pull/3669) [`1cfc21a2c`](https://github.com/cultureamp/kaizen-design-system/commit/1cfc21a2cb47d9256a37d2ffc201aa8c3453a3b6) - - changed opacity percentage values to decimal values
+  - removed percentage rule from stylelint
+
+## 6.16.2
+
+### Patch Changes
+
+- [#3660](https://github.com/cultureamp/kaizen-design-system/pull/3660) [`cabc3dcef`](https://github.com/cultureamp/kaizen-design-system/commit/cabc3dcef6318c9207487ef8ebe0e6899e1e3c9c) - Fixed an issue with rgb functions accepting 4 args, refactored them to rgba instead.
+
+## 6.16.1
+
+### Patch Changes
+
+- [#3649](https://github.com/cultureamp/kaizen-design-system/pull/3649) [`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2) - fix: "color-function-notation": "modern" not working with sass
+
+- Updated dependencies [[`638a5cf56`](https://github.com/cultureamp/kaizen-design-system/commit/638a5cf5631cf70bc7417c995664ec09f941cdf2)]:
+  - @kaizen/component-library@16.8.1
+
+## 6.16.0
+
+### Minor Changes
+
+- [#3630](https://github.com/cultureamp/kaizen-design-system/pull/3630) [`f16332333`](https://github.com/cultureamp/kaizen-design-system/commit/f16332333a83078e92e430182cc31c734ca57d7a) - Add isAnimated prop to FilterMultiSelect MenuLoadingSkeleton. Setting this to true animates all the child loading skeletons.
+
+### Patch Changes
+
+- [#3645](https://github.com/cultureamp/kaizen-design-system/pull/3645) [`120f97aae`](https://github.com/cultureamp/kaizen-design-system/commit/120f97aaee6160e2460530dbb6352e89f4756793) - Select background is now always white (not transparent) to address potential contrast issues
+
+- [#3647](https://github.com/cultureamp/kaizen-design-system/pull/3647) [`066d044d2`](https://github.com/cultureamp/kaizen-design-system/commit/066d044d2eee90bf63d2fd0b033b522eda30d027) - Add visually hidden text to improve screen reader context of clear button in FilterMultiSelect
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`066d044d2`](https://github.com/cultureamp/kaizen-design-system/commit/066d044d2eee90bf63d2fd0b033b522eda30d027), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+  - @kaizen/draft-form@10.4.5
+
 ## 6.15.9
 
 ### Patch Changes

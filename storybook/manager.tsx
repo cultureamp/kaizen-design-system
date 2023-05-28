@@ -10,6 +10,7 @@ const CATEGORIES_ICON: Record<string, string> = {
   Introduction: "👋",
   Guides: "📚",
   Components: "⚙️",
+  Pages: "📖",
   Helpers: "🤝",
   "Design Tokens": "🎨",
   Deprecated: "💣",

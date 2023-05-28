@@ -2,12 +2,12 @@
   "extends": "stylelint-config-standard-scss",
   "overrides": [
     {
-      "files": ["*.scss", "**/*.scss"],
-      "customSyntax": "postcss-scss"
+      "customSyntax": "postcss-scss",
+      "files": ["*.scss", "**/*.scss"]
     }
   ],
   "rules": {
-    "alpha-value-notation": "percentage",
+    "alpha-value-notation": null,
     "at-rule-empty-line-before": [
       "always",
       {
@@ -17,7 +17,7 @@
       }
     ],
     "block-no-empty": true,
-    "color-function-notation": "modern",
+    "color-function-notation": "legacy",
     "comment-empty-line-before": [
       "always",
       {
@@ -36,7 +36,9 @@
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-empty-line-before": [
       "always",
-      { "except": ["after-comment", "after-declaration", "first-nested"] }
+      {
+        "except": ["after-comment", "after-declaration", "first-nested"]
+      }
     ],
     "declaration-no-important": [
       true,
@@ -55,11 +57,18 @@
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "number-max-precision": 4,
-    "property-no-unknown": [true, { "ignoreProperties": ["composes"] }],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["composes"]
+      }
+    ],
     "property-no-vendor-prefix": null,
     "rule-empty-line-before": [
       "always",
-      { "except": ["after-single-line-comment", "first-nested"] }
+      {
+        "except": ["after-single-line-comment", "first-nested"]
+      }
     ],
     "scss/at-rule-conditional-no-parentheses": null,
     "scss/dollar-variable-empty-line-before": [
@@ -86,13 +95,17 @@
     "selector-not-notation": "complex",
     "selector-pseudo-class-no-unknown": [
       true,
-      { "ignorePseudoClasses": ["global", "export"] }
+      {
+        "ignorePseudoClasses": ["global", "export"]
+      }
     ],
     "selector-pseudo-element-colon-notation": "double",
     "shorthand-property-no-redundant-values": true,
     "value-keyword-case": [
       "lower",
-      { "ignoreProperties": ["composes", "/font-family/"] }
+      {
+        "ignoreProperties": ["composes", "/font-family/"]
+      }
     ],
     "value-no-vendor-prefix": true
   }

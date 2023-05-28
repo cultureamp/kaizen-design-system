@@ -1,5 +1,26 @@
 # Change Log
 
+## 2.2.10
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/draft-tooltip@5.4.45
+  - @kaizen/notification@1.5.9
+  - @kaizen/draft-form@10.4.6
+
+## 2.2.9
+
+### Patch Changes
+
+- [#3646](https://github.com/cultureamp/kaizen-design-system/pull/3646) [`2623b828b`](https://github.com/cultureamp/kaizen-design-system/commit/2623b828bf897e57db9e9f14416cbecb5b4cfe56) - Removed unused id attribute for rich text editor toolbar buttons
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`066d044d2`](https://github.com/cultureamp/kaizen-design-system/commit/066d044d2eee90bf63d2fd0b033b522eda30d027), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+  - @kaizen/draft-form@10.4.5
+
 ## 2.2.8
 
 ### Patch Changes

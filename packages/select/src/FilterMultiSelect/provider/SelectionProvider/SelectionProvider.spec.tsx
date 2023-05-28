@@ -270,7 +270,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       />
     )
     const clear = screen.getByRole("button", {
-      name: "Clear",
+      name: "Clear selections",
     })
 
     await user.click(clear)
@@ -306,7 +306,7 @@ describe("<SelectionProviderWrapper /> - Mouse interaction", () => {
       />
     )
     const clear = screen.getByRole("button", {
-      name: "Clear",
+      name: "Clear selections",
     })
 
     await user.click(clear)

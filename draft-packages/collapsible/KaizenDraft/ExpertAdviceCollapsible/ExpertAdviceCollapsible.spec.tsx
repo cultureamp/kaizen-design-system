@@ -33,7 +33,9 @@ describe("<ExpertAdviceCollapsible />", () => {
         <Paragraph variant="body">Text Expert advice section content</Paragraph>
       </ExpertAdviceCollapsible>
     )
-    expect(screen.getByLabelText("Toggle section")).toBeInTheDocument()
+    expect(
+      screen.getByLabelText("Expert advice collapsible children")
+    ).toBeInTheDocument()
     expect(
       screen.getByText("Text Expert advice section content")
     ).toBeInTheDocument()

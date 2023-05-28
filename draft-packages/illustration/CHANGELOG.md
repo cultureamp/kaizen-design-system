@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.1.1
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/button@3.0.4
+
+## 6.1.0
+
+### Minor Changes
+
+- [#3526](https://github.com/cultureamp/kaizen-design-system/pull/3526) [`d4853b668`](https://github.com/cultureamp/kaizen-design-system/commit/d4853b6683d68bcb93e5ec8e6de4ca146dbd72db) - Accessibility improvement: Animated Scene illustrations now include a pause button
+
+### Patch Changes
+
+- Updated dependencies [[`936275bad`](https://github.com/cultureamp/kaizen-design-system/commit/936275badfa5ad21801238cd98a2e6e5880f9b6f), [`6a99a9455`](https://github.com/cultureamp/kaizen-design-system/commit/6a99a94558300388bd5680adebeed5e52dc30671), [`87e27ff8f`](https://github.com/cultureamp/kaizen-design-system/commit/87e27ff8f8ce74bdf68d16e168c5c6ebaff8c56d)]:
+  - @kaizen/component-library@16.8.0
+
 ## 6.0.32
 
 ### Patch Changes
