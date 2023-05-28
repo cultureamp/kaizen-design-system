@@ -2725,19 +2725,6 @@
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
-"@react-stately/datepicker@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.4.0.tgz#d531cf792edafa14733de17528b7b17df8e0a696"
-  integrity sha512-JiRQBQYDXOQDdJl5YUGob10aVYp2N/F5rSSkRt7MrBJhC87bkDW0ARfs83gnl398WOJ6d9rJp0f+CJa1mjtzUw==
-  dependencies:
-    "@internationalized/date" "^3.2.0"
-    "@internationalized/string" "^3.1.0"
-    "@react-stately/overlays" "^3.5.1"
-    "@react-stately/utils" "^3.6.0"
-    "@react-types/datepicker" "^3.3.0"
-    "@react-types/shared" "^3.18.0"
-    "@swc/helpers" "^0.4.14"
-
 "@react-stately/datepicker@^3.4.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.4.1.tgz#3aaf3b439e542aa9bc0dc366a70f9232247865e6"
@@ -2917,15 +2904,6 @@
   integrity sha512-rJNhbW4R9HTvdbF2oTZmqGiZ/WVP3/XsU4gae7tfdhSYjG+5T5h9zau1vRhz++zwKn57wfcyNn6a83GDhhgkVw==
   dependencies:
     "@react-types/shared" "^3.18.1"
-
-"@react-types/datepicker@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@react-types/datepicker/-/datepicker-3.3.0.tgz#587d5c05b25cb3b494235b6cb230b7bb5f3273cc"
-  integrity sha512-dKhkpG3UhdwYqdpVjg5dCQgMefpr7sa4a6Ep6fvbyD/q7gv9+h0/1J5F3FJynW+CBL6uYhcZjNev2vjYVTDbEg==
-  dependencies:
-    "@internationalized/date" "^3.2.0"
-    "@react-types/overlays" "^3.7.1"
-    "@react-types/shared" "^3.18.0"
 
 "@react-types/datepicker@^3.3.1":
   version "3.3.1"
