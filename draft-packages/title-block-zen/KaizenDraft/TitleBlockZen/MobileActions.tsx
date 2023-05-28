@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import FocusLock from "react-focus-lock"
+import { FocusOn } from "react-focus-on"
 import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -499,7 +499,7 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           this.state.isOpen && styles.isOpen
         )}
       >
-        <FocusLock disabled={!this.state.isOpen} returnFocus={true}>
+        <FocusOn enabled={this.state.isOpen} scrollLock={false}>
           <DrawerHandle
             primaryAction={primaryAction}
             secondaryActions={secondaryActions}
@@ -522,7 +522,7 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
               />
             </div>
           )}
-        </FocusLock>
+        </FocusOn>
       </div>
     )
   }
