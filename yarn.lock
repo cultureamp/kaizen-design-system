@@ -2212,16 +2212,6 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/button@^2.1.4":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-2.1.5.tgz#752d2bbef2d868c11bd78d3451ec5b278b935adf"
-  integrity sha512-MtKzs722lQt3tgIN7bWYA/H1CdY6zO0n7P2i01AOdcR3hmCLBRlGcy9TRDy3LVi441z07ZnIJatshsvC02pPBA==
-  dependencies:
-    "@kaizen/component-library" "^16.7.2"
-    "@kaizen/draft-badge" "^1.13.8"
-    "@kaizen/loading-spinner" "^2.3.9"
-    classnames "^2.3.2"
-
 "@manypkg/find-root@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@manypkg/find-root/-/find-root-1.1.0.tgz#a62d8ed1cd7e7d4c11d9d52a8397460b5d4ad29f"
