@@ -1,4 +1,5 @@
 import "./tailwind.css"
+import "./styles.css"
 import React from "react"
 import { Preview } from "@storybook/react"
 import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"

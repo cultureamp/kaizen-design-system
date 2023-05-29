@@ -15,6 +15,9 @@ export default {
 } satisfies Meta<typeof ExampleComponent>
 
 export const Playground: StoryObj = {
+  args: {
+    classNameOverride: "bg-blue-500",
+  },
   parameters: {
     docs: {
       canvas: {

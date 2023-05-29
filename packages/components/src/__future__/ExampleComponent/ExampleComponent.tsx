@@ -17,7 +17,7 @@ export const ExampleComponent = ({
   <div
     className={classnames(
       stylesSCSS.exampleComponent,
-      "bg-green-300",
+      "bg-blue-500",
       classNameOverride
     )}
     {...restProps}
