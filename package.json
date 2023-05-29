@@ -37,6 +37,7 @@
     "ci:publish": "yarn turbo prepublish && yarn changeset publish"
   },
   "dependencies": {
+    "@kaizen/component-library": "16.8.2",
     "@kaizen/design-tokens": "^10.0.11",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.0.12",
