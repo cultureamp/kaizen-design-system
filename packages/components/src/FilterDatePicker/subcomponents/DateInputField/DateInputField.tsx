@@ -54,7 +54,7 @@ export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
     const dateIsInvalid = dateErrorMessageId !== undefined
 
     return (
-      <div className="mb-16">
+      <div>
         <DateInput
           ref={inputDateRef}
           id={id}

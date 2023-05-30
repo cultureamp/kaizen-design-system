@@ -1,9 +1,6 @@
-@import "~@kaizen/design-tokens/sass/spacing";
-
 .FilterDatePickerField {
   width: 288px;
-}
-
-.dateRangeInputField {
-  margin-bottom: $spacing-24;
+  display: flex;
+  flex-direction: column;
+  gap: theme("spacing.16");
 }
