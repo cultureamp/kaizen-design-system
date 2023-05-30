@@ -1,5 +1,3 @@
-// postcss.config.js
-
 import { browsersList } from "./storybook/webpack/browserslist"
 
 module.exports = {

@@ -32,9 +32,6 @@ const config = {
     {
       name: "@storybook/addon-styling",
       options: {
-        postCss: {
-          implementation: require("postcss"),
-        },
         sass: {
           implementation: require("node-sass"),
         },
@@ -42,6 +39,9 @@ const config = {
           // refer to css-loader module options on webpack: https://github.com/webpack-contrib/css-loader#object-2
           mode: "local",
           localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
+        },
+        postCss: {
+          implementation: require("postcss"),
         },
       },
     },

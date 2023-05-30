@@ -21,7 +21,7 @@ pre code {
   }
 
   .sbdocs-a {
-    color: --color-blue-400;
+    color: theme("colors.blue.400");
 
     &:hover {
       text-decoration: underline;

@@ -6498,7 +6498,7 @@ css-has-pseudo@^5.0.2:
     postcss-selector-parser "^6.0.10"
     postcss-value-parser "^4.2.0"
 
-css-loader@^6.7.1, css-loader@^6.7.3, css-loader@^6.7.4:
+css-loader@^6.7.1, css-loader@^6.7.3:
   version "6.7.4"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.7.4.tgz#a5d8ec28a73f3e0823998cfee2a1f7e564b91f9b"
   integrity sha512-0Y5uHtK5BswfaGJ+jrO+4pPg1msFBc0pwPIE1VqfpmVn6YbDfYfXMj8rfd7nt+4goAhJueO+H/I40VWJfcP1mQ==
@@ -14045,9 +14045,9 @@ sass-loader@^13.2.2:
     neo-async "^2.6.2"
 
 sass-loader@^13.3.0:
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-13.3.0.tgz#ed4a2d555aa10fc99f4daaab425d8d451336bb65"
-  integrity sha512-LeWNswSEujsZnwdn9AuA+Q5wZEAFlU+eORQsDKp35OtGAfFxYxpfk/Ylon+TGGkazSqxi2EHDTqdr3di8r7nCg==
+  version "13.3.1"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-13.3.1.tgz#32ee5791434b9b4dbd1adcce76fcb4cea49cc12c"
+  integrity sha512-cBTxmgyVA1nXPvIK4brjJMXOMJ2v2YrQEuHqLw3LylGb3gsR6jAvdjHMcy/+JGTmmIF9SauTrLLR7bsWDMWqgg==
   dependencies:
     klona "^2.0.6"
     neo-async "^2.6.2"
