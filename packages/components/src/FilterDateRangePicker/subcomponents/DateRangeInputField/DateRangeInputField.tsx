@@ -6,12 +6,12 @@ import {
   DateInputProps,
 } from "@kaizen/date-picker/src/_subcomponents/DateInput"
 import { FieldMessage } from "@kaizen/draft-form"
-import { OverrideClassName } from "~types/OverrideClassName"
-import { isRefObject } from "~utils/isRefObject"
 import {
   DateInputDescription,
   DateInputDescriptionProps,
-} from "../DateInputDescription"
+} from "~components/FilterDatePicker/subcomponents/DateInputDescription"
+import { OverrideClassName } from "~types/OverrideClassName"
+import { isRefObject } from "~utils/isRefObject"
 import {
   DateRangeValidationMessage,
   DateRangeValidationMessageProps,

@@ -4,7 +4,7 @@ import { FieldMessage } from "@kaizen/draft-form"
 import {
   DateInputDescription,
   DateInputDescriptionProps,
-} from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
+} from "~components/FilterDatePicker/subcomponents/DateInputDescription"
 import { isRefObject } from "~utils/isRefObject"
 
 import { ValidationMessage } from "../../types"

@@ -9,7 +9,7 @@ import {
   getLocale,
 } from "@kaizen/date-picker"
 import { FilterProps } from "~components/Filter"
-import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
+import { DateInputDescriptionProps } from "~components/FilterDatePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
