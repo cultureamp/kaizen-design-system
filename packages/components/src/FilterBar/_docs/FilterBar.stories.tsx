@@ -16,13 +16,12 @@ const meta = {
       "import { FilterBar } from `@kaizen/components`",
     ],
     resourceLinks: {
-      /** @todo: Add Github link (adjust as needed) */
       sourceCode:
         "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/components/src/FilterBar",
-      /** @todo (optional): Add Figma link */
-      figma: "Add Figma link here",
-      /** @todo (optional): Add Confluence link */
-      designGuidelines: "Add Confluence link here",
+      figma:
+        "https://www.figma.com/file/5Dj1k0f04ezsMftUcNuqc8/%F0%9F%A4%96-Custom-Patterns-and-Components?type=design&node-id=328-69572&t=5ZxZ6whALK5eoA7C-0",
+      designGuidelines:
+        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
     },
   },
 } satisfies Meta<typeof FilterBar>
@@ -55,7 +54,6 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
             { value: "honey-milk-tea", label: "Honey Milk Tea" },
             { value: "lychee-green-tea", label: "Lychee Green Tea" },
           ]}
-          data-testid="testid__filter"
         />
       ),
     },
@@ -69,7 +67,6 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
             { value: "pearls", label: "Pearls" },
             { value: "fruit-jelly", label: "Fruit Jelly" },
           ]}
-          data-testid="testid__filter"
         />
       ),
     },
@@ -83,7 +80,6 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
             { value: 50, label: "50%" },
             { value: 100, label: "100%" },
           ]}
-          data-testid="testid__filter"
         />
       ),
     },
@@ -97,7 +93,6 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
             { value: 50, label: "50%" },
             { value: 100, label: "100%" },
           ]}
-          data-testid="testid__filter"
         />
       ),
     },
