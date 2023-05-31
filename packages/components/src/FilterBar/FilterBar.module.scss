@@ -1,0 +1,8 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-16;
+}
