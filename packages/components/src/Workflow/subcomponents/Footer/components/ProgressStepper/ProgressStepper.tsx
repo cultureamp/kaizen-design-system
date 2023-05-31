@@ -18,7 +18,7 @@ const getStepStatus = (
   step: string,
   index: number
 ): {
-  icon: React.SVGAttributes<SVGSymbolElement>
+  icon: JSX.Element
   accessibleName: string
 } => {
   if (isComplete) {
@@ -78,7 +78,7 @@ export const ProgressStepper = ({
         {steps.map((step: string, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
-          const stepStatus = getStepStatus(
+          const { accessibleName, icon: Icon } = getStepStatus(
             isCompletedStep,
             isCurrentStep,
             step,
@@ -93,7 +93,7 @@ export const ProgressStepper = ({
               <div className={styles.stepContent}>
                 <span className="sr-only">
                   {/* will need to be translated */}
-                  {stepStatus.accessibleName}
+                  {accessibleName}
                 </span>
                 <Paragraph
                   classNameOverride={styles.stepName}
@@ -104,9 +104,7 @@ export const ProgressStepper = ({
                   {step}
                 </Paragraph>
                 <div className={styles.stepIndicator}>
-                  <span className={styles.stepIcon}>
-                    <>{stepStatus.icon}</>
-                  </span>
+                  <span className={styles.stepIcon}>{Icon}</span>
                 </div>
                 {index < steps.length - 1 && (
                   <div
