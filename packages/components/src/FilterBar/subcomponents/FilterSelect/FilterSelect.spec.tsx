@@ -105,4 +105,23 @@ describe("<FilterBarSelect />", () => {
       ).toBeInTheDocument()
     })
   })
+
+  it("allows calling additional functions on selection change", async () => {
+    const onChange = jest.fn<void, [React.Key]>()
+    const { getByRole } = render(
+      <FilterBarSelectWrapper onSelectionChange={onChange} />
+    )
+    const triggerButton = getByRole("button", { name: "Flavour" })
+
+    await user.click(triggerButton)
+    await waitFor(() => {
+      const listbox = getByRole("listbox")
+      expect(listbox).toBeInTheDocument()
+    })
+
+    await user.click(getByRole("option", { name: "Honey Milk Tea" }))
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith("honey-milk-tea")
+    })
+  })
 })
