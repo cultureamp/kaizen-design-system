@@ -1,0 +1,28 @@
+import { ArgTypes, Canvas, DocsStory, Meta } from "@storybook/blocks"
+import { Installation, KaioNotification, ResourceLinks } from "../../../../../storybook/components"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import * as FilterBarStories from "./FilterBar.stories"
+
+<Meta of={FilterBarStories} />
+
+# Filter Bar
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterButton"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+The Filter Bar is a collection of Filter components, used to filter data.
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FilterBar } from "@kaizen/components"'
+/>
+
+## Filter Bar
+
+<Canvas of={FilterBarStories.Playground} />
+
+<ArgTypes of={FilterBarStories.Playground} />

@@ -1,29 +1,10 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { FilterBar, Filters } from "../index"
 
 const meta = {
-  tags: ["autodocs"],
   title: "Components/Filter Bar",
   component: FilterBar,
-  parameters: {
-    docs: {
-      container: ComponentDocsTemplate,
-    },
-    installation: [
-      "npm install @kaizen/components",
-      "import { FilterBar } from `@kaizen/components`",
-    ],
-    resourceLinks: {
-      sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/components/src/FilterBar",
-      figma:
-        "https://www.figma.com/file/5Dj1k0f04ezsMftUcNuqc8/%F0%9F%A4%96-Custom-Patterns-and-Components?type=design&node-id=328-69572&t=5ZxZ6whALK5eoA7C-0",
-      designGuidelines:
-        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
-    },
-  },
 } satisfies Meta<typeof FilterBar>
 
 export default meta
