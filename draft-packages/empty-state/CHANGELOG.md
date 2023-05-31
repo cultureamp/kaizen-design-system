@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.40
+
+### Patch Changes
+
+- [#3681](https://github.com/cultureamp/kaizen-design-system/pull/3681) [`e5b7b4f24`](https://github.com/cultureamp/kaizen-design-system/commit/e5b7b4f249185db36c5e27339ec9a2767bb311db) - fix: Empty State illustration size
+
 ## 5.3.39
 
 ### Patch Changes
