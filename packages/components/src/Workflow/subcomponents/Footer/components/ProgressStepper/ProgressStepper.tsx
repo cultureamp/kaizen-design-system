@@ -15,25 +15,47 @@ export interface ProgressStepperProps {
 const getStepStatus = (
   isComplete: boolean,
   isCurrentStep: boolean,
-  step: string
+  step: string,
+  index: number
 ): {
   icon: React.SVGAttributes<SVGSymbolElement>
   accessibleName: string
 } => {
   if (isComplete) {
     return {
-      icon: <SuccessIcon inheritSize role="presentation" />,
+      icon: (
+        <SuccessIcon
+          key={index}
+          inheritSize
+          role="presentation"
+          classNameOverride="success"
+        />
+      ),
       accessibleName: `Completed: ${step}`,
     }
   }
   if (isCurrentStep) {
     return {
-      icon: <IndicatorActiveIcon inheritSize role="presentation" />,
+      icon: (
+        <IndicatorActiveIcon
+          key={index}
+          inheritSize
+          role="presentation"
+          classNameOverride="active"
+        />
+      ),
       accessibleName: `Current: ${step}`,
     }
   }
   return {
-    icon: <IndicatorInactiveIcon inheritSize role="presentation" />,
+    icon: (
+      <IndicatorInactiveIcon
+        key={index}
+        inheritSize
+        classNameOverride="incomplete"
+        role="presentation"
+      />
+    ),
     accessibleName: `Not started: ${step}`,
   }
 }
@@ -56,7 +78,12 @@ export const ProgressStepper = ({
         {steps.map((step: string, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
-          const stepStatus = getStepStatus(isCompletedStep, isCurrentStep, step)
+          const stepStatus = getStepStatus(
+            isCompletedStep,
+            isCurrentStep,
+            step,
+            index
+          )
           return (
             <li
               className={styles.step}
