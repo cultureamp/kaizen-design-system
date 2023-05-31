@@ -1,10 +1,9 @@
 import React from "react"
 import classnames from "classnames"
-import { Icon } from "@kaizen/component-library"
-import emptyIcon from "@kaizen/component-library/icons/empty.icon.svg"
-import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
-import SuccessIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Paragraph } from "@kaizen/typography"
+import { IndicatorActiveIcon } from "~icons/IndicatorActiveIcon"
+import { IndicatorInactiveIcon } from "~icons/IndicatorInactiveIcon"
+import { SuccessIcon } from "~icons/SuccessIcon"
 import styles from "./ProgressStepper.module.scss"
 
 export interface ProgressStepperProps {
@@ -17,21 +16,24 @@ const getStepStatus = (
   isComplete: boolean,
   isCurrentStep: boolean,
   step: string
-): { icon: React.SVGAttributes<SVGSymbolElement>; accessibleName: string } => {
+): {
+  icon: React.SVGAttributes<SVGSymbolElement>
+  accessibleName: string
+} => {
   if (isComplete) {
     return {
-      icon: SuccessIcon,
+      icon: <SuccessIcon inheritSize role="presentation" />,
       accessibleName: `Completed: ${step}`,
     }
   }
   if (isCurrentStep) {
     return {
-      icon: fullIcon,
+      icon: <IndicatorActiveIcon inheritSize role="presentation" />,
       accessibleName: `Current: ${step}`,
     }
   }
   return {
-    icon: emptyIcon,
+    icon: <IndicatorInactiveIcon inheritSize role="presentation" />,
     accessibleName: `Not started: ${step}`,
   }
 }
@@ -76,11 +78,7 @@ export const ProgressStepper = ({
                 </Paragraph>
                 <div className={styles.stepIndicator}>
                   <span className={styles.stepIcon}>
-                    <Icon
-                      role="presentation"
-                      icon={stepStatus.icon}
-                      inheritSize
-                    />
+                    <>{stepStatus.icon}</>
                   </span>
                 </div>
                 {index < steps.length - 1 && (
@@ -97,12 +95,12 @@ export const ProgressStepper = ({
         })}
       </ol>
       <Paragraph
-        classNameOverride="sr-only"
+        classNameOverride={styles.stepperDescription}
         variant="small"
         color="white"
         id="stepper-description"
       >
-        Step {currentStepIndex + 1} out of {steps.length}.
+        Step {currentStepIndex + 1} of {steps.length}
       </Paragraph>
     </div>
   )
