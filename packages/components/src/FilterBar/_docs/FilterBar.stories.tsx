@@ -5,6 +5,12 @@ import { FilterBar, Filters } from "../index"
 const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
+  argTypes: {
+    classNameOverride: {
+      type: "string",
+      description: "Add extra classnames to the component.",
+    },
+  },
 } satisfies Meta<typeof FilterBar>
 
 export default meta
@@ -12,7 +18,7 @@ export default meta
 /**
  * The Filter Bar is a collection of Filter components, used to filter data.
  */
-export const Playground: StoryFn<typeof FilterBar> = () => {
+export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
   type Values = {
     flavour: string
     topping: string
@@ -86,11 +92,4 @@ export const Playground: StoryFn<typeof FilterBar> = () => {
       onValuesChange={onActiveValuesChange}
     />
   )
-}
-Playground.parameters = {
-  docs: {
-    canvas: {
-      sourceState: "shown",
-    },
-  },
 }
