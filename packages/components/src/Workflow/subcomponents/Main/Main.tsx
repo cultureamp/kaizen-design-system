@@ -1,12 +1,13 @@
-import React, { PropsWithChildren, HTMLAttributes } from "react"
+import React, { HTMLAttributes, ReactNode } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 
-export type WorkflowMainProps = PropsWithChildren<
-  OverrideClassName<HTMLAttributes<HTMLDivElement>>
->
+export type WorkflowMainProps = OverrideClassName<
+  HTMLAttributes<HTMLDivElement>
+> & {
+  children: ReactNode
+}
 
-/** A wrapper for the exit trigger (and other) actions of the Header Workflow  */
 export const Main = ({
   children,
   classNameOverride,
