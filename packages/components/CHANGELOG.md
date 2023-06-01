@@ -1,6 +1,14 @@
 # Change Log
 
-## 1.9.1
+## 1.10.0
+
+### Minor Changes
+
+- [#3687](https://github.com/cultureamp/kaizen-design-system/pull/3687) [`5b06b110e`](https://github.com/cultureamp/kaizen-design-system/commit/5b06b110e3831867827ee87cb9a387665dc0d644) - - remove dep on @kaizen/draft-modal as it was causing the compiled dist to fail on Next projects
+  - remove WorkflowExit component from Workflow pkg
+    - Update reference in docs and provide implementation example
+  - Move Workflow Wrapper div into exportable component
+    - Move styles into Wrapper folder
 
 ### Patch Changes
 
