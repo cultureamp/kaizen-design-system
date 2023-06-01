@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006 -c storybook",
     "storybook:preview": "NODE_ENV=production yarn storybook --docs",
     "storybook:clean": "rm -rf storybook/public",
-    "storybook:build": "yarn pkg:component-library clean && yarn storybook:clean && storybook build -c storybook -o storybook/public --docs",
+    "storybook:build": "storybook build -c storybook -o storybook/public --docs",
+    "storybook:build-deps": "yarn workspace @kaizen/design-tokens prepublish && yarn workspace @kaizen/tailwind prepublish",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
     "stylelint": "stylelint '**/*.scss'",
@@ -24,7 +25,7 @@
     "lint": "yarn eslint --max-warnings=0 && yarn prettier && yarn stylelint",
     "lint:fix": "yarn stylelint --fix && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
-    "clean": "yarn turbo clean && yarn clean:storybook",
+    "clean": "yarn turbo clean && yarn clean:storybook && rimraf node_modules",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic",
     "commit": "yarn changeset",
@@ -38,7 +39,6 @@
     "ci:publish": "yarn turbo prepublish && yarn changeset publish"
   },
   "dependencies": {
-    "@kaizen/component-library": "16.8.2",
     "@kaizen/design-tokens": "^10.0.11",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.0.18",

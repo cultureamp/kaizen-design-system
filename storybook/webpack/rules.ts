@@ -1,5 +1,3 @@
-// Call the pre-build script -- used for validation, setup, etc.
-import "../pre-build"
 import postcssFlexbugsFixes from "postcss-flexbugs-fixes"
 import postcssImport from "postcss-import"
 import postcssPresetEnv from "postcss-preset-env"
