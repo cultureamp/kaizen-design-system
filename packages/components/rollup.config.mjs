@@ -1,6 +1,7 @@
 import alias from "@rollup/plugin-alias";
 import commonjs from "@rollup/plugin-commonjs"
 import image from "@rollup/plugin-image"
+import jsonPlugin from "@rollup/plugin-json"
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import dts from "rollup-plugin-dts"
@@ -23,6 +24,7 @@ const getCompiledConfigByModuleType = format => ({
         { find: "~utils", replacement: "src/utils" },
         { find: "~icons", replacement: "src/SVG/icons" },
         { find: "~components", replacement: "src" },
+        { find: "__@cultureamp/i18n-react-intl/locales", replacement: "locales" },
       ]
     }),
     resolve({
@@ -43,6 +45,7 @@ const getCompiledConfigByModuleType = format => ({
     commonjs(),
     esbuild(),
     image(),
+    jsonPlugin()
   ],
   output: [
     {
