@@ -3,9 +3,8 @@ import { useFocusRing } from "@react-aria/focus"
 import { useOption } from "@react-aria/listbox"
 import { mergeProps } from "@react-aria/utils"
 import classnames from "classnames"
-import { Icon } from "@kaizen/component-library"
-import check from "@kaizen/component-library/icons/check.icon.svg"
 import { useSelectContext } from "~components/FilterSelect/context"
+import { CheckIcon } from "~icons/CheckIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { SelectOption, SelectOptionNode } from "../../types"
 import styles from "./Option.module.scss"
@@ -47,7 +46,7 @@ export const Option = <Option extends SelectOption = SelectOption>({
       <span
         className={classnames(styles.icon, isSelected && styles.isSelected)}
       >
-        {isSelected && <Icon icon={check} role="presentation" />}
+        {isSelected && <CheckIcon inheritSize role="presentation" />}
       </span>
     </li>
   )
