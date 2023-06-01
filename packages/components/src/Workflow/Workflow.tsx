@@ -29,7 +29,7 @@ const WorkflowComponent = ({
   ...restProps
 }: WorkflowProps): JSX.Element => (
   <Workflow.Wrapper
-    classNameOverride={classnames({ classNameOverride })}
+    classNameOverride={classnames(classNameOverride)}
     {...restProps}
   >
     <Workflow.Header
