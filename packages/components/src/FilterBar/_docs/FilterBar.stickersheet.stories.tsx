@@ -86,7 +86,7 @@ const StickerSheetTemplate: StoryFn = () => {
 
   return (
     <>
-      <StickerSheet heading="Filter Bar">
+      <StickerSheet heading="Filter Bar" style={{ width: "100%" }}>
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterBar<Values>
@@ -98,7 +98,10 @@ const StickerSheetTemplate: StoryFn = () => {
         </StickerSheet.Body>
       </StickerSheet>
 
-      <StickerSheet heading="Overflow (container 500px)">
+      <StickerSheet
+        heading="Overflow (container 500px)"
+        style={{ width: "100%" }}
+      >
         <StickerSheet.Body>
           <StickerSheet.Row>
             <div style={{ maxWidth: "500px" }}>
