@@ -1,33 +1,26 @@
-import { Canvas, Controls, DocsStory, Meta, Source, ArgTypes  } from "@storybook/blocks"
-import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
+import { Installation, KaioNotification, ResourceLinks } from "../../../../../storybook/components"
 import * as Workflow from "./Workflow.stories"
 import * as WorkflowFooter from "./WorkflowFooter.stories"
 import * as WorkflowHeader from "./WorkflowHeader.stories"
-import { KaioNotification } from "../../../../../storybook/components/DocsContainer/ComponentDocsTemplate/subcomponents/KaioInstallation/KaioNotification"
 
 <Meta title="Pages/Workflow" />
 
 # Workflow
 
-<ul className="!list-none !p-0 flex gap-4 items-center mb-8">
-  <li className="!mt-0 !text-paragraph">
-    <a
-      href="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Workflow"
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-    >Source Code</a>
-  </li>
-</ul>
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Workflow"
+  className="!mb-8"
+/>
 
 <KaioNotification />
 
-<div>
-  <h2 id="installation">Installation</h2>
-  <Source code="yarn add @kaizen/components" language="tsx" />
-  <Source code='import { Workflow } from "@kaizen/components"' language="tsx" />
-</div>
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Workflow } from "@kaizen/components"'
+/>
 
-## Playground
+## Overview
 
 This is a page template component containing the header, footer and main landmarks that compose a Workflow page. Its purpose is to guide an customer through a multi-step form to create a Workflow.
 
@@ -45,7 +38,7 @@ While the number of JSX element is not limited, is important to consider the rea
 
 <Canvas
   layout="fullscreen"
-  of={WorkflowHeader.MultipleActions} 
+  of={WorkflowHeader.MultipleActions}
   source={{code: `<Workflow
     headerActions={[
       <Button
@@ -68,7 +61,7 @@ While the number of JSX element is not limited, is important to consider the rea
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}} 
+  </Workflow>`}}
 />
 
 
@@ -96,7 +89,7 @@ This triggers a modal that can provide context to a customers and confirm thier 
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}} 
+  </Workflow>`}}
 />
 
 ## Tracking progress
@@ -118,7 +111,7 @@ The Footer tracks the progress of the form by comparing the current step, indica
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}} 
+  </Workflow>`}}
 />
 
 The Footer is agnostic to the JSX elements that are used in the `previousAction` and `nextAction`. While we recommend using the Kaizen Button, a button-like component can be used in its place to satisfy project-specific requirements.
@@ -135,7 +128,7 @@ To hide, disable or change the appearance of the Footer buttons you can leverage
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}} 
+  </Workflow>`}}
 />
 
 Instances where users are returning to a completed worklow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their aria title.
@@ -148,7 +141,7 @@ Instances where users are returning to a completed worklow you can pass the `isC
     {...otherProps}
   >
     <MockContent />
-  </Workflow>`}} 
+  </Workflow>`}}
 />
 
 ## Compsable Worflow
@@ -160,4 +153,3 @@ While we do not advise this path, a composable Workflow may be created if requir
 ## Worflow API at a glance
 
 <ArgTypes of={Workflow.Playground} />
-
