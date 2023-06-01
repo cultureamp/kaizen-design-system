@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { Button } from "@kaizen/button"
+import CloseIcon from "@kaizen/component-library/icons/close.icon.svg"
 import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
 import { Workflow, WorkflowProps } from "../"
 import { WorkflowControls } from "./controls"
@@ -45,14 +46,12 @@ const defaultArgs = {
   previousAction: <Button reversed label="Back" />,
   nextAction: <Button reversed label="Next" />,
   headerActions: [
-    <Workflow.WorkflowExit
-      key="would-use-uui"
-      exitLabel="Save and close"
-      exitTitle="Before you exit"
-      exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-      confirmExitLabel="Close and save"
-      dismissExitLabel="Dismiss"
-      onExit={(): void => alert("mock example of a save action")}
+    <Button
+      key="would-use-uui-2"
+      label="Save and close"
+      icon={CloseIcon}
+      secondary
+      iconPosition="end"
     />,
   ],
   children: <MockContent />,
@@ -98,14 +97,13 @@ export const MultipleActions: StoryObj<typeof meta> = {
         secondary
         iconPosition="start"
       />,
-      <Workflow.WorkflowExit
+      <Button
         key="would-use-uui-2"
-        exitLabel="Save and close"
-        exitTitle="Before you exit"
-        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-        confirmExitLabel="Close and save"
-        dismissExitLabel="Dismiss"
-        onExit={(): void => alert("mock example of a save action")}
+        label="Save and close"
+        icon={CloseIcon}
+        secondary
+        iconPosition="end"
+        onClick={(): void => alert("mock example of a save action")}
       />,
     ],
   },
@@ -123,14 +121,13 @@ export const FinalStep: StoryObj<typeof meta> = {
     },
     nextAction: <Button reversed label="Next" />,
     headerActions: [
-      <Workflow.WorkflowExit
-        key="would-use-uui"
-        exitLabel="Save and close"
-        exitTitle="Before you exit"
-        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-        confirmExitLabel="Close and save"
-        dismissExitLabel="Dismiss"
-        onExit={(): void => alert("mock example of a save action")}
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={CloseIcon}
+        secondary
+        iconPosition="end"
+        onClick={(): void => alert("mock example of a save action")}
       />,
     ],
   },
@@ -148,14 +145,13 @@ export const CompletedWorkflow: StoryObj<typeof meta> = {
     },
     nextAction: <Button reversed label="Next" />,
     headerActions: [
-      <Workflow.WorkflowExit
-        key="would-use-uui"
-        exitLabel="Save and close"
-        exitTitle="Before you exit"
-        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-        confirmExitLabel="Close and save"
-        dismissExitLabel="Dismiss"
-        onExit={(): void => alert("mock example of a save action")}
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={CloseIcon}
+        secondary
+        iconPosition="end"
+        onClick={(): void => alert("mock example of a save action")}
       />,
     ],
   },
@@ -172,7 +168,7 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
   nextAction,
   ...restProps
 }) => (
-  <div {...restProps}>
+  <Workflow.Wrapper {...restProps}>
     <Workflow.Header
       workflowName={workflowName}
       stepName={stepName}
@@ -195,5 +191,5 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
       nextAction={nextAction}
       previousAction={previousAction}
     />
-  </div>
+  </Workflow.Wrapper>
 )

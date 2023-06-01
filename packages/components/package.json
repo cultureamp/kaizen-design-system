@@ -44,7 +44,6 @@
     "@kaizen/typography": "^2.3.10",
     "@kaizen/draft-tag": "^3.4.16",
     "@kaizen/brand": "^1.5.8",
-    "@kaizen/draft-modal": "^10.6.19",
     "@kaizen/button": "^3.0.3",
     "@popperjs/core": "^2.11.8",
     "@react-aria/button": "^3.7.2",

@@ -6,7 +6,6 @@ export type WorkflowMainProps = PropsWithChildren<
   OverrideClassName<HTMLAttributes<HTMLDivElement>>
 >
 
-/** A wrapper for the exit trigger (and other) actions of the Header Workflow  */
 export const Main = ({
   children,
   classNameOverride,
