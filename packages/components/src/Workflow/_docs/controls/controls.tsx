@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "@kaizen/button"
-import CloseIcon from "@kaizen/component-library/icons/close.icon.svg"
-import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
+import { CloseIcon } from "~icons/CloseIcon"
+import { VisibleIcon } from "~icons/VisibleIcon"
 
 export const WorkflowControls = {
   headerActions: {
@@ -13,7 +13,7 @@ export const WorkflowControls = {
         <Button
           key="would-use-uui-1"
           label="Close"
-          icon={CloseIcon}
+          icon={<CloseIcon />}
           secondary
           iconPosition="end"
         />,
@@ -22,14 +22,14 @@ export const WorkflowControls = {
         <Button
           key="would-use-uui-1"
           label="Close"
-          icon={CloseIcon}
+          icon={<CloseIcon />}
           secondary
           iconPosition="end"
         />,
         <Button
           key="would-use-uui-2"
           label="Preview"
-          icon={VisibleIcon}
+          icon={<VisibleIcon />}
           secondary
           iconPosition="start"
         />,
