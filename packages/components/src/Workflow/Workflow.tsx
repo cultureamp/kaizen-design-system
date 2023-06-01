@@ -1,5 +1,4 @@
 import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
   Footer,
@@ -28,10 +27,7 @@ const WorkflowComponent = ({
   classNameOverride,
   ...restProps
 }: WorkflowProps): JSX.Element => (
-  <Workflow.Wrapper
-    classNameOverride={classnames(classNameOverride)}
-    {...restProps}
-  >
+  <Workflow.Wrapper classNameOverride={classNameOverride} {...restProps}>
     <Workflow.Header
       workflowName={workflowName}
       stepName={stepName}
