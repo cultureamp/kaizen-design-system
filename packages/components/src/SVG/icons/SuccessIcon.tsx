@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+import React from "react"
+import { SVG, SVGProps } from "~components/SVG"
+
+export const SuccessIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
+  <SVG {...props}>
     <path
       fill="currentColor"
       id="a"
       d="M10 2c4.416 0 8 3.584 8 8s-3.584 8-8 8-8-3.584-8-8 3.584-8 8-8ZM8.4 14l7.2-7.2-1.128-1.136L8.4 11.736 5.528 8.872 4.4 10l4 4Z"
     />
-</svg>
-
+  </SVG>
+)
