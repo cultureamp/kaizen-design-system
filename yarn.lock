@@ -2212,18 +2212,6 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/component-library@16.8.2":
-  version "16.8.2"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.8.2.tgz#f95a8a3f85555b998cad3dcb5accdb34e29ba5da"
-  integrity sha512-GrRf9C4XKhaG04eq4iTg/66H3E7qBDLBFpePrNzcLrZCg1DyMyhV7RgALX0+YW5h9VLR9QwJc+Wk8c2NUtSC1g==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@kaizen/hosted-assets" "^2.0.3"
-    "@types/lodash" "^4.14.194"
-    "@types/uuid" "^9.0.1"
-    classnames "^2.3.2"
-
 "@manypkg/find-root@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@manypkg/find-root/-/find-root-1.1.0.tgz#a62d8ed1cd7e7d4c11d9d52a8397460b5d4ad29f"
