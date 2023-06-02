@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Source, SourceProps, Story } from "@storybook/blocks"
+import { Source, SourceProps, Story, Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
 import { v4 } from "uuid"
 import styles from "./CustomCanvas.module.scss"
@@ -23,7 +23,7 @@ export const CustomCanvas = ({
   const [isOpen, setIsOpen] = useState<boolean>(initialIsOpen)
 
   return (
-    <div className={classnames(className)}>
+    <Unstyled className={classnames(styles.customCanvas, className)}>
       <div className={styles.canvas}>
         <Story of={of} />
         <button
@@ -42,6 +42,6 @@ export const CustomCanvas = ({
           <Source of={of} dark />
         </div>
       )}
-    </div>
+    </Unstyled>
   )
 }

@@ -1,10 +1,13 @@
 /* stylelint-disable declaration-no-important */
 @import "~@kaizen/design-tokens/sass/color";
 
+.customCanvas {
+  margin: 25px 0 40px;
+}
+
 // Simulate the styles of Storybook Canvas
 .canvas {
   position: relative;
-  margin: 25px 0 40px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
   border: 1px solid hsla(203deg, 50%, 30%, 0.15);
   border-radius: 4px;
