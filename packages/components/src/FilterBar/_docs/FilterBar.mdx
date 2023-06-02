@@ -130,10 +130,4 @@ return (
 
 A callback (`(values: Partial<ValuesMap>) => void`) for when the active `values` change.
 
-```tsx
-const [values, setValues] = useState<Partial<ValuesMap>>({})
-
-return (
-  <FilterBar<ValuesMap> onValuesChange={setValues} {...rest} />
-)
-```
+<NoClipCanvas of={FilterBarStories.OnValuesChange} />
