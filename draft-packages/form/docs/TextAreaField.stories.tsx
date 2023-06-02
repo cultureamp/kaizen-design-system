@@ -5,7 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Text Area Field",
+  title: "Components/Text Input/Text Area Field",
   component: TextAreaField,
   parameters: {
     docs: {

@@ -11,7 +11,7 @@ const IS_CHROMATIC = isChromatic()
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Filter",
+  title: "Components/Filter Base",
   component: Filter,
   parameters: {
     docs: {

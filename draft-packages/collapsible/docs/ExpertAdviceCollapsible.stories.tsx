@@ -14,7 +14,7 @@ arcu quam a sapien. Donec in viverra urna.`
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Expert Advice Collapsible",
+  title: "Components/Collapsible/Expert Advice Collapsible",
   component: ExpertAdviceCollapsible,
   parameters: {
     backgrounds: { default: "Gray 100" },
