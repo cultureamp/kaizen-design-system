@@ -14,7 +14,7 @@ steps:
   - name: ":butterfly: Release"
     command: ".buildkite/scripts/release.sh"
     timeout_in_minutes: 15
-    if: build.branch == "main" && build.author.name == "github-actions[bot]"
+    if: build.branch == "main" && build.branch == "changeset-release/main"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
