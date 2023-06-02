@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { FilterBar, Filters } from "../index"
-
 const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
@@ -15,9 +14,6 @@ const meta = {
 
 export default meta
 
-/**
- * The Filter Bar is a collection of Filter components, used to filter data.
- */
 export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
   type Values = {
     flavour: string

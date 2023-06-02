@@ -1,6 +1,5 @@
-import { ArgTypes, Canvas, DocsStory, Meta } from "@storybook/blocks"
-import { Installation, KaioNotification, ResourceLinks } from "../../../../../storybook/components"
-import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import { ArgTypes, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
 import * as FilterBarStories from "./FilterBar.stories"
 
 <Meta of={FilterBarStories} />
@@ -22,9 +21,10 @@ import * as FilterBarStories from "./FilterBar.stories"
 ## Overview
 
 The Filter Bar is a collection of Filter components, used to filter data.
+
 This example showcases a minimal implementation of the FilterBar.
 
-<Canvas of={FilterBarStories.BasicImplementation} />
+<NoClipCanvas of={FilterBarStories.BasicImplementation} />
 
 ## API
 
