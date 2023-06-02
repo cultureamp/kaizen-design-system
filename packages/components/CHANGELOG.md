@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.10.1
+
+### Patch Changes
+
+- [#3695](https://github.com/cultureamp/kaizen-design-system/pull/3695) [`04661f9ee`](https://github.com/cultureamp/kaizen-design-system/commit/04661f9ee1962a3bcc2d93fabac8097e6128f32f) - This is a patch to manually trigger a re-release
+
 ## 1.10.0
 
 ### Minor Changes
