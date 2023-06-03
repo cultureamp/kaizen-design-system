@@ -2826,13 +2826,6 @@
   dependencies:
     "@swc/helpers" "^0.4.14"
 
-"@react-types/button@^3.7.2":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@react-types/button/-/button-3.7.2.tgz#954566e9b576780bda0c018d7f5046a1d44f5677"
-  integrity sha512-P7L+r+k4yVrvsfEWx3wlzbb+G7c9XNWzxEBfy6WX9HnKb/J5bo4sP5Zi8/TFVaKTlaG60wmVhdr+8KWSjL0GuQ==
-  dependencies:
-    "@react-types/shared" "^3.18.0"
-
 "@react-types/button@^3.7.3":
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/@react-types/button/-/button-3.7.3.tgz#00ad45ff0a304a6f6ef29a5d6adda73cea10942f"
