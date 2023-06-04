@@ -3184,14 +3184,6 @@
     "@swc/helpers" "^0.4.14"
     clsx "^1.1.1"
 
-"@react-stately/collections@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.7.0.tgz#5f032ba5e8b554e90bf1a2077220d2560618dbf7"
-  integrity sha512-xZHJxjGXFe3LUbuNgR1yATBVSIQnm+ItLq2DJZo3JzTtRu3gEwLoRRoapPsBQnC5VsjcaimgoqvT05P0AlvCTQ==
-  dependencies:
-    "@react-types/shared" "^3.18.0"
-    "@swc/helpers" "^0.4.14"
-
 "@react-stately/collections@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.8.0.tgz#4b2b71866d12fd6b4f4aea495e2d4ecb2954d4e6"
@@ -3370,11 +3362,6 @@
   integrity sha512-ByVKKwgpE3d08jI+Ibuom/qphlBiDKpVMwXgFgVZRAN2YvVrsix8arSo7kmXtzekz91qqDBqtt7DBCfT0E1WKw==
   dependencies:
     "@react-types/shared" "^3.18.1"
-
-"@react-types/shared@^3.18.0":
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.18.0.tgz#4f2bacad5912eba6667695ee3f9e8ac9f79849f7"
-  integrity sha512-WJj7RAPj7NLdR/VzFObgvCju9NMDktWSruSPJ3DrL5qyrrvJoyMW67L4YjNoVp2b7Y+k10E0q4fSMV0PlJoL0w==
 
 "@react-types/shared@^3.18.1":
   version "3.18.1"
