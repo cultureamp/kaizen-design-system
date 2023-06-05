@@ -20,7 +20,6 @@ import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 
 export default {
-  tags: ["autodocs"],
   title: "Components/Filter Date Picker",
   component: FilterDatePicker,
   parameters: {
