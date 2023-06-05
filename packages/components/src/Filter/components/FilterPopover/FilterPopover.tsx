@@ -36,7 +36,6 @@ export const FilterPopover = ({
         },
       ],
       placement: "bottom-start",
-      strategy: "fixed",
       ...popperOptions,
     }
   )

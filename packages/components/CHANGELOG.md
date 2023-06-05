@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.11.0
+
+### Minor Changes
+
+- [#3685](https://github.com/cultureamp/kaizen-design-system/pull/3685) [`4a4cb6019`](https://github.com/cultureamp/kaizen-design-system/commit/4a4cb6019365320fe76d83c44fd21b53dbea6938) - Add FilterBar and FilterBar.Select (extends FilterSelect).
+
+### Patch Changes
+
+- [#3685](https://github.com/cultureamp/kaizen-design-system/pull/3685) [`4a4cb6019`](https://github.com/cultureamp/kaizen-design-system/commit/4a4cb6019365320fe76d83c44fd21b53dbea6938) - Fix FilterSelect to find the matching item using the `selectedKey` prop when the item value is a number, as the useSelectState hook transforms the number to a string.
+
+- [#3698](https://github.com/cultureamp/kaizen-design-system/pull/3698) [`858258df8`](https://github.com/cultureamp/kaizen-design-system/commit/858258df874036b6d937493142d427fb6eb881e5) - Change `FilterPopover` to position `absolute` instead of `fixed`.
+  The `fixed` strategy causes contents to disappear off a page (not scrollable) when it goes beyond the window boundary.
+
 ## 1.10.1
 
 ### Patch Changes

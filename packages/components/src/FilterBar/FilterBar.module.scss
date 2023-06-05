@@ -1,0 +1,14 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-8;
+  padding: $spacing-8;
+  box-shadow: $shadow-small-box-shadow;
+  border-radius: $border-solid-border-radius;
+  background-color: $color-white;
+}

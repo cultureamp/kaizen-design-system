@@ -134,7 +134,7 @@ import {
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Spot",
+  title: "Components/Illustrations/Spot",
   component: AccountBasics,
   parameters: {
     docs: {
