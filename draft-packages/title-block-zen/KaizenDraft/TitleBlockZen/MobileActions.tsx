@@ -1,5 +1,6 @@
 import React from "react"
 import classnames from "classnames"
+import { FocusOn } from "react-focus-on"
 import { ButtonProps } from "@kaizen/button"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -498,28 +499,30 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           this.state.isOpen && styles.isOpen
         )}
       >
-        <DrawerHandle
-          primaryAction={primaryAction}
-          secondaryActions={secondaryActions}
-          defaultAction={defaultAction}
-          secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-          drawerHandleLabelIconPosition={drawerHandleLabelIconPosition}
-          toggleDisplay={this.toggleDisplay}
-          isOpen={this.state.isOpen}
-        />
-        {(defaultAction ||
-          secondaryActions ||
-          secondaryOverflowMenuItems ||
-          (primaryAction && isMenuGroupNotButton(primaryAction))) && (
-          <div className={styles.mobileActionsMenuContainer}>
-            <DrawerMenuContent
-              primaryAction={primaryAction}
-              defaultAction={defaultAction}
-              secondaryActions={secondaryActions}
-              secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-            />
-          </div>
-        )}
+        <FocusOn enabled={this.state.isOpen} scrollLock={false}>
+          <DrawerHandle
+            primaryAction={primaryAction}
+            secondaryActions={secondaryActions}
+            defaultAction={defaultAction}
+            secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+            drawerHandleLabelIconPosition={drawerHandleLabelIconPosition}
+            toggleDisplay={this.toggleDisplay}
+            isOpen={this.state.isOpen}
+          />
+          {(defaultAction ||
+            secondaryActions ||
+            secondaryOverflowMenuItems ||
+            (primaryAction && isMenuGroupNotButton(primaryAction))) && (
+            <div className={styles.mobileActionsMenuContainer}>
+              <DrawerMenuContent
+                primaryAction={primaryAction}
+                defaultAction={defaultAction}
+                secondaryActions={secondaryActions}
+                secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+              />
+            </div>
+          )}
+        </FocusOn>
       </div>
     )
   }
