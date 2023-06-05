@@ -12,7 +12,7 @@ import { SkipLink } from "../index"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Skip Link",
+  title: "Components/A11y/Skip Link",
   component: SkipLink,
   parameters: {
     docs: {
