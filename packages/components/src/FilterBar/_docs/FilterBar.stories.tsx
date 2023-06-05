@@ -18,9 +18,9 @@ export default meta
 const sampleCode = `
 type Values = {
   flavour: string
-  topping: string
   sugarLevel: number
   iceLevel: number
+  deliveryDates: string
 }
 
 const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
@@ -42,19 +42,6 @@ const filters = [
     ),
   },
   {
-    id: "topping",
-    name: "Topping",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: "none", label: "None" },
-          { value: "pearls", label: "Pearls" },
-          { value: "fruit-jelly", label: "Fruit Jelly" },
-        ]}
-      />
-    ),
-  },
-  {
     id: "sugarLevel",
     name: "Sugar Level",
     Component: (
@@ -80,6 +67,11 @@ const filters = [
       />
     ),
   },
+  {
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker locale="en-AU" />,
+  },
 ] satisfies Filters<Values>
 
 return (
@@ -92,9 +84,9 @@ return (
 
 type Values = {
   flavour: string
-  topping: string
   sugarLevel: number
   iceLevel: number
+  deliveryDates: string
 }
 
 const filters = [
@@ -112,19 +104,6 @@ const filters = [
     ),
   },
   {
-    id: "topping",
-    name: "Topping",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: "none", label: "None" },
-          { value: "pearls", label: "Pearls" },
-          { value: "fruit-jelly", label: "Fruit Jelly" },
-        ]}
-      />
-    ),
-  },
-  {
     id: "sugarLevel",
     name: "Sugar Level",
     Component: (
@@ -149,6 +128,11 @@ const filters = [
         ]}
       />
     ),
+  },
+  {
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker locale="en-AU" />,
   },
 ] satisfies Filters<Values>
 
