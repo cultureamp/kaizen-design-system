@@ -5,7 +5,6 @@ import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { Filter, FilterContents } from ".."
 
 export default {
-  tags: ["autodocs"],
   title: "Components/Filter Base",
   component: Filter,
   argTypes: {
