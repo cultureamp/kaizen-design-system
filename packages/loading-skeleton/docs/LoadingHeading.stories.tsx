@@ -6,7 +6,7 @@ import { LoadingHeading } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Loading/Loading Headings",
+  title: "Components/Loading States/Loading Headings",
   component: LoadingHeading,
   parameters: {
     docs: {
