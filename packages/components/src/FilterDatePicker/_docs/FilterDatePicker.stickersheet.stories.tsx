@@ -25,6 +25,9 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   const [isOpenValue, setIsOpenValue] = useState<boolean>(false)
 
   const [noDateValue, setNoDateValue] = useState<Date | undefined>()
+  const [dateValueValidation, setDateValueValidation] = useState<
+    Date | undefined
+  >(new Date("potato"))
 
   const [dateValue, setDateValue] = useState<Date | undefined>(
     new Date("2022-05-15")
@@ -93,8 +96,8 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               id={`${textDirection}-stickersheet--filter-dp-field--validation`}
               inputProps={{ labelText: "Date" }}
               locale="en-US"
-              selectedDate={dateValue}
-              onDateChange={setDateValue}
+              selectedDate={dateValueValidation}
+              onDateChange={setDateValueValidation}
               onValidate={action("Validation story: date start onValidate")}
               validationMessage={{
                 status: "error",
