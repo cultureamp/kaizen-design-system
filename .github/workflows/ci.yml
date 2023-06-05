@@ -65,8 +65,7 @@ jobs:
       - run: yarn install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: USE_REACT_16=true yarn ci:test
-      - run: cd ./packages/components && USE_REACT_16=true yarn ci:test
+      - run: yarn ci:test:react-16
 
   jest-react-17:
     if: github.ref != 'refs/heads/main'
@@ -81,8 +80,7 @@ jobs:
       - run: yarn install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: USE_REACT_17=true yarn ci:test
-      - run: cd ./packages/components && USE_REACT_17=true yarn ci:test
+      - run: yarn ci:test:react-17
 
   jest-react-18:
     if: github.ref != 'refs/heads/main'
@@ -98,4 +96,3 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn ci:test
-      - run: yarn pkg:aio:test

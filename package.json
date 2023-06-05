@@ -22,6 +22,7 @@
     "playwright": "IS_DEV=true npx playwright test",
     "playwright:debug": "IS_DEV=true PWDEBUG=1 npx playwright test",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
+    "jest:ci": "jest --ci",
     "lint": "yarn eslint --max-warnings=0 && yarn prettier && yarn stylelint",
     "lint:fix": "yarn stylelint --fix && yarn eslint --max-warnings=0 --fix && yarn prettier --write",
     "reset": "yarn clean && yarn install --force",
@@ -34,7 +35,9 @@
     "pkg:aio:test": "yarn pkg:aio test && yarn pkg:aio build",
     "ci:version": "yarn turbo prepublish && yarn changeset version",
     "ci:publish": "yarn turbo prepublish && yarn changeset publish",
-    "ci:test": "jest --ci"
+    "ci:test": "yarn jest:ci && yarn pkg:aio jest:ci",
+    "ci:test:react-16": "USE_REACT_16=true yarn jest:ci && yarn pkg:aio ci:test:react-16",
+    "ci:test:react-17": "USE_REACT_17=true yarn jest:ci && yarn pkg:aio ci:test:react-17"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
