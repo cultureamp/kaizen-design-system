@@ -12,7 +12,7 @@
     "clean": "yarn turbo clean && yarn clean:storybook",
     "test": "jest && yarn test:pkg:aio",
     "test:pkg:aio": "yarn pkg:aio test && yarn pkg:aio build",
-    "test:pkg:c-library:sass": "yarn c-library test-scss-compile",
+    "test:pkg:c-library:sass": "yarn pkg:c-library test-scss-compile",
     "test:ci": "jest --ci",
     "compile": "tsc && yarn pkg:aio compile",
     "storybook": "storybook dev -p 6006 -c storybook",
