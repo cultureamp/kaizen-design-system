@@ -152,6 +152,22 @@ describe("<FilterSelect>", () => {
       })
     })
   })
+
+  describe("Number values", () => {
+    it("finds selected option when value is a number", () => {
+      const { getByRole } = render(
+        <FilterSelectWrapper
+          items={[
+            { value: 0, label: "Zero" },
+            { value: 50, label: "50" },
+            { value: 100, label: "100" },
+          ]}
+          selectedKey={50}
+        />
+      )
+      expect(getByRole("button", { name: "Coffee : 50" })).toBeInTheDocument()
+    })
+  })
 })
 
 const defaultProps: FilterSelectProps = {
