@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { Source, SourceProps, Story, Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
 import { v4 } from "uuid"
-import styles from "./CustomCanvas.module.scss"
+import styles from "./NoClipCanvas.module.scss"
 
-export type CustomCanvasProps = {
+export type NoClipCanvasProps = {
   of: SourceProps["of"]
   initialIsOpen?: boolean
   className?: string
@@ -14,16 +14,16 @@ export type CustomCanvasProps = {
  * An almost-duplicate of Storybook's <Canvas>.
  * Only use this when Canvas prevents your component rendering correctly (eg. using a popover).
  */
-export const CustomCanvas = ({
+export const NoClipCanvas = ({
   of,
   initialIsOpen = false,
   className,
-}: CustomCanvasProps): JSX.Element => {
+}: NoClipCanvasProps): JSX.Element => {
   const [sourceId] = useState<string>(v4())
   const [isOpen, setIsOpen] = useState<boolean>(initialIsOpen)
 
   return (
-    <Unstyled className={classnames(styles.customCanvas, className)}>
+    <Unstyled className={classnames(styles.noClipCanvas, className)}>
       <div className={styles.canvas}>
         <Story of={of} />
         <button

@@ -1,5 +1,5 @@
 import { ArgTypes, Controls, Description, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation, CustomCanvas } from "../../../../../storybook/components"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
 import { LinkTo } from "../../../../../storybook/components/LinkTo"
 import * as FilterSelectStories from "./FilterSelect.stories"
 
@@ -22,11 +22,11 @@ import * as FilterSelectStories from "./FilterSelect.stories"
 />
 
 ## Playground
-<CustomCanvas of={FilterSelectStories.Playground} />
+<NoClipCanvas of={FilterSelectStories.Playground} />
 <Controls of={FilterSelectStories.Playground} />
 
 ## API
 
 ### Additional Option Properties (generic)
 <Description of={FilterSelectStories.AdditionalProperties} />
-<CustomCanvas of={FilterSelectStories.AdditionalProperties} />
+<NoClipCanvas of={FilterSelectStories.AdditionalProperties} />

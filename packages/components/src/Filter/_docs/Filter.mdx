@@ -1,5 +1,5 @@
 import { ArgTypes, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation, CustomCanvas } from "../../../../../storybook/components"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
 import { LinkTo } from "../../../../../storybook/components/LinkTo"
 import * as FilterStories from "./Filter.stories"
 
@@ -27,7 +27,7 @@ These components are mainly used for constructing Filter components (eg. <LinkTo
 - <LinkTo pageId="components-filter-filter-buttons">FilterButton</LinkTo> for the renderTrigger
 - `FilterContents` to wrap the contents within a Filter
 
-<CustomCanvas of={FilterStories.SimpleFilter} />
+<NoClipCanvas of={FilterStories.SimpleFilter} />
 
 ## API
 
@@ -71,7 +71,7 @@ renderTrigger={(triggerProps): JSX.Element => (
 )}
 ```
 
-<CustomCanvas of={FilterStories.SimpleFilter} />
+<NoClipCanvas of={FilterStories.SimpleFilter} />
 
 #### Removable Filter
 
@@ -84,7 +84,7 @@ renderTrigger={(triggerProps): JSX.Element => (
 )}
 ```
 
-<CustomCanvas of={FilterStories.RemovableFilter} />
+<NoClipCanvas of={FilterStories.RemovableFilter} />
 
 ### `onMount`
 
