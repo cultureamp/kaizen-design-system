@@ -11,7 +11,7 @@
     "build": "yarn turbo prepublish",
     "test": "jest && yarn pkg:aio:test",
     "clean": "yarn turbo clean && yarn clean:storybook",
-    "compile": "tsc",
+    "compile": "tsc && yarn pkg:aio compile",
     "storybook": "storybook dev -p 6006 -c storybook",
     "storybook:preview": "NODE_ENV=production yarn storybook --docs",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",

@@ -35,7 +35,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn compile
-      - run: yarn pkg:aio:compile
 
   linting:
     if: github.ref != 'refs/heads/main'
