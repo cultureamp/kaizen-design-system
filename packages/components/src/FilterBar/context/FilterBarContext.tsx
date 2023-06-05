@@ -57,7 +57,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       return state[id]
     },
     toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean): void => {
-      dispatch({ type: "update_single", id, data: { isOpen } })
+      dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
     updateValue: (id: keyof ValuesMap, newValue: any): void => {
       onValuesChange({

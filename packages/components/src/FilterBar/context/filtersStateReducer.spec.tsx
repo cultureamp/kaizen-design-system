@@ -50,7 +50,7 @@ describe("filtersStateReducer", () => {
   it("updates state of a single filter", () => {
     expect(
       filtersStateReducer<Values>(initialState, {
-        type: "update_single",
+        type: "update_single_filter",
         id: "flavour",
         data: { isOpen: true },
       })
