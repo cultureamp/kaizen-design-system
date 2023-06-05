@@ -17,7 +17,7 @@ const FilterDatePickerWrapper = ({
 
   return (
     <FilterDatePicker
-      id="test__filter-date-range-picker"
+      id="test__filter-date-picker"
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       renderTrigger={(triggerProps): JSX.Element => (
