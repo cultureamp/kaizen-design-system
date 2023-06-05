@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { DateRange } from "@kaizen/date-picker"
 import { Paragraph } from "@kaizen/typography"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
@@ -8,10 +9,9 @@ import {
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
+import { DateValidationResponse } from "~components/FilterDatePicker"
 import {
-  DateRange,
   DateRangeFieldValidationMessage,
-  DateValidationResponse,
   FilterDateRangePicker,
 } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"

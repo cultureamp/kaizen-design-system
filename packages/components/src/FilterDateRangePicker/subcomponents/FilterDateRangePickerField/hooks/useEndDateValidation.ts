@@ -1,8 +1,8 @@
 import {
   useDateValidation,
   UseDateValidationArgs,
+  ValidationMessage,
 } from "~components/FilterDatePicker"
-import { ValidationMessage } from "../types"
 import {
   validateEndDateBeforeStartDate,
   ValidateEndDateBeforeStartDateArgs,

@@ -47,10 +47,10 @@ export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
       : undefined
 
     const inputDescribedBy = errorMessageId
-      ? `${dateErrorMessageId} ${descriptionId}`
+      ? `${errorMessageId} ${descriptionId}`
       : descriptionId
 
-    const dateIsInvalid = dateErrorMessageId !== undefined
+    const dateIsInvalid = errorMessageId !== undefined
 
     return (
       <div>
@@ -58,8 +58,8 @@ export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
           ref={inputDateRef}
           id={id}
           labelText={labelText}
-          aria-describedby={dateStartInputDescribedBy}
-          aria-errormessage={dateErrorMessageId}
+          aria-describedby={inputDescribedBy}
+          aria-errormessage={errorMessageId}
           aria-invalid={dateIsInvalid}
           autoComplete="off"
           disabled={disabled}
@@ -70,7 +70,7 @@ export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
 
         {validationMessage && (
           <FieldMessage
-            id={dateErrorMessageId}
+            id={errorMessageId}
             message={validationMessage?.message}
             status={validationMessage?.status}
             reversed={isReversed}
