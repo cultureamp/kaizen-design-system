@@ -231,7 +231,10 @@ describe("<FilterDatePickerField />", () => {
 
     it("re-validates values when selecting a value using the calendar", async () => {
       const { container } = render(
-        <FilterDatePickerFieldWrapper selectedDate={new Date("potato")} />
+        <FilterDatePickerFieldWrapper
+          selectedDate={new Date("potato")}
+          defaultMonth={new Date("2022-05-01")}
+        />
       )
 
       const dateErrorContainer = container.querySelector(dateErrorId)
@@ -243,7 +246,7 @@ describe("<FilterDatePickerField />", () => {
       })
 
       const targetDay = screen.getByRole("button", {
-        name: "12th May (Friday)",
+        name: "12th May (Thursday)",
       })
 
       await user.click(targetDay)
