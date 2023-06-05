@@ -12,12 +12,9 @@ import {
 import { FilterProps } from "~components/Filter"
 import { DateInputDescriptionProps } from "~components/FilterDatePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
+import { FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
-import {
-  DateValidationResponse,
-  DatePickerSupportedLocales,
-  ValidationMessage,
-} from "../../types"
+import { DateValidationResponse, ValidationMessage } from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
 import { useSingleDateValidation } from "./hooks/useSingleDateValidation"
 import styles from "./FilterDatePickerField.module.scss"
@@ -28,7 +25,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 export interface FilterDatePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
-  locale: DatePickerSupportedLocales
+  locale: FilterDateSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */

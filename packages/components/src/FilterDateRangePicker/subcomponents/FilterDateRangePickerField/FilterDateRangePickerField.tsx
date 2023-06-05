@@ -10,11 +10,9 @@ import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
 import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
-import {
-  DateValidationResponse,
-  DatePickerSupportedLocales,
-} from "~components/FilterDatePicker"
+import { DateValidationResponse } from "~components/FilterDatePicker"
 import { DataAttributes } from "~types/DataAttributes"
+import { FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
   DateRangeInputField,
@@ -35,7 +33,7 @@ export interface FilterDateRangePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   label: string
-  locale: DatePickerSupportedLocales
+  locale: FilterDateSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */
