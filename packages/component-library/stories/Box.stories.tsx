@@ -29,6 +29,10 @@ const Documentation = ({ reversed }: { reversed?: boolean }): JSX.Element => (
     <Paragraph tag="div" variant="body" color={reversed ? "white" : "dark"}>
       <ul>
         <li>
+          While <code>Box</code> is not deprecated yet, we discourage its use in
+          favor of using Tailwind with our Kaizen Preset.
+        </li>
+        <li>
           <code>Box</code> is a utility component that is for creating
           small-scale spacing without the need for CSS.
         </li>

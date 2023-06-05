@@ -5,7 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Notification/Global Notification",
+  title: "Components/Notifications/Global Notification",
   component: GlobalNotification,
   parameters: {
     docs: {

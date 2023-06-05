@@ -8,7 +8,7 @@ import { Filter, FilterContents } from ".."
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Filter",
+  title: "Components/Filter Base",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
