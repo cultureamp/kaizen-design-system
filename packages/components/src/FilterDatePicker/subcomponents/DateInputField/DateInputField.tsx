@@ -42,12 +42,11 @@ export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
     const inputDateRef = isRefObject(ref) ? ref.current : null
     const descriptionId = `${id}--field-message`
 
-    // Date Start aria labels
-    const dateErrorMessageId = validationMessage
+    const errorMessageId = validationMessage
       ? `${id}--date-error-message`
       : undefined
 
-    const dateStartInputDescribedBy = dateErrorMessageId
+    const inputDescribedBy = errorMessageId
       ? `${dateErrorMessageId} ${descriptionId}`
       : descriptionId
 
