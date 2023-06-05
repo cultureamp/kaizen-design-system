@@ -33,7 +33,8 @@
     "pkg:aio": "yarn workspace @kaizen/components",
     "pkg:aio:test": "yarn pkg:aio test && yarn pkg:aio build",
     "ci:version": "yarn turbo prepublish && yarn changeset version",
-    "ci:publish": "yarn turbo prepublish && yarn changeset publish"
+    "ci:publish": "yarn turbo prepublish && yarn changeset publish",
+    "ci:test": "jest --ci"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
