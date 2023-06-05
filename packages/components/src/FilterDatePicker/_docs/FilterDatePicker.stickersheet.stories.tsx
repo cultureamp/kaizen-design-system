@@ -75,8 +75,8 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               inputProps={{ labelText: "Date" }}
               locale="en-US"
               defaultMonth={new Date("2022-05-01")}
-              selectedDate={dateValue}
-              onDateChange={setDateValue}
+              selectedDate={noDateValue}
+              onDateChange={setNoDateValue}
             />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Existing value">
