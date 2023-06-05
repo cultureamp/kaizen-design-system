@@ -5,7 +5,7 @@ import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { Filter, FilterContents } from ".."
 
 export default {
-  title: "Components/Filter",
+  title: "Components/Filter Base",
   component: Filter,
   argTypes: {
     classNameOverride: {

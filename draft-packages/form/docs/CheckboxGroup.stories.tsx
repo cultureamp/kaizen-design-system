@@ -26,7 +26,7 @@ const CheckboxGroupExample = ({
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Checkbox Group",
+  title: "Components/Checkbox/Checkbox Group",
   component: CheckboxField,
   parameters: {
     docs: {
