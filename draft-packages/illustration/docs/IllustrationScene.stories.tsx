@@ -65,7 +65,7 @@ const STATIC_SCENE_CONTROLS = {
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Scene",
+  title: "Components/Illustrations/Scene",
   component: BrandMomentCaptureIntro,
   parameters: {
     chromatic: { disable: false },
