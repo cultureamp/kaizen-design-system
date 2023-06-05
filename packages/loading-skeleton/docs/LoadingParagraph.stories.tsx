@@ -6,7 +6,7 @@ import { LoadingParagraph } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Loading/Loading Paragraph",
+  title: "Components/Loading States/Loading Paragraph",
   component: LoadingParagraph,
   parameters: {
     docs: {

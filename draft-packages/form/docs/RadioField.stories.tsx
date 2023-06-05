@@ -5,7 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Radio Field",
+  title: "Components/Radio/Radio Field",
   component: RadioField,
   parameters: {
     docs: {

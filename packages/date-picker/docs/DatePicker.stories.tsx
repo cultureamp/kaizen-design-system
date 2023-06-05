@@ -15,7 +15,7 @@ import { weekStartsOnControls } from "./controls/weekStartsOnControls"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Date Picker",
+  title: "Components/Date Selection/Date Picker",
   component: DatePicker,
   parameters: {
     actions: {
