@@ -1,0 +1,133 @@
+import { ArgTypes, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
+import * as FilterBarStories from "./FilterBar.stories"
+
+<Meta of={FilterBarStories} />
+
+# Filter Bar
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterBar"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FilterBar } from "@kaizen/components"'
+/>
+
+## Overview
+
+The Filter Bar is a collection of Filter components, used to filter data.
+
+This example showcases a minimal implementation of the FilterBar.
+
+<NoClipCanvas of={FilterBarStories.BasicImplementation} />
+
+## API
+
+<ArgTypes of={FilterBarStories.BasicImplementation} />
+
+### `FilterBar<ValuesMap>` (generic)
+
+FilterBar accepts a TypeScript generic where you can outline the shape of the expected value types for each filter.
+
+We also provide a `Filters` type which can accept the same generic to provide improved type safety.
+
+`ValuesMap` should be in the shape of `{ [filterId]: filterValueType }`.
+
+```tsx
+import { FilterBar, Filters } from "@kaizen/components"
+
+type ValuesMap = {
+  filterId1: string
+  filterId2: number
+}
+
+const [values, setValues] = useState<Partial<ValuesMap>>({
+  filterId1: "default-value"
+})
+
+const filters = [
+  { id: "filterId1", ...rest },
+  { id: "filterId2", ...rest },
+] satisfies Filters<ValuesMap>
+
+return (
+  <FilterBar<ValuesMap>
+    filters={filters}
+    values={values}
+    onValuesChange={setValues}
+  />
+)
+```
+
+### `filters`
+
+The `filters` prop is an array of attributes used to create the list of filters.
+
+#### Filter attributes
+
+Each filter has the following attributes:
+```tsx
+id: string // A unique id for the filter
+name: string // The name used to label the filter, shown in the trigger button
+Component: JSX.Element // A Filter component or a custom component consuming the FilterBarContext
+```
+
+##### `Component` - Available Filter components
+- `<FilterBar.Select>`
+
+#### Usage
+
+We also provide a `Filters<ValuesMap>` type you can use for improved type safety.
+
+```tsx
+import { FilterBar, Filters } from "@kaizen/components"
+
+const filters = [
+  {
+    id: "filterId1",
+    name: "Filter 1",
+    Component: <FilterBar.Select {...props} />
+  },
+  {
+    id: "filterId2",
+    name: "Filter 2",
+    Component: <FilterBar.Select {...props} />
+  },
+] satisfies Filters<ValuesMap>
+```
+
+### `values`
+
+A key-value pair of currently active values.
+
+The `values` prop should be in the shape of `{ [filterId]: filterValueType }` (matching `ValuesMap`).
+
+This is instantiated by the consumer to allow for updates from external events (eg. using url params).
+
+```tsx
+type ValuesMap = {
+  filterId1: string
+  filterId2: number
+}
+
+// @note: Unless you are providing a default value for all the filters,
+// you will want to wrap it in Partial.
+const [values, setValues] = useState<Partial<ValuesMap>>({
+  filterId1: "default-value"
+})
+
+return (
+  <FilterBar<ValuesMap> values={values} {...rest} />
+)
+```
+
+### `onValuesChange`
+
+A callback (`(values: Partial<ValuesMap>) => void`) for when the active `values` change.
+
+<NoClipCanvas of={FilterBarStories.OnValuesChange} />
