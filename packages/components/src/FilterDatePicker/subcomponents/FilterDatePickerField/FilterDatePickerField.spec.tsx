@@ -136,7 +136,7 @@ describe("<FilterDatePickerField />", () => {
       expect(screen.getByText(currentMonth)).toBeVisible()
     })
 
-    it("updates the range start input when changing the start date", async () => {
+    it("updates the input when changing the date", async () => {
       render(
         <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-15")} />
       )
