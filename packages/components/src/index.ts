@@ -6,4 +6,4 @@ export * from "./FilterSelect"
 export * from "./KaizenProvider"
 export * from "./Workflow"
 
-export type { DateRange, DisabledDays } from "@kaizen/date-picker"
+export * from "./types/DatePicker"
