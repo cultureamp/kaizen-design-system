@@ -4967,10 +4967,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@>=16", "@types/react@^17", "@types/react@^18.2.7":
+"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@>=16", "@types/react@^18.2.7":
   version "18.2.7"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.7.tgz#dfb4518042a3117a045b8c222316f83414a783b3"
   integrity sha512-ojrXpSH2XFCmHm7Jy3q44nXDyN54+EYKP2lBhJ2bqfyPj6cIUW/FZW/Csdia34NQgq7KYcAlHi5184m4X88+yw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17":
+  version "17.0.60"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.60.tgz#a4a97dcdbebad76612c188fc06440e4995fd8ad2"
+  integrity sha512-pCH7bqWIfzHs3D+PDs3O/COCQJka+Kcw3RnO9rFA2zalqoXg7cNjJDh6mZ7oRtY1wmY4LVwDdAbA1F7Z8tv3BQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -15139,6 +15148,11 @@ rollup-plugin-esbuild@^5.0.0:
     es-module-lexer "^1.0.5"
     joycon "^3.1.1"
     jsonc-parser "^3.2.0"
+
+rollup-plugin-ignore@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-ignore/-/rollup-plugin-ignore-1.0.10.tgz#0b8453ebf977fca1b4b0634062dded45288bf764"
+  integrity sha512-VsbnfwwaTv2Dxl2onubetX/3RnSnplNnjdix0hvF8y2YpqdzlZrjIq6zkcuVJ08XysS8zqW3gt3ORBndFDgsrg==
 
 rollup-plugin-peer-deps-external@^2.2.4:
   version "2.2.4"

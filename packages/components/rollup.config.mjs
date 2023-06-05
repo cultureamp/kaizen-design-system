@@ -9,6 +9,7 @@ import esbuild from "rollup-plugin-esbuild"
 import peerDepsExternal from "rollup-plugin-peer-deps-external"
 import postcss from "rollup-plugin-postcss"
 import ttypescript from "ttypescript"
+import ignore from "rollup-plugin-ignore"
 
 const TYPES_TEMP_DIR = "dts"
 const OUTPUT_DIR = "dist"
@@ -45,7 +46,9 @@ const getCompiledConfigByModuleType = format => ({
     commonjs(),
     esbuild(),
     image(),
-    jsonPlugin()
+    jsonPlugin(),
+    // These libraries aren't used in KAIO, but require polyfills in consuming repos
+    ignore(["stream", "http", "https", "zlib"]),
   ],
   output: [
     {
