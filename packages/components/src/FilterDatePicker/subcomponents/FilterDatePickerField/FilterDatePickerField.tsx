@@ -7,15 +7,15 @@ import {
   isInvalidDate,
   formatDateAsText,
   getLocale,
+  DisabledDays,
 } from "@kaizen/date-picker"
 import { FilterProps } from "~components/Filter"
 import { DateInputDescriptionProps } from "~components/FilterDatePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
-  DisabledDays,
   DateValidationResponse,
-  FilterDPSupportedLocales,
+  DatePickerSupportedLocales,
   ValidationMessage,
 } from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
@@ -28,7 +28,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 export interface FilterDatePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
-  locale: FilterDPSupportedLocales
+  locale: DatePickerSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */

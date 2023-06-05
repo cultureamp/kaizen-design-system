@@ -5,10 +5,15 @@ import {
   CalendarRangeProps,
 } from "@kaizen/date-picker/src/_subcomponents/Calendar"
 import { useDateInputHandlers } from "@kaizen/date-picker/src/hooks/useDateInputHandlers"
+import { DateRange, DisabledDays } from "@kaizen/date-picker/src/types"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
 import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
+import {
+  DateValidationResponse,
+  DatePickerSupportedLocales,
+} from "~components/FilterDatePicker"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
@@ -17,13 +22,7 @@ import {
 } from "../DateRangeInputField"
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
-import {
-  DisabledDays,
-  DateRange,
-  DateRangeFieldValidationMessage,
-  DateValidationResponse,
-  FilterDRPSupportedLocales,
-} from "./types"
+import { DateRangeFieldValidationMessage } from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
 
 type InputStartDateProps = DateRangeInputFieldProps["inputStartDateProps"]
@@ -36,7 +35,7 @@ export interface FilterDateRangePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
   label: string
-  locale: FilterDRPSupportedLocales
+  locale: DatePickerSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */
