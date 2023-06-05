@@ -2,7 +2,6 @@
 
 .filterDatePickerField {
   width: 288px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: $spacing-16;
 }

@@ -132,7 +132,7 @@ export const FilterDatePickerField = ({
 
   return (
     <div
-      className={classnames(styles.FilterDatePickerField, classNameOverride)}
+      className={classnames(styles.filterDatePickerField, classNameOverride)}
       {...restProps}
     >
       <DateInputField
