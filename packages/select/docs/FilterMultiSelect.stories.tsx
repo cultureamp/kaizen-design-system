@@ -7,6 +7,7 @@ import {
   useInfiniteQuery,
   useQueryClient,
 } from "@tanstack/react-query"
+import isChromatic from "chromatic"
 import { Label } from "../../../draft-packages/form"
 import { Button, ButtonRef } from "../../button"
 import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
@@ -18,6 +19,8 @@ import { DemographicValueSelect } from "./FilterBarExample/DemographicValueSelec
 import { useDemographicData } from "./FilterBarExample/useDemographicData"
 import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
+
+const IS_CHROMATIC = isChromatic()
 
 const client = new QueryClient()
 
@@ -99,7 +102,6 @@ export const DefaultKaizenSiteDemo: StoryFn<
     </>
   )
 }
-
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 DefaultKaizenSiteDemo.args = { label: "Engineer" }
 
@@ -108,7 +110,7 @@ export const Loading: StoryFn<typeof FilterMultiSelect> = args => (
     <FilterMultiSelect
       {...args}
       isLoading
-      isOpen
+      isOpen={IS_CHROMATIC || undefined}
       loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
       trigger={(): JSX.Element => (
         <FilterMultiSelect.TriggerButton
@@ -121,7 +123,6 @@ export const Loading: StoryFn<typeof FilterMultiSelect> = args => (
     </FilterMultiSelect>
   </>
 )
-
 Loading.args = { label: "Engineer" }
 Loading.parameters = {
   chromatic: { disable: false },
