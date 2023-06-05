@@ -133,7 +133,7 @@ const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
   sceneComponents,
   ...restArgs
 }: IllustrationScenesTemplateProps) => {
-  const { isAnimated, loop, autoplay, ...restProps } = restArgs
+  const { isAnimated, loop, autoplay, alt: _, ...restProps } = restArgs
   const isAnimatedStory = IS_CHROMATIC ? false : isAnimated
   return (
     <>
