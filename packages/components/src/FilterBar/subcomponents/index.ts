@@ -1,2 +1,2 @@
 export * from "./FilterBarDateRangePicker"
-export * from "./FilterSelect"
+export * from "./FilterBarSelect"
