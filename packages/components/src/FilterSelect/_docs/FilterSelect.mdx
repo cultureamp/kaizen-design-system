@@ -1,0 +1,32 @@
+import { ArgTypes, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import * as FilterSelectStories from "./FilterSelect.stories"
+
+<Meta of={FilterSelectStories} />
+
+# Filter Select
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterSelect"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=6-28579&t=bowQ0LWOQKOd0UYS-0"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FilterSelect } from "@kaizen/components"'
+/>
+
+## Playground
+<NoClipCanvas of={FilterSelectStories.Playground} />
+<Controls of={FilterSelectStories.Playground} />
+
+## API
+
+### Additional Option Properties (generic)
+<Description of={FilterSelectStories.AdditionalProperties} />
+<NoClipCanvas of={FilterSelectStories.AdditionalProperties} />

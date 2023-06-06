@@ -48,15 +48,13 @@ While the number of JSX element is not limited, is important to consider the rea
         secondary
         iconPosition="start"
       />,
-      <Workflow.WorkflowExit
+      <Button
         key="would-use-uui-2"
-        exitLabel="Save and close"
-        exitTitle="Before you exit"
-        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-        confirmExitLabel="Close and save"
-        dismissExitLabel="Dismiss"
-        onExit={(): void => alert("mock example of a save action")}
-      />,
+        label="Save and close"
+        icon={CloseIcon}
+        secondary
+        iconPosition="end"
+      />
     ]}
     {...otherProps}
   >
@@ -67,29 +65,42 @@ While the number of JSX element is not limited, is important to consider the rea
 
 ## Handling a Workflow exit
 
-This package also exports a `WorkflowExit` component that can be  used to handle a customer leaving a Workflow page.
-
-This triggers a modal that can provide context to a customers and confirm thier intention to exit the workflow. The `onExit` callback is triggered by a button labelled with the `confirmExitLabel` prop.
+A common pattern identified is a Workflow Exit button. An implemntation of this component should be passed to the `headerActions` array to handle a user leaving a Workflow. We've provided an example below that combines a Kaizen `Button` with the `ConfirmationModal` component.
 
 <Canvas
   layout="fullscreen"
   of={WorkflowHeader.Playground}
-  source={{code: `<Workflow
-  headerActions={[
-    <Workflow.WorkflowExit
-      key="would-use-uui-2"
-      exitLabel="Save and close"
-      exitTitle="Before you exit"
-      exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-      confirmExitLabel="Close and save"
-      dismissExitLabel="Dismiss"
-      onExit={(): void => alert("mock example of a save action")}
-    />
-    ]}
-    {...otherProps}
-  >
-    <MockContent />
-  </Workflow>`}}
+  source={{code: `
+  const [showModal, setShowModal] = useState<boolean>(false)
+  ...
+  return (
+    <>
+      <Button
+        label={exitLabel}
+        icon={closeIcon}
+        iconPosition="end"
+        secondary
+        onClick={() => setShowModal(true)}
+      />
+      <ConfirmationModal
+        isOpen={showModal}
+        mood={mood}
+        isProminent={true}
+        title={exitTitle}
+        confirmLabel={confirmExitLabel}
+        dismissLabel={dismissExitLabel}
+        onConfirm={onConfirmExitCallback}
+        onDismiss={() => {
+          setShowModal(false)
+        }}
+      >
+        <div>
+          <Paragraph variant="body">{exitDescription}</Paragraph>
+        </div>
+      </ConfirmationModal>
+    </>
+  )`
+  }} 
 />
 
 ## Tracking progress

@@ -11,7 +11,7 @@ import styles from "../src/_subcomponents/Calendar/Calendar.module.scss"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Calendar",
+  title: "Components/Date Selection/Calendar",
   parameters: {
     docs: {
       description: {
