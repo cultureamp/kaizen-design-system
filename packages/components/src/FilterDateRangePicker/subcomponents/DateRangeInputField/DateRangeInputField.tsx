@@ -9,7 +9,7 @@ import { FieldMessage } from "@kaizen/draft-form"
 import {
   DateInputDescription,
   DateInputDescriptionProps,
-} from "~components/FilterDatePicker/subcomponents/DateInputDescription"
+} from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { isRefObject } from "~utils/isRefObject"
 import {
