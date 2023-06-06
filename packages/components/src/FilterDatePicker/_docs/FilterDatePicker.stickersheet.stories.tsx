@@ -50,7 +50,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
                 <FilterButton {...triggerButtonProps} />
               )}
               label="Start day"
-              locale="en-US"
+              locale="en-AU"
               selectedDate={noDateValue}
               onDateChange={setNoDateValue}
             />
@@ -62,7 +62,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
                 <FilterButton {...triggerButtonProps} />
               )}
               label="Start day"
-              locale="en-US"
+              locale="en-AU"
               selectedDate={dateValue}
               onDateChange={setDateValue}
             />
@@ -76,7 +76,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-dp-field--default`}
               inputProps={{ labelText: "Date" }}
-              locale="en-US"
+              locale="en-AU"
               defaultMonth={new Date("2022-05-01")}
               selectedDate={noDateValue}
               onDateChange={setNoDateValue}
@@ -86,7 +86,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-dp-field--existing`}
               inputProps={{ labelText: "Date" }}
-              locale="en-US"
+              locale="en-AU"
               selectedDate={dateValue}
               onDateChange={setDateValue}
             />
@@ -95,7 +95,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
             <FilterDatePickerField
               id={`${textDirection}-stickersheet--filter-dp-field--validation`}
               inputProps={{ labelText: "Date" }}
-              locale="en-US"
+              locale="en-AU"
               selectedDate={dateValueValidation}
               onDateChange={setDateValueValidation}
               onValidate={action("Validation story: date start onValidate")}
