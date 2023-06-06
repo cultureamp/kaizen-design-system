@@ -6,6 +6,7 @@ import {
   FilterBarProviderProps,
 } from "./context/FilterBarContext"
 import { FiltersValues } from "./context/types"
+import { FilterBarMultiSelect } from "./subcomponents/FilterBarMultiSelect"
 import { FilterBarSelect } from "./subcomponents/FilterSelect/FilterSelect"
 import styles from "./FilterBar.module.scss"
 
@@ -34,3 +35,4 @@ export const FilterBar = <ValuesMap extends FiltersValues>({
 FilterBar.displayName = "FilterBar"
 
 FilterBar.Select = FilterBarSelect
+FilterBar.MultiSelect = FilterBarMultiSelect

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { FilterMultiSelect } from "@kaizen/select"
 import { FilterBar, Filters } from "../index"
 const meta = {
   title: "Components/Filter Bar",
@@ -16,6 +17,8 @@ const meta = {
 export default meta
 
 const sampleCode = `
+import { FilterMultiSelect } from "@kaizen/select"
+
 type Values = {
   flavour: string
   topping: string
@@ -45,13 +48,29 @@ const filters = [
     id: "topping",
     name: "Topping",
     Component: (
-      <FilterBar.Select
+      <FilterBar.MultiSelect
         items={[
           { value: "none", label: "None" },
           { value: "pearls", label: "Pearls" },
           { value: "fruit-jelly", label: "Fruit Jelly" },
         ]}
-      />
+      >
+        {(): JSX.Element => (
+          <>
+            <FilterMultiSelect.ListBox>
+              {({ allItems }): JSX.Element | JSX.Element[] => {
+                return allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterBar.MultiSelect>
     ),
   },
   {
@@ -92,7 +111,7 @@ return (
 
 type Values = {
   flavour: string
-  topping: string
+  toppings: string[]
   sugarLevel: number
   iceLevel: number
 }
@@ -112,16 +131,32 @@ const filters = [
     ),
   },
   {
-    id: "topping",
-    name: "Topping",
+    id: "toppings",
+    name: "Toppings",
     Component: (
-      <FilterBar.Select
+      <FilterBar.MultiSelect
         items={[
           { value: "none", label: "None" },
           { value: "pearls", label: "Pearls" },
           { value: "fruit-jelly", label: "Fruit Jelly" },
         ]}
-      />
+      >
+        {(): JSX.Element => (
+          <>
+            <FilterMultiSelect.ListBox>
+              {({ allItems }): JSX.Element | JSX.Element[] =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterBar.MultiSelect>
     ),
   },
   {
@@ -155,6 +190,7 @@ const filters = [
 export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
+    toppings: ["pearls"],
   })
 
   return (
@@ -176,6 +212,7 @@ BasicImplementation.parameters = {
 export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
+    toppings: ["pearls"],
   })
 
   return (
