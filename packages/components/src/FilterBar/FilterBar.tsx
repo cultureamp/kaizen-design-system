@@ -6,7 +6,7 @@ import {
   FilterBarProviderProps,
 } from "./context/FilterBarContext"
 import { FiltersValues } from "./context/types"
-import { FilterBarDatePicker } from "./subcomponents/FilterDatePicker/FilterDatePicker"
+import { FilterBarDatePicker } from "./subcomponents/FilterBarDatePicker/FilterBarDatePicker"
 import { FilterBarSelect } from "./subcomponents/FilterSelect/FilterSelect"
 import styles from "./FilterBar.module.scss"
 

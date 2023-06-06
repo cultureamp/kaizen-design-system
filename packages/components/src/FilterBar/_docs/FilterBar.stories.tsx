@@ -132,7 +132,7 @@ const filters = [
   {
     id: "drank",
     name: "Drank",
-    Component: <FilterBar.DatePicker disabledDays={{ after: new Date() }} />,
+    Component: <FilterBar.DatePicker />,
   },
 ] satisfies Filters<Values>
 

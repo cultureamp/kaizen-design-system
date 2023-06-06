@@ -60,4 +60,33 @@ describe("<FilterDatePicker />", () => {
       })
     })
   })
+
+  it("updates the selected value in the trigger button when typing a date", async () => {
+    const { getByRole, getByLabelText } = render(
+      <FilterDatePickerWrapper selectedDate={new Date("06-06-2023")} />
+    )
+    const triggerButton = getByRole("button", {
+      name: "Drank : 6 Jun 2023",
+    })
+
+    await user.click(triggerButton)
+
+    await waitFor(() => {
+      const dialog = getByRole("dialog")
+      expect(dialog).toBeInTheDocument()
+    })
+
+    const inputDate = getByLabelText("Date")
+    await user.clear(inputDate)
+    await user.type(inputDate, "07/06/2023")
+    // TODO: note that this should work without having to trigger a tab. update this test when fixed.
+    await user.tab()
+    await user.click(document.body)
+
+    await waitFor(() => {
+      expect(
+        getByRole("button", { name: "Drank : 7 Jun 2023" })
+      ).toBeInTheDocument()
+    })
+  })
 })

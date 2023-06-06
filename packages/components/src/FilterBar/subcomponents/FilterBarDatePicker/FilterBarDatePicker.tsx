@@ -56,4 +56,4 @@ export const FilterBarDatePicker = ({
   )
 }
 
-FilterBarDatePicker.displayName = "FilterBarDatePicker"
+FilterBarDatePicker.displayName = "FilterBar.DatePicker"
