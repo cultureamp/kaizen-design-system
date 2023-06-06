@@ -5,7 +5,7 @@ import {
   CalendarRangeProps,
 } from "@kaizen/date-picker/src/_subcomponents/Calendar"
 import { useDateInputHandlers } from "@kaizen/date-picker/src/hooks/useDateInputHandlers"
-import { DateRange, DisabledDays } from "@kaizen/date-picker/src/types"
+import { DateRange, DisabledDays } from "~types/DatePicker" "@kaizen/date-picker/src/types"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"

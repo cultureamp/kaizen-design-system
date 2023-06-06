@@ -1,7 +1,7 @@
 import {
   validateDate as dpValidateDate,
   ValidateDateArgs,
-} from "@kaizen/date-picker/src/utils/validateDate"
+} from "@kaizen/date-picker"
 import { DateValidationResponse } from "../types"
 
 export type ValidateDateResponse = {

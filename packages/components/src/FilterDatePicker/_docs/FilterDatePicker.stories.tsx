@@ -1,78 +1,20 @@
 import React, { useEffect, useState } from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
-import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import {
   DateValidationResponse,
   FilterDatePicker,
   ValidationMessage,
 } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
-import { defaultMonthControls } from "./controls/defaultMonthControls"
-import { disabledDaysControls } from "./controls/disabledDaysControls"
-import { validationControls } from "./controls/validationControls"
 
-export default {
-  title: "Components/Filter Date Picker",
-  component: FilterDatePicker,
-  parameters: {
-    docs: {
-      container: ComponentDocsTemplate,
-    },
-    isInKaio: true,
-    installation: [
-      "yarn add @kaizen/components",
-      'import { FilterDatePicker } from "@kaizen/components"',
-    ],
-    resourceLinks: {
-      sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterDatePicker",
-      figma:
-        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=2349%3A110993&t=gzsKluk8LiOX3jCF-1",
-      designGuidelines:
-        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
-    },
-  },
-  args: {
-    label: "Date",
-    locale: "en-AU",
-  },
-  argTypes: {
-    ...defaultMonthControls,
-    ...validationControls,
-    disabledDays: disabledDaysControls,
-    renderTrigger: renderTriggerControls,
-    locale: {
-      options: ["en-US", "en-AU"],
-      control: { type: "radio" },
-    },
-    isOpen: { control: "disabled" },
-    selectedDate: {
-      options: ["None", "Date"],
-      control: {
-        type: "select",
-        labels: {
-          None: "undefined",
-        },
-      },
-      mapping: {
-        None: undefined,
-        Date: new Date(),
-      },
-    },
-    description: {
-      control: "text",
-    },
-  },
-} satisfies Meta<typeof FilterDatePicker>
-
+export default {}
 const sampleCode = `
 // This code is not connected to the controls of the attached component.
 // @note: If you want a removable button, use the commented out code instead.
@@ -111,9 +53,6 @@ return (
 )
 `
 
-/**
- * For selecting a date which filters data.
- */
 export const Playground: StoryFn<typeof FilterDatePicker> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [date, setDate] = useState<Date | undefined>()

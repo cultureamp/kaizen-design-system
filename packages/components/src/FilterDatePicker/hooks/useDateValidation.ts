@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { DisabledDays } from "@kaizen/date-picker"
+import { DisabledDays } from "~types/DatePicker"
 import { ValidationMessage, DateValidationResponse } from "../types"
 import { getDateValidationHandler } from "../utils/getDateValidationHandler"
 import { validateDate } from "../utils/validateDate"

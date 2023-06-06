@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
-import { DateRange } from "@kaizen/date-picker"
+import { DateRange } from "~types/DatePicker"
 import { Paragraph } from "@kaizen/typography"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
