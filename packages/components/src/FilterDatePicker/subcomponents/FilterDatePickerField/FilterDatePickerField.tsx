@@ -44,7 +44,7 @@ export interface FilterDatePickerFieldProps
    *
    * Distinctly different from `change` where that is triggered on any kind of event, we expect the final valid date in this function.
    */
-  onDateSubmit: (date: Date | undefined) => void
+  onDateSubmit?: (date: Date | undefined) => void
   /**
    * See https://react-day-picker.js.org/api/types/Matcher
    */

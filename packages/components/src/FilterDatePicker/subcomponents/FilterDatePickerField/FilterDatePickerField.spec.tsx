@@ -59,11 +59,13 @@ describe("<FilterDatePickerField />", () => {
     describe("onBlur", () => {
       it("updates date input and calendar values correctly on blur", async () => {
         const inputDateOnBlur = jest.fn<void, [FocusEvent]>()
+        const inputDateOnSubmit = jest.fn<void, [Date | undefined]>()
 
         render(
           <FilterDatePickerFieldWrapper
             selectedDate={new Date("2022-05-02")}
             onBlur={inputDateOnBlur}
+            onDateSubmit={inputDateOnSubmit}
           />
         )
 
@@ -84,6 +86,7 @@ describe("<FilterDatePickerField />", () => {
         await waitFor(() => {
           expect(inputDate).toHaveValue("1 May 2022")
           expect(inputDateOnBlur).toHaveBeenCalled()
+          expect(inputDateOnSubmit).toHaveBeenCalledWith(new Date("2022-05-01"))
           expect(targetDay).toHaveAttribute("aria-pressed", "true")
         })
       })
@@ -208,7 +211,7 @@ describe("<FilterDatePickerField />", () => {
         await waitFor(() => {
           const dateErrorContainer = container.querySelector(dateErrorId)
           expect(dateErrorContainer).toHaveTextContent(
-            "Date:potato is an invalid date"
+            "potato is an invalid date"
           )
         })
       })
@@ -224,7 +227,7 @@ describe("<FilterDatePickerField />", () => {
         const dateErrorContainer = container.querySelector(dateErrorId)
 
         expect(dateErrorContainer).toHaveTextContent(
-          "Date:15/05/2022 is not available, try another date"
+          "15/05/2022 is not available, try another date"
         )
       })
     })
@@ -241,7 +244,7 @@ describe("<FilterDatePickerField />", () => {
 
       await waitFor(() => {
         expect(dateErrorContainer).toHaveTextContent(
-          "Date:Invalid Date is an invalid date"
+          "Invalid Date is an invalid date"
         )
       })
 
@@ -254,6 +257,33 @@ describe("<FilterDatePickerField />", () => {
       await waitFor(() => {
         expect(dateErrorContainer).not.toBeInTheDocument()
       })
+    })
+  })
+
+  it("clears the value of the input when there is an invalid date typed in", async () => {
+    const { getByRole, getByLabelText } = render(
+      <FilterDatePickerFieldWrapper selectedDate={new Date("06-06-2023")} />
+    )
+    const triggerButton = getByRole("button", {
+      name: "Drank : 6 Jun 2023",
+    })
+
+    await user.click(triggerButton)
+
+    await waitFor(() => {
+      const dialog = getByRole("dialog")
+      expect(dialog).toBeInTheDocument()
+    })
+
+    const inputDate = getByLabelText("Date")
+    await user.clear(inputDate)
+    await user.type(inputDate, "35/13/2023")
+    // TODO: note that this should work without having to trigger a tab. update this test when fixed.
+    await user.tab()
+    await user.click(document.body)
+
+    await waitFor(() => {
+      expect(getByRole("button", { name: "Drank" })).toBeInTheDocument()
     })
   })
 })
