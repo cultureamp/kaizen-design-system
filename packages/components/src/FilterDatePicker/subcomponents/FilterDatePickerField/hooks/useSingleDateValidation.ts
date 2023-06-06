@@ -20,7 +20,7 @@ export const useSingleDateValidation = (
   const { validationMessage, validateDate, updateValidation } =
     useDateValidation(args)
 
-  const validateStartDate: UseSingleDateValidationValue["validateDate"] = ({
+  const validateSingleDate: UseSingleDateValidationValue["validateDate"] = ({
     date,
     inputValue,
   }) => {
