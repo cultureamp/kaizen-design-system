@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "@cultureamp/i18n-react-intl": "^1.1.8",
-    "@kaizen/component-library": "16.8.2",
     "@kaizen/design-tokens": "^10.0.11",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.0.18",
