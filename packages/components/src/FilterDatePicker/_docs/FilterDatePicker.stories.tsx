@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
   FilterButtonProps,
@@ -13,8 +14,46 @@ import {
   ValidationMessage,
 } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
+import { defaultMonthControls } from "./controls/defaultMonthControls"
+import { disabledDaysControls } from "./controls/disabledDaysControls"
+import { validationControls } from "./controls/validationControls"
 
-export default {}
+export default {
+  title: "Components/Filter Date Picker",
+  component: FilterDatePicker,
+  args: {
+    label: "Date",
+    locale: "en-AU",
+  },
+  argTypes: {
+    ...defaultMonthControls,
+    ...validationControls,
+    disabledDays: disabledDaysControls,
+    renderTrigger: renderTriggerControls,
+    locale: {
+      options: ["en-US", "en-AU"],
+      control: { type: "radio" },
+    },
+    isOpen: { control: "disabled" },
+    selectedDate: {
+      options: ["None", "Date"],
+      control: {
+        type: "select",
+        labels: {
+          None: "undefined",
+        },
+      },
+      mapping: {
+        None: undefined,
+        Date: new Date(),
+      },
+    },
+    description: {
+      control: "text",
+    },
+  },
+} satisfies Meta<typeof FilterDatePicker>
+
 const sampleCode = `
 // This code is not connected to the controls of the attached component.
 // @note: If you want a removable button, use the commented out code instead.

@@ -108,6 +108,9 @@ export const FilterDatePickerField = ({
       const newDate = validateDate(date)
       handleDateChange(newDate)
 
+      // Close the filter when a date is selected
+      setIsFilterOpen?.(false)
+
       if (newDate) {
         setStartMonth(newDate)
       }
@@ -119,9 +122,6 @@ export const FilterDatePickerField = ({
     const newDate = validateDate(date)
     setInputDateValue(transformDateToInputValue(newDate))
     handleDateChange(newDate)
-
-    // Close the filter when a date is selected
-    setIsFilterOpen?.(false)
   }
 
   useEffect(() => {
