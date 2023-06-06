@@ -5,6 +5,8 @@ import { FilterDatePickerField, FilterDatePickerFieldProps } from "."
 
 const user = userEvent.setup()
 
+const inputDateOnSubmit = jest.fn<void, [Date | undefined]>()
+
 const FilterDatePickerFieldWrapper = ({
   selectedDate,
   ...restProps
@@ -18,6 +20,7 @@ const FilterDatePickerFieldWrapper = ({
       id="test__filter-date-picker"
       selectedDate={selectedValue}
       onDateChange={setSelectedValue}
+      onDateSubmit={inputDateOnSubmit}
       locale="en-AU"
       {...restProps}
     />
@@ -25,6 +28,10 @@ const FilterDatePickerFieldWrapper = ({
 }
 
 describe("<FilterDatePickerField />", () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   describe("Inputs", () => {
     it("has empty inputs when a date is not provided", () => {
       render(<FilterDatePickerFieldWrapper />)
@@ -59,13 +66,11 @@ describe("<FilterDatePickerField />", () => {
     describe("onBlur", () => {
       it("updates date input and calendar values correctly on blur", async () => {
         const inputDateOnBlur = jest.fn<void, [FocusEvent]>()
-        const inputDateOnSubmit = jest.fn<void, [Date | undefined]>()
 
         render(
           <FilterDatePickerFieldWrapper
             selectedDate={new Date("2022-05-02")}
             onBlur={inputDateOnBlur}
-            onDateSubmit={inputDateOnSubmit}
           />
         )
 
@@ -109,6 +114,7 @@ describe("<FilterDatePickerField />", () => {
 
       await waitFor(() => {
         expect(screen.queryByText("May 2022")).not.toBeInTheDocument()
+        expect(inputDateOnSubmit).toHaveBeenCalledWith(new Date("2020-02-19"))
       })
     })
   })
@@ -137,6 +143,21 @@ describe("<FilterDatePickerField />", () => {
         year: "numeric",
       })
       expect(screen.getByText(currentMonth)).toBeVisible()
+    })
+
+    it("calls the onDateSubmit when selecting a date", async () => {
+      render(
+        <FilterDatePickerFieldWrapper defaultMonth={new Date("2022-05-01")} />
+      )
+      const targetDay = screen.getByRole("button", {
+        name: "15th May (Sunday)",
+      })
+
+      await user.click(targetDay)
+
+      await waitFor(() => {
+        expect(inputDateOnSubmit).toHaveBeenCalled()
+      })
     })
 
     it("updates the input when changing the date", async () => {
@@ -174,6 +195,7 @@ describe("<FilterDatePickerField />", () => {
 
       await waitFor(() => {
         expect(inputDate).toHaveValue("")
+        expect(inputDateOnSubmit).toHaveBeenCalledWith(undefined)
       })
     })
   })
@@ -232,6 +254,19 @@ describe("<FilterDatePickerField />", () => {
       })
     })
 
+    it("does not call onDateSubmit when the date is invlid", async () => {
+      const { getByLabelText } = render(<FilterDatePickerFieldWrapper />)
+
+      const inputDate = getByLabelText("Date")
+      await user.clear(inputDate)
+      await user.type(inputDate, "potato")
+      await user.tab()
+
+      await waitFor(() => {
+        expect(inputDateOnSubmit).not.toHaveBeenCalled()
+      })
+    })
+
     it("re-validates values when selecting a value using the calendar", async () => {
       const { container } = render(
         <FilterDatePickerFieldWrapper
@@ -257,33 +292,6 @@ describe("<FilterDatePickerField />", () => {
       await waitFor(() => {
         expect(dateErrorContainer).not.toBeInTheDocument()
       })
-    })
-  })
-
-  it("clears the value of the input when there is an invalid date typed in", async () => {
-    const { getByRole, getByLabelText } = render(
-      <FilterDatePickerFieldWrapper selectedDate={new Date("06-06-2023")} />
-    )
-    const triggerButton = getByRole("button", {
-      name: "Drank : 6 Jun 2023",
-    })
-
-    await user.click(triggerButton)
-
-    await waitFor(() => {
-      const dialog = getByRole("dialog")
-      expect(dialog).toBeInTheDocument()
-    })
-
-    const inputDate = getByLabelText("Date")
-    await user.clear(inputDate)
-    await user.type(inputDate, "35/13/2023")
-    // TODO: note that this should work without having to trigger a tab. update this test when fixed.
-    await user.tab()
-    await user.click(document.body)
-
-    await waitFor(() => {
-      expect(getByRole("button", { name: "Drank" })).toBeInTheDocument()
     })
   })
 })
