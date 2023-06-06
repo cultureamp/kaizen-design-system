@@ -106,10 +106,10 @@ export const FilterDatePickerField = ({
     setInputValue: setInputDateValue,
     onDateChange: date => {
       const newDate = validateDate(date)
+      handleDateChange(newDate)
 
       if (newDate) {
         setStartMonth(newDate)
-        handleDateChange(newDate)
       }
     },
     ...inputProps,
