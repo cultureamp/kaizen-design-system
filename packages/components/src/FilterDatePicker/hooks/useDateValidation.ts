@@ -5,7 +5,7 @@ import { getDateValidationHandler } from "../utils/getDateValidationHandler"
 import { validateDate } from "../utils/validateDate"
 
 export type UseDateValidationArgs = {
-  inputLabel: React.ReactNode
+  inputLabel?: React.ReactNode
   disabledDays?: DisabledDays
   validationMessage?: ValidationMessage
   onValidate?: (validationResponse: DateValidationResponse) => void

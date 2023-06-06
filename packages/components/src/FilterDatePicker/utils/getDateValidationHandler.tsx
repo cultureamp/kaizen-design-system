@@ -8,7 +8,7 @@ export type GetDateValidationHandlerArgs = {
   setInbuiltValidationMessage: (
     validationMessage: ValidationMessage | undefined
   ) => void
-  inputLabel: React.ReactNode
+  inputLabel?: React.ReactNode
 }
 
 export const getDateValidationHandler =
@@ -29,11 +29,13 @@ export const getDateValidationHandler =
 
     setInbuiltValidationMessage({
       status: validationMessage.status,
-      message: (
+      message: inputLabel ? (
         <LabelledMessage
           label={`${getNodeText(inputLabel)}`}
           message={validationMessage.message}
         />
+      ) : (
+        validationMessage.message
       ),
     })
   }

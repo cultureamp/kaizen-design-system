@@ -21,6 +21,7 @@ export const FilterDatePicker = ({
   selectedDate,
   label,
   locale,
+  onDateSubmit,
   ...restProps
 }: FilterDatePickerProps): JSX.Element => (
   <Filter
@@ -40,7 +41,10 @@ export const FilterDatePicker = ({
       <FilterDatePickerField
         locale={locale}
         selectedDate={selectedDate}
-        setIsFilterOpen={setIsOpen}
+        onDateSubmit={date => {
+          setIsOpen(false)
+          onDateSubmit?.(date)
+        }}
         {...restProps}
       />
     </FilterContents>

@@ -31,6 +31,6 @@ export const useSingleDateValidation = (
 
   return {
     validationMessage,
-    validateDate: validateStartDate,
+    validateDate: validateSingleDate,
   }
 }
