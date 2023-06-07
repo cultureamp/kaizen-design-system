@@ -66,7 +66,7 @@ import {
 } from "@kaizen/components"
 
 const [isOpen, setIsOpen] = useState<boolean>(false)
-const [range, setRange] = useState<Date | undefined>()
+const [date, setDate] = useState<Date | undefined>()
 
 return (
   <FilterDatePicker
