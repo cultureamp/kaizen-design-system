@@ -1,9 +1,4 @@
-import React, {
-  ButtonHTMLAttributes,
-  HTMLAttributes,
-  useContext,
-  useEffect,
-} from "react"
+import React, { ButtonHTMLAttributes, HTMLAttributes, useContext } from "react"
 import { useButton } from "@react-aria/button"
 import { AriaMenuOptions, useMenuTrigger } from "@react-aria/menu"
 import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
