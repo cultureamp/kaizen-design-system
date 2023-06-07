@@ -198,3 +198,40 @@ export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
     </>
   )
 }
+
+export const ExternalEventValuesUpdate: StoryFn<typeof FilterBar> = () => {
+  const [values, setValues] = useState<Partial<Values>>({
+    flavour: "jasmine-milk-tea",
+    toppings: ["pearls", "fruit-jelly"],
+  })
+
+  return (
+    <>
+      <FilterBar<Values>
+        filters={filters}
+        values={values}
+        onValuesChange={setValues}
+      />
+
+      <div className="flex mt-16 gap-8">
+        <button
+          type="button"
+          onClick={() => setValues({ ...values, flavour: "honey-milk-tea" })}
+        >
+          Update Flavour to honey-milk-tea
+        </button>
+        <button
+          type="button"
+          onClick={() => setValues({ ...values, toppings: ["fruit-jelly"] })}
+        >
+          Update Toppings to fruit-jelly
+        </button>
+        <button type="button" onClick={() => setValues({})}>
+          Clear all values
+        </button>
+      </div>
+
+      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
+    </>
+  )
+}

@@ -159,3 +159,13 @@ return (
 A callback (`(values: Partial<ValuesMap>) => void`) for when the active `values` change.
 
 <NoClipCanvas of={FilterBarStories.OnValuesChange} />
+
+## Examples
+
+### Update values via external event
+
+The api allows you to update the values of the FilterBar via an external event (eg. updating url params).
+
+Simply update the value passed into the `values` prop.
+
+<NoClipCanvas of={FilterBarStories.ExternalEventValuesUpdate} />
