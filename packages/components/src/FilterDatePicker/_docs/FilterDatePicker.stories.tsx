@@ -86,8 +86,8 @@ return (
     // )}
     isOpen={isOpen}
     setIsOpen={setIsOpen}
-    selectedDate={range}
-    onDateChange={setRange}
+    selectedDate={date}
+    onDateChange={setDate}
   />
 )
 `
