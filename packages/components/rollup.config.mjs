@@ -1,4 +1,4 @@
-import alias from "@rollup/plugin-alias";
+import alias from "@rollup/plugin-alias"
 import commonjs from "@rollup/plugin-commonjs"
 import image from "@rollup/plugin-image"
 import jsonPlugin from "@rollup/plugin-json"
@@ -25,8 +25,11 @@ const getCompiledConfigByModuleType = format => ({
         { find: "~utils", replacement: "src/utils" },
         { find: "~icons", replacement: "src/SVG/icons" },
         { find: "~components", replacement: "src" },
-        { find: "__@cultureamp/i18n-react-intl/locales", replacement: "locales" },
-      ]
+        {
+          find: "__@cultureamp/i18n-react-intl/locales",
+          replacement: "locales",
+        },
+      ],
     }),
     resolve({
       preferBuiltins: true,
@@ -39,15 +42,22 @@ const getCompiledConfigByModuleType = format => ({
     typescript({
       declaration: true,
       declarationDir: `${OUTPUT_DIR}/${format}/${TYPES_TEMP_DIR}`,
-      exclude: ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/*.stories.tsx"],
+      exclude: [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
+        "**/*.stories.tsx",
+      ],
       // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
-      typescript: ttypescript
+      typescript: ttypescript,
     }),
     commonjs(),
     esbuild(),
     image(),
     jsonPlugin(),
-    // These libraries aren't used in KAIO, but require polyfills in consuming repos
+    // These libraries aren't used in KAIO, and require polyfills to be set up
+    // in consuming repos. Ignoring them here removes the need for extra setup in
+    // consuming repos.
     ignore(["stream", "http", "https", "zlib"]),
   ],
   output: [
@@ -68,5 +78,5 @@ export default [
     output: [{ file: `${OUTPUT_DIR}/index.d.ts`, format: "esm" }],
     external: [/\.scss$/],
     plugins: [dts()],
-  }
+  },
 ]
