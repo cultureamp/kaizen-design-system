@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
-import { FilterMultiSelect } from "@kaizen/select"
+import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters } from "../index"
+
 const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
@@ -17,8 +18,6 @@ const meta = {
 export default meta
 
 const sampleCode = `
-import { FilterMultiSelect } from "@kaizen/select"
-
 type Values = {
   flavour: string
   topping: string
