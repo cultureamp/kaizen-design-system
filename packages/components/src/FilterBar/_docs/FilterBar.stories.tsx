@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { DateRange } from "~components/index"
 import { FilterBar, Filters } from "../index"
+
 const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
@@ -20,7 +22,7 @@ type Values = {
   flavour: string
   sugarLevel: number
   iceLevel: number
-  deliveryDates: string
+  deliveryDates: DateRange
 }
 
 const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
@@ -86,7 +88,7 @@ type Values = {
   flavour: string
   sugarLevel: number
   iceLevel: number
-  deliveryDates: string
+  deliveryDates: DateRange
 }
 
 const filters = [
