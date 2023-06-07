@@ -6,7 +6,12 @@ import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export type FilterBarMultiSelectProps = Omit<
   RootProps,
-  "isOpen" | "setIsOpen" | "renderTrigger" | "label" | "selectedKey" | "trigger"
+  | "isOpen"
+  | "setIsOpen"
+  | "renderTrigger"
+  | "label"
+  | "selectedKeys"
+  | "trigger"
 > & {
   id?: string
 }

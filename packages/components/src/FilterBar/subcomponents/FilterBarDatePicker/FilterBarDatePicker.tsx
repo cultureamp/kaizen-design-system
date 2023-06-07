@@ -8,14 +8,14 @@ import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export type FilterBarDatePickerProps = Omit<
   FilterDatePickerProps,
+  | "id"
+  | "label"
+  | "renderTrigger"
   | "isOpen"
   | "setIsOpen"
-  | "renderTrigger"
-  | "label"
   | "selectedDate"
-  | "id"
-  | "locale"
   | "onDateChange"
+  | "locale"
 > & {
   id?: string
   locale?: FilterDatePickerProps["locale"]
@@ -25,7 +25,7 @@ export type FilterBarDatePickerProps = Omit<
 export const FilterBarDatePicker = ({
   id,
   onDateChange,
-  locale,
+  locale = "en-AU",
   ...props
 }: FilterBarDatePickerProps): JSX.Element => {
   const { getFilterState, toggleOpenFilter, updateValue } = useFilterBarContext<
@@ -40,7 +40,7 @@ export const FilterBarDatePicker = ({
     <FilterDatePicker
       {...props}
       id={id}
-      locale={locale || "en-AU"}
+      locale={locale}
       selectedDate={filterState.value || undefined}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (

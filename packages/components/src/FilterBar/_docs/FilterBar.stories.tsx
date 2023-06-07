@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { DateRange } from "~components/index"
 import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters } from "../index"
 
@@ -20,13 +21,14 @@ export default meta
 const sampleCode = `
 type Values = {
   flavour: string
-  topping: string
-  sugarLevel: number
+  topping: string[]
+  deliveryDates: DateRange
   drank: Date
 }
 
 const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
   flavour: "jasmine-milk-tea",
+  toppings: ["pearls", "fruit-jelly"]
 })
 
 const filters = [
@@ -73,17 +75,9 @@ const filters = [
     ),
   },
   {
-    id: "sugarLevel",
-    name: "Sugar Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "drank",
@@ -104,6 +98,7 @@ type Values = {
   flavour: string
   toppings: string[]
   sugarLevel: number
+  deliveryDates: DateRange
   drank: Date
 }
 
@@ -151,17 +146,9 @@ const filters = [
     ),
   },
   {
-    id: "sugarLevel",
-    name: "Sugar Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "drank",
@@ -173,7 +160,7 @@ const filters = [
 export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
-    toppings: ["pearls"],
+    toppings: ["pearls", "fruit-jelly"],
   })
 
   return (
