@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { DateRange } from "~components/index"
+import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters } from "../index"
+
 const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
@@ -18,13 +21,14 @@ export default meta
 const sampleCode = `
 type Values = {
   flavour: string
-  topping: string
-  sugarLevel: number
-  iceLevel: number
+  topping: string[]
+  deliveryDates: DateRange
+  drank: Date
 }
 
 const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
   flavour: "jasmine-milk-tea",
+  toppings: ["pearls", "fruit-jelly"]
 })
 
 const filters = [
@@ -45,40 +49,40 @@ const filters = [
     id: "topping",
     name: "Topping",
     Component: (
-      <FilterBar.Select
+      <FilterBar.MultiSelect
         items={[
           { value: "none", label: "None" },
           { value: "pearls", label: "Pearls" },
           { value: "fruit-jelly", label: "Fruit Jelly" },
         ]}
-      />
+      >
+        {(): JSX.Element => (
+          <>
+            <FilterMultiSelect.ListBox>
+              {({ allItems }): JSX.Element | JSX.Element[] => {
+                return allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterBar.MultiSelect>
     ),
   },
   {
-    id: "sugarLevel",
-    name: "Sugar Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
-    id: "iceLevel",
-    name: "Ice Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "drank",
+    name: "Drank",
+    Component: <FilterBar.DatePicker />,
   },
 ] satisfies Filters<Values>
 
@@ -92,9 +96,10 @@ return (
 
 type Values = {
   flavour: string
-  topping: string
+  toppings: string[]
   sugarLevel: number
-  iceLevel: number
+  deliveryDates: DateRange
+  drank: Date
 }
 
 const filters = [
@@ -112,49 +117,50 @@ const filters = [
     ),
   },
   {
-    id: "topping",
-    name: "Topping",
+    id: "toppings",
+    name: "Toppings",
     Component: (
-      <FilterBar.Select
+      <FilterBar.MultiSelect
         items={[
           { value: "none", label: "None" },
           { value: "pearls", label: "Pearls" },
           { value: "fruit-jelly", label: "Fruit Jelly" },
         ]}
-      />
+      >
+        {(): JSX.Element => (
+          <>
+            <FilterMultiSelect.ListBox>
+              {({ allItems }): JSX.Element | JSX.Element[] =>
+                allItems.map(item => (
+                  <FilterMultiSelect.Option key={item.key} item={item} />
+                ))
+              }
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterBar.MultiSelect>
     ),
   },
   {
-    id: "sugarLevel",
-    name: "Sugar Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
-    id: "iceLevel",
-    name: "Ice Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "drank",
+    name: "Drank",
+    Component: <FilterBar.DatePicker />,
   },
 ] satisfies Filters<Values>
 
 export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
+    toppings: ["pearls", "fruit-jelly"],
   })
 
   return (
@@ -176,6 +182,7 @@ BasicImplementation.parameters = {
 export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
+    toppings: ["pearls", "fruit-jelly"],
   })
 
   return (
