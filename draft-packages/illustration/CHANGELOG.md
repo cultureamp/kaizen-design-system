@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.2
+
+### Patch Changes
+
+- [#3704](https://github.com/cultureamp/kaizen-design-system/pull/3704) [`19ede29c9`](https://github.com/cultureamp/kaizen-design-system/commit/19ede29c947933055b9ec1a2dcc38a1a956bcc84) - Make alt text optional for all illustration components
+
 ## 6.1.1
 
 ### Patch Changes

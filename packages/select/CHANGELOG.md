@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.17.3
+
+### Patch Changes
+
+- [#3706](https://github.com/cultureamp/kaizen-design-system/pull/3706) [`2065dabbc`](https://github.com/cultureamp/kaizen-design-system/commit/2065dabbc440be17011bde11a9dca50517e2e155) - Fix focus on FilterMultiSelect when initially loaded
+
 ## 6.17.2
 
 ### Patch Changes
