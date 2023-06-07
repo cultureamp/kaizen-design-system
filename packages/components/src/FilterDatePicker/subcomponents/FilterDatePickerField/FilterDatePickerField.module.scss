@@ -1,0 +1,7 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.filterDatePickerField {
+  width: 288px;
+  display: grid;
+  gap: $spacing-16;
+}

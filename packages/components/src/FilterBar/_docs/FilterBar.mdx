@@ -88,6 +88,10 @@ Provided Filter components are built on top of their base component, and have th
 If the component comes with an `onChange` (or similar) prop, it will be made optional and it can be used for additional actions (eg. adding analytics).
 
 Available Filter components:
+- `<FilterBar.DatePicker>` - extends <LinkTo pageId="components-filter-date-picker">FilterDatePicker</LinkTo>
+  - `selectedDate` is omitted
+  - `onDateChange` is now optional
+  - `locale` is now optional (defaults to `"en-AU"`)
 - `<FilterBar.DateRangePicker>` - extends <LinkTo pageId="components-filter-date-range-picker">FilterDateRangePicker</LinkTo>
   - `selectedRange` is omitted
   - `onRangeChange` is now optional
