@@ -59,7 +59,7 @@ const filters = [
   {
     id: "deliveryDates",
     name: "Delivery Dates",
-    Component: <FilterBar.DateRangePicker locale="en-AU" />,
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "drank",
@@ -113,7 +113,7 @@ const filters = [
   {
     id: "deliveryDates",
     name: "Delivery Dates",
-    Component: <FilterBar.DateRangePicker locale="en-AU" />,
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "drank",

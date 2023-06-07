@@ -1,10 +1,10 @@
 import React from "react"
 import { FilterButton } from "~components/FilterButton"
 import {
-  DateRange,
   FilterDateRangePicker,
   FilterDateRangePickerProps,
 } from "~components/FilterDateRangePicker"
+import { DateRange } from "~types/DatePicker"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export type FilterBarDateRangePickerProps = Omit<
@@ -16,14 +16,17 @@ export type FilterBarDateRangePickerProps = Omit<
   | "setIsOpen"
   | "selectedRange"
   | "onRangeChange"
+  | "locale"
 > & {
   id?: string
   onRangeChange?: FilterDateRangePickerProps["onRangeChange"]
+  locale?: FilterDateRangePickerProps["locale"]
 }
 
 export const FilterBarDateRangePicker = ({
   id,
   onRangeChange,
+  locale = "en-AU",
   ...props
 }: FilterBarDateRangePickerProps): JSX.Element => {
   const { getFilterState, toggleOpenFilter, updateValue } = useFilterBarContext<
@@ -49,6 +52,7 @@ export const FilterBarDateRangePicker = ({
         updateValue(id, range)
         onRangeChange?.(range)
       }}
+      locale={locale}
     />
   )
 }

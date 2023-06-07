@@ -27,13 +27,7 @@ const FilterBarDateRangePickerWrapper = ({
         {
           id: "range",
           name: "Dates",
-          Component: (
-            <FilterBarDateRangePicker
-              id="range"
-              locale="en-AU"
-              {...customProps}
-            />
-          ),
+          Component: <FilterBarDateRangePicker id="range" {...customProps} />,
         },
       ]}
       values={values}
