@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
+import { DateRange } from "~components/index"
 import { FilterBar, Filters } from "../index"
+
 const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
@@ -18,8 +20,8 @@ export default meta
 const sampleCode = `
 type Values = {
   flavour: string
-  topping: string
   sugarLevel: number
+  deliveryDates: DateRange
   drank: Date
 }
 
@@ -42,19 +44,6 @@ const filters = [
     ),
   },
   {
-    id: "topping",
-    name: "Topping",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: "none", label: "None" },
-          { value: "pearls", label: "Pearls" },
-          { value: "fruit-jelly", label: "Fruit Jelly" },
-        ]}
-      />
-    ),
-  },
-  {
     id: "sugarLevel",
     name: "Sugar Level",
     Component: (
@@ -66,6 +55,11 @@ const filters = [
         ]}
       />
     ),
+  },
+  {
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "drank",
@@ -84,8 +78,8 @@ return (
 
 type Values = {
   flavour: string
-  topping: string
   sugarLevel: number
+  deliveryDates: DateRange
   drank: Date
 }
 
@@ -104,19 +98,6 @@ const filters = [
     ),
   },
   {
-    id: "topping",
-    name: "Topping",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: "none", label: "None" },
-          { value: "pearls", label: "Pearls" },
-          { value: "fruit-jelly", label: "Fruit Jelly" },
-        ]}
-      />
-    ),
-  },
-  {
     id: "sugarLevel",
     name: "Sugar Level",
     Component: (
@@ -128,6 +109,11 @@ const filters = [
         ]}
       />
     ),
+  },
+  {
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "drank",

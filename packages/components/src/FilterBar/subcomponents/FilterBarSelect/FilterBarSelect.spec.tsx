@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterBarProvider } from "~components/FilterBar/context/FilterBarContext"
-import { FilterBarSelect, FilterBarSelectProps } from "./FilterSelect"
+import { FilterBarSelect, FilterBarSelectProps } from "./FilterBarSelect"
 
 const user = userEvent.setup()
 
@@ -63,14 +63,14 @@ describe("<FilterBarSelect />", () => {
 
     await user.click(triggerButton)
     await waitFor(() => {
-      const listbox = getByRole("listbox")
-      expect(listbox).toBeInTheDocument()
+      const popover = getByRole("dialog")
+      expect(popover).toBeInTheDocument()
     })
 
     await user.click(document.body)
     await waitFor(() => {
-      const listbox = queryByRole("listbox")
-      expect(listbox).not.toBeInTheDocument()
+      const popover = queryByRole("dialog")
+      expect(popover).not.toBeInTheDocument()
     })
   })
 
