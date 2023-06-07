@@ -182,7 +182,7 @@ BasicImplementation.parameters = {
 export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
-    toppings: ["pearls"],
+    toppings: ["pearls", "fruit-jelly"],
   })
 
   return (
