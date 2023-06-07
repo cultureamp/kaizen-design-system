@@ -8,22 +8,21 @@ import {
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
-import { DateValidationResponse } from "~components/FilterDatePicker"
-import { DateRange } from "~types/DatePicker"
 import {
-  DateRangeFieldValidationMessage,
-  FilterDateRangePicker,
+  DateValidationResponse,
+  FilterDatePicker,
+  ValidationMessage,
 } from "../index"
-import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
+import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 
 export default {
-  title: "Components/Filter Date Range Picker",
-  component: FilterDateRangePicker,
+  title: "Components/Filter Date Picker",
+  component: FilterDatePicker,
   args: {
-    label: "Dates",
+    label: "Date",
     locale: "en-AU",
   },
   argTypes: {
@@ -35,38 +34,25 @@ export default {
       options: ["en-US", "en-AU"],
       control: { type: "radio" },
     },
-    inputStartDateProps: {
-      table: { type: { summary: 'Omit<DateInputProps, "id">' } },
-    },
-    inputEndDateProps: {
-      table: { type: { summary: 'Omit<DateInputProps, "id">' } },
-    },
     isOpen: { control: "disabled" },
-    selectedRange: {
-      options: ["None", "Partial Range", "Complete Range"],
+    selectedDate: {
+      options: ["None", "Date"],
       control: {
         type: "select",
         labels: {
           None: "undefined",
-          "Partial Range": "{ from: new Date() }",
-          "Complete Range":
-            '{ from: new Date("2022-05-01"), to: new Date("2022-05-12") }',
         },
       },
       mapping: {
         None: undefined,
-        "Partial Range": { from: new Date() },
-        "Complete Range": {
-          from: new Date("2022-05-01"),
-          to: new Date("2022-05-12"),
-        },
+        Date: new Date(),
       },
     },
     description: {
       control: "text",
     },
   },
-} satisfies Meta<typeof FilterDateRangePicker>
+} satisfies Meta<typeof FilterDatePicker>
 
 const sampleCode = `
 // This code is not connected to the controls of the attached component.
@@ -76,15 +62,15 @@ import {
   FilterButton,
   FilterButtonProps,
 //  FilterButtonRemovable,
-  FilterDateRangePicker,
+  FilterDatePicker,
 } from "@kaizen/components"
 
 const [isOpen, setIsOpen] = useState<boolean>(false)
-const [range, setRange] = useState<DateRange | undefined>()
+const [date, setDate] = useState<Date | undefined>()
 
 return (
-  <FilterDateRangePicker
-    id="filter-drp--default"
+  <FilterDatePicker
+    id="filter-dp--default"
     label="Dates"
     locale="en-AU"
     renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -100,27 +86,27 @@ return (
     // )}
     isOpen={isOpen}
     setIsOpen={setIsOpen}
-    selectedRange={range}
-    onRangeChange={setRange}
+    selectedDate={date}
+    onDateChange={setDate}
   />
 )
 `
 
-export const Playground: StoryFn<typeof FilterDateRangePicker> = args => {
+export const Playground: StoryFn<typeof FilterDatePicker> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [range, setRange] = useState<DateRange | undefined>()
+  const [date, setDate] = useState<Date | undefined>()
 
   useEffect(() => {
-    setRange(args.selectedRange)
-  }, [args.selectedRange])
+    setDate(args.selectedDate)
+  }, [args.selectedDate])
 
   return (
-    <FilterDateRangePicker
+    <FilterDatePicker
       {...args}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      selectedRange={range}
-      onRangeChange={setRange}
+      selectedDate={date}
+      onDateChange={setDate}
     />
   )
 }
@@ -135,7 +121,7 @@ Playground.parameters = {
   },
 }
 Playground.args = {
-  id: "filter-drp--default",
+  id: "filter-dp--default",
   /* @ts-expect-error: Storybook controls key; see argTypes in default export */
   renderTrigger: "Filter Button",
 }
@@ -147,14 +133,14 @@ Playground.args = {
  */
 export const RenderTrigger: StoryFn = () => {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false)
-  const [rangeButton, setRangeButton] = useState<DateRange | undefined>()
+  const [dateButton, setDateButton] = useState<Date | undefined>()
   const [isOpenRemovable, setIsOpenRemovable] = useState<boolean>(false)
-  const [rangeRemovable, setRangeRemovable] = useState<DateRange | undefined>()
+  const [rangeRemovable, setRangeRemovable] = useState<Date | undefined>()
 
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
-      <FilterDateRangePicker
-        id="filterdrp--filter-button"
+      <FilterDatePicker
+        id="filterdp--filter-button"
         label="FilterButton"
         locale="en-AU"
         renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -162,11 +148,11 @@ export const RenderTrigger: StoryFn = () => {
         )}
         isOpen={isOpenButton}
         setIsOpen={setIsOpenButton}
-        selectedRange={rangeButton}
-        onRangeChange={setRangeButton}
+        selectedDate={dateButton}
+        onDateChange={setDateButton}
       />
-      <FilterDateRangePicker
-        id="filterdrp--filter-button-removable"
+      <FilterDatePicker
+        id="filterdp--filter-button-removable"
         label="FilterButtonRemovable"
         locale="en-AU"
         renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -179,66 +165,8 @@ export const RenderTrigger: StoryFn = () => {
         )}
         isOpen={isOpenRemovable}
         setIsOpen={setIsOpenRemovable}
-        selectedRange={rangeRemovable}
-        onRangeChange={setRangeRemovable}
-      />
-    </div>
-  )
-}
-
-/**
- * Selected value will only be passed into the Filter Button when date range has both a Start and End date.
- */
-export const SelectedRange: StoryFn = () => {
-  const commonProps = {
-    locale: "en-AU",
-    renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
-      <FilterButton {...triggerButtonProps} />
-    ),
-  }
-
-  const [isOpenNotSelected, setIsOpenNotSelected] = useState<boolean>(false)
-  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
-  const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
-  const [rangeNotSelected, setRangeNotSelected] = useState<
-    DateRange | undefined
-  >()
-  const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
-    from: new Date(),
-  })
-  const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
-    from: new Date("2022-05-01"),
-    to: new Date("2022-05-12"),
-  })
-
-  return (
-    <div style={{ display: "flex", gap: "1rem" }}>
-      <FilterDateRangePicker
-        {...commonProps}
-        id="filterdrp--not-selected"
-        label="Not selected"
-        isOpen={isOpenNotSelected}
-        setIsOpen={setIsOpenNotSelected}
-        selectedRange={rangeNotSelected}
-        onRangeChange={setRangeNotSelected}
-      />
-      <FilterDateRangePicker
-        {...commonProps}
-        id="filterdrp--partial-range"
-        label="Partial range"
-        isOpen={isOpenPartial}
-        setIsOpen={setIsOpenPartial}
-        selectedRange={rangePartial}
-        onRangeChange={setRangePartial}
-      />
-      <FilterDateRangePicker
-        {...commonProps}
-        id="filterdrp--complete"
-        label="Complete range"
-        isOpen={isOpenComplete}
-        setIsOpen={setIsOpenComplete}
-        selectedRange={rangeComplete}
-        onRangeChange={setRangeComplete}
+        selectedDate={rangeRemovable}
+        onDateChange={setRangeRemovable}
       />
     </div>
   )
@@ -251,8 +179,8 @@ export const Description: StoryFn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
-    <FilterDateRangePicker
-      id="filterdrp--description"
+    <FilterDatePicker
+      id="filterdp--description"
       label="Open to see description"
       locale="en-AU"
       renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -260,23 +188,22 @@ export const Description: StoryFn = () => {
       )}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      selectedRange={undefined}
-      onRangeChange={(): void => undefined}
+      selectedDate={undefined}
+      onDateChange={(): void => undefined}
       description="This is a custom description"
     />
   )
 }
 
 /**
- * Add extra props (eg. data-attributes) to the Start or End date inputs
- * using `inputStartDateProps` and/or `inputEndDateProps`.
+ * Add extra props (eg. data-attributes)
  */
 export const ExtendInputProps: StoryFn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
-    <FilterDateRangePicker
-      id="filterdrp--extend-input-props"
+    <FilterDatePicker
+      id="filterdp--extend-input-props"
       label="Check the DOM for the inputs"
       locale="en-AU"
       renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
@@ -284,14 +211,9 @@ export const ExtendInputProps: StoryFn = () => {
       )}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      selectedRange={undefined}
-      onRangeChange={(): void => undefined}
-      inputStartDateProps={{
-        "data-testid": "filterdrp--input-start-testid",
-      }}
-      inputEndDateProps={{
-        "data-testid": "filterdrp--input-end-testid",
-      }}
+      selectedDate={undefined}
+      onDateChange={(): void => undefined}
+      data-testid="filterdp--input-testid"
     />
   )
 }
@@ -352,84 +274,45 @@ const ValidationHelpText = ({
  * Contents extracted from within the Filter to showcase the validation.
  */
 export const Validation: StoryFn = () => {
-  const [range, setRange] = useState<DateRange | undefined>()
+  const [value, setValue] = useState<Date | undefined>()
   const [response, setResponse] = useState<DateValidationResponse | undefined>()
   const [validationMessage, setValidationMessage] = useState<
-    DateRangeFieldValidationMessage | undefined
+    ValidationMessage | undefined
   >()
 
-  const handleValidate = (
-    validationResponse: DateValidationResponse,
-    input: "dateStart" | "dateEnd"
-  ): void => {
+  const handleValidate = (validationResponse: DateValidationResponse): void => {
     setResponse(validationResponse)
     // An example of additional validation
     if (
       validationResponse.isValidDate &&
       validationResponse.date?.getFullYear() !== new Date().getFullYear()
     ) {
-      setValidationMessage(currentValue => ({
-        ...currentValue,
-        [input]: {
-          status: "caution",
-          message: `(${input}) Date is not this year`,
-        },
-      }))
+      setValidationMessage({
+        status: "caution",
+        message: "Date is not this year",
+      })
       return
     }
 
-    setValidationMessage(currentValue => ({
-      ...currentValue,
-      [input]: validationResponse.validationMessage,
-    }))
+    setValidationMessage(validationResponse.validationMessage)
   }
-
-  const handleDateStartValidate = (
-    validationResponse: DateValidationResponse
-  ): void => handleValidate(validationResponse, "dateStart")
-
-  const handleDateEndValidate = (
-    validationResponse: DateValidationResponse
-  ): void => handleValidate(validationResponse, "dateEnd")
 
   const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
 
-    let errors: DateRangeFieldValidationMessage | undefined
-
-    if (validationMessage?.dateStart) {
-      errors = {
-        dateStart: { status: "error", message: "Error for start date" },
-      }
-    }
-
-    if (validationMessage?.dateEnd) {
-      errors = {
-        ...errors,
-        dateEnd: { status: "error", message: "Error for end date" },
-      }
-    }
-
-    if (errors) {
-      setValidationMessage(errors)
-      return alert("Error")
-    }
-
-    alert("Success")
+    setValidationMessage({ status: "error", message: "Error for date" })
+    return alert("Error")
   }
 
   return (
     <>
       <form onSubmit={submitRequest}>
-        <FilterDateRangePickerField
+        <FilterDatePickerField
           id="datepicker-default"
-          label="Label"
-          selectedRange={range}
-          onRangeChange={setRange}
-          onValidate={{
-            dateStart: handleDateStartValidate,
-            dateEnd: handleDateEndValidate,
-          }}
+          inputProps={{ labelText: "Label" }}
+          selectedDate={value}
+          onDateChange={setValue}
+          onValidate={handleValidate}
           validationMessage={validationMessage}
           disabledDays={new Date()}
           locale="en-AU"
