@@ -1,4 +1,4 @@
-import { DateRange } from "../subcomponents/FilterDateRangePickerField/types"
+import { DateRange } from "~types/DatePicker"
 
 export const isCompleteDateRange = (
   dateRange: DateRange | undefined

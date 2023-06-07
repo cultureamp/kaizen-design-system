@@ -1,13 +1,13 @@
 import React from "react"
 import { renderHook, act } from "@testing-library/react-hooks"
 import { LabelledMessage } from "~components/LabelledMessage"
-import { useRangeDateValidation } from "./useRangeDateValidation"
+import { useDateValidation } from "./useDateValidation"
 
-describe("useRangeDateValidation()", () => {
+describe("useDateValidation()", () => {
   describe("with a valid date", () => {
     it("returns no validation message and the same date", () => {
       const { result } = renderHook(() =>
-        useRangeDateValidation({
+        useDateValidation({
           inputLabel: "Start date",
         })
       )
@@ -25,8 +25,8 @@ describe("useRangeDateValidation()", () => {
   describe("with an invalid date", () => {
     it("returns a validation message and no date", () => {
       const { result } = renderHook(() =>
-        useRangeDateValidation({
-          inputLabel: "Start date",
+        useDateValidation({
+          inputLabel: "Date",
         })
       )
       const { validateDate, updateValidation } = result.current
@@ -42,10 +42,7 @@ describe("useRangeDateValidation()", () => {
       expect(result.current.validationMessage).toStrictEqual({
         status: "error",
         message: (
-          <LabelledMessage
-            label="Start date"
-            message="potato is an invalid date"
-          />
+          <LabelledMessage label="Date" message="potato is an invalid date" />
         ),
       })
       expect(newDate).toBeUndefined()
@@ -55,7 +52,7 @@ describe("useRangeDateValidation()", () => {
   describe("consumer controlled validation", () => {
     it("returns the consumer's error status and validation message", () => {
       const { result } = renderHook(() =>
-        useRangeDateValidation({
+        useDateValidation({
           inputLabel: "Start date",
           validationMessage: {
             status: "caution",
