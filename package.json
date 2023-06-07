@@ -40,7 +40,6 @@
     "ci:publish": "yarn turbo prepublish && yarn changeset publish"
   },
   "dependencies": {
-    "@cultureamp/i18n-react-intl": "^1.1.8",
     "@kaizen/design-tokens": "^10.0.11",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.0.18",
