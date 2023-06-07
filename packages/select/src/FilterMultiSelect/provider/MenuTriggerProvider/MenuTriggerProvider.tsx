@@ -48,13 +48,6 @@ export function MenuTriggerProvider({
   // Get A11y attributes and events for the button based on the trigger props from useMenuTrigger
   const { buttonProps } = useButton(menuTriggerProps, ref)
 
-  // Fix the issue when default open and close by keyboard, then focus is lost
-  useEffect(() => {
-    if (state.isOpen === false) {
-      ref.current?.focus()
-    }
-  }, [state.isOpen])
-
   return (
     <MenuTriggerContext.Provider
       value={{
