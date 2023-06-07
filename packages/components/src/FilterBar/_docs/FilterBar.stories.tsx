@@ -23,7 +23,7 @@ type Values = {
   flavour: string
   topping: string
   sugarLevel: number
-  iceLevel: number
+  drank: Date
 }
 
 const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
@@ -87,17 +87,9 @@ const filters = [
     ),
   },
   {
-    id: "iceLevel",
-    name: "Ice Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "drank",
+    name: "Drank",
+    Component: <FilterBar.DatePicker />,
   },
 ] satisfies Filters<Values>
 
@@ -113,7 +105,7 @@ type Values = {
   flavour: string
   toppings: string[]
   sugarLevel: number
-  iceLevel: number
+  drank: Date
 }
 
 const filters = [
@@ -173,17 +165,9 @@ const filters = [
     ),
   },
   {
-    id: "iceLevel",
-    name: "Ice Level",
-    Component: (
-      <FilterBar.Select
-        items={[
-          { value: 0, label: "0%" },
-          { value: 50, label: "50%" },
-          { value: 100, label: "100%" },
-        ]}
-      />
-    ),
+    id: "drank",
+    name: "Drank",
+    Component: <FilterBar.DatePicker />,
   },
 ] satisfies Filters<Values>
 
