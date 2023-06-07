@@ -127,7 +127,6 @@ describe("<MenuTriggerProvider /> - Keyboard interaction", () => {
         name: "trigger-display-label-mock",
       })
       await user.tab()
-      await user.tab()
       await waitFor(() => {
         expect(trigger).toHaveFocus()
       })

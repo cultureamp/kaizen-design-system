@@ -9,6 +9,7 @@ import { FiltersValues } from "./context/types"
 import {
   FilterBarDatePicker,
   FilterBarDateRangePicker,
+  FilterBarMultiSelect,
   FilterBarSelect,
 } from "./subcomponents"
 import styles from "./FilterBar.module.scss"
@@ -39,4 +40,5 @@ FilterBar.displayName = "FilterBar"
 
 FilterBar.DatePicker = FilterBarDatePicker
 FilterBar.DateRangePicker = FilterBarDateRangePicker
+FilterBar.MultiSelect = FilterBarMultiSelect
 FilterBar.Select = FilterBarSelect
