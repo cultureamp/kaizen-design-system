@@ -19,4 +19,6 @@ jobs:
       - run: yarn install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn workspace @kaizen/design-tokens build
+      - run: yarn workspace @kaizen/tailwind build
       - run: yarn pkg:aio build
