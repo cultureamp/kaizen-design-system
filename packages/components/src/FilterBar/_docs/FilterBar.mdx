@@ -1,5 +1,6 @@
 import { ArgTypes, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
 import * as FilterBarStories from "./FilterBar.stories"
 
 <Meta of={FilterBarStories} />
@@ -77,15 +78,42 @@ name: string // The name used to label the filter, shown in the trigger button
 Component: JSX.Element // A Filter component or a custom component consuming the FilterBarContext
 ```
 
-##### `Component` - Available Filter components
-- `<FilterBar.Select>`
+##### `Component`
+
+Components compatible with FilterBar must consume the FilterBarContext.
+
+Provided Filter components are built on top of their base component, and have the
+`id`, `label`, `renderTrigger`, `isOpen`, `setIsOpen`, and `value` (or similar) props omitted as they are filled in for you.
+
+If the component comes with an `onChange` (or similar) prop, it will be made optional and it can be used for additional actions (eg. adding analytics).
+
+Available Filter components:
+- `<FilterBar.DatePicker>` - extends <LinkTo pageId="components-filter-date-picker">FilterDatePicker</LinkTo>
+  - `selectedDate` is omitted
+  - `onDateChange` is now optional
+  - `locale` is now optional (defaults to `"en-AU"`)
+- `<FilterBar.DateRangePicker>` - extends <LinkTo pageId="components-filter-date-range-picker">FilterDateRangePicker</LinkTo>
+  - `selectedRange` is omitted
+  - `onRangeChange` is now optional
+  - `locale` is now optional (defaults to `"en-AU"`)
+- `<FilterBar.MultiSelect>` - extends <LinkTo pageId="components-filter-multi-select">FilterMultiSelect</LinkTo>
+  - `selectedKeys` is omitted
+  - `onSelectionChange` remains available as optional
+- `<FilterBar.Select>` - extends <LinkTo pageId="components-filter-select">FilterSelect</LinkTo>
+  - `selectedKey` is omitted
+  - `onSelectionChange` remains available as optional
 
 #### Usage
 
 We also provide a `Filters<ValuesMap>` type you can use for improved type safety.
 
 ```tsx
-import { FilterBar, Filters } from "@kaizen/components"
+import { FilterBar, Filters, DateRange } from "@kaizen/components"
+
+type ValuesMap = {
+  filterId1: string
+  filterId2: DateRange
+}
 
 const filters = [
   {
@@ -96,7 +124,7 @@ const filters = [
   {
     id: "filterId2",
     name: "Filter 2",
-    Component: <FilterBar.Select {...props} />
+    Component: <FilterBar.DateRangePicker {...props} />
   },
 ] satisfies Filters<ValuesMap>
 ```
