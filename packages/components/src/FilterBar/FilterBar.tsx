@@ -6,8 +6,12 @@ import {
   FilterBarProviderProps,
 } from "./context/FilterBarContext"
 import { FiltersValues } from "./context/types"
-import { FilterBarDatePicker } from "./subcomponents/FilterBarDatePicker/FilterBarDatePicker"
-import { FilterBarSelect } from "./subcomponents/FilterSelect/FilterSelect"
+import {
+  FilterBarDatePicker,
+  FilterBarDateRangePicker,
+  FilterBarMultiSelect,
+  FilterBarSelect,
+} from "./subcomponents"
 import styles from "./FilterBar.module.scss"
 
 export type FilterBarProps<ValuesMap extends FiltersValues> = OverrideClassName<
@@ -34,5 +38,7 @@ export const FilterBar = <ValuesMap extends FiltersValues>({
 
 FilterBar.displayName = "FilterBar"
 
-FilterBar.Select = FilterBarSelect
 FilterBar.DatePicker = FilterBarDatePicker
+FilterBar.DateRangePicker = FilterBarDateRangePicker
+FilterBar.MultiSelect = FilterBarMultiSelect
+FilterBar.Select = FilterBarSelect
