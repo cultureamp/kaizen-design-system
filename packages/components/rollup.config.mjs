@@ -27,7 +27,7 @@ const getCompiledConfigByModuleType = format => ({
         { find: "~components", replacement: "src" },
         // i18n-react-intl package attempts to import locales from this path.
         // When rollup attempts to import from the 'find' path, it will be
-        // redirected to import from the replacement path.
+        // redirected to import from the replacement path (same as storybook webpack config).
         {
           find: "__@cultureamp/i18n-react-intl/locales",
           replacement: "locales",
