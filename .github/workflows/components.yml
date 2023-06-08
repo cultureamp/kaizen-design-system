@@ -1,0 +1,24 @@
+name: components
+
+on:
+  push:
+    paths:
+      - packages/components/**
+
+jobs:
+  test-components-compile:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn workspace @kaizen/design-tokens build
+      - run: yarn workspace @kaizen/tailwind build
+      - run: yarn pkg:aio build
