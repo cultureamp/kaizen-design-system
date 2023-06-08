@@ -1,0 +1,144 @@
+import React, { useState } from "react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { FilterBarProvider } from "~components/FilterBar/context/FilterBarContext"
+import {
+  FilterBarDatePicker,
+  FilterBarDatePickerProps,
+} from "./FilterBarDatePicker"
+
+const user = userEvent.setup()
+
+type Values = {
+  drank: Date
+}
+
+const FilterBarDatePickerWrapper = ({
+  defaultValues,
+  ...customProps
+}: {
+  defaultValues?: Partial<Values>
+} & Partial<FilterBarDatePickerProps>): JSX.Element => {
+  const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
+  return (
+    <FilterBarProvider<Values>
+      filters={[
+        {
+          id: "drank",
+          name: "Drank",
+          Component: (
+            <FilterBarDatePicker
+              id="drank"
+              defaultMonth={new Date("2023-06-06")}
+              {...customProps}
+            />
+          ),
+        },
+      ]}
+      values={values}
+      onValuesChange={setValues}
+    >
+      {filters => (
+        <>
+          {Object.values(filters).map(({ id, Component }) => (
+            <React.Fragment key={id}>{Component}</React.Fragment>
+          ))}
+        </>
+      )}
+    </FilterBarProvider>
+  )
+}
+
+describe("<FilterBarDatePicker />", () => {
+  it("shows the name in the trigger button", () => {
+    const { getByRole } = render(<FilterBarDatePickerWrapper />)
+    const triggerButton = getByRole("button", { name: "Drank" })
+    expect(triggerButton).toBeInTheDocument()
+  })
+
+  it("can toggle its open state", async () => {
+    const { getByRole, queryByRole } = render(<FilterBarDatePickerWrapper />)
+    const triggerButton = getByRole("button", { name: "Drank" })
+
+    await user.click(triggerButton)
+    await waitFor(() => {
+      const dialog = getByRole("dialog")
+      expect(dialog).toBeInTheDocument()
+    })
+
+    await user.click(document.body)
+    await waitFor(() => {
+      const dialog = queryByRole("dialog")
+      expect(dialog).not.toBeInTheDocument()
+    })
+  })
+
+  it("shows a selected value when provided", () => {
+    const { getByRole } = render(
+      <FilterBarDatePickerWrapper
+        defaultValues={{ drank: new Date("2023-06-06") }}
+      />
+    )
+    const triggerButton = getByRole("button", {
+      name: "Drank : 6 Jun 2023",
+    })
+    expect(triggerButton).toBeInTheDocument()
+  })
+
+  it("updates the selected value in the trigger button when selecting a date", async () => {
+    const { getByRole } = render(
+      <FilterBarDatePickerWrapper
+        defaultValues={{ drank: new Date("2023-06-06") }}
+      />
+    )
+    const triggerButton = getByRole("button", {
+      name: "Drank : 6 Jun 2023",
+    })
+
+    await user.click(triggerButton)
+
+    await waitFor(() => {
+      const dialog = getByRole("dialog")
+      expect(dialog).toBeInTheDocument()
+    })
+
+    await user.click(
+      getByRole("button", {
+        name: "7th June (Wednesday)",
+      })
+    )
+
+    await waitFor(() => {
+      expect(
+        getByRole("button", { name: "Drank : 7 Jun 2023" })
+      ).toBeInTheDocument()
+    })
+  })
+
+  it("allows calling additional functions on selection change", async () => {
+    const onChange = jest.fn<void, [Date | undefined]>()
+    const { getByRole } = render(
+      <FilterBarDatePickerWrapper onDateChange={onChange} />
+    )
+    const triggerButton = getByRole("button", { name: "Drank" })
+
+    await user.click(triggerButton)
+    await waitFor(() => {
+      const dialog = getByRole("dialog")
+      expect(dialog).toBeInTheDocument()
+    })
+
+    await user.click(
+      getByRole("button", {
+        name: "7th June (Wednesday)",
+      })
+    )
+
+    await waitFor(() => {
+      expect(onChange.mock.calls).toEqual([
+        [undefined], // this is because the useEffect attemps to validate the default value, in this case we haven't given it one.
+        [new Date("2023-06-07")],
+      ])
+    })
+  })
+})
