@@ -37,6 +37,10 @@ export default ({ config }: { config: Configuration }): Configuration => {
     "~utils": path.resolve(__dirname, "../packages/components/src/utils"),
     "~components": path.resolve(__dirname, "../packages/components/src"),
     "~icons": path.resolve(__dirname, "../packages/components/src/SVG/icons"),
+    "__@cultureamp/i18n-react-intl/locales": path.resolve(
+      __dirname,
+      "../packages/components/locales"
+    ),
   }
 
   // Return the altered config
