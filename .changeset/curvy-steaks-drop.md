@@ -2,7 +2,5 @@
 "@kaizen/components": minor
 ---
 
-Add OptionalIntlProvider to KaizenProvider.
-With OptionalIntlProvider added this way, KaizenProvider will wrap its children 
-in a StaticIntlProvider from @cultureamp/i18n-react-intl if one is not present in
-the app's context already.
+KaizenProvider will now add @cultureamp/i18n-react-intl's StaticIntlProvider to 
+the consuming app's context (if one isn't provided already).
