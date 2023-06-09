@@ -39,14 +39,14 @@ export interface FilterDatePickerFieldProps
    * Callback when date is updated either by the calendar picker or by typing and blurring.
    * Date will return as `undefined` if empty, invalid or disabled.
    */
-  onDateChange: (date: Date | undefined) => void
+  onDateChange?: (date: Date | undefined) => void
   /**
    * Callback when date is saved/committed/submitted valid date by either by the calendar picker or by typing and blurring.
    * Date will return as `undefined` if empty, invalid or disabled.
    *
    * Distinctly different from `change` where that is triggered on any kind of event, we expect the final valid date in this function.
    */
-  onDateSubmit?: (date: Date | undefined) => void
+  onDateSubmit: (date: Date | undefined) => void
   /**
    * See https://react-day-picker.js.org/api/types/Matcher
    */
@@ -100,7 +100,7 @@ export const FilterDatePickerField = ({
 
   const handleDateChange = (date: Date | undefined): void => {
     setInternalDate(date)
-    // onDateChange(date)
+    onDateChange?.(date)
   }
 
   const dateValidation = useSingleDateValidation({
@@ -144,7 +144,6 @@ export const FilterDatePickerField = ({
 
     if (newDate) {
       onDateSubmit?.(newDate)
-      onDateChange(newDate)
     }
   }
 
@@ -166,7 +165,7 @@ export const FilterDatePickerField = ({
       <CalendarSingle
         disabled={disabledDays}
         locale={locale}
-        selected={selectedDate}
+        selected={internalDate}
         onSelect={handleCalendarSelect}
         month={startMonth}
         onMonthChange={setStartMonth}

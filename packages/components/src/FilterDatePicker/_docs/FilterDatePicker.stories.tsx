@@ -87,7 +87,7 @@ return (
     isOpen={isOpen}
     setIsOpen={setIsOpen}
     selectedDate={date}
-    onDateChange={setDate}
+    onDateSubmit={setDate}
   />
 )
 `
@@ -106,7 +106,7 @@ export const Playground: StoryFn<typeof FilterDatePicker> = args => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       selectedDate={date}
-      onDateChange={setDate}
+      onDateSubmit={setDate}
     />
   )
 }
@@ -149,7 +149,7 @@ export const RenderTrigger: StoryFn = () => {
         isOpen={isOpenButton}
         setIsOpen={setIsOpenButton}
         selectedDate={dateButton}
-        onDateChange={setDateButton}
+        onDateSubmit={setDateButton}
       />
       <FilterDatePicker
         id="filterdp--filter-button-removable"
@@ -166,7 +166,7 @@ export const RenderTrigger: StoryFn = () => {
         isOpen={isOpenRemovable}
         setIsOpen={setIsOpenRemovable}
         selectedDate={rangeRemovable}
-        onDateChange={setRangeRemovable}
+        onDateSubmit={setRangeRemovable}
       />
     </div>
   )
@@ -189,7 +189,7 @@ export const Description: StoryFn = () => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       selectedDate={undefined}
-      onDateChange={(): void => undefined}
+      onDateSubmit={(): void => undefined}
       description="This is a custom description"
     />
   )
@@ -212,7 +212,7 @@ export const ExtendInputProps: StoryFn = () => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       selectedDate={undefined}
-      onDateChange={(): void => undefined}
+      onDateSubmit={(): void => undefined}
       data-testid="filterdp--input-testid"
     />
   )
@@ -300,8 +300,12 @@ export const Validation: StoryFn = () => {
   const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
 
-    setValidationMessage({ status: "error", message: "Error for date" })
-    return alert("Error")
+    if (validationMessage) {
+      setValidationMessage({ status: "error", message: "Error for date" })
+      return alert("Error")
+    }
+
+    alert("Success")
   }
 
   return (
@@ -311,7 +315,7 @@ export const Validation: StoryFn = () => {
           id="datepicker-default"
           inputProps={{ labelText: "Label" }}
           selectedDate={value}
-          onDateChange={setValue}
+          onDateSubmit={setValue}
           onValidate={handleValidate}
           validationMessage={validationMessage}
           disabledDays={new Date()}
