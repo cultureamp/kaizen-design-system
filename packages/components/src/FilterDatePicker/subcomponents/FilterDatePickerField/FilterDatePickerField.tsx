@@ -1,5 +1,6 @@
 import React, { HTMLAttributes, useEffect, useState } from "react"
 import classnames from "classnames"
+import { Button } from "@kaizen/button"
 import {
   CalendarSingle,
   CalendarSingleProps,
@@ -8,6 +9,7 @@ import {
   formatDateAsText,
   getLocale,
 } from "@kaizen/date-picker"
+import { Divider } from "@kaizen/draft-divider"
 import { FilterProps } from "~components/Filter"
 import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
@@ -79,6 +81,9 @@ export const FilterDatePickerField = ({
 }: FilterDatePickerFieldProps): JSX.Element => {
   const locale = getLocale(propsLocale)
   const inputLabel = inputProps?.labelText || "Date"
+  const [internalDate, setInternalDate] = useState<Date | undefined>(
+    selectedDate
+  )
 
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""
@@ -94,7 +99,8 @@ export const FilterDatePickerField = ({
   const [inputDateValue, setInputDateValue] = useState<string>(transformedDate)
 
   const handleDateChange = (date: Date | undefined): void => {
-    onDateChange(date)
+    setInternalDate(date)
+    // onDateChange(date)
   }
 
   const dateValidation = useSingleDateValidation({
@@ -116,7 +122,6 @@ export const FilterDatePickerField = ({
 
       if (newDate) {
         setStartMonth(newDate)
-        onDateSubmit?.(newDate)
       }
     },
     ...inputProps,
@@ -126,13 +131,22 @@ export const FilterDatePickerField = ({
     const newDate = validateDate(date)
     setInputDateValue(transformDateToInputValue(newDate))
     handleDateChange(newDate)
-    onDateSubmit?.(newDate)
   }
 
   useEffect(() => {
     const newDate = validateDate(selectedDate)
     handleDateChange(newDate)
   }, [])
+
+  const handleApply = (): void => {
+    const newDate = validateDate(internalDate)
+    handleDateChange(newDate)
+
+    if (newDate) {
+      onDateSubmit?.(newDate)
+      onDateChange(newDate)
+    }
+  }
 
   return (
     <div
@@ -157,6 +171,8 @@ export const FilterDatePickerField = ({
         month={startMonth}
         onMonthChange={setStartMonth}
       />
+      <Divider variant="menuSeparator" />
+      <Button type="button" label="Apply" onClick={handleApply} />
     </div>
   )
 }
