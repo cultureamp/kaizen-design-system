@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect, useState } from "react"
+import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import { Button } from "@kaizen/button"
 import {
@@ -118,11 +118,9 @@ export const FilterDatePickerField = ({
     setInputValue: setInputDateValue,
     onDateChange: date => {
       const newDate = validateDate(date)
-      handleDateChange(newDate)
+      handleDateChange(date)
 
-      if (newDate) {
-        setStartMonth(newDate)
-      }
+      if (newDate) setStartMonth(newDate)
     },
     ...inputProps,
   })
@@ -130,19 +128,19 @@ export const FilterDatePickerField = ({
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
     const newDate = validateDate(date)
     setInputDateValue(transformDateToInputValue(newDate))
-    handleDateChange(newDate)
+    handleDateChange(date)
   }
 
   useEffect(() => {
-    const newDate = validateDate(selectedDate)
+    const newDate = validateDate(internalDate)
     handleDateChange(newDate)
   }, [])
 
   const handleApply = (): void => {
     const newDate = validateDate(internalDate)
-    handleDateChange(newDate)
 
     if (newDate) {
+      handleDateChange(newDate)
       onDateSubmit?.(newDate)
     }
   }
