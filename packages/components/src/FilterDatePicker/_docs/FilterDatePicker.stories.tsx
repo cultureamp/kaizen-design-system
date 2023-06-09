@@ -315,7 +315,7 @@ export const Validation: StoryFn = () => {
           id="datepicker-default"
           inputProps={{ labelText: "Label" }}
           selectedDate={value}
-          onDateSubmit={setValue}
+          onDateChange={setValue}
           onValidate={handleValidate}
           validationMessage={validationMessage}
           disabledDays={new Date()}

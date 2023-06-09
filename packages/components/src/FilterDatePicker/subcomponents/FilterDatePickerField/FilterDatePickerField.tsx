@@ -1,12 +1,10 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
+import { Locale } from "date-fns"
 import { Button } from "@kaizen/button"
 import {
   CalendarSingle,
   CalendarSingleProps,
-  useDateInputHandlers,
-  isInvalidDate,
-  formatDateAsText,
   getLocale,
 } from "@kaizen/date-picker"
 import { Divider } from "@kaizen/draft-divider"
@@ -20,8 +18,7 @@ import { DateInputField, DateInputFieldProps } from "../DateInputField"
 import { useSingleDateValidation } from "./hooks/useSingleDateValidation"
 import styles from "./FilterDatePickerField.module.scss"
 
-type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
-  DataAttributes
+type FilterInputProps<InputProps> = Partial<InputProps> & DataAttributes
 
 export interface FilterDatePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -67,109 +64,31 @@ export interface FilterDatePickerFieldProps
 export const FilterDatePickerField = ({
   id,
   inputProps,
-  locale: propsLocale,
-  defaultMonth,
-  selectedDate,
-  onDateChange,
-  onDateSubmit,
+  locale: localeProp,
   disabledDays,
-  description,
-  validationMessage,
-  onValidate,
   classNameOverride,
+  selected,
+  onSelect,
+  month,
+  onMonthChange,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
-  const locale = getLocale(propsLocale)
-  const inputLabel = inputProps?.labelText || "Date"
-  const [internalDate, setInternalDate] = useState<Date | undefined>(
-    selectedDate
-  )
-
-  const transformDateToInputValue = (date: Date | undefined): string =>
-    date ? formatDateAsText(date, disabledDays, locale) : ""
-
-  const transformedDate = transformDateToInputValue(selectedDate)
-
-  const [startMonth, setStartMonth] = useState<Date>(
-    selectedDate && !isInvalidDate(selectedDate)
-      ? selectedDate
-      : defaultMonth || new Date()
-  )
-
-  const [inputDateValue, setInputDateValue] = useState<string>(transformedDate)
-
-  const handleDateChange = (date: Date | undefined): void => {
-    setInternalDate(date)
-    onDateChange?.(date)
-  }
-
-  const dateValidation = useSingleDateValidation({
-    disabledDays,
-    validationMessage,
-    onValidate,
-  })
-
-  const validateDate = (date: Date | undefined): Date | undefined =>
-    dateValidation.validateDate({ date, inputValue: inputDateValue })
-
-  const inputDateHandlers = useDateInputHandlers({
-    locale,
-    disabledDays,
-    setInputValue: setInputDateValue,
-    onDateChange: date => {
-      const newDate = validateDate(date)
-      handleDateChange(date)
-
-      if (newDate) setStartMonth(newDate)
-    },
-    ...inputProps,
-  })
-
-  const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
-    const newDate = validateDate(date)
-    setInputDateValue(transformDateToInputValue(newDate))
-    handleDateChange(date)
-  }
-
-  useEffect(() => {
-    const newDate = validateDate(internalDate)
-    handleDateChange(newDate)
-  }, [])
-
-  const handleApply = (): void => {
-    const newDate = validateDate(internalDate)
-
-    if (newDate) {
-      handleDateChange(newDate)
-      onDateSubmit?.(newDate)
-    }
-  }
+  const locale = getLocale(localeProp)
 
   return (
     <div
       className={classnames(styles.filterDatePickerField, classNameOverride)}
       {...restProps}
     >
-      <DateInputField
-        id={`${id}--input`}
-        labelText={inputLabel}
-        value={inputDateValue}
-        locale={locale}
-        description={description}
-        validationMessage={dateValidation.validationMessage}
-        {...inputDateHandlers}
-        {...inputProps}
-      />
+      <DateInputField id={`${id}--input`} locale={locale} {...inputProps} />
       <CalendarSingle
         disabled={disabledDays}
         locale={locale}
-        selected={internalDate}
-        onSelect={handleCalendarSelect}
-        month={startMonth}
-        onMonthChange={setStartMonth}
+        selected={selected}
+        onSelect={onSelect}
+        month={month}
+        onMonthChange={onMonthChange}
       />
-      <Divider variant="menuSeparator" />
-      <Button type="button" label="Apply" onClick={handleApply} />
     </div>
   )
 }

@@ -3,11 +3,11 @@ import { formatDateAsText, getLocale } from "@kaizen/date-picker"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import {
-  FilterDatePickerField,
-  FilterDatePickerFieldProps,
-} from "./subcomponents/FilterDatePickerField"
+  FilterDatePickerForm,
+  FilterDatePickerFormProps,
+} from "./subcomponents/FilterDatePickerForm"
 
-export interface FilterDatePickerProps extends FilterDatePickerFieldProps {
+export interface FilterDatePickerProps extends FilterDatePickerFormProps {
   label: string
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
@@ -38,7 +38,7 @@ export const FilterDatePicker = ({
     }
   >
     <FilterContents>
-      <FilterDatePickerField
+      <FilterDatePickerForm
         locale={locale}
         selectedDate={selectedDate}
         onDateSubmit={date => {
