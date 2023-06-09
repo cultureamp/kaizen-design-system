@@ -265,3 +265,44 @@ $pulse-ring-position: calc(
     opacity: 0%;
   }
 }
+
+.radarIcon {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-inline-start: 0.25rem;
+}
+
+.iconBack {
+  color: $color-green-500;
+  opacity: 30%;
+  display: block;
+}
+
+.iconFront {
+  display: block;
+  position: absolute;
+  color: $color-green-500;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  clip-path: circle(66%);
+
+  animation-name: radar;
+  animation-duration: 3s;
+  animation-timing-function: steps(4);
+  animation-direction: forward;
+  animation-iteration-count: 2;
+}
+
+@keyframes radar {
+  0% {
+    clip-path: circle(0%);
+  }
+  100% {
+    clip-path: circle(66%);
+  }
+}

@@ -164,3 +164,10 @@ StickerSheetReversed.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
 }
+
+export const LiveTag: StoryFn<typeof Tag> = args => (
+  <Tag variant="statusLive" {...args}>
+    Default
+  </Tag>
+)
+DefaultStory.storyName = "Live Tag"

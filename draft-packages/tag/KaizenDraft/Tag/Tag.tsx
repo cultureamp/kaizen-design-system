@@ -6,6 +6,7 @@ import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
 import errorIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
+import wifi from "@kaizen/component-library/icons/wifi.icon.svg"
 import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
 import styles from "./Tag.module.scss"
 
@@ -157,8 +158,13 @@ export const Tag = (props: TagProps): JSX.Element => {
             </>
           )}
           {variant === "statusLive" && (
-            <span className={styles.pulse}>
-              <span className={styles.pulseRing} />
+            <span className={styles.radarIcon}>
+              <span className={styles.iconBack}>
+                <Icon icon={wifi} role="presentation" />
+              </span>
+              <span className={styles.iconFront}>
+                <Icon icon={wifi} role="presentation" />
+              </span>
             </span>
           )}
         </>
