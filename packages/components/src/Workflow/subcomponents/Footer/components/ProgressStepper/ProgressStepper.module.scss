@@ -29,6 +29,7 @@ $indicator-size: 1.25rem;
   flex-basis: 100%;
   justify-content: center;
   max-width: $spacing-96;
+  overflow-wrap: break-word;
   position: relative;
   container: step / inline-size;
 }
