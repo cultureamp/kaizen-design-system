@@ -13,9 +13,10 @@
   gap: $spacing-16;
 
   @media (min-width: 768px) {
-    position: sticky;
-    padding: $spacing-24 $spacing-32;
-    bottom: 0;
     grid-template-columns: 1fr 5fr 1fr;
+    padding: $spacing-24 $spacing-32;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
   }
 }

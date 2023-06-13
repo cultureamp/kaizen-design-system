@@ -5,7 +5,6 @@
 .root {
   display: grid;
   background-color: $color-white;
-  top: 0;
   grid-template: "branding" min-content "titles" max-content "actions" min-content / 1fr;
   flex-grow: 1;
   justify-content: center;
@@ -16,8 +15,10 @@
   gap: $spacing-16;
 
   @media (min-width: 768px) {
-    position: sticky;
     align-items: start;
     grid-template: "branding titles actions" min-content / 1fr max-content 1fr;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
 }
