@@ -1,17 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
-    <title>clear</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M10,2 C5.576,2 2,5.576 2,10 C2,14.424 5.576,18 10,18 C14.424,18 18,14.424 18,10 C18,5.576 14.424,2 10,2 L10,2 Z M14,12.872 L12.872,14 L10,11.128 L7.128,14 L6,12.872 L8.872,10 L6,7.128 L7.128,6 L10,8.872 L12.872,6 L14,7.128 L11.128,10 L14,12.872 L14,12.872 Z" id="path-1"></path>
-    </defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="clear">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <use id="Icons/Actions/clear" fill="#000000" xlink:href="#path-1"></use>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20">
+    <path fill-rule="evenodd" fill="#000" d="M10 2c-4.424 0-8 3.576-8 8 0 4.424 3.576 8 8 8 4.424 0 8-3.576 8-8 0-4.424-3.576-8-8-8Zm4 10.872L12.872 14 10 11.128 7.128 14 6 12.872 8.872 10 6 7.128 7.128 6 10 8.872 12.872 6 14 7.128 11.128 10 14 12.872Z"/>
 </svg>
