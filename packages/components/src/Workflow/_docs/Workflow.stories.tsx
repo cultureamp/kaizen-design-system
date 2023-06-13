@@ -193,3 +193,28 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
     />
   </Workflow.Wrapper>
 )
+
+export const ResponsiveWorkflow: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "hidden",
+      },
+    },
+    viewport: {
+      viewports: {
+        vieportZoomed: {
+          name: "Simulate 400% zoom",
+          styles: {
+            width: "500px",
+            height: "800px",
+          },
+          type: "mobile",
+        },
+      },
+      defaultViewport: "vieportZoomed",
+    },
+  },
+}
+
+ResponsiveWorkflow.args = { ...defaultArgs }

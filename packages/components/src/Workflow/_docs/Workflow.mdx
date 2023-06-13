@@ -26,7 +26,7 @@ This is a page template component containing the header, footer, and main landma
 
 The Worflow is intended as a page wrapper and sets a minimum height of `100vh` with a sticky `Header` component. The `Children` will be wrapped in an unstyled main landmark to provide flexibility for inner content layouts.
 
-This component has responsiveness baked in to support 400% zoom and smaller screen sizes. This will also un-stick the `Header` to provide more real estate for the user.
+To ensure at readability at 400% zoom (See WCAG's [Reflow criteria](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)) this component will collapse to a vertical layout on smaller screen sizes and remove `sticky` positioning to maximise screen real estate. You can see an example in [the responsive workflow story](/story/pages-workflow-components-workflow--responsive-workflow).
 
 <Canvas layout="fullscreen" of={Workflow.Playground} />
 
@@ -160,6 +160,7 @@ In Instances where users are returning to a completed workflow you can pass the 
 While we do not advise this path, a composable Workflow may be created if required. Refer to the component's stories on how to consume each subcomponent.
 
 <Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
+
 
 ## Worflow API at a glance
 
