@@ -1,11 +1,11 @@
 import React from "react"
+import { OverrideClassName } from "@kaizen/component-base"
 import { HeadingProps } from "@kaizen/typography"
 import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"
-import styles from "./components/GenericNotification.module.scss"
 
-export type InlineNotificationProps = {
+export type InlineNotificationProps = OverrideClassName<{
   type: NotificationType
   children?: React.ReactNode
   autohide?: boolean
@@ -23,7 +23,7 @@ export type InlineNotificationProps = {
    * @deprecated
    */
   title?: string
-}
+}>
 
 /**
  * {@link https://cultureamp.design/components/inline-notification/ Guidance} |
@@ -32,13 +32,11 @@ export type InlineNotificationProps = {
 export const InlineNotification = ({
   persistent,
   hideCloseIcon,
-  isSubtle,
   ...otherProps
 }: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
     persistent={persistent || hideCloseIcon}
-    classNameOverride={isSubtle ? styles.subtle : undefined}
     {...otherProps}
   />
 )
