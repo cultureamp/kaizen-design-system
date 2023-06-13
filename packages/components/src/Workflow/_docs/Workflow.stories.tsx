@@ -73,6 +73,7 @@ export const Playground: StoryObj<typeof meta> = {
         sourceState: "shown",
       },
     },
+    chromatic: { disable: false },
   },
 }
 
@@ -112,7 +113,7 @@ export const MultipleActions: StoryObj<typeof meta> = {
 export const FinalStep: StoryObj<typeof meta> = {
   args: {
     workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
+    stepName: "Schedule",
     steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
     isComplete: false,
     status: {
@@ -155,6 +156,9 @@ export const CompletedWorkflow: StoryObj<typeof meta> = {
       />,
     ],
   },
+  parameters: {
+    chromatic: { disable: false },
+  },
 }
 
 export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
@@ -194,6 +198,10 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
   </Workflow.Wrapper>
 )
 
+ComposableWorkflow.parameters = {
+  chromatic: { disable: false },
+}
+
 export const ResponsiveWorkflow: StoryObj<typeof meta> = {
   parameters: {
     docs: {
@@ -214,6 +222,7 @@ export const ResponsiveWorkflow: StoryObj<typeof meta> = {
       },
       defaultViewport: "vieportZoomed",
     },
+    chromatic: { disable: false },
   },
 }
 
