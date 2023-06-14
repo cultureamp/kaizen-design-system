@@ -21,5 +21,10 @@
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],
-  "exclude": ["**/node_modules", "packages/components/**/*"]
+  "exclude": [
+    "**/node_modules",
+    "packages/components/**/*",
+    "**/*.spec.tsx",
+    "**/*.spec.ts"
+  ]
 }

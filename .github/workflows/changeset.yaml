@@ -13,12 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: |
-          npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
-          yarn install --frozen-lockfile --ignore-scripts
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
-          version: yarn ci:version
+          version: pnpm ci:version
