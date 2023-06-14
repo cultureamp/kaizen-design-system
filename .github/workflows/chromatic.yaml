@@ -23,10 +23,6 @@ jobs:
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
       - uses: ./.github/actions/setup
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build Storybook
         run: |
           yarn storybook:build --webpack-stats-json
