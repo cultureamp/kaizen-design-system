@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.14.0
+
+### Minor Changes
+
+- [#3727](https://github.com/cultureamp/kaizen-design-system/pull/3727) [`988f72305`](https://github.com/cultureamp/kaizen-design-system/commit/988f723056e2d4df600c6766a5a14586a63d9b7b) - Add FilterMultiSelect to KAIO and refactor to use FilterButton.
+  Remove `@kaizen/select` from dependencies.
+
 ## 1.13.0
 
 ### Minor Changes
