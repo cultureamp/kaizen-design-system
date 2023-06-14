@@ -1,0 +1,24 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../mixins";
+
+.trigger {
+  display: inline-flex;
+
+  .triggerButton {
+    border-radius: 0 $border-solid-border-radius;
+  }
+
+  .removeButton {
+    @include button;
+
+    width: $spacing-xl;
+    justify-content: center;
+    border-radius: $border-solid-border-radius 0;
+  }
+
+  .divider {
+    border-left: 1px solid $color-blue-300;
+  }
+}

@@ -1,0 +1,7 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+
+$button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+
+// Combined pseudo state classes
+$selectors--button-focus: "&:focus-visible";
