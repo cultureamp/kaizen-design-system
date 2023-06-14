@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.13.0
+
+### Minor Changes
+
+- [#3673](https://github.com/cultureamp/kaizen-design-system/pull/3673) [`24dca6f74`](https://github.com/cultureamp/kaizen-design-system/commit/24dca6f7416732a733b128a40193c9a6feb4f0c2) - KaizenProvider will now add @cultureamp/i18n-react-intl's StaticIntlProvider to
+  the consuming app (if one isn't provided already). This ensures that Kaizen components
+  with translated strings get translated properly in consuming repos.
+
+### Patch Changes
+
+- [#3723](https://github.com/cultureamp/kaizen-design-system/pull/3723) [`4caca6b44`](https://github.com/cultureamp/kaizen-design-system/commit/4caca6b44b550628acfe17aed2dc98fd1be4c12a) - - Remove ids and xlinks from React SVGs
+  - Adds position sticky to Workflow Footer on desktop
+  - Updates footer styles to add padding for small screen sizes
+    - adds 400% story for chromatic
+  - Adds z-index of 1 to navigation elements and 0 to main Workflow components
+  - Adds word break for long step names
+
 ## 1.12.0
 
 ### Minor Changes
