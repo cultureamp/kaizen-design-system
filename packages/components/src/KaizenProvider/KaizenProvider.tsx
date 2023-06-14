@@ -1,5 +1,5 @@
 import React from "react"
-import { OptionalIntlProvider } from "./OptionalIntlProvider"
+//import { OptionalIntlProvider } from "./OptionalIntlProvider"
 import { ThemeProvider, ThemeManager } from "./ThemeProvider"
 
 export interface KaizenProviderProps {
@@ -13,9 +13,11 @@ export const KaizenProvider = ({
   themeManager,
   locale = "en",
 }: KaizenProviderProps): JSX.Element => (
-  <OptionalIntlProvider locale={locale}>
-    <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
-  </OptionalIntlProvider>
+  // TODO: Add this back in once UH's webpack plugin is capable of
+  //       merging translation files.
+  //<OptionalIntlProvider locale={locale}>
+  <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
+  //</OptionalIntlProvider>
 )
 
 KaizenProvider.displayName = "KaizenProvider"
