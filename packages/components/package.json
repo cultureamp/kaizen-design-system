@@ -50,7 +50,6 @@
     "@kaizen/draft-tooltip": "^5.4.46",
     "@kaizen/hosted-assets": "^2.0.2",
     "@kaizen/loading-skeleton": "^2.0.7",
-    "@kaizen/select": "^6.17.3",
     "@kaizen/typography": "^2.3.10",
     "@popperjs/core": "^2.11.8",
     "@react-aria/button": "^3.7.2",
