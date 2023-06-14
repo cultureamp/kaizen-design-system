@@ -97,6 +97,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               inputProps={{ labelText: "Date" }}
               locale="en-AU"
               selectedDate={dateValueValidation}
+              defaultMonth={new Date("01-01-2022")}
               onDateChange={setDateValueValidation}
               onValidate={action("Validation story: date start onValidate")}
               validationMessage={{
