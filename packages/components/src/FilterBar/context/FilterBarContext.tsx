@@ -60,9 +60,13 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
     updateValue: (id: keyof ValuesMap, newValue: any): void => {
+      const validValue =
+        typeof newValue === "object" && JSON.stringify(newValue) === "{}"
+          ? undefined
+          : newValue
       onValuesChange({
         ...values,
-        [id]: newValue,
+        [id]: validValue,
       })
     },
   } satisfies FilterBarContextValue<any, ValuesMap>
