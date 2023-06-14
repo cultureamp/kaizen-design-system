@@ -222,7 +222,10 @@ export const ResponsiveWorkflow: StoryObj<typeof meta> = {
       },
       defaultViewport: "vieportZoomed",
     },
-    chromatic: { disable: false },
+    chromatic: {
+      disable: false,
+      viewports: [500, 1200],
+    },
   },
 }
 
