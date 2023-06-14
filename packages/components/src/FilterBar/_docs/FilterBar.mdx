@@ -168,4 +168,12 @@ The api allows you to update the values of the FilterBar via an external event (
 
 Simply update the value passed into the `values` prop.
 
+Out of the box, we do not make assumptions about your state management tool, so you will need to encode/decode
+the types to match the expected format of your chosen query param library.
+
+The following example uses the
+<a href="https://www.npmjs.com/package/serialize-query-params">serialize-query-params</a>
+and <a href="https://www.npmjs.com/package/query-string">query-string</a>
+packages.
+
 <NoClipCanvas of={FilterBarStories.ExternalEventValuesUpdate} />
