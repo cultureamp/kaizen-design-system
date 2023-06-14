@@ -9,12 +9,12 @@ import { WorkflowControls } from "./controls"
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
     <div className="max-w-[1392px] w-100">
-      <h3>Name and schedule the self-reflection cycle</h3>
+      <h2>Name and schedule the self-reflection cycle</h2>
       <form
         id="workflow-form-id"
         className="bg-white rounded-default shadow-sm my-32 p-64"
       >
-        <h4>Name the cycle</h4>
+        <h3>Name the cycle</h3>
         <label
           className="block font-weight-paragraph-bold"
           htmlFor="input-workflow"
@@ -73,6 +73,7 @@ export const Playground: StoryObj<typeof meta> = {
         sourceState: "shown",
       },
     },
+    chromatic: { disable: false },
   },
 }
 
@@ -112,7 +113,7 @@ export const MultipleActions: StoryObj<typeof meta> = {
 export const FinalStep: StoryObj<typeof meta> = {
   args: {
     workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
+    stepName: "Schedule",
     steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
     isComplete: false,
     status: {
@@ -155,6 +156,9 @@ export const CompletedWorkflow: StoryObj<typeof meta> = {
       />,
     ],
   },
+  parameters: {
+    chromatic: { disable: false },
+  },
 }
 
 export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
@@ -193,3 +197,36 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
     />
   </Workflow.Wrapper>
 )
+
+ComposableWorkflow.parameters = {
+  chromatic: { disable: false },
+}
+
+export const ResponsiveWorkflow: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "hidden",
+      },
+    },
+    viewport: {
+      viewports: {
+        vieportZoomed: {
+          name: "Simulate 400% zoom",
+          styles: {
+            width: "500px",
+            height: "800px",
+          },
+          type: "mobile",
+        },
+      },
+      defaultViewport: "vieportZoomed",
+    },
+    chromatic: {
+      disable: false,
+      viewports: [500, 1200],
+    },
+  },
+}
+
+ResponsiveWorkflow.args = { ...defaultArgs }
