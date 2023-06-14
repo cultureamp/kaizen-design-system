@@ -1,41 +1,42 @@
-import React from "react"
-import { Icon } from "@kaizen/component-library"
-import clear from "@kaizen/component-library/icons/clear.icon.svg"
-import { Tooltip } from "@kaizen/draft-tooltip"
-import {
-  FilterTriggerButton,
-  FilterTriggerButtonProps,
-} from "../FilterTriggerButton"
-import styles from "./RemovableFilterTrigger.module.scss"
+import React, { useRef } from "react"
+import { FilterTriggerRef } from "~components/Filter"
+import { FilterButtonRemovable } from "~components/FilterButton"
+import { useMenuTriggerContext } from "../../../provider"
+import { getTruncatedLabels } from "../../../utils"
+import { FilterTriggerButtonProps } from "../FilterTriggerButton"
 
-export type RemovableFilterTriggerProps = {
+export type RemovableFilterTriggerProps = FilterTriggerButtonProps & {
   onRemove: () => void
-} & FilterTriggerButtonProps
+}
 
 export const RemovableFilterTrigger = ({
+  label,
+  selectedOptionLabels,
+  labelCharacterLimitBeforeTruncate = 50,
+  classNameOverride,
   onRemove,
-  ...filterTriggerProps
 }: RemovableFilterTriggerProps): JSX.Element => {
-  const removeButtonLabel = `Remove filter - ${filterTriggerProps.label}`
+  const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
+  const ref = useRef<FilterTriggerRef>({ triggerRef: buttonRef })
+
   return (
-    <div className={styles.trigger}>
-      <FilterTriggerButton
-        classNameOverride={styles.triggerButton}
-        {...filterTriggerProps}
-      />
-      <div className={styles.divider} />
-      <Tooltip text={removeButtonLabel} position="below">
-        <button
-          type="button"
-          className={styles.removeButton}
-          aria-label={removeButtonLabel}
-          onClick={onRemove}
-        >
-          <Icon icon={clear} role="presentation" />
-        </button>
-      </Tooltip>
-    </div>
+    <FilterButtonRemovable
+      ref={ref}
+      triggerButtonProps={{
+        ...buttonProps,
+        label,
+        selectedValue: getTruncatedLabels(
+          selectedOptionLabels,
+          labelCharacterLimitBeforeTruncate
+        ),
+        isOpen: menuTriggerState.isOpen,
+        classNameOverride,
+      }}
+      removeButtonProps={{
+        onClick: onRemove,
+      }}
+    />
   )
 }
 
-RemovableFilterTrigger.displayName = "RemovableFilterTrigger"
+RemovableFilterTrigger.displayName = "FilterMultiSelect.RemovableTrigger"

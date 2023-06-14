@@ -1,8 +1,8 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { FilterTriggerButton } from "~components/FilterMultiSelect/subcomponents/Trigger"
 import { MenuPopup } from "../../subcomponents/MenuPopup"
-import { TriggerButtonBase } from "../../subcomponents/Trigger/TriggerButtonBase"
 import {
   MenuTriggerProvider,
   MenuTriggerProviderProps,
@@ -14,7 +14,10 @@ const MenuTriggerProviderWrapper = (
   props: Partial<MenuTriggerProviderProps>
 ): JSX.Element => (
   <MenuTriggerProvider {...props}>
-    <TriggerButtonBase>trigger-display-label-mock</TriggerButtonBase>
+    <FilterTriggerButton
+      label="trigger-display-label-mock"
+      selectedOptionLabels={[]} // This is irrelevant as we are not testing the button contents
+    />
     <MenuPopup>
       <span>menu-content-mock</span>
       <button type="button">menu-content-button-mock</button>

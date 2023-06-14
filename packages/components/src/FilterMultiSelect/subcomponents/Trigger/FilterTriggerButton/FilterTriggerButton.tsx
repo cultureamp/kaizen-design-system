@@ -1,18 +1,18 @@
-import React from "react"
+import React, { useRef } from "react"
+import { FilterTriggerRef } from "~components/Filter"
+import { FilterButton } from "~components/FilterButton"
+import { useMenuTriggerContext } from "../../../provider"
 import { getTruncatedLabels } from "../../../utils"
-import { TriggerButtonBase } from "../TriggerButtonBase"
-import styles from "./FilterTriggerButton.module.scss"
 
 export type FilterTriggerButtonProps = {
   label: string
   selectedOptionLabels: string[]
-  classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
   /**
-   * @default 50
    * Character limit of the button label.
    * It will always show the first selected label regardless if it exceeds the given character limit.
    */
   labelCharacterLimitBeforeTruncate?: number
+  classNameOverride?: string // TODO: migrate it to use OverrideClassName<T> and omit the props controlled by React-Aria
 }
 
 export const FilterTriggerButton = ({
@@ -21,20 +21,21 @@ export const FilterTriggerButton = ({
   classNameOverride,
   labelCharacterLimitBeforeTruncate = 50,
 }: FilterTriggerButtonProps): JSX.Element => {
-  const hasSelectedValues = selectedOptionLabels.length > 0
+  const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
+  const ref = useRef<FilterTriggerRef>({ triggerRef: buttonRef })
 
   return (
-    <TriggerButtonBase classNameOverride={classNameOverride}>
-      <span className={hasSelectedValues ? styles.hasSelectedValues : ""}>
-        {label}
-      </span>
-      {hasSelectedValues && (
-        <span>{`: ${getTruncatedLabels(
-          selectedOptionLabels,
-          labelCharacterLimitBeforeTruncate
-        )}`}</span>
+    <FilterButton
+      ref={ref}
+      {...buttonProps}
+      label={label}
+      selectedValue={getTruncatedLabels(
+        selectedOptionLabels,
+        labelCharacterLimitBeforeTruncate
       )}
-    </TriggerButtonBase>
+      classNameOverride={classNameOverride}
+      isOpen={menuTriggerState.isOpen}
+    />
   )
 }
 
