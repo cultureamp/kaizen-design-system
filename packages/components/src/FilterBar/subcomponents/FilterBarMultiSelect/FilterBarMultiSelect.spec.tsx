@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FilterMultiSelect } from "@kaizen/select"
 import { FilterBarProvider } from "~components/FilterBar/context/FilterBarContext"
+import { FilterMultiSelect } from "~components/FilterMultiSelect"
 import {
   FilterBarMultiSelect,
   FilterBarMultiSelectProps,
