@@ -12,10 +12,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: ".nvmrc"
-          cache: yarn
+      - uses: ./.github/actions/setup
       - run: |
           npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
           yarn install --frozen-lockfile --ignore-scripts

@@ -1,11 +1,12 @@
 #!/bin/sh
 set -e
 
-echo "Authenticating against the GitHub package registry"
-# NOTE: we are adding a literal ${GITHUB_REGISTRY_TOKEN} to the npm config here;
-#       npm/yarn will interpret it and sub in the environment variable for us,
-#       meaning we don't have to store the secret on disk.
-npm config set "//npm.pkg.github.com/:_authToken" '${GITHUB_REGISTRY_TOKEN}'
-
+echo "--- :github: Authenticate with Github Registry"
+npm config set "//npm.pkg.github.com/:_authToken" "${GITHUB_REGISTRY_TOKEN}"
 printf "Logged in as: "
 npm whoami --registry=https://npm.pkg.github.com
+
+npm install -g pnpm@8.6.0
+
+echo "--- :pnpm: Install dependencies :nut_and_bolt: Build all packages"
+pnpm install --frozen-lockfile

@@ -6,92 +6,42 @@ on:
       - changeset-release/main
 
 jobs:
-  yarn-integrity:
-    if: github.ref != 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn check --integrity
-
   typescript:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn compile
+      - uses: ./.github/actions/setup
+      - run: pnpm compile
 
   linting:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn lint
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
 
   jest-react-16:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn ci:test:react-16
+      - uses: ./.github/actions/setup
+      - run: pnpm ci:test:react-16
 
   jest-react-17:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn ci:test:react-17
+      - uses: ./.github/actions/setup
+      - run: pnpm ci:test:react-17
 
   jest-react-18:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn ci:test
+      - uses: ./.github/actions/setup
+      - run: pnpm ci:test

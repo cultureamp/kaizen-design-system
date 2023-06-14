@@ -22,11 +22,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
+      - uses: ./.github/actions/setup
       - run: yarn install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

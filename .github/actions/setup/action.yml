@@ -1,0 +1,32 @@
+# this is composite workflow that gets the repo ready for actions
+# for docs how composite workflows work see https://wallis.dev/blog/composite-github-actions
+
+name: Setup repository
+description: Setups this repository to allow efficient run of various github actions
+
+runs:
+  using: composite
+  steps:
+    - uses: pnpm/action-setup@v2
+      name: Install pnpm
+      id: pnpm-install
+      with:
+        version: 8
+        run_install: false
+
+    # setup node
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: .nvmrc
+        registry-url: https://npm.pkg.github.com
+        cache: "pnpm"
+        node-version: 18
+
+    - name: pnpm install
+      shell: bash
+      run: |
+        npm config set "//npm.pkg.github.com/:_authToken" "${{ github.token }}"
+        pnpm install --frozen-lockfile
+
+    # setup turborepo cache, remove if not using turborepo
+    - uses: dtinth/setup-github-actions-caching-for-turbo@v1
