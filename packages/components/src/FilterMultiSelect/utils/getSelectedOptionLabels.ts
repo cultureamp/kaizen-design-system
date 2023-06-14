@@ -1,5 +1,5 @@
 import { Selection } from "@react-types/shared"
-import { ItemType } from "../../types"
+import { ItemType } from "../types"
 
 export const getSelectedOptionLabels = (
   keys?: Selection,
