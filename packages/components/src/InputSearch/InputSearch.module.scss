@@ -1,9 +1,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/component-library/styles/mixins/forms";
-@import "../../mixins";
-@import "../mixins";
+@import "../../styles/forms";
 
 $input-height: 48px;
 $input-padding-before-start-icon: 1rem;

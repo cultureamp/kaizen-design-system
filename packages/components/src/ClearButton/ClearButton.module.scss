@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../../../styles/button-reset";
+@import "../../styles/button-reset";
 
 // Classnames to simulate pseudo states in storybook
 $story-className--clear-button-hover: ":global(.story__clear-button-hover)";
