@@ -28,7 +28,8 @@ export const FilterBar = <ValuesMap extends FiltersValues>({
     {(activeFilters): JSX.Element => (
       <div className={classnames(styles.filterBar, classNameOverride)}>
         {Object.values(activeFilters).map(({ id, Component }) => (
-          <React.Fragment key={id}>
+          // `id` will always be `string`, but keyof ValuesMap transformed it
+          <React.Fragment key={id as string}>
             {React.cloneElement(Component, { id })}
           </React.Fragment>
         ))}

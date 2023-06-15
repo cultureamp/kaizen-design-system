@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer } from "react"
 import { Filters } from "../types"
 import { filtersStateReducer, setupFiltersState } from "./filtersStateReducer"
-import { FilterState, FiltersState, FiltersValues } from "./types"
+import { ActiveFiltersArray, FilterState, FiltersValues } from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 
 export type FilterBarContextValue<
@@ -34,7 +34,7 @@ export const useFilterBarContext = <
 }
 
 export type FilterBarProviderProps<ValuesMap extends FiltersValues> = {
-  children: (activeFilters: FiltersState<ValuesMap>) => JSX.Element
+  children: (activeFilters: ActiveFiltersArray<ValuesMap>) => JSX.Element
   filters: Filters<ValuesMap>
   values: Partial<ValuesMap>
   onValuesChange: (values: Partial<ValuesMap>) => void
@@ -55,8 +55,8 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     getFilterState: (
       id: keyof ValuesMap
     ): FilterState<typeof id, ValuesMap[typeof id]> => {
-      if (!state[id]) throw Error(`Filter ${String(id)} doesn't exist!`)
-      return state[id]
+      if (!state.filters[id]) throw Error(`Filter ${String(id)} doesn't exist!`)
+      return state.filters[id]
     },
     toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
@@ -78,7 +78,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     dispatch({ type: "update_values", values })
   }, [values])
 
-  const activeFilters = state
+  const activeFilters = Array.from(
+    state.activeFilters,
+    ([_, filterAttr]) => filterAttr
+  )
 
   return (
     <FilterBarContext.Provider

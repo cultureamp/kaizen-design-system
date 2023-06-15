@@ -7,7 +7,7 @@ type Values = {
   sugarLevel: number
 }
 
-const state = {
+const filters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
@@ -24,10 +24,18 @@ const state = {
     isRemovable: true,
     isActive: false,
   },
+} satisfies FiltersState<Values>["filters"]
+
+const activeFilters = new Map()
+activeFilters.set("flavour", filters["flavour"])
+
+const state = {
+  filters,
+  activeFilters,
 } satisfies FiltersState<Values>
 
 describe("getInactiveFilters()", () => {
   it("only fetches inactive filters", () => {
-    expect(getInactiveFilters<Values>(state)).toEqual([state.sugarLevel])
+    expect(getInactiveFilters<Values>(state)).toEqual([filters.sugarLevel])
   })
 })

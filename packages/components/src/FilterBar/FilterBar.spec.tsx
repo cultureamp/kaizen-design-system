@@ -123,9 +123,7 @@ describe("<FilterBar />", () => {
       ).toBeVisible()
     })
 
-    // @todo: enable when inactive does not show in active list
-    // eslint-disable-next-line
-    xit("shows inactive filters in the Add Filters menu", async () => {
+    it("shows inactive filters in the Add Filters menu", async () => {
       const { getByRole, queryByText, getByText } = render(
         <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
       )

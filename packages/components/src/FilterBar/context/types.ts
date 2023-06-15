@@ -10,6 +10,16 @@ export type FilterState<Id, Value> = {
   isActive: boolean
 }
 
+type ActiveFilters<
+  K extends keyof ValuesMap,
+  ValuesMap extends FiltersValues
+> = Map<K, FilterState<K, ValuesMap[K]>>
+
 export type FiltersState<ValuesMap extends FiltersValues> = {
-  [K in keyof ValuesMap]: FilterState<K, ValuesMap[K]>
+  filters: { [K in keyof ValuesMap]: FilterState<K, ValuesMap[K]> }
+  activeFilters: ActiveFilters<keyof ValuesMap, ValuesMap>
 }
+
+export type ActiveFiltersArray<ValuesMap extends FiltersValues> = Array<
+  FilterState<keyof ValuesMap, ValuesMap[keyof ValuesMap]>
+>
