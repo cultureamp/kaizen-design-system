@@ -9,3 +9,5 @@ export const SearchIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
     />
   </SVG>
 )
+
+SearchIcon.displayName = "SearchIcon"

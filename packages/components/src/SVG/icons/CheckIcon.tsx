@@ -10,3 +10,5 @@ export const CheckIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
     />
   </SVG>
 )
+
+CheckIcon.displayName = "CheckIcon"
