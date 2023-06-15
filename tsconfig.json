@@ -24,6 +24,7 @@
   "exclude": [
     "**/node_modules",
     "packages/components/**/*",
+    "**/docs/**/*",
     "**/*.stories.tsx",
     "**/*.spec.tsx",
     "**/*.spec.ts"
