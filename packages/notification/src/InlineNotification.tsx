@@ -23,6 +23,7 @@ export type InlineNotificationProps = {
    * @deprecated
    */
   title?: string
+  widthAuto?: boolean
 }
 
 /**
@@ -33,12 +34,14 @@ export const InlineNotification = ({
   persistent,
   hideCloseIcon,
   isSubtle,
+  widthAuto,
   ...otherProps
 }: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
     persistent={persistent || hideCloseIcon}
     classNameOverride={isSubtle ? styles.subtle : undefined}
+    inlineWidthAuto={widthAuto}
     {...otherProps}
   />
 )

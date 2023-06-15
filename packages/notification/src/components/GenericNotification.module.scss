@@ -117,3 +117,7 @@
 .subtle {
   @extend %ca-notification---subtle;
 }
+
+.inlineWidthAuto {
+  @extend %ca-notification---inlineWidthAuto;
+}
