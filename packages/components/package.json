@@ -24,7 +24,7 @@
     "prepublish": "pnpm build:components && pnpm postBuild && pnpm dist:clean",
     "build": "pnpm prepublish",
     "test": "jest",
-    "clean": "rimraf dist && rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'",
+    "clean": "rimraf dist",
     "build:components": "rollup -c",
     "compile": "tsc",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
