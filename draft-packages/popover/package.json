@@ -4,7 +4,7 @@
   "description": "The draft Popover component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "build": "pnpm prepublish",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

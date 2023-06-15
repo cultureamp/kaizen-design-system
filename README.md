@@ -43,7 +43,7 @@ Set up access to private Culture Amp packages on your laptop. You will need to u
 To begin developing the design system locally, run the following from the repository root:
 
 ```
-yarn install
+pnpm install
 ```
 
 We use [Storybook](https://github.com/storybooks/storybook) to provide a local development environment for [React](https://reactjs.org/) components. All Kaizen Design System components have accompanying stories in Storybook.
@@ -51,10 +51,10 @@ We use [Storybook](https://github.com/storybooks/storybook) to provide a local d
 To run Storybook locally, run the following from the repository root:
 
 ```
-yarn storybook
+pnpm storybook
 ```
 
-(Having trouble running Storybook? Try running `yarn reset`, which includes `yarn clean` and `yarn install --force`!)
+(Having trouble running Storybook? Try running `pnpm reset`, which includes `pnpm clean` and `pnpm install --force`!)
 
 ## Branch previews
 
@@ -68,17 +68,17 @@ It's dangerous to go alone! Take these:
 
 Command | Summary
 :- | :-
-`yarn storybook` | Develop components locally using Storybook
-`STORIES=path/to/package yarn storybook` | Develop just one package at a time using Storybook (builds faster!)
-`yarn commit` | Use commitizen to help you write your conventional commits
-`yarn compile` | Run all typechecks
-`yarn lint` | Run all linters
-`yarn lint:fix` | Run all linters, fixing violations
-`yarn plop` | Add a new component/subcomponent
-`yarn playwright:` | Start storybook and run all Playwright tests 
-`yarn playwright:debug` | Start storybook and run all Playwright tests in debug mode 
-`yarn test` | Run all tests (using [Jest](https://jestjs.io/))
-`yarn reset` | Reinstall all dependencies
+`pnpm storybook` | Develop components locally using Storybook
+`STORIES=path/to/package pnpm storybook` | Develop just one package at a time using Storybook (builds faster!)
+`pnpm commit` | Use commitizen to help you write your conventional commits
+`pnpm compile` | Run all typechecks
+`pnpm lint` | Run all linters
+`pnpm lint:fix` | Run all linters, fixing violations
+`pnpm plop` | Add a new component/subcomponent
+`pnpm playwright:` | Start storybook and run all Playwright tests 
+`pnpm playwright:debug` | Start storybook and run all Playwright tests in debug mode 
+`pnpm test` | Run all tests (using [Jest](https://jestjs.io/))
+`pnpm reset` | Reinstall all dependencies
 
 ## Bugs and discussions
 

@@ -21,14 +21,14 @@
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "test": "cd ../../ && yarn jest ./packages/design-tokens",
-    "build": "yarn prepublish",
-    "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
+    "test": "cd ../../ && pnpm jest ./packages/design-tokens",
+    "build": "pnpm prepublish",
+    "build:json": "pnpm ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
     "clean": "rimraf dist",
-    "prepublish": "yarn build:json && yarn build:less && yarn build:sass && yarn build:ts"
+    "prepublish": "pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts"
   },
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.7",

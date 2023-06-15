@@ -70,7 +70,7 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 ### Local development with other front-end codebases
 
-To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
+To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [pnpm link](https://pnpmpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
 
 #### For core components
 
@@ -81,10 +81,10 @@ To strengthen the Kaizen Design System, we encourage engineers to take a compone
 $ cd ./packages/component-library
 
 # Register package for linking
-$ yarn link
+$ pnpm link
 
 # Build in watch mode
-$ yarn build:watch
+$ pnpm build:watch
 ```
 
 **Step 2**: Link `@kaizen/component-library` to your other front-end codebase.
@@ -94,7 +94,7 @@ $ yarn build:watch
 $ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
 
 # Link repo to locally registered package
-$ yarn link @kaizen/component-library
+$ pnpm link @kaizen/component-library
 ```
 
 Your local Kaizen changes will now show in your other front-end codebase.
@@ -103,11 +103,11 @@ Your local Kaizen changes will now show in your other front-end codebase.
 
 When you are done, unlink the package from your front-end codebase:
 
-`yarn unlink @kaizen/component-library`
+`pnpm unlink @kaizen/component-library`
 
 You can also clean up generated files in your `@kaizen/component-library` repo:
 
-`yarn clean`
+`pnpm clean`
 
 ## Releasing packages
 
@@ -145,7 +145,7 @@ Kaizen utilises [Changesets](https://github.com/changesets/changesets) to outlin
 
 Creating a changeset is straight forward:
 
-1. Run `yarn changeset` (or `yarn commit`)
+1. Run `pnpm changeset` (or `pnpm commit`)
 2. Select the packages you have made changes to with spacebar, followed by enter
 3. You will then be asked which packages should have a Major, Minor or Patch. So following [Semantic Versioning](#semantic-versioning), select the packages that apply and hit enter (you can also hit enter to skip)
 4. Add a short [description](#description).
@@ -175,7 +175,7 @@ For example, opening a pull request to merge a branch containing `feat: Even mor
 
 ## Using new package releases
 
-To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/component-library`).
+To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `pnpm upgrade --latest <scoped package name>` (e.g. `pnpm upgrade --latest @kaizen/component-library`).
 
 Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANGELOG.md`](./packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
 
@@ -192,5 +192,5 @@ Refer to the [docs folder](docs) for code guidelines and patterns.
 To generate a new component and package, new component within an existing package, or a subcomponent,
 run the following command and follow the prompts:
 ```
-yarn plop
+pnpm plop
 ```

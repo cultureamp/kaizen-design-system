@@ -1,5 +1,5 @@
 node_modules
-yarn-*.log
+pnpm-*.log
 /storybook/public/
 /draft-packages/**/*.js
 /draft-packages/**/*.js.map

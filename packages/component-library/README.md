@@ -16,11 +16,11 @@ To find component usage docs in [Storybook](https://cultureamp.design/storybook/
 Kaizen Component Library is already included in our main product repositories. If it's needed in a new repo, add `@kaizen/component-library` to your `package.json` file:
 
 ```
-yarn add @kaizen/component-library
+pnpm add @kaizen/component-library
 ```
 If you'd like to use a draft component, you include that package individually:
 ```
-yarn add @kaizen/draft-well
+pnpm add @kaizen/draft-well
 ```
 
 ## Usage

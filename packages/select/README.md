@@ -1,5 +1,5 @@
 # Install
 
 ```
-yarn add @kaizen/select
+pnpm add @kaizen/select
 ```

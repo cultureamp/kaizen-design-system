@@ -20,6 +20,6 @@ if (
 ) {
   exitWithError(
     "The component-library package contains compiled javascript!",
-    "Please run `yarn clean` before running storybook again."
+    "Please run `pnpm clean` before running storybook again."
   )
 }
