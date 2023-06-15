@@ -1,65 +1,14 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./legacy/type";
 
 /* stylelint-disable selector-no-vendor-prefix */
 
 $input-placeholder-line-height: 2.9rem;
 
-// Simple form input css reset
-@mixin form-input-reset() {
-  outline: 0;
-  box-sizing: border-box;
-
-  @include ca-type-inter($size: 16, $weight: $ca-weight-light);
-  @include ca-inherit-baseline;
-}
-
 @mixin form-input-focus-border($color) {
   border: 1px $border-solid-border-style $color;
   box-shadow: 0 0 0 1px $color; // fake a 2px border without moving input
-}
-
-/*
- * Cross browser mixin for styling of text input placeholder
- *
- * Example usage:
- * ```
- * @include input-placeholder {
- *  color: $kz-var-color-white;
- * }
- * ```
- */
-@mixin form-input-placeholder() {
-  &::-webkit-input-placeholder {
-    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
-    @include ca-inherit-baseline;
-    @content;
-  }
-
-  &:-moz-placeholder {
-    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
-    @include ca-inherit-baseline;
-
-    line-height: $input-placeholder-line-height;
-    @content;
-  }
-
-  &::-moz-placeholder {
-    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
-    @include ca-inherit-baseline;
-
-    line-height: $input-placeholder-line-height;
-    @content;
-  }
-
-  &:-ms-input-placeholder {
-    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
-    @include ca-inherit-baseline;
-
-    line-height: $input-placeholder-line-height;
-    @content;
-  }
 }
 
 // Visually hide a native input but not prevent it from being keyboard focusable
@@ -73,13 +22,6 @@ $input-placeholder-line-height: 2.9rem;
     position: absolute;
   }
 }
-
-/* stylelint-enable selector-no-vendor-prefix */
-
-
-/* stylelint-disable selector-no-vendor-prefix */
-
-$input-placeholder-line-height: 2.9rem;
 
 @mixin form-input-placeholder() {
   &::-webkit-input-placeholder {
@@ -142,5 +84,3 @@ $input-placeholder-line-height: 2.9rem;
   letter-spacing: $typography-paragraph-body-letter-spacing;
   position: static;
 }
-
-/* stylelint-enable selector-no-vendor-prefix */
