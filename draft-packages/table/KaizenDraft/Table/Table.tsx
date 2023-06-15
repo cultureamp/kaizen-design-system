@@ -320,7 +320,7 @@ type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role
  */
-export type TableCardProps = {
+export type TableCardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
   expandedStyle?: "well" | "popout"
@@ -339,13 +339,16 @@ export const TableCard = ({
   onClick,
   href,
   forceHoverState = false,
+  classNameOverride,
   ...otherProps
 }: TableCardProps): JSX.Element => {
   const className = classnames(
     styles.card,
     expanded && styles.expanded,
     expanded && styles[expandedStyle],
-    (forceHoverState || onClick != null || href != null) && styles.hasHoverState
+    (forceHoverState || onClick != null || href != null) &&
+      styles.hasHoverState,
+    classNameOverride
   )
   return href != null ? (
     <a
