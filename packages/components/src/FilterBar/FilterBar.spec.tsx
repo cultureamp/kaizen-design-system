@@ -127,7 +127,7 @@ describe("<FilterBar />", () => {
       const { getByRole, queryByText, getByText } = render(
         <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
       )
-      expect(queryByText("Topping")).not.toBeVisible()
+      expect(queryByText("Topping")).not.toBeInTheDocument()
 
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)

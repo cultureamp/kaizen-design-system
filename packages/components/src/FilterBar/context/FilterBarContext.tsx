@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useReducer } from "react"
 import { Filters } from "../types"
-import { filtersStateReducer, setupFiltersState } from "./filtersStateReducer"
+import {
+  filtersStateReducer,
+  setupFiltersState,
+} from "./reducer/filtersStateReducer"
 import { ActiveFiltersArray, FilterState, FiltersValues } from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 
@@ -11,6 +14,7 @@ export type FilterBarContextValue<
   getFilterState: (id: keyof ValuesMap) => FilterState<keyof ValuesMap, Value>
   toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean) => void
   updateValue: (id: keyof ValuesMap, value: Value) => void
+  showFilter: (id: keyof ValuesMap) => void
   getInactiveFilters: () => Array<FilterState<keyof ValuesMap, Value>>
 }
 
@@ -71,6 +75,8 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
         [id]: validValue,
       })
     },
+    showFilter: (id: keyof ValuesMap): void =>
+      dispatch({ type: "set_filter_active", id }),
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
   } satisfies FilterBarContextValue<any, ValuesMap>
 
