@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "yarn turbo prepublish",
-    "clean": "yarn turbo clean && yarn clean:storybook",
+    "clean": "yarn turbo clean && yarn storybook:clean",
     "test": "jest && yarn test:pkg:aio",
     "test:pkg:aio": "yarn pkg:aio test && yarn pkg:aio build",
     "test:pkg:c-library:sass": "yarn pkg:c-library test-scss-compile",
