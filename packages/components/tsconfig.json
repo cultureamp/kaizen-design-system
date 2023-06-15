@@ -29,5 +29,11 @@
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*", "icons/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "**/docs/**/*",
+    "**/*.stories.tsx",
+    "**/*.spec.tsx",
+    "**/*.spec.ts"
+  ]
 }
