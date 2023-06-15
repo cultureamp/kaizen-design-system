@@ -303,50 +303,6 @@ export const LinkVariant: StoryFn = () => (
 )
 LinkVariant.parameters = { chromatic: { disable: false } }
 
-export const StyleOverrideVariant: StoryFn = () => (
-  <Container>
-    <TableContainer>
-      <TableHeader>
-        <TableHeaderRow>
-          <TableHeaderRowCell labelText="Header A" width={1 / 2} />
-          <TableHeaderRowCell labelText="Header B" width={1 / 2} />
-        </TableHeaderRow>
-      </TableHeader>
-      <TableCard classNameOverride="!border-purple-800 !shadow-none">
-        <TableRow>
-          <TableRowCell width={1 / 2}>
-            <Paragraph variant="body">
-              This TableCard has a classNameOverride.
-            </Paragraph>
-          </TableRowCell>
-          <TableRowCell width={1 / 2}>
-            <Paragraph variant="body">
-              You can override styling by adding Tailwind classes to
-              classNameOverride. i.e.. `!shadow-none`
-            </Paragraph>
-          </TableRowCell>
-        </TableRow>
-      </TableCard>
-      <TableCard classNameOverride="!border-purple-800 !shadow-none">
-        <TableRow>
-          <TableRowCell width={1 / 2}>
-            <Paragraph variant="body">
-              Only override styling if absolutely necessary.
-            </Paragraph>
-          </TableRowCell>
-          <TableRowCell width={1 / 2}>
-            <Paragraph variant="body">
-              One use case is for exported images. html2canvas can not do
-              box-shadows nicely so we need to override the styling.
-            </Paragraph>
-          </TableRowCell>
-        </TableRow>
-      </TableCard>
-    </TableContainer>
-  </Container>
-)
-LinkVariant.parameters = { chromatic: { disable: false } }
-
 const ExpandedPopout = ({
   isReversed,
 }: {
