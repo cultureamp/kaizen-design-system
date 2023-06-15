@@ -5,8 +5,14 @@ import { ProgressStepperProps } from "../subcomponents"
 import { Workflow } from "../"
 
 const defaultArgs = {
-  stepName: "Settings",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+  currentStepId: "preview-step",
+  steps: [
+    { label: "Settings", id: "settings-step" },
+    { label: "Questions", id: "questions-step" },
+    { label: "Preview", id: "preview-step" },
+    { label: "Employees", id: "employees-step" },
+    { label: "Schedule", id: "schedule-step" },
+  ],
   isComplete: false,
 } satisfies ProgressStepperProps
 
@@ -42,14 +48,14 @@ export default meta
  * <p>It has no reverse variant and should only be used in the Worflow's `Footer` component.</p>
  */
 export const Playground: StoryFn<ProgressStepperProps> = ({
-  stepName,
+  currentStepId,
   steps,
   isComplete,
   ...restProps
 }) => (
   <div className="bg-blue-500 p-8">
     <Workflow.ProgressStepper
-      stepName={stepName}
+      currentStepId={currentStepId}
       steps={steps}
       isComplete={isComplete}
       {...restProps}
@@ -60,14 +66,14 @@ export const Playground: StoryFn<ProgressStepperProps> = ({
 Playground.args = { ...defaultArgs }
 
 const VariantTemplate: StoryFn<ProgressStepperProps> = ({
-  stepName,
+  currentStepId,
   steps,
   isComplete,
   ...restProps
 }) => (
   <div className="bg-blue-500 p-8">
     <Workflow.ProgressStepper
-      stepName={stepName}
+      currentStepId={currentStepId}
       steps={steps}
       isComplete={isComplete}
       {...restProps}
@@ -81,8 +87,8 @@ const VariantTemplate: StoryFn<ProgressStepperProps> = ({
 export const ProgressStates = VariantTemplate.bind({})
 
 ProgressStates.args = {
-  stepName: "Questions",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+  currentStepId: "questions-step",
+  steps: defaultArgs.steps,
   isComplete: false,
 }
 
@@ -92,16 +98,20 @@ ProgressStates.args = {
 export const AllStepsComplete = VariantTemplate.bind({})
 
 AllStepsComplete.args = {
-  stepName: "Schedule",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+  currentStepId: "schedule-step",
+  steps: defaultArgs.steps,
   isComplete: true,
 }
 
 export const FewerSteps = VariantTemplate.bind({})
 
 FewerSteps.args = {
-  stepName: "Questions",
-  steps: ["Settings", "Questions", "Preview"],
+  currentStepId: "questions-step",
+  steps: [
+    { label: "Settings", id: "settings-step" },
+    { label: "Questions", id: "questions-step" },
+    { label: "Preview", id: "preview-step" },
+  ],
   isComplete: false,
 }
 
@@ -112,16 +122,12 @@ FewerSteps.args = {
 export const SevenSteps = VariantTemplate.bind({})
 
 SevenSteps.args = {
-  stepName: "Questions",
+  currentStepId: "questions-step",
   steps: [
-    "Settings",
-    "Questions",
-    "Preview",
-    "Employees",
-    "Schedule",
-    "Plan",
-    "Provision",
-    "Another thing",
+    ...defaultArgs.steps,
+    { label: "Plan", id: "plan-step" },
+    { label: "Provision", id: "provision-step" },
+    { label: "Procure", id: "procure-step" },
   ],
   isComplete: false,
 }

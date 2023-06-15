@@ -6,16 +6,26 @@ import { IndicatorInactiveIcon } from "~icons/IndicatorInactiveIcon"
 import { SuccessIcon } from "~icons/SuccessIcon"
 import styles from "./ProgressStepper.module.scss"
 
+export type Step = {
+  id: string
+  label: string
+}
+
+export type Steps = [Step, ...Step[]]
+
 export interface ProgressStepperProps {
-  stepName: string
-  steps: [string, ...string[]]
+  /** the id reference to within a Step object */
+  currentStepId: Step["id"]
+  /** A non-empty array of Steps */
+  steps: Steps
+  /** @default false */
   isComplete?: boolean
 }
 
 const getStepStatus = (
   isComplete: boolean,
   isCurrentStep: boolean,
-  step: string,
+  step: Step,
   index: number
 ): {
   icon: JSX.Element
@@ -31,7 +41,7 @@ const getStepStatus = (
           classNameOverride="success"
         />
       ),
-      accessibleName: `Completed: ${step}`,
+      accessibleName: `Completed: ${step.label}`,
     }
   }
   if (isCurrentStep) {
@@ -44,7 +54,7 @@ const getStepStatus = (
           classNameOverride="active"
         />
       ),
-      accessibleName: `Current: ${step}`,
+      accessibleName: `Current: ${step.label}`,
     }
   }
   return {
@@ -56,17 +66,19 @@ const getStepStatus = (
         role="presentation"
       />
     ),
-    accessibleName: `Not started: ${step}`,
+    accessibleName: `Not started: ${step.label}`,
   }
 }
 
 export const ProgressStepper = ({
-  stepName,
+  currentStepId,
   steps,
   isComplete = false,
   ...restprops
 }: ProgressStepperProps): JSX.Element => {
-  const currentStepIndex = steps.indexOf(stepName)
+  const currentStepIndex = steps.findIndex(
+    stepItem => stepItem.id === currentStepId
+  )
 
   return (
     <div className={styles.stepsContainer}>
@@ -75,7 +87,7 @@ export const ProgressStepper = ({
         {...restprops}
         aria-labelledby="stepper-description"
       >
-        {steps.map((step: string, index: number) => {
+        {steps.map((step, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
           const { accessibleName, icon: Icon } = getStepStatus(
@@ -87,7 +99,7 @@ export const ProgressStepper = ({
           return (
             <li
               className={styles.step}
-              key={`${index}-${step}`}
+              key={`${step.id}`}
               aria-current={isCurrentStep}
             >
               <div className={styles.stepContent}>
@@ -101,7 +113,7 @@ export const ProgressStepper = ({
                   color="white"
                   aria-hidden
                 >
-                  {step}
+                  {step.label}
                 </Paragraph>
                 <div className={styles.stepIndicator}>
                   <span className={styles.stepIcon}>{Icon}</span>
