@@ -16,3 +16,4 @@
 **/node_modules/
 /storybook/public/
 /packages/**/dist
+pnpm-lock.yaml
