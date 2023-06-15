@@ -376,16 +376,21 @@ export const TableCard = ({
  * Aria roles like aria-rowindex can be added from
  * the component consumer.
  *
- * @param {*} { children, ...otherProps }
+ * @param {*} { children, classNameOverride, ...otherProps }
  */
-export type TableRowProps = {
+export type TableRowProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   children?: React.ReactNode
 }
 export const TableRow = ({
   children,
+  classNameOverride,
   ...otherProps
 }: TableRowProps): JSX.Element => (
-  <div className={styles.row} role="row" {...otherProps}>
+  <div
+    className={classnames(styles.row, classNameOverride)}
+    role="row"
+    {...otherProps}
+  >
     {children}
   </div>
 )
