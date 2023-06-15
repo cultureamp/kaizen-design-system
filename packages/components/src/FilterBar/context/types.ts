@@ -7,6 +7,7 @@ export type FilterState<Id, Value> = {
   value?: Value
   isOpen: boolean
   isRemovable: boolean
+  isActive: boolean
 }
 
 export type FiltersState<ValuesMap extends FiltersValues> = {

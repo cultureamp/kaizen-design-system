@@ -10,7 +10,12 @@ type Values = {
 
 const filters = [
   { id: "flavour", name: "Flavour", Component: <div /> },
-  { id: "sugarLevel", name: "Sugar Level", Component: <div /> },
+  {
+    id: "sugarLevel",
+    name: "Sugar Level",
+    Component: <div />,
+    isRemovable: true,
+  },
 ] satisfies Filters<Values>
 
 const initialState = {
@@ -20,6 +25,7 @@ const initialState = {
     Component: <div />,
     isOpen: false,
     isRemovable: false,
+    isActive: true,
   },
   sugarLevel: {
     id: "sugarLevel",
@@ -27,6 +33,7 @@ const initialState = {
     Component: <div />,
     isOpen: false,
     isRemovable: true,
+    isActive: false,
   },
 } satisfies FiltersState<Values>
 

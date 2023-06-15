@@ -12,6 +12,7 @@ import {
   FilterBarMultiSelect,
   FilterBarSelect,
 } from "./subcomponents"
+import { AddFiltersMenu } from "./subcomponents/AddFiltersMenu"
 import styles from "./FilterBar.module.scss"
 
 export type FilterBarProps<ValuesMap extends FiltersValues> = OverrideClassName<
@@ -31,6 +32,7 @@ export const FilterBar = <ValuesMap extends FiltersValues>({
             {React.cloneElement(Component, { id })}
           </React.Fragment>
         ))}
+        <AddFiltersMenu />
       </div>
     )}
   </FilterBarProvider>

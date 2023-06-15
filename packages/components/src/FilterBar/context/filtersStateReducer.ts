@@ -8,6 +8,7 @@ export const setupFiltersState = <ValuesMap extends FiltersValues>(
     acc[filter.id] = {
       isOpen: false,
       isRemovable: false,
+      isActive: !filter.isRemovable,
       ...filter,
     }
     return acc
