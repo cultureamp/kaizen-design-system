@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.9.0
+
+### Minor Changes
+
+- [#3734](https://github.com/cultureamp/kaizen-design-system/pull/3734) [`88734cad0`](https://github.com/cultureamp/kaizen-design-system/commit/88734cad0f43402fcd2fe64cba2bd29f11185f48) - Add classNameOverride to TableRow and TableCard
+
 ## 5.8.1
 
 ### Patch Changes
