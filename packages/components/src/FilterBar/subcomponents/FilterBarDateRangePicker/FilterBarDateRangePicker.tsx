@@ -43,7 +43,10 @@ export const FilterBarDateRangePicker = ({
       id={id}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterBarButton {...triggerProps} />
+        <FilterBarButton
+          {...triggerProps}
+          isRemovable={filterState.isRemovable}
+        />
       )}
       isOpen={filterState.isOpen}
       setIsOpen={(open): void => toggleOpenFilter(id, open)}

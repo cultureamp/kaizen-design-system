@@ -44,7 +44,10 @@ export const FilterBarDatePicker = ({
       selectedDate={filterState.value || undefined}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterBarButton {...triggerProps} />
+        <FilterBarButton
+          {...triggerProps}
+          isRemovable={filterState.isRemovable}
+        />
       )}
       onDateChange={(key): void => {
         updateValue(id, key)

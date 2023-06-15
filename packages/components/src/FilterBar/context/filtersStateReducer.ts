@@ -7,6 +7,7 @@ export const setupFiltersState = <ValuesMap extends FiltersValues>(
   filters.reduce<FiltersState<ValuesMap>>((acc, filter) => {
     acc[filter.id] = {
       isOpen: false,
+      isRemovable: false,
       ...filter,
     }
     return acc

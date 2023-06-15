@@ -19,12 +19,14 @@ const initialState = {
     name: "Flavour",
     Component: <div />,
     isOpen: false,
+    isRemovable: false,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
     Component: <div />,
     isOpen: false,
+    isRemovable: true,
   },
 } satisfies FiltersState<Values>
 

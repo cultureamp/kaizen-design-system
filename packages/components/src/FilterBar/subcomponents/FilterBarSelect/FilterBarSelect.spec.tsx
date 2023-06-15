@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FilterBarProvider } from "~components/FilterBar/context/FilterBarContext"
+import { FilterAttributes, FilterBarProvider } from "~components/FilterBar"
 import { FilterBarSelect, FilterBarSelectProps } from "./FilterBarSelect"
 
 const user = userEvent.setup()
@@ -12,9 +12,11 @@ type Values = {
 
 const FilterBarSelectWrapper = ({
   defaultValues,
+  filterAttributes,
   ...customProps
 }: {
   defaultValues?: Partial<Values>
+  filterAttributes?: Partial<FilterAttributes<Values>>
 } & Partial<FilterBarSelectProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (
@@ -34,6 +36,7 @@ const FilterBarSelectWrapper = ({
               {...customProps}
             />
           ),
+          ...filterAttributes,
         },
       ]}
       values={values}
@@ -55,6 +58,24 @@ describe("<FilterBarSelect />", () => {
     const { getByRole } = render(<FilterBarSelectWrapper />)
     const triggerButton = getByRole("button", { name: "Flavour" })
     expect(triggerButton).toBeInTheDocument()
+  })
+
+  describe("Removable", () => {
+    it("does not show the remove button when isRemovable is false", () => {
+      const { queryByRole } = render(<FilterBarSelectWrapper />)
+      expect(
+        queryByRole("button", { name: "Remove filter - Flavour" })
+      ).not.toBeInTheDocument()
+    })
+
+    it("shows the remove button when isRemovable is true", () => {
+      const { getByRole } = render(
+        <FilterBarSelectWrapper filterAttributes={{ isRemovable: true }} />
+      )
+      expect(
+        getByRole("button", { name: "Remove filter - Flavour" })
+      ).toBeVisible()
+    })
   })
 
   it("can toggle its open state", async () => {

@@ -6,6 +6,7 @@ export type FilterState<Id, Value> = {
   Component: React.ReactElement
   value?: Value
   isOpen: boolean
+  isRemovable: boolean
 }
 
 export type FiltersState<ValuesMap extends FiltersValues> = {

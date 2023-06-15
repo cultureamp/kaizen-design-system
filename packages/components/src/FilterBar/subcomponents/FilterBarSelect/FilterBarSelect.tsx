@@ -33,7 +33,10 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
       selectedKey={filterState.value || null}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterBarButton {...triggerProps} />
+        <FilterBarButton
+          {...triggerProps}
+          isRemovable={filterState.isRemovable}
+        />
       )}
       onSelectionChange={(key): void => {
         updateValue(id, key)
