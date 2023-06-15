@@ -316,7 +316,7 @@ export const StyleOverrideVariant: StoryFn = () => (
         <TableRow>
           <TableRowCell width={1 / 2}>
             <Paragraph variant="body">
-              The TableCard has a classNameOverride.
+              This TableCard has a classNameOverride.
             </Paragraph>
           </TableRowCell>
           <TableRowCell width={1 / 2}>
