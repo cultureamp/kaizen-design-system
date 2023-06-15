@@ -96,6 +96,7 @@ const filters = [
     id: "drank",
     name: "Drank",
     Component: <FilterBar.DatePicker />,
+    isRemovable: true,
   },
 ] satisfies Filters<Values>
 
@@ -167,6 +168,7 @@ const filters = [
     id: "drank",
     name: "Drank",
     Component: <FilterBar.DatePicker />,
+    isRemovable: true,
   },
 ] satisfies Filters<Values>
 
