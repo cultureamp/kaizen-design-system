@@ -5,7 +5,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/layers";
-@import "color";
+@import "./color";
 
 $ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 
