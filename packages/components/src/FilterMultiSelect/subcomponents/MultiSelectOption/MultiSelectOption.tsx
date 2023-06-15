@@ -6,7 +6,7 @@ import classnames from "classnames"
 import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { Badge } from "@kaizen/draft-badge"
-import { Check } from "~components/SVG/icons/Check"
+import { CheckIcon } from "~components/SVG/icons/CheckIcon"
 import { useSelectionContext } from "../../provider"
 import { MultiSelectItem } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
@@ -48,7 +48,7 @@ export const MultiSelectOption = ({
       <span
         className={classnames(styles.icon, isSelected && styles.isSelected)}
       >
-        {isSelected && <Check role="presentation" />}
+        {isSelected && <CheckIcon role="presentation" />}
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}
