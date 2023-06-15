@@ -7,7 +7,7 @@
     }
   ],
   "rules": {
-    "alpha-value-notation": "percentage",
+    "alpha-value-notation": null,
     "at-rule-empty-line-before": [
       "always",
       {

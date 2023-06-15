@@ -1,20 +1,17 @@
 import { useState } from "react"
-import {
-  ValidationMessage,
-  DateValidationResponse,
-  DisabledDays,
-} from "../types"
+import { DisabledDays } from "~types/DatePicker"
+import { ValidationMessage, DateValidationResponse } from "../types"
 import { getDateValidationHandler } from "../utils/getDateValidationHandler"
 import { validateDate } from "../utils/validateDate"
 
-export type UseRangeDateValidationArgs = {
-  inputLabel: React.ReactNode
+export type UseDateValidationArgs = {
+  inputLabel?: React.ReactNode
   disabledDays?: DisabledDays
   validationMessage?: ValidationMessage
   onValidate?: (validationResponse: DateValidationResponse) => void
 }
 
-export type UseRangeDateValidationValue = {
+export type UseDateValidationValue = {
   validationMessage: ValidationMessage | undefined
   validateDate: (args: {
     date: Date | undefined
@@ -23,12 +20,12 @@ export type UseRangeDateValidationValue = {
   updateValidation: (validationResponse: DateValidationResponse) => void
 }
 
-export const useRangeDateValidation = ({
+export const useDateValidation = ({
   inputLabel,
   disabledDays,
   validationMessage,
   onValidate,
-}: UseRangeDateValidationArgs): UseRangeDateValidationValue => {
+}: UseDateValidationArgs): UseDateValidationValue => {
   const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
     ValidationMessage | undefined
   >()
@@ -41,7 +38,7 @@ export const useRangeDateValidation = ({
     inputLabel,
   })
 
-  const validateRangeDate: UseRangeDateValidationValue["validateDate"] = ({
+  const validateRangeDate: UseDateValidationValue["validateDate"] = ({
     date,
     inputValue,
   }) =>

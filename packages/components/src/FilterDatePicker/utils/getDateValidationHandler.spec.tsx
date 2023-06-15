@@ -1,6 +1,6 @@
 import React from "react"
 import { LabelledMessage } from "~components/LabelledMessage"
-import { ValidationMessage, DateValidationResponse } from "../types"
+import { DateValidationResponse, ValidationMessage } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
 const onValidate = jest.fn<void, [DateValidationResponse]>()

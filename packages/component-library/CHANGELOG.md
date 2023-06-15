@@ -1,5 +1,11 @@
 # Change Log
 
+## 16.9.0
+
+### Minor Changes
+
+- [#3672](https://github.com/cultureamp/kaizen-design-system/pull/3672) [`959541e4d`](https://github.com/cultureamp/kaizen-design-system/commit/959541e4dc02655577dfee98931e84df2c079576) - Update full.icon.svg (aka: indicatorActive) to reflect design change in UI kit
+
 ## 16.8.2
 
 ### Patch Changes

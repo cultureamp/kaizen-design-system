@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.4.2
+
+### Patch Changes
+
+- [#3678](https://github.com/cultureamp/kaizen-design-system/pull/3678) [`d434bda3e`](https://github.com/cultureamp/kaizen-design-system/commit/d434bda3e5d520c71899d30dabdba02f97d911a0) - Dependency upgrades
+
+- Updated dependencies [[`959541e4d`](https://github.com/cultureamp/kaizen-design-system/commit/959541e4dc02655577dfee98931e84df2c079576)]:
+  - @kaizen/component-library@16.9.0
+
+## 5.4.1
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+## 5.4.0
+
+### Minor Changes
+
+- [#3669](https://github.com/cultureamp/kaizen-design-system/pull/3669) [`1cfc21a2c`](https://github.com/cultureamp/kaizen-design-system/commit/1cfc21a2cb47d9256a37d2ffc201aa8c3453a3b6) - - changed opacity percentage values to decimal values
+  - removed percentage rule from stylelint
+
 ## 5.3.18
 
 ### Patch Changes

@@ -134,7 +134,7 @@ import {
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Spot",
+  title: "Components/Illustrations/Spot",
   component: AccountBasics,
   parameters: {
     docs: {
@@ -154,9 +154,6 @@ export const SpotStoryForKaizenSite: StoryFn<typeof AccountBasics> = args => (
   </div>
 )
 SpotStoryForKaizenSite.storyName = "Spot (Kaizen Site Demo)"
-SpotStoryForKaizenSite.args = {
-  alt: "",
-}
 
 const IllustrationExampleTile = ({
   Component,
@@ -166,7 +163,7 @@ const IllustrationExampleTile = ({
   name: string
 }): JSX.Element => (
   <div style={{ width: "150px", display: "inline-block", padding: "2rem" }}>
-    <Component alt="" />
+    <Component />
     <Paragraph variant="small">{name}</Paragraph>
   </div>
 )
@@ -773,9 +770,6 @@ export const AnimatedSpot: StoryFn<AnimatedSpotProps> = args => (
   </div>
 )
 AnimatedSpot.storyName = "Spot, animated"
-AnimatedSpot.args = {
-  alt: "Add useful alt text for screen readers",
-}
 AnimatedSpot.parameters = {
   chromatic: {
     disable: false,

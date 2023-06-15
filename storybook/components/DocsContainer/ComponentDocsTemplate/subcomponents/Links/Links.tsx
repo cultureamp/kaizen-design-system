@@ -1,4 +1,5 @@
 import React from "react"
+import { ResourceLinks } from "../../../../ResourceLinks"
 
 export type LinksProps = {
   //   context: DocsContainerProps["context"]
@@ -17,43 +18,11 @@ export const Links = ({ context }: LinksProps): JSX.Element | null => {
   if (!links) return null
 
   return (
-    <ul className="!list-none !p-0 !m-0 flex gap-4 items-center">
-      {sourceCodeLink && (
-        <li className="!mt-0 !text-paragraph">
-          <a
-            href={sourceCodeLink}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            Source Code
-          </a>
-        </li>
-      )}
-      {figmaLink && (
-        <li className="!mt-0 !text-paragraph">
-          |&nbsp;
-          <a
-            href={figmaLink}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            Figma
-          </a>
-        </li>
-      )}
-      {designGuidelinesLink && (
-        <li className="!mt-0 !text-paragraph">
-          |&nbsp;
-          <a
-            href={designGuidelinesLink}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            Usage Guidelines
-          </a>
-        </li>
-      )}
-    </ul>
+    <ResourceLinks
+      sourceCode={sourceCodeLink}
+      figma={figmaLink}
+      designGuidelines={designGuidelinesLink}
+    />
   )
 }
 

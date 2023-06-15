@@ -5,7 +5,7 @@ import { StickerSheet } from "../../../storybook/components/StickerSheet"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Clear Button",
+  title: "Components/Utilities/Forms/Clear Button",
   component: ClearButton,
   parameters: {
     actions: {

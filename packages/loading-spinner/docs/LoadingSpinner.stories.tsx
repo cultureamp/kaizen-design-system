@@ -5,7 +5,7 @@ import { LoadingSpinner } from "@kaizen/loading-spinner"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Loading/Loading Spinner",
+  title: "Components/Loading States/Loading Spinner",
   component: LoadingSpinner,
   parameters: {
     docs: {

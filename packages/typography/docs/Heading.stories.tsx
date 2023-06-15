@@ -12,7 +12,7 @@ import { Heading, Paragraph } from "../"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Heading",
+  title: "Components/Typography/Heading",
   component: Heading,
   parameters: {
     docs: {

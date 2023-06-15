@@ -5,7 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Checkbox Field",
+  title: "Components/Checkbox/Checkbox Field",
   component: CheckboxField,
   parameters: {
     docs: {

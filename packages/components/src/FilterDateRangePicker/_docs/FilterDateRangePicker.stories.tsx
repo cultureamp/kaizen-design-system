@@ -8,11 +8,10 @@ import {
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
+import { DateValidationResponse } from "~components/FilterDatePicker"
+import { DateRange } from "~types/DatePicker"
 import {
-  DateRange,
   DateRangeFieldValidationMessage,
-  DateValidationResponse,
   FilterDateRangePicker,
 } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
@@ -21,27 +20,8 @@ import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 
 export default {
-  tags: ["autodocs"],
   title: "Components/Filter Date Range Picker",
   component: FilterDateRangePicker,
-  parameters: {
-    docs: {
-      container: ComponentDocsTemplate,
-    },
-    isInKaio: true,
-    installation: [
-      "yarn add @kaizen/components",
-      'import { FilterDateRangePicker } from "@kaizen/components"',
-    ],
-    resourceLinks: {
-      sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterDateRangePicker",
-      figma:
-        "https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=2349%3A110993&t=gzsKluk8LiOX3jCF-1",
-      designGuidelines:
-        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters",
-    },
-  },
   args: {
     label: "Dates",
     locale: "en-AU",
@@ -126,9 +106,6 @@ return (
 )
 `
 
-/**
- * Date Range Picker to use for Filtering.
- */
 export const Playground: StoryFn<typeof FilterDateRangePicker> = args => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [range, setRange] = useState<DateRange | undefined>()

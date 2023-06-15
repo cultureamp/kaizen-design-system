@@ -1,5 +1,33 @@
 # Change Log
 
+## 6.1.0
+
+### Minor Changes
+
+- [#3667](https://github.com/cultureamp/kaizen-design-system/pull/3667) [`91f4f9a29`](https://github.com/cultureamp/kaizen-design-system/commit/91f4f9a297531bf56fad381184a9c11b21814e5b) - Exported internal util and hook functions
+
+## 6.0.2
+
+### Patch Changes
+
+- [#3678](https://github.com/cultureamp/kaizen-design-system/pull/3678) [`d434bda3e`](https://github.com/cultureamp/kaizen-design-system/commit/d434bda3e5d520c71899d30dabdba02f97d911a0) - Dependency upgrades
+
+- Updated dependencies [[`d434bda3e`](https://github.com/cultureamp/kaizen-design-system/commit/d434bda3e5d520c71899d30dabdba02f97d911a0), [`959541e4d`](https://github.com/cultureamp/kaizen-design-system/commit/959541e4dc02655577dfee98931e84df2c079576)]:
+  - @kaizen/draft-tooltip@5.4.46
+  - @kaizen/component-library@16.9.0
+
+## 6.0.1
+
+### Patch Changes
+
+- [#3675](https://github.com/cultureamp/kaizen-design-system/pull/3675) [`430d0aade`](https://github.com/cultureamp/kaizen-design-system/commit/430d0aade9d4737d48ef61ef078938c11ef18206) - Fix for regression in DatePicker validation, marking correct dates as invalid
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/draft-tooltip@5.4.45
+  - @kaizen/draft-form@10.4.6
+
 ## 6.0.0
 
 ### Major Changes
