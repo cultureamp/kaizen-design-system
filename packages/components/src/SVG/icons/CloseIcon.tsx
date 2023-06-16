@@ -10,3 +10,5 @@ export const CloseIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
     />
   </SVG>
 )
+
+CloseIcon.displayName = "CloseIcon"
