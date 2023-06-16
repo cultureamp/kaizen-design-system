@@ -111,7 +111,7 @@ Available Filter components:
 When this attribute is applied, the Filter will become removable (a remove button will be attached to the trigger button),
 and their value will be cleared upon remove.
 
-Removed Filters will be added to the `Add Filter` menu options.
+Removable Filters will be added to the `Add Filter` menu options.
 
 Filters with this attribute will be automatically put into the `Add Filter` menu on first render,
 unless there is a default value provided.
@@ -125,30 +125,31 @@ import { FilterBar, Filters, DateRange, FilterMultiSelect } from "@kaizen/compon
 
 type ValuesMap = {
   filterId1: string
-  filterId2: DateRange
-  filterId3: string[]
+  filterId2: string[]
+  filterId3: DateRange
 }
 
 const filters = [
   {
     id: "filterId1",
     name: "Filter 1",
-    Component: <FilterBar.Select {...props} />
+    Component: <FilterBar.Select {...props} />,
   },
   {
     id: "filterId2",
     name: "Filter 2",
-    Component: <FilterBar.DateRangePicker {...props} />
-  },
-  {
-    id: "filterId3",
-    name: "Filter 3",
     Component: (
       <FilterBar.MultiSelect {...props}>
         {/* Compose your structure using subcomponents of FilterMultiSelect */}
         {() => <FilterMultiSelect.ListBox {...props} />}
       </FilterBar.MultiSelect>
     ),
+  },
+  {
+    id: "filterId3",
+    name: "Filter 3",
+    Component: <FilterBar.DateRangePicker {...props} />,
+    isRemovable: true,
   },
 ] satisfies Filters<ValuesMap>
 ```
