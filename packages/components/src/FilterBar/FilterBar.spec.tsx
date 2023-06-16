@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterBar, FilterBarProps } from "./FilterBar"
 import { FiltersValues } from "./context/types"
@@ -111,27 +111,44 @@ describe("<FilterBar />", () => {
   })
 
   describe("Removable filters", () => {
-    it("shows a remove button for removable filters", () => {
-      const { getByRole, queryByRole } = render(
-        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
-      )
-      expect(
-        queryByRole("button", { name: "Remove filter - Flavour" })
-      ).not.toBeInTheDocument()
-      expect(
-        getByRole("button", { name: "Remove filter - Topping" })
-      ).toBeVisible()
-    })
-
-    it("shows inactive filters in the Add Filters menu", async () => {
-      const { getByRole, queryByText, getByText } = render(
+    it("shows inactive filters only in the Add Filters menu", async () => {
+      const { getByRole, queryByText } = render(
         <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
       )
       expect(queryByText("Topping")).not.toBeInTheDocument()
 
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
-      expect(getByText("Topping")).toBeVisible()
+
+      const list = getByRole("list")
+      const menuOption = within(list).getByRole("button", { name: "Topping" })
+
+      await waitFor(() => {
+        expect(menuOption).toBeVisible()
+      })
+    })
+
+    it("shows a remove button for active removable filters", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
+      )
+      const addFiltersButton = getByRole("button", { name: "Add Filters" })
+      await user.click(addFiltersButton)
+
+      const list = getByRole("list")
+      const menuOption = within(list).getByRole("button", { name: "Topping" })
+
+      await waitFor(() => {
+        expect(menuOption).toBeVisible()
+      })
+
+      await user.click(menuOption)
+
+      await waitFor(() => {
+        expect(
+          getByRole("button", { name: "Remove filter - Topping" })
+        ).toBeVisible()
+      })
     })
   })
 
