@@ -20,7 +20,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
   onSelectionChange,
   ...props
 }: FilterBarSelectProps<Option>): JSX.Element => {
-  const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
+  const { getFilterState, toggleOpenFilter, updateValue } =
     useFilterBarContext<Option["value"]>()
 
   if (!id) throw Error("Missing `id` prop in FilterBarSelect")
@@ -35,8 +35,8 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
       renderTrigger={(triggerProps): JSX.Element => (
         <FilterBarButton
           {...triggerProps}
+          id={id}
           isRemovable={filterState.isRemovable}
-          onRemove={() => hideFilter(id)}
         />
       )}
       onSelectionChange={(key): void => {

@@ -75,6 +75,7 @@ const filtersRemovable = [
         items={[{ value: "jasmine-milk-tea", label: "Jasmine Milk Tea" }]}
       />
     ),
+    isRemovable: true,
   },
   {
     id: "topping",

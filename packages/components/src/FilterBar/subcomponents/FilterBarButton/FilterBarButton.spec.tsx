@@ -1,24 +1,43 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { FilterBarProvider } from "../../context/FilterBarContext"
 import { FilterBarButton, FilterBarButtonProps } from "./FilterBarButton"
 
 const user = userEvent.setup()
 
-const onRemove = jest.fn<
-  void,
-  [React.MouseEvent<HTMLButtonElement, MouseEvent>]
->()
+type Values = {
+  coffee: string
+}
 
 const FilterBarButtonWrapper = (
   props: Partial<FilterBarButtonProps>
 ): JSX.Element => (
-  <FilterBarButton
-    label="Coffee"
-    isRemovable={false}
-    onRemove={onRemove}
-    {...props}
-  />
+  <FilterBarProvider<Values>
+    filters={[
+      {
+        id: "coffee",
+        name: "Coffee",
+        Component: <div />,
+      },
+    ]}
+    values={{}}
+    onValuesChange={() => undefined}
+  >
+    {filters => (
+      <>
+        {Object.values(filters).map(({ id, name }) => (
+          <FilterBarButton
+            key={id}
+            id={id}
+            label={name}
+            isRemovable={false}
+            {...props}
+          />
+        ))}
+      </>
+    )}
+  </FilterBarProvider>
 )
 
 describe("<FilterBarButton />", () => {
@@ -32,15 +51,15 @@ describe("<FilterBarButton />", () => {
 
   it("shows a remove button when it is removable", async () => {
     const { getByRole } = render(<FilterBarButtonWrapper isRemovable />)
-    expect(getByRole("button", { name: "Coffee" })).toBeVisible()
+    const filterButton = getByRole("button", { name: "Coffee" })
+    expect(filterButton).toBeVisible()
 
     const removeButton = getByRole("button", { name: "Remove filter - Coffee" })
     expect(removeButton).toBeVisible()
 
     await user.click(removeButton)
-
     await waitFor(() => {
-      expect(onRemove).toHaveBeenCalled()
+      expect(filterButton).not.toBeInTheDocument()
     })
   })
 })

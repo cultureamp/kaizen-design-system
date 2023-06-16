@@ -78,7 +78,7 @@ describe("<FilterBarMultiSelect />", () => {
   it("shows the name in the trigger button", () => {
     const { getByRole } = render(<FilterBarMultiSelectWrapper />)
     const triggerButton = getByRole("button", { name: "Toppings" })
-    expect(triggerButton).toBeInTheDocument()
+    expect(triggerButton).toBeVisible()
   })
 
   describe("Removable", () => {
@@ -91,11 +91,33 @@ describe("<FilterBarMultiSelect />", () => {
 
     it("shows the remove button when isRemovable is true", () => {
       const { getByRole } = render(
-        <FilterBarMultiSelectWrapper filterAttributes={{ isRemovable: true }} />
+        <FilterBarMultiSelectWrapper
+          filterAttributes={{ isRemovable: true }}
+          defaultValues={{ toppings: ["pearls"] }}
+        />
       )
       expect(
         getByRole("button", { name: "Remove filter - Toppings" })
       ).toBeVisible()
+    })
+
+    it("hides the filter when remove button is clicked", async () => {
+      const { getByRole } = render(
+        <FilterBarMultiSelectWrapper
+          filterAttributes={{ isRemovable: true }}
+          defaultValues={{ toppings: ["pearls"] }}
+        />
+      )
+      const triggerButton = getByRole("button", { name: "Toppings : Pearls" })
+      expect(triggerButton).toBeVisible()
+
+      const removeButton = getByRole("button", {
+        name: "Remove filter - Toppings",
+      })
+      await user.click(removeButton)
+      await waitFor(() => {
+        expect(triggerButton).not.toBeInTheDocument()
+      })
     })
   })
 
