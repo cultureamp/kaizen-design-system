@@ -169,6 +169,38 @@ describe("<FilterBar />", () => {
         expect(menuOption).not.toBeInTheDocument()
       })
     })
+
+    it("clears the value of a filter if it is removed", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable>
+          filters={filtersRemovable}
+          defaultValues={{ topping: "pearls" }}
+        />
+      )
+
+      const filterButton = getByRole("button", { name: "Topping : Pearls" })
+      expect(filterButton).toBeVisible()
+
+      await user.click(getByRole("button", { name: "Remove filter - Topping" }))
+      await waitFor(() => {
+        expect(filterButton).not.toBeInTheDocument()
+      })
+
+      const addFiltersButton = getByRole("button", { name: "Add Filters" })
+      await user.click(addFiltersButton)
+
+      const list = getByRole("list")
+      const menuOption = within(list).getByRole("button", { name: "Topping" })
+      await waitFor(() => {
+        expect(menuOption).toBeVisible()
+      })
+
+      await user.click(menuOption)
+      await waitFor(() => {
+        expect(list).not.toBeInTheDocument()
+      })
+      expect(getByRole("button", { name: "Topping" })).toBeVisible()
+    })
   })
 
   describe("External events", () => {
