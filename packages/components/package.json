@@ -41,7 +41,6 @@
     "@kaizen/a11y": "^1.7.11",
     "@kaizen/brand": "^1.5.8",
     "@kaizen/button": "^3.0.3",
-    "@kaizen/component-library": "^16.9.0",
     "@kaizen/date-picker": "^6.1.0",
     "@kaizen/draft-badge": "^1.13.11",
     "@kaizen/draft-divider": "^2.2.10",
