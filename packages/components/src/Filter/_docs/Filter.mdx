@@ -1,0 +1,93 @@
+import { ArgTypes, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import * as FilterStories from "./Filter.stories"
+
+<Meta of={FilterStories} />
+
+# Filter
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Filter"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=6-28579&t=bowQ0LWOQKOd0UYS-0"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Filter, FilterContents } from "@kaizen/components"'
+/>
+
+## Overview
+
+These components are mainly used for constructing Filter components (eg. <LinkTo pageId="components-filter-select">FilterSelect</LinkTo>):
+- <LinkTo pageId="components-filter-filter-buttons">FilterButton</LinkTo> for the renderTrigger
+- `FilterContents` to wrap the contents within a Filter
+
+<NoClipCanvas of={FilterStories.SimpleFilter} />
+
+## API
+
+<ArgTypes of={FilterStories.SimpleFilter} />
+
+### `children`
+
+The contents within the popover.
+Wrap the contents in `<FilterContents>` - this provides base padding styles.
+
+### `isOpen`
+
+The open state of the popover. This is passed through to the trigger button props.
+
+### `setIsOpen`
+
+A callback (`(isOpen: boolean) => value`) to toggle the open state of the popover.
+This is called by the `onClick` prop passed through to the trigger button props.
+
+### `renderTrigger`
+
+A callback that provides trigger button props to the provided <LinkTo pageId="components-filter-filter-buttons">FilterButton</LinkTo>.
+
+```tsx
+onClick: () => void // Calls `setIsOpen(!isOpen)`
+isOpen: boolean // The value from the `isOpen` prop
+```
+
+If a `ref` is provided to the FilterButton it will be used, otherwise a fallback `ref`
+will be created (this is required to tie the trigger to the popover).
+
+```tsx
+ref: { triggerRef?: React.RefObject<HTMLButtonElement> }
+```
+
+#### Simple Filter
+
+```tsx
+renderTrigger={(triggerProps): JSX.Element => (
+  <FilterButton label="Label" {...triggerProps} />
+)}
+```
+
+<NoClipCanvas of={FilterStories.SimpleFilter} />
+
+#### Removable Filter
+
+```tsx
+renderTrigger={(triggerProps): JSX.Element => (
+  <FilterButtonRemovable
+    triggerButtonProps={{ label: "Label", ...triggerProps }}
+    removeButtonProps={{ onClick: action("remove button clicked") }}
+  />
+)}
+```
+
+<NoClipCanvas of={FilterStories.RemovableFilter} />
+
+### `onMount`
+
+A callback which returns the trigger button `ref` (provided or fallback) when mounted.
+
+This is an escape hatch for when you require it for a third party library (eg. `react-aria select`).

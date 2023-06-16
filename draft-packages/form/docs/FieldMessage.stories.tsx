@@ -5,7 +5,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Field Message",
+  title: "Components/Field Status Message",
   component: FieldMessage,
   parameters: {
     docs: {

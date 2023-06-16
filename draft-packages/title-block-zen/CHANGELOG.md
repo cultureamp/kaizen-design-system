@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.10.9
+
+### Patch Changes
+
+- [#3670](https://github.com/cultureamp/kaizen-design-system/pull/3670) [`eebf93ffa`](https://github.com/cultureamp/kaizen-design-system/commit/eebf93ffacefc1d59ad4dca62472413987663b09) - Adds focus lock to 'other actions' popout menu on small viewports
+
 ## 7.10.8
 
 ### Patch Changes

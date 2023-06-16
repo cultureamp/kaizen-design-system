@@ -6,7 +6,7 @@ import { LoadingInput, LoadingHeading } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Loading/Loading Input",
+  title: "Components/Loading States/Loading Input",
   component: LoadingInput,
   parameters: {
     docs: {

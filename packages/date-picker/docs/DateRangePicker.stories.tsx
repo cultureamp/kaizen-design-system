@@ -9,7 +9,7 @@ import { DateRange } from "../src/types"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Date Range Picker",
+  title: "Components/Date Selection/Date Range Picker",
   component: DateRangePicker,
   parameters: {
     docs: {

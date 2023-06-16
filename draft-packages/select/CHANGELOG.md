@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.10.41
+
+### Patch Changes
+
+- [#3711](https://github.com/cultureamp/kaizen-design-system/pull/3711) [`2e38da480`](https://github.com/cultureamp/kaizen-design-system/commit/2e38da4804d8d056381803936647dbd91f7a505e) - Adds an id to the label on the draft select and link up with aria-labelledby
+
 ## 2.10.40
 
 ### Patch Changes

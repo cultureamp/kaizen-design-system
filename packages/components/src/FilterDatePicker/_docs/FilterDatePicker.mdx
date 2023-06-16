@@ -1,0 +1,46 @@
+import { ArgTypes, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import * as FilterDPStories from "./FilterDatePicker.stories"
+
+<Meta of={FilterDPStories} />
+
+# Filter Date Picker
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterDatePicker"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=2349%3A110993&t=gzsKluk8LiOX3jCF-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+Date Picker to use for Filtering by a single date.
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FilterDatePicker } from "@kaizen/components"'
+/>
+
+## Playground
+<NoClipCanvas of={FilterDPStories.Playground} />
+<Controls of={FilterDPStories.Playground} />
+
+## API
+
+### Render Trigger
+<Description of={FilterDPStories.RenderTrigger} />
+<NoClipCanvas of={FilterDPStories.RenderTrigger} />
+
+### Description
+<Description of={FilterDPStories.Description} />
+<NoClipCanvas of={FilterDPStories.Description} />
+
+### Extend Input Props
+<Description of={FilterDPStories.ExtendInputProps} />
+<NoClipCanvas of={FilterDPStories.ExtendInputProps} />
+
+### Validation
+<Description of={FilterDPStories.Validation} />
+<NoClipCanvas of={FilterDPStories.Validation} />

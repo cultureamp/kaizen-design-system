@@ -12,7 +12,8 @@ import dummyContent from "./dummyContent.json"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Rich Text Content/Editable Rich Text Content",
+  title:
+    "Components/Rich Text Editor/Rich Text Content/Editable Rich Text Content",
   component: EditableRichTextContent,
   parameters: {
     docs: {

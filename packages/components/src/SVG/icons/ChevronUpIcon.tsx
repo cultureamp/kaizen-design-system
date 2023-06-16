@@ -5,19 +5,10 @@ export const ChevronUpIcon = (
   props: Omit<SVGProps, "children">
 ): JSX.Element => (
   <SVG {...props}>
-    <defs>
-      <path
-        id="path-chevron-up"
-        d="M6.17865149 13.155L10 9.25326703 13.8213485 13.155 15.0006742 11.9508665 10 6.84500003 4.99932583 11.9508665z"
-      ></path>
-    </defs>
-    <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
-      <g>
-        <mask fill="#fff">
-          <use xlinkHref="#path-chevron-up"></use>
-        </mask>
-        <use fill="currentColor" xlinkHref="#path-chevron-up"></use>
-      </g>
-    </g>
+    <path
+      fillRule="evenodd"
+      fill="currentColor"
+      d="M6.179 13.155 10 9.253l3.821 3.902 1.18-1.204L10 6.845l-5.001 5.106z"
+    />
   </SVG>
 )

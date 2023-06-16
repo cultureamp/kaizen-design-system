@@ -13,7 +13,7 @@ import { LoadingGraphic } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Loading/Loading Graphic",
+  title: "Components/Loading States/Loading Graphic",
   component: LoadingGraphic,
   parameters: {
     docs: {

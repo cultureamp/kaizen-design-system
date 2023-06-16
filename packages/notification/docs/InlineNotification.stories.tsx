@@ -6,7 +6,7 @@ import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Notification/Inline Notification",
+  title: "Components/Notifications/Inline Notification",
   component: InlineNotification,
   parameters: {
     docs: {
