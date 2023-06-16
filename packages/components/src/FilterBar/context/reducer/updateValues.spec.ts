@@ -57,7 +57,11 @@ describe("filtersStateReducer: update_values", () => {
     ).toEqual({
       filters: {
         flavour: stateFilters["flavour"],
-        sugarLevel: { ...stateFilters["sugarLevel"], value: 50 },
+        sugarLevel: {
+          ...stateFilters["sugarLevel"],
+          value: 50,
+          isActive: true,
+        },
       },
       activeFilterIds: new Set(["flavour", "sugarLevel"]),
     })

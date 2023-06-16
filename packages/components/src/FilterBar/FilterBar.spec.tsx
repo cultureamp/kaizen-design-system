@@ -70,23 +70,33 @@ const filtersRemovable = [
   {
     id: "flavour",
     name: "Flavour",
-    Component: <FilterBar.Select items={[]} />,
+    Component: (
+      <FilterBar.Select
+        items={[{ value: "jasmine-milk-tea", label: "Jasmine Milk Tea" }]}
+      />
+    ),
   },
   {
     id: "topping",
     name: "Topping",
-    Component: <FilterBar.Select items={[]} />,
+    Component: (
+      <FilterBar.Select items={[{ value: "pearls", label: "Pearls" }]} />
+    ),
     isRemovable: true,
   },
 ] satisfies Filters<ValuesRemovable>
 
 const FilterBarWrapper = <T extends FiltersValues>({
   filters,
+  defaultValues,
   ...customProps
-}: { filters: FilterBarProps<T>["filters"] } & Partial<
-  FilterBarProps<T>
->): JSX.Element => {
-  const [activeValues, setActiveValues] = useState<Partial<T>>({})
+}: Partial<FilterBarProps<T>> & {
+  filters: FilterBarProps<T>["filters"]
+  defaultValues?: FilterBarProps<T>["values"]
+}): JSX.Element => {
+  const [activeValues, setActiveValues] = useState<Partial<T>>(
+    defaultValues ?? {}
+  )
 
   return (
     <FilterBar<T>
@@ -111,7 +121,7 @@ describe("<FilterBar />", () => {
   })
 
   describe("Removable filters", () => {
-    it("shows inactive filters only in the Add Filters menu", async () => {
+    it("shows inactive filters in the Add Filters menu only", async () => {
       const { getByRole, queryByText } = render(
         <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
       )
@@ -128,26 +138,34 @@ describe("<FilterBar />", () => {
       })
     })
 
-    it("shows a remove button for active removable filters", async () => {
+    it("shows removable filter as active if there is a default value", () => {
       const { getByRole } = render(
-        <FilterBarWrapper<ValuesRemovable> filters={filtersRemovable} />
+        <FilterBarWrapper<ValuesRemovable>
+          filters={filtersRemovable}
+          defaultValues={{ topping: "pearls" }}
+        />
       )
+      expect(getByRole("button", { name: "Topping : Pearls" })).toBeVisible()
+      expect(
+        getByRole("button", { name: "Remove filter - Topping" })
+      ).toBeVisible()
+    })
+
+    it("does not show active removable filters in the Add Filters menu", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable>
+          filters={filtersRemovable}
+          defaultValues={{ topping: "pearls" }}
+        />
+      )
+
       const addFiltersButton = getByRole("button", { name: "Add Filters" })
       await user.click(addFiltersButton)
 
       const list = getByRole("list")
-      const menuOption = within(list).getByRole("button", { name: "Topping" })
-
+      const menuOption = within(list).queryByRole("button", { name: "Topping" })
       await waitFor(() => {
-        expect(menuOption).toBeVisible()
-      })
-
-      await user.click(menuOption)
-
-      await waitFor(() => {
-        expect(
-          getByRole("button", { name: "Remove filter - Topping" })
-        ).toBeVisible()
+        expect(menuOption).not.toBeInTheDocument()
       })
     })
   })

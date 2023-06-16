@@ -11,6 +11,7 @@ export const updateValues = <ValuesMap extends FiltersValues>(
       acc.filters[key as keyof ValuesMap] = {
         ...state.filters[key],
         value,
+        isActive: value !== undefined ? true : state.filters[key].isActive,
       }
 
       if (value) acc.activeFilterIds.add(key)
