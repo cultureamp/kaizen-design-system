@@ -33,7 +33,7 @@ type Actions<ValuesMap> =
       id: keyof ValuesMap
       data: Partial<FilterState<keyof ValuesMap, ValuesMap>>
     }
-  | { type: "set_filter_active"; id: keyof ValuesMap }
+  | { type: "set_filter_active"; id: keyof ValuesMap; value: boolean }
 
 export const filtersStateReducer = <ValuesMap extends FiltersValues>(
   state: FiltersState<ValuesMap>,
@@ -47,6 +47,6 @@ export const filtersStateReducer = <ValuesMap extends FiltersValues>(
       return updateSingleFilter(state, action.id, action.data)
 
     case "set_filter_active":
-      return setFilterActive(state, action.id)
+      return setFilterActive(state, action.id, action.value)
   }
 }

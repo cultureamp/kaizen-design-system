@@ -15,6 +15,7 @@ export type FilterBarContextValue<
   toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean) => void
   updateValue: (id: keyof ValuesMap, value: Value) => void
   showFilter: (id: keyof ValuesMap) => void
+  hideFilter: (id: keyof ValuesMap) => void
   getInactiveFilters: () => Array<FilterState<keyof ValuesMap, Value>>
 }
 
@@ -76,7 +77,9 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       })
     },
     showFilter: (id: keyof ValuesMap): void =>
-      dispatch({ type: "set_filter_active", id }),
+      dispatch({ type: "set_filter_active", id, value: true }),
+    hideFilter: (id: keyof ValuesMap): void =>
+      dispatch({ type: "set_filter_active", id, value: false }),
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
   } satisfies FilterBarContextValue<any, ValuesMap>
 
