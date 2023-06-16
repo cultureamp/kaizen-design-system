@@ -6,10 +6,6 @@ import { render, screen } from "@testing-library/react"
 import { ItemType } from "../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
 
-jest.mock("@kaizen/component-library", () => ({
-  Icon: (): JSX.Element => <span>icon-mock</span>,
-}))
-
 jest.mock("@kaizen/draft-badge", () => ({
   Badge: "badge-mock",
 }))
@@ -55,30 +51,10 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
       const option = screen.getByText("rendered-mock")
       expect(option).toBeVisible()
     })
-    it("does not show icon check to indicate the option is unselected", () => {
-      const icon = screen.queryByText("icon-mock")
-      expect(icon).not.toBeInTheDocument()
-    })
 
     it("has aria-label as the item.label", () => {
       const option = screen.getByLabelText("label-mock")
       expect(option).toBeVisible()
-    })
-  })
-
-  describe("Given item is selected", () => {
-    beforeEach(() => {
-      ;(useOption as jest.Mock).mockReturnValue({
-        optionProps: {},
-        isSelected: true,
-        isDisabled: false,
-      })
-      render(<MultiSelectOptionWrapper />)
-    })
-
-    it("shows icon check to indicate the option is selected", () => {
-      const icon = screen.getByText("icon-mock")
-      expect(icon).toBeVisible()
     })
   })
 

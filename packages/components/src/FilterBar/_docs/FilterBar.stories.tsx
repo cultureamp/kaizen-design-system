@@ -141,6 +141,7 @@ const filters = [
       >
         {(): JSX.Element => (
           <>
+            <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
               {({ allItems }): JSX.Element | JSX.Element[] =>
                 allItems.map(item => (
