@@ -5,11 +5,10 @@ export const updateSingleFilter = <ValuesMap extends FiltersValues>(
   id: keyof ValuesMap,
   data: Partial<FilterState<keyof ValuesMap, ValuesMap>>
 ): FiltersState<ValuesMap> => {
-  const filterId = id
-  const newFilterState = { ...state.filters[filterId], ...data }
+  const newFilterState = { ...state.filters[id], ...data }
 
   return {
-    filters: { ...state.filters, [filterId]: newFilterState },
+    filters: { ...state.filters, [id]: newFilterState },
     activeFilterIds: state.activeFilterIds,
   }
 }
