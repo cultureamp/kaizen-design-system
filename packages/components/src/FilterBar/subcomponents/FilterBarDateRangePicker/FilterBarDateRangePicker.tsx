@@ -29,9 +29,8 @@ export const FilterBarDateRangePicker = ({
   locale = "en-AU",
   ...props
 }: FilterBarDateRangePickerProps): JSX.Element => {
-  const { getFilterState, toggleOpenFilter, updateValue } = useFilterBarContext<
-    DateRange | undefined
-  >()
+  const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
+    useFilterBarContext<DateRange | undefined>()
 
   if (!id) throw Error("Missing `id` prop in FilterBarDateRangePicker")
 
@@ -46,6 +45,7 @@ export const FilterBarDateRangePicker = ({
         <FilterBarButton
           {...triggerProps}
           isRemovable={filterState.isRemovable}
+          onRemove={() => hideFilter(id)}
         />
       )}
       isOpen={filterState.isOpen}

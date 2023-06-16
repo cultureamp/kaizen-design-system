@@ -44,7 +44,7 @@ export const FilterBarMultiSelect = ({
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const { getFilterState, toggleOpenFilter, updateValue } =
+  const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
     useFilterBarContext<ConsumableSelection>()
 
   if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
@@ -78,7 +78,7 @@ export const FilterBarMultiSelect = ({
         return filterState.isRemovable ? (
           <FilterMultiSelect.RemovableTrigger
             {...triggerProps}
-            onRemove={() => undefined}
+            onRemove={() => hideFilter(id)}
           />
         ) : (
           <FilterMultiSelect.TriggerButton {...triggerProps} />

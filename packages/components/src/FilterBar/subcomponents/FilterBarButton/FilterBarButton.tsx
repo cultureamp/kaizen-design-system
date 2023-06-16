@@ -4,22 +4,24 @@ import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
+  FilterButtonRemovableProps,
 } from "~components/FilterButton"
 
 export type FilterBarButtonProps = FilterButtonProps & {
-  isRemovable?: boolean
+  isRemovable: boolean
+  onRemove: FilterButtonRemovableProps["removeButtonProps"]["onClick"]
 }
 
 export const FilterBarButton = forwardRef<
   FilterTriggerRef,
   FilterBarButtonProps
 >(
-  ({ isRemovable, ...props }, ref): JSX.Element =>
+  ({ isRemovable, onRemove, ...props }, ref): JSX.Element =>
     isRemovable ? (
       <FilterButtonRemovable
         ref={ref}
         triggerButtonProps={props}
-        removeButtonProps={{ onClick: () => undefined }}
+        removeButtonProps={{ onClick: onRemove }}
       />
     ) : (
       <FilterButton ref={ref} {...props} />
