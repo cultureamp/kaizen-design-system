@@ -1,0 +1,92 @@
+@import "../variables";
+@import "../Button.module";
+
+.container {
+  display: inline-block;
+}
+
+.button {
+  @extend %button;
+}
+
+.default {
+  @extend %variant-default;
+}
+
+.primary {
+  @extend %variant-primary;
+}
+
+.destructive {
+  @extend %variant-destructive;
+}
+
+.secondary {
+  @extend %variant-secondary;
+
+  &.destructive {
+    @extend %variant-secondary-destructive;
+  }
+}
+
+.small {
+  @extend %variant-small;
+}
+
+.label {
+  line-height: 1;
+
+  &:not(:first-child) {
+    @include ca-margin($start: 0.5em, $end: null);
+  }
+
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em, $start: null);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+
+  .button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #{$className--content} {
+    justify-content: center;
+  }
+}
+
+.iconWrapper {
+  height: 20px;
+  align-self: flex-start;
+}
+
+.additionalContentWrapper {
+  display: inherit;
+
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em, $start: null);
+  }
+}
+
+.loadingSpinner {
+  // This is to fix a problem in safari where the svg stretched too high
+  svg {
+    height: 100%;
+  }
+}
+
+.centeredLoadingSpinner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  visibility: hidden;
+}

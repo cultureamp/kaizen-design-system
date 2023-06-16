@@ -1,0 +1,25 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/grid";
+@import "../../styles/legacy/color";
+@import "../../styles/legacy/layout";
+
+$button-height: $spacing-xl;
+$button-small-height: calc(#{$spacing-md} * 5 / 3);
+$button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
+$button-vertical-padding--small: calc(
+  #{$spacing-md / 3} - #{$border-solid-border-width}
+);
+
+// Elements
+$className--content: ".content";
+
+// Classnames to simulate pseudo states in storybook
+$story-className--button-hover: ":global(.story__button-hover)";
+$story-className--button-active: ":global(.story__button-active)";
+$story-className--button-focus: ":global(.story__button-focus)";
+
+// Combined pseudo state classes
+$selectors--button-hover: "&:hover, &#{$story-className--button-hover}";
+$selectors--button-active: "&:active, &#{$story-className--button-active}";
+$selectors--button-focus: "&:focus-visible, &#{$story-className--button-focus}";
