@@ -26,13 +26,8 @@ describe("filtersStateReducer: set_filter_active", () => {
   it("sets a filter to active and adds entry to active filters", () => {
     const state = {
       filters: stateFilters,
-      activeFilters: new Map().set("flavour", stateFilters["flavour"]),
+      activeFilterIds: new Set<keyof Values>(["flavour"]),
     } satisfies FiltersState<Values>
-
-    const newFilters = {
-      flavour: stateFilters["flavour"],
-      sugarLevel: { ...stateFilters["sugarLevel"], isActive: true },
-    } satisfies FiltersState<Values>["filters"]
 
     expect(
       filtersStateReducer<Values>(state, {
@@ -41,23 +36,19 @@ describe("filtersStateReducer: set_filter_active", () => {
         value: true,
       })
     ).toEqual({
-      filters: newFilters,
-      activeFilters: new Map()
-        .set("flavour", newFilters["flavour"])
-        .set("sugarLevel", newFilters["sugarLevel"]),
+      filters: {
+        flavour: stateFilters["flavour"],
+        sugarLevel: { ...stateFilters["sugarLevel"], isActive: true },
+      },
+      activeFilterIds: new Set<keyof Values>(["flavour", "sugarLevel"]),
     })
   })
 
   it("sets a filter to inactive and removes entry from active filters", () => {
     const state = {
       filters: stateFilters,
-      activeFilters: new Map().set("flavour", stateFilters["flavour"]),
+      activeFilterIds: new Set<keyof Values>(["flavour"]),
     } satisfies FiltersState<Values>
-
-    const newFilters = {
-      flavour: { ...stateFilters["flavour"], isActive: false },
-      sugarLevel: stateFilters["sugarLevel"],
-    } satisfies FiltersState<Values>["filters"]
 
     expect(
       filtersStateReducer<Values>(state, {
@@ -65,6 +56,12 @@ describe("filtersStateReducer: set_filter_active", () => {
         id: "flavour",
         value: false,
       })
-    ).toEqual({ filters: newFilters, activeFilters: new Map() })
+    ).toEqual({
+      filters: {
+        flavour: { ...stateFilters["flavour"], isActive: false },
+        sugarLevel: stateFilters["sugarLevel"],
+      },
+      activeFilterIds: new Set(),
+    })
   })
 })

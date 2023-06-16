@@ -8,11 +8,8 @@ export const updateSingleFilter = <ValuesMap extends FiltersValues>(
   const filterId = id
   const newFilterState = { ...state.filters[filterId], ...data }
 
-  if (state.activeFilters.has(filterId))
-    state.activeFilters.set(filterId, newFilterState)
-
   return {
     filters: { ...state.filters, [filterId]: newFilterState },
-    activeFilters: state.activeFilters,
+    activeFilterIds: state.activeFilterIds,
   }
 }

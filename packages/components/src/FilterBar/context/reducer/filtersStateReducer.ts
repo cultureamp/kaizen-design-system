@@ -1,30 +1,7 @@
-import { Filters } from "../../types"
 import { FilterState, FiltersState, FiltersValues } from "../types"
 import { setFilterActive } from "./setFilterActive"
 import { updateSingleFilter } from "./updateSingleFilter"
 import { updateValues } from "./updateValues"
-
-export const setupFiltersState = <ValuesMap extends FiltersValues>(
-  filters: Filters<ValuesMap>
-): FiltersState<ValuesMap> =>
-  filters.reduce<FiltersState<ValuesMap>>(
-    (acc, filter) => {
-      const isActive = !filter.isRemovable
-
-      const state = {
-        isOpen: false,
-        isRemovable: false,
-        isActive,
-        ...filter,
-      }
-
-      acc.filters[filter.id] = state
-      if (isActive) acc.activeFilters.set(filter.id, state)
-
-      return acc
-    },
-    { filters: {}, activeFilters: new Map() } as FiltersState<ValuesMap>
-  )
 
 type Actions<ValuesMap> =
   | { type: "update_values"; values: Partial<ValuesMap> }

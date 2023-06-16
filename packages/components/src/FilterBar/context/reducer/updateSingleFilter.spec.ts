@@ -24,15 +24,8 @@ describe("filtersStateReducer: update_single_filter", () => {
   it("updates state of a single filter", () => {
     const state = {
       filters: stateFilters,
-      activeFilters: new Map()
-        .set("flavour", stateFilters["flavour"])
-        .set("sugarLevel", stateFilters["sugarLevel"]),
+      activeFilterIds: new Set<keyof Values>(["flavour", "sugarLevel"]),
     } satisfies FiltersState<Values>
-
-    const newFilters = {
-      flavour: { ...stateFilters["flavour"], isOpen: true },
-      sugarLevel: stateFilters["sugarLevel"],
-    } satisfies FiltersState<Values>["filters"]
 
     expect(
       filtersStateReducer<Values>(state, {
@@ -41,10 +34,11 @@ describe("filtersStateReducer: update_single_filter", () => {
         data: { isOpen: true },
       })
     ).toEqual({
-      filters: newFilters,
-      activeFilters: new Map()
-        .set("flavour", newFilters["flavour"])
-        .set("sugarLevel", newFilters["sugarLevel"]),
+      ...state,
+      filters: {
+        flavour: { ...stateFilters["flavour"], isOpen: true },
+        sugarLevel: stateFilters["sugarLevel"],
+      },
     })
   })
 })

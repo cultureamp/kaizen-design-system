@@ -16,9 +16,9 @@ export const setupFiltersState = <ValuesMap extends FiltersValues>(
       }
 
       acc.filters[filter.id] = state
-      if (isActive) acc.activeFilters.set(filter.id, state)
+      if (isActive) acc.activeFilterIds.add(filter.id)
 
       return acc
     },
-    { filters: {}, activeFilters: new Map() } as FiltersState<ValuesMap>
+    { filters: {}, activeFilterIds: new Set() } as FiltersState<ValuesMap>
   )

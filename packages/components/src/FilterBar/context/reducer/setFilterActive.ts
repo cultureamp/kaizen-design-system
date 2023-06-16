@@ -8,13 +8,13 @@ export const setFilterActive = <ValuesMap extends FiltersValues>(
   const newState = { ...state.filters[id], isActive }
 
   if (isActive) {
-    state.activeFilters.set(id, newState)
+    state.activeFilterIds.add(id)
   } else {
-    state.activeFilters.delete(id)
+    state.activeFilterIds.delete(id)
   }
 
   return {
     filters: { ...state.filters, [id]: newState },
-    activeFilters: state.activeFilters,
+    activeFilterIds: state.activeFilterIds,
   }
 }

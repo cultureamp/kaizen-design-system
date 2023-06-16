@@ -26,12 +26,9 @@ const filters = {
   },
 } satisfies FiltersState<Values>["filters"]
 
-const activeFilters = new Map()
-activeFilters.set("flavour", filters["flavour"])
-
 const state = {
   filters,
-  activeFilters,
+  activeFilterIds: new Set<keyof Values>(["flavour"]),
 } satisfies FiltersState<Values>
 
 describe("getInactiveFilters()", () => {

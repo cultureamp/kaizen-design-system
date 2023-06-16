@@ -8,15 +8,14 @@ export const updateValues = <ValuesMap extends FiltersValues>(
     (acc, key) => {
       const value = values[key]
 
-      const newState = {
+      acc.filters[key as keyof ValuesMap] = {
         ...state.filters[key],
         value,
       }
 
-      acc.filters[key as keyof ValuesMap] = newState
-      if (state.activeFilters.has(key) || value)
-        acc.activeFilters.set(key, newState)
+      if (value) acc.activeFilterIds.add(key)
+
       return acc
     },
-    { filters: {}, activeFilters: new Map() } as FiltersState<ValuesMap>
+    { ...state, filters: {} } as FiltersState<ValuesMap>
   )

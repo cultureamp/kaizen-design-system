@@ -26,13 +26,8 @@ describe("filtersStateReducer: update_values", () => {
   it("updates pre-existing values", () => {
     const state = {
       filters: stateFilters,
-      activeFilters: new Map().set("flavour", stateFilters["flavour"]),
+      activeFilterIds: new Set<keyof Values>(["flavour"]),
     } satisfies FiltersState<Values>
-
-    const newFilters = {
-      flavour: { ...stateFilters["flavour"], value: "chocolate" },
-      sugarLevel: stateFilters["sugarLevel"],
-    } satisfies FiltersState<Values>["filters"]
 
     expect(
       filtersStateReducer<Values>(state, {
@@ -40,21 +35,19 @@ describe("filtersStateReducer: update_values", () => {
         values: { flavour: "chocolate" },
       })
     ).toEqual({
-      filters: newFilters,
-      activeFilters: new Map().set("flavour", newFilters["flavour"]),
+      ...state,
+      filters: {
+        flavour: { ...stateFilters["flavour"], value: "chocolate" },
+        sugarLevel: stateFilters["sugarLevel"],
+      },
     })
   })
 
   it("sets removable filters with a value to active", () => {
     const state = {
       filters: stateFilters,
-      activeFilters: new Map().set("flavour", stateFilters["flavour"]),
+      activeFilterIds: new Set<keyof Values>(["flavour"]),
     } satisfies FiltersState<Values>
-
-    const newFilters = {
-      flavour: stateFilters["flavour"],
-      sugarLevel: { ...stateFilters["sugarLevel"], value: 50 },
-    } satisfies FiltersState<Values>["filters"]
 
     expect(
       filtersStateReducer<Values>(state, {
@@ -62,10 +55,11 @@ describe("filtersStateReducer: update_values", () => {
         values: { sugarLevel: 50 },
       })
     ).toEqual({
-      filters: newFilters,
-      activeFilters: new Map()
-        .set("flavour", newFilters["flavour"])
-        .set("sugarLevel", newFilters["sugarLevel"]),
+      filters: {
+        flavour: stateFilters["flavour"],
+        sugarLevel: { ...stateFilters["sugarLevel"], value: 50 },
+      },
+      activeFilterIds: new Set(["flavour", "sugarLevel"]),
     })
   })
 })

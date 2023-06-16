@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useReducer } from "react"
 import { Filters } from "../types"
-import {
-  filtersStateReducer,
-  setupFiltersState,
-} from "./reducer/filtersStateReducer"
+import { filtersStateReducer } from "./reducer/filtersStateReducer"
+import { setupFiltersState } from "./reducer/setupFiltersState"
 import { ActiveFiltersArray, FilterState, FiltersValues } from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 
@@ -88,8 +86,8 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   }, [values])
 
   const activeFilters = Array.from(
-    state.activeFilters,
-    ([_, filterAttr]) => filterAttr
+    state.activeFilterIds,
+    id => state.filters[id]
   )
 
   return (
