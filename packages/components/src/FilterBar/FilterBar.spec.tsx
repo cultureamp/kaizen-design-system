@@ -201,6 +201,37 @@ describe("<FilterBar />", () => {
       })
       expect(getByRole("button", { name: "Topping" })).toBeVisible()
     })
+
+    it("adds new filters in the provided order", async () => {
+      const { getByRole, getAllByTestId } = render(
+        <FilterBarWrapper<ValuesSimple>
+          filters={simpleFilters.map(filter => ({
+            ...filter,
+            isRemovable: true,
+          }))}
+        />
+      )
+
+      const addFiltersButton = getByRole("button", { name: "Add Filters" })
+      await user.click(addFiltersButton)
+
+      const menuOptionIceLevel = getByRole("button", { name: "Ice Level" })
+      await user.click(menuOptionIceLevel)
+      await user.click(addFiltersButton)
+
+      const menuOptionFlavour = getByRole("button", { name: "Flavour" })
+      await user.click(menuOptionFlavour)
+      await user.click(addFiltersButton)
+
+      const menuOptionSugarLevel = getByRole("button", { name: "Sugar Level" })
+      await user.click(menuOptionSugarLevel)
+
+      const filters = getAllByTestId(TEST_ID__FILTER)
+      expect(filters.length).toBe(3)
+      expect(filters[0]).toHaveTextContent("Ice Level")
+      expect(filters[1]).toHaveTextContent("Flavour")
+      expect(filters[2]).toHaveTextContent("Sugar Level")
+    })
   })
 
   describe("External events", () => {
