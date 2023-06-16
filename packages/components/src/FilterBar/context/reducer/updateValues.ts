@@ -6,13 +6,16 @@ export const updateValues = <ValuesMap extends FiltersValues>(
 ): FiltersState<ValuesMap> =>
   Object.keys(state.filters).reduce<FiltersState<ValuesMap>>(
     (acc, key) => {
+      const value = values[key]
+
       const newState = {
         ...state.filters[key],
-        value: values[key],
+        value,
       }
 
       acc.filters[key as keyof ValuesMap] = newState
-      if (state.activeFilters.has(key)) acc.activeFilters.set(key, newState)
+      if (state.activeFilters.has(key) || value)
+        acc.activeFilters.set(key, newState)
       return acc
     },
     { filters: {}, activeFilters: new Map() } as FiltersState<ValuesMap>

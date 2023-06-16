@@ -52,21 +52,41 @@ describe("setupFiltersState", () => {
 })
 
 describe("filtersStateReducer", () => {
-  it("updates values", () => {
-    const filters = {
-      flavour: { ...mockStateFilters["flavour"], value: "chocolate" },
-      sugarLevel: { ...mockStateFilters["sugarLevel"], value: 50 },
-    } satisfies FiltersState<Values>["filters"]
+  describe("update_values", () => {
+    it("updates pre-existing values", () => {
+      const filters = {
+        flavour: { ...mockStateFilters["flavour"], value: "chocolate" },
+        sugarLevel: mockStateFilters["sugarLevel"],
+      } satisfies FiltersState<Values>["filters"]
 
-    const activeFilters = new Map()
-    activeFilters.set("flavour", filters["flavour"])
+      const activeFilters = new Map()
+      activeFilters.set("flavour", filters["flavour"])
 
-    expect(
-      filtersStateReducer<Values>(mockState, {
-        type: "update_values",
-        values: { flavour: "chocolate", sugarLevel: 50 },
-      })
-    ).toEqual({ filters, activeFilters })
+      expect(
+        filtersStateReducer<Values>(mockState, {
+          type: "update_values",
+          values: { flavour: "chocolate" },
+        })
+      ).toEqual({ filters, activeFilters })
+    })
+
+    it("sets removable filters with a value to active", () => {
+      const filters = {
+        flavour: mockStateFilters["flavour"],
+        sugarLevel: { ...mockStateFilters["sugarLevel"], value: 50 },
+      } satisfies FiltersState<Values>["filters"]
+
+      const activeFilters = new Map()
+      activeFilters.set("flavour", filters["flavour"])
+      activeFilters.set("sugarLevel", filters["sugarLevel"])
+
+      expect(
+        filtersStateReducer<Values>(mockState, {
+          type: "update_values",
+          values: { sugarLevel: 50 },
+        })
+      ).toEqual({ filters, activeFilters })
+    })
   })
 
   it("updates state of a single filter", () => {
