@@ -194,15 +194,14 @@ export const TableHeaderRowCell = ({
       ) : null}
       {/* If an "icon" is supplied, the label is displayed inside the icon aria title instead */}
       {!icon ? (
-        <div className={styles.headerRowCellLabel}>
-          <Heading
-            tag="div"
-            variant="heading-6"
-            color={sorting || isHovered ? hoveredHeaderColor : headerColor}
-          >
-            {labelText}
-          </Heading>
-        </div>
+        <Heading
+          tag="div"
+          variant="heading-6"
+          color={sorting || isHovered ? hoveredHeaderColor : headerColor}
+          classNameOverride={styles.headerRowCellLabel}
+        >
+          {labelText}
+        </Heading>
       ) : null}
       {(sorting || (isHovered && sortingArrowsOnHover)) && (
         <div
