@@ -8,7 +8,15 @@ export const AddFiltersMenu = (): JSX.Element => {
   const inactiveFilters = getInactiveFilters()
 
   return (
-    <Menu button={<Button label="Add Filters" secondary />}>
+    <Menu
+      button={
+        <Button
+          label="Add Filters"
+          secondary
+          disabled={inactiveFilters.length === 0}
+        />
+      }
+    >
       <MenuList>
         {inactiveFilters.map(({ id, name }) => (
           <MenuItem
