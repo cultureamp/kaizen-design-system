@@ -56,7 +56,6 @@ export const SVG = ({
   const accessibilityProps = {
     role,
     ["aria-hidden"]: isMeaningfulImg ? undefined : true,
-    ["aria-label"]: isMeaningfulImg ? title : undefined,
   }
 
   return (
