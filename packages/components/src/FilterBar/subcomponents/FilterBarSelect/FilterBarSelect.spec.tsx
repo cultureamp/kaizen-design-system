@@ -70,7 +70,10 @@ describe("<FilterBarSelect />", () => {
 
     it("shows the remove button when isRemovable is true", () => {
       const { getByRole } = render(
-        <FilterBarSelectWrapper filterAttributes={{ isRemovable: true }} />
+        <FilterBarSelectWrapper
+          filterAttributes={{ isRemovable: true }}
+          defaultValues={{ flavour: "jasmine-milk-tea" }}
+        />
       )
       expect(
         getByRole("button", { name: "Remove filter - Flavour" })

@@ -69,7 +69,10 @@ describe("<FilterBarDatePicker />", () => {
 
     it("shows the remove button when isRemovable is true", () => {
       const { getByRole } = render(
-        <FilterBarDatePickerWrapper filterAttributes={{ isRemovable: true }} />
+        <FilterBarDatePickerWrapper
+          filterAttributes={{ isRemovable: true }}
+          defaultValues={{ drank: new Date("2023-05-01") }}
+        />
       )
       expect(
         getByRole("button", { name: "Remove filter - Drank" })

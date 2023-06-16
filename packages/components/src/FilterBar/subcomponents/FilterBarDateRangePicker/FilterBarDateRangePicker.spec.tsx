@@ -66,6 +66,7 @@ describe("<FilterBarDateRangePicker />", () => {
       const { getByRole } = render(
         <FilterBarDateRangePickerWrapper
           filterAttributes={{ isRemovable: true }}
+          defaultValues={{ range: { from: new Date("2023-05-01") } }}
         />
       )
       expect(
