@@ -1,11 +1,14 @@
 import React, { Key } from "react"
 import { Selection } from "@react-types/shared"
-import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
-import { RootProps } from "@kaizen/select/src/FilterMultiSelect/components/Root"
+import {
+  FilterMultiSelect,
+  FilterMultiSelectProps,
+  getSelectedOptionLabels,
+} from "~components/FilterMultiSelect"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export type FilterBarMultiSelectProps = Omit<
-  RootProps,
+  FilterMultiSelectProps,
   | "isOpen"
   | "setIsOpen"
   | "renderTrigger"
@@ -44,7 +47,7 @@ export const FilterBarMultiSelect = ({
   const { getFilterState, toggleOpenFilter, updateValue } =
     useFilterBarContext<ConsumableSelection>()
 
-  if (!id) throw Error("Missing `id` prop")
+  if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
 
   const filterState = getFilterState(id)
 
@@ -80,3 +83,5 @@ export const FilterBarMultiSelect = ({
     </FilterMultiSelect>
   )
 }
+
+FilterBarMultiSelect.displayName = "FilterBar.MultiSelect"

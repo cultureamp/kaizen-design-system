@@ -1,14 +1,15 @@
+export * from "./Button"
+export * from "./ClearButton"
 export * from "./Filter"
 export * from "./FilterBar"
 export * from "./FilterButton"
 export * from "./FilterDatePicker"
 export * from "./FilterDateRangePicker"
+export * from "./FilterMultiSelect"
 export * from "./FilterSelect"
+export * from "./InputSearch"
 export * from "./KaizenProvider"
 export * from "./Workflow"
-
-// TODO: Remove when FilterMultiSelect is migrated to KAIO
-export { FilterMultiSelect } from "@kaizen/select"
 
 // TODO: Remove when Date Picker is migrated to KAIO
 export * from "./types/DatePicker"

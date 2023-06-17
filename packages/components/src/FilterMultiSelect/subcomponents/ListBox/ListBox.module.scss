@@ -1,0 +1,18 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.listBox {
+  list-style: none;
+  padding: $spacing-sm;
+  margin: 0 $spacing-sm 0 0;
+  display: grid;
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.overflown {
+  padding-right: $spacing-sm;
+}
+
+.hidden {
+  display: none;
+}

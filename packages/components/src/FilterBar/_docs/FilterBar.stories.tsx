@@ -1,6 +1,19 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
+import queryString from "query-string"
 import Highlight from "react-highlight"
+import {
+  encodeQueryParams,
+  StringParam,
+  ArrayParam,
+  DateParam,
+  encodeDate,
+  encodeObject,
+  decodeDate,
+  decodeObject,
+  QueryParamConfig,
+  decodeQueryParams,
+} from "serialize-query-params"
 import { DateRange } from "~components/index"
 import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters } from "../index"
@@ -97,7 +110,6 @@ return (
 type Values = {
   flavour: string
   toppings: string[]
-  sugarLevel: number
   deliveryDates: DateRange
   drank: Date
 }
@@ -129,6 +141,7 @@ const filters = [
       >
         {(): JSX.Element => (
           <>
+            <FilterMultiSelect.SearchInput />
             <FilterMultiSelect.ListBox>
               {({ allItems }): JSX.Element | JSX.Element[] =>
                 allItems.map(item => (
@@ -194,6 +207,91 @@ export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
       />
       <Highlight className="json">
         {JSON.stringify(activeValues, null, 4)}
+      </Highlight>
+    </>
+  )
+}
+
+export const ExternalEventValuesUpdate: StoryFn<typeof FilterBar> = () => {
+  const [values, setValues] = useState<Partial<Values>>({
+    flavour: "jasmine-milk-tea",
+    toppings: ["pearls", "fruit-jelly"],
+  })
+
+  const DateRangeParam = {
+    encode: dateRange => {
+      if (!dateRange) return undefined
+      return (
+        encodeObject({
+          from: encodeDate(dateRange?.from),
+          to: encodeDate(dateRange?.to),
+        }) ?? undefined
+      )
+    },
+
+    decode: (dateRangeStr): DateRange | undefined => {
+      const obj = decodeObject(dateRangeStr)
+      return obj
+        ? {
+            from: decodeDate(obj.from) ?? undefined,
+            to: decodeDate(obj.to) ?? undefined,
+          }
+        : undefined
+    },
+  } satisfies QueryParamConfig<DateRange | undefined>
+
+  const paramConfigMap = {
+    flavour: StringParam,
+    toppings: ArrayParam,
+    deliveryDates: DateRangeParam,
+    drank: DateParam,
+  }
+
+  const encodedQueryParams = encodeQueryParams(paramConfigMap, values)
+  const decodedQueryParams = decodeQueryParams(
+    paramConfigMap,
+    encodedQueryParams
+  )
+
+  return (
+    <>
+      <FilterBar<Values>
+        filters={filters}
+        values={values}
+        onValuesChange={setValues}
+      />
+
+      <div className="flex gap-8 my-16">
+        <button
+          type="button"
+          onClick={() => setValues({ ...values, flavour: "honey-milk-tea" })}
+        >
+          Update Flavour to honey-milk-tea
+        </button>
+        <button
+          type="button"
+          onClick={() => setValues({ ...values, toppings: ["fruit-jelly"] })}
+        >
+          Update Toppings to fruit-jelly
+        </button>
+        <button type="button" onClick={() => setValues({})}>
+          Clear all values
+        </button>
+      </div>
+
+      <code className="mt-16">Values:</code>
+      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
+
+      <code>
+        queryString.stringify(encodeQueryParams(paramConfigMap, values))
+      </code>
+      <Highlight className="json">
+        {queryString.stringify(encodedQueryParams)}
+      </Highlight>
+
+      <code>decodeQueryParams(paramConfigMap, encodedQueryParams)</code>
+      <Highlight className="json">
+        {JSON.stringify(decodedQueryParams, null, 4)}
       </Highlight>
     </>
   )
