@@ -5,17 +5,13 @@ name: "chromatic"
 
 on:
   pull_request:
-    types: [labeled]
     branches-ignore:
       - changeset-release/main
   push:
 
 jobs:
   visual-testing:
-    if: >
-      github.ref == 'refs/heads/main' ||
-      github.event.label.name == 'run chromatic' ||
-      startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
+    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
