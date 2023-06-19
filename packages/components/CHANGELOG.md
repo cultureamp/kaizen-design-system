@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.16.0
+
+### Minor Changes
+
+- [#3762](https://github.com/cultureamp/kaizen-design-system/pull/3762) [`ad68bd64a`](https://github.com/cultureamp/kaizen-design-system/commit/ad68bd64a76c7ce079f732851d751c40c40abcc0) - Add removable filters to FilterBar.
+  This allows the user to hide filters which are less important/not being used.
+  The filters can be added back to the active filters list through the Add Filters menu.
+
 ## 1.15.1
 
 ### Patch Changes
