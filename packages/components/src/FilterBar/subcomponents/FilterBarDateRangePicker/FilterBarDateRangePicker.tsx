@@ -1,11 +1,11 @@
 import React from "react"
-import { FilterButton } from "~components/FilterButton"
 import {
   FilterDateRangePicker,
   FilterDateRangePickerProps,
 } from "~components/FilterDateRangePicker"
 import { DateRange } from "~types/DatePicker"
 import { useFilterBarContext } from "../../context/FilterBarContext"
+import { FilterBarButton } from "../FilterBarButton"
 
 export type FilterBarDateRangePickerProps = Omit<
   FilterDateRangePickerProps,
@@ -43,7 +43,11 @@ export const FilterBarDateRangePicker = ({
       id={id}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterButton {...triggerProps} />
+        <FilterBarButton
+          {...triggerProps}
+          id={id}
+          isRemovable={filterState.isRemovable}
+        />
       )}
       isOpen={filterState.isOpen}
       setIsOpen={(open): void => toggleOpenFilter(id, open)}
