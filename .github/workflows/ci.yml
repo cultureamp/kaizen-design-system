@@ -32,9 +32,9 @@ jobs:
           node-version-file: .nvmrc
           registry-url: https://npm.pkg.github.com/
       - run: |
-          git fetch origin main --depth 1
+          git checkout ${{ github.event.pull_request.head.sha }}
           yarn install --frozen-lockfile
-          yarn changeset status --since=main
+          yarn changeset status --since=origin/main
 
   typescript:
     if: github.ref != 'refs/heads/main'
