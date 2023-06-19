@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.5.10
+
+### Patch Changes
+
+- [#3731](https://github.com/cultureamp/kaizen-design-system/pull/3731) [`3421da907`](https://github.com/cultureamp/kaizen-design-system/commit/3421da907e3e4e235da4f6a733e33cffbd258a74) - InlineNotification width has changed from `100%` to `auto` so that it can be used side by side with other components. Should not affect any current usages.
+
 ## 1.5.9
 
 ### Patch Changes

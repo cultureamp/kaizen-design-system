@@ -5,9 +5,8 @@ import { mergeProps } from "@react-aria/utils"
 import classnames from "classnames"
 import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
-import { Icon } from "@kaizen/component-library"
-import check from "@kaizen/component-library/icons/check.icon.svg"
 import { Badge } from "@kaizen/draft-badge"
+import { CheckIcon } from "~components/SVG/icons/CheckIcon"
 import { useSelectionContext } from "../../provider"
 import { MultiSelectItem } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
@@ -49,7 +48,7 @@ export const MultiSelectOption = ({
       <span
         className={classnames(styles.icon, isSelected && styles.isSelected)}
       >
-        {isSelected && <Icon icon={check} role="presentation" />}
+        {isSelected && <CheckIcon role="presentation" />}
       </span>
       {/* can also be item.value since 'rendered' is defined as item.value in SelectionProvider*/}
       {item.rendered}

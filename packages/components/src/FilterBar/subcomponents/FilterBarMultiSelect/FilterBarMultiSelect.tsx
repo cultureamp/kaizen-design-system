@@ -44,7 +44,7 @@ export const FilterBarMultiSelect = ({
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const { getFilterState, toggleOpenFilter, updateValue } =
+  const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
     useFilterBarContext<ConsumableSelection>()
 
   if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
@@ -64,19 +64,26 @@ export const FilterBarMultiSelect = ({
       items={items}
       isOpen={filterState.isOpen}
       onOpenChange={(open): void => toggleOpenFilter(id, open)}
-      trigger={(): JSX.Element => (
-        <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={
-            filterState.value
-              ? getSelectedOptionLabels(
-                  convertConsumableFormatIntoSelection(filterState.value),
-                  items
-                )
-              : []
-          }
-          label={filterState.name}
-        />
-      )}
+      trigger={(): JSX.Element => {
+        const triggerProps = {
+          selectedOptionLabels: filterState.value
+            ? getSelectedOptionLabels(
+                convertConsumableFormatIntoSelection(filterState.value),
+                items
+              )
+            : [],
+          label: filterState.name,
+        }
+
+        return filterState.isRemovable ? (
+          <FilterMultiSelect.RemovableTrigger
+            {...triggerProps}
+            onRemove={() => hideFilter(id)}
+          />
+        ) : (
+          <FilterMultiSelect.TriggerButton {...triggerProps} />
+        )
+      }}
       {...props}
     >
       {children}

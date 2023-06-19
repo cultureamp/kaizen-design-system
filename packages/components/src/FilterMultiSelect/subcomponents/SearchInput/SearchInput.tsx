@@ -1,6 +1,6 @@
 import React, { useMemo } from "react"
 import { v4 } from "uuid"
-import { InputSearch } from "@kaizen/draft-form"
+import { InputSearch } from "~components/InputSearch"
 import { useSelectionContext } from "../../provider"
 import styles from "./SearchInput.module.scss"
 

@@ -1,0 +1,18 @@
+@mixin enabled-pseudo-states-variant(
+  $background-color: undefined,
+  $border-color: undefined
+) {
+  &:not(:disabled) {
+    #{$selectors--button-hover},
+    #{$selectors--button-active},
+    #{$selectors--button-focus} {
+      @if ($background-color != undefined) {
+        background-color: $background-color;
+      }
+
+      @if ($border-color != undefined) {
+        border-color: $border-color;
+      }
+    }
+  }
+}

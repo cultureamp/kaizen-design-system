@@ -1,8 +1,8 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { Button } from "@kaizen/button"
-import CloseIcon from "@kaizen/component-library/icons/close.icon.svg"
-import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
+import { Button } from "~components/Button"
+import { CloseIcon } from "~icons/CloseIcon"
+import { VisibleIcon } from "~icons/VisibleIcon"
 import { Workflow, WorkflowProps } from "../"
 import { WorkflowControls } from "./controls"
 
@@ -49,7 +49,7 @@ const defaultArgs = {
     <Button
       key="would-use-uui-2"
       label="Save and close"
-      icon={CloseIcon}
+      icon={<CloseIcon />}
       secondary
       iconPosition="end"
     />,
@@ -94,14 +94,14 @@ export const MultipleActions: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-1"
         label="Preview"
-        icon={VisibleIcon}
+        icon={<VisibleIcon />}
         secondary
         iconPosition="start"
       />,
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={CloseIcon}
+        icon={<CloseIcon />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -125,7 +125,7 @@ export const FinalStep: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={CloseIcon}
+        icon={<CloseIcon />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -149,7 +149,7 @@ export const CompletedWorkflow: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={CloseIcon}
+        icon={<CloseIcon />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
