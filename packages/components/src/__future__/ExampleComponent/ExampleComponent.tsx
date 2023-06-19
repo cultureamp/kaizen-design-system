@@ -22,7 +22,7 @@ export const ExampleComponent = ({
     )}
     {...restProps}
   >
-    ExampleComponent FUTURE {children} change the world
+    ExampleComponent FUTURE {children}
   </div>
 )
 
