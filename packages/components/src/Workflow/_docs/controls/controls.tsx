@@ -63,4 +63,16 @@ export const WorkflowControls = {
       "No Previous action": undefined,
     },
   },
+  currentStepId: {
+    control: {
+      type: "select",
+    },
+    options: {
+      "settings-step": "settings-step",
+      "questions-step": "questions-step",
+      "preview-step": "preview-step",
+      "employees-step": "employees-step",
+      "schedule-step": "schedule-step",
+    },
+  },
 }

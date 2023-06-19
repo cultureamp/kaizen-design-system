@@ -46,6 +46,7 @@ const meta = {
   argTypes: {
     nextAction: WorkflowControls.nextAction,
     previousAction: WorkflowControls.previousAction,
+    currentStepId: WorkflowControls.currentStepId,
   },
 } satisfies Meta<typeof Workflow.Footer>
 

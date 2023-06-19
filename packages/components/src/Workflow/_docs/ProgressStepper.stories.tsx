@@ -3,6 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { ProgressStepperProps } from "../subcomponents"
 import { Workflow } from "../"
+import { WorkflowControls } from "./controls"
 
 const defaultArgs = {
   currentStepId: "preview-step",
@@ -38,6 +39,9 @@ const meta = {
       designGuidelines:
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
+  },
+  argTypes: {
+    currentStepId: WorkflowControls.currentStepId,
   },
 } satisfies Meta<typeof Workflow.ProgressStepper>
 
