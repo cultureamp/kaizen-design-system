@@ -1,10 +1,10 @@
 import React from "react"
-import { FilterButton } from "~components/FilterButton"
 import {
   FilterDatePicker,
   FilterDatePickerProps,
 } from "~components/FilterDatePicker"
 import { useFilterBarContext } from "../../context/FilterBarContext"
+import { FilterBarButton } from "../FilterBarButton"
 
 export type FilterBarDatePickerProps = Omit<
   FilterDatePickerProps,
@@ -44,7 +44,11 @@ export const FilterBarDatePicker = ({
       selectedDate={filterState.value || undefined}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterButton {...triggerProps} />
+        <FilterBarButton
+          {...triggerProps}
+          id={id}
+          isRemovable={filterState.isRemovable}
+        />
       )}
       onDateChange={(key): void => {
         updateValue(id, key)

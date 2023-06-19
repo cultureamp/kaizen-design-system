@@ -1,20 +1,20 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { Button } from "@kaizen/button"
-import CloseIcon from "@kaizen/component-library/icons/close.icon.svg"
-import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
+import { Button } from "~components/Button"
+import { CloseIcon } from "~icons/CloseIcon"
+import { VisibleIcon } from "~icons/VisibleIcon"
 import { Workflow, WorkflowProps } from "../"
 import { WorkflowControls } from "./controls"
 
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
     <div className="max-w-[1392px] w-100">
-      <h3>Name and schedule the self-reflection cycle</h3>
+      <h2>Name and schedule the self-reflection cycle</h2>
       <form
         id="workflow-form-id"
         className="bg-white rounded-default shadow-sm my-32 p-64"
       >
-        <h4>Name the cycle</h4>
+        <h3>Name the cycle</h3>
         <label
           className="block font-weight-paragraph-bold"
           htmlFor="input-workflow"
@@ -49,7 +49,7 @@ const defaultArgs = {
     <Button
       key="would-use-uui-2"
       label="Save and close"
-      icon={CloseIcon}
+      icon={<CloseIcon />}
       secondary
       iconPosition="end"
     />,
@@ -73,6 +73,7 @@ export const Playground: StoryObj<typeof meta> = {
         sourceState: "shown",
       },
     },
+    chromatic: { disable: false },
   },
 }
 
@@ -93,14 +94,14 @@ export const MultipleActions: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-1"
         label="Preview"
-        icon={VisibleIcon}
+        icon={<VisibleIcon />}
         secondary
         iconPosition="start"
       />,
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={CloseIcon}
+        icon={<CloseIcon />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -112,7 +113,7 @@ export const MultipleActions: StoryObj<typeof meta> = {
 export const FinalStep: StoryObj<typeof meta> = {
   args: {
     workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
+    stepName: "Schedule",
     steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
     isComplete: false,
     status: {
@@ -124,7 +125,7 @@ export const FinalStep: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={CloseIcon}
+        icon={<CloseIcon />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -148,12 +149,15 @@ export const CompletedWorkflow: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={CloseIcon}
+        icon={<CloseIcon />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
       />,
     ],
+  },
+  parameters: {
+    chromatic: { disable: false },
   },
 }
 
@@ -193,3 +197,36 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
     />
   </Workflow.Wrapper>
 )
+
+ComposableWorkflow.parameters = {
+  chromatic: { disable: false },
+}
+
+export const ResponsiveWorkflow: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "hidden",
+      },
+    },
+    viewport: {
+      viewports: {
+        vieportZoomed: {
+          name: "Simulate 400% zoom",
+          styles: {
+            width: "500px",
+            height: "800px",
+          },
+          type: "mobile",
+        },
+      },
+      defaultViewport: "vieportZoomed",
+    },
+    chromatic: {
+      disable: false,
+      viewports: [500, 1200],
+    },
+  },
+}
+
+ResponsiveWorkflow.args = { ...defaultArgs }

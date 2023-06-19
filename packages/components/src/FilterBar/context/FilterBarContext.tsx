@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useReducer } from "react"
 import { Filters } from "../types"
-import { filtersStateReducer, setupFiltersState } from "./filtersStateReducer"
-import { FilterState, FiltersState, FiltersValues } from "./types"
+import { filtersStateReducer } from "./reducer/filtersStateReducer"
+import { setupFiltersState } from "./reducer/setupFiltersState"
+import { ActiveFiltersArray, FilterState, FiltersValues } from "./types"
+import { getInactiveFilters } from "./utils/getInactiveFilters"
 
 export type FilterBarContextValue<
   Value,
@@ -10,6 +12,9 @@ export type FilterBarContextValue<
   getFilterState: (id: keyof ValuesMap) => FilterState<keyof ValuesMap, Value>
   toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean) => void
   updateValue: (id: keyof ValuesMap, value: Value) => void
+  showFilter: (id: keyof ValuesMap) => void
+  hideFilter: (id: keyof ValuesMap) => void
+  getInactiveFilters: () => Array<FilterState<keyof ValuesMap, Value>>
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
@@ -32,7 +37,7 @@ export const useFilterBarContext = <
 }
 
 export type FilterBarProviderProps<ValuesMap extends FiltersValues> = {
-  children: (activeFilters: FiltersState<ValuesMap>) => JSX.Element
+  children: (activeFilters: ActiveFiltersArray<ValuesMap>) => JSX.Element
   filters: Filters<ValuesMap>
   values: Partial<ValuesMap>
   onValuesChange: (values: Partial<ValuesMap>) => void
@@ -53,25 +58,39 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     getFilterState: (
       id: keyof ValuesMap
     ): FilterState<typeof id, ValuesMap[typeof id]> => {
-      if (!state[id]) throw Error(`Filter ${String(id)} doesn't exist!`)
-      return state[id]
+      if (!state.filters[id]) throw Error(`Filter ${String(id)} doesn't exist!`)
+      return state.filters[id]
     },
     toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
     updateValue: (id: keyof ValuesMap, newValue: any): void => {
+      const validValue =
+        typeof newValue === "object" && JSON.stringify(newValue) === "{}"
+          ? undefined
+          : newValue
       onValuesChange({
         ...values,
-        [id]: newValue,
+        [id]: validValue,
       })
     },
+    showFilter: (id: keyof ValuesMap): void =>
+      dispatch({ type: "update_single_filter", id, data: { isActive: true } }),
+    hideFilter: (id: keyof ValuesMap): void => {
+      dispatch({ type: "update_single_filter", id, data: { isActive: false } })
+      onValuesChange({ ...values, [id]: undefined })
+    },
+    getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
     dispatch({ type: "update_values", values })
   }, [values])
 
-  const activeFilters = state
+  const activeFilters = Array.from(
+    state.activeFilterIds,
+    id => state.filters[id]
+  )
 
   return (
     <FilterBarContext.Provider

@@ -1,11 +1,14 @@
 import React, { Key } from "react"
 import { Selection } from "@react-types/shared"
-import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
-import { RootProps } from "@kaizen/select/src/FilterMultiSelect/components/Root"
+import {
+  FilterMultiSelect,
+  FilterMultiSelectProps,
+  getSelectedOptionLabels,
+} from "~components/FilterMultiSelect"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export type FilterBarMultiSelectProps = Omit<
-  RootProps,
+  FilterMultiSelectProps,
   | "isOpen"
   | "setIsOpen"
   | "renderTrigger"
@@ -41,10 +44,10 @@ export const FilterBarMultiSelect = ({
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const { getFilterState, toggleOpenFilter, updateValue } =
+  const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
     useFilterBarContext<ConsumableSelection>()
 
-  if (!id) throw Error("Missing `id` prop")
+  if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
 
   const filterState = getFilterState(id)
 
@@ -61,22 +64,31 @@ export const FilterBarMultiSelect = ({
       items={items}
       isOpen={filterState.isOpen}
       onOpenChange={(open): void => toggleOpenFilter(id, open)}
-      trigger={(): JSX.Element => (
-        <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={
-            filterState.value
-              ? getSelectedOptionLabels(
-                  convertConsumableFormatIntoSelection(filterState.value),
-                  items
-                )
-              : []
-          }
-          label={filterState.name}
-        />
-      )}
+      trigger={(): JSX.Element => {
+        const triggerProps = {
+          selectedOptionLabels: filterState.value
+            ? getSelectedOptionLabels(
+                convertConsumableFormatIntoSelection(filterState.value),
+                items
+              )
+            : [],
+          label: filterState.name,
+        }
+
+        return filterState.isRemovable ? (
+          <FilterMultiSelect.RemovableTrigger
+            {...triggerProps}
+            onRemove={() => hideFilter(id)}
+          />
+        ) : (
+          <FilterMultiSelect.TriggerButton {...triggerProps} />
+        )
+      }}
       {...props}
     >
       {children}
     </FilterMultiSelect>
   )
 }
+
+FilterBarMultiSelect.displayName = "FilterBar.MultiSelect"

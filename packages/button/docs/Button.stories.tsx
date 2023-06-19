@@ -169,7 +169,7 @@ export const NativeFormButton: StoryFn = () => (
       <input type="text" defaultValue="content" />
     </form>
     <Button
-      label="Sumbit"
+      label="Submit"
       form="unique-form-id"
       formTarget="_blank"
       formAction="/"

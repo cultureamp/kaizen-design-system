@@ -76,6 +76,7 @@ Each filter has the following attributes:
 id: string // A unique id for the filter
 name: string // The name used to label the filter, shown in the trigger button
 Component: JSX.Element // A Filter component or a custom component consuming the FilterBarContext
+isRemovable?: boolean
 ```
 
 ##### `Component`
@@ -99,32 +100,56 @@ Available Filter components:
 - `<FilterBar.MultiSelect>` - extends <LinkTo pageId="components-filter-multi-select">FilterMultiSelect</LinkTo>
   - `selectedKeys` is omitted
   - `onSelectionChange` remains available as optional
+  - **Note:** To use the subcomponents, import `FilterMultiSelect` from `@kaizen/components` (not `@kaizen/select`)
 - `<FilterBar.Select>` - extends <LinkTo pageId="components-filter-select">FilterSelect</LinkTo>
   - `selectedKey` is omitted
   - `onSelectionChange` remains available as optional
+  - **Note:** To use the subcomponents, import `FilterSelect` from `@kaizen/components` (not `@kaizen/select`)
+
+##### `isRemovable`
+
+When this attribute is applied, the Filter will become removable (a remove button will be attached to the trigger button),
+and its value will be cleared upon removal.
+
+Filters with this attribute will be automatically put into the `Add Filter` menu on first render,
+unless there is a default value provided, of which it will be in the active filters after the non-removable filters.
+
+When removed from the active filters, the filter will be added to the `Add Filter` menu options.
 
 #### Usage
 
 We also provide a `Filters<ValuesMap>` type you can use for improved type safety.
 
 ```tsx
-import { FilterBar, Filters, DateRange } from "@kaizen/components"
+import { FilterBar, Filters, DateRange, FilterMultiSelect } from "@kaizen/components"
 
 type ValuesMap = {
   filterId1: string
-  filterId2: DateRange
+  filterId2: string[]
+  filterId3: DateRange
 }
 
 const filters = [
   {
     id: "filterId1",
     name: "Filter 1",
-    Component: <FilterBar.Select {...props} />
+    Component: <FilterBar.Select {...props} />,
   },
   {
     id: "filterId2",
     name: "Filter 2",
-    Component: <FilterBar.DateRangePicker {...props} />
+    Component: (
+      <FilterBar.MultiSelect {...props}>
+        {/* Compose your structure using subcomponents of FilterMultiSelect */}
+        {() => <FilterMultiSelect.ListBox {...props} />}
+      </FilterBar.MultiSelect>
+    ),
+  },
+  {
+    id: "filterId3",
+    name: "Filter 3",
+    Component: <FilterBar.DateRangePicker {...props} />,
+    isRemovable: true,
   },
 ] satisfies Filters<ValuesMap>
 ```
@@ -159,3 +184,21 @@ return (
 A callback (`(values: Partial<ValuesMap>) => void`) for when the active `values` change.
 
 <NoClipCanvas of={FilterBarStories.OnValuesChange} />
+
+## Examples
+
+### Update values via external event
+
+The api allows you to update the values of the FilterBar via an external event (eg. updating url params).
+
+Simply update the value passed into the `values` prop.
+
+Out of the box, we do not make assumptions about your state management tool, so you will need to encode/decode
+the types to match the expected format of your chosen query param library.
+
+The following example uses the
+<a href="https://www.npmjs.com/package/serialize-query-params">serialize-query-params</a>
+and <a href="https://www.npmjs.com/package/query-string">query-string</a>
+packages.
+
+<NoClipCanvas of={FilterBarStories.ExternalEventValuesUpdate} />

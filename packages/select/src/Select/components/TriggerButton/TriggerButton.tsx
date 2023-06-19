@@ -50,6 +50,9 @@ export const TriggerButton = React.forwardRef<
     return (
       <button
         type="button"
+        // for the eslint issue below, both of the attributes (aria-expanded and aria-controls) are on the button but it just doesn't know it
+        // eslint-disable-next-line jsx-a11y/role-has-required-aria-props
+        role="combobox"
         {...mergeProps(buttonProps, restProps)}
         ref={ref}
         className={classnames(
