@@ -22,7 +22,7 @@ const stateFilters = {
   },
 } satisfies FiltersState<Values>["filters"]
 
-describe("filtersStateReducer: clear_all_filters", () => {
+describe("filtersStateReducer: deactivate_filters", () => {
   it("sets all removable filters to inactive", () => {
     const state = {
       filters: stateFilters,
@@ -30,7 +30,7 @@ describe("filtersStateReducer: clear_all_filters", () => {
     } satisfies FiltersState<Values>
 
     const newState = filtersStateReducer<Values>(state, {
-      type: "clear_active_filters",
+      type: "deactivate_filters",
     })
 
     expect(newState.filters).toEqual({

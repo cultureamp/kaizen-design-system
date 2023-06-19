@@ -1,6 +1,6 @@
 import { FiltersState, FiltersValues } from "../types"
 
-export const clearActiveFilters = <ValuesMap extends FiltersValues>(
+export const deactivateFilters = <ValuesMap extends FiltersValues>(
   state: FiltersState<ValuesMap>
 ): FiltersState<ValuesMap> => {
   state.activeFilterIds.forEach((id, _, ids) => {
