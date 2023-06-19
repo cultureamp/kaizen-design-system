@@ -21,10 +21,10 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn check --integrity
 
-  check-changsets:
+  check-changesets:
     if: >
       github.ref != 'refs/heads/main' &&
-      github.event.pull_request.author != 'github-actions'
+      github.actor != 'github-actions'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
