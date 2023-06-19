@@ -15,7 +15,7 @@ export const AddFiltersMenu = (): JSX.Element => {
           label="Add Filters"
           secondary
           disabled={inactiveFilters.length === 0}
-          icon={<AddIcon />}
+          icon={<AddIcon role="presentation" />}
         />
       }
     >
