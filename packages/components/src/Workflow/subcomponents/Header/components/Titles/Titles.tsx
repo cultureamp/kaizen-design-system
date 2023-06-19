@@ -24,11 +24,7 @@ export const Titles = ({
   status,
   ...restProps
 }: WorkflowTitlesProps): JSX.Element => (
-  <div
-    className={styles.titles}
-    // "flex flex-grow flex-col items-center justify-center"
-    {...restProps}
-  >
+  <div className={styles.titles} {...restProps}>
     <Heading
       variant="heading-1"
       tag="h1"
@@ -42,6 +38,7 @@ export const Titles = ({
         color="dark-reduced-opacity"
       >
         {workflowName}
+        <span className="sr-only">:</span>
       </Heading>
       <span>{stepName}</span>
     </Heading>
