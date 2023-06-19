@@ -5171,21 +5171,6 @@
     recast "^0.23.1"
     ts-dedent "^2.0.0"
 
-"@storybook/csf-tools@^7.0.12":
-  version "7.0.18"
-  resolved "https://registry.yarnpkg.com/@storybook/csf-tools/-/csf-tools-7.0.18.tgz#f61810f683b4eaa855a4a1ff876628835e82e965"
-  integrity sha512-0IJ2qdrxleTl67FUzsEvGcy96CY0OKyERE33tAsLNbvWcabdJKpLHP+rJwbsCw4z6IlS+kkmEffeFf5qRPTwkQ==
-  dependencies:
-    "@babel/generator" "~7.21.1"
-    "@babel/parser" "~7.21.2"
-    "@babel/traverse" "~7.21.2"
-    "@babel/types" "~7.21.2"
-    "@storybook/csf" "^0.1.0"
-    "@storybook/types" "7.0.18"
-    fs-extra "^11.1.0"
-    recast "^0.23.1"
-    ts-dedent "^2.0.0"
-
 "@storybook/csf@0.0.2--canary.4566f4d.1":
   version "0.0.2--canary.4566f4d.1"
   resolved "https://registry.yarnpkg.com/@storybook/csf/-/csf-0.0.2--canary.4566f4d.1.tgz#dac52a21c40ef198554e71fe4d20d61e17f65327"
@@ -7973,15 +7958,10 @@ chromatic@^6.14.0:
     "@types/webpack-env" "^1.17.0"
     snyk-nodejs-lockfile-parser "^1.49.0"
 
-chromatic@^6.18.2:
-  version "6.18.2"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-6.18.2.tgz#aba6ace6a0256348e0d6529a24a715cbdcc3dd23"
-  integrity sha512-Iqmyg78ujitLHKuuD/srybCszh5L5P5KQfJsnQutgt/hGdZPSXKb0xKBXUaYVYkSARuzVlkW/JvGdXSw2mf/XA==
-  dependencies:
-    "@discoveryjs/json-ext" "^0.5.7"
-    "@storybook/csf-tools" "^7.0.12"
-    "@types/webpack-env" "^1.17.0"
-    snyk-nodejs-lockfile-parser "^1.49.0"
+chromatic@^6.19.8:
+  version "6.19.8"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-6.19.8.tgz#488c55452e925b7a86dc16fdc412cb676a7bbabc"
+  integrity sha512-cvQAd/BkhRscXYbHuwIYwkmqzgpLz50maBGvUDa+WdfpoxzYrUvG2uZ1YU3tS857dAwMuTL5wUFiawiffDIKvQ==
 
 chrome-trace-event@^1.0.2:
   version "1.0.3"
