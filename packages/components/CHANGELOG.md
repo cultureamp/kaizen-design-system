@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.15.1
+
+### Patch Changes
+
+- [#3741](https://github.com/cultureamp/kaizen-design-system/pull/3741) [`2955df1a7`](https://github.com/cultureamp/kaizen-design-system/commit/2955df1a759d83d4375ce47e71763731a2c6b017) - Switch the import in `FilterMultiSelect` for `InputSearch` from `draft-form` to use the new component which is KAIO compatible.
+
 ## 1.15.0
 
 ### Minor Changes
