@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.17.4
+
+### Patch Changes
+
+- [#3760](https://github.com/cultureamp/kaizen-design-system/pull/3760) [`36ae96e39`](https://github.com/cultureamp/kaizen-design-system/commit/36ae96e395b86feb3f03e862fbd37cda146ddf0f) - Add role=combobox to the Select button
+
 ## 6.17.3
 
 ### Patch Changes
