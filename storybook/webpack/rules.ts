@@ -112,9 +112,14 @@ export const svgIcons: RuleSetRule = {
 }
 
 export const removeSvgFromTest = (
-  rule: RuleSetRule | "..."
-): RuleSetRule | "..." => {
-  if (rule !== "..." && rule.test && rule.test.toString().includes("svg")) {
+  rule: undefined | null | false | "" | 0 | RuleSetRule | "..."
+): undefined | null | false | "" | 0 | RuleSetRule | "..." => {
+  if (
+    rule &&
+    rule !== "..." &&
+    rule.test &&
+    rule.test?.toString().includes("svg")
+  ) {
     const test = rule.test.toString().replace("svg|", "").replace(/\//g, "")
     return { ...rule, test: new RegExp(test) } as RuleSetRule
   }
