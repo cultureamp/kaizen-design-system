@@ -178,7 +178,7 @@ export const Select = ({
               valueProps,
               status,
               isReversed,
-              "aria-controls": listBoxID,
+              "aria-controls": state.isOpen ? listBoxID : undefined,
             },
             buttonRef
           )}
