@@ -1,6 +1,7 @@
 import React from "react"
-import { Button } from "@kaizen/button"
 import { Menu, MenuList, MenuItem } from "@kaizen/draft-menu"
+import { Button } from "~components/Button"
+import { AddIcon } from "~components/SVG/icons/AddIcon"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export const AddFiltersMenu = (): JSX.Element => {
@@ -14,6 +15,7 @@ export const AddFiltersMenu = (): JSX.Element => {
           label="Add Filters"
           secondary
           disabled={inactiveFilters.length === 0}
+          icon={<AddIcon />}
         />
       }
     >
