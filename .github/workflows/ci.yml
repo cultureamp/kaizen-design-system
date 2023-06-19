@@ -36,7 +36,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - run: |
           yarn install --frozen-lockfile
-          yarn changeset status --since=main
+          yarn changeset status --since origin/main
 
   typescript:
     if: github.ref != 'refs/heads/main'
