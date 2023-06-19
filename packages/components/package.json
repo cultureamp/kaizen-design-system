@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
-  "files": ["future", "dist", "icons"],
+  "files": [
+    "future",
+    "dist",
+    "icons"
+  ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
