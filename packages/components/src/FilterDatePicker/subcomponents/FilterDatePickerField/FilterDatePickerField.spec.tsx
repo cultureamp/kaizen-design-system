@@ -1,6 +1,7 @@
 import React, { useState, FocusEvent } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { DateValidationResponse } from "~components/FilterDatePicker/types"
 import { FilterDatePickerField, FilterDatePickerFieldProps } from "."
 
 const user = userEvent.setup()
@@ -202,6 +203,51 @@ describe("<FilterDatePickerField />", () => {
 
   describe("Validation", () => {
     const dateErrorId = "#test__filter-date-picker--input--date-error-message"
+
+    it("should not have an InputValue in the validation response when selecting a calendar date", async () => {
+      const [response, setResponse] = useState<
+        DateValidationResponse | undefined
+      >()
+
+      const handleValidate = (
+        validationResponse: DateValidationResponse
+      ): void => {
+        setResponse(validationResponse)
+      }
+
+      render(
+        <FilterDatePickerFieldWrapper
+          selectedDate={new Date("2022-05-02")}
+          onValidate={handleValidate}
+        />
+      )
+
+      const inputDate = screen.getByLabelText("Date")
+      expect(inputDate).toHaveValue("2 May 2022")
+
+      const targetDay = screen.getByRole("button", {
+        name: "1st May (Sunday)",
+      })
+      expect(targetDay).not.toHaveAttribute("aria-pressed")
+
+      await user.click(inputDate)
+      await user.clear(inputDate)
+      await user.type(inputDate, "01/05/2022")
+
+      await user.click(document.body)
+
+      await waitFor(() => {
+        expect(inputDate).toHaveValue("1 May 2022")
+        expect(response).toEqual({
+          date: "2022-04-30T14:00:00.000Z",
+          inputValue: "",
+          isInvalid: false,
+          isDisabled: false,
+          isEmpty: false,
+          isValidDate: true,
+        })
+      })
+    })
 
     describe("Custom validation", () => {
       it("shows validation messages passed in from the consumer", () => {
