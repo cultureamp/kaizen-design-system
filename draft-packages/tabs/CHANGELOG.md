@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.2.43
+
+### Patch Changes
+
+- [#3759](https://github.com/cultureamp/kaizen-design-system/pull/3759) [`ea6988aaa`](https://github.com/cultureamp/kaizen-design-system/commit/ea6988aaa9495fab13fb6484ec9638bea98d2561) - Add aria-current=page to active tab
+
 ## 5.2.42
 
 ### Patch Changes
