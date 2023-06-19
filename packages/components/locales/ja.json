@@ -1,25 +1,24 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": [
-      {
-        "instruction": "*/description",
-        "key": "{*}/message",
-        "path": "*/message"
-      }
-    ],
-    "variants_enabled": true
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : [
+    {
+      "instruction" : "*/description",
+      "key" : "{*}/message",
+      "path" : "*/message"
+    }],
+    "variants_enabled" : true
   },
-  "filterDateRangePicker.dateFrom": {
-    "description": "Label for the 'Date from' date range input field",
-    "message": "開始日"
+  "filterDateRangePicker.dateFrom" : {
+    "description" : "Label for the 'Date from' date range input field",
+    "message" : "開始日"
   },
-  "filterDateRangePicker.dateTo": {
-    "description": "Label for the 'Date to' date range input field",
-    "message": "終了日"
+  "filterDateRangePicker.dateTo" : {
+    "description" : "Label for the 'Date to' date range input field",
+    "message" : "終了日"
   },
-  "filterDateRangePicker.inputFormat": {
-    "description": "Label for the 'Input format' subtext",
-    "message": "入力形式"
+  "filterDateRangePicker.inputFormat" : {
+    "description" : "Label for the 'Input format' subtext",
+    "message" : "入力形式"
   }
 }

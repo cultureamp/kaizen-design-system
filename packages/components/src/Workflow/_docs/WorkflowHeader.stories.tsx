@@ -1,8 +1,8 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import CloseIcon from "@kaizen/component-library/icons/close.icon.svg"
-import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
+import { CloseIcon } from "~icons/CloseIcon"
+import { VisibleIcon } from "~icons/VisibleIcon"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { HeaderProps } from "../subcomponents/Header"
 import { Workflow } from "../"
@@ -67,7 +67,7 @@ export const Playground: StoryFn<HeaderProps> = ({
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={CloseIcon}
+        icon={<CloseIcon />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -105,14 +105,14 @@ MultipleActions.args = {
     <Button
       key="would-use-uui-1"
       label="Preview"
-      icon={VisibleIcon}
+      icon={<VisibleIcon />}
       secondary
       iconPosition="start"
     />,
     <Button
       key="would-use-uui-2"
       label="Save and close"
-      icon={CloseIcon}
+      icon={<CloseIcon />}
       secondary
       iconPosition="end"
       onClick={(): void => alert("mock example of a save action")}

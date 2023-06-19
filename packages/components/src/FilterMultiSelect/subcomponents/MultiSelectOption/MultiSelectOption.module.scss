@@ -1,0 +1,113 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$iconAndBadgeHeight: $spacing-md;
+
+.icon {
+  line-height: 1;
+  height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option {
+  height: fit-content;
+  align-items: flex-start;
+  display: inline-grid;
+  grid-template-columns: $spacing-md 1fr auto;
+  gap: $spacing-xs;
+  padding: $spacing-xs;
+  position: relative;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $border-borderless-border-color;
+  border-radius: $border-solid-border-radius;
+  cursor: default;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $color-blue-100;
+
+    .badge {
+      background-color: $color-white;
+    }
+
+    .icon {
+      border-color: $color-gray-600;
+      background-color: $color-gray-200;
+    }
+  }
+
+  &.isFocused,
+  &:focus-visible {
+    background-color: $color-blue-100;
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+      border-radius: $border-focus-ring-border-radius;
+      inset: calc(-1 * #{$focus-ring-offset});
+      z-index: 1; // show border when sibling option is hovered
+    }
+  }
+
+  &:focus {
+    outline: none; // cancel browser style
+  }
+}
+
+.isDisabled {
+  opacity: 30%;
+  background: none;
+
+  &:hover {
+    .icon {
+      border-color: $color-gray-500;
+    }
+
+    .badge {
+      background-color: $color-gray-300;
+    }
+  }
+}
+
+.badgeContainer {
+  // Must be the same height as .icon, so they align vertically
+  height: $iconAndBadgeHeight;
+  display: flex;
+  align-items: center;
+}
+
+.isSelected {
+  font-weight: $typography-paragraph-bold-font-weight;
+
+  &.icon {
+    background-color: $color-gray-500;
+    color: $color-white;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    .icon {
+      background-color: $color-gray-600;
+    }
+  }
+}

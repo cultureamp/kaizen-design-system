@@ -45,7 +45,6 @@ $row-height-data-variant: 48px;
 
 .headerRowCellNoWrap {
   .headerRowCellLabel {
-    // It appears that this ellipsis is not showing 🤔
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
