@@ -10,6 +10,7 @@ type Actions<ValuesMap> =
   | { type: "activate_filter"; id: keyof ValuesMap }
   | { type: "activate_filters_with_values"; values: Partial<ValuesMap> }
   | { type: "deactivate_filter"; id: keyof ValuesMap }
+  | { type: "deactivate_filters" }
 
 export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,
@@ -34,6 +35,12 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
 
     case "deactivate_filter":
       state.activeFilterIds.delete(action.id)
+      return { ...state }
+
+    case "deactivate_filters":
+      state.activeFilterIds.forEach(id => {
+        if (state.filters[id].isRemovable) state.activeFilterIds.delete(id)
+      })
       return { ...state }
   }
 }
