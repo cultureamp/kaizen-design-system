@@ -21,7 +21,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn check --integrity
 
-  changeset:
+  changeset-exists:
     if: >
       github.ref != 'refs/heads/main' &&
       github.event.pull_request.author != 'github-actions'
