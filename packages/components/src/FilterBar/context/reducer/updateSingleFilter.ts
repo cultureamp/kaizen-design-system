@@ -7,8 +7,9 @@ export const updateSingleFilter = <ValuesMap extends FiltersValues>(
 ): FiltersState<ValuesMap> => {
   const newFilterState = { ...state.filters[id], ...data }
 
-  if (data.isActive !== undefined) {
-    if (data.isActive) {
+  const { isActive } = data
+  if (isActive !== undefined) {
+    if (isActive) {
       state.activeFilterIds.add(id)
     } else {
       state.activeFilterIds.delete(id)
