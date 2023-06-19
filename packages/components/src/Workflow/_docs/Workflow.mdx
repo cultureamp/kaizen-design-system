@@ -105,19 +105,19 @@ A common pattern identified is a Workflow Exit button. An implementation of this
 
 ## Tracking progress
 
-The Footer tracks the progress of the form by comparing the current step, indicated by `stepName`, against its position in the `steps` array.
+The Footer tracks the progress of the form by using finding the index of the `currentStepId` within the `steps` array.
 
 <Canvas
   layout="fullscreen"
   of={WorkflowFooter.FirstStep}
   source={{code: `<Workflow
-    stepName="Setting"
+    currentStepId="settings-step"
     steps={[
-      'Settings',
-      'Questions',
-      'Preview',
-      'Employees',
-      'Schedule'
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
     ]}
     {...otherProps}
   >
