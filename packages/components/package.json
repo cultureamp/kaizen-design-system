@@ -37,7 +37,7 @@
     "ci:test:react-17": "USE_REACT_17=true yarn test:ci"
   },
   "dependencies": {
-    "@cultureamp/i18n-react-intl": "^1.1.8",
+    "@cultureamp/i18n-react-intl": "^1.2.4",
     "@kaizen/a11y": "^1.7.11",
     "@kaizen/brand": "^1.5.8",
     "@kaizen/button": "^3.0.3",

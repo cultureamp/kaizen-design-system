@@ -2814,10 +2814,10 @@
   dependencies:
     chromatic "^6.14.0"
 
-"@cultureamp/i18n-react-intl@^1.1.8":
-  version "1.1.8"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/1.1.8/20ceb9096eb334f0ba5b75bdfc547f5c09d6c209#20ceb9096eb334f0ba5b75bdfc547f5c09d6c209"
-  integrity sha512-bBSX/Z5tfZdO0fsUzOAFN3encOorvFtWK7zJvCO1sHZyK8R30lFpRl3h7kk8iZKg7FPKV7QnrFfZCjVulWJJmA==
+"@cultureamp/i18n-react-intl@^1.2.4":
+  version "1.2.4"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/1.2.4/4746683c59c13f441d982f23c86e4bddc91db7d6#4746683c59c13f441d982f23c86e4bddc91db7d6"
+  integrity sha512-Jaoo8sEM36YW7jydyY9XAaeUIiiJLv4/ojOzsy0W7fojjpdBnJvE50pFmt2yXQF1F4i10Xkt8mMTgyEEtzrdEA==
   dependencies:
     "@cultureamp/frontend-apis" "*"
     "@cultureamp/frontend-env" "^2.0.9"
