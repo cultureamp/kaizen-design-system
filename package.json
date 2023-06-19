@@ -76,7 +76,7 @@
     "@babel/preset-typescript": "^7.22.5",
     "@changesets/cli": "^2.26.1",
     "@cultureamp/changelog-github": "^0.1.0",
-    "@playwright/test": "^1.35.0",
+    "@playwright/test": "^1.35.1",
     "@storybook/addon-a11y": "^7.0.20",
     "@storybook/addon-essentials": "^7.0.20",
     "@storybook/addon-links": "^7.0.20",
