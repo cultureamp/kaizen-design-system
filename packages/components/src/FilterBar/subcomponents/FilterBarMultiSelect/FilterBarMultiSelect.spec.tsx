@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FilterBarProvider } from "~components/FilterBar/context/FilterBarContext"
+import { FilterAttributes, FilterBarProvider } from "~components/FilterBar"
 import { FilterMultiSelect } from "~components/FilterMultiSelect"
 import {
   FilterBarMultiSelect,
@@ -17,9 +17,11 @@ type Values = {
 
 const FilterBarMultiSelectWrapper = ({
   defaultValues,
+  filterAttributes,
   ...customProps
 }: {
   defaultValues?: Partial<Values>
+  filterAttributes?: Partial<FilterAttributes<Values>>
 } & Partial<FilterBarMultiSelectProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (
@@ -55,6 +57,7 @@ const FilterBarMultiSelectWrapper = ({
               )}
             </FilterBarMultiSelect>
           ),
+          ...filterAttributes,
         },
       ]}
       values={values}
@@ -75,7 +78,47 @@ describe("<FilterBarMultiSelect />", () => {
   it("shows the name in the trigger button", () => {
     const { getByRole } = render(<FilterBarMultiSelectWrapper />)
     const triggerButton = getByRole("button", { name: "Toppings" })
-    expect(triggerButton).toBeInTheDocument()
+    expect(triggerButton).toBeVisible()
+  })
+
+  describe("Removable", () => {
+    it("does not show the remove button when isRemovable is false", () => {
+      const { queryByRole } = render(<FilterBarMultiSelectWrapper />)
+      expect(
+        queryByRole("button", { name: "Remove filter - Toppings" })
+      ).not.toBeInTheDocument()
+    })
+
+    it("shows the remove button when isRemovable is true", () => {
+      const { getByRole } = render(
+        <FilterBarMultiSelectWrapper
+          filterAttributes={{ isRemovable: true }}
+          defaultValues={{ toppings: ["pearls"] }}
+        />
+      )
+      expect(
+        getByRole("button", { name: "Remove filter - Toppings" })
+      ).toBeVisible()
+    })
+
+    it("hides the filter when remove button is clicked", async () => {
+      const { getByRole } = render(
+        <FilterBarMultiSelectWrapper
+          filterAttributes={{ isRemovable: true }}
+          defaultValues={{ toppings: ["pearls"] }}
+        />
+      )
+      const triggerButton = getByRole("button", { name: "Toppings : Pearls" })
+      expect(triggerButton).toBeVisible()
+
+      const removeButton = getByRole("button", {
+        name: "Remove filter - Toppings",
+      })
+      await user.click(removeButton)
+      await waitFor(() => {
+        expect(triggerButton).not.toBeInTheDocument()
+      })
+    })
   })
 
   it("can toggle its open state", async () => {

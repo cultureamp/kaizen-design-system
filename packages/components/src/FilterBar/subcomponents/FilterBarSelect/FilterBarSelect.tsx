@@ -1,11 +1,11 @@
 import React from "react"
-import { FilterButton } from "~components/FilterButton"
 import {
   FilterSelect,
   FilterSelectProps,
   SelectOption,
 } from "~components/FilterSelect"
 import { useFilterBarContext } from "../../context/FilterBarContext"
+import { FilterBarButton } from "../FilterBarButton"
 
 export type FilterBarSelectProps<Option extends SelectOption = SelectOption> =
   Omit<
@@ -33,7 +33,11 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
       selectedKey={filterState.value || null}
       label={filterState.name}
       renderTrigger={(triggerProps): JSX.Element => (
-        <FilterButton {...triggerProps} />
+        <FilterBarButton
+          {...triggerProps}
+          id={id}
+          isRemovable={filterState.isRemovable}
+        />
       )}
       onSelectionChange={(key): void => {
         updateValue(id, key)
