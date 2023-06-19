@@ -29,13 +29,13 @@ describe("filtersStateReducer: update_single_filter", () => {
       activeFilterIds: new Set<keyof Values>(["flavour"]),
     } satisfies FiltersState<Values>
 
-    expect(
-      filtersStateReducer<Values>(state, {
-        type: "update_single_filter",
-        id: "flavour",
-        data: {},
-      })
-    ).toEqual(state)
+    const newState = filtersStateReducer<Values>(state, {
+      type: "update_single_filter",
+      id: "flavour",
+      data: {},
+    })
+
+    expect(newState).toEqual(state)
   })
 
   it("updates state of a single filter", () => {
