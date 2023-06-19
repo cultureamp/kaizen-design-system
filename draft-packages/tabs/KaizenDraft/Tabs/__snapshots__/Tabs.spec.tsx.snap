@@ -61,6 +61,7 @@ exports[`<Tabs /> renders an active tab 1`] = `
   dir="ltr"
 >
   <a
+    aria-current="page"
     class="horizontalTabActive"
   >
     One
