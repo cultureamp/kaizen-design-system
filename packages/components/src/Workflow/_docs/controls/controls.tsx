@@ -1,7 +1,7 @@
 import React from "react"
 import { Button } from "@kaizen/button"
-import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
-import { Workflow } from "../../"
+import { CloseIcon } from "~icons/CloseIcon"
+import { VisibleIcon } from "~icons/VisibleIcon"
 
 export const WorkflowControls = {
   headerActions: {
@@ -9,33 +9,29 @@ export const WorkflowControls = {
       type: "radio",
     },
     options: {
-      "ExitWorkflow action": [
-        <Workflow.WorkflowExit
-          key="would-use-uui"
-          exitLabel="Save and close"
-          exitTitle="Before you exit"
-          exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-          confirmExitLabel="Close and save"
-          dismissExitLabel="Dismiss"
-          onExit={(): void => alert("mock example of a save action")}
+      "Single action": [
+        <Button
+          key="would-use-uui-1"
+          label="Close"
+          icon={<CloseIcon />}
+          secondary
+          iconPosition="end"
         />,
       ],
       "Multiple actions": [
         <Button
           key="would-use-uui-1"
+          label="Close"
+          icon={<CloseIcon />}
+          secondary
+          iconPosition="end"
+        />,
+        <Button
+          key="would-use-uui-2"
           label="Preview"
-          icon={VisibleIcon}
+          icon={<VisibleIcon />}
           secondary
           iconPosition="start"
-        />,
-        <Workflow.WorkflowExit
-          key="would-use-uui"
-          exitLabel="Save and close"
-          exitTitle="Before you exit"
-          exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-          confirmExitLabel="Close and save"
-          dismissExitLabel="Dismiss"
-          onExit={(): void => alert("mock example of a save action")}
         />,
       ],
       "No actions": [],

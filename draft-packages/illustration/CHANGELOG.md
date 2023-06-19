@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.1.2
+
+### Patch Changes
+
+- [#3704](https://github.com/cultureamp/kaizen-design-system/pull/3704) [`19ede29c9`](https://github.com/cultureamp/kaizen-design-system/commit/19ede29c947933055b9ec1a2dcc38a1a956bcc84) - Make alt text optional for all illustration components
+
+## 6.1.1
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/button@3.0.4
+
 ## 6.1.0
 
 ### Minor Changes

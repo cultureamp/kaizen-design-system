@@ -1,0 +1,59 @@
+/* stylelint-disable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */
+@import "type";
+
+$ca-layout-max-width: 1416px;
+$ca-layout-side-padding: 24px;
+$ca-layout-content-width: 1080px;
+$ca-layout-title-block-height: 5 * $ca-grid;
+$ca-layout-title-block-tablet-height: 3.5 * $ca-grid;
+$ca-layout-title-block-mobile-height: 2.5 * $ca-grid;
+$ca-layout-sidebar-width: 10 * $ca-grid;
+
+@mixin ca-margin($start: 0, $end: 0, $top: null, $bottom: null) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+  margin-right: $end;
+  margin-left: $start;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    margin-right: $start;
+    margin-left: $end;
+  }
+}
+
+@mixin ca-padding($start: 0, $end: 0, $top: null, $bottom: null) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+  padding-right: $end;
+  padding-left: $start;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    padding-right: $start;
+    padding-left: $end;
+  }
+}
+
+@mixin ca-position($start: null, $end: null, $top: null, $bottom: null) {
+  @if ($start == null and $end != null) {
+    $start: auto;
+  }
+
+  @if ($end == null and $start != null) {
+    $end: auto;
+  }
+
+  top: $top;
+  bottom: $bottom;
+  right: $end;
+  left: $start;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    right: $start;
+    left: $end;
+  }
+}
+
+/* stylelint-enable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */

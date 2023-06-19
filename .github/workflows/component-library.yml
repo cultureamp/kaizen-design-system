@@ -19,4 +19,4 @@ jobs:
       - run: yarn install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn pkg:component-library test-scss-compile
+      - run: yarn test:pkg:c-library:sass

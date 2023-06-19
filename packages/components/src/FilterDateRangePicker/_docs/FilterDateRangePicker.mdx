@@ -1,0 +1,50 @@
+import { ArgTypes, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, NoClipCanvas } from "../../../../../storybook/components"
+import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import * as FilterDRPStories from "./FilterDateRangePicker.stories"
+
+<Meta of={FilterDRPStories} />
+
+# Filter
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterDateRangePicker"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=2349%3A110993&t=gzsKluk8LiOX3jCF-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+Date Range Picker to use for Filtering.
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FilterDateRangePicker } from "@kaizen/components"'
+/>
+
+## Playground
+<NoClipCanvas of={FilterDRPStories.Playground} />
+<Controls of={FilterDRPStories.Playground} />
+
+## API
+
+### Render Trigger
+<Description of={FilterDRPStories.RenderTrigger} />
+<NoClipCanvas of={FilterDRPStories.RenderTrigger} />
+
+### Selected Range
+<Description of={FilterDRPStories.SelectedRange} />
+<NoClipCanvas of={FilterDRPStories.SelectedRange} />
+
+### Description
+<Description of={FilterDRPStories.Description} />
+<NoClipCanvas of={FilterDRPStories.Description} />
+
+### Extend Input Props
+<Description of={FilterDRPStories.ExtendInputProps} />
+<NoClipCanvas of={FilterDRPStories.ExtendInputProps} />
+
+### Validation
+<Description of={FilterDRPStories.Validation} />
+<NoClipCanvas of={FilterDRPStories.Validation} />

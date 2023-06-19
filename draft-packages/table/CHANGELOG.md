@@ -1,5 +1,27 @@
 # Change Log
 
+## 5.9.1
+
+### Patch Changes
+
+- [#3740](https://github.com/cultureamp/kaizen-design-system/pull/3740) [`7f261b142`](https://github.com/cultureamp/kaizen-design-system/commit/7f261b1424cc527db9a1484c360e16d4517f8eb7) - Fix truncate styles for nowrap on table header
+
+## 5.9.0
+
+### Minor Changes
+
+- [#3734](https://github.com/cultureamp/kaizen-design-system/pull/3734) [`88734cad0`](https://github.com/cultureamp/kaizen-design-system/commit/88734cad0f43402fcd2fe64cba2bd29f11185f48) - Add classNameOverride to TableRow and TableCard
+
+## 5.8.1
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/draft-tooltip@5.4.45
+  - @kaizen/draft-form@10.4.6
+
 ## 5.8.0
 
 ### Minor Changes

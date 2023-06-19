@@ -29,7 +29,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   &%ca-notification---inline {
-    width: 100%;
+    width: auto;
     min-height: 46px;
     padding: $notification-vertical-padding $spacing-sm;
     transition: $notification-fade-out, $notification-pop-up,

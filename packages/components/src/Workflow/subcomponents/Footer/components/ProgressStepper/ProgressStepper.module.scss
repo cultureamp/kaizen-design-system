@@ -3,18 +3,24 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 
+$indicator-size: 1.25rem;
+
 .stepsContainer {
   width: 100%;
   grid-area: stepper;
 }
 
 .stepList {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: flex-end;
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
 }
 
 .step {
@@ -23,6 +29,7 @@
   flex-basis: 100%;
   justify-content: center;
   max-width: $spacing-96;
+  overflow-wrap: break-word;
   position: relative;
   container: step / inline-size;
 }
@@ -34,8 +41,8 @@
 }
 
 .stepIndicator {
-  width: $spacing-16;
-  height: $spacing-16;
+  width: $indicator-size;
+  height: $indicator-size;
   position: relative;
 }
 
@@ -49,8 +56,8 @@
 .stepIcon {
   color: $color-white;
   position: absolute;
-  width: $spacing-16;
-  height: $spacing-16;
+  width: $indicator-size;
+  height: $indicator-size;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -67,7 +74,7 @@
   border-radius: $border-solid-border-radius;
   left: 100%;
   // sets fron the bottom to the centre of the dot
-  top: calc(100% - #{$spacing-8});
+  top: calc(100% - calc(#{$indicator-size}/ 2));
   transform: translateX(-50%);
 
   [dir="rtl"] & {
@@ -78,20 +85,21 @@
 }
 
 .stepperDescription {
-  display: none;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    // sr hidden styles
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
 }
 
+// Some defensive CSS for many steps on desktop screens
 @container step (min-width: 4.5rem) {
   .stepName {
     display: inline;
-  }
-
-  .step {
-    align-self: center;
-  }
-
-  .stepContent {
-    align-self: center;
   }
 }

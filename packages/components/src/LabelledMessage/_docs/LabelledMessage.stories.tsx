@@ -4,7 +4,7 @@ import { LabelledMessage } from "../LabelledMessage"
 
 const meta = {
   tags: ["autodocs"],
-  title: "Components/Labelled Message",
+  title: "Components/Utilities/Labelled Message",
   component: LabelledMessage,
   args: {
     label: "Label",

@@ -1,10 +1,10 @@
-import { ValidationMessage } from "../types"
 import {
-  useRangeDateValidation,
-  UseRangeDateValidationArgs,
-} from "./useRangeDateValidation"
+  useDateValidation,
+  UseDateValidationArgs,
+  ValidationMessage,
+} from "~components/FilterDatePicker"
 
-export type UseStartDateValidationArgs = UseRangeDateValidationArgs
+export type UseStartDateValidationArgs = UseDateValidationArgs
 
 export type UseStartDateValidationValue = {
   validationMessage: ValidationMessage | undefined
@@ -18,7 +18,7 @@ export const useStartDateValidation = (
   args: UseStartDateValidationArgs
 ): UseStartDateValidationValue => {
   const { validationMessage, validateDate, updateValidation } =
-    useRangeDateValidation(args)
+    useDateValidation(args)
 
   const validateStartDate: UseStartDateValidationValue["validateDate"] = ({
     date,

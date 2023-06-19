@@ -1,18 +1,15 @@
 import * as React from "react"
 import { render } from "@testing-library/react"
-import { Icon } from "@kaizen/component-library"
-
-const svgIcon = {
-  id: "my-icon",
-  viewBox: "0 0 20 20",
-}
+import { SVG } from "./SVG"
 
 describe("<Icon />", () => {
   describe("presentational", () => {
     it("does not render an aria label", () => {
       const title = "My unnecessary accessible title"
       const { queryByLabelText } = render(
-        <Icon title={title} icon={svgIcon} role="presentation" />
+        <SVG title={title} role="presentation">
+          <path />
+        </SVG>
       )
 
       expect(queryByLabelText(title)).not.toBeInTheDocument()
@@ -22,7 +19,9 @@ describe("<Icon />", () => {
       const description = "My unnecessary accessible icon description"
 
       const { queryByText } = render(
-        <Icon desc={description} icon={svgIcon} role="presentation" />
+        <SVG desc={description} role="presentation">
+          <path />
+        </SVG>
       )
       expect(queryByText(description)).toBeFalsy()
     })
@@ -32,12 +31,9 @@ describe("<Icon />", () => {
       const description = "My accessible icon description"
 
       const { container } = render(
-        <Icon
-          title={title}
-          desc={description}
-          icon={svgIcon}
-          role="presentation"
-        />
+        <SVG title={title} desc={description} role="presentation">
+          <path />
+        </SVG>
       )
 
       expect(container.querySelector('[aria-hidden="true"]')).toBeTruthy()
@@ -45,20 +41,24 @@ describe("<Icon />", () => {
   })
 
   describe("meaningful", () => {
-    it("renders an aria label", () => {
+    it("renders an accessible title", () => {
       const title = "My accessible title"
-      const { queryByLabelText } = render(
-        <Icon title={title} icon={svgIcon} role="img" />
+      const { queryByText } = render(
+        <SVG title={title} role="img">
+          <path />
+        </SVG>
       )
 
-      expect(queryByLabelText(title)).toBeInTheDocument()
+      expect(queryByText(title)).toBeInTheDocument()
     })
 
     it("renders a description", () => {
       const description = "My accessible icon description"
 
       const { queryByText } = render(
-        <Icon title="Icon" desc={description} icon={svgIcon} role="img" />
+        <SVG title="Icon" desc={description} role="img">
+          <path />
+        </SVG>
       )
       expect(queryByText(description)).toBeTruthy()
     })

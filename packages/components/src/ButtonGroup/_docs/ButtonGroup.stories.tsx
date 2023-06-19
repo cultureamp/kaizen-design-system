@@ -8,7 +8,7 @@ import { ButtonGroup } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Button Group",
+  title: "Components/Button/Button Group",
   component: ButtonGroup,
   parameters: {
     docs: {

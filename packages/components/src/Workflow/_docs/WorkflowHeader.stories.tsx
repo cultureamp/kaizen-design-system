@@ -1,7 +1,8 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import VisibleIcon from "@kaizen/component-library/icons/visible.icon.svg"
+import { CloseIcon } from "~icons/CloseIcon"
+import { VisibleIcon } from "~icons/VisibleIcon"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { HeaderProps } from "../subcomponents/Header"
 import { Workflow } from "../"
@@ -63,14 +64,13 @@ export const Playground: StoryFn<HeaderProps> = ({
     status={status}
     headerActions={[
       ...headerActions,
-      <Workflow.WorkflowExit
-        key="would-use-uui"
-        exitLabel="Save and close"
-        exitTitle="Before you exit"
-        exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-        confirmExitLabel="Close and save"
-        dismissExitLabel="Dismiss"
-        onExit={(): void => alert("mock example of a save action")}
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={<CloseIcon />}
+        secondary
+        iconPosition="end"
+        onClick={(): void => alert("mock example of a save action")}
       />,
     ]}
     {...restProps}
@@ -96,7 +96,6 @@ const VariantTemplate: StoryFn<HeaderProps> = ({
 Playground.args = { ...defaultArgs }
 
 /** <p>`headerActions` gives consumers the ability to add multiple `JSX Element`'s to top of the Workflow Header. We assume these will be Button or Button-like components</p>
- * <p>We have provided a sensible default button: `WorkflowExit` that can trigger a modal to handle a customer leaving the workflow.</p>
  * <p>There is no limit to the number of actions you can pass in, but please consider the limited realesate with labels.</p>  */
 export const MultipleActions = VariantTemplate.bind({})
 
@@ -106,18 +105,17 @@ MultipleActions.args = {
     <Button
       key="would-use-uui-1"
       label="Preview"
-      icon={VisibleIcon}
+      icon={<VisibleIcon />}
       secondary
       iconPosition="start"
     />,
-    <Workflow.WorkflowExit
+    <Button
       key="would-use-uui-2"
-      exitLabel="Save and close"
-      exitTitle="Before you exit"
-      exitDescription="Your content has not yet been saved. Click the button below or discard the changes"
-      confirmExitLabel="Close and save"
-      dismissExitLabel="Dismiss"
-      onExit={(): void => alert("mock example of a save action")}
+      label="Save and close"
+      icon={<CloseIcon />}
+      secondary
+      iconPosition="end"
+      onClick={(): void => alert("mock example of a save action")}
     />,
   ],
 }

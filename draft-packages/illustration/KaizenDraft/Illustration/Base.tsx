@@ -14,7 +14,7 @@ export type BaseProps = {
    * the function of alt text, provide an empty string so that any
    * accessibility checks know the alt text has been intentionally left out
    */
-  alt: string
+  alt?: string
 
   /**
    * Not recommended. A short-circuit for overriding styles in a pinch
@@ -31,7 +31,7 @@ export type BaseProps = {
 
 export const Base = ({
   name,
-  alt,
+  alt = "",
   classNameOverride,
   aspectRatio,
   ...otherProps

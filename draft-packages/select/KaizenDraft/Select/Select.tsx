@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import classnames from "classnames"
 import ReactSelect, {
   components,
@@ -6,6 +6,7 @@ import ReactSelect, {
   NoticeProps,
 } from "react-select"
 import Async, { AsyncProps as ReactAsyncSelectProps } from "react-select/async"
+import { v4 } from "uuid"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
@@ -78,12 +79,20 @@ export const Select = React.forwardRef<any, SelectProps>((props, ref) => {
     props.isDisabled && styles.disabled,
     status === "error" && styles.error
   )
+
+  const [labelId] = useState<string | undefined>(label ? v4() : undefined)
+
   return (
     <>
-      {label ? <Label reversed={reversed}>{label}</Label> : null}
+      {label ? (
+        <Label reversed={reversed} id={labelId}>
+          {label}
+        </Label>
+      ) : null}
       <ReactSelect
         {...props}
         ref={ref}
+        aria-labelledby={labelId}
         components={{
           Control,
           Placeholder,

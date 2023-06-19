@@ -7,7 +7,7 @@ import { TextFieldProps } from "../KaizenDraft/Form/TextField/TextField"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Text Field",
+  title: "Components/Text Input/Text Field",
   component: TextField,
   parameters: {
     docs: {
