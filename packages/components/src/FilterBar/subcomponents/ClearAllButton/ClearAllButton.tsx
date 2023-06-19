@@ -4,13 +4,14 @@ import { useFilterBarContext } from "../../context/FilterBarContext"
 import styles from "./ClearAllButton.module.scss"
 
 export const ClearAllButton = (): JSX.Element => {
-  const {} = useFilterBarContext()
+  const { clearAllFilters } = useFilterBarContext()
 
   return (
     <Button
       label="Clear all"
       classNameOverride={styles.clearAllButton}
       secondary
+      onClick={clearAllFilters}
     />
   )
 }

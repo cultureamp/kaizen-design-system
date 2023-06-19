@@ -11,7 +11,6 @@ const TEST_ID__FILTER = "testid__filter"
 
 type ValuesSimple = {
   flavour: string
-  topping: string
   sugarLevel: number
   iceLevel: number
 }
@@ -231,6 +230,68 @@ describe("<FilterBar />", () => {
       expect(filters[0]).toHaveTextContent("Ice Level")
       expect(filters[1]).toHaveTextContent("Flavour")
       expect(filters[2]).toHaveTextContent("Sugar Level")
+    })
+  })
+
+  describe("Clear all", () => {
+    it("clears all the values of all the filters", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesSimple>
+          filters={simpleFilters}
+          defaultValues={{
+            flavour: "jasmine-milk-tea",
+            sugarLevel: 50,
+            iceLevel: 100,
+          }}
+        />
+      )
+
+      const flavourButton = getByRole("button", {
+        name: "Flavour : Jasmine Milk Tea",
+      })
+      const sugarLevelButton = getByRole("button", {
+        name: "Sugar Level : 50%",
+      })
+      const iceLevelButton = getByRole("button", { name: "Ice Level : 100%" })
+
+      expect(flavourButton.textContent).toBe("Flavour:Jasmine Milk Tea")
+      expect(sugarLevelButton.textContent).toBe("Sugar Level:50%")
+      expect(iceLevelButton.textContent).toBe("Ice Level:100%")
+
+      await user.click(getByRole("button", { name: "Clear all" }))
+
+      await waitFor(() => {
+        expect(flavourButton.textContent).toBe("Flavour")
+        expect(sugarLevelButton.textContent).toBe("Sugar Level")
+        expect(iceLevelButton.textContent).toBe("Ice Level")
+      })
+    })
+
+    it("removes all removable filters", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable>
+          filters={filtersRemovable}
+          defaultValues={{
+            flavour: "jasmine-milk-tea",
+            topping: "pearls",
+          }}
+        />
+      )
+
+      const flavourButton = getByRole("button", {
+        name: "Flavour : Jasmine Milk Tea",
+      })
+      const toppingButton = getByRole("button", { name: "Topping : Pearls" })
+
+      expect(flavourButton).toBeVisible()
+      expect(toppingButton).toBeVisible()
+
+      await user.click(getByRole("button", { name: "Clear all" }))
+
+      await waitFor(() => {
+        expect(flavourButton).not.toBeInTheDocument()
+        expect(toppingButton).not.toBeInTheDocument()
+      })
     })
   })
 

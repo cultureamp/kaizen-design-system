@@ -15,6 +15,7 @@ export type FilterBarContextValue<
   showFilter: (id: keyof ValuesMap) => void
   hideFilter: (id: keyof ValuesMap) => void
   getInactiveFilters: () => Array<FilterState<keyof ValuesMap, Value>>
+  clearAllFilters: () => void
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
@@ -81,6 +82,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       onValuesChange({ ...values, [id]: undefined })
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
+    clearAllFilters: () => {
+      dispatch({ type: "clear_active_filters" })
+      onValuesChange({})
+    },
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
