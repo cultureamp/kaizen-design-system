@@ -50,6 +50,8 @@ export const TriggerButton = React.forwardRef<
     return (
       <button
         type="button"
+        // eslint-disable-next-line jsx-a11y/role-has-required-aria-props
+        role="combobox"
         {...mergeProps(buttonProps, restProps)}
         ref={ref}
         className={classnames(
