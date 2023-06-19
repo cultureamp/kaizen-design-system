@@ -12917,10 +12917,10 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-web@^5.12.0:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.12.0.tgz#345bab6ae2e77ff9475483e8b4847f353559d2cc"
-  integrity sha512-tt2oiv0EmXC8J/RF877dVCo93vZBBnww+SO6dldREgHD8EsP97jQ42JRryIRfY+6aVESQsHYNEAYgH25cBFy7A==
+lottie-web@^5.12.2:
+  version "5.12.2"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.12.2.tgz#579ca9fe6d3fd9e352571edd3c0be162492f68e5"
+  integrity sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==
 
 loud-rejection@^2.2.0:
   version "2.2.0"
