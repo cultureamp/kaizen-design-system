@@ -109,12 +109,12 @@ Available Filter components:
 ##### `isRemovable`
 
 When this attribute is applied, the Filter will become removable (a remove button will be attached to the trigger button),
-and their value will be cleared upon remove.
-
-Removable Filters will be added to the `Add Filter` menu options.
+and its value will be cleared upon removal.
 
 Filters with this attribute will be automatically put into the `Add Filter` menu on first render,
-unless there is a default value provided.
+unless there is a default value provided, of which it will be in the active filters after the non-removable filters.
+
+When removed from the active filters, the filter will be added to the `Add Filter` menu options.
 
 #### Usage
 
