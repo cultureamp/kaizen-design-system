@@ -34,8 +34,8 @@ export default meta
 const sampleCode = `
 type Values = {
   flavour: string
-  topping: string[]
   deliveryDates: DateRange
+  topping: string[]
   drank: Date
 }
 
@@ -57,6 +57,11 @@ const filters = [
         ]}
       />
     ),
+  },
+  {
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "topping",
@@ -86,11 +91,7 @@ const filters = [
         )}
       </FilterBar.MultiSelect>
     ),
-  },
-  {
-    id: "deliveryDates",
-    name: "Delivery Dates",
-    Component: <FilterBar.DateRangePicker />,
+    isRemovable: true,
   },
   {
     id: "drank",
@@ -110,8 +111,8 @@ return (
 
 type Values = {
   flavour: string
-  toppings: string[]
   deliveryDates: DateRange
+  toppings: string[]
   drank: Date
 }
 
@@ -128,6 +129,11 @@ const filters = [
         ]}
       />
     ),
+  },
+  {
+    id: "deliveryDates",
+    name: "Delivery Dates",
+    Component: <FilterBar.DateRangePicker />,
   },
   {
     id: "toppings",
@@ -158,11 +164,7 @@ const filters = [
         )}
       </FilterBar.MultiSelect>
     ),
-  },
-  {
-    id: "deliveryDates",
-    name: "Delivery Dates",
-    Component: <FilterBar.DateRangePicker />,
+    isRemovable: true,
   },
   {
     id: "drank",
