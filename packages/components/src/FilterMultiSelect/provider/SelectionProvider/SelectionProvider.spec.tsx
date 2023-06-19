@@ -480,7 +480,7 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
   describe("With no onSearchInputChange callback", () => {
     it("shows only the matched options", async () => {
       render(<SelectionProviderWrapper />)
-      const searchInput = screen.getByRole("searchbox")
+      const searchInput = screen.getByRole("textbox")
       await user.type(searchInput, "1")
 
       await waitFor(() => {
@@ -509,7 +509,7 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
       render(
         <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
       )
-      const searchInput = screen.getByRole("searchbox")
+      const searchInput = screen.getByRole("textbox")
       const searchString = "1"
       await user.type(searchInput, searchString)
 
@@ -538,7 +538,7 @@ describe("<SelectionProviderWrapper /> - Search Filtering", () => {
       render(
         <SelectionProviderWrapper onSearchInputChange={onSearchInputChange} />
       )
-      const searchInput = screen.getByRole("searchbox")
+      const searchInput = screen.getByRole("textbox")
       const searchString = "1"
       await user.type(searchInput, searchString)
 

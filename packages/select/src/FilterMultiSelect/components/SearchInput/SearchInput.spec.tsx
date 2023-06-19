@@ -19,7 +19,7 @@ describe("<SearchInput /> - interaction", () => {
         searchQuery: "search-query-mock",
       })
       render(<SearchInputWrapper />)
-      expect(screen.getByRole("searchbox")).toHaveValue("search-query-mock")
+      expect(screen.getByRole("textbox")).toHaveValue("search-query-mock")
     })
   })
 
@@ -30,7 +30,7 @@ describe("<SearchInput /> - interaction", () => {
     })
 
     render(<SearchInputWrapper />)
-    const search = screen.getByRole("searchbox")
+    const search = screen.getByRole("textbox")
     await user.type(search, "want to search this text")
 
     expect(spy).toHaveBeenLastCalledWith("want to search this text")
