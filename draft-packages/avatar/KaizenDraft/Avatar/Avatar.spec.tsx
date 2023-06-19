@@ -11,14 +11,14 @@ describe("<Avatar />", () => {
 
   it("renders user initials if the image link is broken", () => {
     render(<Avatar fullName="John Doe" avatarSrc="broken" />)
-    fireEvent.error(screen.getByRole("img"))
+    fireEvent.error(screen.getByRole("presentation"))
 
     expect(screen.getByText("JD")).toBeInTheDocument()
   })
 
   it("renders an svg icon if user initials are not provided and image is broken", () => {
     render(<Avatar avatarSrc="broken" />)
-    fireEvent.error(screen.getByRole("img"))
+    fireEvent.error(screen.getByRole("presentation"))
 
     expect(document.querySelector("svg.icon")).toBeInTheDocument()
   })

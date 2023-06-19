@@ -30,7 +30,7 @@ describe("<AvatarGroup />", () => {
     render(<AvatarGroup avatars={imgAvatars} maxVisible={4} />)
 
     expect(
-      screen.getAllByRole("img", { name: "Adirana Aniseed" })
+      screen.getAllByRole("presentation", { name: "Adirana Aniseed" })
     ).toHaveLength(4)
   })
 
