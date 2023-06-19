@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { HiddenSelect, useSelect } from "@react-aria/select"
 import { Item, Section } from "@react-stately/collections"
 import {
@@ -7,6 +7,7 @@ import {
 } from "@react-stately/select"
 import { Node, CollectionChildren } from "@react-types/shared"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { SingleItemType } from "../types"
@@ -92,6 +93,7 @@ export const Select = ({
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const invalidStatus = status === "error" ? "invalid" : "valid"
+  const [listBoxID] = useState<string>(v4())
 
   const ariaSelectProps: AriaSelectProps<SingleItemType> = {
     label,
@@ -170,13 +172,20 @@ export const Select = ({
 
         <div className={classnames(selectStyles.container)}>
           {trigger(
-            { placeholder, triggerProps, valueProps, status, isReversed },
+            {
+              placeholder,
+              triggerProps,
+              valueProps,
+              status,
+              isReversed,
+              "aria-controls": listBoxID,
+            },
             buttonRef
           )}
 
           {state.isOpen && (
             <Overlay>
-              <ListBox menuProps={menuProps}>
+              <ListBox menuProps={menuProps} id={listBoxID}>
                 {renderChildren({ items })}
               </ListBox>
             </Overlay>

@@ -24,6 +24,10 @@ export interface TriggerButtonProps
    * Updates the styling of the validation.
    */
   status?: "error" | "caution"
+  /**
+   * ID of the listbox that this button triggers
+   */
+  "aria-controls": string
 }
 
 export const TriggerButton = React.forwardRef<
