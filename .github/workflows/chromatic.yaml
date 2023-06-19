@@ -1,5 +1,4 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
-# Using this github action from https://github.com/lightspeedretail/actions-label-prs
 
 name: "chromatic"
 
