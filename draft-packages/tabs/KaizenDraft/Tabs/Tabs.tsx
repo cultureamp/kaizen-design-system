@@ -80,6 +80,7 @@ const RowTab = ({
             t.active && styles.horizontalTabActive,
             t.disabled && styles.horizontalTabDisabled
           )}
+          aria-current={t.active ? "page" : undefined}
         >
           {t.label}
         </a>
