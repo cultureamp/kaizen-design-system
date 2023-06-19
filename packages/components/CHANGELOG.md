@@ -1,5 +1,105 @@
 # Change Log
 
+## 1.15.1
+
+### Patch Changes
+
+- [#3741](https://github.com/cultureamp/kaizen-design-system/pull/3741) [`2955df1a7`](https://github.com/cultureamp/kaizen-design-system/commit/2955df1a759d83d4375ce47e71763731a2c6b017) - Switch the import in `FilterMultiSelect` for `InputSearch` from `draft-form` to use the new component which is KAIO compatible.
+
+## 1.15.0
+
+### Minor Changes
+
+- [#3689](https://github.com/cultureamp/kaizen-design-system/pull/3689) [`62c302774`](https://github.com/cultureamp/kaizen-design-system/commit/62c302774c981843613fc0f4c554345c70222350) - Add Button component which is mostly a copy of the original `@kaizen/button` with the exception of `icon` which now accepts JSX.Element instead.
+
+### Patch Changes
+
+- [#3689](https://github.com/cultureamp/kaizen-design-system/pull/3689) [`62c302774`](https://github.com/cultureamp/kaizen-design-system/commit/62c302774c981843613fc0f4c554345c70222350) - - Remove `component-library` as a dependency
+
+  - Add `SVG` title to `aria-label` when it is meanigful.
+
+- [#3730](https://github.com/cultureamp/kaizen-design-system/pull/3730) [`175fed21f`](https://github.com/cultureamp/kaizen-design-system/commit/175fed21f609bcee5cc287a92e39e1682167573d) - Fix the display of missing icons by migrating the `ClearButton` and `InputSearch` components as well as convert the `CheckIcon` and `SearchIcon` into React Icons which are used in `FilterMultiSelect`'s subcomponents.
+
+## 1.14.0
+
+### Minor Changes
+
+- [#3727](https://github.com/cultureamp/kaizen-design-system/pull/3727) [`988f72305`](https://github.com/cultureamp/kaizen-design-system/commit/988f723056e2d4df600c6766a5a14586a63d9b7b) - Add FilterMultiSelect to KAIO and refactor to use FilterButton.
+  Remove `@kaizen/select` from dependencies.
+
+## 1.13.0
+
+### Minor Changes
+
+- [#3673](https://github.com/cultureamp/kaizen-design-system/pull/3673) [`24dca6f74`](https://github.com/cultureamp/kaizen-design-system/commit/24dca6f7416732a733b128a40193c9a6feb4f0c2) - KaizenProvider will now add @cultureamp/i18n-react-intl's StaticIntlProvider to
+  the consuming app (if one isn't provided already). This ensures that Kaizen components
+  with translated strings get translated properly in consuming repos.
+
+### Patch Changes
+
+- [#3723](https://github.com/cultureamp/kaizen-design-system/pull/3723) [`4caca6b44`](https://github.com/cultureamp/kaizen-design-system/commit/4caca6b44b550628acfe17aed2dc98fd1be4c12a) - - Remove ids and xlinks from React SVGs
+  - Adds position sticky to Workflow Footer on desktop
+  - Updates footer styles to add padding for small screen sizes
+    - adds 400% story for chromatic
+  - Adds z-index of 1 to navigation elements and 0 to main Workflow components
+  - Adds word break for long step names
+
+## 1.12.0
+
+### Minor Changes
+
+- [#3706](https://github.com/cultureamp/kaizen-design-system/pull/3706) [`2065dabbc`](https://github.com/cultureamp/kaizen-design-system/commit/2065dabbc440be17011bde11a9dca50517e2e155) - Add FilterbarMultiSelect component
+
+- [#3667](https://github.com/cultureamp/kaizen-design-system/pull/3667) [`91f4f9a29`](https://github.com/cultureamp/kaizen-design-system/commit/91f4f9a297531bf56fad381184a9c11b21814e5b) - - Add FilterDatePicker component to allow consumers to have single date selection
+
+  - Add FilterBarDatePicker component for FilterBar compatibility
+
+- [#3705](https://github.com/cultureamp/kaizen-design-system/pull/3705) [`043b95ba0`](https://github.com/cultureamp/kaizen-design-system/commit/043b95ba043f6918897efa45e7ad648fc5ee7caa) - Retrofit FilterDateRangePicker to FilterBar
+
+### Patch Changes
+
+- Updated dependencies [[`91f4f9a29`](https://github.com/cultureamp/kaizen-design-system/commit/91f4f9a297531bf56fad381184a9c11b21814e5b), [`2065dabbc`](https://github.com/cultureamp/kaizen-design-system/commit/2065dabbc440be17011bde11a9dca50517e2e155)]:
+  - @kaizen/date-picker@6.1.0
+  - @kaizen/select@6.17.3
+
+## 1.11.0
+
+### Minor Changes
+
+- [#3685](https://github.com/cultureamp/kaizen-design-system/pull/3685) [`4a4cb6019`](https://github.com/cultureamp/kaizen-design-system/commit/4a4cb6019365320fe76d83c44fd21b53dbea6938) - Add FilterBar and FilterBar.Select (extends FilterSelect).
+
+### Patch Changes
+
+- [#3685](https://github.com/cultureamp/kaizen-design-system/pull/3685) [`4a4cb6019`](https://github.com/cultureamp/kaizen-design-system/commit/4a4cb6019365320fe76d83c44fd21b53dbea6938) - Fix FilterSelect to find the matching item using the `selectedKey` prop when the item value is a number, as the useSelectState hook transforms the number to a string.
+
+- [#3698](https://github.com/cultureamp/kaizen-design-system/pull/3698) [`858258df8`](https://github.com/cultureamp/kaizen-design-system/commit/858258df874036b6d937493142d427fb6eb881e5) - Change `FilterPopover` to position `absolute` instead of `fixed`.
+  The `fixed` strategy causes contents to disappear off a page (not scrollable) when it goes beyond the window boundary.
+
+## 1.10.1
+
+### Patch Changes
+
+- [#3695](https://github.com/cultureamp/kaizen-design-system/pull/3695) [`04661f9ee`](https://github.com/cultureamp/kaizen-design-system/commit/04661f9ee1962a3bcc2d93fabac8097e6128f32f) - This is a patch to manually trigger a re-release
+
+## 1.10.0
+
+### Minor Changes
+
+- [#3687](https://github.com/cultureamp/kaizen-design-system/pull/3687) [`5b06b110e`](https://github.com/cultureamp/kaizen-design-system/commit/5b06b110e3831867827ee87cb9a387665dc0d644) - - remove dep on @kaizen/draft-modal as it was causing the compiled dist to fail on Next projects
+  - remove WorkflowExit component from Workflow pkg
+    - Update reference in docs and provide implementation example
+  - Move Workflow Wrapper div into exportable component
+    - Move styles into Wrapper folder
+
+### Patch Changes
+
+- [#3678](https://github.com/cultureamp/kaizen-design-system/pull/3678) [`d434bda3e`](https://github.com/cultureamp/kaizen-design-system/commit/d434bda3e5d520c71899d30dabdba02f97d911a0) - Dependency upgrades
+
+- Updated dependencies [[`d434bda3e`](https://github.com/cultureamp/kaizen-design-system/commit/d434bda3e5d520c71899d30dabdba02f97d911a0), [`959541e4d`](https://github.com/cultureamp/kaizen-design-system/commit/959541e4dc02655577dfee98931e84df2c079576)]:
+  - @kaizen/draft-tooltip@5.4.46
+  - @kaizen/date-picker@6.0.2
+  - @kaizen/component-library@16.9.0
+
 ## 1.9.0
 
 ### Minor Changes

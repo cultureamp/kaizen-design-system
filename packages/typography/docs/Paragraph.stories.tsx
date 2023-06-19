@@ -13,7 +13,7 @@ import { Paragraph } from "../src/Paragraph/Paragraph"
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Paragraph",
+  title: "Components/Typography/Paragraph",
   component: Paragraph,
   parameters: {
     docs: {

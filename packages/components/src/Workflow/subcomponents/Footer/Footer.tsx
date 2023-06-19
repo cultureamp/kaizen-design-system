@@ -5,7 +5,7 @@ import {
   FooterAction,
   ProgressStepper,
   ProgressStepperProps,
-} from "./"
+} from "./components"
 
 export interface FooterProps
   extends OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "children">>,

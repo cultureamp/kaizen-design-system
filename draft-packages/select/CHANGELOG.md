@@ -1,5 +1,22 @@
 # Change Log
 
+## 2.10.41
+
+### Patch Changes
+
+- [#3711](https://github.com/cultureamp/kaizen-design-system/pull/3711) [`2e38da480`](https://github.com/cultureamp/kaizen-design-system/commit/2e38da4804d8d056381803936647dbd91f7a505e) - Adds an id to the label on the draft select and link up with aria-labelledby
+
+## 2.10.40
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/draft-form@10.4.6
+  - @kaizen/draft-tag@3.4.17
+  - @kaizen/button@3.0.4
+
 ## 2.10.39
 
 ### Patch Changes

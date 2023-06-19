@@ -4,7 +4,7 @@ import { VisuallyHidden } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Visually Hidden",
+  title: "Components/A11y/Visually Hidden",
   component: VisuallyHidden,
   parameters: {
     docs: {

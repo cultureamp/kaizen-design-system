@@ -10,7 +10,7 @@ export interface WorkflowActionsProps
   headerActions?: JSX.Element[]
 }
 
-/** A wrapper for the exit trigger (and other) actions of the Header Workflow  */
+/** A wrapper for an exit trigger (and other) actions of the Header Workflow  */
 export const Actions = ({
   headerActions,
   ...restProps

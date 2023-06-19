@@ -1,14 +1,14 @@
-import { ValidationMessage } from "../types"
+import {
+  useDateValidation,
+  UseDateValidationArgs,
+  ValidationMessage,
+} from "~components/FilterDatePicker"
 import {
   validateEndDateBeforeStartDate,
   ValidateEndDateBeforeStartDateArgs,
 } from "../utils/validateEndDateBeforeStartDate"
-import {
-  useRangeDateValidation,
-  UseRangeDateValidationArgs,
-} from "./useRangeDateValidation"
 
-export type UseEndDateValidationArgs = UseRangeDateValidationArgs
+export type UseEndDateValidationArgs = UseDateValidationArgs
 
 export type UseEndDateValidationValue = {
   validationMessage: ValidationMessage | undefined
@@ -27,7 +27,7 @@ export const useEndDateValidation = (
   args: UseEndDateValidationArgs
 ): UseEndDateValidationValue => {
   const { validationMessage, validateDate, updateValidation } =
-    useRangeDateValidation(args)
+    useDateValidation(args)
 
   const handleValidateEndDateBeforeStartDate: UseEndDateValidationValue["validateEndDateBeforeStartDate"] =
     handlerArgs => {

@@ -1,5 +1,24 @@
 # Change Log
 
+## 7.10.9
+
+### Patch Changes
+
+- [#3670](https://github.com/cultureamp/kaizen-design-system/pull/3670) [`eebf93ffa`](https://github.com/cultureamp/kaizen-design-system/commit/eebf93ffacefc1d59ad4dca62472413987663b09) - Adds focus lock to 'other actions' popout menu on small viewports
+
+## 7.10.8
+
+### Patch Changes
+
+- [#3677](https://github.com/cultureamp/kaizen-design-system/pull/3677) [`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0) - Bump outdated `component-library` and `draft-form` dependencies to latest
+
+- Updated dependencies [[`06c48bb35`](https://github.com/cultureamp/kaizen-design-system/commit/06c48bb3593cd348c393369b6bc17d04a997c9e0)]:
+  - @kaizen/draft-avatar@2.8.40
+  - @kaizen/draft-select@2.10.40
+  - @kaizen/draft-menu@5.0.1
+  - @kaizen/draft-tag@3.4.17
+  - @kaizen/button@3.0.4
+
 ## 7.10.7
 
 ### Patch Changes

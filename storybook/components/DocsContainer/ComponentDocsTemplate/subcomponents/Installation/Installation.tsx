@@ -1,5 +1,5 @@
 import React from "react"
-import { Source } from "@storybook/blocks"
+import { Installation as InstallSection } from "../../../../Installation"
 
 export type InstallationProps = {
   //   context: DocsContainerProps["context"]
@@ -17,13 +17,10 @@ export const Installation = ({
   if (!isInstallationLinks) return null
 
   return (
-    <div>
-      <h2 id="installation">Installation</h2>
-      {/* npm link */}
-      <Source code={installationLinks[0]} language="tsx" />
-      {/* import link */}
-      <Source code={installationLinks[1]} language="tsx" />
-    </div>
+    <InstallSection
+      installCommand={installationLinks[0]}
+      importStatement={installationLinks[1]}
+    />
   )
 }
 

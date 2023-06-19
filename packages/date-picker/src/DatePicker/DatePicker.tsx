@@ -19,7 +19,7 @@ import { getLocale } from "../utils/getLocale"
 import { isDisabledDate } from "../utils/isDisabledDate"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isSelectingDayInCalendar } from "../utils/isSelectingDayInCalendar"
-import { parseDateFromNumeralFormatValue } from "../utils/parseDateFromNumeralFormatValue"
+import { parseDateAsTextOrNumeral } from "../utils/parseDateAsTextOrNumeral"
 import { setFocusInCalendar } from "../utils/setFocusInCalendar"
 import { validateDate } from "../utils/validateDate"
 import {
@@ -198,7 +198,7 @@ export const DatePicker = ({
     if (isSelectingDayInCalendar(e.relatedTarget)) return
 
     if (inputValue !== "") {
-      const parsedDate = parseDateFromNumeralFormatValue(inputValue, locale)
+      const parsedDate = parseDateAsTextOrNumeral(inputValue, locale)
 
       if (!isInvalidDate(parsedDate)) {
         setInputValue(formatDateAsText(parsedDate, disabledDays, locale))
@@ -216,7 +216,7 @@ export const DatePicker = ({
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = e => {
     if (e.key === "Enter") {
       setIsOpen(false)
-      const parsedDate = parseDateFromNumeralFormatValue(inputValue, locale)
+      const parsedDate = parseDateAsTextOrNumeral(inputValue, locale)
       handleDayChange(parsedDate, e.currentTarget.value)
     }
 

@@ -1,32 +1,25 @@
-import { Canvas, Controls, DocsStory, Meta, Source } from "@storybook/blocks"
-import { LinkTo } from "../../../../../storybook/components/LinkTo"
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { Installation, KaioNotification, ResourceLinks } from "../../../../../storybook/components"
 import * as FilterButtonExamples from "./FilterButton.stories"
 import * as FilterButtonRemovableExamples from "./FilterButtonRemovable.stories"
-import { KaioNotification } from "../../../../../storybook/components/DocsContainer/ComponentDocsTemplate/subcomponents/KaioInstallation/KaioNotification"
 
-<Meta title="Components/Filter/Filter Buttons" />
+<Meta title="Components/Filter Base/Filter Buttons" />
 
 # Filter Buttons
 
-<ul className="!list-none !p-0 flex gap-4 items-center mb-8">
-  <li className="!mt-0 !text-paragraph">
-    <a
-      href="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterButton"
-      target="_blank"
-      rel="noopener noreferrer nofollow"
-    >Source Code</a>
-  </li>
-</ul>
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterButton"
+  className="!mb-8"
+/>
 
 <KaioNotification />
 
-Filter-compatible trigger buttons.
+Trigger buttons for use by components using the `<Filter>` abstraction.
 
-<div>
-  <h2 id="installation">Installation</h2>
-  <Source code="yarn add @kaizen/components" language="tsx" />
-  <Source code='import { FilterButton, FilterButtonRemovable } from "@kaizen/components"' language="tsx" />
-</div>
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FilterButton, FilterButtonRemovable } from "@kaizen/components"'
+/>
 
 ## Filter Button
 

@@ -9,6 +9,12 @@ const KaizenProviderWrapper = ({
   <KaizenProvider {...restProps}>{children}</KaizenProvider>
 )
 
+jest.mock("./OptionalIntlProvider", () => ({
+  OptionalIntlProvider: ({ children }: { children: React.ReactElement }) => (
+    <div>{children}</div>
+  ),
+}))
+
 describe("<KaizenProvider />", () => {
   it("renders its children", () => {
     const ReactApp = (): JSX.Element => <div>Hello App</div>

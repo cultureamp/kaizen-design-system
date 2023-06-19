@@ -15,7 +15,7 @@ arcu quam a sapien. Donec in viverra urna.`
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Collapsible Group",
+  title: "Components/Collapsible/Collapsible Group",
   component: CollapsibleGroup,
   parameters: {
     backgrounds: { default: "Gray 100" },

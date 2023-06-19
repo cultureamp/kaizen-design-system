@@ -6,7 +6,7 @@ import { FilterButtonRemovable } from "../FilterButtonRemovable"
 import { FilterButtonBase } from "../_subcomponents/FilterButtonBase"
 
 export default {
-  title: "Components/Filter/Filter Buttons",
+  title: "Components/Filter Base/Filter Buttons",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

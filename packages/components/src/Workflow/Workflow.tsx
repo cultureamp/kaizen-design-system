@@ -1,5 +1,4 @@
 import React, { HTMLAttributes } from "react"
-import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
   Footer,
@@ -7,10 +6,9 @@ import {
   Header,
   Main,
   HeaderProps,
-  WorkflowExit,
   ProgressStepper,
+  Wrapper,
 } from "./subcomponents"
-import styles from "./Workflow.module.scss"
 
 export type WorkflowProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> &
   FooterProps &
@@ -29,10 +27,7 @@ const WorkflowComponent = ({
   classNameOverride,
   ...restProps
 }: WorkflowProps): JSX.Element => (
-  <div
-    className={classnames([styles.workflowWrapper, classNameOverride])}
-    {...restProps}
-  >
+  <Workflow.Wrapper classNameOverride={classNameOverride} {...restProps}>
     <Workflow.Header
       workflowName={workflowName}
       stepName={stepName}
@@ -47,13 +42,13 @@ const WorkflowComponent = ({
       nextAction={nextAction}
       previousAction={previousAction}
     />
-  </div>
+  </Workflow.Wrapper>
 )
 
 export const Workflow = Object.assign(WorkflowComponent, {
   Header,
   Footer,
   Main,
-  WorkflowExit,
   ProgressStepper,
+  Wrapper,
 })

@@ -1,17 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
-    <title>Icons/Directional/chevron-down</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <polygon id="path-1" points="6.17916667 6.84500003 10 10.746733 13.8208333 6.84500003 15 8.04913353 10 13.155 5 8.04913353"></polygon>
-    </defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icons/Directional/chevron-down">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <use fill="#000000" xlink:href="#path-1"></use>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20">
+    <path fill="#000" fill-rule="evenodd" d="M6.179 6.845 10 10.747l3.821-3.902L15 8.049l-5 5.106-5-5.106z"/>
 </svg>

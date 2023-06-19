@@ -65,7 +65,7 @@ const STATIC_SCENE_CONTROLS = {
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Scene",
+  title: "Components/Illustrations/Scene",
   component: BrandMomentCaptureIntro,
   parameters: {
     chromatic: { disable: false },
@@ -133,7 +133,7 @@ const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
   sceneComponents,
   ...restArgs
 }: IllustrationScenesTemplateProps) => {
-  const { isAnimated, loop, autoplay, alt = "", ...restProps } = restArgs
+  const { isAnimated, loop, autoplay, alt: _, ...restProps } = restArgs
   const isAnimatedStory = IS_CHROMATIC ? false : isAnimated
   return (
     <>
@@ -153,7 +153,7 @@ const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
                   {...restProps}
                 />
               ) : (
-                <Component isAnimated={false} alt={alt} {...restProps} />
+                <Component isAnimated={false} {...restProps} />
               )}
             </SceneWrapper>
           )
@@ -161,7 +161,7 @@ const IllustrationScenesTemplate: StoryFn<IllustrationScenesTemplateProps> = ({
 
         return (
           <SceneWrapper key={heading} {...sceneWrapperProps}>
-            <Component alt={alt} {...restProps} />
+            <Component {...restProps} />
           </SceneWrapper>
         )
       })}

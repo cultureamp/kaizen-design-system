@@ -49,6 +49,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
   children,
   items,
   classNameOverride,
+  selectedKey,
   ...restProps
 }: FilterSelectProps<Option>): JSX.Element => {
   // Ref will be populated by Filter
@@ -74,6 +75,8 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
     isOpen,
     onOpenChange: setIsOpen,
     disabledKeys,
+    selectedKey:
+      typeof selectedKey === "number" ? selectedKey.toString() : selectedKey,
     ...restProps,
   }
 

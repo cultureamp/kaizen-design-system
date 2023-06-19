@@ -1,9 +1,0 @@
-@import "~@kaizen/design-tokens/sass/color";
-
-.workflowWrapper {
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
-  position: relative;
-  min-height: 100vh;
-  background: $color-gray-100;
-}

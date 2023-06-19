@@ -1,10 +1,9 @@
 import React from "react"
 import classnames from "classnames"
-import { Icon } from "@kaizen/component-library"
-import emptyIcon from "@kaizen/component-library/icons/empty.icon.svg"
-import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
-import SuccessIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Paragraph } from "@kaizen/typography"
+import { IndicatorActiveIcon } from "~icons/IndicatorActiveIcon"
+import { IndicatorInactiveIcon } from "~icons/IndicatorInactiveIcon"
+import { SuccessIcon } from "~icons/SuccessIcon"
 import styles from "./ProgressStepper.module.scss"
 
 export interface ProgressStepperProps {
@@ -16,22 +15,47 @@ export interface ProgressStepperProps {
 const getStepStatus = (
   isComplete: boolean,
   isCurrentStep: boolean,
-  step: string
-): { icon: React.SVGAttributes<SVGSymbolElement>; accessibleName: string } => {
+  step: string,
+  index: number
+): {
+  icon: JSX.Element
+  accessibleName: string
+} => {
   if (isComplete) {
     return {
-      icon: SuccessIcon,
+      icon: (
+        <SuccessIcon
+          key={index}
+          inheritSize
+          role="presentation"
+          classNameOverride="success"
+        />
+      ),
       accessibleName: `Completed: ${step}`,
     }
   }
   if (isCurrentStep) {
     return {
-      icon: fullIcon,
+      icon: (
+        <IndicatorActiveIcon
+          key={index}
+          inheritSize
+          role="presentation"
+          classNameOverride="active"
+        />
+      ),
       accessibleName: `Current: ${step}`,
     }
   }
   return {
-    icon: emptyIcon,
+    icon: (
+      <IndicatorInactiveIcon
+        key={index}
+        inheritSize
+        classNameOverride="incomplete"
+        role="presentation"
+      />
+    ),
     accessibleName: `Not started: ${step}`,
   }
 }
@@ -54,7 +78,12 @@ export const ProgressStepper = ({
         {steps.map((step: string, index: number) => {
           const isCurrentStep = currentStepIndex === index
           const isCompletedStep = index < currentStepIndex || isComplete
-          const stepStatus = getStepStatus(isCompletedStep, isCurrentStep, step)
+          const { accessibleName, icon: Icon } = getStepStatus(
+            isCompletedStep,
+            isCurrentStep,
+            step,
+            index
+          )
           return (
             <li
               className={styles.step}
@@ -64,7 +93,7 @@ export const ProgressStepper = ({
               <div className={styles.stepContent}>
                 <span className="sr-only">
                   {/* will need to be translated */}
-                  {stepStatus.accessibleName}
+                  {accessibleName}
                 </span>
                 <Paragraph
                   classNameOverride={styles.stepName}
@@ -75,13 +104,7 @@ export const ProgressStepper = ({
                   {step}
                 </Paragraph>
                 <div className={styles.stepIndicator}>
-                  <span className={styles.stepIcon}>
-                    <Icon
-                      role="presentation"
-                      icon={stepStatus.icon}
-                      inheritSize
-                    />
-                  </span>
+                  <span className={styles.stepIcon}>{Icon}</span>
                 </div>
                 {index < steps.length - 1 && (
                   <div
@@ -97,12 +120,12 @@ export const ProgressStepper = ({
         })}
       </ol>
       <Paragraph
-        classNameOverride="sr-only"
+        classNameOverride={styles.stepperDescription}
         variant="small"
         color="white"
         id="stepper-description"
       >
-        Step {currentStepIndex + 1} out of {steps.length}.
+        Step {currentStepIndex + 1} of {steps.length}
       </Paragraph>
     </div>
   )

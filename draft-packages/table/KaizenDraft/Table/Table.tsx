@@ -194,15 +194,14 @@ export const TableHeaderRowCell = ({
       ) : null}
       {/* If an "icon" is supplied, the label is displayed inside the icon aria title instead */}
       {!icon ? (
-        <div className={styles.headerRowCellLabel}>
-          <Heading
-            tag="div"
-            variant="heading-6"
-            color={sorting || isHovered ? hoveredHeaderColor : headerColor}
-          >
-            {labelText}
-          </Heading>
-        </div>
+        <Heading
+          tag="div"
+          variant="heading-6"
+          color={sorting || isHovered ? hoveredHeaderColor : headerColor}
+          classNameOverride={styles.headerRowCellLabel}
+        >
+          {labelText}
+        </Heading>
       ) : null}
       {(sorting || (isHovered && sortingArrowsOnHover)) && (
         <div
@@ -320,7 +319,7 @@ type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role
  */
-export type TableCardProps = {
+export type TableCardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
   expandedStyle?: "well" | "popout"
@@ -339,13 +338,16 @@ export const TableCard = ({
   onClick,
   href,
   forceHoverState = false,
+  classNameOverride,
   ...otherProps
 }: TableCardProps): JSX.Element => {
   const className = classnames(
     styles.card,
     expanded && styles.expanded,
     expanded && styles[expandedStyle],
-    (forceHoverState || onClick != null || href != null) && styles.hasHoverState
+    (forceHoverState || onClick != null || href != null) &&
+      styles.hasHoverState,
+    classNameOverride
   )
   return href != null ? (
     <a
@@ -376,16 +378,21 @@ export const TableCard = ({
  * Aria roles like aria-rowindex can be added from
  * the component consumer.
  *
- * @param {*} { children, ...otherProps }
+ * @param {*} { children, classNameOverride, ...otherProps }
  */
-export type TableRowProps = {
+export type TableRowProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   children?: React.ReactNode
 }
 export const TableRow = ({
   children,
+  classNameOverride,
   ...otherProps
 }: TableRowProps): JSX.Element => (
-  <div className={styles.row} role="row" {...otherProps}>
+  <div
+    className={classnames(styles.row, classNameOverride)}
+    role="row"
+    {...otherProps}
+  >
     {children}
   </div>
 )
