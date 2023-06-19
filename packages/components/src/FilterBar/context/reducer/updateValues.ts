@@ -5,18 +5,19 @@ export const updateValues = <ValuesMap extends FiltersValues>(
   values: Partial<ValuesMap>
 ): FiltersState<ValuesMap> =>
   Object.keys(state.filters).reduce<FiltersState<ValuesMap>>(
-    (acc, key) => {
+    (newState, key) => {
       const value = values[key]
+      const isActive = value !== undefined ? true : state.filters[key].isActive
 
-      acc.filters[key as keyof ValuesMap] = {
+      newState.filters[key as keyof ValuesMap] = {
         ...state.filters[key],
         value,
-        isActive: value !== undefined ? true : state.filters[key].isActive,
+        isActive,
       }
 
-      if (value) acc.activeFilterIds.add(key)
+      if (isActive) newState.activeFilterIds.add(key)
 
-      return acc
+      return newState
     },
     { ...state, filters: {} } as FiltersState<ValuesMap>
   )
