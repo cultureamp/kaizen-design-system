@@ -18,7 +18,7 @@ const filters = [
   },
 ] satisfies Filters<Values>
 
-describe("setupFiltersState", () => {
+describe("setupFiltersState()", () => {
   it("sets up the base state correctly", () => {
     expect(setupFiltersState<Values>(filters)).toEqual({
       filters: {
