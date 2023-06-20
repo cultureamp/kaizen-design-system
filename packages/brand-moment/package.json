@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/brand-moment",
-  "version": "1.13.7",
+  "version": "1.13.8",
   "description": "The brand moment component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -27,8 +27,8 @@
   "dependencies": {
     "@kaizen/button": "^3.0.4",
     "@kaizen/component-base": "^1.1.7",
-    "@kaizen/component-library": "^16.8.2",
-    "@kaizen/draft-illustration": "^6.1.1",
+    "@kaizen/component-library": "^16.9.1",
+    "@kaizen/draft-illustration": "^7.0.0",
     "@kaizen/hosted-assets": "^2.0.3",
     "@kaizen/responsive": "^1.8.10",
     "@kaizen/typography": "^2.3.11",
