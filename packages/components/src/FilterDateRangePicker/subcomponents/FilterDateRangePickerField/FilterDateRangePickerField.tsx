@@ -121,7 +121,10 @@ export const FilterDateRangePickerField = ({
   })
 
   const validateStartDate = (date: Date | undefined): Date | undefined =>
-    dateStartValidation.validateDate({ date, inputValue: inputStartDateValue })
+    dateStartValidation.validateDate({
+      date,
+      inputValue: transformDateToInputValue(date),
+    })
 
   const dateEndValidation = useEndDateValidation({
     inputLabel: inputEndDateLabel,
@@ -133,7 +136,7 @@ export const FilterDateRangePickerField = ({
   const validateEndDate = (date: Date | undefined): Date | undefined =>
     dateEndValidation.validateDate({
       endDate: date,
-      endDateInputValue: inputEndDateValue,
+      endDateInputValue: transformDateToInputValue(date),
       startDate: selectedRange?.from,
       startDateFieldLabel: inputStartDateLabel,
     })
