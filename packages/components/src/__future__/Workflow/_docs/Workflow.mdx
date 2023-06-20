@@ -1,0 +1,167 @@
+import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
+import { Installation, KaioNotification, ResourceLinks } from "../../../../../../storybook/components"
+import * as Workflow from "./Workflow.stories"
+import * as WorkflowFooter from "./WorkflowFooter.stories"
+import * as WorkflowHeader from "./WorkflowHeader.stories"
+
+<Meta title="Pages/Workflow" />
+
+# Workflow
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Workflow"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Workflow } from "@kaizen/components/future"'
+/>
+
+## Overview
+
+This is a page template component containing the header, footer, and main landmarks that compose a Workflow page. Its purpose is to guide a customer through a multi-step form to create a Workflow.
+
+The Worflow is intended as a page wrapper and sets a minimum height of `100vh` with a sticky `Header` component. The `Children` will be wrapped in an unstyled main landmark to provide flexibility for inner content layouts.
+
+To ensure at readability at 400% zoom (See WCAG's [Reflow criteria](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)) this component will collapse to a vertical layout on smaller screen sizes and remove `sticky` positioning to maximise screen real estate. You can see an example in [the responsive workflow story](/story/pages-workflow-components-workflow--responsive-workflow).
+
+<Canvas layout="fullscreen" of={Workflow.Playground} />
+
+## Header actions
+
+The `headerActions` prop  takes array of JSX elements that will render in the top right of the `Header` component.
+
+While the number of JSX elements is not limited, is important to consider the real estate in the `Header` and how larger strings or components may be rendered on smaller screen sizes.
+
+<Canvas
+  layout="fullscreen"
+  of={WorkflowHeader.MultipleActions}
+  source={{code: `<Workflow
+    headerActions={[
+      <Button
+        key="would-use-uui-1"
+        label="Preview"
+        icon={VisibleIcon}
+        secondary
+        iconPosition="start"
+      />,
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={CloseIcon}
+        secondary
+        iconPosition="end"
+      />
+    ]}
+    {...otherProps}
+  >
+    <MockContent />
+  </Workflow>`}}
+/>
+
+
+## Handling a Workflow exit
+
+A common pattern identified is a Workflow Exit button. An implementation of this component should be passed to the `headerActions` an array to handle a user leaving a Workflow. We've provided an example below that combines a Kaizen `Button` with the `ConfirmationModal` component.
+
+<Canvas
+  layout="fullscreen"
+  of={WorkflowHeader.Playground}
+  source={{code: `
+  const [showModal, setShowModal] = useState<boolean>(false)
+  ...
+  return (
+    <>
+      <Button
+        label={exitLabel}
+        icon={closeIcon}
+        iconPosition="end"
+        secondary
+        onClick={() => setShowModal(true)}
+      />
+      <ConfirmationModal
+        isOpen={showModal}
+        mood={mood}
+        isProminent={true}
+        title={exitTitle}
+        confirmLabel={confirmExitLabel}
+        dismissLabel={dismissExitLabel}
+        onConfirm={onConfirmExitCallback}
+        onDismiss={() => {
+          setShowModal(false)
+        }}
+      >
+        <div>
+          <Paragraph variant="body">{exitDescription}</Paragraph>
+        </div>
+      </ConfirmationModal>
+    </>
+  )`
+  }} 
+/>
+
+## Tracking progress
+
+The Footer tracks the progress of the form by using finding the index of the `currentStepId` within the `steps` array.
+
+<Canvas
+  layout="fullscreen"
+  of={WorkflowFooter.FirstStep}
+  source={{code: `<Workflow
+    currentStepId="settings-step"
+    steps={[
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
+    ]}
+    {...otherProps}
+  >
+    <MockContent />
+  </Workflow>`}}
+/>
+
+The Footer is agnostic to the JSX elements that are used in the `previousAction` and `nextAction`. While we recommend using the Kaizen Button, a button-like component can be used in its place to satisfy project-specific requirements.
+
+
+To hide, disable or change the appearance of the Footer buttons you can leverage the props available for the `@kaizen/button` or pass in undefined to not render the component.
+
+<Canvas
+  layout="fullscreen"
+  of={WorkflowFooter.LastStep}
+  source={{code: `<Workflow
+    nextAction={<Button disabled label="Finish" primary reversed/>}
+    previousAction={<Button label="Back" reversed/>}
+    {...otherProps}
+  >
+    <MockContent />
+  </Workflow>`}}
+/>
+
+In Instances where users are returning to a completed workflow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their Aria title.
+
+<Canvas
+  layout="fullscreen"
+  of={WorkflowFooter.AllStepsComplete}
+  source={{code: `<Workflow
+    isComplete
+    {...otherProps}
+  >
+    <MockContent />
+  </Workflow>`}}
+/>
+
+## Composable Worflow
+
+While we do not advise this path, a composable Workflow may be created if required. Refer to the component's stories on how to consume each subcomponent.
+
+<Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
+
+
+## Worflow API at a glance
+
+<ArgTypes of={Workflow.Playground} />
