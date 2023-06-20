@@ -128,7 +128,6 @@ import {
   Learn,
   Templates,
   CalendarSync,
-  AnimatedSpotProps,
   SpotProps,
 } from ".."
 
