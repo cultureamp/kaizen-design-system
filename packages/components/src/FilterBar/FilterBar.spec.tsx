@@ -258,7 +258,7 @@ describe("<FilterBar />", () => {
       expect(sugarLevelButton.textContent).toBe("Sugar Level:50%")
       expect(iceLevelButton.textContent).toBe("Ice Level:100%")
 
-      await user.click(getByRole("button", { name: "Clear all" }))
+      await user.click(getByRole("button", { name: "Clear all filters" }))
 
       await waitFor(() => {
         expect(flavourButton.textContent).toBe("Flavour")
@@ -286,7 +286,7 @@ describe("<FilterBar />", () => {
       expect(flavourButton).toBeVisible()
       expect(toppingButton).toBeVisible()
 
-      await user.click(getByRole("button", { name: "Clear all" }))
+      await user.click(getByRole("button", { name: "Clear all filters" }))
 
       await waitFor(() => {
         expect(flavourButton).not.toBeInTheDocument()
