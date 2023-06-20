@@ -117,6 +117,10 @@ export type TableHeaderRowCellProps = OverrideClassName<
   align?: "start" | "center" | "end"
   tooltipInfo?: string
   isTooltipIconHidden?: boolean
+  /**
+   * Specify where the tooltip should be rendered.
+   */
+  tooltipPortalSelector?: string | undefined
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }
 
@@ -147,6 +151,7 @@ export const TableHeaderRowCell = ({
   // the table header does not have enough space. However, we should always show a
   // tooltip icon as the default based on design system tooltip guidelines.
   isTooltipIconHidden = false,
+  tooltipPortalSelector,
   // If set, this will show the arrow in the direction provided
   // when the header cell is hovered over.
   sortingArrowsOnHover,
@@ -270,6 +275,7 @@ export const TableHeaderRowCell = ({
         animationDuration={0}
         classNameOverride={styles.headerRowCellTooltip}
         text={tooltipInfo}
+        portalSelector={tooltipPortalSelector}
       >
         {cellContents}
       </Tooltip>

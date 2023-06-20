@@ -12,6 +12,7 @@ $expand-button-width: 3.75rem;
 $focus-spacing: 2px;
 $focus-ring-border-width: 2px; // should be $border-focus-ring-border-width but CSS vars makes this hard
 $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
+$slide-up-duration: 0.4s;
 
 /* stylelint-disable no-descending-specificity */
 .mobileActionsContainer {
@@ -28,11 +29,15 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
-  transition: 0.4s ease;
+  transition: $slide-up-duration ease;
   animation: slide-up 1s ease;
 
   &.isOpen {
     transform: translateY(0%);
+
+    .mobileActionsMenuContainer {
+      visibility: visible;
+    }
   }
 
   @include title-block-small {
@@ -52,10 +57,11 @@ $space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
 }
 
 .mobileActionsMenuContainer {
-  display: block;
+  visibility: hidden;
   width: 100%;
   background: $color-white;
   padding: $spacing-xs 0;
+  transition: visibility $slide-up-duration;
 }
 
 .drawerHandleIcon {
