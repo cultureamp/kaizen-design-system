@@ -29,8 +29,7 @@
     "@kaizen/component-library": "^16.8.2",
     "@kaizen/hosted-assets": "^2.0.3",
     "classnames": "^2.3.2",
-    "jszip": "^3.10.1",
-    "lottie-web": "^5.12.2"
+    "jszip": "^3.10.1"
   },
   "devDependencies": {
     "@kaizen/component-library": "^16.8.2",
