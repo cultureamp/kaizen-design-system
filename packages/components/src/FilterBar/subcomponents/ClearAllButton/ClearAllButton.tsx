@@ -9,6 +9,7 @@ export const ClearAllButton = (): JSX.Element => {
   return (
     <Button
       label="Clear all"
+      aria-label="Clear all filters"
       classNameOverride={styles.clearAllButton}
       secondary
       onClick={clearAllFilters}
