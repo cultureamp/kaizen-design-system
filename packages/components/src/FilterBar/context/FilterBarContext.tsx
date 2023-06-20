@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useReducer } from "react"
+import React, { useContext, useEffect, useMemo, useReducer } from "react"
 import { Filters } from "../types"
 import { filtersStateReducer } from "./reducer/filtersStateReducer"
 import { setupFiltersState } from "./reducer/setupFiltersState"
@@ -87,6 +87,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
   } satisfies FilterBarContextValue<any, ValuesMap>
+
+  useEffect(() => {
+    dispatch({ type: "activate_filters_with_values", values })
+  }, [values])
 
   const activeFilters = Array.from(
     state.activeFilterIds,

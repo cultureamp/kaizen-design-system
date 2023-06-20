@@ -38,6 +38,27 @@ describe("filtersStateReducer", () => {
     })
   })
 
+  describe("filtersStateReducer: activate_filters_with_values", () => {
+    it("sets a filter to active and adds entry to active filters", () => {
+      const state = {
+        filters: stateFilters,
+        activeFilterIds: new Set<keyof Values>(),
+      } satisfies FilterBarState<Values>
+
+      const newState = filtersStateReducer<Values>(state, {
+        type: "activate_filters_with_values",
+        values: {
+          flavour: "jasmine",
+          sugarLevel: 50,
+        },
+      })
+
+      expect(newState.activeFilterIds).toEqual(
+        new Set(["flavour", "sugarLevel"])
+      )
+    })
+  })
+
   describe("filtersStateReducer: deactivate_filter", () => {
     it("sets a filter to inactive and removes entry from active filters", () => {
       const state = {
