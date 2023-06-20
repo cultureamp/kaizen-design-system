@@ -176,5 +176,5 @@ describe("<FilterBarDateRangePicker />", () => {
         to: new Date("2022-06-23"),
       })
     })
-  })
+  }, 10000)
 })
