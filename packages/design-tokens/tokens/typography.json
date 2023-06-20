@@ -166,7 +166,9 @@
       "lineHeight": "var(--typography-paragraph-intro-lede-line-height, 1.875rem)",
       "lineHeight-id": "--typography-paragraph-intro-lede-line-height",
       "letterSpacing": "var(--typography-paragraph-intro-lede-letter-spacing, 0)",
-      "letterSpacing-id": "--typography-paragraph-intro-lede-letter-spacing"
+      "letterSpacing-id": "--typography-paragraph-intro-lede-letter-spacing",
+      "maxWidth": "var(--typography-paragraph-intro-lede-max-width, 975px)",
+      "maxWidth-id": "--typography-paragraph-intro-lede-max-width"
     },
     "paragraphBody": {
       "fontFamily": "var(--typography-paragraph-body-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -178,7 +180,9 @@
       "lineHeight": "var(--typography-paragraph-body-line-height, 1.5rem)",
       "lineHeight-id": "--typography-paragraph-body-line-height",
       "letterSpacing": "var(--typography-paragraph-body-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-paragraph-body-letter-spacing"
+      "letterSpacing-id": "--typography-paragraph-body-letter-spacing",
+      "maxWidth": "var(--typography-paragraph-body-max-width, 780px)",
+      "maxWidth-id": "--typography-paragraph-body-max-width"
     },
     "paragraphSmall": {
       "fontFamily": "var(--typography-paragraph-small-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -190,7 +194,9 @@
       "lineHeight": "var(--typography-paragraph-small-line-height, 1.125rem)",
       "lineHeight-id": "--typography-paragraph-small-line-height",
       "letterSpacing": "var(--typography-paragraph-small-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-paragraph-small-letter-spacing"
+      "letterSpacing-id": "--typography-paragraph-small-letter-spacing",
+      "maxWidth": "var(--typography-paragraph-small-max-width, 680px)",
+      "maxWidth-id": "--typography-paragraph-small-max-width"
     },
     "paragraphExtraSmall": {
       "fontFamily": "var(--typography-paragraph-extra-small-font-family, \"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif)",
@@ -202,7 +208,9 @@
       "lineHeight": "var(--typography-paragraph-extra-small-line-height, 1.125rem)",
       "lineHeight-id": "--typography-paragraph-extra-small-line-height",
       "letterSpacing": "var(--typography-paragraph-extra-small-letter-spacing, normal)",
-      "letterSpacing-id": "--typography-paragraph-extra-small-letter-spacing"
+      "letterSpacing-id": "--typography-paragraph-extra-small-letter-spacing",
+      "maxWidth": "var(--typography-paragraph-extra-small-max-width, 600px)",
+      "maxWidth-id": "--typography-paragraph-extra-small-max-width"
     },
     "paragraphBold": {
       "fontWeight": "var(--typography-paragraph-bold-font-weight, 600)",
