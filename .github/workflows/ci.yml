@@ -34,10 +34,11 @@ jobs:
         with:
           cache: yarn
           node-version-file: .nvmrc
-      - run: |
-          npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
-          yarn install --frozen-lockfile
-          yarn changeset status --since=origin/main
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn changeset status --since=origin/main
 
   typescript:
     if: github.ref != 'refs/heads/main'
