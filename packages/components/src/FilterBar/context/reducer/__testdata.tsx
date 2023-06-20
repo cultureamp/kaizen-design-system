@@ -1,9 +1,9 @@
 import React from "react"
-import { FilterState } from "../types"
+import { InternalFilterState } from "../types"
 
 export const baseFilterAttributes = {
   Component: <div />,
   isOpen: false,
   isRemovable: false,
   isActive: true,
-} satisfies Omit<FilterState<string, any>, "id" | "name">
+} satisfies Omit<InternalFilterState<string, any>, "id" | "name">

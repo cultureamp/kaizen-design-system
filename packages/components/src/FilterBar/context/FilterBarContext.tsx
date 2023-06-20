@@ -2,19 +2,21 @@ import React, { useContext, useReducer } from "react"
 import { Filters } from "../types"
 import { filtersStateReducer } from "./reducer/filtersStateReducer"
 import { setupFiltersState } from "./reducer/setupFiltersState"
-import { ActiveFiltersArray, FilterState, FiltersValues } from "./types"
+import { ActiveFiltersArray, InternalFilterState, FiltersValues } from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 
 export type FilterBarContextValue<
   Value,
   ValuesMap extends FiltersValues = Record<string, Value>
 > = {
-  getFilterState: (id: keyof ValuesMap) => FilterState<keyof ValuesMap, Value>
+  getFilterState: (
+    id: keyof ValuesMap
+  ) => InternalFilterState<keyof ValuesMap, Value>
   toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean) => void
   updateValue: (id: keyof ValuesMap, value: Value) => void
   showFilter: (id: keyof ValuesMap) => void
   hideFilter: (id: keyof ValuesMap) => void
-  getInactiveFilters: () => Array<FilterState<keyof ValuesMap, Value>>
+  getInactiveFilters: () => Array<InternalFilterState<keyof ValuesMap, Value>>
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
@@ -57,7 +59,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   const value = {
     getFilterState: (
       id: keyof ValuesMap
-    ): FilterState<typeof id, ValuesMap[typeof id]> => {
+    ): InternalFilterState<typeof id, ValuesMap[typeof id]> => {
       if (!state.filters[id]) throw Error(`Filter ${String(id)} doesn't exist!`)
       return { ...state.filters[id], value: values[id] }
     },
