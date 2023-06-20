@@ -1,5 +1,5 @@
 import { FilterBarState } from "../types"
-import { filtersStateReducer } from "./filtersStateReducer"
+import { filterBarStateReducer } from "./filterBarStateReducer"
 
 type Values = {
   flavour: string
@@ -19,15 +19,15 @@ const stateFilters = {
   },
 } satisfies FilterBarState<Values>["filters"]
 
-describe("filtersStateReducer", () => {
-  describe("filtersStateReducer: activate_filter", () => {
+describe("filterBarStateReducer", () => {
+  describe("filterBarStateReducer: activate_filter", () => {
     it("sets a filter to active and adds entry to active filters", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),
       } satisfies FilterBarState<Values>
 
-      const newState = filtersStateReducer<Values>(state, {
+      const newState = filterBarStateReducer<Values>(state, {
         type: "activate_filter",
         id: "sugarLevel",
       })
@@ -38,14 +38,14 @@ describe("filtersStateReducer", () => {
     })
   })
 
-  describe("filtersStateReducer: activate_filters_with_values", () => {
+  describe("filterBarStateReducer: activate_filters_with_values", () => {
     it("sets a filter to active and adds entry to active filters", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(),
       } satisfies FilterBarState<Values>
 
-      const newState = filtersStateReducer<Values>(state, {
+      const newState = filterBarStateReducer<Values>(state, {
         type: "activate_filters_with_values",
         values: {
           flavour: "jasmine",
@@ -59,14 +59,14 @@ describe("filtersStateReducer", () => {
     })
   })
 
-  describe("filtersStateReducer: deactivate_filter", () => {
+  describe("filterBarStateReducer: deactivate_filter", () => {
     it("sets a filter to inactive and removes entry from active filters", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),
       } satisfies FilterBarState<Values>
 
-      const newState = filtersStateReducer<Values>(state, {
+      const newState = filterBarStateReducer<Values>(state, {
         type: "deactivate_filter",
         id: "flavour",
       })

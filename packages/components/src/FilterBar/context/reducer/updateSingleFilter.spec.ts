@@ -1,6 +1,5 @@
 import { FilterBarState } from "../types"
-// import { baseFilterAttributes } from "./__testdata"
-import { filtersStateReducer } from "./filtersStateReducer"
+import { filterBarStateReducer } from "./filterBarStateReducer"
 
 type Values = {
   flavour: string
@@ -20,14 +19,14 @@ const stateFilters = {
   },
 } satisfies FilterBarState<Values>["filters"]
 
-describe("filtersStateReducer: update_single_filter", () => {
+describe("filterBarStateReducer: update_single_filter", () => {
   it("returns all filters when updating a single filter", () => {
     const state = {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
     } satisfies FilterBarState<Values>
 
-    const newState = filtersStateReducer<Values>(state, {
+    const newState = filterBarStateReducer<Values>(state, {
       type: "update_single_filter",
       id: "flavour",
       data: {},
@@ -44,7 +43,7 @@ describe("filtersStateReducer: update_single_filter", () => {
 
     expect(state.filters.flavour.isOpen).toBe(false)
 
-    const newState = filtersStateReducer<Values>(state, {
+    const newState = filterBarStateReducer<Values>(state, {
       type: "update_single_filter",
       id: "flavour",
       data: { isOpen: true },

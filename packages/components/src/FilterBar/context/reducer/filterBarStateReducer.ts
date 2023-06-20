@@ -11,7 +11,7 @@ type Actions<ValuesMap> =
   | { type: "activate_filters_with_values"; values: Partial<ValuesMap> }
   | { type: "deactivate_filter"; id: keyof ValuesMap }
 
-export const filtersStateReducer = <ValuesMap extends FiltersValues>(
+export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,
   action: Actions<ValuesMap>
 ): FilterBarState<ValuesMap> => {
