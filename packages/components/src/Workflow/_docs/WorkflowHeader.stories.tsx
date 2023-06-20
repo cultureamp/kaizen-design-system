@@ -20,7 +20,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Pages/Workflow/Components/Header",
+  title: "Pages/Workflow/Legacy/Components/Header",
   component: Workflow.Header,
   parameters: {
     docs: {

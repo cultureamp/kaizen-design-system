@@ -18,7 +18,7 @@ export interface FooterProps
 
 export const Footer = ({
   steps,
-  currentStepId,
+  stepName,
   isComplete,
   previousAction,
   nextAction,
@@ -28,7 +28,7 @@ export const Footer = ({
     <FooterAction action={previousAction} actionType="Previous" />
     <ProgressStepper
       steps={steps}
-      currentStepId={currentStepId}
+      stepName={stepName}
       isComplete={isComplete}
     />
     <FooterAction action={nextAction} actionType="Next" />

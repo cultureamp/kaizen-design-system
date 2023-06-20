@@ -1,10 +1,11 @@
 import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
-import { Installation, KaioNotification, ResourceLinks } from "../../../../../storybook/components"
+import { Installation, KaioNotification, ResourceLinks, LinkTo } from "../../../../../storybook/components"
+import { InlineNotification } from "@kaizen/notification"
 import * as Workflow from "./Workflow.stories"
 import * as WorkflowFooter from "./WorkflowFooter.stories"
 import * as WorkflowHeader from "./WorkflowHeader.stories"
 
-<Meta title="Pages/Workflow" />
+<Meta title="Pages/Workflow/Legacy" />
 
 # Workflow
 
@@ -15,10 +16,16 @@ import * as WorkflowHeader from "./WorkflowHeader.stories"
 
 <KaioNotification />
 
+<InlineNotification type="negative" persistent>
+  {`This version of the Workflow is deprecated and will be updated in the next major release.
+  Import from "@kaizen/components/future" for the latest version.`}
+</InlineNotification>
+
 <Installation
   installCommand="yarn add @kaizen/components"
   importStatement='import { Workflow } from "@kaizen/components"'
 />
+
 
 ## Overview
 
@@ -35,7 +42,6 @@ To ensure at readability at 400% zoom (See WCAG's [Reflow criteria](https://www.
 The `headerActions` prop  takes array of JSX elements that will render in the top right of the `Header` component.
 
 While the number of JSX elements is not limited, is important to consider the real estate in the `Header` and how larger strings or components may be rendered on smaller screen sizes.
-
 <Canvas
   layout="fullscreen"
   of={WorkflowHeader.MultipleActions}
@@ -105,19 +111,19 @@ A common pattern identified is a Workflow Exit button. An implementation of this
 
 ## Tracking progress
 
-The Footer tracks the progress of the form by using finding the index of the `currentStepId` within the `steps` array.
+The Footer tracks the progress of the form by comparing the current step, indicated by `stepName`, against its position in the `steps` array.
 
 <Canvas
   layout="fullscreen"
   of={WorkflowFooter.FirstStep}
   source={{code: `<Workflow
-    currentStepId="settings-step"
+    stepName="Setting"
     steps={[
-      { label: "Settings", id: "settings-step" },
-      { label: "Questions", id: "questions-step" },
-      { label: "Preview", id: "preview-step" },
-      { label: "Employees", id: "employees-step" },
-      { label: "Schedule", id: "schedule-step" },
+      'Settings',
+      'Questions',
+      'Preview',
+      'Employees',
+      'Schedule'
     ]}
     {...otherProps}
   >
@@ -144,7 +150,7 @@ To hide, disable or change the appearance of the Footer buttons you can leverage
 
 In Instances where users are returning to a completed workflow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their Aria title.
 
-<Canvas
+ <Canvas
   layout="fullscreen"
   of={WorkflowFooter.AllStepsComplete}
   source={{code: `<Workflow
@@ -153,15 +159,15 @@ In Instances where users are returning to a completed workflow you can pass the 
   >
     <MockContent />
   </Workflow>`}}
-/>
+/> 
 
 ## Composable Worflow
 
 While we do not advise this path, a composable Workflow may be created if required. Refer to the component's stories on how to consume each subcomponent.
 
-<Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
+{/* <Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} /> */}
 
 
-## Worflow API at a glance
+## Legacy API at a glance
 
 <ArgTypes of={Workflow.Playground} />

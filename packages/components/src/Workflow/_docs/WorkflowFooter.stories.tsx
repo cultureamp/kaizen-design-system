@@ -7,14 +7,8 @@ import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const defaultArgs = {
-  currentStepId: "preview-step",
-  steps: [
-    { label: "Settings", id: "settings-step" },
-    { label: "Questions", id: "questions-step" },
-    { label: "Preview", id: "preview-step" },
-    { label: "Employees", id: "employees-step" },
-    { label: "Schedule", id: "schedule-step" },
-  ],
+  stepName: "Preview",
+  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   previousAction: <Button reversed label="Back" />,
   nextAction: <Button reversed label="Next" />,
@@ -22,7 +16,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Pages/Workflow/Components/Footer",
+  title: "Pages/Workflow/Legacy/Components/Footer",
   component: Workflow.Footer,
   parameters: {
     docs: {
@@ -46,7 +40,6 @@ const meta = {
   argTypes: {
     nextAction: WorkflowControls.nextAction,
     previousAction: WorkflowControls.previousAction,
-    currentStepId: WorkflowControls.currentStepId,
   },
 } satisfies Meta<typeof Workflow.Footer>
 
@@ -56,13 +49,13 @@ export default meta
  * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
  */
 export const Playground: StoryFn<FooterProps> = ({
-  currentStepId,
+  stepName,
   steps,
   isComplete,
   ...restProps
 }) => (
   <Workflow.Footer
-    currentStepId={currentStepId}
+    stepName={stepName}
     steps={steps}
     isComplete={isComplete}
     {...restProps}
@@ -72,13 +65,13 @@ export const Playground: StoryFn<FooterProps> = ({
 Playground.args = { ...defaultArgs }
 
 const VariantTemplate: StoryFn<FooterProps> = ({
-  currentStepId,
+  stepName,
   steps,
   isComplete,
   ...restProps
 }) => (
   <Workflow.Footer
-    currentStepId={currentStepId}
+    stepName={stepName}
     steps={steps}
     isComplete={isComplete}
     {...restProps}
@@ -89,8 +82,8 @@ const VariantTemplate: StoryFn<FooterProps> = ({
 export const FirstStep = VariantTemplate.bind({})
 
 FirstStep.args = {
-  currentStepId: "settings-step",
-  steps: defaultArgs.steps,
+  stepName: "Settings",
+  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   nextAction: <Button reversed label="Next" />,
 }
@@ -98,8 +91,8 @@ FirstStep.args = {
 export const NextStepDisabled = VariantTemplate.bind({})
 
 NextStepDisabled.args = {
-  currentStepId: "preview-step",
-  steps: defaultArgs.steps,
+  stepName: "Preview",
+  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   nextAction: <Button disabled reversed label="Next" />,
   previousAction: <Button reversed label="Back" form="workflow-form-id" />,
@@ -108,8 +101,8 @@ NextStepDisabled.args = {
 export const LastStep = VariantTemplate.bind({})
 
 LastStep.args = {
-  currentStepId: "schedule-step",
-  steps: defaultArgs.steps,
+  stepName: "Schedule",
+  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
   nextAction: (
     <Button
@@ -126,8 +119,8 @@ LastStep.args = {
 export const AllStepsComplete = VariantTemplate.bind({})
 
 AllStepsComplete.args = {
-  currentStepId: "schedule-step",
-  steps: defaultArgs.steps,
+  stepName: "Schedule",
+  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: true,
   nextAction: <Button reversed label="Next" />,
 }
@@ -135,12 +128,8 @@ AllStepsComplete.args = {
 export const FewerSteps = VariantTemplate.bind({})
 
 FewerSteps.args = {
-  currentStepId: "questions-step",
-  steps: [
-    { label: "Settings", id: "settings-step" },
-    { label: "Questions", id: "questions-step" },
-    { label: "Preview", id: "preview-step" },
-  ],
+  stepName: "Questions",
+  steps: ["Settings", "Questions", "Preview"],
   isComplete: false,
   nextAction: <Button reversed label="Next" />,
   previousAction: <Button reversed label="Back" />,
@@ -148,12 +137,16 @@ FewerSteps.args = {
 export const SevenSteps = VariantTemplate.bind({})
 
 SevenSteps.args = {
-  currentStepId: "questions-step",
+  stepName: "Questions",
   steps: [
-    ...defaultArgs.steps,
-    { label: "Plan", id: "plan-step" },
-    { label: "Provision", id: "provision-step" },
-    { label: "Procure", id: "procure-step" },
+    "Settings",
+    "Questions",
+    "Preview",
+    "Employees",
+    "Schedule",
+    "Plan",
+    "Provision",
+    "Another thing",
   ],
   isComplete: false,
   nextAction: <Button reversed label="Next" />,
