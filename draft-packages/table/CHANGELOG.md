@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.9.2
+
+### Patch Changes
+
+- [#3775](https://github.com/cultureamp/kaizen-design-system/pull/3775) [`348d84844`](https://github.com/cultureamp/kaizen-design-system/commit/348d848448509ff358dcf4785f2eba9a8a672d49) - Expose tooltipPortalSelector prop on TableHeaderRow
+
 ## 5.9.1
 
 ### Patch Changes
