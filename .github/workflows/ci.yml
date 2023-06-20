@@ -35,9 +35,10 @@ jobs:
           cache: yarn
           node-version-file: .nvmrc
           registry-url: https://npm.pkg.github.com/
-      - run: |
-          yarn install --frozen-lockfile
-          yarn changeset status --since=origin/main
+      - run: yarn install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: yarn changeset status --since=origin/main
 
   typescript:
     if: github.ref != 'refs/heads/main'

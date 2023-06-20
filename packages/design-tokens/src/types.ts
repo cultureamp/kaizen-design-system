@@ -26,6 +26,7 @@ export type TypographyFont = {
   fontSize: KaizenCSSProperties["fontSize"]
   lineHeight: KaizenCSSProperties["lineHeight"]
   letterSpacing: KaizenCSSProperties["letterSpacing"]
+  maxWidth?: KaizenCSSProperties["maxWidth"]
 }
 
 export type ThemeKey = "heart" | "custom"

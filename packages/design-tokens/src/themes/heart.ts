@@ -269,6 +269,7 @@ export const heartTheme: Theme = {
       fontSize: "1.25rem",
       lineHeight: "1.875rem",
       letterSpacing: "0",
+      maxWidth: "975px",
     },
     paragraphBody: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -276,6 +277,7 @@ export const heartTheme: Theme = {
       fontSize: "1rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      maxWidth: "780px",
     },
     paragraphSmall: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -283,6 +285,7 @@ export const heartTheme: Theme = {
       fontSize: "0.875rem",
       lineHeight: "1.125rem",
       letterSpacing: "normal",
+      maxWidth: "680px",
     },
     paragraphExtraSmall: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -290,6 +293,7 @@ export const heartTheme: Theme = {
       fontSize: "0.75rem",
       lineHeight: "1.125rem",
       letterSpacing: "normal",
+      maxWidth: "600px",
     },
     paragraphBold: {
       fontWeight: 600,
