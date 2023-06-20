@@ -374,6 +374,11 @@ $typography-paragraph-intro-lede-letter-spacing: var(
   0
 );
 $typography-paragraph-intro-lede-letter-spacing-id: --typography-paragraph-intro-lede-letter-spacing;
+$typography-paragraph-intro-lede-max-width: var(
+  --typography-paragraph-intro-lede-max-width,
+  975px
+);
+$typography-paragraph-intro-lede-max-width-id: --typography-paragraph-intro-lede-max-width;
 $typography-paragraph-body-font-family: var(
   --typography-paragraph-body-font-family,
   "Inter",
@@ -403,6 +408,11 @@ $typography-paragraph-body-letter-spacing: var(
   normal
 );
 $typography-paragraph-body-letter-spacing-id: --typography-paragraph-body-letter-spacing;
+$typography-paragraph-body-max-width: var(
+  --typography-paragraph-body-max-width,
+  780px
+);
+$typography-paragraph-body-max-width-id: --typography-paragraph-body-max-width;
 $typography-paragraph-small-font-family: var(
   --typography-paragraph-small-font-family,
   "Inter",
@@ -432,6 +442,11 @@ $typography-paragraph-small-letter-spacing: var(
   normal
 );
 $typography-paragraph-small-letter-spacing-id: --typography-paragraph-small-letter-spacing;
+$typography-paragraph-small-max-width: var(
+  --typography-paragraph-small-max-width,
+  680px
+);
+$typography-paragraph-small-max-width-id: --typography-paragraph-small-max-width;
 $typography-paragraph-extra-small-font-family: var(
   --typography-paragraph-extra-small-font-family,
   "Inter",
@@ -461,6 +476,11 @@ $typography-paragraph-extra-small-letter-spacing: var(
   normal
 );
 $typography-paragraph-extra-small-letter-spacing-id: --typography-paragraph-extra-small-letter-spacing;
+$typography-paragraph-extra-small-max-width: var(
+  --typography-paragraph-extra-small-max-width,
+  600px
+);
+$typography-paragraph-extra-small-max-width-id: --typography-paragraph-extra-small-max-width;
 $typography-paragraph-bold-font-weight: var(
   --typography-paragraph-bold-font-weight,
   600
