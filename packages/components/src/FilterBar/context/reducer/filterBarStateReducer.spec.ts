@@ -75,7 +75,7 @@ describe("filterBarStateReducer", () => {
     })
   })
 
-  describe("filterBarStateReducer: deactivate_filters", () => {
+  describe("filterBarStateReducer: clear_all_filters", () => {
     it("sets all removable filters to inactive", () => {
       const state = {
         filters: {
@@ -97,7 +97,7 @@ describe("filterBarStateReducer", () => {
       const onValuesChange = jest.fn<void, [Partial<Values>]>()
 
       const newState = filterBarStateReducer<Values>(state, {
-        type: "deactivate_filters",
+        type: "clear_all_filters",
         onValuesChange,
       })
 
