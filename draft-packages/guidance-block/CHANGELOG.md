@@ -1,5 +1,13 @@
 # Change Log
 
+## 6.2.2
+
+### Patch Changes
+
+- Updated dependencies [[`b6047fe28`](https://github.com/cultureamp/kaizen-design-system/commit/b6047fe285d7d8c0d5e5945db1d3ac6671bfe5c6), [`83fb7bdba`](https://github.com/cultureamp/kaizen-design-system/commit/83fb7bdba6d654e3851c8eef00f8279961f8d3bf)]:
+  - @kaizen/draft-illustration@7.0.0
+  - @kaizen/component-library@16.9.1
+
 ## 6.2.1
 
 ### Patch Changes

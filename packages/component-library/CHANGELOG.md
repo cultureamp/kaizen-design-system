@@ -1,5 +1,11 @@
 # Change Log
 
+## 16.9.1
+
+### Patch Changes
+
+- [#3713](https://github.com/cultureamp/kaizen-design-system/pull/3713) [`83fb7bdba`](https://github.com/cultureamp/kaizen-design-system/commit/83fb7bdba6d654e3851c8eef00f8279961f8d3bf) - Update dependencies
+
 ## 16.9.0
 
 ### Minor Changes

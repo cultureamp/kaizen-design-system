@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.3.10
+
+### Patch Changes
+
+- [#3739](https://github.com/cultureamp/kaizen-design-system/pull/3739) [`c6434ffbf`](https://github.com/cultureamp/kaizen-design-system/commit/c6434ffbf95b4d3ddb35d906637864882628755d) - Introducing new tokens for max width of paragraphs for better readability
+
 ## 10.3.9
 
 ### Patch Changes

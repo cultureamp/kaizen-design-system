@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.3.41
+
+### Patch Changes
+
+- Updated dependencies [[`b6047fe28`](https://github.com/cultureamp/kaizen-design-system/commit/b6047fe285d7d8c0d5e5945db1d3ac6671bfe5c6)]:
+  - @kaizen/draft-illustration@7.0.0
+
 ## 5.3.40
 
 ### Patch Changes
