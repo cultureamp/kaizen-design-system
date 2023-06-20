@@ -92,10 +92,8 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       onValuesChange({ ...values, [id]: undefined })
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
-    clearAllFilters: () => {
-      dispatch({ type: "deactivate_filters" })
-      onValuesChange({})
-    },
+    clearAllFilters: () =>
+      dispatch({ type: "deactivate_filters", onValuesChange }),
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {

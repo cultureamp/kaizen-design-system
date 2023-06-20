@@ -94,13 +94,17 @@ describe("filterBarStateReducer", () => {
         activeFilterIds: new Set<keyof Values>(["flavour", "sugarLevel"]),
       } satisfies FilterBarState<Values>
 
+      const onValuesChange = jest.fn<void, [Partial<Values>]>()
+
       const newState = filterBarStateReducer<Values>(state, {
         type: "deactivate_filters",
+        onValuesChange,
       })
 
       expect(newState.activeFilterIds).toEqual(
         new Set<keyof Values>(["flavour"])
       )
+      expect(onValuesChange).toHaveBeenCalledWith({})
     })
   })
 })
