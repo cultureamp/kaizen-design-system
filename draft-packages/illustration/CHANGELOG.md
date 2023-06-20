@@ -1,5 +1,17 @@
 # Change Log
 
+## 7.0.0
+
+### Major Changes
+
+- [#3773](https://github.com/cultureamp/kaizen-design-system/pull/3773) [`b6047fe28`](https://github.com/cultureamp/kaizen-design-system/commit/b6047fe285d7d8c0d5e5945db1d3ac6671bfe5c6) - - Remove animated Spot illustrations, defaulting to Static illustrations.
+  - Deprecated `isAnimated` prop on Spot illustrations
+
+### Patch Changes
+
+- Updated dependencies [[`83fb7bdba`](https://github.com/cultureamp/kaizen-design-system/commit/83fb7bdba6d654e3851c8eef00f8279961f8d3bf)]:
+  - @kaizen/component-library@16.9.1
+
 ## 6.1.2
 
 ### Patch Changes
