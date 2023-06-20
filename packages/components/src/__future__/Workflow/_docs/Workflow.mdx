@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
-import { Installation, KaioNotification, ResourceLinks,LinkTo } from "../../../../../../storybook/components"
+import { Installation, KaioNotification, ResourceLinks, LinkTo } from "../../../../../../storybook/components"
 import { InlineNotification } from "@kaizen/notification"
+import { Paragraph } from "@kaizen/typography"
 import * as Workflow from "./Workflow.stories"
 import * as WorkflowFooter from "./WorkflowFooter.stories"
 import * as WorkflowHeader from "./WorkflowHeader.stories"
@@ -16,8 +17,8 @@ import * as WorkflowHeader from "./WorkflowHeader.stories"
 
 <KaioNotification />
 
-<InlineNotification type="cautionary" persistent>
-  {`This is the latest version of the Workflow component. If you are using "@kaizen/components" at 1.16.0 or lower, please refer to our legacy documentation.`} 
+<InlineNotification type="informative" persistent>
+  {`If you are using "@kaizen/components" at 1.16.0 or lower, please refer to our legacy documentation.`} 
 </InlineNotification>
 
 <Installation
