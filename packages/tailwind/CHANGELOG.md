@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.0.3
+
+### Patch Changes
+
+- [#3739](https://github.com/cultureamp/kaizen-design-system/pull/3739) [`c6434ffbf`](https://github.com/cultureamp/kaizen-design-system/commit/c6434ffbf95b4d3ddb35d906637864882628755d) - Introducing new tokens for max width of paragraphs for better readability
+
+- Updated dependencies [[`c6434ffbf`](https://github.com/cultureamp/kaizen-design-system/commit/c6434ffbf95b4d3ddb35d906637864882628755d)]:
+  - @kaizen/design-tokens@10.3.10
+
 ## 1.0.2
 
 ### Patch Changes
