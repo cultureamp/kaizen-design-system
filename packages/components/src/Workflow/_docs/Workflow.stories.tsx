@@ -1,154 +1,232 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { Button } from "@kaizen/button"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { FooterProps } from "../subcomponents/Footer"
-import { Workflow } from "../"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Button } from "~components/Button"
+import { CloseIcon } from "~icons/CloseIcon"
+import { VisibleIcon } from "~icons/VisibleIcon"
+import { Workflow, WorkflowProps } from "../"
 import { WorkflowControls } from "./controls"
 
+const MockContent = (): JSX.Element => (
+  <div className="flex flex-col flex-1 m-24 items-center">
+    <div className="max-w-[1392px] w-100">
+      <h2>Name and schedule the self-reflection cycle</h2>
+      <form
+        id="workflow-form-id"
+        className="bg-white rounded-default shadow-sm my-32 p-64"
+      >
+        <h3>Name the cycle</h3>
+        <label
+          className="block font-weight-paragraph-bold"
+          htmlFor="input-workflow"
+        >
+          Cycle name
+        </label>
+        <input
+          type="text"
+          id="input-workflow"
+          aria-describedby="input-workflow-desc"
+        />
+        <p id="input-workflow-desc">
+          This is the name that will be displayed across the cycle for everyone
+        </p>
+      </form>
+    </div>
+  </div>
+)
+
 const defaultArgs = {
-  stepName: "Preview",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: false,
-  previousAction: <Button reversed label="Back" />,
-  nextAction: <Button reversed label="Next" />,
-} satisfies FooterProps
-
-const meta = {
-  tags: ["autodocs"],
-  title: "Pages/Workflow/Legacy/Workflow",
-  component: Workflow.Footer,
-  parameters: {
-    docs: {
-      sourceState: "shown",
-      container: ComponentDocsTemplate,
-    },
-    installation: [
-      "yarn add @kaizen/workflow",
-      "import { Workflow } from `@kaizen/components`",
-    ],
-    resourceLinks: {
-      sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/workflow/",
-      figma:
-        "https://www.figma.com/file/IJTy1JpS4Xyop5cQwroRje/%F0%9F%9B%A0%EF%B8%8F-Self-reflection%3A-Build-Handoff?node-id=188%3A62005&t=x4zyx07E2G3BmKGw-1",
-      /** @todo (optional): Add Confluence link */
-      designGuidelines:
-        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
-    },
-  },
-  argTypes: {
-    nextAction: WorkflowControls.nextAction,
-    previousAction: WorkflowControls.previousAction,
-  },
-} satisfies Meta<typeof Workflow.Footer>
-
-export default meta
-
-/**
- * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
- */
-export const Playground: StoryFn<FooterProps> = ({
-  stepName,
-  steps,
-  isComplete,
-  ...restProps
-}) => (
-  <Workflow.Footer
-    stepName={stepName}
-    steps={steps}
-    isComplete={isComplete}
-    {...restProps}
-  />
-)
-
-Playground.args = { ...defaultArgs }
-
-const VariantTemplate: StoryFn<FooterProps> = ({
-  stepName,
-  steps,
-  isComplete,
-  ...restProps
-}) => (
-  <Workflow.Footer
-    stepName={stepName}
-    steps={steps}
-    isComplete={isComplete}
-    {...restProps}
-  />
-)
-
-// /** <p>Next and previous button are passed in by the consumer to allow for page routing method to be determined by the user</p>  */
-export const FirstStep = VariantTemplate.bind({})
-
-FirstStep.args = {
+  workflowName: "Create a self-reflection cycle",
   stepName: "Settings",
   steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
   isComplete: false,
+  status: {
+    content: "Draft",
+    variant: "statusDraft",
+  },
+  previousAction: <Button reversed label="Back" />,
   nextAction: <Button reversed label="Next" />,
-}
-
-export const NextStepDisabled = VariantTemplate.bind({})
-
-NextStepDisabled.args = {
-  stepName: "Preview",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: false,
-  nextAction: <Button disabled reversed label="Next" />,
-  previousAction: <Button reversed label="Back" form="workflow-form-id" />,
-}
-
-export const LastStep = VariantTemplate.bind({})
-
-LastStep.args = {
-  stepName: "Schedule",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: false,
-  nextAction: (
+  headerActions: [
     <Button
-      reversed
-      primary
-      disabled
-      form="worflow-form-id-for-submit"
-      label="Finish"
-    />
-  ),
-  previousAction: <Button reversed label="Back" />,
-}
-
-export const AllStepsComplete = VariantTemplate.bind({})
-
-AllStepsComplete.args = {
-  stepName: "Schedule",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: true,
-  nextAction: <Button reversed label="Next" />,
-}
-
-export const FewerSteps = VariantTemplate.bind({})
-
-FewerSteps.args = {
-  stepName: "Questions",
-  steps: ["Settings", "Questions", "Preview"],
-  isComplete: false,
-  nextAction: <Button reversed label="Next" />,
-  previousAction: <Button reversed label="Back" />,
-}
-export const SevenSteps = VariantTemplate.bind({})
-
-SevenSteps.args = {
-  stepName: "Questions",
-  steps: [
-    "Settings",
-    "Questions",
-    "Preview",
-    "Employees",
-    "Schedule",
-    "Plan",
-    "Provision",
-    "Another thing",
+      key="would-use-uui-2"
+      label="Save and close"
+      icon={<CloseIcon />}
+      secondary
+      iconPosition="end"
+    />,
   ],
-  isComplete: false,
-  nextAction: <Button reversed label="Next" />,
-  previousAction: <Button reversed label="Back" />,
+  children: <MockContent />,
+} satisfies WorkflowProps
+
+const meta = {
+  title: "Pages/Workflow/Legacy/Components/Workflow",
+  component: Workflow,
+  args: defaultArgs,
+  argTypes: WorkflowControls,
+} satisfies Meta<typeof Workflow>
+
+export default meta
+
+export const Playground: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+    chromatic: { disable: false },
+  },
 }
+
+Playground.args = { ...defaultArgs }
+
+export const MultipleActions: StoryObj<typeof meta> = {
+  args: {
+    workflowName: "Create a self-reflection cycle",
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: false,
+    status: {
+      content: "Draft",
+      variant: "statusDraft",
+    },
+    nextAction: <Button reversed label="Next" />,
+    headerActions: [
+      <Button
+        key="would-use-uui-1"
+        label="Preview"
+        icon={<VisibleIcon />}
+        secondary
+        iconPosition="start"
+      />,
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={<CloseIcon />}
+        secondary
+        iconPosition="end"
+        onClick={(): void => alert("mock example of a save action")}
+      />,
+    ],
+  },
+}
+
+export const FinalStep: StoryObj<typeof meta> = {
+  args: {
+    workflowName: "Create a self-reflection cycle",
+    stepName: "Schedule",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: false,
+    status: {
+      content: "Draft",
+      variant: "statusDraft",
+    },
+    nextAction: <Button reversed label="Next" />,
+    headerActions: [
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={<CloseIcon />}
+        secondary
+        iconPosition="end"
+        onClick={(): void => alert("mock example of a save action")}
+      />,
+    ],
+  },
+}
+
+export const CompletedWorkflow: StoryObj<typeof meta> = {
+  args: {
+    workflowName: "Create a self-reflection cycle",
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: true,
+    status: {
+      content: "Draft",
+      variant: "statusDraft",
+    },
+    nextAction: <Button reversed label="Next" />,
+    headerActions: [
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={<CloseIcon />}
+        secondary
+        iconPosition="end"
+        onClick={(): void => alert("mock example of a save action")}
+      />,
+    ],
+  },
+  parameters: {
+    chromatic: { disable: false },
+  },
+}
+
+export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
+  steps,
+  isComplete,
+  workflowName,
+  stepName,
+  status,
+  headerActions,
+  previousAction,
+  nextAction,
+  ...restProps
+}) => (
+  <Workflow.Wrapper {...restProps}>
+    <Workflow.Header
+      workflowName={workflowName}
+      stepName={stepName}
+      status={status}
+      headerActions={headerActions}
+    />
+    <Workflow.Main>
+      <h3>Content</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
+        labore dolorum debitis eaque laboriosam qui quidem itaque necessitatibus
+        obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
+        quibusdam vero?
+      </p>
+    </Workflow.Main>
+    <Workflow.Footer
+      stepName={stepName}
+      steps={steps}
+      isComplete={isComplete}
+      nextAction={nextAction}
+      previousAction={previousAction}
+    />
+  </Workflow.Wrapper>
+)
+
+ComposableWorkflow.parameters = {
+  chromatic: { disable: false },
+}
+
+export const ResponsiveWorkflow: StoryObj<typeof meta> = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "hidden",
+      },
+    },
+    viewport: {
+      viewports: {
+        vieportZoomed: {
+          name: "Simulate 400% zoom",
+          styles: {
+            width: "500px",
+            height: "800px",
+          },
+          type: "mobile",
+        },
+      },
+      defaultViewport: "vieportZoomed",
+    },
+    chromatic: {
+      disable: false,
+      viewports: [500, 1200],
+    },
+  },
+}
+
+ResponsiveWorkflow.args = { ...defaultArgs }

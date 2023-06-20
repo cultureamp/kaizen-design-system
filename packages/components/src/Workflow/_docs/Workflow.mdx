@@ -1,5 +1,5 @@
 import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
-import { Installation, KaioNotification, ResourceLinks, LinkTo } from "../../../../../storybook/components"
+import { Installation, KaioNotification, ResourceLinks } from "../../../../../storybook/components"
 import { InlineNotification } from "@kaizen/notification"
 import * as Workflow from "./Workflow.stories"
 import * as WorkflowFooter from "./WorkflowFooter.stories"
@@ -42,6 +42,7 @@ To ensure at readability at 400% zoom (See WCAG's [Reflow criteria](https://www.
 The `headerActions` prop  takes array of JSX elements that will render in the top right of the `Header` component.
 
 While the number of JSX elements is not limited, is important to consider the real estate in the `Header` and how larger strings or components may be rendered on smaller screen sizes.
+
 <Canvas
   layout="fullscreen"
   of={WorkflowHeader.MultipleActions}
@@ -150,7 +151,7 @@ To hide, disable or change the appearance of the Footer buttons you can leverage
 
 In Instances where users are returning to a completed workflow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their Aria title.
 
- <Canvas
+<Canvas
   layout="fullscreen"
   of={WorkflowFooter.AllStepsComplete}
   source={{code: `<Workflow
@@ -159,15 +160,15 @@ In Instances where users are returning to a completed workflow you can pass the 
   >
     <MockContent />
   </Workflow>`}}
-/> 
+/>
 
 ## Composable Worflow
 
 While we do not advise this path, a composable Workflow may be created if required. Refer to the component's stories on how to consume each subcomponent.
 
-{/* <Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} /> */}
+<Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
 
 
-## Legacy API at a glance
+## Worflow API at a glance
 
 <ArgTypes of={Workflow.Playground} />
