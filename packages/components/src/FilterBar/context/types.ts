@@ -10,7 +10,7 @@ export type InternalFilterState = {
   isOpen: boolean
 }
 
-type BaseFilterState<Id> = Omit<FilterAttributes<Id>, "Component"> &
+export type BaseFilterState<Id> = Omit<FilterAttributes<Id>, "Component"> &
   InternalFilterState
 
 export type FilterBarStateFilters<ValuesMap extends FiltersValues> = {

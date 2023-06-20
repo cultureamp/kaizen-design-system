@@ -6,7 +6,7 @@ import {
   ActiveFiltersArray,
   FiltersValues,
   FilterState,
-  FilterBarStateFilters,
+  BaseFilterState,
 } from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
@@ -20,7 +20,7 @@ export type FilterBarContextValue<
   updateValue: (id: keyof ValuesMap, value: Value) => void
   showFilter: (id: keyof ValuesMap) => void
   hideFilter: (id: keyof ValuesMap) => void
-  getInactiveFilters: () => Array<FilterBarStateFilters<ValuesMap>>
+  getInactiveFilters: () => Array<BaseFilterState<keyof ValuesMap>>
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(

@@ -1,7 +1,7 @@
-import { FilterBarState, FilterBarStateFilters, FiltersValues } from "../types"
+import { BaseFilterState, FilterBarState, FiltersValues } from "../types"
 
 export const getInactiveFilters = <ValuesMap extends FiltersValues>({
   filters,
   activeFilterIds,
-}: FilterBarState<ValuesMap>): Array<FilterBarStateFilters<ValuesMap>> =>
+}: FilterBarState<ValuesMap>): Array<BaseFilterState<keyof ValuesMap>> =>
   Object.values(filters).filter(({ id }) => !activeFilterIds.has(id))
