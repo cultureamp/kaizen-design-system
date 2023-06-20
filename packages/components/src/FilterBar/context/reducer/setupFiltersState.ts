@@ -6,7 +6,7 @@ export const setupFiltersState = <ValuesMap extends FiltersValues>(
   values: Partial<ValuesMap>
 ): FilterBarState<ValuesMap> =>
   filters.reduce<FilterBarState<ValuesMap>>(
-    (state, filter) => {
+    (state, { Component: _, ...filter }) => {
       state.filters[filter.id] = {
         ...filter,
         isOpen: false,
