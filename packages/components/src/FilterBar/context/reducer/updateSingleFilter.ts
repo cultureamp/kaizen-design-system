@@ -1,25 +1,15 @@
-import { FiltersState, FiltersValues, InternalFilterState } from "../types"
+import {
+  FilterBarState,
+  FilterBarStateFilters,
+  FiltersValues,
+  InternalFilterState,
+} from "../types"
 
 export const updateSingleFilter = <ValuesMap extends FiltersValues>(
-  state: FiltersState<ValuesMap>,
+  state: FilterBarState<ValuesMap>,
   id: keyof ValuesMap,
-  data: Partial<
-    InternalFilterState<keyof ValuesMap, ValuesMap[keyof ValuesMap]>
-  >
-): FiltersState<ValuesMap> => {
-  const newFilterState = { ...state.filters[id], ...data }
-
-  const { isActive } = data
-  if (isActive !== undefined) {
-    if (isActive) {
-      state.activeFilterIds.add(id)
-    } else {
-      state.activeFilterIds.delete(id)
-    }
-  }
-
-  return {
-    filters: { ...state.filters, [id]: newFilterState },
-    activeFilterIds: state.activeFilterIds,
-  }
-}
+  data: Partial<InternalFilterState>
+): FilterBarStateFilters<ValuesMap> => ({
+  ...state.filters,
+  [id]: { ...state.filters[id], ...data },
+})

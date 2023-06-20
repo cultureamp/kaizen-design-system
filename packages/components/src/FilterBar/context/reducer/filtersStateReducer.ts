@@ -1,20 +1,32 @@
-import { FiltersState, FiltersValues, InternalFilterState } from "../types"
+import { FilterBarState, FiltersValues, InternalFilterState } from "../types"
 import { updateSingleFilter } from "./updateSingleFilter"
 
-type Actions<ValuesMap> = {
-  type: "update_single_filter"
-  id: keyof ValuesMap
-  data: Partial<
-    InternalFilterState<keyof ValuesMap, ValuesMap[keyof ValuesMap]>
-  >
-}
+type Actions<ValuesMap> =
+  | {
+      type: "update_single_filter"
+      id: keyof ValuesMap
+      data: Partial<InternalFilterState>
+    }
+  | { type: "activate_filter"; id: keyof ValuesMap }
+  | { type: "deactivate_filter"; id: keyof ValuesMap }
 
 export const filtersStateReducer = <ValuesMap extends FiltersValues>(
-  state: FiltersState<ValuesMap>,
+  state: FilterBarState<ValuesMap>,
   action: Actions<ValuesMap>
-): FiltersState<ValuesMap> => {
+): FilterBarState<ValuesMap> => {
   switch (action.type) {
     case "update_single_filter":
-      return updateSingleFilter(state, action.id, action.data)
+      return {
+        ...state,
+        filters: updateSingleFilter(state, action.id, action.data),
+      }
+
+    case "activate_filter":
+      state.activeFilterIds.add(action.id)
+      return { ...state }
+
+    case "deactivate_filter":
+      state.activeFilterIds.delete(action.id)
+      return { ...state }
   }
 }
