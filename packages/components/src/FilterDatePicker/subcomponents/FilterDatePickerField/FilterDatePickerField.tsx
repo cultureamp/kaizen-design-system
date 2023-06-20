@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
+import React, { HTMLAttributes, useEffect, useState } from "react"
 import classnames from "classnames"
 import {
   CalendarSingle,
