@@ -2,8 +2,7 @@
 "@kaizen/components": minor
 ---
 
-Updates steps to object and stepName to currentStepId
-
+Create /future release for Workflow component that updates Steps to array of objects and stepName to currentStepId
 - updates the stepName to currentStepId
 - updates steps from non-empty array of strings to non-empty array of Steps
   - exports Step and Steps types for convenience in consuming repos
