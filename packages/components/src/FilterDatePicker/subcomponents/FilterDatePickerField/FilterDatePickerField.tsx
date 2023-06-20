@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect, useState } from "react"
+import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import {
   CalendarSingle,
@@ -104,7 +104,10 @@ export const FilterDatePickerField = ({
   })
 
   const validateDate = (date: Date | undefined): Date | undefined =>
-    dateValidation.validateDate({ date, inputValue: inputDateValue })
+    dateValidation.validateDate({
+      date,
+      inputValue: transformDateToInputValue(date),
+    })
 
   const inputDateHandlers = useDateInputHandlers({
     locale,
@@ -125,7 +128,6 @@ export const FilterDatePickerField = ({
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
     const newDate = validateDate(date)
     setInputDateValue(transformDateToInputValue(newDate))
-    console.info("setInputDateValue", setInputDateValue)
     handleDateChange(newDate)
     onDateSubmit?.(newDate)
   }

@@ -203,8 +203,9 @@ describe("<FilterDatePickerField />", () => {
   describe("Validation", () => {
     const dateErrorId = "#test__filter-date-picker--input--date-error-message"
 
-    it("should not have an InputValue in the validation response when selecting a calendar date", async () => {
+    it("should have the correct InputValue in the validation response when selecting a calendar date", async () => {
       const handleValidate = jest.fn()
+      const expectedDate = new Date("2022-05-01")
 
       render(
         <FilterDatePickerFieldWrapper
@@ -231,8 +232,8 @@ describe("<FilterDatePickerField />", () => {
         expect(inputDate).toHaveValue("1 May 2022")
         expect(handleValidate.mock.calls[1]).toEqual([
           {
-            date: "2022-05-01T00:00:00.000Z",
-            inputValue: "",
+            date: expectedDate,
+            inputValue: "01/05/2022",
             isInvalid: false,
             isDisabled: false,
             isEmpty: false,
