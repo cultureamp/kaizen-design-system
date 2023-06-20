@@ -159,10 +159,16 @@ export const Tag = (props: TagProps): JSX.Element => {
           )}
           {variant === "statusLive" && (
             <span className={styles.radarIcon}>
-              <span className={styles.iconBack}>
+              <span className={styles.radarIcon_base}>
                 <Icon icon={wifi} role="presentation" />
               </span>
-              <span className={styles.iconFront}>
+              <span className={styles.radarIcon_1}>
+                <Icon icon={wifi} role="presentation" />
+              </span>
+              <span className={styles.radarIcon_2}>
+                <Icon icon={wifi} role="presentation" />
+              </span>
+              <span className={styles.radarIcon_3}>
                 <Icon icon={wifi} role="presentation" />
               </span>
             </span>

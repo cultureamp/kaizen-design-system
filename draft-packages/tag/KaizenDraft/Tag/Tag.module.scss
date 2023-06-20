@@ -222,87 +222,86 @@ $small: $spacing-md;
   color: $color-purple-800;
 }
 
-$pulse-size-initial: 2px;
-$pulse-scale-factor: 9;
-$pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
-$pulse-ring-position: calc(
-  -1 * (#{$pulse-size-after} / 2) + (#{$pulse-size-initial} / 2)
-);
-
-.pulse {
-  margin-inline-start: calc(#{$spacing-md} * 0.35);
-  margin-inline-end: calc(#{$spacing-md} * 0.15);
-  width: $pulse-size-initial;
-  height: $pulse-size-initial;
-  border-radius: 50%;
-  background-color: $color-blue-500;
-  display: inline-block;
-  position: relative;
-  opacity: 50%;
-}
-
-.pulseRing {
-  position: absolute;
-  width: $pulse-size-after;
-  height: $pulse-size-after;
-  // this positioning has to be calculated as an exact value as scaling will mess with percentage values
-  left: $pulse-ring-position;
-  top: $pulse-ring-position;
-  border-radius: 50%;
-  background-color: $color-green-500;
-  animation: pulsate infinite 2.5s ease-out;
-}
-
-@keyframes pulsate {
-  0% {
-    transform: scale(0);
-    opacity: 100%;
-  }
-
-  50%,
-  100% {
-    transform: scale(1);
-    opacity: 0%;
-  }
-}
-
 .radarIcon {
   display: inline-block;
   position: relative;
   width: 20px;
   height: 20px;
   margin-inline-start: 0.25rem;
+  color: $color-green-500;
 }
 
-.iconBack {
-  color: $color-green-500;
+.radarIcon_base {
   opacity: 30%;
   display: block;
 }
 
-.iconFront {
+.radarIcon_1,
+.radarIcon_2,
+.radarIcon_3 {
   display: block;
   position: absolute;
-  color: $color-green-500;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   aspect-ratio: 1;
   overflow: hidden;
-  clip-path: circle(66%);
-
-  animation-name: radar;
-  animation-duration: 3s;
-  animation-timing-function: steps(4);
-  animation-direction: forward;
-  animation-iteration-count: 2;
 }
 
-@keyframes radar {
+.radarIcon_1 {
+  clip-path: circle(16%);
+}
+
+.radarIcon_2,
+.radarIcon_3 {
+  animation-duration: 3s;
+  animation-iteration-count: 3;
+  animation-delay: 1s;
+}
+
+.radarIcon_2 {
+  clip-path: circle(32%);
+  animation-name: pulse-inner;
+}
+
+.radarIcon_3 {
+  clip-path: circle(50%);
+  animation-name: pulse-outer;
+}
+
+@keyframes pulse-inner {
   0% {
-    clip-path: circle(0%);
+    opacity: 0%;
+  }
+  25% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  75% {
+    opacity: 100%;
   }
   100% {
-    clip-path: circle(66%);
+    opacity: 100%;
+  }
+}
+
+@keyframes pulse-outer {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  75% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
   }
 }

@@ -170,4 +170,3 @@ export const LiveTag: StoryFn<typeof Tag> = args => (
     Default
   </Tag>
 )
-DefaultStory.storyName = "Live Tag"
