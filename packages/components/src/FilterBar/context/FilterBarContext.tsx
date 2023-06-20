@@ -2,7 +2,12 @@ import React, { useContext, useEffect, useMemo, useReducer } from "react"
 import { Filters } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
 import { setupFiltersState } from "./reducer/setupFiltersState"
-import { ActiveFiltersArray, FiltersValues, FilterState } from "./types"
+import {
+  ActiveFiltersArray,
+  FiltersValues,
+  FilterState,
+  FilterBarStateFilters,
+} from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
 
@@ -15,7 +20,7 @@ export type FilterBarContextValue<
   updateValue: (id: keyof ValuesMap, value: Value) => void
   showFilter: (id: keyof ValuesMap) => void
   hideFilter: (id: keyof ValuesMap) => void
-  getInactiveFilters: () => Array<FilterState<keyof ValuesMap, Value>>
+  getInactiveFilters: () => Array<FilterBarStateFilters<ValuesMap>>
 }
 
 const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
