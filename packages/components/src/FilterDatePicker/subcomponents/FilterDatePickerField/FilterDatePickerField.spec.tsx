@@ -1,7 +1,6 @@
 import React, { useState, FocusEvent } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { DateValidationResponse } from "~components/FilterDatePicker/types"
 import { FilterDatePickerField, FilterDatePickerFieldProps } from "."
 
 const user = userEvent.setup()
@@ -205,15 +204,7 @@ describe("<FilterDatePickerField />", () => {
     const dateErrorId = "#test__filter-date-picker--input--date-error-message"
 
     it("should not have an InputValue in the validation response when selecting a calendar date", async () => {
-      const [response, setResponse] = useState<
-        DateValidationResponse | undefined
-      >()
-
-      const handleValidate = (
-        validationResponse: DateValidationResponse
-      ): void => {
-        setResponse(validationResponse)
-      }
+      const handleValidate = jest.fn()
 
       render(
         <FilterDatePickerFieldWrapper
@@ -238,14 +229,17 @@ describe("<FilterDatePickerField />", () => {
 
       await waitFor(() => {
         expect(inputDate).toHaveValue("1 May 2022")
-        expect(response).toEqual({
-          date: "2022-04-30T14:00:00.000Z",
-          inputValue: "",
-          isInvalid: false,
-          isDisabled: false,
-          isEmpty: false,
-          isValidDate: true,
-        })
+        expect(handleValidate.mock.calls[1]).toEqual([
+          {
+            date: "2022-05-01T00:00:00.000Z",
+            inputValue: "",
+            isInvalid: false,
+            isDisabled: false,
+            isEmpty: false,
+            isValidDate: true,
+            validationMessage: undefined,
+          },
+        ])
       })
     })
 

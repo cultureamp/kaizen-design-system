@@ -125,6 +125,7 @@ export const FilterDatePickerField = ({
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
     const newDate = validateDate(date)
     setInputDateValue(transformDateToInputValue(newDate))
+    console.info("setInputDateValue", setInputDateValue)
     handleDateChange(newDate)
     onDateSubmit?.(newDate)
   }
