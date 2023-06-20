@@ -9,6 +9,14 @@ export interface KaizenTailwindPreset {
 
 // Note: changing any token will require to to run build:ts from the root `design-tokens`
 export const kaizenTailwindTheme: KaizenTailwindTheme = {
+  extend: {
+    maxWidth: {
+      paragraph: `${defaultTheme.typography.paragraphBody.maxWidth}`,
+      "paragraph-lede": `${defaultTheme.typography.paragraphIntroLede.maxWidth}`,
+      "paragraph-sm": `${defaultTheme.typography.paragraphSmall.maxWidth}`,
+      "paragraph-xs": `${defaultTheme.typography.paragraphExtraSmall.maxWidth}`,
+    },
+  },
   colors: {
     transparent: "transparent",
     current: "currentColor",
