@@ -51,6 +51,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               )}
               label="Start day"
               locale="en-AU"
+              defaultMonth={new Date("2022-05-01")}
               selectedDate={noDateValue}
               onDateChange={setNoDateValue}
             />
