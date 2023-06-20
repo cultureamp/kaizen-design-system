@@ -2,11 +2,12 @@ import { Filters } from "../../types"
 import { FiltersState, FiltersValues } from "../types"
 
 export const setupFiltersState = <ValuesMap extends FiltersValues>(
-  filters: Filters<ValuesMap>
+  filters: Filters<ValuesMap>,
+  values: Partial<ValuesMap>
 ): FiltersState<ValuesMap> =>
   filters.reduce<FiltersState<ValuesMap>>(
     (state, filter) => {
-      const isActive = !filter.isRemovable
+      const isActive = !filter.isRemovable || values[filter.id] !== undefined
 
       const filterAttributes = {
         isOpen: false,

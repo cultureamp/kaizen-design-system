@@ -20,7 +20,7 @@ const filters = [
 
 describe("setupFiltersState()", () => {
   it("sets up the base state correctly", () => {
-    expect(setupFiltersState<Values>(filters)).toEqual({
+    expect(setupFiltersState<Values>(filters, {})).toEqual({
       filters: {
         flavour: {
           ...baseFilterAttributes,
@@ -39,5 +39,15 @@ describe("setupFiltersState()", () => {
       },
       activeFilterIds: new Set(["flavour"]),
     })
+  })
+
+  it("sets removable filters with a value to active", () => {
+    const state = setupFiltersState<Values>(filters, {
+      sugarLevel: 50,
+    })
+
+    expect(state.filters.sugarLevel.isRemovable).toBe(true)
+    expect(state.filters.sugarLevel.isActive).toBe(true)
+    expect(state.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
   })
 })
