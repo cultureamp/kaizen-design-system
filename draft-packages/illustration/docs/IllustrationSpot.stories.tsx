@@ -128,7 +128,6 @@ import {
   Learn,
   Templates,
   CalendarSync,
-  AnimatedSpotProps,
   SpotProps,
 } from ".."
 
@@ -759,20 +758,3 @@ export const AllSpotIllustrations: StoryFn = () => {
   )
 }
 AllSpotIllustrations.parameters = { chromatic: { disable: false } }
-
-export const AnimatedSpot: StoryFn<AnimatedSpotProps> = args => (
-  <div style={{ width: "156px" }}>
-    <Cautionary isAnimated loop {...args} />
-    <Informative isAnimated loop {...args} />
-    <Negative isAnimated loop {...args} />
-    <Positive isAnimated loop {...args} />
-    <Assertive isAnimated loop {...args} />
-  </div>
-)
-AnimatedSpot.storyName = "Spot, animated"
-AnimatedSpot.parameters = {
-  chromatic: {
-    disable: false,
-    diffThreshold: 0.9,
-  },
-}
