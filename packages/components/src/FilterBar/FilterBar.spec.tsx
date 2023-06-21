@@ -349,5 +349,61 @@ describe("<FilterBar />", () => {
         expect(flavourButton.textContent).toEqual("Flavour:Honey Milk Tea")
       })
     })
+
+    it("shows a removable filter when a value is set", async () => {
+      const Wrapper = (): JSX.Element => {
+        type ExternalEventValues = {
+          flavour: string
+        }
+
+        const [values, setValues] = useState<Partial<ExternalEventValues>>({})
+
+        const filters = [
+          {
+            id: "flavour",
+            name: "Flavour",
+            Component: (
+              <FilterBar.Select
+                items={[
+                  { value: "honey-milk-tea", label: "Honey Milk Tea" },
+                  { value: "lychee-green-tea", label: "Lychee Green Tea" },
+                ]}
+              />
+            ),
+            isRemovable: true,
+          },
+        ] satisfies Filters<ExternalEventValues>
+
+        return (
+          <div>
+            <FilterBar
+              filters={filters}
+              values={values}
+              onValuesChange={setValues}
+            />
+            <button
+              type="button"
+              onClick={() => setValues({ flavour: "honey-milk-tea" })}
+            >
+              Update Flavour to honey-milk-tea
+            </button>
+          </div>
+        )
+      }
+
+      const { getByRole, queryByRole } = render(<Wrapper />)
+
+      expect(queryByRole("button", { name: "Flavour" })).not.toBeInTheDocument()
+
+      await user.click(
+        getByRole("button", { name: "Update Flavour to honey-milk-tea" })
+      )
+
+      await waitFor(() => {
+        expect(
+          getByRole("button", { name: "Flavour : Honey Milk Tea" })
+        ).toBeVisible()
+      })
+    })
   })
 })
