@@ -106,7 +106,7 @@ export const FilterDatePickerField = ({
   const validateDate = (date: Date | undefined): Date | undefined =>
     dateValidation.validateDate({
       date,
-      inputValue: transformDateToInputValue(date),
+      inputValue: inputDateValue,
     })
 
   const inputDateHandlers = useDateInputHandlers({
@@ -127,7 +127,6 @@ export const FilterDatePickerField = ({
 
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
     const newDate = validateDate(date)
-    setInputDateValue(transformDateToInputValue(newDate))
     handleDateChange(newDate)
     onDateSubmit?.(newDate)
   }
@@ -145,7 +144,6 @@ export const FilterDatePickerField = ({
       <DateInputField
         id={`${id}--input`}
         labelText={inputLabel}
-        value={inputDateValue}
         locale={locale}
         description={description}
         validationMessage={dateValidation.validationMessage}
