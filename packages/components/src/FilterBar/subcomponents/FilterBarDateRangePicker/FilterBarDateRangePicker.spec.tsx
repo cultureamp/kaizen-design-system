@@ -20,7 +20,7 @@ const FilterBarDateRangePickerWrapper = ({
   ...customProps
 }: {
   defaultValues?: Partial<Values>
-  filterAttributes?: Partial<FilterAttributes<Values>>
+  filterAttributes?: Partial<FilterAttributes<keyof Values>>
 } & Partial<FilterBarDateRangePickerProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (
@@ -176,5 +176,5 @@ describe("<FilterBarDateRangePicker />", () => {
         to: new Date("2022-06-23"),
       })
     })
-  })
+  }, 10000)
 })

@@ -1,22 +1,32 @@
+import { FilterAttributes } from "../types"
+
 export type FiltersValues = Record<string, any>
 
-export type FilterState<Id, Value> = {
-  id: Id
-  name: string
-  Component: React.ReactElement
-  value?: Value
+export type MappedFilters<ValuesMap> = {
+  [K in keyof ValuesMap]: FilterAttributes<K>
+}
+
+export type InternalFilterState = {
   isOpen: boolean
-  isRemovable: boolean
+}
+
+export type BaseFilterState<Id> = Omit<FilterAttributes<Id>, "Component"> &
+  InternalFilterState
+
+export type FilterBarStateFilters<ValuesMap extends FiltersValues> = {
+  [K in keyof ValuesMap]: BaseFilterState<K>
+}
+
+export type FilterBarState<ValuesMap extends FiltersValues> = {
+  filters: FilterBarStateFilters<ValuesMap>
+  activeFilterIds: Set<keyof ValuesMap>
+}
+
+export type FilterState<Id, Value> = BaseFilterState<Id> & {
+  value?: Value
   isActive: boolean
 }
 
-type ActiveFilterIds<ValuesMap extends FiltersValues> = Set<keyof ValuesMap>
-
-export type FiltersState<ValuesMap extends FiltersValues> = {
-  filters: { [K in keyof ValuesMap]: FilterState<K, ValuesMap[K]> }
-  activeFilterIds: ActiveFilterIds<ValuesMap>
-}
-
 export type ActiveFiltersArray<ValuesMap extends FiltersValues> = Array<
-  FilterState<keyof ValuesMap, ValuesMap[keyof ValuesMap]>
+  FilterAttributes<keyof ValuesMap>
 >
