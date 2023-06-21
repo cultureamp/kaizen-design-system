@@ -266,6 +266,39 @@ describe("<FilterBar />", () => {
       expect(queryByRole("button", { name: "Topping" })).not.toBeInTheDocument()
       expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
     })
+
+    it("clears the value for an unusable filter", async () => {
+      const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+
+      const Wrapper = (): JSX.Element => {
+        const [values, setValues] = useState<Partial<ValuesDependent>>({
+          topping: "pearls",
+        })
+
+        return (
+          <div>
+            <FilterBar<ValuesDependent>
+              filters={filtersDependent}
+              values={values}
+              onValuesChange={setValues}
+            />
+            <button type="button" onClick={() => checkValues(values)}>
+              Check values
+            </button>
+          </div>
+        )
+      }
+
+      const { queryByRole, getByRole } = render(<Wrapper />)
+      expect(
+        queryByRole("button", { name: "Topping : Pearls" })
+      ).not.toBeInTheDocument()
+
+      await user.click(getByRole("button", { name: "Check values" }))
+      await waitFor(() => {
+        expect(checkValues).toHaveBeenCalledWith({})
+      })
+    })
   })
 
   describe("Clear all", () => {

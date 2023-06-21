@@ -83,7 +83,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       })
     },
     showFilter: (id: keyof ValuesMap): void =>
-      dispatch({ type: "activate_filter", id }),
+      dispatch({ type: "activate_filter", id, values }),
     hideFilter: (id: keyof ValuesMap): void => {
       dispatch({ type: "deactivate_filter", id })
       onValuesChange({ ...values, [id]: undefined })
@@ -100,7 +100,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   useEffect(() => {
     Object.keys(values).forEach(id => {
-      if (values[id]) dispatch({ type: "activate_filter", id })
+      if (values[id]) dispatch({ type: "activate_filter", id, values })
     })
   }, [values])
 
