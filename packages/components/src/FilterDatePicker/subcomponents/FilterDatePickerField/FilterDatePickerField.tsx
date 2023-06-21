@@ -128,13 +128,21 @@ const reducer = (
   }
 }
 
-const setupFilterDatePickerState = (
-  selectedDate: DatePickerDate,
-  defaultMonth: DatePickerDate,
-  locale: FilterDateSupportedLocales,
-  validateDate: ValidatDate,
+type SetupFilterDatePickerState = {
+  selectedDate: DatePickerDate
+  defaultMonth: DatePickerDate
+  locale: FilterDateSupportedLocales
+  validateDate: ValidatDate
   validationMessage?: ValidationMessage
-): FilterDatePickerState => ({
+}
+
+const setupFilterDatePickerState = ({
+  selectedDate,
+  defaultMonth,
+  locale,
+  validateDate,
+  validationMessage,
+}: SetupFilterDatePickerState): FilterDatePickerState => ({
   selectedDate,
   inputValue: "",
   locale: getLocale(locale),
@@ -149,7 +157,7 @@ const setupFilterDatePickerState = (
 export const FilterDatePickerField = ({
   id,
   inputProps,
-  locale: propsLocale,
+  locale,
   defaultMonth,
   selectedDate,
   onDateChange,
@@ -174,22 +182,23 @@ export const FilterDatePickerField = ({
   const validateDate = (
     date: DatePickerDate,
     inputValue: string
-  ): DatePickerDate =>
-    dateValidation.validateDate({
-      date,
-      inputValue,
-    })
+  ): DatePickerDate => dateValidation.validateDate({ date, inputValue })
 
   const [state, dispatch] = useReducer(
     reducer,
-    setupFilterDatePickerState(
+    setupFilterDatePickerState({
       selectedDate,
       defaultMonth,
-      propsLocale,
+      locale,
       validateDate,
-      validationMessage
-    )
+      validationMessage,
+    })
   )
+
+  const syncInputUpdates = (date: DatePickerDate): void => {
+    dispatch({ type: "update_selected_date", date })
+    dispatch({ type: "update_input_value", date })
+  }
 
   const inputDateHandlers = useDateInputHandlers({
     locale: state.locale,
@@ -209,16 +218,14 @@ export const FilterDatePickerField = ({
   })
 
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
-    dispatch({ type: "update_input_value", date })
-    dispatch({ type: "update_selected_date", date })
-    handleDateChange(state.selectedDate)
-    onDateSubmit?.(state.selectedDate)
+    syncInputUpdates(date)
+    handleDateChange(date)
+    onDateSubmit?.(date)
   }
 
   useEffect(() => {
-    dispatch({ type: "update_selected_date", date: selectedDate })
-    dispatch({ type: "update_input_value", date: selectedDate })
-    handleDateChange(state.selectedDate)
+    syncInputUpdates(selectedDate)
+    handleDateChange(selectedDate)
   }, [])
 
   return (

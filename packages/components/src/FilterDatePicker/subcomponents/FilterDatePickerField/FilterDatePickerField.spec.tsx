@@ -278,9 +278,7 @@ describe("<FilterDatePickerField />", () => {
       const dateErrorContainer = container.querySelector(dateErrorId)
 
       await waitFor(() => {
-        expect(dateErrorContainer).toHaveTextContent(
-          "Invalid Date is an invalid date"
-        )
+        expect(dateErrorContainer).toHaveTextContent("Date is invalid")
       })
 
       const targetDay = screen.getByRole("button", {
