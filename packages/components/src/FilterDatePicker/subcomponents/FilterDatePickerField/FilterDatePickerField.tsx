@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useEffect, useState } from "react"
+import React, { HTMLAttributes, useEffect, useReducer } from "react"
 import classnames from "classnames"
 import {
   CalendarSingle,
@@ -62,6 +62,90 @@ export interface FilterDatePickerFieldProps
   setIsFilterOpen?: FilterProps["setIsOpen"]
 }
 
+type DatePickerDate = Date | undefined
+type ValidatDate = (date: DatePickerDate, inputValue: string) => DatePickerDate
+
+type FilterDatePickerState = {
+  selectedDate: DatePickerDate
+  inputValue: string
+  locale: Locale
+  validateDate: ValidatDate
+  disabledDays?: DisabledDays
+  startMonth?: Date
+  validationMessage?: ValidationMessage
+}
+
+type Actions =
+  | {
+      type: "update_input_value"
+      date: Date | string | undefined
+    }
+  | { type: "update_start_month"; date: Date }
+  | {
+      type: "update_selected_date"
+      date: DatePickerDate
+    }
+  | { type: "update_validation_message"; data: ValidationMessage }
+
+const transformDateToInputValue = (
+  date: DatePickerDate,
+  disabledDays: DisabledDays,
+  locale: Locale
+): string => (date ? formatDateAsText(date, disabledDays, locale) : "")
+
+const reducer = (
+  state: FilterDatePickerState,
+  action: Actions
+): FilterDatePickerState => {
+  switch (action.type) {
+    case "update_selected_date":
+      return {
+        ...state,
+        selectedDate: state.validateDate(action.date, state.inputValue),
+      }
+    case "update_input_value":
+      return {
+        ...state,
+        inputValue:
+          typeof action.date !== "string"
+            ? transformDateToInputValue(
+                action.date,
+                state.disabledDays,
+                state.locale
+              )
+            : action.date,
+      }
+    case "update_start_month":
+      return {
+        ...state,
+        startMonth: action.date,
+      }
+    case "update_validation_message":
+      return {
+        ...state,
+        validationMessage: action.data,
+      }
+  }
+}
+
+const setupFilterDatePickerState = (
+  selectedDate: DatePickerDate,
+  defaultMonth: DatePickerDate,
+  locale: FilterDateSupportedLocales,
+  validateDate: ValidatDate,
+  validationMessage?: ValidationMessage
+): FilterDatePickerState => ({
+  selectedDate,
+  inputValue: "",
+  locale: getLocale(locale),
+  validationMessage,
+  validateDate,
+  startMonth:
+    selectedDate && !isInvalidDate(selectedDate)
+      ? selectedDate
+      : defaultMonth || new Date(),
+})
+
 export const FilterDatePickerField = ({
   id,
   inputProps,
@@ -77,23 +161,7 @@ export const FilterDatePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
-  const locale = getLocale(propsLocale)
-  const inputLabel = inputProps?.labelText || "Date"
-
-  const transformDateToInputValue = (date: Date | undefined): string =>
-    date ? formatDateAsText(date, disabledDays, locale) : ""
-
-  const transformedDate = transformDateToInputValue(selectedDate)
-
-  const [startMonth, setStartMonth] = useState<Date>(
-    selectedDate && !isInvalidDate(selectedDate)
-      ? selectedDate
-      : defaultMonth || new Date()
-  )
-
-  const [inputDateValue, setInputDateValue] = useState<string>(transformedDate)
-
-  const handleDateChange = (date: Date | undefined): void => {
+  const handleDateChange = (date: DatePickerDate): void => {
     onDateChange(date)
   }
 
@@ -103,38 +171,54 @@ export const FilterDatePickerField = ({
     onValidate,
   })
 
-  const validateDate = (date: Date | undefined): Date | undefined =>
+  const validateDate = (
+    date: DatePickerDate,
+    inputValue: string
+  ): DatePickerDate =>
     dateValidation.validateDate({
       date,
-      inputValue: inputDateValue,
+      inputValue,
     })
 
-  const inputDateHandlers = useDateInputHandlers({
-    locale,
-    disabledDays,
-    setInputValue: setInputDateValue,
-    onDateChange: date => {
-      const newDate = validateDate(date)
-      handleDateChange(newDate)
+  const [state, dispatch] = useReducer(
+    reducer,
+    setupFilterDatePickerState(
+      selectedDate,
+      defaultMonth,
+      propsLocale,
+      validateDate,
+      validationMessage
+    )
+  )
 
-      if (newDate) {
-        setStartMonth(newDate)
-        onDateSubmit?.(newDate)
+  const inputDateHandlers = useDateInputHandlers({
+    locale: state.locale,
+    disabledDays,
+    setInputValue: value =>
+      dispatch({ type: "update_input_value", date: value as string }),
+    onDateChange: date => {
+      dispatch({ type: "update_selected_date", date })
+      handleDateChange(state.selectedDate)
+
+      if (state.selectedDate) {
+        dispatch({ type: "update_start_month", date: state.selectedDate })
+        onDateSubmit?.(state.selectedDate)
       }
     },
     ...inputProps,
   })
 
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
-    const newDate = validateDate(date)
-    setInputDateValue(transformDateToInputValue(newDate))
-    handleDateChange(newDate)
-    onDateSubmit?.(newDate)
+    dispatch({ type: "update_input_value", date })
+    dispatch({ type: "update_selected_date", date })
+    handleDateChange(state.selectedDate)
+    onDateSubmit?.(state.selectedDate)
   }
 
   useEffect(() => {
-    const newDate = validateDate(selectedDate)
-    handleDateChange(newDate)
+    dispatch({ type: "update_selected_date", date: selectedDate })
+    dispatch({ type: "update_input_value", date: selectedDate })
+    handleDateChange(state.selectedDate)
   }, [])
 
   return (
@@ -144,8 +228,8 @@ export const FilterDatePickerField = ({
     >
       <DateInputField
         id={`${id}--input`}
-        labelText={inputLabel}
-        locale={locale}
+        locale={state.locale}
+        value={state.inputValue}
         description={description}
         validationMessage={dateValidation.validationMessage}
         {...inputDateHandlers}
@@ -153,11 +237,13 @@ export const FilterDatePickerField = ({
       />
       <CalendarSingle
         disabled={disabledDays}
-        locale={locale}
-        selected={selectedDate}
+        locale={state.locale}
+        selected={state.selectedDate}
         onSelect={handleCalendarSelect}
-        month={startMonth}
-        onMonthChange={setStartMonth}
+        month={state.startMonth}
+        onMonthChange={(value: Date) =>
+          dispatch({ type: "update_start_month", date: value })
+        }
       />
     </div>
   )

@@ -9,7 +9,8 @@ import {
 import { ValidationMessage } from "../../types"
 import styles from "./DateInputField.module.scss"
 
-export interface DateInputFieldProps extends Omit<DateInputProps, "id"> {
+export interface DateInputFieldProps
+  extends Omit<DateInputProps, "id" | "labelText"> {
   id: string
   locale: Locale
   /**
@@ -19,6 +20,7 @@ export interface DateInputFieldProps extends Omit<DateInputProps, "id"> {
   isReversed?: boolean
   validationMessage?: ValidationMessage
   disabled?: boolean
+  labelText?: DateInputProps["labelText"]
 }
 
 export const DateInputField = React.forwardRef<
@@ -56,7 +58,7 @@ export const DateInputField = React.forwardRef<
         <DateInput
           ref={ref}
           id={id}
-          labelText={labelText}
+          labelText={labelText || "Date"}
           aria-describedby={inputDescribedBy}
           aria-errormessage={errorMessageId}
           aria-invalid={dateIsInvalid}
