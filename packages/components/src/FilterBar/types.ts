@@ -2,7 +2,7 @@ import { FiltersState, FiltersValues } from "./context/types"
 
 export type FilterAttributes<
   ValuesMap extends FiltersValues,
-  Id extends keyof ValuesMap = keyof ValuesMap
+  Id = keyof ValuesMap
 > = {
   id: Id
   name: string

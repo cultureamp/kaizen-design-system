@@ -6,18 +6,26 @@ export type MappedFilters<ValuesMap extends FiltersValues> = {
   [K in keyof ValuesMap]: FilterAttributes<ValuesMap, K>
 }
 
-export type InternalFilterState = {
+export type FilterStateEditableAttributes = {
   isOpen: boolean
+  isUsable: boolean
 }
 
-export type BaseFilterState<Id> = InternalFilterState & {
+type BaseFilterState<Id> = FilterStateEditableAttributes & {
   id: Id
   name: string
   isRemovable?: boolean
 }
 
+type InternalFilterState<
+  ValuesMap extends FiltersValues,
+  Id extends keyof ValuesMap
+> = BaseFilterState<Id> & {
+  isUsableWhen?: (state: FiltersState<ValuesMap>) => boolean
+}
+
 export type FilterBarStateFilters<ValuesMap extends FiltersValues> = {
-  [K in keyof ValuesMap]: BaseFilterState<K>
+  [K in keyof ValuesMap]: InternalFilterState<ValuesMap, K>
 }
 
 export type FilterBarState<ValuesMap extends FiltersValues> = {

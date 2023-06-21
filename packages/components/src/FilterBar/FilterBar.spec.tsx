@@ -86,6 +86,31 @@ const filtersRemovable = [
   },
 ] satisfies Filters<ValuesRemovable>
 
+type ValuesDependent = {
+  flavour: string
+  topping: string
+}
+
+const filtersDependent = [
+  {
+    id: "flavour",
+    name: "Flavour",
+    Component: (
+      <FilterBar.Select
+        items={[{ value: "jasmine-milk-tea", label: "Jasmine Milk Tea" }]}
+      />
+    ),
+  },
+  {
+    id: "topping",
+    name: "Topping",
+    Component: (
+      <FilterBar.Select items={[{ value: "pearls", label: "Pearls" }]} />
+    ),
+    isUsableWhen: state => state.flavour.isActive,
+  },
+] satisfies Filters<ValuesDependent>
+
 const FilterBarWrapper = <T extends FiltersValues>({
   filters,
   defaultValues,
@@ -230,6 +255,15 @@ describe("<FilterBar />", () => {
       expect(filters[0]).toHaveTextContent("Ice Level")
       expect(filters[1]).toHaveTextContent("Flavour")
       expect(filters[2]).toHaveTextContent("Sugar Level")
+    })
+  })
+
+  describe("Dependent filters", () => {
+    it("does not show a dependent filter when the condition is not met", () => {
+      const { queryByRole } = render(
+        <FilterBarWrapper filters={filtersDependent} />
+      )
+      expect(queryByRole("button", { name: "Topping" })).not.toBeInTheDocument()
     })
   })
 

@@ -8,8 +8,9 @@ export const setupFiltersState = <ValuesMap extends FiltersValues>(
   filters.reduce<FilterBarState<ValuesMap>>(
     (state, { Component: _, ...filter }) => {
       state.filters[filter.id] = {
-        ...filter,
         isOpen: false,
+        isUsable: true,
+        ...filter,
       }
 
       if (!filter.isRemovable || values[filter.id] !== undefined)

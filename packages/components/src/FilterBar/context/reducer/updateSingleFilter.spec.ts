@@ -11,11 +11,13 @@ const stateFilters = {
     id: "flavour",
     name: "Flavour",
     isOpen: false,
+    isUsable: true,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
     isOpen: false,
+    isUsable: true,
   },
 } satisfies FilterBarState<Values>["filters"]
 

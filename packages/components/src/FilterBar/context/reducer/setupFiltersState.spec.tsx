@@ -21,12 +21,18 @@ describe("setupFiltersState()", () => {
   it("sets up the base state correctly", () => {
     expect(setupFiltersState<Values>(filters, {})).toEqual({
       filters: {
-        flavour: { id: "flavour", name: "Flavour", isOpen: false },
+        flavour: {
+          id: "flavour",
+          name: "Flavour",
+          isOpen: false,
+          isUsable: true,
+        },
         sugarLevel: {
           id: "sugarLevel",
           name: "Sugar Level",
           isRemovable: true,
           isOpen: false,
+          isUsable: true,
         },
       },
       activeFilterIds: new Set(["flavour"]),

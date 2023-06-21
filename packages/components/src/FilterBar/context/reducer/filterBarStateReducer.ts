@@ -1,11 +1,15 @@
-import { FilterBarState, FiltersValues, InternalFilterState } from "../types"
+import {
+  FilterBarState,
+  FilterStateEditableAttributes,
+  FiltersValues,
+} from "../types"
 import { updateSingleFilter } from "./updateSingleFilter"
 
 type Actions<ValuesMap extends FiltersValues> =
   | {
       type: "update_single_filter"
       id: keyof ValuesMap
-      data: Partial<InternalFilterState>
+      data: Partial<FilterStateEditableAttributes>
     }
   | { type: "activate_filter"; id: keyof ValuesMap }
   | { type: "deactivate_filter"; id: keyof ValuesMap }
