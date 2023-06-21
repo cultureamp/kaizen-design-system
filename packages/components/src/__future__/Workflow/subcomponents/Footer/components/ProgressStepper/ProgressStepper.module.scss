@@ -1,0 +1,105 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+$indicator-size: 1.25rem;
+
+.stepsContainer {
+  width: 100%;
+  grid-area: stepper;
+}
+
+.stepList {
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.step {
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 100%;
+  justify-content: center;
+  max-width: $spacing-96;
+  overflow-wrap: break-word;
+  position: relative;
+  container: step / inline-size;
+}
+
+.stepContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.stepIndicator {
+  width: $indicator-size;
+  height: $indicator-size;
+  position: relative;
+}
+
+.stepName {
+  display: none;
+  text-align: center;
+  margin-bottom: $spacing-12;
+  font-weight: $typography-paragraph-bold-font-weight;
+}
+
+.stepIcon {
+  color: $color-white;
+  position: absolute;
+  width: $indicator-size;
+  height: $indicator-size;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stepDivider {
+  height: 0;
+  display: flex;
+  position: absolute;
+  flex-grow: 1;
+  min-width: calc(100% - #{$spacing-24});
+  border: solid $spacing-1 $color-white;
+  margin: 0;
+  border-radius: $border-solid-border-radius;
+  left: 100%;
+  // sets fron the bottom to the centre of the dot
+  top: calc(100% - calc(#{$indicator-size}/ 2));
+  transform: translateX(-50%);
+
+  [dir="rtl"] & {
+    left: unset;
+    right: 100%;
+    transform: translateX(50%);
+  }
+}
+
+.stepperDescription {
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    // sr hidden styles
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+// Some defensive CSS for many steps on desktop screens
+@container step (min-width: 4.5rem) {
+  .stepName {
+    display: inline;
+  }
+}
