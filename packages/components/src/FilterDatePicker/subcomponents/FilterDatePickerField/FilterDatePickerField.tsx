@@ -72,6 +72,7 @@ type FilterDatePickerState = {
   validateDate: ValidatDate
   disabledDays?: DisabledDays
   startMonth?: Date
+  defaultMonth?: Date
   validationMessage?: ValidationMessage
 }
 
@@ -80,7 +81,7 @@ type Actions =
       type: "update_input_value"
       date: Date | string | undefined
     }
-  | { type: "update_start_month"; date: Date }
+  | { type: "update_start_month"; date: DatePickerDate }
   | {
       type: "update_selected_date"
       date: DatePickerDate
@@ -97,6 +98,7 @@ const reducer = (
   state: FilterDatePickerState,
   action: Actions
 ): FilterDatePickerState => {
+  console.log("pinned dispatched", action)
   switch (action.type) {
     case "update_selected_date":
       return {
@@ -118,7 +120,10 @@ const reducer = (
     case "update_start_month":
       return {
         ...state,
-        startMonth: action.date,
+        startMonth:
+          action.date && !isInvalidDate(action.date)
+            ? action.date
+            : state.defaultMonth || new Date(),
       }
     case "update_validation_message":
       return {
@@ -130,6 +135,7 @@ const reducer = (
 
 type SetupFilterDatePickerState = {
   selectedDate: DatePickerDate
+  disabledDays: DisabledDays
   defaultMonth: DatePickerDate
   locale: FilterDateSupportedLocales
   validateDate: ValidatDate
@@ -138,6 +144,7 @@ type SetupFilterDatePickerState = {
 
 const setupFilterDatePickerState = ({
   selectedDate,
+  disabledDays,
   defaultMonth,
   locale,
   validateDate,
@@ -148,6 +155,8 @@ const setupFilterDatePickerState = ({
   locale: getLocale(locale),
   validationMessage,
   validateDate,
+  defaultMonth,
+  disabledDays,
   startMonth:
     selectedDate && !isInvalidDate(selectedDate)
       ? selectedDate
@@ -170,6 +179,7 @@ export const FilterDatePickerField = ({
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
   const handleDateChange = (date: DatePickerDate): void => {
+    dispatch({ type: "update_selected_date", date })
     onDateChange(date)
   }
 
@@ -188,6 +198,7 @@ export const FilterDatePickerField = ({
     reducer,
     setupFilterDatePickerState({
       selectedDate,
+      disabledDays,
       defaultMonth,
       locale,
       validateDate,
@@ -195,8 +206,8 @@ export const FilterDatePickerField = ({
     })
   )
 
-  const syncInputUpdates = (date: DatePickerDate): void => {
-    dispatch({ type: "update_selected_date", date })
+  const handleInputChange = (date: DatePickerDate): void => {
+    handleDateChange(date)
     dispatch({ type: "update_input_value", date })
   }
 
@@ -204,29 +215,33 @@ export const FilterDatePickerField = ({
     locale: state.locale,
     disabledDays,
     setInputValue: value =>
-      dispatch({ type: "update_input_value", date: value as string }),
+      dispatch({
+        type: "update_input_value",
+        date: value as string,
+      }),
     onDateChange: date => {
-      dispatch({ type: "update_selected_date", date })
-      handleDateChange(state.selectedDate)
+      handleDateChange(date)
 
-      if (state.selectedDate) {
-        dispatch({ type: "update_start_month", date: state.selectedDate })
-        onDateSubmit?.(state.selectedDate)
+      if (date && !isInvalidDate(date)) {
+        dispatch({ type: "update_start_month", date })
+        onDateSubmit?.(date)
       }
     },
     ...inputProps,
   })
 
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
-    syncInputUpdates(date)
-    handleDateChange(date)
+    handleInputChange(date)
     onDateSubmit?.(date)
   }
 
   useEffect(() => {
-    syncInputUpdates(selectedDate)
-    handleDateChange(selectedDate)
+    handleInputChange(selectedDate)
   }, [])
+
+  useEffect(() => {
+    console.log("pinned state", state)
+  }, [state])
 
   return (
     <div
@@ -255,5 +270,3 @@ export const FilterDatePickerField = ({
     </div>
   )
 }
-
-FilterDatePickerField.displayName = "FilterDatePickerField"
