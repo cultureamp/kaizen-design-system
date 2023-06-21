@@ -6,9 +6,9 @@ on:
   pull_request:
     types:
       - ready_for_review
+      - synchronize
     branches-ignore:
       - changeset-release/main
-  push:
 
 jobs:
   visual-testing:
