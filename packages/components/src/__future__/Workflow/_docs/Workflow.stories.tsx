@@ -36,8 +36,14 @@ const MockContent = (): JSX.Element => (
 
 const defaultArgs = {
   workflowName: "Create a self-reflection cycle",
-  stepName: "Settings",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+  currentStepId: "settings-step",
+  steps: [
+    { label: "Settings", id: "settings-step" },
+    { label: "Questions", id: "questions-step" },
+    { label: "Preview", id: "preview-step" },
+    { label: "Employees", id: "employees-step" },
+    { label: "Schedule", id: "schedule-step" },
+  ],
   isComplete: false,
   status: {
     content: "Draft",
@@ -58,7 +64,7 @@ const defaultArgs = {
 } satisfies WorkflowProps
 
 const meta = {
-  title: "Pages/Workflow/Legacy/Components/Workflow",
+  title: "Pages/Workflow/Components/Workflow",
   component: Workflow,
   args: defaultArgs,
   argTypes: WorkflowControls,
@@ -82,8 +88,14 @@ Playground.args = { ...defaultArgs }
 export const MultipleActions: StoryObj<typeof meta> = {
   args: {
     workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    currentStepId: "settings-step",
+    steps: [
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
+    ],
     isComplete: false,
     status: {
       content: "Draft",
@@ -113,8 +125,14 @@ export const MultipleActions: StoryObj<typeof meta> = {
 export const FinalStep: StoryObj<typeof meta> = {
   args: {
     workflowName: "Create a self-reflection cycle",
-    stepName: "Schedule",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    currentStepId: "schedule-step",
+    steps: [
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
+    ],
     isComplete: false,
     status: {
       content: "Draft",
@@ -137,8 +155,14 @@ export const FinalStep: StoryObj<typeof meta> = {
 export const CompletedWorkflow: StoryObj<typeof meta> = {
   args: {
     workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    currentStepId: "settings-step",
+    steps: [
+      { label: "Settings", id: "settings-step" },
+      { label: "Questions", id: "questions-step" },
+      { label: "Preview", id: "preview-step" },
+      { label: "Employees", id: "employees-step" },
+      { label: "Schedule", id: "schedule-step" },
+    ],
     isComplete: true,
     status: {
       content: "Draft",
@@ -165,7 +189,7 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
   steps,
   isComplete,
   workflowName,
-  stepName,
+  currentStepId,
   status,
   headerActions,
   previousAction,
@@ -175,7 +199,7 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
   <Workflow.Wrapper {...restProps}>
     <Workflow.Header
       workflowName={workflowName}
-      stepName={stepName}
+      stepName={steps.find(step => step.id === currentStepId)!.label}
       status={status}
       headerActions={headerActions}
     />
@@ -189,7 +213,7 @@ export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
       </p>
     </Workflow.Main>
     <Workflow.Footer
-      stepName={stepName}
+      currentStepId={currentStepId}
       steps={steps}
       isComplete={isComplete}
       nextAction={nextAction}
