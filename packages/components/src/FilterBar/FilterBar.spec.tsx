@@ -260,10 +260,11 @@ describe("<FilterBar />", () => {
 
   describe("Dependent filters", () => {
     it("does not show a dependent filter when the condition is not met", () => {
-      const { queryByRole } = render(
+      const { queryByRole, getByRole } = render(
         <FilterBarWrapper filters={filtersDependent} />
       )
       expect(queryByRole("button", { name: "Topping" })).not.toBeInTheDocument()
+      expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
     })
   })
 

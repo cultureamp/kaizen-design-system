@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo, useReducer } from "react"
-import { Filters } from "../types"
+import { FilterAttributes, Filters } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
 import { setupFiltersState } from "./reducer/setupFiltersState"
 import { ActiveFiltersArray, FiltersValues, FilterState } from "./types"
@@ -15,7 +15,9 @@ export type FilterBarContextValue<
   updateValue: (id: keyof ValuesMap, value: Value) => void
   showFilter: (id: keyof ValuesMap) => void
   hideFilter: (id: keyof ValuesMap) => void
-  getInactiveFilters: () => Filters<ValuesMap>
+  getInactiveFilters: () => Array<
+    Pick<FilterAttributes<ValuesMap>, "id" | "name">
+  >
   clearAllFilters: () => void
 }
 
@@ -86,8 +88,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       dispatch({ type: "deactivate_filter", id })
       onValuesChange({ ...values, [id]: undefined })
     },
-    getInactiveFilters: () =>
-      getInactiveFilters<ValuesMap>(filters, state.activeFilterIds),
+    getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
     clearAllFilters: () => {
       state.activeFilterIds.forEach(id => {
         if (mappedFilters[id].isRemovable)
