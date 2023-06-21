@@ -16,7 +16,7 @@ const FilterBarSelectWrapper = ({
   ...customProps
 }: {
   defaultValues?: Partial<Values>
-  filterAttributes?: Partial<FilterAttributes<Values>>
+  filterAttributes?: Partial<FilterAttributes<keyof Values>>
 } & Partial<FilterBarSelectProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (
