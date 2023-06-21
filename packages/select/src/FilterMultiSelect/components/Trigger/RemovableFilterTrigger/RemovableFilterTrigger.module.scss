@@ -7,7 +7,7 @@
   display: inline-flex;
 
   .triggerButton {
-    border-radius: 0 $border-solid-border-radius;
+    border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
   }
 
   .removeButton {
@@ -15,7 +15,7 @@
 
     width: $spacing-xl;
     justify-content: center;
-    border-radius: $border-solid-border-radius 0;
+    border-radius: 0 $border-solid-border-radius $border-solid-border-radius 0;
   }
 
   .divider {
