@@ -4,14 +4,16 @@ name: "chromatic"
 
 on:
   pull_request:
+    types:
+      - ready_for_review
+      - synchronize
     branches-ignore:
       - changeset-release/main
-  push:
 
 jobs:
   visual-testing:
-    runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -30,7 +32,7 @@ jobs:
         run: |
           yarn storybook:build --webpack-stats-json
 
-      - name: Publish to Chromatic
+      - name: Publish to Chromatic testing the push change
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
