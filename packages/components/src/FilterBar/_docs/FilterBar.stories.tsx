@@ -216,6 +216,65 @@ export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
   )
 }
 
+export const DependentFilter: StoryFn<typeof FilterBar> = () => {
+  type ValuesDependent = {
+    flavour: string
+    topping: string
+    drank: Date
+  }
+
+  const filtersDependent = [
+    {
+      id: "flavour",
+      name: "Flavour",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "jasmine-milk-tea", label: "Jasmine Milk Tea" },
+            { value: "honey-milk-tea", label: "Honey Milk Tea" },
+            { value: "lychee-green-tea", label: "Lychee Green Tea" },
+          ]}
+        />
+      ),
+    },
+    {
+      id: "topping",
+      name: "Topping",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "pearls", label: "Pearls" },
+            { value: "fruit-jelly", label: "Fruit Jelly" },
+          ]}
+        />
+      ),
+      isUsableWhen: state => state.flavour.value !== undefined,
+    },
+    {
+      id: "drank",
+      name: "Drank",
+      Component: <FilterBar.DatePicker />,
+      isRemovable: true,
+      isUsableWhen: state => state.flavour.value !== undefined,
+    },
+  ] satisfies Filters<ValuesDependent>
+
+  const [values, setValues] = useState<Partial<ValuesDependent>>({
+    topping: "pearls",
+  })
+
+  return (
+    <>
+      <FilterBar<ValuesDependent>
+        filters={filtersDependent}
+        values={values}
+        onValuesChange={setValues}
+      />
+      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
+    </>
+  )
+}
+
 export const ExternalEventValuesUpdate: StoryFn<typeof FilterBar> = () => {
   const [values, setValues] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",

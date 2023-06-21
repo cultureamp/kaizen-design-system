@@ -107,7 +107,7 @@ const filtersDependent = [
     Component: (
       <FilterBar.Select items={[{ value: "pearls", label: "Pearls" }]} />
     ),
-    isUsableWhen: state => state.flavour.isActive,
+    isUsableWhen: state => state.flavour.value !== undefined,
   },
 ] satisfies Filters<ValuesDependent>
 
