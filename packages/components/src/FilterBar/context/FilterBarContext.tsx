@@ -97,7 +97,9 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
-    dispatch({ type: "activate_filters_with_values", values })
+    Object.keys(values).forEach(id => {
+      if (values[id]) dispatch({ type: "activate_filter", id })
+    })
   }, [values])
 
   const activeFilters = Array.from(
