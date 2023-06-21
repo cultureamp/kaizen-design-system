@@ -74,4 +74,37 @@ describe("filterBarStateReducer", () => {
       expect(newState.activeFilterIds).toEqual(new Set())
     })
   })
+
+  describe("filterBarStateReducer: clear_all_filters", () => {
+    it("sets all removable filters to inactive", () => {
+      const state = {
+        filters: {
+          flavour: {
+            id: "flavour",
+            name: "Flavour",
+            isOpen: false,
+          },
+          sugarLevel: {
+            id: "sugarLevel",
+            name: "Sugar Level",
+            isOpen: false,
+            isRemovable: true,
+          },
+        },
+        activeFilterIds: new Set<keyof Values>(["flavour", "sugarLevel"]),
+      } satisfies FilterBarState<Values>
+
+      const onValuesChange = jest.fn<void, [Partial<Values>]>()
+
+      const newState = filterBarStateReducer<Values>(state, {
+        type: "clear_all_filters",
+        onValuesChange,
+      })
+
+      expect(newState.activeFilterIds).toEqual(
+        new Set<keyof Values>(["flavour"])
+      )
+      expect(onValuesChange).toHaveBeenCalledWith({})
+    })
+  })
 })

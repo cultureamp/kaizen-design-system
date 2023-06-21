@@ -5,10 +5,15 @@
 
 .filterBar {
   display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-8;
   padding: $spacing-8;
   box-shadow: $shadow-small-box-shadow;
   border-radius: $border-solid-border-radius;
   background-color: $color-white;
+}
+
+.filtersContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: $spacing-8;
 }
