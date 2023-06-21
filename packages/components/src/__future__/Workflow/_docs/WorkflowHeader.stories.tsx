@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { CloseIcon } from "~icons/CloseIcon"
 import { VisibleIcon } from "~icons/VisibleIcon"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
+import { ComponentDocsTemplate } from "../../../../../../storybook/components/DocsContainer"
 import { HeaderProps } from "../subcomponents/Header"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
@@ -20,7 +20,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Pages/Workflow/Legacy/Components/Header",
+  title: "Pages/Workflow/Components/Header",
   component: Workflow.Header,
   parameters: {
     docs: {
@@ -29,7 +29,7 @@ const meta = {
     },
     installation: [
       "yarn add @kaizen/workflow",
-      "import { Workflow } from `@kaizen/components`",
+      "import { Workflow } from `@kaizen/components/future`",
     ],
     resourceLinks: {
       sourceCode:

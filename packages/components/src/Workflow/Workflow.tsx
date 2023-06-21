@@ -45,6 +45,9 @@ const WorkflowComponent = ({
   </Workflow.Wrapper>
 )
 
+/**
+ * @deprecated Use { Workflow } from `@kaizen/components/future`
+ */
 export const Workflow = Object.assign(WorkflowComponent, {
   Header,
   Footer,

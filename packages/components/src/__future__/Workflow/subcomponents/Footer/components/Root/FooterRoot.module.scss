@@ -1,0 +1,22 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+
+.footerRoot {
+  display: grid;
+  grid-template-areas: "prev stepper next";
+  grid-template-columns: 1fr 2fr 1fr;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-24 $spacing-12;
+  background: $color-blue-500;
+  gap: $spacing-16;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 5fr 1fr;
+    padding: $spacing-24 $spacing-32;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+  }
+}
