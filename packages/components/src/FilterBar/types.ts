@@ -1,12 +1,12 @@
 import { FiltersValues } from "./context/types"
 
-export type FilterAttributes<ValuesMap extends FiltersValues> = {
-  id: keyof ValuesMap
+export type FilterAttributes<Id> = {
+  id: Id
   name: string
   Component: React.ReactElement
   isRemovable?: boolean
 }
 
 export type Filters<ValuesMap extends FiltersValues> = Array<
-  FilterAttributes<ValuesMap>
+  FilterAttributes<keyof ValuesMap>
 >

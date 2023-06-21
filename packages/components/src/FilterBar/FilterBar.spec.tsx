@@ -11,7 +11,6 @@ const TEST_ID__FILTER = "testid__filter"
 
 type ValuesSimple = {
   flavour: string
-  topping: string
   sugarLevel: number
   iceLevel: number
 }
@@ -234,6 +233,68 @@ describe("<FilterBar />", () => {
     })
   })
 
+  describe("Clear all", () => {
+    it("clears all the values of all the filters", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesSimple>
+          filters={simpleFilters}
+          defaultValues={{
+            flavour: "jasmine-milk-tea",
+            sugarLevel: 50,
+            iceLevel: 100,
+          }}
+        />
+      )
+
+      const flavourButton = getByRole("button", {
+        name: "Flavour : Jasmine Milk Tea",
+      })
+      const sugarLevelButton = getByRole("button", {
+        name: "Sugar Level : 50%",
+      })
+      const iceLevelButton = getByRole("button", { name: "Ice Level : 100%" })
+
+      expect(flavourButton.textContent).toBe("Flavour:Jasmine Milk Tea")
+      expect(sugarLevelButton.textContent).toBe("Sugar Level:50%")
+      expect(iceLevelButton.textContent).toBe("Ice Level:100%")
+
+      await user.click(getByRole("button", { name: "Clear all filters" }))
+
+      await waitFor(() => {
+        expect(flavourButton.textContent).toBe("Flavour")
+        expect(sugarLevelButton.textContent).toBe("Sugar Level")
+        expect(iceLevelButton.textContent).toBe("Ice Level")
+      })
+    })
+
+    it("removes all removable filters", async () => {
+      const { getByRole } = render(
+        <FilterBarWrapper<ValuesRemovable>
+          filters={filtersRemovable}
+          defaultValues={{
+            flavour: "jasmine-milk-tea",
+            topping: "pearls",
+          }}
+        />
+      )
+
+      const flavourButton = getByRole("button", {
+        name: "Flavour : Jasmine Milk Tea",
+      })
+      const toppingButton = getByRole("button", { name: "Topping : Pearls" })
+
+      expect(flavourButton).toBeVisible()
+      expect(toppingButton).toBeVisible()
+
+      await user.click(getByRole("button", { name: "Clear all filters" }))
+
+      await waitFor(() => {
+        expect(flavourButton).not.toBeInTheDocument()
+        expect(toppingButton).not.toBeInTheDocument()
+      })
+    })
+  })
+
   describe("External events", () => {
     it("allows updating the values via an external event", async () => {
       const Wrapper = (): JSX.Element => {
@@ -286,6 +347,62 @@ describe("<FilterBar />", () => {
 
       await waitFor(() => {
         expect(flavourButton.textContent).toEqual("Flavour:Honey Milk Tea")
+      })
+    })
+
+    it("shows a removable filter when a value is set", async () => {
+      const Wrapper = (): JSX.Element => {
+        type ExternalEventValues = {
+          flavour: string
+        }
+
+        const [values, setValues] = useState<Partial<ExternalEventValues>>({})
+
+        const filters = [
+          {
+            id: "flavour",
+            name: "Flavour",
+            Component: (
+              <FilterBar.Select
+                items={[
+                  { value: "honey-milk-tea", label: "Honey Milk Tea" },
+                  { value: "lychee-green-tea", label: "Lychee Green Tea" },
+                ]}
+              />
+            ),
+            isRemovable: true,
+          },
+        ] satisfies Filters<ExternalEventValues>
+
+        return (
+          <div>
+            <FilterBar
+              filters={filters}
+              values={values}
+              onValuesChange={setValues}
+            />
+            <button
+              type="button"
+              onClick={() => setValues({ flavour: "honey-milk-tea" })}
+            >
+              Update Flavour to honey-milk-tea
+            </button>
+          </div>
+        )
+      }
+
+      const { getByRole, queryByRole } = render(<Wrapper />)
+
+      expect(queryByRole("button", { name: "Flavour" })).not.toBeInTheDocument()
+
+      await user.click(
+        getByRole("button", { name: "Update Flavour to honey-milk-tea" })
+      )
+
+      await waitFor(() => {
+        expect(
+          getByRole("button", { name: "Flavour : Honey Milk Tea" })
+        ).toBeVisible()
       })
     })
   })

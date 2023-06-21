@@ -9,14 +9,15 @@ import {
 
 export type FilterBarButtonProps = FilterButtonProps & {
   id: string
-  isRemovable: boolean
+  isRemovable: boolean | undefined
 }
 
 export const FilterBarButton = forwardRef<
   FilterTriggerRef,
   FilterBarButtonProps
->(({ id, isRemovable, ...props }, ref): JSX.Element => {
+>(({ id, isRemovable = false, ...props }, ref): JSX.Element => {
   const { hideFilter } = useFilterBarContext()
+
   return isRemovable ? (
     <FilterButtonRemovable
       ref={ref}

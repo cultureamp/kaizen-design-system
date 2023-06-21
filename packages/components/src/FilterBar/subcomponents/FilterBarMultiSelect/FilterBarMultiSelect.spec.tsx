@@ -21,7 +21,7 @@ const FilterBarMultiSelectWrapper = ({
   ...customProps
 }: {
   defaultValues?: Partial<Values>
-  filterAttributes?: Partial<FilterAttributes<Values>>
+  filterAttributes?: Partial<FilterAttributes<keyof Values>>
 } & Partial<FilterBarMultiSelectProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (

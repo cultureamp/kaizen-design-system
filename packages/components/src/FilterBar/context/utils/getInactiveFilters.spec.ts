@@ -1,5 +1,4 @@
-import React from "react"
-import { FiltersState } from "../types"
+import { FilterBarState } from "../types"
 import { getInactiveFilters } from "./getInactiveFilters"
 
 type Values = {
@@ -11,25 +10,21 @@ const filters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
-    Component: <div />,
     isOpen: false,
     isRemovable: false,
-    isActive: true,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
-    Component: <div />,
     isOpen: false,
     isRemovable: true,
-    isActive: false,
   },
-} satisfies FiltersState<Values>["filters"]
+} satisfies FilterBarState<Values>["filters"]
 
 const state = {
   filters,
   activeFilterIds: new Set<keyof Values>(["flavour"]),
-} satisfies FiltersState<Values>
+} satisfies FilterBarState<Values>
 
 describe("getInactiveFilters()", () => {
   it("only fetches inactive filters", () => {
