@@ -1,5 +1,34 @@
 # Change Log
 
+## 1.17.1
+
+### Patch Changes
+
+- [#3786](https://github.com/cultureamp/kaizen-design-system/pull/3786) [`bbb569f5d`](https://github.com/cultureamp/kaizen-design-system/commit/bbb569f5d55e9adb208ef0bf35d81ab97c50c89e) - Updates the future release /dist reference path in package.json
+  - this will fix the imports for future components
+  - ie: `import {Workflow} from "@kaizen/components/future"
+
+## 1.17.0
+
+### Minor Changes
+
+- [#3781](https://github.com/cultureamp/kaizen-design-system/pull/3781) [`405d54ad2`](https://github.com/cultureamp/kaizen-design-system/commit/405d54ad2d1da5d30f64abeb6d2f0c0f73d2f098) - Add clear all functionality to FilterBar.
+
+  All selected values are cleared, and any active removable filters are made inactive and moved into the Add Filters menu.
+
+- [#3761](https://github.com/cultureamp/kaizen-design-system/pull/3761) [`41a305dee`](https://github.com/cultureamp/kaizen-design-system/commit/41a305dee9e22d612e127265f3b2e412100e1162) - Create /future release for Workflow component that updates Steps to array of objects and stepName to currentStepId
+  - updates the stepName to currentStepId
+  - updates steps from non-empty array of strings to non-empty array of Steps
+    - exports Step and Steps types for convenience in consuming repos
+  - refactor Workflow to use the new type and id to reference active steps from array
+  - adds test coverage to ProgressStepper and improve docs
+
+### Patch Changes
+
+- [#3780](https://github.com/cultureamp/kaizen-design-system/pull/3780) [`abb973ab4`](https://github.com/cultureamp/kaizen-design-system/commit/abb973ab43e566910aa0898d6fa9c6d2a5e9f8c6) - Refactor FilterBar context state with less duplication of values.
+
+- [#3783](https://github.com/cultureamp/kaizen-design-system/pull/3783) [`3c2c7ede9`](https://github.com/cultureamp/kaizen-design-system/commit/3c2c7ede9f835db3793d966c8f0126a0f2dbcd70) - Refactor FilterBar to loop through singular dispatch actions instead of having a separate batch action for the same result.
+
 ## 1.16.0
 
 ### Minor Changes

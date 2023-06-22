@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.17.5
+
+### Patch Changes
+
+- [#3782](https://github.com/cultureamp/kaizen-design-system/pull/3782) [`d3968f509`](https://github.com/cultureamp/kaizen-design-system/commit/d3968f509ea35f6367d2fa0fa3eb88b6dfe1e17a) - fix border radius when using RemovableFilterTrigger
+
 ## 6.17.4
 
 ### Patch Changes

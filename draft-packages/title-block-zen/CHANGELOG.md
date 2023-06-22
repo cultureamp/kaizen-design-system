@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.10.10
+
+### Patch Changes
+
+- [#3777](https://github.com/cultureamp/kaizen-design-system/pull/3777) [`bf6228803`](https://github.com/cultureamp/kaizen-design-system/commit/bf6228803378536c1901aea6c64e0c9b3de62b0f) - Uses visibility:hidden on MobileActions to hide the menu from screen readers and avoid potential keyboard focus when menu is closed
+
 ## 7.10.9
 
 ### Patch Changes
