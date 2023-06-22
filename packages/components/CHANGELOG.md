@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.17.1
+
+### Patch Changes
+
+- [#3786](https://github.com/cultureamp/kaizen-design-system/pull/3786) [`bbb569f5d`](https://github.com/cultureamp/kaizen-design-system/commit/bbb569f5d55e9adb208ef0bf35d81ab97c50c89e) - Updates the future release /dist reference path in package.json
+  - this will fix the imports for future components
+  - ie: `import {Workflow} from "@kaizen/components/future"
+
 ## 1.17.0
 
 ### Minor Changes
