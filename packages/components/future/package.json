@@ -1,5 +1,5 @@
 {
-  "main": "../dist/__future__/index.js",
-  "module": "../dist/esm/__future__/index.js",
-  "types": "../dist/__future__/index.d.ts"
+  "main": "../dist/cjs/future.js",
+  "module": "../dist/esm/future.js",
+  "types": "../dist/esm/dts/__future__/index.d.ts"
 }
