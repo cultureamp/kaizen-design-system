@@ -27,6 +27,7 @@ describe("filterBarStateReducer", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),
+        values: {},
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -45,6 +46,7 @@ describe("filterBarStateReducer", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),
+        values: { flavour: "jasmine" },
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -53,6 +55,7 @@ describe("filterBarStateReducer", () => {
       })
 
       expect(newState.activeFilterIds).toEqual(new Set())
+      expect(newState.values.flavour).toBeUndefined()
     })
   })
 })

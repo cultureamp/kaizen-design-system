@@ -27,6 +27,7 @@ describe("transformToFiltersState()", () => {
     const state = {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
+      values: {},
     } satisfies FilterBarState<Values>
 
     const filtersState = transformToFiltersState<Values>(state, {

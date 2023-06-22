@@ -10,6 +10,7 @@ type BaseFilterState<Id> = {
   id: Id
   name: string
   isRemovable?: boolean
+  // value?: Value
 }
 
 export type FilterState<Id, Value> = BaseFilterState<Id> & {
@@ -42,6 +43,7 @@ export type FilterBarStateFilters<ValuesMap extends FiltersValues> = {
 export type FilterBarState<ValuesMap extends FiltersValues> = {
   filters: FilterBarStateFilters<ValuesMap>
   activeFilterIds: Set<keyof ValuesMap>
+  values: Partial<ValuesMap>
 }
 
 export type ActiveFiltersArray<ValuesMap extends FiltersValues> = Array<

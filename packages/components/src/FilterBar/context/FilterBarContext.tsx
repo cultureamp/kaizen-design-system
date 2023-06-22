@@ -66,7 +66,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       return {
         ...state.filters[id],
         isActive: state.activeFilterIds.has(id),
-        value: values[id],
+        value: state.values[id],
       }
     },
     toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean): void => {
@@ -77,16 +77,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
         typeof newValue === "object" && JSON.stringify(newValue) === "{}"
           ? undefined
           : newValue
-      onValuesChange({
-        ...values,
-        [id]: validValue,
+      dispatch({
+        type: "update_values",
+        values: { ...values, [id]: validValue },
       })
     },
     showFilter: (id: keyof ValuesMap): void =>
-      dispatch({ type: "activate_filter", id, values }),
+      dispatch({ type: "activate_filter", id }),
     hideFilter: (id: keyof ValuesMap): void => {
       dispatch({ type: "deactivate_filter", id })
-      onValuesChange({ ...values, [id]: undefined })
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
     clearAllFilters: () => {
@@ -94,15 +93,19 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
         if (mappedFilters[id].isRemovable)
           dispatch({ type: "deactivate_filter", id })
       })
-      onValuesChange({})
+      dispatch({ type: "update_values", values: {} })
     },
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
-    Object.keys(values).forEach(id => {
-      if (values[id]) dispatch({ type: "activate_filter", id, values })
-    })
+    dispatch({ type: "update_values", values })
   }, [values])
+
+  useEffect(() => {
+    const shouldUpdateValues =
+      filters.find(({ id }) => state.values[id] !== values[id]) !== undefined
+    if (shouldUpdateValues) onValuesChange({ ...state.values })
+  }, [state])
 
   const activeFilters = Array.from(
     state.activeFilterIds,

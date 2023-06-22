@@ -20,17 +20,25 @@ export const setupFiltersState = <ValuesMap extends FiltersValues>(
 
       return baseState
     },
-    { filters: {}, activeFilterIds: new Set() } as FilterBarState<ValuesMap>
+    {
+      filters: {},
+      activeFilterIds: new Set(),
+      values: {},
+    } as FilterBarState<ValuesMap>
   )
 
   const filtersState = transformToFiltersState(state, values)
 
   filters.forEach(({ id, isUsableWhen }) => {
-    // if (isUsableWhen) {
     const isUsable = getFilterUsableState(filtersState, isUsableWhen)
     state.filters[id].isUsable = isUsable
-    if (!isUsable) state.activeFilterIds.delete(id)
-    // }
+
+    if (!isUsable) {
+      state.activeFilterIds.delete(id)
+      return
+    }
+
+    state.values[id] = values[id]
   })
 
   return state

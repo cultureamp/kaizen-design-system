@@ -270,6 +270,14 @@ export const DependentFilter: StoryFn<typeof FilterBar> = () => {
         values={values}
         onValuesChange={setValues}
       />
+      <div className="flex gap-8 my-16">
+        <button
+          type="button"
+          onClick={() => setValues({ ...values, flavour: undefined })}
+        >
+          Clear Flavour
+        </button>
+      </div>
       <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
     </>
   )

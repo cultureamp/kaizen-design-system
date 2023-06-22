@@ -27,6 +27,7 @@ describe("getInactiveFilters()", () => {
     const state = {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
+      values: {},
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([
@@ -52,6 +53,7 @@ describe("getInactiveFilters()", () => {
         },
       },
       activeFilterIds: new Set<keyof Values>(),
+      values: {},
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([stateFilters.flavour])
