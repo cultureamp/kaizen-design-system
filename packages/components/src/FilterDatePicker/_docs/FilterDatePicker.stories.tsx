@@ -310,12 +310,10 @@ export const Validation: StoryFn = () => {
         <FilterDatePickerField
           id="datepicker-default"
           inputProps={{ labelText: "Label" }}
-          // selectedDate={value}
+          selectedDate={value}
           onDateChange={setValue}
           onValidate={handleValidate}
           validationMessage={validationMessage}
-          selectedDate={new Date("2022-05-15")}
-          disabledDays={[new Date("2022-05-15")]}
           locale="en-AU"
         />
         <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
