@@ -8,7 +8,6 @@ import {
   formatDateAsText,
   getLocale,
 } from "@kaizen/date-picker"
-import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
 import { FilterProps } from "~components/Filter"
 import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
@@ -97,7 +96,6 @@ const reducer = (
   state: FilterDatePickerState,
   action: Actions
 ): FilterDatePickerState => {
-  console.log("pinned dispatched", action)
   switch (action.type) {
     case "update_calendar_field":
       return {
@@ -197,6 +195,7 @@ export const FilterDatePickerField = ({
     disabledDays,
     setInputValue: value => handleInputChange(value as string),
     onDateChange: date => {
+      onDateChange(date)
       handleDateChange(date)
     },
     ...inputProps,
@@ -220,16 +219,12 @@ export const FilterDatePickerField = ({
     })
 
     onDateSubmit?.(newDate)
-    onDateChange(newDate)
+    handleDateChange(newDate)
   }
 
   useEffect(() => {
     validateDate(selectedDate)
   }, [])
-
-  useEffect(() => {
-    console.log("pinned state", state)
-  }, [state])
 
   return (
     <div
