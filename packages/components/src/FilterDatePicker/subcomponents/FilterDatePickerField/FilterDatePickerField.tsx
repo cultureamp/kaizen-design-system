@@ -73,26 +73,17 @@ type FilterDatePickerState = {
 
 type Actions =
   | {
-      type: "update_from_external"
+      type: "update_calendar_field"
       date: DateOrUndefined
-      disabledDays: DisabledDays
       locale: Locale
       inputValue: string
-    }
-  | {
-      type: "update_from_input"
-      date: string
-      locale: Locale
     }
   | {
       type: "navigate_months"
       date: Date
     }
   | {
-      type: "update_from_calendar"
-      date: DateOrUndefined
-      disabledDays: DisabledDays
-      locale: Locale
+      type: "update_input_field"
       inputValue: string
     }
 
@@ -108,15 +99,7 @@ const reducer = (
 ): FilterDatePickerState => {
   console.log("pinned dispatched", action)
   switch (action.type) {
-    case "update_from_external":
-      return {
-        ...state,
-        selectedDate: action.date,
-        inputValue: action.inputValue,
-        startMonth:
-          action.date && !isInvalidDate(action.date) ? action.date : new Date(),
-      }
-    case "update_from_calendar":
+    case "update_calendar_field":
       return {
         ...state,
         selectedDate: action.date,
@@ -130,18 +113,10 @@ const reducer = (
         startMonth:
           action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }
-    case "update_from_input":
+    case "update_input_field":
       return {
         ...state,
-        inputValue: action.date,
-        selectedDate: parseDateFromTextFormatValue(action.date, action.locale),
-        startMonth:
-          action.date &&
-          !isInvalidDate(
-            parseDateFromTextFormatValue(action.date, action.locale)
-          )
-            ? parseDateFromTextFormatValue(action.date, action.locale)
-            : new Date(),
+        inputValue: action.inputValue,
       }
   }
 }
@@ -204,13 +179,17 @@ export const FilterDatePickerField = ({
     const newDate = validateDate(date)
 
     dispatch({
-      type: "update_from_external",
+      type: "update_calendar_field",
       date: newDate,
       inputValue: transformDateToInputValue(newDate, disabledDays, locale),
-      disabledDays,
       locale,
     })
-    onDateChange(state.selectedDate)
+
+    onDateChange(newDate)
+
+    if (newDate && !isInvalidDate(newDate)) {
+      onDateSubmit?.(newDate)
+    }
   }
 
   const inputDateHandlers = useDateInputHandlers({
@@ -223,32 +202,25 @@ export const FilterDatePickerField = ({
     ...inputProps,
   })
 
-  const handleInputChange = (date: string): void => {
+  const handleInputChange = (inputValue: string): void => {
     dispatch({
-      type: "update_from_input",
-      date,
-      locale,
+      type: "update_input_field",
+      inputValue,
     })
-
-    const convertedDate = parseDateFromTextFormatValue(date, locale)
-
-    if (date && !isInvalidDate(convertedDate)) {
-      onDateSubmit?.(convertedDate)
-    }
   }
 
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
     const newDate = validateDate(date)
 
     dispatch({
-      type: "update_from_calendar",
+      type: "update_calendar_field",
       date: newDate,
       inputValue: transformDateToInputValue(newDate, disabledDays, locale),
-      disabledDays,
       locale,
     })
-    onDateSubmit?.(state.selectedDate)
-    onDateChange(state.selectedDate)
+
+    onDateSubmit?.(newDate)
+    onDateChange(newDate)
   }
 
   useEffect(() => {
