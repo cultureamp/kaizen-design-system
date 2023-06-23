@@ -4,7 +4,7 @@ import styles from "./TableOfContents.module.scss"
 
 export const TableOfContents = (): JSX.Element | null => {
   const [headings, setHeadings] = React.useState<Element[]>([])
-  const headingSelector = "h2, h3, h4, h5, h6"
+  const headingSelector = "h2, h3"
 
   useEffect(() => {
     const headingElements = Array.from(
