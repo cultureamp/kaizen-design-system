@@ -323,10 +323,10 @@ describe("<FilterBar />", () => {
           />
         )
 
-        const flavourButton = getByRole("button", { name: "Flavour" })
         const addFiltersButton = getByRole("button", { name: "Add Filters" })
         expect(addFiltersButton).toBeDisabled()
 
+        const flavourButton = getByRole("button", { name: "Flavour" })
         await user.click(flavourButton)
         const flavourOption = await findByRole("option", {
           name: "Jasmine Milk Tea",
