@@ -23,7 +23,7 @@ const stateFilters = {
 
 describe("filterBarStateReducer", () => {
   describe("filterBarStateReducer: activate_filter", () => {
-    it("sets a filter to active and adds entry to active filters", () => {
+    it("sets a filter to active", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),
@@ -42,7 +42,7 @@ describe("filterBarStateReducer", () => {
   })
 
   describe("filterBarStateReducer: deactivate_filter", () => {
-    it("sets a filter to inactive and removes entry from active filters", () => {
+    it("sets a filter to inactive and clears value", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),

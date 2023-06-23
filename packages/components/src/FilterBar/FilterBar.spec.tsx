@@ -259,44 +259,172 @@ describe("<FilterBar />", () => {
   })
 
   describe("Dependent filters", () => {
-    it("does not show a dependent filter when the condition is not met", () => {
-      const { queryByRole, getByRole } = render(
-        <FilterBarWrapper filters={filtersDependent} />
-      )
-      expect(queryByRole("button", { name: "Topping" })).not.toBeInTheDocument()
-      expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
+    describe("Condition not met", () => {
+      it("does not show a dependent filter", () => {
+        const { queryByRole, getByRole } = render(
+          <FilterBarWrapper filters={filtersDependent} />
+        )
+        expect(
+          queryByRole("button", { name: "Topping" })
+        ).not.toBeInTheDocument()
+        expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
+      })
     })
 
-    it("clears the value for an unusable filter", async () => {
-      const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+    describe("Condition met", () => {
+      it("shows a non-removable dependent filter in active filters", async () => {
+        const { queryByRole, getByRole, findByRole } = render(
+          <FilterBarWrapper filters={filtersDependent} />
+        )
 
-      const Wrapper = (): JSX.Element => {
-        const [values, setValues] = useState<Partial<ValuesDependent>>({
-          topping: "pearls",
+        const flavourButton = getByRole("button", { name: "Flavour" })
+        expect(
+          queryByRole("button", { name: "Topping" })
+        ).not.toBeInTheDocument()
+
+        await user.click(flavourButton)
+        const flavourOption = await findByRole("option", {
+          name: "Jasmine Milk Tea",
+        })
+        await user.click(flavourOption)
+
+        await waitFor(() => {
+          expect(getByRole("button", { name: "Topping" })).toBeVisible()
+        })
+      })
+
+      it("shows a removable dependent filter in Add Filters menu", async () => {
+        const { getByRole, findByRole } = render(
+          <FilterBarWrapper
+            filters={[
+              {
+                id: "flavour",
+                name: "Flavour",
+                Component: (
+                  <FilterBar.Select
+                    items={[
+                      { value: "jasmine-milk-tea", label: "Jasmine Milk Tea" },
+                    ]}
+                  />
+                ),
+              },
+              {
+                id: "topping",
+                name: "Topping",
+                Component: (
+                  <FilterBar.Select
+                    items={[{ value: "pearls", label: "Pearls" }]}
+                  />
+                ),
+                isUsableWhen: state => state.flavour.value !== undefined,
+                isRemovable: true,
+              },
+            ]}
+          />
+        )
+
+        const flavourButton = getByRole("button", { name: "Flavour" })
+        const addFiltersButton = getByRole("button", { name: "Add Filters" })
+        expect(addFiltersButton).toBeDisabled()
+
+        await user.click(flavourButton)
+        const flavourOption = await findByRole("option", {
+          name: "Jasmine Milk Tea",
+        })
+        await user.click(flavourOption)
+
+        await waitFor(() => {
+          expect(addFiltersButton).not.toBeDisabled()
         })
 
-        return (
-          <div>
-            <FilterBar<ValuesDependent>
-              filters={filtersDependent}
-              values={values}
-              onValuesChange={setValues}
-            />
-            <button type="button" onClick={() => checkValues(values)}>
-              Check values
-            </button>
-          </div>
-        )
-      }
+        await user.click(addFiltersButton)
 
-      const { queryByRole, getByRole } = render(<Wrapper />)
-      expect(
-        queryByRole("button", { name: "Topping : Pearls" })
-      ).not.toBeInTheDocument()
+        const list = getByRole("list")
+        const menuOption = within(list).getByRole("button", { name: "Topping" })
 
-      await user.click(getByRole("button", { name: "Check values" }))
-      await waitFor(() => {
-        expect(checkValues).toHaveBeenCalledWith({})
+        await waitFor(() => {
+          expect(menuOption).toBeVisible()
+        })
+      })
+    })
+
+    describe("Condition result change", () => {
+      it("clears the value for an unusable filter", async () => {
+        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+
+        const Wrapper = (): JSX.Element => {
+          const [values, setValues] = useState<Partial<ValuesDependent>>({
+            topping: "pearls",
+          })
+
+          return (
+            <div>
+              <FilterBar<ValuesDependent>
+                filters={filtersDependent}
+                values={values}
+                onValuesChange={setValues}
+              />
+              <button type="button" onClick={() => checkValues(values)}>
+                Check values
+              </button>
+            </div>
+          )
+        }
+
+        const { queryByRole, getByRole } = render(<Wrapper />)
+        expect(
+          queryByRole("button", { name: "Topping : Pearls" })
+        ).not.toBeInTheDocument()
+
+        await user.click(getByRole("button", { name: "Check values" }))
+        await waitFor(() => {
+          expect(checkValues).toHaveBeenCalledWith({})
+        })
+      })
+
+      it("clears the value and removes a filter which loses usability", async () => {
+        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+
+        const Wrapper = (): JSX.Element => {
+          const [values, setValues] = useState<Partial<ValuesDependent>>({
+            flavour: "jasmine-milk-tea",
+            topping: "pearls",
+          })
+
+          return (
+            <div>
+              <FilterBar<ValuesDependent>
+                filters={filtersDependent}
+                values={values}
+                onValuesChange={setValues}
+              />
+              <button
+                type="button"
+                onClick={() => setValues({ ...values, flavour: undefined })}
+              >
+                Clear Flavour
+              </button>
+              <button type="button" onClick={() => checkValues(values)}>
+                Check values
+              </button>
+            </div>
+          )
+        }
+
+        const { getByRole } = render(<Wrapper />)
+        expect(
+          getByRole("button", { name: "Flavour : Jasmine Milk Tea" })
+        ).toBeVisible()
+        const toppingsButton = getByRole("button", { name: "Topping : Pearls" })
+        expect(toppingsButton).toBeVisible()
+
+        await user.click(getByRole("button", { name: "Clear Flavour" }))
+        await user.click(getByRole("button", { name: "Check values" }))
+
+        await waitFor(() => {
+          expect(checkValues).toHaveBeenCalledWith({})
+          expect(toppingsButton).not.toBeInTheDocument()
+        })
       })
     })
   })

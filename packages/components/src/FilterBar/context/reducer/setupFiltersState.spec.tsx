@@ -49,6 +49,7 @@ describe("setupFiltersState()", () => {
       sugarLevel: 50,
     })
     expect(state.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
+    expect(state.values.sugarLevel).toEqual(50)
   })
 
   describe("Dependent filters", () => {
@@ -61,6 +62,16 @@ describe("setupFiltersState()", () => {
         isUsableWhen: state => state.flavour.value !== undefined,
       },
     ] satisfies Filters<Values>
+
+    it("is usable if it meets its set condition", () => {
+      const state = setupFiltersState<Values>(filtersDependent, {
+        flavour: "jasmine",
+        sugarLevel: 50,
+      })
+      expect(state.filters.sugarLevel.isUsable).toBe(true)
+      expect(state.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
+      expect(state.values.sugarLevel).toEqual(50)
+    })
 
     it("is not usable if it does not meet its set condition", () => {
       const state = setupFiltersState<Values>(filtersDependent, {})
