@@ -97,13 +97,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     },
   } satisfies FilterBarContextValue<any, ValuesMap>
 
+  const shouldUpdateValues = filters.some(
+    ({ id }) => state.values[id] !== values[id]
+  )
+
   useEffect(() => {
-    dispatch({ type: "update_values", values })
+    if (shouldUpdateValues) dispatch({ type: "update_values", values })
   }, [values])
 
   useEffect(() => {
-    const shouldUpdateValues =
-      filters.find(({ id }) => state.values[id] !== values[id]) !== undefined
     if (shouldUpdateValues) onValuesChange({ ...state.values })
   }, [state])
 
