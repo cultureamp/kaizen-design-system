@@ -9,13 +9,13 @@ import {
   getLocale,
 } from "@kaizen/date-picker"
 import { FilterProps } from "~components/Filter"
+import { useDateValidation } from "~components/FilterDatePicker"
 import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
 import { DisabledDays, FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { DateValidationResponse, ValidationMessage } from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
-import { useSingleDateValidation } from "./hooks/useSingleDateValidation"
 import styles from "./FilterDatePickerField.module.scss"
 
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
@@ -75,7 +75,7 @@ type Actions =
       type: "update_calendar_field"
       date: DateOrUndefined
       locale: Locale
-      inputValue: string
+      disabledDays: DisabledDays
     }
   | {
       type: "navigate_months"
@@ -101,7 +101,11 @@ const reducer = (
       return {
         ...state,
         selectedDate: action.date,
-        inputValue: action.inputValue,
+        inputValue: transformDateToInputValue(
+          action.date,
+          action.disabledDays,
+          action.locale
+        ),
         startMonth:
           action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }
@@ -155,14 +159,21 @@ export const FilterDatePickerField = ({
 }: FilterDatePickerFieldProps): JSX.Element => {
   const locale = getLocale(propsLocale)
 
-  const dateValidation = useSingleDateValidation({
+  const dateValidation = useDateValidation({
     disabledDays,
     validationMessage,
     onValidate,
   })
 
-  const validateDate = (date: DateOrUndefined): DateOrUndefined =>
-    dateValidation.validateDate({ date, inputValue: state.inputValue })
+  const validateDate = (date: DateOrUndefined): DateOrUndefined => {
+    const { validationResponse, newDate } = dateValidation.validateDate({
+      date,
+      inputValue: state.inputValue,
+    })
+    dateValidation.updateValidation(validationResponse)
+
+    return newDate
+  }
 
   const [state, dispatch] = useReducer(
     reducer,
@@ -179,11 +190,11 @@ export const FilterDatePickerField = ({
     dispatch({
       type: "update_calendar_field",
       date: newDate,
-      inputValue: transformDateToInputValue(newDate, disabledDays, locale),
+      disabledDays,
       locale,
     })
 
-    onDateChange(newDate)
+    onDateChange(date)
 
     if (newDate && !isInvalidDate(newDate)) {
       onDateSubmit?.(newDate)
@@ -209,17 +220,7 @@ export const FilterDatePickerField = ({
   }
 
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
-    const newDate = validateDate(date)
-
-    dispatch({
-      type: "update_calendar_field",
-      date: newDate,
-      inputValue: transformDateToInputValue(newDate, disabledDays, locale),
-      locale,
-    })
-
-    onDateSubmit?.(newDate)
-    handleDateChange(newDate)
+    handleDateChange(date)
   }
 
   useEffect(() => {

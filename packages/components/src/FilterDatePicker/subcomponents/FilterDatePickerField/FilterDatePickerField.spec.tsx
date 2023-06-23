@@ -195,7 +195,6 @@ describe("<FilterDatePickerField />", () => {
 
       await waitFor(() => {
         expect(inputDate).toHaveValue("")
-        expect(inputDateOnSubmit).toHaveBeenCalledWith(undefined)
       })
     })
   })
