@@ -22,7 +22,8 @@ export const updateValues = <ValuesMap extends FiltersValues>(
 
     state.values[id as keyof ValuesMap] = values[id]
 
-    if (values[id]) state.activeFilterIds.add(id)
+    if (!state.filters[id].isRemovable || values[id])
+      state.activeFilterIds.add(id)
   })
 
   return { ...state }
