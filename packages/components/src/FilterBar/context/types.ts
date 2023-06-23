@@ -10,7 +10,6 @@ type BaseFilterState<Id> = {
   id: Id
   name: string
   isRemovable?: boolean
-  // value?: Value
 }
 
 export type FilterState<Id, Value> = BaseFilterState<Id> & {
