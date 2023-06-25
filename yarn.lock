@@ -13997,7 +13997,7 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
 
-react-focus-lock@^2.9.2, react-focus-lock@^2.9.4:
+react-focus-lock@^2.9.4:
   version "2.9.4"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.4.tgz#4753f6dcd167c39050c9d84f9c63c71b3ff8462e"
   integrity sha512-7pEdXyMseqm3kVjhdVH18sovparAzLg5h6WvIx7/Ck3ekjhrrDMEegHSa3swwC8wgfdd7DIdUVRGeiHT9/7Sgg==
@@ -14009,13 +14009,13 @@ react-focus-lock@^2.9.2, react-focus-lock@^2.9.4:
     use-callback-ref "^1.3.0"
     use-sidecar "^1.1.2"
 
-react-focus-on@^3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/react-focus-on/-/react-focus-on-3.8.1.tgz#0b6ac269a98c18b1295785433456b4286e353866"
-  integrity sha512-fQcBx+SZMgXoRL+69r5+ic4bdVgqaCeKeoFPra8yhcSuL/3unWavfdirEFBGgH71K+RiocMTS6DETHcX0SlOZg==
+react-focus-on@^3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/react-focus-on/-/react-focus-on-3.8.2.tgz#f62c68fb0a9bc9bde5609c2db38dffa3a1096529"
+  integrity sha512-+JvIRBqvDMnIsEruDSkIWHFBWdpfJ9V9eQPsGaifEUGGm9fw52sZgWqHYa94XJxVMrdxXhdrEwyO6QaUlucEww==
   dependencies:
     aria-hidden "^1.2.2"
-    react-focus-lock "^2.9.2"
+    react-focus-lock "^2.9.4"
     react-remove-scroll "^2.5.6"
     react-style-singleton "^2.2.0"
     tslib "^2.3.1"
