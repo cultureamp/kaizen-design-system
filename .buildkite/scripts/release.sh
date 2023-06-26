@@ -9,7 +9,7 @@ set -e
 
 GITHUB_SSH_HOST_KEY="github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk="
 
-setup_github() {
+setup_github_credentials() {
   git config --global credential.helper cache
   git config --global user.email "cultureamp-ci@cultureamp.com"
   git config --global user.name "cultureamp-ci"
@@ -27,24 +27,37 @@ setup_github() {
   ssh -T git@github.com || true # exits non-zero
 }
 
-setup_npm() {
+setup_npm_credentials() {
   npm config set update-notifier false
   npm config set email service-npm@cultureamp.com
   npm config set username cultureamp-user
   npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
   npm config set access public
   npm config set unsafe-perm true
-
+  
   echo "Checking npm authentication..."
   echo "Logged in as: $(npm whoami)"
+}
+
+publish_to_npm() {
+  echo "Publishing to npm..."
+  yarn ci:publish
+}
+
+publish_to_github_packages() {
+  echo "Publishing to github packages..."
+  GITHUB_TOKEN=$GH_TOKEN yarn ci:publish
 }
 
 release() {
   git checkout main && git pull
 
   yarn install --frozen-lockfile
+  yarn build
 
-  yarn ci:publish
+  publish_to_npm
+  publish_to_github_packages
+
   git push --follow-tags
 }
 
@@ -66,8 +79,8 @@ main() {
   echo "(done)"
 
   echo "Setting up git and npm credentials..."
-  setup_github
-  setup_npm
+  setup_github_credentials
+  setup_npm_credentials
 
   if [ "$BUILDKITE_BRANCH" = main ]; then
 
