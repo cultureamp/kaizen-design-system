@@ -21,7 +21,10 @@ jobs:
           yarn install --frozen-lockfile --ignore-scripts
       - name: Create Release Pull Request
         uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
           version: yarn ci:version
+          publish: yarn ci:publish

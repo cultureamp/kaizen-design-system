@@ -34,19 +34,9 @@ setup_npm_credentials() {
   npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
   npm config set access public
   npm config set unsafe-perm true
-  
+
   echo "Checking npm authentication..."
   echo "Logged in as: $(npm whoami)"
-}
-
-publish_to_npm() {
-  echo "Publishing to npm..."
-  yarn ci:publish
-}
-
-publish_to_github_packages() {
-  echo "Publishing to github packages..."
-  GITHUB_TOKEN=$GH_TOKEN yarn ci:publish
 }
 
 release() {
@@ -55,9 +45,8 @@ release() {
   yarn install --frozen-lockfile
   yarn build
 
-  publish_to_npm
-  publish_to_github_packages
-
+  echo "Publishing to npm..."
+  yarn ci:publish
   git push --follow-tags
 }
 
