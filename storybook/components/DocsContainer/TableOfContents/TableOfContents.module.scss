@@ -1,0 +1,38 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.list {
+  margin: 0;
+  padding: 0;
+  margin-top: $spacing-8;
+}
+
+.listItem {
+  list-style: none;
+  margin-bottom: $spacing-8;
+
+  &:not(:global(.tocbot-list) > .list > &) {
+    position: relative;
+    margin-inline-start: $spacing-16;
+
+    &::before {
+      position: absolute;
+      inset-inline-start: calc(-1 * #{$spacing-16});
+      content: "-";
+    }
+  }
+}
+
+.link {
+  font-family: $typography-paragraph-small-font-family;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
+  font-weight: $typography-paragraph-small-font-weight;
+  color: $color-blue-500;
+}
+
+.activeLink {
+  font-weight: $typography-paragraph-bold-font-weight;
+}
