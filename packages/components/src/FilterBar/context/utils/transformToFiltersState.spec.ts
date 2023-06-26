@@ -10,6 +10,7 @@ const stateFilters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
+    isRemovable: false,
     isOpen: false,
     isUsable: true,
   },
@@ -23,7 +24,7 @@ const stateFilters = {
 } satisfies FilterBarState<Values>["filters"]
 
 describe("transformToFiltersState()", () => {
-  it("extends state with inActive and value", () => {
+  it("returns args compatible with dependent filter conditions", () => {
     const state = {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
@@ -37,17 +38,12 @@ describe("transformToFiltersState()", () => {
     expect(filtersState.flavour).toEqual({
       id: "flavour",
       name: "Flavour",
-      isOpen: false,
-      isUsable: true,
       isActive: true,
       value: "jasmine",
     })
     expect(filtersState.sugarLevel).toEqual({
       id: "sugarLevel",
       name: "Sugar Level",
-      isOpen: false,
-      isRemovable: true,
-      isUsable: true,
       isActive: false,
       value: undefined,
     })

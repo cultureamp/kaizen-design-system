@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useMemo, useReducer } from "react"
-import { FilterAttributes, Filters } from "../types"
+import { FilterAttributes, FilterState, Filters, FiltersValues } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
 import { setupFilterBarState } from "./reducer/setupFilterBarState"
-import { ActiveFiltersArray, FiltersValues, FilterState } from "./types"
+import { ActiveFiltersArray } from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
 

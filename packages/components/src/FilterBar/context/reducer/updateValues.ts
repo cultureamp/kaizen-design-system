@@ -1,4 +1,5 @@
-import { FilterBarState, FiltersValues } from "../types"
+import { FiltersValues } from "../../types"
+import { FilterBarState } from "../types"
 import { getFilterUsableState } from "../utils/getFilterUsableState"
 import { transformToFiltersState } from "../utils/transformToFiltersState"
 

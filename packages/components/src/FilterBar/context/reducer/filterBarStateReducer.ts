@@ -1,8 +1,5 @@
-import {
-  FilterBarState,
-  FilterStateEditableAttributes,
-  FiltersValues,
-} from "../types"
+import { FiltersValues } from "../../types"
+import { FilterBarState, FilterStateEditableAttributes } from "../types"
 import { updateSingleFilter } from "./updateSingleFilter"
 import { updateValues } from "./updateValues"
 

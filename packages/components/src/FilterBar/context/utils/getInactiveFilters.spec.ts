@@ -10,6 +10,7 @@ const stateFilters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
+    isRemovable: false,
     isOpen: false,
     isUsable: true,
   },
@@ -48,6 +49,7 @@ describe("getInactiveFilters()", () => {
         sugarLevel: {
           id: "sugarLevel",
           name: "Sugar Level",
+          isRemovable: false,
           isOpen: false,
           isUsable: false,
         },

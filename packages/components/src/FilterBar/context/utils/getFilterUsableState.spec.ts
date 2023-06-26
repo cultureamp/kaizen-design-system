@@ -1,4 +1,4 @@
-import { FiltersState } from "../types"
+import { FilterBarUsableArgs } from "../../types"
 import { getFilterUsableState } from "./getFilterUsableState"
 
 type Values = {
@@ -6,37 +6,34 @@ type Values = {
   sugarLevel: number
 }
 
-const filtersState = {
+const isUsableWhenArgs = {
   flavour: {
     id: "flavour",
     name: "Flavour",
-    isOpen: false,
     isActive: true,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
-    isOpen: false,
-    isRemovable: true,
     isActive: false,
   },
-} satisfies FiltersState<Values>
+} satisfies FilterBarUsableArgs<Values>
 
 describe("getFilterUsableState()", () => {
   it("returns true when no condition is set", () => {
-    expect(getFilterUsableState(filtersState, undefined)).toEqual(true)
+    expect(getFilterUsableState(isUsableWhenArgs, undefined)).toEqual(true)
   })
 
   it("correctly calculates usability when defined", () => {
     expect(
       getFilterUsableState(
-        filtersState,
+        isUsableWhenArgs,
         state => state.flavour.name === "Flavour"
       )
     ).toEqual(true)
     expect(
       getFilterUsableState(
-        filtersState,
+        isUsableWhenArgs,
         state => state.flavour.name === "Not Flavour"
       )
     ).toEqual(false)

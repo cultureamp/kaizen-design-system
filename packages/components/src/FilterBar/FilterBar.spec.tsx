@@ -2,8 +2,7 @@ import React, { useState } from "react"
 import { render, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterBar, FilterBarProps } from "./FilterBar"
-import { FiltersValues } from "./context/types"
-import { Filters } from "./types"
+import { Filters, FiltersValues } from "./types"
 
 const user = userEvent.setup()
 

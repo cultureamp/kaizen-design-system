@@ -10,12 +10,14 @@ const stateFilters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
+    isRemovable: false,
     isOpen: false,
     isUsable: true,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
+    isRemovable: false,
     isOpen: false,
     isUsable: true,
   },

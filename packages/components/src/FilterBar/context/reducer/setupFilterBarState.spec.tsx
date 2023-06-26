@@ -28,6 +28,7 @@ describe("setupFilterBarState()", () => {
         flavour: {
           id: "flavour",
           name: "Flavour",
+          isRemovable: false,
           isOpen: false,
           isUsable: true,
         },

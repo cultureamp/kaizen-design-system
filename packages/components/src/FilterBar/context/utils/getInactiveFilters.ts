@@ -1,5 +1,5 @@
-import { FilterAttributes } from "../../types"
-import { FilterBarState, FiltersValues } from "../types"
+import { FilterAttributes, FiltersValues } from "../../types"
+import { FilterBarState } from "../types"
 
 export const getInactiveFilters = <ValuesMap extends FiltersValues>({
   filters,

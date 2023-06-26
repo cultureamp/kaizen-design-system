@@ -1,5 +1,5 @@
-import { Filters } from "../../types"
-import { FilterBarState, FiltersValues } from "../types"
+import { Filters, FiltersValues } from "../../types"
+import { FilterBarState } from "../types"
 import { getFilterUsableState } from "../utils/getFilterUsableState"
 import { transformToFiltersState } from "../utils/transformToFiltersState"
 
@@ -10,6 +10,7 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
   const state = filters.reduce<FilterBarState<ValuesMap>>(
     (baseState, { Component: _, ...filter }) => {
       baseState.filters[filter.id] = {
+        isRemovable: false,
         isOpen: false,
         isUsable: true,
         ...filter,

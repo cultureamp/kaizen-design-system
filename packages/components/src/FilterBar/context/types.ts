@@ -1,25 +1,7 @@
-import { FilterAttributes } from "../types"
-
-export type FiltersValues = Record<string, any>
+import { FilterAttributes, FilterIsUsableWhen, FiltersValues } from "../types"
 
 export type MappedFilters<ValuesMap extends FiltersValues> = {
   [K in keyof ValuesMap]: FilterAttributes<ValuesMap, K>
-}
-
-type BaseFilterState<Id> = {
-  id: Id
-  name: string
-  isRemovable?: boolean
-}
-
-export type FilterState<Id, Value> = BaseFilterState<Id> & {
-  isOpen: boolean
-  value?: Value
-  isActive: boolean
-}
-
-export type FiltersState<ValuesMap extends FiltersValues> = {
-  [K in keyof ValuesMap]: FilterState<K, ValuesMap[K]>
 }
 
 export type FilterStateEditableAttributes = {
@@ -27,13 +9,19 @@ export type FilterStateEditableAttributes = {
   isUsable: boolean
 }
 
-type InternalFilterState<
+export type InternalFilterState<
   ValuesMap extends FiltersValues,
   Id extends keyof ValuesMap
-> = BaseFilterState<Id> &
-  FilterStateEditableAttributes & {
-    isUsableWhen?: (state: FiltersState<ValuesMap>) => boolean
-  }
+> = {
+  id: Id
+  name: string
+  isRemovable: boolean
+  isUsableWhen?: FilterIsUsableWhen<ValuesMap>
+  isUsable: boolean
+  isOpen: boolean
+  value?: never
+  isActive?: never
+}
 
 export type FilterBarStateFilters<ValuesMap extends FiltersValues> = {
   [K in keyof ValuesMap]: InternalFilterState<ValuesMap, K>
