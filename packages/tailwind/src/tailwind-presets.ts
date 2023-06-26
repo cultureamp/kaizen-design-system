@@ -39,6 +39,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
 
   borderWidth: {
     none: "0px",
+    thin: "1px",
     default: "2px",
     "focus-ring": "2px",
   },
