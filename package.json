@@ -5,7 +5,7 @@
     "draft-packages/*"
   ],
   "engines": {
-    "node": ">=v16.19.1"
+    "node": ">=v18.16.1"
   },
   "scripts": {
     "build": "yarn turbo prepublish",
