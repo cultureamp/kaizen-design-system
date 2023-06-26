@@ -222,7 +222,7 @@ $small: $spacing-md;
   color: $color-purple-800;
 }
 
-.radarIcon {
+.liveIcon {
   display: inline-block;
   position: relative;
   width: 20px;
@@ -231,14 +231,14 @@ $small: $spacing-md;
   color: $color-green-500;
 }
 
-.radarIcon_base {
+.liveIcon_base {
   opacity: 30%;
   display: block;
 }
 
-.radarIcon_1,
-.radarIcon_2,
-.radarIcon_3 {
+.liveIcon_1,
+.liveIcon_2,
+.liveIcon_3 {
   display: block;
   position: absolute;
   top: 0;
@@ -249,23 +249,23 @@ $small: $spacing-md;
   overflow: hidden;
 }
 
-.radarIcon_1 {
+.liveIcon_1 {
   clip-path: circle(16%);
 }
 
-.radarIcon_2,
-.radarIcon_3 {
+.liveIcon_2,
+.liveIcon_3 {
   animation-duration: 3s;
   animation-iteration-count: 3;
   animation-delay: 1s;
 }
 
-.radarIcon_2 {
+.liveIcon_2 {
   clip-path: circle(32%);
   animation-name: pulse-inner;
 }
 
-.radarIcon_3 {
+.liveIcon_3 {
   clip-path: circle(50%);
   animation-name: pulse-outer;
 }

@@ -5,8 +5,8 @@ import cautionIcon from "@kaizen/component-library/icons/caution-white.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
 import errorIcon from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
+import live from "@kaizen/component-library/icons/live.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-import wifi from "@kaizen/component-library/icons/wifi.icon.svg"
 import { Avatar, AvatarProps } from "@kaizen/draft-avatar"
 import styles from "./Tag.module.scss"
 
@@ -158,18 +158,18 @@ export const Tag = (props: TagProps): JSX.Element => {
             </>
           )}
           {variant === "statusLive" && (
-            <span className={styles.radarIcon}>
-              <span className={styles.radarIcon_base}>
-                <Icon icon={wifi} role="presentation" />
+            <span className={styles.liveIcon}>
+              <span className={styles.liveIcon_base}>
+                <Icon icon={live} role="presentation" />
               </span>
-              <span className={styles.radarIcon_1}>
-                <Icon icon={wifi} role="presentation" />
+              <span className={styles.liveIcon_1}>
+                <Icon icon={live} role="presentation" />
               </span>
-              <span className={styles.radarIcon_2}>
-                <Icon icon={wifi} role="presentation" />
+              <span className={styles.liveIcon_2}>
+                <Icon icon={live} role="presentation" />
               </span>
-              <span className={styles.radarIcon_3}>
-                <Icon icon={wifi} role="presentation" />
+              <span className={styles.liveIcon_3}>
+                <Icon icon={live} role="presentation" />
               </span>
             </span>
           )}
