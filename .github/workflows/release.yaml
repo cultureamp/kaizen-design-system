@@ -1,4 +1,4 @@
-name: Changeset
+name: Release
 
 on:
   push:
@@ -9,7 +9,7 @@ jobs:
   version:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
