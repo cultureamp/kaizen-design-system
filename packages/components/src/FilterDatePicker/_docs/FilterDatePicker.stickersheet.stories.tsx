@@ -123,7 +123,6 @@ const applyStickerSheetStyles = (
   const inputEndDate = canvas.getByTestId(
     `${textDirection}-test__filter-dp-field--validation`
   )
-  if (IS_CHROMATIC) return
   userEvent.click(inputEndDate)
   userEvent.type(inputEndDate, "potato")
   userEvent.click(document.body)
