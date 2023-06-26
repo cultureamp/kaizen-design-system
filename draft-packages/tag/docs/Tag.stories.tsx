@@ -167,6 +167,6 @@ StickerSheetReversed.parameters = {
 
 export const LiveTag: StoryFn<typeof Tag> = args => (
   <Tag variant="statusLive" {...args}>
-    Default
+    Live
   </Tag>
 )
