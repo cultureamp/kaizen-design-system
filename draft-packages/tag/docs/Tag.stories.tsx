@@ -1,5 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
+import { Icon } from "@kaizen/component-library"
+import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
 import { Tag } from "@kaizen/draft-tag"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
@@ -113,6 +115,14 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </Tag>
         <Tag variant="validationCautionary" size="medium">
           Cautionary
+        </Tag>
+      </StoryWrapper.Row>
+    </StoryWrapper>
+    <StoryWrapper isReversed={isReversed}>
+      <StoryWrapper.RowHeader headings={["Private"]} gridColumns={1} />
+      <StoryWrapper.Row gridColumns={10} rowTitle="Custom Icon">
+        <Tag size="medium" variant="customIcon" customIcon={lockIcon}>
+          Private
         </Tag>
       </StoryWrapper.Row>
     </StoryWrapper>

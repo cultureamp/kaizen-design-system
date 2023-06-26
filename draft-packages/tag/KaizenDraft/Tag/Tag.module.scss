@@ -217,6 +217,15 @@ $small: $spacing-md;
   background-color: $color-red-100;
 }
 
+.customIcon {
+  background-color: $color-blue-100;
+
+  .validationIcon {
+    color: $color-blue-500;
+  }
+}
+
+
 .statusDraft {
   background-color: $color-blue-100;
   color: $color-purple-800;
@@ -228,6 +237,7 @@ $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
 $pulse-ring-position: calc(
   -1 * (#{$pulse-size-after} / 2) + (#{$pulse-size-initial} / 2)
 );
+
 
 .pulse {
   margin-inline-start: calc(#{$spacing-md} * 0.35);
@@ -265,3 +275,4 @@ $pulse-ring-position: calc(
     opacity: 0%;
   }
 }
+

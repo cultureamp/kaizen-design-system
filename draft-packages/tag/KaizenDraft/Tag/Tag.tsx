@@ -23,6 +23,7 @@ type Variant =
   | "statusDraft"
   | "statusClosed"
   | "statusAction"
+  | "customIcon"
 export interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
   variant: "profile"
   avatar: JSX.Element | AvatarProps
@@ -38,6 +39,7 @@ export interface DefaultTagProps {
   onMouseDown?: React.MouseEventHandler<HTMLSpanElement>
   onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>
   truncateWidth?: number
+  customIcon?: string
 }
 
 export type TagProps = DefaultTagProps | TagWithAvatarProps
@@ -71,6 +73,7 @@ export const Tag = (props: TagProps): JSX.Element => {
     onMouseDown,
     onMouseLeave,
     truncateWidth,
+    customIcon,
   } = props
 
   const isTruncated = truncateWidth && truncateWidth > 0
@@ -113,6 +116,14 @@ export const Tag = (props: TagProps): JSX.Element => {
                   return (
                     <span className={styles.validationIcon}>
                       <Icon icon={informationIcon} role="presentation" />
+                    </span>
+                  )
+                case "customIcon":
+                  return (
+                    <span className={styles.validationIcon}>
+                      {customIcon && (
+                        <Icon icon={customIcon} role="presentation" />
+                      )}
                     </span>
                   )
                 case "profile":
