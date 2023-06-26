@@ -3,7 +3,7 @@ import { FilterBarState, FiltersValues } from "../types"
 import { getFilterUsableState } from "../utils/getFilterUsableState"
 import { transformToFiltersState } from "../utils/transformToFiltersState"
 
-export const setupFiltersState = <ValuesMap extends FiltersValues>(
+export const setupFilterBarState = <ValuesMap extends FiltersValues>(
   filters: Filters<ValuesMap>,
   values: Partial<ValuesMap>
 ): FilterBarState<ValuesMap> => {

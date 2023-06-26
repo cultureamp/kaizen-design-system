@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useMemo, useReducer } from "react"
 import { FilterAttributes, Filters } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
-import { setupFiltersState } from "./reducer/setupFiltersState"
+import { setupFilterBarState } from "./reducer/setupFilterBarState"
 import { ActiveFiltersArray, FiltersValues, FilterState } from "./types"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
@@ -57,7 +57,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   const [state, dispatch] = useReducer(
     filterBarStateReducer<ValuesMap>,
-    setupFiltersState<ValuesMap>(filters, values)
+    setupFilterBarState<ValuesMap>(filters, values)
   )
 
   const value = {

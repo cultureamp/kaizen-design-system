@@ -1,6 +1,6 @@
 import React from "react"
 import { Filters } from "../../types"
-import { setupFiltersState } from "./setupFiltersState"
+import { setupFilterBarState } from "./setupFilterBarState"
 
 type Values = {
   flavour: string
@@ -17,10 +17,10 @@ const filters = [
   },
 ] satisfies Filters<Values>
 
-describe("setupFiltersState()", () => {
+describe("setupFilterBarState()", () => {
   it("sets up the base state correctly", () => {
     expect(
-      setupFiltersState<Values>(filters, {
+      setupFilterBarState<Values>(filters, {
         flavour: "jasmine",
       })
     ).toEqual({
@@ -45,7 +45,7 @@ describe("setupFiltersState()", () => {
   })
 
   it("sets removable filters with a value to active", () => {
-    const state = setupFiltersState<Values>(filters, {
+    const state = setupFilterBarState<Values>(filters, {
       sugarLevel: 50,
     })
     expect(state.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
@@ -64,7 +64,7 @@ describe("setupFiltersState()", () => {
     ] satisfies Filters<Values>
 
     it("is usable if it meets its set condition", () => {
-      const state = setupFiltersState<Values>(filtersDependent, {
+      const state = setupFilterBarState<Values>(filtersDependent, {
         flavour: "jasmine",
         sugarLevel: 50,
       })
@@ -74,13 +74,13 @@ describe("setupFiltersState()", () => {
     })
 
     it("is not usable if it does not meet its set condition", () => {
-      const state = setupFiltersState<Values>(filtersDependent, {})
+      const state = setupFilterBarState<Values>(filtersDependent, {})
       expect(state.filters.sugarLevel.isUsable).toBe(false)
       expect(state.activeFilterIds).toEqual(new Set(["flavour"]))
     })
 
     it("does not set value if the filter is not usable", () => {
-      const state = setupFiltersState<Values>(filtersDependent, {
+      const state = setupFilterBarState<Values>(filtersDependent, {
         sugarLevel: 50,
       })
       expect(state.filters.sugarLevel.isUsable).toBe(false)
