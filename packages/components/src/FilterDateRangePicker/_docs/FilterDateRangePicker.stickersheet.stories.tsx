@@ -143,9 +143,9 @@ StickerSheetDefault.play = async ({ canvasElement }) => {
   const inputEndDate = canvas.getByTestId(
     "ltr-test__filter-drp-field--validation--end"
   )
-  await userEvent.click(inputEndDate)
-  await userEvent.type(inputEndDate, "potato")
-  await userEvent.click(document.body)
+  userEvent.click(inputEndDate)
+  userEvent.type(inputEndDate, "potato")
+  userEvent.click(document.body)
 }
 
 export const StickerSheetRTL = StickerSheetTemplate.bind({})
@@ -158,7 +158,7 @@ StickerSheetRTL.play = async ({ canvasElement }) => {
   const inputEndDate = canvas.getByTestId(
     "rtl-test__filter-drp-field--validation--end"
   )
-  await userEvent.click(inputEndDate)
-  await userEvent.type(inputEndDate, "potato")
-  await userEvent.click(document.body)
+  userEvent.click(inputEndDate)
+  userEvent.type(inputEndDate, "potato")
+  userEvent.click(document.body)
 }
