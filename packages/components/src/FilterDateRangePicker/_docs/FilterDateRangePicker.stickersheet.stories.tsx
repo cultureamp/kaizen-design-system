@@ -133,19 +133,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   )
 }
 
-const applyStickerSheetStyles = (
-  canvasElement: HTMLElement,
-  textDirection: "ltr" | "rtl"
-): void => {
-  const canvas = within(canvasElement)
-  const inputEndDate = canvas.getByTestId(
-    `${textDirection}-test__filter-drp-field--validation--end`
-  )
-  userEvent.click(inputEndDate)
-  userEvent.type(inputEndDate, "potato")
-  userEvent.click(document.body)
-}
-
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.args = {
