@@ -1,5 +1,5 @@
 import { FilterBarState } from "../types"
-import { transformToFiltersState } from "./transformToFiltersState"
+import { getFilterConditionalArgs } from "./getFilterConditionalArgs"
 
 type Values = {
   flavour: string
@@ -23,7 +23,7 @@ const stateFilters = {
   },
 } satisfies FilterBarState<Values>["filters"]
 
-describe("transformToFiltersState()", () => {
+describe("getFilterConditionalArgs()", () => {
   it("returns args compatible with dependent filter conditions", () => {
     const state = {
       filters: stateFilters,
@@ -31,17 +31,15 @@ describe("transformToFiltersState()", () => {
       values: {},
     } satisfies FilterBarState<Values>
 
-    const filtersState = transformToFiltersState<Values>(state, {
-      flavour: "jasmine",
-    })
+    const usableArgs = getFilterConditionalArgs<Values>(state, { flavour: "jasmine" })
 
-    expect(filtersState.flavour).toEqual({
+    expect(usableArgs.flavour).toEqual({
       id: "flavour",
       name: "Flavour",
       isActive: true,
       value: "jasmine",
     })
-    expect(filtersState.sugarLevel).toEqual({
+    expect(usableArgs.sugarLevel).toEqual({
       id: "sugarLevel",
       name: "Sugar Level",
       isActive: false,

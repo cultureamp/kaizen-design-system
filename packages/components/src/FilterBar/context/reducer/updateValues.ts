@@ -1,31 +1,14 @@
 import { FiltersValues } from "../../types"
 import { FilterBarState } from "../types"
-import { getFilterUsableState } from "../utils/getFilterUsableState"
-import { transformToFiltersState } from "../utils/transformToFiltersState"
+import { updateStateDependentFilters } from "../utils/updateStateDependentFilters"
 
 export const updateValues = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,
   values: Partial<ValuesMap>
 ): FilterBarState<ValuesMap> => {
-  const filtersState = transformToFiltersState(state, values)
-
-  Object.values(filtersState).forEach(({ id }) => {
-    const { isUsableWhen } = state.filters[id]
-    const isUsable = getFilterUsableState(filtersState, isUsableWhen)
-
-    state.filters[id].isUsable = isUsable
-
-    if (!isUsable) {
-      state.activeFilterIds.delete(id)
-      state.values[id as keyof ValuesMap] = undefined
-      return
-    }
-
-    state.values[id as keyof ValuesMap] = values[id]
-
-    if (!state.filters[id].isRemovable || values[id])
-      state.activeFilterIds.add(id)
+  Object.values(state.filters).forEach(({ id, isRemovable }) => {
+    if (!isRemovable || values[id] !== undefined) state.activeFilterIds.add(id)
   })
 
-  return { ...state }
+  return updateStateDependentFilters(state, values)
 }

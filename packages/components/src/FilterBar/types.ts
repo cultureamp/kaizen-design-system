@@ -1,22 +1,18 @@
 export type FiltersValues = Record<string, any>
 
-type FilterUsableArgs<Id, Value> = {
+type ConditionalFilterAttributes<Id, Value> = {
   id: Id
   name: string
-  isRemovable?: never
-  isUsableWhen?: never
-  isUsable?: never
-  isOpen?: never
   value?: Value
   isActive: boolean
 }
 
-export type FilterBarUsableArgs<ValuesMap extends FiltersValues> = {
-  [K in keyof ValuesMap]: FilterUsableArgs<K, ValuesMap[K]>
+export type FilterConditionalArgs<ValuesMap extends FiltersValues> = {
+  [K in keyof ValuesMap]: ConditionalFilterAttributes<K, ValuesMap[K]>
 }
 
 export type FilterIsUsableWhen<ValuesMap extends FiltersValues> = (
-  state: FilterBarUsableArgs<ValuesMap>
+  state: FilterConditionalArgs<ValuesMap>
 ) => boolean
 
 export type FilterAttributes<

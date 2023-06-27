@@ -1,7 +1,6 @@
 import { Filters, FiltersValues } from "../../types"
 import { FilterBarState } from "../types"
-import { getFilterUsableState } from "../utils/getFilterUsableState"
-import { transformToFiltersState } from "../utils/transformToFiltersState"
+import { updateStateDependentFilters } from "../utils/updateStateDependentFilters"
 
 export const setupFilterBarState = <ValuesMap extends FiltersValues>(
   filters: Filters<ValuesMap>,
@@ -19,6 +18,8 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
       if (!filter.isRemovable || values[filter.id] !== undefined)
         baseState.activeFilterIds.add(filter.id)
 
+      baseState.values[filter.id] = values[filter.id]
+
       return baseState
     },
     {
@@ -28,19 +29,5 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
     } as FilterBarState<ValuesMap>
   )
 
-  const filtersState = transformToFiltersState(state, values)
-
-  filters.forEach(({ id, isUsableWhen }) => {
-    const isUsable = getFilterUsableState(filtersState, isUsableWhen)
-    state.filters[id].isUsable = isUsable
-
-    if (!isUsable) {
-      state.activeFilterIds.delete(id)
-      return
-    }
-
-    state.values[id] = values[id]
-  })
-
-  return state
+  return updateStateDependentFilters(state, values)
 }

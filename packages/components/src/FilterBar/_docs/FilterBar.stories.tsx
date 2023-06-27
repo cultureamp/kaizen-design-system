@@ -248,14 +248,14 @@ export const DependentFilter: StoryFn<typeof FilterBar> = () => {
           ]}
         />
       ),
-      isUsableWhen: state => state.flavour.value !== undefined,
+      isUsableWhen: state => state.flavour.value !== undefined
     },
     {
       id: "drank",
       name: "Drank",
       Component: <FilterBar.DatePicker />,
       isRemovable: true,
-      isUsableWhen: state => state.flavour.value !== undefined,
+      isUsableWhen: state => state.topping.isActive
     },
   ] satisfies Filters<ValuesDependent>
 
