@@ -14,13 +14,29 @@ jobs:
       - uses: ./.github/actions/setup
       - run: yarn compile
 
-  linting:
+  eslint:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint
+      - run: yarn lint:ts
+
+  prettier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: yarn lint:format
+
+  stylelint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: yarn lint:styles
 
   jest-react-16:
     runs-on: ubuntu-latest
