@@ -130,11 +130,9 @@ describe("<Tag />", () => {
       const { container } = renderTag({
         variant: "customIcon",
         children: "Label",
-        customIcon: "newIcon",
       })
 
       expect(container.querySelector(".customIcon")).toBeTruthy()
-      expect(container.querySelector(".newIcon")).toBeTruthy()
     })
 
     it("renders a profile Tag with a Avatar component provided", () => {

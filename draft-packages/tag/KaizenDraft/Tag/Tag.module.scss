@@ -219,8 +219,7 @@ $small: $spacing-md;
 
 .customIcon {
   background-color: $color-blue-100;
-  margin-right: 0px;
-  // align-items: center;
+  margin-right: 0;
   place-items: center;
   display: flex;
   margin-inline-start: calc(#{$spacing-md} * -0.15);
@@ -228,7 +227,9 @@ $small: $spacing-md;
 
   .icon {
     color: $color-blue-500;
-    // vertical-align: text-top;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
