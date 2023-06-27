@@ -220,16 +220,17 @@ $small: $spacing-md;
 .customIcon {
   background-color: $color-blue-100;
   margin-right: 0px;
-  align-items: center;
+  // align-items: center;
+  place-items: center;
   display: flex;
   margin-inline-start: calc(#{$spacing-md} * -0.15);
   margin-inline-end: $spacing-xs;
 
   .icon {
     color: $color-blue-500;
+    // vertical-align: text-top;
   }
 }
-
 
 .statusDraft {
   background-color: $color-blue-100;
@@ -242,7 +243,6 @@ $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
 $pulse-ring-position: calc(
   -1 * (#{$pulse-size-after} / 2) + (#{$pulse-size-initial} / 2)
 );
-
 
 .pulse {
   margin-inline-start: calc(#{$spacing-md} * 0.35);
@@ -280,4 +280,3 @@ $pulse-ring-position: calc(
     opacity: 0%;
   }
 }
-

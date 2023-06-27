@@ -26,6 +26,11 @@ type Variant =
   | "customIcon"
 
 type CustomIcon = string
+
+interface CustomIconProps extends React.SVGAttributes<SVGElement> {
+  icon: string
+  inheritSize?: boolean
+}
 export interface TagWithAvatarProps extends Omit<DefaultTagProps, "variant"> {
   variant: "profile"
   avatar: JSX.Element | AvatarProps
@@ -41,7 +46,7 @@ export interface DefaultTagProps {
   onMouseDown?: React.MouseEventHandler<HTMLSpanElement>
   onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>
   truncateWidth?: number
-  customIcon?: CustomIcon
+  customIcon?: React.ReactElement<CustomIconProps> | null
 }
 
 export type TagProps = DefaultTagProps | TagWithAvatarProps
@@ -78,9 +83,9 @@ export const Tag = (props: TagProps): JSX.Element => {
     customIcon,
   } = props
 
-  const renderCustomIcon = (customIcon: CustomIcon): JSX.Element => (
+  const renderCustomIcon = (icon: CustomIcon): JSX.Element => (
     <span className={styles.icon}>
-      {customIcon && <Icon icon={customIcon} role="presentation" />}
+      {icon && <Icon icon={icon} role="presentation" />}
     </span>
   )
 
