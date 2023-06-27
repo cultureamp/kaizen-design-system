@@ -14,25 +14,6 @@ jobs:
       - uses: ./.github/actions/setup
       - run: yarn check --integrity
 
-  check-changesets:
-    if: >
-      github.ref != 'refs/heads/main' &&
-      github.actor != 'github-actions'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
-      - run: yarn changeset status --since=origin/main
-
   typescript:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest

@@ -1,0 +1,18 @@
+name: Check Changesets
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+      - "changeset-release/*"
+
+jobs:
+  changesets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+      - run: yarn changeset status --since=origin/main
