@@ -8,19 +8,13 @@ on:
 jobs:
   version:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: ".nvmrc"
-          cache: yarn
-      - run: |
-          npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
-          yarn install --frozen-lockfile --ignore-scripts
+      - uses: ./.github/actions/setup
       - name: Create Release Pull Request
         uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           title: "Changeset: Version packages"
           commit: "version packages"

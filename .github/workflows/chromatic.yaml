@@ -18,20 +18,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # 👈 Required to retrieve git history
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
       - name: Build Storybook
         run: |
           yarn storybook:build --webpack-stats-json
-
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:

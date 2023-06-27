@@ -1,0 +1,36 @@
+# this is composite workflow that gets the repo ready for actions
+# for docs how composite workflows work see https://wallis.dev/blog/composite-github-actions
+
+name: Setup repository
+description: Sets this repository up to allow efficient run of various github actions
+
+runs:
+  using: composite
+  steps:
+    # setup node
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: .nvmrc
+        cache: "yarn"
+        registry-url: https://npm.pkg.github.com/
+
+    # yarn install with use of cache
+    # this is bit duplicate to cache: "yarn" above, but from testing the best performance is when both are used.
+    - name: Cache node modules
+      id: cache-node-modules
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ./node_modules
+        key: kaizen-${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
+    - name: yarn install
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
+        yarn install --frozen-lockfile
+
+    # setup turborepo cache
+    - uses: dtinth/setup-github-actions-caching-for-turbo@v1
