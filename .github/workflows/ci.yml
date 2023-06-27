@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn compile
+        run: yarn compile
 
   eslint:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint:ts
+        run: yarn lint:ts
 
   prettier:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint:format
+        run: yarn lint:format
 
   stylelint:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint:styles
+        run: yarn lint:styles
 
   jest:
     runs-on: ubuntu-latest
@@ -45,8 +45,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
       - name: React 18
-      - run: yarn ci:test
+        run: yarn ci:test
       - name: React 17
-      - run: yarn ci:test:react-17
+        run: yarn ci:test:react-17
       - name: React 16
-      - run: yarn ci:test:react-16
+        run: yarn ci:test:react-16
