@@ -3,11 +3,10 @@ name: ci
 on:
   push:
     branches-ignore:
-      - changeset-release/main
+      - main
 
 jobs:
   typescript:
-    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,7 +14,6 @@ jobs:
       - run: yarn compile
 
   linting:
-    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,7 +21,6 @@ jobs:
       - run: yarn lint
 
   jest-react-16:
-    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +28,6 @@ jobs:
       - run: yarn ci:test:react-16
 
   jest-react-17:
-    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -39,7 +35,6 @@ jobs:
       - run: yarn ci:test:react-17
 
   jest-react-18:
-    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
