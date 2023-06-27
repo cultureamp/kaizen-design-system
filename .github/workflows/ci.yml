@@ -8,6 +8,7 @@ on:
 jobs:
   typescript:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -15,6 +16,7 @@ jobs:
 
   linting:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -22,6 +24,7 @@ jobs:
 
   jest-react-16:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -29,6 +32,7 @@ jobs:
 
   jest-react-17:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -36,6 +40,7 @@ jobs:
 
   jest-react-18:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
