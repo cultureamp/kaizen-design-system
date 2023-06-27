@@ -1,4 +1,4 @@
-name: Check Changesets
+name: check files
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - "changeset-release/*"
 
 jobs:
-  changesets:
+  changesets-exists:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -16,3 +16,9 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
       - run: yarn changeset status --since=origin/main
+  yarn-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: yarn check --integrity
