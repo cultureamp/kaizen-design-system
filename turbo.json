@@ -8,7 +8,7 @@
       ]
     },
     "prepublish": {
-      "dependsOn": ["^prepublish", "clean"],
+      "dependsOn": ["^prepublish"],
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
