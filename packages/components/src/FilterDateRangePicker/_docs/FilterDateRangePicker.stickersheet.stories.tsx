@@ -151,13 +151,27 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.args = {
   textDirection: "ltr",
 }
-StickerSheetDefault.play = async ({ canvasElement }) =>
-  applyStickerSheetStyles(canvasElement, "ltr")
+StickerSheetDefault.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputEndDate = canvas.getByTestId(
+    "ltr-test__filter-drp-field--validation--end"
+  )
+  await userEvent.click(inputEndDate)
+  await userEvent.type(inputEndDate, "potato")
+  await userEvent.click(document.body)
+}
 
 export const StickerSheetRTL = StickerSheetTemplate.bind({})
 StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
 StickerSheetRTL.args = {
   textDirection: "rtl",
 }
-StickerSheetRTL.play = async ({ canvasElement }) =>
-  applyStickerSheetStyles(canvasElement, "rtl")
+StickerSheetRTL.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const inputEndDate = canvas.getByTestId(
+    "rtl-test__filter-drp-field--validation--end"
+  )
+  await userEvent.click(inputEndDate)
+  await userEvent.type(inputEndDate, "potato")
+  await userEvent.click(document.body)
+}
