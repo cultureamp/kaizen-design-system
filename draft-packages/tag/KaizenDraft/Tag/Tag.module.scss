@@ -219,8 +219,13 @@ $small: $spacing-md;
 
 .customIcon {
   background-color: $color-blue-100;
+  margin-right: 0px;
+  align-items: center;
+  display: flex;
+  margin-inline-start: calc(#{$spacing-md} * -0.15);
+  margin-inline-end: $spacing-xs;
 
-  .validationIcon {
+  .icon {
     color: $color-blue-500;
   }
 }
