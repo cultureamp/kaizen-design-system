@@ -133,32 +133,31 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.args = {
-  textDirection: "ltr",
-}
-StickerSheetDefault.play = async ({ canvasElement }) => {
+const applyStickerSheetStyles = (
+  canvasElement: HTMLElement,
+  textDirection: "ltr" | "rtl"
+): void => {
   const canvas = within(canvasElement)
   const inputEndDate = canvas.getByTestId(
-    "ltr-test__filter-drp-field--validation--end"
+    `${textDirection}-test__filter-drp-field--validation--end`
   )
   userEvent.click(inputEndDate)
   userEvent.type(inputEndDate, "potato")
   userEvent.click(document.body)
 }
 
+export const StickerSheetDefault = StickerSheetTemplate.bind({})
+StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+StickerSheetDefault.args = {
+  textDirection: "ltr",
+}
+StickerSheetDefault.play = async ({ canvasElement }) =>
+  applyStickerSheetStyles(canvasElement, "ltr")
+
 export const StickerSheetRTL = StickerSheetTemplate.bind({})
 StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
 StickerSheetRTL.args = {
   textDirection: "rtl",
 }
-StickerSheetRTL.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const inputEndDate = canvas.getByTestId(
-    "rtl-test__filter-drp-field--validation--end"
-  )
-  userEvent.click(inputEndDate)
-  userEvent.type(inputEndDate, "potato")
-  userEvent.click(document.body)
-}
+StickerSheetRTL.play = async ({ canvasElement }) =>
+  applyStickerSheetStyles(canvasElement, "rtl")
