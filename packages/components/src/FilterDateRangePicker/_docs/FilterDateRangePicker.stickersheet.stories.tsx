@@ -151,7 +151,7 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.args = {
   textDirection: "ltr",
 }
-StickerSheetDefault.play = ({ canvasElement }): void => {
+StickerSheetDefault.play = async ({ canvasElement }) => {
   applyStickerSheetStyles(canvasElement, "ltr")
 }
 
@@ -160,6 +160,6 @@ StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
 StickerSheetRTL.args = {
   textDirection: "rtl",
 }
-StickerSheetRTL.play = ({ canvasElement }): void => {
+StickerSheetRTL.play = async ({ canvasElement }) => {
   applyStickerSheetStyles(canvasElement, "rtl")
 }
