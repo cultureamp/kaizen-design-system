@@ -142,9 +142,6 @@ const applyStickerSheetStyles = async (
 ): Promise<void> => {
   const canvas = within(canvasElement)
 
-  // We don't need these to run outside of Chromatic
-  if (!IS_CHROMATIC) return
-
   const validationInputEndDate = canvas.getByTestId(
     `${textDirection}-test__filter-drp-field--validation--end`
   )
