@@ -2,4 +2,4 @@
 "@kaizen/draft-tag": minor
 ---
 
-Tags with custom icon
+Adds variant for tags with custom icon
