@@ -22,7 +22,7 @@ export default {
 const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   textDirection,
 }) => {
-  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(IS_CHROMATIC)
+  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
   const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
     from: new Date("2022-05-15"),
   })
@@ -61,7 +61,10 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               isOpen={isOpenPartial}
               setIsOpen={setIsOpenPartial}
               renderTrigger={(triggerButtonProps): JSX.Element => (
-                <FilterButton {...triggerButtonProps} />
+                <FilterButton
+                  {...triggerButtonProps}
+                  date-testid={`${textDirection}-stickersheet--filter-drp--partial-range-button`}
+                />
               )}
               label="Dates"
               locale="en-US"
@@ -133,17 +136,22 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   )
 }
 
-const applyStickerSheetStyles = async (
+const applyStickerSheetStyles = (
   canvasElement: HTMLElement,
   textDirection: "ltr" | "rtl"
-): Promise<void> => {
+): void => {
   const canvas = within(canvasElement)
-  const inputEndDate = canvas.getByTestId(
+  const validationInputEndDate = canvas.getByTestId(
     `${textDirection}-test__filter-drp-field--validation--end`
   )
-  await userEvent.click(inputEndDate)
-  await userEvent.type(inputEndDate, "potato")
-  await userEvent.click(document.body)
+  userEvent.click(validationInputEndDate)
+  userEvent.type(validationInputEndDate, "potato")
+  userEvent.click(document.body)
+
+  const partialRangeButton = canvas.getByTestId(
+    `${textDirection}-stickersheet--filter-drp--partial-range-button`
+  )
+  userEvent.click(partialRangeButton)
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
@@ -151,15 +159,13 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.args = {
   textDirection: "ltr",
 }
-StickerSheetDefault.play = async ({ canvasElement }) => {
-  await applyStickerSheetStyles(canvasElement, "ltr")
-}
+StickerSheetDefault.play = ({ canvasElement }) =>
+  applyStickerSheetStyles(canvasElement, "ltr")
 
 export const StickerSheetRTL = StickerSheetTemplate.bind({})
 StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
 StickerSheetRTL.args = {
   textDirection: "rtl",
 }
-StickerSheetRTL.play = async ({ canvasElement }) => {
-  await applyStickerSheetStyles(canvasElement, "rtl")
-}
+StickerSheetRTL.play = ({ canvasElement }) =>
+  applyStickerSheetStyles(canvasElement, "rtl")
