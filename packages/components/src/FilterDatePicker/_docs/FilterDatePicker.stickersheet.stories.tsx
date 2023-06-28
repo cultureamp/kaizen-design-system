@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
-import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
@@ -104,9 +103,8 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               validationMessage={{
                 status: "error",
                 message:
-                  "(Start date custom message) Jelly-filled doughnuts are my favourite!",
+                  "(Date custom message) Jelly-filled doughnuts are my favourite!",
               }}
-              data-testid={`${textDirection}-test__filter-dp-field--validation`}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -115,33 +113,14 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   )
 }
 
-const applyStickerSheetStyles = (
-  canvasElement: HTMLElement,
-  textDirection: "ltr" | "rtl"
-): void => {
-  const canvas = within(canvasElement)
-  const inputEndDate = canvas.getByTestId(
-    `${textDirection}-test__filter-dp-field--validation`
-  )
-  userEvent.click(inputEndDate)
-  userEvent.type(inputEndDate, "potato")
-  userEvent.click(document.body)
-}
-
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.args = {
   textDirection: "ltr",
-}
-StickerSheetDefault.play = ({ canvasElement }): void => {
-  applyStickerSheetStyles(canvasElement, "ltr")
 }
 
 export const StickerSheetRTL = StickerSheetTemplate.bind({})
 StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
 StickerSheetRTL.args = {
   textDirection: "rtl",
-}
-StickerSheetRTL.play = ({ canvasElement }): void => {
-  applyStickerSheetStyles(canvasElement, "rtl")
 }
