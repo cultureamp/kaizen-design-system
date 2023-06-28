@@ -30,7 +30,7 @@ jobs:
         id: findPr
         with:
           sha: ${{ github.event.sha }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ github.token }}
 
       - run: echo "Found PR ${PR}"
         if: success() && steps.findPr.outputs.number
