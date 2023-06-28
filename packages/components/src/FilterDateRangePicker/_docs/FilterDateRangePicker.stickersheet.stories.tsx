@@ -141,6 +141,10 @@ const applyStickerSheetStyles = async (
   textDirection: "ltr" | "rtl"
 ): Promise<void> => {
   const canvas = within(canvasElement)
+
+  // We don't need these to run outside of Chromatic
+  if (!IS_CHROMATIC) return
+
   const validationInputEndDate = canvas.getByTestId(
     `${textDirection}-test__filter-drp-field--validation--end`
   )
@@ -148,12 +152,8 @@ const applyStickerSheetStyles = async (
   await userEvent.type(validationInputEndDate, "potato")
   await userEvent.click(document.body)
 
-  if (IS_CHROMATIC) {
-    const partialRangeButton = canvas.getByTestId(
-      `${textDirection}-stickersheet--filter-drp--partial-range-button`
-    )
-    await userEvent.click(partialRangeButton)
-  }
+  const partialRangeButton = canvas.getAllByRole("button")
+  await userEvent.click(partialRangeButton[0])
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
