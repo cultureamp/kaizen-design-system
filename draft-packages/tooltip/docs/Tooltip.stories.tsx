@@ -365,3 +365,104 @@ export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
     </div>
   </>
 )
+
+export const visibilityComparison: StoryFn<typeof Tooltip> = props => {
+  const [isVisible, setIsVisble] = React.useState(false)
+  const [isVisible2, setIsVisble2] = React.useState(false)
+  const [isVisible3, setIsVisble3] = React.useState(false)
+  return (
+    <div className="flex gap-8">
+      <Tooltip {...props} text="Tooltip not open label">
+        <Button label="Open default tooltip" />
+      </Tooltip>
+      <Tooltip {...props} text="Tooltip open label" isInitiallyVisible>
+        <Button label="Open visible tooltip" />
+      </Tooltip>
+
+      {/* simulated tooltip wrapper */}
+      <div
+        className=" inline-flex content-center relative"
+        aria-describedby="description"
+      >
+        <button
+          onFocus={() => setIsVisble(true)}
+          onBlur={() => setIsVisble(false)}
+          onMouseOut={() => setIsVisble(false)}
+          onMouseOver={() => setIsVisble(true)}
+          type="button"
+        >
+          vanilla tooltip
+        </button>
+        <div
+          className={
+            isVisible
+              ? "inline-block absolute top-[105%] shadow-sm p-5 w-[100%]"
+              : "hidden"
+          }
+          id="description"
+          role="tooltip"
+        >
+          Vanilla tooltip description
+        </div>
+      </div>
+      <div className="inline-flex content-center relative">
+        <button
+          onFocus={() => setIsVisble2(true)}
+          onBlur={() => setIsVisble2(false)}
+          onMouseOut={() => setIsVisble2(false)}
+          onMouseOver={() => setIsVisble2(true)}
+          type="button"
+          aria-describedby="interactable-description"
+        >
+          interactable vanilla tooltip
+        </button>
+        <div
+          className={
+            isVisible2
+              ? "inline-block absolute top-[105%] shadow-sm p-5 w-[100%]"
+              : "hidden"
+          }
+          id="interactable-description"
+          role="tooltip"
+        >
+          Interactable tooltip description
+        </div>
+      </div>
+      <div
+        className="inline-flex content-center relative"
+        aria-labelledby="hidden-description"
+      >
+        <button
+          onFocus={() => setIsVisble3(true)}
+          onBlur={() => setIsVisble3(false)}
+          onMouseOut={() => setIsVisble3(false)}
+          onMouseOver={() => setIsVisble3(true)}
+          type="button"
+        >
+          hidden label tooltip
+        </button>
+        <p className="sr-only" id="hidden-description">
+          hidden sr only label that mocks the descriptiuon
+        </p>
+        <div
+          aria-hidden
+          className={
+            isVisible3
+              ? "inline-block absolute top-[105%] shadow-sm p-5 w-[100%]"
+              : "hidden"
+          }
+        >
+          This won't be read to the screen reader (but in reality would be the
+          exact same text)
+        </div>
+      </div>
+    </div>
+  )
+}
+
+visibilityComparison.storyName = "testVisible"
+visibilityComparison.parameters = {
+  info: {
+    text: 'import { Tooltip } from "@kaizen/draft-tooltip"',
+  },
+}
