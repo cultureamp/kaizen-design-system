@@ -161,8 +161,8 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.args = {
   textDirection: "ltr",
 }
-StickerSheetDefault.play = async ({ canvasElement }) => {
-  await applyStickerSheetStyles(canvasElement, "ltr")
+StickerSheetDefault.play = ({ canvasElement }) => {
+  applyStickerSheetStyles(canvasElement, "ltr")
 }
 
 export const StickerSheetRTL = StickerSheetTemplate.bind({})
@@ -170,6 +170,6 @@ StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
 StickerSheetRTL.args = {
   textDirection: "rtl",
 }
-StickerSheetRTL.play = async ({ canvasElement }) => {
-  await applyStickerSheetStyles(canvasElement, "rtl")
+StickerSheetRTL.play = ({ canvasElement }) => {
+  applyStickerSheetStyles(canvasElement, "rtl")
 }
