@@ -63,7 +63,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               renderTrigger={(triggerButtonProps): JSX.Element => (
                 <FilterButton
                   {...triggerButtonProps}
-                  date-testid={`${textDirection}-stickersheet--filter-drp--partial-range-button`}
+                  data-testid={`${textDirection}-stickersheet--filter-drp--partial-range-button`}
                 />
               )}
               label="Dates"
@@ -143,7 +143,7 @@ const applyStickerSheetStyles = async (
   const canvas = within(canvasElement)
 
   // We don't need these to run outside of Chromatic
-  if (!IS_CHROMATIC) return
+  // if (!IS_CHROMATIC) return
 
   const validationInputEndDate = canvas.getByTestId(
     `${textDirection}-test__filter-drp-field--validation--end`
@@ -152,8 +152,10 @@ const applyStickerSheetStyles = async (
   await userEvent.type(validationInputEndDate, "potato")
   await userEvent.click(document.body)
 
-  const partialRangeButton = canvas.getAllByRole("button")
-  await userEvent.click(partialRangeButton[0])
+  const partialRangeButton = canvas.getByTestId(
+    `${textDirection}-stickersheet--filter-drp--partial-range-button`
+  )
+  await userEvent.click(partialRangeButton)
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
