@@ -1,12 +1,12 @@
-import { FilterConditionalArgs, FiltersValues } from "../../types"
+import { SourceFiltersState, FiltersValues } from "../../types"
 import { FilterBarState, InternalFilterState } from "../types"
 
 export const getIsUsableWhenArgs = <ValuesMap extends FiltersValues>({
   filters,
   activeFilterIds,
   values,
-}: FilterBarState<ValuesMap>): FilterConditionalArgs<ValuesMap> =>
-  Object.values(filters).reduce<FilterConditionalArgs<ValuesMap>>(
+}: FilterBarState<ValuesMap>): SourceFiltersState<ValuesMap> =>
+  Object.values(filters).reduce<SourceFiltersState<ValuesMap>>(
     (acc, { id, name }: InternalFilterState<ValuesMap, keyof ValuesMap>) => {
       acc[id] = {
         id,
@@ -16,5 +16,5 @@ export const getIsUsableWhenArgs = <ValuesMap extends FiltersValues>({
       }
       return acc
     },
-    {} as FilterConditionalArgs<ValuesMap>
+    {} as SourceFiltersState<ValuesMap>
   )
