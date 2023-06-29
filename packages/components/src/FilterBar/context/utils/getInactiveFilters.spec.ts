@@ -29,6 +29,7 @@ describe("getInactiveFilters()", () => {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
       values: {},
+      dependentFilterIds: new Set(),
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([
@@ -52,10 +53,12 @@ describe("getInactiveFilters()", () => {
           isRemovable: false,
           isOpen: false,
           isUsable: false,
+          isUsableWhen: () => false,
         },
       },
       activeFilterIds: new Set<keyof Values>(),
       values: {},
+      dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
     } satisfies FilterBarState<Values>
 
     expect(getInactiveFilters<Values>(state)).toEqual([stateFilters.flavour])

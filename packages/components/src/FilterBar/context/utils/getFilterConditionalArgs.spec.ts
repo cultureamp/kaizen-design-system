@@ -29,6 +29,7 @@ describe("getFilterConditionalArgs()", () => {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
       values: {},
+      dependentFilterIds: new Set(),
     } satisfies FilterBarState<Values>
 
     const usableArgs = getFilterConditionalArgs<Values>(state, {
