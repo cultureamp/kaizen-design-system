@@ -83,6 +83,7 @@
     "autoprefixer": "^10.4.14",
     "concat-cli": "^4.0.0",
     "esbuild": "^0.18.8",
+    "postcss-cli": "^10.1.0",
     "query-string": "^8.1.0",
     "rollup": "^3.25.2",
     "rollup-plugin-dts": "^5.3.0",
