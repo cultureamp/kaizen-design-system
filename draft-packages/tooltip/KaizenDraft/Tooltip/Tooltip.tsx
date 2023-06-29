@@ -1,4 +1,12 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, {
+  ReactNode,
+  ReactElement,
+  cloneElement,
+  useEffect,
+  useRef,
+  useState,
+  JSXElementConstructor,
+} from "react"
 import ReactDOM from "react-dom"
 import { Placement } from "@popperjs/core"
 import classnames from "classnames"
@@ -30,6 +38,9 @@ export type TooltipProps = {
    */
   position?: Position
   text: React.ReactNode
+  /**
+   * This is the interactable element that is being described by the tooltip `text`
+   */
   children?: React.ReactNode
   classNameOverride?: string
   mood?: Mood
@@ -145,6 +156,39 @@ const TooltipContent = ({
   ) : null
 }
 
+const isSemanticElement = (
+  elementType: string | JSXElementConstructor<any>
+): boolean => {
+  if (elementType === "div" || elementType === "span") {
+    return false
+  }
+  return true
+}
+
+/**
+ *  validates implicit or explicity semantic role require to make aria-describedby announce predictably with screen readers
+ */
+const hasSemanticRole = (element: ReactNode): boolean => {
+  if (!React.isValidElement(element)) return false
+  const { props, type } = element
+
+  if (isSemanticElement(type) || "role" in props) return true
+
+  return false
+}
+
+const renderChildren = (
+  content: ReactNode,
+  tooltipId: string,
+  hasActiveTooltip: boolean
+): ReactNode => {
+  if (!hasSemanticRole(content)) return content
+
+  return cloneElement(content as ReactElement | React.ReactPortal, {
+    "aria-describedby": hasActiveTooltip ? tooltipId : undefined,
+  })
+}
+
 /**
  * {@link https://cultureamp.design/components/tooltip/ Guidance} |
  * {@link https://cultureamp.design/storybook/?path=/docs/components-tooltip--default-kaizen-site-demo Storybook}
@@ -166,6 +210,7 @@ export const Tooltip = ({
   const [referenceElement, setReferenceElement] =
     useState<HTMLDivElement | null>(null)
   const tooltipId = useUuid()
+  const hasActiveTooltip = isHover || isFocus
 
   const tooltip = (
     <TooltipContent
@@ -216,7 +261,7 @@ export const Tooltip = ({
 
   return (
     <AnimationProvider
-      isVisible={isHover || isFocus}
+      isVisible={hasActiveTooltip}
       animationDuration={animationDuration}
     >
       <>
@@ -227,9 +272,9 @@ export const Tooltip = ({
           onMouseLeave={(): void => setIsHover(false)}
           onFocusCapture={(): void => setIsFocus(true)}
           onBlurCapture={(): void => setIsFocus(false)}
-          aria-describedby={tooltipId}
         >
-          {children}
+          {/* custom child render should go here */}
+          {renderChildren(children, tooltipId, hasActiveTooltip)}
         </div>
 
         {portalSelector && portalSelectorElementRef.current
