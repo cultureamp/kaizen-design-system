@@ -1,5 +1,6 @@
 /* stylelint-disable scss/at-if-no-null, declaration-block-no-redundant-longhand-properties */
 @import "type";
+$ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 
 $ca-layout-max-width: 1416px;
 $ca-layout-side-padding: 24px;
