@@ -12,5 +12,5 @@ export const updateValues = <ValuesMap extends FiltersValues>(
     }
   })
 
-  return { ...updateDependentFilters({ ...state, values }, values) }
+  return updateDependentFilters({ ...state, values })
 }
