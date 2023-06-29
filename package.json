@@ -75,6 +75,7 @@
     "@cultureamp/changelog-github": "^0.1.0",
     "@playwright/test": "^1.35.1",
     "@storybook/addon-a11y": "^7.0.23",
+    "@storybook/addon-actions": "^7.0.24",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/addon-links": "^7.0.23",
     "@storybook/node-logger": "^7.0.23",
