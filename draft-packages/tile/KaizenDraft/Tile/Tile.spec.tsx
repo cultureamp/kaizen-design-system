@@ -6,7 +6,7 @@ import {
   MultiActionTile,
   TileAction,
   TileInformation,
-} from "@kaizen/draft-tile"
+} from "../Tile"
 import { GenericTileProps } from "./components/GenericTile"
 
 const primaryAction: TileAction = {
