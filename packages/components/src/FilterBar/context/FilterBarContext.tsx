@@ -16,9 +16,7 @@ export type FilterBarContextValue<
   updateValue: (id: keyof ValuesMap, value: Value) => void
   showFilter: (id: keyof ValuesMap) => void
   hideFilter: (id: keyof ValuesMap) => void
-  getInactiveFilters: () => Array<
-    Pick<FilterAttributes<ValuesMap>, "id" | "name">
-  >
+  getInactiveFilters: () => Array<FilterAttributes<ValuesMap>>
   clearAllFilters: () => void
 }
 
