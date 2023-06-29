@@ -5,6 +5,8 @@ import { getFilterConditionalArgs } from "./getFilterConditionalArgs"
 export const updateDependentFilters = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>
 ): FilterBarState<ValuesMap> => {
+  if (state.dependentFilterIds.size === 0) return state
+
   let hasChange = false
 
   const args = getFilterConditionalArgs(state)
