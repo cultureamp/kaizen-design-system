@@ -48,7 +48,6 @@
     "@kaizen/draft-menu": "^5.0.2",
     "@kaizen/draft-tag": "^3.4.16",
     "@kaizen/draft-tooltip": "^5.4.46",
-    "@kaizen/hosted-assets": "^2.0.2",
     "@kaizen/loading-skeleton": "^2.0.7",
     "@kaizen/loading-spinner": "^2.3.11",
     "@kaizen/typography": "^2.3.10",
@@ -94,6 +93,7 @@
     "sass": "^1.63.6",
     "serialize-query-params": "^2.0.2",
     "ts-jest": "^29.1.0",
+    "tslib": "^2.6.0",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"
   },
