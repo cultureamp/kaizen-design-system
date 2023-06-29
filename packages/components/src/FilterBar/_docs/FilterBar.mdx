@@ -168,7 +168,33 @@ When removed from the active filters, the filter will be added to the `Add Filte
 
 Note: _Usable_ refers to a filter showing in either the Active Filters or as an option in the Add Filters menu.
 
-Use this attribute to apply a condition to a filter based on the state of another filter ([example here](#dependent-filters)).
+Use this attribute to apply a condition to a filter based on the state of another filter.
+
+For example, if you want `Milk` to only be _Usable_ when `Coffee` is `"latte"`:
+
+```tsx
+type ValuesMap = {
+  coffee: string
+  milk: string
+}
+
+const filters = [
+  {
+    id: "coffee",
+    name: "Coffee",
+    Component: <FilterBar.Select items={[
+      { value: "long-black", label: "Long Black" },
+      { value: "latte", label: "Latte" },
+    ]} />,
+  },
+  {
+    id: "milk",
+    name: "Milk",
+    Component: <FilterBar.Select {...props} />,
+    isUsableWhen: (state) => state.coffee.value === "latte",
+  },
+] satisfies Filters<ValuesMap>
+```
 
 The `state` arg will provide you with the following attributes for all the filters (mapped to the keys of the `ValuesMap`):
 ```ts
