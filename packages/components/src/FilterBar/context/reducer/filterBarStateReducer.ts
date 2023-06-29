@@ -19,8 +19,7 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
 ): FilterBarState<ValuesMap> => {
   switch (action.type) {
     case "update_values":
-      const newState = updateValues(state, action.values)
-      return { ...newState }
+      return { ...updateValues(state, action.values) }
 
     case "update_single_filter":
       return {

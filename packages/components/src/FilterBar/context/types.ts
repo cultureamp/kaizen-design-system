@@ -6,7 +6,6 @@ export type MappedFilters<ValuesMap extends FiltersValues> = {
 
 export type FilterStateEditableAttributes = {
   isOpen: boolean
-  isUsable: boolean
 }
 
 export type InternalFilterState<
@@ -30,12 +29,7 @@ export type FilterBarStateFilters<ValuesMap extends FiltersValues> = {
 export type FilterBarState<ValuesMap extends FiltersValues> = {
   filters: FilterBarStateFilters<ValuesMap>
   activeFilterIds: Set<keyof ValuesMap>
-  // values: Partial<ValuesMap>
   values: Partial<ValuesMap> | null
-  // dependentFilters: {
-  //   usable: Set<keyof ValuesMap>
-  //   unusable: Set<keyof ValuesMap>
-  // }
   dependentFilterIds: Set<keyof ValuesMap>
 }
 
