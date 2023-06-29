@@ -3,6 +3,7 @@ import { FilterAttributes, FilterState, Filters, FiltersValues } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
 import { setupFilterBarState } from "./reducer/setupFilterBarState"
 import { ActiveFiltersArray } from "./types"
+import { checkShouldUpdateValues } from "./utils/checkShouldUpdateValues"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
 
@@ -98,20 +99,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
-    const shouldUpdateValues =
-      state.values === null
-        ? true
-        : filters.some(({ id }) => state.values![id] !== values[id])
-    if (shouldUpdateValues)
-      dispatch({ type: "update_values", values: { ...values } })
+    const shouldUpdate =
+      state.values === null || checkShouldUpdateValues<ValuesMap>(state, values)
+    if (shouldUpdate) dispatch({ type: "update_values", values: { ...values } })
   }, [values])
 
   useEffect(() => {
-    const shouldUpdateValues =
-      state.values === null
-        ? false
-        : filters.some(({ id }) => state.values![id] !== values[id])
-    if (shouldUpdateValues) onValuesChange({ ...state.values! })
+    const shouldUpdate =
+      state.values !== null && checkShouldUpdateValues<ValuesMap>(state, values)
+    if (shouldUpdate) onValuesChange({ ...state.values! })
   }, [state])
 
   const activeFilters = Array.from(
