@@ -18,4 +18,4 @@ jobs:
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
-          version: yarn ci:version
+          version: pnpmci:version

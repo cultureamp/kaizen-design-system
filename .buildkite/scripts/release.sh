@@ -42,18 +42,18 @@ setup_npm() {
 release() {
   git checkout main && git pull
 
-  yarn install --frozen-lockfile
+  pnpm install --frozen-lockfile
 
-  yarn ci:publish
+  pnpm ci:publish
   git push --follow-tags
 }
 
 release_canary() {
   git checkout canary && git pull
 
-  yarn install --frozen-lockfile
+  pnpm install --frozen-lockfile
 
-  yarn ci:publish --tag "canary"
+  pnpm ci:publish --tag "canary"
 }
 
 main() {

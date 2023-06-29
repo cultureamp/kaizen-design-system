@@ -7,7 +7,7 @@ const BASE_URL = IS_DEV ? LOCALHOST : `https://${process.env.URL}`
 
 const devConfig: PlaywrightTestConfig = {
   webServer: {
-    command: "yarn storybook",
+    command: "pnpm storybook",
     url: LOCALHOST,
     timeout: 120 * 1000000,
     reuseExistingServer: true,

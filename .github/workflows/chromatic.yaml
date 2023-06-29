@@ -22,7 +22,7 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Build Storybook
         run: |
-          yarn storybook:build --webpack-stats-json
+          pnpmstorybook:build --webpack-stats-json
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
