@@ -10,7 +10,7 @@
     "test": "jest && pnpm test:pkg:aio",
     "test:pkg:aio": "pnpm pkg:aio test && pnpm pkg:aio build",
     "test:pkg:c-library:sass": "pnpm pkg:c-library test-scss-compile",
-    "test:ci": "jest",
+    "test:ci": "jest --ci",
     "compile": "tsc && pnpm pkg:aio compile",
     "storybook": "storybook dev -p 6006 -c storybook",
     "storybook:preview": "NODE_ENV=production pnpm storybook --docs",
