@@ -2,4 +2,5 @@
 "@kaizen/components": patch
 ---
 
-Various fixes to style imports and peer deps
+**Button**
+Remove `component-library` style imports by absorbing the styles.
