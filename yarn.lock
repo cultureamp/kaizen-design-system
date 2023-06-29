@@ -1894,6 +1894,20 @@
     cross-fetch "^3.1.5"
     node-fetch "^2.6.7"
 
+"@cultureamp/fetch@^3.0.9":
+  version "3.0.9"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/fetch/3.0.9/757eedd800bced6d895cfe8d013da5eb409e9f60#757eedd800bced6d895cfe8d013da5eb409e9f60"
+  integrity sha512-Nx66klUNUCLX75/zsERZVd+yZvlWYkLT9dGZdJ7gG1y6AAWCfBi1QVWKVMyQx2G2U6PZV4mPY2MgkgKTGtE5nw==
+  dependencies:
+    "@types/opossum" "^6.2.2"
+    "@types/uuid" "^9.0.0"
+    cross-fetch "^3.1.5"
+    deepmerge "^4.2.2"
+    is-plain-object "^5.0.0"
+    node-abort-controller "^1.1.0"
+    opossum "^6.4.0"
+    uuid "^9.0.0"
+
 "@cultureamp/frontend-apis@*":
   version "6.0.0"
   resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/6.0.0/4ea361d15a26f49b30c051256400bfbe230318b3#4ea361d15a26f49b30c051256400bfbe230318b3"
@@ -4964,6 +4978,13 @@
   resolved "https://registry.yarnpkg.com/@types/npmlog/-/npmlog-4.1.4.tgz#30eb872153c7ead3e8688c476054ddca004115f6"
   integrity sha512-WKG4gTr8przEZBiJ5r3s8ZIAoMXNbOgQ+j/d5O4X3x6kZJRLNvyUJuUK/KoG3+8BaOHPhp2m7WC6JKKeovDSzQ==
 
+"@types/opossum@^6.2.2":
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/@types/opossum/-/opossum-6.2.3.tgz#ff72d802b828ff0844a319a8ebc47f5ce23cfe2b"
+  integrity sha512-KcbU4O7GydLbRLZbKRdFikNHHAsQESYIPlA6HEm+CCaZfEk+/NTGlvY8g5t8pg/ks3U80oEf8a21lUAjW311Og==
+  dependencies:
+    "@types/node" "*"
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -5048,10 +5069,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@>=16", "@types/react@^17", "@types/react@^18.2.14":
+"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@>=16", "@types/react@^18.2.14":
   version "18.2.14"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.14.tgz#fa7a6fecf1ce35ca94e74874f70c56ce88f7a127"
   integrity sha512-A0zjq+QN/O0Kpe30hA1GidzyFjatVvrpIvWLxD+xv67Vt91TWWgco9IvrJBkeyHm1trGaFS/FSGqPlhyeZRm0g==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17":
+  version "17.0.62"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.62.tgz#2efe8ddf8533500ec44b1334dd1a97caa2f860e3"
+  integrity sha512-eANCyz9DG8p/Vdhr0ZKST8JV12PhH2ACCDYlFw6DIO+D+ca+uP4jtEDEpVqXZrh/uZdXQGwk7whJa3ah5DtyLw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -5130,7 +5160,7 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
 
-"@types/uuid@^9.0.2":
+"@types/uuid@^9.0.0", "@types/uuid@^9.0.2":
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.2.tgz#ede1d1b1e451548d44919dc226253e32a6952c4b"
   integrity sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==
@@ -12027,6 +12057,11 @@ no-case@^3.0.4:
     lower-case "^2.0.2"
     tslib "^2.0.3"
 
+node-abort-controller@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/node-abort-controller/-/node-abort-controller-1.2.1.tgz#1eddb57eb8fea734198b11b28857596dc6165708"
+  integrity sha512-79PYeJuj6S9+yOHirR0JBLFOgjB6sQCir10uN6xRx25iD+ZD4ULqgRn3MwWBRaQGB0vEgReJzWwJo42T1R6YbQ==
+
 node-abort-controller@^3.0.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/node-abort-controller/-/node-abort-controller-3.1.1.tgz#a94377e964a9a37ac3976d848cb5c765833b8548"
@@ -12428,6 +12463,11 @@ openapi3-ts@^1.0.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/openapi3-ts/-/openapi3-ts-1.4.0.tgz#679d5a24be0efc36f5de4fc2c4b8513663e16f65"
   integrity sha512-8DmE2oKayvSkIR3XSZ4+pRliBsx19bSNeIzkTPswY8r4wvjX86bMxsORdqwAwMxE8PefOcSAT2auvi/0TZe9yA==
+
+opossum@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/opossum/-/opossum-6.4.0.tgz#9eeb8af88257967be37b778b750485eb72caedb7"
+  integrity sha512-JVSEBsP3L1S8n6OEyFFfXqE9jzmM7QBeDGMT7/EPfv/TMHvbkFUxgXfklE3j1YeOIfIixfpT/4oKbNMhpAsHUQ==
 
 optionator@^0.8.1:
   version "0.8.3"
