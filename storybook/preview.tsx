@@ -74,6 +74,7 @@ const preview = {
             ],
           ],
           "Components",
+          ["Kaizen Provider", "*"],
           "Pages",
           "Helpers",
           "Design Tokens",
