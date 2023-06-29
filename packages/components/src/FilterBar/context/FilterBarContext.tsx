@@ -57,7 +57,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   const [state, dispatch] = useReducer(
     filterBarStateReducer<ValuesMap>,
-    setupFilterBarState<ValuesMap>(filters, values)
+    setupFilterBarState<ValuesMap>(filters)
   )
 
   const value = {

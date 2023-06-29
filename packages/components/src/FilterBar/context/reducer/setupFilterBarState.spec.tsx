@@ -19,11 +19,7 @@ const filters = [
 
 describe("setupFilterBarState()", () => {
   it("sets up the base state correctly", () => {
-    expect(
-      setupFilterBarState<Values>(filters, {
-        flavour: "jasmine",
-      })
-    ).toEqual({
+    expect(setupFilterBarState<Values>(filters)).toEqual({
       filters: {
         flavour: {
           id: "flavour",
@@ -40,17 +36,10 @@ describe("setupFilterBarState()", () => {
           isUsable: true,
         },
       },
-      activeFilterIds: new Set(["flavour"]),
-      values: { flavour: "jasmine" },
+      activeFilterIds: new Set(),
+      values: null,
+      dependentFilterIds: new Set<keyof Values>(),
     })
-  })
-
-  it("sets removable filters with a value to active", () => {
-    const state = setupFilterBarState<Values>(filters, {
-      sugarLevel: 50,
-    })
-    expect(state.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
-    expect(state.values.sugarLevel).toEqual(50)
   })
 
   describe("Dependent filters", () => {
@@ -64,28 +53,10 @@ describe("setupFilterBarState()", () => {
       },
     ] satisfies Filters<Values>
 
-    it("is usable if it meets its set condition", () => {
-      const state = setupFilterBarState<Values>(filtersDependent, {
-        flavour: "jasmine",
-        sugarLevel: 50,
-      })
-      expect(state.filters.sugarLevel.isUsable).toBe(true)
-      expect(state.activeFilterIds).toEqual(new Set(["flavour", "sugarLevel"]))
-      expect(state.values.sugarLevel).toEqual(50)
-    })
-
-    it("is not usable if it does not meet its set condition", () => {
-      const state = setupFilterBarState<Values>(filtersDependent, {})
-      expect(state.filters.sugarLevel.isUsable).toBe(false)
-      expect(state.activeFilterIds).toEqual(new Set(["flavour"]))
-    })
-
-    it("does not set value if the filter is not usable", () => {
-      const state = setupFilterBarState<Values>(filtersDependent, {
-        sugarLevel: 50,
-      })
-      expect(state.filters.sugarLevel.isUsable).toBe(false)
-      expect(state.values.sugarLevel).not.toBeDefined()
+    it("correctly sets up base for dependent filters", () => {
+      const state = setupFilterBarState<Values>(filtersDependent)
+      expect(state.filters.sugarLevel.isUsable).toBe(null)
+      expect(state.dependentFilterIds).toEqual(new Set(["sugarLevel"]))
     })
   })
 })
