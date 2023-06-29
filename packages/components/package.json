@@ -21,8 +21,8 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
-    "build": "yarn prepublish",
+    "prepublish": "pnpm build:components && pnpm postBuild && pnpm dist:clean",
+    "build": "pnpm prepublish",
     "test": "jest",
     "clean": "rimraf dist",
     "build:components": "rollup -c",
@@ -31,10 +31,10 @@
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
     "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
-    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "test:ci": "yarn test --ci",
-    "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
-    "ci:test:react-17": "USE_REACT_17=true yarn test:ci"
+    "postBuild": "pnpm dist:copy-tailwind && pnpm dist:combine-styles && pnpm dist:postcss",
+    "test:ci": "pnpm test --ci",
+    "ci:test:react-16": "USE_REACT_16=true pnpm test:ci",
+    "ci:test:react-17": "USE_REACT_17=true pnpm test:ci"
   },
   "dependencies": {
     "@cultureamp/i18n-react-intl": "^1.3.0",
