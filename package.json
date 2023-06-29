@@ -11,7 +11,7 @@
     "test:pkg:aio": "pnpm pkg:aio test && pnpm pkg:aio build",
     "test:pkg:c-library:sass": "pnpm pkg:c-library test-scss-compile",
     "test:ci": "jest --ci",
-    "compile": "pnpm build && tsc && pnpm pkg:aio compile",
+    "compile": "tsc && pnpm pkg:aio compile",
     "storybook": "storybook dev -p 6006 -c storybook",
     "storybook:preview": "NODE_ENV=production pnpm storybook --docs",
     "storybook:clean": "rm -rf storybook/public",
