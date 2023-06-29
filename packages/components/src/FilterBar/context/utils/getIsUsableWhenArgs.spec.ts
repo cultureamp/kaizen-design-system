@@ -1,5 +1,5 @@
 import { FilterBarState } from "../types"
-import { getFilterConditionalArgs } from "./getFilterConditionalArgs"
+import { getIsUsableWhenArgs } from "./getIsUsableWhenArgs"
 
 type Values = {
   flavour: string
@@ -23,7 +23,7 @@ const stateFilters = {
   },
 } satisfies FilterBarState<Values>["filters"]
 
-describe("getFilterConditionalArgs()", () => {
+describe("getIsUsableWhenArgs()", () => {
   it("returns args compatible with dependent filter conditions", () => {
     const state = {
       filters: stateFilters,
@@ -32,7 +32,7 @@ describe("getFilterConditionalArgs()", () => {
       dependentFilterIds: new Set(),
     } satisfies FilterBarState<Values>
 
-    const usableArgs = getFilterConditionalArgs<Values>(state)
+    const usableArgs = getIsUsableWhenArgs<Values>(state)
 
     expect(usableArgs.flavour).toEqual({
       id: "flavour",

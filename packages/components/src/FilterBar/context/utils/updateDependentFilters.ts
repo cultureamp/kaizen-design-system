@@ -1,6 +1,6 @@
 import { FiltersValues } from "../../types"
 import { FilterBarState } from "../types"
-import { getFilterConditionalArgs } from "./getFilterConditionalArgs"
+import { getIsUsableWhenArgs } from "./getIsUsableWhenArgs"
 
 export const updateDependentFilters = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>
@@ -9,7 +9,7 @@ export const updateDependentFilters = <ValuesMap extends FiltersValues>(
 
   let hasChange = false
 
-  const args = getFilterConditionalArgs(state)
+  const args = getIsUsableWhenArgs(state)
 
   Array.from(state.dependentFilterIds).forEach(id => {
     const isUsable = state.filters[id].isUsableWhen!(args)

@@ -1,7 +1,7 @@
 import { FilterConditionalArgs, FiltersValues } from "../../types"
 import { FilterBarState, InternalFilterState } from "../types"
 
-export const getFilterConditionalArgs = <ValuesMap extends FiltersValues>({
+export const getIsUsableWhenArgs = <ValuesMap extends FiltersValues>({
   filters,
   activeFilterIds,
   values,
