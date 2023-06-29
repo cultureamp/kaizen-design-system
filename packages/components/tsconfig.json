@@ -29,5 +29,5 @@
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*", "icons/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/_docs"]
 }
