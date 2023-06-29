@@ -426,6 +426,75 @@ describe("<FilterBar />", () => {
         })
       })
     })
+
+    describe("Multiple dependencies", () => {
+      it("shows filter dependent on a dependent filter", async () => {
+        const { queryByRole, getByRole } = render(
+          <FilterBarWrapper
+            filters={[
+              {
+                id: "flavour",
+                name: "Flavour",
+                Component: (
+                  <FilterBar.Select
+                    items={[
+                      { value: "jasmine-milk-tea", label: "Jasmine Milk Tea" },
+                    ]}
+                  />
+                ),
+              },
+              {
+                id: "topping",
+                name: "Topping",
+                Component: (
+                  <FilterBar.Select
+                    items={[{ value: "pearls", label: "Pearls" }]}
+                  />
+                ),
+                isUsableWhen: state => state.flavour.value !== undefined,
+              },
+              {
+                id: "sugarLevel",
+                name: "Sugar Level",
+                Component: (
+                  <FilterBar.Select items={[{ value: 50, label: "50%" }]} />
+                ),
+                isUsableWhen: state => state.drank.isActive,
+              },
+              {
+                id: "drank",
+                name: "Drank",
+                Component: <FilterBar.DatePicker />,
+                isUsableWhen: state => state.flavour.value === undefined,
+              },
+            ]}
+          />
+        )
+
+        const sugarLevelButton = getByRole("button", { name: "Sugar Level" })
+        const drankButton = getByRole("button", { name: "Drank" })
+        expect(sugarLevelButton).toBeVisible()
+        expect(drankButton).toBeVisible()
+        expect(
+          queryByRole("button", { name: "Topping" })
+        ).not.toBeInTheDocument()
+
+        const addFiltersButton = getByRole("button", { name: "Add Filters" })
+        expect(addFiltersButton).toBeDisabled()
+
+        const flavourButton = getByRole("button", { name: "Flavour" })
+        await user.click(flavourButton)
+        await user.click(getByRole("option", { name: "Jasmine Milk Tea" }))
+
+        await waitFor(() => {
+          expect(flavourButton.textContent).toBe("Flavour:Jasmine Milk Tea")
+          expect(sugarLevelButton).not.toBeInTheDocument()
+          expect(drankButton).not.toBeInTheDocument()
+          expect(getByRole("button", { name: "Topping" })).toBeVisible()
+          expect(addFiltersButton).toBeDisabled()
+        })
+      })
+    })
   })
 
   describe("Clear all", () => {

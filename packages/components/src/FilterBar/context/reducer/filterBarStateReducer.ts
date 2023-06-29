@@ -19,7 +19,8 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
 ): FilterBarState<ValuesMap> => {
   switch (action.type) {
     case "update_values":
-      return {...updateValues(state, action.values)}
+      const newState = updateValues(state, action.values)
+      return { ...newState }
 
     case "update_single_filter":
       return {
@@ -33,7 +34,7 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
 
     case "deactivate_filter":
       state.activeFilterIds.delete(action.id)
-      state.values[action.id] = undefined
+      state.values![action.id] = undefined
       return { ...state }
   }
 }

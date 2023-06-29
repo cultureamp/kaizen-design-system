@@ -220,6 +220,7 @@ export const DependentFilter: StoryFn<typeof FilterBar> = () => {
   type ValuesDependent = {
     flavour: string
     topping: string
+    sugarLevel: number
     drank: Date
   }
 
@@ -229,11 +230,7 @@ export const DependentFilter: StoryFn<typeof FilterBar> = () => {
       name: "Flavour",
       Component: (
         <FilterBar.Select
-          items={[
-            { value: "jasmine-milk-tea", label: "Jasmine Milk Tea" },
-            { value: "honey-milk-tea", label: "Honey Milk Tea" },
-            { value: "lychee-green-tea", label: "Lychee Green Tea" },
-          ]}
+          items={[{ value: "jasmine-milk-tea", label: "Jasmine Milk Tea" }]}
         />
       ),
     },
@@ -241,21 +238,21 @@ export const DependentFilter: StoryFn<typeof FilterBar> = () => {
       id: "topping",
       name: "Topping",
       Component: (
-        <FilterBar.Select
-          items={[
-            { value: "pearls", label: "Pearls" },
-            { value: "fruit-jelly", label: "Fruit Jelly" },
-          ]}
-        />
+        <FilterBar.Select items={[{ value: "pearls", label: "Pearls" }]} />
       ),
-      isUsableWhen: state => state.flavour.value !== undefined
+      isUsableWhen: state => state.flavour.value !== undefined,
+    },
+    {
+      id: "sugarLevel",
+      name: "Sugar Level",
+      Component: <FilterBar.Select items={[{ value: 50, label: "50%" }]} />,
+      isUsableWhen: state => state.drank.isActive,
     },
     {
       id: "drank",
       name: "Drank",
       Component: <FilterBar.DatePicker />,
-      isRemovable: true,
-      isUsableWhen: state => state.topping.isActive
+      isUsableWhen: state => state.flavour.value === undefined,
     },
   ] satisfies Filters<ValuesDependent>
 

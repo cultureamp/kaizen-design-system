@@ -66,7 +66,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       return {
         ...state.filters[id],
         isActive: state.activeFilterIds.has(id),
-        value: state.values[id],
+        value: values[id],
       }
     },
     toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean): void => {
@@ -97,16 +97,21 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     },
   } satisfies FilterBarContextValue<any, ValuesMap>
 
-  const shouldUpdateValues = filters.some(
-    ({ id }) => state.values[id] !== values[id]
-  )
-
   useEffect(() => {
-    if (shouldUpdateValues) dispatch({ type: "update_values", values })
+    const shouldUpdateValues =
+      state.values === null
+        ? true
+        : filters.some(({ id }) => state.values![id] !== values[id])
+    if (shouldUpdateValues)
+      dispatch({ type: "update_values", values: { ...values } })
   }, [values])
 
   useEffect(() => {
-    if (shouldUpdateValues) onValuesChange({ ...state.values })
+    const shouldUpdateValues =
+      state.values === null
+        ? false
+        : filters.some(({ id }) => state.values![id] !== values[id])
+    if (shouldUpdateValues) onValuesChange({ ...state.values! })
   }, [state])
 
   const activeFilters = Array.from(

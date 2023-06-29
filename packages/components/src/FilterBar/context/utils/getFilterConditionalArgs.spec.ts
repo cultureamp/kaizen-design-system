@@ -31,7 +31,9 @@ describe("getFilterConditionalArgs()", () => {
       values: {},
     } satisfies FilterBarState<Values>
 
-    const usableArgs = getFilterConditionalArgs<Values>(state, { flavour: "jasmine" })
+    const usableArgs = getFilterConditionalArgs<Values>(state, {
+      flavour: "jasmine",
+    })
 
     expect(usableArgs.flavour).toEqual({
       id: "flavour",

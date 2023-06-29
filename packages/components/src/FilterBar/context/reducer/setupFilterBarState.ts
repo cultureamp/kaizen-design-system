@@ -1,33 +1,41 @@
 import { Filters, FiltersValues } from "../../types"
 import { FilterBarState } from "../types"
-import { updateStateDependentFilters } from "../utils/updateStateDependentFilters"
 
 export const setupFilterBarState = <ValuesMap extends FiltersValues>(
   filters: Filters<ValuesMap>,
   values: Partial<ValuesMap>
 ): FilterBarState<ValuesMap> => {
   const state = filters.reduce<FilterBarState<ValuesMap>>(
-    (baseState, { Component: _, ...filter }) => {
-      baseState.filters[filter.id] = {
-        isRemovable: false,
+    (baseState, { id, name, isRemovable, isUsableWhen }) => {
+      const hasDependency = isUsableWhen !== undefined
+
+      baseState.filters[id] = {
+        id,
+        name,
+        isRemovable: isRemovable ?? false,
+        isUsableWhen,
         isOpen: false,
-        isUsable: true,
-        ...filter,
+        isUsable: hasDependency ? null : true,
       }
 
-      if (!filter.isRemovable || values[filter.id] !== undefined)
-        baseState.activeFilterIds.add(filter.id)
+      if (hasDependency) {
+        baseState.dependentFilterIds.add(id)
+        return baseState
+      }
 
-      baseState.values[filter.id] = values[filter.id]
+      if (!isRemovable || values[id] !== undefined) {
+        baseState.activeFilterIds.add(id)
+      }
 
       return baseState
     },
     {
       filters: {},
       activeFilterIds: new Set(),
-      values: {},
+      values: null,
+      dependentFilterIds: new Set(),
     } as FilterBarState<ValuesMap>
   )
 
-  return updateStateDependentFilters(state, values)
+  return state
 }
