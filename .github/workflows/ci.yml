@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: pnpm lint:ts
+      - run: pnpm turbo lint:ts
 
   prettier:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: pnpm lint:format
+      - run: pnpm turbo lint:format
 
   stylelint:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: pnpm lint:styles
+      - run: pnpm turbo lint:styles
 
   jest-react-16:
     runs-on: ubuntu-latest
