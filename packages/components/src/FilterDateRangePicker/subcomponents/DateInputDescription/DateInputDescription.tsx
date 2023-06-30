@@ -1,8 +1,8 @@
 import React from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import { LabelledMessage } from "~components/LabelledMessage"
 import { formatDescriptionInputFormat } from "./utils/formatDescriptionInputFormat"
 import styles from "./DateInputDescription.module.scss"
-import { useIntl } from "@cultureamp/i18n-react-intl"
 
 export interface DateInputDescriptionProps {
   description?: string | JSX.Element

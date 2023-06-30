@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
@@ -18,7 +19,6 @@ import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePick
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
-import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 
 export default {
   title: "Components/Filter Date Range Picker",

@@ -1,4 +1,5 @@
 import React, { useEffect, HTMLAttributes, useState } from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
 import {
   CalendarRange,
@@ -25,7 +26,6 @@ import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
 import { DateRangeFieldValidationMessage } from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
-import { useIntl } from "@cultureamp/i18n-react-intl"
 
 type InputStartDateProps = DateRangeInputFieldProps["inputStartDateProps"]
 type InputEndDateProps = DateRangeInputFieldProps["inputEndDateProps"]
