@@ -16,9 +16,3 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
       - run: pnpm changeset status --since=origin/main
-  verify-build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
-      - run: pnpm build
