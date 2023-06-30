@@ -18,6 +18,7 @@ import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePick
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
+import { KaizenProvider } from "~components/KaizenProvider"
 
 export default {
   title: "Components/Filter Date Range Picker",
@@ -136,6 +137,42 @@ Playground.parameters = {
 }
 Playground.args = {
   id: "filter-drp--default",
+  /* @ts-expect-error: Storybook controls key; see argTypes in default export */
+  renderTrigger: "Filter Button",
+}
+
+export const Translated: StoryFn<typeof FilterDateRangePicker> = args => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [range, setRange] = useState<DateRange | undefined>()
+
+  useEffect(() => {
+    setRange(args.selectedRange)
+  }, [args.selectedRange])
+
+  return (
+    <KaizenProvider locale="fr">
+      <FilterDateRangePicker
+        {...args}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        selectedRange={range}
+        onRangeChange={setRange}
+      />
+    </KaizenProvider>
+  )
+}
+Translated.parameters = {
+  docs: {
+    canvas: {
+      sourceState: "shown",
+    },
+    source: {
+      code: sampleCode,
+    },
+  },
+}
+Translated.args = {
+  id: "filter-drp--translated",
   /* @ts-expect-error: Storybook controls key; see argTypes in default export */
   renderTrigger: "Filter Button",
 }

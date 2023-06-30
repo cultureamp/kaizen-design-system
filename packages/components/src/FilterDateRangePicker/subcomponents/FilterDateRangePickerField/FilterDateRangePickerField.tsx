@@ -25,6 +25,7 @@ import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
 import { DateRangeFieldValidationMessage } from "./types"
 import styles from "./FilterDateRangePickerField.module.scss"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 
 type InputStartDateProps = DateRangeInputFieldProps["inputStartDateProps"]
 type InputEndDateProps = DateRangeInputFieldProps["inputEndDateProps"]
@@ -86,9 +87,22 @@ export const FilterDateRangePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerFieldProps): JSX.Element => {
+  const { formatMessage } = useIntl()
   const locale = getLocale(propsLocale)
-  const inputStartDateLabel = inputStartDateProps?.labelText || "Date from"
-  const inputEndDateLabel = inputEndDateProps?.labelText || "Date to"
+
+  const translatedDateFrom = formatMessage({
+    id: "filterDateRangePicker.dateFrom",
+    defaultMessage: "Default date-from message",
+    description: "Description for date-from",
+  })
+  const translatedDateTo = formatMessage({
+    id: "filterDateRangePicker.dateTo",
+    defaultMessage: "Default date-to message",
+    description: "Description for date-to",
+  })
+  const inputStartDateLabel =
+    inputStartDateProps?.labelText || translatedDateFrom
+  const inputEndDateLabel = inputEndDateProps?.labelText || translatedDateTo
 
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""
