@@ -6,13 +6,13 @@ on:
       - main
 
 jobs:
-  typescript:
+  verify-build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: pnpm compile
+      - run: pnpm build
 
   eslint:
     runs-on: ubuntu-latest

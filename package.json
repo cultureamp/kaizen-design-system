@@ -5,7 +5,7 @@
   },
   "packageManager": "pnpm@8.6.5",
   "scripts": {
-    "build": "pnpm turbo prepublish",
+    "build": "pnpm turbo build",
     "clean": "pnpm turbo clean && pnpm storybook:clean && rimraf node_modules",
     "test": "jest && pnpm test:pkg:aio",
     "test:pkg:aio": "pnpm pkg:aio test && pnpm pkg:aio build",
@@ -16,7 +16,7 @@
     "storybook:preview": "NODE_ENV=production pnpm storybook --docs",
     "storybook:clean": "rm -rf storybook/public",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
-    "storybook:build-deps": "pnpm --filter @kaizen/design-tokens prepublish && pnpm --filter @kaizen/tailwind prepublish",
+    "storybook:build-deps": "pnpm --filter @kaizen/design-tokens build && pnpm --filter @kaizen/tailwind build",
     "playwright": "IS_DEV=true npx playwright test",
     "playwright:debug": "IS_DEV=true PWDEBUG=1 npx playwright test",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
@@ -34,8 +34,8 @@
     "ci:test": "pnpm test:ci && pnpm pkg:aio test:ci",
     "ci:test:react-16": "USE_REACT_16=true pnpm test:ci && pnpm pkg:aio ci:test:react-16",
     "ci:test:react-17": "USE_REACT_17=true pnpm test:ci && pnpm pkg:aio ci:test:react-17",
-    "ci:version": "pnpm turbo prepublish && pnpm changeset version",
-    "ci:publish": "pnpm turbo prepublish && pnpm changeset publish"
+    "ci:version": "pnpm turbo build && pnpm changeset version",
+    "ci:publish": "pnpm turbo build && pnpm changeset publish"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
