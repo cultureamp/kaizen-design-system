@@ -216,6 +216,103 @@ export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
   )
 }
 
+export const DependentFilter: StoryFn<typeof FilterBar> = () => {
+  type ValuesDependent = {
+    coffee: string
+    milk: string
+    syrup: string
+    sugar: string
+    ice: string
+  }
+
+  const filtersDependent = [
+    {
+      id: "coffee",
+      name: "Coffee",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "long-black", label: "Long Black" },
+            { value: "latte", label: "Latte" },
+          ]}
+        />
+      ),
+    },
+    {
+      id: "milk",
+      name: "Milk",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "full-cream", label: "Full Cream" },
+            { value: "oat", label: "Oat" },
+          ]}
+        />
+      ),
+      isUsableWhen: state => state.coffee.value === "latte",
+    },
+    {
+      id: "syrup",
+      name: "Syrup",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "vanilla", label: "Vanilla" },
+            { value: "caramel", label: "Caramel" },
+          ]}
+        />
+      ),
+      isRemovable: true,
+      isUsableWhen: state =>
+        state.milk.value !== undefined && !state.sugar.isActive,
+    },
+    {
+      id: "sugar",
+      name: "Sugar",
+      Component: <FilterBar.Select items={[{ value: "yes", label: "Yes" }]} />,
+      isRemovable: true,
+      isUsableWhen: state =>
+        state.milk.value !== undefined && !state.syrup.isActive,
+    },
+    {
+      id: "ice",
+      name: "Ice",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "yes", label: "Yes" },
+            { value: "no", label: "No" },
+          ]}
+        />
+      ),
+      isUsableWhen: state => state.coffee.value !== undefined,
+    },
+  ] satisfies Filters<ValuesDependent>
+
+  const [values, setValues] = useState<Partial<ValuesDependent>>({
+    milk: "full-cream",
+  })
+
+  return (
+    <>
+      <FilterBar<ValuesDependent>
+        filters={filtersDependent}
+        values={values}
+        onValuesChange={setValues}
+      />
+      <div className="flex gap-8 my-16">
+        <button
+          type="button"
+          onClick={() => setValues({ ...values, coffee: undefined })}
+        >
+          Clear Coffee
+        </button>
+      </div>
+      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
+    </>
+  )
+}
+
 export const ExternalEventValuesUpdate: StoryFn<typeof FilterBar> = () => {
   const [values, setValues] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
