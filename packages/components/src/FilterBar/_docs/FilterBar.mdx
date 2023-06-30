@@ -254,7 +254,7 @@ This example shows the following dependencies:
 - **Syrup** is only usable when **Milk** _has a value_ AND **Sugar** _is not active_
   - `isUsableWhen: state => state.milk.value !== undefined && !state.sugar.isActive`
   - This filter is removable, so it will start in the `Add Filters` menu
-- **Sugar** is only usable when **Milk** _is has a value_ AND **Syrup** _is not active_
+- **Sugar** is only usable when **Milk** _has a value_ AND **Syrup** _is not active_
   - `isUsableWhen: state => state.milk.value !== undefined && !state.syrup.isActive`
   - This filter is removable, so it will start in the `Add Filters` menu
 - **Ice** is only available when **Coffee** _has a value_
