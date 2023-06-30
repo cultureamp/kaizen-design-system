@@ -56,7 +56,7 @@
 
 /* stylelint-disable no-descending-specificity */
 .reversedInteractiveIconWrapper {
-  composes: interactiveIconWrapper;
+  @extend .interactiveIconWrapper;
 
   .icon {
     opacity: 100%;

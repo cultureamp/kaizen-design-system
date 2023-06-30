@@ -1,4 +1,4 @@
-@import "./Base.module";
+@import "./Base.module.scss";
 
 @each $fraction, $padding in $spacing-list {
   .p-#{$fraction} {

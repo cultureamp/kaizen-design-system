@@ -7,6 +7,7 @@
 @import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/animation";
+@import "../Icon/Icon.module.scss";
 
 $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 
@@ -37,7 +38,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
 
-  composes: interactiveIconWrapper from "../Icon/Icon.module.scss";
+  @extend .interactiveIconWrapper;
   background: transparent;
   color: $color-purple-800;
   cursor: pointer;
@@ -68,7 +69,7 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
 }
 
 .menuItem--active {
-  composes: active from "../Icon/Icon.module.scss";
+  @extend .active
 }
 
 .menuItem--destructive {

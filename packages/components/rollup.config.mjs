@@ -6,16 +6,16 @@ import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import dts from "rollup-plugin-dts"
 import esbuild from "rollup-plugin-esbuild"
+import ignore from "rollup-plugin-ignore"
 import peerDepsExternal from "rollup-plugin-peer-deps-external"
 import postcss from "rollup-plugin-postcss"
 import ttypescript from "ttypescript"
-import ignore from "rollup-plugin-ignore"
 
 const TYPES_TEMP_DIR = "dts"
 const OUTPUT_DIR = "dist"
 
 const getCompiledConfigByModuleType = format => ({
-  input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
+  input: {  future: "./src/__future__/index.ts", workflow: "./src/Workflow/index.ts" },
   plugins: [
     peerDepsExternal(),
     // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
