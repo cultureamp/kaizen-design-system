@@ -428,71 +428,153 @@ describe("<FilterBar />", () => {
     })
 
     describe("Multiple dependencies", () => {
-      it("shows filter dependent on a dependent filter", async () => {
+      it("handles complex dependencies", async () => {
+        type ValuesComplexDeps = {
+          coffee: string
+          milk: string
+          syrup: string
+          sugar: string
+          ice: string
+        }
+
+        const filters = [
+          {
+            id: "coffee",
+            name: "Coffee",
+            Component: (
+              <FilterBar.Select
+                items={[
+                  { value: "long-black", label: "Long Black" },
+                  { value: "latte", label: "Latte" },
+                ]}
+              />
+            ),
+          },
+          {
+            id: "milk",
+            name: "Milk",
+            Component: (
+              <FilterBar.Select
+                items={[
+                  { value: "full-cream", label: "Full Cream" },
+                  { value: "oat", label: "Oat" },
+                ]}
+              />
+            ),
+            isUsableWhen: state => state.coffee.value === "latte",
+          },
+          {
+            id: "syrup",
+            name: "Syrup",
+            Component: (
+              <FilterBar.Select
+                items={[
+                  { value: "vanilla", label: "Vanilla" },
+                  { value: "caramel", label: "Caramel" },
+                ]}
+              />
+            ),
+            isRemovable: true,
+            isUsableWhen: state =>
+              state.milk.value !== undefined && !state.sugar.isActive,
+          },
+          {
+            id: "sugar",
+            name: "Sugar",
+            Component: (
+              <FilterBar.Select items={[{ value: "yes", label: "Yes" }]} />
+            ),
+            isRemovable: true,
+            isUsableWhen: state =>
+              state.milk.value !== undefined && !state.syrup.isActive,
+          },
+          {
+            id: "ice",
+            name: "Ice",
+            Component: (
+              <FilterBar.Select
+                items={[
+                  { value: "yes", label: "Yes" },
+                  { value: "no", label: "No" },
+                ]}
+              />
+            ),
+            isUsableWhen: state => state.coffee.value !== undefined,
+          },
+        ] satisfies Filters<ValuesComplexDeps>
+
         const { queryByRole, getByRole } = render(
           <FilterBarWrapper
-            filters={[
-              {
-                id: "flavour",
-                name: "Flavour",
-                Component: (
-                  <FilterBar.Select
-                    items={[
-                      { value: "jasmine-milk-tea", label: "Jasmine Milk Tea" },
-                    ]}
-                  />
-                ),
-              },
-              {
-                id: "topping",
-                name: "Topping",
-                Component: (
-                  <FilterBar.Select
-                    items={[{ value: "pearls", label: "Pearls" }]}
-                  />
-                ),
-                isUsableWhen: state => state.flavour.value !== undefined,
-              },
-              {
-                id: "sugarLevel",
-                name: "Sugar Level",
-                Component: (
-                  <FilterBar.Select items={[{ value: 50, label: "50%" }]} />
-                ),
-                isUsableWhen: state => state.drank.isActive,
-              },
-              {
-                id: "drank",
-                name: "Drank",
-                Component: <FilterBar.DatePicker />,
-                isUsableWhen: state => state.flavour.value === undefined,
-              },
-            ]}
+            filters={filters}
+            defaultValues={{ milk: "full-cream" }}
           />
         )
 
-        const sugarLevelButton = getByRole("button", { name: "Sugar Level" })
-        const drankButton = getByRole("button", { name: "Drank" })
-        expect(sugarLevelButton).toBeVisible()
-        expect(drankButton).toBeVisible()
-        expect(
-          queryByRole("button", { name: "Topping" })
-        ).not.toBeInTheDocument()
+        const coffeeButton = getByRole("button", { name: "Coffee" })
+        expect(coffeeButton).toBeVisible()
+        expect(queryByRole("button", { name: "Milk" })).not.toBeInTheDocument()
+        expect(queryByRole("button", { name: "Syrup" })).not.toBeInTheDocument()
+        expect(queryByRole("button", { name: "Sugar" })).not.toBeInTheDocument()
+        expect(queryByRole("button", { name: "Ice" })).not.toBeInTheDocument()
 
         const addFiltersButton = getByRole("button", { name: "Add Filters" })
         expect(addFiltersButton).toBeDisabled()
 
-        const flavourButton = getByRole("button", { name: "Flavour" })
-        await user.click(flavourButton)
-        await user.click(getByRole("option", { name: "Jasmine Milk Tea" }))
+        await user.click(coffeeButton)
+        await user.click(getByRole("option", { name: "Long Black" }))
 
         await waitFor(() => {
-          expect(flavourButton.textContent).toBe("Flavour:Jasmine Milk Tea")
-          expect(sugarLevelButton).not.toBeInTheDocument()
-          expect(drankButton).not.toBeInTheDocument()
-          expect(getByRole("button", { name: "Topping" })).toBeVisible()
-          expect(addFiltersButton).toBeDisabled()
+          expect(coffeeButton.textContent).toBe("Coffee:Long Black")
         })
+        const iceButton = getByRole("button", { name: "Ice" })
+        expect(iceButton).toBeVisible()
+        expect(addFiltersButton).toBeDisabled()
+
+        await user.click(coffeeButton)
+        await user.click(getByRole("option", { name: "Latte" }))
+
+        await waitFor(() => {
+          expect(coffeeButton.textContent).toBe("Coffee:Latte")
+        })
+        const milkButton = getByRole("button", { name: "Milk" })
+        expect(milkButton).toBeVisible()
+        expect(addFiltersButton).toBeDisabled()
+
+        await user.click(milkButton)
+        await user.click(getByRole("option", { name: "Oat" }))
+
+        await waitFor(() => {
+          expect(milkButton.textContent).toBe("Milk:Oat")
+        })
+        expect(addFiltersButton).not.toBeDisabled()
+
+        await user.click(addFiltersButton)
+
+        const list = getByRole("list")
+        const menuOptionSugar = within(list).getByRole("button", {
+          name: "Sugar",
+        })
+        const menuOptionSyrup = within(list).getByRole("button", {
+          name: "Syrup",
+        })
+        expect(menuOptionSugar).toBeVisible()
+        expect(menuOptionSyrup).toBeVisible()
+
+        await user.click(menuOptionSugar)
+
+        await waitFor(() => {
+          expect(list).not.toBeInTheDocument()
+        })
+        const sugarButton = getByRole("button", { name: "Sugar" })
+        expect(sugarButton).toBeVisible()
+        expect(addFiltersButton).toBeDisabled()
+
+        await user.click(getByRole("button", { name: "Remove filter - Sugar" }))
+
+        await waitFor(() => {
+          expect(sugarButton).not.toBeInTheDocument()
+        })
+        expect(addFiltersButton).not.toBeDisabled()
       })
     })
   })
