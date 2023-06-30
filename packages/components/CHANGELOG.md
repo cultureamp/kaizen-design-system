@@ -1,5 +1,35 @@
 # Change Log
 
+## 1.18.0
+
+### Minor Changes
+
+- [#3812](https://github.com/cultureamp/kaizen-design-system/pull/3812) [`b5dad5623`](https://github.com/cultureamp/kaizen-design-system/commit/b5dad5623e5fc683fe88757478a9b1079498b494) - Add functionality for dependent filters to `<FilterBar>`.
+
+  Consumers can now set a `isUsableWhen` attribute to their `filters`.
+  Filters with this attribute will be checked against the current state
+  and shown/hidden from the FilterBar options (both active/inactive) accordingly.
+
+- [#3808](https://github.com/cultureamp/kaizen-design-system/pull/3808) [`7fdabc423`](https://github.com/cultureamp/kaizen-design-system/commit/7fdabc423641ce0c263bec056d09e18435d2beba) - What the change is:
+  Adds the OptionalIntlProvider to KaizenProvider
+
+  What feature it enables:
+  This change provides support for internal translations in Kaizen components.
+  With this change, when an app is wrapped in KaizenProvider it will allow Kaizen components
+  with translations built in to translate their messages successfully.
+
+### Patch Changes
+
+- [#3809](https://github.com/cultureamp/kaizen-design-system/pull/3809) [`9e30ae7be`](https://github.com/cultureamp/kaizen-design-system/commit/9e30ae7be2428dc53c84edcc5bf0f763c84f80a7) - **Button**
+  Remove `component-library` style imports by absorbing the styles.
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `@cultureamp/i18n-react-intl` dependency
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `react-focus-on` depdendency
+
+- Updated dependencies [[`042e5971d`](https://github.com/cultureamp/kaizen-design-system/commit/042e5971d8ca883656b14e4f4438bb716b7c88c7), [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c)]:
+  - @kaizen/date-picker@6.2.0
+
 ## 1.17.1
 
 ### Patch Changes
