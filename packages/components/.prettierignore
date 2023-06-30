@@ -1,0 +1,17 @@
+# Ignore by default
+*
+
+# Whitelist...
+!**/
+!*.ts
+!*.tsx
+!*.js
+!*.json
+!*.yaml
+!*.yml
+!*.scss
+!*.css
+
+# Explicitly ignore...
+/dist
+/locales

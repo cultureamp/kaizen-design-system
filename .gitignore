@@ -6,6 +6,7 @@ yarn-*.log
 /draft-packages/**/*.d.ts
 /packages/**/*.js
 !/packages/**/*.config.js
+!/packages/**/.eslintrc.js
 !/packages/**/svgMock.js
 /packages/**/*.js.map
 /packages/**/*.d.ts
