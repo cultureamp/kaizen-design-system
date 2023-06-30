@@ -1,5 +1,6 @@
 import { FiltersValues } from "../../types"
 import { FilterBarState, FilterStateEditableAttributes } from "../types"
+import { updateDependentFilters } from "../utils/updateDependentFilters"
 import { updateSingleFilter } from "./updateSingleFilter"
 import { updateValues } from "./updateValues"
 
@@ -29,7 +30,7 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
 
     case "activate_filter":
       state.activeFilterIds.add(action.id)
-      return { ...state }
+      return { ...updateDependentFilters(state) }
 
     case "deactivate_filter":
       state.activeFilterIds.delete(action.id)
