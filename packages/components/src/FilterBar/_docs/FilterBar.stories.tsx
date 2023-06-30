@@ -218,46 +218,79 @@ export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
 
 export const DependentFilter: StoryFn<typeof FilterBar> = () => {
   type ValuesDependent = {
-    flavour: string
-    topping: string
-    sugarLevel: number
-    drank: Date
+    coffee: string
+    milk: string
+    syrup: string
+    sugar: string
+    ice: string
   }
 
   const filtersDependent = [
     {
-      id: "flavour",
-      name: "Flavour",
+      id: "coffee",
+      name: "Coffee",
       Component: (
         <FilterBar.Select
-          items={[{ value: "jasmine-milk-tea", label: "Jasmine Milk Tea" }]}
+          items={[
+            { value: "long-black", label: "Long Black" },
+            { value: "latte", label: "Latte" },
+          ]}
         />
       ),
     },
     {
-      id: "topping",
-      name: "Topping",
+      id: "milk",
+      name: "Milk",
       Component: (
-        <FilterBar.Select items={[{ value: "pearls", label: "Pearls" }]} />
+        <FilterBar.Select
+          items={[
+            { value: "full-cream", label: "Full Cream" },
+            { value: "oat", label: "Oat" },
+          ]}
+        />
       ),
-      isUsableWhen: state => state.flavour.value !== undefined,
+      isUsableWhen: state => state.coffee.value === "latte",
     },
     {
-      id: "sugarLevel",
-      name: "Sugar Level",
-      Component: <FilterBar.Select items={[{ value: 50, label: "50%" }]} />,
-      isUsableWhen: state => state.drank.isActive,
+      id: "syrup",
+      name: "Syrup",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "vanilla", label: "Vanilla" },
+            { value: "caramel", label: "Caramel" },
+          ]}
+        />
+      ),
+      isRemovable: true,
+      isUsableWhen: state =>
+        state.milk.value !== undefined && !state.sugar.isActive,
     },
     {
-      id: "drank",
-      name: "Drank",
-      Component: <FilterBar.DatePicker />,
-      isUsableWhen: state => state.flavour.value === undefined,
+      id: "sugar",
+      name: "Sugar",
+      Component: <FilterBar.Select items={[{ value: "yes", label: "Yes" }]} />,
+      isRemovable: true,
+      isUsableWhen: state =>
+        state.milk.value !== undefined && !state.syrup.isActive,
+    },
+    {
+      id: "ice",
+      name: "Ice",
+      Component: (
+        <FilterBar.Select
+          items={[
+            { value: "yes", label: "Yes" },
+            { value: "no", label: "No" },
+          ]}
+        />
+      ),
+      isUsableWhen: state => state.coffee.value !== undefined,
     },
   ] satisfies Filters<ValuesDependent>
 
   const [values, setValues] = useState<Partial<ValuesDependent>>({
-    topping: "pearls",
+    milk: "full-cream",
   })
 
   return (
@@ -270,9 +303,9 @@ export const DependentFilter: StoryFn<typeof FilterBar> = () => {
       <div className="flex gap-8 my-16">
         <button
           type="button"
-          onClick={() => setValues({ ...values, flavour: undefined })}
+          onClick={() => setValues({ ...values, coffee: undefined })}
         >
-          Clear Flavour
+          Clear Coffee
         </button>
       </div>
       <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>

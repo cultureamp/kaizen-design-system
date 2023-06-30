@@ -73,7 +73,7 @@ The `filters` prop is an array of attributes used to create the list of filters.
 
 #### Usage
 
-We also provide a `Filters<ValuesMap>` type you can use for improved type safety.
+We provide a `Filters<ValuesMap>` type you can use for improved type safety.
 
 ```tsx
 import { FilterBar, Filters, DateRange, FilterMultiSelect } from "@kaizen/components"
@@ -105,6 +105,7 @@ const filters = [
     name: "Filter 3",
     Component: <FilterBar.DateRangePicker {...props} />,
     isRemovable: true,
+    isUsableWhen: (state) => state.filterId1.value !== undefined
   },
 ] satisfies Filters<ValuesMap>
 ```
@@ -245,7 +246,19 @@ A callback (`(values: Partial<ValuesMap>) => void`) for when the active `values`
 
 ### Dependent filters
 
-Example where `Topping` and `Drank` are usable only if `Flavour` has a value:
+This example shows the following dependencies:
+- **Milk** is only usable when **Coffee** _is Latte_
+  - `isUsableWhen: state => state.coffee.value === "latte"`
+  - An initial value of _Full Cream_ is passed in, but immediately cleared
+    as (on load) **Coffee** does not have an initial value
+- **Syrup** is only usable when **Milk** _has a value_ AND **Sugar** _is not active_
+  - `isUsableWhen: state => state.milk.value !== undefined && !state.sugar.isActive`
+  - This filter is removable, so it will start in the `Add Filters` menu
+- **Sugar** is only usable when **Milk** _is has a value_ AND **Syrup** _is not active_
+  - `isUsableWhen: state => state.milk.value !== undefined && !state.syrup.isActive`
+  - This filter is removable, so it will start in the `Add Filters` menu
+- **Ice** is only available when **Coffee** _has a value_
+  - `isUsableWhen: state => state.coffee.value !== undefined`
 
 <NoClipCanvas of={FilterBarStories.DependentFilter} />
 
