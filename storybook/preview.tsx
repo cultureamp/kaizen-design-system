@@ -35,7 +35,9 @@ const decorators = [
     const dir = props.args.textDirection ?? props.globals.textDirection
     return (
       <div dir={dir}>
-        <Story {...props} />
+        <KaizenProvider>
+          <Story {...props} />
+        </KaizenProvider>
       </div>
     )
   },

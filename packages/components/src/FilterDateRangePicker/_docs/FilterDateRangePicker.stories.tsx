@@ -18,7 +18,7 @@ import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePick
 import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
-import { KaizenProvider } from "~components/KaizenProvider"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 
 export default {
   title: "Components/Filter Date Range Picker",
@@ -150,7 +150,7 @@ export const Translated: StoryFn<typeof FilterDateRangePicker> = args => {
   }, [args.selectedRange])
 
   return (
-    <KaizenProvider locale="fr">
+    <StaticIntlProvider locale="fr">
       <FilterDateRangePicker
         {...args}
         isOpen={isOpen}
@@ -158,7 +158,7 @@ export const Translated: StoryFn<typeof FilterDateRangePicker> = args => {
         selectedRange={range}
         onRangeChange={setRange}
       />
-    </KaizenProvider>
+    </StaticIntlProvider>
   )
 }
 Translated.parameters = {
