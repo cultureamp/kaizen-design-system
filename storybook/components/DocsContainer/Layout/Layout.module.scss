@@ -13,4 +13,10 @@
 
 .content {
   grid-area: content;
+
+  :global(code) {
+    // If not set, the code overflows behind the TOC when it doesn't wrap.
+    /* stylelint-disable-next-line declaration-no-important */
+    white-space: pre-wrap !important;
+  }
 }
