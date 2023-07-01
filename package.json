@@ -143,7 +143,7 @@
     "ts-jest": "^29.1.0",
     "turbo": "^1.10.7",
     "typescript": "^4.9.5",
-    "webpack": "^5.88.0"
+    "webpack": "^5.88.1"
   },
   "resolutions": {
     "@types/react": "^18.2.14"
