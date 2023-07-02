@@ -15,7 +15,8 @@
   "files": [
     "future",
     "dist",
-    "icons"
+    "icons",
+    "locales"
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
