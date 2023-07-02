@@ -20,7 +20,7 @@ const FilterBarDateRangePickerWrapper = ({
   ...customProps
 }: {
   defaultValues?: Partial<Values>
-  filterAttributes?: Partial<FilterAttributes<keyof Values>>
+  filterAttributes?: Partial<FilterAttributes<Values>>
 } & Partial<FilterBarDateRangePickerProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (
