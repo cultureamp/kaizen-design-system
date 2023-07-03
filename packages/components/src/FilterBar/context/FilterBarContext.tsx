@@ -99,14 +99,16 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   useEffect(() => {
     const shouldUpdate =
       state.values === null || checkShouldUpdateValues<ValuesMap>(state, values)
+    // console.log("useEffect VALUES", "state", state, "values", values)
     if (shouldUpdate) dispatch({ type: "update_values", values: { ...values } })
   }, [values])
 
   useEffect(() => {
     const shouldUpdate =
       state.values !== null && checkShouldUpdateValues<ValuesMap>(state, values)
+    // console.log("useEffect STATE", "state", state, "values", values)
     if (shouldUpdate) onValuesChange({ ...state.values! })
-  }, [state])
+  }, [state.values])
 
   const activeFilters = Array.from(
     state.activeFilterIds,
