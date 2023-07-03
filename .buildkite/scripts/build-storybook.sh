@@ -7,7 +7,6 @@ set -e
 setup_npm() {
   npm config set update-notifier false
   npm config set email service-npm@cultureamp.com
-  npm config set _auth cultureamp-user
   npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
   npm config set access public
 
