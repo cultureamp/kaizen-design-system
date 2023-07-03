@@ -1,43 +1,82 @@
 import React from "react"
-import { render } from "@testing-library/react"
-import * as AppearanceAnim from "./AppearanceAnim"
+import { render, screen, waitFor } from "@testing-library/react"
+import { Button } from "@kaizen/button"
+import { TextArea } from "@kaizen/draft-form"
 import { Tooltip } from "./index"
-import "@testing-library/jest-dom"
-jest.mock("./AppearanceAnim")
-const AnimationProvider = AppearanceAnim.AnimationProvider as jest.Mock
 
 describe("<Tooltip />", () => {
-  beforeEach(() => {
-    AnimationProvider.mockReturnValue(<div />)
-  })
-  describe("When no animationDuration prop is given", () => {
-    it("animationDuration prop is passed to AnimationProvider as undefined", () => {
+  describe("Accessible descriptions are passed only to interactive elements", () => {
+    it("will render a button will have an accessible description", async () => {
       render(
-        <Tooltip text="Example">
-          <div />
-        </Tooltip>
+        <div id="portal-id" style={{ width: "500px", height: "500px" }}>
+          <Tooltip
+            text="Tooltip popup description for button"
+            display="inline"
+            isInitiallyVisible
+            position="below"
+          >
+            <Button label="More info" />
+          </Tooltip>
+          thing
+        </div>
       )
-      expect(AnimationProvider).toHaveBeenCalledWith(
-        expect.objectContaining({
-          animationDuration: undefined,
-        }),
-        {}
-      )
+
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "More info" })
+        ).toHaveAccessibleDescription("Tooltip popup description for button")
+      })
     })
-  })
-  describe("When animationDuration prop is given", () => {
-    it("animationDuration prop is passed to AnimationProvider", () => {
+    it("will render an input with an accessible description", async () => {
       render(
-        <Tooltip text="Example" animationDuration={1000}>
-          <div />
-        </Tooltip>
+        <div id="portal-id" style={{ width: "500px", height: "500px" }}>
+          <Tooltip
+            text="Tooltip popup description for input"
+            display="inline"
+            isInitiallyVisible
+            position="below"
+          >
+            <TextArea />
+          </Tooltip>
+          thing
+        </div>
       )
-      expect(AnimationProvider).toHaveBeenCalledWith(
-        expect.objectContaining({
-          animationDuration: 1000,
-        }),
-        {}
+
+      await waitFor(() => {
+        expect(screen.getByRole("textbox")).toHaveAccessibleDescription(
+          "Tooltip popup description for input"
+        )
+      })
+    })
+    // Non-semantic elements without roles should not have aria-description on them - they will not read to screen readers
+    it("will render non-semantic elements without aria-describedby", async () => {
+      render(
+        <div id="portal-id" style={{ width: "500px", height: "500px" }}>
+          <Tooltip
+            text="Tooltip popup description for div"
+            display="inline"
+            isInitiallyVisible
+            position="below"
+          >
+            <div>Non somantic element</div>
+          </Tooltip>
+          thing
+        </div>
       )
+      await waitFor(() => {
+        expect(screen.getByText("Non somantic element")).not.toHaveAttribute(
+          "aria-describedby"
+        )
+      })
     })
   })
 })
+// it("will render a button with the aria-describedby attribute with undefined when closed", () => {
+//   expect(true).toBe(true)
+// })
+// it("will render a component with an accessible role with the aria-describedby attribute when open", () => {
+//   expect(true).toBe(true)
+// })
+// it("will not render a non-semantic div with an aria-describedby", () => {
+//   expect(true).toBe(true)
+// })
