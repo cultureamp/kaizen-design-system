@@ -18,6 +18,7 @@ setup_npm() {
 setup_npm
 
 yarn install --frozen-lockfile
+yarn build
 yarn workspace @kaizen/design-tokens prepublish
 yarn workspace @kaizen/tailwind prepublish
 yarn storybook:build
