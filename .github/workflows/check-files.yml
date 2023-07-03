@@ -1,0 +1,30 @@
+name: check files
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+      - "changeset-release/*"
+
+jobs:
+  changesets-exists:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+      - run: yarn changeset status --since=origin/main
+  yarn-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: yarn check --integrity
+  verify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: yarn build

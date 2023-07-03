@@ -1,5 +1,11 @@
 # Change Log
 
+## 7.10.11
+
+### Patch Changes
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `react-focus-on` depdendency
+
 ## 7.10.10
 
 ### Patch Changes
