@@ -72,6 +72,7 @@ type Actions =
   | {
       type: "update_selected_date"
       date: Date | undefined
+      inputValue?: string
     }
   | {
       type: "navigate_months"
@@ -88,15 +89,25 @@ const transformDateToInputValue = (
   locale: Locale
 ): string => (date ? formatDateAsText(date, disabledDays, locale) : "")
 
+const parseInputValue = (stateValue: string, inputValue?: string) => {
+  if (inputValue === undefined) return stateValue
+  if (inputValue === "") return inputValue
+  return inputValue
+}
+
 const reducer = (
   state: FilterDatePickerState,
   action: Actions
 ): FilterDatePickerState => {
   switch (action.type) {
     case "update_selected_date":
+      const getInputValue = () => {}
       return {
         ...state,
         selectedDate: action.date,
+        inputValue: parseInputValue(state.inputValue, action.inputValue),
+        startMonth:
+          action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }
     case "navigate_months":
       return {
@@ -204,11 +215,6 @@ export const FilterDatePickerField = ({
         date,
       })
 
-      dispatch({
-        type: "navigate_months",
-        date,
-      })
-
       handleDateChange(date)
     },
     ...inputProps,
@@ -225,18 +231,9 @@ export const FilterDatePickerField = ({
     const newDate = validateDate(date, inputValue)
 
     dispatch({
-      type: "update_input_field",
-      inputValue,
-    })
-
-    dispatch({
       type: "update_selected_date",
       date: newDate,
-    })
-
-    dispatch({
-      type: "navigate_months",
-      date: newDate,
+      inputValue,
     })
 
     handleDateChange(date)
