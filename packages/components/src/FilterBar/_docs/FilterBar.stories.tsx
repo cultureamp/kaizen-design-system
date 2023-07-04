@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import queryString from "query-string"
 import Highlight from "react-highlight"
@@ -14,9 +14,10 @@ import {
   QueryParamConfig,
   decodeQueryParams,
 } from "serialize-query-params"
-import { DateRange } from "~components/index"
+import { DateRange, ItemType } from "~components/index"
 import { FilterMultiSelect } from "../../index"
-import { FilterBar, Filters } from "../index"
+import { FilterBar, Filters, useFilterBarContext } from "../index"
+import { FilterBarMultiSelectProps } from "../subcomponents"
 
 const meta = {
   title: "Components/Filter Bar",
@@ -308,6 +309,149 @@ export const DependentFilter: StoryFn<typeof FilterBar> = () => {
           Clear Coffee
         </button>
       </div>
+      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
+    </>
+  )
+}
+
+const ExampleFilterMultiSelect = (
+  props: Omit<FilterBarMultiSelectProps, "children">
+): JSX.Element => (
+  <FilterBar.MultiSelect {...props}>
+    {(): JSX.Element => (
+      <>
+        <FilterMultiSelect.SearchInput />
+        <FilterMultiSelect.ListBox>
+          {({ allItems }): JSX.Element | JSX.Element[] =>
+            allItems.map(item => (
+              <FilterMultiSelect.Option key={item.key} item={item} />
+            ))
+          }
+        </FilterMultiSelect.ListBox>
+        <FilterMultiSelect.MenuFooter>
+          <FilterMultiSelect.SelectAllButton />
+          <FilterMultiSelect.ClearButton />
+        </FilterMultiSelect.MenuFooter>
+      </>
+    )}
+  </FilterBar.MultiSelect>
+)
+
+type ValuesDependentAsync = {
+  role: string[]
+  person: string[]
+}
+
+const sleep = (ms: number): Promise<unknown> =>
+  new Promise(resolve => setTimeout(resolve, ms))
+
+const FilterRole = (props: { id?: string }): JSX.Element => {
+  const data = [
+    { value: "designer", label: "Designer" },
+    { value: "engineer", label: "Engineer" },
+  ]
+
+  const [items, setItems] = useState<ItemType[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [searchTerm, setSearchTerm] = useState<string>("")
+
+  const loadItems = async (): Promise<void> => {
+    await sleep(3000).then(() => {
+      setIsLoading(false)
+      setItems(data)
+    })
+  }
+
+  useEffect(() => {
+    loadItems()
+  }, [])
+
+  useEffect(() => {
+    setItems(data.filter(({ label }) => label.includes(searchTerm)))
+  }, [searchTerm])
+
+  return (
+    <ExampleFilterMultiSelect
+      id={props.id}
+      isLoading={isLoading}
+      loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
+      items={items}
+      onSearchInputChange={setSearchTerm}
+    />
+  )
+}
+
+const FilterPerson = (props: { id?: string }): JSX.Element => {
+  const data = [
+    { value: "delete-it-g", label: "Delete-it G", role: "engineer" },
+    {
+      value: "moustache-mackenzie",
+      label: "Moustache MacKenzie",
+      role: "engineer",
+    },
+    { value: "jacon", label: "Jacon", role: "designer" },
+    { value: "uppercase-winter", label: "Uppercase Winter", role: "engineer" },
+  ]
+
+  const [allItems, setAllItems] = useState<ItemType[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [searchTerm, setSearchTerm] = useState<string>("")
+
+  const { getFilterState } = useFilterBarContext<
+    ValuesDependentAsync["person"],
+    ValuesDependentAsync
+  >()
+
+  const roleFilter = getFilterState("role")
+
+  const loadItems = async (roles: string[] | undefined): Promise<void> => {
+    await sleep(3000).then(() => {
+      setIsLoading(false)
+      setAllItems(data.filter(({ role }) => roles?.includes(role)))
+    })
+  }
+
+  useEffect(() => {
+    setIsLoading(true)
+    loadItems(roleFilter.value)
+  }, [roleFilter.value])
+
+  const items = allItems.filter(({ label }) => label.includes(searchTerm))
+
+  return (
+    <ExampleFilterMultiSelect
+      id={props.id}
+      isLoading={isLoading}
+      loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
+      items={items}
+      onSearchInputChange={setSearchTerm}
+    />
+  )
+}
+
+export const DependentAsyncFilter: StoryFn<typeof FilterBar> = () => {
+  const filtersDependent = [
+    {
+      id: "role",
+      name: "Role",
+      Component: <FilterRole />,
+    },
+    {
+      id: "person",
+      name: "Person",
+      Component: <FilterPerson />,
+    },
+  ] satisfies Filters<ValuesDependentAsync>
+
+  const [values, setValues] = useState<Partial<ValuesDependentAsync>>({})
+
+  return (
+    <>
+      <FilterBar<ValuesDependentAsync>
+        filters={filtersDependent}
+        values={values}
+        onValuesChange={setValues}
+      />
       <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
     </>
   )
