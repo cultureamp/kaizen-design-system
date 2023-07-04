@@ -1,5 +1,11 @@
 # Change Log
 
+## 16.9.2
+
+### Patch Changes
+
+- [#3710](https://github.com/cultureamp/kaizen-design-system/pull/3710) [`25d6ed618`](https://github.com/cultureamp/kaizen-design-system/commit/25d6ed61881c25b514434cf3991ab6f77ded524d) - Added new "live" icon
+
 ## 16.9.1
 
 ### Patch Changes
