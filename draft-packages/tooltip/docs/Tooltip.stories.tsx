@@ -365,26 +365,3 @@ export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
     </div>
   </>
 )
-
-export const visibilityComparison: StoryFn<typeof Tooltip> = props => (
-  <div className="flex gap-8">
-    <Tooltip {...props} text="Tooltip not open label">
-      <Button label="Open default tooltip" />
-    </Tooltip>
-    <Tooltip
-      {...props}
-      text="Tooltip open label"
-      isInitiallyVisible
-      position="below"
-    >
-      <Button label="Open visible tooltip" />
-    </Tooltip>
-  </div>
-)
-
-visibilityComparison.storyName = "testVisible"
-visibilityComparison.parameters = {
-  info: {
-    text: 'import { Tooltip } from "@kaizen/draft-tooltip"',
-  },
-}
