@@ -71,56 +71,9 @@ return (
 
 The `filters` prop is an array of attributes used to create the list of filters.
 
-#### Filter attributes
-
-Each filter has the following attributes:
-```tsx
-id: string // A unique id for the filter
-name: string // The name used to label the filter, shown in the trigger button
-Component: JSX.Element // A Filter component or a custom component consuming the FilterBarContext
-isRemovable?: boolean
-```
-
-##### `Component`
-
-Components compatible with FilterBar must consume the FilterBarContext.
-
-Provided Filter components are built on top of their base component, and have the
-`id`, `label`, `renderTrigger`, `isOpen`, `setIsOpen`, and `value` (or similar) props omitted as they are filled in for you.
-
-If the component comes with an `onChange` (or similar) prop, it will be made optional and it can be used for additional actions (eg. adding analytics).
-
-Available Filter components:
-- `<FilterBar.DatePicker>` - extends <LinkTo pageId="components-filter-date-picker">FilterDatePicker</LinkTo>
-  - `selectedDate` is omitted
-  - `onDateChange` is now optional
-  - `locale` is now optional (defaults to `"en-AU"`)
-- `<FilterBar.DateRangePicker>` - extends <LinkTo pageId="components-filter-date-range-picker">FilterDateRangePicker</LinkTo>
-  - `selectedRange` is omitted
-  - `onRangeChange` is now optional
-  - `locale` is now optional (defaults to `"en-AU"`)
-- `<FilterBar.MultiSelect>` - extends <LinkTo pageId="components-filter-multi-select">FilterMultiSelect</LinkTo>
-  - `selectedKeys` is omitted
-  - `onSelectionChange` remains available as optional
-  - **Note:** To use the subcomponents, import `FilterMultiSelect` from `@kaizen/components` (not `@kaizen/select`)
-- `<FilterBar.Select>` - extends <LinkTo pageId="components-filter-select">FilterSelect</LinkTo>
-  - `selectedKey` is omitted
-  - `onSelectionChange` remains available as optional
-  - **Note:** To use the subcomponents, import `FilterSelect` from `@kaizen/components` (not `@kaizen/select`)
-
-##### `isRemovable`
-
-When this attribute is applied, the Filter will become removable (a remove button will be attached to the trigger button),
-and its value will be cleared upon removal.
-
-Filters with this attribute will be automatically put into the `Add Filter` menu on first render,
-unless there is a default value provided, of which it will be in the active filters after the non-removable filters.
-
-When removed from the active filters, the filter will be added to the `Add Filter` menu options.
-
 #### Usage
 
-We also provide a `Filters<ValuesMap>` type you can use for improved type safety.
+We provide a `Filters<ValuesMap>` type you can use for improved type safety.
 
 ```tsx
 import { FilterBar, Filters, DateRange, FilterMultiSelect } from "@kaizen/components"
@@ -152,9 +105,111 @@ const filters = [
     name: "Filter 3",
     Component: <FilterBar.DateRangePicker {...props} />,
     isRemovable: true,
+    isUsableWhen: (state) => state.filterId1.value !== undefined
   },
 ] satisfies Filters<ValuesMap>
 ```
+
+#### Filter attributes
+
+Each filter has the following attributes:
+
+- [`id: string`](#id-string)
+- [`name: string`](#name-string)
+- [`Component: JSX.Element`](#component-jsxelement)
+- [`isRemovable?: boolean`](#isremovable-boolean)
+- [`isUsableWhen?: (state: FiltersState<ValuesMap>) => boolean`](#isusablewhen-state-filtersstatevaluesmap--boolean)
+
+##### `id: string`
+
+A unique id for the filter.
+
+##### `name: string`
+
+The name used to label the filter, shown in the trigger button.
+
+##### `Component: JSX.Element`
+
+This attribute must be a Filter component or a custom component consuming the FilterBarContext.
+
+Provided Filter components are built on top of their base component, and have the
+`id`, `label`, `renderTrigger`, `isOpen`, `setIsOpen`, and `value` (or similar) props omitted as they are filled in for you.
+
+If the component comes with an `onChange` (or similar) prop, it will be made optional and it can be used for additional actions (eg. adding analytics).
+
+Available Filter components:
+- `<FilterBar.DatePicker>` - extends <LinkTo pageId="components-filter-date-picker">FilterDatePicker</LinkTo>
+  - `selectedDate` is omitted
+  - `onDateChange` is now optional
+  - `locale` is now optional (defaults to `"en-AU"`)
+- `<FilterBar.DateRangePicker>` - extends <LinkTo pageId="components-filter-date-range-picker">FilterDateRangePicker</LinkTo>
+  - `selectedRange` is omitted
+  - `onRangeChange` is now optional
+  - `locale` is now optional (defaults to `"en-AU"`)
+- `<FilterBar.MultiSelect>` - extends <LinkTo pageId="components-filter-multi-select">FilterMultiSelect</LinkTo>
+  - `selectedKeys` is omitted
+  - `onSelectionChange` remains available as optional
+  - **Note:** To use the subcomponents, import `FilterMultiSelect` from `@kaizen/components` (not `@kaizen/select`)
+- `<FilterBar.Select>` - extends <LinkTo pageId="components-filter-select">FilterSelect</LinkTo>
+  - `selectedKey` is omitted
+  - `onSelectionChange` remains available as optional
+  - **Note:** To use the subcomponents, import `FilterSelect` from `@kaizen/components` (not `@kaizen/select`)
+
+##### `isRemovable?: boolean`
+
+When this attribute is applied, the Filter will become removable (a remove button will be attached to the trigger button),
+and its value will be cleared upon removal.
+
+Filters with this attribute will be automatically put into the `Add Filter` menu on first render,
+unless there is a default value provided, of which it will be in the active filters after the non-removable filters.
+
+When removed from the active filters, the filter will be added to the `Add Filter` menu options.
+
+##### `isUsableWhen?: (state: FiltersState<ValuesMap>) => boolean`
+
+Note: _Usable_ refers to a filter showing in either the Active Filters or as an option in the Add Filters menu.
+
+Use this attribute to apply a condition to a filter based on the state of another filter.
+
+For example, if you want `Milk` to only be _Usable_ when `Coffee` is `"latte"`:
+
+```tsx
+type ValuesMap = {
+  coffee: string
+  milk: string
+}
+
+const filters = [
+  {
+    id: "coffee",
+    name: "Coffee",
+    Component: <FilterBar.Select items={[
+      { value: "long-black", label: "Long Black" },
+      { value: "latte", label: "Latte" },
+    ]} />,
+  },
+  {
+    id: "milk",
+    name: "Milk",
+    Component: <FilterBar.Select {...props} />,
+    isUsableWhen: (state) => state.coffee.value === "latte",
+  },
+] satisfies Filters<ValuesMap>
+```
+
+The `state` arg will provide you with the following attributes for all the filters (mapped to the keys of the `ValuesMap`):
+```ts
+id: keyof ValuesMap
+name: string
+value?: ValueMap[keyof ValuesMap]
+isActive: boolean
+```
+
+When a dependent filter has not met its condition (not _Usable_):
+- it will be removed from the FilterBar
+- if it has a value, the value will be cleared
+
+If this attribute is not defined, the filter will default to be _Usable_.
 
 ### `values`
 
@@ -188,6 +243,24 @@ A callback (`(values: Partial<ValuesMap>) => void`) for when the active `values`
 <NoClipCanvas of={FilterBarStories.OnValuesChange} />
 
 ## Examples
+
+### Dependent filters
+
+This example shows the following dependencies:
+- **Milk** is only usable when **Coffee** _is Latte_
+  - `isUsableWhen: state => state.coffee.value === "latte"`
+  - An initial value of _Full Cream_ is passed in, but immediately cleared
+    as (on load) **Coffee** does not have an initial value
+- **Syrup** is only usable when **Milk** _has a value_ AND **Sugar** _is not active_
+  - `isUsableWhen: state => state.milk.value !== undefined && !state.sugar.isActive`
+  - This filter is removable, so it will start in the `Add Filters` menu
+- **Sugar** is only usable when **Milk** _has a value_ AND **Syrup** _is not active_
+  - `isUsableWhen: state => state.milk.value !== undefined && !state.syrup.isActive`
+  - This filter is removable, so it will start in the `Add Filters` menu
+- **Ice** is only available when **Coffee** _has a value_
+  - `isUsableWhen: state => state.coffee.value !== undefined`
+
+<NoClipCanvas of={FilterBarStories.DependentFilter} />
 
 ### Update values via external event
 

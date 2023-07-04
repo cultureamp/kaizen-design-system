@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.5.0
+
+### Minor Changes
+
+- [#3710](https://github.com/cultureamp/kaizen-design-system/pull/3710) [`25d6ed618`](https://github.com/cultureamp/kaizen-design-system/commit/25d6ed61881c25b514434cf3991ab6f77ded524d) - New animation for live tag to make it more accessible
+
+### Patch Changes
+
+- Updated dependencies [[`25d6ed618`](https://github.com/cultureamp/kaizen-design-system/commit/25d6ed61881c25b514434cf3991ab6f77ded524d)]:
+  - @kaizen/component-library@16.9.2
+
 ## 3.4.17
 
 ### Patch Changes

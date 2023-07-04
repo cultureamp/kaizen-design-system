@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.2.0
+
+### Minor Changes
+
+- [#3790](https://github.com/cultureamp/kaizen-design-system/pull/3790) [`042e5971d`](https://github.com/cultureamp/kaizen-design-system/commit/042e5971d8ca883656b14e4f4438bb716b7c88c7) - Allow for the export of DatePicker utils
+
+### Patch Changes
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `react-focus-on` depdendency
+
 ## 6.1.0
 
 ### Minor Changes
