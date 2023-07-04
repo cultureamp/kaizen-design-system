@@ -62,10 +62,8 @@ export interface FilterDatePickerFieldProps
   setIsFilterOpen?: FilterProps["setIsOpen"]
 }
 
-type DateOrUndefined = Date | undefined
-
 type FilterDatePickerState = {
-  selectedDate: DateOrUndefined
+  selectedDate: Date | undefined
   inputValue: string
   startMonth: Date
 }
@@ -73,11 +71,11 @@ type FilterDatePickerState = {
 type Actions =
   | {
       type: "update_selected_date"
-      date: DateOrUndefined
+      date: Date | undefined
     }
   | {
       type: "navigate_months"
-      date: DateOrUndefined
+      date: Date | undefined
     }
   | {
       type: "update_input_field"
@@ -85,7 +83,7 @@ type Actions =
     }
 
 const transformDateToInputValue = (
-  date: DateOrUndefined,
+  date: Date | undefined,
   disabledDays: DisabledDays,
   locale: Locale
 ): string => (date ? formatDateAsText(date, disabledDays, locale) : "")
@@ -94,7 +92,6 @@ const reducer = (
   state: FilterDatePickerState,
   action: Actions
 ): FilterDatePickerState => {
-  console.info(action.type, action)
   switch (action.type) {
     case "update_selected_date":
       return {
@@ -116,7 +113,7 @@ const reducer = (
 }
 
 type SetupFilterDatePickerState = {
-  selectedDate: DateOrUndefined
+  selectedDate: Date | undefined
   defaultMonth?: Date
   inputValue?: string
 }
@@ -158,9 +155,9 @@ export const FilterDatePickerField = ({
   })
 
   const validateDate = (
-    date: DateOrUndefined,
+    date: Date | undefined,
     inputValue: string
-  ): DateOrUndefined => {
+  ): Date | undefined => {
     const { validationResponse, newDate } = dateValidation.validateDate({
       date,
       inputValue,
@@ -179,7 +176,7 @@ export const FilterDatePickerField = ({
     })
   )
 
-  const handleDateChange = (date: DateOrUndefined): void => {
+  const handleDateChange = (date: Date | undefined): void => {
     onDateChange(date)
 
     if (date && !isInvalidDate(date)) {
@@ -197,6 +194,9 @@ export const FilterDatePickerField = ({
       })
     },
     onDateChange: date => {
+      // Because the input value is being tracked in the state as the user types
+      // its able to accurately be picked up here when the `onBlur` function
+      // triggers this `onDateChange` function.
       validateDate(date, state.inputValue)
 
       dispatch({
@@ -214,9 +214,13 @@ export const FilterDatePickerField = ({
     ...inputProps,
   })
 
-  const handleInputChange = (inputValue: string): void => {}
-
   const handleCalendarSelect: CalendarSingleProps["onSelect"] = date => {
+    // Transforming the date to an InputValue and validating the date with the result
+    // can operate in this order because we are guaranteed a valid date from the calendar.
+    //
+    // In all other scenarios, this won't work as the return string from an invalid date
+    // would be "Invalid Date" and not the actual value entered by the user since we want
+    // the final error message to use the typed word from the user.
     const inputValue = transformDateToInputValue(date, disabledDays, locale)
     const newDate = validateDate(date, inputValue)
 
@@ -235,11 +239,7 @@ export const FilterDatePickerField = ({
       date: newDate,
     })
 
-    onDateChange(date)
-
-    if (date && !isInvalidDate(date)) {
-      onDateSubmit?.(date)
-    }
+    handleDateChange(date)
   }
 
   useEffect(() => {
@@ -251,10 +251,6 @@ export const FilterDatePickerField = ({
 
     validateDate(selectedDate, inputValue)
   }, [])
-
-  useEffect(() => {
-    console.info("state", state)
-  }, [state])
 
   return (
     <div
