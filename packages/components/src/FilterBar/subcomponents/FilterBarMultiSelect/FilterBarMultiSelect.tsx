@@ -1,5 +1,6 @@
-import React, { Key } from "react"
+import React, { Key, useEffect } from "react"
 import { Selection } from "@react-types/shared"
+import { checkArraysMatch } from "~components/FilterBar/utils/checkArraysMatch"
 import {
   FilterMultiSelect,
   FilterMultiSelectProps,
@@ -50,6 +51,18 @@ export const FilterBarMultiSelect = ({
   if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
 
   const filterState = getFilterState(id)
+
+  useEffect(() => {
+    if (Array.isArray(filterState.value)) {
+      const itemValues = items.map(({ value }) => value)
+      const filteredValues = filterState.value.filter(value =>
+        itemValues.includes(value)
+      )
+      if (!checkArraysMatch(itemValues, filteredValues)) {
+        updateValue(id, filteredValues)
+      }
+    }
+  }, [items])
 
   return (
     <FilterMultiSelect

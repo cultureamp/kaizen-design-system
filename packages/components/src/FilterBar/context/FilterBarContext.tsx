@@ -72,10 +72,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
     updateValue: (id: keyof ValuesMap, newValue: any): void => {
-      const validValue =
+      const isEmptyObject =
         typeof newValue === "object" && JSON.stringify(newValue) === "{}"
-          ? undefined
-          : newValue
+      const isEmptyArray = Array.isArray(newValue) && newValue.length === 0
+      const validValue = isEmptyObject || isEmptyArray ? undefined : newValue
       dispatch({
         type: "update_values",
         values: { ...values, [id]: validValue },
