@@ -184,7 +184,7 @@ export const Select = ({
           )}
 
           {state.isOpen && (
-            <Overlay>
+            <Overlay triggerRef={buttonRef}>
               <ListBox menuProps={menuProps} id={listBoxID}>
                 {renderChildren({ items })}
               </ListBox>
