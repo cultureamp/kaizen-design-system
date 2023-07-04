@@ -1,6 +1,6 @@
 import { heartTheme } from "@kaizen/design-tokens"
 
-const denyList: string[] = [
+const tokenDenyList: string[] = [
   "xs",
   "sm",
   "md",
@@ -24,18 +24,18 @@ const denyList: string[] = [
 /**
  * checks if a key from design tokens should be filtered from tailwind
  */
-const isDenied = (key: string | number): boolean => {
-  if (denyList.indexOf(`${key}`) > 0) return true
+const isValidToken = (key: string | number): boolean => {
+  if (tokenDenyList.indexOf(`${key}`) < 0) return true
   return false
 }
 
 // Filters out non-pixel-based spacing tokens, such as shirt sizes
-export const filterOutNonPixelTokens = (
+export const filterDenyListValues = (
   spacingTokensObject: Record<string, string>
 ): Record<string, string> => {
   const keyValuePairs = Object.entries(spacingTokensObject)
 
-  return Object.fromEntries(keyValuePairs.filter(([key]) => isDenied(key)))
+  return Object.fromEntries(keyValuePairs.filter(([key]) => isValidToken(key)))
 }
 
-export const kzSpacing = filterOutNonPixelTokens(heartTheme.spacing)
+export const kzSpacing = filterDenyListValues(heartTheme.spacing)
