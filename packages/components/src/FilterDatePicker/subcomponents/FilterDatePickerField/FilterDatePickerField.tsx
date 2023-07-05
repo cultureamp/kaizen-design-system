@@ -14,9 +14,17 @@ import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/sub
 import { DataAttributes } from "~types/DataAttributes"
 import { DisabledDays, FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { DateValidationResponse, ValidationMessage } from "../../types"
+import {
+  Actions,
+  DateValidationResponse,
+  FilterDatePickerState,
+  SetupFilterDatePickerState,
+  ValidationMessage,
+} from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
 import styles from "./FilterDatePickerField.module.scss"
+import { useFilterDatePickerFieldReducer } from "./reducer"
+import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
 
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
@@ -62,85 +70,6 @@ export interface FilterDatePickerFieldProps
   setIsFilterOpen?: FilterProps["setIsOpen"]
 }
 
-type FilterDatePickerState = {
-  selectedDate: Date | undefined
-  inputValue: string
-  startMonth: Date
-}
-
-type Actions =
-  | {
-      type: "update_selected_date"
-      date: Date | undefined
-      inputValue?: string
-    }
-  | {
-      type: "navigate_months"
-      date: Date | undefined
-    }
-  | {
-      type: "update_input_field"
-      inputValue: string
-    }
-
-const transformDateToInputValue = (
-  date: Date | undefined,
-  disabledDays: DisabledDays,
-  locale: Locale
-): string => (date ? formatDateAsText(date, disabledDays, locale) : "")
-
-const parseInputValue = (stateValue: string, inputValue?: string): string => {
-  if (inputValue === undefined) return stateValue
-  if (inputValue === "") return inputValue
-  return inputValue
-}
-
-const reducer = (
-  state: FilterDatePickerState,
-  action: Actions
-): FilterDatePickerState => {
-  switch (action.type) {
-    case "update_selected_date":
-      return {
-        ...state,
-        selectedDate: action.date,
-        inputValue: parseInputValue(state.inputValue, action.inputValue),
-        startMonth:
-          action.date && !isInvalidDate(action.date) ? action.date : new Date(),
-      }
-    case "navigate_months":
-      return {
-        ...state,
-        startMonth:
-          action.date && !isInvalidDate(action.date) ? action.date : new Date(),
-      }
-    case "update_input_field":
-      return {
-        ...state,
-        inputValue: action.inputValue,
-      }
-  }
-}
-
-type SetupFilterDatePickerState = {
-  selectedDate: Date | undefined
-  defaultMonth?: Date
-  inputValue?: string
-}
-
-const setupFilterDatePickerState = ({
-  selectedDate,
-  defaultMonth,
-  inputValue,
-}: SetupFilterDatePickerState): FilterDatePickerState => ({
-  selectedDate,
-  inputValue: inputValue || "",
-  startMonth:
-    selectedDate && !isInvalidDate(selectedDate)
-      ? selectedDate
-      : defaultMonth || new Date(),
-})
-
 export const FilterDatePickerField = ({
   id,
   inputProps,
@@ -177,14 +106,15 @@ export const FilterDatePickerField = ({
     return newDate
   }
 
-  const [state, dispatch] = useReducer(
-    reducer,
-    setupFilterDatePickerState({
-      selectedDate,
-      defaultMonth,
-      inputValue: transformDateToInputValue(selectedDate, disabledDays, locale),
-    })
-  )
+  const [state, dispatch] = useFilterDatePickerFieldReducer({
+    selectedDate,
+    inputValue:
+      transformDateToInputValue(selectedDate, disabledDays, locale) || "",
+    startMonth:
+      selectedDate && !isInvalidDate(selectedDate)
+        ? selectedDate
+        : defaultMonth || new Date(),
+  })
 
   const handleDateChange = (date: Date | undefined): void => {
     onDateChange(date)
@@ -239,13 +169,7 @@ export const FilterDatePickerField = ({
   }
 
   useEffect(() => {
-    const inputValue = transformDateToInputValue(
-      selectedDate,
-      disabledDays,
-      locale
-    )
-
-    validateDate(selectedDate, inputValue)
+    validateDate(selectedDate, state.inputValue)
   }, [])
 
   return (
