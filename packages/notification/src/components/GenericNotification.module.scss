@@ -96,7 +96,8 @@
   @extend %ca-notification---informative;
 }
 
-.cautionary {
+.cautionary,
+.security {
   @extend %ca-notification---cautionary;
 }
 
