@@ -5,26 +5,19 @@ import {
   CalendarSingleProps,
   useDateInputHandlers,
   isInvalidDate,
-  formatDateAsText,
   getLocale,
 } from "@kaizen/date-picker"
 import { FilterProps } from "~components/Filter"
 import { useDateValidation } from "~components/FilterDatePicker"
+import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
 import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
 import { DisabledDays, FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
-import {
-  Actions,
-  DateValidationResponse,
-  FilterDatePickerState,
-  SetupFilterDatePickerState,
-  ValidationMessage,
-} from "../../types"
+import { DateValidationResponse, ValidationMessage } from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
+import { filterDatePickerFieldReducer } from "./filterDatePickerFieldReducer"
 import styles from "./FilterDatePickerField.module.scss"
-import { useFilterDatePickerFieldReducer } from "./reducer"
-import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
 
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
@@ -106,7 +99,7 @@ export const FilterDatePickerField = ({
     return newDate
   }
 
-  const [state, dispatch] = useFilterDatePickerFieldReducer({
+  const [state, dispatch] = useReducer(filterDatePickerFieldReducer, {
     selectedDate,
     inputValue:
       transformDateToInputValue(selectedDate, disabledDays, locale) || "",

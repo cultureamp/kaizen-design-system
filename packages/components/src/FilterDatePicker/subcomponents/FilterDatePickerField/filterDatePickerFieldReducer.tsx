@@ -1,5 +1,4 @@
 import { isInvalidDate } from "@kaizen/date-picker"
-import { useReducer } from "react"
 import {
   Actions,
   FilterDatePickerState,
@@ -11,7 +10,7 @@ const parseInputValue = (stateValue: string, inputValue?: string): string => {
   return inputValue
 }
 
-export const reducer = (
+export const filterDatePickerFieldReducer = (
   state: FilterDatePickerState,
   action: Actions
 ): FilterDatePickerState => {
@@ -37,6 +36,3 @@ export const reducer = (
       }
   }
 }
-
-export const useFilterDatePickerFieldReducer = (setup: FilterDatePickerState) =>
-  useReducer(reducer, setup)
