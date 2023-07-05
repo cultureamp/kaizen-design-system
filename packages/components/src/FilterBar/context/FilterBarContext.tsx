@@ -6,6 +6,7 @@ import { ActiveFiltersArray } from "./types"
 import { checkShouldUpdateValues } from "./utils/checkShouldUpdateValues"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
+import { getValidValue } from "./utils/getValidValue"
 
 export type FilterBarContextValue<
   Value,
@@ -79,14 +80,13 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
     ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
-    updateValue: <Id extends keyof ValuesMap>(id: Id, newValue: any): void => {
-      const isEmptyObject =
-        typeof newValue === "object" && JSON.stringify(newValue) === "{}"
-      const isEmptyArray = Array.isArray(newValue) && newValue.length === 0
-      const validValue = isEmptyObject || isEmptyArray ? undefined : newValue
+    updateValue: <Id extends keyof ValuesMap>(
+      id: Id,
+      newValue: ValuesMap[Id]
+    ): void => {
       dispatch({
         type: "update_values",
-        values: { ...values, [id]: validValue },
+        values: { ...values, [id]: getValidValue(newValue) },
       })
     },
     showFilter: <Id extends keyof ValuesMap>(id: Id): void =>
