@@ -5,13 +5,13 @@ import React, {
   useEffect,
   useRef,
   useState,
-  JSXElementConstructor,
 } from "react"
 import ReactDOM from "react-dom"
 import { Placement } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
+import { hasSemanticRole } from "./hasSemanticRole"
 import { useUuid } from "./useUuid"
 import styles from "./Tooltip.module.scss"
 
@@ -154,27 +154,6 @@ const TooltipContent = ({
       </div>
     </div>
   ) : null
-}
-
-const isSemanticElement = (
-  elementType: string | JSXElementConstructor<any>
-): boolean => {
-  if (elementType === "div" || elementType === "span") {
-    return false
-  }
-  return true
-}
-
-/**
- *  Validates implicit or explicitly semantic roles required to make `aria-describedby` announce predictably with screen readers
- */
-const hasSemanticRole = (element: ReactNode): boolean => {
-  if (!React.isValidElement(element)) return false
-  const { props, type } = element
-
-  if (isSemanticElement(type) || "role" in props) return true
-
-  return false
 }
 
 const renderChildren = (
