@@ -89,7 +89,7 @@ const transformDateToInputValue = (
   locale: Locale
 ): string => (date ? formatDateAsText(date, disabledDays, locale) : "")
 
-const parseInputValue = (stateValue: string, inputValue?: string) => {
+const parseInputValue = (stateValue: string, inputValue?: string): string => {
   if (inputValue === undefined) return stateValue
   if (inputValue === "") return inputValue
   return inputValue
