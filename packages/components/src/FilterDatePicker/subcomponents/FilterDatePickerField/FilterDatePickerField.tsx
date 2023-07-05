@@ -111,10 +111,6 @@ export const FilterDatePickerField = ({
 
   const handleDateChange = (date: Date | undefined): void => {
     onDateChange(date)
-
-    // Only send either a valid date or undefined to the user's onDateSubmit
-    const newDate = date && !isInvalidDate(date) ? date : undefined
-    onDateSubmit?.(newDate)
   }
 
   const inputDateHandlers = useDateInputHandlers({
@@ -137,6 +133,10 @@ export const FilterDatePickerField = ({
         date,
       })
 
+      if (date && !isInvalidDate(date)) {
+        onDateSubmit?.(date)
+      }
+
       handleDateChange(date)
     },
     ...inputProps,
@@ -158,6 +158,7 @@ export const FilterDatePickerField = ({
       inputValue,
     })
 
+    onDateSubmit?.(date)
     handleDateChange(date)
   }
 
