@@ -314,6 +314,7 @@ export const Validation: StoryFn = () => {
           onDateChange={setValue}
           onValidate={handleValidate}
           validationMessage={validationMessage}
+          disabledDays={new Date()}
           locale="en-AU"
         />
         <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
