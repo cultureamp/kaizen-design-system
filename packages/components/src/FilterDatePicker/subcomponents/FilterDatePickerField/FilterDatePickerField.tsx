@@ -101,7 +101,6 @@ const reducer = (
 ): FilterDatePickerState => {
   switch (action.type) {
     case "update_selected_date":
-      const getInputValue = () => {}
       return {
         ...state,
         selectedDate: action.date,
