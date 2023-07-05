@@ -8,7 +8,7 @@ import { WorkflowControls } from "./controls"
 
 const MockContent = (): JSX.Element => (
   <div className="flex flex-col flex-1 m-24 items-center">
-    <div className="max-w-[1392px] w-100">
+    <div className="max-w-[1392px] w-full">
       <h2>Name and schedule the self-reflection cycle</h2>
       <form
         id="workflow-form-id"
