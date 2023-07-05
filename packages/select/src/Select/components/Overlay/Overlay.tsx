@@ -27,6 +27,7 @@ export const Overlay = ({
     {
       triggerRef,
       popoverRef,
+      placement: "bottom left",
     },
     state
   )

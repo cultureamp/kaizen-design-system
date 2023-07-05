@@ -39,9 +39,10 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           items={singleMockItems}
           description="This is a description"
           selectedKey="id-sre"
-          trigger={(triggerProps): JSX.Element => (
+          trigger={(triggerProps, buttonRef): JSX.Element => (
             <Select.TriggerButton
               {...triggerProps}
+              ref={buttonRef}
               classNameOverride="story__button-selected"
             />
           )}
@@ -54,9 +55,10 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           description="This is a description"
           selectedKey={null}
           placeholder="Placeholder"
-          trigger={(triggerProps): JSX.Element => (
+          trigger={(triggerProps, buttonRef): JSX.Element => (
             <Select.TriggerButton
               {...triggerProps}
+              ref={buttonRef}
               classNameOverride="story__button-hover"
             />
           )}
@@ -69,9 +71,10 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           description="This is a description"
           selectedKey={null}
           placeholder="Placeholder"
-          trigger={(triggerProps): JSX.Element => (
+          trigger={(triggerProps, buttonRef): JSX.Element => (
             <Select.TriggerButton
               {...triggerProps}
+              ref={buttonRef}
               classNameOverride="story__button-focus"
             />
           )}
