@@ -164,7 +164,14 @@ export const FilterDatePickerField = ({
     })
 
     handleDateChange(newDate)
-    onDateSubmit?.(newDate)
+
+    // We only want to send valid dates back to the consumer
+    // but the calendar can also clear the vale
+    if (newDate && !isInvalidDate(newDate)) {
+      onDateSubmit?.(newDate)
+    } else {
+      onDateSubmit?.(undefined)
+    }
   }
 
   useEffect(() => {
