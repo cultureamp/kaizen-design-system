@@ -1,9 +1,10 @@
 import React, { useEffect } from "react"
 import tocbot from "tocbot"
+import styles from "./TableOfContents.module.scss"
 
 export const TableOfContents = (): JSX.Element | null => {
   const [headings, setHeadings] = React.useState<Element[]>([])
-  const headingSelector = "h2"
+  const headingSelector = "h2, h3"
 
   useEffect(() => {
     const headingElements = Array.from(
@@ -18,11 +19,10 @@ export const TableOfContents = (): JSX.Element | null => {
       headingSelector,
       tocSelector: ".tocbot-list",
       contentSelector: ".tocbot-content",
-      listClass: "m-0 p-0",
-      listItemClass: "list-none mb-6",
-      linkClass:
-        "font-family-paragraph leading-paragraph text-paragraph-sm text-blue-500 underline decoration-inherit",
-      activeLinkClass: "text-blue-600",
+      listClass: styles.list,
+      listItemClass: styles.listItem,
+      linkClass: styles.link,
+      activeLinkClass: styles.activeLink,
       orderedList: false,
       onClick: event => {
         event.preventDefault()
