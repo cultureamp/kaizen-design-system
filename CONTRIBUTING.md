@@ -94,6 +94,9 @@ $ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
 # Add the package to your front-end codebase
 $ yalc add @kaizen/component-library
 
+# Yarn install
+$ yarn
+
 ```
 
 Your local Kaizen changes will now show in your other front-end codebase. If you want to test subsequent updates to the component, you'll need to run through step 1 again to republish the component, and then run `yalc update` in your front-end codebase to see the new changes.
