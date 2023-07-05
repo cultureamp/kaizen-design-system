@@ -4,12 +4,6 @@ import {
   FilterDatePickerState,
 } from "~components/FilterDatePicker/types"
 
-const parseInputValue = (stateValue: string, inputValue?: string): string => {
-  if (inputValue === undefined) return stateValue
-  if (inputValue === "") return inputValue
-  return inputValue
-}
-
 export const filterDatePickerFieldReducer = (
   state: FilterDatePickerState,
   action: Actions
@@ -19,7 +13,10 @@ export const filterDatePickerFieldReducer = (
       return {
         ...state,
         selectedDate: action.date,
-        inputValue: parseInputValue(state.inputValue, action.inputValue),
+        inputValue:
+          action.inputValue === undefined
+            ? state.inputValue
+            : action.inputValue,
         startMonth:
           action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }

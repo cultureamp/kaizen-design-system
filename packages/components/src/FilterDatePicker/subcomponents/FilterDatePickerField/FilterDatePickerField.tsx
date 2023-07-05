@@ -155,6 +155,10 @@ export const FilterDatePickerField = ({
     dispatch({
       type: "update_selected_date",
       date: newDate,
+    })
+
+    dispatch({
+      type: "update_input_field",
       inputValue,
     })
 
