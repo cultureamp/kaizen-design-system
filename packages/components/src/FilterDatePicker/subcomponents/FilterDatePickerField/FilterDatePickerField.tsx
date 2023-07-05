@@ -113,7 +113,11 @@ export const FilterDatePickerField = ({
     onDateChange(date)
 
     if (date && !isInvalidDate(date)) {
+      // Only send valid dates back to consumer
       onDateSubmit?.(date)
+    } else {
+      // Send undefined when date is being cleared
+      onDateSubmit?.(undefined)
     }
   }
 
