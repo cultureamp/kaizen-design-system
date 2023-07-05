@@ -14,7 +14,7 @@ import {
   QueryParamConfig,
   decodeQueryParams,
 } from "serialize-query-params"
-import { DateRange, ItemType } from "~components/index"
+import { DateRange, ItemType, SelectOption } from "~components/index"
 import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters, useFilterBarContext } from "../index"
 import { FilterBarMultiSelectProps } from "../subcomponents"
@@ -340,6 +340,7 @@ const ExampleFilterMultiSelect = (
 type ValuesDependentAsync = {
   role: string[]
   person: string[]
+  room: string
 }
 
 const FilterRole = (props: { id?: string }): JSX.Element => {
@@ -415,6 +416,34 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
   )
 }
 
+const FilterRoom = (props: { id?: string }): JSX.Element => {
+  type Item = SelectOption & {
+    role: string
+  }
+
+  const data = [
+    { value: "eng-1", label: "Engineering Space 1", role: "engineer" },
+    { value: "eng-2", label: "Engineering Space 2", role: "engineer" },
+    { value: "des-1", label: "Design Space 1", role: "designer" },
+  ]
+
+  const [items, setItems] = useState<Item[]>([])
+
+  const { getFilterState } = useFilterBarContext<
+    ValuesDependentAsync["room"],
+    ValuesDependentAsync
+  >()
+
+  const roleFilter = getFilterState("role")
+
+  useEffect(() => {
+    const roles = roleFilter.value
+    setItems(data.filter(({ role }) => roles?.includes(role)))
+  }, [roleFilter.value])
+
+  return <FilterBar.Select<Item> id={props.id} items={items} />
+}
+
 export const SiblingValueDependentFilter: StoryFn<typeof FilterBar> = () => {
   const filtersDependent = [
     {
@@ -426,6 +455,13 @@ export const SiblingValueDependentFilter: StoryFn<typeof FilterBar> = () => {
       id: "person",
       name: "Person",
       Component: <FilterPerson />,
+    },
+    {
+      id: "room",
+      name: "Room",
+      Component: <FilterRoom />,
+      isRemovable: true,
+      isUsableWhen: state => state.role.value !== undefined,
     },
   ] satisfies Filters<ValuesDependentAsync>
 
