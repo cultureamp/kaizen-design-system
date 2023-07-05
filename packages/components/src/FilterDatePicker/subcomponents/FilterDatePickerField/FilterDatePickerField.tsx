@@ -163,8 +163,11 @@ export const FilterDatePickerField = ({
       inputValue,
     })
 
-    onDateSubmit?.(date)
-    handleDateChange(date)
+    handleDateChange(newDate)
+
+    if (newDate && !isInvalidDate(newDate)) {
+      onDateSubmit?.(newDate)
+    }
   }
 
   useEffect(() => {
