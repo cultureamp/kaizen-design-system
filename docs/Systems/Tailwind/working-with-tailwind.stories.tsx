@@ -31,9 +31,9 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
       </Card>
     </Skirt>
     {/* Adds flex, makes the width 100% and centers content */}
-    <div className="flex w-100 justify-center">
+    <div className="flex w-full justify-center">
       {/* Adds margins, width, and max width */}
-      <div className="mx-72 my-24 w-100 max-w-[1392px]">
+      <div className="mx-72 my-24 w-full  max-w-[1392px]">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
           className="font-weight-[500px] font-family-paragraph text-heading-5 text-blue-500"
@@ -51,10 +51,10 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
             <Card
               key={index}
               variant="informative"
-              classNameOverride="mr-24 last:mr-0 w-100"
+              classNameOverride="mr-24 last:mr-0 w-full"
             >
               {/* Adds height and width of 100% */}
-              <div className="w-100 h-100" />
+              <div className="w-full h-100" />
             </Card>
           ))}
         </div>
