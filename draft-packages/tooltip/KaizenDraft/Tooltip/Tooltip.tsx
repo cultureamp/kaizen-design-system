@@ -166,7 +166,7 @@ const isSemanticElement = (
 }
 
 /**
- *  validates implicit or explicity semantic role require to make aria-describedby announce predictably with screen readers
+ *  Validates implicit or explicitly semantic roles required to make `aria-describedby` announce predictably with screen readers
  */
 const hasSemanticRole = (element: ReactNode): boolean => {
   if (!React.isValidElement(element)) return false
@@ -273,7 +273,6 @@ export const Tooltip = ({
           onFocusCapture={(): void => setIsFocus(true)}
           onBlurCapture={(): void => setIsFocus(false)}
         >
-          {/* custom child render should go here */}
           {renderChildren(children, tooltipId, hasActiveTooltip)}
         </div>
 

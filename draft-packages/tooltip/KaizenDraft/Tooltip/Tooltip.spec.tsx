@@ -52,11 +52,11 @@ describe("<Tooltip />", () => {
           isInitiallyVisible
           position="below"
         >
-          <div>Non somantic element</div>
+          <div>Non semantic element</div>
         </Tooltip>
       )
       await waitFor(() => {
-        expect(screen.getByText("Non somantic element")).not.toHaveAttribute(
+        expect(screen.getByText("Non semantic element")).not.toHaveAttribute(
           "aria-describedby"
         )
       })
