@@ -416,7 +416,9 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
   )
 }
 
-const FilterRoom = (props: { id?: string }): JSX.Element => {
+const FilterRoom = (props: {
+  id?: keyof ValuesDependentAsync
+}): JSX.Element => {
   type Item = SelectOption & {
     role: string
   }
@@ -429,8 +431,12 @@ const FilterRoom = (props: { id?: string }): JSX.Element => {
 
   const [items, setItems] = useState<Item[]>([])
 
+  type Id = typeof props.id extends keyof ValuesDependentAsync
+    ? typeof props.id
+    : never
+
   const { getFilterState } = useFilterBarContext<
-    ValuesDependentAsync["room"],
+    ValuesDependentAsync[Id],
     ValuesDependentAsync
   >()
 
