@@ -124,20 +124,21 @@ export const FilterDatePickerField = ({
     },
     onDateChange: date => {
       // Because the input value is being tracked in the state as the user types
-      // its able to accurately be picked up here when the `onBlur` function
-      // triggers this `onDateChange` function.
-      validateDate(date, state.inputValue)
+      // we can reliably utilise state.inputValue as part of the validation message,
+      // which is triggered by `onBlur` function
+      const newDate = validateDate(date, state.inputValue)
 
       dispatch({
         type: "update_selected_date",
-        date,
+        date: newDate,
       })
 
-      if (date && !isInvalidDate(date)) {
-        onDateSubmit?.(date)
+      // Only provide consumers with a valid date to the `onDateSubmit` function
+      if (newDate && !isInvalidDate(newDate)) {
+        onDateSubmit?.(newDate)
       }
 
-      handleDateChange(date)
+      handleDateChange(newDate)
     },
     ...inputProps,
   })
