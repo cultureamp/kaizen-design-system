@@ -220,7 +220,7 @@ describe("<FilterBarMultiSelect />", () => {
       const [allItems, setAllItems] = useState<ItemType[]>([])
 
       const { getFilterState } = useFilterBarContext<
-        string[],
+        ValuesDependent["flavour"],
         ValuesDependent
       >()
       const toppingsFilter = getFilterState("toppings")

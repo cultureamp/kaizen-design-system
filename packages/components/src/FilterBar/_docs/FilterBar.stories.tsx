@@ -342,29 +342,14 @@ type ValuesDependentAsync = {
   person: string[]
 }
 
-const sleep = (ms: number): Promise<unknown> =>
-  new Promise(resolve => setTimeout(resolve, ms))
-
 const FilterRole = (props: { id?: string }): JSX.Element => {
   const data = [
     { value: "designer", label: "Designer" },
     { value: "engineer", label: "Engineer" },
   ]
 
-  const [items, setItems] = useState<ItemType[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [items, setItems] = useState<ItemType[]>(data)
   const [searchTerm, setSearchTerm] = useState<string>("")
-
-  const loadItems = async (): Promise<void> => {
-    await sleep(3000).then(() => {
-      setIsLoading(false)
-      setItems(data)
-    })
-  }
-
-  useEffect(() => {
-    loadItems()
-  }, [])
 
   useEffect(() => {
     setItems(data.filter(({ label }) => label.includes(searchTerm)))
@@ -373,13 +358,14 @@ const FilterRole = (props: { id?: string }): JSX.Element => {
   return (
     <ExampleFilterMultiSelect
       id={props.id}
-      isLoading={isLoading}
-      loadingSkeleton={<FilterMultiSelect.MenuLoadingSkeleton />}
       items={items}
       onSearchInputChange={setSearchTerm}
     />
   )
 }
+
+const sleep = (ms: number): Promise<unknown> =>
+  new Promise(resolve => setTimeout(resolve, ms))
 
 const FilterPerson = (props: { id?: string }): JSX.Element => {
   const data = [
@@ -429,7 +415,7 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
   )
 }
 
-export const DependentAsyncFilter: StoryFn<typeof FilterBar> = () => {
+export const SiblingValueDependentFilter: StoryFn<typeof FilterBar> = () => {
   const filtersDependent = [
     {
       id: "role",
