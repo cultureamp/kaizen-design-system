@@ -337,7 +337,7 @@ const ExampleFilterMultiSelect = (
   </FilterBar.MultiSelect>
 )
 
-type ValuesDependentAsync = {
+type ValuesSiblingDependent = {
   role: string[]
   person: string[]
   room: string
@@ -385,8 +385,8 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState<string>("")
 
   const { getFilterState } = useFilterBarContext<
-    ValuesDependentAsync["person"],
-    ValuesDependentAsync
+    ValuesSiblingDependent["person"],
+    ValuesSiblingDependent
   >()
 
   const roleFilter = getFilterState("role")
@@ -417,7 +417,7 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
 }
 
 const FilterRoom = (props: {
-  id?: keyof ValuesDependentAsync
+  id?: keyof ValuesSiblingDependent
 }): JSX.Element => {
   type Item = SelectOption & {
     role: string
@@ -431,13 +431,13 @@ const FilterRoom = (props: {
 
   const [items, setItems] = useState<Item[]>([])
 
-  type Id = typeof props.id extends keyof ValuesDependentAsync
+  type Id = typeof props.id extends keyof ValuesSiblingDependent
     ? typeof props.id
     : never
 
   const { getFilterState } = useFilterBarContext<
-    ValuesDependentAsync[Id],
-    ValuesDependentAsync
+    ValuesSiblingDependent[Id],
+    ValuesSiblingDependent
   >()
 
   const roleFilter = getFilterState("role")
@@ -469,13 +469,13 @@ export const SiblingValueDependentFilter: StoryFn<typeof FilterBar> = () => {
       isRemovable: true,
       isUsableWhen: state => state.role.value !== undefined,
     },
-  ] satisfies Filters<ValuesDependentAsync>
+  ] satisfies Filters<ValuesSiblingDependent>
 
-  const [values, setValues] = useState<Partial<ValuesDependentAsync>>({})
+  const [values, setValues] = useState<Partial<ValuesSiblingDependent>>({})
 
   return (
     <>
-      <FilterBar<ValuesDependentAsync>
+      <FilterBar<ValuesSiblingDependent>
         filters={filtersDependent}
         values={values}
         onValuesChange={setValues}
