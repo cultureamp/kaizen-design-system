@@ -277,7 +277,10 @@ type Values = {
   dependent: string
 }
 
-/** Explicit id */
+/**
+ * Explicit id
+ * No props required as you put the string directly into the Filter component
+ */
 const ExampleDependentFilter = () => {
   const { getFilterState } = useFilterBarContext<Values["dependent"], Values>()
   const sourceFilter = getFilterState("source")
@@ -286,7 +289,7 @@ const ExampleDependentFilter = () => {
 }
 
 /**
- * Optional prop
+ * Optional id prop
  * A simple example if you want to make a more reusable filter
  */
 const ExampleDependentFilter = (props: {

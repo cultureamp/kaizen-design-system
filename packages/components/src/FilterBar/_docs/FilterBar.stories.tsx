@@ -370,14 +370,27 @@ const sleep = (ms: number): Promise<unknown> =>
 
 const FilterPerson = (props: { id?: string }): JSX.Element => {
   const data = [
-    { value: "delete-it-g", label: "Delete-it G", role: "engineer" },
+    {
+      value: "delete-it-g",
+      label: "Delete-it G (Engineer)",
+      role: ["engineer"],
+    },
     {
       value: "moustache-mackenzie",
-      label: "Moustache MacKenzie",
-      role: "engineer",
+      label: "Moustache MacKenzie (Engineer)",
+      role: ["engineer"],
     },
-    { value: "jacon", label: "Jacon", role: "designer" },
-    { value: "uppercase-winter", label: "Uppercase Winter", role: "engineer" },
+    { value: "jacon", label: "Jacon (Designer)", role: ["designer"] },
+    {
+      value: "uppercase-winter",
+      label: "Uppercase Winter (Engineer)",
+      role: ["engineer"],
+    },
+    {
+      value: "unicorn",
+      label: "Unicorn (Designer/Engineer)",
+      role: ["designer", "engineer"],
+    },
   ]
 
   const [allItems, setAllItems] = useState<ItemType[]>([])
@@ -394,7 +407,7 @@ const FilterPerson = (props: { id?: string }): JSX.Element => {
   const loadItems = async (roles: string[] | undefined): Promise<void> => {
     await sleep(3000).then(() => {
       setIsLoading(false)
-      setAllItems(data.filter(({ role }) => roles?.includes(role)))
+      setAllItems(data.filter(({ role }) => role.find(r => roles?.includes(r))))
     })
   }
 
