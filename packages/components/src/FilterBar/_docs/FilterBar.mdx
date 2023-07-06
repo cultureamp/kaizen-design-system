@@ -311,7 +311,7 @@ const CustomFilterBar = () => {
     { id: "dependent", Component: <ExampleDependentFilter />, ...rest },
   ] satisfies Filters<Values>
 
-  return <FilterBar<Values> filters={filters} {...rest}>
+  return <FilterBar<Values> filters={filters} {...rest} />
 }
 ```
 
