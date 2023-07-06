@@ -209,6 +209,18 @@ const StickerSheetTemplate: StoryFn = () => {
       autohide: !IS_CHROMATIC,
     })
     addToastNotification({
+      type: "security",
+      title: "Security",
+      automationId: "notification1",
+      message: (
+        <>
+          Results hidden to protect confidentiality of individuals and small
+          groups. <a href="/">Learn more</a>
+        </>
+      ),
+      autohide: !IS_CHROMATIC,
+    })
+    addToastNotification({
       type: "negative",
       title: "Negative",
       automationId: "notification1",
