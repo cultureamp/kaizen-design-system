@@ -70,7 +70,7 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 ### Local development with other front-end codebases
 
-To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
+To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yalc](https://github.com/wclr/yalc) your local version of `@kaizen/component-library` with your other front-end codebase.
 
 #### For core components
 
@@ -80,34 +80,33 @@ To strengthen the Kaizen Design System, we encourage engineers to take a compone
 # Navigate to code source
 $ cd ./packages/component-library
 
-# Register package for linking
-$ yarn link
+# Publish the package
+$ yalc publish
 
-# Build in watch mode
-$ yarn build:watch
 ```
 
-**Step 2**: Link `@kaizen/component-library` to your other front-end codebase.
+**Step 2**: Install `@kaizen/component-library` in your other front-end codebase.
 
 ```sh
 # Navigate to code source
 $ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
 
-# Link repo to locally registered package
-$ yarn link @kaizen/component-library
+# Add the package to your front-end codebase
+$ yalc add @kaizen/component-library
+
+# Yarn install
+$ yarn
+
 ```
 
-Your local Kaizen changes will now show in your other front-end codebase.
+Your local Kaizen changes will now show in your other front-end codebase. If you want to test subsequent updates to the component, you'll need to run through step 1 again to republish the component, and then run `yalc update` in your front-end codebase to see the new changes.
 
-**Step 3**: Unlink
+**Step 3**: Removing the package
 
-When you are done, unlink the package from your front-end codebase:
+When you are done, remove the package from your front-end codebase:
 
-`yarn unlink @kaizen/component-library`
+`yalc remove @kaizen/component-library`
 
-You can also clean up generated files in your `@kaizen/component-library` repo:
-
-`yarn clean`
 
 ## Releasing packages
 
