@@ -38,7 +38,7 @@ export const useDateValidation = ({
     inputLabel,
   })
 
-  const validateRangeDate: UseDateValidationValue["validateDate"] = ({
+  const validateSingleDate: UseDateValidationValue["validateDate"] = ({
     date,
     inputValue,
   }) =>
@@ -52,7 +52,7 @@ export const useDateValidation = ({
     validationMessage: shouldUseInbuiltDateValidation
       ? inbuiltValidationMessage
       : validationMessage,
-    validateDate: validateRangeDate,
+    validateDate: validateSingleDate,
     updateValidation,
   }
 }

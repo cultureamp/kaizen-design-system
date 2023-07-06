@@ -33,5 +33,10 @@ pre code {
     &:hover {
       text-decoration: underline;
     }
+
+    & code {
+      color: inherit;
+      text-decoration: underline;
+    }
   }
 }

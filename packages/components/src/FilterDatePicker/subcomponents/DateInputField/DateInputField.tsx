@@ -5,12 +5,12 @@ import {
   DateInputDescription,
   DateInputDescriptionProps,
 } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
-import { isRefObject } from "~utils/isRefObject"
 
 import { ValidationMessage } from "../../types"
 import styles from "./DateInputField.module.scss"
 
-export interface DateInputFieldProps extends Omit<DateInputProps, "id"> {
+export interface DateInputFieldProps
+  extends Omit<DateInputProps, "id" | "labelText"> {
   id: string
   locale: Locale
   /**
@@ -20,11 +20,13 @@ export interface DateInputFieldProps extends Omit<DateInputProps, "id"> {
   isReversed?: boolean
   validationMessage?: ValidationMessage
   disabled?: boolean
+  labelText?: DateInputProps["labelText"]
 }
 
-type InputRef = React.RefObject<HTMLInputElement>
-
-export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
+export const DateInputField = React.forwardRef<
+  HTMLInputElement,
+  DateInputFieldProps
+>(
   (
     {
       id,
@@ -39,7 +41,6 @@ export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
     },
     ref
   ) => {
-    const inputDateRef = isRefObject(ref) ? ref.current : null
     const descriptionId = `${id}--field-message`
 
     const errorMessageId = validationMessage
@@ -55,9 +56,9 @@ export const DateInputField = React.forwardRef<InputRef, DateInputFieldProps>(
     return (
       <div>
         <DateInput
-          ref={inputDateRef}
+          ref={ref}
           id={id}
-          labelText={labelText}
+          labelText={labelText || "Date"}
           aria-describedby={inputDescribedBy}
           aria-errormessage={errorMessageId}
           aria-invalid={dateIsInvalid}

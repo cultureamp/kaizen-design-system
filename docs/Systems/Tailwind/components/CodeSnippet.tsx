@@ -19,7 +19,7 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
   return (
     <button
       type="button"
-      className="flex bg-[#00182e] h-min rounded-default justify-between items-center px-12 border-none cursor-pointer w-100"
+      className="flex bg-[#00182e] h-min rounded-default justify-between items-center px-12 border-none cursor-pointer w-full"
       onClick={(): void => handleCopy(text)}
       onBlur={(): void => setCopyIconIsChecked(false)}
     >

@@ -185,6 +185,7 @@ import insight from "../icons/insight.icon.svg"
 import tasks from "../icons/tasks.icon.svg"
 import textAnalytics from "../icons/text-analytics.icon.svg"
 import insights from "../icons/insights.icon.svg"
+import live from "../icons/live.icon.svg"
 
 export const Logo = {
   caMonogram,
@@ -380,4 +381,5 @@ export const Miscellaneous = {
   tasks,
   textAnalytics,
   insights,
+  live,
 }
