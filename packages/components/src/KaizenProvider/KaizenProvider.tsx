@@ -1,21 +1,16 @@
 import React from "react"
-import { OptionalIntlProvider } from "./OptionalIntlProvider"
 import { ThemeProvider, ThemeManager } from "./ThemeProvider"
 
 export interface KaizenProviderProps {
   children: React.ReactNode
   themeManager?: ThemeManager
-  locale?: string
 }
 
 export const KaizenProvider = ({
   children,
   themeManager,
-  locale = "en",
 }: KaizenProviderProps): JSX.Element => (
-  <OptionalIntlProvider locale={locale}>
-    <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
-  </OptionalIntlProvider>
+  <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
 )
 
 KaizenProvider.displayName = "KaizenProvider"
