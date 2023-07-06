@@ -64,10 +64,20 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           open until complete. <a href="/">View all</a>
         </GlobalNotification>
       </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Security">
+        <GlobalNotification
+          type="security"
+          automationId="notification4"
+          persistent
+        >
+          Results hidden to protect confidentiality of individuals and small
+          groups. <a href="/">Learn more</a>
+        </GlobalNotification>
+      </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Negative">
         <GlobalNotification
           type="negative"
-          automationId="notification4"
+          automationId="notification5"
           persistent
         >
           Something went wrong while validating and analyzing user data.{" "}
@@ -95,8 +105,14 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           open until complete. <a href="/">View all</a>
         </GlobalNotification>
       </StoryWrapper.Row>
+      <StoryWrapper.Row rowTitle="Security">
+        <GlobalNotification type="security" automationId="notification4">
+          Results hidden to protect confidentiality of individuals and small
+          groups. <a href="/">Learn more</a>
+        </GlobalNotification>
+      </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Negative">
-        <GlobalNotification type="negative" automationId="notification4">
+        <GlobalNotification type="negative" automationId="notification5">
           Something went wrong while validating and analyzing user data.{" "}
           <a href="/">View all</a>.
         </GlobalNotification>
