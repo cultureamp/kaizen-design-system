@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.18.1
+
+### Patch Changes
+
+- [#3850](https://github.com/cultureamp/kaizen-design-system/pull/3850) [`713427924`](https://github.com/cultureamp/kaizen-design-system/commit/713427924bec6b2c7f81b90037360b62ae8ad8ce) - Remove OptionalIntlProvider from KaizenProvider.
+  This change means that consumers will need to provide their own IntlProvider from `@cultureamp/i18n-react-intl`.
+  For more info, see our [Internationalization in Kaizen docs](https://cultureamp.design/storybook/?path=/docs/components-kaizen-provider-internationalization-in-kaizen--docs)
+
+- [#3722](https://github.com/cultureamp/kaizen-design-system/pull/3722) [`adb9c58e0`](https://github.com/cultureamp/kaizen-design-system/commit/adb9c58e0791ea08ebece42fb5e5ae47d2bc73c5) - **FilterDatePicker**
+
+  - Fixed issue where selecting the dates from the date pickers would return a validation object containing the previously picked date rather than the current one in the `inputValue` key.
+  - Fixed ref types. Only for internal usage.
+
+- [#3847](https://github.com/cultureamp/kaizen-design-system/pull/3847) [`8d1b4ace1`](https://github.com/cultureamp/kaizen-design-system/commit/8d1b4ace17533c29d6fc7f849b3948e39879e73b) - - Update FilterBarMultiSelect to clear values when items change
+  - Fix FilterBarContext type definitions to infer Id
+  - Update FilterBarSelect to clear values when items change
+
 ## 1.18.0
 
 ### Minor Changes
