@@ -66,7 +66,8 @@ export const FilterBarMultiSelect = ({
       const filteredValues = filterState.value.filter(value =>
         itemValues.includes(value)
       )
-      if (!checkArraysMatch(itemValues, filteredValues)) {
+
+      if (!checkArraysMatch(filterState.value, filteredValues)) {
         updateValue(id, filteredValues)
       }
     }
