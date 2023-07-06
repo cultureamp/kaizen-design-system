@@ -51,5 +51,3 @@ export const Overlay = ({
   )
   return ReactDOM.createPortal(contents, document.body)
 }
-
-Overlay.displayName = "Overlay"
