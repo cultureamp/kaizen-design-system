@@ -42,6 +42,8 @@
     "@kaizen/brand": "^1.5.8",
     "@kaizen/date-picker": "^6.3.1",
     "@kaizen/draft-badge": "^1.13.12",
+    "@kaizen/button": "^3.0.3",
+    "@kaizen/component-library": "^16.9.2",
     "@kaizen/draft-divider": "^2.2.10",
     "@kaizen/draft-form": "^10.5.0",
     "@kaizen/draft-illustration": "^7.0.0",
