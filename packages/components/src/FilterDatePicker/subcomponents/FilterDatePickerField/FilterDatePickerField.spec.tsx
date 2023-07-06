@@ -254,7 +254,7 @@ describe("<FilterDatePickerField />", () => {
       })
     })
 
-    it("does not call onDateSubmit when the date is invlid", async () => {
+    it("does not call onDateSubmit when the input value is invalid", async () => {
       const { getByLabelText } = render(<FilterDatePickerFieldWrapper />)
 
       const inputDate = getByLabelText("Date")

@@ -19,7 +19,7 @@ const FilterBarDatePickerWrapper = ({
   ...customProps
 }: {
   defaultValues?: Partial<Values>
-  filterAttributes?: Partial<FilterAttributes<keyof Values>>
+  filterAttributes?: Partial<FilterAttributes<Values>>
 } & Partial<FilterBarDatePickerProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (
@@ -159,10 +159,7 @@ describe("<FilterBarDatePicker />", () => {
     )
 
     await waitFor(() => {
-      expect(onChange.mock.calls).toEqual([
-        [undefined], // this is because the useEffect attemps to validate the default value, in this case we haven't given it one.
-        [new Date("2023-06-07")],
-      ])
+      expect(onChange.mock.calls).toEqual([[new Date("2023-06-07")]])
     })
   })
 })

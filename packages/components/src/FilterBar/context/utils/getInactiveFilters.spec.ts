@@ -6,28 +6,61 @@ type Values = {
   sugarLevel: number
 }
 
-const filters = {
+const stateFilters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
-    isOpen: false,
     isRemovable: false,
+    isOpen: false,
+    isUsable: true,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
     isOpen: false,
     isRemovable: true,
+    isUsable: true,
   },
 } satisfies FilterBarState<Values>["filters"]
 
-const state = {
-  filters,
-  activeFilterIds: new Set<keyof Values>(["flavour"]),
-} satisfies FilterBarState<Values>
-
 describe("getInactiveFilters()", () => {
   it("only fetches inactive filters", () => {
-    expect(getInactiveFilters<Values>(state)).toEqual([filters.sugarLevel])
+    const state = {
+      filters: stateFilters,
+      activeFilterIds: new Set<keyof Values>(["flavour"]),
+      values: {},
+      dependentFilterIds: new Set(),
+    } satisfies FilterBarState<Values>
+
+    expect(getInactiveFilters<Values>(state)).toEqual([
+      {
+        id: "sugarLevel",
+        name: "Sugar Level",
+        isOpen: false,
+        isRemovable: true,
+        isUsable: true,
+      },
+    ])
+  })
+
+  it("fetches only usable inactive filters", () => {
+    const state = {
+      filters: {
+        flavour: stateFilters["flavour"],
+        sugarLevel: {
+          id: "sugarLevel",
+          name: "Sugar Level",
+          isRemovable: false,
+          isOpen: false,
+          isUsable: false,
+          isUsableWhen: () => false,
+        },
+      },
+      activeFilterIds: new Set<keyof Values>(),
+      values: {},
+      dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+    } satisfies FilterBarState<Values>
+
+    expect(getInactiveFilters<Values>(state)).toEqual([stateFilters.flavour])
   })
 })

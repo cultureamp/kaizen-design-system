@@ -10,21 +10,27 @@ const stateFilters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
+    isRemovable: false,
     isOpen: false,
+    isUsable: true,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
+    isRemovable: false,
     isOpen: false,
+    isUsable: true,
   },
 } satisfies FilterBarState<Values>["filters"]
 
 describe("filterBarStateReducer", () => {
   describe("filterBarStateReducer: activate_filter", () => {
-    it("sets a filter to active and adds entry to active filters", () => {
+    it("sets a filter to active", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),
+        values: {},
+        dependentFilterIds: new Set(),
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -39,10 +45,12 @@ describe("filterBarStateReducer", () => {
   })
 
   describe("filterBarStateReducer: deactivate_filter", () => {
-    it("sets a filter to inactive and removes entry from active filters", () => {
+    it("sets a filter to inactive and clears value", () => {
       const state = {
         filters: stateFilters,
         activeFilterIds: new Set<keyof Values>(["flavour"]),
+        values: { flavour: "jasmine" },
+        dependentFilterIds: new Set(),
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -51,6 +59,7 @@ describe("filterBarStateReducer", () => {
       })
 
       expect(newState.activeFilterIds).toEqual(new Set())
+      expect(newState.values!.flavour).toBeUndefined()
     })
   })
 })

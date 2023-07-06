@@ -1,13 +1,9 @@
 import React, { useContext, useEffect, useMemo, useReducer } from "react"
-import { Filters } from "../types"
+import { FilterAttributes, FilterState, Filters, FiltersValues } from "../types"
 import { filterBarStateReducer } from "./reducer/filterBarStateReducer"
-import { setupFiltersState } from "./reducer/setupFiltersState"
-import {
-  ActiveFiltersArray,
-  FiltersValues,
-  FilterState,
-  BaseFilterState,
-} from "./types"
+import { setupFilterBarState } from "./reducer/setupFilterBarState"
+import { ActiveFiltersArray } from "./types"
+import { checkShouldUpdateValues } from "./utils/checkShouldUpdateValues"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
 
@@ -20,7 +16,7 @@ export type FilterBarContextValue<
   updateValue: (id: keyof ValuesMap, value: Value) => void
   showFilter: (id: keyof ValuesMap) => void
   hideFilter: (id: keyof ValuesMap) => void
-  getInactiveFilters: () => Array<BaseFilterState<keyof ValuesMap>>
+  getInactiveFilters: () => Array<FilterAttributes<ValuesMap>>
   clearAllFilters: () => void
 }
 
@@ -60,7 +56,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   const [state, dispatch] = useReducer(
     filterBarStateReducer<ValuesMap>,
-    setupFiltersState<ValuesMap>(filters, values)
+    setupFilterBarState<ValuesMap>(filters)
   )
 
   const value = {
@@ -80,16 +76,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
         typeof newValue === "object" && JSON.stringify(newValue) === "{}"
           ? undefined
           : newValue
-      onValuesChange({
-        ...values,
-        [id]: validValue,
+      dispatch({
+        type: "update_values",
+        values: { ...values, [id]: validValue },
       })
     },
     showFilter: (id: keyof ValuesMap): void =>
       dispatch({ type: "activate_filter", id }),
     hideFilter: (id: keyof ValuesMap): void => {
       dispatch({ type: "deactivate_filter", id })
-      onValuesChange({ ...values, [id]: undefined })
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),
     clearAllFilters: () => {
@@ -97,15 +92,21 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
         if (mappedFilters[id].isRemovable)
           dispatch({ type: "deactivate_filter", id })
       })
-      onValuesChange({})
+      dispatch({ type: "update_values", values: {} })
     },
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
-    Object.keys(values).forEach(id => {
-      if (values[id]) dispatch({ type: "activate_filter", id })
-    })
+    const shouldUpdate =
+      state.values === null || checkShouldUpdateValues<ValuesMap>(state, values)
+    if (shouldUpdate) dispatch({ type: "update_values", values: { ...values } })
   }, [values])
+
+  useEffect(() => {
+    const shouldUpdate =
+      state.values !== null && checkShouldUpdateValues<ValuesMap>(state, values)
+    if (shouldUpdate) onValuesChange({ ...state.values! })
+  }, [state])
 
   const activeFilters = Array.from(
     state.activeFilterIds,
