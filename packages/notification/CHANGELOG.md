@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.6.0
+
+### Minor Changes
+
+- [#3848](https://github.com/cultureamp/kaizen-design-system/pull/3848) [`dcaecf4db`](https://github.com/cultureamp/kaizen-design-system/commit/dcaecf4db860db059e6cf5e38e47b3a1a023ddeb) - add security notification variant
+
 ## 1.5.10
 
 ### Patch Changes
