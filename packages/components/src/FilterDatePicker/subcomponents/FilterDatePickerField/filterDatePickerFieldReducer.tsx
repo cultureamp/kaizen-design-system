@@ -1,8 +1,25 @@
 import { isInvalidDate } from "@kaizen/date-picker"
-import {
-  DateFieldActions,
-  FilterDatePickerState,
-} from "~components/FilterDatePicker/types"
+
+type DateFieldActions =
+  | {
+      type: "update_selected_date"
+      date: Date | undefined
+      inputValue?: string
+    }
+  | {
+      type: "navigate_months"
+      date: Date | undefined
+    }
+  | {
+      type: "update_input_field"
+      inputValue: string
+    }
+
+type FilterDatePickerState = {
+  selectedDate: Date | undefined
+  inputValue: string
+  startMonth: Date
+}
 
 export const filterDatePickerFieldReducer = (
   state: FilterDatePickerState,

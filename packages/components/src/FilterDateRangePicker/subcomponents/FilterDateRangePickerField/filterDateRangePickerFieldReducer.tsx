@@ -1,5 +1,36 @@
 import { isInvalidDate } from "@kaizen/date-picker"
-import { DateRangeFieldActions, FilterDateRangePickerState } from "./types"
+
+type DateRangeFieldActions =
+  | {
+      type: "update_selected_start_date"
+      date: Date | undefined
+      inputValue?: string
+    }
+  | {
+      type: "update_selected_end_date"
+      date: Date | undefined
+      inputValue?: string
+    }
+  | {
+      type: "navigate_months"
+      date: Date | undefined
+    }
+  | {
+      type: "update_input_start_field"
+      inputValue: string
+    }
+  | {
+      type: "update_input_end_field"
+      inputValue: string
+    }
+
+type FilterDateRangePickerState = {
+  selectedStartDate: Date | undefined
+  selectedEndDate: Date | undefined
+  inputStartValue: string
+  inputEndValue: string
+  startMonth: Date
+}
 
 export const filterDatePickerFieldReducer = (
   state: FilterDateRangePickerState,
