@@ -16,7 +16,7 @@ export type ValidationMessage = {
   message: string | React.ReactElement
 }
 
-export type Actions =
+export type DateFieldActions =
   | {
       type: "update_selected_date"
       date: Date | undefined

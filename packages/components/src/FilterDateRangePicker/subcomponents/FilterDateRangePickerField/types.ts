@@ -5,7 +5,7 @@ export type DateRangeFieldValidationMessage = {
   dateEnd?: ValidationMessage
 }
 
-export type Actions =
+export type DateRangeFieldActions =
   | {
       type: "update_selected_start_date"
       date: Date | undefined

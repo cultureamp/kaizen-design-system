@@ -1,9 +1,9 @@
 import { isInvalidDate } from "@kaizen/date-picker"
-import { Actions, FilterDateRangePickerState } from "./types"
+import { DateRangeFieldActions, FilterDateRangePickerState } from "./types"
 
 export const filterDatePickerFieldReducer = (
   state: FilterDateRangePickerState,
-  action: Actions
+  action: DateRangeFieldActions
 ): FilterDateRangePickerState => {
   switch (action.type) {
     case "update_selected_start_date":

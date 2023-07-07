@@ -1,12 +1,12 @@
 import { isInvalidDate } from "@kaizen/date-picker"
 import {
-  Actions,
+  DateFieldActions,
   FilterDatePickerState,
 } from "~components/FilterDatePicker/types"
 
 export const filterDatePickerFieldReducer = (
   state: FilterDatePickerState,
-  action: Actions
+  action: DateFieldActions
 ): FilterDatePickerState => {
   switch (action.type) {
     case "update_selected_date":
