@@ -213,20 +213,12 @@ export const FilterDateRangePickerField = ({
     dispatch({
       type: "update_selected_start_date",
       date: newStartDate,
+      inputValue: inputStartValue,
     })
 
     dispatch({
       type: "update_selected_end_date",
       date: newEndDate,
-    })
-
-    dispatch({
-      type: "update_input_start_field",
-      inputValue: inputStartValue,
-    })
-
-    dispatch({
-      type: "update_input_end_field",
       inputValue: inputEndValue,
     })
 
