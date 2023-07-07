@@ -3,7 +3,7 @@ import { checkShouldUpdateValues } from "./checkShouldUpdateValues"
 
 type Values = {
   flavour: string
-  sugarLevel: number
+  toppings: string[]
 }
 
 const state = {
@@ -15,9 +15,9 @@ const state = {
       isOpen: false,
       isUsable: true,
     },
-    sugarLevel: {
-      id: "sugarLevel",
-      name: "Sugar Level",
+    toppings: {
+      id: "toppings",
+      name: "Toppings",
       isOpen: false,
       isRemovable: true,
       isUsable: true,
@@ -32,7 +32,7 @@ describe("checkShouldUpdateValues()", () => {
   it("is true when the values do not match", () => {
     const result = checkShouldUpdateValues<Values>(
       { ...state, values: { flavour: "jasmine" } },
-      { flavour: "jasmine", sugarLevel: 50 }
+      { flavour: "jasmine", toppings: ["pearls"] }
     )
 
     expect(result).toBe(true)
@@ -45,5 +45,25 @@ describe("checkShouldUpdateValues()", () => {
     )
 
     expect(result).toBe(false)
+  })
+
+  describe("Arrays", () => {
+    it("is true when the array values do not match", () => {
+      const result = checkShouldUpdateValues<Values>(
+        { ...state, values: { toppings: ["pearls"] } },
+        { toppings: ["jelly"] }
+      )
+
+      expect(result).toBe(true)
+    })
+
+    it("is false when the array values match", () => {
+      const result = checkShouldUpdateValues<Values>(
+        { ...state, values: { toppings: ["pearls"] } },
+        { toppings: ["pearls"] }
+      )
+
+      expect(result).toBe(false)
+    })
   })
 })
