@@ -1,4 +1,4 @@
-import React, { useEffect, HTMLAttributes, useState } from "react"
+import React, { useEffect, HTMLAttributes, useReducer } from "react"
 import classnames from "classnames"
 import {
   CalendarRange,
@@ -21,6 +21,7 @@ import {
   DateRangeInputField,
   DateRangeInputFieldProps,
 } from "../DateRangeInputField"
+import { filterDatePickerFieldReducer } from "./filterDateRangePickerFieldReducer"
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
 import { DateRangeFieldValidationMessage } from "./types"
@@ -93,22 +94,6 @@ export const FilterDateRangePickerField = ({
   const transformDateToInputValue = (date: Date | undefined): string =>
     date ? formatDateAsText(date, disabledDays, locale) : ""
 
-  const rangeStart = selectedRange?.from
-  const rangeEnd = selectedRange?.to
-  const transformedStartDate = transformDateToInputValue(rangeStart)
-  const transformedEndDate = transformDateToInputValue(rangeEnd)
-
-  const [startMonth, setStartMonth] = useState<Date>(
-    rangeStart && !isInvalidDate(rangeStart)
-      ? rangeStart
-      : defaultMonth || new Date()
-  )
-
-  const [inputStartDateValue, setInputStartDateValue] =
-    useState<string>(transformedStartDate)
-  const [inputEndDateValue, setInputEndDateValue] =
-    useState<string>(transformedEndDate)
-
   const handleDateRangeChange = (dateRange: DateRange | undefined): void => {
     onRangeChange(dateRange)
   }
@@ -120,12 +105,6 @@ export const FilterDateRangePickerField = ({
     onValidate: onValidate?.dateStart,
   })
 
-  const validateStartDate = (date: Date | undefined): Date | undefined =>
-    dateStartValidation.validateDate({
-      date,
-      inputValue: inputStartDateValue,
-    })
-
   const dateEndValidation = useEndDateValidation({
     inputLabel: inputEndDateLabel,
     disabledDays,
@@ -133,35 +112,71 @@ export const FilterDateRangePickerField = ({
     onValidate: onValidate?.dateEnd,
   })
 
-  const validateEndDate = (date: Date | undefined): Date | undefined =>
+  const validateStartDate = (
+    date: Date | undefined,
+    inputValue: string
+  ): Date | undefined =>
+    dateStartValidation.validateDate({
+      date,
+      inputValue,
+    })
+
+  const validateEndDate = (
+    date: Date | undefined,
+    inputValue: string
+  ): Date | undefined =>
     dateEndValidation.validateDate({
       endDate: date,
-      endDateInputValue: inputEndDateValue,
+      endDateInputValue: inputValue,
       startDate: selectedRange?.from,
       startDateFieldLabel: inputStartDateLabel,
     })
 
+  const [state, dispatch] = useReducer(filterDatePickerFieldReducer, {
+    selectedStartDate: selectedRange?.from,
+    selectedEndDate: selectedRange?.from,
+    inputStartValue: transformDateToInputValue(selectedRange?.from) || "",
+    inputEndValue: transformDateToInputValue(selectedRange?.to) || "",
+    startMonth:
+      selectedRange?.from && !isInvalidDate(selectedRange?.from)
+        ? selectedRange?.from
+        : defaultMonth || new Date(),
+  })
+
   const inputStartDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: setInputStartDateValue,
+    setInputValue: value => {
+      dispatch({
+        type: "update_input_start_field",
+        inputValue: value as string,
+      })
+    },
     onDateChange: date => {
-      const newDate = validateStartDate(date)
-      const endDate = parseDateFromTextFormatValue(inputEndDateValue, locale)
+      const newDate = validateStartDate(date, state.inputStartValue)
+      const endDate = parseDateFromTextFormatValue(state.inputEndValue, locale)
+
+      dispatch({
+        type: "update_selected_start_date",
+        date: newDate,
+      })
+
+      dispatch({
+        type: "update_selected_end_date",
+        date: endDate,
+      })
 
       if (newDate && !isInvalidDate(endDate)) {
         const newEndDate = dateEndValidation.validateEndDateBeforeStartDate({
           startDate: newDate,
           startDateFieldLabel: inputStartDateLabel,
           endDate,
-          endDateInputValue: inputEndDateValue,
+          endDateInputValue: state.inputEndValue,
         })
         handleDateRangeChange({ from: newDate, to: newEndDate })
       } else {
-        handleDateRangeChange({ from: newDate, to: rangeEnd })
+        handleDateRangeChange({ from: newDate, to: state.selectedEndDate })
       }
-
-      if (newDate) setStartMonth(newDate)
     },
     ...inputStartDateProps,
   })
@@ -169,25 +184,61 @@ export const FilterDateRangePickerField = ({
   const inputEndDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: setInputEndDateValue,
+    setInputValue: value => {
+      dispatch({
+        type: "update_input_end_field",
+        inputValue: value as string,
+      })
+    },
     onDateChange: date => {
-      const newDate = validateEndDate(date)
-      handleDateRangeChange({ from: rangeStart, to: newDate })
+      const newDate = validateEndDate(date, state.inputEndValue)
+
+      dispatch({
+        type: "update_selected_end_date",
+        date: newDate,
+      })
+
+      handleDateRangeChange({ from: state.selectedStartDate, to: newDate })
     },
     ...inputEndDateProps,
   })
 
   const handleCalendarSelectRange: CalendarRangeProps["onSelect"] = range => {
-    const newStartDate = validateStartDate(range?.from)
-    const newEndDate = validateEndDate(range?.to)
-    setInputStartDateValue(transformDateToInputValue(newStartDate))
-    setInputEndDateValue(transformDateToInputValue(newEndDate))
+    const inputStartValue = transformDateToInputValue(range?.from)
+    const inputEndValue = transformDateToInputValue(range?.to)
+
+    const newStartDate = validateStartDate(range?.from, inputStartValue)
+    const newEndDate = validateEndDate(range?.to, inputEndValue)
+
+    dispatch({
+      type: "update_selected_start_date",
+      date: newStartDate,
+    })
+
+    dispatch({
+      type: "update_selected_end_date",
+      date: newEndDate,
+    })
+
+    dispatch({
+      type: "update_input_start_field",
+      inputValue: inputStartValue,
+    })
+
+    dispatch({
+      type: "update_input_end_field",
+      inputValue: inputEndValue,
+    })
+
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }
 
   useEffect(() => {
-    const newStartDate = validateStartDate(selectedRange?.from)
-    const newEndDate = validateEndDate(selectedRange?.to)
+    const newStartDate = validateStartDate(
+      selectedRange?.from,
+      state.inputStartValue
+    )
+    const newEndDate = validateEndDate(selectedRange?.to, state.inputEndValue)
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }, [])
 
@@ -204,14 +255,14 @@ export const FilterDateRangePickerField = ({
         legend={label}
         inputStartDateProps={{
           labelText: inputStartDateLabel,
-          value: inputStartDateValue,
+          value: state.inputStartValue,
           ...inputStartDateProps,
           // The below props extend the values from inputStartDateProps, therefore must be below the spread
           ...inputStartDateHandlers,
         }}
         inputEndDateProps={{
           labelText: inputEndDateLabel,
-          value: inputEndDateValue,
+          value: state.inputEndValue,
           ...inputEndDateProps,
           // The below props extend the values from inputEndDateProps, therefore must be below the spread
           ...inputEndDateHandlers,
@@ -229,8 +280,10 @@ export const FilterDateRangePickerField = ({
         locale={locale}
         selected={selectedRange}
         onSelect={handleCalendarSelectRange}
-        month={startMonth}
-        onMonthChange={setStartMonth}
+        month={state.startMonth}
+        onMonthChange={(value: Date) =>
+          dispatch({ type: "navigate_months", date: value })
+        }
       />
     </div>
   )
