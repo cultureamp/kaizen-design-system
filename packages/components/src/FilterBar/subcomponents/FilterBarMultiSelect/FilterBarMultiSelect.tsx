@@ -1,11 +1,13 @@
-import React, { Key } from "react"
+import React, { Key, useEffect, useState } from "react"
 import { Selection } from "@react-types/shared"
 import {
   FilterMultiSelect,
   FilterMultiSelectProps,
+  ItemType,
   getSelectedOptionLabels,
 } from "~components/FilterMultiSelect"
 import { useFilterBarContext } from "../../context/FilterBarContext"
+import { checkArraysMatch } from "../../utils/checkArraysMatch"
 
 export type FilterBarMultiSelectProps = Omit<
   FilterMultiSelectProps,
@@ -39,17 +41,37 @@ const convertConsumableFormatIntoSelection = (
 
 export const FilterBarMultiSelect = ({
   id,
-  items,
+  items: propsItems,
   children,
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
   const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
     useFilterBarContext<ConsumableSelection>()
+  const [items, setItems] = useState<ItemType[]>(propsItems)
 
   if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
 
   const filterState = getFilterState(id)
+
+  useEffect(() => {
+    if (!checkArraysMatch(items, propsItems)) {
+      setItems(propsItems)
+    }
+  }, [propsItems])
+
+  useEffect(() => {
+    if (Array.isArray(filterState.value)) {
+      const itemValues = items.map(({ value }) => value)
+      const filteredValues = filterState.value.filter(value =>
+        itemValues.includes(value)
+      )
+
+      if (!checkArraysMatch(filterState.value, filteredValues)) {
+        updateValue(id, filteredValues)
+      }
+    }
+  }, [items])
 
   return (
     <FilterMultiSelect
