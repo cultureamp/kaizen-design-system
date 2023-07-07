@@ -149,7 +149,7 @@ export const FilterDateRangePickerField = ({
     setInputValue: value => {
       dispatch({
         type: "update_input_start_field",
-        inputValue: value as string,
+        inputValue: value,
       })
     },
     onDateChange: date => {
