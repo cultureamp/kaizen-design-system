@@ -92,13 +92,13 @@ export const FilterDateRangePickerField = ({
 
   const translatedDateFrom = formatMessage({
     id: "filterDateRangePicker.dateFrom",
-    defaultMessage: "Default date-from message",
-    description: "Description for date-from",
+    defaultMessage: "Date from",
+    description: "Label for the 'Date from' field",
   })
   const translatedDateTo = formatMessage({
     id: "filterDateRangePicker.dateTo",
-    defaultMessage: "Default date-to message",
-    description: "Description for date-to",
+    defaultMessage: "Date to",
+    description: "Label for the 'date to' field",
   })
   const inputStartDateLabel =
     inputStartDateProps?.labelText || translatedDateFrom

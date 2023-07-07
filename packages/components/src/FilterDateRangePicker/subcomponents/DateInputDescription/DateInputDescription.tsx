@@ -20,8 +20,8 @@ export const DateInputDescription = ({
 
   const translatedInputFormatMessage = formatMessage({
     id: "filterDateRangePicker.inputFormat",
-    defaultMessage: "Default date-from message",
-    description: "Description for date-from",
+    defaultMessage: "Input format",
+    description: "Label for the 'Input format' field",
   })
 
   if (hasCustomDescription) {
