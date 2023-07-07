@@ -22,27 +22,6 @@ import styles from "./FilterDatePickerField.module.scss"
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
-type DateFieldActions =
-  | {
-      type: "update_selected_date"
-      date: Date | undefined
-      inputValue?: string
-    }
-  | {
-      type: "navigate_months"
-      date: Date | undefined
-    }
-  | {
-      type: "update_input_field"
-      inputValue: string
-    }
-
-type FilterDatePickerState = {
-  selectedDate: Date | undefined
-  inputValue: string
-  startMonth: Date
-}
-
 export interface FilterDatePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   id: string
