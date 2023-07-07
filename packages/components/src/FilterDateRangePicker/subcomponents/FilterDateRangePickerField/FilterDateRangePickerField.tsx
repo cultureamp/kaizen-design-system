@@ -135,7 +135,7 @@ export const FilterDateRangePickerField = ({
   const [state, dispatch] = useReducer(filterDatePickerFieldReducer, {
     selectedStartDate: selectedRange?.from,
     selectedEndDate: selectedRange?.to,
-    inputStartValue: transformDateToInputValue(selectedRange?.from) || "",
+    inputStartValue: transformDateToInputValue(selectedRange?.from),
     inputEndValue: transformDateToInputValue(selectedRange?.to) || "",
     startMonth:
       selectedRange?.from && !isInvalidDate(selectedRange?.from)
