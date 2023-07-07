@@ -50,7 +50,8 @@ export interface SelectProps
    * Replaces the trigger button
    * Exposes the trigger properties and the ref to be used on the replacing trigger */
   trigger?: (
-    triggerProps: TriggerButtonProps
+    triggerProps: TriggerButtonProps,
+    buttonRef?: React.RefObject<HTMLButtonElement>
   ) => JSX.Element & { ref?: React.RefObject<HTMLButtonElement> }
   /**
    * Replaces the contents of the Listbox and describes how the options are displayed
@@ -83,7 +84,9 @@ export const Select = ({
   defaultOpen,
   validationMessage,
   classNameOverride,
-  trigger = (triggerProps): JSX.Element => <TriggerButton {...triggerProps} />,
+  trigger = (triggerProps): JSX.Element => (
+    <TriggerButton {...triggerProps} ref={buttonRef} />
+  ),
   children,
   ...restProps
 }: SelectProps): JSX.Element => {
@@ -169,14 +172,17 @@ export const Select = ({
 
         <div className={classnames(selectStyles.container)}>
           {React.cloneElement(
-            trigger({
-              placeholder,
-              triggerProps,
-              valueProps,
-              status,
-              isReversed,
-              "aria-controls": state.isOpen ? listBoxID : undefined,
-            }),
+            trigger(
+              {
+                placeholder,
+                triggerProps,
+                valueProps,
+                status,
+                isReversed,
+                "aria-controls": state.isOpen ? listBoxID : undefined,
+              },
+              buttonRef
+            ),
             { ref: buttonRef }
           )}
           {state.isOpen && (
