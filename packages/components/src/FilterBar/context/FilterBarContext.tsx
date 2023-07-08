@@ -6,16 +6,25 @@ import { ActiveFiltersArray } from "./types"
 import { checkShouldUpdateValues } from "./utils/checkShouldUpdateValues"
 import { getInactiveFilters } from "./utils/getInactiveFilters"
 import { getMappedFilters } from "./utils/getMappedFilters"
+import { getValidValue } from "./utils/getValidValue"
 
 export type FilterBarContextValue<
   Value,
   ValuesMap extends FiltersValues = Record<string, Value>
 > = {
-  getFilterState: (id: keyof ValuesMap) => FilterState<keyof ValuesMap, Value>
-  toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean) => void
-  updateValue: (id: keyof ValuesMap, value: Value) => void
-  showFilter: (id: keyof ValuesMap) => void
-  hideFilter: (id: keyof ValuesMap) => void
+  getFilterState: <Id extends keyof ValuesMap>(
+    id: Id
+  ) => FilterState<keyof ValuesMap, ValuesMap[Id]>
+  toggleOpenFilter: <Id extends keyof ValuesMap>(
+    id: Id,
+    isOpen: boolean
+  ) => void
+  updateValue: <Id extends keyof ValuesMap>(
+    id: Id,
+    value: ValuesMap[Id]
+  ) => void
+  showFilter: <Id extends keyof ValuesMap>(id: Id) => void
+  hideFilter: <Id extends keyof ValuesMap>(id: Id) => void
   getInactiveFilters: () => Array<FilterAttributes<ValuesMap>>
   clearAllFilters: () => void
 }
@@ -60,30 +69,29 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   )
 
   const value = {
-    getFilterState: (id: keyof ValuesMap) => {
-      if (!state.filters[id]) throw Error(`Filter ${String(id)} doesn't exist!`)
-      return {
-        ...state.filters[id],
-        isActive: state.activeFilterIds.has(id),
-        value: values[id],
-      }
-    },
-    toggleOpenFilter: (id: keyof ValuesMap, isOpen: boolean): void => {
+    getFilterState: <Id extends keyof ValuesMap>(id: Id) => ({
+      ...state.filters[id],
+      isActive: state.activeFilterIds.has(id),
+      value: values[id],
+    }),
+    toggleOpenFilter: <Id extends keyof ValuesMap>(
+      id: Id,
+      isOpen: boolean
+    ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
     },
-    updateValue: (id: keyof ValuesMap, newValue: any): void => {
-      const validValue =
-        typeof newValue === "object" && JSON.stringify(newValue) === "{}"
-          ? undefined
-          : newValue
+    updateValue: <Id extends keyof ValuesMap>(
+      id: Id,
+      newValue: ValuesMap[Id]
+    ): void => {
       dispatch({
         type: "update_values",
-        values: { ...values, [id]: validValue },
+        values: { ...values, [id]: getValidValue(newValue) },
       })
     },
-    showFilter: (id: keyof ValuesMap): void =>
+    showFilter: <Id extends keyof ValuesMap>(id: Id): void =>
       dispatch({ type: "activate_filter", id }),
-    hideFilter: (id: keyof ValuesMap): void => {
+    hideFilter: <Id extends keyof ValuesMap>(id: Id): void => {
       dispatch({ type: "deactivate_filter", id })
     },
     getInactiveFilters: () => getInactiveFilters<ValuesMap>(state),

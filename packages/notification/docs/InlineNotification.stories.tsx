@@ -117,6 +117,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
             open until complete. <a href="/">View all</a>
           </InlineNotification>
         </StoryWrapper.Row>
+        <StoryWrapper.Row rowTitle="Security">
+          <InlineNotification type="security" title="Security title">
+            Results hidden to protect confidentiality of individuals and small
+            groups. <a href="/">Learn more</a>
+          </InlineNotification>
+        </StoryWrapper.Row>
         <StoryWrapper.Row rowTitle="Persistent">
           <InlineNotification
             type="cautionary"

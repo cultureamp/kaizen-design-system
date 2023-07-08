@@ -222,46 +222,94 @@ $small: $spacing-md;
   color: $color-purple-800;
 }
 
-$pulse-size-initial: 2px;
-$pulse-scale-factor: 9;
-$pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
-$pulse-ring-position: calc(
-  -1 * (#{$pulse-size-after} / 2) + (#{$pulse-size-initial} / 2)
-);
-
-.pulse {
-  margin-inline-start: calc(#{$spacing-md} * 0.35);
-  margin-inline-end: calc(#{$spacing-md} * 0.15);
-  width: $pulse-size-initial;
-  height: $pulse-size-initial;
-  border-radius: 50%;
-  background-color: $color-blue-500;
+.liveIcon {
   display: inline-block;
   position: relative;
-  opacity: 50%;
+  width: 20px;
+  height: 20px;
+  margin-inline-start: 0.25rem;
+  color: $color-green-500;
 }
 
-.pulseRing {
+.liveIcon_base {
+  opacity: 30%;
+  display: block;
+}
+
+.liveIcon_1,
+.liveIcon_2,
+.liveIcon_3 {
+  display: block;
   position: absolute;
-  width: $pulse-size-after;
-  height: $pulse-size-after;
-  // this positioning has to be calculated as an exact value as scaling will mess with percentage values
-  left: $pulse-ring-position;
-  top: $pulse-ring-position;
-  border-radius: 50%;
-  background-color: $color-green-500;
-  animation: pulsate infinite 2.5s ease-out;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
 }
 
-@keyframes pulsate {
+.liveIcon_1 {
+  clip-path: circle(16%);
+}
+
+.liveIcon_2,
+.liveIcon_3 {
+  animation-duration: 3s;
+  animation-iteration-count: 3;
+  animation-delay: 1s;
+}
+
+.liveIcon_2 {
+  clip-path: circle(32%);
+  animation-name: pulse-inner;
+}
+
+.liveIcon_3 {
+  clip-path: circle(50%);
+  animation-name: pulse-outer;
+}
+
+@keyframes pulse-inner {
   0% {
-    transform: scale(0);
+    opacity: 0%;
+  }
+
+  25% {
+    opacity: 0%;
+  }
+
+  50% {
     opacity: 100%;
   }
 
-  50%,
+  75% {
+    opacity: 100%;
+  }
+
   100% {
-    transform: scale(1);
+    opacity: 100%;
+  }
+}
+
+@keyframes pulse-outer {
+  0% {
     opacity: 0%;
+  }
+
+  25% {
+    opacity: 0%;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+
+  75% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 100%;
   }
 }

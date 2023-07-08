@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.4
+
+### Patch Changes
+
+- [#3842](https://github.com/cultureamp/kaizen-design-system/pull/3842) [`ff6ff4130`](https://github.com/cultureamp/kaizen-design-system/commit/ff6ff41308080599ec4f44ce644f698219db23f1) - Update filter method for tailwind spacing tokens to allow default tailwind width values
+  - This fixes the !Nan filtered our tailwind percentile and string values
+  - Updated stories that use w-100 to w-full since the original intention was to be compile to width: 100%
+
 ## 1.0.3
 
 ### Patch Changes
