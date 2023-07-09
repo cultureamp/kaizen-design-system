@@ -1,6 +1,5 @@
 import React, {
   ReactNode,
-  ReactElement,
   cloneElement,
   useEffect,
   useRef,
@@ -11,8 +10,8 @@ import { Placement } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
 import { AnimationProvider, useAnimation } from "./AppearanceAnim"
-import { hasSemanticRole } from "./hasSemanticRole"
 import { useUuid } from "./useUuid"
+import { isSemanticElement } from "./utils/isSemanticElement"
 import styles from "./Tooltip.module.scss"
 
 type Position = "above" | "below" | "left" | "right"
@@ -161,11 +160,13 @@ const renderChildren = (
   tooltipId: string,
   hasActiveTooltip: boolean
 ): ReactNode => {
-  if (!hasSemanticRole(content)) return content
+  if (isSemanticElement(content)) {
+    return cloneElement(content, {
+      "aria-describedby": hasActiveTooltip ? tooltipId : undefined,
+    })
+  }
 
-  return cloneElement(content as ReactElement | React.ReactPortal, {
-    "aria-describedby": hasActiveTooltip ? tooltipId : undefined,
-  })
+  return content
 }
 
 /**

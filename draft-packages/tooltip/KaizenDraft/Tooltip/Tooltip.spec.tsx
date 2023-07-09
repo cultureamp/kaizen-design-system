@@ -1,14 +1,15 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
-import { Button } from "@kaizen/button"
-import { Tooltip } from "./index"
+import { Button, IconButton } from "@kaizen/button"
+import ArrowIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
 
+import { Tooltip } from "./index"
 describe("<Tooltip />", () => {
   describe("Accessible descriptions", () => {
-    it("will render a button will have an accessible description", async () => {
+    it("will render a button that will have an accessible description", async () => {
       render(
         <Tooltip
-          text="Tooltip popup description for button"
+          text="Tooltip popup description for Kaizen Button"
           display="inline"
           isInitiallyVisible
           position="below"
@@ -20,7 +21,29 @@ describe("<Tooltip />", () => {
       await waitFor(() => {
         expect(
           screen.getByRole("button", { name: "More info" })
-        ).toHaveAccessibleDescription("Tooltip popup description for button")
+        ).toHaveAccessibleDescription(
+          "Tooltip popup description for Kaizen Button"
+        )
+      })
+    })
+    it("will render a IconButton that will have an accessible description", async () => {
+      render(
+        <Tooltip
+          text="Tooltip popup description for Kaizen IconButton"
+          display="inline"
+          isInitiallyVisible
+          position="below"
+        >
+          <IconButton label="More info" icon={ArrowIcon} />
+        </Tooltip>
+      )
+
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "More info" })
+        ).toHaveAccessibleDescription(
+          "Tooltip popup description for Kaizen IconButton"
+        )
       })
     })
 
