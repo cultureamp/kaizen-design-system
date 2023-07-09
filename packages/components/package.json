@@ -92,7 +92,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.63.6",
     "serialize-query-params": "^2.0.2",
-    "ts-jest": "^29.1.0",
+    "ts-jest": "^29.1.1",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"
   },
