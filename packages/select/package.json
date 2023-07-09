@@ -37,7 +37,7 @@
     "@kaizen/loading-skeleton": "^2.0.7",
     "@kaizen/typography": "^2.3.11",
     "@react-aria/button": "^3.7.2",
-    "@react-aria/focus": "^3.12.1",
+    "@react-aria/focus": "^3.13.0",
     "@react-aria/listbox": "^3.9.1",
     "@react-aria/menu": "^3.9.1",
     "@react-aria/overlays": "^3.14.1",
