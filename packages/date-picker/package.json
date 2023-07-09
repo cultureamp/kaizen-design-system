@@ -39,7 +39,7 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "react-day-picker": "8.4.1",
-    "react-focus-on": "^3.8.2",
+    "react-focus-on": "^3.9.1",
     "react-popper": "^2.3.0"
   },
   "dependenciesComments": {
