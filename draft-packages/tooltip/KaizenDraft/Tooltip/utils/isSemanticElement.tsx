@@ -14,12 +14,12 @@ export const isSemanticElement = (
   element: ReactNode
 ): element is React.ReactElement => {
   if (!React.isValidElement(element)) return false
+
   const { props, type } = element
-  // TODO: test me
+
   if ("role" in props) {
     return props.role !== "presentation" && props.role !== "none"
   }
-  // TODO: test me
   if (typeof type !== "string") {
     // As we are only checking whether this matches to our allowedDisplayNames
     // type casting should be fine
