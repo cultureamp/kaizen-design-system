@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { Meta, StoryFn } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"

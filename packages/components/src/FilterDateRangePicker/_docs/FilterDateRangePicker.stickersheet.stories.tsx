@@ -32,7 +32,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
   })
-  const [isOpenTranslated, setIsOpenTranslated] = useState<boolean>(true)
 
   const [rangeFieldDefault, setRangeFieldDefault] = useState<
     DateRange | undefined
