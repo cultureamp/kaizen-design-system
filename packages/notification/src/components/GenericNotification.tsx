@@ -7,6 +7,7 @@ import cautionIcon from "@kaizen/component-library/icons/caution.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import errorIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
+import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Heading, HeadingProps } from "@kaizen/typography"
 
@@ -17,6 +18,7 @@ export type NotificationType =
   | "informative"
   | "cautionary"
   | "negative"
+  | "security"
 
 export type GenericNotificationProps = OverrideClassName<{
   type: NotificationType
@@ -175,6 +177,8 @@ class GenericNotification extends React.Component<
         return cautionIcon
       case "informative":
         return informationIcon
+      case "security":
+        return securityTipIcon
       default:
         return informationIcon
     }

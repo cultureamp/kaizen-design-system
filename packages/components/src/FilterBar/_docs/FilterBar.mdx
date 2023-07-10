@@ -262,6 +262,66 @@ This example shows the following dependencies:
 
 <NoClipCanvas of={FilterBarStories.DependentFilter} />
 
+### Filters which populate based on a sibling value
+
+A Select or MultiSelect's options may change depending on a sibling filter's value.
+
+To do this, the dependent filter must be made into a custom component
+which calls `getFilterState` from `useFilterBarContext`.
+It must also either have an optional `id` prop (`id?: string`) (filled in by `<FilterBar>`),
+or a matching `id` from the filter config must be provided to the rendered component.
+
+```tsx
+type Values = {
+  source: string
+  dependent: string
+}
+
+/**
+ * Explicit id
+ * No props required as you put the string directly into the Filter component
+ */
+const ExampleDependentFilter = () => {
+  const { getFilterState } = useFilterBarContext<Values["dependent"], Values>()
+  const sourceFilter = getFilterState("source")
+  const items = retrieveItems(sourceFilter.value)
+  return (<FilterBar.Select<Option> id="dependent" items={items} />)
+}
+
+/**
+ * Optional id prop
+ * A simple example if you want to make a more reusable filter
+ */
+const ExampleDependentFilter = (props: {
+  id?: string
+  retrieveItemsCallback: (filterValue) => SelectOption[]
+}) => {
+  type Id = typeof props.id extends keyof Values
+    ? typeof props.id
+    : never
+  const { getFilterState } = useFilterBarContext<Values[Id], Values>()
+  const sourceFilter = getFilterState("source")
+  const items = props.retrieveItemsCallback(sourceFilter.value)
+  return (<FilterBar.Select<Option> id={props.id} items={items} />)
+}
+
+const CustomFilterBar = () => {
+  const filters = [
+    { id: "source", ...rest },
+    { id: "dependent", Component: <ExampleDependentFilter />, ...rest },
+  ] satisfies Filters<Values>
+
+  return <FilterBar<Values> filters={filters} {...rest} />
+}
+```
+
+Values of dependent filters will be cleared if the option no longer exists.
+
+The following example shows `Person` (multi-select with a 3 second loading time) and
+`Room` (single select) re-populating with different options based on the values selected in `Role`.
+
+<NoClipCanvas of={FilterBarStories.SiblingValueDependentFilter} />
+
 ### Update values via external event
 
 The api allows you to update the values of the FilterBar via an external event (eg. updating url params).
