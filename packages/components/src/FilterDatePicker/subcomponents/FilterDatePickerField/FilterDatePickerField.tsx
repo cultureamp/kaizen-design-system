@@ -116,7 +116,7 @@ export const FilterDatePickerField = ({
   const inputDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: value => {
+    onValueChange: value => {
       dispatch({
         type: "update_input_field",
         inputValue: value,

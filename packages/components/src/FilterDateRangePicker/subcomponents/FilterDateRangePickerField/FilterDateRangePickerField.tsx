@@ -146,7 +146,7 @@ export const FilterDateRangePickerField = ({
   const inputStartDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: value => {
+    onValueChange: value => {
       dispatch({
         type: "update_input_start_field",
         inputValue: value,
@@ -184,7 +184,7 @@ export const FilterDateRangePickerField = ({
   const inputEndDateHandlers = useDateInputHandlers({
     locale,
     disabledDays,
-    setInputValue: value => {
+    onValueChange: value => {
       dispatch({
         type: "update_input_end_field",
         inputValue: value as string,

@@ -12,7 +12,7 @@ import { parseDateFromTextFormatValue } from "../utils/parseDateFromTextFormatVa
 export type UseDateInputHandlersArgs = {
   locale: Locale
   disabledDays?: DisabledDays
-  setInputValue: Dispatch<string>
+  onValueChange: Dispatch<string>
   onDateChange: (date: Date | undefined) => void
   onChange?: DateInputProps["onChange"]
   onFocus?: DateInputProps["onFocus"]
@@ -30,7 +30,7 @@ export type UseDateInputHandlersValue = {
 export const useDateInputHandlers = ({
   locale,
   disabledDays,
-  setInputValue,
+  onValueChange,
   onDateChange,
   onChange,
   onFocus,
@@ -41,7 +41,7 @@ export const useDateInputHandlers = ({
     !isInvalidDate(date) && !isDisabledDate(date, disabledDays)
 
   const handleChange: DateInputProps["onChange"] = e => {
-    setInputValue(e.currentTarget.value)
+    onValueChange(e.currentTarget.value)
     onChange?.(e)
   }
 
@@ -49,7 +49,7 @@ export const useDateInputHandlers = ({
     const date = parseDateFromTextFormatValue(e.currentTarget.value, locale)
     if (!isInvalidDate(date)) {
       const newInputValue = formatDateAsNumeral(date, locale)
-      setInputValue(newInputValue)
+      onValueChange(newInputValue)
     }
     onFocus?.(e)
   }
@@ -67,7 +67,7 @@ export const useDateInputHandlers = ({
 
     if (isValidDate(date)) {
       const newInputValue = formatDateAsText(date, disabledDays, locale)
-      setInputValue(newInputValue)
+      onValueChange(newInputValue)
     }
 
     onDateChange(date)
