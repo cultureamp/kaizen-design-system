@@ -12,11 +12,11 @@ If you need guidance on translating your app check, the `@cultureamp/i18n-react-
 ## What Kaizen internationalization covers
 
 While most Kaizen components receive display text and accessibility information through props, some have text built in. For some of these cases, Kaizen provides translation support. 
-Note: `KaizenProvider` will _not_ handle translations for the following:
+Translation support in a Kaizen component will cover:
 
-- Strings outside of Kaizen components
+- Internal display text (that isn't provided by the user through props)
 
-- Strings passed into Kaizen components by you (through props or children)
+- Internal accessibility text, such as an `aria-label` (that isn't provided by the user through props)
 
 Disclaimer: Internationalization is a new feature in Kaizen, and not all Kaizen components are translated yet.
 Please check with us on a case-by-case basis regarding which components are translated. Also keep in mind that translations take time to be fully processed, meaning that components with translation support may have messages for certain locales but not others at any given time. 
