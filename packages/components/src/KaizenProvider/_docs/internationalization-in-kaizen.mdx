@@ -11,12 +11,12 @@ If you need guidance on translating your app check, the `@cultureamp/i18n-react-
 
 ## What Kaizen internationalization covers
 
-While most Kaizen components receive display text and accessibility information through props, some have text built in. For some of these cases, Kaizen provides its own translations. 
-Note: Internationalization in Kaizen _does not_ handle translations for the following:
+While most Kaizen components receive display text and accessibility information through props, some have text built in. For some of these cases, Kaizen provides translation support. 
+Translation support in a Kaizen component will cover:
 
-- Strings outside of Kaizen components
+- Internal display text (that isn't provided by the user through props)
 
-- Strings passed into Kaizen components by you (through props or children)
+- Internal accessibility text, such as an `aria-label` (that isn't provided by the user through props)
 
 Disclaimer: Internationalization is a new feature in Kaizen, and not all Kaizen components are translated yet.
 Please check with us on a case-by-case basis regarding which components are translated. Also keep in mind that translations take time to be fully processed, meaning that components with translation support may have messages for certain locales but not others at any given time. 
@@ -28,15 +28,37 @@ Setting up internationalization for Kaizen components involves:
 
 - Adding unified-home’s `react-intl` [webpack-plugin](https://github.com/cultureamp/unified-home/tree/master/packages/i18n-react-intl#integrating-with-webpack) to your webpack config
 
-- Wrapping your app in one of the IntlProviders from [@cultureamp/i18n-react-intl](https://github.com/cultureamp/unified-home/tree/master/packages/i18n-react-intl#wrap-your-app-in-provider)
+- Wrapping your app in the <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo>
+
+There is a slight difference in the implementation of the `KaizenProvider`, depending on whether or not your app already handles its translations with `react-intl`. 
+
+### When a `react-intl` provider is set up with `@cultureamp/i18n-react-intl`
+
+`KaizenProvider` will use the existing `react-intl` provider to track the locale and access its own translation files. There is no need to pass in a locale prop.
+For more information on `@cultureamp/i18n-react-intl`, see their docs here.
 
 Note: This will work with StaticIntlProvider or DynamicIntlProvider.
 ```ts
 import { DynamicIntlProvider } from "@cultureamp/i18n-react-intl"
+import { KaizenProvider } from "@kaizen/components"
 
 <DynamicIntlProvider>
-   <YourApp/>
+  <KaizenProvider>
+     <YourApp/>
+  </KaizenProvider>
 </DynamicIntlProvider>
 ```
 
-With this setup, any Kaizen components with translation support will be translated for you.
+### When your app isn’t set up with a provider from `@cultureamp/i18n-react-intl`
+
+In these cases, you’ll need to pass the current locale as a prop to the `KaizenProvider`, so it knows which language is currently active.
+
+```ts
+import { KaizenProvider } from "@kaizen/components"
+
+<KaizenProvider locale={locale}>
+  <YourApp/>
+</KaizenProvider>
+```
+
+
