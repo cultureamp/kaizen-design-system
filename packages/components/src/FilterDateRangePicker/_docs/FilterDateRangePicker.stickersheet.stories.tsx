@@ -32,6 +32,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
     from: new Date("2022-05-15"),
     to: new Date("2022-06-22"),
   })
+  const [isOpenTranslated, setIsOpenTranslated] = useState<boolean>(true)
 
   const [rangeFieldDefault, setRangeFieldDefault] = useState<
     DateRange | undefined
@@ -130,6 +131,28 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
                 "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
               }}
             />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet heading="Translated">
+        <StickerSheet.Body>
+          <StickerSheet.Row rowTitle="Japanese">
+            <StaticIntlProvider locale="ja">
+              <FilterDateRangePickerField
+                id={`${textDirection}-stickersheet--filter-drp-field--translated`}
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangeFieldValidation}
+                onRangeChange={setRangeFieldValidation}
+                onValidate={{
+                  dateStart: action("Validation story: date start onValidate"),
+                }}
+                inputEndDateProps={{
+                  "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
+                }}
+              />
+            </StaticIntlProvider>
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>

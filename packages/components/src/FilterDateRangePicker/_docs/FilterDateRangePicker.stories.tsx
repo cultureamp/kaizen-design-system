@@ -141,42 +141,6 @@ Playground.args = {
   renderTrigger: "Filter Button",
 }
 
-export const Translated: StoryFn<typeof FilterDateRangePicker> = args => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [range, setRange] = useState<DateRange | undefined>()
-
-  useEffect(() => {
-    setRange(args.selectedRange)
-  }, [args.selectedRange])
-
-  return (
-    <StaticIntlProvider locale="fr">
-      <FilterDateRangePicker
-        {...args}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        selectedRange={range}
-        onRangeChange={setRange}
-      />
-    </StaticIntlProvider>
-  )
-}
-Translated.parameters = {
-  docs: {
-    canvas: {
-      sourceState: "shown",
-    },
-    source: {
-      code: sampleCode,
-    },
-  },
-}
-Translated.args = {
-  id: "filter-drp--translated",
-  /* @ts-expect-error: Storybook controls key; see argTypes in default export */
-  renderTrigger: "Filter Button",
-}
-
 /**
  * Render function for the trigger button.
  *
