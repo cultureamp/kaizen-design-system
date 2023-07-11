@@ -51,8 +51,8 @@ export interface SelectProps
    * Exposes the trigger properties and the ref to be used on the replacing trigger */
   trigger?: (
     triggerProps: TriggerButtonProps,
-    ref: React.RefObject<HTMLButtonElement>
-  ) => React.ReactNode
+    buttonRef?: React.RefObject<HTMLButtonElement>
+  ) => JSX.Element & { ref?: React.RefObject<HTMLButtonElement> }
   /**
    * Replaces the contents of the Listbox and describes how the options are displayed
    * Exposes the option properties which contains the items */
@@ -84,7 +84,7 @@ export const Select = ({
   defaultOpen,
   validationMessage,
   classNameOverride,
-  trigger = (triggerProps, buttonRef): JSX.Element => (
+  trigger = (triggerProps): JSX.Element => (
     <TriggerButton {...triggerProps} ref={buttonRef} />
   ),
   children,
@@ -171,20 +171,22 @@ export const Select = ({
         />
 
         <div className={classnames(selectStyles.container)}>
-          {trigger(
-            {
-              placeholder,
-              triggerProps,
-              valueProps,
-              status,
-              isReversed,
-              "aria-controls": state.isOpen ? listBoxID : undefined,
-            },
-            buttonRef
+          {React.cloneElement(
+            trigger(
+              {
+                placeholder,
+                triggerProps,
+                valueProps,
+                status,
+                isReversed,
+                "aria-controls": state.isOpen ? listBoxID : undefined,
+              },
+              buttonRef
+            ),
+            { ref: buttonRef }
           )}
-
           {state.isOpen && (
-            <Overlay>
+            <Overlay triggerRef={buttonRef}>
               <ListBox menuProps={menuProps} id={listBoxID}>
                 {renderChildren({ items })}
               </ListBox>
