@@ -12,18 +12,14 @@ type Values = {
 const MockFilterComponent = ({ id }: { id: string }): JSX.Element => {
   const { getActiveFilterValues } = useFilterBarContext()
 
-  return (
-    <div key={id}>{JSON.stringify(getActiveFilterValues())}</div>
-  )
+  return <div key={id}>{JSON.stringify(getActiveFilterValues())}</div>
 }
 
 const config = [
   {
     id: "department",
     name: "Department",
-    Component: (
-      <MockFilterComponent id="department" />
-    ),
+    Component: <MockFilterComponent id="department" />,
   },
   {
     id: "manager",
@@ -33,13 +29,15 @@ const config = [
   {
     id: "jobTitle",
     name: "Job Title",
-    Component: (
-      <MockFilterComponent id="jobTitle" />
-    ),
+    Component: <MockFilterComponent id="jobTitle" />,
   },
 ] satisfies Filters<Values>
 
-export const FilterBarWrapper = ({ defaultValues }: { defaultValues: Partial<Values> }): JSX.Element => {
+export const FilterBarWrapper = ({
+  defaultValues,
+}: {
+  defaultValues: Partial<Values>
+}): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues)
 
   return (
@@ -49,21 +47,21 @@ export const FilterBarWrapper = ({ defaultValues }: { defaultValues: Partial<Val
       onValuesChange={setValues}
     >
       {filters => (
-          <>
-            {Object.values(filters).map(({ id, Component }) => (
-              <React.Fragment key={id}>{Component}</React.Fragment>
-            ))}
-          </>
-        )}
+        <>
+          {Object.values(filters).map(({ id, Component }) => (
+            <React.Fragment key={id}>{Component}</React.Fragment>
+          ))}
+        </>
+      )}
     </FilterBarProvider>
   )
 }
 
- /*
-  * Note: Traditionally we would like to be testing context specific functionality as part of a greater user flow.
-  *       However, some methods on useFilterBarContext are not yet supported to easily test this. If that's the case,
-  *       we can test them quite explicitly to ensure we have some coverage and confidence.
-  */
+/*
+ * Note: Traditionally we would like to be testing context specific functionality as part of a greater user flow.
+ *       However, some methods on useFilterBarContext are not yet supported to easily test this. If that's the case,
+ *       we can test them quite explicitly to ensure we have some coverage and confidence.
+ */
 describe("FilterBarContext", () => {
   describe("useFilterBarContext", () => {
     it("getActiveFilterValues returns expected values", async () => {
@@ -75,7 +73,9 @@ describe("FilterBarContext", () => {
       render(<FilterBarWrapper defaultValues={values} />)
 
       await waitFor(() => {
-        expect(screen.getAllByText(JSON.stringify(values)).length).toEqual(config.length)
+        expect(screen.getAllByText(JSON.stringify(values)).length).toEqual(
+          config.length
+        )
       })
     })
   })
