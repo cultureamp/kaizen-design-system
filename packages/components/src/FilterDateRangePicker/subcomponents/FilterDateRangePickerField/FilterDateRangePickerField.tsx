@@ -25,6 +25,7 @@ import { filterDatePickerFieldReducer } from "./filterDateRangePickerFieldReduce
 import { useEndDateValidation } from "./hooks/useEndDateValidation"
 import { useStartDateValidation } from "./hooks/useStartDateValidation"
 import { DateRangeFieldValidationMessage } from "./types"
+import { isValidRange } from "./utils/isValidRange"
 import styles from "./FilterDateRangePickerField.module.scss"
 
 type InputStartDateProps = DateRangeInputFieldProps["inputStartDateProps"]
@@ -161,11 +162,6 @@ export const FilterDateRangePickerField = ({
         date: newDate,
       })
 
-      dispatch({
-        type: "update_selected_end_date",
-        date: endDate,
-      })
-
       if (newDate && !isInvalidDate(endDate)) {
         const newEndDate = dateEndValidation.validateEndDateBeforeStartDate({
           startDate: newDate,
@@ -173,6 +169,12 @@ export const FilterDateRangePickerField = ({
           endDate,
           endDateInputValue: state.inputEndValue,
         })
+
+        dispatch({
+          type: "update_selected_end_date",
+          date: newEndDate,
+        })
+
         handleDateRangeChange({ from: newDate, to: newEndDate })
       } else {
         handleDateRangeChange({ from: newDate, to: state.selectedEndDate })
@@ -195,7 +197,9 @@ export const FilterDateRangePickerField = ({
 
       dispatch({
         type: "update_selected_end_date",
-        date: newDate,
+        date: isValidRange(state.selectedStartDate, newDate)
+          ? newDate
+          : undefined,
       })
 
       handleDateRangeChange({ from: state.selectedStartDate, to: newDate })
@@ -231,6 +235,14 @@ export const FilterDateRangePickerField = ({
       state.inputStartValue
     )
     const newEndDate = validateEndDate(selectedRange?.to, state.inputEndValue)
+
+    if (!isValidRange(selectedRange?.from, selectedRange?.to)) {
+      dispatch({
+        type: "update_selected_end_date",
+        date: undefined,
+      })
+    }
+
     handleDateRangeChange({ from: newStartDate, to: newEndDate })
   }, [])
 
@@ -270,7 +282,10 @@ export const FilterDateRangePickerField = ({
       <CalendarRange
         disabled={disabledDays}
         locale={locale}
-        selected={selectedRange}
+        selected={{
+          from: state.selectedStartDate,
+          to: state.selectedEndDate,
+        }}
         onSelect={handleCalendarSelectRange}
         month={state.startMonth}
         onMonthChange={(value: Date) =>
