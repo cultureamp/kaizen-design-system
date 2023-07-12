@@ -20,7 +20,7 @@ describe("useEndDateValidation()", () => {
           startDate: undefined,
           startDateFieldLabel: "Start date",
         })
-        expect(newDate).toEqual("Invalid Date")
+        expect(newDate).toEqual(undefined)
       })
 
       expect(result.current.validationMessage).toStrictEqual({
@@ -51,7 +51,7 @@ describe("useEndDateValidation()", () => {
           startDate: new Date("2023-05-01"),
           startDateFieldLabel: "Start date",
         })
-        expect(newDate).toBeUndefined()
+        expect(newDate).toEqual(new Date("2023-04-03"))
       })
 
       expect(result.current.validationMessage).toStrictEqual({
