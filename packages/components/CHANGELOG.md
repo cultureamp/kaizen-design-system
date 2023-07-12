@@ -1,5 +1,25 @@
 # Change Log
 
+## 1.19.0
+
+### Minor Changes
+
+- [#3858](https://github.com/cultureamp/kaizen-design-system/pull/3858) [`1303b7dc6`](https://github.com/cultureamp/kaizen-design-system/commit/1303b7dc6e3b761d19f955d58380f55ff30fffbf) - Add OptionalIntlProvider to KaizenProvider
+  This change makes KaizenProvider set up an IntlProvider from the `@cultureamp/i18n-react-intl` package
+  when one isn't present already in the consuming repo.
+  This means that consumers implementing KaizenProvider will not need to set up their own IntlProvider to have
+  translations in their app.
+
+- [#3811](https://github.com/cultureamp/kaizen-design-system/pull/3811) [`99a1f1cef`](https://github.com/cultureamp/kaizen-design-system/commit/99a1f1cef00ddb046c7cfb26adfe986a4a7869bc) - Add internal translation support for FilterDateRangePicker.
+
+  This change allows internal strings in FilterDateRangePicker to be translated when
+  consuming app has set up an IntlProvider through `@cultureamp/i18n-react-intl`.
+  For info regarding the set up process for Intl in Kaizen, see [here](https://cultureamp.design/storybook/?path=/docs/components-kaizen-provider-internationalization-in-kaizen--docs).
+
+### Patch Changes
+
+- [#3859](https://github.com/cultureamp/kaizen-design-system/pull/3859) [`f52f9d41b`](https://github.com/cultureamp/kaizen-design-system/commit/f52f9d41b2a607f1ce5885287635a71a59a8063f) - test
+
 ## 1.18.1
 
 ### Patch Changes
