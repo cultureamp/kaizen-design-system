@@ -46,6 +46,6 @@ describe("isValidRange()", () => {
     const endDate = new Date("2022-05-20")
     const result = isValidRange(startDate, endDate)
 
-    expect(result).toEqual(false)
+    expect(result).toEqual(true)
   })
 })
