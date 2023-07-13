@@ -28,7 +28,6 @@
     "@internationalized/date": "^3.2.0",
     "@kaizen/a11y": "^1.7.12",
     "@kaizen/component-base": "^1.1.7",
-    "@kaizen/component-library": "^16.9.0",
     "@kaizen/draft-form": "^10.4.6",
     "@kaizen/draft-tooltip": "^5.4.46",
     "@kaizen/typography": "^2.3.11",

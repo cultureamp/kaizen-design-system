@@ -3,14 +3,13 @@ import cx from "classnames"
 import { enUS } from "date-fns/locale"
 import { DateRange, isMatch } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
-import { Icon } from "@kaizen/component-library"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
 import { Label } from "@kaizen/draft-form"
 import {
   LegacyCalendarRange,
   LegacyCalendarRangeProps,
 } from "../_subcomponents/Calendar"
 import { FloatingCalendarWrapper } from "../_subcomponents/FloatingCalendarWrapper"
+import { IconDateStart } from "../_subcomponents/Icons"
 import { DisabledDayMatchers } from "../types"
 import { calculateDisabledDays } from "../utils/calculateDisabledDays"
 import { isDisabledDate } from "../utils/isDisabledDate"
@@ -162,7 +161,7 @@ export const DateRangePicker = ({
           {...inputProps}
         >
           <div className={dateRangePickerStyles.startIconAdornment}>
-            <Icon icon={dateStart} role="presentation" />
+            <IconDateStart />
           </div>
           <span className={dateRangePickerStyles.value}>
             {selectedDateRange?.from ? value : undefined}
