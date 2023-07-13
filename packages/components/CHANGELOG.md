@@ -1,5 +1,72 @@
 # Change Log
 
+## 1.19.0
+
+### Minor Changes
+
+- [#3858](https://github.com/cultureamp/kaizen-design-system/pull/3858) [`1303b7dc6`](https://github.com/cultureamp/kaizen-design-system/commit/1303b7dc6e3b761d19f955d58380f55ff30fffbf) - Add OptionalIntlProvider to KaizenProvider
+  This change makes KaizenProvider set up an IntlProvider from the `@cultureamp/i18n-react-intl` package
+  when one isn't present already in the consuming repo.
+  This means that consumers implementing KaizenProvider will not need to set up their own IntlProvider to have
+  translations in their app.
+
+- [#3811](https://github.com/cultureamp/kaizen-design-system/pull/3811) [`99a1f1cef`](https://github.com/cultureamp/kaizen-design-system/commit/99a1f1cef00ddb046c7cfb26adfe986a4a7869bc) - Add internal translation support for FilterDateRangePicker.
+
+  This change allows internal strings in FilterDateRangePicker to be translated when
+  consuming app has set up an IntlProvider through `@cultureamp/i18n-react-intl`.
+  For info regarding the set up process for Intl in Kaizen, see [here](https://cultureamp.design/storybook/?path=/docs/components-kaizen-provider-internationalization-in-kaizen--docs).
+
+### Patch Changes
+
+- [#3859](https://github.com/cultureamp/kaizen-design-system/pull/3859) [`f52f9d41b`](https://github.com/cultureamp/kaizen-design-system/commit/f52f9d41b2a607f1ce5885287635a71a59a8063f) - test
+
+## 1.18.1
+
+### Patch Changes
+
+- [#3850](https://github.com/cultureamp/kaizen-design-system/pull/3850) [`713427924`](https://github.com/cultureamp/kaizen-design-system/commit/713427924bec6b2c7f81b90037360b62ae8ad8ce) - Remove OptionalIntlProvider from KaizenProvider.
+  This change means that consumers will need to provide their own IntlProvider from `@cultureamp/i18n-react-intl`.
+  For more info, see our [Internationalization in Kaizen docs](https://cultureamp.design/storybook/?path=/docs/components-kaizen-provider-internationalization-in-kaizen--docs)
+
+- [#3722](https://github.com/cultureamp/kaizen-design-system/pull/3722) [`adb9c58e0`](https://github.com/cultureamp/kaizen-design-system/commit/adb9c58e0791ea08ebece42fb5e5ae47d2bc73c5) - **FilterDatePicker**
+
+  - Fixed issue where selecting the dates from the date pickers would return a validation object containing the previously picked date rather than the current one in the `inputValue` key.
+  - Fixed ref types. Only for internal usage.
+
+- [#3847](https://github.com/cultureamp/kaizen-design-system/pull/3847) [`8d1b4ace1`](https://github.com/cultureamp/kaizen-design-system/commit/8d1b4ace17533c29d6fc7f849b3948e39879e73b) - - Update FilterBarMultiSelect to clear values when items change
+  - Fix FilterBarContext type definitions to infer Id
+  - Update FilterBarSelect to clear values when items change
+
+## 1.18.0
+
+### Minor Changes
+
+- [#3812](https://github.com/cultureamp/kaizen-design-system/pull/3812) [`b5dad5623`](https://github.com/cultureamp/kaizen-design-system/commit/b5dad5623e5fc683fe88757478a9b1079498b494) - Add functionality for dependent filters to `<FilterBar>`.
+
+  Consumers can now set a `isUsableWhen` attribute to their `filters`.
+  Filters with this attribute will be checked against the current state
+  and shown/hidden from the FilterBar options (both active/inactive) accordingly.
+
+- [#3808](https://github.com/cultureamp/kaizen-design-system/pull/3808) [`7fdabc423`](https://github.com/cultureamp/kaizen-design-system/commit/7fdabc423641ce0c263bec056d09e18435d2beba) - What the change is:
+  Adds the OptionalIntlProvider to KaizenProvider
+
+  What feature it enables:
+  This change provides support for internal translations in Kaizen components.
+  With this change, when an app is wrapped in KaizenProvider it will allow Kaizen components
+  with translations built in to translate their messages successfully.
+
+### Patch Changes
+
+- [#3809](https://github.com/cultureamp/kaizen-design-system/pull/3809) [`9e30ae7be`](https://github.com/cultureamp/kaizen-design-system/commit/9e30ae7be2428dc53c84edcc5bf0f763c84f80a7) - **Button**
+  Remove `component-library` style imports by absorbing the styles.
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `@cultureamp/i18n-react-intl` dependency
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `react-focus-on` depdendency
+
+- Updated dependencies [[`042e5971d`](https://github.com/cultureamp/kaizen-design-system/commit/042e5971d8ca883656b14e4f4438bb716b7c88c7), [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c)]:
+  - @kaizen/date-picker@6.2.0
+
 ## 1.17.1
 
 ### Patch Changes

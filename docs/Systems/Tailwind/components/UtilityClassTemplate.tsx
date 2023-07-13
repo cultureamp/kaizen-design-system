@@ -19,9 +19,9 @@ export const UtilityClassTemplate = ({
   const [copiedText, setCopiedText] = useState<null | string>(null)
 
   return (
-    <div className="w-100">
+    <div className="w-full">
       <StickerSheet
-        className="border-none w-100"
+        className="border-none w-full"
         isReversed={isReversed}
         border={1}
         rules="rows"
