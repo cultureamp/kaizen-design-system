@@ -474,6 +474,35 @@ describe("<FilterDateRangePickerField />", () => {
             ).toEqual(3)
           })
         })
+        it("displays only one date when the start date input is set to be before the end date", async () => {
+          const { container } = render(
+            <FilterDateRangePickerFieldWrapper
+              selectedRange={{
+                from: new Date("2022-05-15"),
+                to: new Date("2022-05-22"),
+              }}
+            />
+          )
+
+          const inputStartDate = screen.getByLabelText("Date from")
+
+          await user.clear(inputStartDate)
+          await user.type(inputStartDate, "22/06/2022")
+
+          await user.click(document.body)
+
+          const dateEndErrorContainer = container.querySelector(dateEndErrorId)
+
+          await waitFor(() => {
+            expect(dateEndErrorContainer).toHaveTextContent(
+              invalidDateOrderErrorMessage
+            )
+            // End date in Calendar is deselected
+            expect(
+              screen.getAllByRole("button", { pressed: true }).length
+            ).toEqual(1)
+          })
+        })
 
         it("shows error on updating start date input to be after end date", async () => {
           const { container } = render(
