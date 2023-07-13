@@ -40,4 +40,12 @@ describe("isValidRange()", () => {
 
     expect(result).toEqual(false)
   })
+
+  it("returns true when both the end and start dates are equal", () => {
+    const startDate = new Date("2022-05-20")
+    const endDate = new Date("2022-05-20")
+    const result = isValidRange(startDate, endDate)
+
+    expect(result).toEqual(false)
+  })
 })
