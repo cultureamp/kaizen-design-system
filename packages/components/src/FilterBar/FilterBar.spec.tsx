@@ -759,8 +759,8 @@ describe("<FilterBar />", () => {
     type Items = Array<{ value: string; label: string }>
 
     type AsyncValues = {
-      department: string[]
-      manager: string[]
+      city: string[]
+      hero: string[]
     }
 
     const MockFilterAsyncComponent = ({
@@ -802,83 +802,101 @@ describe("<FilterBar />", () => {
       )
     }
 
-    const fetchDepartmentOptions = jest.fn(() =>
-      Promise.resolve([
-        { value: "1", label: "Engineering" },
-        { value: "2", label: "Design" },
-      ])
-    )
+    const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const isSupermanInFilterValue = Object.values(filterValues).some(
+        vals => vals.indexOf("3") > -1
+      )
+      const isBatmanInFilterValue = Object.values(filterValues).some(
+        vals => vals.indexOf("4") > -1
+      )
 
-    const fetchManagerOptions = jest.fn(() =>
-      Promise.resolve([
+      if (isBatmanInFilterValue && !isSupermanInFilterValue) {
+        return Promise.resolve([{ value: "1", label: "Gotham" }])
+      }
+
+      return Promise.resolve([
+        { value: "1", label: "Gotham" },
+        { value: "2", label: "Metropolis" },
+      ])
+    })
+
+    const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const isGothamInFilterValue = Object.values(filterValues).some(
+        vals => vals.indexOf("1") > -1
+      )
+      const isMetroInFilterValue = Object.values(filterValues).some(
+        vals => vals.indexOf("2") > -1
+      )
+
+      if (isGothamInFilterValue && !isMetroInFilterValue) {
+        return Promise.resolve([{ value: "4", label: "Batman" }])
+      }
+
+      return Promise.resolve([
         { value: "3", label: "Superman" },
         { value: "4", label: "Batman" },
       ])
-    )
+    })
 
     const config = [
       {
-        id: "department",
-        name: "Department",
+        id: "city",
+        name: "City",
         Component: (
-          <MockFilterAsyncComponent
-            id="department"
-            fetcher={fetchDepartmentOptions}
-          />
+          <MockFilterAsyncComponent id="city" fetcher={fetchCityOptions} />
         ),
       },
       {
-        id: "manager",
-        name: "Manager",
+        id: "hero",
+        name: "Hero",
         Component: (
-          <MockFilterAsyncComponent
-            id="manager"
-            fetcher={fetchManagerOptions}
-          />
+          <MockFilterAsyncComponent id="Hero" fetcher={fetchHeroOptions} />
         ),
       },
     ] satisfies Filters<AsyncValues>
 
-    it("An async component can re-fetch with all active filter values pulled off of the FilterBarContext", async () => {
-      const { getByText, queryByText } = render(
+    it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
+      const { getByRole, queryByRole } = render(
         <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
       )
 
-      // open department filter
-      user.click(getByText("Department"))
+      // open city filter
+      await user.click(getByRole("button", { name: "City" }))
 
-      // select engineering
+      // assert both cities are shown
       await waitFor(() => {
-        expect(queryByText("Engineering")).toBeInTheDocument()
-        expect(queryByText("Design")).toBeInTheDocument()
+        expect(queryByRole("option", { name: "Gotham" })).toBeVisible()
+        expect(queryByRole("option", { name: "Metropolis" })).toBeVisible()
       })
 
-      user.click(getByText("Engineering"))
+      // select filter option
+      await user.click(getByRole("option", { name: "Gotham" }))
 
-      // assert last fetch manager call has selected department value in it.
+      // close city filter
+      await user.click(document.body)
+
+      // open hero filter
+      await user.click(getByRole("button", { name: "Hero" }))
+
+      // assert only Batman is shown
       await waitFor(() => {
-        expect(fetchManagerOptions.mock.lastCall).toEqual([
-          { department: ["1"] },
-        ])
+        expect(queryByRole("option", { name: "Batman" })).toBeVisible()
+        expect(queryByRole("option", { name: "Superman" })).toBeNull()
       })
 
-      // open manager by clicking on the button once to close the existing pop-up, then by clicking again to open new pop-up.
-      user.click(getByText("Manager"))
-      user.click(getByText("Manager"))
+      // select filter option
+      await user.click(getByRole("option", { name: "Batman" }))
 
-      // select Batman & Superman
-      await waitFor(() => {
-        expect(queryByText("Batman")).toBeInTheDocument()
-        expect(queryByText("Superman")).toBeInTheDocument()
-      })
-      user.click(getByText("Batman"))
-      user.click(getByText("Superman"))
+      // close hero filter
+      await user.click(document.body)
 
-      // assert last fetch department call has selected manager values in it.
+      // open city filter
+      await user.click(getByRole("button", { name: "City : Gotham" }))
+
+      // assert only Gotham is shown
       await waitFor(() => {
-        expect(fetchDepartmentOptions.mock.lastCall).toEqual([
-          { department: ["1"], manager: ["4", "3"] },
-        ])
+        expect(queryByRole("option", { name: "Gotham" })).toBeVisible()
+        expect(queryByRole("option", { name: "Metropolis" })).toBeNull()
       })
     })
   })
