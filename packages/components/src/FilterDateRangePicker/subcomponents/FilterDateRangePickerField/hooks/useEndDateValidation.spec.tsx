@@ -35,7 +35,7 @@ describe("useEndDateValidation()", () => {
     })
   })
 
-  describe("validateEndDateBeforeStartDate", () => {
+  describe("validateEndDateBeforeStartDate()", () => {
     it("returns a validation message and date", () => {
       const { result } = renderHook(() =>
         useEndDateValidation({
