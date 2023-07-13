@@ -763,7 +763,13 @@ describe("<FilterBar />", () => {
       manager: string[]
     }
 
-    const MockFilterAsyncComponent = ({ id, fetcher }: { id: string, fetcher: (args: Partial<AsyncValues>) => Promise<Items> }): JSX.Element => {
+    const MockFilterAsyncComponent = ({
+      id,
+      fetcher,
+    }: {
+      id: string
+      fetcher: (args: Partial<AsyncValues>) => Promise<Items>
+    }): JSX.Element => {
       const [items, setItems] = useState<Items>([])
       const { getActiveFilterValues } = useFilterBarContext()
       const activeFilterVals = getActiveFilterValues()
@@ -777,13 +783,10 @@ describe("<FilterBar />", () => {
       }, [JSON.stringify(activeFilterVals)])
 
       return (
-        <FilterBar.MultiSelect
-          id={id}
-          items={items}
-        >
+        <FilterBar.MultiSelect id={id} items={items}>
           {() => (
             <FilterMultiSelect.ListBox>
-              {({ allItems }) =>
+              {({ allItems }) => (
                 <FilterMultiSelect.ListBoxSection
                   items={allItems}
                   sectionName="All Items"
@@ -792,34 +795,48 @@ describe("<FilterBar />", () => {
                     <FilterMultiSelect.Option key={item.key} item={item} />
                   )}
                 </FilterMultiSelect.ListBoxSection>
-              }
+              )}
             </FilterMultiSelect.ListBox>
-            )}
+          )}
         </FilterBar.MultiSelect>
       )
     }
 
-    const fetchDepartmentOptions = jest.fn(() => Promise.resolve([
-      { value: "1", label: "Engineering" },
-      { value: "2", label: "Design" }
-    ]))
+    const fetchDepartmentOptions = jest.fn(() =>
+      Promise.resolve([
+        { value: "1", label: "Engineering" },
+        { value: "2", label: "Design" },
+      ])
+    )
 
-    const fetchManagerOptions = jest.fn(() => Promise.resolve([
-      { value: "3", label: "Superman" },
-      { value: "4", label: "Batman" }
-    ]))
+    const fetchManagerOptions = jest.fn(() =>
+      Promise.resolve([
+        { value: "3", label: "Superman" },
+        { value: "4", label: "Batman" },
+      ])
+    )
 
     const config = [
       {
         id: "department",
         name: "Department",
-        Component: <MockFilterAsyncComponent id="department" fetcher={fetchDepartmentOptions} />,
+        Component: (
+          <MockFilterAsyncComponent
+            id="department"
+            fetcher={fetchDepartmentOptions}
+          />
+        ),
       },
       {
         id: "manager",
         name: "Manager",
-        Component: <MockFilterAsyncComponent id="manager" fetcher={fetchManagerOptions} />,
-      }
+        Component: (
+          <MockFilterAsyncComponent
+            id="manager"
+            fetcher={fetchManagerOptions}
+          />
+        ),
+      },
     ] satisfies Filters<AsyncValues>
 
     it("An async component can re-fetch with all active filter values pulled off of the FilterBarContext", async () => {
@@ -840,7 +857,9 @@ describe("<FilterBar />", () => {
 
       // assert last fetch manager call has selected department value in it.
       await waitFor(() => {
-        expect(fetchManagerOptions.mock.lastCall).toEqual([{department: ["1"]}])
+        expect(fetchManagerOptions.mock.lastCall).toEqual([
+          { department: ["1"] },
+        ])
       })
 
       // open manager by clicking on the button once to close the existing pop-up, then by clicking again to open new pop-up.
@@ -857,7 +876,9 @@ describe("<FilterBar />", () => {
 
       // assert last fetch department call has selected manager values in it.
       await waitFor(() => {
-        expect(fetchDepartmentOptions.mock.lastCall).toEqual([{ department: ["1"], manager: ["4", "3"] }])
+        expect(fetchDepartmentOptions.mock.lastCall).toEqual([
+          { department: ["1"], manager: ["4", "3"] },
+        ])
       })
     })
   })
