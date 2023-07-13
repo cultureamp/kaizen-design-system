@@ -17,8 +17,10 @@ export const ListBoxSection = ({
   sectionName,
   children,
 }: ListBoxSectionProps): JSX.Element => (
-  <div aria-label={sectionName} className={styles.listBoxSection}>
-    {Array.from(items).map(node => node != undefined && children(node))}
-  </div>
+  <li aria-label={sectionName}>
+    <ul className={styles.listBoxSection}>
+      {Array.from(items).map(node => node != undefined && children(node))}
+    </ul>
+  </li>
 )
 ListBoxSection.displayName = "ListBoxSection"
