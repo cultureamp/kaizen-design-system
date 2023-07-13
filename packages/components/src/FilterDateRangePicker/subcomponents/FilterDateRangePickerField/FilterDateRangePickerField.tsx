@@ -151,10 +151,10 @@ export const FilterDateRangePickerField = ({
     selectedStartDate: selectedRange?.from,
     selectedEndDate: selectedRange?.to,
     inputStartValue: transformDateToInputValue(selectedRange?.from),
-    inputEndValue: transformDateToInputValue(selectedRange?.to) || "",
+    inputEndValue: transformDateToInputValue(selectedRange?.to),
     startMonth:
-      selectedRange?.from && !isInvalidDate(selectedRange?.from)
-        ? selectedRange?.from
+      selectedRange?.from && !isInvalidDate(selectedRange.from)
+        ? selectedRange.from
         : defaultMonth || new Date(),
   })
 
