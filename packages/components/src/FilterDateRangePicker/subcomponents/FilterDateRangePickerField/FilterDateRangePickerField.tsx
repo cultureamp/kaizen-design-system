@@ -186,7 +186,7 @@ export const FilterDateRangePickerField = ({
 
         dispatch({
           type: "update_selected_end_date",
-          date: newEndDate,
+          date: isValidRange(newDate, newEndDate) ? newEndDate : undefined,
         })
 
         handleDateRangeChange({ from: newDate, to: newEndDate })
