@@ -57,7 +57,7 @@ export const Input = ({
   startIconAdornment,
   endIconAdornment,
   reversed = false,
-  type = "text",
+  type,
   inputType = "text",
   ariaLabel,
   ariaDescribedBy,
@@ -88,7 +88,7 @@ export const Input = ({
     <input
       ref={inputRef}
       data-automation-id={automationId}
-      type={inputType || type}
+      type={type || inputType}
       value={inputValue || value}
       defaultValue={defaultInputValue || defaultValue}
       aria-describedby={ariaDescribedBy} // will be replaced by `aria-describedby` in restProps

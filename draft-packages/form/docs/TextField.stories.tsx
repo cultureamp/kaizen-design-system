@@ -24,7 +24,7 @@ export const DefaultStory: StoryFn<typeof TextField> = args => (
 DefaultStory.args = {
   id: "kaizen-demo-text-field",
   labelText: "Label Text",
-  inputType: "text",
+  type: "text",
   defaultInputValue: "test",
   placeholder: "",
   description: "Example / description text",
@@ -62,25 +62,25 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   const DEFAULT__ROW_PROPS: TextFieldProps[] = [
     {
       id: "text-field--default",
-      inputType: "email",
+      type: "email",
       labelText: "Default",
     },
     {
       id: "text-field--description",
-      inputType: "email",
+      type: "email",
       labelText: "Description",
       description: "Description text",
     },
     {
       id: "text-field--placeholder",
-      inputType: "email",
+      type: "email",
       labelText: "Placeholder",
       description: "Description text",
       placeholder: "jane.doe@email.com",
     },
     {
       id: "text-field--positive",
-      inputType: "email",
+      type: "email",
       labelText: "Positive",
       status: "success",
       defaultInputValue: "Input Text",
@@ -88,7 +88,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     },
     {
       id: "text-field--negative",
-      inputType: "email",
+      type: "email",
       labelText: "Negative",
       status: "error",
       defaultInputValue: "Input Text",
@@ -97,7 +97,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     },
     {
       id: "text-field--cautionary",
-      inputType: "email",
+      type: "email",
       labelText: "Cautionary",
       status: "caution",
       defaultInputValue: "Input Text",
@@ -109,14 +109,14 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   const ICON__ROW_PROPS: TextFieldProps[] = [
     {
       id: "text-field--icon--default",
-      inputType: "email",
+      type: "email",
       labelText: "Default",
       defaultInputValue: "Input Text",
       description: "Description text",
     },
     {
       id: "text-field--icon--positive",
-      inputType: "email",
+      type: "email",
       labelText: "Positive",
       status: "success",
       defaultInputValue: "Input Text",
@@ -124,7 +124,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     },
     {
       id: "text-field--icon--negative",
-      inputType: "email",
+      type: "email",
       labelText: "Negative",
       status: "error",
       defaultInputValue: "Input Text",
@@ -133,7 +133,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     },
     {
       id: "text-field--icon--cautionary",
-      inputType: "email",
+      type: "email",
       labelText: "Cautionary",
       status: "caution",
       defaultInputValue: "Input Text",
