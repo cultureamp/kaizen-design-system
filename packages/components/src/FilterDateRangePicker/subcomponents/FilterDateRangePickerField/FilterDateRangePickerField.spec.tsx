@@ -646,4 +646,53 @@ describe("<FilterDateRangePickerField />", () => {
       })
     })
   })
+
+  it("only returns a valid date to the onRangeChange function", async () => {
+    const onRangeChange = jest.fn()
+
+    const { getByLabelText } = render(
+      <FilterDateRangePickerFieldWrapper
+        selectedRange={{
+          from: new Date("2022-05-10"),
+          to: new Date("2022-06-10"),
+        }}
+        onRangeChange={onRangeChange}
+      />
+    )
+
+    const inputStartDate = getByLabelText("Date from")
+
+    await user.clear(inputStartDate)
+    await user.type(inputStartDate, "10/07/2022")
+
+    await user.click(document.body)
+
+    const inputEndDate = getByLabelText("Date to")
+
+    await user.clear(inputEndDate)
+    await user.type(inputEndDate, "10/08/2022")
+
+    await user.click(document.body)
+
+    expect(onRangeChange.mock.calls).toEqual([
+      [
+        {
+          from: new Date("2022-05-10"),
+          to: new Date("2022-06-10"),
+        },
+      ],
+      [
+        {
+          from: new Date("2022-07-10"),
+          to: undefined,
+        },
+      ],
+      [
+        {
+          from: new Date("2022-07-10"),
+          to: new Date("2022-08-10"),
+        },
+      ],
+    ])
+  })
 })

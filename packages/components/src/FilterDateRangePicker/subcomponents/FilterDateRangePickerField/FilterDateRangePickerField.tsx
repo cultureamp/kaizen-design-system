@@ -169,29 +169,37 @@ export const FilterDateRangePickerField = ({
     },
     onDateChange: date => {
       const newDate = validateStartDate(date, state.inputStartValue)
+
+      // We need to parse the date from the input field due to the
+      // state.selectedEndDate being set to undefined whenever range is invalid
       const endDate = parseDateFromTextFormatValue(state.inputEndValue, locale)
+      const isRangeValid = isValidRange(newDate, endDate)
 
       dispatch({
         type: "update_selected_start_date",
         date: newDate,
       })
 
-      if (newDate && !isInvalidDate(endDate)) {
-        const newEndDate = dateEndValidation.validateEndDateBeforeStartDate({
+      // If the range ends up being invalid due to the change in start date
+      // we need to remove the end date as its now deemed invalid.
+      dispatch({
+        type: "update_selected_end_date",
+        date: isRangeValid ? endDate : undefined,
+      })
+
+      handleDateRangeChange({
+        from: newDate,
+        to: isRangeValid ? endDate : undefined,
+      })
+
+      if (newDate && endDate && !isInvalidDate(endDate)) {
+        // Update validation messages
+        dateEndValidation.validateEndDateBeforeStartDate({
           startDate: newDate,
           startDateFieldLabel: inputStartDateLabel,
           endDate,
           endDateInputValue: state.inputEndValue,
         })
-
-        dispatch({
-          type: "update_selected_end_date",
-          date: isValidRange(newDate, newEndDate) ? newEndDate : undefined,
-        })
-
-        handleDateRangeChange({ from: newDate, to: newEndDate })
-      } else {
-        handleDateRangeChange({ from: newDate, to: state.selectedEndDate })
       }
     },
     ...inputStartDateProps,
@@ -207,16 +215,19 @@ export const FilterDateRangePickerField = ({
       })
     },
     onDateChange: date => {
-      const newDate = validateEndDate(date, state.inputEndValue)
+      const startDate = state.selectedStartDate
+      const newEndDate = validateEndDate(date, state.inputEndValue)
+      const isRangeValid = isValidRange(startDate, newEndDate)
 
       dispatch({
         type: "update_selected_end_date",
-        date: isValidRange(state.selectedStartDate, newDate)
-          ? newDate
-          : undefined,
+        date: isRangeValid ? newEndDate : undefined,
       })
 
-      handleDateRangeChange({ from: state.selectedStartDate, to: newDate })
+      handleDateRangeChange({
+        from: startDate,
+        to: isRangeValid ? newEndDate : undefined,
+      })
     },
     ...inputEndDateProps,
   })
@@ -250,7 +261,7 @@ export const FilterDateRangePickerField = ({
     )
     const newEndDate = validateEndDate(selectedRange?.to, state.inputEndValue)
 
-    if (!isValidRange(selectedRange?.from, selectedRange?.to)) {
+    if (newStartDate && !isValidRange(newStartDate, newEndDate)) {
       dispatch({
         type: "update_selected_end_date",
         date: undefined,
