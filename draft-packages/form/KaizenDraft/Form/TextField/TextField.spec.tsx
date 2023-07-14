@@ -91,4 +91,17 @@ describe("<TextField />", () => {
 
     expect(input).toBeInTheDocument()
   })
+
+  it("renders a TextField with the correct input type", () => {
+    render(
+      <TextField {...defaultProps} labelText="Password input" type="password" />
+    )
+    const input = screen.getByLabelText("Password input")
+    expect(input).toHaveAttribute("type", "password")
+  })
+
+  it("If deprecated inputType is undefined it will fall back to the `type` default value", () => {
+    render(<TextField {...defaultProps} labelText="Default" />)
+    expect(screen.getByRole("textbox", { name: "Default" })).toBeInTheDocument()
+  })
 })
