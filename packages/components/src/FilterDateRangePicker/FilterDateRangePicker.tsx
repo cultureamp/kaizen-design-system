@@ -32,7 +32,7 @@ export const FilterDateRangePicker = ({
     renderTrigger={(triggerProps): JSX.Element =>
       renderTrigger({
         selectedValue:
-          selectedRange &&
+          isCompleteDateRange(selectedRange) &&
           isValidRange(selectedRange.from, selectedRange.to) ? (
             <DateRangeDisplayLabel
               dateRange={selectedRange}
