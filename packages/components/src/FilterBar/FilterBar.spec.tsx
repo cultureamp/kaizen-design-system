@@ -803,38 +803,30 @@ describe("<FilterBar />", () => {
     }
 
     const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
-      const isSupermanInFilterValue = Object.values(filterValues).some(
-        vals => vals.indexOf("3") > -1
-      )
-      const isBatmanInFilterValue = Object.values(filterValues).some(
-        vals => vals.indexOf("4") > -1
-      )
+      const isSupermanInFilterValue = filterValues.hero?.includes("superman")
+      const isBatmanInFilterValue = filterValues.hero?.includes("batman")
 
       if (isBatmanInFilterValue && !isSupermanInFilterValue) {
-        return Promise.resolve([{ value: "1", label: "Gotham" }])
+        return Promise.resolve([{ value: "gotham", label: "Gotham" }])
       }
 
       return Promise.resolve([
-        { value: "1", label: "Gotham" },
-        { value: "2", label: "Metropolis" },
+        { value: "gotham", label: "Gotham" },
+        { value: "metro", label: "Metropolis" },
       ])
     })
 
     const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
-      const isGothamInFilterValue = Object.values(filterValues).some(
-        vals => vals.indexOf("1") > -1
-      )
-      const isMetroInFilterValue = Object.values(filterValues).some(
-        vals => vals.indexOf("2") > -1
-      )
+      const isGothamInFilterValue = filterValues.city?.includes("gotham")
+      const isMetroInFilterValue = filterValues.city?.includes("metro")
 
       if (isGothamInFilterValue && !isMetroInFilterValue) {
-        return Promise.resolve([{ value: "4", label: "Batman" }])
+        return Promise.resolve([{ value: "batman", label: "Batman" }])
       }
 
       return Promise.resolve([
-        { value: "3", label: "Superman" },
-        { value: "4", label: "Batman" },
+        { value: "superman", label: "Superman" },
+        { value: "batman", label: "Batman" },
       ])
     })
 
@@ -865,8 +857,8 @@ describe("<FilterBar />", () => {
 
       // assert both cities are shown
       await waitFor(() => {
-        expect(queryByRole("option", { name: "Gotham" })).toBeVisible()
-        expect(queryByRole("option", { name: "Metropolis" })).toBeVisible()
+        expect(getByRole("option", { name: "Gotham" })).toBeVisible()
+        expect(getByRole("option", { name: "Metropolis" })).toBeVisible()
       })
 
       // select filter option
@@ -880,7 +872,7 @@ describe("<FilterBar />", () => {
 
       // assert only Batman is shown
       await waitFor(() => {
-        expect(queryByRole("option", { name: "Batman" })).toBeVisible()
+        expect(getByRole("option", { name: "Batman" })).toBeVisible()
         expect(queryByRole("option", { name: "Superman" })).toBeNull()
       })
 
@@ -895,7 +887,7 @@ describe("<FilterBar />", () => {
 
       // assert only Gotham is shown
       await waitFor(() => {
-        expect(queryByRole("option", { name: "Gotham" })).toBeVisible()
+        expect(getByRole("option", { name: "Gotham" })).toBeVisible()
         expect(queryByRole("option", { name: "Metropolis" })).toBeNull()
       })
     })
