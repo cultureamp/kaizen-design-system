@@ -101,7 +101,9 @@ describe("<FilterDateRangePicker />", () => {
 
     it("should not show a date range in the button if the selected range is not valid", async () => {
       render(
-        <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
+        <FilterDateRangePickerWrapper
+          selectedRange={{ from: new Date("2022-05-01") }}
+        />
       )
       expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
 
@@ -119,10 +121,9 @@ describe("<FilterDateRangePicker />", () => {
 
       await user.clear(inputEndDate)
       await user.type(inputEndDate, "01/04/2022")
+      await user.tab()
 
-      await user.click(document.body)
-
-      expect(filterButton).toBeVisible()
+      expect(filterButton.textContent).toEqual("Dates")
     })
   })
 })
