@@ -852,43 +852,38 @@ describe("<FilterBar />", () => {
         <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
       )
 
-      // open city filter
       await user.click(getByRole("button", { name: "City" }))
 
-      // assert both cities are shown
       await waitFor(() => {
         expect(getByRole("option", { name: "Gotham" })).toBeVisible()
         expect(getByRole("option", { name: "Metropolis" })).toBeVisible()
       })
 
-      // select filter option
       await user.click(getByRole("option", { name: "Gotham" }))
 
       // close city filter
       await user.click(document.body)
 
-      // open hero filter
       await user.click(getByRole("button", { name: "Hero" }))
 
-      // assert only Batman is shown
       await waitFor(() => {
         expect(getByRole("option", { name: "Batman" })).toBeVisible()
-        expect(queryByRole("option", { name: "Superman" })).toBeNull()
+        expect(
+          queryByRole("option", { name: "Superman" })
+        ).not.toBeInTheDocument()
       })
 
-      // select filter option
       await user.click(getByRole("option", { name: "Batman" }))
 
-      // close hero filter
       await user.click(document.body)
 
-      // open city filter
       await user.click(getByRole("button", { name: "City : Gotham" }))
 
-      // assert only Gotham is shown
       await waitFor(() => {
         expect(getByRole("option", { name: "Gotham" })).toBeVisible()
-        expect(queryByRole("option", { name: "Metropolis" })).toBeNull()
+        expect(
+          queryByRole("option", { name: "Metropolis" })
+        ).not.toBeInTheDocument()
       })
     })
   })
