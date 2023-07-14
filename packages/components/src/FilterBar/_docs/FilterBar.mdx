@@ -262,9 +262,9 @@ This example shows the following dependencies:
 
 <NoClipCanvas of={FilterBarStories.DependentFilter} />
 
-### Filters which populate based on a sibling value
+### Dependent (Multi)Select options
 
-A Select or MultiSelect's options may change depending on a sibling filter's value.
+A Select or MultiSelect's options may change depending on another filter's value.
 
 To do this, the dependent filter must be made into a custom component
 which calls `getFilterState` or `getActiveFilterValues` from `useFilterBarContext`.
@@ -280,6 +280,7 @@ type Values = {
 /**
  * Explicit id
  * No props required as you put the string directly into the Filter component
+ * Using `getFilterState` as dependency source is known
  */
 const ExampleDependentFilter = () => {
   const { getFilterState } = useFilterBarContext<Values["dependent"], Values>()
@@ -291,17 +292,15 @@ const ExampleDependentFilter = () => {
 /**
  * Optional id prop
  * A simple example if you want to make a more reusable filter
+ * Using `getActiveFilterValues` as dependency source is unknown
  */
 const ExampleDependentFilter = (props: {
-  id?: string
+  id?: keyof Values
   retrieveItemsCallback: (filterValue) => SelectOption[]
 }) => {
-  type Id = typeof props.id extends keyof Values
-    ? typeof props.id
-    : never
-  const { getFilterState } = useFilterBarContext<Values[Id], Values>()
-  const sourceFilter = getFilterState("source")
-  const items = props.retrieveItemsCallback(sourceFilter.value)
+  const { getActiveFilterValues } = useFilterBarContext<Values[Id], Values>()
+  const activeValues = getActiveFilterValues()
+  const items = props.retrieveItemsCallback(activeValues)
   return (<FilterBar.Select<Option> id={props.id} items={items} />)
 }
 
