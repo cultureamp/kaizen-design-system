@@ -9,7 +9,7 @@ export interface ListBoxSectionProps {
    * unsighted users
    */
   sectionName: string
-  /** @default undefined */
+  /** * If provided will override the set aria-labelledby for this group to the section header */
   sectionHeader?: ReactNode
   children: (item: MultiSelectItem) => React.ReactNode
 }
@@ -23,19 +23,25 @@ export const ListBoxSection = ({
   const listSectionId = sectionHeader ? v4() : undefined
   return (
     // This seems semantically strange but is value in elements with role="listbox"
-    <div
-      className={styles.listBoxSection}
-      aria-label={!sectionHeader ? sectionName : undefined}
-      aria-labelledby={listSectionId}
-      role="group"
-    >
-      {sectionHeader && (
-        <li role="presentation" id={listSectionId}>
-          {sectionHeader}
-        </li>
-      )}
-      {Array.from(items).map(node => node != undefined && children(node))}
-    </div>
+    <li role="presentation">
+      <ul
+        className={styles.listBoxSection}
+        aria-label={sectionHeader ? undefined : sectionName}
+        aria-labelledby={sectionHeader ? listSectionId : undefined}
+        role="group"
+      >
+        {sectionHeader && (
+          <li
+            className={styles.listBoxSectionHeader}
+            role="presentation"
+            id={listSectionId}
+          >
+            {sectionHeader}
+          </li>
+        )}
+        {Array.from(items).map(node => node != undefined && children(node))}
+      </ul>
+    </li>
   )
 }
 ListBoxSection.displayName = "ListBoxSection"

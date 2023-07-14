@@ -658,23 +658,20 @@ export const WithMultipleSections: StoryFn<typeof FilterMultiSelect> = () => {
 
                   <FilterMultiSelect.ListBoxSection
                     items={unselectedItems}
-                    ariaDescribedBy="test-id-lul"
                     sectionHeader={
-                      <span id="test-id-lul">
-                        <InlineNotification
-                          type="cautionary"
-                          persistent
-                          noBottomMargin
-                          headingProps={{
-                            tag: "span",
-                            variant: "heading-5",
-                            children: "Confidentiality protection",
-                          }}
-                        >
-                          Results for these filters are hidden to protect
-                          identities of individuals and small grounds
-                        </InlineNotification>
-                      </span>
+                      <InlineNotification
+                        type="cautionary"
+                        persistent
+                        noBottomMargin
+                        headingProps={{
+                          tag: "span",
+                          variant: "heading-5",
+                          children: "Confidentiality protection",
+                        }}
+                      >
+                        Results for these filters are hidden to protect
+                        identities of individuals and small grounds
+                      </InlineNotification>
                     }
                     sectionName="Unselected items"
                   >
