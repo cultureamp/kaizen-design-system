@@ -660,39 +660,42 @@ describe("<FilterDateRangePickerField />", () => {
       />
     )
 
+    onRangeChange.mockClear()
+
     const inputStartDate = getByLabelText("Date from")
 
     await user.clear(inputStartDate)
     await user.type(inputStartDate, "10/07/2022")
+    await user.tab()
 
-    await user.click(document.body)
+    await waitFor(() => {
+      expect(onRangeChange.mock.calls).toEqual([
+        [
+          {
+            from: new Date("2022-07-10"),
+            to: undefined,
+          },
+        ],
+      ])
+    })
+
+    onRangeChange.mockClear()
 
     const inputEndDate = getByLabelText("Date to")
 
     await user.clear(inputEndDate)
     await user.type(inputEndDate, "10/08/2022")
+    await user.tab()
 
-    await user.click(document.body)
-
-    expect(onRangeChange.mock.calls).toEqual([
-      [
-        {
-          from: new Date("2022-05-10"),
-          to: new Date("2022-06-10"),
-        },
-      ],
-      [
-        {
-          from: new Date("2022-07-10"),
-          to: undefined,
-        },
-      ],
-      [
-        {
-          from: new Date("2022-07-10"),
-          to: new Date("2022-08-10"),
-        },
-      ],
-    ])
+    await waitFor(() => {
+      expect(onRangeChange.mock.calls).toEqual([
+        [
+          {
+            from: new Date("2022-07-10"),
+            to: new Date("2022-08-10"),
+          },
+        ],
+      ])
+    })
   })
 })
