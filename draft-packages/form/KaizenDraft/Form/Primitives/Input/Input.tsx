@@ -15,7 +15,7 @@ export interface InputProps
   reversed?: boolean
   type?: InputType
   /**
-   * **Deprecated:** Use `type` instead
+   * **Deprecated:** Use `type` instead. If `inputType` is used, it will supersede the `type`
    * @deprecated
    */
   inputType?: InputType
@@ -57,8 +57,8 @@ export const Input = ({
   startIconAdornment,
   endIconAdornment,
   reversed = false,
-  type,
-  inputType = "text",
+  type = "text",
+  inputType,
   ariaLabel,
   ariaDescribedBy,
   value,
@@ -88,7 +88,7 @@ export const Input = ({
     <input
       ref={inputRef}
       data-automation-id={automationId}
-      type={type || inputType}
+      type={inputType || type}
       value={inputValue || value}
       defaultValue={defaultInputValue || defaultValue}
       aria-describedby={ariaDescribedBy} // will be replaced by `aria-describedby` in restProps

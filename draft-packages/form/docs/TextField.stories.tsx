@@ -62,21 +62,33 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   const DEFAULT__ROW_PROPS: TextFieldProps[] = [
     {
       id: "text-field--default",
-      type: "email",
       labelText: "Default",
     },
     {
       id: "text-field--description",
-      type: "email",
       labelText: "Description",
       description: "Description text",
     },
     {
       id: "text-field--placeholder",
-      type: "email",
       labelText: "Placeholder",
       description: "Description text",
+      placeholder: "Enter some text here",
+    },
+    {
+      id: "text-field--placeholder",
+      type: "email",
+      labelText: "Email",
+      description: "Description text",
       placeholder: "jane.doe@email.com",
+    },
+    {
+      id: "text-field--placeholder",
+      type: "password",
+      labelText: "Password",
+      description: "Description text",
+      value: "abc123",
+      placeholder: "Enter a password...",
     },
     {
       id: "text-field--positive",
