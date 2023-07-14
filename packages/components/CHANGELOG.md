@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.19.1
+
+### Patch Changes
+
+- [#3861](https://github.com/cultureamp/kaizen-design-system/pull/3861) [`9c2a798ff`](https://github.com/cultureamp/kaizen-design-system/commit/9c2a798ff527c6fa4bad3e3299d0aad986384c2c) - Expose currently selected values on FilterBar via useFilterBarContext
+
+- Updated dependencies [[`5afdddade`](https://github.com/cultureamp/kaizen-design-system/commit/5afdddaded55b173dc39e469a2dfa15fe135155f)]:
+  - @kaizen/date-picker@6.2.1
+
 ## 1.19.0
 
 ### Minor Changes

@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.2.1
+
+### Patch Changes
+
+- [#3862](https://github.com/cultureamp/kaizen-design-system/pull/3862) [`5afdddade`](https://github.com/cultureamp/kaizen-design-system/commit/5afdddaded55b173dc39e469a2dfa15fe135155f) - Replace SVG imports with SVG React components
+  - This addresses the SVGs not rendering as expected in consuming repos
+
 ## 6.2.0
 
 ### Minor Changes
