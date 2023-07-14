@@ -246,6 +246,11 @@ A callback (`(values: Partial<ValuesMap>) => void`) for when the active `values`
 
 ### Dependent filters
 
+Dependent filters are filters which are not able to be used by the end user until a certain condition has been met.
+Filters that do not meet their condition will not be shown amongst the Active Filters, nor in the Add Filters menu.
+
+See [filter attribute `isUsableWhen`](#isusablewhen-state-filtersstatevaluesmap--boolean) for api.
+
 This example shows the following dependencies:
 - **Milk** is only usable when **Coffee** _is Latte_
   - `isUsableWhen: state => state.coffee.value === "latte"`
