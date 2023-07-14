@@ -4,9 +4,8 @@ import { DayPicker, DayPickerRangeProps } from "react-day-picker"
 import { OverrideClassName } from "@kaizen/component-base"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
+import { IconRight, IconLeft } from "../Icons"
 import { calendarRangeClasses } from "./CalendarClasses"
-import { IconLeft } from "./components/IconLeft"
-import { IconRight } from "./components/IconRight"
 
 export type CalendarRangeElement = HTMLDivElement
 
