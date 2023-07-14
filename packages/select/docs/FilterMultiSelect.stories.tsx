@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { Span } from "@storybook/components"
 import { Decorator, Meta, StoryFn } from "@storybook/react"
 import {
   QueryClientProvider,
@@ -603,7 +602,7 @@ export const Async: StoryFn<typeof FilterMultiSelect> = args => {
 }
 Async.decorators = [withQueryProvider]
 
-export const WithMultipleSections: StoryFn<typeof FilterMultiSelect> = () => {
+export const withSectionHeader: StoryFn<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )

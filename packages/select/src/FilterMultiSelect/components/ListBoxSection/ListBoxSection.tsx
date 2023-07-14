@@ -9,7 +9,7 @@ export interface ListBoxSectionProps {
    * unsighted users
    */
   sectionName: string
-  /** * If provided will override the set aria-labelledby for this group to the section header */
+  /** * If provided, will override the aria-label for this group */
   sectionHeader?: ReactNode
   children: (item: MultiSelectItem) => React.ReactNode
 }
@@ -22,7 +22,6 @@ export const ListBoxSection = ({
 }: ListBoxSectionProps): JSX.Element => {
   const listSectionId = sectionHeader ? v4() : undefined
   return (
-    // This seems semantically strange but is value in elements with role="listbox"
     <li role="presentation">
       <ul
         className={styles.listBoxSection}
@@ -30,6 +29,12 @@ export const ListBoxSection = ({
         aria-labelledby={sectionHeader ? listSectionId : undefined}
         role="group"
       >
+        {/*
+         * This seems semantically strange but most closely aligns to WCAGs suggested pattern:
+         https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/
+         * the role="presentation" will throw an error a11y warning "Element has children which are not allowed".
+         This is expected and is an accepted issue / potential limitation with axe
+         */}
         {sectionHeader && (
           <li
             className={styles.listBoxSectionHeader}
