@@ -55,6 +55,21 @@ describe("<FilterDateRangePicker />", () => {
       expect(filterButton).toBeVisible()
     })
 
+    it("should not show the selected range in the button if the range is not valid", () => {
+      render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+            to: new Date("2022-04-01"),
+          }}
+        />
+      )
+      const filterButton = screen.getByRole("button", {
+        name: "Dates",
+      })
+      expect(filterButton).toBeVisible()
+    })
+
     it("should not show a selected value in the button if there is only a partial date range", () => {
       render(
         <FilterDateRangePickerWrapper
@@ -82,6 +97,32 @@ describe("<FilterDateRangePicker />", () => {
       await waitFor(() => {
         expect(screen.getByText("May 2022")).toBeVisible()
       })
+    })
+
+    it("should not show a date range in the button if the selected range is not valid", async () => {
+      render(
+        <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
+      )
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+
+      const filterButton = screen.getByRole("button", {
+        name: "Dates",
+      })
+
+      await user.click(filterButton)
+
+      const inputEndDate = screen.getByLabelText("Date to")
+
+      await waitFor(() => {
+        expect(inputEndDate).toBeVisible()
+      })
+
+      await user.clear(inputEndDate)
+      await user.type(inputEndDate, "01/04/2022")
+
+      await user.click(document.body)
+
+      expect(filterButton).toBeVisible()
     })
   })
 })
