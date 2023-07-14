@@ -602,7 +602,7 @@ export const Async: StoryFn<typeof FilterMultiSelect> = args => {
 }
 Async.decorators = [withQueryProvider]
 
-export const withSectionHeader: StoryFn<typeof FilterMultiSelect> = () => {
+export const WithSectionHeader: StoryFn<typeof FilterMultiSelect> = () => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(
     new Set(["id-fe"])
   )
