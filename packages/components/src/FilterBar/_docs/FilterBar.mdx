@@ -267,7 +267,7 @@ This example shows the following dependencies:
 A Select or MultiSelect's options may change depending on a sibling filter's value.
 
 To do this, the dependent filter must be made into a custom component
-which calls `getFilterState` from `useFilterBarContext`.
+which calls `getFilterState` or `getActiveFilterValues` from `useFilterBarContext`.
 It must also either have an optional `id` prop (`id?: string`) (filled in by `<FilterBar>`),
 or a matching `id` from the filter config must be provided to the rendered component.
 
