@@ -3647,6 +3647,14 @@
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
+"@react-stately/collections@^3.9.0":
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.9.0.tgz#8a9e621fb10e370bd0329f96dd141bc6dcd0e548"
+  integrity sha512-CBpXSKmCpbIFpIToVFlzo2R1/Cj+dcU8gWw2KfPyyJX+2wHKkDIvtK01EAytDLX/vkE8O+fD5a7qMZ3pf8gpeA==
+  dependencies:
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/datepicker@^3.4.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.4.1.tgz#3aaf3b439e542aa9bc0dc366a70f9232247865e6"
@@ -3670,6 +3678,17 @@
     "@react-stately/utils" "^3.6.0"
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
+
+"@react-stately/list@^3.9.0":
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.9.0.tgz#725239c3ef5d526570bfecf274d11dd63c35005f"
+  integrity sha512-9DNV02zFEkJG38AtHyhvGMfpJQGwV0KMyMObs+KEujzCh+rmHdTu1rWdjzLw1ve+ecESK8UMsF4Kt6wwO0Qi6g==
+  dependencies:
+    "@react-stately/collections" "^3.9.0"
+    "@react-stately/selection" "^3.13.2"
+    "@react-stately/utils" "^3.7.0"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.5.0"
 
 "@react-stately/menu@^3.5.2":
   version "3.5.2"
@@ -3734,6 +3753,16 @@
     "@react-stately/utils" "^3.6.0"
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
+
+"@react-stately/selection@^3.13.2":
+  version "3.13.2"
+  resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.13.2.tgz#9b0b717b0da4c84ec412a0e5068f6798ec37ddbd"
+  integrity sha512-rVnseneG9XWuS0+JEsa0EhRfTZsupm9JiEuZHZ19YeLewjVdFpjgBMDZb8ZYoyilNXVjyUwaoq94FsOXotsg9w==
+  dependencies:
+    "@react-stately/collections" "^3.9.0"
+    "@react-stately/utils" "^3.7.0"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.5.0"
 
 "@react-stately/toggle@^3.6.0":
   version "3.6.0"
