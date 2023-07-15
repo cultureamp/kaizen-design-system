@@ -15,7 +15,7 @@ export interface InputProps
   reversed?: boolean
   type?: InputType
   /**
-   * **Deprecated:** Use `type` instead
+   * **Deprecated:** Use `type` instead. If `inputType` is used, it will supersede the `type`
    * @deprecated
    */
   inputType?: InputType
@@ -58,7 +58,7 @@ export const Input = ({
   endIconAdornment,
   reversed = false,
   type = "text",
-  inputType = "text",
+  inputType,
   ariaLabel,
   ariaDescribedBy,
   value,

@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.17.6
+
+### Patch Changes
+
+- [#3849](https://github.com/cultureamp/kaizen-design-system/pull/3849) [`f1077143b`](https://github.com/cultureamp/kaizen-design-system/commit/f1077143b2f1692f09ee227d6623bf3338db627b) - Update the Select's Overlay component to use a portal
+
 ## 6.17.5
 
 ### Patch Changes
