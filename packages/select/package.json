@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/select",
-  "version": "6.17.5",
+  "version": "6.17.6",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -15,12 +15,7 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
-  "files": [
-    "**/*.js",
-    "**/*.js.map",
-    "**/*.d.ts",
-    "**/*.scss"
-  ],
+  "files": ["**/*.js", "**/*.js.map", "**/*.d.ts", "**/*.scss"],
   "author": "",
   "private": false,
   "license": "MIT",
@@ -36,16 +31,16 @@
     "@kaizen/draft-tooltip": "^5.4.46",
     "@kaizen/loading-skeleton": "^2.0.7",
     "@kaizen/typography": "^2.3.11",
-    "@react-aria/button": "^3.7.2",
+    "@react-aria/button": "^3.8.0",
     "@react-aria/focus": "^3.12.1",
     "@react-aria/listbox": "^3.9.1",
     "@react-aria/menu": "^3.9.1",
-    "@react-aria/overlays": "^3.14.1",
+    "@react-aria/overlays": "^3.15.0",
     "@react-aria/select": "^3.10.1",
-    "@react-aria/utils": "^3.17.0",
+    "@react-aria/utils": "^3.18.0",
     "@react-stately/collections": "^3.8.0",
     "@react-stately/list": "^3.8.1",
-    "@react-stately/menu": "^3.5.2",
+    "@react-stately/menu": "^3.5.3",
     "@react-stately/select": "^3.5.2",
     "@react-types/button": "^3.7.3",
     "@react-types/shared": "^3.18.1",
@@ -54,6 +49,7 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
 }

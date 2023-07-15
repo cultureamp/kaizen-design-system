@@ -15,6 +15,7 @@ export type FilterBarContextValue<
   getFilterState: <Id extends keyof ValuesMap>(
     id: Id
   ) => FilterState<keyof ValuesMap, ValuesMap[Id]>
+  getActiveFilterValues: () => Partial<ValuesMap>
   toggleOpenFilter: <Id extends keyof ValuesMap>(
     id: Id,
     isOpen: boolean
@@ -74,6 +75,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       isActive: state.activeFilterIds.has(id),
       value: values[id],
     }),
+    getActiveFilterValues: () => values,
     toggleOpenFilter: <Id extends keyof ValuesMap>(
       id: Id,
       isOpen: boolean

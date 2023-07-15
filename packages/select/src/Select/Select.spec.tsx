@@ -77,7 +77,7 @@ describe("<Select>", () => {
         render(
           <SelectWrapper
             selectedKey="id-sre"
-            isOpen
+            defaultOpen
             onOpenChange={onOpenChange}
           />
         )
