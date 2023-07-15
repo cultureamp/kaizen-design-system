@@ -3137,9 +3137,9 @@
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
 "@lingui/detect-locale@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@lingui/detect-locale/-/detect-locale-4.2.1.tgz#08fe1b731f744c7f4ad26eb0ab4c22fe39ab3a79"
-  integrity sha512-YdBdWZy3lp4NWOY7TdQHCewKQl6tZAuchfDbw7TI411u+4176mUMxBUNIexDONH1Atzbtqi7R9v/sAQfKOvEKQ==
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@lingui/detect-locale/-/detect-locale-4.3.0.tgz#bf8009ee31ac6fe667ca2994f51569ce1c4037f6"
+  integrity sha512-BNTdfabfvETdmhOljJ9jL+wHczrz6KJdEdpm+zqPMbvMA06UqBA7bTk8igW79Z3hN4F+WV7Mro0bDrm8sol0qA==
 
 "@manypkg/find-root@^1.1.0":
   version "1.1.0"
@@ -15313,10 +15313,10 @@ rollup-plugin-ignore@^1.0.10:
   resolved "https://registry.yarnpkg.com/rollup-plugin-ignore/-/rollup-plugin-ignore-1.0.10.tgz#0b8453ebf977fca1b4b0634062dded45288bf764"
   integrity sha512-VsbnfwwaTv2Dxl2onubetX/3RnSnplNnjdix0hvF8y2YpqdzlZrjIq6zkcuVJ08XysS8zqW3gt3ORBndFDgsrg==
 
-rollup-plugin-peer-deps-external@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-peer-deps-external/-/rollup-plugin-peer-deps-external-2.2.4.tgz#8a420bbfd6dccc30aeb68c9bf57011f2f109570d"
-  integrity sha512-AWdukIM1+k5JDdAqV/Cxd+nejvno2FVLVeZ74NKggm3Q5s9cbbcOgUPGdbxPi4BXu7xGaZ8HG12F+thImYu/0g==
+rollup-plugin-node-externals@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-externals/-/rollup-plugin-node-externals-6.1.1.tgz#dff1a85073fe3c0b2c423b280259fe80392026a8"
+  integrity sha512-127OFMkpH5rBVlRHRBDUMk1m1sGuzbGy7so5aj/IkpUb2r3+wOWjR/erUzd2ChEQWPsxsyQG6xpYYvPBAdcBRA==
 
 rollup-plugin-postcss@^4.0.2:
   version "4.0.2"

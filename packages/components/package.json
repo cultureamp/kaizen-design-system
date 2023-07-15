@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.18.1",
+  "version": "1.19.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -12,11 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
-  "files": [
-    "future",
-    "dist",
-    "icons"
-  ],
+  "files": ["future", "dist", "icons", "locales"],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +37,7 @@
     "@kaizen/a11y": "^1.7.11",
     "@kaizen/brand": "^1.5.8",
     "@kaizen/button": "^3.0.3",
-    "@kaizen/date-picker": "^6.2.0",
+    "@kaizen/date-picker": "^6.2.1",
     "@kaizen/draft-badge": "^1.13.11",
     "@kaizen/draft-divider": "^2.2.10",
     "@kaizen/draft-form": "^10.4.4",
@@ -88,7 +84,7 @@
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-ignore": "^1.0.10",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-node-externals": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.63.6",
     "serialize-query-params": "^2.0.2",

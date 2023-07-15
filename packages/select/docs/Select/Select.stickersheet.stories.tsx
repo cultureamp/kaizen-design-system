@@ -186,7 +186,7 @@ StickerSheetReversed.parameters = {
 
 const DropdownSheet: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <>
-    <div style={{ marginBottom: "28rem" }}>
+    <div style={{ marginBottom: "45rem" }}>
       <StoryWrapper isReversed={isReversed}>
         <StoryWrapper.RowHeader
           headings={["Base", "Selected", "Hover", "Focus", "Disabled"]}

@@ -1,8 +1,8 @@
 import React from "react"
 import classnames from "classnames"
-import { Icon } from "@kaizen/component-library"
-import dateStart from "@kaizen/component-library/icons/date-start.icon.svg"
+
 import { isRefObject } from "../../utils/isRefObject"
+import { IconDateStart } from "../Icons"
 import { DateInput, DateInputProps } from "./DateInput"
 import styles from "./DateInputWithIconButton.module.scss"
 
@@ -41,7 +41,7 @@ export const DateInputWithIconButton = React.forwardRef<
         disabled && styles.disabled
       )}
     >
-      <Icon icon={dateStart} role="presentation" />
+      <IconDateStart />
     </button>
   )
 

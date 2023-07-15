@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
@@ -48,7 +49,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   })
 
   return (
-    <>
+    <StaticIntlProvider locale="en">
       <StickerSheet
         heading="Filter Date Range Picker"
         style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
@@ -132,7 +133,29 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
-    </>
+
+      <StickerSheet heading="Translated">
+        <StickerSheet.Body>
+          <StickerSheet.Row rowTitle="Japanese">
+            <StaticIntlProvider locale="ja">
+              <FilterDateRangePickerField
+                id={`${textDirection}-stickersheet--filter-drp-field--translated`}
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangeFieldValidation}
+                onRangeChange={setRangeFieldValidation}
+                onValidate={{
+                  dateStart: action("Validation story: date start onValidate"),
+                }}
+                inputEndDateProps={{
+                  "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
+                }}
+              />
+            </StaticIntlProvider>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    </StaticIntlProvider>
   )
 }
 
