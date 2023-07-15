@@ -1,7 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { render, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { FilterMultiSelect } from ".."
 import { FilterBar, FilterBarProps } from "./FilterBar"
+import { useFilterBarContext } from "./context/FilterBarContext"
 import { Filters, FiltersValues } from "./types"
 
 const user = userEvent.setup()
@@ -749,6 +751,139 @@ describe("<FilterBar />", () => {
         expect(
           getByRole("button", { name: "Flavour : Honey Milk Tea" })
         ).toBeVisible()
+      })
+    })
+  })
+
+  describe("Context use cases", () => {
+    type Items = Array<{ value: string; label: string }>
+
+    type AsyncValues = {
+      city: string[]
+      hero: string[]
+    }
+
+    const MockFilterAsyncComponent = ({
+      id,
+      fetcher,
+    }: {
+      id: string
+      fetcher: (args: Partial<AsyncValues>) => Promise<Items>
+    }): JSX.Element => {
+      const [items, setItems] = useState<Items>([])
+      const { getActiveFilterValues } = useFilterBarContext()
+      const activeFilterVals = getActiveFilterValues()
+
+      useEffect(() => {
+        fetcher(activeFilterVals).then(fetchedItems => {
+          if (JSON.stringify(fetchedItems) !== JSON.stringify(items)) {
+            setItems(fetchedItems)
+          }
+        })
+      }, [JSON.stringify(activeFilterVals)])
+
+      return (
+        <FilterBar.MultiSelect id={id} items={items}>
+          {() => (
+            <FilterMultiSelect.ListBox>
+              {({ allItems }) => (
+                <FilterMultiSelect.ListBoxSection
+                  items={allItems}
+                  sectionName="All Items"
+                >
+                  {item => (
+                    <FilterMultiSelect.Option key={item.key} item={item} />
+                  )}
+                </FilterMultiSelect.ListBoxSection>
+              )}
+            </FilterMultiSelect.ListBox>
+          )}
+        </FilterBar.MultiSelect>
+      )
+    }
+
+    const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const isSupermanInFilterValue = filterValues.hero?.includes("superman")
+      const isBatmanInFilterValue = filterValues.hero?.includes("batman")
+
+      if (isBatmanInFilterValue && !isSupermanInFilterValue) {
+        return Promise.resolve([{ value: "gotham", label: "Gotham" }])
+      }
+
+      return Promise.resolve([
+        { value: "gotham", label: "Gotham" },
+        { value: "metro", label: "Metropolis" },
+      ])
+    })
+
+    const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+      const isGothamInFilterValue = filterValues.city?.includes("gotham")
+      const isMetroInFilterValue = filterValues.city?.includes("metro")
+
+      if (isGothamInFilterValue && !isMetroInFilterValue) {
+        return Promise.resolve([{ value: "batman", label: "Batman" }])
+      }
+
+      return Promise.resolve([
+        { value: "superman", label: "Superman" },
+        { value: "batman", label: "Batman" },
+      ])
+    })
+
+    const config = [
+      {
+        id: "city",
+        name: "City",
+        Component: (
+          <MockFilterAsyncComponent id="city" fetcher={fetchCityOptions} />
+        ),
+      },
+      {
+        id: "hero",
+        name: "Hero",
+        Component: (
+          <MockFilterAsyncComponent id="Hero" fetcher={fetchHeroOptions} />
+        ),
+      },
+    ] satisfies Filters<AsyncValues>
+
+    it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
+      const { getByRole, queryByRole } = render(
+        <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
+      )
+
+      await user.click(getByRole("button", { name: "City" }))
+
+      await waitFor(() => {
+        expect(getByRole("option", { name: "Gotham" })).toBeVisible()
+        expect(getByRole("option", { name: "Metropolis" })).toBeVisible()
+      })
+
+      await user.click(getByRole("option", { name: "Gotham" }))
+
+      // close city filter
+      await user.click(document.body)
+
+      await user.click(getByRole("button", { name: "Hero" }))
+
+      await waitFor(() => {
+        expect(getByRole("option", { name: "Batman" })).toBeVisible()
+        expect(
+          queryByRole("option", { name: "Superman" })
+        ).not.toBeInTheDocument()
+      })
+
+      await user.click(getByRole("option", { name: "Batman" }))
+
+      await user.click(document.body)
+
+      await user.click(getByRole("button", { name: "City : Gotham" }))
+
+      await waitFor(() => {
+        expect(getByRole("option", { name: "Gotham" })).toBeVisible()
+        expect(
+          queryByRole("option", { name: "Metropolis" })
+        ).not.toBeInTheDocument()
       })
     })
   })
