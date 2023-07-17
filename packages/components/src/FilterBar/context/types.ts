@@ -27,6 +27,7 @@ export type FilterBarStateFilters<ValuesMap extends FiltersValues> = {
 }
 
 export type FilterBarState<ValuesMap extends FiltersValues> = {
+  hasUpdatedValues: boolean
   filters: FilterBarStateFilters<ValuesMap>
   activeFilterIds: Set<keyof ValuesMap>
   values: Partial<ValuesMap> | null

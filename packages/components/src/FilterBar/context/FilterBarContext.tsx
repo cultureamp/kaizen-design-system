@@ -113,9 +113,10 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   }, [values])
 
   useEffect(() => {
-    const shouldUpdate =
-      state.values !== null && checkShouldUpdateValues<ValuesMap>(state, values)
-    if (shouldUpdate) onValuesChange({ ...state.values! })
+    if (state.hasUpdatedValues) {
+      onValuesChange({ ...state.values! })
+      dispatch({ type: "complete_update_values" })
+    }
   }, [state])
 
   const activeFilters = Array.from(

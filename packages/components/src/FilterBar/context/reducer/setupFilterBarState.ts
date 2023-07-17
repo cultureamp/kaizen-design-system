@@ -26,6 +26,7 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
       return baseState
     },
     {
+      hasUpdatedValues: false,
       filters: {},
       // These will be set by the `update_values` dispatch action.
       activeFilterIds: new Set(),

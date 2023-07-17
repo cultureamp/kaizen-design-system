@@ -31,7 +31,7 @@ export const updateDependentFilters = <ValuesMap extends FiltersValues>(
     }
   })
 
-  if (hasChange) updateDependentFilters(state)
+  if (hasChange) updateDependentFilters({ ...state, hasUpdatedValues: true })
 
   return state
 }
