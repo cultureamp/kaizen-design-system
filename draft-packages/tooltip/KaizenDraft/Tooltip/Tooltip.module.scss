@@ -23,7 +23,8 @@
   letter-spacing: $typography-paragraph-body-letter-spacing;
   line-height: $typography-paragraph-small-line-height;
   border-radius: $border-solid-border-radius;
-  transition: opacity $animation-duration-fast,
+  transition:
+    opacity $animation-duration-fast,
     transform $animation-duration-fast;
   box-shadow: $shadow-small-box-shadow;
 
