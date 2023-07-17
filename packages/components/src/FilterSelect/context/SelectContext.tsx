@@ -11,7 +11,7 @@ type SelectContextValue<Option extends SelectOption = any> = {
 const SelectContext = React.createContext<SelectContextValue | null>(null)
 
 export const useSelectContext = <
-  Option extends SelectOption = SelectOption
+  Option extends SelectOption = SelectOption,
 >(): SelectContextValue<Option> => {
   const context = useContext(SelectContext)
 

@@ -42,7 +42,8 @@ $side-padding: calc(calc(3 / 4) * #{$ca-grid});
   color: $color-purple-800;
   cursor: pointer;
   text-align: left;
-  transition: $ca-duration-immediate background-color ease,
+  transition:
+    $ca-duration-immediate background-color ease,
     $ca-duration-immediate color ease;
   padding: 10px $side-padding;
   text-decoration: none;

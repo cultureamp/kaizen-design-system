@@ -36,7 +36,7 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  * See {@link addExtraThemeEntries} for how these extra entries are added.
  */
 export function makeCSSVariableTheme<
-  ThemeType extends Record<string | number, unknown>
+  ThemeType extends Record<string | number, unknown>,
 >(
   theme: ThemeType,
   printValue = objectPathToCssVarFunction

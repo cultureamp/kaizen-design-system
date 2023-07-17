@@ -230,12 +230,16 @@ $fifth: $color-red-500;
 }
 
 .likertItemFill {
-  transition: background 0.1s, border-color 0.1s;
+  transition:
+    background 0.1s,
+    border-color 0.1s;
   height: $block-height;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
 
   &:hover {
-    transition: background 0s, border-color 0s;
+    transition:
+      background 0s,
+      border-color 0s;
   }
 
   &::after {

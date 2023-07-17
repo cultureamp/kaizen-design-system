@@ -11,7 +11,8 @@
   border-radius: $border-solid-border-radius;
   padding: $spacing-sm calc(#{$spacing-xs} * 3);
   position: relative;
-  transition: background-color $animation-duration-immediate,
+  transition:
+    background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
 
   &:hover,
