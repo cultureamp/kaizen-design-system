@@ -38,7 +38,7 @@
     "@kaizen/typography": "^2.3.11",
     "@react-aria/button": "^3.8.0",
     "@react-aria/focus": "^3.12.1",
-    "@react-aria/listbox": "^3.9.1",
+    "@react-aria/listbox": "^3.10.0",
     "@react-aria/menu": "^3.10.0",
     "@react-aria/overlays": "^3.15.0",
     "@react-aria/select": "^3.10.1",
