@@ -3840,6 +3840,20 @@
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
+"@react-stately/select@^3.5.2":
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.5.2.tgz#140be9edf4ff714e7fa7bee5e7093e5d8cbb58b5"
+  integrity sha512-hIDAXFNg+q8rGQy5YKEaOz4NoWsckoQoi18vY8u6VsFUIhfYaYL76x6zKbTwekZLYuroifH7Fv81tBvRZmXikQ==
+  dependencies:
+    "@react-stately/collections" "^3.9.0"
+    "@react-stately/list" "^3.9.0"
+    "@react-stately/menu" "^3.5.3"
+    "@react-stately/selection" "^3.13.2"
+    "@react-stately/utils" "^3.7.0"
+    "@react-types/select" "^3.8.1"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/selection@^3.13.1":
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.13.1.tgz#17752ed81bf0f3246cd010818c460fa0d749d3a1"

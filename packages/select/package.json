@@ -15,12 +15,7 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
-  "files": [
-    "**/*.js",
-    "**/*.js.map",
-    "**/*.d.ts",
-    "**/*.scss"
-  ],
+  "files": ["**/*.js", "**/*.js.map", "**/*.d.ts", "**/*.scss"],
   "author": "",
   "private": false,
   "license": "MIT",
@@ -46,7 +41,7 @@
     "@react-stately/collections": "^3.9.0",
     "@react-stately/list": "^3.9.0",
     "@react-stately/menu": "^3.5.3",
-    "@react-stately/select": "^3.5.1",
+    "@react-stately/select": "^3.5.2",
     "@react-types/button": "^3.7.3",
     "@react-types/shared": "^3.18.1",
     "classnames": "^2.3.2",
