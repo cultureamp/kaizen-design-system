@@ -98,8 +98,8 @@ describe("validateEndDateBeforeStartDate()", () => {
       })
     })
 
-    it("returns an undefined new date", () => {
-      expect(result.newDate).toBeUndefined()
+    it("returns the new end date", () => {
+      expect(result.newDate).toEqual(endDate)
     })
   })
 })
