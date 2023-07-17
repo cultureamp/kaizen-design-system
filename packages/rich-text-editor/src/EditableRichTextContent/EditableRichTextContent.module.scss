@@ -9,7 +9,8 @@
   border-radius: $border-solid-border-radius;
   border: $border-focus-ring-border-width $border-focus-ring-border-style
     transparent;
-  transition: background-color $animation-duration-immediate,
+  transition:
+    background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
   background-color: $color-gray-200;
 }

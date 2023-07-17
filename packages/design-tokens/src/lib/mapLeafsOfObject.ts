@@ -22,7 +22,7 @@ import { DeepMapObjectLeafs } from "../types"
  */
 export function mapLeafsOfObject<
   Obj extends Record<string | number, unknown>,
-  Value
+  Value,
 >(
   object: Obj,
   mapper: (pathToLeaf: string[], value: unknown) => Value
