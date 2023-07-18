@@ -164,6 +164,31 @@ describe("<FilterDatePicker />", () => {
       expect(dialog).toBeInTheDocument()
     })
   })
+  it("does not close the popover when there is a selected date and the user navigates months", async () => {
+    const { getByRole } = render(
+      <FilterDatePickerWrapper selectedDate={new Date("01/01/2022")} />
+    )
+    const triggerButton = getByRole("button", {
+      name: "Drank : 1 Jan 2022",
+    })
+
+    await user.click(triggerButton)
+    const dialog = getByRole("dialog")
+
+    await waitFor(() => {
+      expect(dialog).toBeInTheDocument()
+    })
+
+    const navigateMonthsButton = getByRole("button", {
+      name: "Go to next month",
+    })
+
+    await user.click(navigateMonthsButton)
+
+    await waitFor(() => {
+      expect(dialog).toBeInTheDocument()
+    })
+  })
 
   it("updates the selected value in the trigger button when typing a date", async () => {
     const { getByRole, getByLabelText } = render(
