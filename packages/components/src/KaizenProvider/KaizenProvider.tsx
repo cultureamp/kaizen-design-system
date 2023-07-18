@@ -1,5 +1,6 @@
 import React from "react"
 import { OptionalIntlProvider } from "./OptionalIntlProvider"
+import { SVGProvider } from "./SVGProvider"
 import { ThemeProvider, ThemeManager } from "./ThemeProvider"
 
 export interface KaizenProviderProps {
@@ -14,7 +15,9 @@ export const KaizenProvider = ({
   locale = "en",
 }: KaizenProviderProps): JSX.Element => (
   <OptionalIntlProvider locale={locale}>
-    <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
+    <ThemeProvider themeManager={themeManager}>
+      <SVGProvider>{children}</SVGProvider>
+    </ThemeProvider>
   </OptionalIntlProvider>
 )
 
