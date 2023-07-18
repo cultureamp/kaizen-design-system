@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM node:18.16.0-alpine
 
 RUN apk update && apk add --no-cache \
   git \
@@ -9,6 +9,4 @@ RUN apk update && apk add --no-cache \
   gcc \ 
   alpine-sdk \ 
   python-dev
-
-RUN pip install \
   aws-cli
