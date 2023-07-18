@@ -66,7 +66,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   const [state, dispatch] = useReducer(
     filterBarStateReducer<ValuesMap>,
-    setupFilterBarState<ValuesMap>(filters)
+    setupFilterBarState<ValuesMap>(filters, values)
   )
 
   const value = {
@@ -107,14 +107,13 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
-    const shouldUpdate =
-      state.values === null || checkShouldUpdateValues<ValuesMap>(state, values)
+    const shouldUpdate = checkShouldUpdateValues<ValuesMap>(state, values)
     if (shouldUpdate) dispatch({ type: "update_values", values: { ...values } })
   }, [values])
 
   useEffect(() => {
     if (state.hasUpdatedValues) {
-      onValuesChange({ ...state.values! })
+      onValuesChange({ ...state.values })
       dispatch({ type: "complete_update_values" })
     }
   }, [state])

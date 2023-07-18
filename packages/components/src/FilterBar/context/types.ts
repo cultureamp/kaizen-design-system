@@ -16,7 +16,7 @@ export type InternalFilterState<
   name: string
   isRemovable: boolean
   isUsableWhen?: FilterIsUsableWhen<ValuesMap>
-  isUsable: boolean | null
+  isUsable: boolean
   isOpen: boolean
   value?: never
   isActive?: never
@@ -30,7 +30,7 @@ export type FilterBarState<ValuesMap extends FiltersValues> = {
   hasUpdatedValues: boolean
   filters: FilterBarStateFilters<ValuesMap>
   activeFilterIds: Set<keyof ValuesMap>
-  values: Partial<ValuesMap> | null
+  values: Partial<ValuesMap>
   dependentFilterIds: Set<keyof ValuesMap>
 }
 

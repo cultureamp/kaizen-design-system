@@ -44,7 +44,7 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
 
     case "deactivate_filter":
       state.activeFilterIds.delete(action.id)
-      state.values![action.id] = undefined
+      state.values[action.id] = undefined
       return {
         ...updateDependentFilters(state),
         hasUpdatedValues: true,

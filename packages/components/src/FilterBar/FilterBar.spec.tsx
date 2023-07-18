@@ -125,12 +125,15 @@ const FilterBarWrapper = <T extends FiltersValues>({
   )
 
   return (
-    <FilterBar<T>
-      filters={filters}
-      values={activeValues}
-      onValuesChange={setActiveValues}
-      {...customProps}
-    />
+    <>
+      <FilterBar<T>
+        filters={filters}
+        values={activeValues}
+        onValuesChange={setActiveValues}
+        {...customProps}
+      />
+      <div data-testid="testid__values">{JSON.stringify(activeValues)}</div>
+    </>
   )
 }
 
@@ -269,6 +272,20 @@ describe("<FilterBar />", () => {
           queryByRole("button", { name: "Topping" })
         ).not.toBeInTheDocument()
         expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
+      })
+
+      it("clears the value if the filter is not usable", () => {
+        const { getByTestId } = render(
+          <FilterBarWrapper
+            filters={filtersDependent}
+            defaultValues={{
+              topping: "pearls",
+            }}
+          />
+        )
+        expect(getByTestId("testid__values").textContent).toEqual(
+          JSON.stringify({})
+        )
       })
     })
 
