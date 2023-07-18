@@ -5,7 +5,7 @@ import ArrowIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import { isSemanticElement } from "./isSemanticElement"
 
 describe("isSemanticElement", () => {
-  it("will return true if provided a native element with a semantic role", () => {
+  it("returns true if provided a native element with a semantic role", () => {
     expect(
       isSemanticElement(
         <button onClick={jest.fn()} type="button">
@@ -16,12 +16,12 @@ describe("isSemanticElement", () => {
     expect(isSemanticElement(<a href="/">link</a>)).toBe(true)
   })
 
-  it("will return false if provided a native element without a semantic role", () => {
+  it("returns false if provided a non-semantic element", () => {
     expect(isSemanticElement(<span>click</span>)).toBe(false)
     expect(isSemanticElement(<div>link</div>)).toBe(false)
   })
 
-  it("will return true if provided a custom elements with a semantic role", () => {
+  it("returns true if provided one of the Kaizen components from the allowed list", () => {
     expect(isSemanticElement(<Button label="Click" />)).toBe(true)
     expect(isSemanticElement(<IconButton label="click" />)).toBe(true)
   })
@@ -53,7 +53,7 @@ describe("isSemanticElement", () => {
     ).toBe(true)
   })
 
-  it("will return false if provided an element using a role 'presentation' or 'none'", () => {
+  it("returns false if provided an element using a role 'presentation' or 'none'", () => {
     expect(
       isSemanticElement(<Icon role="presentation" icon={ArrowIcon} />)
     ).toBe(false)

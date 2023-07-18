@@ -165,7 +165,11 @@ const renderChildren = (
       "aria-describedby": hasActiveTooltip ? tooltipId : undefined,
     })
   }
-
+  /* eslint no-console: "warn" */
+  // We don't want to block them from this but just provide context for better a11y guidance
+  console.warn(
+    "<Tooltip /> is wrapping a non-semantic element, aria-describedby may not be read as expected"
+  )
   return content
 }
 

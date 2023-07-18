@@ -1,12 +1,11 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
-import { Button, IconButton } from "@kaizen/button"
-import ArrowIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import { Button } from "@kaizen/button"
 
 import { Tooltip } from "./index"
 describe("<Tooltip />", () => {
-  describe("Accessible descriptions", () => {
-    it("will render a button that will have an accessible description", async () => {
+  describe("Linking the tooltip to the inner element with aria-describedby", () => {
+    it("adds an accessible description when wrapping Kaizen Button", async () => {
       render(
         <Tooltip
           text="Tooltip popup description for Kaizen Button"
@@ -26,28 +25,8 @@ describe("<Tooltip />", () => {
         )
       })
     })
-    it("will render a IconButton that will have an accessible description", async () => {
-      render(
-        <Tooltip
-          text="Tooltip popup description for Kaizen IconButton"
-          display="inline"
-          isInitiallyVisible
-          position="below"
-        >
-          <IconButton label="More info" icon={ArrowIcon} />
-        </Tooltip>
-      )
 
-      await waitFor(() => {
-        expect(
-          screen.getByRole("button", { name: "More info" })
-        ).toHaveAccessibleDescription(
-          "Tooltip popup description for Kaizen IconButton"
-        )
-      })
-    })
-
-    it("will render a button without an aria-describedby if the tooltip is not active", async () => {
+    it("doesn't add an accessible description if the tooltip is inactive", async () => {
       render(
         <Tooltip
           text="Tooltip popup description for button"
@@ -66,8 +45,9 @@ describe("<Tooltip />", () => {
       })
     })
 
-    // Non-semantic elements without roles should not have aria-description on them - they will not read to screen readers and will throw an error
-    it("will render non-semantic elements without accessible descriptions", async () => {
+    // Non-semantic elements without roles should not have aria-description on them.
+    // They won't read to all screen readers as expected and may be reported in Storybook's accessibility tab (which uses Axe under the hood)
+    it("doesn't add an accessible description when wrapping a non-semantic element", async () => {
       render(
         <Tooltip
           text="Tooltip popup description for div"
@@ -86,7 +66,7 @@ describe("<Tooltip />", () => {
     })
   })
 
-  it("will render elements with semantic roles with accessible descriptions", async () => {
+  it("adds an accessible description when wrapping a semantic element", async () => {
     render(
       <Tooltip
         text="Tooltip popup description for div"
