@@ -38,12 +38,12 @@ steps:
       - docker-compose#v3.9.0:
           run: release
 
-  - name: ":package: Build (storybook)"
-    command: ".buildkite/scripts/build-storybook.sh"
-    timeout_in_minutes: 15
-    artifact_paths: "./storybook.tar.gz"
-    <<: *defaults
-    agent_query_rules: ["queue=build-unrestricted-large"]
+  # - name: ":package: Build (storybook)"
+  #   command: ".buildkite/scripts/build-storybook.sh"
+  #   timeout_in_minutes: 15
+  #   artifact_paths: "./storybook.tar.gz"
+  #   <<: *defaults
+  #   agent_query_rules: ["queue=build-unrestricted-large"]
 
   - wait
 
