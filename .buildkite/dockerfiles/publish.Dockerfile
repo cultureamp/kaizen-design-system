@@ -11,4 +11,5 @@ RUN apk update && apk add --no-cache \
   python-dev
 
 RUN pip install \
+  "Cython<3.0" "pyyaml<6" --no-build-isolation \
   awscli

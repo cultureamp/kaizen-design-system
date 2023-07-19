@@ -1,6 +1,7 @@
 import React from "react"
 import { DateValidationResponse } from "~components/FilterDatePicker"
 import { getNodeText } from "../../../../utils/getNodeText"
+import { isValidRange } from "./isValidRange"
 
 export type ValidateEndDateBeforeStartDateArgs = {
   startDate: Date
@@ -30,7 +31,7 @@ export const validateEndDateBeforeStartDate = ({
     isValidDate: true,
   }
 
-  if (endDate < startDate) {
+  if (!isValidRange(startDate, endDate)) {
     return {
       validationResponse: {
         ...baseResponse,
@@ -41,7 +42,7 @@ export const validateEndDateBeforeStartDate = ({
           )}"`,
         },
       },
-      newDate: undefined,
+      newDate: endDate,
     }
   }
 
