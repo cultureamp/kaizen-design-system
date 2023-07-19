@@ -35,7 +35,7 @@
     "@kaizen/responsive": "^1.8.10",
     "@kaizen/typography": "^2.3.11",
     "classnames": "^2.3.2",
-    "react-focus-lock": "^2.9.4",
+    "react-focus-lock": "^2.9.5",
     "uuid": "^9.0.0"
   },
   "peerDependencies": {

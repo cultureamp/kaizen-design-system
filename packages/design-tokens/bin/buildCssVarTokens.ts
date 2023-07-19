@@ -20,7 +20,7 @@ const output = yargs
   })
   .env().argv
 
-const formatJson = (jsonString: string): string =>
+const formatJson = (jsonString: string): Promise<string> =>
   format(jsonString, { parser: "json" })
 
 const run = async (): Promise<void> => {
@@ -63,7 +63,7 @@ const run = async (): Promise<void> => {
 
   fs.writeFileSync(
     path.resolve(jsonOutput, "color.json"),
-    formatJson(
+    await formatJson(
       JSON.stringify({
         dataViz: augmentedThemeWithCSSVariableValuesVersion.dataViz,
         color: augmentedThemeWithCSSVariableValuesVersion.color,
@@ -72,7 +72,7 @@ const run = async (): Promise<void> => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "border.json"),
-    formatJson(
+    await formatJson(
       JSON.stringify({
         border: augmentedThemeWithCSSVariableValuesVersion.border,
       })
@@ -80,7 +80,7 @@ const run = async (): Promise<void> => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "animation.json"),
-    formatJson(
+    await formatJson(
       JSON.stringify({
         animation: augmentedThemeWithCSSVariableValuesVersion.animation,
       })
@@ -88,7 +88,7 @@ const run = async (): Promise<void> => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "layout.json"),
-    formatJson(
+    await formatJson(
       JSON.stringify({
         layout: defaultTheme.layout,
       })
@@ -96,7 +96,7 @@ const run = async (): Promise<void> => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "shadow.json"),
-    formatJson(
+    await formatJson(
       JSON.stringify({
         shadow: augmentedThemeWithCSSVariableValuesVersion.shadow,
       })
@@ -104,7 +104,7 @@ const run = async (): Promise<void> => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "spacing.json"),
-    formatJson(
+    await formatJson(
       JSON.stringify({
         spacing: augmentedThemeWithCSSVariableValuesVersion.spacing,
       })
@@ -112,7 +112,7 @@ const run = async (): Promise<void> => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "typography.json"),
-    formatJson(
+    await formatJson(
       JSON.stringify({
         typography: augmentedThemeWithCSSVariableValuesVersion.typography,
       })

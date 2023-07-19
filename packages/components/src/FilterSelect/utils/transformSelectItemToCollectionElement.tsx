@@ -5,7 +5,7 @@ import { SelectItem, SelectOption } from "../types"
 import { isSelectOptionGroup } from "./isSelectOptionGroup"
 
 export const transformSelectItemToCollectionElement = <
-  Option extends SelectOption
+  Option extends SelectOption,
 >(
   item: SelectItem<Option>
 ): CollectionElement<SelectItem<Option>> =>

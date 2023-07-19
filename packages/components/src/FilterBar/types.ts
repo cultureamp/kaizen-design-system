@@ -17,7 +17,7 @@ export type FilterIsUsableWhen<ValuesMap extends FiltersValues> = (
 
 export type FilterAttributes<
   ValuesMap extends FiltersValues,
-  Id = keyof ValuesMap
+  Id = keyof ValuesMap,
 > = {
   id: Id
   name: string
