@@ -15,7 +15,12 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
-  "files": ["**/*.js", "**/*.js.map", "**/*.d.ts", "**/*.scss"],
+  "files": [
+    "**/*.js",
+    "**/*.js.map",
+    "**/*.d.ts",
+    "**/*.scss"
+  ],
   "author": "",
   "private": false,
   "license": "MIT",

@@ -107,6 +107,7 @@
         "ignoreProperties": ["composes", "/font-family/"]
       }
     ],
-    "value-no-vendor-prefix": true
+    "value-no-vendor-prefix": true,
+    "scss/dollar-variable-colon-space-after": "always-single-line"
   }
 }
