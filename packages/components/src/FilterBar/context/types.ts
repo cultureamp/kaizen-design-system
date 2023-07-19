@@ -10,7 +10,7 @@ export type FilterStateEditableAttributes = {
 
 export type InternalFilterState<
   ValuesMap extends FiltersValues,
-  Id extends keyof ValuesMap
+  Id extends keyof ValuesMap,
 > = {
   id: Id
   name: string

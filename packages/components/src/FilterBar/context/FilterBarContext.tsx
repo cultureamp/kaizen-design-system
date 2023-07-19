@@ -10,7 +10,7 @@ import { getValidValue } from "./utils/getValidValue"
 
 export type FilterBarContextValue<
   Value,
-  ValuesMap extends FiltersValues = Record<string, Value>
+  ValuesMap extends FiltersValues = Record<string, Value>,
 > = {
   getFilterState: <Id extends keyof ValuesMap>(
     id: Id
@@ -36,7 +36,7 @@ const FilterBarContext = React.createContext<FilterBarContextValue<any> | null>(
 
 export const useFilterBarContext = <
   Value,
-  Values extends FiltersValues = Record<string, Value>
+  Values extends FiltersValues = Record<string, Value>,
 >(): FilterBarContextValue<Value, Values> => {
   const context = useContext(FilterBarContext)
 
