@@ -23,7 +23,7 @@ export interface SelectOptionNode<Option extends SelectOption = SelectOption>
 }
 
 export interface SelectOptionGroupNode<
-  Option extends SelectOption = SelectOption
+  Option extends SelectOption = SelectOption,
 > extends Omit<Node<SelectOptionGroup<Option>>, "childNodes"> {
   type: "section"
   hasChildNodes: true

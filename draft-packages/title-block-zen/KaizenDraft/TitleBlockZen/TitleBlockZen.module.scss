@@ -666,7 +666,9 @@ $tab-container-height-medium-and-small-collapsed: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {

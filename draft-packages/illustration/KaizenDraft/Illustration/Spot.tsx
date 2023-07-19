@@ -137,14 +137,13 @@ const SPOT_ILLUSTRATION_BASE_PATH = "illustrations/heart/spot/"
 const createSpotIllustration =
   (fileName: string) =>
   // eslint-disable-next-line react/display-name
-  ({ enableAspectRatio, ...props }: SpotProps): JSX.Element =>
-    (
-      <Base
-        aspectRatio={enableAspectRatio ? "square" : undefined}
-        {...props}
-        name={`${SPOT_ILLUSTRATION_BASE_PATH}${fileName}`}
-      />
-    )
+  ({ enableAspectRatio, ...props }: SpotProps): JSX.Element => (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...props}
+      name={`${SPOT_ILLUSTRATION_BASE_PATH}${fileName}`}
+    />
+  )
 
 /**
  * Template Library / Engagement

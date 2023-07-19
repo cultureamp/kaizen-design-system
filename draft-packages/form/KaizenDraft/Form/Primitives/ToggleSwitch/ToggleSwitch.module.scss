@@ -57,7 +57,9 @@ $focus-ring-offset: 1px;
   width: calc(#{$spacing-md} * 0.9);
   height: calc(#{$spacing-md} * 0.9);
   border-radius: $spacing-md;
-  transition: left $animation-timing, right $animation-timing;
+  transition:
+    left $animation-timing,
+    right $animation-timing;
 }
 
 .checkIcon {
