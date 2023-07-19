@@ -677,7 +677,7 @@ type CycleFilterValues = {
 }
 
 const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
-  const { toggleOpenFilter } = useFilterBarContext<
+  const { setFilterOpenState } = useFilterBarContext<
     CycleFilterValues["cycle"],
     CycleFilterValues
   >()
@@ -691,7 +691,7 @@ const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
         { value: "cycle-2", label: "Cycle 2" },
       ]}
       onSelectionChange={key => {
-        if (key === "custom") toggleOpenFilter("customRange", true)
+        if (key === "custom") setFilterOpenState("customRange", true)
       }}
     />
   )
