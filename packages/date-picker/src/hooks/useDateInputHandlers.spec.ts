@@ -283,7 +283,7 @@ describe("useDateInputHandlers", () => {
   })
 
   describe("onKeyDown - Enter", () => {
-    it("returns a date when date is valid", () => {
+    it("calls onDateChange with date", () => {
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -295,6 +295,7 @@ describe("useDateInputHandlers", () => {
 
       act(() => {
         onKeyDown?.({
+          preventDefault: (): void => undefined,
           currentTarget: { value: "01/05/2022" },
           key: "Enter",
         } as KeyboardEvent<HTMLInputElement>)
@@ -303,24 +304,29 @@ describe("useDateInputHandlers", () => {
       expect(onDateChange).toBeCalledWith(new Date("2022-05-01"))
     })
 
-    it("returns undefined when date is invalid", () => {
+    it("calls onDateSubmit when provided", () => {
+      const onDateSubmit = jest.fn<void, [Date]>()
+
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
           setInputValue,
           onDateChange,
+          onDateSubmit,
         })
       )
       const { onKeyDown } = result.current
+      const keyboardEvent = {
+        preventDefault: (): void => undefined,
+        currentTarget: { value: "01/05/2022" },
+        key: "Enter",
+      } as KeyboardEvent<HTMLInputElement>
 
       act(() => {
-        onKeyDown?.({
-          currentTarget: { value: "potato" },
-          key: "Enter",
-        } as KeyboardEvent<HTMLInputElement>)
+        onKeyDown?.(keyboardEvent)
       })
 
-      expect(onDateChange).toBeCalledWith(undefined)
+      expect(onDateSubmit).toBeCalledWith(new Date("2022-05-01"))
     })
 
     it("calls custom onKeyDown when provided", () => {
