@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react"
 
 // Noting that this is contingent on our displayName for our components -  this something we control
-const allowedDisplayNames = ["Button", "IconButton"]
+const allowedDisplayNames = ["Button", "IconButton", "FilterButtonBase"]
 
 export function extractDisplayName(type: React.FunctionComponent): string {
   return type.displayName || type.name || "Unknown"
@@ -20,12 +20,14 @@ export const isSemanticElement = (
   if ("role" in props) {
     return props.role !== "presentation" && props.role !== "none"
   }
+
   if (typeof type !== "string") {
     // As we are only checking whether this matches to our allowedDisplayNames
     // type casting should be fine
     const displayName = extractDisplayName(
       type as unknown as React.FunctionComponent
     )
+
     return allowedDisplayNames.includes(displayName)
   }
 
