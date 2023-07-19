@@ -7,6 +7,7 @@ import {
   FilterDateRangePickerField,
   FilterDateRangePickerFieldProps,
 } from "./subcomponents/FilterDateRangePickerField"
+import { isValidRange } from "./subcomponents/FilterDateRangePickerField/utils/isValidRange"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 
 export interface FilterDateRangePickerProps
@@ -30,12 +31,14 @@ export const FilterDateRangePicker = ({
     setIsOpen={setIsOpen}
     renderTrigger={(triggerProps): JSX.Element =>
       renderTrigger({
-        selectedValue: isCompleteDateRange(selectedRange) ? (
-          <DateRangeDisplayLabel
-            dateRange={selectedRange}
-            locale={getLocale(locale)}
-          />
-        ) : undefined,
+        selectedValue:
+          isCompleteDateRange(selectedRange) &&
+          isValidRange(selectedRange.from, selectedRange.to) ? (
+            <DateRangeDisplayLabel
+              dateRange={selectedRange}
+              locale={getLocale(locale)}
+            />
+          ) : undefined,
         label,
         ...triggerProps,
       })

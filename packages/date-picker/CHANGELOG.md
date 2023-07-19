@@ -1,5 +1,21 @@
 # Change Log
 
+## 6.2.2
+
+### Patch Changes
+
+- [#3852](https://github.com/cultureamp/kaizen-design-system/pull/3852) [`2e0a8db1d`](https://github.com/cultureamp/kaizen-design-system/commit/2e0a8db1db16f7a7bda4ab3c7dbad5691238facf) - Minor fix to the types in `useDateInputHandlers` changing `setInputValue` from expecting a `SetStateAction` to just a `string`.
+
+- Updated dependencies [[`6621d8912`](https://github.com/cultureamp/kaizen-design-system/commit/6621d89125658392205963f89e230660bc6fddc2)]:
+  - @kaizen/draft-form@10.4.7
+
+## 6.2.1
+
+### Patch Changes
+
+- [#3862](https://github.com/cultureamp/kaizen-design-system/pull/3862) [`5afdddade`](https://github.com/cultureamp/kaizen-design-system/commit/5afdddaded55b173dc39e469a2dfa15fe135155f) - Replace SVG imports with SVG React components
+  - This addresses the SVGs not rendering as expected in consuming repos
+
 ## 6.2.0
 
 ### Minor Changes
