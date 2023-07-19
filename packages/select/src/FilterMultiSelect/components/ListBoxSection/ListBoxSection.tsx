@@ -9,7 +9,7 @@ export interface ListBoxSectionProps {
    * unsighted users
    */
   sectionName: string
-  /** * If provided, will override the aria-label for this group */
+  /** If provided, will override the aria-label for this group */
   sectionHeader?: ReactNode
   children: (item: MultiSelectItem) => React.ReactNode
 }
@@ -25,25 +25,27 @@ export const ListBoxSection = ({
     <li role="presentation">
       <ul
         className={styles.listBoxSection}
-        aria-label={sectionHeader ? undefined : sectionName}
+        aria-label={sectionName}
         aria-labelledby={sectionHeader ? listSectionId : undefined}
+        aria-describedby={listSectionId || undefined}
         role="group"
       >
+        {sectionHeader && (
+          <li
+            className={styles.listBoxSectionHeader}
+            id={listSectionId}
+            role="presentation"
+          >
+            <span className="sr-only">{sectionName}. </span>
+            {sectionHeader}
+          </li>
+        )}
         {/*
          * This seems semantically strange but most closely aligns to WCAGs suggested pattern:
          https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-grouped/
          * the role="presentation" will throw an error a11y warning "Element has children which are not allowed".
          This is expected and is an accepted issue / potential limitation with axe
          */}
-        {sectionHeader && (
-          <li
-            className={styles.listBoxSectionHeader}
-            role="presentation"
-            id={listSectionId}
-          >
-            {sectionHeader}
-          </li>
-        )}
         {Array.from(items).map(node => node != undefined && children(node))}
       </ul>
     </li>
