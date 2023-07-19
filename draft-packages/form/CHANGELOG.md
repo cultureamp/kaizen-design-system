@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.4.7
+
+### Patch Changes
+
+- [#3865](https://github.com/cultureamp/kaizen-design-system/pull/3865) [`6621d8912`](https://github.com/cultureamp/kaizen-design-system/commit/6621d89125658392205963f89e230660bc6fddc2) - - Update Input components `type` condition to supersede the deprecated `inputType` prop
+  - Add test coverage to ensure TextField components have the correct type
+  - Update stories to use `type` instead of `inputType`
+
 ## 10.4.6
 
 ### Patch Changes

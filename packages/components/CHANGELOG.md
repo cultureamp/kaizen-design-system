@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.19.2
+
+### Patch Changes
+
+- [#3852](https://github.com/cultureamp/kaizen-design-system/pull/3852) [`2e0a8db1d`](https://github.com/cultureamp/kaizen-design-system/commit/2e0a8db1db16f7a7bda4ab3c7dbad5691238facf) - **FilterDateRangePicker**
+  - Fixed issue where validation was not returning the correct input value
+- Updated dependencies [[`2e0a8db1d`](https://github.com/cultureamp/kaizen-design-system/commit/2e0a8db1db16f7a7bda4ab3c7dbad5691238facf), [`6621d8912`](https://github.com/cultureamp/kaizen-design-system/commit/6621d89125658392205963f89e230660bc6fddc2)]:
+  - @kaizen/date-picker@6.2.2
+  - @kaizen/draft-form@10.4.7
+
 ## 1.19.1
 
 ### Patch Changes

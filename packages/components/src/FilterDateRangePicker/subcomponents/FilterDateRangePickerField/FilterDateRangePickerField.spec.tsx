@@ -474,6 +474,35 @@ describe("<FilterDateRangePickerField />", () => {
             ).toEqual(3)
           })
         })
+        it("displays only one date when the start date input is set to be before the end date", async () => {
+          const { container } = render(
+            <FilterDateRangePickerFieldWrapper
+              selectedRange={{
+                from: new Date("2022-05-15"),
+                to: new Date("2022-05-22"),
+              }}
+            />
+          )
+
+          const inputStartDate = screen.getByLabelText("Date from")
+
+          await user.clear(inputStartDate)
+          await user.type(inputStartDate, "22/06/2022")
+
+          await user.click(document.body)
+
+          const dateEndErrorContainer = container.querySelector(dateEndErrorId)
+
+          await waitFor(() => {
+            expect(dateEndErrorContainer).toHaveTextContent(
+              invalidDateOrderErrorMessage
+            )
+            // End date in Calendar is deselected
+            expect(
+              screen.getAllByRole("button", { pressed: true }).length
+            ).toEqual(1)
+          })
+        })
 
         it("shows error on updating start date input to be after end date", async () => {
           const { container } = render(
@@ -615,6 +644,58 @@ describe("<FilterDateRangePickerField />", () => {
       await waitFor(() => {
         expect(dateEndErrorContainer).not.toBeInTheDocument()
       })
+    })
+  })
+
+  it("only returns a valid date to the onRangeChange function", async () => {
+    const onRangeChange = jest.fn()
+
+    const { getByLabelText } = render(
+      <FilterDateRangePickerFieldWrapper
+        selectedRange={{
+          from: new Date("2022-05-10"),
+          to: new Date("2022-06-10"),
+        }}
+        onRangeChange={onRangeChange}
+      />
+    )
+
+    onRangeChange.mockClear()
+
+    const inputStartDate = getByLabelText("Date from")
+
+    await user.clear(inputStartDate)
+    await user.type(inputStartDate, "10/07/2022")
+    await user.tab()
+
+    await waitFor(() => {
+      expect(onRangeChange.mock.calls).toEqual([
+        [
+          {
+            from: new Date("2022-07-10"),
+            to: undefined,
+          },
+        ],
+      ])
+    })
+
+    onRangeChange.mockClear()
+
+    const inputEndDate = getByLabelText("Date to")
+
+    await user.clear(inputEndDate)
+    await user.type(inputEndDate, "10/08/2022")
+    await user.tab()
+
+    await waitFor(() => {
+      expect(onRangeChange.mock.calls).toEqual([
+        [
+          {
+            from: new Date("2022-07-10"),
+            to: new Date("2022-08-10"),
+          },
+        ],
+      ])
     })
   })
 })
