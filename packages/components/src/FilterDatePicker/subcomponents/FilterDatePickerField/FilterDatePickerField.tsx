@@ -133,12 +133,13 @@ export const FilterDatePickerField = ({
         date: newDate,
       })
 
-      // Only provide consumers with a valid date to the `onDateSubmit` function
-      if (newDate && !isInvalidDate(newDate)) {
-        onDateSubmit?.(newDate)
-      }
-
       handleDateChange(newDate)
+    },
+    onDateSubmit: date => {
+      // Only provide consumers with a valid date to the `onDateSubmit` function
+      if (!isInvalidDate(date)) {
+        onDateSubmit?.(date)
+      }
     },
     ...inputProps,
   })
