@@ -677,7 +677,10 @@ type CycleFilterValues = {
 }
 
 const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
-  const { toggleOpenFilter } = useFilterBarContext<string, CycleFilterValues>()
+  const { toggleOpenFilter } = useFilterBarContext<
+    CycleFilterValues["cycle"],
+    CycleFilterValues
+  >()
 
   return (
     <FilterBar.Select
@@ -707,6 +710,7 @@ export const ExternalEventOpenFilter: StoryFn<typeof FilterBar> = () => {
       id: "customRange",
       name: "Custom Range",
       Component: <FilterBar.DateRangePicker />,
+      isUsableWhen: state => state.cycle.value === "custom",
     },
   ] satisfies Filters<CycleFilterValues>
 
@@ -717,7 +721,6 @@ export const ExternalEventOpenFilter: StoryFn<typeof FilterBar> = () => {
         values={values}
         onValuesChange={setValues}
       />
-
       <div className="mt-16">
         <code>Values:</code>
         <Highlight className="json">

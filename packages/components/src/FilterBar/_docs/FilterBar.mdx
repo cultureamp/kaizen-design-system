@@ -342,6 +342,44 @@ packages.
 
 <NoClipCanvas of={FilterBarStories.ExternalEventValuesUpdate} />
 
-### Open a sibling filter
+### Open a filter through selecting a value from another filter
+
+There may be a situation where you want to open a filter based on selecting a value from another filter.
+
+To do so, call the `toggleOpenFilter` function from `useFilterBarContext` in your event handler
+(you will need to create a custom component wrapping the Filter to access the context).
+
+You may also want to combine the usage with an `isUsableWhen`, as a selected value increases the width of
+the Filter button (therefore pushing the others), potentially misaligning the popover of the one opened if it has relocated.
+
+```tsx
+type Values = {
+  cycle: string
+  customRange: DateRange
+}
+
+const CycleFilter = () => {
+  const { toggleOpenFilter } = useFilterBarContext<Values["cycle"], Values>()
+
+  return (
+    <FilterBar.Select
+      id="cycle"
+      items={[{ value: "custom", label: "Custom Range" }]}
+      onSelectionChange={key => {
+        if (key === "custom") toggleOpenFilter("customRange", true)
+      }}
+    />
+  )
+}
+
+const CustomFilterBar = () => {
+  const filters = [
+    { id: "cycle", Component: <CycleFilter />, ...rest },
+    { id: "customRange", isUsableWhen: state => state.cycle.value === "custom", ...rest },
+  ] satisfies Filters<Values>
+
+  return <FilterBar<Values> filters={filters} {...rest} />
+}
+```
 
 <NoClipCanvas of={FilterBarStories.ExternalEventOpenFilter} />
