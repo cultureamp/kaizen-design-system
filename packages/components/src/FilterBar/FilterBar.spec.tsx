@@ -906,83 +906,21 @@ describe("<FilterBar />", () => {
       })
     })
 
-    describe("setFilterOpenState()", () => {
+    describe("openFilter()", () => {
       type CycleFilterValues = {
         cycle: string
         customDate: Date
       }
 
       const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
-        const { setFilterOpenState } = useFilterBarContext<
-          string,
-          CycleFilterValues
-        >()
+        const { openFilter } = useFilterBarContext<string, CycleFilterValues>()
 
         return (
           <FilterBar.Select
             id={id}
             items={[{ value: "custom", label: "Custom Date" }]}
             onSelectionChange={key => {
-              if (key === "custom") setFilterOpenState("customDate", true)
-            }}
-          />
-        )
-      }
-
-      const cycleFilters = [
-        {
-          id: "cycle",
-          name: "Cycle",
-          Component: <CycleFilter />,
-        },
-        {
-          id: "customDate",
-          name: "Custom Date",
-          Component: <FilterBar.DatePicker />,
-        },
-      ] satisfies Filters<CycleFilterValues>
-
-      it("opens the Custom Date filter when Cycle's 'custom' value is selected", async () => {
-        const { getByRole } = render(
-          <FilterBarWrapper<CycleFilterValues> filters={cycleFilters} />
-        )
-
-        const customDateButton = getByRole("button", { name: "Custom Date" })
-        expect(customDateButton).toHaveAttribute("aria-expanded", "false")
-
-        await user.click(getByRole("button", { name: "Cycle" }))
-
-        const customDateOption = getByRole("option", { name: "Custom Date" })
-        await waitFor(() => {
-          expect(customDateOption).toBeVisible()
-        })
-
-        await user.click(customDateOption)
-
-        await waitFor(() => {
-          expect(customDateButton).toHaveAttribute("aria-expanded", "true")
-        })
-      })
-    })
-
-    describe("DEPRECATED - toggleOpenFilter()", () => {
-      type CycleFilterValues = {
-        cycle: string
-        customDate: Date
-      }
-
-      const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
-        const { toggleOpenFilter } = useFilterBarContext<
-          string,
-          CycleFilterValues
-        >()
-
-        return (
-          <FilterBar.Select
-            id={id}
-            items={[{ value: "custom", label: "Custom Date" }]}
-            onSelectionChange={key => {
-              if (key === "custom") toggleOpenFilter("customDate", true)
+              if (key === "custom") openFilter("customDate")
             }}
           />
         )

@@ -346,7 +346,7 @@ packages.
 
 There may be a situation where you want to open a filter based on selecting a value from another filter.
 
-To do so, call the `setFilterOpenState` function from `useFilterBarContext` in your event handler
+To do so, call the `openFilter` function from `useFilterBarContext` in your event handler
 (you will need to create a custom component wrapping the Filter to access the context).
 
 You may also want to combine the usage with an `isUsableWhen`, as a selected value increases the width of
@@ -359,14 +359,14 @@ type Values = {
 }
 
 const CycleFilter = () => {
-  const { setFilterOpenState } = useFilterBarContext<Values["cycle"], Values>()
+  const { openFilter } = useFilterBarContext<Values["cycle"], Values>()
 
   return (
     <FilterBar.Select
       id="cycle"
       items={[{ value: "custom", label: "Custom Range" }]}
       onSelectionChange={key => {
-        if (key === "custom") setFilterOpenState("customRange", true)
+        if (key === "custom") openFilter("customRange")
       }}
     />
   )

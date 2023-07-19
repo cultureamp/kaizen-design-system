@@ -27,6 +27,7 @@ export type FilterBarContextValue<
     id: Id,
     isOpen: boolean
   ) => void
+  openFilter: <Id extends keyof ValuesMap>(id: Id) => void
   updateValue: <Id extends keyof ValuesMap>(
     id: Id,
     value: ValuesMap[Id]
@@ -94,6 +95,9 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       isOpen: boolean
     ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
+    },
+    openFilter: <Id extends keyof ValuesMap>(id: Id): void => {
+      dispatch({ type: "update_single_filter", id, data: { isOpen: true } })
     },
     updateValue: <Id extends keyof ValuesMap>(
       id: Id,
