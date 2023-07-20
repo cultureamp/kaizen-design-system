@@ -113,7 +113,10 @@ describe("<FilterDateRangePicker />", () => {
       await user.type(inputEndDate, "01/04/2022")
       await user.tab()
 
-      expect(filterButton.textContent).toEqual("Dates")
+      await waitFor(() => {
+        expect(inputEndDate).not.toHaveFocus()
+        expect(filterButton.textContent).toEqual("Dates")
+      })
     })
   })
 })
