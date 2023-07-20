@@ -3,7 +3,6 @@ import classnames from "classnames"
 import {
   CalendarSingle,
   CalendarSingleProps,
-  useDateInputHandlers,
   isInvalidDate,
   getLocale,
 } from "@kaizen/date-picker"
@@ -14,6 +13,7 @@ import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/sub
 import { DataAttributes } from "~types/DataAttributes"
 import { DisabledDays, FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { useDateInputHandlers } from "../../hooks/useDateInputHandlers"
 import { DateValidationResponse, ValidationMessage } from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
 import { filterDatePickerFieldReducer } from "./filterDatePickerFieldReducer"
