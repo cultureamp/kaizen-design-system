@@ -168,7 +168,7 @@ const renderChildren = (
   /* eslint no-console: "warn" */
   // We don't want to block them from this but just provide context for better a11y guidance
   console.warn(
-    "<Tooltip /> is wrapping a non-semantic element, aria-describedby may not be read as expected"
+    "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly."
   )
   return content
 }
