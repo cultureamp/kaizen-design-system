@@ -1,42 +1,85 @@
 import React from "react"
-import { render } from "@testing-library/react"
-import * as AppearanceAnim from "./AppearanceAnim"
-import { Tooltip } from "./index"
-import "@testing-library/jest-dom"
-jest.mock("./AppearanceAnim")
-const AnimationProvider = AppearanceAnim.AnimationProvider as jest.Mock
+import { render, screen, waitFor } from "@testing-library/react"
+import { Button } from "@kaizen/button"
 
+import { Tooltip } from "./index"
 describe("<Tooltip />", () => {
-  beforeEach(() => {
-    AnimationProvider.mockReturnValue(<div />)
-  })
-  describe("When no animationDuration prop is given", () => {
-    it("animationDuration prop is passed to AnimationProvider as undefined", () => {
+  describe("Linking the tooltip to the inner element with aria-describedby", () => {
+    it("adds an accessible description when wrapping Kaizen Button", async () => {
       render(
-        <Tooltip text="Example">
-          <div />
+        <Tooltip
+          text="Tooltip popup description for Kaizen Button"
+          display="inline"
+          isInitiallyVisible
+          position="below"
+        >
+          <Button label="More info" />
         </Tooltip>
       )
-      expect(AnimationProvider).toHaveBeenCalledWith(
-        expect.objectContaining({
-          animationDuration: undefined,
-        }),
-        {}
+
+      await waitFor(() => {
+        expect(
+          screen.getByRole("button", { name: "More info" })
+        ).toHaveAccessibleDescription(
+          "Tooltip popup description for Kaizen Button"
+        )
+      })
+    })
+
+    it("doesn't add an accessible description if the tooltip is inactive", async () => {
+      render(
+        <Tooltip
+          text="Tooltip popup description for button"
+          display="inline"
+          position="below"
+        >
+          <Button label="More info" />
+        </Tooltip>
       )
+
+      await waitFor(() => {
+        expect(screen.queryByRole("tooltip")).toBe(null)
+        expect(
+          screen.getByRole("button", { name: "More info" })
+        ).not.toHaveAttribute("aria-describedby")
+      })
+    })
+
+    // Non-semantic elements without roles should not have aria-description on them.
+    // They won't read to all screen readers as expected and may be reported in Storybook's accessibility tab (which uses Axe under the hood)
+    it("doesn't add an accessible description when wrapping a non-semantic element", async () => {
+      render(
+        <Tooltip
+          text="Tooltip popup description for div"
+          display="inline"
+          isInitiallyVisible
+          position="below"
+        >
+          <div>Non semantic element</div>
+        </Tooltip>
+      )
+      await waitFor(() => {
+        expect(screen.getByText("Non semantic element")).not.toHaveAttribute(
+          "aria-describedby"
+        )
+      })
     })
   })
-  describe("When animationDuration prop is given", () => {
-    it("animationDuration prop is passed to AnimationProvider", () => {
-      render(
-        <Tooltip text="Example" animationDuration={1000}>
-          <div />
-        </Tooltip>
-      )
-      expect(AnimationProvider).toHaveBeenCalledWith(
-        expect.objectContaining({
-          animationDuration: 1000,
-        }),
-        {}
+
+  it("adds an accessible description when wrapping a semantic element", async () => {
+    render(
+      <Tooltip
+        text="Tooltip popup description for div"
+        display="inline"
+        isInitiallyVisible
+        position="below"
+      >
+        <div role="textbox" contentEditable="true" aria-multiline="true"></div>
+      </Tooltip>
+    )
+    await waitFor(() => {
+      expect(screen.getByRole("textbox")).toHaveAccessibleDescription(
+        "Tooltip popup description for div"
       )
     })
   })
