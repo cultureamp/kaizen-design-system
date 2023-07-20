@@ -1,5 +1,6 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode, useState, useEffect } from "react"
 import { v4 } from "uuid"
+import { VisuallyHidden } from "@kaizen/a11y"
 import { MultiSelectItem } from "../../../types"
 import styles from "./ListBoxSection.module.scss"
 export interface ListBoxSectionProps {
@@ -20,14 +21,20 @@ export const ListBoxSection = ({
   children,
   sectionHeader,
 }: ListBoxSectionProps): JSX.Element => {
-  const listSectionId = sectionHeader ? v4() : undefined
+  const [listSectionId, setListSectionId] = useState<string | undefined>(
+    undefined
+  )
+
+  useEffect(() => {
+    setListSectionId(v4())
+  }, [])
+
   return (
     <li role="presentation">
       <ul
         className={styles.listBoxSection}
         aria-label={sectionName}
         aria-labelledby={sectionHeader ? listSectionId : undefined}
-        aria-describedby={listSectionId || undefined}
         role="group"
       >
         {sectionHeader && (
@@ -36,7 +43,7 @@ export const ListBoxSection = ({
             id={listSectionId}
             role="presentation"
           >
-            <span className="sr-only">{sectionName}. </span>
+            <VisuallyHidden>{sectionName}. </VisuallyHidden>
             {sectionHeader}
           </li>
         )}
