@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from "react"
+import React, { ReactNode, useState } from "react"
 import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { MultiSelectItem } from "../../../types"
@@ -21,14 +21,7 @@ export const ListBoxSection = ({
   children,
   sectionHeader,
 }: ListBoxSectionProps): JSX.Element => {
-  const [listSectionId, setListSectionId] = useState<string | undefined>(
-    undefined
-  )
-
-  useEffect(() => {
-    setListSectionId(v4())
-  }, [])
-
+  const [listSectionId] = useState<string>(v4())
   return (
     <li role="presentation">
       <ul
