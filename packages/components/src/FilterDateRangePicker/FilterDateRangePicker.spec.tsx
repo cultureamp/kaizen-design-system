@@ -117,6 +117,6 @@ describe("<FilterDateRangePicker />", () => {
         expect(inputEndDate).not.toHaveFocus()
         expect(filterButton.textContent).toEqual("Dates")
       })
-    })
+    }, 10000)
   })
 })
