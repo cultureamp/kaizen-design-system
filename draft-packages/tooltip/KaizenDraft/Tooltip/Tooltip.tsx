@@ -165,8 +165,8 @@ const renderChildren = (
       "aria-describedby": hasActiveTooltip ? tooltipId : undefined,
     })
   }
-  /* eslint no-console: "warn" */
   // We don't want to block them from this but just provide context for better a11y guidance
+  // eslint-disable-next-line no-console
   console.warn(
     "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly."
   )
