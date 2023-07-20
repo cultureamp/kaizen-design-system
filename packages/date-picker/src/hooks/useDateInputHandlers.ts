@@ -14,7 +14,6 @@ export type UseDateInputHandlersArgs = {
   disabledDays?: DisabledDays
   setInputValue: Dispatch<string>
   onDateChange: (date: Date | undefined) => void
-  onDateSubmit?: (date: Date) => void
   onChange?: DateInputProps["onChange"]
   onFocus?: DateInputProps["onFocus"]
   onBlur?: DateInputProps["onBlur"]
@@ -33,7 +32,6 @@ export const useDateInputHandlers = ({
   disabledDays,
   setInputValue,
   onDateChange,
-  onDateSubmit,
   onChange,
   onFocus,
   onBlur,
@@ -78,13 +76,11 @@ export const useDateInputHandlers = ({
 
   const handleKeyDown: DateInputProps["onKeyDown"] = e => {
     if (e.key === "Enter") {
-      e.preventDefault()
       const date = parseDateFromNumeralFormatValue(
         e.currentTarget.value,
         locale
       )
-      onDateChange(date)
-      onDateSubmit?.(date)
+      onDateChange(isValidDate(date) ? date : undefined)
     }
     onKeyDown?.(e)
   }
