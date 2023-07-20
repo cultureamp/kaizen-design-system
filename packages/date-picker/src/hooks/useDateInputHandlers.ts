@@ -27,6 +27,9 @@ export type UseDateInputHandlersValue = {
   onKeyDown: DateInputProps["onKeyDown"]
 }
 
+/**
+ * @deprecated Moved to @kaizen/components.
+ */
 export const useDateInputHandlers = ({
   locale,
   disabledDays,
