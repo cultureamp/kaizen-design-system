@@ -657,21 +657,6 @@ export const WithSectionHeader: StoryFn<typeof FilterMultiSelect> = () => {
 
                   <FilterMultiSelect.ListBoxSection
                     items={unselectedItems}
-                    sectionHeader={
-                      <InlineNotification
-                        type="cautionary"
-                        persistent
-                        noBottomMargin
-                        headingProps={{
-                          tag: "span",
-                          variant: "heading-5",
-                          children: "Confidentiality protection",
-                        }}
-                      >
-                        Results for these filters are hidden to protect
-                        identities of individuals and small grounds
-                      </InlineNotification>
-                    }
                     sectionName="Unselected items"
                   >
                     {(item): JSX.Element => (
@@ -687,6 +672,21 @@ export const WithSectionHeader: StoryFn<typeof FilterMultiSelect> = () => {
                   <FilterMultiSelect.ListBoxSection
                     items={disabledItems}
                     sectionName="Disabled items"
+                    sectionHeader={
+                      <InlineNotification
+                        type="cautionary"
+                        persistent
+                        noBottomMargin
+                        headingProps={{
+                          tag: "span",
+                          variant: "heading-5",
+                          children: "Confidentiality protection",
+                        }}
+                      >
+                        Results for these filters are hidden to protect
+                        identities of individuals and small groups
+                      </InlineNotification>
+                    }
                   >
                     {(item): JSX.Element => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
