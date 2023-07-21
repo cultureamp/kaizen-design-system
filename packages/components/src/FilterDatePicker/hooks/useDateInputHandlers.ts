@@ -1,40 +1,40 @@
-import { Dispatch } from "react"
-import { DateInputProps } from "../_subcomponents/DateInput"
-import { DisabledDays } from "../types"
-import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
-import { formatDateAsText } from "../utils/formatDateAsText"
-import { isDisabledDate } from "../utils/isDisabledDate"
-import { isInvalidDate } from "../utils/isInvalidDate"
-import { isSelectingDayInCalendar } from "../utils/isSelectingDayInCalendar"
-import { parseDateFromNumeralFormatValue } from "../utils/parseDateFromNumeralFormatValue"
-import { parseDateFromTextFormatValue } from "../utils/parseDateFromTextFormatValue"
+import {
+  DateInputProps,
+  formatDateAsText,
+  isInvalidDate,
+} from "@kaizen/date-picker"
+import { formatDateAsNumeral } from "@kaizen/date-picker/src/utils/formatDateAsNumeral"
+import { isDisabledDate } from "@kaizen/date-picker/src/utils/isDisabledDate"
+import { isSelectingDayInCalendar } from "@kaizen/date-picker/src/utils/isSelectingDayInCalendar"
+import { parseDateFromNumeralFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromNumeralFormatValue"
+import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
+import { DisabledDays } from "~types/DatePicker"
 
-export type UseDateInputHandlersArgs = {
+type UseDateInputHandlersArgs = {
   locale: Locale
   disabledDays?: DisabledDays
-  setInputValue: Dispatch<string>
+  setInputValue: (value: string) => void
   onDateChange: (date: Date | undefined) => void
+  onDateSubmit?: (date: Date) => void
   onChange?: DateInputProps["onChange"]
   onFocus?: DateInputProps["onFocus"]
   onBlur?: DateInputProps["onBlur"]
   onKeyDown?: DateInputProps["onKeyDown"]
 }
 
-export type UseDateInputHandlersValue = {
+type UseDateInputHandlersValue = {
   onChange: DateInputProps["onChange"]
   onFocus: DateInputProps["onFocus"]
   onBlur: DateInputProps["onBlur"]
   onKeyDown: DateInputProps["onKeyDown"]
 }
 
-/**
- * @deprecated Moved to @kaizen/components.
- */
 export const useDateInputHandlers = ({
   locale,
   disabledDays,
   setInputValue,
   onDateChange,
+  onDateSubmit,
   onChange,
   onFocus,
   onBlur,
@@ -79,11 +79,13 @@ export const useDateInputHandlers = ({
 
   const handleKeyDown: DateInputProps["onKeyDown"] = e => {
     if (e.key === "Enter") {
+      e.preventDefault()
       const date = parseDateFromNumeralFormatValue(
         e.currentTarget.value,
         locale
       )
-      onDateChange(isValidDate(date) ? date : undefined)
+      onDateChange(date)
+      onDateSubmit?.(date)
     }
     onKeyDown?.(e)
   }
