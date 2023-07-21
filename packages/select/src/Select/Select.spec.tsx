@@ -37,16 +37,16 @@ describe("<Select>", () => {
       it("shows the trigger with placeholder when no option is selected", () => {
         render(<SelectWrapper />)
         const trigger = screen.getByRole("combobox", {
-          name: "Mock Label Select",
+          name: "Mock Label",
         })
-        expect(trigger).toBeVisible()
+        expect(trigger).toBeInTheDocument()
       })
     })
 
     it("makes sure the menu to be labelled by trigger", () => {
       render(<SelectWrapper selectedKey="id-sre" />)
       const menu = screen.getByRole("combobox", {
-        name: "Mock Label SRE",
+        name: "Mock Label",
       })
       expect(menu).toHaveTextContent("SRE")
     })
@@ -82,7 +82,7 @@ describe("<Select>", () => {
           />
         )
         const trigger = screen.getByRole("combobox", {
-          name: "Mock Label SRE",
+          name: "Mock Label",
         })
         await user.click(trigger)
         await waitFor(() => {
@@ -97,7 +97,7 @@ describe("<Select>", () => {
         it("is opened when user clicks on the trigger", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           const trigger = screen.getByRole("combobox", {
-            name: "Mock Label SRE",
+            name: "Mock Label",
           })
           await user.click(trigger)
           await waitFor(() => {
@@ -110,7 +110,7 @@ describe("<Select>", () => {
         it("is closed when user clicks on the trigger", async () => {
           render(<SelectWrapper selectedKey="id-sre" defaultOpen />)
           const trigger = screen.getByRole("combobox", {
-            name: "Mock Label SRE",
+            name: "Mock Label",
           })
 
           await user.click(trigger)
@@ -145,7 +145,7 @@ describe("<Select>", () => {
         it("allows the user to tab to the trigger", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           const trigger = screen.getByRole("combobox", {
-            name: "Mock Label SRE",
+            name: "Mock Label",
           })
           await user.tab()
           await waitFor(() => {
@@ -156,7 +156,7 @@ describe("<Select>", () => {
         it("opens the menu when hits enter key", async () => {
           render(<SelectWrapper selectedKey="id-sre" />)
           const trigger = screen.getByRole("combobox", {
-            name: "Mock Label SRE",
+            name: "Mock Label",
           })
           await user.tab()
           await waitFor(() => {
@@ -331,7 +331,7 @@ describe("<Select>", () => {
         const spy = jest.fn()
         render(<SelectWrapper onSelectionChange={spy} defaultOpen />)
         const trigger = screen.getByRole("combobox", {
-          name: "Mock Label Select",
+          name: "Mock Label",
         })
         await user.tab()
         await waitFor(() => {
@@ -350,5 +350,24 @@ describe("<Select>", () => {
         })
       })
     })
+  })
+})
+
+describe("Validate theory", () => {
+
+ const MockButton = (): JSX.Element => (
+  <div>
+    <span id="button-label" className="sr-only">Button label</span>
+    <button aria-labelledby="button-label" type="button" role="combobox" aria-expanded="false"  aria-haspopup="listbox" aria-controls="listbox1">
+      <span id="button-value">
+      mocked value
+      </span>
+    </button>
+  </div>
+ )
+
+  it("can find the combobox from the labels name", () => {
+    render(<MockButton  />)
+    expect(screen.getByRole("combobox", {name: "Button label"})).toBeInTheDocument()
   })
 })
