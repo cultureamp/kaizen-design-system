@@ -349,8 +349,14 @@ There may be a situation where you want to open a filter based on selecting a va
 To do so, call the `openFilter` function from `useFilterBarContext` in your event handler
 (you will need to create a custom component wrapping the Filter to access the context).
 
-You may also want to combine the usage with an `isUsableWhen`, as a selected value increases the width of
-the Filter button (therefore pushing the others), potentially misaligning the popover of the one opened if it has relocated.
+**Note:** If your condition is based on the Source Filter (eg. Cycle)'s value and the Source Filter sits
+earlier in the list of active filters than the Dependent Filter (eg. Custom Range), we recommend you
+combine your implementation with an `isUsableWhen` for the Dependent Filter with a condition matching when
+you call `openFilter` (eg. in the following example, it is when Cycle has a value of "custom").
+While it is still usable without the dependency, you will likely see a misalignment with the
+popover of the Dependent Filter, as the position calculation of the popover will have run prior
+to the update of the Source Filter's button (which, when a value is selected, it is included in the button
+content, thus making it wider).
 
 ```tsx
 type Values = {
