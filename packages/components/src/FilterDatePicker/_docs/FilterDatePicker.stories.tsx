@@ -300,8 +300,13 @@ export const Validation: StoryFn = () => {
   const submitRequest: React.FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault()
 
-    setValidationMessage({ status: "error", message: "Error for date" })
-    return alert("Error")
+    const status = validationMessage?.status
+    if (status === "error" || status === "caution") {
+      setValidationMessage({ status: "error", message: "There is an error" })
+      return alert("Error")
+    }
+
+    alert("Success")
   }
 
   return (

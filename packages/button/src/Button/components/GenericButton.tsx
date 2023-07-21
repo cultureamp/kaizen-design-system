@@ -47,6 +47,7 @@ export type GenericProps = {
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
   classNameOverride?: string
+  "aria-describedby"?: string
 }
 
 export type ButtonType = "submit" | "reset" | "button"
