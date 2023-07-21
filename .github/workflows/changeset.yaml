@@ -5,6 +5,18 @@ on:
     branches:
       - "main"
 
+  # When Changesets opens a PR it does not trigger GitHub actions,
+  # because its token does not have permission to. This is a hack
+  # to allow one of us to trigger GitHub actions for a changesets PR
+  # by enabling automerge on the PR.
+  pull_request_target:
+    types:
+      - auto_merge_enabled
+    branches:
+      - master # the target branch of the PR
+    paths:
+      - "**/CHANGELOG.md" # only changesets releases touch changelogs
+
 jobs:
   version:
     runs-on: ubuntu-latest
