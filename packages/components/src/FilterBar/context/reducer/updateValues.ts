@@ -6,6 +6,8 @@ export const updateValues = <ValuesMap extends FiltersValues>(
   state: FilterBarState<ValuesMap>,
   values: Partial<ValuesMap>
 ): FilterBarState<ValuesMap> => {
+  state.hasUpdatedValues = true
+
   Object.values(state.filters).forEach(({ id, isRemovable, isUsable }) => {
     if (isUsable && (!isRemovable || values[id] !== undefined)) {
       state.activeFilterIds.add(id)
