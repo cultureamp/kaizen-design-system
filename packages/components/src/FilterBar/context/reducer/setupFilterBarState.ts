@@ -9,7 +9,6 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
   const state = filters.reduce<FilterBarState<ValuesMap>>(
     (baseState, { id, name, isRemovable, isUsableWhen }) => {
       const hasDependency = isUsableWhen !== undefined
-      const isUsable = true
 
       baseState.filters[id] = {
         id,
@@ -17,14 +16,14 @@ export const setupFilterBarState = <ValuesMap extends FiltersValues>(
         isRemovable: isRemovable ?? false,
         isUsableWhen,
         isOpen: false,
-        isUsable,
+        isUsable: true,
       }
 
       if (hasDependency) {
         baseState.dependentFilterIds.add(id)
       }
 
-      if (isUsable && (!isRemovable || values[id] !== undefined)) {
+      if (!isRemovable || values[id] !== undefined) {
         baseState.activeFilterIds.add(id)
       }
 
