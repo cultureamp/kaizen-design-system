@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.19.3
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+
+- [#3888](https://github.com/cultureamp/kaizen-design-system/pull/3888) [`fd55eaea8`](https://github.com/cultureamp/kaizen-design-system/commit/fd55eaea8658847c6b9455db3d9891a77387f563) - Fix bug in `FilterDatePicker` where popover would close when blurring input as soon as a value exists.
+
+- Updated dependencies [[`c8cf582b9`](https://github.com/cultureamp/kaizen-design-system/commit/c8cf582b99c7f9644bf73ef2902c49461f23dd7e), [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/draft-tooltip@5.4.47
+  - @kaizen/draft-badge@1.13.12
+  - @kaizen/date-picker@6.2.3
+  - @kaizen/draft-form@10.4.8
+
 ## 1.19.2
 
 ### Patch Changes
