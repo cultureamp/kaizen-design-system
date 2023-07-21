@@ -5,12 +5,12 @@ import {
   CalendarRange,
   CalendarRangeProps,
 } from "@kaizen/date-picker/src/_subcomponents/Calendar"
-import { useDateInputHandlers } from "@kaizen/date-picker/src/hooks/useDateInputHandlers"
 import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
 import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
 import { DateValidationResponse } from "~components/FilterDatePicker"
+import { useDateInputHandlers } from "~components/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~types/DataAttributes"
 import {
   DateRange,

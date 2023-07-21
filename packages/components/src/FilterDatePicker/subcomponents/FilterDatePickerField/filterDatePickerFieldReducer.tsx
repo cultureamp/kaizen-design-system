@@ -37,12 +37,14 @@ export const filterDatePickerFieldReducer = (
         startMonth:
           action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }
+
     case "navigate_months":
       return {
         ...state,
         startMonth:
           action.date && !isInvalidDate(action.date) ? action.date : new Date(),
       }
+
     case "update_input_field":
       return {
         ...state,
