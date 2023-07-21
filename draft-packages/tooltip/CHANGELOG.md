@@ -1,5 +1,23 @@
 # Change Log
 
+## 5.4.47
+
+### Patch Changes
+
+- [#3806](https://github.com/cultureamp/kaizen-design-system/pull/3806) [`c8cf582b9`](https://github.com/cultureamp/kaizen-design-system/commit/c8cf582b99c7f9644bf73ef2902c49461f23dd7e) - Updates tooltip to pass accessible descriptions only into native or custom semantic components and only when in the DOM
+
+  - aria-describedby should not be attach to non semantic elements, ie: div and spans
+  - id for aria-describedby is undefined until the tooltip is in the dom
+  - This will stop the a11y error of pointing to an id of an element that does exists
+  - Increases test coverage to validate semantic elements of the tooltip with receive aria-describedby
+  - Moves tooltip animation tests to separate file so mock does not interfere with return value
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+- Updated dependencies [[`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/component-library@16.9.3
+
 ## 5.4.46
 
 ### Patch Changes
