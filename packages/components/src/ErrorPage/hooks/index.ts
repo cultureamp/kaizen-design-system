@@ -1,1 +1,1 @@
-export * from "./useMessages"
+export * from "./useErrorMessages"

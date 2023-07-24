@@ -7,7 +7,7 @@ import { Paragraph } from "@kaizen/typography"
 import { ArrowRightIcon } from "~components/SVG/icons/ArrowRightIcon"
 import { EmailIcon } from "~components/SVG/icons/EmailIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { useMessages } from "./hooks"
+import { useErrorMessages } from "./hooks"
 import styles from "./ErrorPage.module.scss"
 
 const getMailToHref = (code: number): string => {
@@ -37,13 +37,13 @@ export const ErrorPage = ({
   classNameOverride,
 }: ErrorPageProps): JSX.Element => {
   const { formatMessage } = useIntl()
-  const translations = useMessages(code)
+  const content = useErrorMessages(code)
 
   const actions = {
     primary: { href: callToAction?.homeHref || HOME_HREF },
     secondary: callToAction?.onContactSupport
-      ? { onClick: callToAction.onContactSupport }
-      : { href: getMailToHref(code) },
+    ? { onClick: callToAction.onContactSupport }
+    : { href: getMailToHref(code) },
   }
 
   return (
@@ -53,7 +53,7 @@ export const ErrorPage = ({
         body={
           <>
             <div className={styles.paragraphPadding}>
-              <Paragraph variant="intro-lede">{message || translations.message}</Paragraph>
+              <Paragraph variant="intro-lede">{message || content.message}</Paragraph>
             </div>
             <Paragraph color="dark-reduced-opacity" variant="small">
               <FormattedMessage
@@ -86,7 +86,7 @@ export const ErrorPage = ({
           }),
         }}
         text={{
-          title: title || translations.title,
+          title: title || content.title,
         }}
       />
     </div>

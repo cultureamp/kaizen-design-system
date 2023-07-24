@@ -3,7 +3,7 @@ import { useIntl } from "@cultureamp/i18n-react-intl"
 type ErrorStatuses = 400 | 401 | 403 | 404 | 422 | 500 | 502 | 503 | 504
 type TranslationMap = Record<ErrorStatuses, { title: string, message: string}>
 
-export const useMessages = (code: number): TranslationMap[ErrorStatuses] => {
+export const useErrorMessages = (code: number): TranslationMap[ErrorStatuses] => {
   const { formatMessage } = useIntl()
 
   const translationsMap: TranslationMap = {
