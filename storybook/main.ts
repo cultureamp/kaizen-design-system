@@ -26,7 +26,11 @@ const defaultStoryPaths = [
 ]
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
-  addons: ["@storybook/addon-essentials", "@storybook/addon-a11y"],
+  addons: [
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+    "@storybook/addon-interactions",
+  ],
   staticDirs: [
     {
       from: "./assets",
