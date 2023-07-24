@@ -9,6 +9,9 @@ const meta = {
   parameters: {
     docs: {
       container: ComponentDocsTemplate,
+      canvas: {
+        sourceState: "shown",
+      },
     },
     installation: [
       "npm install @kaizen/components",
@@ -20,22 +23,57 @@ const meta = {
         "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/components/src/ErrorPage",
     },
   },
+  args: {
+    callToAction: {
+      onContactSupport: () => alert("Custom handler"),
+    },
+  },
 } satisfies Meta<typeof ErrorPage>
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
-  parameters: {
-    docs: {
-      canvas: {
-        sourceState: "shown",
-      },
-    },
+export const Error400: StoryObj<typeof meta> = {
+  args: {
+    code: 400,
   },
+}
+export const Error401: StoryObj<typeof meta> = {
+  args: {
+    code: 401,
+  },
+}
+export const Error403: StoryObj<typeof meta> = {
+  args: {
+    code: 403,
+  },
+}
+export const Error404: StoryObj<typeof meta> = {
+  args: {
+    code: 404,
+  },
+}
+export const Error422: StoryObj<typeof meta> = {
+  args: {
+    code: 422,
+  },
+}
+export const Error500: StoryObj<typeof meta> = {
   args: {
     code: 500,
-    callToAction: {
-      onContactSupport: () => alert("Custom handler"),
-    },
+  },
+}
+export const Error502: StoryObj<typeof meta> = {
+  args: {
+    code: 502,
+  },
+}
+export const Error503: StoryObj<typeof meta> = {
+  args: {
+    code: 503,
+  },
+}
+export const Error504: StoryObj<typeof meta> = {
+  args: {
+    code: 504,
   },
 }
