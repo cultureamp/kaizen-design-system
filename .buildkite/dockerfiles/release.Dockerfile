@@ -10,4 +10,4 @@ RUN apk update && apk add --no-cache \
   python3-dev
 
 RUN pip install \
-  "awscli>=1.29.9"
+  awscli

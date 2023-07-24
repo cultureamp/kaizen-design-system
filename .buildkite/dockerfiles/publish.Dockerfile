@@ -1,14 +1,16 @@
-FROM node:18.16.0-alpine
+FROM alpine:3.11
 
 RUN apk update && apk add --no-cache \
   git \
   openssh \
-  python3 \
-  py3-pip \
+  python \
+  py-pip \
   curl \ 
   gcc \ 
   alpine-sdk \ 
-  python3-dev
+  python-dev
 
 RUN pip install \
+  wheel \
+  "Cython<3.0" "pyyaml<6" --no-build-isolation \
   awscli
