@@ -13,7 +13,7 @@ on:
     types:
       - auto_merge_enabled
     branches:
-      - master # the target branch of the PR
+      - main # the target branch of the PR
     paths:
       - "**/CHANGELOG.md" # only changesets releases touch changelogs
 
