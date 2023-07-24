@@ -147,9 +147,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
                 onValidate={{
                   dateStart: action("Validation story: date start onValidate"),
                 }}
-                inputEndDateProps={{
-                  "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
-                }}
               />
             </StaticIntlProvider>
           </StickerSheet.Row>
@@ -172,10 +169,12 @@ const applyStickerSheetStyles = async (
   await userEvent.type(validationInputEndDate, "potato")
   await userEvent.click(document.body)
 
-  const partialRangeButton = canvas.getByTestId(
-    `${textDirection}-stickersheet--filter-drp--partial-range-button`
-  )
-  await userEvent.click(partialRangeButton)
+  if (IS_CHROMATIC) {
+    const partialRangeButton = canvas.getByTestId(
+      `${textDirection}-stickersheet--filter-drp--partial-range-button`
+    )
+    await userEvent.click(partialRangeButton)
+  }
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
