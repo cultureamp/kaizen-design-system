@@ -42,8 +42,8 @@ export const ErrorPage = ({
   const actions = {
     primary: { href: callToAction?.homeHref || HOME_HREF },
     secondary: callToAction?.onContactSupport
-    ? { onClick: callToAction.onContactSupport }
-    : { href: getMailToHref(code) },
+      ? { onClick: callToAction.onContactSupport }
+      : { href: getMailToHref(code) },
   }
 
   return (
@@ -53,7 +53,9 @@ export const ErrorPage = ({
         body={
           <>
             <div className={styles.paragraphPadding}>
-              <Paragraph variant="intro-lede">{message || content.message}</Paragraph>
+              <Paragraph variant="intro-lede">
+                {message || content.message}
+              </Paragraph>
             </div>
             <Paragraph color="dark-reduced-opacity" variant="small">
               <FormattedMessage
@@ -68,7 +70,7 @@ export const ErrorPage = ({
         mood="negative"
         primaryAction={{
           ...actions.primary,
-          icon: <ArrowRightIcon role="presentation"/>,
+          icon: <ArrowRightIcon role="presentation" />,
           iconPosition: "end",
           label: formatMessage({
             id: "kzErrorPage.goToHome",
@@ -78,7 +80,7 @@ export const ErrorPage = ({
         }}
         secondaryAction={{
           ...actions.secondary,
-          icon: <EmailIcon role="presentation"/>,
+          icon: <EmailIcon role="presentation" />,
           label: formatMessage({
             id: "kzErrorPage",
             defaultMessage: "Contact support",
