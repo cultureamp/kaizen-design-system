@@ -4,7 +4,7 @@ import { ErrorPage } from "../index"
 
 const meta = {
   tags: ["autodocs"],
-  title: "Components/ErrorPage",
+  title: "Pages/Error Page",
   component: ErrorPage,
   parameters: {
     docs: {
@@ -21,11 +21,6 @@ const meta = {
       /** @todo: Add Github link (adjust as needed) */
       sourceCode:
         "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/components/src/ErrorPage",
-    },
-  },
-  args: {
-    callToAction: {
-      onContactSupport: () => alert("Custom handler"),
     },
   },
 } satisfies Meta<typeof ErrorPage>
@@ -75,5 +70,16 @@ export const Error503: StoryObj<typeof meta> = {
 export const Error504: StoryObj<typeof meta> = {
   args: {
     code: 504,
+  },
+}
+export const CustomError: StoryObj<typeof meta> = {
+  args: {
+    code: 25,
+    title: "This is a custom title",
+    message: "This is a custom message",
+    callToAction: {
+      onContactSupport: () => alert("Custom handler"),
+      homeHref: "/anewhome",
+    },
   },
 }

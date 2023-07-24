@@ -1,36 +1,96 @@
-import React from "react"
-import {
-  Error400,
-  Error401,
-  Error403,
-  Error404,
-  Error422,
-  Error500,
-  Error502,
-  Error503,
-  Error504,
-} from "./subcomponents"
-import { ErrorProps } from "./subcomponents/types"
+import React, { HTMLAttributes } from "react"
+import { FormattedMessage, useIntl } from "@cultureamp/i18n-react-intl"
+import classNames from "classnames"
+import { BrandMoment } from "@kaizen/brand-moment"
+import { BrandMomentError } from "@kaizen/draft-illustration"
+import { Paragraph } from "@kaizen/typography"
+import { ArrowRightIcon } from "~components/SVG/icons/ArrowRightIcon"
+import { EmailIcon } from "~components/SVG/icons/EmailIcon"
+import { OverrideClassName } from "~types/OverrideClassName"
+import { useMessages } from "./hooks"
+import styles from "./ErrorPage.module.scss"
 
-type SubComponent = (props: ErrorProps) => JSX.Element
-
-const ERROR_COMPONENT_MAP: Record<ErrorPageProps["code"], SubComponent> = {
-  400: Error400,
-  401: Error401,
-  403: Error403,
-  404: Error404,
-  422: Error422,
-  500: Error500,
-  502: Error502,
-  503: Error503,
-  504: Error504,
+const getMailToHref = (code: number): string => {
+  const supportEmail = "support@cultureamp.com"
+  const subject = "Houston we have a problem"
+  const body = `Hi there,\n\nI received a ${code} error page while I was trying to...`
+  return encodeURI(`mailto:${supportEmail}?subject=${subject}&amp;body=${body}`)
 }
+
+const HOME_HREF = "/app/home"
 
 export type ErrorPageProps = {
-  code: 400 | 401 | 403 | 404 | 422 | 500 | 502 | 503 | 504
-} & ErrorProps
+  code: number
+  title?: string
+  message?: React.ReactNode | string
+  callToAction?: {
+    onContactSupport: () => void
+    homeHref?: string
+  }
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export const ErrorPage = ({ code, ...rest }: ErrorPageProps): JSX.Element => {
-  const Component = ERROR_COMPONENT_MAP[code]
-  return <Component {...rest} />
+export const ErrorPage = ({
+  code,
+  title,
+  message,
+  callToAction,
+  classNameOverride,
+}: ErrorPageProps): JSX.Element => {
+  const { formatMessage } = useIntl()
+  const translations = useMessages(code)
+
+  const actions = {
+    primary: { href: callToAction?.homeHref || HOME_HREF },
+    secondary: callToAction?.onContactSupport
+      ? { onClick: callToAction.onContactSupport }
+      : { href: getMailToHref(code) },
+  }
+
+  return (
+    <div className={classNames(classNameOverride)}>
+      <BrandMoment
+        header={<></>}
+        body={
+          <>
+            <div className={styles.paragraphPadding}>
+              <Paragraph variant="intro-lede">{message || translations.message}</Paragraph>
+            </div>
+            <Paragraph color="dark-reduced-opacity" variant="small">
+              <FormattedMessage
+                id="kzErrorPage.errorCode"
+                defaultMessage="Error code {code}"
+                values={{ code }}
+              />
+            </Paragraph>
+          </>
+        }
+        illustration={<BrandMomentError isAnimated loop />}
+        mood="negative"
+        primaryAction={{
+          ...actions.primary,
+          icon: <ArrowRightIcon role="presentation"/>,
+          iconPosition: "end",
+          label: formatMessage({
+            id: "kzErrorPage.goToHome",
+            defaultMessage: "Go to Home",
+            description: "Home button label",
+          }),
+        }}
+        secondaryAction={{
+          ...actions.secondary,
+          icon: <EmailIcon role="presentation"/>,
+          label: formatMessage({
+            id: "kzErrorPage",
+            defaultMessage: "Contact support",
+            description: "Label for contact button",
+          }),
+        }}
+        text={{
+          title: title || translations.title,
+        }}
+      />
+    </div>
+  )
 }
+
+ErrorPage.displayName = "ErrorPage"
