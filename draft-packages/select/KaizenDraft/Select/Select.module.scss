@@ -92,8 +92,7 @@ $focus-border-color: $color-blue-500;
 
   .placeholder {
     @include base-font-style;
-
-    opacity: $input-placeholder-opacity;
+    color: rgba($color-purple-800-rgb, 0.7);
   }
 
   .menu {
