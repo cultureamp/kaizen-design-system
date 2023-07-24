@@ -17,12 +17,6 @@ setup_github() {
   git config --global commit.gpgsign false
   git config --global --add safe.directory /workspace
 
-  eval "$(ssh-agent -s)"
-  echo "$GH_SSH_KEY" | ssh-add -
-
-  echo "Adding GitHub host key to known hosts..."
-  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >>/etc/ssh/ssh_known_hosts
-
   echo "Checking GitHub authentication..."
   ssh -T git@github.com || true # exits non-zero
 }
@@ -59,7 +53,6 @@ main() {
   export GH_SSH_KEY GH_TOKEN NPM_TOKEN
 
   printf "Fetching secrets... "
-  GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
   GH_TOKEN=$(get_secret "github-api-token") || exit $?
   NPM_TOKEN=$(get_secret "npm-token") || exit $?
   echo "(done)"
@@ -90,7 +83,7 @@ main() {
 
   echo "All done!"
 
-  unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
+  unset GH_TOKEN NPM_TOKEN
 }
 
 main
