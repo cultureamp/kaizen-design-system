@@ -1,5 +1,189 @@
 # Change Log
 
+## 1.19.3
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+
+- [#3888](https://github.com/cultureamp/kaizen-design-system/pull/3888) [`fd55eaea8`](https://github.com/cultureamp/kaizen-design-system/commit/fd55eaea8658847c6b9455db3d9891a77387f563) - Fix bug in `FilterDatePicker` where popover would close when blurring input as soon as a value exists.
+
+- Updated dependencies [[`c8cf582b9`](https://github.com/cultureamp/kaizen-design-system/commit/c8cf582b99c7f9644bf73ef2902c49461f23dd7e), [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/draft-tooltip@5.4.47
+  - @kaizen/draft-badge@1.13.12
+  - @kaizen/date-picker@6.2.3
+  - @kaizen/draft-form@10.4.8
+
+## 1.19.2
+
+### Patch Changes
+
+- [#3852](https://github.com/cultureamp/kaizen-design-system/pull/3852) [`2e0a8db1d`](https://github.com/cultureamp/kaizen-design-system/commit/2e0a8db1db16f7a7bda4ab3c7dbad5691238facf) - **FilterDateRangePicker**
+  - Fixed issue where validation was not returning the correct input value
+- Updated dependencies [[`2e0a8db1d`](https://github.com/cultureamp/kaizen-design-system/commit/2e0a8db1db16f7a7bda4ab3c7dbad5691238facf), [`6621d8912`](https://github.com/cultureamp/kaizen-design-system/commit/6621d89125658392205963f89e230660bc6fddc2)]:
+  - @kaizen/date-picker@6.2.2
+  - @kaizen/draft-form@10.4.7
+
+## 1.19.1
+
+### Patch Changes
+
+- [#3861](https://github.com/cultureamp/kaizen-design-system/pull/3861) [`9c2a798ff`](https://github.com/cultureamp/kaizen-design-system/commit/9c2a798ff527c6fa4bad3e3299d0aad986384c2c) - Expose currently selected values on FilterBar via useFilterBarContext
+
+- Updated dependencies [[`5afdddade`](https://github.com/cultureamp/kaizen-design-system/commit/5afdddaded55b173dc39e469a2dfa15fe135155f)]:
+  - @kaizen/date-picker@6.2.1
+
+## 1.19.0
+
+### Minor Changes
+
+- [#3858](https://github.com/cultureamp/kaizen-design-system/pull/3858) [`1303b7dc6`](https://github.com/cultureamp/kaizen-design-system/commit/1303b7dc6e3b761d19f955d58380f55ff30fffbf) - Add OptionalIntlProvider to KaizenProvider
+  This change makes KaizenProvider set up an IntlProvider from the `@cultureamp/i18n-react-intl` package
+  when one isn't present already in the consuming repo.
+  This means that consumers implementing KaizenProvider will not need to set up their own IntlProvider to have
+  translations in their app.
+
+- [#3811](https://github.com/cultureamp/kaizen-design-system/pull/3811) [`99a1f1cef`](https://github.com/cultureamp/kaizen-design-system/commit/99a1f1cef00ddb046c7cfb26adfe986a4a7869bc) - Add internal translation support for FilterDateRangePicker.
+
+  This change allows internal strings in FilterDateRangePicker to be translated when
+  consuming app has set up an IntlProvider through `@cultureamp/i18n-react-intl`.
+  For info regarding the set up process for Intl in Kaizen, see [here](https://cultureamp.design/storybook/?path=/docs/components-kaizen-provider-internationalization-in-kaizen--docs).
+
+### Patch Changes
+
+- [#3859](https://github.com/cultureamp/kaizen-design-system/pull/3859) [`f52f9d41b`](https://github.com/cultureamp/kaizen-design-system/commit/f52f9d41b2a607f1ce5885287635a71a59a8063f) - test
+
+## 1.18.1
+
+### Patch Changes
+
+- [#3850](https://github.com/cultureamp/kaizen-design-system/pull/3850) [`713427924`](https://github.com/cultureamp/kaizen-design-system/commit/713427924bec6b2c7f81b90037360b62ae8ad8ce) - Remove OptionalIntlProvider from KaizenProvider.
+  This change means that consumers will need to provide their own IntlProvider from `@cultureamp/i18n-react-intl`.
+  For more info, see our [Internationalization in Kaizen docs](https://cultureamp.design/storybook/?path=/docs/components-kaizen-provider-internationalization-in-kaizen--docs)
+
+- [#3722](https://github.com/cultureamp/kaizen-design-system/pull/3722) [`adb9c58e0`](https://github.com/cultureamp/kaizen-design-system/commit/adb9c58e0791ea08ebece42fb5e5ae47d2bc73c5) - **FilterDatePicker**
+
+  - Fixed issue where selecting the dates from the date pickers would return a validation object containing the previously picked date rather than the current one in the `inputValue` key.
+  - Fixed ref types. Only for internal usage.
+
+- [#3847](https://github.com/cultureamp/kaizen-design-system/pull/3847) [`8d1b4ace1`](https://github.com/cultureamp/kaizen-design-system/commit/8d1b4ace17533c29d6fc7f849b3948e39879e73b) - - Update FilterBarMultiSelect to clear values when items change
+  - Fix FilterBarContext type definitions to infer Id
+  - Update FilterBarSelect to clear values when items change
+
+## 1.18.0
+
+### Minor Changes
+
+- [#3812](https://github.com/cultureamp/kaizen-design-system/pull/3812) [`b5dad5623`](https://github.com/cultureamp/kaizen-design-system/commit/b5dad5623e5fc683fe88757478a9b1079498b494) - Add functionality for dependent filters to `<FilterBar>`.
+
+  Consumers can now set a `isUsableWhen` attribute to their `filters`.
+  Filters with this attribute will be checked against the current state
+  and shown/hidden from the FilterBar options (both active/inactive) accordingly.
+
+- [#3808](https://github.com/cultureamp/kaizen-design-system/pull/3808) [`7fdabc423`](https://github.com/cultureamp/kaizen-design-system/commit/7fdabc423641ce0c263bec056d09e18435d2beba) - What the change is:
+  Adds the OptionalIntlProvider to KaizenProvider
+
+  What feature it enables:
+  This change provides support for internal translations in Kaizen components.
+  With this change, when an app is wrapped in KaizenProvider it will allow Kaizen components
+  with translations built in to translate their messages successfully.
+
+### Patch Changes
+
+- [#3809](https://github.com/cultureamp/kaizen-design-system/pull/3809) [`9e30ae7be`](https://github.com/cultureamp/kaizen-design-system/commit/9e30ae7be2428dc53c84edcc5bf0f763c84f80a7) - **Button**
+  Remove `component-library` style imports by absorbing the styles.
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `@cultureamp/i18n-react-intl` dependency
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `react-focus-on` depdendency
+
+- Updated dependencies [[`042e5971d`](https://github.com/cultureamp/kaizen-design-system/commit/042e5971d8ca883656b14e4f4438bb716b7c88c7), [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c)]:
+  - @kaizen/date-picker@6.2.0
+
+## 1.17.1
+
+### Patch Changes
+
+- [#3786](https://github.com/cultureamp/kaizen-design-system/pull/3786) [`bbb569f5d`](https://github.com/cultureamp/kaizen-design-system/commit/bbb569f5d55e9adb208ef0bf35d81ab97c50c89e) - Updates the future release /dist reference path in package.json
+  - this will fix the imports for future components
+  - ie: `import {Workflow} from "@kaizen/components/future"
+
+## 1.17.0
+
+### Minor Changes
+
+- [#3781](https://github.com/cultureamp/kaizen-design-system/pull/3781) [`405d54ad2`](https://github.com/cultureamp/kaizen-design-system/commit/405d54ad2d1da5d30f64abeb6d2f0c0f73d2f098) - Add clear all functionality to FilterBar.
+
+  All selected values are cleared, and any active removable filters are made inactive and moved into the Add Filters menu.
+
+- [#3761](https://github.com/cultureamp/kaizen-design-system/pull/3761) [`41a305dee`](https://github.com/cultureamp/kaizen-design-system/commit/41a305dee9e22d612e127265f3b2e412100e1162) - Create /future release for Workflow component that updates Steps to array of objects and stepName to currentStepId
+  - updates the stepName to currentStepId
+  - updates steps from non-empty array of strings to non-empty array of Steps
+    - exports Step and Steps types for convenience in consuming repos
+  - refactor Workflow to use the new type and id to reference active steps from array
+  - adds test coverage to ProgressStepper and improve docs
+
+### Patch Changes
+
+- [#3780](https://github.com/cultureamp/kaizen-design-system/pull/3780) [`abb973ab4`](https://github.com/cultureamp/kaizen-design-system/commit/abb973ab43e566910aa0898d6fa9c6d2a5e9f8c6) - Refactor FilterBar context state with less duplication of values.
+
+- [#3783](https://github.com/cultureamp/kaizen-design-system/pull/3783) [`3c2c7ede9`](https://github.com/cultureamp/kaizen-design-system/commit/3c2c7ede9f835db3793d966c8f0126a0f2dbcd70) - Refactor FilterBar to loop through singular dispatch actions instead of having a separate batch action for the same result.
+
+## 1.16.0
+
+### Minor Changes
+
+- [#3762](https://github.com/cultureamp/kaizen-design-system/pull/3762) [`ad68bd64a`](https://github.com/cultureamp/kaizen-design-system/commit/ad68bd64a76c7ce079f732851d751c40c40abcc0) - Add removable filters to FilterBar.
+  This allows the user to hide filters which are less important/not being used.
+  The filters can be added back to the active filters list through the Add Filters menu.
+
+## 1.15.1
+
+### Patch Changes
+
+- [#3741](https://github.com/cultureamp/kaizen-design-system/pull/3741) [`2955df1a7`](https://github.com/cultureamp/kaizen-design-system/commit/2955df1a759d83d4375ce47e71763731a2c6b017) - Switch the import in `FilterMultiSelect` for `InputSearch` from `draft-form` to use the new component which is KAIO compatible.
+
+## 1.15.0
+
+### Minor Changes
+
+- [#3689](https://github.com/cultureamp/kaizen-design-system/pull/3689) [`62c302774`](https://github.com/cultureamp/kaizen-design-system/commit/62c302774c981843613fc0f4c554345c70222350) - Add Button component which is mostly a copy of the original `@kaizen/button` with the exception of `icon` which now accepts JSX.Element instead.
+
+### Patch Changes
+
+- [#3689](https://github.com/cultureamp/kaizen-design-system/pull/3689) [`62c302774`](https://github.com/cultureamp/kaizen-design-system/commit/62c302774c981843613fc0f4c554345c70222350) - - Remove `component-library` as a dependency
+
+  - Add `SVG` title to `aria-label` when it is meanigful.
+
+- [#3730](https://github.com/cultureamp/kaizen-design-system/pull/3730) [`175fed21f`](https://github.com/cultureamp/kaizen-design-system/commit/175fed21f609bcee5cc287a92e39e1682167573d) - Fix the display of missing icons by migrating the `ClearButton` and `InputSearch` components as well as convert the `CheckIcon` and `SearchIcon` into React Icons which are used in `FilterMultiSelect`'s subcomponents.
+
+## 1.14.0
+
+### Minor Changes
+
+- [#3727](https://github.com/cultureamp/kaizen-design-system/pull/3727) [`988f72305`](https://github.com/cultureamp/kaizen-design-system/commit/988f723056e2d4df600c6766a5a14586a63d9b7b) - Add FilterMultiSelect to KAIO and refactor to use FilterButton.
+  Remove `@kaizen/select` from dependencies.
+
+## 1.13.0
+
+### Minor Changes
+
+- [#3673](https://github.com/cultureamp/kaizen-design-system/pull/3673) [`24dca6f74`](https://github.com/cultureamp/kaizen-design-system/commit/24dca6f7416732a733b128a40193c9a6feb4f0c2) - KaizenProvider will now add @cultureamp/i18n-react-intl's StaticIntlProvider to
+  the consuming app (if one isn't provided already). This ensures that Kaizen components
+  with translated strings get translated properly in consuming repos.
+
+### Patch Changes
+
+- [#3723](https://github.com/cultureamp/kaizen-design-system/pull/3723) [`4caca6b44`](https://github.com/cultureamp/kaizen-design-system/commit/4caca6b44b550628acfe17aed2dc98fd1be4c12a) - - Remove ids and xlinks from React SVGs
+  - Adds position sticky to Workflow Footer on desktop
+  - Updates footer styles to add padding for small screen sizes
+    - adds 400% story for chromatic
+  - Adds z-index of 1 to navigation elements and 0 to main Workflow components
+  - Adds word break for long step names
+
 ## 1.12.0
 
 ### Minor Changes

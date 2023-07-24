@@ -12,7 +12,7 @@ const defaultArgs = {
 
 const meta = {
   tags: ["autodocs"],
-  title: "Pages/Workflow/Components/Progress Stepper",
+  title: "Pages/Workflow/Legacy/Components/Progress Stepper",
   component: Workflow.ProgressStepper,
   parameters: {
     docs: {

@@ -9,8 +9,11 @@ $notification-vertical-padding: calc(
   #{$spacing-xs} - #{$border-solid-border-width}
 );
 $notification-fade-out: opacity 200ms ease;
-$notification-collapse-height: margin-top 200ms ease, margin-bottom 200ms ease;
-$notification-collapse-height-delayed: margin-top 200ms ease 200ms,
+$notification-collapse-height:
+  margin-top 200ms ease,
+  margin-bottom 200ms ease;
+$notification-collapse-height-delayed:
+  margin-top 200ms ease 200ms,
   margin-bottom 200ms ease;
 $notification-pop-up: transform 200ms ease-out;
 $notification-slide-right: transform 300ms ease-out;
@@ -29,7 +32,7 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   &%ca-notification---inline {
-    width: 100%;
+    width: auto;
     min-height: 46px;
     padding: $notification-vertical-padding $spacing-sm;
     transition: $notification-fade-out, $notification-pop-up,

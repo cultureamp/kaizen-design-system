@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.6.1
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+- Updated dependencies [[`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/component-library@16.9.3
+
+## 1.6.0
+
+### Minor Changes
+
+- [#3848](https://github.com/cultureamp/kaizen-design-system/pull/3848) [`dcaecf4db`](https://github.com/cultureamp/kaizen-design-system/commit/dcaecf4db860db059e6cf5e38e47b3a1a023ddeb) - add security notification variant
+
+## 1.5.10
+
+### Patch Changes
+
+- [#3731](https://github.com/cultureamp/kaizen-design-system/pull/3731) [`3421da907`](https://github.com/cultureamp/kaizen-design-system/commit/3421da907e3e4e235da4f6a733e33cffbd258a74) - InlineNotification width has changed from `100%` to `auto` so that it can be used side by side with other components. Should not affect any current usages.
+
 ## 1.5.9
 
 ### Patch Changes

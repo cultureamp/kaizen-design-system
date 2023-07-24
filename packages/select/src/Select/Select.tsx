@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { HiddenSelect, useSelect } from "@react-aria/select"
 import { Item, Section } from "@react-stately/collections"
 import {
@@ -7,6 +7,7 @@ import {
 } from "@react-stately/select"
 import { Node, CollectionChildren } from "@react-types/shared"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Label, FieldMessage } from "@kaizen/draft-form"
 import { SingleItemType } from "../types"
@@ -50,8 +51,8 @@ export interface SelectProps
    * Exposes the trigger properties and the ref to be used on the replacing trigger */
   trigger?: (
     triggerProps: TriggerButtonProps,
-    ref: React.RefObject<HTMLButtonElement>
-  ) => React.ReactNode
+    buttonRef?: React.RefObject<HTMLButtonElement>
+  ) => JSX.Element & { ref?: React.RefObject<HTMLButtonElement> }
   /**
    * Replaces the contents of the Listbox and describes how the options are displayed
    * Exposes the option properties which contains the items */
@@ -83,7 +84,7 @@ export const Select = ({
   defaultOpen,
   validationMessage,
   classNameOverride,
-  trigger = (triggerProps, buttonRef): JSX.Element => (
+  trigger = (triggerProps): JSX.Element => (
     <TriggerButton {...triggerProps} ref={buttonRef} />
   ),
   children,
@@ -92,6 +93,7 @@ export const Select = ({
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const invalidStatus = status === "error" ? "invalid" : "valid"
+  const [listBoxID] = useState<string>(v4())
 
   const ariaSelectProps: AriaSelectProps<SingleItemType> = {
     label,
@@ -169,14 +171,23 @@ export const Select = ({
         />
 
         <div className={classnames(selectStyles.container)}>
-          {trigger(
-            { placeholder, triggerProps, valueProps, status, isReversed },
-            buttonRef
+          {React.cloneElement(
+            trigger(
+              {
+                placeholder,
+                triggerProps,
+                valueProps,
+                status,
+                isReversed,
+                "aria-controls": state.isOpen ? listBoxID : undefined,
+              },
+              buttonRef
+            ),
+            { ref: buttonRef }
           )}
-
           {state.isOpen && (
-            <Overlay>
-              <ListBox menuProps={menuProps}>
+            <Overlay triggerRef={buttonRef}>
+              <ListBox menuProps={menuProps} id={listBoxID}>
                 {renderChildren({ items })}
               </ListBox>
             </Overlay>

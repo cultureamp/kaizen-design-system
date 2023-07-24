@@ -1,12 +1,16 @@
 import React from "react"
 import { Base, BaseProps } from "./Base"
-import { AnimatedBase, AnimatedBaseProps } from "./Players/LottiePlayer"
 
 export type SpotProps = Pick<BaseProps, "alt" | "classNameOverride"> & {
   enableAspectRatio?: boolean
 }
-export type AnimatedSpotProps = SpotProps &
-  AnimatedBaseProps & { isAnimated?: boolean }
+export type AnimatedSpotProps = SpotProps & {
+  /**
+   *  Spot Illustrations are no longer supported
+   *  @deprecated
+   * */
+  isAnimated?: boolean
+}
 
 // ------------------------------------------------------------------------- //
 // ANIMATED ILLUSTRATIONS                                                    //
@@ -16,7 +20,6 @@ export type AnimatedSpotProps = SpotProps &
  * Moods
  */
 export const Cautionary = ({
-  isAnimated,
   enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps): JSX.Element => {
@@ -28,23 +31,10 @@ export const Cautionary = ({
       name={illustrationPath}
     />
   )
-  const AnimatedIllustration = (
-    <AnimatedBase
-      aspectRatio={enableAspectRatio ? "square" : undefined}
-      {...otherProps}
-      name="illustrations/heart/spot/moods-cautionary.lottie"
-      fallback={illustrationPath}
-    />
-  )
-
-  if (isAnimated) {
-    return AnimatedIllustration
-  }
   return StaticIllustration
 }
 
 export const Informative = ({
-  isAnimated,
   enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps): JSX.Element => {
@@ -56,23 +46,10 @@ export const Informative = ({
       name={illustrationPath}
     />
   )
-  const AnimatedIllustration = (
-    <AnimatedBase
-      aspectRatio={enableAspectRatio ? "square" : undefined}
-      {...otherProps}
-      name="illustrations/heart/spot/moods-informative.lottie"
-      fallback={illustrationPath}
-    />
-  )
-
-  if (isAnimated) {
-    return AnimatedIllustration
-  }
   return StaticIllustration
 }
 
 export const Negative = ({
-  isAnimated,
   enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps): JSX.Element => {
@@ -84,18 +61,6 @@ export const Negative = ({
       name={illustrationPath}
     />
   )
-  const AnimatedIllustration = (
-    <AnimatedBase
-      aspectRatio={enableAspectRatio ? "square" : undefined}
-      {...otherProps}
-      name="illustrations/heart/spot/moods-negative.lottie"
-      fallback={illustrationPath}
-    />
-  )
-
-  if (isAnimated) {
-    return AnimatedIllustration
-  }
   return StaticIllustration
 }
 
@@ -117,7 +82,6 @@ export const PositiveMale = ({
  * @deprecated Use the non-gendered Positive illustration instead
  */
 export const PositiveFemale = ({
-  isAnimated,
   enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps): JSX.Element => {
@@ -129,23 +93,11 @@ export const PositiveFemale = ({
       name={illustrationPath}
     />
   )
-  const AnimatedIllustration = (
-    <AnimatedBase
-      aspectRatio={enableAspectRatio ? "square" : undefined}
-      {...otherProps}
-      name="illustrations/heart/spot/moods-positive.lottie"
-      fallback={illustrationPath}
-    />
-  )
 
-  if (isAnimated) {
-    return AnimatedIllustration
-  }
   return StaticIllustration
 }
 
 export const Positive = ({
-  isAnimated,
   enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps): JSX.Element => {
@@ -159,23 +111,10 @@ export const Positive = ({
   )
   // TODO Update url to use heart version.
 
-  const AnimatedIllustration = (
-    <AnimatedBase
-      aspectRatio={enableAspectRatio ? "square" : undefined}
-      {...otherProps}
-      name="illustrations/heart/spot/moods-positive.lottie"
-      fallback={illustrationPath}
-    />
-  )
-
-  if (isAnimated) {
-    return AnimatedIllustration
-  }
   return StaticIllustration
 }
 
 export const Assertive = ({
-  isAnimated,
   enableAspectRatio,
   ...otherProps
 }: AnimatedSpotProps): JSX.Element => {
@@ -187,18 +126,6 @@ export const Assertive = ({
       name={illustrationPath}
     />
   )
-  const AnimatedIllustration = (
-    <AnimatedBase
-      aspectRatio={enableAspectRatio ? "square" : undefined}
-      {...otherProps}
-      name="illustrations/heart/spot/moods-assertive.lottie"
-      fallback={illustrationPath}
-    />
-  )
-
-  if (isAnimated) {
-    return AnimatedIllustration
-  }
   return StaticIllustration
 }
 
@@ -210,14 +137,13 @@ const SPOT_ILLUSTRATION_BASE_PATH = "illustrations/heart/spot/"
 const createSpotIllustration =
   (fileName: string) =>
   // eslint-disable-next-line react/display-name
-  ({ enableAspectRatio, ...props }: SpotProps): JSX.Element =>
-    (
-      <Base
-        aspectRatio={enableAspectRatio ? "square" : undefined}
-        {...props}
-        name={`${SPOT_ILLUSTRATION_BASE_PATH}${fileName}`}
-      />
-    )
+  ({ enableAspectRatio, ...props }: SpotProps): JSX.Element => (
+    <Base
+      aspectRatio={enableAspectRatio ? "square" : undefined}
+      {...props}
+      name={`${SPOT_ILLUSTRATION_BASE_PATH}${fileName}`}
+    />
+  )
 
 /**
  * Template Library / Engagement

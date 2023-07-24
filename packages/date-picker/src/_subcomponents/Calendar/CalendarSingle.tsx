@@ -4,9 +4,8 @@ import { DayPicker, DayPickerSingleProps } from "react-day-picker"
 import { OverrideClassName } from "@kaizen/component-base"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
+import { IconLeft, IconRight } from "../Icons"
 import { calendarSingleClasses } from "./CalendarClasses"
-import { IconLeft } from "./components/IconLeft"
-import { IconRight } from "./components/IconRight"
 import { isValidWeekStartsOn } from "./utils/isValidWeekStartsOn"
 
 export type CalendarSingleElement = HTMLDivElement

@@ -1,5 +1,19 @@
 # Change Log
 
+## 10.3.11
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+
+## 10.3.10
+
+### Patch Changes
+
+- [#3739](https://github.com/cultureamp/kaizen-design-system/pull/3739) [`c6434ffbf`](https://github.com/cultureamp/kaizen-design-system/commit/c6434ffbf95b4d3ddb35d906637864882628755d) - Introducing new tokens for max width of paragraphs for better readability
+
 ## 10.3.9
 
 ### Patch Changes

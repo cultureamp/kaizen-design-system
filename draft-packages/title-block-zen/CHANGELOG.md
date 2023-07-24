@@ -1,5 +1,29 @@
 # Change Log
 
+## 7.10.12
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+- Updated dependencies [[`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/component-library@16.9.3
+  - @kaizen/draft-select@2.10.42
+  - @kaizen/draft-badge@1.13.12
+
+## 7.10.11
+
+### Patch Changes
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `react-focus-on` depdendency
+
+## 7.10.10
+
+### Patch Changes
+
+- [#3777](https://github.com/cultureamp/kaizen-design-system/pull/3777) [`bf6228803`](https://github.com/cultureamp/kaizen-design-system/commit/bf6228803378536c1901aea6c64e0c9b3de62b0f) - Uses visibility:hidden on MobileActions to hide the menu from screen readers and avoid potential keyboard focus when menu is closed
+
 ## 7.10.9
 
 ### Patch Changes

@@ -1,5 +1,42 @@
 # Change Log
 
+## 6.2.3
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+- Updated dependencies [[`c8cf582b9`](https://github.com/cultureamp/kaizen-design-system/commit/c8cf582b99c7f9644bf73ef2902c49461f23dd7e), [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/draft-tooltip@5.4.47
+  - @kaizen/draft-form@10.4.8
+
+## 6.2.2
+
+### Patch Changes
+
+- [#3852](https://github.com/cultureamp/kaizen-design-system/pull/3852) [`2e0a8db1d`](https://github.com/cultureamp/kaizen-design-system/commit/2e0a8db1db16f7a7bda4ab3c7dbad5691238facf) - Minor fix to the types in `useDateInputHandlers` changing `setInputValue` from expecting a `SetStateAction` to just a `string`.
+
+- Updated dependencies [[`6621d8912`](https://github.com/cultureamp/kaizen-design-system/commit/6621d89125658392205963f89e230660bc6fddc2)]:
+  - @kaizen/draft-form@10.4.7
+
+## 6.2.1
+
+### Patch Changes
+
+- [#3862](https://github.com/cultureamp/kaizen-design-system/pull/3862) [`5afdddade`](https://github.com/cultureamp/kaizen-design-system/commit/5afdddaded55b173dc39e469a2dfa15fe135155f) - Replace SVG imports with SVG React components
+  - This addresses the SVGs not rendering as expected in consuming repos
+
+## 6.2.0
+
+### Minor Changes
+
+- [#3790](https://github.com/cultureamp/kaizen-design-system/pull/3790) [`042e5971d`](https://github.com/cultureamp/kaizen-design-system/commit/042e5971d8ca883656b14e4f4438bb716b7c88c7) - Allow for the export of DatePicker utils
+
+### Patch Changes
+
+- [#3793](https://github.com/cultureamp/kaizen-design-system/pull/3793) [`a791bd50d`](https://github.com/cultureamp/kaizen-design-system/commit/a791bd50d6538d5b8e18b02831d0108922b6199c) - Patch `react-focus-on` depdendency
+
 ## 6.1.0
 
 ### Minor Changes

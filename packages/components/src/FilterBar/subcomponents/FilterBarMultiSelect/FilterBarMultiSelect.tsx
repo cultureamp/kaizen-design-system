@@ -1,11 +1,16 @@
-import React, { Key } from "react"
+import React, { Key, useEffect, useState } from "react"
 import { Selection } from "@react-types/shared"
-import { FilterMultiSelect, getSelectedOptionLabels } from "@kaizen/select"
-import { RootProps } from "@kaizen/select/src/FilterMultiSelect/components/Root"
+import {
+  FilterMultiSelect,
+  FilterMultiSelectProps,
+  ItemType,
+  getSelectedOptionLabels,
+} from "~components/FilterMultiSelect"
 import { useFilterBarContext } from "../../context/FilterBarContext"
+import { checkArraysMatch } from "../../utils/checkArraysMatch"
 
 export type FilterBarMultiSelectProps = Omit<
-  RootProps,
+  FilterMultiSelectProps,
   | "isOpen"
   | "setIsOpen"
   | "renderTrigger"
@@ -36,17 +41,37 @@ const convertConsumableFormatIntoSelection = (
 
 export const FilterBarMultiSelect = ({
   id,
-  items,
+  items: propsItems,
   children,
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const { getFilterState, toggleOpenFilter, updateValue } =
+  const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
     useFilterBarContext<ConsumableSelection>()
+  const [items, setItems] = useState<ItemType[]>(propsItems)
 
-  if (!id) throw Error("Missing `id` prop")
+  if (!id) throw Error("Missing `id` prop in FilterBarMultiSelect")
 
   const filterState = getFilterState(id)
+
+  useEffect(() => {
+    if (!checkArraysMatch(items, propsItems)) {
+      setItems(propsItems)
+    }
+  }, [propsItems])
+
+  useEffect(() => {
+    if (Array.isArray(filterState.value)) {
+      const itemValues = items.map(({ value }) => value)
+      const filteredValues = filterState.value.filter(value =>
+        itemValues.includes(value)
+      )
+
+      if (!checkArraysMatch(filterState.value, filteredValues)) {
+        updateValue(id, filteredValues)
+      }
+    }
+  }, [items])
 
   return (
     <FilterMultiSelect
@@ -61,22 +86,31 @@ export const FilterBarMultiSelect = ({
       items={items}
       isOpen={filterState.isOpen}
       onOpenChange={(open): void => toggleOpenFilter(id, open)}
-      trigger={(): JSX.Element => (
-        <FilterMultiSelect.TriggerButton
-          selectedOptionLabels={
-            filterState.value
-              ? getSelectedOptionLabels(
-                  convertConsumableFormatIntoSelection(filterState.value),
-                  items
-                )
-              : []
-          }
-          label={filterState.name}
-        />
-      )}
+      trigger={(): JSX.Element => {
+        const triggerProps = {
+          selectedOptionLabels: filterState.value
+            ? getSelectedOptionLabels(
+                convertConsumableFormatIntoSelection(filterState.value),
+                items
+              )
+            : [],
+          label: filterState.name,
+        }
+
+        return filterState.isRemovable ? (
+          <FilterMultiSelect.RemovableTrigger
+            {...triggerProps}
+            onRemove={() => hideFilter(id)}
+          />
+        ) : (
+          <FilterMultiSelect.TriggerButton {...triggerProps} />
+        )
+      }}
       {...props}
     >
       {children}
     </FilterMultiSelect>
   )
 }
+
+FilterBarMultiSelect.displayName = "FilterBar.MultiSelect"

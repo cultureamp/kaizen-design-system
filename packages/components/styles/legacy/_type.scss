@@ -1,0 +1,679 @@
+// Copied from @kaizen/deprecated-component-library-helpers/styles/type
+// Avoiding making `deprecated-component-library-helpers` a dep
+
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "./color";
+
+$ca-grid: 1.5rem; // 24px @ default root font-size of 16px
+
+$ca-weight-extra-light: 200;
+$ca-weight-light: 300;
+$ca-weight-book: 400;
+$ca-weight-medium: 500;
+$ca-weight-semibold: 500; // Note: in Sketch, semibold is 600. But murmur has an existing value of semibold=500 that is heavily used.
+
+// Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
+$ca-inter-font-family: "Inter", "Noto Sans", Helvetica, Arial, sans-serif;
+$ca-inter-font-base-size: 1rem; /* 16px */
+$ca-inter-font-descender-height: 0.14;
+
+// Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
+$ca-default-font-family: $ca-inter-font-family;
+$ca-default-font-base-size: $ca-inter-font-base-size;
+$ca-default-font-descender-height: $ca-inter-font-descender-height;
+
+// Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
+$ca-ideal-sans-font-family: "Ideal Sans A", "Ideal Sans B",
+  $ca-default-font-family;
+$ca-ideal-sans-font-base-size: 1rem; /* 16px */
+$ca-ideal-sans-font-descender-height: 0.14;
+
+$ca-greycliff-font-base-size: 1rem; /* 16px */
+$ca-greycliff-font-descender-height: 0.098;
+
+// Locale-specific fonts
+$ca-ideal-locale-ar-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
+  sans-serif;
+$ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
+  sans-serif;
+$ca-inter-locale-ar-font-family: "Inter", Tahoma, sans-serif;
+$ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
+$ca-locale-he-font-family: $ca-inter-locale-ar-font-family;
+$ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
+
+// Inspired by Basekick from SEEK: https://github.com/michaeltaranto/basekick
+@mixin ca-type(
+  $family: $ca-default-font-family,
+  $base-size: $ca-default-font-base-size,
+  $descender-height: $ca-default-font-descender-height,
+  $size-ratio: 1,
+  $line-height-in-grid-units: 1,
+  $weight: $ca-weight-book,
+  $letter-spacing: normal
+) {
+  font-family: $family;
+
+  html:lang(he) & {
+    font-family: $ca-locale-he-font-family;
+  }
+
+  html:lang(ar) & {
+    font-family: $ca-locale-ar-font-family;
+  }
+
+  font-weight: $weight;
+  letter-spacing: $letter-spacing;
+
+  $font-size: $base-size * $size-ratio; // in rem
+
+  // Migrating the following two lines to use CSS vars causes Gatsby to fail with a very ambiguous error, around trying to divide by a "rem".
+  $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
+  $line-height-ratio: $absolute-line-height / $font-size; // unitless number
+  $line-spacing: $line-height-ratio - 1;
+
+  font-size: $font-size;
+  line-height: $line-height-ratio;
+  position: relative;
+  top: #{$descender-height + $line-spacing / 2}em;
+  // If `position: relative` creates issues, we could alternatively use a transform,
+  // though this creates a new stacking context which can break z-index based layers:
+  // transform: translateY(#{$descender-height + $line-spacing / 2}em);
+}
+
+// Containing block for baseline-shifted text
+// Creates whitespace for the contained text to shift “into”
+@mixin ca-type-block($display: block) {
+  display: $display;
+  padding-bottom: $spacing-sm;
+}
+
+@mixin ca-inherit-baseline {
+  position: static;
+}
+
+@mixin ca-type-reverse {
+  color: white;
+  // Without these non-standard anti-aliasing properties, white Ideal Sans on a dark background appears to have a heavier font weight
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Open Sans Styles
+
+@mixin ca-type-title($args...) {
+  @include ca-type(
+    $size-ratio: 12/7,
+    $line-height-in-grid-units: 1.5,
+    $weight: $ca-weight-medium,
+    $args...
+  );
+}
+
+@mixin ca-type-display($args...) {
+  @include ca-type($size-ratio: 10/7, $weight: $ca-weight-medium, $args...);
+}
+
+@mixin ca-type-heading($args...) {
+  @include ca-type($size-ratio: 8/7, $weight: $ca-weight-medium, $args...);
+}
+
+@mixin ca-type-lede($args...) {
+  @include ca-type($size-ratio: 8/7, $args...);
+}
+
+@mixin ca-type-body($args...) {
+  @include ca-type($args...);
+}
+
+@mixin ca-type-control-action($args...) {
+  @include ca-type($weight: $ca-weight-medium, $args...);
+}
+
+@mixin ca-type-small($args...) {
+  @include ca-type($size-ratio: 6/7, $args...);
+}
+
+@mixin ca-type-labels-and-legends($args...) {
+  @include ca-type($size-ratio: 6/7, $letter-spacing: 0.04em, $args...);
+
+  text-transform: uppercase;
+}
+
+// Ideal Sans styles
+
+@mixin ca-type-ideal(
+  $size,
+  $weight,
+  $line-height-in-grid-units: 1,
+  $letter-spacing: normal,
+  $args...
+) {
+  @include ca-type(
+    $size-ratio: $size / 16,
+    $family: $ca-ideal-sans-font-family,
+    $base-size: $ca-ideal-sans-font-base-size,
+    $descender-height: $ca-ideal-sans-font-descender-height,
+    $line-height-in-grid-units: $line-height-in-grid-units,
+    $letter-spacing: $letter-spacing,
+    $weight: $weight,
+    $args...
+  );
+
+  html:lang(he) & {
+    font-family: $ca-ideal-locale-he-font-family;
+  }
+
+  html:lang(ar) & {
+    font-family: $ca-ideal-locale-ar-font-family;
+  }
+}
+
+@mixin ca-type-ideal-page-title($size: 32, $args...) {
+  @include ca-type-ideal(
+    $size: $size,
+    $line-height-in-grid-units: 1.5,
+    $weight: $ca-weight-book,
+    $args...
+  );
+}
+
+@mixin ca-type-ideal-title($size: 26, $args...) {
+  @include ca-type-ideal(
+    $size: $size,
+    $line-height-in-grid-units: 1.5,
+    $weight: $ca-weight-book,
+    $args...
+  );
+}
+
+@mixin ca-type-ideal-display($size: 22, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+}
+
+@mixin ca-type-ideal-heading($size: 18, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+}
+
+@mixin ca-type-ideal-lede($size: 20, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-light, $args...);
+}
+
+@mixin ca-type-ideal-body($size: 16, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-light, $args...);
+}
+
+@mixin ca-type-ideal-body-bold($size: 16, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+}
+
+@mixin ca-type-ideal-small($size: 14, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-light, $args...);
+}
+
+@mixin ca-type-ideal-small-bold($size: 14, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+}
+
+@mixin ca-type-ideal-notification($size: 15, $args...) {
+  @include ca-type-ideal(
+    $size: $size,
+    $weight: $ca-weight-light,
+    $line-height-in-grid-units: 3/4,
+    $args...
+  );
+}
+
+@mixin ca-type-ideal-label($size: 12, $args...) {
+  $letter-spacing-in-px: 0.5;
+
+  @include ca-type-ideal(
+    $size: $size,
+    $weight: $ca-weight-medium,
+    $letter-spacing: $letter-spacing-in-px / $size * 1em,
+    $args...
+  );
+
+  text-transform: uppercase;
+}
+
+// Deprecated, use ca-type-ideal-label instead.
+@mixin ca-type-ideal-labels-and-legends($args...) {
+  @include ca-type-ideal-label($args...);
+}
+
+@mixin ca-type-ideal-control-action($size: 16, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: $color-blue-500;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin ca-type-ideal-button($size: 18, $args...) {
+  @include ca-type-ideal($size: $size, $weight: $ca-weight-medium, $args...);
+}
+
+// Inter styles
+
+@mixin ca-type-inter(
+  $size,
+  $weight,
+  $line-height-in-grid-units: 1,
+  $letter-spacing: normal,
+  $args...
+) {
+  @include ca-type(
+    $size-ratio: $size / 16,
+    $family: $ca-inter-font-family,
+    $base-size: $ca-inter-font-base-size,
+    $descender-height: $ca-inter-font-descender-height,
+    $line-height-in-grid-units: $line-height-in-grid-units,
+    $letter-spacing: $letter-spacing,
+    $weight: $weight,
+    $args...
+  );
+
+  html:lang(he) & {
+    font-family: $ca-inter-locale-he-font-family;
+  }
+
+  html:lang(ar) & {
+    font-family: $ca-inter-locale-ar-font-family;
+  }
+}
+
+@mixin ca-type-inter-page-title($size: 32, $args...) {
+  @include ca-type-inter(
+    $size: $size,
+    $line-height-in-grid-units: 1.5,
+    $weight: 700,
+    $args...
+  );
+}
+
+@mixin ca-type-inter-title($size: 26, $args...) {
+  @include ca-type-inter(
+    $size: $size,
+    $line-height-in-grid-units: 1.5,
+    $weight: 700,
+    $args...
+  );
+}
+
+@mixin ca-type-inter-display($size: 22, $args...) {
+  @include ca-type-inter($size: $size, $weight: 600, $args...);
+}
+
+@mixin ca-type-inter-heading($size: 18, $args...) {
+  @include ca-type-inter($size: $size, $weight: 600, $args...);
+}
+
+@mixin ca-type-inter-lede($size: 20, $args...) {
+  @include ca-type-inter($size: $size, $weight: 400, $args...);
+}
+
+@mixin ca-type-inter-body($size: 16, $args...) {
+  @include ca-type-inter($size: $size, $weight: 400, $args...);
+}
+
+@mixin ca-type-inter-body-bold($size: 16, $args...) {
+  @include ca-type-inter($size: $size, $weight: 600, $args...);
+}
+
+@mixin ca-type-inter-small($size: 14, $args...) {
+  @include ca-type-inter($size: $size, $weight: 400, $args...);
+}
+
+@mixin ca-type-inter-small-bold($size: 14, $args...) {
+  @include ca-type-inter($size: $size, $weight: 600, $args...);
+}
+
+@mixin ca-type-inter-notification($size: 15, $args...) {
+  @include ca-type-inter(
+    $size: $size,
+    $weight: $ca-weight-light,
+    $line-height-in-grid-units: 3/4,
+    $args...
+  );
+}
+
+@mixin ca-type-inter-label($size: 12, $args...) {
+  $letter-spacing-in-px: 0.5;
+
+  @include ca-type-inter(
+    $size: $size,
+    $weight: 600,
+    $letter-spacing: $letter-spacing-in-px / $size * 1em,
+    $args...
+  );
+
+  text-transform: uppercase;
+}
+
+// Deprecated, use ca-type-inter-label instead.
+@mixin ca-type-inter-labels-and-legends($args...) {
+  @include ca-type-inter-label($args...);
+}
+
+@mixin ca-type-inter-control-action($size: 16, $args...) {
+  @include ca-type-inter($size: $size, $weight: 500, $args...);
+
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: $color-blue-500;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin ca-type-inter-button($size: 18, $args...) {
+  @include ca-type-inter($size: $size, $weight: 700, $args...);
+}
+
+@mixin debug-vertical-rhythm-grid() {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=");
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 50%;
+  }
+}
+
+// Greycliff styles
+
+// A utility to strip the unit from a value. Eg: `1.5rem` to `1.5`
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Given a rem unit like `1.5rem`, convert to pixels, but without the unit,
+// (eg `24`). This is to maintain backwards compatibility with existing usages
+// of the mixins, which are specified in unitless pixels. Eg: `ca-type-inter-heading(32)`
+// will become `kz-typography-heading-4(32)` which would be converted internally to `2rem`.
+
+@function to-unitless-pixels($value-in-rems) {
+  @return strip-unit($value-in-rems) * 16;
+}
+
+@function to-grid-units($value-in-rems) {
+  @return $value-in-rems / $ca-grid;
+}
+
+/*
+  Because these components are deprecated, we've kept any inline/non-token values as values from the Zen theme to prevent any style regressions,
+  as this is what consumers would have expected when pulling them in a the time.
+*/
+
+@mixin kz-typography-greycliff(
+  $size,
+  $weight,
+  $line-height-in-grid-units: 1,
+  $letter-spacing: $typography-heading-1-letter-spacing,
+  $args...
+) {
+  @include ca-type(
+    $size-ratio: $size / 16,
+    $family:
+      unquote(
+        "#{$typography-heading-1-font-family}, Helvetica, Arial, sans-serif"
+      ),
+    $base-size: $ca-greycliff-font-base-size,
+    $descender-height: $ca-greycliff-font-descender-height,
+    $line-height-in-grid-units: $line-height-in-grid-units,
+    $letter-spacing: $letter-spacing,
+    $weight: $weight,
+    $args...
+  );
+}
+
+@mixin kz-typography-inter(
+  $size,
+  $weight,
+  $line-height-in-grid-units: 1,
+  $letter-spacing: $typography-heading-1-letter-spacing,
+  $args...
+) {
+  @include ca-type(
+    $size-ratio: $size / 16,
+    $family:
+      unquote(
+        "#{$typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif"
+      ),
+    $base-size: $ca-inter-font-base-size,
+    $descender-height: $ca-inter-font-descender-height,
+    $line-height-in-grid-units: $line-height-in-grid-units,
+    $letter-spacing: $letter-spacing,
+    $weight: $weight,
+    $args...
+  );
+}
+
+@mixin kz-typography-data-large($size: to-unitless-pixels(5.25rem), $args...) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-data-large-font-weight,
+    $letter-spacing: $typography-data-large-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(5.25rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-large-units(
+  $size: to-unitless-pixels(2.625rem),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-data-large-units-font-weight,
+    $letter-spacing: $typography-data-large-units-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(5.25rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-medium($size: to-unitless-pixels(3rem), $args...) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-data-medium-font-weight,
+    $letter-spacing: $typography-data-medium-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-medium-units(
+  $size: to-unitless-pixels(1.5rem),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-data-medium-units-font-weight,
+    $letter-spacing: $typography-data-medium-units-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-small($size: to-unitless-pixels(1.5rem), $args...) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-data-small-font-weight,
+    $letter-spacing: $typography-data-small-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-small-units(
+  $size: to-unitless-pixels(1.125rem),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-data-small-units-font-weight,
+    $letter-spacing: $typography-data-small-units-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-display-0($size: to-unitless-pixels(4.5rem), $args...) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-display-0-font-weight,
+    $letter-spacing: $typography-display-0-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(4.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-1($size: to-unitless-pixels(2.25rem), $args...) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-heading-1-font-weight,
+    $letter-spacing: $typography-heading-1-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(2.25rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-2($size: to-unitless-pixels(1.875rem), $args...) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-heading-2-font-weight,
+    $letter-spacing: $typography-heading-2-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(2.25rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-3($size: to-unitless-pixels(1.375rem), $args...) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $typography-heading-3-font-weight,
+    $letter-spacing: $typography-heading-3-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-4($size: to-unitless-pixels(1.125rem), $args...) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $typography-heading-4-font-weight,
+    $letter-spacing: $typography-heading-4-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-5($size: to-unitless-pixels(1rem), $args...) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $typography-heading-5-font-weight,
+    $letter-spacing: $typography-heading-5-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-6($size: to-unitless-pixels(0.875rem), $args...) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $typography-heading-6-font-weight,
+    $letter-spacing: $typography-heading-6-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-paragraph-body($size: to-unitless-pixels(1rem), $args...) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $typography-paragraph-body-font-weight,
+    $letter-spacing: $typography-paragraph-body-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+}
+
+@mixin kz-typography-paragraph-body-bold(
+  $size: to-unitless-pixels(1rem),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $typography-paragraph-body-font-weight,
+    $letter-spacing: $typography-paragraph-body-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.5rem),
+    $args...
+  );
+
+  font-weight: $typography-paragraph-bold-font-weight;
+}
+
+@mixin kz-typography-paragraph-small(
+  $size: to-unitless-pixels(0.875rem),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $typography-paragraph-small-font-weight,
+    $letter-spacing: $typography-paragraph-small-letter-spacing,
+    $line-height-in-grid-units: to-grid-units(1.125rem),
+    $args...
+  );
+}
+
+@mixin kz-type-inter-button-primary($size: 16, $args...) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $ca-weight-book,
+    $args...
+  );
+
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: $color-blue-500;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin ca-type-align-start() {
+  text-align: left; // fallback for IE and Edge
+  text-align: start;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    text-align: right; // fallback for IE and Edge
+    text-align: start;
+  }
+}
+
+@mixin ca-type-align-end() {
+  text-align: right; // fallback for IE and Edge
+  text-align: end;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    text-align: left; // fallback for IE and Edge
+    text-align: end;
+  }
+}

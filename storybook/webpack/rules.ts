@@ -1,5 +1,3 @@
-// Call the pre-build script -- used for validation, setup, etc.
-import "../pre-build"
 import postcssFlexbugsFixes from "postcss-flexbugs-fixes"
 import postcssImport from "postcss-import"
 import postcssPresetEnv from "postcss-preset-env"
@@ -114,9 +112,14 @@ export const svgIcons: RuleSetRule = {
 }
 
 export const removeSvgFromTest = (
-  rule: RuleSetRule | "..."
-): RuleSetRule | "..." => {
-  if (rule !== "..." && rule.test && rule.test.toString().includes("svg")) {
+  rule: undefined | null | false | "" | 0 | RuleSetRule | "..."
+): undefined | null | false | "" | 0 | RuleSetRule | "..." => {
+  if (
+    rule &&
+    rule !== "..." &&
+    rule.test &&
+    rule.test?.toString().includes("svg")
+  ) {
     const test = rule.test.toString().replace("svg|", "").replace(/\//g, "")
     return { ...rule, test: new RegExp(test) } as RuleSetRule
   }

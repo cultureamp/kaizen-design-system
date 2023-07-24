@@ -1,5 +1,35 @@
 # Change Log
 
+## 5.9.3
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+- Updated dependencies [[`c8cf582b9`](https://github.com/cultureamp/kaizen-design-system/commit/c8cf582b99c7f9644bf73ef2902c49461f23dd7e), [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/draft-tooltip@5.4.47
+  - @kaizen/component-library@16.9.3
+  - @kaizen/draft-form@10.4.8
+
+## 5.9.2
+
+### Patch Changes
+
+- [#3775](https://github.com/cultureamp/kaizen-design-system/pull/3775) [`348d84844`](https://github.com/cultureamp/kaizen-design-system/commit/348d848448509ff358dcf4785f2eba9a8a672d49) - Expose tooltipPortalSelector prop on TableHeaderRow
+
+## 5.9.1
+
+### Patch Changes
+
+- [#3740](https://github.com/cultureamp/kaizen-design-system/pull/3740) [`7f261b142`](https://github.com/cultureamp/kaizen-design-system/commit/7f261b1424cc527db9a1484c360e16d4517f8eb7) - Fix truncate styles for nowrap on table header
+
+## 5.9.0
+
+### Minor Changes
+
+- [#3734](https://github.com/cultureamp/kaizen-design-system/pull/3734) [`88734cad0`](https://github.com/cultureamp/kaizen-design-system/commit/88734cad0f43402fcd2fe64cba2bd29f11185f48) - Add classNameOverride to TableRow and TableCard
+
 ## 5.8.1
 
 ### Patch Changes

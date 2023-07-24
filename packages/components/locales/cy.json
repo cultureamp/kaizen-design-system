@@ -1,25 +1,24 @@
 {
-  "smartling": {
-    "string_format": "icu",
-    "translate_paths": [
-      {
-        "instruction": "*/description",
-        "key": "{*}/message",
-        "path": "*/message"
-      }
-    ],
-    "variants_enabled": true
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : [
+    {
+      "instruction" : "*/description",
+      "key" : "{*}/message",
+      "path" : "*/message"
+    }],
+    "variants_enabled" : true
   },
-  "filterDateRangePicker.dateFrom": {
-    "description": "Label for the 'Date from' date range input field",
-    "message": "Dyddiad o"
+  "filterDateRangePicker.dateFrom" : {
+    "description" : "Label for the 'Date from' date range input field",
+    "message" : "Dyddiad o"
   },
-  "filterDateRangePicker.dateTo": {
-    "description": "Label for the 'Date to' date range input field",
-    "message": "Dyddiad i"
+  "filterDateRangePicker.dateTo" : {
+    "description" : "Label for the 'Date to' date range input field",
+    "message" : "Dyddiad i"
   },
-  "filterDateRangePicker.inputFormat": {
-    "description": "Label for the 'Input format' subtext",
-    "message": "Fformat y mewnbwn"
+  "filterDateRangePicker.inputFormat" : {
+    "description" : "Label for the 'Input format' subtext",
+    "message" : "Fformat y mewnbwn"
   }
 }

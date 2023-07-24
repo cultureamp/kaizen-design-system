@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
@@ -22,7 +23,7 @@ export default {
 const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   textDirection,
 }) => {
-  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(IS_CHROMATIC)
+  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
   const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
     from: new Date("2022-05-15"),
   })
@@ -48,7 +49,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   })
 
   return (
-    <>
+    <StaticIntlProvider locale="en">
       <StickerSheet
         heading="Filter Date Range Picker"
         style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
@@ -61,7 +62,10 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               isOpen={isOpenPartial}
               setIsOpen={setIsOpenPartial}
               renderTrigger={(triggerButtonProps): JSX.Element => (
-                <FilterButton {...triggerButtonProps} />
+                <FilterButton
+                  {...triggerButtonProps}
+                  data-testid={`${textDirection}-stickersheet--filter-drp--partial-range-button`}
+                />
               )}
               label="Dates"
               locale="en-US"
@@ -129,21 +133,49 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
-    </>
+
+      <StickerSheet heading="Translated">
+        <StickerSheet.Body>
+          <StickerSheet.Row rowTitle="Japanese">
+            <StaticIntlProvider locale="ja">
+              <FilterDateRangePickerField
+                id={`${textDirection}-stickersheet--filter-drp-field--translated`}
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangeFieldValidation}
+                onRangeChange={setRangeFieldValidation}
+                onValidate={{
+                  dateStart: action("Validation story: date start onValidate"),
+                }}
+                inputEndDateProps={{
+                  "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
+                }}
+              />
+            </StaticIntlProvider>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    </StaticIntlProvider>
   )
 }
 
-const applyStickerSheetStyles = (
+const applyStickerSheetStyles = async (
   canvasElement: HTMLElement,
   textDirection: "ltr" | "rtl"
-): void => {
+): Promise<void> => {
   const canvas = within(canvasElement)
-  const inputEndDate = canvas.getByTestId(
+
+  const validationInputEndDate = canvas.getByTestId(
     `${textDirection}-test__filter-drp-field--validation--end`
   )
-  userEvent.click(inputEndDate)
-  userEvent.type(inputEndDate, "potato")
-  userEvent.click(document.body)
+  await userEvent.click(validationInputEndDate)
+  await userEvent.type(validationInputEndDate, "potato")
+  await userEvent.click(document.body)
+
+  const partialRangeButton = canvas.getByTestId(
+    `${textDirection}-stickersheet--filter-drp--partial-range-button`
+  )
+  await userEvent.click(partialRangeButton)
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
@@ -151,7 +183,7 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.args = {
   textDirection: "ltr",
 }
-StickerSheetDefault.play = ({ canvasElement }): void => {
+StickerSheetDefault.play = ({ canvasElement }) => {
   applyStickerSheetStyles(canvasElement, "ltr")
 }
 
@@ -160,6 +192,6 @@ StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
 StickerSheetRTL.args = {
   textDirection: "rtl",
 }
-StickerSheetRTL.play = ({ canvasElement }): void => {
+StickerSheetRTL.play = ({ canvasElement }) => {
   applyStickerSheetStyles(canvasElement, "rtl")
 }

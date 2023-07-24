@@ -1,5 +1,25 @@
 # Change Log
 
+## 10.6.22
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+- Updated dependencies [[`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a)]:
+  - @kaizen/draft-illustration@7.0.1
+  - @kaizen/component-library@16.9.3
+  - @kaizen/draft-form@10.4.8
+
+## 10.6.21
+
+### Patch Changes
+
+- Updated dependencies [[`b6047fe28`](https://github.com/cultureamp/kaizen-design-system/commit/b6047fe285d7d8c0d5e5945db1d3ac6671bfe5c6), [`83fb7bdba`](https://github.com/cultureamp/kaizen-design-system/commit/83fb7bdba6d654e3851c8eef00f8279961f8d3bf)]:
+  - @kaizen/draft-illustration@7.0.0
+  - @kaizen/component-library@16.9.1
+
 ## 10.6.20
 
 ### Patch Changes

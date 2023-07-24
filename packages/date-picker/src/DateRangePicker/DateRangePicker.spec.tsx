@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "react-day-picker"
-import { DateRangePicker, DateRangePickerProps } from "./DateRangePicker"
 import { formatDateRangeValue } from "./utils/formatDateRangeValue"
+import { DateRangePicker, DateRangePickerProps } from "./index"
 
 const user = userEvent.setup()
 
@@ -21,7 +21,7 @@ const DateRangePickerWrapper = (
     setSelectedDateRange(dateRange)
   }
 
-  // TODO: Make formating built in
+  // TODO: Make formatting built in
   useEffect(() => {
     setValue(formatDateRangeValue(selectedDateRange))
   }, [selectedDateRange])

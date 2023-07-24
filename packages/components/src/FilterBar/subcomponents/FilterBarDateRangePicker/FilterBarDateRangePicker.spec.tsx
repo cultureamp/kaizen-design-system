@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FilterBarProvider } from "~components/FilterBar/context/FilterBarContext"
+import { FilterAttributes, FilterBarProvider } from "~components/FilterBar"
 import { DateRange } from "~components/index"
 import {
   FilterBarDateRangePicker,
@@ -16,9 +16,11 @@ type Values = {
 
 const FilterBarDateRangePickerWrapper = ({
   defaultValues,
+  filterAttributes,
   ...customProps
 }: {
   defaultValues?: Partial<Values>
+  filterAttributes?: Partial<FilterAttributes<Values>>
 } & Partial<FilterBarDateRangePickerProps>): JSX.Element => {
   const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
   return (
@@ -28,6 +30,7 @@ const FilterBarDateRangePickerWrapper = ({
           id: "range",
           name: "Dates",
           Component: <FilterBarDateRangePicker id="range" {...customProps} />,
+          ...filterAttributes,
         },
       ]}
       values={values}
@@ -49,6 +52,27 @@ describe("<FilterBarDateRangePicker />", () => {
     const { getByRole } = render(<FilterBarDateRangePickerWrapper />)
     const triggerButton = getByRole("button", { name: "Dates" })
     expect(triggerButton).toBeInTheDocument()
+  })
+
+  describe("Removable", () => {
+    it("does not show the remove button when isRemovable is false", () => {
+      const { queryByRole } = render(<FilterBarDateRangePickerWrapper />)
+      expect(
+        queryByRole("button", { name: "Remove filter - Dates" })
+      ).not.toBeInTheDocument()
+    })
+
+    it("shows the remove button when isRemovable is true", () => {
+      const { getByRole } = render(
+        <FilterBarDateRangePickerWrapper
+          filterAttributes={{ isRemovable: true }}
+          defaultValues={{ range: { from: new Date("2023-05-01") } }}
+        />
+      )
+      expect(
+        getByRole("button", { name: "Remove filter - Dates" })
+      ).toBeVisible()
+    })
   })
 
   it("can toggle its open state", async () => {
@@ -152,5 +176,5 @@ describe("<FilterBarDateRangePicker />", () => {
         to: new Date("2022-06-23"),
       })
     })
-  })
+  }, 10000)
 })

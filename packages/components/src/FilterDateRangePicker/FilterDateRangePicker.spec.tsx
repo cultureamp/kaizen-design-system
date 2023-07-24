@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterButton } from "~components/FilterButton"
 import { DateRange } from "~types/DatePicker"
-import { FilterDateRangePicker, FilterDateRangePickerProps } from "."
+import { FilterDateRangePicker, FilterDateRangePickerProps } from "./index"
 
 const user = userEvent.setup()
 
@@ -35,13 +35,13 @@ const FilterDateRangePickerWrapper = ({
 
 describe("<FilterDateRangePicker />", () => {
   it("should not show the calendar initially", () => {
-    render(<FilterDateRangePickerWrapper />)
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+    const { queryByRole } = render(<FilterDateRangePickerWrapper />)
+    expect(queryByRole("dialog")).not.toBeInTheDocument()
   })
 
   describe("Filter button", () => {
     it("should show the selected range in the button", () => {
-      render(
+      const { getByRole } = render(
         <FilterDateRangePickerWrapper
           selectedRange={{
             from: new Date("2022-05-01"),
@@ -49,39 +49,74 @@ describe("<FilterDateRangePicker />", () => {
           }}
         />
       )
-      const filterButton = screen.getByRole("button", {
+      const filterButton = getByRole("button", {
         name: "Dates : 1 May 2022 - 25 Nov 2022",
       })
       expect(filterButton).toBeVisible()
     })
 
+    it("should not show the selected range in the button if the range is not valid", () => {
+      const { getByRole } = render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{
+            from: new Date("2022-05-01"),
+            to: new Date("2022-04-01"),
+          }}
+        />
+      )
+      const filterButton = getByRole("button", { name: "Dates" })
+      expect(filterButton).toBeVisible()
+    })
+
     it("should not show a selected value in the button if there is only a partial date range", () => {
-      render(
+      const { getByRole } = render(
         <FilterDateRangePickerWrapper
           selectedRange={{
             from: new Date("2022-05-01"),
           }}
         />
       )
-      const filterButton = screen.getByRole("button", {
-        name: "Dates",
-      })
+      const filterButton = getByRole("button", { name: "Dates" })
       expect(filterButton).toBeVisible()
     })
 
     it("should show the calendar when the filter button is clicked", async () => {
-      render(
+      const { queryByRole, getByRole, getByText } = render(
         <FilterDateRangePickerWrapper defaultMonth={new Date("2022-05-01")} />
       )
-      expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+      expect(queryByRole("dialog")).not.toBeInTheDocument()
 
-      const filterButton = screen.getByRole("button", {
-        name: "Dates",
-      })
+      const filterButton = getByRole("button", { name: "Dates" })
       await user.click(filterButton)
+
       await waitFor(() => {
-        expect(screen.getByText("May 2022")).toBeVisible()
+        expect(getByText("May 2022")).toBeVisible()
       })
     })
+
+    it("should not show a date range in the button if the selected range is not valid", async () => {
+      const { getByRole, getByLabelText } = render(
+        <FilterDateRangePickerWrapper
+          selectedRange={{ from: new Date("2022-05-01") }}
+        />
+      )
+
+      const filterButton = getByRole("button", { name: "Dates" })
+
+      await user.click(filterButton)
+      await waitFor(() => {
+        expect(getByRole("dialog")).toBeVisible()
+      })
+
+      const inputEndDate = getByLabelText("Date to")
+      await user.clear(inputEndDate)
+      await user.type(inputEndDate, "01/04/2022")
+      await user.tab()
+
+      await waitFor(() => {
+        expect(inputEndDate).not.toHaveFocus()
+        expect(filterButton.textContent).toEqual("Dates")
+      })
+    }, 10000)
   })
 })

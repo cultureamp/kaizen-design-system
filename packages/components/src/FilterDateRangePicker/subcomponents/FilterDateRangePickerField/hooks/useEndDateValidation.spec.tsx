@@ -20,7 +20,7 @@ describe("useEndDateValidation()", () => {
           startDate: undefined,
           startDateFieldLabel: "Start date",
         })
-        expect(newDate).toBeUndefined()
+        expect(newDate).toEqual(undefined)
       })
 
       expect(result.current.validationMessage).toStrictEqual({
@@ -35,8 +35,8 @@ describe("useEndDateValidation()", () => {
     })
   })
 
-  describe("validateEndDateBeforeStartDate", () => {
-    it("returns a validation message and no date", () => {
+  describe("validateEndDateBeforeStartDate()", () => {
+    it("returns a validation message and date", () => {
       const { result } = renderHook(() =>
         useEndDateValidation({
           inputLabel: "End date",
@@ -51,7 +51,7 @@ describe("useEndDateValidation()", () => {
           startDate: new Date("2023-05-01"),
           startDateFieldLabel: "Start date",
         })
-        expect(newDate).toBeUndefined()
+        expect(newDate).toEqual(new Date("2023-04-03"))
       })
 
       expect(result.current.validationMessage).toStrictEqual({

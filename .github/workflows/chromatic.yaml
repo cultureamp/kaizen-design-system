@@ -1,44 +1,35 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
-# Using this github action from https://github.com/lightspeedretail/actions-label-prs
 
 name: "chromatic"
 
 on:
   pull_request:
-    types: [labeled]
+    types:
+      - ready_for_review
+      - synchronize
     branches-ignore:
       - changeset-release/main
   push:
+    branches:
+      - "main"
 
 jobs:
   visual-testing:
-    if: >
-      github.ref == 'refs/heads/main' ||
-      github.event.label.name == 'run chromatic' ||
-      startsWith(github.event.head_commit.message, 'Merge branch ''main'' into')
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # 👈 Required to retrieve git history
-      - uses: actions/setup-node@v3
-        with:
-          cache: yarn
-          node-version-file: .nvmrc
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
       - name: Build Storybook
         run: |
           yarn storybook:build --webpack-stats-json
-
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "./storybook/public"
           onlyChanged: "!(main)"

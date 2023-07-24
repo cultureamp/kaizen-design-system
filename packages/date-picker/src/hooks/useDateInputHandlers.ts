@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch } from "react"
 import { DateInputProps } from "../_subcomponents/DateInput"
 import { DisabledDays } from "../types"
 import { formatDateAsNumeral } from "../utils/formatDateAsNumeral"
@@ -12,7 +12,7 @@ import { parseDateFromTextFormatValue } from "../utils/parseDateFromTextFormatVa
 export type UseDateInputHandlersArgs = {
   locale: Locale
   disabledDays?: DisabledDays
-  setInputValue: Dispatch<SetStateAction<string>>
+  setInputValue: Dispatch<string>
   onDateChange: (date: Date | undefined) => void
   onChange?: DateInputProps["onChange"]
   onFocus?: DateInputProps["onFocus"]
@@ -27,6 +27,9 @@ export type UseDateInputHandlersValue = {
   onKeyDown: DateInputProps["onKeyDown"]
 }
 
+/**
+ * @deprecated Moved to @kaizen/components.
+ */
 export const useDateInputHandlers = ({
   locale,
   disabledDays,

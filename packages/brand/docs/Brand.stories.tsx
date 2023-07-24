@@ -11,7 +11,7 @@ export default {
     chromatic: { disable: false },
     docs: {
       description: {
-        component: 'import { Brand } from "@kaizen/components"',
+        component: 'import { Brand } from "@kaizen/brand"',
       },
     },
   },

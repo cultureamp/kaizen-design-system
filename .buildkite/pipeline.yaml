@@ -14,7 +14,7 @@ steps:
   - name: ":butterfly: Release"
     command: ".buildkite/scripts/release.sh"
     timeout_in_minutes: 15
-    if: build.branch == "main" && build.author.name == "github-actions[bot]"
+    if: build.env("CHANGESETS_RELEASE") == "true" || (build.branch == "main" && build.author.name == "github-actions[bot]")
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
@@ -72,7 +72,7 @@ steps:
     agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.34.0-focal
+          image: mcr.microsoft.com/playwright:v1.35.1-focal
           propagate-environment: true
 
   - name: "LinearB: Record deployment time"

@@ -1,10 +1,11 @@
 import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
 import { Installation, KaioNotification, ResourceLinks } from "../../../../../storybook/components"
+import { InlineNotification } from "@kaizen/notification"
 import * as Workflow from "./Workflow.stories"
 import * as WorkflowFooter from "./WorkflowFooter.stories"
 import * as WorkflowHeader from "./WorkflowHeader.stories"
 
-<Meta title="Pages/Workflow" />
+<Meta title="Pages/Workflow/Legacy" />
 
 # Workflow
 
@@ -15,18 +16,24 @@ import * as WorkflowHeader from "./WorkflowHeader.stories"
 
 <KaioNotification />
 
+<InlineNotification type="negative" persistent>
+  {`This version of the Workflow is deprecated and will be removed in the next major release.
+  Import from "@kaizen/components/future" for the latest version.`}
+</InlineNotification>
+
 <Installation
   installCommand="yarn add @kaizen/components"
   importStatement='import { Workflow } from "@kaizen/components"'
 />
 
+
 ## Overview
 
-This is a page template component containing the header, footer and main landmarks that compose a Workflow page. Its purpose is to guide an customer through a multi-step form to create a Workflow.
+This is a page template component containing the header, footer, and main landmarks that compose a Workflow page. Its purpose is to guide a customer through a multi-step form to create a Workflow.
 
-The Worflow is intended as a page wrapper and sets minimum height of `100vh` with a sticky `Header` component. The `Children` will be wrapped in a unstyled main landmark to provide flexibility for inner content layouts.
+The Worflow is intended as a page wrapper and sets a minimum height of `100vh` with a sticky `Header` component. The `Children` will be wrapped in an unstyled main landmark to provide flexibility for inner content layouts.
 
-This component has responsiveness baked in to support 400% zoom and smaller screen sizes. This will also un-stick the `Header` to provide more realestate for the user.
+To ensure at readability at 400% zoom (See WCAG's [Reflow criteria](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html)) this component will collapse to a vertical layout on smaller screen sizes and remove `sticky` positioning to maximise screen real estate. You can see an example in [the responsive workflow story](/story/pages-workflow-components-workflow--responsive-workflow).
 
 <Canvas layout="fullscreen" of={Workflow.Playground} />
 
@@ -34,7 +41,7 @@ This component has responsiveness baked in to support 400% zoom and smaller scre
 
 The `headerActions` prop  takes array of JSX elements that will render in the top right of the `Header` component.
 
-While the number of JSX element is not limited, is important to consider the realestate in the `Header` and how larger strings or components may be rendered on smaller screen sizes.
+While the number of JSX elements is not limited, is important to consider the real estate in the `Header` and how larger strings or components may be rendered on smaller screen sizes.
 
 <Canvas
   layout="fullscreen"
@@ -65,7 +72,7 @@ While the number of JSX element is not limited, is important to consider the rea
 
 ## Handling a Workflow exit
 
-A common pattern identified is a Workflow Exit button. An implemntation of this component should be passed to the `headerActions` array to handle a user leaving a Workflow. We've provided an example below that combines a Kaizen `Button` with the `ConfirmationModal` component.
+A common pattern identified is a Workflow Exit button. An implementation of this component should be passed to the `headerActions` an array to handle a user leaving a Workflow. We've provided an example below that combines a Kaizen `Button` with the `ConfirmationModal` component.
 
 <Canvas
   layout="fullscreen"
@@ -142,7 +149,7 @@ To hide, disable or change the appearance of the Footer buttons you can leverage
   </Workflow>`}}
 />
 
-Instances where users are returning to a completed worklow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their aria title.
+In Instances where users are returning to a completed workflow you can pass the `isComplete` prop to set the indicators to their "complete" status. This will also be reflected in their Aria title.
 
 <Canvas
   layout="fullscreen"
@@ -155,11 +162,12 @@ Instances where users are returning to a completed worklow you can pass the `isC
   </Workflow>`}}
 />
 
-## Compsable Worflow
+## Composable Worflow
 
-While we do not advise this path, a composable Workflow may be created if required. Refer to the components stories on how to consume each subcomponent.
+While we do not advise this path, a composable Workflow may be created if required. Refer to the component's stories on how to consume each subcomponent.
 
 <Canvas layout="fullscreen" of={Workflow.ComposableWorkflow} />
+
 
 ## Worflow API at a glance
 

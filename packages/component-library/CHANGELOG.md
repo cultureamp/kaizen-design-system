@@ -1,5 +1,25 @@
 # Change Log
 
+## 16.9.3
+
+### Patch Changes
+
+- [#3815](https://github.com/cultureamp/kaizen-design-system/pull/3815) [`52e3d1f44`](https://github.com/cultureamp/kaizen-design-system/commit/52e3d1f441765f409ddb5c98dce1e407b707be0a) - Update dependencies
+  - update to prettier v3 cause minor linting changes
+  - update to prettier v3 required minor type fixes for format function in design-tokens
+
+## 16.9.2
+
+### Patch Changes
+
+- [#3710](https://github.com/cultureamp/kaizen-design-system/pull/3710) [`25d6ed618`](https://github.com/cultureamp/kaizen-design-system/commit/25d6ed61881c25b514434cf3991ab6f77ded524d) - Added new "live" icon
+
+## 16.9.1
+
+### Patch Changes
+
+- [#3713](https://github.com/cultureamp/kaizen-design-system/pull/3713) [`83fb7bdba`](https://github.com/cultureamp/kaizen-design-system/commit/83fb7bdba6d654e3851c8eef00f8279961f8d3bf) - Update dependencies
+
 ## 16.9.0
 
 ### Minor Changes

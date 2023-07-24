@@ -7,9 +7,8 @@ import {
 } from "react-day-picker"
 import { DayOfWeek } from "../../enums"
 import { isInvalidDate } from "../../utils/isInvalidDate"
+import { IconLeft, IconRight } from "../Icons"
 import { legacyCalendarRangeClasses } from "./CalendarClasses"
-import { IconLeft } from "./components/IconLeft"
-import { IconRight } from "./components/IconRight"
 import { isValidWeekStartsOn } from "./utils/isValidWeekStartsOn"
 
 export type LegacyCalendarRangeElement = HTMLDivElement

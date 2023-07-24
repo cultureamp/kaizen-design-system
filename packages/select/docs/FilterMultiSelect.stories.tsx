@@ -8,6 +8,7 @@ import {
   useQueryClient,
 } from "@tanstack/react-query"
 import isChromatic from "chromatic"
+import { InlineNotification } from "@kaizen/notification"
 import { Label } from "../../../draft-packages/form"
 import { Button, ButtonRef } from "../../button"
 import { CodeBlock } from "../../design-tokens/docs/DocsComponents"
@@ -600,3 +601,114 @@ export const Async: StoryFn<typeof FilterMultiSelect> = args => {
   )
 }
 Async.decorators = [withQueryProvider]
+
+export const WithSectionHeader: StoryFn<typeof FilterMultiSelect> = () => {
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(
+    new Set(["id-fe"])
+  )
+
+  const handleSelectionChange = (keys: Selection): void => setSelectedKeys(keys)
+
+  return (
+    <>
+      <FilterMultiSelect
+        onSelectionChange={handleSelectionChange}
+        selectedKeys={selectedKeys}
+        items={mockItems}
+        label="Engineer"
+        trigger={(): JSX.Element => (
+          <FilterMultiSelect.TriggerButton
+            selectedOptionLabels={getSelectedOptionLabels(
+              selectedKeys,
+              mockItems
+            )}
+            label="Engineer"
+          />
+        )}
+      >
+        {(): JSX.Element => (
+          <>
+            <FilterMultiSelect.SearchInput />
+            <FilterMultiSelect.ListBox>
+              {({
+                selectedItems,
+                unselectedItems,
+                disabledItems,
+                hasNoItems,
+              }): JSX.Element => (
+                <>
+                  {hasNoItems && (
+                    <FilterMultiSelect.NoResults>
+                      No results found.
+                    </FilterMultiSelect.NoResults>
+                  )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={selectedItems}
+                    sectionName="Selected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+
+                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
+                    <FilterMultiSelect.SectionDivider />
+                  )}
+
+                  <FilterMultiSelect.ListBoxSection
+                    items={unselectedItems}
+                    sectionName="Unselected items"
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+
+                  {disabledItems.length > 0 &&
+                    (selectedItems.length > 0 ||
+                      unselectedItems.length > 0) && (
+                      <FilterMultiSelect.SectionDivider />
+                    )}
+                  <FilterMultiSelect.ListBoxSection
+                    items={disabledItems}
+                    sectionName="Disabled items"
+                    sectionHeader={
+                      <InlineNotification
+                        type="cautionary"
+                        persistent
+                        noBottomMargin
+                        headingProps={{
+                          tag: "span",
+                          variant: "heading-5",
+                          children: "Confidentiality protection",
+                        }}
+                      >
+                        Results for these filters are hidden to protect
+                        identities of individuals and small groups
+                      </InlineNotification>
+                    }
+                  >
+                    {(item): JSX.Element => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+                </>
+              )}
+            </FilterMultiSelect.ListBox>
+            <FilterMultiSelect.MenuFooter>
+              <FilterMultiSelect.SelectAllButton />
+              <FilterMultiSelect.ClearButton />
+            </FilterMultiSelect.MenuFooter>
+          </>
+        )}
+      </FilterMultiSelect>
+      <div style={{ marginTop: 4 }}>
+        <Paragraph variant="body">Items: </Paragraph>
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(mockItems, null, "\t")}
+        />
+      </div>
+    </>
+  )
+}
