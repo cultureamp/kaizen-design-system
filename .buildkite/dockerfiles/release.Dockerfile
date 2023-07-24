@@ -7,8 +7,7 @@ RUN apk update && apk add --no-cache \
   py3-pip \ 
   gcc \ 
   alpine-sdk \ 
-  python3-dev \
+  python3-dev
 
 RUN pip install \
-  "Cython<3.0" "pyyaml<6" --no-build-isolation \
-  awscli
+  "awscli>=1.29.9"
