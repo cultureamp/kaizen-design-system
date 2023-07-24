@@ -20,7 +20,7 @@
     "bin/**"
   ],
   "sideEffects": false,
-  "version": "16.9.2",
+  "version": "16.9.3",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
