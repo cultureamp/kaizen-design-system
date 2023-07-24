@@ -14,9 +14,6 @@ setup_github() {
   git config --global user.password "$GH_TOKEN"
   git config --global commit.gpgsign false
   git config --global --add safe.directory /workspace
-
-  echo "Checking GitHub authentication..."
-  ssh -T git@github.com || true # exits non-zero
 }
 
 setup_npm() {
