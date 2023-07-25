@@ -9,6 +9,12 @@ import { StorybookConfig } from "@storybook/react-webpack5"
  */
 const getStoryPathsFromEnv = (): string[] | false => {
   if (!process.env.STORIES) return false
+
+  // BrandMoment stories freeze outside of prod, so we need to ignore it when running tests
+  if (process.env.STORIES === "ignoreBrandMoment") {
+    return ["../(docs|draft-packages|packages)/**/!(BrandMoment).stories.tsx"]
+  }
+
   const storyPath = path.join(__dirname, "../", process.env.STORIES)
   if (fs.existsSync(storyPath)) {
     if (fs.statSync(storyPath).isDirectory()) {
@@ -20,10 +26,12 @@ const getStoryPathsFromEnv = (): string[] | false => {
   }
   return [storyPath]
 }
+
 const defaultStoryPaths = [
   "../(docs|draft-packages|packages)/**/*.mdx",
   "../(docs|draft-packages|packages)/**/*.stories.tsx",
 ]
+
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
