@@ -1,10 +1,10 @@
 import { useIntl } from "@cultureamp/i18n-react-intl"
 
-type ErrorStatuses = 400 | 401 | 403 | 404 | 422 | 500 | 502 | 503 | 504
+export type ErrorStatuses = "400" | "401" | "403" | "404" | "422" | "500" | "502" | "503" | "504" | number
 type TranslationMap = Record<ErrorStatuses, { title: string; message: string }>
 
 export const useErrorMessages = (
-  code: number
+  code: ErrorStatuses
 ): TranslationMap[ErrorStatuses] => {
   const { formatMessage } = useIntl()
 
@@ -129,7 +129,7 @@ export const useErrorMessages = (
   }
 
   return (
-    translationsMap[code as ErrorStatuses] || {
+    translationsMap[code] || {
       title: "",
       message: "",
     }

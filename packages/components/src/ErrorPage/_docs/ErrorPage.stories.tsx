@@ -29,47 +29,47 @@ export default meta
 
 export const Error400: StoryObj<typeof meta> = {
   args: {
-    code: 400,
+    code: "400",
   },
 }
 export const Error401: StoryObj<typeof meta> = {
   args: {
-    code: 401,
+    code: "401",
   },
 }
 export const Error403: StoryObj<typeof meta> = {
   args: {
-    code: 403,
+    code: "403",
   },
 }
 export const Error404: StoryObj<typeof meta> = {
   args: {
-    code: 404,
+    code: "404",
   },
 }
 export const Error422: StoryObj<typeof meta> = {
   args: {
-    code: 422,
+    code: "422",
   },
 }
 export const Error500: StoryObj<typeof meta> = {
   args: {
-    code: 500,
+    code: "500",
   },
 }
 export const Error502: StoryObj<typeof meta> = {
   args: {
-    code: 502,
+    code: "502",
   },
 }
 export const Error503: StoryObj<typeof meta> = {
   args: {
-    code: 503,
+    code: "503",
   },
 }
 export const Error504: StoryObj<typeof meta> = {
   args: {
-    code: 504,
+    code: "504",
   },
 }
 export const CustomError: StoryObj<typeof meta> = {

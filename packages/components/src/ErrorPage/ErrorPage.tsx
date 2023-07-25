@@ -7,10 +7,10 @@ import { Paragraph } from "@kaizen/typography"
 import { ArrowRightIcon } from "~components/SVG/icons/ArrowRightIcon"
 import { EmailIcon } from "~components/SVG/icons/EmailIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { useErrorMessages } from "./hooks"
+import { ErrorStatuses, useErrorMessages } from "./hooks"
 import styles from "./ErrorPage.module.scss"
 
-const getMailToHref = (code: number): string => {
+const getMailToHref = (code: ErrorStatuses): string => {
   const supportEmail = "support@cultureamp.com"
   const subject = "Houston we have a problem"
   const body = `Hi there,\n\nI received a ${code} error page while I was trying to...`
@@ -20,7 +20,7 @@ const getMailToHref = (code: number): string => {
 const HOME_HREF = "/app/home"
 
 export type ErrorPageProps = {
-  code: number
+  code: ErrorStatuses
   title?: string
   message?: React.ReactNode | string
   callToAction?: {
@@ -29,13 +29,13 @@ export type ErrorPageProps = {
   }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export const ErrorPage = ({
+export function ErrorPage({
   code,
   title,
   message,
   callToAction,
   classNameOverride,
-}: ErrorPageProps): JSX.Element => {
+}: ErrorPageProps): JSX.Element {
   const { formatMessage } = useIntl()
   const content = useErrorMessages(code)
 
