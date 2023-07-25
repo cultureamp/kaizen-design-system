@@ -112,6 +112,18 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   max-width: 543px;
 }
 
+.subtitle {
+  margin-bottom: $spacing-12;
+}
+
+.title {
+  margin-bottom: $spacing-lg;
+}
+
+.body {
+  margin-bottom: $spacing-lg;
+}
+
 .secondaryAction {
   margin-block-start: $spacing-sm;
 }
