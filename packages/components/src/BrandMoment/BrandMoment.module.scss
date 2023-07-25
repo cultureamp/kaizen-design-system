@@ -13,6 +13,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: $spacing-lg;
 
   &.informative {
     background: $color-blue-100;
@@ -117,10 +118,6 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .title {
-  margin-bottom: $spacing-lg;
-}
-
-.body {
   margin-bottom: $spacing-lg;
 }
 
