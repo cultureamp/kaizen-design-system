@@ -10,9 +10,8 @@ export const statusCodes = [
   "503",
   "504",
 ] as const
-type StatusCodes = (typeof statusCodes)[number]
 
-export type ErrorStatuses = StatusCodes | number
+export type ErrorStatuses = (typeof statusCodes)[number]
 type TranslationMap = Record<ErrorStatuses, { title: string; message: string }>
 
 export const useErrorMessages = (

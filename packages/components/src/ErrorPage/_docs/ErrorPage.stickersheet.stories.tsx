@@ -82,9 +82,9 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StickerSheet.Body>
         <StickerSheet.Row>
           <ErrorPage
-            code={12839450}
-            title="This is a custom title"
-            message="This is a custom message"
+            code="400"
+            title="This is a 400 custom title"
+            message="This is a custom 400 message"
             callToAction={{
               onContactSupport: () => alert("Custom handler"),
               homeHref: "/anewhome",
