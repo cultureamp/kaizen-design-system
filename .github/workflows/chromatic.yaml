@@ -44,7 +44,7 @@ jobs:
             ]
           autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
   storybook-interaction-tests:
-    if: github.ref != "refs/heads/main"
+    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: visual-testing
     steps:
