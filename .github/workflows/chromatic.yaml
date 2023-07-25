@@ -51,4 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn ci:test:storybook --url ${{ needs.visual-testing.outputs.storybookUrl }}
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Run Storybook tests
+        run: yarn ci:test:storybook --url ${{ needs.visual-testing.outputs.storybookUrl }}
