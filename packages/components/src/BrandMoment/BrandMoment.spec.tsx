@@ -1,9 +1,9 @@
 import * as React from "react"
 import { render } from "@testing-library/react"
-import { Box } from "@kaizen/component-library"
 import { BrandMomentError } from "@kaizen/draft-illustration"
 import { Paragraph } from "@kaizen/typography"
 import { BrandMoment } from "./BrandMoment"
+import { Box } from "./components/Box"
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
 window.matchMedia = jest.fn().mockImplementation(() => ({
