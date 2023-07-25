@@ -1,6 +1,8 @@
 import { useIntl } from "@cultureamp/i18n-react-intl"
+export const statusCodes = ["400", "401", "403", "404", "422", "500", "502", "503", "504"] as const
+type StatusCodes = typeof statusCodes[number]
 
-export type ErrorStatuses = "400" | "401" | "403" | "404" | "422" | "500" | "502" | "503" | "504" | number
+export type ErrorStatuses = StatusCodes | number
 type TranslationMap = Record<ErrorStatuses, { title: string; message: string }>
 
 export const useErrorMessages = (
