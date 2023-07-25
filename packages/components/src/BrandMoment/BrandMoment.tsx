@@ -6,7 +6,6 @@ import { useMediaQueries } from "@kaizen/responsive"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { Button, ButtonProps } from "~components/Button"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { Box } from "./components/Box"
 import styles from "./BrandMoment.module.scss"
 
 export interface BrandMomentProps
@@ -53,26 +52,30 @@ export const BrandMoment = ({
             <div className={styles.right}>
               <div className={styles.rightInner}>
                 {text.subtitle && (
-                  <Box mb={0.5}>
-                    <Heading variant="heading-3" tag="h1">
-                      {text.subtitle}
-                    </Heading>
-                  </Box>
-                )}
-                <Box mb={1.5}>
                   <Heading
-                    variant="display-0"
-                    tag={text.subtitle ? "h2" : "h1"}
+                    variant="heading-3"
+                    tag="h1"
+                    classNameOverride={styles.subtitle}
                   >
-                    {text.title}
+                    {text.subtitle}
                   </Heading>
-                </Box>
-                {text.body && (
-                  <Box mb={1.5}>
-                    <Paragraph variant="intro-lede">{text.body}</Paragraph>
-                  </Box>
                 )}
-                {body && <Box mb={1.5}>{body}</Box>}
+                <Heading
+                  variant="display-0"
+                  tag={text.subtitle ? "h2" : "h1"}
+                  classNameOverride={styles.title}
+                >
+                  {text.title}
+                </Heading>
+                {text.body && (
+                  <Paragraph
+                    variant="intro-lede"
+                    classNameOverride={styles.body}
+                  >
+                    {text.body}
+                  </Paragraph>
+                )}
+                {body && <div className={styles.body}>{body}</div>}
                 <div className={styles.actions}>
                   {primaryAction && (
                     <Button
