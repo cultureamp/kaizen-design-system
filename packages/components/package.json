@@ -41,7 +41,6 @@
     "@cultureamp/i18n-react-intl": "^1.4.3",
     "@kaizen/a11y": "^1.7.11",
     "@kaizen/brand": "^1.5.8",
-    "@kaizen/brand-moment": "^1.13.8",
     "@kaizen/button": "^3.0.3",
     "@kaizen/date-picker": "^6.2.3",
     "@kaizen/draft-badge": "^1.13.12",
