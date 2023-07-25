@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "तारीख से"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "तारीख तक"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "इनपुट प्रारूप"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "सहायता से संपर्क करें"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "क्षमा करें लेकिन आपका अनुरोध पूरा नहीं हो सका। पिछले पेज पर जाएं और फिर से कोशिश करे। इसके अलावा, आपके पास होम पेज पर जाने का विकल्प भी है"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "आपके अनुरोध को नहीं देखा जा सका"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "आप यह पेज नहीं देख सकते"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "क्षमा करें, लेकिन लगता है कि आपको इस पेज को देखने की अनुमति नहीं है।  पिछले पेज पर जाएं और फिर से कोशिश करे। इसके अलावा, आपके पास होम पेज पर जाने का विकल्प भी है"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "जो पेज नहीं मिल रहे हैं वे जिंदगी के किसी राज़ की तरह है"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "क्षमा करें लेकिन आपकी ओर से किए गए बदलाव लागू नहीं किए जा सके। पिछले पेज पर जाएं और फिर से कोशिश करे। इसके अलावा, आपके पास होम पेज पर जाने का विकल्प भी है"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "बदलाव कभी भी आसानी से नहीं आता"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "हमारी तरफ से कुछ गड़बड़ी हुई है"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "क्षमा करें। सबसे अच्छा तरीका यह है कि पिछले पेज पर जाएं और फिर से कोशिश करें।"
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "गड़बड़ी से जुड़ा कोड {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "होम पेज पर जाएं"
   }
 }

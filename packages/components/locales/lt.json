@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Data nuo"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Data iki"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Įvesties formatas"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "kreipkitės į pagalbos tarnybą"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome, bet jūsų užklausos įvykdyti nepavyko. Grįžkite ir bandykite dar kartą arba eikite į pagrindinį puslapį."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Jūsų užklausa prapuolė"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome, bet negalime patikrinti, ar galite peržiūrėti šį puslapį. Grįžkite ir bandykite dar kartą arba eikite į pagrindinį puslapį."
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Negalite peržiūrėti šio puslapio."
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome, bet atrodo, kad neturite leidimo peržiūrėti šį puslapį. Grįžkite ir bandykite dar kartą arba eikite į pagrindinį puslapį."
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Negalite peržiūrėti šio puslapio."
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome, bet negalime rasti puslapio, kurio ieškote. Grįžkite ir bandykite dar kartą arba eikite į pagrindinį puslapį."
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Trūkstami puslapiai yra viena iš gyvenimo paslapčių"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome, bet jūsų pakeitimo atlikti nepavyko. Grįžkite ir bandykite dar kartą arba eikite į pagrindinį puslapį."
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Pokyčiai niekada nebūna lengvi"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Deja, yra sistemos problema ir šio puslapio negalima rodyti. Grįžkite ir bandykite dar kartą arba eikite į pagrindinį puslapį."
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Mūsų pusėje įvyko klaida"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome už tai. Geriausia grįžti ir bandyti dar kartą."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Negalite peržiūrėti šio puslapio."
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome už tai. Geriausia grįžti ir bandyti dar kartą."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Negalite peržiūrėti šio puslapio."
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atsiprašome už tai. Geriausia grįžti ir bandyti dar kartą."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Negalite peržiūrėti šio puslapio."
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Klaidos kodas {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Eiti į pagrindinį puslapį"
   }
 }

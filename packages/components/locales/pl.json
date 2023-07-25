@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Data rozpoczęcia"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Data zakończenia"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Format wejściowy"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "skontaktuj się z działem wsparcia"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Przepraszamy, ale Twoja prośba nie mogła zostać zrealizowana. Wróć i spróbuj ponownie lub przejdź do strony głównej"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Twoja prośba trafiła w próżnię"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Nie możesz wyświetlić tej strony"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Niestety wygląda na to, że nie masz uprawnień do wyświetlania tej strony. Wróć i spróbuj ponownie lub przejdź do strony głównej"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Brakujące strony to jedna z tajemnic życia"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Przepraszamy, ale nie można wprowadzić zmiany. Wróć i spróbuj ponownie lub przejdź do strony głównej"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Zmiana nigdy nie przychodzi łatwo"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Coś poszło nie tak po naszej stronie"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Przepraszamy za to. Najlepiej wrócić i spróbować ponownie."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Kod błędu {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Przejdź do strony głównej"
   }
 }
