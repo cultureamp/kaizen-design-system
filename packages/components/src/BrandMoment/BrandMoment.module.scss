@@ -1,0 +1,200 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/layout";
+
+$breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and replace this out
+
+// --------------------------------
+// Body
+// --------------------------------
+.body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+
+  &.informative {
+    background: $color-blue-100;
+  }
+
+  &.positive {
+    background: $color-green-100;
+  }
+
+  &.negative {
+    background: $color-red-100;
+  }
+}
+
+// --------------------------------
+// Reusable container
+// --------------------------------
+.container {
+  max-width: $layout-content-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+@media (min-width: $layout-breakpoints-large) {
+  .container {
+    padding: 0 $spacing-xxl;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .container {
+    padding: 0 $spacing-xxxxl;
+  }
+}
+
+// --------------------------------
+// Header
+// --------------------------------
+.header {
+  inline-size: 100%;
+  margin-block-end: $spacing-md;
+}
+
+// --------------------------------
+// Main
+// --------------------------------
+.main {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  margin-block-end: $spacing-xxl;
+}
+
+.mainInner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl $spacing-lg;
+  align-items: center;
+}
+
+@media (min-width: $layout-breakpoints-medium) {
+  .mainInner {
+    row-gap: $spacing-xxl;
+  }
+}
+
+@media (min-width: $layout-breakpoints-large) {
+  .mainInner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .mainInner {
+    column-gap: $spacing-xxxxl;
+  }
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+}
+
+.leftInner {
+  width: 100%;
+  max-width: 525px;
+}
+
+.right {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightInner {
+  max-width: 543px;
+}
+
+.subtitle {
+  margin-bottom: $spacing-12;
+}
+
+.title {
+  margin-bottom: $spacing-lg;
+}
+
+.secondaryAction {
+  margin-block-start: $spacing-sm;
+}
+
+@media (min-width: $layout-breakpoints-medium) {
+  .actions {
+    display: flex;
+  }
+
+  .secondaryAction {
+    margin-block-start: 0;
+    margin-inline-start: $spacing-sm;
+  }
+}
+
+@media (min-width: $layout-breakpoints-large) {
+  .left {
+    justify-content: flex-end;
+  }
+
+  .right {
+    align-items: flex-start;
+  }
+}
+
+// --------------------------------
+// Footer
+// --------------------------------
+.footer {
+  flex: 0 0 auto;
+}
+
+.footerInner {
+  display: flex;
+  flex-direction: column;
+  border-block-start: 1px solid $color-purple-800;
+  border-inline-start: 1px solid $color-purple-800;
+  padding: $spacing-sm $spacing-md;
+  margin-block-end: $spacing-lg;
+}
+
+.poweredByContainer {
+  flex: 0 0 auto;
+  order: 2;
+  display: flex;
+}
+
+.footerTextContainer {
+  flex: 1 1 auto;
+  order: 1;
+  margin-block-end: $spacing-md;
+}
+
+.poweredByLogo {
+  margin-inline-start: $spacing-xs;
+
+  > img {
+    max-width: 133px;
+  }
+}
+
+@media (min-width: $layout-breakpoints-large) {
+  .footerInner {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .footerTextContainer {
+    order: initial;
+    margin-block-end: 0;
+    margin-inline-start: $spacing-md;
+  }
+
+  .poweredByContainer {
+    order: initial;
+  }
+}
