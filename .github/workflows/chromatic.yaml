@@ -46,6 +46,9 @@ jobs:
   storybook-interaction-tests:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: visual-testing
     steps:
-      - run: yarn test:storybook --url ${{ needs.visual-testing.outputs.storybookUrl }}
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: yarn ci:test:storybook --url ${{ needs.visual-testing.outputs.storybookUrl }}

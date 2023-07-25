@@ -21,6 +21,7 @@
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
     "storybook:build-deps": "yarn workspace @kaizen/design-tokens prepublish && yarn workspace @kaizen/tailwind prepublish",
     "test:storybook": "STORIES=ignoreBrandMoment test-storybook --config-dir storybook",
+    "ci:test:storybook": "yarn test:storybook --no-index-json",
     "playwright": "IS_DEV=true npx playwright test",
     "playwright:debug": "IS_DEV=true PWDEBUG=1 npx playwright test",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
