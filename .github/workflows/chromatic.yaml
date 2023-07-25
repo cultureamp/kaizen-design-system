@@ -17,6 +17,8 @@ jobs:
   visual-testing:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    outputs:
+      storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -26,7 +28,8 @@ jobs:
       - name: Build Storybook
         run: |
           yarn storybook:build --webpack-stats-json
-      - name: Publish to Chromatic
+      - id: publishChromatic
+        name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ github.token }}
@@ -40,3 +43,9 @@ jobs:
               "packages/component-library/components/Spacing/Base.module.scss"
             ]
           autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
+  storybook-interaction-tests:
+    if: github.ref != "refs/heads/main"
+    runs-on: ubuntu-latest
+    needs: visual-testing
+    steps:
+      - run: yarn test:storybook --url ${{ needs.visual-testing.outputs.storybookUrl }}
