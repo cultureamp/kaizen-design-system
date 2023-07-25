@@ -70,12 +70,12 @@ export const BrandMoment = ({
                 {text.body && (
                   <Paragraph
                     variant="intro-lede"
-                    classNameOverride={styles.body}
+                    classNameOverride={styles.textBody}
                   >
                     {text.body}
                   </Paragraph>
                 )}
-                {body && <div className={styles.body}>{body}</div>}
+                {body && <div className={styles.textBody}>{body}</div>}
                 <div className={styles.actions}>
                   {primaryAction && (
                     <Button
