@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Omlouváme se, ale váš požadavek nebylo možné uskutečnit. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Váš požadavek nebyl realizován."
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -43,7 +43,7 @@
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Omlouváme se, ale nejspíš nemáte oprávnění k zobrazení této stránky. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
@@ -55,15 +55,15 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Chybějící stránky jsou jednou ze záhad života."
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Je nám líto, ale vaši změnu nelze provést. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "Změna není nikdy snadná."
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
@@ -71,15 +71,15 @@
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Něco se u nás pokazilo."
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Omlouváme se. Nejlepší bude vrátit se a zkusit to znovu."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Tuto stránku nelze zobrazit."
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
@@ -98,10 +98,10 @@
     "message" : "You can't view this page"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Kód chyby {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Přejít na domovskou stránku"
   }
 }

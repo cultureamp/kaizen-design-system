@@ -27,81 +27,81 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Atvainojiet, jūsu pieprasījumu nevar izpildīt. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Jūsu pieprasījums nav izpildīts"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Atvainojiet, bet mēs nevaram pārbaudīt, vai jūs varat apskatīt šo lapu. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Jūs nevarat apskatīt šo lapu"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Atvainojiet, šķiet, ka jums nav atļaujas apskatīt šo lapu. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Jūs nevarat apskatīt šo lapu"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Atvainojiet, bet mēs nevaram atrast jūsu meklēto lapu. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Trūkstošas lapas ir viena neizskaidrojama lieta"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Atvainojiet, jūsu izmaiņas nevar ieviest. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "Pārmaiņas nekad nav vieglas"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Atvainojiet, mūsu sistēmā ir radusies problēma, un šo lapu nevaram parādīt. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Mūsu sistēmā ir radusies kaut kāda kļūda"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Lūdzu, atvainojiet. Vislabākais, ko varat darīt, ir atgriezties un mēģināt vēlreiz."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Jūs nevarat apskatīt šo lapu"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Lūdzu, atvainojiet. Vislabākais, ko varat darīt, ir atgriezties un mēģināt vēlreiz."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Jūs nevarat apskatīt šo lapu"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Lūdzu, atvainojiet. Vislabākais, ko varat darīt, ir atgriezties un mēģināt vēlreiz."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Jūs nevarat apskatīt šo lapu"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Kļūdas kods {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Doties uz sākumlapu"
   }
 }

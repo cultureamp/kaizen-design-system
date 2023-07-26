@@ -27,81 +27,81 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Pasensya na pero hindi nakumpleto ang kahilingan mo.  Bumalik at subukan ulit, o pumunta sa Home"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Nawala ang iyong kahilingan"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Pasensya na pero hindi namin ma-verify kung puwede mong tingnan ang page na ito. Bumalik at subukan ulit, o pumunta sa Home"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Pasensya na pero mukhang wala kang pahintulot na tingnan ang page na ito.  Bumalik at subukan ulit, o pumunta sa Home"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Pasensya na pero hindi namin makita ang hinahanap mong page. Bumalik at subukan ulit, o pumunta sa Home"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Isa sa mga misteryo ng buhay ang mga nawawalang page"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Pasensya na pero hindi maisagawa ang binago mo.  Bumalik at subukan ulit, o pumunta sa Home"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "Hindi talaga madali ang pagbabago"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Pasensya na, nagkaproblema sa system namin at hindi maipakita ang page na ito. Bumalik at subukan ulit, o pumunta sa Home"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "May problema sa panig namin"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Pasensya na. Pinakamainam na bumalik at subukan ulit."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Pasensya na. Pinakamainam na bumalik at subukan ulit."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Pasensya na rito.  Pinakamainam na bumalik at subukan ulit."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
   },
   "kzErrorPage.errorCode" : {
     "message" : "Error code {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Pumunta sa Home"
   }
 }

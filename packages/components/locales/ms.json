@@ -27,81 +27,81 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Maaf tetapi permintaan anda tidak dapat diselesaikan. Kembali dan cuba lagi atau pergi kepada Laman Utama"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Permintaan anda telah tergelincir masuk ke dalam gaung"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Maaf tetapi kami tidak dapat mengesahkan sama ada anda dapat melihat halaman ini. Kembali dan cuba lagi atau pergi kepada Laman Utama"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Anda tidak boleh melihat halaman ini"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Maaf tetapi nampaknya anda tiada kebenaran untuk melihat halaman ini. Kembali dan cuba lagi atau pergi kepada Laman Utama"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Anda tidak boleh melihat halaman ini"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Maaf tetapi kami tidak dapat menemukan halaman yang anda cari. Kembali dan cuba lagi atau pergi kepada Laman Utama"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Halaman yang hilang adalah salah satu misteri kehidupan"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Maaf tetapi perubahan anda tidak dapat dibuat. Kembali dan cuba lagi atau pergi kepada Laman Utama"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "Membuat perubahan bukanlah sesuatu yang mudah"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Maaf terdapat masalah dengan sistem kami dan halaman ini tidak dapat dipaparkan. Kembali dan cuba lagi atau pergi kepada Laman Utama"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Ada sesuatu yang tidak kena di pihak kami"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Maaf tentang perkara ini. Perkara terbaik yang boleh dilakukan ialah kembali dan cuba lagi."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Anda tidak boleh melihat halaman ini"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Maaf tentang perkara ini. Perkara terbaik yang boleh dilakukan ialah kembali dan cuba lagi."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Anda tidak boleh melihat halaman ini"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Maaf tentang perkara ini. Perkara terbaik yang boleh dilakukan ialah kembali dan cuba lagi."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Anda tidak boleh melihat halaman ini"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Kod ralat {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Pergi kepada Laman Utama"
   }
 }

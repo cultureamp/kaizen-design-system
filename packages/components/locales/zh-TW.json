@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "抱歉，無法完成您的請求。返回重試，或前往首頁"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "您的請求無效"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -39,11 +39,11 @@
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "您無法檢視此頁面"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "抱歉，您似乎沒有檢視此頁面的權限。返回重試，或前往首頁"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
@@ -55,15 +55,15 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "頁面總是無緣無故不知所蹤"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "抱歉，變更無法完成。返回重試，或前往首頁"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "改變從來都不是一件容易的事"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
@@ -71,11 +71,11 @@
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "我們這邊發生錯誤"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "對此深表歉意。最好就是返回並重試。"
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
@@ -98,7 +98,7 @@
     "message" : "You can't view this page"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "錯誤代碼 {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",

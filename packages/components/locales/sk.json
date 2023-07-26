@@ -27,81 +27,81 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Ľutujeme, ale nebolo možné dokončiť vašu požiadavku. Vráťte sa a skúste to znova alebo prejdite na Úvod."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Vaša žiadosť sa dostala do prázdna."
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Ľutujeme, ale nemôžeme overiť, či sa vám táto stránka môže zobraziť. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Nie je možné zobraziť vám túto stránku."
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Ľutujeme, ale zdá sa, že nemáte povolenie na zobrazenie tejto stránky. Vráťte sa a skúste to znova alebo prejdite na Úvod."
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Nie je možné zobraziť vám túto stránku."
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Ľutujeme, ale nemôžeme načítať stránku, ktorú hľadáte. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Chýbajúce stránky sú jednou zo záhad života."
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Ľutujeme, ale vašu zmenu nebolo možné vykonať. Vráťte sa a skúste to znova alebo prejdite na Úvod."
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "Zmena nikdy neprichádza ľahko."
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Je nám ľúto, že v našom systéme došlo k problému a táto stránka sa nemôže zobraziť. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Niečo sa pokazilo na našej strane."
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Ospravedlňujeme sa za to. Najlepšie urobíte, ak sa vrátite a skúste to znova."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Nie je možné zobraziť vám túto stránku."
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Ospravedlňujeme sa za to. Najlepšie urobíte, ak sa vrátite a skúste to znova."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Nie je možné zobraziť vám túto stránku."
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Ospravedlňujeme sa za to. Najlepšie urobíte, ak sa vrátite a skúste to znova."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Nie je možné zobraziť vám túto stránku."
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Kód chyby {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Prejsť na Úvod"
   }
 }

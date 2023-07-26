@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Valitettavasti pyyntöäsi ei voitu suorittaa loppuun. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Pyyntösi on lipunut tyhjyyteen"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -39,15 +39,15 @@
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Et voi tarkastella tätä sivua"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Valitettavasti näyttää siltä, että sinulla ei ole lupaa tarkastella tätä sivua. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Et voi tarkastella tätä sivua"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,15 +55,15 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Puuttuvat sivut ovat yksi elämän mysteereistä"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Valitettavasti haluamaasi muutosta ei voitu tehdä. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "Muutos ei ole koskaan helppoa"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
@@ -71,23 +71,23 @@
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Jotain on mennyt pieleen meidän puolellamme"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Olemme pahoillamme tästä. Paras toimintatapa on palata takaisin ja yrittää uudelleen."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Et voi tarkastella tätä sivua"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Olemme pahoillamme tästä. Paras toimintatapa on palata takaisin ja yrittää uudelleen."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Et voi tarkastella tätä sivua"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
@@ -95,13 +95,13 @@
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Et voi tarkastella tätä sivua"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Virhekoodi {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Siirry Etusivulle"
   }
 }

@@ -35,7 +35,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Desculpe, mas não conseguimos verificar se você consegue ver esta página. Volte e tente novamente, ou acesse a página inicial"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -51,7 +51,7 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Desculpe, mas não encontramos a página que você está procurando. Volte e tente novamente, ou acesse a página inicial"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -67,7 +67,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Desculpe, há um problema no nosso sistema e não é possível exibir esta página. Volte e tente novamente, ou acesse a página inicial"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",

@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Lo sentimos, pero su solicitud no ha podido completarse.Vuelva a intentarlo o diríjase a Inicio"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Su solicitud ha caído en el vacío"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -39,15 +39,15 @@
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "No puede ver esta página"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Lo sentimos, pero parece que no tiene permiso para ver esta página. Vuelva a intentarlo o diríjase a Inicio"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "No puede ver esta página"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,15 +55,15 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Las páginas que faltan son uno de los misterios de la vida."
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Lo sentimos, pero no se ha podido llevar a cabo el cambio. Vuelva a intentarlo o diríjase a Inicio"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "El cambio nunca es fácil"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
@@ -71,34 +71,34 @@
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Algo ha salido mal por nuestra parte"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Lo sentimos. Lo mejor que puede hacer es volver e intentarlo otra vez."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "No puede ver esta página"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Lo sentimos. Lo mejor que puede hacer es volver e intentarlo otra vez."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "No puede ver esta página"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Lo sentimos. Lo mejor que puede hacer es volver e intentarlo otra vez."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "No puede ver esta página"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Código de error {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",

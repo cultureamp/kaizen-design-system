@@ -27,81 +27,81 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "សូមអភ័យទោស ប៉ុន្តែសំណើរបស់អ្នកមិនអាចបញ្ចប់បានទេ។ ត្រឡប់ទៅ ហើយព្យាយាមម្តងទៀត ឬទៅផ្ទះ"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "សំណើរបស់អ្នកបានធ្លាក់ចូលទៅក្នុងមោឃៈ"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "សូមអភ័យទោស ប៉ុន្តែយើងមិនអាចផ្ទៀងផ្ទាត់បានទេ ប្រសិនបើអ្នកអាចមើលទំព័រនេះបាន។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "សូមអភ័យទោស ប៉ុន្តែវាហាក់ដូចជាអ្នកមិនមានសិទ្ធិមើលទំព័រនេះទេ។ ត្រឡប់ទៅ ហើយព្យាយាមម្តងទៀត ឬទៅផ្ទះ"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "សូមអភ័យទោស ប៉ុន្តែយើងមិនអាចរកឃើញទំព័រដែលអ្នកកំពុងស្វែងរកបានទេ។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "ទំព័រដែលបាត់គឺជាអាថ៌កំបាំងមួយនៃជីវិត"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "សូមអភ័យទោស ប៉ុន្តែការផ្លាស់ប្តូររបស់អ្នកមិនអាចធ្វើបានទេ។ ត្រឡប់ទៅ ហើយព្យាយាមម្តងទៀត ឬទៅផ្ទះ"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "ការផ្លាស់ប្តូរមិនដែលងាយស្រួលទេ"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "សូមអភ័យទោស មានបញ្ហាជាមួយប្រព័ន្ធរបស់យើង ហើយទំព័រនេះមិនអាចបង្ហាញបានទេ។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "មានអ្វីមួយខុសនៅខាងយើង"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "សូមអភ័យទោសចំពោះរឿងនេះ។ រឿងល្អបំផុតដែលត្រូវធ្វើគឺត្រឡប់ក្រោយវិញ ហើយព្យាយាមម្ដងទៀត។"
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "សូមអភ័យទោសចំពោះរឿងនេះ។ រឿងល្អបំផុតដែលត្រូវធ្វើគឺត្រឡប់ក្រោយ ហើយព្យាយាមម្ដងទៀត។"
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "សូមអភ័យទោសចំពោះរឿងនេះ។ រឿងល្អបំផុតដែលត្រូវធ្វើគឺត្រឡប់ក្រោយ ហើយព្យាយាមម្ដងទៀត។"
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "កូដកំហុស {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "ទៅកាន់ទំព័រដើម"
   }
 }

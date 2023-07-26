@@ -35,7 +35,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "माफ़ करें, लेकिन हम यह वेरिफ़ाई नहीं कर सकते कि आपको यह पेज दिख रहा है या नहीं. पिछले पेज पर वापस जाएं और फिर से कोशिश करें, या होम पेज पर जाएं"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -47,11 +47,11 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "आप यह पेज नहीं देख सकते"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "माफ़ करें, लेकिन आपको जो पेज चाहिए वह हम नहीं ढूंढ पा रहे हैं. पिछले पेज पर वापस जाएं और फिर से कोशिश करें, या होम पेज पर जाएं"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -67,7 +67,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "माफ़ करें, हमारे सिस्टम में कोई दिक्कत हुई है और यह पेज नहीं डिस्प्ले किया जा सकता. पिछले पेज पर वापस जाएं और फिर से कोशिश करें, या होम पेज पर जाएं"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
@@ -75,19 +75,19 @@
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "इसके लिए हमें माफ़ करें. सबसे अच्छा तरीका यह है कि पिछले पेज पर जाएं और फिर से कोशिश करें."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "आप यह पेज नहीं देख सकते"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "इसके लिए हमें माफ़ करें. सबसे अच्छा तरीका यह है कि पिछले पेज पर जाएं और फिर से कोशिश करें."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "आप यह पेज नहीं देख सकते"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
@@ -95,7 +95,7 @@
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "आप यह पेज नहीं देख सकते"
   },
   "kzErrorPage.errorCode" : {
     "message" : "गड़बड़ी से जुड़ा कोड {code}"

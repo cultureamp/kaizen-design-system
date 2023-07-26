@@ -27,78 +27,78 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "ขออภัย ไม่สามารถดำเนินการตามคำขอของคุณ กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "คำขอของคุณหลุดเข้าไปในโมฆะ"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "ขออภัย เราไม่สามารถยืนยันว่าคุณสามารถดูหน้านี้ได้หรือไม่  กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "คุณไม่สามารถดูหน้านี้"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "ขออภัย แต่ดูเหมือนว่าคุณจะไม่ได้รับอนุญาตให้ดูหน้านี้  กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "คุณไม่สามารถดูหน้านี้"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "ขออภัย เราไม่สามารถค้นหาหน้าที่คุณกำลังมองหา กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "หน้าหายไปเป็นหนึ่งในความลึกลับของชีวิต"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "ขออภัย ไม่สามารถทำการเปลี่ยนแปลงได้ กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "การเปลี่ยนแปลงไม่ได้เกิดขึ้นง่ายๆ"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "ขออภัย มีปัญหากับระบบของเราและไม่สามารถแสดงหน้านี้ได้  กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "มีบางอย่างผิดพลาดจากฝั่งของเรา"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "ขออภัย  สิ่งที่ควรทำขณะนี้คือกลับไปลองใหม่อีกครั้ง"
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "คุณไม่สามารถดูหน้านี้"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "ขออภัย  สิ่งที่ควรทำขณะนี้คือกลับไปลองใหม่อีกครั้ง"
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "คุณไม่สามารถดูหน้านี้"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "ขออภัย สิ่งที่ควรทำขณะนี้คือกลับไปลองใหม่อีกครั้ง"
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "คุณไม่สามารถดูหน้านี้"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "รหัสข้อผิดพลาด {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",

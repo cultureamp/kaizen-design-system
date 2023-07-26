@@ -35,7 +35,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Przepraszamy, ale nie możemy zweryfikować, czy jesteś w stanie wyświetlić tę stronę. Wróć i spróbuj ponownie lub przejdź do strony głównej"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -47,11 +47,11 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Nie możesz wyświetlić tej strony"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Przykro nam, ale nie możemy znaleźć strony, której szukasz. Wróć i spróbuj ponownie lub przejdź do strony głównej"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -67,7 +67,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Przepraszamy, wystąpił problem z naszym systemem i nie można wyświetlić tej strony. Wróć i spróbuj ponownie lub przejdź do strony głównej"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
@@ -79,23 +79,23 @@
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Nie możesz wyświetlić tej strony"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Przepraszamy za to. Najlepiej wrócić i spróbować ponownie."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Nie możesz wyświetlić tej strony"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Przepraszamy za to. Najlepiej wrócić i spróbować ponownie."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Nie możesz wyświetlić tej strony"
   },
   "kzErrorPage.errorCode" : {
     "message" : "Kod błędu {code}"

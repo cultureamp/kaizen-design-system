@@ -27,81 +27,81 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "Δυστυχώς, δεν ήταν δυνατό να ολοκληρωθεί το αίτημά σας. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "Το αίτημά σας έπεσε στο κενό"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Δυστυχώς, δεν μπορούμε να επαληθεύσουμε αν μπορείτε να δείτε αυτή τη σελίδα. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Δεν μπορείτε να δείτε αυτή τη σελίδα"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Δυστυχώς, φαίνεται ότι δεν έχετε τα απαιτούμενα δικαιώματα για να δείτε αυτή τη σελίδα. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "H σελίδα δεν μπορεί να προβληθεί"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Δυστυχώς, δεν μπορούμε να βρούμε τη σελίδα που αναζητάτε. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "Οι σελίδες που λείπουν είναι ένα από τα μυστήρια της ζωής"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Δυστυχώς, δεν ήταν δυνατό να γίνει η αλλαγή σας. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "Η αλλαγή δεν είναι ποτέ εύκολη"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Δυστυχώς, υπάρχει πρόβλημα με το σύστημά μας και δεν είναι δυνατή η προβολή αυτής της σελίδας. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Κάτι πήγε στραβά από την πλευρά μας"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Ζητούμε συγγνώμη. Το καλύτερο που έχετε να κάνετε είναι να επιστρέψετε και να προσπαθήσετε ξανά."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Η σελίδα δεν μπορεί να προβληθεί"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Ζητούμε συγγνώμη. Το καλύτερο που έχετε να κάνετε είναι να επιστρέψετε και να προσπαθήσετε εκ νέου."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Η σελίδα δεν μπορεί να προβληθεί"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Ζητούμε συγγνώμη. Το καλύτερο που έχετε να κάνετε είναι να επιστρέψετε και να προσπαθήσετε ξανά."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Η σελίδα δεν μπορεί να προβληθεί"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Κωδικός σφάλματος {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Επιστροφή στην αρχή σελίδα"
   }
 }
