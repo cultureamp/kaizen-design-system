@@ -1,6 +1,6 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
 
-name: "chromatic (PR)"
+name: "chromatic and storybook testing (PR)"
 
 on:
   pull_request:
@@ -11,11 +11,9 @@ on:
       - changeset-release/main
 
 jobs:
-  visual-testing:
+  storybook-testing:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
-    outputs:
-      storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -39,14 +37,6 @@ jobs:
               "packages/button/src/Button/*.scss",
               "packages/component-library/components/Spacing/Base.module.scss"
             ]
-  storybook-interaction-tests:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    needs: visual-testing
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
-      - name: Install Playwright
+      - name: Storybook tests
         run: npx playwright install --with-deps
-      - name: Run Storybook tests
-        run: yarn ci:test:storybook --url ${{ needs.visual-testing.outputs.storybookUrl }}
+        run: yarn ci:test:storybook --url ${{ steps.publishChromatic.outputs.storybookUrl }}
