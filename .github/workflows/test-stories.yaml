@@ -1,6 +1,6 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
 
-name: test-stories
+name: test stories
 
 on:
   pull_request:
