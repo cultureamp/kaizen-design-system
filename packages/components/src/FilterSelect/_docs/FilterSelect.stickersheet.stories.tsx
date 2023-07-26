@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
@@ -26,22 +26,25 @@ const StickerSheetTemplate: StoryFn = () => {
   // Only open the dropdowns in Chromatic as the focus locks clash with
   // each other in Storybook.
   const [isOpenDefaultSingle, setIsOpenDefaultSingle] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
   const [isOpenDefaultGroup, setIsOpenDefaultGroup] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
   const [isOpenDefaultExisting, setIsOpenDefaultExisting] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
   const [isOpenDefaultDisabled, setIsOpenDefaultDisabled] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
 
   const [isOpenCustomSingle, setIsOpenCustomSingle] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
   const [isOpenCustomPartial, setIsOpenCustomPartial] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
   const [isOpenCustomDividerMixed, setIsOpenCustomDividerMixed] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
   const [isOpenCustomDividerSpecific, setIsOpenCustomDividerSpecific] =
-    React.useState<boolean>(IS_CHROMATIC)
+    useState<boolean>(IS_CHROMATIC)
+
+  const [isOpenMin, setIsOpenMin] = useState<boolean>(IS_CHROMATIC)
+  const [isOpenMax, setIsOpenMax] = useState<boolean>(IS_CHROMATIC)
 
   return (
     <>
@@ -59,7 +62,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenDefaultSingle}
                 setIsOpen={setIsOpenDefaultSingle}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={singleMockItems}
@@ -70,7 +73,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenDefaultGroup}
                 setIsOpen={setIsOpenDefaultGroup}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={groupedMockItems}
@@ -81,7 +84,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenDefaultExisting}
                 setIsOpen={setIsOpenDefaultExisting}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={singleMockItems}
@@ -93,7 +96,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenDefaultDisabled}
                 setIsOpen={setIsOpenDefaultDisabled}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={mixedMockItemsDisabled}
@@ -105,7 +108,7 @@ const StickerSheetTemplate: StoryFn = () => {
 
       <StickerSheet
         heading="Customised options"
-        style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
+        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
       >
         <StickerSheet.Header
           headings={[
@@ -122,7 +125,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenCustomSingle}
                 setIsOpen={setIsOpenCustomSingle}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={singleMockItems}
@@ -166,7 +169,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenCustomPartial}
                 setIsOpen={setIsOpenCustomPartial}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={mixedMockItemsUngroupedFirst}
@@ -218,7 +221,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenCustomDividerMixed}
                 setIsOpen={setIsOpenCustomDividerMixed}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={mixedMockItemsUnordered}
@@ -244,7 +247,7 @@ const StickerSheetTemplate: StoryFn = () => {
                 label="Label"
                 isOpen={isOpenCustomDividerSpecific}
                 setIsOpen={setIsOpenCustomDividerSpecific}
-                renderTrigger={(triggerProps): JSX.Element => (
+                renderTrigger={triggerProps => (
                   <FilterButton {...triggerProps} />
                 )}
                 items={[
@@ -272,6 +275,51 @@ const StickerSheetTemplate: StoryFn = () => {
                   })
                 }
               </FilterSelect>
+            </div>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet
+        heading="Min/Max"
+        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+      >
+        <StickerSheet.Header headings={["Min size", "Max size"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <div style={{ width: "250px" }}>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenMin}
+                setIsOpen={setIsOpenMin}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={[{ value: "a", label: "A" }]}
+              />
+            </div>
+            <div>
+              <FilterSelect
+                label="Label"
+                isOpen={isOpenMax}
+                setIsOpen={setIsOpenMax}
+                renderTrigger={triggerProps => (
+                  <FilterButton {...triggerProps} />
+                )}
+                items={[
+                  {
+                    value: "long-1",
+                    label:
+                      "Super long option where the container is fixed width and the selected option goes multiline",
+                  },
+                  {
+                    value: "long-2",
+                    label:
+                      "Another super long option where the container is fixed width and the selected option goes multiline",
+                  },
+                  ...singleMockItems,
+                ]}
+              />
             </div>
           </StickerSheet.Row>
         </StickerSheet.Body>

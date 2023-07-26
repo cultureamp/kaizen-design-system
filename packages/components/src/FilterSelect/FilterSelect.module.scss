@@ -1,7 +1,9 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .filterContents {
-  width: 224px; // @todo: check this value
+  box-sizing: border-box;
+  min-width: 12.25rem; // 196px
+  max-width: 25rem; // 400px
   overflow: auto;
   padding: $spacing-12;
 }
