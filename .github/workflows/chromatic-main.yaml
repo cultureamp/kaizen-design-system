@@ -1,21 +1,15 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
 
-name: "chromatic"
+# Update the baseline snapshots in Chromatic (only applies to `main`)
+name: chromatic
 
 on:
-  pull_request:
-    types:
-      - ready_for_review
-      - synchronize
-    branches-ignore:
-      - changeset-release/main
   push:
     branches:
       - "main"
 
 jobs:
   visual-testing:
-    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,11 +26,4 @@ jobs:
           token: ${{ github.token }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: "./storybook/public"
-          onlyChanged: "!(main)"
-          externals: |
-            [
-              "**/!(*.module).scss",
-              "packages/button/src/Button/*.scss",
-              "packages/component-library/components/Spacing/Base.module.scss"
-            ]
           autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)

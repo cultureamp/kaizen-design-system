@@ -62,19 +62,6 @@ steps:
       - docker-compose#v3.9.0:
           run: publish
 
-  - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
-    key: "playwright-step"
-    command: ".buildkite/scripts/run-playwright.sh"
-    timeout_in_minutes: 15
-    branches: "!main !canary"
-    depends_on: "publish-step"
-    <<: *defaults
-    agent_query_rules: ["queue=build-unrestricted-large"]
-    plugins:
-      - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.35.1-focal
-          propagate-environment: true
-
   - name: "LinearB: Record deployment time"
     command: bin/ci_noop
     branches: "main"

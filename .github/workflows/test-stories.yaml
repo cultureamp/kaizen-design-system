@@ -1,0 +1,81 @@
+# Chromatic action from https://www.chromatic.com/docs/github-actions
+
+# Publish to Chromatic for snapshot tests then use storybook/test-runner to test stories
+name: test stories
+
+on:
+  pull_request:
+    types:
+      - ready_for_review
+      - synchronize
+    branches-ignore:
+      - changeset-release/main
+
+jobs:
+  chromatic:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    outputs:
+      storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+      - name: Build Storybook
+        run: |
+          yarn storybook:build --webpack-stats-json
+      - id: publishChromatic
+        name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ github.token }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: "./storybook/public"
+          onlyChanged: "!(main)"
+          externals: |
+            [
+              "**/!(*.module).scss",
+              "packages/button/src/Button/*.scss",
+              "packages/component-library/components/Spacing/Base.module.scss"
+            ]
+
+  storybook-tests-1:
+    name: "test-storybook"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: chromatic
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Storybook tests (1/3)
+        run: yarn ci:test:storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --shard 1/3
+
+  storybook-tests-2:
+    name: "test-storybook"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: chromatic
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Storybook tests (2/3)
+        run: yarn ci:test:storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --shard 2/3
+
+  storybook-tests-3:
+    name: "test-storybook"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: chromatic
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Storybook tests (3/3)
+        run: yarn ci:test:storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --shard 3/3
