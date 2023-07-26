@@ -37,6 +37,7 @@ jobs:
               "packages/button/src/Button/*.scss",
               "packages/component-library/components/Spacing/Base.module.scss"
             ]
-      - name: Storybook tests
+      - name: Install Playwright
         run: npx playwright install --with-deps
+      - name: Storybook tests
         run: yarn ci:test:storybook --url ${{ steps.publishChromatic.outputs.storybookUrl }}
