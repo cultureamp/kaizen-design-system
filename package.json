@@ -34,9 +34,8 @@
     "plop": "plop",
     "pkg:c-library": "yarn workspace @kaizen/component-library",
     "pkg:aio": "yarn workspace @kaizen/components",
-    "ci:test": "yarn test:ci && yarn pkg:aio test:ci",
-    "ci:test:react-16": "USE_REACT_16=true yarn test:ci && yarn pkg:aio ci:test:react-16",
-    "ci:test:react-17": "USE_REACT_17=true yarn test:ci && yarn pkg:aio ci:test:react-17",
+    "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
+    "ci:test:react-17": "USE_REACT_17=true yarn test:ci",
     "ci:version": "yarn turbo prepublish && yarn changeset version",
     "ci:publish": "yarn turbo prepublish && yarn changeset publish"
   },
