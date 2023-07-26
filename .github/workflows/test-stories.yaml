@@ -1,7 +1,7 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
 
-name: "test stories"
-description: Publish to Chromatic for snapshot tests then use storybook/test-runner to test stories
+name: "Test stories"
+description: "Publish to Chromatic for snapshot tests then use storybook/test-runner to test stories"
 
 on:
   pull_request:
