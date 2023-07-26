@@ -39,6 +39,7 @@ jobs:
       - run: yarn lint:styles
 
   jest-react-16--1:
+    name: jest-react-16
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -47,6 +48,7 @@ jobs:
       - run: yarn ci:test:react-16 --shard=1/2
 
   jest-react-16--2:
+    name: jest-react-16
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -55,6 +57,7 @@ jobs:
       - run: yarn ci:test:react-16 --shard=2/2
 
   jest-react-16--aio:
+    name: jest-react-16
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -63,6 +66,7 @@ jobs:
       - run: yarn pkg:aio ci:test:react-16
 
   jest-react-17--1:
+    name: jest-react-17
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -71,6 +75,7 @@ jobs:
       - run: yarn ci:test:react-17 --shard=1/2
 
   jest-react-17--2:
+    name: jest-react-17
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -79,6 +84,7 @@ jobs:
       - run: yarn ci:test:react-17 --shard=2/2
 
   jest-react-17--aio:
+    name: jest-react-17
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -87,7 +93,7 @@ jobs:
       - run: yarn pkg:aio ci:test:react-17
 
   jest-react-18--1:
-    name: jest-react-18 (1/2)
+    name: jest-react-18
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -96,7 +102,7 @@ jobs:
       - run: yarn test:ci --shard=1/2
 
   jest-react-18--2:
-    name: jest-react-18 (2/2)
+    name: jest-react-18
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -105,7 +111,7 @@ jobs:
       - run: yarn test:ci --shard=2/2
 
   jest-react-18--aio:
-    name: jest-react-18 (aio)
+    name: jest-react-18
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
