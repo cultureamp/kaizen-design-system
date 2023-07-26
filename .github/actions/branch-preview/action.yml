@@ -1,0 +1,44 @@
+# this is composite workflow that gets the repo ready for actions
+# for docs how composite workflows work see https://wallis.dev/blog/composite-github-actions
+
+name: Add branch preview link to a PR comment
+description: Adds or updates a branch preview link to a PR
+inputs:
+  prNumber:
+    required: true
+    description: PR number
+  commitSha:
+    required: true
+    description: Commit SHA that triggered the workflow
+  commitMessage:
+    required: true
+    description: Commit message that triggered the workflow
+  storybookUrl:
+    required: true
+    description: The storybook url from Chromatic
+
+runs:
+  using: composite
+  steps:
+    - name: Find comment
+      id: findComment
+      uses: peter-evans/find-comment@v2
+      with:
+        issue-number: ${{ inputs.prNumber }}
+        comment-author: "github-actions[bot]"
+        body-includes: ":sparkles: Here is your branch preview! :sparkles:"
+
+    - name: Create or update comment
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        comment-id: ${{ steps.findComment.outputs.comment-id }}
+        issue-number: ${{ inputs.prNumber }}
+        edit-mode: replace
+        body: |
+          :sparkles: Here is your branch preview! :sparkles:
+
+          - [Storybook][1]
+
+          Last updated for commit ${{ inputs.commitSha }}: ${{ inputs.commitMessage }}
+
+          [1]: ${{ inputs.storybookUrl }}

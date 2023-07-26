@@ -53,6 +53,22 @@ jobs:
               "packages/component-library/components/Spacing/Base.module.scss"
             ]
 
+  update-branch-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: chromatic
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get commit message
+        id: getCommitMessage
+        run: echo "commitMessage=$(git show -s --format=%s ${{ github.sha }})" >> "$GITHUB_OUTPUT"
+      - uses: ./.github/actions/branch-preview
+        with:
+          prNumber: ${{ github.event.pull_request.number }}
+          commitSha: ${{ github.sha }}
+          commitMessage: ${{ steps.getCommitMessage.outputs.commitMessage }}
+          storybookUrl: ${{ needs.chromatic.outputs.storybookUrl }}
+
   storybook-tests-1:
     name: "test-storybook"
     runs-on: ubuntu-latest
