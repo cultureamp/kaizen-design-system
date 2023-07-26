@@ -1,7 +1,6 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
 
-name: "Chromatic"
-description: "Update the baseline snapshots in Chromatic"
+name: chromatic
 
 on:
   push:
