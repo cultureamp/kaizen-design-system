@@ -1,6 +1,6 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
 
-name: "chromatic"
+name: "chromatic (PR)"
 
 on:
   pull_request:
@@ -9,9 +9,6 @@ on:
       - synchronize
     branches-ignore:
       - changeset-release/main
-  push:
-    branches:
-      - "main"
 
 jobs:
   visual-testing:
@@ -42,9 +39,7 @@ jobs:
               "packages/button/src/Button/*.scss",
               "packages/component-library/components/Spacing/Base.module.scss"
             ]
-          autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)
   storybook-interaction-tests:
-    if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: visual-testing
