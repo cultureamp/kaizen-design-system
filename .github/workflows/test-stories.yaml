@@ -1,5 +1,6 @@
 # Chromatic action from https://www.chromatic.com/docs/github-actions
 
+# Publish to Chromatic for snapshot tests then use storybook/test-runner to test stories
 name: test stories
 
 on:
