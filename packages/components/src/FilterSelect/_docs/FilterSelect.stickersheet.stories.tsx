@@ -108,7 +108,7 @@ const StickerSheetTemplate: StoryFn = () => {
 
       <StickerSheet
         heading="Customised options"
-        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+        style={{ paddingTop: IS_CHROMATIC ? "26rem" : undefined }}
       >
         <StickerSheet.Header
           headings={[
