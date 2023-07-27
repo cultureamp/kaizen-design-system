@@ -62,7 +62,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
       - name: Get commit message
         id: getCommitMessage
         run: echo "commitMessage=$(git show -s --format=%s $COMMIT_SHA)" >> "$GITHUB_OUTPUT"
