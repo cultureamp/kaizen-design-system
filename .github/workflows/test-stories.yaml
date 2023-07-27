@@ -6,14 +6,14 @@ name: test stories
 on:
   pull_request:
     types:
-      - ready_for_review
+      - opened
+      - reopened
       - synchronize
-    branches-ignore:
-      - changeset-release/main
+      - ready_for_review
 
 jobs:
   chromatic:
-    if: github.event.pull_request.draft == false
+    if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     outputs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
