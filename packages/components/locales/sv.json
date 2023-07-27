@@ -35,7 +35,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Vi kan tyvärr inte bekräfta om du kan visa den här sidan. Gå tillbaka och försök igen, eller gå till startsidan."
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -47,11 +47,11 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Du kan inte visa den här sidan"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Tyvärr kan vi inte hitta sidan du letar efter. Gå tillbaka och försök igen, eller gå till startsidan."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -67,7 +67,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Tyvärr har det uppstått ett problem med vårt system, och den här sidan kan inte visas. Gå tillbaka och försök igen, eller gå till startsidan."
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
@@ -79,23 +79,23 @@
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Du kan inte visa den här sidan"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Vi beklagar. Det bästa du kan göra är att gå tillbaka och försöka igen."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Du kan inte visa den här sidan"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Vi beklagar. Det bästa du kan göra är att gå tillbaka och försöka igen."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Du kan inte visa den här sidan"
   },
   "kzErrorPage.errorCode" : {
     "message" : "Felkod {code}"

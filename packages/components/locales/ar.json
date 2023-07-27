@@ -27,81 +27,81 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your request couldn’t be completed. Go back and try again, or head to Home"
+    "message" : "نعتذر، لكن الطلب الذي قدمته تعذر إكماله. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسية"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Your request has slipped into the void"
+    "message" : "انتهى الأمر بطلبك إلى لا شيء"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "عذرًا، لكننا لا نستطيع التحقق مما إذا كنت قادرًا على رؤية هذه الصفحة. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسة"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "لا يمكنك استعراض هذه الصفحة"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "معذرةً، لكن يبدو أنك لا تمتلك إذنًا باستعراض هذه الصفحة. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسية"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "لا يمكنك استعراض هذه الصفحة"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "عذرًا، لكننا لا نستطيع العثور على الصفحة التي تبحث عنها. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسة"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Missing pages are one of life's mysteries"
+    "message" : "الصفحات المفقودة هي إحدى ألغاز هذه الحياة"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "نعتذر، لكن لا يمكن إجراء التغيير الذي تحاول إجراؤه. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسية"
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change never comes easy"
+    "message" : "لا يأتي التغيير بهذه السهولة أبدًا"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "عذرًا، لدينا مشكلة في النظام، ولا يمكن عرض هذه الصفحة. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسة"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "حدث خطأ ما من جانبنا"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "نعتذر عن هذا. أفضل ما يمكنك فعله، هو العودة والمحاولة مرة أخرى."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "لا يمكنك استعراض هذه الصفحة"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "نعتذر عن هذا. أفضل ما يمكنك فعله، هو العودة والمحاولة مرة أخرى."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "لا يمكنك استعراض هذه الصفحة"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "نعتذر عن هذا. أفضل ما يمكنك فعله، هو العودة والمحاولة مرة أخرى."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "لا يمكنك استعراض هذه الصفحة"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "رمز الخطأ {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "الانتقال إلى الصفحة الرئيسية"
   }
 }

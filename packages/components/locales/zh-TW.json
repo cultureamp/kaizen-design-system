@@ -35,7 +35,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "抱歉，我們無法驗證您能否檢視此頁面。返回重試，或前往首頁"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -47,11 +47,11 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "您無法檢視此頁面"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "抱歉，我們找不到您要查找的頁面。返回重試，或前往首頁"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -67,7 +67,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "抱歉，我們的系統出現問題，無法顯示此頁面。返回重試，或前往首頁"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
@@ -79,23 +79,23 @@
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "您無法檢視此頁面"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "我們對此深表歉意。最好的做法就是返回並重試。"
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "您無法檢視此頁面"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "我們對此深表歉意。最好的做法就是返回並重試。"
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "您無法檢視此頁面"
   },
   "kzErrorPage.errorCode" : {
     "message" : "錯誤代碼 {code}"

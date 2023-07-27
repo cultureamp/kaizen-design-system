@@ -35,7 +35,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "很抱歉，我们无法验证您是否可以查看此页面。请返回并重试，或前往主页"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -47,11 +47,11 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "您无法查看此页面"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "抱歉，我们无法找到您要查找的页面。请返回并重试，或前往主页"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -67,7 +67,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "很抱歉，我们的系统出现问题，无法显示此页面。请返回并重试，或前往主页"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
@@ -79,23 +79,23 @@
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "您无法查看此页面"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "我们对此深表歉意。最好的办法就是返回并重试。"
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "您无法查看此页面"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "我们对此深表歉意。最好的办法就是返回并重试。"
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "您无法查看此页面"
   },
   "kzErrorPage.errorCode" : {
     "message" : "错误代码 403 {code}"

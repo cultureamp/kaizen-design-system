@@ -35,11 +35,11 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Omlouváme se, ale nemůžeme ověřit, zda jste schopni tuto stránku zobrazit. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Tuto stránku nelze zobrazit."
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
@@ -47,11 +47,11 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Tuto stránku nelze zobrazit."
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Omlouváme se, ale požadovanou stránku nemůžeme najít. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -67,7 +67,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Omlouváme se, ale v našem systému došlo k problému a tuto stránku nelze zobrazit. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
@@ -83,19 +83,19 @@
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Omlouváme se. Nejlepší bude vrátit se a zkusit to znovu."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Tuto stránku nelze zobrazit."
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Omlouváme se. Nejlepší bude vrátit se a zkusit to znovu."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Tuto stránku nelze zobrazit."
   },
   "kzErrorPage.errorCode" : {
     "message" : "Kód chyby {code}"
