@@ -1,0 +1,44 @@
+/* stylelint-disable declaration-no-important */
+@import "~@kaizen/design-tokens/sass/color";
+
+.noClipCanvas {
+  margin: 25px 0 40px;
+}
+
+// Simulate the styles of Storybook Canvas
+.canvas {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+  border: 1px solid hsla(203deg, 50%, 30%, 0.15);
+  border-radius: 4px;
+  padding: 30px 20px;
+}
+
+// Simulate the styles of Storybook Canvas "Show/Hide code" button
+.sourceToggleButton {
+  cursor: pointer;
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  border: 1px solid $color-gray-300;
+  border-radius: 4px 0;
+  padding: 4px 10px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  color: inherit;
+  line-height: 16px;
+
+  &:focus {
+    outline: none;
+    box-shadow: #029cfd 0 -3px 0 0 inset;
+    border-radius: 4px 0 0;
+  }
+}
+
+.sourceContainer {
+  margin-top: -26px !important;
+}
+
+/* stylelint-enable declaration-no-important */

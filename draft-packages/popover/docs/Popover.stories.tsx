@@ -6,7 +6,7 @@ import { IconButton } from "@kaizen/button"
 import informationWhiteIcon from "@kaizen/component-library/icons/information-white.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import { usePopover, Popover as PopoverRaw } from "@kaizen/draft-popover"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import AppearanceAnim from "../KaizenDraft/Popover/AppearanceAnim"
 
 const DEFAULT_IS_OPEN: boolean = isChromatic()

@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "@kaizen/button"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { EmptyState, EmptyStateProps } from ".."
 import styles from "./EmptyState.stories.module.scss"
 

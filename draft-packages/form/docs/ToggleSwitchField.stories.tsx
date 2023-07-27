@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { ToggledStatus, ToggleSwitchField } from "@kaizen/draft-form"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../docs/components/StickerSheet"
 
 class ToggleStateContainer extends React.Component<
   {

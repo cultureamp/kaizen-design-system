@@ -4,8 +4,8 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 import { LoadingInput } from "@kaizen/loading-skeleton"
-import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { ComponentDocsTemplate } from "../../../docs/components/DocsContainer"
+import { StickerSheet } from "../../../docs/components/StickerSheet"
 import { Button } from "../index"
 
 const meta = {

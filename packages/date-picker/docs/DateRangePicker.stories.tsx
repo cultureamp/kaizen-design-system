@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { StoryFn } from "@storybook/react"
 import { enAU } from "date-fns/locale"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import {
   DateRangePicker,
   DateRangePickerProps,

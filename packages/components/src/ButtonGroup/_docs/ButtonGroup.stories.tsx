@@ -2,8 +2,8 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { FilterButtonBase } from "~components/FilterButton/_subcomponents/FilterButtonBase"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../../../docs/components/StickerSheet"
+import { ComponentDocsTemplate } from "../../../../../docs/components/DocsContainer"
 import { ButtonGroup } from ".."
 
 export default {

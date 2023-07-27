@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 interface RenderProps {
   checkedStatus: string

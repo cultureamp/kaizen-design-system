@@ -5,7 +5,7 @@ import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import { Collapsible } from "@kaizen/draft-collapsible"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import styles from "./Collapsible.stories.module.scss"
 
 const ListItem = ({ children }: { children: JSX.Element }): JSX.Element => (

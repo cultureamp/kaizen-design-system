@@ -7,7 +7,7 @@ import {
   BrandMomentPositiveOutro,
   Informative,
 } from "@kaizen/draft-illustration"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 import { LoadingGraphic } from ".."
 

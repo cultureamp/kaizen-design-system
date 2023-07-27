@@ -2,7 +2,7 @@ import React from "react"
 import { StoryFn } from "@storybook/react"
 import { InlineNotification } from "@kaizen/notification"
 import { Heading, HeadingProps } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],

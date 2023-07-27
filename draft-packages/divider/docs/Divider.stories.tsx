@@ -4,7 +4,7 @@ import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Divider } from "@kaizen/draft-divider"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],

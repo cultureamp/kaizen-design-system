@@ -1,7 +1,7 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { ToggleIconButton } from "../"
 
 export default {

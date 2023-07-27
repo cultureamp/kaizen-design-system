@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../../../docs/components/StickerSheet"
 import { ErrorPage } from "../ErrorPage"
 
 export default {

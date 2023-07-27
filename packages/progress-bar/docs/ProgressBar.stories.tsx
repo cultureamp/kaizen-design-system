@@ -1,6 +1,6 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { ProgressBar } from "../index"
 
 export default {

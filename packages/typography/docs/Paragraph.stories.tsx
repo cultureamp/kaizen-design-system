@@ -7,8 +7,8 @@ import {
   Stories,
 } from "@storybook/blocks"
 import { Meta, StoryFn } from "@storybook/react"
-import { LinkTo } from "../../../storybook/components/LinkTo"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { LinkTo } from "../../../docs/components/LinkTo"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { Paragraph } from "../src/Paragraph/Paragraph"
 
 export default {

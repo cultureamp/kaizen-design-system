@@ -1,7 +1,7 @@
 import React from "react"
 import { StoryFn, Meta } from "@storybook/react"
 import { Heading } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { DirectionalLinkProps } from "../src/Button/DirectionalLink"
 import { PaginationLinkProps } from "../src/Button/PaginationLink"
 import { DirectionalLink, PaginationLink } from ".."

@@ -6,7 +6,7 @@ import {
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
 import { Heading } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],

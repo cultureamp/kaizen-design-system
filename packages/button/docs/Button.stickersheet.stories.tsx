@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import arrowRight from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../docs/components/StickerSheet"
 import { Button, ButtonProps } from "../index"
 
 export default {

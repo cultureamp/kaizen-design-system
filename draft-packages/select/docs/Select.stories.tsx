@@ -3,7 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { Label } from "@kaizen/draft-form"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import { Heading } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 const OPTIONS = [
   { value: "Mindy", label: "Mindy" },

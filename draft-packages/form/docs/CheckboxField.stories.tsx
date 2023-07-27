@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { CheckboxField, CheckedStatus } from "@kaizen/draft-form"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 export default {
   tags: ["autodocs"],

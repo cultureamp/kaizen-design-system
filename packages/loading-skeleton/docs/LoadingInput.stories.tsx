@@ -1,7 +1,7 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import { TextAreaField, TextField } from "@kaizen/draft-form"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { LoadingInput, LoadingHeading } from ".."
 
 export default {

@@ -1,0 +1,85 @@
+import { Canvas, Meta, Story } from "@storybook/blocks"
+import * as Examples from "./working-with-tailwind.stories"
+
+<Meta of={Examples} />
+
+# Working with Tailwind
+
+This page describes and demonstrates the main intended use cases for this package, as well as our recommended escape hatch.
+
+- [Spacing and layouts](#spacing-and-layouts)
+- [Altering Kaizen components with classnameOverride](#altering-kaizen-components-with-classnameoverride)
+- [Creating bespoke components](#creating-bespoke-components)
+- [Recommended escape hatch](#recommended-escape-hatch)
+
+<br/>
+
+## Spacing and layouts
+
+For information about Cultureamp's spacing and layout system in general, see [here](/story/systems-layout-and-spacing--page)
+
+When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-design-system) components should be used as much as possible, with the front-end engineer responsible for the spacing between them. In these cases, our Tailwind preset makes it easy by adding our spacing tokens to Tailwind's core spacing modules.  
+
+Here, Tailwind has been used to center a Kaizen button within a div.
+
+<Canvas of={Examples.TailwindExampleSpacingAndLayouts} />
+
+- `flex`: Adds `display: flex`
+- `justify-center`: Adds `justify-content: center`
+- `border-solid`: Adds `border-style: solid`
+- `p-16`: Adds `padding: 1rem` (`16px` = `1rem` - see the [layout and spacing docs](/story/systems-layout-and-spacing--page) for more on this)
+
+Here's a more complex example, where some `<Card>` components and text have been spaced and laid out with Tailwind:
+
+<Canvas of={Examples.TailwindExampleSpacingAndLayoutsComplex} />
+
+<br/>
+
+## Altering Kaizen components with classNameOverride
+
+If a Kaizen component supports classNameOverride, Tailwind classes can also be used.  
+This is particularly useful for adding margins to Kaizen components. In this example, our preset is being used to add `margin-right: 1.5rem` to Kaizen's `<Card/>` component, without the need to wrap it in a div.
+
+<Canvas of={Examples.TailwindExampleClassNameOverrideMargin} />
+
+In this example, a Tailwind css rule is being applied to a Kaizen `<Heading />` component to ensure that the first letter is capitalized.
+
+<Canvas of={Examples.TailwindExampleClassNameOverrideHeading} />
+
+- first-letter:capitalize: Adds text-transform: capitalize on the first-letter pseudo selector
+
+<br/>
+
+## Creating bespoke components
+Occasionally snowflakes need to be created. This package provides common utilities based on our design tokens, such as color, border-radius, and font-family. Ideally, as much styling of bespoke components should be handled with Tailwind, but keep in mind that scss can still be used when necessary.
+
+Here is an example of our TW package being used to create a bespoke, non-Kaizen component:
+
+<Canvas of={Examples.TailwindExampleSnowflake} />
+
+<br/>
+
+### The container div
+- `w-[250px]`: Adds `width: 250px`. This is an example of an arbitrary value being used to inject a custom suffix
+- `rounded-default`: Adds `border-radius: 7px`. This is one of our custom preset values, defined here
+- `border-dashed`: Adds `border-style: dashed`
+- `border-red-500`: Adds `border-color: #c93b55` (our red-500 design token)
+- `bg-blue-100`: Adds `background: #e6f6ff` (our blue-100 design token)
+- `text-center`: Adds `text-align: center`
+
+### The p tag
+- `m-0`: Adds `margin: 0`
+- `p-12`: Adds `padding: .75rem` (12px = 0.75rem)
+- `pl-16`: Adds `padding-left: 1rem` (16px = 1rem)
+- `font-family-paragraph`: Adds `font-family: "Inter", "Noto Sans", ...` (defined in our preset here)
+- `text-blue-500`: Adds `color: #0168b3` (our blue-500 design token)
+
+<br/>
+
+## Recommended Escape Hatch
+
+If you find yourself needing to add styles in a way that is unsupported or otherwise difficult in Tailwind, the recommended alternative is CSS. CSS classes can be added alongside Tailwind utility classes without trouble, and the Tailwind docs recommend some useful post-css plugins [here](https://tailwindcss.com/docs/using-with-preprocessors#using-sass-less-or-stylus).
+
+### Why not SCSS?
+- SCSS is currently a contained option, so writing new SCSS in our codebases is discouraged.
+- The Tailwind docs explicitly recommend <em>not</em> using Tailwind with preprocessors, as it leads to all sorts of quirks and work-arounds. Read more [here](https://tailwindcss.com/docs/using-with-preprocessors#using-sass-less-or-stylus).

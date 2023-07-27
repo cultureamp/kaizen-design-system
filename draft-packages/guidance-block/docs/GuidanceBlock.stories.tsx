@@ -12,7 +12,7 @@ import {
 } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { GuidanceBlockProps } from "../KaizenDraft/GuidanceBlock/GuidanceBlock"
 
 const ICON_EXTERNAL_LINK =

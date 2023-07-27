@@ -1,7 +1,7 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import { within } from "@storybook/testing-library"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../docs/components/StickerSheet"
 import {
   CalendarRange,
   CalendarSingle,

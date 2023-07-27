@@ -3,7 +3,7 @@ import { StoryFn } from "@storybook/react"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 
 const ExampleContent = (): JSX.Element => (
   <div style={{ padding: "1rem" }}>

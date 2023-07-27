@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../../../docs/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
 import {

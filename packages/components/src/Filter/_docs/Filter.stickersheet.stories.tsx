@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FilterButton } from "~components/FilterButton"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { StickerSheet } from "../../../../../docs/components/StickerSheet"
 import { Filter, FilterContents } from ".."
 
 const IS_CHROMATIC = isChromatic()

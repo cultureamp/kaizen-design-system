@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { ComponentDocsTemplate } from "../../../storybook/components/DocsContainer"
-import { StickerSheet } from "../../../storybook/components/StickerSheet"
+import { ComponentDocsTemplate } from "../../../docs/components/DocsContainer"
+import { StickerSheet } from "../../../docs/components/StickerSheet"
 import { MenuLoadingSkeleton } from "../src/FilterMultiSelect/components/MenuLayout/MenuLoadingSkeleton/index"
 
 const meta = {

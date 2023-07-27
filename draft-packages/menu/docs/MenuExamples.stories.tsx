@@ -9,7 +9,7 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import { Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { Menu, MenuList, MenuItem, StatelessMenu, MenuHeading } from ".."
 import { MenuContentExample } from "./components/MenuContentExample"
 

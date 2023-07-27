@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
+import { ComponentDocsTemplate } from "../../../../../docs/components/DocsContainer"
 import { FooterProps } from "../subcomponents/Footer"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"

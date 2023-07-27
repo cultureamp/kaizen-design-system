@@ -1,7 +1,7 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import { LoadingParagraph } from ".."
 
 export default {

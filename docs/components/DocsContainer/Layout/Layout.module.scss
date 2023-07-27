@@ -1,0 +1,22 @@
+.main {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  // Content width = 100% - TOC width - gap
+  grid-template: "content sidebar" 1fr / minmax(calc(100% - 224px), 1fr) 200px;
+  grid-gap: 0 24px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
+
+  :global(code) {
+    // If not set, the code overflows behind the TOC when it doesn't wrap.
+    /* stylelint-disable-next-line declaration-no-important */
+    white-space: pre-wrap !important;
+  }
+}

@@ -7,7 +7,7 @@ import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import effectivenessIcon from "@kaizen/component-library/icons/effectiveness.icon.svg"
 import { CheckboxField } from "@kaizen/draft-form"
 import { Paragraph } from "@kaizen/typography"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import {
   TableCard,
   TableContainer,

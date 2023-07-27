@@ -1,0 +1,27 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+$gap: $spacing-6;
+
+.resourceLinkContainer {
+  &:not(:first-child) {
+    border-left: 1.5px solid $color-gray-500;
+    padding-left: $gap;
+  }
+}
+
+.resourceLink {
+  text-decoration: none;
+  color: $color-blue-400;
+}
+
+.resourceLinks {
+  display: inline-flex;
+  gap: $gap;
+  margin: 0;
+  padding: $spacing-4 0;
+  list-style: none;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: 1;
+}

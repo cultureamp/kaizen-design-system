@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../docs/components/StoryWrapper"
 import {
   Avatar,
   AvatarSizes,

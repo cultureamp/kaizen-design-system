@@ -1,7 +1,7 @@
 import React from "react"
 import { Node } from "@react-types/shared"
 import { Meta, StoryFn } from "@storybook/react"
-import { StoryWrapper } from "../../../../storybook/components/StoryWrapper"
+import { StoryWrapper } from "../../../../docs/components/StoryWrapper"
 import { Select } from "../../src/Select/Select"
 import { SingleItemType } from "../../src/types"
 import { singleMockItems } from "../MockData"
