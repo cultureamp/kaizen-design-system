@@ -57,15 +57,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: chromatic
+    env:
+      COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Get commit message
         id: getCommitMessage
-        run: echo "commitMessage=$(git show -s --format=%s ${{ github.sha }})" >> "$GITHUB_OUTPUT"
+        run: echo "commitMessage=$(git show -s --format=%s $COMMIT_SHA)" >> "$GITHUB_OUTPUT"
       - uses: ./.github/actions/branch-preview
         with:
           prNumber: ${{ github.event.pull_request.number }}
-          commitSha: ${{ github.sha }}
+          commitSha: ${{ env.COMMIT_SHA }}
           commitMessage: ${{ steps.getCommitMessage.outputs.commitMessage }}
           storybookUrl: ${{ needs.chromatic.outputs.storybookUrl }}
 
