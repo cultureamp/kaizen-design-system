@@ -9,7 +9,7 @@ on:
       - "main"
 
 jobs:
-  visual-testing:
+  update-baseline:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
