@@ -1,11 +1,11 @@
+
+import { TOOLBAR_CONTROLS } from "../constants"
+import { ToolbarItems, ToolbarControlTypes } from "../types"
 import {
   ProseMirrorModel,
   nodes as coreNodes,
   marks as coreMarks,
-} from "@cultureamp/rich-text-toolkit"
-
-import { TOOLBAR_CONTROLS } from "../constants"
-import { ToolbarItems, ToolbarControlTypes } from "../types"
+} from "../utils"
 
 export const defaultNodes: ProseMirrorModel.NodeSpec = {
   doc: coreNodes.doc,

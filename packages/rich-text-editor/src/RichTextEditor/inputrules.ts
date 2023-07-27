@@ -3,7 +3,7 @@ import {
   ProseMirrorModel,
   orderedListRule,
   bulletListRule,
-} from "@cultureamp/rich-text-toolkit"
+} from "../utils"
 
 export function buildInputRules(
   schema: ProseMirrorModel.Schema

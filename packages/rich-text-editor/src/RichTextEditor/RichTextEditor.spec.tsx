@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom"
+import userEvent from "@testing-library/user-event"
 import { EditorContentArray } from "../types"
 import { RichTextEditor, RichTextEditorProps } from "./"
+
+const user = userEvent.setup()
 
 // This helper is needed to simulate selection of a component since we
 // cannot userEvent.type with contenteditable
@@ -83,15 +86,15 @@ describe("RTE receives list controls", () => {
     })
 
     it("will create a <ol> when user clicks the numbered list button", async () => {
-      render(<TestRTE />)
+      const { getByRole } = render(<TestRTE />)
 
-      fireEvent.focus(screen.getByRole("textbox", { name: "List RTE" }), {
+      fireEvent.focus(getByRole("textbox", { name: "List RTE" }), {
         target: { textContent: "this will be a ol" },
       })
 
-      await waitFor(() => {
-        fireEvent.click(screen.getByRole("button", { name: "Numbered List" }))
+      await user.click(getByRole("button", { name: "Numbered List" }))
 
+      await waitFor(() => {
         expect(document.querySelectorAll("ol").length).toBeGreaterThan(0)
       })
     })
