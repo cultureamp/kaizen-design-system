@@ -39,6 +39,7 @@ steps:
           run: release
 
   - name: ":package: Build (storybook)"
+    branches: "main"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
     artifact_paths: "./storybook.tar.gz"
@@ -48,11 +49,10 @@ steps:
   - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
+    branches: "main"
     key: "publish-step"
     command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
-    # The canary branch is not able to update dev.cultureamp.design
-    branches: "!canary"
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
