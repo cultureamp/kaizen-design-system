@@ -1,33 +1,21 @@
 import React, { useEffect, createContext, useState } from "react"
 import { AddIcon } from "~icons/AddIcon"
 
-const SVGContext = createContext({})
+export const SVGContext = createContext({})
 
 type Props = {
   children: React.ReactNode
 }
 
 export const SVGProvider = ({ children }: Props): JSX.Element => {
-  // const [Icon, setIcon] = useState(<></>)
-
-  // Handle dynamic imports
-  // useEffect(() => {
-  // const loadIcon = async (): Promise<any> => {
-  // const AddIcon = await import("~icons/AddIcon")
-  // setIcon(AddIcon as any)
-  // }
-  // loadIcon()
-  // }, [])
+  const [icons, setIcons] = useState<string[]>([])
 
   return (
-    <SVGContext.Provider value={{ addIcon: "myCoolAddIcon" }}>
+    <SVGContext.Provider value={{ icons, setIcons }}>
       <>
-        <AddIcon />
         {children}
 
-        <svg color={"green"} viewBox="0 0 44 44">
-          <use href="#add-icon" />
-        </svg>
+        <AddIcon />
       </>
     </SVGContext.Provider>
   )

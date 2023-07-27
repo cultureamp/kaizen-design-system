@@ -1,3 +1,4 @@
+import { formatMessage } from "i18n-react-intl"
 import React, {
   forwardRef,
   Ref,
@@ -95,6 +96,12 @@ const GenericButton = forwardRef(
         buttonRef.current?.focus()
       },
     }))
+
+    const myMessage = formatMessage({
+      id: "docs.formattedMessage",
+      defaultMessage: "This is documentation",
+      description: "Label displayed in FormattedMessage documentation",
+    })
 
     const determineButtonRenderer = (): JSX.Element => {
       if (props.component) {

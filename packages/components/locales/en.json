@@ -10,16 +10,20 @@
     ],
     "variants_enabled": true
   },
+  "docs.formattedMessage": {
+    "description": "Label displayed in FormattedMessage documentation",
+    "message": "This is documentation"
+  },
   "filterDateRangePicker.dateFrom": {
-    "description": "Label for the 'Date from' date range input field",
+    "description": "Label for the 'Date from' field",
     "message": "Date from"
   },
   "filterDateRangePicker.dateTo": {
-    "description": "Label for the 'Date to' date range input field",
+    "description": "Label for the 'date to' field",
     "message": "Date to"
   },
   "filterDateRangePicker.inputFormat": {
-    "description": "Label for the 'Input format' subtext",
+    "description": "Label for the 'Input format' field",
     "message": "Input format"
   }
 }
