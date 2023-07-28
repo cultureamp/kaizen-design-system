@@ -12,6 +12,11 @@
     "clean": {
       "cache": false
     },
+    "next-js#build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next-js/**"],
+      "inputs": ["app/**"]
+    },
     "@kaizen/components#build": {
       "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
