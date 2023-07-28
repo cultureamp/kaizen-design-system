@@ -15,7 +15,9 @@ jobs:
         uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
           version: yarn ci:version
+          publish: yarn ci:publish
