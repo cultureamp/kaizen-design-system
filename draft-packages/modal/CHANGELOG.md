@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.6.23
+
+### Patch Changes
+
+- [#3917](https://github.com/cultureamp/kaizen-design-system/pull/3917) [`1fc1f90c3`](https://github.com/cultureamp/kaizen-design-system/commit/1fc1f90c3334ab873d77ff900508db378afe5a14) - Fix: A rendering bug when labels for actions were the same (even for short period of time)
+
 ## 10.6.22
 
 ### Patch Changes
