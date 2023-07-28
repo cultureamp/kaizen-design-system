@@ -4,12 +4,6 @@ env:
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
 
-x-defaults: &defaults
-  agent_query_rules: ["queue=build-unrestricted"]
-  plugins:
-    - docker-compose#v3.9.0:
-        run: build
-
 steps:
   - name: ":hatched_chick: Release (canary)"
     command: ".buildkite/scripts/release.sh"
@@ -17,6 +11,8 @@ steps:
     branches: "canary"
     <<: *defaults
     plugins:
+      - docker-compose#v3.9.0:
+        run: build
       - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.9.0:
@@ -41,6 +37,8 @@ steps:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
     plugins:
+      - docker-compose#v3.9.0:
+        run: build
       - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.9.0:
