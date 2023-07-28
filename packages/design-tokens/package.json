@@ -34,13 +34,16 @@
     "@types/lodash.flatmap": "^4.5.7",
     "@types/react-highlight": "^0.12.5",
     "@types/yargs": "^17.0.24",
+    "esbuild": "^0.18.17",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "postcss": "^8.4.20",
     "prettier": "*",
+    "raw-loader": "^4.0.2",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
     "ts-node": "^10.9.1",
+    "webpack": "^5.88.2",
     "yargs": "^17.7.2"
   },
   "dependencies": {

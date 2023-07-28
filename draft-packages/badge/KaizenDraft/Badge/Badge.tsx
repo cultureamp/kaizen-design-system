@@ -67,6 +67,7 @@ export const BadgeAnimated = (props: BadgeProps): JSX.Element => {
     <span
       className={classnames(styles.animation, isFocused && styles.animationOn)}
     >
+      hello
       <Badge {...props} />
     </span>
   )
