@@ -11,17 +11,6 @@ x-defaults: &defaults
         run: build
 
 steps:
-  - name: ":hatched_chick: Release (canary)"
-    command: ".buildkite/scripts/release.sh"
-    timeout_in_minutes: 15
-    branches: "canary"
-    <<: *defaults
-    plugins:
-      - cultureamp/aws-assume-role#v0.2.0:
-          role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.9.0:
-          run: release
-
   - name: ":package: Build (storybook)"
     branches: "main"
     command: ".buildkite/scripts/build-storybook.sh"
