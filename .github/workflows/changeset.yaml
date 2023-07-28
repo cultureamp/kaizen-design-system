@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
       - name: Create Release Pull Request or Publish to npm
-      - run: |
+        run: |
           npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
       - uses: changesets/action@v1
         with:
