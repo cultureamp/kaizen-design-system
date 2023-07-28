@@ -11,22 +11,6 @@ x-defaults: &defaults
         run: build
 
 steps:
-  - name: ":butterfly: Release"
-    command: ".buildkite/scripts/release.sh"
-    timeout_in_minutes: 15
-    if: build.env("CHANGESETS_RELEASE") == "true" || (build.branch == "main" && build.author.name == "github-actions[bot]")
-    <<: *defaults
-    plugins:
-      - cultureamp/aws-assume-role#v0.2.0:
-          role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.9.0:
-          run: release
-    notify:
-      - slack: "#wol_kaizen"
-        if: build.state == "passed"
-      - slack: "#wol_kaizen"
-        if: build.state == "failed"
-
   - name: ":hatched_chick: Release (canary)"
     command: ".buildkite/scripts/release.sh"
     timeout_in_minutes: 15
