@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.20.0
+
+### Minor Changes
+
+- [#3900](https://github.com/cultureamp/kaizen-design-system/pull/3900) [`5c3fa76e3`](https://github.com/cultureamp/kaizen-design-system/commit/5c3fa76e36773deac609828513fb15cb276f5fd6) - feat: add ErrorPage component
+
+- [#3913](https://github.com/cultureamp/kaizen-design-system/pull/3913) [`53d365c96`](https://github.com/cultureamp/kaizen-design-system/commit/53d365c96eb19394aa62781b9b0fe996792cf6ce) - Change the FilterSelect popover width to be between 196-400px.
+
+- [#3907](https://github.com/cultureamp/kaizen-design-system/pull/3907) [`b5eece4ab`](https://github.com/cultureamp/kaizen-design-system/commit/b5eece4abc1a0e6690824f0f8635d706d2797f99) - Add BrandMoment
+
 ## 1.19.3
 
 ### Patch Changes
