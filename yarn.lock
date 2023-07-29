@@ -3640,6 +3640,19 @@
     "@react-types/shared" "^3.18.1"
     "@swc/helpers" "^0.4.14"
 
+"@react-stately/datepicker@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.5.0.tgz#eb43bf0e842e69c3390df3933869bf27fb337609"
+  integrity sha512-GPscIz4jP9hDa1ChgMAWAt8g8mCpjILmSgfyuIZXegPZfa3ryKuQutYU/JGJrBom1xablAgeHIN1AWpve+4f1w==
+  dependencies:
+    "@internationalized/date" "^3.3.0"
+    "@internationalized/string" "^3.1.1"
+    "@react-stately/overlays" "^3.6.0"
+    "@react-stately/utils" "^3.7.0"
+    "@react-types/datepicker" "^3.4.0"
+    "@react-types/shared" "^3.18.1"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/list@^3.8.1":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.8.1.tgz#19ed21dc2929e6a5a1e05a1858dbc7ee1f55f761"
@@ -3811,6 +3824,14 @@
     "@internationalized/date" "^3.2.0"
     "@react-types/shared" "^3.18.1"
 
+"@react-types/calendar@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@react-types/calendar/-/calendar-3.3.0.tgz#d6975683cbbdc1241204ef6501686cbc3f80b6e8"
+  integrity sha512-5Qga+eixj+PembMwzcJmQlxif4XhSJJ54JcoyYHVf6mYLw3aE81Jc52OBi1FEWBJOW9YVOTk7VbWPFFF/oBI8A==
+  dependencies:
+    "@internationalized/date" "^3.3.0"
+    "@react-types/shared" "^3.18.1"
+
 "@react-types/checkbox@^3.4.4":
   version "3.4.4"
   resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.4.4.tgz#cf55e9fd0cabef6e4408d03b308c754e1add3bc1"
@@ -3825,6 +3846,16 @@
   dependencies:
     "@internationalized/date" "^3.2.0"
     "@react-types/overlays" "^3.7.2"
+    "@react-types/shared" "^3.18.1"
+
+"@react-types/datepicker@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@react-types/datepicker/-/datepicker-3.4.0.tgz#f1fea1b2e9fc963724193ae7b58ce49b58153c59"
+  integrity sha512-gQmbeNdVPXpaX8XsvxQb6nRLQZNlsMnDLVVpagVno7bifz2cdbthLfMe124nNT/Xr+JXolP+BtlYlZ7IRQVxdA==
+  dependencies:
+    "@internationalized/date" "^3.3.0"
+    "@react-types/calendar" "^3.3.0"
+    "@react-types/overlays" "^3.8.0"
     "@react-types/shared" "^3.18.1"
 
 "@react-types/dialog@^3.5.2":
