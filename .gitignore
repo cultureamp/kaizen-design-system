@@ -9,7 +9,6 @@ yarn-*.log
 !/packages/**/svgMock.js
 /packages/**/*.js.map
 /packages/**/*.d.ts
-/playwright/test-results
 .DS_Store
 dist
 .cache

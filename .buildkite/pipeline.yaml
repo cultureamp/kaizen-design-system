@@ -11,34 +11,8 @@ x-defaults: &defaults
         run: build
 
 steps:
-  - name: ":butterfly: Release"
-    command: ".buildkite/scripts/release.sh"
-    timeout_in_minutes: 15
-    if: build.env("CHANGESETS_RELEASE") == "true" || (build.branch == "main" && build.author.name == "github-actions[bot]")
-    <<: *defaults
-    plugins:
-      - cultureamp/aws-assume-role#v0.2.0:
-          role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.9.0:
-          run: release
-    notify:
-      - slack: "#wol_kaizen"
-        if: build.state == "passed"
-      - slack: "#wol_kaizen"
-        if: build.state == "failed"
-
-  - name: ":hatched_chick: Release (canary)"
-    command: ".buildkite/scripts/release.sh"
-    timeout_in_minutes: 15
-    branches: "canary"
-    <<: *defaults
-    plugins:
-      - cultureamp/aws-assume-role#v0.2.0:
-          role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.9.0:
-          run: release
-
   - name: ":package: Build (storybook)"
+    branches: "main"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
     artifact_paths: "./storybook.tar.gz"
@@ -48,11 +22,10 @@ steps:
   - wait
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}"
+    branches: "main"
     key: "publish-step"
     command: ".buildkite/scripts/publish.sh"
     timeout_in_minutes: 15
-    # The canary branch is not able to update dev.cultureamp.design
-    branches: "!canary"
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
@@ -61,19 +34,6 @@ steps:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.9.0:
           run: publish
-
-  - name: ":playwright: Running Playwright on ${KAIZEN_DOMAIN_NAME}"
-    key: "playwright-step"
-    command: ".buildkite/scripts/run-playwright.sh"
-    timeout_in_minutes: 15
-    branches: "!main !canary"
-    depends_on: "publish-step"
-    <<: *defaults
-    agent_query_rules: ["queue=build-unrestricted-large"]
-    plugins:
-      - docker#v3.13.0:
-          image: mcr.microsoft.com/playwright:v1.35.1-focal
-          propagate-environment: true
 
   - name: "LinearB: Record deployment time"
     command: bin/ci_noop

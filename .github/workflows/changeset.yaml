@@ -8,14 +8,18 @@ on:
 jobs:
   version:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - name: Create Release Pull Request
-        uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Create Release Pull Request or Publish to npm
+        run: |
+          npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
+      - uses: changesets/action@v1
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
           version: yarn ci:version
+          publish: yarn ci:publish
