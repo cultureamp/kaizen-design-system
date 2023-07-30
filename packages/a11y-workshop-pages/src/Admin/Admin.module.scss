@@ -1,0 +1,62 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.flex {
+  display: flex;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+
+.sidebar {
+  flex: 0 0 240px;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+button.navItem {
+  // button reset
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  display: block;
+  margin-bottom: $spacing-md;
+  color: $color-purple-800;
+  text-decoration: none;
+  font-family: $typography-heading-4-font-family;
+  font-weight: $typography-heading-4-font-weight;
+  font-size: $typography-heading-4-font-size;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
+}
+
+.navItem.active {
+  color: $color-blue-500;
+}
+
+.headingLabel {
+  margin-bottom: $spacing-xs;
+}
+
+.formHelpText {
+  height: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 1rem;
+}
+
+.infoIcon {
+  color: $color-purple-800;
+}
