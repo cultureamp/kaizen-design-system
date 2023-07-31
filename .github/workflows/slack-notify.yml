@@ -13,22 +13,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Send
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        uses: pcolby/post-to-slack@v1
         with:
-          channel-id: "C02NUQ27G56"
-          payload: |
-            {
-              "text": "Release: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Release: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                  }
-                }
-              ]
-            }
+          url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          text: Hello world!
