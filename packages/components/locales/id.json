@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Tanggal dari"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Tanggal sampai"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Format masukan"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "dukungan kontak"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Maaf, permintaan Anda tidak dapat diselesaikan. Kembali dan coba lagi, atau pergilah ke Beranda"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Permintaan Anda terjerembab ke dalam ruang hampa"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Maaf, kami tidak dapat memverifikasi apakah Anda dapat melihat halaman ini. Kembali dan coba lagi, atau pergilah ke Beranda"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Anda tidak dapat melihat halaman ini"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Maaf, tapi sepertinya Anda tidak memiliki izin untuk melihat halaman ini.  Kembali dan coba lagi, atau pergilah ke Beranda"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Anda tidak dapat melihat halaman ini"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Maaf, tetapi kami tidak dapat menemukan halaman yang Anda cari. Kembali dan coba lagi, atau pergilah ke Beranda"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Halaman yang hilang adalah salah satu misteri kehidupan"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Maaf, perubahan Anda tidak dapat dilakukan. Kembali dan coba lagi, atau pergilah ke Beranda"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Perubahan datangnya tak pernah gampang"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Maaf, ada masalah dengan sistem kami dan halaman ini tidak dapat ditampilkan.  Kembali dan coba lagi, atau pergilah ke Beranda"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Ada yang tidak beres di pihak kami"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mohon maaf atas hal ini.  Hal terbaik yang dapat dilakukan adalah kembalilah dan coba lagi."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Anda tidak dapat melihat halaman ini"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mohon maaf atas hal ini.   Hal terbaik yang dapat dilakukan adalah kembalilah dan coba lagi."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Anda tidak dapat melihat halaman ini"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mohon maaf atas hal ini.   Hal terbaik yang dapat dilakukan adalah kembalilah dan coba lagi."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Anda tidak dapat melihat halaman ini"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Kode kesalahan {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Pergi ke Beranda"
   }
 }
