@@ -26,43 +26,19 @@ jobs:
           publish: yarn ci:publish
       - name: Notify Slack (success)
         if: steps.changesets.outputs.published == 'true'
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        uses: pcolby/post-to-slack@v1
         with:
-          channel-id: "C02NUQ27G56"
-          payload: |
-            {
-              "text": "Release: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Release: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                  }
-                }
-              ]
-            }
+          url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          channel: "#wol_kaizen"
+          username: "Release"
+          text: Complete
+          iconUrl: https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_1280.png
       - name: Notify Slack (failure)
         if: steps.changesets.outputs.published == 'false'
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        uses: pcolby/post-to-slack@v1
         with:
-          channel-id: "C02NUQ27G56"
-          payload: |
-            {
-              "text": "Release: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Release: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                  }
-                }
-              ]
-            }
+          url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          channel: "#wol_kaizen"
+          username: "Release"
+          text: Something went wrong
+          iconUrl: https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_1280.png
