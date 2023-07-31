@@ -20,4 +20,4 @@ jobs:
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
         with:
           channel-id: "C02NUQ27G56"
-          payload-file-path: "../payload/slack-notify-release.json"
+          payload-file-path: "./payload/slack-notify-release.json"
