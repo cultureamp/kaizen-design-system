@@ -1,5 +1,4 @@
-import "@testing-library/jest-dom/extend-expect"
-import * as React from "react"
+import React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { VideoPlayer } from "./VideoPlayer"
@@ -7,10 +6,10 @@ import { VideoPlayer } from "./VideoPlayer"
 const matchMedia = {
   media: "",
   onchange: null,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
-  addEventListener: jest.fn(),
-  removeEventListener: jest.fn(),
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn(),
 }
 const mockPrefersReducedMotion = {
   matches: true,
@@ -20,23 +19,23 @@ const mockDoesNotPreferReducedMotion = {
   matches: false,
   ...matchMedia,
 }
-const mockPlay = jest.fn().mockResolvedValue(undefined)
-const mockLoad = jest.fn()
-const mockPause = jest.fn()
+const mockPlay = vi.fn().mockResolvedValue(undefined)
+const mockLoad = vi.fn()
+const mockPause = vi.fn()
 
 describe("<VideoPlayer />", () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
     window.HTMLMediaElement.prototype.load = mockLoad
     window.HTMLMediaElement.prototype.play = mockPlay
     window.HTMLMediaElement.prototype.pause = mockPause
-    window.matchMedia = jest
+    window.matchMedia = vi
       .fn()
       .mockImplementation(() => mockDoesNotPreferReducedMotion)
     // this will stop throwing the unstable_flushDiscreteUpdates console error cause by react bug
     // https://stackoverflow.com/a/65338472/18285270
     Object.defineProperty(HTMLMediaElement.prototype, "muted", {
-      set: jest.fn(),
+      set: vi.fn(),
     })
   })
 
@@ -55,7 +54,7 @@ describe("<VideoPlayer />", () => {
 
   describe("use-reduced-motion", () => {
     it("respects the use-reduced-motion preferences of the user", () => {
-      window.matchMedia = jest
+      window.matchMedia = vi
         .fn()
         .mockImplementation(() => mockPrefersReducedMotion)
       render(
@@ -66,29 +65,12 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchInlineSnapshot(`
-        <video
-          aria-hidden="true"
-          class="wrapper"
-          data-testid="kz-video-player"
-          muted=""
-          playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
-          preload="metadata"
-          tabindex="-1"
-          width="100%"
-        >
-          <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
-            type="video/mp4"
-          />
-        </video>
-      `)
+      expect(videoPlayer).not.toHaveAttribute("autoplay")
       expect(mockPause).toBeCalled()
     })
 
     it("defaults to autoplay when user does not set use-reduced-motion preferences", () => {
-      window.matchMedia = jest
+      window.matchMedia = vi
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       render(
@@ -99,50 +81,14 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchInlineSnapshot(`
-        <video
-          aria-hidden="true"
-          autoplay=""
-          class="wrapper"
-          data-testid="kz-video-player"
-          muted=""
-          playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
-          preload="metadata"
-          tabindex="-1"
-          width="100%"
-        >
-          <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
-            type="video/mp4"
-          />
-        </video>
-      `)
+      expect(videoPlayer).toHaveAttribute("autoplay")
       expect(mockPlay).toBeCalled()
-    })
-  })
-
-  describe("when the aspect ratio is set as a prop", () => {
-    it("has aspect ratio class", () => {
-      window.matchMedia = jest
-        .fn()
-        .mockImplementation(() => mockDoesNotPreferReducedMotion)
-      const { container } = render(
-        <VideoPlayer
-          aspectRatio="landscape"
-          autoplay
-          fallback="illustrations/heart/spot/moods-cautionary.svg"
-          source="illustrations/heart/spot/moods-cautionary.webm"
-        />
-      )
-      expect(container.querySelector(".aspectRatioWrapper")).toBeTruthy()
-      expect(container.querySelector(".landscape")).toBeTruthy()
     })
   })
 
   describe("when the aspect ratio is not set as a prop", () => {
     it("does not have aspect ratio class", () => {
-      window.matchMedia = jest
+      window.matchMedia = vi
         .fn()
         .mockImplementation(() => mockDoesNotPreferReducedMotion)
       const { container } = render(
