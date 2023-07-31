@@ -17,7 +17,7 @@ jobs:
         with:
           url: ${{ secrets.SLACK_WEBHOOK_URL }}
           channel: "#jasono_webhook_test"
-          username: "Releases"
+          username: "Releasing"
           text: >-
             ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}
-          iconUrl: https://kaizen-assets.s3-us-west-2.amazonaws.com/illustrations/heart/spot/miscellaneous-action.svg
+          iconUrl: https://cdn.pixabay.com/photo/2019/07/02/05/56/rocket-4311575_1280.png
