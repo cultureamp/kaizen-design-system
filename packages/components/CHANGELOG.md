@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.20.2
+
+### Patch Changes
+
+- [#3895](https://github.com/cultureamp/kaizen-design-system/pull/3895) [`121ceabee`](https://github.com/cultureamp/kaizen-design-system/commit/121ceabee5ba09fa85b7769ac855cc968777c053) - Bump dependencies
+
 ## 1.20.1
 
 ### Patch Changes
