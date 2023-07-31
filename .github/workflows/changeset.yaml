@@ -26,6 +26,7 @@ jobs:
           publish: yarn ci:publish
       - name: Notify Slack (success)
         if: steps.changesets.outputs.published == 'true'
+        # https://github.com/marketplace/actions/post-to-slack
         uses: pcolby/post-to-slack@v1
         with:
           url: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -35,6 +36,7 @@ jobs:
           iconEmoji: ":squid:"
       - name: Notify Slack (failure)
         if: steps.changesets.outputs.published == 'false'
+        # https://github.com/marketplace/actions/post-to-slack
         uses: pcolby/post-to-slack@v1
         with:
           url: ${{ secrets.SLACK_WEBHOOK_URL }}
