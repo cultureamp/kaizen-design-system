@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Kuupäev alates"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Kuupäev kuni"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Sisendvorming"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "võtke ühendust toega"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Kahjuks ei saanud me teie päringut täita. Minge tagasi ja proovige uuesti või siirduge avalehele"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Teie taotlus on kaotsi läinud"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Vabandame, kuid me ei saa kontrollida, kas teil on luba seda lehte vaadata. Minge tagasi ja proovige uuesti või siirduge avalehele"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Te ei saa seda lehte vaadata"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Vabandust, kuid paistab, et teil ei ole selle lehe vaatamiseks luba. Minge tagasi ja proovige uuesti või siirduge avalehele"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Te ei saa seda lehte vaadata"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Kahjuks ei leidnud me teie otsitavat lehte. Minge tagasi ja proovige uuesti või siirduge avalehele"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Puuduvad lehed on üks elu mõistatustest"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Kahjuks ei saanud teie muudatust ellu viia. Minge tagasi ja proovige uuesti või siirduge avalehele"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Muutused ei tule kunagi kergelt"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Kahjuks on meie süsteemis probleem ja seda lehte ei saa kuvada. Minge tagasi ja proovige uuesti või siirduge avalehele"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Meie poolel läks midagi valesti"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Meil on kahju. Parim, mida saate teha, on tagasi minna ja uuesti proovida."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Te ei saa seda lehte vaadata"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Meil on kahju. Parim, mida saate teha, on tagasi minna ja uuesti proovida."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Te ei saa seda lehte vaadata"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Meil on kahju. Parim, mida saate teha, on tagasi minna ja uuesti proovida."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Te ei saa seda lehte vaadata"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Veakood {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Avalehele"
   }
 }

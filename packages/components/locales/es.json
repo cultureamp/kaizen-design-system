@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Fecha inicial"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Fecha final"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Formato de entrada"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "Póngase en contacto con el servicio de asistencia"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos, pero su solicitud no ha podido completarse.Vuelva a intentarlo o diríjase a Inicio"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Su solicitud ha caído en el vacío"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos, pero no hemos podido verificar si puede ver esta página. Vuelva a intentarlo o diríjase a Inicio"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "No puede ver esta página"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos, pero parece que no tiene permiso para ver esta página. Vuelva a intentarlo o diríjase a Inicio"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "No puede ver esta página"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos, pero no hemos podido encontrar la página que busca. Vuelva a intentarlo o diríjase a Inicio"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Las páginas que faltan son uno de los misterios de la vida."
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos, pero no se ha podido llevar a cabo el cambio. Vuelva a intentarlo o diríjase a Inicio"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "El cambio nunca es fácil"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos, hay un problema con nuestro sistema y esta página no se puede mostrar. Vuelva a intentarlo o diríjase a Inicio"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Algo ha salido mal por nuestra parte"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos. Lo mejor que puede hacer es volver e intentarlo otra vez."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "No puede ver esta página"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos. Lo mejor que puede hacer es volver e intentarlo otra vez."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "No puede ver esta página"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos. Lo mejor que puede hacer es volver e intentarlo otra vez."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "No puede ver esta página"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Código de error {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Ir a Inicio"
   }
 }

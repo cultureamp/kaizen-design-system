@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Data de la"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Data până la"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Formatul de intrare"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "contactați asistența"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău, dar solicitarea dvs. nu a putut fi finalizată. Reveniți și încercați din nou sau mergeți la pagina principală"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Cererea dvs. a dispărut"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău, dar nu putem verifica dacă puteți vizualiza această pagină. Reveniți și încercați din nou sau mergeți la pagina principală"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Nu puteți vizualiza această pagină"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău, dar se pare că nu aveți permisiunea de a vizualiza această pagină. Reveniți și încercați din nou sau mergeți la pagina principală"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Nu puteți vizualiza această pagină"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău, dar nu putem găsi pagina pe care o căutați. Reveniți și încercați din nou sau mergeți la pagina principală"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Paginile lipsă reprezintă unul dintre misterele vieții"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău, dar modificarea dvs. nu a putut fi efectuată. Reveniți și încercați din nou sau mergeți la pagina principală"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Schimbarea nu este niciodată ușoară"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău, există o problemă cu sistemul nostru și nu se poate afișa această pagină. Reveniți și încercați din nou sau mergeți la pagina principală"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "A intervenit o problemă la noi"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău. Cel mai bun lucru este să reveniți și să încercați din nou."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Nu puteți vizualiza această pagină"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău. Cel mai bun lucru este să reveniți și să încercați din nou."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Nu puteți vizualiza această pagină"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne pare rău. Cel mai bun lucru este să reveniți și să încercați din nou."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Nu puteți vizualiza această pagină"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Cod de eroare {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Mergeți la pagina principală"
   }
 }

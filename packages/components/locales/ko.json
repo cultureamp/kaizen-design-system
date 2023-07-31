@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "시작 날짜"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "종료 날짜"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "입력 형식"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "지원 센터에 문의하십시오."
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송하지만 요청을 완료할 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "요청이 무효 처리되었습니다."
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 이 페이지를 볼 수 있는지 확인할 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "이 페이지를 볼 수 없습니다."
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "이 페이지를 볼 수 있는 권한이 없는 것 같습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "이 페이지를 볼 수 없습니다."
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 원하시는 페이지를 찾을 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "페이지가 존재하지 않습니다."
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 변경을 처리할 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "변화는 쉽지 않습니다"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 시스템 장애로 인해 이 페이지를 표시할 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "문제가 발생했습니다."
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 돌아가서 다시 시도하시기 바랍니다."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "이 페이지를 볼 수 없습니다."
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 돌아가서 다시 시도하시기 바랍니다."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "이 페이지를 볼 수 없습니다."
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 돌아가서 다시 시도하시기 바랍니다."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "이 페이지를 볼 수 없습니다."
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "오류 코드 {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "홈으로 이동하기"
   }
 }
