@@ -17,6 +17,6 @@ jobs:
         with:
           url: ${{ secrets.SLACK_WEBHOOK_URL }}
           channel: "#jasono_webhook_test"
-          username: "Release"
+          username: "Releases"
           text: Hello world!
           iconUrl: https://picsum.photos/120/120
