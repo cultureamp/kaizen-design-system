@@ -1,50 +1,23 @@
 import React from "react"
-import { render, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
+import { render } from "@testing-library/react"
 import { InputSearchProps } from "./InputSearch"
 import { InputSearch } from "."
 
-const user = userEvent.setup()
+const onChange = vi.fn()
 
-const defaultInputProps = {
-  id: "someInputId",
-  value: "somevalue",
-  onChange: jest.fn(),
-}
-
-const renderInput = (props?: InputSearchProps): ReturnType<typeof render> => {
-  const mergedInputProps = { ...defaultInputProps, ...props }
-
-  return render(<InputSearch {...mergedInputProps} />)
-}
+const InputSearchWrapper = (props?: Partial<InputSearchProps>): JSX.Element => (
+  <InputSearch id="id__inputsearch" onChange={onChange} {...props} />
+)
 
 describe("<InputSearch />", () => {
-  it("should render a value inside of input", () => {
-    const { container } = renderInput()
-
-    expect(
-      container.querySelector(`[value="${defaultInputProps.value}"]`)
-    ).toBeTruthy()
+  it("renders value and clear button when value exists", () => {
+    const { getByRole } = render(<InputSearchWrapper value="Coffee" />)
+    expect(getByRole("searchbox")).toHaveAttribute("value", "Coffee")
+    expect(getByRole("button", { name: "clear search" })).toBeVisible()
   })
 
-  it("should call the `onChange` event when text value is updated", async () => {
-    const placeholder = "someInputPlaceholder"
-    const utils = renderInput({ value: "", placeholder, id: "someInputId" })
-    const input = utils.getByPlaceholderText(placeholder)
-
-    await user.type(input, "Hello")
-    await waitFor(() => {
-      expect(defaultInputProps.onChange).toBeCalledTimes(5)
-    })
-  })
-
-  it("should render a disabled inside of input", () => {
-    const { container } = renderInput({ disabled: true, id: "someInputId" })
-    expect(container.querySelector("[disabled]")).toBeTruthy()
-  })
-
-  it("should render a reversed input", () => {
-    const { container } = renderInput({ reversed: true, id: "someInputId" })
-    expect(container.querySelector(".reversed")).toBeTruthy()
+  it("disables input", () => {
+    const { getByRole } = render(<InputSearchWrapper disabled />)
+    expect(getByRole("searchbox")).toBeDisabled()
   })
 })

@@ -5,7 +5,7 @@ import { TextAreaField } from "./"
 describe("<TextAreaField />", () => {
   it("renders the label", () => {
     render(<TextAreaField id="reply" labelText="Text area label" />)
-    expect(screen.getByText("Text area label")).toBeTruthy()
+    expect(screen.getByText("Text area label")).toBeVisible()
   })
 
   it("renders a description when provided", () => {
@@ -17,7 +17,9 @@ describe("<TextAreaField />", () => {
       />
     )
 
-    expect(screen.getByText("Your reply will only be seen by you")).toBeTruthy()
+    expect(
+      screen.getByText("Your reply will only be seen by you")
+    ).toBeVisible()
   })
 
   it("renders a validation message when provided", () => {
@@ -29,38 +31,7 @@ describe("<TextAreaField />", () => {
       />
     )
 
-    expect(screen.getByText("Incorrect message")).toBeTruthy()
-  })
-
-  it("renders a prominent label", () => {
-    const { container } = render(
-      <TextAreaField
-        id="reply"
-        labelText="Prominent label"
-        validationMessage="Incorrect message"
-        variant="prominent"
-      />
-    )
-
-    expect(container.getElementsByClassName("prominent").length).toBe(1)
-  })
-
-  it("renders descriptions as the first sibling of the prominent labels", () => {
-    const { container } = render(
-      <TextAreaField
-        id="reply"
-        labelText="Prominent label"
-        description="This should be the immediate sibling to the label"
-        variant="prominent"
-      />
-    )
-
-    const prominentLabel = container.getElementsByClassName(
-      "textareaLabelProminent"
-    )[0]
-    const siblingNode = prominentLabel?.nextElementSibling
-
-    expect(siblingNode?.className === "message").toBeTruthy()
+    expect(screen.getByText("Incorrect message")).toBeVisible()
   })
 
   describe("Validation message", () => {

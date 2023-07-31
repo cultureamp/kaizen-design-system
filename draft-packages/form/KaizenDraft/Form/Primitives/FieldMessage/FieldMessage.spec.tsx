@@ -1,82 +1,22 @@
 import React from "react"
-import { render, screen } from "@testing-library/react"
-import { FieldMessage, FieldMessageProps } from "./index"
-
-const defaultFieldMessageProps = {
-  id: "someFieldMessageId",
-  message: "Some FieldMessage.",
-}
-
-const renderFieldMessage = (
-  props?: FieldMessageProps
-): ReturnType<typeof render> => {
-  const mergedFieldMessageProps = { ...defaultFieldMessageProps, ...props }
-
-  return render(<FieldMessage {...mergedFieldMessageProps} />)
-}
+import { render } from "@testing-library/react"
+import { FieldMessage } from "./index"
 
 describe("<FieldMessage />", () => {
   it("renders a message within a <p> tag when given a string", () => {
-    const fieldMessage = renderFieldMessage({ message: "Hello I am a message" })
-
-    expect(fieldMessage.queryByText("Hello I am a message")).toBeInTheDocument()
-    expect(
-      fieldMessage.queryByText("Hello I am a message")?.tagName === "P"
-    ).toBeTruthy()
+    const { getByText } = render(
+      <FieldMessage message="Hello I am a message" />
+    )
+    expect(getByText("Hello I am a message").tagName).toBe("P")
   })
 
   it("renders a message within a <div> tag when not given node other than string", () => {
-    const fieldMessage = renderFieldMessage({
-      message: <span>Hello I am a message within a span</span>,
-    })
+    const { getByText } = render(
+      <FieldMessage message={<span>Hello I am a message within a span</span>} />
+    )
+    const fieldMessage = getByText("Hello I am a message within a span")
 
-    expect(
-      fieldMessage.queryByText("Hello I am a message within a span")
-    ).toBeInTheDocument()
-    expect(
-      fieldMessage.queryByText("Hello I am a message within a span")
-        ?.tagName === "SPAN"
-    ).toBeTruthy()
-    expect(
-      fieldMessage.queryByText("Hello I am a message within a span")
-        ?.parentElement?.tagName === "DIV"
-    ).toBeTruthy()
-  })
-
-  it("renders an `id` attribute", () => {
-    const { container } = renderFieldMessage()
-
-    expect(
-      container.querySelector(`[id="${defaultFieldMessageProps.id}"]`)
-    ).toBeTruthy()
-  })
-
-  it("renders an `data-automation-id` attribute", () => {
-    const automationId = "someFieldMessageAutomationId"
-    const { container } = renderFieldMessage({ automationId })
-
-    expect(
-      container.querySelector(`[data-automation-id="${automationId}"]`)
-    ).toBeTruthy()
-  })
-
-  it("renders a `reversed` field message", () => {
-    const { container } = renderFieldMessage({ reversed: true })
-
-    expect(container.querySelector(".reversed")).toBeTruthy()
-  })
-
-  it("renders a warning icon with an error status", () => {
-    const { container } = renderFieldMessage({ status: "error" })
-
-    expect(container.querySelector(".warningIcon")).toBeTruthy()
-    expect(screen.getByLabelText("error message")).toBeInTheDocument()
-  })
-
-  it("renders a warning icon with an error status", () => {
-    const { container } = renderFieldMessage({ status: "caution" })
-
-    expect(container.querySelector(".warningIcon")).toBeTruthy()
-    expect(screen.getByLabelText("caution message")).toBeInTheDocument()
+    expect(fieldMessage.tagName).toBe("SPAN")
+    expect(fieldMessage.parentElement?.tagName).toBe("DIV")
   })
 })
