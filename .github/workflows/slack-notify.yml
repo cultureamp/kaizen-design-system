@@ -20,4 +20,4 @@ jobs:
           username: "Release"
           text: >-
             Release: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}
-          iconUrl: https://picsum.photos/120/120
+          iconUrl: https://kaizen-assets.s3-us-west-2.amazonaws.com/illustrations/heart/spot/miscellaneous-action.svg
