@@ -10,6 +10,7 @@
   "scripts": {
     "build": "yarn turbo prepublish",
     "clean": "yarn turbo clean && yarn storybook:clean && rimraf node_modules",
+    "vitest": "vitest",
     "test": "jest && yarn test:pkg:aio",
     "test:pkg:aio": "yarn pkg:aio test && yarn pkg:aio build",
     "test:pkg:c-library:sass": "yarn pkg:c-library test-scss-compile",
@@ -100,6 +101,7 @@
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
     "babel-loader": "^9.1.3",
     "chromatic": "^6.19.9",
     "css-loader": "^6.8.1",

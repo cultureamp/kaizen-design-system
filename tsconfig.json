@@ -17,7 +17,8 @@
       "~utils/*": ["packages/components/src/utils/*"],
       "~components/*": ["packages/components/src/*"],
       "~icons/*": ["packages/components/src/SVG/icons/*"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],
