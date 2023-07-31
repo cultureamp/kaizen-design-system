@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { TextField } from "@kaizen/draft-form"
 import { LoadingInput } from "@kaizen/loading-skeleton"
 import { AddIcon } from "~components/SVG/icons/AddIcon"
 import { ArrowRightIcon } from "~components/SVG/icons/ArrowRightIcon"
@@ -100,8 +101,12 @@ export const Icon: StoryFn = () => (
   <StickerSheet>
     <StickerSheet.Body>
       <StickerSheet.Row>
-        <Button label="Label" icon={<AddIcon />} />
-        <Button label="Label" icon={<ArrowRightIcon />} iconPosition="end" />
+        <Button label="Label" icon={<AddIcon role="presentation" />} />
+        <Button
+          label="Label"
+          icon={<ArrowRightIcon role="presentation" />}
+          iconPosition="end"
+        />
       </StickerSheet.Row>
     </StickerSheet.Body>
   </StickerSheet>
@@ -113,7 +118,7 @@ export const Icon: StoryFn = () => (
 export const Badge: StoryFn = () => (
   <Button
     label="Label"
-    icon={<AddIcon />}
+    icon={<AddIcon role="presentation" />}
     badge={{ text: "3", variant: "active" }}
     secondary
   />
@@ -125,7 +130,7 @@ export const Badge: StoryFn = () => (
 export const FullWidth: StoryFn = () => (
   <Button
     label="Label"
-    icon={<AddIcon />}
+    icon={<AddIcon role="presentation" />}
     badge={{ text: "3", variant: "active" }}
     secondary
   />
@@ -165,7 +170,7 @@ export const Loading: StoryFn = () => <LoadingInput isAnimated width={13} />
 export const NativeFormButton: StoryFn = () => (
   <>
     <form className="mb-6" id="unique-form-id">
-      <input type="text" defaultValue="content" />
+      <TextField labelText="Sample text field" defaultValue="content" />
     </form>
     <Button
       label="Submit"
@@ -175,7 +180,7 @@ export const NativeFormButton: StoryFn = () => (
       formMethod="get"
       formEncType="text/plain"
       formNoValidate={false}
-      icon={<ArrowRightIcon />}
+      icon={<ArrowRightIcon role="presentation" />}
       iconPosition="end"
       type="submit"
     />

@@ -13,7 +13,7 @@ export const WorkflowControls = {
         <Button
           key="would-use-uui-1"
           label="Close"
-          icon={<CloseIcon />}
+          icon={<CloseIcon role="presentation" />}
           secondary
           iconPosition="end"
         />,
@@ -22,14 +22,14 @@ export const WorkflowControls = {
         <Button
           key="would-use-uui-1"
           label="Close"
-          icon={<CloseIcon />}
+          icon={<CloseIcon role="presentation" />}
           secondary
           iconPosition="end"
         />,
         <Button
           key="would-use-uui-2"
           label="Preview"
-          icon={<VisibleIcon />}
+          icon={<VisibleIcon role="presentation" />}
           secondary
           iconPosition="start"
         />,

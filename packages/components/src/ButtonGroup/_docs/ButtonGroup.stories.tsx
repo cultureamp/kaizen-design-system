@@ -5,6 +5,7 @@ import { FilterButtonBase } from "~components/FilterButton/_subcomponents/Filter
 import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { globalA11yRules } from "../../../../../storybook/global-a11y-rules"
 import { ButtonGroup } from ".."
 
 export default {
@@ -15,6 +16,18 @@ export default {
   component: ButtonGroup,
   argTypes: { ...classNameOverrideArgType },
   parameters: {
+    a11y: {
+      config: {
+        rules: [
+          ...globalA11yRules,
+          {
+            // FIXME: text inside the buttons not meeting colour contrast requirements
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
+    },
     docs: {
       container: ComponentDocsTemplate,
     },

@@ -1,11 +1,29 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { globalA11yRules } from "../../../../../storybook/global-a11y-rules"
 import { ErrorPage } from "../ErrorPage"
 
 export default {
   title: "Pages/Error Page",
   parameters: {
+    a11y: {
+      config: {
+        rules: [
+          ...globalA11yRules,
+          {
+            // There's gonna be duplicate landmarks here because it's a stickersheet
+            id: "landmark-no-duplicate-banner",
+            enabled: false,
+          },
+          {
+            // There's gonna be duplicate landmarks here because it's a stickersheet
+            id: "landmark-no-duplicate-main",
+            enabled: false,
+          },
+        ],
+      },
+    },
     chromatic: { disable: false },
     controls: { disable: true },
   },

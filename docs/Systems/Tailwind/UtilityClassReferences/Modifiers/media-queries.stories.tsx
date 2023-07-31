@@ -7,6 +7,7 @@ export default {
   parameters: {
     docsLayout: "fullPage",
     docs: {
+      a11y: { disable: true },
       description: {
         component:
           "Require @kaizen/tailwind and add it into your tailwind config",

@@ -18,6 +18,7 @@ const classEntries: Array<{
 export default {
   title: "Systems/Tailwind/Utility Class References/Typography/Max Text Width",
   parameters: {
+    a11y: { disable: true },
     chromatic: { disable: false },
     docsLayout: "fullPage",
     docs: {

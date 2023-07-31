@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-query"
 import isChromatic from "chromatic"
 import Highlight from "react-highlight"
-import { Label } from "@kaizen/draft-form"
+import { TextField } from "@kaizen/draft-form"
 import { InlineNotification } from "@kaizen/notification"
 import { Paragraph } from "@kaizen/typography"
 import { Button, ButtonRef } from "~components/Button"
@@ -249,12 +249,8 @@ export const TruncatedLabels: StoryFn<typeof FilterMultiSelect> = () => {
   return (
     <>
       <div style={{ marginBottom: "3rem" }}>
-        <Label
-          labelText="Update character limit: "
-          style={{ marginRight: "1rem" }}
-        />
-        <input
-          type="number"
+        <TextField
+          labelText="Character limit"
           onChange={handleCharacterLimitChange}
           value={characterLimit}
         />

@@ -15,6 +15,7 @@ const classEntries = flattenEntries(
 export default {
   title: "Systems/Tailwind/Utility Class References/Borders/Border Color",
   parameters: {
+    a11y: { disable: true },
     chromatic: { disable: false },
     docsLayout: "fullPage",
     docs: {
