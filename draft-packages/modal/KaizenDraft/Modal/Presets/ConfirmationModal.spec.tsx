@@ -56,8 +56,8 @@ describe("<ConfirmationModal />", () => {
   })
 
   it("supports a dismiss action when escape key is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleConfirm = vi.fn()
+    const handleDismiss = vi.fn()
 
     render(
       <ConfirmationModalWrapper
@@ -76,8 +76,8 @@ describe("<ConfirmationModal />", () => {
   })
 
   it("supports a dismiss action when dismiss button is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleConfirm = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByLabelText } = render(
       <ConfirmationModalWrapper
         onConfirm={handleConfirm}
@@ -94,8 +94,8 @@ describe("<ConfirmationModal />", () => {
   })
 
   it("supports a dismiss action when cancel button is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleConfirm = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByText } = render(
       <ConfirmationModalWrapper
         onDismiss={handleDismiss}
@@ -112,8 +112,8 @@ describe("<ConfirmationModal />", () => {
   })
 
   it("supports a confirm action when confirm button is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
+    const handleConfirm = vi.fn()
+    const handleDismiss = vi.fn()
     const { getByText } = render(
       <ConfirmationModalWrapper
         onDismiss={handleDismiss}
