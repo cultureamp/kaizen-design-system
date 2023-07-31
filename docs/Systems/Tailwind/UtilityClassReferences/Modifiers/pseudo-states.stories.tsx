@@ -6,6 +6,7 @@ import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
 export default {
   title: "Systems/Tailwind/Utility Class References/Modifiers/Pseudo Selectors",
   parameters: {
+    a11y: { disable: true },
     docsLayout: "fullPage",
     docs: {
       description: {

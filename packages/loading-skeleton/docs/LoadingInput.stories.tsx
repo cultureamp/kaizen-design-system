@@ -32,23 +32,14 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         <LoadingHeading variant="heading-6" width={10} />
         <LoadingInput isReversed={isReversed} />
       </div>
-      <TextField
-        id="text-default"
-        inputType="email"
-        labelText="Default"
-        reversed={isReversed}
-      />
+      <TextField inputType="email" labelText="Default" reversed={isReversed} />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Text Area Field (custom height)">
       <div>
         <LoadingHeading variant="heading-6" width={10} />
         <LoadingInput isReversed={isReversed} height={100} />
       </div>
-      <TextAreaField
-        id="text-default"
-        labelText="Default"
-        reversed={isReversed}
-      />
+      <TextAreaField labelText="Default" reversed={isReversed} />
     </StoryWrapper.Row>
   </StoryWrapper>
 )

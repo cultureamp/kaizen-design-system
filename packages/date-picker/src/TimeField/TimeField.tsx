@@ -65,7 +65,6 @@ const TimeFieldComponent = ({
   ...restProps
 }: TimeFieldProps): JSX.Element => {
   const [id] = useState<string>(propsId || v4())
-
   const handleOnChange = (timeValue: TimeValue | null): void => {
     if (timeValue === null) {
       return onChange(null)

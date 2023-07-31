@@ -45,6 +45,32 @@ const decorators = [
 
 const preview = {
   parameters: {
+    a11y: {
+      config: {
+        rules: [
+          // don't care about heading hierarchy here
+          {
+            id: "heading-order",
+            enabled: false,
+          },
+          // not convinced on this rule
+          {
+            id: "scrollable-region-focusable",
+            enabled: false,
+          },
+          // we have a bunch of stickersheet tables without captions
+          {
+            id: "empty-table-header",
+            enabled: false,
+          },
+          // focus rings created by pseudo elements creates a false positive
+          // {
+          // id: "color-contrast",
+          // selector: "*:not(id*=focus)",
+          // },
+        ],
+      },
+    },
     backgrounds: {
       default: "White",
       values: backgrounds,

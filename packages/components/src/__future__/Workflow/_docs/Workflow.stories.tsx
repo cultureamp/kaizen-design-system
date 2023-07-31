@@ -55,7 +55,7 @@ const defaultArgs = {
     <Button
       key="would-use-uui-2"
       label="Save and close"
-      icon={<CloseIcon />}
+      icon={<CloseIcon role="presentation" />}
       secondary
       iconPosition="end"
     />,
@@ -106,14 +106,14 @@ export const MultipleActions: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-1"
         label="Preview"
-        icon={<VisibleIcon />}
+        icon={<VisibleIcon role="presentation" />}
         secondary
         iconPosition="start"
       />,
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={<CloseIcon />}
+        icon={<CloseIcon role="presentation" />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -143,7 +143,7 @@ export const FinalStep: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={<CloseIcon />}
+        icon={<CloseIcon role="presentation" />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -173,7 +173,7 @@ export const CompletedWorkflow: StoryObj<typeof meta> = {
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={<CloseIcon />}
+        icon={<CloseIcon role="presentation" />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}

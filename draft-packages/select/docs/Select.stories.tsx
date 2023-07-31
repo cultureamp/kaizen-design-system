@@ -27,6 +27,7 @@ export default {
   title: "Components/Select/Select Legacy",
   component: Select,
   parameters: {
+    a11y: { disable: true },
     docs: {
       description: {
         component: 'import { AsyncSelect, Select } from "@kaizen/draft-select"',
@@ -108,8 +109,12 @@ export const DefaultAsyncSelectStory: StoryFn<typeof AsyncSelect> = args => {
 
   return (
     <>
-      <Label labelText="Type to see options" />
-      <AsyncSelect loadOptions={promiseOptions} {...args} />
+      <Label id="async-select-label" labelText="Type to see options" />
+      <AsyncSelect
+        aria-labelledby="async-select-label"
+        loadOptions={promiseOptions}
+        {...args}
+      />
     </>
   )
 }

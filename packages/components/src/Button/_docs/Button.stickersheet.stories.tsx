@@ -74,12 +74,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 
   const ICON_LEFT_PROPS: ButtonProps = {
     label: "Label",
-    icon: <CheckIcon />,
+    icon: <CheckIcon role="presentation" />,
   }
 
   const ICON_RIGHT_PROPS: ButtonProps = {
     label: "Label",
-    icon: <CheckIcon />,
+    icon: <CheckIcon role="presentation" />,
     iconPosition: "end",
   }
 
@@ -89,12 +89,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   }
   const BADGE_LEFT_PROPS: ButtonProps = {
     ...BADGE_PROPS,
-    icon: <CheckIcon />,
+    icon: <CheckIcon role="presentation" />,
   }
 
   const BADGE_RIGHT_PROPS: ButtonProps = {
     ...BADGE_PROPS,
-    icon: <CheckIcon />,
+    icon: <CheckIcon role="presentation" />,
     iconPosition: "end",
   }
 

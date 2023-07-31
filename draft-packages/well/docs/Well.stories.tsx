@@ -17,7 +17,6 @@ const ExampleContent = (): JSX.Element => (
       </Paragraph>
     </div>
     <TextField
-      id="blerg"
       labelText="Example text field"
       inputValue=""
       onChange={(): void => undefined}
