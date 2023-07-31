@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
       - name: Create Release Pull Request or Publish to npm
+        id: changesets
         run: |
           npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
       - uses: changesets/action@v1
@@ -23,3 +24,21 @@ jobs:
           commit: "version packages"
           version: yarn ci:version
           publish: yarn ci:publish
+      - name: Notify Slack (success)
+        if: steps.changesets.outputs.published == 'true'
+        uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        with:
+          channel-id: "wol_kaizen"
+          payload-file-path: "../payload/slack-notify-release.json"
+      - name: Notify Slack (failure)
+        if: steps.changesets.outputs.published == 'false'
+        uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        with:
+          channel-id: "wol_kaizen"
+          payload-file-path: "../payload/slack-notify-release.json"
