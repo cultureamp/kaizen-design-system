@@ -17,6 +17,11 @@
       "outputs": [".next-js/**"],
       "inputs": ["app/**"]
     },
+    "next-js#workshop:dev": {
+      "dependsOn": ["^build", "@kaizen/components#build"],
+      "outputs": [".next-js/**"],
+      "inputs": ["app/**"]
+    },
     "@kaizen/components#build": {
       "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
