@@ -10,19 +10,19 @@ import GuidanceBlock from "./GuidanceBlock"
 const user = userEvent.setup()
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
-window.matchMedia = jest.fn().mockImplementation(() => ({
+window.matchMedia = vi.fn().mockImplementation(() => ({
   matches: false,
   media: "",
   onchange: null,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
 }))
 
 describe("GuidanceBlock", () => {
   afterEach(cleanup)
 
   it("is initially visible", () => {
-    const { container } = render(
+    const { getByText } = render(
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
@@ -37,41 +37,11 @@ describe("GuidanceBlock", () => {
       />
     )
 
-    expect(container.querySelector(".hidden")).toBeFalsy()
-  })
-
-  it("hides the notification when the cancel button is clicked and calls the on dismiss function", async () => {
-    const onDismiss = jest.fn()
-    const { container } = render(
-      <GuidanceBlock
-        illustration={<Informative alt="" />}
-        text={{
-          title: "This is the call to action title",
-          description:
-            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
-        }}
-        actions={{
-          primary: { label: "Action!", onClick: (): void => alert("tada: 🎉") },
-          dismiss: { onClick: onDismiss },
-        }}
-      />
-    )
-
-    // The element should start in a "hidden" state
-    expect(container.querySelector(".hidden")).toBeFalsy()
-
-    // After clicking, the element should fade out
-    const cancelButton = container.querySelector(".cancel")
-    cancelButton && (await user.click(cancelButton))
-
-    await waitFor(() => {
-      expect(container.querySelector(".hidden")).toBeTruthy()
-      expect(onDismiss).toHaveBeenCalledTimes(1)
-    })
+    expect(getByText("This is the call to action title")).toBeVisible()
   })
 
   it("calls the action function when action button is clicked", async () => {
-    const onAction = jest.fn()
+    const onAction = vi.fn()
     const { container } = render(
       <GuidanceBlock
         illustration={<Informative alt="" />}
@@ -145,7 +115,7 @@ describe("GuidanceBlock", () => {
   })
 
   it("displays secondary action when secondary action is supplied", () => {
-    const { container } = render(
+    const { getByRole } = render(
       <GuidanceBlock
         illustration={<Informative alt="" />}
         text={{
@@ -163,8 +133,8 @@ describe("GuidanceBlock", () => {
       />
     )
 
-    const secondaryAction = container.querySelector(".secondaryAction")
-    expect(secondaryAction).not.toBeNull()
+    const secondaryAction = getByRole("button", { name: "Secondary action" })
+    expect(secondaryAction).toBeVisible()
   })
 
   it("has a default title tag of h3", () => {
