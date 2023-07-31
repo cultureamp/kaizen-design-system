@@ -16,4 +16,5 @@ jobs:
         uses: pcolby/post-to-slack@v1
         with:
           url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          channel: "#wol_kaizen"
           text: Hello world!
