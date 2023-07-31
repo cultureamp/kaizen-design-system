@@ -5,9 +5,7 @@
   "scripts": {
     "workshop:dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "start": "next start"
   },
   "dependencies": {
     "@kaizen/components": "^1.19.2",
