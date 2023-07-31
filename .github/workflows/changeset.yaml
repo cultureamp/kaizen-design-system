@@ -24,21 +24,27 @@ jobs:
           commit: "version packages"
           version: yarn ci:version
           publish: yarn ci:publish
-      - name: Notify Slack (success)
-        if: steps.changesets.outputs.published == 'true'
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-        with:
-          channel-id: "wol_kaizen"
-          payload-file-path: "../payload/slack-notify-release.json"
-      - name: Notify Slack (failure)
-        if: steps.changesets.outputs.published == 'false'
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-        with:
-          channel-id: "wol_kaizen"
-          payload-file-path: "../payload/slack-notify-release.json"
+  notify-success:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: version
+    if: needs.version.outputs.published == 'true'
+    uses: slackapi/slack-github-action@v1.24.0
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+    with:
+      channel-id: "C02NUQ27G56"
+      payload-file-path: "../payload/slack-notify-release.json"
+  notify-failure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: version
+    if: needs.version.outputs.published == 'false'
+    uses: slackapi/slack-github-action@v1.24.0
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+    with:
+      channel-id: "C02NUQ27G56"
+      payload-file-path: "../payload/slack-notify-release.json"
