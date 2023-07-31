@@ -19,4 +19,4 @@ jobs:
           channel: "#jasono_webhook_test"
           username: "Release"
           text: Hello world!
-          iconEmoji: ":ghost:"
+          iconUrl: https://picsum.photos/120/120
