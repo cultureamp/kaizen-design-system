@@ -145,6 +145,7 @@
     "turbo": "^1.10.7",
     "typescript": "^4.9.5",
     "vite": "^4.4.7",
+    "vitest": "^0.33.0",
     "webpack": "^5.88.1"
   },
   "resolutions": {
