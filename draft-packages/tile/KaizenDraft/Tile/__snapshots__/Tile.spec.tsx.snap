@@ -1,4 +1,509 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<InformationTile /> > snapshots > renders InformationTile 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with assertive mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodAssertive_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with cautionary mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodCautionary_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with children 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      >
+        <div>
+          Child content
+        </div>
+      </div>
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with information data 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685"
+    >
+      <div
+        class="_informationBtn_112685"
+      >
+        <span
+          aria-live="polite"
+          class="_container_174321"
+        >
+          <button
+            aria-label="Information"
+            class="_button_174321 _default_174321 _iconButton_174321"
+            type="button"
+          >
+            <span
+              class="_content_174321"
+            >
+              <span
+                class="_iconWrapper_174321"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="_icon_5d6796"
+                  focusable="false"
+                  role="presentation"
+                >
+                  <use
+                    xlink:href="#undefined"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </span>
+      </div>
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      >
+        <div>
+          Child content
+        </div>
+      </div>
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+    <div
+      class="_face_112685 _faceBack_112685"
+    >
+      <div
+        class="_informationBtn_112685"
+      >
+        <span
+          aria-live="polite"
+          class="_container_174321"
+        >
+          <button
+            aria-disabled="true"
+            aria-label="Information"
+            class="_button_174321 _default_174321 _iconButton_174321"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="_content_174321"
+            >
+              <span
+                class="_iconWrapper_174321"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="_icon_5d6796"
+                  focusable="false"
+                  role="presentation"
+                >
+                  <use
+                    xlink:href="#undefined"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </span>
+      </div>
+      <div
+        class="_information_112685"
+      >
+        <p
+          class="_paragraph_e4e19e _body_e4e19e _dark_e4e19e"
+        >
+          Additional information can be included on the underside of the tile and viewed on click of the information icon.
+        </p>
+        <div
+          class="_footer_112685"
+        >
+          <div
+            class="_actions_112685"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <button
+                aria-disabled="true"
+                class="_button_174321 _secondary_174321"
+                disabled=""
+                type="button"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Learn more
+                  </span>
+                </span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with informative mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodInformative_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with negative mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodNegative_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with positive mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodPositive_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> > snapshots > renders InformationTile with prominent mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodProminent_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`<InformationTile /> snapshots renders InformationTile 1`] = `
 <div
@@ -498,6 +1003,686 @@ exports[`<InformationTile /> snapshots renders InformationTile with prominent mo
       >
         <div>
           Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile with assertive mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodAssertive_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <div
+            class="_p-0_7b8303 _mr-0-point-5_94e1cb"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <a
+                class="_button_174321 _secondary_174321"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile with cautionary mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodCautionary_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <div
+            class="_p-0_7b8303 _mr-0-point-5_94e1cb"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <a
+                class="_button_174321 _secondary_174321"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile with informative mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodInformative_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <div
+            class="_p-0_7b8303 _mr-0-point-5_94e1cb"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <a
+                class="_button_174321 _secondary_174321"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile with negative mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodNegative_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <div
+            class="_p-0_7b8303 _mr-0-point-5_94e1cb"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <a
+                class="_button_174321 _secondary_174321"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile with positive mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodPositive_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <div
+            class="_p-0_7b8303 _mr-0-point-5_94e1cb"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <a
+                class="_button_174321 _secondary_174321"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile with prominent mood 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685 _faceMoodProminent_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <div
+            class="_p-0_7b8303 _mr-0-point-5_94e1cb"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <a
+                class="_button_174321 _secondary_174321"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> > snapshots > renders MultiActionTile with secondary action 1`] = `
+<div
+  class="_root_112685"
+>
+  <div
+    class="_tile_112685"
+  >
+    <div
+      class="_face_112685 _faceFront_112685"
+    >
+      <div
+        class="_title_112685"
+      >
+        <h3
+          class="_heading_68406e _heading-3_68406e _dark_68406e _small_68406e"
+        >
+          Title
+        </h3>
+        <div
+          class="_pt-0-point-25_7b8303 _m-0_94e1cb"
+        >
+          <p
+            class="_paragraph_e4e19e _small_e4e19e _dark-reduced-opacity_e4e19e"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="_children_112685"
+      />
+      <div
+        class="_footer_112685"
+      >
+        <div
+          class="_actions_f649a4"
+        >
+          <div
+            class="_p-0_7b8303 _mr-0-point-5_94e1cb"
+          >
+            <span
+              aria-live="polite"
+              class="_container_174321"
+            >
+              <a
+                class="_button_174321 _secondary_174321"
+                href="href2"
+                target="_self"
+              >
+                <span
+                  class="_content_174321"
+                >
+                  <span
+                    class="_label_174321"
+                  >
+                    Preview
+                  </span>
+                </span>
+              </a>
+            </span>
+          </div>
+          <span
+            aria-live="polite"
+            class="_container_174321"
+          >
+            <a
+              class="_button_174321 _default_174321"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="_content_174321"
+              >
+                <span
+                  class="_label_174321"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
         </div>
       </div>
     </div>
