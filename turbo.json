@@ -13,8 +13,8 @@
     "clean": {
       "cache": false
     },
-    "dev": {
-      "outputs": ["dist/**"]
+    "storybook": {
+      "dependsOn": ["^build"]
     },
     "test": {},
     "@kaizen/components#build": {

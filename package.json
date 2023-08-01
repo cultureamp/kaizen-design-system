@@ -9,7 +9,7 @@
     "node": ">=v18.16.0"
   },
   "scripts": {
-    "start": "yarn turbo dev",
+    "storybook": "yarn turbo run storybook",
     "build": "yarn turbo build",
     "clean": "yarn turbo clean && rimraf node_modules",
     "test": "jest && yarn turbo test",

@@ -64,7 +64,7 @@
   "scripts": {
     "build": "storybook build -o dist --docs",
     "clean": "rimraf dist node_modules",
-    "dev": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
     "preview": "NODE_ENV=production yarn storybook --docs",
     "test": "STORIES=ignoreBrandMoment test-storybook"
   },

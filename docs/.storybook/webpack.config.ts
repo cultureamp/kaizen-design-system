@@ -1,4 +1,4 @@
-import path from "path"
+import path, { resolve } from "path"
 import type { Configuration } from "webpack"
 import {
   excludeExternalModules,
@@ -20,6 +20,8 @@ export default ({ config }: { config: Configuration }): Configuration => {
     throw new Error(`Storybook started with unexpected config:\n${config}`)
   }
 
+  config.infrastructureLogging = { level: "warn" }
+
   // Storybook's base config applies file-loader to svgs
   config.module.rules = config.module.rules.map(removeSvgFromTest)
 
@@ -33,6 +35,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
   config.resolve.alias = {
     ...config.resolve.alias,
+    ".storybook": path.resolve(process.cwd(), ".storybook"),
     "~types": path.resolve(__dirname, "../../packages/components/src/types"),
     "~utils": path.resolve(__dirname, "../../packages/components/src/utils"),
     "~components": path.resolve(__dirname, "../../packages/components/src"),

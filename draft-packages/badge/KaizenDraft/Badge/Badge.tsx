@@ -41,8 +41,6 @@ export const Badge = ({
 }: BadgeProps): JSX.Element => (
   <span
     className={classnames(
-      styles.badge,
-      styles[variant],
       classNameOverride,
       reversed && styles.reversed,
       size === "large" && styles.large
@@ -67,7 +65,6 @@ export const BadgeAnimated = (props: BadgeProps): JSX.Element => {
     <span
       className={classnames(styles.animation, isFocused && styles.animationOn)}
     >
-      hello
       <Badge {...props} />
     </span>
   )
