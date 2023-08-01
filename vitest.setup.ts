@@ -12,7 +12,6 @@ vi.mock("@cultureamp/i18n-react-intl", () => ({
   }),
 }))
 
-
 expect.extend(matchers)
 
 afterEach(() => {
