@@ -17,4 +17,4 @@
 /storybook/public/
 /packages/**/dist
 /packages/components/locales
-/workshop/next-app/**
+/workshop/next-js/**
