@@ -15,17 +15,17 @@ MockResizeObserver.prototype.observe = async function observe(): Promise<void> {
   this.callback(["third"])
 }
 
-const disconnect = jest.fn()
+const disconnect = vi.fn()
 MockResizeObserver.prototype.disconnect = disconnect
 
-jest.mock("resize-observer-polyfill", () => ({
+vi.mock("resize-observer-polyfill", () => ({
   __esModule: true,
   default: MockResizeObserver,
 }))
 
 describe("useResizeObserver", () => {
   it("Calls the callback with the expected entries", async () => {
-    const callback = jest.fn().mockImplementation(value => value)
+    const callback = vi.fn().mockImplementation(value => value)
     const { result, waitForNextUpdate, unmount } = renderHook(() =>
       useResizeObserver(callback)
     )
