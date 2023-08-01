@@ -2,33 +2,27 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "storybook:build": {
-      "dependsOn": [
-        "@kaizen/tailwind#prepublish",
-        "@kaizen/design-tokens#prepublish"
-      ]
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"]
     },
-    "prepublish": {
-      "dependsOn": ["^prepublish"],
+    "build": {
+      "dependsOn": ["^build"],
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
     "clean": {
       "cache": false
     },
-    "@kaizen/components#prepublish": {
-      "dependsOn": [
-        "@kaizen/tailwind#prepublish",
-        "@kaizen/design-tokens#prepublish"
-      ],
+    "@kaizen/components#build": {
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
-    "@kaizen/tailwind#publish": {
-      "dependsOn": ["@kaizen/design-tokens#prepublish"],
+    "@kaizen/tailwind#build": {
+      "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
-    "@kaizen/design-tokens#publish": {
+    "@kaizen/design-tokens#build": {
       "inputs": ["css/**", "less/**", "sass/**", "src/**", "tokens/**"],
       "outputs": ["dist/**"]
     }

@@ -38,7 +38,7 @@
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "build": "yarn clean && yarn prepublish",
     "test-scss-compile": "webpack build --config ./styles/__test/webpack.config.js",
     "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts' 'components/**/*.js' 'components/**/*.js.map' 'components/**/*.d.ts' 'util/**/*.js' 'util/**/*.js.map' 'util/**/*.d.ts'"
   },
