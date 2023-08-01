@@ -1,4 +1,130 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Layout components > renders the Announcers component correctly 1`] = `
+<div
+  aria-live="assertive"
+  class="_announcers_1de636"
+/>
+`;
+
+exports[`Layout components > renders the Footer component correctly 1`] = `
+<footer
+  class="_footer_1de636"
+/>
+`;
+
+exports[`Layout components > renders the Header component correctly 1`] = `
+<aside
+  class="_header_1de636"
+/>
+`;
+
+exports[`Layout components > renders the Layout component correctly 1`] = `
+<div
+  class="_root_1de636"
+>
+  <div
+    class="_page_1de636"
+  >
+    <div
+      class="_body_1de636"
+    >
+      <div
+        class="_bodyInner_1de636"
+      >
+        <main
+          class="_content_1de636"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Layout components > renders the Layout component's child components in the correct positions 1`] = `
+<div
+  class="_root_1de636"
+>
+  <div
+    class="_navigationBar_1de636"
+  >
+    NavigationBar
+  </div>
+  <div
+    aria-live="assertive"
+    class="_announcers_1de636"
+  >
+    Announcers
+  </div>
+  <div
+    class="_page_1de636"
+  >
+    <aside
+      class="_header_1de636"
+    >
+      Header
+    </aside>
+    <div
+      aria-live="assertive"
+      class="_toasts_1de636"
+    >
+      Toasts
+    </div>
+    <div
+      class="_body_1de636"
+    >
+      <div
+        class="_bodyInner_1de636"
+      >
+        <div
+          class="_sidebar_1de636"
+        >
+          <div
+            class="_sidebarInner_1de636"
+          >
+            Sidebar
+          </div>
+        </div>
+        <main
+          class="_content_1de636"
+        >
+          <div>
+            My content
+          </div>
+        </main>
+      </div>
+    </div>
+    <footer
+      class="_footer_1de636"
+    >
+      Footer
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`Layout components > renders the NavigationBar component correctly 1`] = `
+<div
+  class="_navigationBar_1de636"
+/>
+`;
+
+exports[`Layout components > renders the Sidebar component correctly 1`] = `
+<div
+  class="_sidebar_1de636"
+>
+  <div
+    class="_sidebarInner_1de636"
+  />
+</div>
+`;
+
+exports[`Layout components > renders the Toasts component correctly 1`] = `
+<div
+  aria-live="assertive"
+  class="_toasts_1de636"
+/>
+`;
 
 exports[`Layout components renders the Announcers component correctly 1`] = `
 <div

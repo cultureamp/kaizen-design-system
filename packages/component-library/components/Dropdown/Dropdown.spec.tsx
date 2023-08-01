@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import Dropdown from "./Dropdown"
 
@@ -52,17 +52,17 @@ describe("<Dropdown />", () => {
   })
 
   it("shows dropdown menu when clicking on the button", async () => {
-    const { container } = render(
+    const { getByRole, getByText } = render(
       <Dropdown>
         <div>Item</div>
       </Dropdown>
     )
 
-    const button = container.querySelector(".dropdownButton")
-    button && (await user.click(button))
+    const button = getByRole("button")
+    await user.click(button)
 
     await waitFor(() => {
-      expect(screen.queryByText("Item")).toBeTruthy()
+      expect(getByText("Item")).toBeVisible()
     })
   })
 })
