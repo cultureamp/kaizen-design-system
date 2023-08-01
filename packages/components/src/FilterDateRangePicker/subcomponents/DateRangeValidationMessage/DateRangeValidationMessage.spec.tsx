@@ -38,7 +38,9 @@ describe("<DateRangeValidationMessage />", () => {
       const items = within(validationList).getAllByRole("listitem")
 
       expect(items.length).toBe(2)
-      expect(screen.getAllByRole("img", { name: "error message" }).length).toBe(1)
+      expect(screen.getAllByRole("img", { name: "error message" }).length).toBe(
+        1
+      )
     })
   })
 

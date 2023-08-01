@@ -136,10 +136,7 @@ describe("useDateInputHandlers", () => {
         currentTarget: { value: "" },
       } as FocusEvent<HTMLInputElement>
 
-      const spy = vi.spyOn(
-        isSelectingDayInCalendar,
-        "isSelectingDayInCalendar"
-      )
+      const spy = vi.spyOn(isSelectingDayInCalendar, "isSelectingDayInCalendar")
       spy.mockReturnValue(true)
 
       act(() => {
