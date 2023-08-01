@@ -2,7 +2,7 @@ import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Tabs } from "."
-import styles from "./styles.scss"
+import styles from "./Tabs.module.scss"
 
 const user = userEvent.setup()
 
@@ -35,7 +35,7 @@ describe("<Tabs />", () => {
   })
 
   it("renders a tab with an onClick", async () => {
-    const onClick = jest.fn()
+    const onClick = vi.fn()
     const tabs = [{ label: "One", onClick }, { label: "Two" }]
     const { container, getByText } = render(<Tabs tabs={tabs} />)
 
