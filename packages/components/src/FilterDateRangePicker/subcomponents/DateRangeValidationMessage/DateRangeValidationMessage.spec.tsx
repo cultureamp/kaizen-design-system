@@ -19,7 +19,7 @@ describe("<DateRangeValidationMessage />", () => {
     })
 
     it("combines multiple validation messages with the same status", () => {
-      const { container } = render(
+      render(
         <DateRangeValidationMessage
           validationMessage={{
             dateStart: {
@@ -35,17 +35,16 @@ describe("<DateRangeValidationMessage />", () => {
         />
       )
       const validationList = screen.getByRole("list")
-      const { getAllByRole } = within(validationList)
-      const items = getAllByRole("listitem")
+      const items = within(validationList).getAllByRole("listitem")
 
       expect(items.length).toBe(2)
-      expect(container.getElementsByClassName("error").length).toBe(1)
+      expect(screen.getAllByRole("img", { name: "error message" }).length).toBe(1)
     })
   })
 
   describe("when consumer passes validationMessage object and has different status", () => {
     it("will render two validation field messages", () => {
-      const { container } = render(
+      const { getAllByRole } = render(
         <DateRangeValidationMessage
           validationMessage={{
             dateStart: {
@@ -60,8 +59,8 @@ describe("<DateRangeValidationMessage />", () => {
           }}
         />
       )
-      expect(container.getElementsByClassName("error").length).toBe(1)
-      expect(container.getElementsByClassName("caution").length).toBe(1)
+      expect(getAllByRole("img", { name: "error message" }).length).toBe(1)
+      expect(getAllByRole("img", { name: "caution message" }).length).toBe(1)
     })
   })
 

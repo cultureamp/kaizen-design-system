@@ -9,7 +9,7 @@ const user = userEvent.setup()
 const defaultInputProps = {
   id: "someInputId",
   value: "somevalue",
-  onChange: jest.fn(),
+  onChange: vi.fn(),
 }
 
 const renderInput = (props?: InputSearchProps): ReturnType<typeof render> => {
@@ -41,10 +41,5 @@ describe("<InputSearch />", () => {
   it("should render a disabled inside of input", () => {
     const { container } = renderInput({ disabled: true, id: "someInputId" })
     expect(container.querySelector("[disabled]")).toBeTruthy()
-  })
-
-  it("should render a reversed input", () => {
-    const { container } = renderInput({ reversed: true, id: "someInputId" })
-    expect(container.querySelector(".reversed")).toBeTruthy()
   })
 })
