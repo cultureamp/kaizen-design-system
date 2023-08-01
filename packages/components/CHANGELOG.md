@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.20.3
+
+### Patch Changes
+
+- [#3934](https://github.com/cultureamp/kaizen-design-system/pull/3934) [`32fc86349`](https://github.com/cultureamp/kaizen-design-system/commit/32fc86349f5228327da27766211ef172a86cc5e8) - Move `classNameOverride` to outer container of FilterMultiSelect removable trigger button.
+
 ## 1.20.2
 
 ### Patch Changes
