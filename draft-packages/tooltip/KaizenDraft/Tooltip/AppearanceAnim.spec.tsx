@@ -1,22 +1,22 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import useDebounce from "use-debounce"
+import { SpyInstance } from "vitest"
 import { AnimationProvider } from "./AppearanceAnim"
-import "@testing-library/jest-dom"
-jest.mock("use-debounce")
-const useDebouncedCallback = useDebounce.useDebouncedCallback as jest.Mock
 
-let mockReturnValue: Record<string, any>
+vi.mock("use-debounce")
+
+const getDebounceSpy = async (): Promise<SpyInstance> => {
+  const useDebounce = await import("use-debounce")
+  useDebounce.useDebouncedCallback = (
+    await vi.importActual<typeof import("use-debounce")>("use-debounce")
+  ).useDebouncedCallback
+  return vi.spyOn(useDebounce, "useDebouncedCallback")
+}
 
 describe("<AnimationProvider />", () => {
-  beforeEach(() => {
-    mockReturnValue = jest.fn()
-    mockReturnValue.cancel = (): void => undefined
-    useDebouncedCallback.mockImplementation(() => mockReturnValue)
-  })
-
   describe("When no animationDuration prop is given", () => {
-    it("calls useDebouncedCallback with a 400 ms delay", () => {
+    it("calls useDebouncedCallback with a 400 ms delay", async () => {
+      const useDebouncedCallback = await getDebounceSpy()
       render(<AnimationProvider isVisible />)
       expect(useDebouncedCallback).toHaveBeenCalledWith(
         expect.anything(),
@@ -25,8 +25,10 @@ describe("<AnimationProvider />", () => {
       )
     })
   })
+
   describe("When an animationDuration prop is given", () => {
-    it("calls useDebouncedCallback with the animationDuration value", () => {
+    it("calls useDebouncedCallback with the animationDuration value", async () => {
+      const useDebouncedCallback = await getDebounceSpy()
       const expected = 1000
       render(<AnimationProvider isVisible animationDuration={expected} />)
       expect(useDebouncedCallback).toHaveBeenCalledWith(

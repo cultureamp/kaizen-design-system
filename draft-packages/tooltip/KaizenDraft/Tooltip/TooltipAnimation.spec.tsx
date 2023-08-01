@@ -3,8 +3,8 @@ import { render } from "@testing-library/react"
 import * as AppearanceAnim from "./AppearanceAnim"
 import { Tooltip } from "./index"
 import "@testing-library/jest-dom"
-jest.mock("./AppearanceAnim")
-const AnimationProvider = AppearanceAnim.AnimationProvider as jest.Mock
+vi.mock("./AppearanceAnim")
+const AnimationProvider = AppearanceAnim.AnimationProvider as vi.Mock
 
 describe("<Tooltip /> animationDuration", () => {
   beforeEach(() => {
