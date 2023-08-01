@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Data inicial"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Data final"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Formato de entrada"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "entre em contato com o suporte"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe, mas não foi possível concluir sua solicitação. Volte e tente novamente, ou acesse a página inicial"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Sua solicitação desapareceu"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe, mas não conseguimos verificar se você consegue ver esta página. Volte e tente novamente, ou acesse a página inicial"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Você não pode ver esta página"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe, mas parece que você não tem permissão para ver esta página.  Volte e tente novamente, ou acesse a página inicial"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Você não pode ver esta página"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe, mas não encontramos a página que você está procurando. Volte e tente novamente, ou acesse a página inicial"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Páginas que desaparecem estão entre os mistérios da vida"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe, mas não foi possível fazer sua alteração. Volte e tente novamente, ou acesse a página inicial"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Mudar nunca é fácil"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe, há um problema no nosso sistema e não é possível exibir esta página. Volte e tente novamente, ou acesse a página inicial"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Ocorreu algum erro aqui"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe. O melhor a fazer é voltar e tentar novamente."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Você não pode ver esta página"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe. O melhor a fazer é voltar e tentar novamente."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Você não pode ver esta página"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe. O melhor a fazer é voltar e tentar novamente."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Você não pode ver esta página"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Código do erro {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Acessar página inicial"
   }
 }

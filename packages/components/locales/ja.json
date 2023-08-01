@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "開始日"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "終了日"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "入力形式"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "サポートまでご連絡ください"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "恐れ入りますが、リクエストを完了できませんでした。戻ってもう一度やり直すか、ホームに移動してください"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "リクエストが無効になりました"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "恐れ入りますが、このページを閲覧できるかどうかを確認できません。戻ってもう一度やり直すか、ホームに移動してください"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "このページは表示できません"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "恐れ入りますが、このページを表示する権限がないようです。戻ってもう一度やり直すか、ホームに移動してください"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "このページは表示できません"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "恐れ入りますが、お探しのページは見つかりません。戻ってもう一度やり直すか、ホームに移動してください"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "ページが見つからないのは人生の謎の1つです"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "恐れ入りますが、変更を行うことができませんでした。戻ってもう一度やり直すか、ホームに移動してください"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "変化は簡単ではありません"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "恐れ入りますが、システムに問題がありこのページを表示できません。戻ってもう一度やり直すか、ホームに移動してください"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "当社の側で問題が発生しました。"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "申し訳ございません。戻って再試行することが最善の方法です。"
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "このページは表示できません"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "申し訳ございません。戻って再試行することが最善の方法です。"
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "このページは表示できません"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "申し訳ございません。戻って再試行することが最善の方法です。"
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "このページは表示できません"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "エラーコード {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "ホームに移動"
   }
 }

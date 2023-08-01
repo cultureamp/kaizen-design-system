@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Şu tarihten"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Şu tarihe kadar"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Giriş biçimi"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "sorun devam ederse"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Üzgünüz, isteğiniz tamamlanamadı. Geri dönün ve yeniden deneyin ya da Ana Sayfa'ya gidin"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "İsteğiniz boşluğa düştü"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Üzgünüz, bu sayfayı görüntülediğinizi doğrulayamıyoruz. Geri dönüp yeniden deneyin ya da Ana Sayfa'ya gidin"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Bu sayfayı görüntüleyemezsiniz"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Üzgünüz, bu sayfayı görüntülemek için izniniz yok. Geri dönün ve yeniden deneyin ya da Ana Sayfa'ya gidin"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Bu sayfayı görüntüleyemezsiniz"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Üzgünüz, aradığınız sayfayı bulamıyoruz. Geri dönüp yeniden deneyin ya da Ana Sayfa'ya gidin"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Kayıp sayfalar hayatın gizemlerinden biridir"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne yazık ki değişikliğiniz gerçekleştirilemedi. Geri dönün ve yeniden deneyin ya da Ana Sayfa'ya gidin"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Değişim asla kolay değildir"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ne yazık ki sistemimizde bir sorun var ve bu sayfa görüntülenemiyor. Geri dönüp yeniden deneyin ya da Ana Sayfa'ya gidin"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Bizim tarafımızda bir şeyler ters gitti"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Bunun için üzgünüz. En iyisi geri dönüp yeniden denemek."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Bu sayfayı görüntüleyemezsiniz"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Bunun için üzgünüz. En iyisi geri dönüp yeniden denemek."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Bu sayfayı görüntüleyemezsiniz"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Bunun için üzgünüz. En iyisi geri dönüp yeniden denemek."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Bu sayfayı görüntüleyemezsiniz"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Hata kodu {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Ana Sayfaya Git"
   }
 }

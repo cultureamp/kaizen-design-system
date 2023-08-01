@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Datum „Od“"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Datum „Do“"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Format unosa"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "kontaktirajte podršku"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Žao nam je, ali vaš zahtev nije mogao biti kompletiran. Vratite se i pokušajte ponovo ili idite na Početnu stranicu."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Vaš zahtev je nestao"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Žao nam je, ali ne možemo da proverimo da li ste u mogućnosti da vidite ovu stranicu. Vratite se i pokušajte ponovo ili idite na Početnu stranicu."
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Ne možete prikazati ovu stranicu"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Žao nam je, ali izgleda da nemate dozvolu da prikažete ovu stranu. Vratite se i pokušajte ponovo ili idite na Početnu stranicu."
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Ne možete prikazati ovu stranicu"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Žao nam je, ali ne možemo da nađemo stranicu koju tražite. Vratite se i pokušajte ponovo ili idite na Početnu stranicu."
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Nedostajuće stranice jedna su od životnih misterija"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Žao mi je, ali vaša promena nije mogla biti izvršena. Vratite se i pokušajte ponovo ili idite na Početnu stranicu."
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Promena nikad ne dolazi lako"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Žao nam je što postoji problem sa našim sistemom i ova stranica se ne može prikazati. Vratite se i pokušajte ponovo ili idite na Početnu stranicu."
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Sa naše strane nešto nije kako treba"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Izvinjavamo se zbog ovoga. Najbolje je da se vratite i pokušate ponovo."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Ne možete prikazati ovu stranicu"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Izvinjavamo se zbog ovoga. Najbolje je da se vratite i pokušate ponovo."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Ne možete prikazati ovu stranicu"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Izvinjavamo se zbog ovoga. Najbolje je da se vratite i pokušate ponovo."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Ne možete prikazati ovu stranicu"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Kôd greške 403 {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Idite na Početnu stranicu"
   }
 }

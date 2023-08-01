@@ -44,7 +44,7 @@ export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
         )}
       >
         {actions.map((action, index) => (
-          <div className={styles.actionButton} key={action.label}>
+          <div className={styles.actionButton} key={index}>
             <Button
               type="button"
               primary={index === 0 && appearance === "primary"}

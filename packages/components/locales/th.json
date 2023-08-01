@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "ตั้งแต่วันที่"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "จนถึงวันที่"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "รูปแบบอินพุต"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "ติดต่อฝ่ายสนับสนุน"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย ไม่สามารถดำเนินการตามคำขอของคุณ กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "คำขอของคุณหลุดเข้าไปในโมฆะ"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย เราไม่สามารถยืนยันว่าคุณสามารถดูหน้านี้ได้หรือไม่  กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "คุณไม่สามารถดูหน้านี้"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย แต่ดูเหมือนว่าคุณจะไม่ได้รับอนุญาตให้ดูหน้านี้  กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "คุณไม่สามารถดูหน้านี้"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย เราไม่สามารถค้นหาหน้าที่คุณกำลังมองหา กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "หน้าหายไปเป็นหนึ่งในความลึกลับของชีวิต"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย ไม่สามารถทำการเปลี่ยนแปลงได้ กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "การเปลี่ยนแปลงไม่ได้เกิดขึ้นง่ายๆ"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย มีปัญหากับระบบของเราและไม่สามารถแสดงหน้านี้ได้  กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "มีบางอย่างผิดพลาดจากฝั่งของเรา"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย  สิ่งที่ควรทำขณะนี้คือกลับไปลองใหม่อีกครั้ง"
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "คุณไม่สามารถดูหน้านี้"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย  สิ่งที่ควรทำขณะนี้คือกลับไปลองใหม่อีกครั้ง"
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "คุณไม่สามารถดูหน้านี้"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "ขออภัย สิ่งที่ควรทำขณะนี้คือกลับไปลองใหม่อีกครั้ง"
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "คุณไม่สามารถดูหน้านี้"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "รหัสข้อผิดพลาด {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "ไปที่หน้าแรก"
   }
 }

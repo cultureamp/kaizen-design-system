@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Soti nan dat"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Rive nan dat"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Fòma done"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "Kontakte sèvis sipò a"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nou regrèt, nou pa rive konplete demann ou an. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Demann ou an pa rive fèt"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nou regrèt, nou pa ka verifye si ou kapab antre sou paj sa a. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Ou pa ka antre sou paj sa a"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Dezole, men sanble ou pa gen otorizasyon pou w wè paj sa a. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Ou pa ka wè paj sa a"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Dezole, nou pa kapab jwenn paj w ap chèche a. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Paj ki manke yo se youn nan mistè lavi a"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nou regrèt, modifikasyon ou yo pa t kapab fèt. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Fè chanjman pa janm fasil"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nou regrèt, nou gen yon pwoblèm nan sistèm nan sa ki fè paj sa a pa kapab parèt. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Gen yon bagay ki mal pase bò kote pa nou"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Dezole pou sa. Pi bon bagay ou kapab fè se tounen epi eseye ankò."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Ou pa ka wè paj sa a"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Dezole pou sa. Pi bon bagay ou kapab fè se tounen epi eseye ankò."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Ou pa ka wè paj sa a"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Dezole pou sa. Pi bon bagay ou kapab fè se tounen epi eseye ankò."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Ou pa ka wè paj sa a"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Kòd erè {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Ale nan paj akèy la"
   }
 }

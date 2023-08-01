@@ -1,31 +1,21 @@
 #!/bin/sh
 set -e
 
-KAIZEN_BASE_PATH=""
-
 echo "Publishing to ${KAIZEN_DOMAIN_NAME}"
 
-# if we're publishing to the production bucket...
-if [ "$KAIZEN_DOMAIN_NAME" = "cultureamp.design" ]; then
-    aws s3 sync --delete \
-        "storybook/public" \
-        "s3://${KAIZEN_DOMAIN_NAME}/storybook"
-else
-    KAIZEN_BASE_PATH="/${BUILDKITE_BRANCH}"
-    # publish storybook to the root of the path corresponding to the branch
-    aws s3 sync --delete \
-        "storybook/public" \
-        "s3://${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
-fi
+# Publish to production bucket
+aws s3 sync --delete \
+    "storybook/public" \
+    "s3://${KAIZEN_DOMAIN_NAME}/storybook"
 
 aws cloudfront create-invalidation \
     --distribution-id "${KAIZEN_DISTRIBUTION_ID}" \
-    --paths "${KAIZEN_BASE_PATH:-/}*" \
+    --paths "/*" \
     --output text
 
 echo "Reporting the deployed URL via the GitHub status API"
 
-destination=${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}
+destination=${KAIZEN_DOMAIN_NAME}
 commit_hash=$(git rev-parse --verify HEAD)
 curl --fail -s "https://api.github.com/repos/cultureamp/kaizen-design-system/statuses/$commit_hash" \
   --header "authorization: Bearer $GITHUB_STATUS_TOKEN" \

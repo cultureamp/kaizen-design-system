@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Startdatum"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Slutdatum"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Inmatningsformat"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "kontakta supporten"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Din begäran kunde tyvärr inte slutföras. Gå tillbaka och försök igen, eller gå till startsidan."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Din begäran svävar i rymden"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Vi kan tyvärr inte bekräfta om du kan visa den här sidan. Gå tillbaka och försök igen, eller gå till startsidan."
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Du kan inte visa den här sidan"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Du verkar inte ha behörighet att visa den här sidan. Gå tillbaka och försök igen, eller gå till startsidan."
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Du kan inte visa den här sidan"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Tyvärr kan vi inte hitta sidan du letar efter. Gå tillbaka och försök igen, eller gå till startsidan."
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Saknade sidor är ett av livets mysterier"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Din ändring kunde tyvärr inte genomföras. Gå tillbaka och försök igen, eller gå till startsidan."
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Förändring är aldrig lätt"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Tyvärr har det uppstått ett problem med vårt system, och den här sidan kan inte visas. Gå tillbaka och försök igen, eller gå till startsidan."
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Något har gått fel hos oss"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Vi beklagar. Det bästa du kan göra är att gå tillbaka och försöka igen."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Du kan inte visa den här sidan"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Vi beklagar. Det bästa du kan göra är att gå tillbaka och försöka igen."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Du kan inte visa den här sidan"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Vi beklagar. Det bästa du kan göra är att gå tillbaka och försöka igen."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Du kan inte visa den här sidan"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Felkod {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Gå till startsidan"
   }
 }

@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Дата с"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Дата по"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Формат ввода"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "обратитесь в службу поддержки,"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "К сожалению, не удалось выполнить ваш запрос. Повторите попытку или перейдите на Главную"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Ваш запрос исчез"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "К сожалению, мы не можем подтвердить, что вам разрешено просматривать эту страницу. Повторите попытку или перейдите на Главную"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Вы не можете просматривать эту страницу"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "К сожалению, у вас нет разрешения на просмотр этой страницы. Повторите попытку или перейдите на Главную"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Вы не можете просматривать эту страницу"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "К сожалению, мы не можем найти страницу, которую вы ищете. Повторите попытку или перейдите на Главную"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Пропавшие страницы — одна из загадок жизни"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "К сожалению, невозможно внести изменения. Повторите попытку или перейдите на Главную"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Перемены никогда не даются легко"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "К сожалению, в нашей системе возникла проблема, и эту страницу невозможно отобразить. Повторите попытку или перейдите на Главную"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "У нас произошла ошибка"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Приносим свои извинения. Лучше вернитесь назад и повторите попытку."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Вы не можете просматривать эту страницу"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Приносим свои извинения. Лучше вернитесь назад и повторите попытку."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Вы не можете просматривать эту страницу"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Приносим свои извинения. Лучше вернитесь назад и повторите попытку."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Вы не можете просматривать эту страницу"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Код ошибки {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Перейти на главную"
   }
 }

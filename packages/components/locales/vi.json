@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Ngày từ"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Ngày đến"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Định dạng đầu vào"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "liên hệ với bộ phận hỗ trợ"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Rất tiếc, không thể hoàn thành yêu cầu của bạn. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Yêu cầu của bạn không còn hiệu lực"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Rất tiếc chúng tôi không thể xác minh liệu bạn có thể xem trang này không. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Bạn không thể xem trang này"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Rất tiếc nhưng có vẻ như bạn không có quyền xem trang này. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Bạn không thể xem trang này"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Rất tiếc chúng tôi không thể tìm thấy trang bạn đang tìm kiếm. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Những trang bị thiếu là một trong những bí ẩn của cuộc sống"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Rất tiếc nhưng không thể thực hiện thay đổi của bạn. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Thay đổi không bao giờ dễ dàng"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Rất tiếc, đã xảy ra sự cố với hệ thống của chúng tôi và trang này không thể hiển thị. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Đã xảy ra lỗi ở phía chúng tôi"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Chúng tôi lấy làm tiếc về điều này. Tốt nhất là bạn quay lại và thử lại."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Bạn không thể xem trang này"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Chúng tôi lấy làm tiếc về điều này. Tốt nhất là bạn quay lại và thử lại."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Bạn không thể xem trang này"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Chúng tôi lấy làm tiếc về điều này. Tốt nhất là bạn quay lại và thử lại."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Bạn không thể xem trang này"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Mã lỗi {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Vào Trang chủ"
   }
 }

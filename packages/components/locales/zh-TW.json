@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "開始日期："
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "結束日期："
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "輸入格式"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "聯絡支援中心"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，無法完成您的請求。返回重試，或前往首頁"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "您的請求無效"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，我們無法驗證您能否檢視此頁面。返回重試，或前往首頁"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "您無法檢視此頁面"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，您似乎沒有檢視此頁面的權限。返回重試，或前往首頁"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "您無法檢視此頁面"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，我們找不到您要查找的頁面。返回重試，或前往首頁"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "頁面總是無緣無故不知所蹤"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，變更無法完成。返回重試，或前往首頁"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "改變從來都不是一件容易的事"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，我們的系統出現問題，無法顯示此頁面。返回重試，或前往首頁"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "我們這邊發生錯誤"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "對此深表歉意。最好就是返回並重試。"
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "您無法檢視此頁面"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "我們對此深表歉意。最好的做法就是返回並重試。"
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "您無法檢視此頁面"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "我們對此深表歉意。最好的做法就是返回並重試。"
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "您無法檢視此頁面"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "錯誤代碼 {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "前往首頁"
   }
 }

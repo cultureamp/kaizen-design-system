@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "កាលបរិច្ឆេទពី"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "កាលបរិច្ឆេទទៅ"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "ទ្រង់ទ្រាយបញ្ចូល"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "ទាក់ទងផ្នែកគាំទ្រ"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោស ប៉ុន្តែសំណើរបស់អ្នកមិនអាចបញ្ចប់បានទេ។ ត្រឡប់ទៅ ហើយព្យាយាមម្តងទៀត ឬទៅផ្ទះ"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "សំណើរបស់អ្នកបានធ្លាក់ចូលទៅក្នុងមោឃៈ"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោស ប៉ុន្តែយើងមិនអាចផ្ទៀងផ្ទាត់បានទេ ប្រសិនបើអ្នកអាចមើលទំព័រនេះបាន។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោស ប៉ុន្តែវាហាក់ដូចជាអ្នកមិនមានសិទ្ធិមើលទំព័រនេះទេ។ ត្រឡប់ទៅ ហើយព្យាយាមម្តងទៀត ឬទៅផ្ទះ"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោស ប៉ុន្តែយើងមិនអាចរកឃើញទំព័រដែលអ្នកកំពុងស្វែងរកបានទេ។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "ទំព័រដែលបាត់គឺជាអាថ៌កំបាំងមួយនៃជីវិត"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោស ប៉ុន្តែការផ្លាស់ប្តូររបស់អ្នកមិនអាចធ្វើបានទេ។ ត្រឡប់ទៅ ហើយព្យាយាមម្តងទៀត ឬទៅផ្ទះ"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "ការផ្លាស់ប្តូរមិនដែលងាយស្រួលទេ"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោស មានបញ្ហាជាមួយប្រព័ន្ធរបស់យើង ហើយទំព័រនេះមិនអាចបង្ហាញបានទេ។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "មានអ្វីមួយខុសនៅខាងយើង"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោសចំពោះរឿងនេះ។ រឿងល្អបំផុតដែលត្រូវធ្វើគឺត្រឡប់ក្រោយវិញ ហើយព្យាយាមម្ដងទៀត។"
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោសចំពោះរឿងនេះ។ រឿងល្អបំផុតដែលត្រូវធ្វើគឺត្រឡប់ក្រោយ ហើយព្យាយាមម្ដងទៀត។"
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោសចំពោះរឿងនេះ។ រឿងល្អបំផុតដែលត្រូវធ្វើគឺត្រឡប់ក្រោយ ហើយព្យាយាមម្ដងទៀត។"
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "អ្នកមិនអាចមើលទំព័រនេះបានទេ"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "កូដកំហុស {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "ទៅកាន់ទំព័រដើម"
   }
 }

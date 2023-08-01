@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Dyddiad o"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Dyddiad i"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Fformat y mewnbwn"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "cysylltu â chymorth"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae&#39;n ddrwg gennym ond doedd dimodd i'ch cais gael ei gwblhau. Ewch yn ôl a rhowch gynnig arall arni, neu ewch i Hafan"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Mae eich cais wedi llithro i&#39;r gwagle"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae&#39;n ddrwg gennym ond ni allwn wirio a ydych yn gallu gweld y dudalen hon. Ewch yn ôl a rhowch gynnig arall arni, neu ewch i Hafan"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Does dim modd i chi weld y dudalen hon"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae'n ddrwg gennym ond mae'n edrych yn debyg nad oes gennych ganiatâd i weld y dudalen hon. Ewch yn ôl a rhowch gynnig arall arni, neu ewch i Hafan"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Does dim modd i chi weld y dudalen hon"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae&#39;n ddrwg gennym ond ni allwn ddod o hyd i&#39;r dudalen yr ydych yn chwilio amdani. Ewch yn ôl a rhowch gynnig arall arni, neu ewch i Hafan"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Mae tudalennau coll yn un o ddirgelion bywyd"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae&#39;n ddrwg gennym ond nid oedd modd gwneud eich newid. Ewch yn ôl a rhowch gynnig arall arni, neu ewch i Hafan"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Nid yw newid byth yn dod yn hawdd"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae&#39;n ddrwg gennym fod problem gyda&#39;n system ac ni ellir arddangos y dudalen hon. Ewch yn ôl a rhowch gynnig arall arni, neu ewch i Hafan"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Mae rhywbeth wedi mynd o&#39;i le ar ein hochr ni"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae'n ddrwg gennym am hyn. Y peth gorau i&#39;w wneud yw mynd yn ôl a rhoi cynnig arall arni."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Does dim modd i chi weld y dudalen hon"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae'n ddrwg gennym am hyn. Y peth gorau i&#39;w wneud yw mynd yn ôl a rhoi cynnig arall arni."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Does dim modd i chi weld y dudalen hon"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Mae'n ddrwg gennym am hyn. Y peth gorau i&#39;w wneud yw mynd yn ôl a rhoi cynnig arall arni."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Does dim modd i chi weld y dudalen hon"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Cod gwall {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Ewch i'r Hafan"
   }
 }

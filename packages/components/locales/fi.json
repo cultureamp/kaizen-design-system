@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Alkamispäivä"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Päättymispäivä"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Syöttömuoto"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "ota yhteyttä tukeen,"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Valitettavasti pyyntöäsi ei voitu suorittaa loppuun. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Pyyntösi on lipunut tyhjyyteen"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Valitettavasti emme voi vahvistaa, pystytkö tarkastelemaan tätä sivua. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Et voi tarkastella tätä sivua"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Valitettavasti näyttää siltä, että sinulla ei ole lupaa tarkastella tätä sivua. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Et voi tarkastella tätä sivua"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Emme valitettavasti löydä etsimääsi sivua. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Puuttuvat sivut ovat yksi elämän mysteereistä"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Valitettavasti haluamaasi muutosta ei voitu tehdä. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Muutos ei ole koskaan helppoa"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Valitettavasti järjestelmässämme on ongelma, eikä tätä sivua voida näyttää. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Jotain on mennyt pieleen meidän puolellamme"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Olemme pahoillamme tästä. Paras toimintatapa on palata takaisin ja yrittää uudelleen."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Et voi tarkastella tätä sivua"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Olemme pahoillamme tästä. Paras toimintatapa on palata takaisin ja yrittää uudelleen."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Et voi tarkastella tätä sivua"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Olemme pahoillamme tästä. Paras toimintatapa on palata takaisin ja yrittää uudelleen."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Et voi tarkastella tätä sivua"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Virhekoodi {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Siirry Etusivulle"
   }
 }
