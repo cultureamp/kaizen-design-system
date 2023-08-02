@@ -1,63 +1,58 @@
 import React from "react"
-import { fireEvent, waitFor } from "@testing-library/dom"
-import { act, render } from "@testing-library/react"
+import { act, render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import ReactTestUtils from "react-dom/test-utils"
-import GenericNotification from "./GenericNotification"
+import GenericNotification, {
+  GenericNotificationProps,
+} from "./GenericNotification"
+import styles from "./GenericNotification.module.scss"
+
+const user = userEvent.setup()
+
+const GenericNotificationWrapper = ({
+  children,
+  ...props
+}: Partial<GenericNotificationProps>): JSX.Element => (
+  <GenericNotification
+    automationId="testid__notification"
+    type="positive"
+    style="inline"
+    title="Success"
+    {...props}
+  >
+    {children ?? "This is my positive notification"}
+  </GenericNotification>
+)
 
 describe("<GenericNotification />", () => {
-  afterEach(() => {
-    jest.runAllTimers()
-  })
-
-  beforeEach(() => {
-    jest.useFakeTimers()
-  })
-
   it('begins "hidden" but transitions out of it immediately', async () => {
-    const { container } = render(
-      <GenericNotification type="positive" style="inline" title="Success">
-        This is my positive notification
-      </GenericNotification>
-    )
+    const { getByTestId } = render(<GenericNotificationWrapper />)
+
+    const notification = getByTestId("testid__notification")
 
     await waitFor(() => {
-      expect(container.querySelector(".hidden")).toBeInTheDocument()
-    })
-
-    await act(async () => {
-      jest.advanceTimersByTime(50)
+      expect(notification.classList.contains(styles.hidden)).toBe(true)
     })
 
     await waitFor(() => {
-      expect(container.querySelector(".hidden")).not.toBeInTheDocument()
+      expect(notification.classList.contains(styles.hidden)).toBe(false)
     })
   })
 
   it("hides the notification and triggers the onHide callback when the cancel button is clicked", async () => {
-    const onHide = jest.fn()
-    const { container, getByTestId } = render(
-      <GenericNotification
-        type="positive"
-        style="inline"
-        title="Success"
-        onHide={onHide}
-      >
-        Notification Text
-      </GenericNotification>
+    const onHide = vi.fn()
+    const { getByTestId } = render(
+      <GenericNotificationWrapper onHide={onHide} />
     )
 
-    // The element should start in a "hidden" state
-    expect(container.querySelector(".hidden")).toBeTruthy()
-
-    // After clicking, the element should fade out, but the onHide not trigger yet.
-    const cancelButton = getByTestId("close-button")
-    const notification = container.querySelector(".notification")
-
-    fireEvent(cancelButton, new MouseEvent("click"))
+    const notification = getByTestId("testid__notification")
 
     await waitFor(() => {
-      expect(notification).toBeTruthy()
+      expect(notification.classList.contains(styles.hidden)).toBe(false)
     })
+
+    const cancelButton = getByTestId("close-button")
+    await user.click(cancelButton)
 
     // Cannot use @testing-library/react `fireEvent` as it relies on jsdom events
     // TransitionEvent has not been implemented yet, using `ReactTestUtils.Simulate` is a workaround
@@ -68,36 +63,34 @@ describe("<GenericNotification />", () => {
         } as any)
     })
 
-    await waitFor(() => {
-      expect(notification).not.toBeInTheDocument()
-    })
-    await waitFor(() => expect(onHide).toHaveBeenCalledTimes(1))
+    await waitFor(() => expect(notification).not.toBeInTheDocument())
+    expect(onHide).toHaveBeenCalledTimes(1)
   })
 
   it("starts hiding after 5s when autohide is specified", async () => {
-    const { container } = render(
-      <GenericNotification
-        type="positive"
-        style="toast"
-        title="Success"
-        autohide
-      >
-        This is my positive notification
-      </GenericNotification>
+    vi.useFakeTimers()
+
+    const { getByTestId } = render(
+      <GenericNotificationWrapper style="toast" autohide />
     )
-    expect(container.querySelector(".hidden")).toBeTruthy()
-    expect(container.querySelector(".hidden")).toBeInTheDocument()
+    const notification = getByTestId("testid__notification")
 
-    await act(async () => {
-      jest.advanceTimersByTime(4999)
+    await waitFor(() => {
+      expect(notification.classList.contains(styles.hidden)).toBe(true)
     })
 
-    expect(container.querySelector(".hidden")).not.toBeInTheDocument()
+    act(() => vi.advanceTimersByTime(4999))
 
-    await act(async () => {
-      jest.advanceTimersByTime(1)
+    await waitFor(() => {
+      expect(notification.classList.contains(styles.hidden)).toBe(false)
     })
 
-    expect(container.querySelector(".hidden")).toBeInTheDocument()
+    act(() => vi.advanceTimersByTime(1))
+
+    await waitFor(() => {
+      expect(notification.classList.contains(styles.hidden)).toBe(true)
+    })
+
+    vi.runAllTimers()
   })
 })
