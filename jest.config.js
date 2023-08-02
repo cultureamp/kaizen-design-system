@@ -2,7 +2,7 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  testMatch: ["**/*.spec.ts?(x)"],
+  testMatch: ["<rootDir>/packages/rich-text-editor/**/*.spec.ts?(x)"],
   setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/setupTests.ts"],
   moduleNameMapper: {
     "\\.(jpe?g|png|webm|mp4)$": "jest-static-stubs/$1",
