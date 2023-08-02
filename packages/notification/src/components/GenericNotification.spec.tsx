@@ -40,7 +40,7 @@ describe("<GenericNotification />", () => {
   })
 
   it("hides the notification and triggers the onHide callback when the cancel button is clicked", async () => {
-    const onHide = vi.fn()
+    const onHide = jest.fn()
     const { getByTestId } = render(
       <GenericNotificationWrapper onHide={onHide} />
     )
@@ -68,7 +68,7 @@ describe("<GenericNotification />", () => {
   })
 
   it("starts hiding after 5s when autohide is specified", async () => {
-    vi.useFakeTimers()
+    jest.useFakeTimers()
 
     const { getByTestId } = render(
       <GenericNotificationWrapper style="toast" autohide />
@@ -79,18 +79,18 @@ describe("<GenericNotification />", () => {
       expect(notification.classList.contains(styles.hidden)).toBe(true)
     })
 
-    act(() => vi.advanceTimersByTime(4999))
+    act(() => jest.advanceTimersByTime(4999))
 
     await waitFor(() => {
       expect(notification.classList.contains(styles.hidden)).toBe(false)
     })
 
-    act(() => vi.advanceTimersByTime(1))
+    act(() => jest.advanceTimersByTime(1))
 
     await waitFor(() => {
       expect(notification.classList.contains(styles.hidden)).toBe(true)
     })
 
-    vi.runAllTimers()
+    jest.runAllTimers()
   })
 })

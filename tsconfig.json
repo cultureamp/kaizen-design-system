@@ -18,7 +18,7 @@
       "~components/*": ["packages/components/src/*"],
       "~icons/*": ["packages/components/src/SVG/icons/*"]
     },
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],

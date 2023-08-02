@@ -46,7 +46,7 @@ describe("<GenericModal />", () => {
   })
 
   it("closes the modal when escape key is pressed", async () => {
-    const handleDismiss = vi.fn()
+    const handleDismiss = jest.fn()
     render(
       <GenericModal isOpen={true} onEscapeKeyup={handleDismiss}>
         <ModalAccessibleLabel>Example</ModalAccessibleLabel>
@@ -60,7 +60,7 @@ describe("<GenericModal />", () => {
   })
 
   it("closes the modal when a click is outside of the modal content", async () => {
-    const handleDismiss = vi.fn()
+    const handleDismiss = jest.fn()
     const { getByTestId } = render(
       <GenericModal
         isOpen={true}
@@ -77,8 +77,10 @@ describe("<GenericModal />", () => {
   })
 
   it("warns when a <ModalAccessibleLabel /> is not rendered", async () => {
-    const mockWarnFn = vi.fn()
-    const spy = vi.spyOn(global.console, "warn").mockImplementation(mockWarnFn)
+    const mockWarnFn = jest.fn()
+    const spy = jest
+      .spyOn(global.console, "warn")
+      .mockImplementation(mockWarnFn)
     render(<GenericModal isOpen={true}>Catch me if you can</GenericModal>)
     await waitFor(() => {
       expect(mockWarnFn).toBeCalled()
@@ -92,7 +94,7 @@ describe("<GenericModal />", () => {
   })
 
   it("calls onAfterLeave after it closes", async () => {
-    const mockOnAfterLeave = vi.fn()
+    const mockOnAfterLeave = jest.fn()
 
     render(
       <ExampleModalWithState onAfterLeave={mockOnAfterLeave}>

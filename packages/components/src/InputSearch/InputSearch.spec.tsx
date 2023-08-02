@@ -9,7 +9,7 @@ const user = userEvent.setup()
 const defaultInputProps = {
   id: "someInputId",
   value: "somevalue",
-  onChange: vi.fn(),
+  onChange: jest.fn(),
 }
 
 const renderInput = (props?: InputSearchProps): ReturnType<typeof render> => {

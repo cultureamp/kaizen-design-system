@@ -29,7 +29,7 @@ describe("<RoadblockModal />", () => {
   })
 
   it("supports a dismiss action when escape key is pressed", async () => {
-    const handleDismiss = vi.fn()
+    const handleDismiss = jest.fn()
     render(
       <RoadblockModalWrapper onDismiss={handleDismiss}>
         Example modal body
@@ -43,7 +43,7 @@ describe("<RoadblockModal />", () => {
   })
 
   it("supports a dismiss action when dismiss button is pressed", async () => {
-    const handleDismiss = vi.fn()
+    const handleDismiss = jest.fn()
     const { getByLabelText } = render(
       <RoadblockModalWrapper onDismiss={handleDismiss}>
         Example modal body
@@ -56,7 +56,7 @@ describe("<RoadblockModal />", () => {
   })
 
   it("supports a dismiss action when back button is pressed", async () => {
-    const handleDismiss = vi.fn()
+    const handleDismiss = jest.fn()
     const { getByText } = render(
       <RoadblockModalWrapper onDismiss={handleDismiss}>
         Example modal body

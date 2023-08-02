@@ -10,12 +10,12 @@ import GuidanceBlock from "./GuidanceBlock"
 const user = userEvent.setup()
 
 // eslint-disable-next-line ssr-friendly/no-dom-globals-in-module-scope
-window.matchMedia = vi.fn().mockImplementation(() => ({
+window.matchMedia = jest.fn().mockImplementation(() => ({
   matches: false,
   media: "",
   onchange: null,
-  addListener: vi.fn(),
-  removeListener: vi.fn(),
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
 }))
 
 describe("GuidanceBlock", () => {
@@ -41,7 +41,7 @@ describe("GuidanceBlock", () => {
   })
 
   it("calls the action function when action button is clicked", async () => {
-    const onAction = vi.fn()
+    const onAction = jest.fn()
     const { container } = render(
       <GuidanceBlock
         illustration={<Informative alt="" />}

@@ -12,7 +12,7 @@ const defaultProps = {
   checkedStatus: "off",
   disabled: false,
   name: "someCheckboxName",
-  onCheck: vi.fn(),
+  onCheck: jest.fn(),
 } satisfies CheckboxProps
 
 const renderCheckbox = (props?: CheckboxProps): ReturnType<typeof render> => {

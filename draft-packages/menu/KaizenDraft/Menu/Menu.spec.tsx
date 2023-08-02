@@ -23,7 +23,7 @@ describe("Dropdown", () => {
   })
 
   it("shows menu & handles onClick set by the consumer when clicking on the button", async () => {
-    const onButtonClick = vi.fn<[], void>()
+    const onButtonClick = jest.fn<[], void>()
 
     render(
       <Menu button={<Button label="Button" onClick={onButtonClick} />}>
@@ -42,7 +42,7 @@ describe("Dropdown", () => {
     })
   })
   it("shows menu & handles onMouseDown set by the consumer when mousing down on the button", async () => {
-    const onMouseDown = vi.fn<[], void>()
+    const onMouseDown = jest.fn<[], void>()
 
     render(
       <Menu button={<Button label="Button" onMouseDown={onMouseDown} />}>

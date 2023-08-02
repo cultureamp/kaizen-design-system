@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react"
 import { IntlProvider } from "react-intl"
 import { OptionalIntlProvider } from "../OptionalIntlProvider"
 
-vi.mock("@cultureamp/i18n-react-intl", () => ({
+jest.mock("@cultureamp/i18n-react-intl", () => ({
   StaticIntlProvider: ({ children }: { children: React.ReactElement }) => (
     <div data-testid="mockedIntlProvider">{children}</div>
   ),

@@ -33,7 +33,7 @@ describe("NavigationTabs", () => {
 
   describe("with a render prop", () => {
     it("renders the component passed with the navigation tab props", async () => {
-      const handleClick = vi.fn()
+      const handleClick = jest.fn()
       const text = "I am also navigation tabs"
       const href = "www.cultureamp.com"
       render(

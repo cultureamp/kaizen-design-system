@@ -31,7 +31,7 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a dismiss action when escape key is pressed", async () => {
-    const handleDismiss = vi.fn()
+    const handleDismiss = jest.fn()
     render(
       <InputEditModalWrapper onDismiss={handleDismiss}>
         Example modal body
@@ -45,8 +45,8 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a dismiss action when dismiss button is pressed", async () => {
-    const handleSubmit = vi.fn()
-    const handleDismiss = vi.fn()
+    const handleSubmit = jest.fn()
+    const handleDismiss = jest.fn()
     const { getByLabelText } = render(
       <InputEditModalWrapper onSubmit={handleSubmit} onDismiss={handleDismiss}>
         Example modal body
@@ -60,8 +60,8 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a dismiss action when cancel button is pressed", async () => {
-    const handleSubmit = vi.fn()
-    const handleDismiss = vi.fn()
+    const handleSubmit = jest.fn()
+    const handleDismiss = jest.fn()
     const { getByText } = render(
       <InputEditModalWrapper onSubmit={handleSubmit} onDismiss={handleDismiss}>
         Example modal body
@@ -75,8 +75,8 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a submit action when submit button is pressed", async () => {
-    const handleSubmit = vi.fn()
-    const handleDismiss = vi.fn()
+    const handleSubmit = jest.fn()
+    const handleDismiss = jest.fn()
     const { getByText } = render(
       <InputEditModalWrapper onSubmit={handleSubmit} onDismiss={handleDismiss}>
         Example modal body
@@ -90,9 +90,9 @@ describe("<InputEditModal />", () => {
   })
 
   it("supports a secondary action when secondary-action and secondary-label both props are provided", async () => {
-    const handleSubmit = vi.fn()
-    const handleDismiss = vi.fn()
-    const handleSecondaryAction = vi.fn()
+    const handleSubmit = jest.fn()
+    const handleDismiss = jest.fn()
+    const handleSecondaryAction = jest.fn()
 
     const { getByText } = render(
       <InputEditModalWrapper
@@ -113,9 +113,9 @@ describe("<InputEditModal />", () => {
   })
 
   it("dismiss works as usual when only one of the prop (secondary-action / secondary-label) is provided", async () => {
-    const handleSubmit = vi.fn()
-    const handleDismiss = vi.fn()
-    const handleSecondaryAction = vi.fn()
+    const handleSubmit = jest.fn()
+    const handleDismiss = jest.fn()
+    const handleSecondaryAction = jest.fn()
 
     const { getByText } = render(
       <InputEditModalWrapper

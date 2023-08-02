@@ -108,7 +108,7 @@ describe("<Collapsible />", () => {
   })
 
   it("runs the onToggle callback", async () => {
-    const onToggle = vi.fn()
+    const onToggle = jest.fn()
 
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel" onToggle={onToggle}>

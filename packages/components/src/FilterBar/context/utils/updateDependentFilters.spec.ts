@@ -1,7 +1,9 @@
 import { FilterBarState } from "../types"
 import { updateDependentFilters } from "./updateDependentFilters"
 
-const sugarLevelIsUsableWhen = vi.fn(state => state.flavour.value !== undefined)
+const sugarLevelIsUsableWhen = jest.fn(
+  state => state.flavour.value !== undefined
+)
 
 type Values = {
   flavour: string

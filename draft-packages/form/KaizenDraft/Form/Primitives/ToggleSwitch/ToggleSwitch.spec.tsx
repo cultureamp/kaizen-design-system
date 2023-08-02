@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event"
 import { ToggleSwitch } from "."
 
 const user = userEvent.setup()
-const onToggle = vi.fn()
+const onToggle = jest.fn()
 
 describe("<ToggleSwitch />", () => {
   it("calls onToggle when toggle is changed", async () => {

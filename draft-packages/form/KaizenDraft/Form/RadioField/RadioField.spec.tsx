@@ -9,7 +9,7 @@ const defaultRadioFieldProps: RadioFieldProps = {
   labelText: "Label",
   disabled: false,
   name: "RadioName",
-  onChange: vi.fn(),
+  onChange: jest.fn(),
   inline: false,
   value: "radio-1",
 }

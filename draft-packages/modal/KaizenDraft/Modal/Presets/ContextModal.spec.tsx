@@ -32,7 +32,7 @@ describe("<ContextModal />", () => {
   })
 
   it("supports a dismiss action when escape key is pressed", async () => {
-    const handleDismiss = vi.fn()
+    const handleDismiss = jest.fn()
     render(
       <ContextModalWrapper onDismiss={handleDismiss}>
         Example modal body
@@ -46,8 +46,8 @@ describe("<ContextModal />", () => {
   })
 
   it("supports a dismiss action when dismiss button is pressed", async () => {
-    const handleConfirm = vi.fn()
-    const handleDismiss = vi.fn()
+    const handleConfirm = jest.fn()
+    const handleDismiss = jest.fn()
     const { getByLabelText } = render(
       <ContextModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
         Example modal body
@@ -61,8 +61,8 @@ describe("<ContextModal />", () => {
   })
 
   it("supports a confirm action when confirm button is pressed", async () => {
-    const handleConfirm = vi.fn()
-    const handleDismiss = vi.fn()
+    const handleConfirm = jest.fn()
+    const handleDismiss = jest.fn()
     const { getByText } = render(
       <ContextModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
         Example modal body
@@ -76,9 +76,9 @@ describe("<ContextModal />", () => {
   })
 
   it("supports a secondary action when secondary button is pressed", async () => {
-    const handleConfirm = vi.fn()
-    const handleSecondary = vi.fn()
-    const handleDismiss = vi.fn()
+    const handleConfirm = jest.fn()
+    const handleSecondary = jest.fn()
+    const handleDismiss = jest.fn()
     const { getByText } = render(
       <ContextModalWrapper
         onConfirm={handleConfirm}

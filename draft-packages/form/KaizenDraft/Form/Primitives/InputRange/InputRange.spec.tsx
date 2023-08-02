@@ -29,7 +29,7 @@ describe("<InputRange />", () => {
   })
 
   it("fires onChange after interaction", async () => {
-    const onChange = vi.fn()
+    const onChange = jest.fn()
     render(
       <InputRange
         id="unique-3"

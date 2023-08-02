@@ -5,12 +5,12 @@ import * as isSelectingDayInCalendar from "../utils/isSelectingDayInCalendar"
 import { useDateInputHandlers } from "./useDateInputHandlers"
 
 const locale = enAU
-const setInputValue = vi.fn<[SetStateAction<string>], void>()
-const onDateChange = vi.fn<[Date | undefined], void>()
+const setInputValue = jest.fn<[SetStateAction<string>], void>()
+const onDateChange = jest.fn<[Date | undefined], void>()
 
 describe("useDateInputHandlers", () => {
   beforeEach(() => {
-    vi.clearAllMocks()
+    jest.clearAllMocks()
   })
 
   describe("onChange", () => {
@@ -34,7 +34,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onChange when provided", () => {
-      const onChangeMock = vi.fn<[ChangeEvent], void>()
+      const onChangeMock = jest.fn<[ChangeEvent], void>()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -97,7 +97,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onFocus when provided", () => {
-      const onFocusMock = vi.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onFocusMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -122,7 +122,7 @@ describe("useDateInputHandlers", () => {
 
   describe("onBlur", () => {
     it("does not do anything when selecting a day in the calendar", () => {
-      const onBlurMock = vi.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onBlurMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -136,7 +136,10 @@ describe("useDateInputHandlers", () => {
         currentTarget: { value: "" },
       } as FocusEvent<HTMLInputElement>
 
-      const spy = vi.spyOn(isSelectingDayInCalendar, "isSelectingDayInCalendar")
+      const spy = jest.spyOn(
+        isSelectingDayInCalendar,
+        "isSelectingDayInCalendar"
+      )
       spy.mockReturnValue(true)
 
       act(() => {
@@ -235,7 +238,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onBlur when provided on input with value", () => {
-      const onBlurMock = vi.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onBlurMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -257,7 +260,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onBlur when provided on empty", () => {
-      const onBlurMock = vi.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onBlurMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -321,7 +324,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onKeyDown when provided", () => {
-      const onKeyDownMock = vi.fn<[KeyboardEvent], void>()
+      const onKeyDownMock = jest.fn<[KeyboardEvent], void>()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({

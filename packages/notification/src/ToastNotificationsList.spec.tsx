@@ -6,11 +6,11 @@ import { ToastNotification } from "./types"
 
 describe("<ToastNotificationsListContainer />", () => {
   it("passes the setNotifications callback", () => {
-    const registerCallback = vi.fn()
+    const registerCallback = jest.fn()
     render(
       <ToastNotificationsListContainer
         registerSetNotificationsCallback={registerCallback}
-        removeToastNotification={vi.fn()}
+        removeToastNotification={jest.fn()}
       />
     )
 
@@ -19,8 +19,8 @@ describe("<ToastNotificationsListContainer />", () => {
 
   it("renders notifications added through the setNotifications callback", async () => {
     let callback: (notifications: ToastNotification[]) => void | undefined
-    const registerCallback = vi.fn(cb => (callback = cb))
-    const removeToastNotification = vi.fn()
+    const registerCallback = jest.fn(cb => (callback = cb))
+    const removeToastNotification = jest.fn()
     render(
       <ToastNotificationsListContainer
         registerSetNotificationsCallback={registerCallback}
@@ -45,8 +45,8 @@ describe("<ToastNotificationsListContainer />", () => {
 
   it("calls removeToastNotification when a notification is hidden", async () => {
     let callback: (notifications: ToastNotification[]) => void | undefined
-    const registerCallback = vi.fn(cb => (callback = cb))
-    const removeToastNotification = vi.fn()
+    const registerCallback = jest.fn(cb => (callback = cb))
+    const removeToastNotification = jest.fn()
     const { getByRole } = render(
       <ToastNotificationsListContainer
         registerSetNotificationsCallback={registerCallback}

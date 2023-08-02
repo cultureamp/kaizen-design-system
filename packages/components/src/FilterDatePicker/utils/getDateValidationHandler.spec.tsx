@@ -3,8 +3,8 @@ import { LabelledMessage } from "~components/LabelledMessage"
 import { DateValidationResponse, ValidationMessage } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
-const onValidate = vi.fn<[DateValidationResponse], void>()
-const setInbuiltValidationMessage = vi.fn<
+const onValidate = jest.fn<[DateValidationResponse], void>()
+const setInbuiltValidationMessage = jest.fn<
   [ValidationMessage | undefined],
   void
 >()

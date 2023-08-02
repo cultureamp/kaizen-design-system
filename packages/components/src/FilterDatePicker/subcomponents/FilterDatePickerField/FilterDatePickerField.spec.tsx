@@ -5,7 +5,7 @@ import { FilterDatePickerField, FilterDatePickerFieldProps } from "."
 
 const user = userEvent.setup()
 
-const inputDateOnSubmit = vi.fn<[Date | undefined], void>()
+const inputDateOnSubmit = jest.fn<[Date | undefined], void>()
 
 const FilterDatePickerFieldWrapper = ({
   selectedDate,
@@ -29,7 +29,7 @@ const FilterDatePickerFieldWrapper = ({
 
 describe("<FilterDatePickerField />", () => {
   beforeEach(() => {
-    vi.clearAllMocks()
+    jest.clearAllMocks()
   })
 
   describe("Inputs", () => {
@@ -65,7 +65,7 @@ describe("<FilterDatePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates date input and calendar values correctly on blur", async () => {
-        const inputDateOnBlur = vi.fn<[FocusEvent], void>()
+        const inputDateOnBlur = jest.fn<[FocusEvent], void>()
 
         render(
           <FilterDatePickerFieldWrapper

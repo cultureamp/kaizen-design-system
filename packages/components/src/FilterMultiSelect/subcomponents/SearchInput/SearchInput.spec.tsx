@@ -7,8 +7,8 @@ import { SearchInput } from "."
 
 const user = userEvent.setup()
 
-vi.mock("../../provider", () => ({
-  useSelectionContext: vi.fn(),
+jest.mock("../../provider", () => ({
+  useSelectionContext: jest.fn(),
 }))
 
 const SearchInputWrapper = (): JSX.Element => <SearchInput label="label-mock" />
@@ -25,7 +25,7 @@ describe("<SearchInput /> - interaction", () => {
   })
 
   it("triggers setSearchQuery with input value when user types the input", async () => {
-    const spy = vi.fn()
+    const spy = jest.fn()
     ;(useSelectionContext as Mock).mockReturnValue({
       setSearchQuery: spy,
     })
@@ -38,7 +38,7 @@ describe("<SearchInput /> - interaction", () => {
   })
 
   it("triggers setSearchQuery with input value when clear the input", async () => {
-    const spy = vi.fn()
+    const spy = jest.fn()
     ;(useSelectionContext as Mock).mockReturnValue({
       searchQuery: "search-query-mock",
       setSearchQuery: spy,

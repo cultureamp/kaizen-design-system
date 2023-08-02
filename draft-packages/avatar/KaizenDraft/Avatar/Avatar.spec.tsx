@@ -6,7 +6,7 @@ describe("<Avatar />", () => {
   // there is an issue with react-textfit that is only flagged in a test suite
   // this solution silences that specific case https://github.com/malte-wessel/react-textfit/issues/35
   beforeEach(() => {
-    vi.spyOn(console, "warn").mockImplementation(() => "")
+    jest.spyOn(console, "warn").mockImplementation(() => "")
   })
 
   it("renders user initials if the image link is broken", () => {

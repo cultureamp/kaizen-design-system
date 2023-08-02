@@ -9,7 +9,7 @@ const KaizenProviderWrapper = ({
   <KaizenProvider {...restProps}>{children}</KaizenProvider>
 )
 
-vi.mock("./OptionalIntlProvider", () => ({
+jest.mock("./OptionalIntlProvider", () => ({
   OptionalIntlProvider: ({ children }: { children: React.ReactElement }) => (
     <div>{children}</div>
   ),
