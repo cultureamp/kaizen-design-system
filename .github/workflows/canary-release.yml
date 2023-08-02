@@ -17,14 +17,11 @@ jobs:
       LABEL: ${{ github.event.inputs.label }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: ".nvmrc"
-          cache: yarn
-      - run: |
-          npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
-          yarn install --frozen-lockfile --ignore-scripts
-          npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
+      - uses: ./.github/actions/setup
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        run: |
+          npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
       - run: |
           git config --global user.email "cultureamp-ci@cultureamp.com"
           git config --global user.name "cultureamp-ci"
