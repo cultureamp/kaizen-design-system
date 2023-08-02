@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       label:
-        description: "Pick a label for the release, to be included in the version number — e.g. "fix-button-focus" will released as "@kaizen/button@1.0.0-fix-button-focus-20230719002814"
+        description: 'Pick a label for the release, to be included in the version number — e.g. "fix-button-focus" will released as "@kaizen/button@1.0.0-fix-button-focus-20230719002814"'
         required: true
         type: string
 
