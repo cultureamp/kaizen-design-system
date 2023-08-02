@@ -1,0 +1,30 @@
+name: "Canary release"
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: 'Pick a label for the release, to be included in the version number — e.g. "fix-button-focus" will released as "@kaizen/button@1.0.0-fix-button-focus-20230719002814"'
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.NPM_TOKEN }}
+      LABEL: ${{ github.event.inputs.label }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        run: |
+          npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
+      - uses: changesets/action@v1
+        with:
+          title: "Changeset: Version packages"
+          commit: "version packages"
+          version: yarn ci:version --snapshot "$LABEL"
+          publish: yarn ci:publish --tag "$LABEL"

@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Datum von"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Datum bis"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Eingabeformat"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "kontaktieren Sie den Support,"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Leider konnte Ihre Anfrage nicht abgeschlossen werden. Gehen Sie zurück und versuchen Sie es erneut oder gehen Sie zur Startseite"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Ihre Anfrage ist in die Leere gegangen"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Leider können wir nicht überprüfen, ob Sie diese Seite anzeigen können. Gehen Sie zurück und versuchen Sie es erneut oder gehen Sie zur Startseite"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Sie können diese Seite nicht anzeigen"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Offenbar fehlt Ihnen leider die Berechtigung zum Anzeigen dieser Seite. Gehen Sie zurück und versuchen Sie es erneut oder gehen Sie zur Startseite"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Sie können diese Seite nicht anzeigen"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Leider können wir die von Ihnen gesuchte Seite nicht finden. Gehen Sie zurück und versuchen Sie es erneut oder gehen Sie zur Startseite"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Fehlende Seiten sind eines der Geheimnisse des Lebens"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Tut mir leid, aber Ihre Änderung konnte nicht vorgenommen werden. Gehen Sie zurück und versuchen Sie es erneut oder gehen Sie zur Startseite"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Veränderung ist nie einfach"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Leider liegt ein Problem mit unserem System vor und diese Seite kann nicht angezeigt werden. Gehen Sie zurück und versuchen Sie es erneut oder gehen Sie zur Startseite"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Auf unserer Seite ist etwas schief gelaufen"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Das tut uns leid. Das Beste, was Sie tun können, ist, zurückzugehen und es erneut zu versuchen."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Sie können diese Seite nicht anzeigen"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Das tut uns leid. Das Beste, was Sie tun können, ist, zurückzugehen und es erneut zu versuchen."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Sie können diese Seite nicht anzeigen"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Das tut uns leid. Das Beste, was Sie tun können, ist, zurückzugehen und es erneut zu versuchen."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Sie können diese Seite nicht anzeigen"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Fehlercode {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Zur Startseite"
   }
 }

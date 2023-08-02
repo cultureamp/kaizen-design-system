@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "التاريخ من"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "التاريخ إلى"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "تنسيق الإدخال"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "اتصل بالدعم"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "نعتذر، لكن الطلب الذي قدمته تعذر إكماله. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسية"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "انتهى الأمر بطلبك إلى لا شيء"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "عذرًا، لكننا لا نستطيع التحقق مما إذا كنت قادرًا على رؤية هذه الصفحة. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسة"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "لا يمكنك استعراض هذه الصفحة"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "معذرةً، لكن يبدو أنك لا تمتلك إذنًا باستعراض هذه الصفحة. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسية"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "لا يمكنك استعراض هذه الصفحة"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "عذرًا، لكننا لا نستطيع العثور على الصفحة التي تبحث عنها. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسة"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "الصفحات المفقودة هي إحدى ألغاز هذه الحياة"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "نعتذر، لكن لا يمكن إجراء التغيير الذي تحاول إجراؤه. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسية"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "لا يأتي التغيير بهذه السهولة أبدًا"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "عذرًا، لدينا مشكلة في النظام، ولا يمكن عرض هذه الصفحة. عُد وحاول مرة أخرى، أو توجه إلى الصفحة الرئيسة"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "حدث خطأ ما من جانبنا"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "نعتذر عن هذا. أفضل ما يمكنك فعله، هو العودة والمحاولة مرة أخرى."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "لا يمكنك استعراض هذه الصفحة"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "نعتذر عن هذا. أفضل ما يمكنك فعله، هو العودة والمحاولة مرة أخرى."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "لا يمكنك استعراض هذه الصفحة"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "نعتذر عن هذا. أفضل ما يمكنك فعله، هو العودة والمحاولة مرة أخرى."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "لا يمكنك استعراض هذه الصفحة"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "رمز الخطأ {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "الانتقال إلى الصفحة الرئيسية"
   }
 }

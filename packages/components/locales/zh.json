@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "起始日期"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "结束日期"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "输入格式"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "联系支持人员"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "很抱歉，您的请求无法完成。请返回并重试，或前往主页"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "您的请求已失效"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "很抱歉，我们无法验证您是否可以查看此页面。请返回并重试，或前往主页"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "您无法查看此页面"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，您似乎没有权限查看此页面。请返回并重试，或前往主页"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "您无法查看此页面"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，我们无法找到您要查找的页面。请返回并重试，或前往主页"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "页面缺失是人生的谜团之一"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "抱歉，您无法进行更改。请返回并重试，或前往主页"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "改变从来都不是一件容易的事"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "很抱歉，我们的系统出现问题，无法显示此页面。请返回并重试，或前往主页"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "我们这边出了点问题"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "对此深表歉意。最好的办法就是返回并重试。"
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "您无法查看此页面"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "我们对此深表歉意。最好的办法就是返回并重试。"
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "您无法查看此页面"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "我们对此深表歉意。最好的办法就是返回并重试。"
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "您无法查看此页面"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "错误代码 403 {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "转到主页"
   }
 }

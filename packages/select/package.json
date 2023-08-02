@@ -1,10 +1,10 @@
 {
   "name": "@kaizen/select",
-  "version": "6.18.0",
+  "version": "6.18.1",
   "description": "Select components",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "build": "yarn clean && yarn prepublish",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "build": "yarn clean && yarn prepublish",
     "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'"
   }
 }

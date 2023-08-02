@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Petsa mula"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Petsa hanggang"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Format ng input"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "makipag-ugnayan sa suporta"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na pero hindi nakumpleto ang kahilingan mo.  Bumalik at subukan ulit, o pumunta sa Home"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Nawala ang iyong kahilingan"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na pero hindi namin ma-verify kung puwede mong tingnan ang page na ito. Bumalik at subukan ulit, o pumunta sa Home"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na pero mukhang wala kang pahintulot na tingnan ang page na ito.  Bumalik at subukan ulit, o pumunta sa Home"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na pero hindi namin makita ang hinahanap mong page. Bumalik at subukan ulit, o pumunta sa Home"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Isa sa mga misteryo ng buhay ang mga nawawalang page"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na pero hindi maisagawa ang binago mo.  Bumalik at subukan ulit, o pumunta sa Home"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Hindi talaga madali ang pagbabago"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na, nagkaproblema sa system namin at hindi maipakita ang page na ito. Bumalik at subukan ulit, o pumunta sa Home"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "May problema sa panig namin"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na. Pinakamainam na bumalik at subukan ulit."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na. Pinakamainam na bumalik at subukan ulit."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pasensya na rito.  Pinakamainam na bumalik at subukan ulit."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Hindi mo puwedeng tingnan ang page na ito"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Error code {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Pumunta sa Home"
   }
 }

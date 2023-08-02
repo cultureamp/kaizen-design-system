@@ -8,7 +8,7 @@
     "node": ">=v18.16.0"
   },
   "scripts": {
-    "build": "yarn turbo prepublish",
+    "build": "yarn turbo build",
     "clean": "yarn turbo clean && yarn storybook:clean && rimraf node_modules",
     "test": "jest && yarn test:pkg:aio",
     "test:pkg:aio": "yarn pkg:aio test && yarn pkg:aio build",

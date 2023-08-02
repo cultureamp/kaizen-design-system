@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "От дата"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "До дата"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Формат на въвеждане"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "се свържете с екипа за поддръжка"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжаляваме, но вашата заявка не можа да бъде изпълнена. Върнете се и опитайте отново или се насочете към началната страница"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Молбата ви се е изплъзнала в празнотата"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжаляваме, но не можем да проверим дали виждате тази страница. Върнете се и опитайте отново или се насочете към началната страница"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Не можете да разглеждате тази страница"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжаляваме, но изглежда, че нямате разрешение да разглеждате тази страница. Върнете се и опитайте отново или се насочете към началната страница"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Не можете да разглеждате тази страница"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжаляваме, но не можем да намерим страницата, която търсите. Върнете се и опитайте отново или се насочете към началната страница"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Липсващите страници са една от мистериите на живота"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжаляваме, но вашата промяна не можа да бъде направена. Върнете се и опитайте отново или се насочете към началната страница"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Промяната никога не идва лесно"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжаляваме, но има проблем в нашата система и тази страница не може да бъде показана. Върнете се и опитайте отново или се насочете към началната страница"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Нещо се е объркало от наша страна"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжалявам за това. Най-доброто нещо, което можете да направите, е да се върнете и да опитате отново."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Не можете да разглеждате тази страница"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжалявам за това. Най-доброто нещо, което можете да направите, е да се върнете и да опитате отново."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Не можете да разглеждате тази страница"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Съжалявам за това.  Най-доброто нещо, което можете да направите, е да се върнете и да опитате отново."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Не можете да разглеждате тази страница"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Код за грешка {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Отидете на начална страница"
   }
 }

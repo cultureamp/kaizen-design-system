@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.20.0",
+  "version": "1.20.3",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -23,7 +23,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
-    "build": "yarn prepublish",
+    "build": "yarn clean && yarn prepublish",
     "test": "jest",
     "clean": "rimraf dist",
     "build:components": "rollup -c",
