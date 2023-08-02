@@ -351,7 +351,7 @@ describe("<FilterBar />", () => {
 
     describe("Condition result change", () => {
       it("clears the value for an unusable filter", async () => {
-        const checkValues = jest.fn<[Partial<ValuesDependent>], void>()
+        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -384,7 +384,7 @@ describe("<FilterBar />", () => {
       })
 
       it("clears the value and removes a filter which loses usability", async () => {
-        const checkValues = jest.fn<[Partial<ValuesDependent>], void>()
+        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({

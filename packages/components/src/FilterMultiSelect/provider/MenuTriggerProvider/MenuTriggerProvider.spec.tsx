@@ -59,7 +59,7 @@ describe("<MenuTriggerProvider /> - Visual content", () => {
     })
 
     it("fires the onOpenChange callback when the trigger is interacted", async () => {
-      const onOpenChange = jest.fn<[boolean], void>()
+      const onOpenChange = jest.fn<void, [boolean]>()
       render(<MenuTriggerProviderWrapper isOpen onOpenChange={onOpenChange} />)
 
       const trigger = screen.getByRole("button", {
