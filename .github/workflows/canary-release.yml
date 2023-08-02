@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       label:
-        description: "Pick a label for the release, to be included in the version number — e.g. '1.0.0-\\${label}.x' (note: can't contain slashes!)"
+        description: "Pick a label for the release, to be included in the version number — e.g. "fix-button-focus" will released as "@kaizen/button@1.0.0-fix-button-focus-20230719002814"
         required: true
         type: string
 
@@ -22,10 +22,9 @@ jobs:
         id: changesets
         run: |
           npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
-      - run: |
-          git config --global user.email "cultureamp-ci@cultureamp.com"
-          git config --global user.name "cultureamp-ci"
-      - run: |
-          yarn compile
-          yarn changeset version --snapshot "$LABEL"
-          yarn changeset publish --tag "$LABEL"
+      - uses: changesets/action@v1
+        with:
+          title: "Changeset: Version packages"
+          commit: "version packages"
+          version: yarn ci:version --snapshot "$LABEL"
+          publish: yarn ci:publish --tag "$LABEL"
