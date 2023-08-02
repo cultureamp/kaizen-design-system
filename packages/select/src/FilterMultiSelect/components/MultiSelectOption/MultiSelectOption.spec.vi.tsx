@@ -7,19 +7,19 @@ import { Mock } from "vitest"
 import { ItemType } from "../../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
 
-jest.mock("@kaizen/component-library", () => ({
+vi.mock("@kaizen/component-library", () => ({
   Icon: (): JSX.Element => <span>icon-mock</span>,
 }))
 
-jest.mock("@kaizen/draft-badge", () => ({
+vi.mock("@kaizen/draft-badge", () => ({
   Badge: "badge-mock",
 }))
 
-jest.mock("@react-aria/listbox", () => ({
-  useOption: jest.fn(),
+vi.mock("@react-aria/listbox", () => ({
+  useOption: vi.fn(),
 }))
 
-jest.mock("../../provider", () => ({
+vi.mock("../../provider", () => ({
   useSelectionContext: (): { selectionState: Record<string, unknown> } => ({
     selectionState: {},
   }),
