@@ -1,0 +1,34 @@
+name: "Canary release"
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: "Pick a label for the release, to be included in the version number — e.g. '1.0.0-\\${label}.x' (note: can't contain slashes!)"
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.PACKAGE_REGISTRY_ACCESS_TOKEN }}
+      LABEL: ${{ github.event.inputs.label }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: yarn
+      - run: |
+          npm config set "//npm.pkg.github.com/:_authToken" "$PACKAGE_REGISTRY_ACCESS_TOKEN"
+          yarn install --frozen-lockfile --ignore-scripts
+          npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
+      - run: |
+          git config --global user.email "cultureamp-ci@cultureamp.com"
+          git config --global user.name "cultureamp-ci"
+      - run: |
+          yarn compile
+          yarn changeset version --snapshot "$LABEL"
+          yarn changeset publish --tag "$LABEL"
