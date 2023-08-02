@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ github.token }}
-      PACKAGE_REGISTRY_ACCESS_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       LABEL: ${{ github.event.inputs.label }}
     steps:
       - uses: actions/checkout@v3
