@@ -9,7 +9,7 @@ const user = userEvent.setup()
 const DEFAULT_PROPS: SplitButtonProps = {
   actionButtonProps: {
     label: "Action Text",
-    onClick: jest.fn(),
+    onClick: vi.fn(),
   },
   dropdownButtonProps: {
     "aria-label": "Dropdown Label",
