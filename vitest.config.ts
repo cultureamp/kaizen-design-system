@@ -9,7 +9,7 @@ export default defineConfig({
     environment: "jsdom",
     globalSetup: "./vitest.globals.ts",
     setupFiles: ["./vitest.setup.ts"],
-    include: ["?(draft-)packages/(?!rich-text-editor)**/*.spec.ts?(x)"],
+    include: ["?(draft-)packages/(?!rich-text-editor)**/*.spec?(.vi).ts?(x)"],
   },
   resolve: {
     alias: {
