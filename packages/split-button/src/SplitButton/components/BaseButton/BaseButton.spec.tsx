@@ -1,7 +1,7 @@
 import React from "react"
 import { render, RenderResult } from "@testing-library/react"
 import { BaseButton, BaseButtonProps } from "./BaseButton"
-import styles from "./BaseButton.scss"
+import styles from "./BaseButton.module.scss"
 
 const BUTTON_LABEL = "Button text"
 

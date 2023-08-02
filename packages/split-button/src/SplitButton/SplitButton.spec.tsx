@@ -9,7 +9,7 @@ const user = userEvent.setup()
 const DEFAULT_PROPS: SplitButtonProps = {
   actionButtonProps: {
     label: "Action Text",
-    onClick: vi.fn(),
+    onClick: vi.fn<[], void>(),
   },
   dropdownButtonProps: {
     "aria-label": "Dropdown Label",
