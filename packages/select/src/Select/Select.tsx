@@ -84,8 +84,8 @@ export const Select = ({
   defaultOpen,
   validationMessage,
   classNameOverride,
-  trigger = (triggerProps): JSX.Element => (
-    <TriggerButton {...triggerProps} ref={buttonRef} />
+  trigger = (triggerProps, triggerRef): JSX.Element => (
+    <TriggerButton {...triggerProps} ref={triggerRef} />
   ),
   children,
   ...restProps
