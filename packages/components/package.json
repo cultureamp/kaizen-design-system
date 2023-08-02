@@ -23,7 +23,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
-    "build": "yarn prepublish",
+    "build": "yarn clean && yarn prepublish",
     "test": "jest",
     "clean": "rimraf dist",
     "build:components": "rollup -c",

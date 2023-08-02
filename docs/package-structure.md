@@ -79,8 +79,7 @@ The base package.json will look like this, where:
   "description": "The {{ COMPONENT_NAME }} component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
-    
+    "build": "yarn clean && yarn prepublish",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
