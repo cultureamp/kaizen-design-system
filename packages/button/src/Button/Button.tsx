@@ -1,7 +1,6 @@
 import React, { forwardRef, Ref } from "react"
 import GenericButton, {
   GenericProps,
-  ButtonFormAttributes,
   BadgeProps,
   ButtonRef,
   WorkingProps,
@@ -9,7 +8,6 @@ import GenericButton, {
 } from "./components/GenericButton"
 
 export type ButtonProps = GenericProps &
-  ButtonFormAttributes &
   (WorkingProps | WorkingUndefinedProps) & {
     label: string
     primary?: boolean
@@ -22,7 +20,6 @@ export type ButtonProps = GenericProps &
     fullWidth?: boolean
     iconPosition?: "start" | "end"
     icon?: React.SVGAttributes<SVGSymbolElement>
-    disabled?: boolean
   }
 
 /**

@@ -5,9 +5,12 @@ import React, {
   useRef,
   ComponentType,
   FocusEvent,
+  ButtonHTMLAttributes,
+  HTMLAttributes,
   MouseEvent,
 } from "react"
 import classnames from "classnames"
+import { OverrideClassName } from "@kaizen/component-base"
 import { Icon } from "@kaizen/component-library"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
@@ -35,19 +38,22 @@ export type ButtonFormAttributes = Pick<
   | "formNoValidate"
 >
 
-export type GenericProps = {
+export type NativeButtonProps = OverrideClassName<
+  HTMLAttributes<HTMLButtonElement>
+> &
+  ButtonHTMLAttributes<HTMLButtonElement>
+
+export interface GenericProps extends NativeButtonProps {
   id?: string
   reversed?: boolean
-  onClick?: (e: MouseEvent) => void
-  onMouseDown?: (e: MouseEvent) => void
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
+  component?: ComponentType<CustomButtonProps>
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
-  component?: ComponentType<CustomButtonProps>
-  classNameOverride?: string
-  "aria-describedby"?: string
+  onClick?: (e: MouseEvent) => void
+  onMouseDown?: (e: MouseEvent) => void
 }
 
 export type ButtonType = "submit" | "reset" | "button"
