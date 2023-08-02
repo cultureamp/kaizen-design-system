@@ -28,7 +28,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
-      skip: ${{ steps.publishChromatic.outputs.code }} == 0
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -78,7 +77,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: chromatic
-    if: needs.chromatic.outputs.skip
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -92,7 +90,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: chromatic
-    if: needs.chromatic.outputs.skip
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -106,7 +103,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: chromatic
-    if: needs.chromatic.outputs.skip
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
