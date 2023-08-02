@@ -3,10 +3,10 @@ import { LabelledMessage } from "~components/LabelledMessage"
 import { DateValidationResponse, ValidationMessage } from "../types"
 import { getDateValidationHandler } from "./getDateValidationHandler"
 
-const onValidate = vi.fn<void, [DateValidationResponse]>()
+const onValidate = vi.fn<[DateValidationResponse], void>()
 const setInbuiltValidationMessage = vi.fn<
-  void,
-  [ValidationMessage | undefined]
+  [ValidationMessage | undefined],
+  void
 >()
 
 describe("getDateValidationHandler()", () => {

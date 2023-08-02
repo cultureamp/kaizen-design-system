@@ -73,8 +73,8 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates start date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = vi.fn<void, [FocusEvent]>()
-        const endDateOnBlur = vi.fn<void, [FocusEvent]>()
+        const startDateOnBlur = vi.fn<[FocusEvent], void>()
+        const endDateOnBlur = vi.fn<[FocusEvent], void>()
 
         render(
           <FilterDateRangePickerFieldWrapper
@@ -113,8 +113,8 @@ describe("<FilterDateRangePickerField />", () => {
       })
 
       it("updates end date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = vi.fn<void, [FocusEvent]>()
-        const endDateOnBlur = vi.fn<void, [FocusEvent]>()
+        const startDateOnBlur = vi.fn<[FocusEvent], void>()
+        const endDateOnBlur = vi.fn<[FocusEvent], void>()
 
         render(
           <FilterDateRangePickerFieldWrapper

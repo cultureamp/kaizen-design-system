@@ -142,7 +142,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = vi.fn<void, [React.Key]>()
+    const onChange = vi.fn<[React.Key], void>()
     const { getByRole } = render(
       <FilterBarSelectWrapper onSelectionChange={onChange} />
     )

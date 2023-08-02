@@ -140,7 +140,7 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = vi.fn<void, [Date | undefined]>()
+    const onChange = vi.fn<[Date | undefined], void>()
     const { getByRole } = render(
       <FilterBarDatePickerWrapper onDateChange={onChange} />
     )

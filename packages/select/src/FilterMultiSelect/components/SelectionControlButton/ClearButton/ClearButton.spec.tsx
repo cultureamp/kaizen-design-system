@@ -1,6 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { Mock } from "vitest"
 import { useSelectionContext } from "../../../provider"
 import { ClearButton } from "./"
 
@@ -18,7 +19,7 @@ describe("<ClearButton /> - interaction", () => {
       const selectedButNotFocused = "selectedButNotFocused"
       const selectedKeys: string[] = [selectedAndFocused, selectedButNotFocused]
       const filteredKeys: string[] = [selectedAndFocused]
-      ;(useSelectionContext as vi.Mock).mockReturnValue({
+      ;(useSelectionContext as Mock).mockReturnValue({
         selectionState: {
           collection: {
             getKeys: () => filteredKeys,
@@ -46,7 +47,7 @@ describe("<ClearButton /> - interaction", () => {
       const spy = vi.fn()
       const filteredKeys: string[] = []
       const selectedKeys: string[] = []
-      ;(useSelectionContext as vi.Mock).mockReturnValue({
+      ;(useSelectionContext as Mock).mockReturnValue({
         selectionState: {
           collection: {
             getKeys: () => filteredKeys,

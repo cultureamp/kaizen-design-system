@@ -1,10 +1,13 @@
 import React from "react"
 import { render } from "@testing-library/react"
+import { Mock } from "vitest"
 import * as AppearanceAnim from "./AppearanceAnim"
 import { Tooltip } from "./index"
 import "@testing-library/jest-dom"
+
 vi.mock("./AppearanceAnim")
-const AnimationProvider = AppearanceAnim.AnimationProvider as vi.Mock
+
+const AnimationProvider = AppearanceAnim.AnimationProvider as Mock
 
 describe("<Tooltip /> animationDuration", () => {
   beforeEach(() => {
