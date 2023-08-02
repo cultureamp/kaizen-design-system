@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: chromatic
-    if: needs.chromatic.outputs.code != 0
+    if: needs.chromatic.outputs.code != "0"
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -93,7 +93,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: chromatic
-    if: needs.chromatic.outputs.code != 0
+    if: needs.chromatic.outputs.code != "0"
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
@@ -107,7 +107,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     needs: chromatic
-    if: needs.chromatic.outputs.code != 0
+    if: needs.chromatic.outputs.code != "0"
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
