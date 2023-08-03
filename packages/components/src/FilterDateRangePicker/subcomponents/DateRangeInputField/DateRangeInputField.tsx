@@ -1,5 +1,6 @@
-import React, { HTMLAttributes } from "react"
+import React, { HTMLAttributes, useState } from "react"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
 import {
   DateInput,
@@ -20,7 +21,7 @@ import styles from "./DateRangeInputField.module.scss"
 
 export interface DateRangeInputFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  id: string
+  id?: string
   legend: string
 
   inputStartDateProps: Omit<DateInputProps, "id">
@@ -47,7 +48,7 @@ export const DateRangeInputField = React.forwardRef<
 >(
   (
     {
-      id,
+      id: propsId,
       legend,
       inputStartDateProps,
       inputEndDateProps,
@@ -61,6 +62,7 @@ export const DateRangeInputField = React.forwardRef<
     },
     ref
   ) => {
+    const [id] = useState<string>(propsId || v4())
     const customRefObject = isRefObject(ref) ? ref.current : null
     const inputStartDateRef = customRefObject?.inputStartDateRef
     const inputEndDateRef = customRefObject?.inputEndDateRef
