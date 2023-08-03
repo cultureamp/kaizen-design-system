@@ -1,5 +1,29 @@
 # Change Log
 
+## 1.20.4
+
+### Patch Changes
+
+- [#3925](https://github.com/cultureamp/kaizen-design-system/pull/3925) [`21b0276c7`](https://github.com/cultureamp/kaizen-design-system/commit/21b0276c7472e188ef9f4fc01027c1de95479c06) - Update dependencies
+
+## 1.20.3
+
+### Patch Changes
+
+- [#3934](https://github.com/cultureamp/kaizen-design-system/pull/3934) [`32fc86349`](https://github.com/cultureamp/kaizen-design-system/commit/32fc86349f5228327da27766211ef172a86cc5e8) - Move `classNameOverride` to outer container of FilterMultiSelect removable trigger button.
+
+## 1.20.2
+
+### Patch Changes
+
+- [#3895](https://github.com/cultureamp/kaizen-design-system/pull/3895) [`121ceabee`](https://github.com/cultureamp/kaizen-design-system/commit/121ceabee5ba09fa85b7769ac855cc968777c053) - Bump dependencies
+
+## 1.20.1
+
+### Patch Changes
+
+- [#3911](https://github.com/cultureamp/kaizen-design-system/pull/3911) [`096b6bde8`](https://github.com/cultureamp/kaizen-design-system/commit/096b6bde8b795daa33dd91a5ea86a3b5de4461e9) - Add new translations
+
 ## 1.20.0
 
 ### Minor Changes

@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Date de début"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Date de fin"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Format de saisie"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "contactez l'assistance"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Désolé, nous ne pouvons pas traiter votre demande. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Votre demande s'est perdue."
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Désolé, nous ne pouvons pas vérifier si vous avez l'autorisation d'afficher cette page. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Vous ne pouvez pas afficher cette page."
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Désolé, il semble que vous n'ayez pas l'autorisation d'afficher cette page. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Vous ne pouvez pas afficher cette page."
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Désolé, nous ne trouvons pas la page que vous recherchez. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Les pages manquantes, ce sont des choses qui arrivent."
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Désolé, nous n'avons pas pu effectuer votre modification. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Le changement n'est jamais une chose facile."
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Désolé, il y a un problème avec notre système et cette page ne peut pas être affichée. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Un problème est survenu de notre côté."
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nous en sommes désolés. La meilleure chose à faire est de revenir en arrière et de réessayer."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Vous ne pouvez pas afficher cette page."
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nous en sommes désolés. La meilleure chose à faire est de revenir en arrière et de réessayer."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Vous ne pouvez pas afficher cette page."
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nous en sommes désolés. La meilleure chose à faire est de revenir en arrière et de réessayer."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Vous ne pouvez pas afficher cette page."
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Code d'erreur {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Retour à la page d'accueil"
   }
 }

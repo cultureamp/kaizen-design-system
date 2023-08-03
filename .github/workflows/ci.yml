@@ -19,6 +19,7 @@ on:
 
 jobs:
   typescript:
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -27,6 +28,7 @@ jobs:
       - run: yarn compile
 
   eslint:
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -35,6 +37,7 @@ jobs:
       - run: yarn lint:ts
 
   prettier:
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -43,6 +46,7 @@ jobs:
       - run: yarn lint:format
 
   stylelint:
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -52,6 +56,7 @@ jobs:
 
   jest-react-16--1:
     name: jest-react-16
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -61,6 +66,7 @@ jobs:
 
   jest-react-16--2:
     name: jest-react-16
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -70,6 +76,7 @@ jobs:
 
   jest-react-17--1:
     name: jest-react-17
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -79,6 +86,7 @@ jobs:
 
   jest-react-17--2:
     name: jest-react-17
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -88,6 +96,7 @@ jobs:
 
   jest-react-18:
     name: jest-react-18
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -96,6 +105,7 @@ jobs:
       - run: yarn test:ci
 
   kaio-build:
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
