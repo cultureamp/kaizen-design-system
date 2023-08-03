@@ -1,6 +1,7 @@
 import * as React from "react"
 import { render, screen } from "@testing-library/react"
-import GenericButton, { ButtonFormAttributes } from "./GenericButton"
+import { ButtonFormAttributes } from "../types"
+import GenericButton from "./GenericButton"
 
 describe("<GenericButton />", () => {
   it("renders the custom component element when passed the component prop", () => {
