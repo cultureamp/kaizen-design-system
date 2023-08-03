@@ -7,7 +7,7 @@ import {
   getLocale,
 } from "@kaizen/date-picker"
 import { FilterProps } from "~components/Filter"
-import { useDateValidation } from "~components/FilterDatePicker"
+import { useDateValidation } from "~components/FilterDatePicker/hooks/useDateValidation"
 import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
 import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
