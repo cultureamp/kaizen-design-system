@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.0-$LABEL-20230803015631
+
+### Patch Changes
+
+- [#3949](https://github.com/cultureamp/kaizen-design-system/pull/3949) [`187b6574a`](https://github.com/cultureamp/kaizen-design-system/commit/187b6574ad29538a347e3bfa689575cc03a9f905) - Tester
+
 ## 1.20.4
 
 ### Patch Changes
