@@ -3,9 +3,9 @@
   "version": "1.0.5",
   "description": "Kaizen Tailwind presets",
   "scripts": {
-    "build": "yarn prepublish",
+    "build": "yarn clean && yarn prepublishOnly",
     "build:ts": "tsc --project tsconfig.dist.json",
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
