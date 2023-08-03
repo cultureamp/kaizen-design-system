@@ -18,6 +18,7 @@ module.exports = {
     "^__@cultureamp/i18n-react-intl/locales/(.*)":
       "<rootDir>/packages/components/locales/$1",
   },
+  globalThis: { vi: {} },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
 }
 
