@@ -14,7 +14,7 @@ import { isValidWeekStartsOn } from "./utils/isValidWeekStartsOn"
 export type LegacyCalendarRangeElement = HTMLDivElement
 
 export type LegacyCalendarRangeProps = {
-  id: string
+  id?: string
   classNameOverride?: string
   defaultMonth?: Date
   weekStartsOn?: DayOfWeek

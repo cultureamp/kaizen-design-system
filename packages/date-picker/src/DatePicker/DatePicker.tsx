@@ -1,6 +1,7 @@
 import React, { RefObject, useEffect, useRef, useState } from "react"
 import { DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
+import { v4 } from "uuid"
 import {
   CalendarSingle,
   CalendarSingleElement,
@@ -39,7 +40,6 @@ type OmittedDateInputFieldProps =
 export interface DatePickerProps
   extends DisabledDayMatchers,
     Omit<DateInputFieldProps, OmittedDateInputFieldProps> {
-  id: string
   buttonRef?: RefObject<HTMLButtonElement>
   onInputClick?: DateInputFieldProps["onClick"]
   onInputFocus?: DateInputFieldProps["onFocus"]
@@ -85,7 +85,7 @@ export interface DatePickerProps
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-picker--default-story Storybook}
  */
 export const DatePicker = ({
-  id,
+  id: propsId,
   buttonRef: propsButtonRef = useRef<HTMLButtonElement>(null),
   locale: propsLocale,
   disabledDates,
@@ -108,6 +108,7 @@ export const DatePicker = ({
   onValidate,
   ...restDateInputFieldProps
 }: DatePickerProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
   const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(propsButtonRef?.current || null)
