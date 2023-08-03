@@ -27,12 +27,6 @@ jobs:
           version: yarn ci:version
           publish: yarn ci:publish
           createGithubReleases: true
-  push-tags:
-    runs-on: ubuntu-latest
-    needs: version
-    if: needs.version.outputs.published == 'true'
-    steps:
-      - uses: actions/checkout@v3
       - run: git push --follow-tags
   slack-notify:
     runs-on: ubuntu-latest
