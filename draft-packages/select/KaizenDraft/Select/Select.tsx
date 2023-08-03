@@ -141,7 +141,7 @@ export const AsyncSelect = React.forwardRef(
         MultiValue,
         IndicatorsContainer,
         ValueContainer,
-        ClearIndicator: undefined,
+        ClearIndicator,
         IndicatorSeparator: null,
         LoadingMessage,
       }}
