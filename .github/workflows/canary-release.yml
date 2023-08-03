@@ -28,4 +28,3 @@ jobs:
           commit: "version packages"
           version: yarn ci:version --snapshot "$LABEL"
           publish: yarn ci:publish --tag "$LABEL"
-      - run: git push --follow-tags
