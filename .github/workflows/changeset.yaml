@@ -26,7 +26,6 @@ jobs:
           commit: "version packages"
           version: yarn ci:version
           publish: yarn ci:publish
-          createGithubReleases: true
       - run: git push --follow-tags
   slack-notify:
     runs-on: ubuntu-latest
