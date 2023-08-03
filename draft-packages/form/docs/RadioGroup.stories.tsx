@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { Paragraph } from "packages/typography"
 import { RadioField, RadioGroup } from "@kaizen/draft-form"
+import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 type RenderProps = {
