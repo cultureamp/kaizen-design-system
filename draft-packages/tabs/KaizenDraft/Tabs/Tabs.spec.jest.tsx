@@ -22,7 +22,7 @@ describe("<Tabs /> - snapshots", () => {
   })
 
   it("renders a tab with an onClick", async () => {
-    const onClick = jest.fn()
+    const onClick = vi.fn()
     const tabs = [{ label: "One", onClick }, { label: "Two" }]
     const { container } = render(<Tabs tabs={tabs} />)
     expect(container.firstChild).toMatchSnapshot()

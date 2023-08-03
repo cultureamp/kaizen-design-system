@@ -7,7 +7,7 @@ const user = userEvent.setup()
 
 describe("<Action />", () => {
   it("renders anchor tag with href and onClick when both is provided", async () => {
-    const onClickMock = jest.fn()
+    const onClickMock = vi.fn()
     const { getByRole } = render(
       <Action
         action={{
@@ -27,7 +27,7 @@ describe("<Action />", () => {
   })
 
   it("renders a button when href is not provided", async () => {
-    const onClickMock = jest.fn()
+    const onClickMock = vi.fn()
     const { getByRole } = render(
       <Action
         action={{

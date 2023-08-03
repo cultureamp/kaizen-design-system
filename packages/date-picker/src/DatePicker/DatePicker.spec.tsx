@@ -355,7 +355,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not show inbuilt validation message when onValidate is set", () => {
-      const onValidate = jest.fn<void, [ValidationResponse]>()
+      const onValidate = vi.fn<[ValidationResponse], void>()
       render(<DatePickerWrapper onValidate={onValidate} />)
       expect(screen.queryByTitle("error message")).not.toBeInTheDocument()
       expect(
@@ -364,7 +364,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when initial selected date is invalid", () => {
-      const onValidate = jest.fn<void, [ValidationResponse]>()
+      const onValidate = vi.fn<[ValidationResponse], void>()
       render(
         <DatePickerWrapper
           onValidate={onValidate}
@@ -375,7 +375,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when initial selected date is disabled", () => {
-      const onValidate = jest.fn<void, [ValidationResponse]>()
+      const onValidate = vi.fn<[ValidationResponse], void>()
       render(
         <DatePickerWrapper
           onValidate={onValidate}
@@ -387,7 +387,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not trigger validation when initial selected date is empty", () => {
-      const onValidate = jest.fn<void, [ValidationResponse]>()
+      const onValidate = vi.fn<[ValidationResponse], void>()
       render(
         <DatePickerWrapper onValidate={onValidate} selectedDay={undefined} />
       )
@@ -395,7 +395,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("does not trigger validation when initial selected date is valid", () => {
-      const onValidate = jest.fn<void, [ValidationResponse]>()
+      const onValidate = vi.fn<[ValidationResponse], void>()
       render(
         <DatePickerWrapper
           onValidate={onValidate}
@@ -406,7 +406,7 @@ describe("<DatePicker /> - Validation", () => {
     })
 
     it("triggers validation when selected date is updated to invalid", async () => {
-      const onValidate = jest.fn<void, [ValidationResponse]>()
+      const onValidate = vi.fn<[ValidationResponse], void>()
       render(
         <DatePickerWrapper
           onValidate={onValidate}

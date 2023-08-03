@@ -7,13 +7,13 @@ import { SelectAllButton } from "."
 const user = userEvent.setup()
 
 jest.mock("../../../provider", () => ({
-  useSelectionContext: jest.fn(),
+  useSelectionContext: vi.fn(),
 }))
 
 describe("<SelectAllButton /> - interaction", () => {
   describe("Given not all options are selected", () => {
     it("triggers selectionManager.setSelectedKeys() with currently selected and filtered options when button is clicked", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const selectedAndFiltered = "selectedAndFiltered"
       const filteredButNotSelected = "focusedButNotSelected"
       const selectedButNotFiltered = "selectedButNotFiltered"
@@ -45,7 +45,7 @@ describe("<SelectAllButton /> - interaction", () => {
 
   describe("Given all filtered options are selected", () => {
     it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const selectedAndFiltered1 = "selectedAndFiltered1"
       const selectedAndFiltered2 = "selectedAndFocused2"
       const selectedKeys = [selectedAndFiltered1, selectedAndFiltered2]
@@ -74,7 +74,7 @@ describe("<SelectAllButton /> - interaction", () => {
 
   describe("Given some options are disabled", () => {
     it("triggers selectionManager.setSelectedKeys() on non-disabled options", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const filtered = "filtered"
       const filteredAndSelected = "filteredAndSelected"
       const filteredAndDisabled = "filteredAndDisabled"

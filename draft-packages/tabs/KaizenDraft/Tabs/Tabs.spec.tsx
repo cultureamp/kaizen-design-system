@@ -24,7 +24,7 @@ describe("<Tabs />", () => {
   })
 
   it("renders a tab with an onClick", async () => {
-    const onClick = jest.fn()
+    const onClick = vi.fn()
     const tabs = [{ label: "One", onClick }, { label: "Two" }]
     const { getByText } = render(<Tabs tabs={tabs} />)
     await user.click(getByText("One"))

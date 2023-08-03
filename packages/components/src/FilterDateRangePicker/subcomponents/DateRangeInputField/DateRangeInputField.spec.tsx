@@ -74,9 +74,9 @@ describe("<DateRangeInputField />", () => {
 
   describe("Refs", () => {
     it("correctly passes through both input refs", async () => {
-      const onButtonClick = jest.fn<
-        void,
-        [string | undefined, string | undefined]
+      const onButtonClick = vi.fn<
+        [string | undefined, string | undefined],
+        void
       >()
 
       const Wrapper = (): JSX.Element => {

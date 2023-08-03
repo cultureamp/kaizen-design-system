@@ -73,7 +73,7 @@ describe("<Select>", () => {
       })
 
       it("fires the onOpenChange callback when the trigger is interacted", async () => {
-        const onOpenChange = jest.fn<void, [boolean]>()
+        const onOpenChange = vi.fn<[boolean], void>()
         render(
           <SelectWrapper
             selectedKey="id-sre"
@@ -254,7 +254,7 @@ describe("<Select>", () => {
 
     describe("Selection - Mouse interaction", () => {
       it("fires onSelectionChange when clicks on a option", async () => {
-        const spy = jest.fn()
+        const spy = vi.fn()
         render(<SelectWrapper defaultOpen onSelectionChange={spy} />)
         const option1 = screen.getByRole("option", {
           name: "SRE",
@@ -328,7 +328,7 @@ describe("<Select>", () => {
       })
 
       it("fires onSelectionChange when hits enter on a option", async () => {
-        const spy = jest.fn()
+        const spy = vi.fn()
         render(<SelectWrapper onSelectionChange={spy} defaultOpen />)
         const trigger = screen.getByRole("combobox", {
           name: "Mock Label Select",

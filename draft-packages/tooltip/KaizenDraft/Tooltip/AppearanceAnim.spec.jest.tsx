@@ -10,7 +10,7 @@ let mockReturnValue: Record<string, any>
 
 describe("<AnimationProvider />", () => {
   beforeEach(() => {
-    mockReturnValue = jest.fn()
+    mockReturnValue = vi.fn()
     mockReturnValue.cancel = (): void => undefined
     useDebouncedCallback.mockImplementation(() => mockReturnValue)
   })

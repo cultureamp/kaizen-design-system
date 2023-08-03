@@ -4,9 +4,7 @@ import { TextArea } from "./index"
 
 describe("<TextArea />", () => {
   it("renders a value when component is controlled", () => {
-    const { getByText } = render(
-      <TextArea value="Coffee" onChange={jest.fn()} />
-    )
+    const { getByText } = render(<TextArea value="Coffee" onChange={vi.fn()} />)
     expect(getByText("Coffee")).toBeVisible()
   })
 

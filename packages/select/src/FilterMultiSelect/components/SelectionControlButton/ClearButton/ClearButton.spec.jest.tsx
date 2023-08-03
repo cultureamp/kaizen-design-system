@@ -7,13 +7,13 @@ import { ClearButton } from "./"
 const user = userEvent.setup()
 
 jest.mock("../../../provider", () => ({
-  useSelectionContext: jest.fn(),
+  useSelectionContext: vi.fn(),
 }))
 
 describe("<ClearButton /> - interaction", () => {
   describe("Given selection is not empty", () => {
     it("triggers selectionManager.selSelectedKeys() with focused keys filtered out when button is clicked", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const selectedAndFocused = "selectedAndFocused"
       const selectedButNotFocused = "selectedButNotFocused"
       const selectedKeys: string[] = [selectedAndFocused, selectedButNotFocused]
@@ -43,7 +43,7 @@ describe("<ClearButton /> - interaction", () => {
 
   describe("Given selection is empty", () => {
     it("does not trigger selectionManager.setSelectedKeys() when clicks on the button", async () => {
-      const spy = jest.fn()
+      const spy = vi.fn()
       const filteredKeys: string[] = []
       const selectedKeys: string[] = []
       ;(useSelectionContext as jest.Mock).mockReturnValue({

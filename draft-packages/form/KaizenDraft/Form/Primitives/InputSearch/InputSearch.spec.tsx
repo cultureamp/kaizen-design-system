@@ -3,7 +3,7 @@ import { render } from "@testing-library/react"
 import { InputSearchProps } from "./InputSearch"
 import { InputSearch } from "."
 
-const onChange = jest.fn()
+const onChange = vi.fn()
 
 const InputSearchWrapper = (props?: Partial<InputSearchProps>): JSX.Element => (
   <InputSearch id="id__inputsearch" onChange={onChange} {...props} />

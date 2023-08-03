@@ -6,12 +6,12 @@ import { usePausePlay, usePausePlayHook } from "./usePausePlay"
 
 describe("usePausePlay()", () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   let hookResult: usePausePlayHook
-  const mockPause = jest.fn()
-  const mockPlay = jest.fn()
+  const mockPause = vi.fn()
+  const mockPlay = vi.fn()
 
   describe("when toggling a currently playing video", () => {
     beforeEach(() => {

@@ -11,7 +11,7 @@ jest.mock("@kaizen/draft-badge", () => ({
 }))
 
 jest.mock("@react-aria/listbox", () => ({
-  useOption: jest.fn(),
+  useOption: vi.fn(),
 }))
 
 jest.mock("../../provider", () => ({

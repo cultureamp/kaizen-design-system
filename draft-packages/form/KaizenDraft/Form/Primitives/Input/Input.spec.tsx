@@ -3,7 +3,7 @@ import { render } from "@testing-library/react"
 import { InputProps } from "./Input"
 import { Input } from "."
 
-const onChange = jest.fn()
+const onChange = vi.fn()
 
 const InputWrapper = (props?: Partial<InputProps>): JSX.Element => (
   <Input onChange={onChange} {...props} />
