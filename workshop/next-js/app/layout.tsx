@@ -1,4 +1,4 @@
-import React from "react"
+import React, { StrictMode } from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -17,7 +17,9 @@ export default function RootLayout({
 }): React.ReactNode {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StrictMode>{children}</StrictMode>
+      </body>
     </html>
   )
 }
