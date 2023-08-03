@@ -68,15 +68,6 @@ jobs:
       - uses: ./.github/actions/setup
       - run: yarn ci:test:react-16 --shard=2/2
 
-  jest-react-16--aio:
-    name: jest-react-16
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
-      - run: yarn pkg:aio ci:test:react-16
-
   jest-react-17--1:
     name: jest-react-17
     runs-on: ubuntu-latest
@@ -95,38 +86,19 @@ jobs:
       - uses: ./.github/actions/setup
       - run: yarn ci:test:react-17 --shard=2/2
 
-  jest-react-17--aio:
-    name: jest-react-17
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
-      - run: yarn pkg:aio ci:test:react-17
-
-  jest-react-18--1:
+  jest-react-18:
     name: jest-react-18
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn test:ci --shard=1/2
+      - run: yarn test:ci
 
-  jest-react-18--2:
-    name: jest-react-18
+  kaio-build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn test:ci --shard=2/2
-
-  jest-react-18--aio:
-    name: jest-react-18
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
-      - run: yarn pkg:aio test:ci
+      - run: yarn test:pkg:aio
