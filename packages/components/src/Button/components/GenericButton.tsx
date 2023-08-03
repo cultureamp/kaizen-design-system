@@ -4,12 +4,94 @@ import React, {
   Ref,
   useImperativeHandle,
   useRef,
+  MouseEvent,
+  FocusEvent,
 } from "react"
 import classnames from "classnames"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { ButtonRef, CustomButtonProps, Props } from "../types"
 import styles from "./GenericButton.module.scss"
+
+export type CustomButtonProps = {
+  id?: string
+  className: string
+  href?: string
+  disabled?: boolean
+  onClick?: (e: MouseEvent<any>) => void
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+  children?: React.ReactNode
+}
+
+export type ButtonFormAttributes = Pick<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  | "form"
+  | "formAction"
+  | "formMethod"
+  | "formEncType"
+  | "formTarget"
+  | "formNoValidate"
+>
+
+export type GenericProps = {
+  id?: string
+  reversed?: boolean
+  onClick?: (e: MouseEvent) => void
+  onMouseDown?: (e: MouseEvent) => void
+  href?: string
+  newTabAndIUnderstandTheAccessibilityImplications?: boolean
+  disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+  component?: ComponentType<CustomButtonProps>
+  classNameOverride?: string
+}
+
+export type ButtonType = "submit" | "reset" | "button"
+
+export type WorkingProps = {
+  working: true
+  workingLabel: string
+  workingLabelHidden?: boolean
+}
+
+export type WorkingUndefinedProps = {
+  working?: false
+}
+
+export type BadgeProps = {
+  text: string
+  animateChange?: boolean
+  variant?: "default" | "dark" | "active"
+  reversed?: boolean
+}
+
+export type RenderProps = ButtonProps & {
+  additionalContent?: React.ReactNode
+  iconButton?: boolean
+  directionalLink?: boolean
+  paginationLink?: boolean
+  isActive?: boolean
+}
+
+export type ButtonRef = { focus: () => void }
+
+export type ButtonProps = GenericProps &
+  ButtonFormAttributes &
+  (WorkingProps | WorkingUndefinedProps) & {
+    label: string
+    primary?: boolean
+    destructive?: boolean
+    secondary?: boolean
+    /** @default "regular" */
+    size?: "small" | "regular"
+    badge?: BadgeProps
+    type?: "submit" | "reset" | "button"
+    fullWidth?: boolean
+    iconPosition?: "start" | "end"
+    icon?: JSX.Element
+    disabled?: boolean
+  }
 
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
@@ -22,7 +104,7 @@ const getCustomProps = (props: Record<string, any>): Record<string, string> => {
 }
 
 const GenericButton = forwardRef(
-  (props: Props, ref: Ref<ButtonRef | undefined>) => {
+  (props: RenderProps, ref: Ref<ButtonRef | undefined>) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     useImperativeHandle(ref, () => ({
       focus: (): void => {
@@ -69,7 +151,7 @@ GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
   CustomComponent: ComponentType<CustomButtonProps>,
-  props: Props
+  props: RenderProps
 ): JSX.Element => {
   const { id, disabled, href, onClick, onFocus, onBlur, ...rest } = props
   const customProps = getCustomProps(rest)
@@ -91,7 +173,7 @@ const renderCustomComponent = (
 }
 
 const renderButton = (
-  props: Props,
+  props: RenderProps,
   ref: Ref<HTMLButtonElement>
 ): JSX.Element => {
   const {
@@ -145,7 +227,10 @@ const renderButton = (
   )
 }
 
-const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
+const renderLink = (
+  props: RenderProps,
+  ref: Ref<HTMLAnchorElement>
+): JSX.Element => {
   const {
     id,
     href,
@@ -180,7 +265,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>): JSX.Element => {
   )
 }
 
-const buttonClass = (props: Props): string => {
+const buttonClass = (props: RenderProps): string => {
   const isDefault = !props.primary && !props.destructive && !props.secondary
   return classnames(
     styles.button,
@@ -207,7 +292,7 @@ const renderLoadingSpinner = (): JSX.Element => (
 )
 
 const renderWorkingContent = (
-  props: Extract<Props, { working: true }>
+  props: Extract<RenderProps, { working: true }>
 ): JSX.Element => {
   if (props.workingLabelHidden) {
     return (
@@ -237,7 +322,7 @@ const renderWorkingContent = (
   )
 }
 
-const renderDefaultContent = (props: Props): JSX.Element => (
+const renderDefaultContent = (props: RenderProps): JSX.Element => (
   <>
     {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
     {(!props.icon || !props.iconButton) && (
@@ -253,7 +338,7 @@ const renderDefaultContent = (props: Props): JSX.Element => (
   </>
 )
 
-const renderBadge = (props: Props): JSX.Element | null => {
+const renderBadge = (props: RenderProps): JSX.Element | null => {
   if (!props.badge) return null
 
   const { text, animateChange, reversed, variant } = props.badge
@@ -272,7 +357,7 @@ const renderBadge = (props: Props): JSX.Element | null => {
   )
 }
 
-const renderContent = (props: Props): JSX.Element => (
+const renderContent = (props: RenderProps): JSX.Element => (
   <span className={styles.content}>
     {props.working ? renderWorkingContent(props) : renderDefaultContent(props)}
   </span>
@@ -285,7 +370,7 @@ const renderIcon = (icon: JSX.Element): JSX.Element => (
 // We only want an aria-label in the case that the button has just an icon and no text
 // This can happen when the button is working and workingLabelHidden is true,
 // or when this is an IconButton
-const generateAriaLabel = (props: Props): string | undefined => {
+const generateAriaLabel = (props: RenderProps): string | undefined => {
   if (props.working && props.workingLabelHidden) {
     return props.workingLabel
   }
