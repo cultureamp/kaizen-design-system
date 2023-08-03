@@ -48,6 +48,7 @@ export interface CollapsibleProps
 
 type State = {
   open: boolean
+  id: string
 }
 
 /**
