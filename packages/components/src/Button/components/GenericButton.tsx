@@ -1,81 +1,15 @@
 import React, {
+  ComponentType,
   forwardRef,
   Ref,
   useImperativeHandle,
   useRef,
-  ComponentType,
-  FocusEvent,
-  MouseEvent,
 } from "react"
 import classnames from "classnames"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { ButtonProps } from "../Button"
+import { ButtonRef, CustomButtonProps, Props } from "../types"
 import styles from "./GenericButton.module.scss"
-
-export type CustomButtonProps = {
-  id?: string
-  className: string
-  href?: string
-  disabled?: boolean
-  onClick?: (e: MouseEvent<any>) => void
-  onFocus?: (e: FocusEvent<HTMLElement>) => void
-  onBlur?: (e: FocusEvent<HTMLElement>) => void
-  children?: React.ReactNode
-}
-
-export type ButtonFormAttributes = Pick<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  | "form"
-  | "formAction"
-  | "formMethod"
-  | "formEncType"
-  | "formTarget"
-  | "formNoValidate"
->
-
-export type GenericProps = {
-  id?: string
-  reversed?: boolean
-  onClick?: (e: MouseEvent) => void
-  onMouseDown?: (e: MouseEvent) => void
-  href?: string
-  newTabAndIUnderstandTheAccessibilityImplications?: boolean
-  disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
-  onFocus?: (e: FocusEvent<HTMLElement>) => void
-  onBlur?: (e: FocusEvent<HTMLElement>) => void
-  component?: ComponentType<CustomButtonProps>
-  classNameOverride?: string
-}
-
-export type ButtonType = "submit" | "reset" | "button"
-
-export type WorkingProps = {
-  working: true
-  workingLabel: string
-  workingLabelHidden?: boolean
-}
-
-export type WorkingUndefinedProps = {
-  working?: false
-}
-
-type Props = ButtonProps & {
-  additionalContent?: React.ReactNode
-  iconButton?: boolean
-  directionalLink?: boolean
-  paginationLink?: boolean
-  isActive?: boolean
-}
-
-export type BadgeProps = {
-  text: string
-  animateChange?: boolean
-  variant?: "default" | "dark" | "active"
-  reversed?: boolean
-}
-
-export type ButtonRef = { focus: () => void }
 
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*

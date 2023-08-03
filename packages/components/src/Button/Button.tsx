@@ -1,12 +1,13 @@
 import React, { forwardRef, Ref } from "react"
-import GenericButton, {
-  GenericProps,
-  ButtonFormAttributes,
+import GenericButton from "./components/GenericButton"
+import {
   BadgeProps,
+  ButtonFormAttributes,
   ButtonRef,
+  GenericProps,
   WorkingProps,
   WorkingUndefinedProps,
-} from "./components/GenericButton"
+} from "./types"
 
 export type ButtonProps = GenericProps &
   ButtonFormAttributes &
