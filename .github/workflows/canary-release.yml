@@ -18,14 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: echo "Creating a canary release - $LABEL"
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         run: |
           npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
-      - uses: changesets/action@v1
-        with:
-          title: "Changeset: Version packages"
-          commit: "version packages"
-          version: yarn turbo build && yarn changeset version --snapshot "$LABEL"
-          publish: yarn turbo build && yarn changeset --tag "$LABEL"
+      - run: |
+          echo "Releasing canary for $LABEL"
+          yarn build
+          yarn changeset version --snapshot "$LABEL"
+          yarn changeset publish --tag "$LABEL"
