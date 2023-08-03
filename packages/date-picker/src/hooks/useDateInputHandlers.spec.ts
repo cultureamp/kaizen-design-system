@@ -5,8 +5,8 @@ import * as isSelectingDayInCalendar from "../utils/isSelectingDayInCalendar"
 import { useDateInputHandlers } from "./useDateInputHandlers"
 
 const locale = enAU
-const setInputValue = jest.fn<[SetStateAction<string>], void>()
-const onDateChange = jest.fn<[Date | undefined], void>()
+const setInputValue = jest.fn<void, [SetStateAction<string>]>()
+const onDateChange = jest.fn<void, [Date | undefined]>()
 
 describe("useDateInputHandlers", () => {
   beforeEach(() => {
@@ -34,7 +34,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onChange when provided", () => {
-      const onChangeMock = jest.fn<[ChangeEvent], void>()
+      const onChangeMock = jest.fn<void, [ChangeEvent]>()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -97,7 +97,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onFocus when provided", () => {
-      const onFocusMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onFocusMock = jest.fn<void, [FocusEvent<HTMLInputElement>]>()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({
@@ -122,7 +122,7 @@ describe("useDateInputHandlers", () => {
 
   describe("onBlur", () => {
     it("does not do anything when selecting a day in the calendar", () => {
-      const onBlurMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onBlurMock = jest.fn<void, [FocusEvent<HTMLInputElement>]>()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -238,7 +238,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onBlur when provided on input with value", () => {
-      const onBlurMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onBlurMock = jest.fn<void, [FocusEvent<HTMLInputElement>]>()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -260,7 +260,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onBlur when provided on empty", () => {
-      const onBlurMock = jest.fn<[FocusEvent<HTMLInputElement>], void>()
+      const onBlurMock = jest.fn<void, [FocusEvent<HTMLInputElement>]>()
       const { result } = renderHook(() =>
         useDateInputHandlers({
           locale,
@@ -324,7 +324,7 @@ describe("useDateInputHandlers", () => {
     })
 
     it("calls custom onKeyDown when provided", () => {
-      const onKeyDownMock = jest.fn<[KeyboardEvent], void>()
+      const onKeyDownMock = jest.fn<void, [KeyboardEvent]>()
 
       const { result } = renderHook(() =>
         useDateInputHandlers({

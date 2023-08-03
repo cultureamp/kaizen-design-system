@@ -73,8 +73,8 @@ describe("<FilterDateRangePickerField />", () => {
 
     describe("onBlur", () => {
       it("updates start date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = jest.fn<[FocusEvent], void>()
-        const endDateOnBlur = jest.fn<[FocusEvent], void>()
+        const startDateOnBlur = jest.fn<void, [FocusEvent]>()
+        const endDateOnBlur = jest.fn<void, [FocusEvent]>()
 
         render(
           <FilterDateRangePickerFieldWrapper
@@ -113,8 +113,8 @@ describe("<FilterDateRangePickerField />", () => {
       })
 
       it("updates end date input and calendar values correctly on blur", async () => {
-        const startDateOnBlur = jest.fn<[FocusEvent], void>()
-        const endDateOnBlur = jest.fn<[FocusEvent], void>()
+        const startDateOnBlur = jest.fn<void, [FocusEvent]>()
+        const endDateOnBlur = jest.fn<void, [FocusEvent]>()
 
         render(
           <FilterDateRangePickerFieldWrapper

@@ -185,7 +185,7 @@ describe("<FilterBarMultiSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn<[Selection], void>()
+    const onChange = jest.fn<void, [Selection]>()
     const { getByRole } = render(
       <FilterBarMultiSelectWrapper onSelectionChange={onChange} />
     )

@@ -142,7 +142,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn<[React.Key], void>()
+    const onChange = jest.fn<void, [React.Key]>()
     const { getByRole } = render(
       <FilterBarSelectWrapper onSelectionChange={onChange} />
     )

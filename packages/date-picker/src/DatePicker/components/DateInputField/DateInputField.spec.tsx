@@ -9,8 +9,8 @@ const user = userEvent.setup()
 const defaultProps: DateInputFieldProps = {
   id: "test__date-input-field",
   labelText: "Bacon expiry",
-  onButtonClick: jest.fn<[], void>(),
-  onKeyDown: jest.fn<[React.KeyboardEvent<HTMLInputElement>], void>(),
+  onButtonClick: jest.fn<void, []>(),
+  onKeyDown: jest.fn<void, [React.KeyboardEvent<HTMLInputElement>]>(),
   value: undefined,
   locale: enUS,
 }
@@ -91,8 +91,8 @@ describe("<DateInputField />", () => {
   describe("Refs", () => {
     it("correctly passes through input and button refs", async () => {
       const onButtonClick = jest.fn<
-        [string | null | undefined, string | null | undefined],
-        void
+        void,
+        [string | null | undefined, string | null | undefined]
       >()
 
       const Wrapper = (): JSX.Element => {
@@ -112,7 +112,7 @@ describe("<DateInputField />", () => {
               ref={ref}
               id="test__date-input-field--ref"
               labelText="Adventure time"
-              onButtonClick={jest.fn<[], void>()}
+              onButtonClick={jest.fn<void, []>()}
               locale={enUS}
             />
             <button type="button" onClick={handleClick}>
