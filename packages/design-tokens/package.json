@@ -22,7 +22,7 @@
   "sideEffects": false,
   "scripts": {
     "test": "cd ../../ && yarn jest ./packages/design-tokens",
-    "build": "yarn clean && yarn prepublish",
+    "build": "yarn prepublish",
     "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",

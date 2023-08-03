@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.20.3",
+  "version": "1.20.4",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -23,7 +23,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
-    "build": "yarn clean && yarn prepublish",
+    "build": "yarn prepublish",
     "test": "jest",
     "clean": "rimraf dist",
     "build:components": "rollup -c",
@@ -85,7 +85,7 @@
     "@rollup/plugin-typescript": "^11.1.2",
     "autoprefixer": "^10.4.14",
     "concat-cli": "^4.0.0",
-    "esbuild": "^0.18.16",
+    "esbuild": "^0.18.17",
     "query-string": "^8.1.0",
     "rollup": "^3.26.3",
     "rollup-plugin-dts": "^5.3.0",
