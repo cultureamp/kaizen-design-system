@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout components renders the Announcers component correctly 1`] = `
+<div
+  aria-live="assertive"
+  class="announcers"
+/>
+`;
+
+exports[`Layout components renders the Footer component correctly 1`] = `
+<footer
+  class="footer"
+/>
+`;
+
+exports[`Layout components renders the Header component correctly 1`] = `
+<aside
+  class="header"
+/>
+`;
+
+exports[`Layout components renders the Layout component correctly 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="page"
+  >
+    <div
+      class="body"
+    >
+      <div
+        class="bodyInner"
+      >
+        <main
+          class="content"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Layout components renders the Layout component's child components in the correct positions 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="navigationBar"
+  >
+    NavigationBar
+  </div>
+  <div
+    aria-live="assertive"
+    class="announcers"
+  >
+    Announcers
+  </div>
+  <div
+    class="page"
+  >
+    <aside
+      class="header"
+    >
+      Header
+    </aside>
+    <div
+      aria-live="assertive"
+      class="toasts"
+    >
+      Toasts
+    </div>
+    <div
+      class="body"
+    >
+      <div
+        class="bodyInner"
+      >
+        <div
+          class="sidebar"
+        >
+          <div
+            class="sidebarInner"
+          >
+            Sidebar
+          </div>
+        </div>
+        <main
+          class="content"
+        >
+          <div>
+            My content
+          </div>
+        </main>
+      </div>
+    </div>
+    <footer
+      class="footer"
+    >
+      Footer
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`Layout components renders the NavigationBar component correctly 1`] = `
+<div
+  class="navigationBar"
+/>
+`;
+
+exports[`Layout components renders the Sidebar component correctly 1`] = `
+<div
+  class="sidebar"
+>
+  <div
+    class="sidebarInner"
+  />
+</div>
+`;
+
+exports[`Layout components renders the Toasts component correctly 1`] = `
+<div
+  aria-live="assertive"
+  class="toasts"
+/>
+`;

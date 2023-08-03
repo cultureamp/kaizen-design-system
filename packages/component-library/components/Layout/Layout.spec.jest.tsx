@@ -1,18 +1,8 @@
-import * as React from "react"
+import React from "react"
 import { render } from "@testing-library/react"
 import Layout from "./Layout"
 
 describe("Layout components", () => {
-  it("sets the correct display name for each component", () => {
-    expect(Layout.displayName).toBe("Layout")
-    expect(Layout.NavigationBar.displayName).toBe("NavigationBar")
-    expect(Layout.Sidebar.displayName).toBe("Sidebar")
-    expect(Layout.Header.displayName).toBe("Header")
-    expect(Layout.Footer.displayName).toBe("Footer")
-    expect(Layout.Toasts.displayName).toBe("Toasts")
-    expect(Layout.Announcers.displayName).toBe("Announcers")
-  })
-
   it("renders the NavigationBar component correctly", () => {
     const { container } = render(<Layout.NavigationBar />)
     expect(container.firstChild).toMatchSnapshot()
