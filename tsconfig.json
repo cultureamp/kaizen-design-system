@@ -21,9 +21,5 @@
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],
-  "exclude": [
-    "**/node_modules",
-    "packages/components/**/*",
-    "workshop/next-js/**"
-  ]
+  "exclude": ["**/node_modules", "packages/components/**/*"]
 }
