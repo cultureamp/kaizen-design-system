@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
+import { v4 } from "uuid"
 import { IconButton } from "@kaizen/button"
 import { OverrideClassName } from "@kaizen/component-base"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
@@ -13,7 +14,6 @@ type Variant = "default" | "clear"
 
 export interface CollapsibleProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  id: string
   children: JSX.Element | JSX.Element[] | string
   title: string
   renderHeader?: (title: string) => JSX.Element | JSX.Element[]
@@ -57,11 +57,12 @@ type State = {
 export class Collapsible extends React.Component<CollapsibleProps, State> {
   public state = {
     open: !!this.props.open,
+    id: this.props.id || v4(),
   }
 
   public render(): JSX.Element {
     const {
-      id,
+      id: _,
       children,
       title,
       renderHeader,
@@ -78,6 +79,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
       classNameOverride,
       ...props
     } = this.props
+    const { id } = this.state
     const buttonId = `${id}-button`
     const sectionId = `${id}-section`
     const open = this.getOpen()
@@ -170,10 +172,10 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
     this.props.controlled ? this.props.open : this.state.open
 
   private handleSectionToggle = (): void => {
-    const { onToggle, id, controlled } = this.props
+    const { onToggle, controlled } = this.props
     const open = this.getOpen()
 
-    onToggle && onToggle(!open, id)
+    onToggle && onToggle(!open, this.state.id)
 
     if (!controlled) {
       this.setState({
