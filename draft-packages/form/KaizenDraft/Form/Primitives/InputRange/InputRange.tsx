@@ -1,12 +1,12 @@
 import React, { InputHTMLAttributes, ReactNode, useState } from "react"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { OverrideClassName } from "@kaizen/component-base"
 import { Paragraph } from "@kaizen/typography"
 import styles from "./InputRange.module.scss"
 
 export interface InputRangeProps
   extends OverrideClassName<InputHTMLAttributes<HTMLInputElement>> {
-  id: string
   defaultValue?: number
   value?: number
   minLabel: ReactNode
@@ -17,7 +17,7 @@ export interface InputRangeProps
 
 export const InputRange = (props: InputRangeProps): JSX.Element => {
   const {
-    id,
+    id: propsId,
     defaultValue,
     value,
     minLabel,
@@ -32,6 +32,7 @@ export const InputRange = (props: InputRangeProps): JSX.Element => {
     ...restProps
   } = props
 
+  const [id] = useState<string>(propsId || v4())
   const [step, setStep] = useState(0.5) // Let the dot center between the notch initially
   const visuallyHiddenHintId = `${id}-helper`
   const readOnlyWithNoValue = readOnly && !value && !defaultValue

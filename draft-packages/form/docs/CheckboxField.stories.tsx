@@ -34,7 +34,6 @@ export const InteractiveKaizenSiteDemo: StoryFn<
       {...args}
       onCheck={onCheckHandler}
       checkedStatus={status}
-      id="checkbox-1"
       labelText="label"
     />
   )
@@ -49,13 +48,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
       <StoryWrapper.Row rowTitle="On">
         <CheckboxField
-          id="checkbox-on"
           checkedStatus="on"
           labelText="Label"
           reversed={isReversed}
         />
         <CheckboxField
-          id="checkbox-on-disabled"
           checkedStatus="on"
           labelText="Label"
           disabled
@@ -64,13 +61,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Off">
         <CheckboxField
-          id="checkbox-off"
           checkedStatus="off"
           labelText="Label"
           reversed={isReversed}
         />
         <CheckboxField
-          id="checkbox-off-disabled"
           checkedStatus="off"
           labelText="Label"
           disabled
@@ -79,13 +74,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="Mixed">
         <CheckboxField
-          id="checkbox-mixed"
           checkedStatus="mixed"
           labelText="Label"
           reversed={isReversed}
         />
         <CheckboxField
-          id="checkbox-mixed-disabled"
           checkedStatus="mixed"
           labelText="Label"
           disabled
@@ -95,14 +88,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper.Row rowTitle="No Bottom Margin">
         <div>
           <CheckboxField
-            id="checkbox-no-mb-1"
             checkedStatus="off"
             labelText="Label"
             noBottomMargin
             reversed={isReversed}
           />
           <CheckboxField
-            id="checkbox-no-mb-2"
             checkedStatus="off"
             labelText="Label"
             noBottomMargin

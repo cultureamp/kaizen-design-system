@@ -11,7 +11,6 @@ export interface InputSearchProps
   extends OverrideClassName<
     Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue">
   > {
-  id: string
   reversed?: boolean
   loading?: boolean
   secondary?: boolean

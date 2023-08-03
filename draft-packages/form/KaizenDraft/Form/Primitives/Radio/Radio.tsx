@@ -7,7 +7,6 @@ export interface RadioProps
   extends OverrideClassName<
     Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
   > {
-  id: string
   name: string
   value: string
   selectedStatus?: boolean
@@ -32,7 +31,6 @@ const renderSelected = (
 }
 
 export const Radio = ({
-  id,
   name,
   value,
   selectedStatus = false,
@@ -47,7 +45,6 @@ export const Radio = ({
       data-automation-id={automationId}
       data-testid={automationId}
       type="radio"
-      id={id}
       name={name}
       value={value}
       checked={selectedStatus}

@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
+import { Paragraph } from "packages/typography"
+import { RadioField, RadioGroup } from "@kaizen/draft-form"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 type RenderProps = {
@@ -55,7 +56,6 @@ export const DefaultKaizenSiteDemo: StoryFn = () => (
         <RadioField
           labelText="Option one"
           name="radio"
-          id="radio-1"
           selectedStatus={selectedOption === "radio-1"}
           onChange={onChangeHandler}
           value="radio-1"
@@ -63,7 +63,6 @@ export const DefaultKaizenSiteDemo: StoryFn = () => (
         <RadioField
           labelText="Option two"
           name="radio"
-          id="radio-2"
           selectedStatus={selectedOption === "radio-2"}
           onChange={onChangeHandler}
           value="radio-2"
@@ -71,7 +70,6 @@ export const DefaultKaizenSiteDemo: StoryFn = () => (
         <RadioField
           labelText="Option three"
           name="radio"
-          id="radio-3"
           selectedStatus={selectedOption === "radio-3"}
           onChange={onChangeHandler}
           value="radio-3"
@@ -93,21 +91,18 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-1"
             value="radio-1"
             reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-2"
             value="radio-2"
             reversed={isReversed}
           />
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-3"
             value="radio-3"
             reversed={isReversed}
           />
@@ -116,7 +111,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-disabled-1"
             value="radio-1"
             disabled
             reversed={isReversed}
@@ -124,7 +118,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-disabled-2"
             value="radio-2"
             disabled
             reversed={isReversed}
@@ -132,7 +125,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           <RadioField
             labelText="Label"
             name="radio"
-            id="radio-disabled-3"
             value="radio-3"
             disabled
             reversed={isReversed}
@@ -141,30 +133,27 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="No Bottom Margin">
         <div>
-          <RadioGroup labelText="Radio group label" reversed={isReversed}>
+          <RadioGroup
+            labelText="Radio group label"
+            reversed={isReversed}
+            noBottomMargin
+          >
             <RadioField
               labelText="Label"
               name="radio"
-              id="radio-no-mb-1"
               value="radio-1"
               reversed={isReversed}
             />
             <RadioField
               labelText="Label"
               name="radio"
-              id="radio-no-mb-2"
               value="radio-2"
               reversed={isReversed}
             />
           </RadioGroup>
-          <Label
-            id="test_label"
-            htmlFor="test_label"
-            automationId="test_label"
-            labelText="Next line"
-            labelType="radio"
-            reversed={isReversed}
-          />
+          <Paragraph variant="body" color={isReversed ? "white" : "dark"}>
+            Next line
+          </Paragraph>
         </div>
       </StoryWrapper.Row>
     </StoryWrapper>
