@@ -7,6 +7,7 @@ export interface RadioProps
   extends OverrideClassName<
     Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
   > {
+  id: string
   name: string
   value: string
   selectedStatus?: boolean
