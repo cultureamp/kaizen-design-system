@@ -1,5 +1,5 @@
 import React from "react"
-import ReactDOM from "react-dom"
+import { Root, createRoot } from "react-dom/client"
 import { v4 } from "uuid"
 import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 import {
@@ -20,6 +20,7 @@ type ToastNotificationApi = {
  * Persistent reference to a "portal" for rendering the separate DOM tree
  */
 let portal: HTMLDivElement | undefined
+let portalRoot: Root
 
 /**
  * Set default values for optional params
@@ -55,6 +56,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     portal.setAttribute("data-testid", "toast-notification-manager-portal")
     portal.setAttribute("role", "status")
     document.body.appendChild(portal)
+    portalRoot = createRoot(portal)
   }
 
   const state: {
@@ -108,13 +110,12 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     }
   }
 
-  if (portal) {
-    ReactDOM.render(
+  if (portalRoot) {
+    portalRoot.render(
       <ToastNotificationsListContainer
         removeToastNotification={removeToastNotification}
         registerSetNotificationsCallback={registerSetNotificationsCallback}
-      />,
-      portal
+      />
     )
   }
 
