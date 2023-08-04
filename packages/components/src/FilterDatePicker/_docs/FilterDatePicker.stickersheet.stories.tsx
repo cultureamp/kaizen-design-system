@@ -43,7 +43,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-dp--no-value-display`}
               isOpen={isOpenNoValue}
               setIsOpen={setIsOpenNoValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -56,7 +55,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               onDateChange={setNoDateValue}
             />
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-dp-value-display`}
               isOpen={isOpenValue}
               setIsOpen={setIsOpenValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -75,7 +73,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-dp-field--default`}
               inputProps={{ labelText: "Date" }}
               locale="en-AU"
               defaultMonth={new Date("2022-05-01")}
@@ -85,7 +82,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Existing value">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-dp-field--existing`}
               inputProps={{ labelText: "Date" }}
               locale="en-AU"
               selectedDate={dateValue}
@@ -94,7 +90,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Validation">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-dp-field--validation`}
               inputProps={{ labelText: "Date" }}
               locale="en-AU"
               selectedDate={dateValueValidation}

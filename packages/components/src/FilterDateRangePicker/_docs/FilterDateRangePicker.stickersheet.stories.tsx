@@ -58,7 +58,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--partial-range`}
               isOpen={isOpenPartial}
               setIsOpen={setIsOpenPartial}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -73,7 +72,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               onRangeChange={setRangePartial}
             />
             <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--complete-range`}
               isOpen={isOpenComplete}
               setIsOpen={setIsOpenComplete}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -92,7 +90,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--default`}
               label="Dates"
               locale="en-US"
               defaultMonth={new Date("2022-05-01")}
@@ -102,7 +99,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Existing value">
             <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--existing`}
               label="Dates"
               locale="en-US"
               selectedRange={rangeFieldExisting}
@@ -111,7 +107,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Validation">
             <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--validation`}
               label="Dates"
               locale="en-US"
               selectedRange={rangeFieldValidation}
@@ -139,7 +134,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           <StickerSheet.Row rowTitle="Japanese">
             <StaticIntlProvider locale="ja">
               <FilterDateRangePickerField
-                id={`${textDirection}-stickersheet--filter-drp-field--translated`}
                 label="Dates"
                 locale="en-US"
                 selectedRange={rangeFieldValidation}
