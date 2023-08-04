@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs /> - snapshots renders a disabled tab 1`] = `
+<div
+  class="container"
+  dir="ltr"
+>
+  <a
+    class="horizontalTabDisabled"
+  >
+    One
+  </a>
+  <a
+    class="horizontalTab"
+  >
+    Two
+  </a>
+</div>
+`;
+
+exports[`<Tabs /> - snapshots renders a tab with a href 1`] = `
+<div
+  class="container"
+  dir="ltr"
+>
+  <a
+    class="horizontalTab"
+    href="//example"
+  >
+    One
+  </a>
+  <a
+    class="horizontalTab"
+  >
+    Two
+  </a>
+</div>
+`;
+
+exports[`<Tabs /> - snapshots renders a tab with an onClick 1`] = `
+<div
+  class="container"
+  dir="ltr"
+>
+  <a
+    class="horizontalTab"
+  >
+    One
+  </a>
+  <a
+    class="horizontalTab"
+  >
+    Two
+  </a>
+</div>
+`;
+
+exports[`<Tabs /> - snapshots renders an active tab 1`] = `
+<div
+  class="container"
+  dir="ltr"
+>
+  <a
+    aria-current="page"
+    class="horizontalTabActive"
+  >
+    One
+  </a>
+  <a
+    class="horizontalTab"
+  >
+    Two
+  </a>
+</div>
+`;
+
+exports[`<Tabs /> - snapshots renders basic tabs 1`] = `
+<div
+  class="container"
+  dir="ltr"
+>
+  <a
+    class="horizontalTab"
+  >
+    One
+  </a>
+  <a
+    class="horizontalTab"
+  >
+    Two
+  </a>
+</div>
+`;

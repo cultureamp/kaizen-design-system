@@ -145,7 +145,7 @@ describe("<FilterBarDateRangePicker />", () => {
   }, 10000)
 
   it("allows calling additional functions on value change", async () => {
-    const onChange = jest.fn<void, [DateRange | undefined]>()
+    const onChange = vi.fn<[DateRange | undefined]>()
     const { getByRole, getByText } = render(
       <FilterBarDateRangePickerWrapper
         defaultValues={{

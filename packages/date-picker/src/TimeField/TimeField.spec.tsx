@@ -6,7 +6,7 @@ import { ValueType } from "./types"
 
 const user = userEvent.setup()
 
-const mockOnChange = jest.fn()
+const mockOnChange = vi.fn()
 const LABEL = "Launch Time Label"
 
 const pressArrowKey =

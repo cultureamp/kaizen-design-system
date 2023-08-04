@@ -7,16 +7,6 @@ import { Menu } from "./Menu"
 const user = userEvent.setup()
 
 describe("Dropdown", () => {
-  it("renders default view", () => {
-    const { container } = render(
-      <Menu button={<Button label="Button"></Button>}>
-        <div>Item</div>
-      </Menu>
-    )
-
-    expect(container.firstChild).toMatchSnapshot()
-  })
-
   it("shows menu when clicking on the button", async () => {
     render(
       <Menu button={<Button label="Button"></Button>}>
@@ -33,7 +23,7 @@ describe("Dropdown", () => {
   })
 
   it("shows menu & handles onClick set by the consumer when clicking on the button", async () => {
-    const onButtonClick = jest.fn<void, []>()
+    const onButtonClick = vi.fn<[], void>()
 
     render(
       <Menu button={<Button label="Button" onClick={onButtonClick} />}>
@@ -52,7 +42,7 @@ describe("Dropdown", () => {
     })
   })
   it("shows menu & handles onMouseDown set by the consumer when mousing down on the button", async () => {
-    const onMouseDown = jest.fn<void, []>()
+    const onMouseDown = vi.fn<[], void>()
 
     render(
       <Menu button={<Button label="Button" onMouseDown={onMouseDown} />}>

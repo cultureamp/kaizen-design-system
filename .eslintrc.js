@@ -299,8 +299,7 @@ module.exports = {
         "storybook/*",
         "**/_docs/**/*",
         "*.stories.tsx",
-        "*.spec.ts",
-        "*.spec.tsx",
+        "*.spec?(.vi|.jest).ts?(x)",
         "*.docsExample.tsx",
       ],
       rules: {

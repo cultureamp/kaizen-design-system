@@ -11,7 +11,7 @@ const defaultRadioProps = {
   selectedStatus: false,
   disabled: false,
   name: "RadioName",
-  onChange: jest.fn(),
+  onChange: vi.fn(),
   value: "radio-1",
 } satisfies RadioProps
 

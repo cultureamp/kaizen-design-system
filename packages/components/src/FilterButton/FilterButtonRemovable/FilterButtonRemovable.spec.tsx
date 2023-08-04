@@ -36,9 +36,9 @@ describe("<FilterButtonRemovable />", () => {
 
   describe("Refs", () => {
     it("correctly passes through both button refs", async () => {
-      const onClick = jest.fn<
-        void,
-        [string | null | undefined, string | null | undefined]
+      const onClick = vi.fn<
+        [string | null | undefined, string | null | undefined],
+        void
       >()
 
       const Wrapper = (): JSX.Element => {

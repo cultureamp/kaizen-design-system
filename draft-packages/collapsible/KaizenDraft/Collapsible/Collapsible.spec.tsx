@@ -31,40 +31,6 @@ describe("<Collapsible />", () => {
     expect(section.style.height).toEqual("auto")
   })
 
-  it("includes the 'separated' class on containers when the 'separated' prop is specified", () => {
-    const { getByTestId } = render(
-      <CollapsibleGroup separated>
-        <Collapsible id="1" title="First panel">
-          First panel content
-        </Collapsible>
-        <Collapsible id="2" title="Second panel">
-          Second panel content
-        </Collapsible>
-      </CollapsibleGroup>
-    )
-
-    const collapsibleContainer = getByTestId("collapsible-container-2")
-
-    expect(collapsibleContainer.classList.contains("separated")).toBeTruthy()
-  })
-
-  it("includes the 'sticky' class on buttons when the 'sticky' prop is specified", () => {
-    const { getByTestId } = render(
-      <CollapsibleGroup sticky={{ top: "20px" }}>
-        <Collapsible id="1" title="First panel">
-          First panel content
-        </Collapsible>
-        <Collapsible id="2" title="Second panel">
-          Second panel content
-        </Collapsible>
-      </CollapsibleGroup>
-    )
-
-    const collapsibleContainer = getByTestId("collapsible-header-1")
-
-    expect(collapsibleContainer.classList.contains("sticky")).toBeTruthy()
-  })
-
   it("toggles the height of the section on click of the button", async () => {
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel">
@@ -142,7 +108,7 @@ describe("<Collapsible />", () => {
   })
 
   it("runs the onToggle callback", async () => {
-    const onToggle = jest.fn()
+    const onToggle = vi.fn()
 
     const { getByTestId } = render(
       <Collapsible id="1" open title="First panel" onToggle={onToggle}>
@@ -179,41 +145,5 @@ describe("<Collapsible />", () => {
     await waitFor(() => {
       expect(section.style.height).toEqual("auto")
     })
-  })
-
-  it("clear variant has correct class", () => {
-    const { getByTestId } = render(
-      <CollapsibleGroup>
-        <Collapsible variant="clear" id="1" open title="First panel">
-          First panel content
-        </Collapsible>
-        <Collapsible variant="clear" id="2" title="Second panel">
-          Second panel content
-        </Collapsible>
-      </CollapsibleGroup>
-    )
-
-    const collapsibleContainer = getByTestId("collapsible-header-1")
-
-    expect(collapsibleContainer.classList.contains("clearVariant")).toBeTruthy()
-  })
-
-  it("default variant has correct class", () => {
-    const { getByTestId } = render(
-      <CollapsibleGroup>
-        <Collapsible id="1" open title="First panel">
-          First panel content
-        </Collapsible>
-        <Collapsible id="2" title="Second panel">
-          Second panel content
-        </Collapsible>
-      </CollapsibleGroup>
-    )
-
-    const collapsibleContainer = getByTestId("collapsible-header-1")
-
-    expect(
-      collapsibleContainer.classList.contains("defaultVariant")
-    ).toBeTruthy()
   })
 })

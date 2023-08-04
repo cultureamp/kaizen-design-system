@@ -1,5 +1,7 @@
-import * as React from "react"
+import React from "react"
 import { render } from "@testing-library/react"
+import marginStyles from "../Spacing/Margin.module.scss"
+import paddingStyles from "../Spacing/Padding.module.scss"
 import { Box } from "./index"
 
 describe("<Box />", () => {
@@ -7,7 +9,7 @@ describe("<Box />", () => {
     const { getByText } = render(<Box>Example</Box>)
     const boxClasslist = getByText("Example").classList
     expect(Object.values(boxClasslist)).toEqual(
-      expect.arrayContaining(["p-0", "m-0"])
+      expect.arrayContaining([paddingStyles["p-0"], marginStyles["m-0"]])
     )
   })
 
@@ -19,7 +21,11 @@ describe("<Box />", () => {
     )
     const boxClasslist = getByText("Example").classList
     expect(Object.values(boxClasslist)).toEqual(
-      expect.arrayContaining(["m-3", "pl-1", "pt-0-point-25"])
+      expect.arrayContaining([
+        marginStyles["m-3"],
+        paddingStyles["pl-1"],
+        paddingStyles["pt-0-point-25"],
+      ])
     )
   })
 
@@ -28,16 +34,12 @@ describe("<Box />", () => {
       <Box classNameOverride="example-classname">Example</Box>
     )
     const boxClasslist = getByText("Example").classList
-    expect(boxClasslist).toContain("example-classname")
+    expect(boxClasslist.contains("example-classname")).toBe(true)
   })
 
   it("allows consumers to provide data attributes", () => {
-    const { container } = render(
-      <Box data-automation-id="test-id">Example</Box>
-    )
-    expect(
-      container.querySelector('[data-automation-id="test-id"]')
-    ).not.toBeNull()
+    const { getByTestId } = render(<Box data-testid="test-id">Example</Box>)
+    expect(getByTestId("test-id")).toBeVisible()
   })
 
   describe("RTL support", () => {
@@ -49,7 +51,11 @@ describe("<Box />", () => {
       )
       const boxClasslist = getByText("Example").classList
       expect(Object.values(boxClasslist)).toEqual(
-        expect.arrayContaining(["m-0", "pr-4", "pl-2"])
+        expect.arrayContaining([
+          marginStyles["m-0"],
+          paddingStyles["pr-4"],
+          paddingStyles["pl-2"],
+        ])
       )
     })
 
@@ -61,7 +67,11 @@ describe("<Box />", () => {
       )
       const boxClasslist = getByText("Example").classList
       expect(Object.values(boxClasslist)).toEqual(
-        expect.arrayContaining(["p-0", "mr-4", "ml-2"])
+        expect.arrayContaining([
+          paddingStyles["p-0"],
+          marginStyles["mr-4"],
+          marginStyles["ml-2"],
+        ])
       )
     })
   })

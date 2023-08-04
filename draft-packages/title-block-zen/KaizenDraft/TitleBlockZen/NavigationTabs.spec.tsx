@@ -33,7 +33,7 @@ describe("NavigationTabs", () => {
 
   describe("with a render prop", () => {
     it("renders the component passed with the navigation tab props", async () => {
-      const handleClick = jest.fn()
+      const handleClick = vi.fn()
       const text = "I am also navigation tabs"
       const href = "www.cultureamp.com"
       render(
@@ -50,8 +50,6 @@ describe("NavigationTabs", () => {
       const button = screen.getByRole("button", {
         name: `${href} - ${text} - true`,
       })
-      expect(button).toHaveClass("linkAnchor", "active", "lightBackground")
-
       await user.click(button)
       await waitFor(() => {
         expect(handleClick).toBeCalledTimes(1)

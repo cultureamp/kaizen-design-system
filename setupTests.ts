@@ -11,3 +11,6 @@ jest.mock("@cultureamp/i18n-react-intl", () => ({
       options.defaultMessage,
   }),
 }))
+
+// @ts-ignore
+global.vi = jest

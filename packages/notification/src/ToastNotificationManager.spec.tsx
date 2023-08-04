@@ -7,7 +7,7 @@ import {
   clearToastNotifications,
 } from "."
 
-describe("ToastNotificationsManager", () => {
+describe("ToastNotificationManager", () => {
   beforeEach(() => {
     act(() => {
       clearToastNotifications()
@@ -95,7 +95,7 @@ describe("ToastNotificationsManager", () => {
         title: "Clear me",
         autohide: false,
         message: <p>Message goes here</p>,
-        automationId: "clear-notifications-1",
+        automationId: "testid__clear-notifications",
         persistent: false,
       })
       addToastNotification({
@@ -104,19 +104,23 @@ describe("ToastNotificationsManager", () => {
         title: "Clear me too",
         autohide: false,
         message: <p>Message goes here</p>,
-        automationId: "clear-notifications-2",
+        automationId: "testid__clear-notifications",
         persistent: false,
       })
     })
 
-    const toastNotifications = document.querySelectorAll(".toast")
+    const toastNotifications = screen.getAllByTestId(
+      "testid__clear-notifications"
+    )
     expect(toastNotifications.length).toBe(2)
 
     await act(async () => {
       clearToastNotifications()
     })
     await waitFor(() => {
-      expect(document.querySelectorAll(".toast").length).toBe(0)
+      expect(
+        screen.queryAllByTestId("testid__clear-notifications").length
+      ).toBe(0)
     })
   })
 })

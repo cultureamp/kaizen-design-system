@@ -6,7 +6,6 @@ import {
   CustomBreadcrumbProps,
   SectionTitleRenderProps,
 } from "./index"
-import "@testing-library/jest-dom"
 import "./matchMedia.mock"
 
 const user = userEvent.setup()
@@ -42,7 +41,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is a button with only an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const primaryActionAsButton = {
       label: "primaryActionLabel",
       onClick: testOnClickFn,
@@ -85,7 +84,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is disabled", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const primaryActionAsButton = {
       label: "primaryActionLabel",
       onClick: testOnClickFn,
@@ -167,7 +166,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the primary action is a button with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const primaryActionAsLinkAndOnClick = {
       label: "primaryActionLabel",
       href: "#primaryActionHref",
@@ -308,7 +307,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with only an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const defaultActionAsButton = {
       label: "defaultActionLabel",
       onClick: testOnClickFn,
@@ -363,7 +362,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const defaultActionAsLinkAndOnClick = {
       label: "defaultActionLabel",
       href: "#defaultActionHref",
@@ -423,7 +422,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is disabled", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const defaultActionAsButton = {
       label: "defaultActionLabel",
       onClick: testOnClickFn,
@@ -504,7 +503,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a secondary action is passed with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const secondaryActionWithLinkAndOnClick = {
       label: "secondaryActionLabel",
       href: "#secondaryActionHref",
@@ -516,8 +515,8 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("renders the secondary action with both the href and onClick", async () => {
-      const mockWarnFn = jest.fn()
-      const spy = jest
+      const mockWarnFn = vi.fn()
+      const spy = vi
         .spyOn(global.console, "warn")
         .mockImplementation(mockWarnFn)
       const { getByTestId } = render(
@@ -543,8 +542,8 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("renders the action as a single mobile actions drawer item with an onClick", async () => {
-      const mockWarnFn = jest.fn()
-      const spy = jest
+      const mockWarnFn = vi.fn()
+      const spy = vi
         .spyOn(global.console, "warn")
         .mockImplementation(mockWarnFn)
       const { getAllByTestId } = render(
@@ -642,7 +641,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary action is passed with only an onClick", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const secondaryActionWithOnClick = {
       label: "secondaryActionLabel",
       onClick: testOnClickFn,
@@ -669,7 +668,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary overflow menu item is passed with only an onClick for the action", () => {
-    const testOnClickFn = jest.fn()
+    const testOnClickFn = vi.fn()
     const secondaryOverflowMenuItemWithOnClick = {
       label: "secondaryActionOverflowMenuItemLabel",
       action: testOnClickFn,
@@ -709,36 +708,23 @@ describe("<TitleBlockZen />", () => {
       })
     })
 
-    it.each([
-      ["draft", "statusDraft"],
-      ["live", "statusLive"],
-      ["closed", "statusClosed"],
-      ["scheduled", "statusClosed"],
-    ])(
-      "renders tag with correct text and variant when %s status",
-      async (status, expectedClassName) => {
-        render(
+    it.each([["draft"], ["live"], ["closed"], ["scheduled"]] as const)(
+      "renders tag with correct text when %s status",
+      async status => {
+        const { getByTestId } = render(
           <TitleBlockZen
             title="Test Title"
             surveyStatus={{
               text: `${status} text`,
-              status: `${status}` as
-                | "draft"
-                | "live"
-                | "scheduled"
-                | "closed"
-                | "default",
+              status,
             }}
           >
             Example
           </TitleBlockZen>
         )
 
-        const tagElement = (await screen.findByTestId("survey-status-tag"))
-          .firstChild
-
+        const tagElement = getByTestId("survey-status-tag")
         expect(tagElement).toHaveTextContent(`${status} text`)
-        expect(tagElement).toHaveClass(expectedClassName)
       }
     )
   })
@@ -765,7 +751,7 @@ describe("<TitleBlockZen />", () => {
             breadcrumb={{
               text: "Test Breadcrumb",
               path: "/",
-              handleClick: jest.fn(),
+              handleClick: vi.fn(),
             }}
             sectionTitle="Test Section Title"
             sectionTitleDescription="Test Section Title Description"
@@ -803,7 +789,7 @@ describe("<TitleBlockZen />", () => {
             breadcrumb={{
               text: "Test Breadcrumb",
               path: "/",
-              handleClick: jest.fn(),
+              handleClick: vi.fn(),
             }}
             sectionTitle="Test Section Title"
             sectionTitleDescription="Test Section Title Description"
@@ -867,7 +853,7 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("renders a custom component when you pass a 'render' prop", async () => {
-      const mockFn = jest.fn()
+      const mockFn = vi.fn()
 
       const CustomComponent = (props: CustomBreadcrumbProps): JSX.Element => (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
@@ -978,7 +964,7 @@ describe("<TitleBlockZen />", () => {
       })
 
       it("will render custom button with functional onClick", async () => {
-        const testClickFunc = jest.fn()
+        const testClickFunc = vi.fn()
         render(
           <TitleBlockZen
             title="Test Title"
@@ -1005,7 +991,7 @@ describe("<TitleBlockZen />", () => {
       })
 
       it("will render custom button with children and not label", () => {
-        const testClickFunc = jest.fn()
+        const testClickFunc = vi.fn()
         render(
           <TitleBlockZen
             title="Test Title"
@@ -1137,7 +1123,7 @@ describe("<TitleBlockZen />", () => {
       })
 
       it("will render the component in the top list of the Drawer content if it is a clickable button", () => {
-        const testClickFunc = jest.fn()
+        const testClickFunc = vi.fn()
         render(
           <TitleBlockZen
             title="Test Title"

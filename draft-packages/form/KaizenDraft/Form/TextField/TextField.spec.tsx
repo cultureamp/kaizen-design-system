@@ -27,19 +27,6 @@ describe("<TextField />", () => {
     expect(screen.getByText("Description text")).toBeInTheDocument()
   })
 
-  it("validation message has the correct type", () => {
-    const { container } = render(
-      <TextField
-        {...defaultProps}
-        validationMessage="Error message"
-        status="error"
-      />
-    )
-    expect(
-      container.querySelector(`#${defaultProps.id}-field-validation-message`)
-    ).toHaveClass("error")
-  })
-
   it("renders correct aria-describedby when only description provided", () => {
     render(<TextField {...defaultProps} description="Description text" />)
     const input = screen.getByRole("textbox", {

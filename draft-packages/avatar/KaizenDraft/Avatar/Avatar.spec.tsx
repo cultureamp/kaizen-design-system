@@ -6,7 +6,7 @@ describe("<Avatar />", () => {
   // there is an issue with react-textfit that is only flagged in a test suite
   // this solution silences that specific case https://github.com/malte-wessel/react-textfit/issues/35
   beforeEach(() => {
-    jest.spyOn(console, "warn").mockImplementation(() => "")
+    vi.spyOn(console, "warn").mockImplementation(() => "")
   })
 
   it("renders user initials if the image link is broken", () => {
@@ -17,10 +17,10 @@ describe("<Avatar />", () => {
   })
 
   it("renders an svg icon if user initials are not provided and image is broken", () => {
-    render(<Avatar avatarSrc="broken" />)
+    const { getByTestId } = render(<Avatar avatarSrc="broken" />)
     fireEvent.error(screen.getByRole("img"))
 
-    expect(document.querySelector("svg.icon")).toBeInTheDocument()
+    expect(getByTestId("avatar__fallback-icon")).toBeVisible()
   })
 
   describe("full name provided contains more than two names", () => {

@@ -351,7 +351,7 @@ describe("<FilterBar />", () => {
 
     describe("Condition result change", () => {
       it("clears the value for an unusable filter", async () => {
-        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn<[Partial<ValuesDependent>], void>()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -384,7 +384,7 @@ describe("<FilterBar />", () => {
       })
 
       it("clears the value and removes a filter which loses usability", async () => {
-        const checkValues = jest.fn<void, [Partial<ValuesDependent>]>()
+        const checkValues = vi.fn<[Partial<ValuesDependent>], void>()
 
         const Wrapper = (): JSX.Element => {
           const [values, setValues] = useState<Partial<ValuesDependent>>({
@@ -802,7 +802,7 @@ describe("<FilterBar />", () => {
       )
     }
 
-    const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+    const fetchCityOptions = vi.fn((filterValues: Partial<AsyncValues>) => {
       const isSupermanInFilterValue = filterValues.hero?.includes("superman")
       const isBatmanInFilterValue = filterValues.hero?.includes("batman")
 
@@ -816,7 +816,7 @@ describe("<FilterBar />", () => {
       ])
     })
 
-    const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+    const fetchHeroOptions = vi.fn((filterValues: Partial<AsyncValues>) => {
       const isGothamInFilterValue = filterValues.city?.includes("gotham")
       const isMetroInFilterValue = filterValues.city?.includes("metro")
 

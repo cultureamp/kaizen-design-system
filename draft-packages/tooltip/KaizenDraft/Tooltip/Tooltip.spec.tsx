@@ -1,8 +1,8 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import { Button } from "@kaizen/button"
-
 import { Tooltip } from "./index"
+
 describe("<Tooltip />", () => {
   describe("Linking the tooltip to the inner element with aria-describedby", () => {
     it("adds an accessible description when wrapping Kaizen Button", async () => {

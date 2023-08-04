@@ -2,23 +2,14 @@ import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Tabs } from "."
-import styles from "./styles.scss"
+import styles from "./Tabs.module.scss"
 
 const user = userEvent.setup()
 
 describe("<Tabs />", () => {
-  it("renders basic tabs", () => {
-    const tabs = [{ label: "One" }, { label: "Two" }]
-    const { container } = render(<Tabs tabs={tabs} />)
-
-    expect(container.firstChild).toMatchSnapshot()
-  })
-
   it("renders an active tab", () => {
     const tabs = [{ label: "One", active: true }, { label: "Two" }]
-    const { container, getByText } = render(<Tabs tabs={tabs} />)
-
-    expect(container.firstChild).toMatchSnapshot()
+    const { getByText } = render(<Tabs tabs={tabs} />)
     expect(
       getByText("One").classList.contains(styles.horizontalTabActive)
     ).toBe(true)
@@ -26,21 +17,16 @@ describe("<Tabs />", () => {
 
   it("renders a disabled tab", () => {
     const tabs = [{ label: "One", disabled: true }, { label: "Two" }]
-    const { container, getByText } = render(<Tabs tabs={tabs} />)
-
-    expect(container.firstChild).toMatchSnapshot()
+    const { getByText } = render(<Tabs tabs={tabs} />)
     expect(
       getByText("One").classList.contains(styles.horizontalTabDisabled)
     ).toBe(true)
   })
 
   it("renders a tab with an onClick", async () => {
-    const onClick = jest.fn()
+    const onClick = vi.fn()
     const tabs = [{ label: "One", onClick }, { label: "Two" }]
-    const { container, getByText } = render(<Tabs tabs={tabs} />)
-
-    expect(container.firstChild).toMatchSnapshot()
-
+    const { getByText } = render(<Tabs tabs={tabs} />)
     await user.click(getByText("One"))
     await waitFor(() => {
       expect(onClick).toHaveBeenCalled()
@@ -50,9 +36,7 @@ describe("<Tabs />", () => {
   it("renders a tab with a href", () => {
     const href = "//example"
     const tabs = [{ label: "One", href }, { label: "Two" }]
-    const { container, getByText } = render(<Tabs tabs={tabs} />)
-
-    expect(container.firstChild).toMatchSnapshot()
+    const { getByText } = render(<Tabs tabs={tabs} />)
     expect(getByText("One").getAttribute("href")).toBe(href)
   })
 

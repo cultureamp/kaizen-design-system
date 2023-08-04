@@ -1,35 +1,8 @@
-import * as React from "react"
+import React from "react"
 import { render } from "@testing-library/react"
-import {
-  AllowedParagraphColors,
-  AllowedParagraphTags,
-  Paragraph,
-  ParagraphVariants,
-} from "./"
+import { AllowedParagraphTags, Paragraph, ParagraphVariants } from "./"
 
 describe("<Paragraph />", () => {
-  describe("renders the correct variant classes", () => {
-    const testCases: ParagraphVariants[] = [
-      "intro-lede",
-      "body",
-      "small",
-      "extra-small",
-    ]
-
-    testCases.forEach(variant => {
-      it(`renders the correct element for <Paragraph variant={${variant}} />`, () => {
-        const paragraphMock = render(
-          <Paragraph variant={variant} tag="div">
-            Example
-          </Paragraph>
-        )
-        const paragraphClasslist = paragraphMock.getByText("Example").classList
-        expect(paragraphClasslist).toContain("paragraph")
-        expect(paragraphClasslist).toContain(variant)
-      })
-    })
-  })
-
   describe("changes rendered HTML element when passed tag", () => {
     const testCases: ParagraphVariants[] = [
       "intro-lede",
@@ -46,30 +19,6 @@ describe("<Paragraph />", () => {
           </Paragraph>
         )
         expect(paragraphMock.getByText("Example").tagName).toBe("DIV")
-      })
-    })
-  })
-
-  describe("renders the correct color classes", () => {
-    const testCases: AllowedParagraphColors[] = [
-      "dark",
-      "dark-reduced-opacity",
-      "white",
-      "white-reduced-opacity",
-      "positive",
-      "negative",
-    ]
-
-    testCases.forEach(color => {
-      it(`renders the correct class for <Paragraph color={${color}} />`, () => {
-        const paragraphMock = render(
-          <Paragraph variant="body" color={color} tag="div">
-            Example
-          </Paragraph>
-        )
-        const paragraphClasslist = paragraphMock.getByText("Example").classList
-        expect(paragraphClasslist).toContain("paragraph")
-        expect(paragraphClasslist).toContain(color)
       })
     })
   })
@@ -102,7 +51,6 @@ describe("<Paragraph />", () => {
         expect(paragraphMock.getByText("Example").tagName.toLowerCase()).toBe(
           el
         )
-        expect(paragraphMock.baseElement).toMatchSnapshot()
       })
     })
   })
@@ -113,6 +61,8 @@ describe("<Paragraph />", () => {
         Example
       </Paragraph>
     )
-    expect(getByText("Example").classList).toContain("example-classname")
+    expect(getByText("Example").classList.contains("example-classname")).toBe(
+      true
+    )
   })
 })
