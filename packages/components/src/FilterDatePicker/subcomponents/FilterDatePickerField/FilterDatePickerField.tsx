@@ -1,5 +1,6 @@
-import React, { HTMLAttributes, useEffect, useReducer } from "react"
+import React, { HTMLAttributes, useEffect, useReducer, useState } from "react"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import {
   CalendarSingle,
   CalendarSingleProps,
@@ -24,7 +25,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 
 export interface FilterDatePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  id: string
+  id?: string
   locale: FilterDateSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
@@ -64,7 +65,7 @@ export interface FilterDatePickerFieldProps
 }
 
 export const FilterDatePickerField = ({
-  id,
+  id: propsId,
   inputProps,
   locale: propsLocale,
   defaultMonth,
@@ -78,6 +79,7 @@ export const FilterDatePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
   const locale = getLocale(propsLocale)
 
   const dateValidation = useDateValidation({

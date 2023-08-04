@@ -22,7 +22,6 @@ export const DefaultStory: StoryFn<typeof TextField> = args => (
   <TextField {...args} />
 )
 DefaultStory.args = {
-  id: "kaizen-demo-text-field",
   labelText: "Label Text",
   type: "text",
   defaultInputValue: "test",
@@ -61,29 +60,24 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 }) => {
   const DEFAULT__ROW_PROPS: TextFieldProps[] = [
     {
-      id: "text-field--default",
       labelText: "Default",
     },
     {
-      id: "text-field--description",
       labelText: "Description",
       description: "Description text",
     },
     {
-      id: "text-field--placeholder",
       labelText: "Placeholder",
       description: "Description text",
       placeholder: "Enter some text here",
     },
     {
-      id: "text-field--placeholder",
       type: "email",
       labelText: "Email",
       description: "Description text",
       placeholder: "jane.doe@email.com",
     },
     {
-      id: "text-field--placeholder",
       type: "password",
       labelText: "Password",
       description: "Description text",
@@ -91,7 +85,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       placeholder: "Enter a password...",
     },
     {
-      id: "text-field--positive",
       type: "email",
       labelText: "Positive",
       status: "success",
@@ -99,7 +92,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       description: "Description text",
     },
     {
-      id: "text-field--negative",
       type: "email",
       labelText: "Negative",
       status: "error",
@@ -108,7 +100,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       validationMessage: <span>Error message</span>,
     },
     {
-      id: "text-field--cautionary",
       type: "email",
       labelText: "Cautionary",
       status: "caution",
@@ -120,14 +111,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 
   const ICON__ROW_PROPS: TextFieldProps[] = [
     {
-      id: "text-field--icon--default",
       type: "email",
       labelText: "Default",
       defaultInputValue: "Input Text",
       description: "Description text",
     },
     {
-      id: "text-field--icon--positive",
       type: "email",
       labelText: "Positive",
       status: "success",
@@ -135,7 +124,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       description: "Description text",
     },
     {
-      id: "text-field--icon--negative",
       type: "email",
       labelText: "Negative",
       status: "error",
@@ -144,7 +132,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       validationMessage: <span>Error message</span>,
     },
     {
-      id: "text-field--icon--cautionary",
       type: "email",
       labelText: "Cautionary",
       status: "caution",
@@ -164,17 +151,8 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         <StickerSheet.Body>
           {DEFAULT__ROW_PROPS.map(({ id, ...restProps }) => (
             <StickerSheet.Row key={id}>
-              <TextField
-                reversed={isReversed}
-                id={`${id}--base`}
-                {...restProps}
-              />
-              <TextField
-                reversed={isReversed}
-                id={`${id}--disabled`}
-                disabled
-                {...restProps}
-              />
+              <TextField reversed={isReversed} {...restProps} />
+              <TextField reversed={isReversed} disabled {...restProps} />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>
@@ -188,15 +166,9 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         <StickerSheet.Body>
           {ICON__ROW_PROPS.map(({ id, ...restProps }) => (
             <StickerSheet.Row key={id}>
+              <TextField reversed={isReversed} icon={dateIcon} {...restProps} />
               <TextField
                 reversed={isReversed}
-                id={`${id}--base`}
-                icon={dateIcon}
-                {...restProps}
-              />
-              <TextField
-                reversed={isReversed}
-                id={`${id}--disabled`}
                 disabled
                 icon={dateIcon}
                 {...restProps}
