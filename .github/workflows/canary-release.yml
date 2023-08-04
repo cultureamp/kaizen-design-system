@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       label:
-        description: 'Pick a label for the release, to be included in the version number — e.g. "fix-button-focus" will released as "@kaizen/button@1.0.0-fix-button-focus-20230719002814"'
+        description: 'Pick a label for the release, to be included in the version number — e.g. "fix-button-focus" will released as "@kaizen/button@0.0.0-canary-fix-button-focus-20230719002814"'
         required: true
         type: string
 
@@ -18,12 +18,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
+      - name: Set npm token
         run: |
           npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
-      - run: |
-          echo "Releasing canary for $LABEL"
+      - name: Create canary release and publish to npm
+        id: changesets
+        run: |
+          echo "🥚 Building canary-$LABEL"
           yarn build
-          yarn changeset version --snapshot "$LABEL"
-          yarn changeset publish --tag "$LABEL"
+          echo "🐣 Releasing canary-$LABEL"
+          yarn changeset version --snapshot "canary-$LABEL"
+          yarn changeset publish --tag "canary-$LABEL"
+      - name: Push tags
+        run: |
+          git push --follow-tags
