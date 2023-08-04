@@ -28,7 +28,6 @@ enum AriaRoles {
   cell = "cell",
   columnheader = "columnheader",
   rowgroup = "rowgroup",
-  rowheader = "rowheader",
 }
 
 /**
