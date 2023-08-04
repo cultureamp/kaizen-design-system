@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { v4 } from "uuid"
+import React from "react"
 import { DateInput, DateInputProps } from "@kaizen/date-picker"
 import { FieldMessage } from "@kaizen/draft-form"
 import {
@@ -12,7 +11,7 @@ import styles from "./DateInputField.module.scss"
 
 export interface DateInputFieldProps
   extends Omit<DateInputProps, "id" | "labelText"> {
-  id?: string
+  id: string
   locale: Locale
   /**
    * A description that provides context for the text field
@@ -30,7 +29,7 @@ export const DateInputField = React.forwardRef<
 >(
   (
     {
-      id: propsId,
+      id,
       labelText,
       description,
       disabled,
@@ -42,7 +41,6 @@ export const DateInputField = React.forwardRef<
     },
     ref
   ) => {
-    const [id] = useState<string>(propsId || v4())
     const descriptionId = `${id}--field-message`
 
     const errorMessageId = validationMessage

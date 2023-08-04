@@ -1,7 +1,6 @@
-import React, { useEffect, HTMLAttributes, useReducer, useState } from "react"
+import React, { useEffect, HTMLAttributes, useReducer } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import {
   CalendarRange,
   CalendarRangeProps,
@@ -74,7 +73,7 @@ export interface FilterDateRangePickerFieldProps
 }
 
 export const FilterDateRangePickerField = ({
-  id: propsId,
+  id,
   label,
   locale: propsLocale,
   defaultMonth,
@@ -89,7 +88,6 @@ export const FilterDateRangePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDateRangePickerFieldProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
   const { formatMessage } = useIntl()
   const locale = getLocale(propsLocale)
 

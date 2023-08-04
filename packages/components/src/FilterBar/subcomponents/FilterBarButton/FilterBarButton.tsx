@@ -1,5 +1,4 @@
-import React, { forwardRef, useState } from "react"
-import { v4 } from "uuid"
+import React, { forwardRef } from "react"
 import { FilterTriggerRef } from "~components/Filter"
 import { useFilterBarContext } from "~components/FilterBar/context/FilterBarContext"
 import {
@@ -9,14 +8,14 @@ import {
 } from "~components/FilterButton"
 
 export type FilterBarButtonProps = FilterButtonProps & {
+  id: string
   isRemovable: boolean | undefined
 }
 
 export const FilterBarButton = forwardRef<
   FilterTriggerRef,
   FilterBarButtonProps
->(({ id: propsId, isRemovable = false, ...props }, ref): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+>(({ id, isRemovable = false, ...props }, ref): JSX.Element => {
   const { hideFilter } = useFilterBarContext()
 
   return isRemovable ? (
