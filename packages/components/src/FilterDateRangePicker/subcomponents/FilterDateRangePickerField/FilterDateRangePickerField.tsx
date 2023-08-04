@@ -37,6 +37,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 
 export interface FilterDateRangePickerFieldProps
   extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+  id: string
   label: string
   locale: FilterDateSupportedLocales
   /**
