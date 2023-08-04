@@ -3,6 +3,7 @@ import cx from "classnames"
 import { enUS } from "date-fns/locale"
 import { DateRange, isMatch } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
+import { v4 } from "uuid"
 import { Label } from "@kaizen/draft-form"
 import {
   LegacyCalendarRange,
@@ -16,7 +17,7 @@ import { isDisabledDate } from "../utils/isDisabledDate"
 import dateRangePickerStyles from "./DateRangePicker.module.scss"
 
 export interface DateRangePickerProps extends DisabledDayMatchers {
-  id: string
+  id?: string
   classNameOverride?: string
   labelText: string
   isDisabled?: boolean
@@ -53,7 +54,7 @@ export interface DateRangePickerProps extends DisabledDayMatchers {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-date-picker-date-range-picker--date-range-picker-sticker-sheet Storybook}
  */
 export const DateRangePicker = ({
-  id,
+  id: propsId,
   buttonRef = useRef<HTMLButtonElement>(null),
   description: _description, // not used
   labelText,
@@ -72,6 +73,7 @@ export const DateRangePicker = ({
   onChange,
   ...inputProps
 }: DateRangePickerProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
   const containerRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -179,7 +181,6 @@ export const DateRangePicker = ({
         >
           <FloatingCalendarWrapper referenceElement={containerRef.current}>
             <LegacyCalendarRange
-              id={`${id}-calendar-dialog`}
               selectedRange={selectedDateRange}
               defaultMonth={defaultMonth}
               weekStartsOn={weekStartsOn}

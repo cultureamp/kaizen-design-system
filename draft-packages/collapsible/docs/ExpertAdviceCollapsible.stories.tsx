@@ -28,7 +28,7 @@ export default {
 } satisfies Meta<typeof ExpertAdviceCollapsible>
 
 export const DefaultStory: StoryFn = args => (
-  <ExpertAdviceCollapsible id="123" title="Expert advice collapsible" {...args}>
+  <ExpertAdviceCollapsible title="Expert advice collapsible" {...args}>
     <Paragraph variant="body">{lipsum}</Paragraph>
   </ExpertAdviceCollapsible>
 )

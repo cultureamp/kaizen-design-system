@@ -39,7 +39,8 @@
     "date-fns": "^2.30.0",
     "react-day-picker": "8.4.1",
     "react-focus-on": "^3.9.1",
-    "react-popper": "^2.3.0"
+    "react-popper": "^2.3.0",
+    "uuid": "^9.0.0"
   },
   "dependenciesComments": {
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
