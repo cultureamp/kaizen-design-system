@@ -6,7 +6,8 @@ import { Paragraph } from "@kaizen/typography"
 import { FieldGroup, Label, InputRange, InputRangeProps } from "../Primitives"
 import styles from "./Slider.module.scss"
 
-export interface SliderFieldProps extends InputRangeProps {
+export interface SliderFieldProps extends Omit<InputRangeProps, "id"> {
+  id?: string
   labelText: ReactNode
   description?: ReactNode
   labelPosition?: "inline" | "block"

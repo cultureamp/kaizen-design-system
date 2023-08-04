@@ -3,7 +3,8 @@ import { v4 } from "uuid"
 import { InputSearch, InputSearchProps, Label } from "../Primitives"
 import styles from "./SearchField.module.scss"
 
-export interface SearchFieldProps extends InputSearchProps {
+export interface SearchFieldProps extends Omit<InputSearchProps, "id"> {
+  id?: string
   labelText: string
   disabled?: boolean
   reversed?: boolean

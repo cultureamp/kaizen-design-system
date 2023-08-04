@@ -4,7 +4,8 @@ import { v4 } from "uuid"
 import { Checkbox, CheckboxProps, CheckedStatus, Label } from "../Primitives"
 import styles from "./CheckboxField.module.scss"
 
-export interface CheckboxFieldProps extends CheckboxProps {
+export interface CheckboxFieldProps extends Omit<CheckboxProps, "id"> {
+  id?: string
   labelText: string | React.ReactNode
   checkedStatus?: CheckedStatus
   disabled?: boolean

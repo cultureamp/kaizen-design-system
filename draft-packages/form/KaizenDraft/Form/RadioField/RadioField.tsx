@@ -4,7 +4,8 @@ import { v4 } from "uuid"
 import { Label, Radio, RadioProps } from "../Primitives"
 import styles from "./RadioField.module.scss"
 
-export interface RadioFieldProps extends RadioProps {
+export interface RadioFieldProps extends Omit<RadioProps, "id"> {
+  id?: string
   labelText: string | React.ReactNode
   selectedStatus?: boolean
   inline?: boolean

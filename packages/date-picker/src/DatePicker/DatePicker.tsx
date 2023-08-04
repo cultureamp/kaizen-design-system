@@ -36,10 +36,12 @@ type OmittedDateInputFieldProps =
   | "onButtonClick"
   | "value"
   | "locale"
+  | "id"
 
 export interface DatePickerProps
   extends DisabledDayMatchers,
     Omit<DateInputFieldProps, OmittedDateInputFieldProps> {
+  id?: string
   buttonRef?: RefObject<HTMLButtonElement>
   onInputClick?: DateInputFieldProps["onClick"]
   onInputFocus?: DateInputFieldProps["onFocus"]
