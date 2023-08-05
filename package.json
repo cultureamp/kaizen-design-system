@@ -113,7 +113,7 @@
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
     "eslint-plugin-ssr-friendly": "^1.2.0",
     "eslint-plugin-storybook": "^0.6.13",
-    "jest": "^29.6.1",
+    "jest": "^29.6.2",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.6.1",
     "jest-static-stubs": "^0.0.1",
