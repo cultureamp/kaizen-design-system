@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Dato fra"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Dato til"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Inndataformat"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "kontakt kundestøtten"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager, men forespørselen din kunne ikke fullføres. Gå tilbake og prøv igjen, eller gå til Hjem"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Forespørselen din har sklidd ut i tomrommet"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Vi kan dessverre ikke bekrefte om du kan se denne siden. Gå tilbake og prøv igjen, eller gå til Hjem"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Du kan ikke vise denne siden"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Det ser ut til at du ikke har tillatelse til å vise denne siden. Gå tilbake og prøv igjen, eller gå til Hjem"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Du kan ikke vise denne siden"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager, men vi kan ikke finne siden du leter etter. Gå tilbake og prøv igjen, eller gå til Hjem"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Manglende sider er et av livets mysterier"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager, men endringen din kunne ikke gjøres. Gå tilbake og prøv igjen, eller gå til Hjem"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Forandringer er aldri enkle"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager, det er et problem med systemet vårt, og denne siden kan ikke vises. Gå tilbake og prøv igjen, eller gå til Hjem"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Noe har gått galt på vår side"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager dette. Det beste du kan gjøre er å gå tilbake og prøve igjen."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Du kan ikke vise denne siden"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager dette. Det beste du kan gjøre er å gå tilbake og prøve igjen."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Du kan ikke vise denne siden"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager dette.  Det beste du kan gjøre er å gå tilbake og prøve igjen."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Du kan ikke vise denne siden"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Feilkode {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Gå til Hjem"
   }
 }

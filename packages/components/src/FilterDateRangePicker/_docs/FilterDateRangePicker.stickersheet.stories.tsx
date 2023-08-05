@@ -58,7 +58,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--partial-range`}
               isOpen={isOpenPartial}
               setIsOpen={setIsOpenPartial}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -73,7 +72,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               onRangeChange={setRangePartial}
             />
             <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--complete-range`}
               isOpen={isOpenComplete}
               setIsOpen={setIsOpenComplete}
               renderTrigger={(triggerButtonProps): JSX.Element => (

@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Datum vanaf"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Datum tot"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Invoerformaat"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "neem contact op met de ondersteuning"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Uw verzoek kon niet worden voltooid. Ga terug en probeer het opnieuw of ga naar Home"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Uw verzoek is verdwenen"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "We kunnen niet controleren of u deze pagina kunt bekijken. Ga terug en probeer het opnieuw of ga naar Home"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "U kunt deze pagina niet bekijken"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Het lijkt erop dat u geen toestemming hebt om deze pagina te bekijken. Ga terug en probeer het opnieuw of ga naar Home"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "U kunt deze pagina niet bekijken"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "We kunnen de pagina die u zoekt niet vinden. Ga terug en probeer het opnieuw of ga naar Home"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Pagina ontbreekt"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Uw wijziging kon niet worden doorgevoerd. Ga terug en probeer het opnieuw of ga naar Home"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Veranderen is lastig"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Er is een probleem met ons systeem en deze pagina kan niet worden weergegeven. Ga terug en probeer het opnieuw of ga naar Home"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Er is iets fout gegaan aan onze kant"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Onze excuses. U kunt het beste teruggaan en het opnieuw proberen."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "U kunt deze pagina niet bekijken"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Onze excuses. U kunt het beste teruggaan en het opnieuw proberen."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "U kunt deze pagina niet bekijken"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Onze excuses. U kunt het beste teruggaan en het opnieuw proberen."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "U kunt deze pagina niet bekijken"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Foutcode {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Naar startpagina"
   }
 }

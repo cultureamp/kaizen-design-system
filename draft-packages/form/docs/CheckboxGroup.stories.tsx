@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
+import { CheckboxGroup, CheckboxField } from "@kaizen/draft-form"
+import { Paragraph } from "@kaizen/typography"
 import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
 
 interface RenderProps {
@@ -46,7 +47,6 @@ export const InteractiveKaizenSiteDemo: StoryFn<
         render={({ checkedStatus, onCheckHandler }): JSX.Element => (
           <CheckboxField
             onCheck={onCheckHandler}
-            id="checkbox-1"
             checkedStatus={checkedStatus as any}
             {...args}
           />
@@ -56,7 +56,6 @@ export const InteractiveKaizenSiteDemo: StoryFn<
         render={({ checkedStatus, onCheckHandler }): JSX.Element => (
           <CheckboxField
             onCheck={onCheckHandler}
-            id="checkbox-2"
             checkedStatus={checkedStatus as any}
             {...args}
           />
@@ -66,7 +65,6 @@ export const InteractiveKaizenSiteDemo: StoryFn<
         render={({ checkedStatus, onCheckHandler }): JSX.Element => (
           <CheckboxField
             onCheck={onCheckHandler}
-            id="checkbox-3"
             checkedStatus={checkedStatus as any}
             {...args}
           />
@@ -116,25 +114,21 @@ export const NestedCheckboxGroup: StoryFn = () => {
     <div>
       <CheckboxGroup noBottomMargin labelText="Checkbox Group Label">
         <CheckboxField
-          id="checkbox-all"
           checkedStatus={allCheckboxState}
           labelText="All"
           onCheck={checkAllCheckboxOnCheckHandler}
         />
         <CheckboxField
-          id="checkbox-1"
           checkedStatus={selectedOptions.includes(1) ? "on" : "off"}
           labelText="Label"
           onCheck={(e): void => onCheckHandler(e.currentTarget.value, 1)}
         />
         <CheckboxField
-          id="checkbox-2"
           checkedStatus={selectedOptions.includes(2) ? "on" : "off"}
           labelText="Label"
           onCheck={(e): void => onCheckHandler(e.currentTarget.value, 2)}
         />
         <CheckboxField
-          id="checkbox-3"
           checkedStatus={selectedOptions.includes(3) ? "on" : "off"}
           labelText="Label"
           onCheck={(e): void => onCheckHandler(e.currentTarget.value, 3)}
@@ -153,13 +147,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper.Row rowTitle="On">
         <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
-            id="checkbox-on-1"
             checkedStatus="on"
             labelText="Label"
             reversed={isReversed}
           />
           <CheckboxField
-            id="checkbox-on-2"
             checkedStatus="on"
             labelText="Label"
             reversed={isReversed}
@@ -167,14 +159,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </CheckboxGroup>
         <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
-            id="checkbox-on-disabled-1"
             checkedStatus="on"
             disabled
             labelText="Label"
             reversed={isReversed}
           />
           <CheckboxField
-            id="checkbox-on-disabled-2"
             checkedStatus="on"
             disabled
             labelText="Label"
@@ -185,13 +175,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper.Row rowTitle="Off">
         <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
-            id="checkbox-off-1"
             checkedStatus="off"
             labelText="Label"
             reversed={isReversed}
           />
           <CheckboxField
-            id="checkbox-off-2"
             checkedStatus="off"
             labelText="Label"
             reversed={isReversed}
@@ -199,14 +187,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </CheckboxGroup>
         <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
-            id="checkbox-off-disabled-1"
             checkedStatus="off"
             disabled
             labelText="Label"
             reversed={isReversed}
           />
           <CheckboxField
-            id="checkbox-off-disabled-2"
             checkedStatus="off"
             disabled
             labelText="Label"
@@ -217,13 +203,11 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper.Row rowTitle="Mixed">
         <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
-            id="checkbox-mixed-1"
             checkedStatus="mixed"
             labelText="Label"
             reversed={isReversed}
           />
           <CheckboxField
-            id="checkbox-mixed-2"
             checkedStatus="mixed"
             labelText="Label"
             reversed={isReversed}
@@ -231,14 +215,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </CheckboxGroup>
         <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
           <CheckboxField
-            id="checkbox-mixed-disabled-1"
             checkedStatus="mixed"
             disabled
             labelText="Label"
             reversed={isReversed}
           />
           <CheckboxField
-            id="checkbox-mixed-disabled-2"
             checkedStatus="mixed"
             disabled
             labelText="Label"
@@ -248,28 +230,25 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       </StoryWrapper.Row>
       <StoryWrapper.Row rowTitle="No Bottom Margin">
         <div>
-          <CheckboxGroup labelText="Checkbox Group Label" reversed={isReversed}>
+          <CheckboxGroup
+            labelText="Checkbox Group Label"
+            reversed={isReversed}
+            noBottomMargin
+          >
             <CheckboxField
-              id="checkbox-no-mb-1"
               checkedStatus="on"
               labelText="Label"
               reversed={isReversed}
             />
             <CheckboxField
-              id="checkbox-no-mb-2"
               checkedStatus="on"
               labelText="Label"
               reversed={isReversed}
             />
           </CheckboxGroup>
-          <Label
-            id="test_label"
-            htmlFor="test_label"
-            automationId="test_label"
-            labelText="Next line"
-            labelType="checkbox"
-            reversed={isReversed}
-          />
+          <Paragraph variant="body" color={isReversed ? "white" : "dark"}>
+            Next line
+          </Paragraph>
         </div>
       </StoryWrapper.Row>
     </StoryWrapper>
