@@ -5142,10 +5142,10 @@
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.29.17.tgz#bbef3a30190732ae3554187702f6e34c5caaefd8"
   integrity sha512-iDbO8yZOpm1lqgq6L8mpxGbKaoiyZSjthxEB3WGU7mNPYss9q4H3Q67+e2xXGwkemEVmtEX/WwvtFitrvVU8TA==
 
-"@tanstack/query-core@4.32.5":
-  version "4.32.5"
-  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.32.5.tgz#1c9da404ba4906c35b3998ba03ea4ab44019750c"
-  integrity sha512-UOxiDYmzYWD21ASIUnW3w+Nq3LcW1BPFFfIyZOor6UsRl76KGLlvUhJ402/dof1JxcQFPK7nZ5iUGPVqLiT8zg==
+"@tanstack/query-core@4.32.6":
+  version "4.32.6"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.32.6.tgz#cf7df91ab1542e67a82624fefb12a55f580b4c01"
+  integrity sha512-YVB+mVWENQwPyv+40qO7flMgKZ0uI41Ph7qXC2Zf1ft5AIGfnXnMZyifB2ghhZ27u+5wm5mlzO4Y6lwwadzxCA==
 
 "@tanstack/react-query@^4.29.13":
   version "4.29.17"
@@ -5156,12 +5156,12 @@
     client-only "0.0.1"
     use-sync-external-store "^1.2.0"
 
-"@tanstack/react-query@^4.32.5":
-  version "4.32.5"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.32.5.tgz#666abcf6cbeb8475e44f91a4279302f69b2f4ee9"
-  integrity sha512-4tR0GxyyKhLpYvbglOGpWVqHS+t3bs7yy89DuTgJvnKLnaS5UW2sbfAzlV9JtwL7s5Z8eW2q2EDMcAtutb0lAw==
+"@tanstack/react-query@^4.32.6":
+  version "4.32.6"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.32.6.tgz#f88c2d57f423d4cd295c501df2edeb3285a301bd"
+  integrity sha512-AITu/IKJJJXsHHeXNBy5bclu12t08usMCY0vFC2dh9SP/w6JAk5U9GwfjOIPj3p+ATADZvxQPe8UiCtMLNeQbg==
   dependencies:
-    "@tanstack/query-core" "4.32.5"
+    "@tanstack/query-core" "4.32.6"
     use-sync-external-store "^1.2.0"
 
 "@testing-library/dom@^8.0.0":
