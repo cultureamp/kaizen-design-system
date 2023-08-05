@@ -30,7 +30,6 @@ export const InteractiveKaizenSiteDemo: StoryFn<typeof RadioField> = args => {
       {...args}
       onChange={onCheckHandler}
       selectedStatus={status}
-      id="checkbox-1"
       labelText="label"
     />
   )
@@ -46,7 +45,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper.Row rowTitle="On">
         <RadioField
           name="radio"
-          id="radio-on"
           labelText="Label"
           selectedStatus
           value="radio-1"
@@ -54,7 +52,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         ></RadioField>
         <RadioField
           name="radio"
-          id="radio-on-disabled"
           labelText="Label"
           selectedStatus
           disabled
@@ -65,14 +62,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <StoryWrapper.Row rowTitle="Off">
         <RadioField
           name="radio"
-          id="radio-off"
           labelText="Label"
           value="radio-1"
           reversed={isReversed}
         ></RadioField>
         <RadioField
           name="radio"
-          id="radio-off-disabled"
           labelText="Label"
           disabled
           value="radio-1"

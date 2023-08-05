@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "දින සිට"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "දිනය දක්වා"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "ආදාන ආකෘතිය"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "සහය හා සම්බන්ධ වන්න"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි, නමුත් ඔබගේ ඉල්ලීම සම්පූර්ණ කළ නොහැකි විය.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "ඔබගේ ඉල්ලීම රික්තකයට ලිස්සා ගොස් ඇත"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි, නමුත් ඔබට මෙම පිටුව බැලීමට හැකි දැයි අපට සත්‍යාපනය කළ නොහැක.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "ඔබට මෙම පිටුව නැරඹිය නොහැකිය"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි, නමුත් ඔබට මෙම පිටුව බැලීමට අවසර නොමැති බව පෙනේ.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "ඔබට මෙම පිටුව නැරඹිය නොහැකිය"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි, නමුත් අපි ඔබ සොයන පිටුව fing නොහැක.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් නිවසට යන්න"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "නැතිවූ පිටු ජීවිතයේ අභිරහස් වලින් එකකි"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි, නමුත් ඔබගේ වෙනස් කිරීම සිදු කළ නොහැකි විය.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "වෙනස් වීම කවදාවත් පහසු වෙන්නේ නෑ"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "සමාවන්න අපගේ පද්ධතියේ ගැටලුවක් ඇති අතර මෙම පිටුව සංදර්ශනය කළ නොහැක.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "අපේ පැත්තෙන් මොකක් හරි වැරදීමක් වෙලා"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි මේ ගැන.  කළ යුතු හොඳම දේ ආපසු ගොස් නැවත උත්සාහ කිරීමයි."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "ඔබට මෙම පිටුව නැරඹිය නොහැකිය"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි මේ ගැන.  කළ යුතු හොඳම දේ ආපසු ගොස් නැවත උත්සාහ කිරීමයි."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "ඔබට මෙම පිටුව නැරඹිය නොහැකිය"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි මේ ගැන.  කළ යුතු හොඳම දේ ආපසු ගොස් නැවත උත්සාහ කිරීමයි."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "ඔබට මෙම පිටුව නැරඹිය නොහැකිය"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "දෝෂ කේතය 403 {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "ගෙදර යන්න"
   }
 }

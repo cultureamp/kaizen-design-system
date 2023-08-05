@@ -45,7 +45,7 @@ export interface SelectProps
   /**
    * Identifies the element that labels the current element.
    */
-  id: string
+  id?: string
   /**
    * Replaces the trigger button
    * Exposes the trigger properties and the ref to be used on the replacing trigger */
@@ -72,7 +72,7 @@ export interface SelectProps
 }
 
 export const Select = ({
-  id,
+  id: propsId,
   label,
   description,
   isFullWidth,
@@ -90,6 +90,7 @@ export const Select = ({
   children,
   ...restProps
 }: SelectProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
   const descriptionId = `${id}-field-message`
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const invalidStatus = status === "error" ? "invalid" : "valid"

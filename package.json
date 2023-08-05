@@ -8,7 +8,7 @@
     "node": ">=v18.16.0"
   },
   "scripts": {
-    "build": "yarn turbo prepublish",
+    "build": "yarn turbo build",
     "clean": "yarn turbo clean && yarn storybook:clean && rimraf node_modules",
     "test": "jest && yarn test:pkg:aio",
     "test:pkg:aio": "yarn pkg:aio test && yarn pkg:aio build",
@@ -36,8 +36,8 @@
     "pkg:aio": "yarn workspace @kaizen/components",
     "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
     "ci:test:react-17": "USE_REACT_17=true yarn test:ci",
-    "ci:version": "yarn turbo prepublish && yarn changeset version",
-    "ci:publish": "yarn turbo prepublish && yarn changeset publish"
+    "ci:version": "yarn turbo build && yarn changeset version",
+    "ci:publish": "yarn turbo build && yarn changeset publish"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",

@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { Label, Radio, RadioProps } from "../Primitives"
 import styles from "./RadioField.module.scss"
 
-export interface RadioFieldProps extends RadioProps {
-  id: string
+export interface RadioFieldProps extends Omit<RadioProps, "id"> {
+  id?: string
   labelText: string | React.ReactNode
   selectedStatus?: boolean
   inline?: boolean
@@ -22,7 +23,7 @@ export interface RadioFieldProps extends RadioProps {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-radio-field--interactive-kaizen-site-demo Storybook}
  */
 export const RadioField = ({
-  id,
+  id: propsId,
   labelText,
   selectedStatus = false,
   inline = false,
@@ -31,36 +32,39 @@ export const RadioField = ({
   automationId,
   classNameOverride,
   ...restProps
-}: RadioFieldProps): JSX.Element => (
-  <div
-    data-automation-id={automationId}
-    className={classnames(
-      styles.container,
-      classNameOverride,
-      selectedStatus && styles.selected,
-      inline && styles.inline,
-      reversed && styles.reversed
-    )}
-  >
-    <Label
-      automationId={`${id}-field-label`}
-      id={`${id}-field-label`}
-      htmlFor={id}
-      labelText={labelText}
-      labelType="radio"
-      disabled={disabled}
-      reversed={reversed}
+}: RadioFieldProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
+  return (
+    <div
+      data-automation-id={automationId}
+      className={classnames(
+        styles.container,
+        classNameOverride,
+        selectedStatus && styles.selected,
+        inline && styles.inline,
+        reversed && styles.reversed
+      )}
     >
-      <Radio
-        automationId={`${id}-radio-input`}
-        id={id}
+      <Label
+        automationId={`${id}-field-label`}
+        id={`${id}-field-label`}
+        htmlFor={id}
+        labelText={labelText}
+        labelType="radio"
         disabled={disabled}
         reversed={reversed}
-        selectedStatus={selectedStatus}
-        {...restProps}
-      />
-    </Label>
-  </div>
-)
+      >
+        <Radio
+          automationId={`${id}-radio-input`}
+          id={id}
+          disabled={disabled}
+          reversed={reversed}
+          selectedStatus={selectedStatus}
+          {...restProps}
+        />
+      </Label>
+    </div>
+  )
+}
 
 RadioField.displayName = "RadioField"

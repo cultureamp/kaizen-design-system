@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Dátum ettől:"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Dátum eddig:"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Beviteli formátum"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "forduljon az ügyfélszolgálathoz."
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sajnáljuk, de a kérését nem sikerült teljesíteni.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "A kérése a semmibe csúszott"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sajnáljuk, de nem tudjuk ellenőrizni, hogy Ön képes-e megtekinteni ezt az oldalt.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Ezt az oldalt nem nézheti meg"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sajnáljuk, de úgy tűnik, nincs jogosultsága ennek az oldalnak a megtekintéséhez.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Ezt az oldalt nem nézheti meg"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sajnáljuk, de nem találjuk a keresett oldalt.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "A hiányzó oldalak az élet egyik rejtélye"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sajnáljuk, de a módosítás nem hajtható végre.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "A változás soha nem könnyű"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sajnáljuk, de probléma van a rendszerünkkel, és ez az oldal nem jelenik meg.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Valami a mi oldalunkon romlott el"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Elnézést!  A legjobb, ha visszamegy, és megpróbálja újra."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Ezt az oldalt nem nézheti meg"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Elnézést!  A legjobb, ha visszamegy, és megpróbálja újra."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Ezt az oldalt nem nézheti meg"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Elnézést!   A legjobb, ha visszamegy, és megpróbálja újra."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Ezt az oldalt nem nézheti meg"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Hibakód {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Ugrás a kezdőlapra"
   }
 }
