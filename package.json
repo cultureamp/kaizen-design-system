@@ -117,7 +117,7 @@
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.6.2",
     "jest-static-stubs": "^0.0.1",
-    "node-fetch": "^3.3.1",
+    "node-fetch": "^3.3.2",
     "node-sass": "^8.0.0",
     "plop": "^3.1.2",
     "postcss": "^8.4.23",
