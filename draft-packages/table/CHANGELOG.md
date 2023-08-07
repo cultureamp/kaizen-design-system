@@ -1,5 +1,16 @@
 # Change Log
 
+## 5.9.4
+
+### Patch Changes
+
+- [#3960](https://github.com/cultureamp/kaizen-design-system/pull/3960) [`f5330ee52`](https://github.com/cultureamp/kaizen-design-system/commit/f5330ee52a5b697630144f632453c254264cadf2) - Changes the role of TableHeaderRow from "rowheader" to "row" due to incorrect usage of the role.
+
+  Also deprecates the component, because it is now a direct replica of TableRow
+
+- Updated dependencies [[`60c405966`](https://github.com/cultureamp/kaizen-design-system/commit/60c405966d5e3fc8c8b57d51bf038490fd8594db)]:
+  - @kaizen/draft-form@10.4.9
+
 ## 5.9.3
 
 ### Patch Changes
