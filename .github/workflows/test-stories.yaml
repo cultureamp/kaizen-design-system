@@ -48,7 +48,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - uses: ./.github/actions/playwright
+      - name: Install Playwright
+        run: npx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
@@ -63,7 +64,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - uses: ./.github/actions/playwright
+      - name: Install Playwright
+        run: npx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
@@ -78,7 +80,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - uses: ./.github/actions/playwright
+      - name: Install Playwright
+        run: npx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
