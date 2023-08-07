@@ -21,7 +21,6 @@
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
     "storybook:build-deps": "yarn workspace @kaizen/design-tokens prepublish && yarn workspace @kaizen/tailwind prepublish",
     "test:storybook": "STORIES=ignoreBrandMoment test-storybook --config-dir storybook",
-    "ci:test:storybook": "yarn test:storybook --no-index-json",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "lint": "yarn lint:ts --max-warnings=0 && yarn lint:format && yarn lint:styles",
     "lint:ts": "yarn eslint . -c .eslintrc.js --ext .ts,.tsx",
