@@ -32,7 +32,6 @@ const renderSelected = (
 }
 
 export const Radio = ({
-  id,
   name,
   value,
   selectedStatus = false,
@@ -47,7 +46,6 @@ export const Radio = ({
       data-automation-id={automationId}
       data-testid={automationId}
       type="radio"
-      id={id}
       name={name}
       value={value}
       checked={selectedStatus}

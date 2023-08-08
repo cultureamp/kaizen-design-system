@@ -14,7 +14,6 @@ import { isValidWeekStartsOn } from "./utils/isValidWeekStartsOn"
 export type LegacyCalendarRangeElement = HTMLDivElement
 
 export type LegacyCalendarRangeProps = {
-  id: string
   classNameOverride?: string
   defaultMonth?: Date
   weekStartsOn?: DayOfWeek
@@ -25,7 +24,6 @@ export type LegacyCalendarRangeProps = {
 }
 
 export const LegacyCalendarRange = ({
-  id,
   classNameOverride,
   defaultMonth,
   weekStartsOn = DayOfWeek.Mon,
@@ -39,7 +37,7 @@ export const LegacyCalendarRange = ({
     monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
   return (
-    <div id={id} className={classNameOverride}>
+    <div className={classNameOverride}>
       <DayPicker
         mode="range"
         selected={selectedRange}

@@ -43,7 +43,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-dp--no-value-display`}
               isOpen={isOpenNoValue}
               setIsOpen={setIsOpenNoValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -56,7 +55,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               onDateChange={setNoDateValue}
             />
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-dp-value-display`}
               isOpen={isOpenValue}
               setIsOpen={setIsOpenValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (

@@ -29,7 +29,6 @@ export const DefaultStory: StoryFn<typeof TextAreaField> = args => (
   <TextAreaField {...args} />
 )
 DefaultStory.args = {
-  id: "reply",
   labelText: "Your reply",
   autogrow: false,
   inline: false,
@@ -52,29 +51,18 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   <StoryWrapper isReversed={isReversed}>
     <StoryWrapper.RowHeader headings={["Base", "Disabled"]} />
     <StoryWrapper.Row rowTitle="Default">
-      <TextAreaField
-        reversed={isReversed}
-        id="text-area-default-base"
-        labelText="Default"
-      />
-      <TextAreaField
-        reversed={isReversed}
-        disabled
-        id="text-area-default-disabled"
-        labelText="Default"
-      />
+      <TextAreaField reversed={isReversed} labelText="Default" />
+      <TextAreaField reversed={isReversed} disabled labelText="Default" />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Description">
       <TextAreaField
         reversed={isReversed}
-        id="text-area-default-description-base"
         defaultValue="Filled input text"
         labelText="With description"
         description="Example/description text"
       />
       <TextAreaField
         reversed={isReversed}
-        id="text-area-default-description-disabled"
         defaultValue="Filled input text"
         labelText="With description"
         description="Example/description text"
@@ -84,7 +72,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     <StoryWrapper.Row rowTitle="Prominent">
       <TextAreaField
         reversed={isReversed}
-        id="text-area-prominent-base"
         labelText="Prominent"
         description="Example/description text"
         defaultValue="Filled input text"
@@ -92,7 +79,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       />
       <TextAreaField
         reversed={isReversed}
-        id="text-area-prominent-disabled"
         labelText="Prominent"
         description="Example/description text"
         defaultValue="Filled input text"
@@ -103,7 +89,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     <StoryWrapper.Row rowTitle="Negative" gridColumns={2}>
       <TextAreaField
         reversed={isReversed}
-        id="text-area-error-base"
         labelText="Error"
         description="Example/description text"
         defaultValue="Filled input text"
@@ -114,7 +99,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     <StoryWrapper.Row rowTitle="Cautionary" gridColumns={2}>
       <TextAreaField
         reversed={isReversed}
-        id="text-area-caution-base"
         labelText="Caution"
         description="Example/description text"
         defaultValue="Filled input text"
