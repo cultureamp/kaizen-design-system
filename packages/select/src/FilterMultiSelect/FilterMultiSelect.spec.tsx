@@ -212,5 +212,77 @@ describe("<FilterMultiSelect>", () => {
         expect(queryAllByRole("option", { selected: true })).toHaveLength(1)
       })
     })
+
+    it("has accessible names for ListBoxSections", async () => {
+      const FMSWithSectionHeaders = (): JSX.Element => (
+        <FilterMultiSelect
+          label="Engineer"
+          onSelectionChange={() => undefined}
+          isOpen
+          selectedKeys={undefined}
+          items={mockItems}
+          trigger={(): JSX.Element => (
+            <FilterMultiSelect.TriggerButton
+              selectedOptionLabels={[]}
+              label="Engineer"
+            />
+          )}
+        >
+          {(): JSX.Element => (
+            <>
+              <FilterMultiSelect.SearchInput />
+              <FilterMultiSelect.ListBox>
+                {({ unselectedItems }) => (
+                  <>
+                    <FilterMultiSelect.ListBoxSection
+                      sectionName="Test sectionName only"
+                      items={unselectedItems}
+                    >
+                      {item => (
+                        <FilterMultiSelect.Option key={item.key} item={item} />
+                      )}
+                    </FilterMultiSelect.ListBoxSection>
+                    <FilterMultiSelect.ListBoxSection
+                      sectionHeader="Test sectionHeader only"
+                      items={unselectedItems}
+                    >
+                      {item => (
+                        <FilterMultiSelect.Option key={item.key} item={item} />
+                      )}
+                    </FilterMultiSelect.ListBoxSection>
+                    <FilterMultiSelect.ListBoxSection
+                      sectionName="Test sectionHeader and sectionName"
+                      sectionHeader="More contextual info that could be supplied from sectionHeader"
+                      items={unselectedItems}
+                    >
+                      {item => (
+                        <FilterMultiSelect.Option key={item.key} item={item} />
+                      )}
+                    </FilterMultiSelect.ListBoxSection>
+                  </>
+                )}
+              </FilterMultiSelect.ListBox>
+              <FilterMultiSelect.MenuFooter>
+                <FilterMultiSelect.SelectAllButton />
+                <FilterMultiSelect.ClearButton />
+              </FilterMultiSelect.MenuFooter>
+            </>
+          )}
+        </FilterMultiSelect>
+      )
+
+      const { getByRole } = render(<FMSWithSectionHeaders />)
+      expect(
+        getByRole("group", { name: "Test sectionName only" })
+      ).toBeInTheDocument()
+      expect(
+        getByRole("group", { name: "Test sectionHeader only" })
+      ).toBeInTheDocument()
+      expect(
+        getByRole("group", {
+          name: "Test sectionHeader and sectionName. More contextual info that could be supplied from sectionHeader",
+        })
+      ).toBeInTheDocument()
+    })
   })
 })
