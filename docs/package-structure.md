@@ -80,7 +80,6 @@ The base package.json will look like this, where:
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn prepublish",
-    
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

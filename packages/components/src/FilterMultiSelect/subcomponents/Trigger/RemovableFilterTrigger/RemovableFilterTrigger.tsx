@@ -22,6 +22,7 @@ export const RemovableFilterTrigger = ({
   return (
     <FilterButtonRemovable
       ref={ref}
+      classNameOverride={classNameOverride}
       triggerButtonProps={{
         ...buttonProps,
         label,
@@ -30,7 +31,6 @@ export const RemovableFilterTrigger = ({
           labelCharacterLimitBeforeTruncate
         ),
         isOpen: menuTriggerState.isOpen,
-        classNameOverride,
       }}
       removeButtonProps={{
         onClick: onRemove,

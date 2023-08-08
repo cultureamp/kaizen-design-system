@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Data di inizio"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Data di fine"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Formato di input"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "contatta l'assistenza"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti, non è stato possibile completare la tua richiesta. Torna indietro e riprova o vai alla Home"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Non è stato possibile soddisfare la tua richiesta"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti, non riusciamo a verificare se sei in grado di visualizzare questa pagina. Torna indietro e riprova o vai alla Home"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Impossibile visualizzare questa pagina"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti, sembra che tu non disponga dell'autorizzazione necessaria per visualizzare questa pagina. Torna indietro e riprova o vai alla Home"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Impossibile visualizzare questa pagina"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti, non riusciamo a trovare la pagina che stai cercando. Torna indietro e riprova o vai alla Home"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Le pagine mancanti sono uno dei misteri della vita"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti, non è stato possibile apportare la modifica. Torna indietro e riprova o vai alla Home"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Cambiare non è mai facile"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti, si è verificato un problema con il nostro sistema e questa pagina non è visualizzabile. Torna indietro e riprova o vai alla Home"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Si è verificato un errore da parte nostra"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti. Ti conviene tornare indietro e riprovare."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Impossibile visualizzare questa pagina"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti. Ti conviene tornare indietro e riprovare."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Impossibile visualizzare questa pagina"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti. Ti conviene tornare indietro e riprovare."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Impossibile visualizzare questa pagina"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Codice di errore {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Vai alla Home"
   }
 }

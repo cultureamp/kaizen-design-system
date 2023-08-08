@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Dátum od"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Dátum do"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Vstupný formát"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "sa obráťte na podporu,"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ľutujeme, ale nebolo možné dokončiť vašu požiadavku. Vráťte sa a skúste to znova alebo prejdite na Úvod."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Vaša žiadosť sa dostala do prázdna."
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ľutujeme, ale nemôžeme overiť, či sa vám táto stránka môže zobraziť. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Nie je možné zobraziť vám túto stránku."
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ľutujeme, ale zdá sa, že nemáte povolenie na zobrazenie tejto stránky. Vráťte sa a skúste to znova alebo prejdite na Úvod."
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Nie je možné zobraziť vám túto stránku."
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ľutujeme, ale nemôžeme načítať stránku, ktorú hľadáte. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Chýbajúce stránky sú jednou zo záhad života."
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ľutujeme, ale vašu zmenu nebolo možné vykonať. Vráťte sa a skúste to znova alebo prejdite na Úvod."
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Zmena nikdy neprichádza ľahko."
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Je nám ľúto, že v našom systéme došlo k problému a táto stránka sa nemôže zobraziť. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Niečo sa pokazilo na našej strane."
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ospravedlňujeme sa za to. Najlepšie urobíte, ak sa vrátite a skúste to znova."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Nie je možné zobraziť vám túto stránku."
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ospravedlňujeme sa za to. Najlepšie urobíte, ak sa vrátite a skúste to znova."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Nie je možné zobraziť vám túto stránku."
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ospravedlňujeme sa za to. Najlepšie urobíte, ak sa vrátite a skúste to znova."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Nie je možné zobraziť vám túto stránku."
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Kód chyby {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Prejsť na Úvod"
   }
 }
