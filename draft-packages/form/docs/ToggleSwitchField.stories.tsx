@@ -78,7 +78,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           {({ toggledStatus, toggle }): JSX.Element => (
             <ToggleSwitchField
               reversed={isReversed}
-              id="toggle-switch-field--default"
               labelText="Label"
               toggledStatus={toggledStatus}
               onToggle={toggle}
@@ -89,7 +88,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           {({ toggledStatus, toggle }): JSX.Element => (
             <ToggleSwitchField
               reversed={isReversed}
-              id="toggle-switch-field--label-end"
               labelText="Label"
               labelPosition="end"
               toggledStatus={toggledStatus}
@@ -101,7 +99,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
           {({ toggledStatus, toggle }): JSX.Element => (
             <ToggleSwitchField
               reversed={isReversed}
-              id="toggle-switch-field--disabled"
               labelText="Label"
               toggledStatus={toggledStatus}
               onToggle={toggle}

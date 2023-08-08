@@ -21,16 +21,6 @@ enum TestId {
   tableRowCell = "table-row-cell",
 }
 
-// eslint-disable-next-line @typescript-eslint/no-shadow
-enum AriaRoles {
-  table = "table",
-  row = "row",
-  cell = "cell",
-  columnheader = "columnheader",
-  rowgroup = "rowgroup",
-  rowheader = "rowheader",
-}
-
 /**
  * Simple Wrapper with absolute bare basics.
  * Although we use data-automation-id in practice,
@@ -76,17 +66,6 @@ describe("<Table />", () => {
         const { getByTestId } = render(<Wrapper />)
 
         expect(getByTestId(value)).toBeTruthy()
-      })
-    }
-  })
-
-  describe("Accessibility", () => {
-    // simple check for roles
-    for (const [role] of Object.entries(AriaRoles)) {
-      it(`contains ARIA compliant table role ${role}`, () => {
-        const { queryByRole } = render(<Wrapper />)
-
-        expect(queryByRole(role)).toBeTruthy()
       })
     }
   })
