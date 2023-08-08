@@ -8,13 +8,14 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    uses: slackapi/slack-github-action@v1.24.0
-    with:
-      # Slack channel id, channel name, or user id to post message.
-      # See also: https://api.slack.com/methods/chat.postMessage#channels
-      # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
-      channel-id: "C05HNL619PZ"
-      # For posting a simple plain text message
-      slack-message: "Hello"
-    env:
-      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+    steps:
+      - uses: slackapi/slack-github-action@v1.24.0
+        with:
+          # Slack channel id, channel name, or user id to post message.
+          # See also: https://api.slack.com/methods/chat.postMessage#channels
+          # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
+          channel-id: "C05HNL619PZ"
+          # For posting a simple plain text message
+          slack-message: "Hello"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
