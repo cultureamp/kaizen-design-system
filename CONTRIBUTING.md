@@ -166,9 +166,16 @@ Note that in the case that a pull request touches files from more than one packa
 
 Canary releases create a way to test changes in production-like environments, and are a great way to reduce the risk of proposed changes to a package. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes.
 
-Any merged pull request into the (protected) `canary` branch will create a canary release, publishing a [pre-release version](https://semver.org/#spec-item-9) of any packages touched by that branch. Only repo admins are able to directly push to the `canary` branch without a pull request.
+Our implementation of this is actually a [Changeset snapshot](https://github.com/changesets/changesets/blob/main/docs/snapshot-releases.md) but serves the same purpose as testing a package in production environments.
 
-For example, opening a pull request to merge a branch containing `feat: Even more glitter` into the branch `canary` will release e.g. `@kaizen/some-package@1.1.0-canary.0` to npm. This pre-release package version will then be available elsewhere for testing those changes prior to a full release.
+### Triggering a release
+
+1. Create a new branch with the desired changes for your package
+2. Create a [changeset](#creating-a-changeset) and push your branch to github
+3. Go to the [github Actions](https://github.com/cultureamp/kaizen-design-system/actions/workflows/canary-release.yml) tab and click on the `Canary release` workflow
+4. Run the workflow, select your feature branch and give a brief label for your release, ie: `fix-button`
+
+This will run a build and publish a snapshot and its tag with a name that is constructed from the label and timestamp to npm, ie: `0.0.0-canary-fix-button-20230719002814`.
 
 :warning: **Note that canary releases should not be used in production.**
 
