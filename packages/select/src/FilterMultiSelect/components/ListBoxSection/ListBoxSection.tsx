@@ -4,22 +4,15 @@ import { VisuallyHidden } from "@kaizen/a11y"
 import { MultiSelectItem } from "../../../types"
 import styles from "./ListBoxSection.module.scss"
 
-export interface ListBoxSectionBaseProps {
-  items: MultiSelectItem[]
+type SectionNameProps = {
   /**
    * Becomes an aria-label on the section, informing
    * unsighted users
    */
   sectionName: string
-  /**
-   * Can be used for a visual title of the ListBoxSection or to provide addition information in a React node.
-   * If this is the same title as sectionName, you should only pass in a sectionHeader to avoid duplicate descriptions.
-   */
-  sectionHeader?: ReactNode
-  children: (item: MultiSelectItem) => React.ReactNode
 }
-export interface ListBoxSectionWithHeaderProps
-  extends Omit<ListBoxSectionBaseProps, "sectionName" | "sectionHeader"> {
+
+type SectionHeaderProps = {
   /**
    * Becomes an aria-label on the section, informing
    * unsighted users
@@ -32,38 +25,35 @@ export interface ListBoxSectionWithHeaderProps
   sectionHeader: ReactNode
 }
 
-export type ListBoxSectionProps =
-  | ListBoxSectionWithHeaderProps
-  | ListBoxSectionBaseProps
-
-// const doesNeedSectionName = ()
+export type ListBoxSectionProps = {
+  items: MultiSelectItem[]
+  children: (item: MultiSelectItem) => React.ReactNode
+} & (SectionHeaderProps | SectionNameProps)
 
 export const ListBoxSection = ({
   items,
   children,
-  ...otherProps
+  sectionName,
+  ...restProps
 }: ListBoxSectionProps): JSX.Element => {
   const [listSectionId] = useState<string>(v4())
-  const hasSectionHeader = otherProps?.sectionHeader
-  const ariaLabel = otherProps.sectionName || ""
+  const hasSectionHeader = "sectionHeader" in restProps
   return (
     <li role="presentation">
       <ul
         className={styles.listBoxSection}
-        aria-label={ariaLabel || ""}
+        aria-label={!hasSectionHeader ? sectionName : undefined}
         aria-labelledby={hasSectionHeader ? listSectionId : undefined}
         role="group"
       >
-        {otherProps?.sectionHeader && (
+        {hasSectionHeader && (
           <li
             className={styles.listBoxSectionHeader}
             id={listSectionId}
             role="presentation"
           >
-            {otherProps.sectionName && (
-              <VisuallyHidden>{otherProps.sectionName}. </VisuallyHidden>
-            )}
-            {otherProps.sectionHeader}
+            {sectionName && <VisuallyHidden>{sectionName}. </VisuallyHidden>}
+            {restProps.sectionHeader}
           </li>
         )}
         {/*
