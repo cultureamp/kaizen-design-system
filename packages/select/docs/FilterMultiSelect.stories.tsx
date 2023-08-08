@@ -173,6 +173,7 @@ export const WithSections: StoryFn<typeof FilterMultiSelect> = () => {
                   <FilterMultiSelect.ListBoxSection
                     items={selectedItems}
                     sectionName="Selected items"
+                    sectionHeader={<p>Selected items different</p>}
                   >
                     {(item): JSX.Element => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
@@ -184,7 +185,7 @@ export const WithSections: StoryFn<typeof FilterMultiSelect> = () => {
                   )}
                   <FilterMultiSelect.ListBoxSection
                     items={unselectedItems}
-                    sectionName="Unselected items"
+                    sectionHeader={<p>Coffee</p>}
                   >
                     {(item): JSX.Element => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
@@ -199,6 +200,7 @@ export const WithSections: StoryFn<typeof FilterMultiSelect> = () => {
                   <FilterMultiSelect.ListBoxSection
                     items={disabledItems}
                     sectionName="Disabled items"
+                    sectionHeader={<p>Pancakes</p>}
                   >
                     {(item): JSX.Element => (
                       <FilterMultiSelect.Option key={item.key} item={item} />
