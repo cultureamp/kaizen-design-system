@@ -68,11 +68,17 @@ export type TableHeaderRowProps = {
   children?: React.ReactNode
 }
 
+/**
+ * **Deprecated:** Please replace any usages of this with TableRow
+ * This was incorrectly implementing role="rowheader" when this should just be role="row"
+ * It's now an exact replica of TableRow
+ * @deprecated
+ */
 export const TableHeaderRow = ({
   children,
   ...otherProps
 }: TableHeaderRowProps): JSX.Element => (
-  <div className={styles.row} role="rowheader" {...otherProps}>
+  <div className={styles.row} role="row" {...otherProps}>
     {children}
   </div>
 )

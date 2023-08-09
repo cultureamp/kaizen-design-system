@@ -33,7 +33,6 @@ export const DefaultStory: StoryFn<typeof Select> = props => (
 DefaultStory.storyName = "Select"
 DefaultStory.args = {
   label: "label",
-  id: "single-select",
   items: singleMockItems,
   isFullWidth: false,
   description: "This is a description",
@@ -48,12 +47,7 @@ DefaultStory.parameters = {
 
 export const WithSections: StoryFn<typeof Select> = () => (
   <>
-    <Select
-      id="select-grouped"
-      label="label"
-      items={groupedMockItems}
-      placeholder="Placeholder"
-    />
+    <Select label="label" items={groupedMockItems} placeholder="Placeholder" />
     <div style={{ marginTop: 4 }}>
       <Paragraph variant="body">Items: </Paragraph>
       <CodeBlock

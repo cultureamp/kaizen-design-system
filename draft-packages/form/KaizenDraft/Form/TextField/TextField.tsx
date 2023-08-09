@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { Icon } from "@kaizen/component-library/components/Icon"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import {
@@ -19,7 +20,6 @@ type OmittedInputProps =
   | "automationId"
 
 export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
-  id: string
   /**
    * A short example of input text. For context or additional information use the `description` prop
    */
@@ -41,7 +41,7 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-text-field--default-story Storybook}
  */
 export const TextField = ({
-  id,
+  id: propsId,
   labelText,
   inline = false,
   icon,
@@ -52,6 +52,7 @@ export const TextField = ({
   disabled,
   ...restProps
 }: TextFieldProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
   const validationMessageAria = validationMessage
     ? `${id}-field-validation-message`
     : ""

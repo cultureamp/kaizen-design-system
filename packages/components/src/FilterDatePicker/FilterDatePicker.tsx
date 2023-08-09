@@ -7,7 +7,9 @@ import {
   FilterDatePickerFieldProps,
 } from "./subcomponents/FilterDatePickerField"
 
-export interface FilterDatePickerProps extends FilterDatePickerFieldProps {
+export interface FilterDatePickerProps
+  extends Omit<FilterDatePickerFieldProps, "id"> {
+  id?: string
   label: string
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]

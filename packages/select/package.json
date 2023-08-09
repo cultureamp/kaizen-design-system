@@ -1,10 +1,10 @@
 {
   "name": "@kaizen/select",
-  "version": "6.18.1",
+  "version": "6.18.2",
   "description": "Select components",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
@@ -31,7 +31,7 @@
     "@kaizen/component-library": "^16.9.3",
     "@kaizen/draft-badge": "^1.13.12",
     "@kaizen/draft-divider": "^2.2.11",
-    "@kaizen/draft-form": "^10.4.8",
+    "@kaizen/draft-form": "^10.4.9",
     "@kaizen/draft-menu": "^5.0.2",
     "@kaizen/draft-tooltip": "^5.4.47",
     "@kaizen/loading-skeleton": "^2.0.7",

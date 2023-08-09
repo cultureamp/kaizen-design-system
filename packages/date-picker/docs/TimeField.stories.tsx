@@ -31,7 +31,6 @@ export const DefaultStory: StoryFn<typeof TimeField> = args => {
 }
 DefaultStory.storyName = "TimeField"
 DefaultStory.args = {
-  id: "time-field-input",
   label: "Launch time",
   locale: "en-US",
   isDisabled: false,
@@ -53,14 +52,12 @@ const StickerSheetTemplate: StoryFn = () => {
       <StoryWrapper.RowHeader headings={["Default", "Disabled", "Error"]} />
       <StoryWrapper.Row rowTitle="Input">
         <TimeField
-          id="timefield-default"
           label="Label (en-AU)"
           locale="en-AU"
           value={valueDefault}
           onChange={setValueDefault}
         />
         <TimeField
-          id="timefield-disabled"
           label="Label (en-AU)"
           locale="en-AU"
           value={{ hour: 1, minutes: 30 }}
@@ -68,7 +65,6 @@ const StickerSheetTemplate: StoryFn = () => {
           isDisabled
         />
         <TimeField
-          id="timefield-error"
           label="Label (en-AU)"
           locale="en-AU"
           value={valueError}
@@ -81,7 +77,6 @@ const StickerSheetTemplate: StoryFn = () => {
       <StoryWrapper.RowHeader headings={["Hover", "Focus"]} gridColumns={3} />
       <StoryWrapper.Row rowTitle="Pseudo states" gridColumns={3}>
         <TimeField
-          id="timefield-hover"
           label="Label (hover on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
@@ -89,7 +84,6 @@ const StickerSheetTemplate: StoryFn = () => {
           classNameOverride="story__timefield-hover"
         />
         <TimeField
-          id="timefield-focus"
           label="Label (focus on hour)"
           locale="en-AU"
           value={{ hour: 22, minutes: 30 }}
@@ -101,21 +95,18 @@ const StickerSheetTemplate: StoryFn = () => {
       <StoryWrapper.RowHeader headings={["en-US", "en-GB", "zh-HANS-SG"]} />
       <StoryWrapper.Row rowTitle="Localisation">
         <TimeField
-          id="timefield-en-US"
           label="Label"
           locale="en-US"
           value={valueEnUS}
           onChange={setValueEnUS}
         />
         <TimeField
-          id="timefield-en-GB"
           label="Label"
           locale="en-GB"
           value={valueEnGB}
           onChange={setValueEnGB}
         />
         <TimeField
-          id="timefield-zh-HANS-SG"
           label="Label"
           locale="zh-HANS-SG"
           value={valueZh}
