@@ -1,6 +1,9 @@
 name: slack
 
-on: push
+on:
+  push:
+    branches-ignore:
+      - "main"
 
 jobs:
   notify:
