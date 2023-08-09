@@ -22,8 +22,8 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublish": "yarn build:components && yarn postBuild && yarn dist:clean",
-    "build": "yarn prepublish",
+    "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
+    "build": "yarn clean && yarn prepublishOnly",
     "test": "jest",
     "clean": "rimraf dist",
     "build:components": "rollup -c",
