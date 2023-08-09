@@ -138,7 +138,8 @@ class GenericNotification extends React.Component<
       styles[this.props.style],
       this.state.hidden && styles.hidden,
       this.props.noBottomMargin && styles.noBottomMargin,
-      this.props.classNameOverride
+      this.props.classNameOverride,
+      this.props.persistent && styles.persistent
     )
   }
 
