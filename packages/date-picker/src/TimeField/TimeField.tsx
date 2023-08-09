@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Time } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { I18nProvider } from "@react-aria/i18n"
@@ -7,6 +7,7 @@ import {
   TimeFieldStateOptions,
 } from "@react-stately/datepicker"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { OverrideClassName } from "@kaizen/component-base"
 import { FieldMessage } from "@kaizen/draft-form"
 import { Heading } from "@kaizen/typography"
@@ -26,7 +27,7 @@ export interface TimeFieldProps
   extends OverrideClassName<
     Omit<TimeFieldStateOptions, OmittedTimeFieldProps>
   > {
-  id: string
+  id?: string
   /**
    * Field label.
    */
@@ -52,7 +53,7 @@ export const TimeField = (props: TimeFieldProps): JSX.Element => (
 TimeField.displayName = "TimeField"
 
 const TimeFieldComponent = ({
-  id,
+  id: propsId,
   label,
   locale,
   onChange,
@@ -63,6 +64,8 @@ const TimeFieldComponent = ({
   classNameOverride,
   ...restProps
 }: TimeFieldProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
+
   const handleOnChange = (timeValue: TimeValue | null): void => {
     if (timeValue === null) {
       return onChange(null)

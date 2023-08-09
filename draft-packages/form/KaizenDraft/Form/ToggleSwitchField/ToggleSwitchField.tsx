@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import {
   FieldGroup,
   Label,
@@ -10,7 +11,6 @@ import {
 import styles from "./ToggleSwitchField.module.scss"
 
 export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
-  id?: string
   labelText: string | React.ReactNode
   labelPosition?: "start" | "end"
   toggledStatus?: ToggledStatus
@@ -25,7 +25,7 @@ export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-toggle-switch-field--default Storybook}
  */
 export const ToggleSwitchField = ({
-  id = "",
+  id: propsId,
   labelText,
   labelPosition = "start",
   toggledStatus,
@@ -34,39 +34,42 @@ export const ToggleSwitchField = ({
   inline,
   fullWidth,
   ...restProps
-}: ToggleSwitchFieldProps): JSX.Element => (
-  <FieldGroup
-    id={`${id}-field-group`}
-    inline={inline}
-    automationId={`${id}-field-group`}
-    classNameOverride={classnames(
-      styles.container,
-      fullWidth && styles.fullWidth,
-      toggledStatus === ToggledStatus.ON && styles.on
-    )}
-  >
-    <div className={styles.inner}>
-      <Label
-        id={`${id}-field-label`}
-        htmlFor={`${id}-field-toggle`}
-        automationId={`${id}-field-label`}
-        labelText={labelText}
-        labelType="toggle"
-        labelPosition={labelPosition}
-        disabled={disabled}
-        reversed={reversed}
-      >
-        <ToggleSwitch
-          id={`${id}-field-toggle`}
-          automationId={`${id}-field-toggle`}
+}: ToggleSwitchFieldProps): JSX.Element => {
+  const [id] = useState<string>(propsId || v4())
+  return (
+    <FieldGroup
+      id={`${id}-field-group`}
+      inline={inline}
+      automationId={`${id}-field-group`}
+      classNameOverride={classnames(
+        styles.container,
+        fullWidth && styles.fullWidth,
+        toggledStatus === ToggledStatus.ON && styles.on
+      )}
+    >
+      <div className={styles.inner}>
+        <Label
+          id={`${id}-field-label`}
+          htmlFor={`${id}-field-toggle`}
+          automationId={`${id}-field-label`}
+          labelText={labelText}
+          labelType="toggle"
+          labelPosition={labelPosition}
           disabled={disabled}
           reversed={reversed}
-          toggledStatus={toggledStatus}
-          {...restProps}
-        />
-      </Label>
-    </div>
-  </FieldGroup>
-)
+        >
+          <ToggleSwitch
+            id={`${id}-field-toggle`}
+            automationId={`${id}-field-toggle`}
+            disabled={disabled}
+            reversed={reversed}
+            toggledStatus={toggledStatus}
+            {...restProps}
+          />
+        </Label>
+      </div>
+    </FieldGroup>
+  )
+}
 
 ToggleSwitchField.displayName = "ToggleSwitchField"

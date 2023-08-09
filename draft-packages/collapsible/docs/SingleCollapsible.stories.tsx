@@ -36,12 +36,7 @@ export default {
 } satisfies Meta<typeof Collapsible>
 
 const SingleCollapsibleNoPadding = (): JSX.Element => (
-  <Collapsible
-    id="collapsible-single"
-    open
-    noSectionPadding
-    title="Single collapsible with no padding"
-  >
+  <Collapsible open noSectionPadding title="Single collapsible with no padding">
     <ListItem>
       <Paragraph variant="body">Maybe you would like...</Paragraph>
     </ListItem>
@@ -60,7 +55,6 @@ const SingleCollapsibleNoPadding = (): JSX.Element => (
 
 const SingleCollapsibleCustomHeader = (): JSX.Element => (
   <Collapsible
-    id="collapsible-single"
     open
     title="Custom header"
     variant="default"
@@ -97,7 +91,7 @@ const SingleCollapsibleCustomHeader = (): JSX.Element => (
 )
 
 const SingleCollapsibleLazyLoad = (): JSX.Element => (
-  <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
+  <Collapsible title="Single collapsible" lazyLoad>
     <Paragraph variant="body">
       This content won&apos;t be rendered until the collapsible is opened. This
       is particularly useful when you have data being queried inside your
@@ -119,7 +113,6 @@ export const SingleCollapsibleKaizenSiteDemo: StoryFn<
 )
 SingleCollapsibleKaizenSiteDemo.storyName = "Collapsible"
 SingleCollapsibleKaizenSiteDemo.args = {
-  id: "collapsible-single",
   open: true,
   title: "Single Collapsible",
 }
@@ -139,7 +132,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
       <SingleCollapsibleLazyLoad />
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Clear">
-      <Collapsible id="collapsible-clear" variant="clear" title="Clear Variant">
+      <Collapsible variant="clear" title="Clear Variant">
         <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </StoryWrapper.Row>

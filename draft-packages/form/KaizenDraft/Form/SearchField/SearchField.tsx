@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
+import { v4 } from "uuid"
 import { InputSearch, InputSearchProps, Label } from "../Primitives"
 import styles from "./SearchField.module.scss"
 
-export interface SearchFieldProps extends InputSearchProps {
-  id: string
+export interface SearchFieldProps extends Omit<InputSearchProps, "id"> {
+  id?: string
   labelText: string
   disabled?: boolean
   reversed?: boolean
@@ -15,7 +16,7 @@ export interface SearchFieldProps extends InputSearchProps {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-form-search-field--default-kaizen-demo Storybook}
  */
 export const SearchField = ({
-  id,
+  id: propsId,
   labelText,
   disabled,
   reversed = false,
@@ -24,6 +25,7 @@ export const SearchField = ({
   ...restProps
 }: SearchFieldProps): JSX.Element => {
   const showVisibleLabel = !secondary
+  const [id] = useState<string>(propsId || v4())
 
   return (
     <div className={classNameOverride}>
