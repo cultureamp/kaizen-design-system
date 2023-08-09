@@ -3,8 +3,8 @@
   "version": "5.3.41",
   "description": "The draft Empty state component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

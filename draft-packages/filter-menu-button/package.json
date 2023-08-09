@@ -3,8 +3,8 @@
   "version": "2.6.50",
   "description": "The draft filter-menu-button component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
