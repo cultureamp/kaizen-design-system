@@ -9,6 +9,11 @@
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
       "inputs": ["packages/**", "draft-packages/**"]
     },
+    "prepublishOnly": {
+      "dependsOn": ["^prepublishOnly"],
+      "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
+      "inputs": ["packages/**", "draft-packages/**"]
+    },
     "clean": {
       "cache": false
     },

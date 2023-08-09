@@ -19,7 +19,6 @@
     "storybook:preview": "NODE_ENV=production yarn storybook --docs",
     "storybook:clean": "rm -rf storybook/public",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
-    "storybook:build-deps": "yarn workspace @kaizen/design-tokens prepublish && yarn workspace @kaizen/tailwind prepublish",
     "test:storybook": "STORIES=ignoreBrandMoment test-storybook --config-dir storybook",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "lint": "yarn lint:ts --max-warnings=0 && yarn lint:format && yarn lint:styles",
@@ -35,8 +34,8 @@
     "pkg:aio": "yarn workspace @kaizen/components",
     "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
     "ci:test:react-17": "USE_REACT_17=true yarn test:ci",
-    "ci:version": "yarn turbo build && yarn changeset version",
-    "ci:publish": "yarn turbo build && yarn changeset publish"
+    "ci:version": "yarn turbo prepublishOnly && yarn changeset version",
+    "ci:publish": "yarn turbo prepublishOnly && yarn changeset publish"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^10.0.11",
