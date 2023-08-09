@@ -9,11 +9,8 @@ $notification-vertical-padding: calc(
   #{$spacing-xs} - #{$border-solid-border-width}
 );
 $notification-fade-out: opacity 200ms ease;
-$notification-collapse-height:
-  margin-top 200ms ease,
-  margin-bottom 200ms ease;
-$notification-collapse-height-delayed:
-  margin-top 200ms ease 200ms,
+$notification-collapse-height: margin-top 200ms ease, margin-bottom 200ms ease;
+$notification-collapse-height-delayed: margin-top 200ms ease 200ms,
   margin-bottom 200ms ease;
 $notification-pop-up: transform 200ms ease-out;
 $notification-slide-right: transform 300ms ease-out;
@@ -135,6 +132,10 @@ $notification-slide-right: transform 300ms ease-out;
   // Modifiers
   &%ca-notification---noBottomMargin {
     margin-bottom: 0;
+  }
+
+  &%ca-notification---persistent {
+    transition: none;
   }
 
   // this is only for inline notifications
