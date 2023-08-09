@@ -29,7 +29,6 @@ export const DefaultKaizenSiteDemo: StoryFn<typeof Slider> = args => (
 )
 DefaultKaizenSiteDemo.storyName = "Slider"
 DefaultKaizenSiteDemo.args = {
-  id: "make-me-unique-1",
   labelText: "Work overall",
   minLabel: "Awful",
   maxLabel: "Fantastic",
@@ -42,7 +41,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     <StoryWrapper.RowHeader headings={["Default"]} />
     <StoryWrapper.Row rowTitle="Label Left">
       <Slider
-        id="make-me-left-1"
         description="Example Description"
         labelText="Label"
         minLabel="Minimum"
@@ -51,7 +49,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Label Top">
       <Slider
-        id="make-me-top-1"
         description="Example Description"
         labelText="Label"
         minLabel="Minimum"
@@ -61,7 +58,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Prominent">
       <Slider
-        id="make-me-top-1"
         description="Example Description"
         labelText="Label"
         minLabel="Minimum"
@@ -72,7 +68,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     </StoryWrapper.Row>
     <StoryWrapper.Row rowTitle="Prominent">
       <Slider
-        id="make-me-top-1"
         description="Example Description"
         labelText="Label"
         minLabel="Minimum"

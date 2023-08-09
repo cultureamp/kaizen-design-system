@@ -32,13 +32,13 @@ export const CollapsibleGroupDefault: StoryFn<
   typeof CollapsibleGroup
 > = args => (
   <CollapsibleGroup {...args}>
-    <Collapsible id="collapsible-separate-1" open title="First panel">
+    <Collapsible open title="First panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible id="collapsible-separate-2" title="Second panel">
+    <Collapsible title="Second panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible id="collapsible-separate-3" title="Third panel">
+    <Collapsible title="Third panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
   </CollapsibleGroup>
@@ -47,26 +47,13 @@ CollapsibleGroupDefault.storyName = "Collapsible Group"
 
 const CollapsibleGroupVariantClear = (): JSX.Element => (
   <CollapsibleGroup>
-    <Collapsible
-      variant="clear"
-      id="collapsible-separate-1"
-      open
-      title="First panel"
-    >
+    <Collapsible variant="clear" open title="First panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible
-      variant="clear"
-      id="collapsible-separate-2"
-      title="Second panel"
-    >
+    <Collapsible variant="clear" title="Second panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible
-      variant="clear"
-      id="collapsible-separate-3"
-      title="Third panel"
-    >
+    <Collapsible variant="clear" title="Third panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
   </CollapsibleGroup>
@@ -74,13 +61,13 @@ const CollapsibleGroupVariantClear = (): JSX.Element => (
 
 const CollapsibleGroupSeparated = (): JSX.Element => (
   <CollapsibleGroup separated>
-    <Collapsible id="collapsible-separate-1" open title="First panel">
+    <Collapsible open title="First panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible id="collapsible-separate-2" title="Second panel">
+    <Collapsible title="Second panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible id="collapsible-separate-3" title="Third panel">
+    <Collapsible title="Third panel">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
   </CollapsibleGroup>
@@ -88,16 +75,16 @@ const CollapsibleGroupSeparated = (): JSX.Element => (
 
 const CollapsibleGroupStickyHeaders = (): JSX.Element => (
   <CollapsibleGroup separated sticky={{ top: "0" }}>
-    <Collapsible id="collapsible-separate-1" title="First panel" open>
+    <Collapsible title="First panel" open>
       <Paragraph variant="body">{lipsum}</Paragraph>
       <Paragraph variant="body">{lipsum}</Paragraph>
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible id="collapsible-separate-2" title="Second panel" open>
+    <Collapsible title="Second panel" open>
       <Paragraph variant="body">{lipsum}</Paragraph>
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-    <Collapsible id="collapsible-separate-3" title="Third panel" open>
+    <Collapsible title="Third panel" open>
       <Paragraph variant="body">{lipsum}</Paragraph>
       <Paragraph variant="body">{lipsum}</Paragraph>
       <Paragraph variant="body">{lipsum}</Paragraph>

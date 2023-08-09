@@ -49,7 +49,6 @@ const DateRangePickerTemplate = (
   return (
     <>
       <DateRangePicker
-        id="date-range"
         labelText="Label"
         onChange={onDateRangeChange}
         value={value}
@@ -68,7 +67,6 @@ const LegacyCalendarRangeTemplate: StoryFn = props => {
 
   return (
     <LegacyCalendarRange
-      id="calendar-dialog"
       onDayChange={(): void => undefined}
       weekStartsOn={0}
       defaultMonth={new Date(2022, 2)}

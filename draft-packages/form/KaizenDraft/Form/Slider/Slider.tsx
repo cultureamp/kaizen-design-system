@@ -1,12 +1,13 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode, useState } from "react"
 import classnames from "classnames"
+import { v4 } from "uuid"
 import { Box } from "@kaizen/component-library"
 import { Paragraph } from "@kaizen/typography"
 import { FieldGroup, Label, InputRange, InputRangeProps } from "../Primitives"
 import styles from "./Slider.module.scss"
 
-export interface SliderFieldProps extends InputRangeProps {
-  id: string
+export interface SliderFieldProps extends Omit<InputRangeProps, "id"> {
+  id?: string
   labelText: ReactNode
   description?: ReactNode
   labelPosition?: "inline" | "block"
@@ -21,7 +22,7 @@ export interface SliderFieldProps extends InputRangeProps {
  */
 export const Slider = (props: SliderFieldProps): JSX.Element => {
   const {
-    id,
+    id: propsId,
     labelText,
     description,
     labelPosition = "inline",
@@ -30,6 +31,7 @@ export const Slider = (props: SliderFieldProps): JSX.Element => {
     readOnlyMessage,
     ...restProps
   } = props
+  const [id] = useState<string>(propsId || v4())
   const descriptionId = `${id}-description`
 
   return (

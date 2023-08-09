@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.20.5
+
+### Patch Changes
+
+- [#3945](https://github.com/cultureamp/kaizen-design-system/pull/3945) [`60c405966`](https://github.com/cultureamp/kaizen-design-system/commit/60c405966d5e3fc8c8b57d51bf038490fd8594db) - Make id props optional, using uuid to generate one if not supplied
+
+- [#3896](https://github.com/cultureamp/kaizen-design-system/pull/3896) [`f3bd6b202`](https://github.com/cultureamp/kaizen-design-system/commit/f3bd6b202e94b29fe8760995ca4b2f4954b4eafd) - Update dependency @cultureamp/i18n-react-intl to ^1.4.5
+
+- [#3897](https://github.com/cultureamp/kaizen-design-system/pull/3897) [`8af39c1e1`](https://github.com/cultureamp/kaizen-design-system/commit/8af39c1e19916c9618d5b3bfa56c777f7300dffb) - Update dependency sass to ^1.64.2
+
+- Updated dependencies [[`60c405966`](https://github.com/cultureamp/kaizen-design-system/commit/60c405966d5e3fc8c8b57d51bf038490fd8594db)]:
+  - @kaizen/date-picker@6.2.4
+  - @kaizen/draft-form@10.4.9
+
 ## 1.20.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.4.9
+
+### Patch Changes
+
+- [#3945](https://github.com/cultureamp/kaizen-design-system/pull/3945) [`60c405966`](https://github.com/cultureamp/kaizen-design-system/commit/60c405966d5e3fc8c8b57d51bf038490fd8594db) - Make id props optional, using uuid to generate one if not supplied
+
 ## 10.4.8
 
 ### Patch Changes
