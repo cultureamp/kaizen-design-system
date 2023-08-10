@@ -2,7 +2,7 @@ import React from "react"
 import { Button } from "@kaizen/button"
 import { Select } from "@kaizen/draft-select"
 import { assetUrl } from "@kaizen/hosted-assets"
-import closeIcon from "../../../icons/close.icon.svg"
+import closeIcon from "../../../assets/svgs/icons/close.icon.svg"
 import styles from "./ExampleHeaders.scss"
 
 export const MinimalBasic = (): JSX.Element => (

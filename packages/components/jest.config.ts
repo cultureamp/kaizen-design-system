@@ -12,7 +12,7 @@ const jestConfig: JestConfigWithTsJest = {
     "~types/(.*)$": "<rootDir>/src/types/$1",
     "~utils/(.*)$": "<rootDir>/src/utils/$1",
     "~components/(.*)$": "<rootDir>/src/$1",
-    "~icons/(.*)$": "<rootDir>/src/SVG/icons/$1",
+    "~icons/(.*)$": "<rootDir>/src/Icons/$1",
     "^__@cultureamp/i18n-react-intl/locales/(.*)": "<rootDir>/locales/$1",
   },
 }
