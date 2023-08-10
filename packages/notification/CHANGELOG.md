@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.0
+
+### Minor Changes
+
+- [#3972](https://github.com/cultureamp/kaizen-design-system/pull/3972) [`049cc68f2`](https://github.com/cultureamp/kaizen-design-system/commit/049cc68f21b73c2b28427694a30cd5ae0411a0c1) - removed animation if persistent is enabled
+
 ## 1.6.1
 
 ### Patch Changes
