@@ -52,3 +52,40 @@ exports[`<InlineNotification /> renders a basic notification correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`<InlineNotification /> renders a persistent notifications 1`] = `
+<div
+  class="notification negative inline hidden persistent"
+  data-automation-class="generic-notification negative inline"
+  style="margin-top: 0px;"
+>
+  <div
+    class="icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="icon inheritSize"
+      focusable="false"
+      role="presentation"
+    >
+      <use
+        xlink:href="#undefined"
+      />
+    </svg>
+  </div>
+  <div
+    class="textContainer"
+  >
+    <div
+      class="heading heading-6 notificationTitle dark small"
+    >
+      Error
+    </div>
+    <div
+      class="text"
+    >
+      Something has gone wrong
+    </div>
+  </div>
+</div>
+`;
