@@ -1,6 +1,12 @@
 import React from "react"
-import { HeaderRoot, Branding, Titles, Actions } from "./components"
-import { WorkflowActionsProps, WorkflowTitlesProps } from "./"
+import {
+  HeaderRoot,
+  Branding,
+  Titles,
+  Actions,
+  WorkflowTitlesProps,
+  WorkflowActionsProps,
+} from "./components"
 
 export type HeaderProps = WorkflowTitlesProps & WorkflowActionsProps
 
