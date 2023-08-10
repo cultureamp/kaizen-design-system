@@ -46,7 +46,7 @@ export const FilterBarMultiSelect = ({
   onSelectionChange,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
-  const { getFilterState, toggleOpenFilter, updateValue, hideFilter } =
+  const { getFilterState, setFilterOpenState, updateValue, hideFilter } =
     useFilterBarContext<ConsumableSelection>()
   const [items, setItems] = useState<ItemType[]>(propsItems)
 
@@ -85,7 +85,7 @@ export const FilterBarMultiSelect = ({
       }}
       items={items}
       isOpen={filterState.isOpen}
-      onOpenChange={(open): void => toggleOpenFilter(id, open)}
+      onOpenChange={(open): void => setFilterOpenState(id, open)}
       trigger={(): JSX.Element => {
         const triggerProps = {
           selectedOptionLabels: filterState.value

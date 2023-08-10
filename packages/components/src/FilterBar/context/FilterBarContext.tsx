@@ -16,10 +16,18 @@ export type FilterBarContextValue<
     id: Id
   ) => FilterState<keyof ValuesMap, ValuesMap[Id]>
   getActiveFilterValues: () => Partial<ValuesMap>
+  /**
+   * @deprecated Use `setFilterOpenState` instead.
+   */
   toggleOpenFilter: <Id extends keyof ValuesMap>(
     id: Id,
     isOpen: boolean
   ) => void
+  setFilterOpenState: <Id extends keyof ValuesMap>(
+    id: Id,
+    isOpen: boolean
+  ) => void
+  openFilter: <Id extends keyof ValuesMap>(id: Id) => void
   updateValue: <Id extends keyof ValuesMap>(
     id: Id,
     value: ValuesMap[Id]
@@ -66,7 +74,7 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
 
   const [state, dispatch] = useReducer(
     filterBarStateReducer<ValuesMap>,
-    setupFilterBarState<ValuesMap>(filters)
+    setupFilterBarState<ValuesMap>(filters, values)
   )
 
   const value = {
@@ -81,6 +89,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
       isOpen: boolean
     ): void => {
       dispatch({ type: "update_single_filter", id, data: { isOpen } })
+    },
+    setFilterOpenState: <Id extends keyof ValuesMap>(
+      id: Id,
+      isOpen: boolean
+    ): void => {
+      dispatch({ type: "update_single_filter", id, data: { isOpen } })
+    },
+    openFilter: <Id extends keyof ValuesMap>(id: Id): void => {
+      dispatch({ type: "update_single_filter", id, data: { isOpen: true } })
     },
     updateValue: <Id extends keyof ValuesMap>(
       id: Id,
@@ -107,15 +124,15 @@ export const FilterBarProvider = <ValuesMap extends FiltersValues>({
   } satisfies FilterBarContextValue<any, ValuesMap>
 
   useEffect(() => {
-    const shouldUpdate =
-      state.values === null || checkShouldUpdateValues<ValuesMap>(state, values)
+    const shouldUpdate = checkShouldUpdateValues<ValuesMap>(state, values)
     if (shouldUpdate) dispatch({ type: "update_values", values: { ...values } })
   }, [values])
 
   useEffect(() => {
-    const shouldUpdate =
-      state.values !== null && checkShouldUpdateValues<ValuesMap>(state, values)
-    if (shouldUpdate) onValuesChange({ ...state.values! })
+    if (state.hasUpdatedValues) {
+      onValuesChange({ ...state.values })
+      dispatch({ type: "complete_update_values" })
+    }
   }, [state])
 
   const activeFilters = Array.from(

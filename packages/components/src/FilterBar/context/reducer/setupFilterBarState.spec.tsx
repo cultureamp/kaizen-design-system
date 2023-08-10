@@ -19,7 +19,8 @@ const filters = [
 
 describe("setupFilterBarState()", () => {
   it("sets up the base state correctly", () => {
-    expect(setupFilterBarState<Values>(filters)).toEqual({
+    const values = { flavour: "jasmine", sugarLevel: 50 }
+    expect(setupFilterBarState<Values>(filters, values)).toEqual({
       filters: {
         flavour: {
           id: "flavour",
@@ -36,9 +37,10 @@ describe("setupFilterBarState()", () => {
           isUsable: true,
         },
       },
-      activeFilterIds: new Set(),
-      values: null,
+      activeFilterIds: new Set(["flavour", "sugarLevel"]),
+      values,
       dependentFilterIds: new Set<keyof Values>(),
+      hasUpdatedValues: false,
     })
   })
 
@@ -54,9 +56,13 @@ describe("setupFilterBarState()", () => {
     ] satisfies Filters<Values>
 
     it("correctly sets up base for dependent filters", () => {
-      const state = setupFilterBarState<Values>(filtersDependent)
-      expect(state.filters.sugarLevel.isUsable).toBe(null)
+      const values = { sugarLevel: 50 }
+      const state = setupFilterBarState<Values>(filtersDependent, values)
+      expect(state.activeFilterIds).toEqual(new Set(["flavour"]))
       expect(state.dependentFilterIds).toEqual(new Set(["sugarLevel"]))
+      expect(state.filters.sugarLevel.isUsable).toBe(false)
+      expect(state.values).toEqual({})
+      expect(state.hasUpdatedValues).toBe(true)
     })
   })
 })

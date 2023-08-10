@@ -12,7 +12,7 @@ export const getIsUsableWhenArgs = <ValuesMap extends FiltersValues>({
         id,
         name,
         isActive: activeFilterIds.has(id),
-        value: values![id],
+        value: values[id],
       }
       return acc
     },
