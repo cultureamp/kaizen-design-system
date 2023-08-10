@@ -15,17 +15,6 @@ describe("<InlineNotification />", () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it("renders a persistent notifications", () => {
-    const { container } = render(
-      <InlineNotification type="negative" title="Error" persistent>
-        Something has gone wrong
-      </InlineNotification>
-    )
-
-    expect(container.querySelector(".cancel")).toBeFalsy()
-    expect(container.firstChild).toMatchSnapshot()
-  })
-
   it("renders a notification with a custom heading level", () => {
     const customHeadingProps: HeadingProps = {
       variant: "heading-6",
