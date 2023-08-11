@@ -125,12 +125,15 @@ const FilterBarWrapper = <T extends FiltersValues>({
   )
 
   return (
-    <FilterBar<T>
-      filters={filters}
-      values={activeValues}
-      onValuesChange={setActiveValues}
-      {...customProps}
-    />
+    <>
+      <FilterBar<T>
+        filters={filters}
+        values={activeValues}
+        onValuesChange={setActiveValues}
+        {...customProps}
+      />
+      <div data-testid="testid__values">{JSON.stringify(activeValues)}</div>
+    </>
   )
 }
 
@@ -269,6 +272,20 @@ describe("<FilterBar />", () => {
           queryByRole("button", { name: "Topping" })
         ).not.toBeInTheDocument()
         expect(getByRole("button", { name: "Add Filters" })).toBeDisabled()
+      })
+
+      it("clears the value if the filter is not usable", () => {
+        const { getByTestId } = render(
+          <FilterBarWrapper
+            filters={filtersDependent}
+            defaultValues={{
+              topping: "pearls",
+            }}
+          />
+        )
+        expect(getByTestId("testid__values").textContent).toEqual(
+          JSON.stringify({})
+        )
       })
     })
 
@@ -756,134 +773,192 @@ describe("<FilterBar />", () => {
   })
 
   describe("Context use cases", () => {
-    type Items = Array<{ value: string; label: string }>
+    describe("getActiveFilterValues()", () => {
+      type Items = Array<{ value: string; label: string }>
 
-    type AsyncValues = {
-      city: string[]
-      hero: string[]
-    }
+      type AsyncValues = {
+        city: string[]
+        hero: string[]
+      }
 
-    const MockFilterAsyncComponent = ({
-      id,
-      fetcher,
-    }: {
-      id: string
-      fetcher: (args: Partial<AsyncValues>) => Promise<Items>
-    }): JSX.Element => {
-      const [items, setItems] = useState<Items>([])
-      const { getActiveFilterValues } = useFilterBarContext()
-      const activeFilterVals = getActiveFilterValues()
+      const MockFilterAsyncComponent = ({
+        id,
+        fetcher,
+      }: {
+        id: string
+        fetcher: (args: Partial<AsyncValues>) => Promise<Items>
+      }): JSX.Element => {
+        const [items, setItems] = useState<Items>([])
+        const { getActiveFilterValues } = useFilterBarContext()
+        const activeFilterVals = getActiveFilterValues()
 
-      useEffect(() => {
-        fetcher(activeFilterVals).then(fetchedItems => {
-          if (JSON.stringify(fetchedItems) !== JSON.stringify(items)) {
-            setItems(fetchedItems)
-          }
+        useEffect(() => {
+          fetcher(activeFilterVals).then(fetchedItems => {
+            if (JSON.stringify(fetchedItems) !== JSON.stringify(items)) {
+              setItems(fetchedItems)
+            }
+          })
+        }, [JSON.stringify(activeFilterVals)])
+
+        return (
+          <FilterBar.MultiSelect id={id} items={items}>
+            {() => (
+              <FilterMultiSelect.ListBox>
+                {({ allItems }) => (
+                  <FilterMultiSelect.ListBoxSection
+                    items={allItems}
+                    sectionName="All Items"
+                  >
+                    {item => (
+                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    )}
+                  </FilterMultiSelect.ListBoxSection>
+                )}
+              </FilterMultiSelect.ListBox>
+            )}
+          </FilterBar.MultiSelect>
+        )
+      }
+
+      const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+        const isSupermanInFilterValue = filterValues.hero?.includes("superman")
+        const isBatmanInFilterValue = filterValues.hero?.includes("batman")
+
+        if (isBatmanInFilterValue && !isSupermanInFilterValue) {
+          return Promise.resolve([{ value: "gotham", label: "Gotham" }])
+        }
+
+        return Promise.resolve([
+          { value: "gotham", label: "Gotham" },
+          { value: "metro", label: "Metropolis" },
+        ])
+      })
+
+      const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
+        const isGothamInFilterValue = filterValues.city?.includes("gotham")
+        const isMetroInFilterValue = filterValues.city?.includes("metro")
+
+        if (isGothamInFilterValue && !isMetroInFilterValue) {
+          return Promise.resolve([{ value: "batman", label: "Batman" }])
+        }
+
+        return Promise.resolve([
+          { value: "superman", label: "Superman" },
+          { value: "batman", label: "Batman" },
+        ])
+      })
+
+      const config = [
+        {
+          id: "city",
+          name: "City",
+          Component: (
+            <MockFilterAsyncComponent id="city" fetcher={fetchCityOptions} />
+          ),
+        },
+        {
+          id: "hero",
+          name: "Hero",
+          Component: (
+            <MockFilterAsyncComponent id="Hero" fetcher={fetchHeroOptions} />
+          ),
+        },
+      ] satisfies Filters<AsyncValues>
+
+      it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
+        const { getByRole, queryByRole } = render(
+          <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
+        )
+
+        await user.click(getByRole("button", { name: "City" }))
+
+        await waitFor(() => {
+          expect(getByRole("option", { name: "Gotham" })).toBeVisible()
+          expect(getByRole("option", { name: "Metropolis" })).toBeVisible()
         })
-      }, [JSON.stringify(activeFilterVals)])
 
-      return (
-        <FilterBar.MultiSelect id={id} items={items}>
-          {() => (
-            <FilterMultiSelect.ListBox>
-              {({ allItems }) => (
-                <FilterMultiSelect.ListBoxSection
-                  items={allItems}
-                  sectionName="All Items"
-                >
-                  {item => (
-                    <FilterMultiSelect.Option key={item.key} item={item} />
-                  )}
-                </FilterMultiSelect.ListBoxSection>
-              )}
-            </FilterMultiSelect.ListBox>
-          )}
-        </FilterBar.MultiSelect>
-      )
-    }
+        await user.click(getByRole("option", { name: "Gotham" }))
 
-    const fetchCityOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
-      const isSupermanInFilterValue = filterValues.hero?.includes("superman")
-      const isBatmanInFilterValue = filterValues.hero?.includes("batman")
+        // close city filter
+        await user.click(document.body)
 
-      if (isBatmanInFilterValue && !isSupermanInFilterValue) {
-        return Promise.resolve([{ value: "gotham", label: "Gotham" }])
-      }
+        await user.click(getByRole("button", { name: "Hero" }))
 
-      return Promise.resolve([
-        { value: "gotham", label: "Gotham" },
-        { value: "metro", label: "Metropolis" },
-      ])
+        await waitFor(() => {
+          expect(getByRole("option", { name: "Batman" })).toBeVisible()
+          expect(
+            queryByRole("option", { name: "Superman" })
+          ).not.toBeInTheDocument()
+        })
+
+        await user.click(getByRole("option", { name: "Batman" }))
+
+        await user.click(document.body)
+
+        await user.click(getByRole("button", { name: "City : Gotham" }))
+
+        await waitFor(() => {
+          expect(getByRole("option", { name: "Gotham" })).toBeVisible()
+          expect(
+            queryByRole("option", { name: "Metropolis" })
+          ).not.toBeInTheDocument()
+        })
+      })
     })
 
-    const fetchHeroOptions = jest.fn((filterValues: Partial<AsyncValues>) => {
-      const isGothamInFilterValue = filterValues.city?.includes("gotham")
-      const isMetroInFilterValue = filterValues.city?.includes("metro")
-
-      if (isGothamInFilterValue && !isMetroInFilterValue) {
-        return Promise.resolve([{ value: "batman", label: "Batman" }])
+    describe("openFilter()", () => {
+      type CycleFilterValues = {
+        cycle: string
+        customDate: Date
       }
 
-      return Promise.resolve([
-        { value: "superman", label: "Superman" },
-        { value: "batman", label: "Batman" },
-      ])
-    })
+      const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
+        const { openFilter } = useFilterBarContext<string, CycleFilterValues>()
 
-    const config = [
-      {
-        id: "city",
-        name: "City",
-        Component: (
-          <MockFilterAsyncComponent id="city" fetcher={fetchCityOptions} />
-        ),
-      },
-      {
-        id: "hero",
-        name: "Hero",
-        Component: (
-          <MockFilterAsyncComponent id="Hero" fetcher={fetchHeroOptions} />
-        ),
-      },
-    ] satisfies Filters<AsyncValues>
+        return (
+          <FilterBar.Select
+            id={id}
+            items={[{ value: "custom", label: "Custom Date" }]}
+            onSelectionChange={key => {
+              if (key === "custom") openFilter("customDate")
+            }}
+          />
+        )
+      }
 
-    it("can re-fetch options with all active filter values pulled off of the FilterBarContext", async () => {
-      const { getByRole, queryByRole } = render(
-        <FilterBarWrapper<AsyncValues> filters={config} defaultValues={{}} />
-      )
+      const cycleFilters = [
+        {
+          id: "cycle",
+          name: "Cycle",
+          Component: <CycleFilter />,
+        },
+        {
+          id: "customDate",
+          name: "Custom Date",
+          Component: <FilterBar.DatePicker />,
+        },
+      ] satisfies Filters<CycleFilterValues>
 
-      await user.click(getByRole("button", { name: "City" }))
+      it("opens the Custom Date filter when Cycle's 'custom' value is selected", async () => {
+        const { getByRole } = render(
+          <FilterBarWrapper<CycleFilterValues> filters={cycleFilters} />
+        )
 
-      await waitFor(() => {
-        expect(getByRole("option", { name: "Gotham" })).toBeVisible()
-        expect(getByRole("option", { name: "Metropolis" })).toBeVisible()
-      })
+        const customDateButton = getByRole("button", { name: "Custom Date" })
+        expect(customDateButton).toHaveAttribute("aria-expanded", "false")
 
-      await user.click(getByRole("option", { name: "Gotham" }))
+        await user.click(getByRole("button", { name: "Cycle" }))
 
-      // close city filter
-      await user.click(document.body)
+        const customDateOption = getByRole("option", { name: "Custom Date" })
+        await waitFor(() => {
+          expect(customDateOption).toBeVisible()
+        })
 
-      await user.click(getByRole("button", { name: "Hero" }))
+        await user.click(customDateOption)
 
-      await waitFor(() => {
-        expect(getByRole("option", { name: "Batman" })).toBeVisible()
-        expect(
-          queryByRole("option", { name: "Superman" })
-        ).not.toBeInTheDocument()
-      })
-
-      await user.click(getByRole("option", { name: "Batman" }))
-
-      await user.click(document.body)
-
-      await user.click(getByRole("button", { name: "City : Gotham" }))
-
-      await waitFor(() => {
-        expect(getByRole("option", { name: "Gotham" })).toBeVisible()
-        expect(
-          queryByRole("option", { name: "Metropolis" })
-        ).not.toBeInTheDocument()
+        await waitFor(() => {
+          expect(customDateButton).toHaveAttribute("aria-expanded", "true")
+        })
       })
     })
   })

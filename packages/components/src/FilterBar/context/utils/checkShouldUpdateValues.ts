@@ -11,7 +11,7 @@ export const checkShouldUpdateValues = <ValuesMap extends FiltersValues>(
   values: Partial<ValuesMap>
 ): boolean =>
   Object.values(state.filters).some(({ id }) => {
-    const stateValue = state.values![id]
+    const stateValue = state.values[id]
     const value = values[id]
 
     if (Array.isArray(stateValue) && Array.isArray(value)) {

@@ -341,3 +341,48 @@ and <a href="https://www.npmjs.com/package/query-string">query-string</a>
 packages.
 
 <NoClipCanvas of={FilterBarStories.ExternalEventValuesUpdate} />
+
+### Open a filter through selecting a value from another filter
+
+There may be a situation where you want to open a filter based on selecting a value from another filter.
+
+To do so, call the `openFilter` function from `useFilterBarContext` in your event handler
+(you will need to create a custom component wrapping the Filter to access the context).
+
+**Note:**
+If you have a similar situation to below where _Custom Range_ appears later in the list than _Cycle_
+**and** it opens upon selecting a value from _Cycle_, we recommend you combine your implementation with an
+`isUsableWhen`, as the positioning calculation for _Custom Range_'s popover happens before the
+re-render of the Filter Buttons and _Cycle_'s button width will increase from having a selected value.
+
+```tsx
+type Values = {
+  cycle: string
+  customRange: DateRange
+}
+
+const CycleFilter = () => {
+  const { openFilter } = useFilterBarContext<Values["cycle"], Values>()
+
+  return (
+    <FilterBar.Select
+      id="cycle"
+      items={[{ value: "custom", label: "Custom Range" }]}
+      onSelectionChange={key => {
+        if (key === "custom") openFilter("customRange")
+      }}
+    />
+  )
+}
+
+const CustomFilterBar = () => {
+  const filters = [
+    { id: "cycle", Component: <CycleFilter />, ...rest },
+    { id: "customRange", isUsableWhen: state => state.cycle.value === "custom", ...rest },
+  ] satisfies Filters<Values>
+
+  return <FilterBar<Values> filters={filters} {...rest} />
+}
+```
+
+<NoClipCanvas of={FilterBarStories.ExternalEventOpenFilter} />
