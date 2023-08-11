@@ -24,6 +24,24 @@ const stateFilters = {
 } satisfies FilterBarState<Values>["filters"]
 
 describe("filterBarStateReducer", () => {
+  describe("filterBarStateReducer: complete_update_values", () => {
+    it("sets hasUpdatedValues to false", () => {
+      const state = {
+        filters: stateFilters,
+        activeFilterIds: new Set<keyof Values>(["flavour"]),
+        values: {},
+        dependentFilterIds: new Set(),
+        hasUpdatedValues: true,
+      } satisfies FilterBarState<Values>
+
+      const newState = filterBarStateReducer<Values>(state, {
+        type: "complete_update_values",
+      })
+
+      expect(newState.hasUpdatedValues).toBe(false)
+    })
+  })
+
   describe("filterBarStateReducer: activate_filter", () => {
     it("sets a filter to active", () => {
       const state = {
@@ -31,6 +49,7 @@ describe("filterBarStateReducer", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: {},
         dependentFilterIds: new Set(),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -51,6 +70,7 @@ describe("filterBarStateReducer", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: { flavour: "jasmine" },
         dependentFilterIds: new Set(),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -59,7 +79,8 @@ describe("filterBarStateReducer", () => {
       })
 
       expect(newState.activeFilterIds).toEqual(new Set())
-      expect(newState.values!.flavour).toBeUndefined()
+      expect(newState.values.flavour).toBeUndefined()
+      expect(newState.hasUpdatedValues).toBe(true)
     })
   })
 })

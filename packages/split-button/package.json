@@ -3,8 +3,8 @@
   "version": "1.3.51",
   "description": "The Split Button component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

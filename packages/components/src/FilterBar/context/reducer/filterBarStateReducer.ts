@@ -6,6 +6,7 @@ import { updateValues } from "./updateValues"
 
 type Actions<ValuesMap extends FiltersValues> =
   | { type: "update_values"; values: Partial<ValuesMap> }
+  | { type: "complete_update_values" }
   | {
       type: "update_single_filter"
       id: keyof ValuesMap
@@ -22,6 +23,12 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
     case "update_values":
       return { ...updateValues(state, action.values) }
 
+    case "complete_update_values":
+      return {
+        ...state,
+        hasUpdatedValues: false,
+      }
+
     case "update_single_filter":
       return {
         ...state,
@@ -34,7 +41,10 @@ export const filterBarStateReducer = <ValuesMap extends FiltersValues>(
 
     case "deactivate_filter":
       state.activeFilterIds.delete(action.id)
-      state.values![action.id] = undefined
-      return { ...updateDependentFilters(state) }
+      state.values[action.id] = undefined
+      return {
+        ...updateDependentFilters(state),
+        hasUpdatedValues: true,
+      }
   }
 }
