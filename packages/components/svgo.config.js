@@ -6,9 +6,16 @@
 // }
 
 const stripXLinks = item => {
-  // TODO: Replace xlink:href etc. with href recursively
-  item.children.forEach(item => {
-    item.attributes = { foo: "bar" }
+  // Note: first item is not an element, it's children are the elements.
+  item.children.forEach(child => {
+    // Replace attrs
+    if (child.attributes.hasOwnProperty("xlink:href")) {
+      child.attributes.href = child.attributes["xlink:href"]
+      delete child.attributes["xlink:href"]
+    }
+
+    // Recurse
+    stripXLinks(child)
   })
 }
 
@@ -21,10 +28,7 @@ module.exports = {
         optionName: "optionValue",
       },
       type: "perItem",
-      fn: item => {
-        console.log("ITEM: ", item.children[0].children)
-        // stripXLinks(item)
-      },
+      fn: child => stripXLinks(child),
     },
   ],
 }
