@@ -29,3 +29,19 @@ jobs:
       - name: Push git tags
         if: steps.changesets.outputs.published == 'true'
         run: git push --follow-tags
+      - name: Publish successful
+        if: steps.changesets.outputs.published == 'true'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C02NUQ27G56"
+          slack-message: "Packages have been published"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Publish failed
+        if: steps.changesets.outputs.published == 'false'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C02NUQ27G56"
+          slack-message: "Publish failed"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
