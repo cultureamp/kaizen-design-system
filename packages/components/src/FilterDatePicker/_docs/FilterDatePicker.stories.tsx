@@ -8,6 +8,7 @@ import {
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
+import { classNameOverrideFilterArgType } from "../../../../../storybook/argTypes"
 import {
   DateValidationResponse,
   FilterDatePicker,
@@ -26,6 +27,7 @@ export default {
     locale: "en-AU",
   },
   argTypes: {
+    ...classNameOverrideFilterArgType,
     ...defaultMonthControls,
     ...validationControls,
     disabledDays: disabledDaysControls,
