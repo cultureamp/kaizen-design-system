@@ -1,29 +1,9 @@
 import React, { forwardRef, Ref } from "react"
-import GenericButton, {
-  GenericProps,
-  ButtonFormAttributes,
-  BadgeProps,
-  ButtonRef,
-  WorkingProps,
-  WorkingUndefinedProps,
-} from "./components/GenericButton"
 
-export type ButtonProps = GenericProps &
-  ButtonFormAttributes &
-  (WorkingProps | WorkingUndefinedProps) & {
-    label: string
-    primary?: boolean
-    destructive?: boolean
-    secondary?: boolean
-    /** @default "regular" */
-    size?: "small" | "regular"
-    badge?: BadgeProps
-    type?: "submit" | "reset" | "button"
-    fullWidth?: boolean
-    iconPosition?: "start" | "end"
-    icon?: JSX.Element
-    disabled?: boolean
-  }
+import GenericButton, {
+  ButtonProps,
+  ButtonRef,
+} from "./components/GenericButton"
 
 /**
  * {@link https://cultureamp.design/components/button/ Guidance} |

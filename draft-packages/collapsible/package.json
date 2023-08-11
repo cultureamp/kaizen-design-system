@@ -1,10 +1,10 @@
 {
   "name": "@kaizen/draft-collapsible",
-  "version": "3.5.39",
+  "version": "3.5.40",
   "description": "The draft Collapsible component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

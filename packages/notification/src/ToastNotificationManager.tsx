@@ -109,6 +109,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
   }
 
   if (portal) {
+    // eslint-disable-next-line react/no-deprecated
     ReactDOM.render(
       <ToastNotificationsListContainer
         removeToastNotification={removeToastNotification}

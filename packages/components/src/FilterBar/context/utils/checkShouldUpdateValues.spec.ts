@@ -26,6 +26,7 @@ const state = {
   activeFilterIds: new Set<keyof Values>(["flavour"]),
   values: {},
   dependentFilterIds: new Set(),
+  hasUpdatedValues: false,
 } satisfies FilterBarState<Values>
 
 describe("checkShouldUpdateValues()", () => {

@@ -1,10 +1,10 @@
 {
   "name": "@kaizen/date-picker",
-  "version": "6.2.3",
+  "version": "6.2.4",
   "description": "Date Picker component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
@@ -15,26 +15,21 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
-  "files": [
-    "**/*.js",
-    "**/*.js.map",
-    "**/*.d.ts",
-    "**/*.scss"
-  ],
+  "files": ["**/*.js", "**/*.js.map", "**/*.d.ts", "**/*.scss"],
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@internationalized/date": "^3.2.0",
+    "@internationalized/date": "^3.4.0",
     "@kaizen/a11y": "^1.7.12",
     "@kaizen/component-base": "^1.1.7",
-    "@kaizen/draft-form": "^10.4.8",
+    "@kaizen/draft-form": "^10.4.9",
     "@kaizen/draft-tooltip": "^5.4.47",
     "@kaizen/typography": "^2.3.11",
     "@popperjs/core": "^2.11.8",
-    "@react-aria/datepicker": "^3.5.0",
-    "@react-aria/i18n": "^3.8.0",
-    "@react-stately/datepicker": "^3.4.1",
+    "@react-aria/datepicker": "^3.6.0",
+    "@react-aria/i18n": "^3.8.1",
+    "@react-stately/datepicker": "^3.6.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "react-day-picker": "8.4.1",

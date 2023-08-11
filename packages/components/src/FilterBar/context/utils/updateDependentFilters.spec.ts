@@ -39,6 +39,7 @@ describe("updateDependentFilters()", () => {
       activeFilterIds: new Set<keyof Values>(["flavour"]),
       values: { flavour: "jasmine" },
       dependentFilterIds: new Set(),
+      hasUpdatedValues: false,
     } satisfies FilterBarState<Values>
 
     const newState = updateDependentFilters<Values>(state)
@@ -53,6 +54,7 @@ describe("updateDependentFilters()", () => {
       activeFilterIds: new Set<keyof Values>(["flavour"]),
       values: { flavour: "jasmine" },
       dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+      hasUpdatedValues: false,
     } satisfies FilterBarState<Values>
 
     const newState = updateDependentFilters<Values>(state)
@@ -76,6 +78,7 @@ describe("updateDependentFilters()", () => {
       activeFilterIds: new Set<keyof Values>(["flavour"]),
       values: { flavour: "jasmine" },
       dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+      hasUpdatedValues: false,
     } satisfies FilterBarState<Values>
 
     updateDependentFilters<Values>(state)
@@ -96,6 +99,7 @@ describe("updateDependentFilters()", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: { flavour: "jasmine" },
         dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = updateDependentFilters<Values>(state)
@@ -114,6 +118,7 @@ describe("updateDependentFilters()", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: { flavour: "jasmine" },
         dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = updateDependentFilters<Values>(state)
@@ -135,6 +140,7 @@ describe("updateDependentFilters()", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: { flavour: "jasmine", sugarLevel: 50 },
         dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = updateDependentFilters<Values>(state)
@@ -156,6 +162,7 @@ describe("updateDependentFilters()", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: { flavour: "jasmine" },
         dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = updateDependentFilters<Values>(state)
@@ -170,11 +177,13 @@ describe("updateDependentFilters()", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: { sugarLevel: 50 },
         dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = updateDependentFilters<Values>(state)
       expect(newState.filters.sugarLevel.isUsable).toBe(false)
       expect(newState.values).toEqual({})
+      expect(newState.hasUpdatedValues).toBe(true)
     })
   })
 })

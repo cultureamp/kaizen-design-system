@@ -37,8 +37,8 @@
     "classnames": "^2.3.2"
   },
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "test-scss-compile": "webpack build --config ./styles/__test/webpack.config.js",
     "clean": "rimraf -g '**/*.js.map' 'index.js*' 'index.d.ts' 'components/**/*.js' 'components/**/*.js.map' 'components/**/*.d.ts' 'util/**/*.js' 'util/**/*.js.map' 'util/**/*.d.ts'"
   },
