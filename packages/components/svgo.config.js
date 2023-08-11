@@ -5,17 +5,26 @@
 // children: [more-of-these]
 // }
 
-const stripXLinks = item => {
+const attrKeysToReplace = [
+  {
+    original: "xlink:href",
+    replacement: "href",
+  },
+]
+
+// Recursively replace attributes found in svg and it's child elements
+const replaceAttrs = item => {
   // Note: first item is not an element, it's children are the elements.
   item.children.forEach(child => {
-    // Replace attrs
-    if (child.attributes.hasOwnProperty("xlink:href")) {
-      child.attributes.href = child.attributes["xlink:href"]
-      delete child.attributes["xlink:href"]
-    }
+    attrKeysToReplace.forEach(({ original, replacement }) => {
+      if (child.attributes.hasOwnProperty(original)) {
+        child.attributes[replacement] = child.attributes[original]
+        delete child.attributes[original]
+      }
+    })
 
     // Recurse
-    stripXLinks(child)
+    replaceAttrs(child)
   })
 }
 
@@ -23,12 +32,10 @@ module.exports = {
   plugins: [
     "preset-default",
     {
-      name: "customPluginName",
-      params: {
-        optionName: "optionValue",
-      },
+      name: "Replace attributes",
+      params: {},
       type: "perItem",
-      fn: child => stripXLinks(child),
+      fn: replaceAttrs,
     },
   ],
 }
