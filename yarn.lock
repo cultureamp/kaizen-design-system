@@ -14343,7 +14343,7 @@ postcss-prefix-selector@^1.6.0:
   resolved "https://registry.yarnpkg.com/postcss-prefix-selector/-/postcss-prefix-selector-1.16.0.tgz#ad5b56f9a73a2c090ca7161049632c9d89bcb404"
   integrity sha512-rdVMIi7Q4B0XbXqNUEI+Z4E+pueiu/CS5E6vRCQommzdQ/sgsS4dK42U7GX8oJR+TJOtT+Qv3GkNo6iijUMp3Q==
 
-postcss-preset-env@^9.0.0:
+postcss-preset-env@^9.1.1:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-9.1.1.tgz#0217fd0d41b9f62f10e1e2c8c5502bbdcb1a76b1"
   integrity sha512-rMPEqyTLm8JLbvaHnDAdQg6SN4Z/NDOsm+CRefg4HmSOiNpTcBXaw4RAaQbfTNe8BB75l4NpoQ6sMdrutdEpdQ==
