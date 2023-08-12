@@ -58,7 +58,7 @@
     "react-dom-16": "npm:react-dom@^16.14.0",
     "react-dom-17": "npm:react-dom@^17.0.2",
     "svgo": "~3.0.2",
-    "tocbot": "^4.21.0",
+    "tocbot": "^4.21.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
