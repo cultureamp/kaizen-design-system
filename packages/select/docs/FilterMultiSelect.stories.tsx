@@ -258,49 +258,57 @@ export const WithSectionHeaders: StoryFn<typeof FilterMultiSelect> = () => {
                 unselectedItems,
                 disabledItems,
                 hasNoItems,
-              }): JSX.Element => (
-                <>
-                  {hasNoItems && (
-                    <FilterMultiSelect.NoResults>
-                      No results found.
-                    </FilterMultiSelect.NoResults>
-                  )}
-                  <FilterMultiSelect.ListBoxSection
-                    items={selectedItems}
-                    sectionHeader="Selected items"
-                  >
-                    {(item): JSX.Element => (
-                      <FilterMultiSelect.Option key={item.key} item={item} />
+              }): JSX.Element =>
+                hasNoItems ? (
+                  <FilterMultiSelect.NoResults>
+                    No results found.
+                  </FilterMultiSelect.NoResults>
+                ) : (
+                  <>
+                    {selectedItems.length > 0 && (
+                      <FilterMultiSelect.ListBoxSection
+                        items={selectedItems}
+                        sectionHeader="Selected items"
+                      >
+                        {(item): JSX.Element => (
+                          <FilterMultiSelect.Option
+                            key={item.key}
+                            item={item}
+                          />
+                        )}
+                      </FilterMultiSelect.ListBoxSection>
                     )}
-                  </FilterMultiSelect.ListBoxSection>
 
-                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
-                    <FilterMultiSelect.SectionDivider />
-                  )}
-                  <FilterMultiSelect.ListBoxSection
-                    items={unselectedItems}
-                    sectionHeader="Unselected items"
-                  >
-                    {(item): JSX.Element => (
-                      <FilterMultiSelect.Option key={item.key} item={item} />
+                    {unselectedItems.length > 0 && (
+                      <FilterMultiSelect.ListBoxSection
+                        items={unselectedItems}
+                        sectionHeader="Unselected items"
+                      >
+                        {(item): JSX.Element => (
+                          <FilterMultiSelect.Option
+                            key={item.key}
+                            item={item}
+                          />
+                        )}
+                      </FilterMultiSelect.ListBoxSection>
                     )}
-                  </FilterMultiSelect.ListBoxSection>
 
-                  {disabledItems.length > 0 &&
-                    (selectedItems.length > 0 ||
-                      unselectedItems.length > 0) && (
-                      <FilterMultiSelect.SectionDivider />
+                    {disabledItems.length > 0 && (
+                      <FilterMultiSelect.ListBoxSection
+                        items={disabledItems}
+                        sectionHeader="Disabled items"
+                      >
+                        {(item): JSX.Element => (
+                          <FilterMultiSelect.Option
+                            key={item.key}
+                            item={item}
+                          />
+                        )}
+                      </FilterMultiSelect.ListBoxSection>
                     )}
-                  <FilterMultiSelect.ListBoxSection
-                    items={disabledItems}
-                    sectionHeader="Disabled items"
-                  >
-                    {(item): JSX.Element => (
-                      <FilterMultiSelect.Option key={item.key} item={item} />
-                    )}
-                  </FilterMultiSelect.ListBoxSection>
-                </>
-              )}
+                  </>
+                )
+              }
             </FilterMultiSelect.ListBox>
             <FilterMultiSelect.MenuFooter>
               <FilterMultiSelect.SelectAllButton />
@@ -350,61 +358,72 @@ export const WithSectionNotification: StoryFn<
                 hasNoItems,
               }): JSX.Element => (
                 <>
-                  {hasNoItems && (
+                  {hasNoItems ? (
                     <FilterMultiSelect.NoResults>
                       No results found.
                     </FilterMultiSelect.NoResults>
+                  ) : (
+                    <>
+                      {selectedItems.length > 0 && (
+                        <FilterMultiSelect.ListBoxSection
+                          items={selectedItems}
+                          sectionHeader="Selected items"
+                        >
+                          {(item): JSX.Element => (
+                            <FilterMultiSelect.Option
+                              key={item.key}
+                              item={item}
+                            />
+                          )}
+                        </FilterMultiSelect.ListBoxSection>
+                      )}
+
+                      {unselectedItems.length > 0 && (
+                        <FilterMultiSelect.ListBoxSection
+                          items={unselectedItems}
+                          sectionHeader="Unselected items"
+                        >
+                          {(item): JSX.Element => (
+                            <FilterMultiSelect.Option
+                              key={item.key}
+                              item={item}
+                            />
+                          )}
+                        </FilterMultiSelect.ListBoxSection>
+                      )}
+
+                      {disabledItems.length > 0 && (
+                        <FilterMultiSelect.ListBoxSection
+                          items={disabledItems}
+                          sectionHeader={
+                            <>
+                              <span className="mb-6">Disabled items</span>
+                              <InlineNotification
+                                type="cautionary"
+                                persistent
+                                noBottomMargin
+                                headingProps={{
+                                  tag: "span",
+                                  variant: "heading-5",
+                                  children: "Confidentiality protection",
+                                }}
+                              >
+                                Results for these filters are hidden to protect
+                                identities of individuals and small groups
+                              </InlineNotification>
+                            </>
+                          }
+                        >
+                          {(item): JSX.Element => (
+                            <FilterMultiSelect.Option
+                              key={item.key}
+                              item={item}
+                            />
+                          )}
+                        </FilterMultiSelect.ListBoxSection>
+                      )}
+                    </>
                   )}
-                  <FilterMultiSelect.ListBoxSection
-                    items={selectedItems}
-                    sectionName="Selected items"
-                  >
-                    {(item): JSX.Element => (
-                      <FilterMultiSelect.Option key={item.key} item={item} />
-                    )}
-                  </FilterMultiSelect.ListBoxSection>
-
-                  {unselectedItems.length > 0 && selectedItems.length > 0 && (
-                    <FilterMultiSelect.SectionDivider />
-                  )}
-
-                  <FilterMultiSelect.ListBoxSection
-                    items={unselectedItems}
-                    sectionName="Unselected items"
-                  >
-                    {(item): JSX.Element => (
-                      <FilterMultiSelect.Option key={item.key} item={item} />
-                    )}
-                  </FilterMultiSelect.ListBoxSection>
-
-                  {disabledItems.length > 0 &&
-                    (selectedItems.length > 0 ||
-                      unselectedItems.length > 0) && (
-                      <FilterMultiSelect.SectionDivider />
-                    )}
-                  <FilterMultiSelect.ListBoxSection
-                    items={disabledItems}
-                    sectionName="Disabled items"
-                    sectionHeader={
-                      <InlineNotification
-                        type="cautionary"
-                        persistent
-                        noBottomMargin
-                        headingProps={{
-                          tag: "span",
-                          variant: "heading-5",
-                          children: "Confidentiality protection",
-                        }}
-                      >
-                        Results for these filters are hidden to protect
-                        identities of individuals and small groups
-                      </InlineNotification>
-                    }
-                  >
-                    {(item): JSX.Element => (
-                      <FilterMultiSelect.Option key={item.key} item={item} />
-                    )}
-                  </FilterMultiSelect.ListBoxSection>
                 </>
               )}
             </FilterMultiSelect.ListBox>

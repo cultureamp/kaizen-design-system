@@ -76,7 +76,7 @@ export const ListBox = ({ children }: ListBoxProps): JSX.Element => {
   if (hasNoItems) {
     return (
       <>
-        <div>{children(itemsState)}</div>
+        <div className={styles.noResultsWrapper}>{children(itemsState)}</div>
         {/* This ul with the ref needs to exist otherwise it fatals */}
         <ul ref={listRef} className={styles.hidden} />
       </>
