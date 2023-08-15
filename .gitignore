@@ -7,3 +7,4 @@ dist
 .yalc
 yalc.loc
 .turbo
+!/packages/components/svgoUtils.js
