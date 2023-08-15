@@ -16,12 +16,17 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
   return (
     <button
       type="button"
-      className="flex bg-[#00182e] h-min rounded-default justify-between items-center px-12 border-none cursor-pointer w-full"
+      className="bg-[#00182e] h-min rounded-default px-12 border-none cursor-pointer w-full"
       onClick={(): void => handleCopy(text)}
       onBlur={(): void => setCopyIconIsChecked(false)}
     >
-      <p className="font-family-paragraph text-white mr-16">{text}</p>
-      {copyIconIsChecked && "copied"}
+      <p className="font-family-paragraph text-white flex justify-between items-center">
+        <span>{text}</span>
+        {/* Replace with Icons */}
+        {/* <span className="text-underline">
+          {copyIconIsChecked ? "copied" : "copy"}
+        </span> */}
+      </p>
     </button>
   )
 }
