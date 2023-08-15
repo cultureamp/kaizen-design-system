@@ -8,20 +8,164 @@ const meta = {
 
 export default meta
 
+// TODO: We need an aria live region for this
 const Options = (): JSX.Element => (
-  <fieldset data-section="options container">
-    {/* <div className=" flex focus-within:bg-blue-200" data-section="option">
-      <label htmlFor="check-1">Option 1</label>
-      <input id="check-1" type="checkbox" />
-    </div> */}
-    <div className=" flex focus-within:bg-blue-200" data-section="option">
-      <label htmlFor="check-2">Option 2</label>
-      <input id="check-2" type="checkbox" />
-    </div>
-    <div className=" flex focus-within:bg-blue-200" data-section="option">
-      <label htmlFor="check-3">Option 3</label>
-      <input id="check-3" type="checkbox" />
-    </div>
+  <>
+    {/* we will always fieldset wrapping the options */}
+    <fieldset
+      data-section="options container"
+      aria-describedby="id--options-desc"
+    >
+      <span id="id--options-desc" aria-hidden="true">
+        3 options total
+      </span>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Option 1</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Option 2</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Option 3</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+    </fieldset>
+  </>
+)
+
+{
+  /* TODO: validate if the label can be separate as htmlFor  */
+}
+const GroupOptions = (): JSX.Element => (
+  <fieldset>
+    <span id="id--group-desc" aria-live="assertive">
+      9 options available
+    </span>
+    <fieldset
+      data-section="options container"
+      aria-describedby="id--options-desc"
+    >
+      <legend>Coffee</legend>
+      <span id="id--options-desc" aria-hidden="true">
+        3 Coffee total
+      </span>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Mocha</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Long black</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Magic</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+    </fieldset>
+    <fieldset
+      data-section="options container"
+      aria-describedby="id--ploptions-desc"
+    >
+      <legend>Colors</legend>
+      <span id="id--ploptions-desc" aria-hidden="true">
+        2 Colors total
+      </span>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Red</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Purple</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+    </fieldset>
+    <fieldset
+      data-section="options container"
+      aria-describedby="id--moptions-desc"
+    >
+      <legend>Flavours</legend>
+      <span id="id--moptions-desc" aria-hidden="true">
+        4 Flavours items
+      </span>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Salty</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Sweet</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Bitter</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+      <div className=" flex focus-within:bg-blue-200" data-section="option">
+        <label className="flex w-full gap-6 items-start">
+          <input type="checkbox" />
+          <div className="flex flex-col">
+            <span className=" font-weight-paragraph-bold">Sour</span>
+            <span className=" ">lorem ipsum</span>
+          </div>
+        </label>
+      </div>
+    </fieldset>
   </fieldset>
 )
 
@@ -59,9 +203,10 @@ const Tags = (): JSX.Element => (
   </ul>
 )
 
+// TODO: do we need to pass the label into the dialogue
 const Label = ({ htmlFor }: { htmlFor: string }): JSX.Element => (
   <label htmlFor={htmlFor} id="id--field-label">
-    Coffee
+    Pancakes
   </label>
 )
 
@@ -106,7 +251,7 @@ const Popover = (props: any): JSX.Element => (
   <div
     id="id--popper"
     role="dialog"
-    aria-modal={true}
+    aria-modal="true"
     className=" border-solid border-blue-300"
   >
     {props.children}
@@ -131,6 +276,7 @@ export const SearchOutside = (): JSX.Element => (
     </div>
     <Popover>
       <Options />
+      {/* <Options /> */}
     </Popover>
   </div>
 )
