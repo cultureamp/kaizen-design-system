@@ -1,5 +1,6 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
+import { Button } from "@kaizen/components"
 import { Card } from "@kaizen/draft-card"
 import {
   CustomSurvey,
@@ -7,7 +8,6 @@ import {
 } from "@kaizen/draft-illustration"
 import { Skirt } from "@kaizen/draft-page-layout"
 import { Heading } from "@kaizen/typography"
-import { Button } from "../../../packages/components"
 import { CardContent } from "./components/CardContent"
 
 export default {
