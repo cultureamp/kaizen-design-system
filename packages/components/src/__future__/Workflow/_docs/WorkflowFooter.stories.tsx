@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "~components/Button"
+import { classNameOverrideArgType } from "../../../../../../storybook/argTypes"
 import { ComponentDocsTemplate } from "../../../../../../storybook/components/DocsContainer"
 import { FooterProps } from "../subcomponents/Footer"
 import { Workflow } from "../"
@@ -47,6 +48,7 @@ const meta = {
     nextAction: WorkflowControls.nextAction,
     previousAction: WorkflowControls.previousAction,
     currentStepId: WorkflowControls.currentStepId,
+    ...classNameOverrideArgType,
   },
 } satisfies Meta<typeof Workflow.Footer>
 

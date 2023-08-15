@@ -27,6 +27,11 @@ export default {
     locale: "en-AU",
   },
   argTypes: {
+    classNameOverride: {
+      control: "disabled",
+      description:
+        "Add extra classnames to the component. (This doesn't work - to be fixed)",
+    },
     ...defaultMonthControls,
     ...validationControls,
     disabledDays: disabledDaysControls,

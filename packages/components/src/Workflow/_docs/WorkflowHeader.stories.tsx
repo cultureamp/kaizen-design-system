@@ -3,6 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { CloseIcon } from "~icons/CloseIcon"
 import { VisibleIcon } from "~icons/VisibleIcon"
+import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { HeaderProps } from "../subcomponents/Header"
 import { Workflow } from "../"
@@ -43,6 +44,7 @@ const meta = {
   },
   argTypes: {
     headerActions: WorkflowControls.headerActions,
+    ...classNameOverrideArgType,
   },
 } satisfies Meta<typeof Workflow.Header>
 
