@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "@kaizen/button"
+import { Button } from "../../../../packages/components/"
 
 export const MarginExample = (): JSX.Element => (
   <div className="flex">
