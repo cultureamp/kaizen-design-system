@@ -16,5 +16,4 @@
 **/node_modules/
 /storybook/public/
 /packages/**/dist
-/packages/component-library/styles/animations/vendor
 /packages/components/locales
