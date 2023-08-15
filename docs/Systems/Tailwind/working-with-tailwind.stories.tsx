@@ -1,6 +1,6 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
-import { Button } from "@kaizen/components"
+import { Button } from "@kaizen/button"
 import { Card } from "@kaizen/draft-card"
 import {
   CustomSurvey,
