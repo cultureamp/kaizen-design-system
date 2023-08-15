@@ -9,7 +9,9 @@ import { ButtonGroup } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Button/Button Group",
+  // Not to be nested until full KAIO migration
+  // title: "Components/Button/Button Group",
+  title: "Components/Button Group",
   component: ButtonGroup,
   argTypes: { ...classNameOverrideArgType },
   parameters: {

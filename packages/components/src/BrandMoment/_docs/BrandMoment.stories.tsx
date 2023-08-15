@@ -20,7 +20,8 @@ import {
 } from "./ExampleHeaders"
 
 export default {
-  tags: ["autodocs"],
+  // Not to be released until full KAIO migration
+  // tags: ["autodocs"],
   title: "Components/Brand Moment",
   component: BrandMoment,
   parameters: {

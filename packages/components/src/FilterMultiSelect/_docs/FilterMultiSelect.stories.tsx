@@ -35,7 +35,8 @@ const withQueryProvider: Decorator<FilterMultiSelectProps> = Story => (
 )
 
 export default {
-  tags: ["autodocs"],
+  // Not to be released until full KAIO migration
+  // tags: ["autodocs"],
   title: "Components/Filter Multi-Select",
   component: FilterMultiSelect,
   parameters: {

@@ -8,7 +8,8 @@ import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { Button } from "../index"
 
 const meta = {
-  tags: ["autodocs"],
+  // Not to be released until full KAIO Migration
+  // tags: ["autodocs"],
   title: "Components/Button",
   component: Button,
   args: {
