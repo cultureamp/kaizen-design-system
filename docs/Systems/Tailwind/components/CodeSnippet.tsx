@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
-  const [copyIconIsChecked, setCopyIconIsChecked] = useState(false)
+  const [_, setCopyIconIsChecked] = useState(false)
   const handleCopy = (utilityClassNameName: string): void => {
     navigator.clipboard.writeText(text)
     setCopyIconIsChecked(true)
