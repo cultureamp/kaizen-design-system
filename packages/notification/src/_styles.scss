@@ -137,6 +137,10 @@ $notification-slide-right: transform 300ms ease-out;
     margin-bottom: 0;
   }
 
+  &%ca-notification---persistent {
+    transition: none;
+  }
+
   // this is only for inline notifications
   &%ca-notification---subtle {
     background: none;

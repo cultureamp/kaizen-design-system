@@ -1,5 +1,24 @@
 # Change Log
 
+## 1.21.0
+
+### Minor Changes
+
+- [#3884](https://github.com/cultureamp/kaizen-design-system/pull/3884) [`039a457b8`](https://github.com/cultureamp/kaizen-design-system/commit/039a457b894666e4d05690eca35473275f9ca61a) - #### FilterBar
+
+  - Prevent infinite loop when calling `toggleOpenFilter` from selecting a value.
+  - Deprecate `toggleOpenFilter`, and replace with `setFilterOpenState` for clearer function intent.
+  - Add context util `openFilter` for consumers to be able to open a filter through an event from another filter.
+
+### Patch Changes
+
+- [#3955](https://github.com/cultureamp/kaizen-design-system/pull/3955) [`327fbe92e`](https://github.com/cultureamp/kaizen-design-system/commit/327fbe92e1caa1ba714cc831e85e2d12543d43e0) - Fix circular dependencies
+
+- [#3831](https://github.com/cultureamp/kaizen-design-system/pull/3831) [`5ad6c577c`](https://github.com/cultureamp/kaizen-design-system/commit/5ad6c577c7f2826ea7e285b0b8d1629643ce7b16) - Update `react-aria` dependencies.
+
+- Updated dependencies [[`f924fdeed`](https://github.com/cultureamp/kaizen-design-system/commit/f924fdeed3a83c46cb64ac880cbcc72b5bc6b5e8), [`5ad6c577c`](https://github.com/cultureamp/kaizen-design-system/commit/5ad6c577c7f2826ea7e285b0b8d1629643ce7b16)]:
+  - @kaizen/date-picker@6.2.5
+
 ## 1.20.5
 
 ### Patch Changes

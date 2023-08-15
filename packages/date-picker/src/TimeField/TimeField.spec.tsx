@@ -60,7 +60,7 @@ describe("spin button functionality", () => {
   it("changes hour on key press", async () => {
     render(<TimeFieldWrapper />)
     const hourSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} hour`,
+      name: `hour, ${LABEL}`,
     })
     await pressArrowUpKey(hourSpinner)
     await waitFor(() => {
@@ -86,7 +86,7 @@ describe("spin button functionality", () => {
   it("changes minutes on key press", async () => {
     render(<TimeFieldWrapper />)
     const minuteSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} minute`,
+      name: `minute, ${LABEL}`,
     })
     await pressArrowUpKey(minuteSpinner)
     await pressArrowUpKey(minuteSpinner)
@@ -109,10 +109,10 @@ describe("spin button functionality", () => {
     // tests whether changing minute changes hour
     render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
     const hourSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} hour`,
+      name: `hour, ${LABEL}`,
     })
     const minuteSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} minute`,
+      name: `minute, ${LABEL}`,
     })
     await pressArrowUpKey(hourSpinner)
     await pressArrowDownKey(minuteSpinner)
@@ -125,10 +125,10 @@ describe("spin button functionality", () => {
   it("allows uers to backspace to remove values", async () => {
     render(<TimeFieldWrapper value={{ hour: 4, minutes: 44 }} />)
     const hourSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} hour`,
+      name: `hour, ${LABEL}`,
     })
     const minuteSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} minute`,
+      name: `minute, ${LABEL}`,
     })
     await user.click(minuteSpinner)
     await user.keyboard("{Backspace}")
@@ -151,7 +151,7 @@ describe("onChange", () => {
       />
     )
     const hourSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} hour`,
+      name: `hour, ${LABEL}`,
     })
     expect(hourSpinner).toHaveTextContent("4")
 
@@ -170,7 +170,7 @@ describe("onChange", () => {
       />
     )
     const hourSpinner = screen.getByRole("spinbutton", {
-      name: `${LABEL} hour`,
+      name: `hour, ${LABEL}`,
     })
     expect(hourSpinner).toHaveTextContent("16")
 

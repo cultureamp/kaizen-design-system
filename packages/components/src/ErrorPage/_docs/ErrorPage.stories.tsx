@@ -10,9 +10,6 @@ const meta = {
   parameters: {
     docs: {
       container: ComponentDocsTemplate,
-      canvas: {
-        sourceState: "shown",
-      },
     },
     installation: [
       "npm install @kaizen/components",
@@ -36,6 +33,13 @@ export const Playground: StoryObj<typeof meta> = {
     code: {
       options: statusCodes,
       control: { type: "select" },
+    },
+  },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
     },
   },
 }

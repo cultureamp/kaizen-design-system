@@ -15,6 +15,7 @@ import {
   decodeQueryParams,
 } from "serialize-query-params"
 import { DateRange, ItemType, SelectOption } from "~components/index"
+import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
 import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters, useFilterBarContext } from "../index"
 import { FilterBarMultiSelectProps } from "../subcomponents"
@@ -23,10 +24,10 @@ const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
   argTypes: {
-    classNameOverride: {
-      type: "string",
-      description: "Add extra classnames to the component.",
-    },
+    filters: { control: "disabled" },
+    values: { control: "disabled" },
+    onValuesChange: { control: "disabled" },
+    ...classNameOverrideArgType,
   },
 } satisfies Meta<typeof FilterBar>
 
@@ -175,7 +176,7 @@ const filters = [
   },
 ] satisfies Filters<Values>
 
-export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
+export const BasicImplementation: StoryFn<typeof FilterBar> = args => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
     toppings: ["pearls", "fruit-jelly"],
@@ -183,6 +184,7 @@ export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
 
   return (
     <FilterBar<Values>
+      {...args}
       filters={filters}
       values={activeValues}
       onValuesChange={onActiveValuesChange}
@@ -667,6 +669,66 @@ export const ExternalEventValuesUpdate: StoryFn<typeof FilterBar> = () => {
       <Highlight className="json">
         {JSON.stringify(decodedQueryParams, null, 4)}
       </Highlight>
+    </>
+  )
+}
+
+type CycleFilterValues = {
+  cycle: string
+  customRange: DateRange
+}
+
+const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
+  const { openFilter } = useFilterBarContext<
+    CycleFilterValues["cycle"],
+    CycleFilterValues
+  >()
+
+  return (
+    <FilterBar.Select
+      id={id}
+      items={[
+        { value: "custom", label: "Custom Range" },
+        { value: "cycle-1", label: "Cycle 1" },
+        { value: "cycle-2", label: "Cycle 2" },
+      ]}
+      onSelectionChange={key => {
+        if (key === "custom") openFilter("customRange")
+      }}
+    />
+  )
+}
+
+export const ExternalEventOpenFilter: StoryFn<typeof FilterBar> = () => {
+  const [values, setValues] = useState<Partial<CycleFilterValues>>({})
+
+  const cycleFilters = [
+    {
+      id: "cycle",
+      name: "Cycle",
+      Component: <CycleFilter />,
+    },
+    {
+      id: "customRange",
+      name: "Custom Range",
+      Component: <FilterBar.DateRangePicker />,
+      isUsableWhen: state => state.cycle.value === "custom",
+    },
+  ] satisfies Filters<CycleFilterValues>
+
+  return (
+    <>
+      <FilterBar<CycleFilterValues>
+        filters={cycleFilters}
+        values={values}
+        onValuesChange={setValues}
+      />
+      <div className="mt-16">
+        <code>Values:</code>
+        <Highlight className="json">
+          {JSON.stringify(values, null, 4)}
+        </Highlight>
+      </div>
     </>
   )
 }

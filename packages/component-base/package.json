@@ -3,8 +3,8 @@
   "version": "1.1.7",
   "description": "Base setup and shared helpers for components",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn prepublish",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

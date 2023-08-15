@@ -90,13 +90,13 @@ const preview = {
   },
   globalTypes,
   decorators,
-  argTypes: {
-    classNameOverride: {
-      type: "string",
-      description:
-        "Add extra classnames to the component. Try out some Tailwind classes (eg. `!mb-48`) to see!",
-    },
-  },
+  // argTypes: {
+  //   classNameOverride: {
+  //     type: "string",
+  //     description:
+  //       "Add extra classnames to the component. Try out some Tailwind classes (eg. `!mb-48`) to see!",
+  //   },
+  // },
 } satisfies Preview
 
 export default preview

@@ -22,11 +22,12 @@ export const updateDependentFilters = <ValuesMap extends FiltersValues>(
 
     if (!isUsable) {
       state.activeFilterIds.delete(id)
-      state.values![id] = undefined
+      state.values[id] = undefined
+      state.hasUpdatedValues = true
       return
     }
 
-    if (!state.filters[id].isRemovable || state.values![id] !== undefined) {
+    if (!state.filters[id].isRemovable || state.values[id] !== undefined) {
       state.activeFilterIds.add(id)
     }
   })

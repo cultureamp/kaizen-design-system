@@ -34,6 +34,7 @@ describe("filterBarStateReducer: update_values", () => {
         activeFilterIds: new Set<keyof Values>(["flavour"]),
         values: {},
         dependentFilterIds: new Set(),
+        hasUpdatedValues: false,
       } satisfies FilterBarState<Values>
 
       const newState = filterBarStateReducer<Values>(state, {
@@ -45,6 +46,7 @@ describe("filterBarStateReducer: update_values", () => {
         new Set(["flavour", "sugarLevel"])
       )
       expect(newState.values).toEqual({ sugarLevel: 50 })
+      expect(newState.hasUpdatedValues).toBe(true)
     })
   })
 
@@ -62,6 +64,7 @@ describe("filterBarStateReducer: update_values", () => {
           activeFilterIds: new Set<keyof Values>(["flavour"]),
           values: { sugarLevel: 50 },
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+          hasUpdatedValues: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
@@ -72,6 +75,7 @@ describe("filterBarStateReducer: update_values", () => {
         expect(newState.filters.sugarLevel.isUsable).toBe(false)
         expect(newState.activeFilterIds).toEqual(new Set(["flavour"]))
         expect(newState.values).toEqual({})
+        expect(newState.hasUpdatedValues).toBe(true)
       })
     })
 
@@ -88,6 +92,7 @@ describe("filterBarStateReducer: update_values", () => {
           activeFilterIds: new Set<keyof Values>(["flavour"]),
           values: {},
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+          hasUpdatedValues: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
@@ -100,6 +105,7 @@ describe("filterBarStateReducer: update_values", () => {
           new Set(["flavour", "sugarLevel"])
         )
         expect(newState.values).toEqual({ flavour: "jasmine", sugarLevel: 50 })
+        expect(newState.hasUpdatedValues).toBe(true)
       })
 
       it("does not activate a removable filter without a value", () => {
@@ -115,6 +121,7 @@ describe("filterBarStateReducer: update_values", () => {
           activeFilterIds: new Set<keyof Values>(["flavour"]),
           values: {},
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+          hasUpdatedValues: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
@@ -125,6 +132,7 @@ describe("filterBarStateReducer: update_values", () => {
         expect(newState.filters.sugarLevel.isUsable).toBe(true)
         expect(newState.activeFilterIds).toEqual(new Set(["flavour"]))
         expect(newState.values).toEqual({ flavour: "jasmine" })
+        expect(newState.hasUpdatedValues).toBe(true)
       })
 
       it("activates a removable filter with a value", () => {
@@ -140,6 +148,7 @@ describe("filterBarStateReducer: update_values", () => {
           activeFilterIds: new Set<keyof Values>(["flavour"]),
           values: {},
           dependentFilterIds: new Set<keyof Values>(["sugarLevel"]),
+          hasUpdatedValues: false,
         } satisfies FilterBarState<Values>
 
         const newState = filterBarStateReducer<Values>(state, {
@@ -152,6 +161,7 @@ describe("filterBarStateReducer: update_values", () => {
           new Set(["flavour", "sugarLevel"])
         )
         expect(newState.values).toEqual({ flavour: "jasmine", sugarLevel: 50 })
+        expect(newState.hasUpdatedValues).toBe(true)
       })
     })
   })
