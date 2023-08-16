@@ -41,8 +41,6 @@ const removeRootSVGElement = item => {
 // Recurses through all elements and child elements of root item
 // Note: first item is not an element, it's children are the elements.
 const recurse = item => {
-  removeRootSVGElement(item)
-
   item.children.forEach(child => {
     replaceAttrKeys(child)
     replaceColor(child)
