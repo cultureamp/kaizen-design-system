@@ -32,3 +32,10 @@ jobs:
       - name: Push tags
         run: |
           git push --follow-tags
+      - name: Notify
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C05BTHKJYR0"
+          slack-message: "Canary has been published"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
