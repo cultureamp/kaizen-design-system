@@ -15,6 +15,7 @@ import {
   decodeQueryParams,
 } from "serialize-query-params"
 import { DateRange, ItemType, SelectOption } from "~components/index"
+import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
 import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters, useFilterBarContext } from "../index"
 import { FilterBarMultiSelectProps } from "../subcomponents"
@@ -23,10 +24,10 @@ const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
   argTypes: {
-    classNameOverride: {
-      type: "string",
-      description: "Add extra classnames to the component.",
-    },
+    filters: { control: "disabled" },
+    values: { control: "disabled" },
+    onValuesChange: { control: "disabled" },
+    ...classNameOverrideArgType,
   },
 } satisfies Meta<typeof FilterBar>
 
@@ -175,7 +176,7 @@ const filters = [
   },
 ] satisfies Filters<Values>
 
-export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
+export const BasicImplementation: StoryFn<typeof FilterBar> = args => {
   const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
     toppings: ["pearls", "fruit-jelly"],
@@ -183,6 +184,7 @@ export const BasicImplementation: StoryFn<typeof FilterBar> = () => {
 
   return (
     <FilterBar<Values>
+      {...args}
       filters={filters}
       values={activeValues}
       onValuesChange={onActiveValuesChange}
