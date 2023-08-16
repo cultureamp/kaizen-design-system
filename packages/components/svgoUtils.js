@@ -28,11 +28,11 @@ const replaceColor = child => {
 // We remove the outermost <svg> element here, because we wrap its children in
 // our custom SVG component later
 const removeRootSVGElement = item => {
-  const rootAndHasSingleSVGChild =
-    item.type === "root" &&
-    item.children.length === 1 &&
-    item.children[0].name === "svg"
-  if (rootAndHasSingleSVGChild) {
+  if (item.type !== "root") return
+
+  const hasSingleSVGChild =
+    item.children.length === 1 && item.children[0].name === "svg"
+  if (hasSingleSVGChild) {
     const SVGChildren = item.children[0].children
     item.children = SVGChildren
   }
@@ -52,7 +52,8 @@ const recurse = item => {
 }
 
 module.exports = {
+  recurse,
+  removeRootSVGElement,
   replaceAttrKeys,
   replaceColor,
-  recurse,
 }

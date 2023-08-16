@@ -1,11 +1,48 @@
-const { replaceAttrKeys, replaceColor } = require("./svgoUtils")
+const {
+  removeRootSVGElement,
+  replaceAttrKeys,
+  replaceColor,
+} = require("./svgoUtils")
 
 type SVGOItem = {
-  type: string
+  type: "element"
   name: string
   attributes: { [key: string]: string }
   children: SVGOItem[]
 }
+
+describe("removeRootSVGElement", () => {
+  const svgChildren: SVGOItem[] = [
+    {
+      type: "element",
+      name: "defs",
+      attributes: {},
+      children: [],
+    },
+    {
+      type: "element",
+      name: "use",
+      attributes: {},
+      children: [],
+    },
+  ]
+  const svgElement: SVGOItem = {
+    type: "element",
+    name: "svg",
+    attributes: {},
+    children: svgChildren,
+  }
+
+  it("Replaces the <svg> element with its children", () => {
+    const rootItem = {
+      type: "root",
+      children: [svgElement],
+    }
+
+    removeRootSVGElement(rootItem)
+    expect(rootItem.children).toStrictEqual(svgChildren)
+  })
+})
 
 describe("replaceAttrKeys", () => {
   it("Replaces 'xlink:href' keys with 'href'", () => {
