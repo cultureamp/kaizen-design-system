@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import classnames from "classnames"
 import ReactSelect, {
-  components,
+  components as ReactSelectComponents,
   Props as ReactSelectProps,
   NoticeProps,
 } from "react-select"
@@ -125,7 +125,7 @@ interface AsyncProps
     ReactSelectProps<any, boolean, any> {}
 
 export const AsyncSelect = React.forwardRef(
-  (props: AsyncProps, ref: React.Ref<any>) => (
+  ({ components, className, ...rest }: AsyncProps, ref: React.Ref<any>) => (
     <Async
       ref={ref}
       components={{
@@ -143,17 +143,18 @@ export const AsyncSelect = React.forwardRef(
         ClearIndicator: undefined,
         IndicatorSeparator: null,
         LoadingMessage,
+        ...components,
       }}
-      className={classnames(styles.specificityIncreaser, props.className)}
-      {...props}
+      className={classnames(styles.specificityIncreaser, className)}
+      {...rest}
     />
   )
 )
 AsyncSelect.displayName = "AsyncSelect"
 
-const Control: typeof components.Control = props => (
+const Control: typeof ReactSelectComponents.Control = props => (
   <div data-automation-id="Select__Control">
-    <components.Control
+    <ReactSelectComponents.Control
       {...props}
       className={classnames(
         styles.control,
@@ -164,36 +165,49 @@ const Control: typeof components.Control = props => (
   </div>
 )
 
-const Placeholder: typeof components.Placeholder = props => (
-  <components.Placeholder {...props} className={styles.placeholderOverrides}>
+const Placeholder: typeof ReactSelectComponents.Placeholder = props => (
+  <ReactSelectComponents.Placeholder
+    {...props}
+    className={styles.placeholderOverrides}
+  >
     <span className={styles.placeholder}>{props.children}</span>
-  </components.Placeholder>
+  </ReactSelectComponents.Placeholder>
 )
 
-const DropdownIndicator: typeof components.DropdownIndicator = props => (
-  <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
-    <Icon
-      icon={props.selectProps.menuIsOpen ? chevronUpIcon : chevronDownIcon}
-      role="presentation"
-    />
-  </components.DropdownIndicator>
-)
+const DropdownIndicator: typeof ReactSelectComponents.DropdownIndicator =
+  props => (
+    <ReactSelectComponents.DropdownIndicator
+      {...props}
+      className={styles.dropdownIndicator}
+    >
+      <Icon
+        icon={props.selectProps.menuIsOpen ? chevronUpIcon : chevronDownIcon}
+        role="presentation"
+      />
+    </ReactSelectComponents.DropdownIndicator>
+  )
 
 const LoadingMessage = (props: NoticeProps): JSX.Element => (
-  <components.LoadingMessage {...props} className={styles.loadingMessage} />
+  <ReactSelectComponents.LoadingMessage
+    {...props}
+    className={styles.loadingMessage}
+  />
 )
 
-const Menu: typeof components.Menu = props => (
-  <components.Menu {...props} className={styles.menu} />
+const Menu: typeof ReactSelectComponents.Menu = props => (
+  <ReactSelectComponents.Menu {...props} className={styles.menu} />
 )
 
-const GroupHeading: typeof components.GroupHeading = props => (
-  <components.GroupHeading {...props} className={styles.groupHeading} />
+const GroupHeading: typeof ReactSelectComponents.GroupHeading = props => (
+  <ReactSelectComponents.GroupHeading
+    {...props}
+    className={styles.groupHeading}
+  />
 )
 
-const Option: typeof components.Option = props => (
+const Option: typeof ReactSelectComponents.Option = props => (
   <div data-automation-id="Select__Option">
-    <components.Option
+    <ReactSelectComponents.Option
       {...props}
       className={classnames(
         styles.option,
@@ -206,18 +220,21 @@ const Option: typeof components.Option = props => (
 )
 
 const NoOptionsMessage = (props: NoticeProps): JSX.Element => (
-  <components.NoOptionsMessage {...props}>
+  <ReactSelectComponents.NoOptionsMessage {...props}>
     <span className={styles.noOptionsMessage}>{props.children}</span>
-  </components.NoOptionsMessage>
+  </ReactSelectComponents.NoOptionsMessage>
 )
 
-const SingleValue: typeof components.SingleValue = props => (
-  <components.SingleValue {...props} className={styles.singleValueOverrides}>
+const SingleValue: typeof ReactSelectComponents.SingleValue = props => (
+  <ReactSelectComponents.SingleValue
+    {...props}
+    className={styles.singleValueOverrides}
+  >
     <span className={styles.singleValue}>{props.children}</span>
-  </components.SingleValue>
+  </ReactSelectComponents.SingleValue>
 )
 
-const MultiValue: typeof components.MultiValue = props => (
+const MultiValue: typeof ReactSelectComponents.MultiValue = props => (
   <div className={styles.multiValue}>
     <Tag
       variant="default"
@@ -230,22 +247,29 @@ const MultiValue: typeof components.MultiValue = props => (
   </div>
 )
 
-const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
-  <components.IndicatorsContainer
+const IndicatorsContainer: typeof ReactSelectComponents.IndicatorsContainer =
+  props => (
+    <ReactSelectComponents.IndicatorsContainer
+      {...props}
+      className={styles.indicatorsContainer}
+    />
+  )
+
+const Input: typeof ReactSelectComponents.Input = props => (
+  <ReactSelectComponents.Input className={styles.input} {...props} />
+)
+
+const ValueContainer: typeof ReactSelectComponents.ValueContainer = props => (
+  <ReactSelectComponents.ValueContainer
     {...props}
-    className={styles.indicatorsContainer}
+    className={styles.valueContainer}
   />
 )
-
-const Input: typeof components.Input = props => (
-  <components.Input className={styles.input} {...props} />
-)
-
-const ValueContainer: typeof components.ValueContainer = props => (
-  <components.ValueContainer {...props} className={styles.valueContainer} />
-)
-const ClearIndicator: typeof components.ClearIndicator = props => (
-  <components.ClearIndicator {...props} className={styles.clearIndicator}>
+const ClearIndicator: typeof ReactSelectComponents.ClearIndicator = props => (
+  <ReactSelectComponents.ClearIndicator
+    {...props}
+    className={styles.clearIndicator}
+  >
     <Icon icon={clearIcon} role="presentation" />
-  </components.ClearIndicator>
+  </ReactSelectComponents.ClearIndicator>
 )
