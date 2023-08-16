@@ -1,0 +1,14 @@
+name: Action notify
+
+on: [push]
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C02NUQ27G56"
+          slack-message: "Hello World"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
