@@ -25,19 +25,24 @@ const replaceColor = child => {
   }
 }
 
-// Recurses through all elements and child elements of root item
-const recurse = item => {
+// We remove the outermost <svg> element here, because we wrap its children in
+// our custom SVG component later
+const removeRootSVGElement = item => {
   const rootAndHasSingleSVGChild =
     item.type === "root" &&
     item.children.length === 1 &&
     item.children[0].name === "svg"
   if (rootAndHasSingleSVGChild) {
     const SVGChildren = item.children[0].children
-    console.log("ITEM.CHILDREN: ", item.children)
-    console.log("SVG.CHILDREN: ", SVGChildren)
     item.children = SVGChildren
   }
-  // Note: first item is not an element, it's children are the elements.
+}
+
+// Recurses through all elements and child elements of root item
+// Note: first item is not an element, it's children are the elements.
+const recurse = item => {
+  removeRootSVGElement(item)
+
   item.children.forEach(child => {
     replaceAttrKeys(child)
     replaceColor(child)
