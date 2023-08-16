@@ -15,7 +15,10 @@ import { Label, FieldMessage } from "@kaizen/draft-form"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./Select.module.scss"
 
-export type { OnChangeValue as ValueType } from "react-select"
+export type {
+  OnChangeValue as ValueType,
+  components as ReactSelectComponents,
+} from "react-select"
 
 export interface SelectProps extends ReactSelectProps<any, boolean> {
   /**
