@@ -127,7 +127,6 @@ interface AsyncProps
 export const AsyncSelect = React.forwardRef(
   (props: AsyncProps, ref: React.Ref<any>) => (
     <Async
-      {...props}
       ref={ref}
       components={{
         Control,
@@ -146,6 +145,7 @@ export const AsyncSelect = React.forwardRef(
         LoadingMessage,
       }}
       className={classnames(styles.specificityIncreaser, props.className)}
+      {...props}
     />
   )
 )
