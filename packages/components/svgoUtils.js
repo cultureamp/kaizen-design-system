@@ -27,6 +27,16 @@ const replaceColor = child => {
 
 // Recurses through all elements and child elements of root item
 const recurse = item => {
+  const rootAndHasSingleSVGChild =
+    item.type === "root" &&
+    item.children.length === 1 &&
+    item.children[0].name === "svg"
+  if (rootAndHasSingleSVGChild) {
+    const SVGChildren = item.children[0].children
+    console.log("ITEM.CHILDREN: ", item.children)
+    console.log("SVG.CHILDREN: ", SVGChildren)
+    item.children = SVGChildren
+  }
   // Note: first item is not an element, it's children are the elements.
   item.children.forEach(child => {
     replaceAttrKeys(child)
