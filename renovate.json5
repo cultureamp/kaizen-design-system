@@ -5,11 +5,6 @@
     // We can't always stick to latest due to infra and compatibility with other plugins
     "node",
     "typescript",
-    // We include older versions of React things in order to test against React 16 & 17
-    "react-16",
-    "react-17",
-    "react-dom-16",
-    "react-dom-17",
     "@testing-library/react-12",
     "react-test-renderer-17",
     // Codemods only work for stylelint v13
@@ -19,7 +14,7 @@
   ],
   "packageRules": [
     {
-      // Any peerDep or dep within the publishable packages triggers a 
+      // Any peerDep or dep within the publishable packages triggers a
       // patch release as a _sensible default_. Merger should use their
       // discretion to determine whether a major change is more appropriate
       "matchPaths": ["packages/**", "draft-packages/**"],
