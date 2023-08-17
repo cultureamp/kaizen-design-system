@@ -19,5 +19,9 @@ svgFilePaths.forEach(svgPath => {
     svgContent
   )
 
-  console.log(newComponentContent)
+  fs.writeFile(
+    `./IconComponents/${pascalFileName}.tsx`,
+    newComponentContent,
+    (err: typeof Error) => console.log(err)
+  )
 })
