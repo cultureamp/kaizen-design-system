@@ -6,6 +6,16 @@ const svgToComponentTitle = (fileName: string) => {
     .replace(".icon", "Icon")
 }
 
+const insertSvgData = (
+  reactTemplate: string,
+  componentName: string,
+  svgContent: string
+) =>
+  reactTemplate
+    .replace("COMPONENT_TITLE", componentName)
+    .replace("SVG_CONTENT", svgContent)
+
 module.exports = {
+  insertSvgData,
   svgToComponentTitle,
 }

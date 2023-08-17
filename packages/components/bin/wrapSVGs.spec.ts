@@ -1,5 +1,5 @@
 import React from "react"
-const { svgToComponentTitle } = require("./wrapSVGUtils")
+const { insertSvgData, svgToComponentTitle } = require("./wrapSVGUtils")
 
 describe("svgToComponentTitle", () => {
   it("converts kebab case to pascal case, and replaces .icon with Icon", () => {
@@ -11,5 +11,30 @@ describe("svgToComponentTitle", () => {
     const original = "action-off-white.icon"
     const expected = "ActionOffWhiteIcon"
     expect(svgToComponentTitle(original)).toEqual(expected)
+  })
+})
+
+describe("insertSvgData", () => {
+  const reactTemplate = `
+    import React from "react"
+    import { SVG, SVGProps } from "~components/SVG"
+
+    export const COMPONENT_TITLE = (props: Omit<SVGProps, "children">): JSX.Element => (
+      <SVG {...props}>SVG_CONTENT</SVG>
+    )
+  `
+  const componentTitle = "MyIcon"
+  const svgContent = "<use></use>"
+  const result = insertSvgData(reactTemplate, componentTitle, svgContent)
+  console.log(result)
+
+  it("replaces COMPONENT_TITLE with the name of the icon component", () => {
+    expect(result.includes("COMPONENT_TITLE")).toBe(false)
+    expect(result.includes(componentTitle)).toBe(true)
+  })
+
+  it("replaces SVG_CONTENT with the contents of the svg", () => {
+    expect(result.includes("SVG_CONTENT")).toBe(false)
+    expect(result.includes(svgContent)).toBe(true)
   })
 })
