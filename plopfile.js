@@ -25,7 +25,7 @@ module.exports = (
       {
         type: "confirm",
         name: "isAIO",
-        message: "Add this component to the AIO?",
+        message: "Add this component to the @kaizen/components?",
         default: true,
       },
       {

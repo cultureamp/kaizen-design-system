@@ -1,5 +1,5 @@
 import React from "react"
-import { kzSpacing } from "@kaizen/tailwind/src/kz-spacing"
+import { kzSpacing } from "@kaizen/button"
 
 export const SpacingTokens = (): JSX.Element => {
   const keyValuePairs = Object.entries(kzSpacing)

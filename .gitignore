@@ -1,14 +1,6 @@
 node_modules
 yarn-*.log
 /storybook/public/
-/draft-packages/**/*.js
-/draft-packages/**/*.js.map
-/draft-packages/**/*.d.ts
-/packages/**/*.js
-!/packages/**/*.config.js
-!/packages/**/svgMock.js
-/packages/**/*.js.map
-/packages/**/*.d.ts
 .DS_Store
 dist
 .cache

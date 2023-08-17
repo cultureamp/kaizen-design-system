@@ -1,11 +1,11 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
+import { Button, ButtonProps } from "@kaizen/button"
 import { CheckIcon } from "~components/SVG/icons/CheckIcon"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { Button, ButtonProps } from "../index"
 
 export default {
-  title: "KAIO/Button",
+  title: "Components/Stickersheets",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

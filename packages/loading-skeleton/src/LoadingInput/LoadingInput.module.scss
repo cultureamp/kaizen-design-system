@@ -1,9 +1,0 @@
-@import "~@kaizen/design-tokens/sass/color";
-
-.input {
-  background-color: rgba($color-gray-600-rgb, 0.1);
-
-  &.reversed {
-    background-color: rgba($color-white-rgb, 0.1);
-  }
-}

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { StoryWrapper } from "../../../../../storybook/components/StoryWrapper"
+import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 
 export default {
   title: "Systems/Tailwind/Utility Class References/Modifiers/Pseudo Selectors",
@@ -19,11 +19,11 @@ export default {
 export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <StoryWrapper hasRowDivider isReversed={isReversed}>
-    <StoryWrapper.RowHeader
+  <StickerSheet isReversed={isReversed}>
+    <StickerSheet.Header
       headings={["Utility Class", "Compiled CSS", "Example"]}
     />
-    <StoryWrapper.Row rowTitle="hover">
+    <StickerSheet.Row rowTitle="hover">
       <p className="font-family-paragraph">hover:bg-blue-200</p>
       <p className="font-family-paragraph">background-color: #bde2f5</p>
       <button
@@ -32,8 +32,8 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
       >
         Hover me
       </button>
-    </StoryWrapper.Row>
-    <StoryWrapper.Row rowTitle="focus">
+    </StickerSheet.Row>
+    <StickerSheet.Row rowTitle="focus">
       <p className="font-family-paragraph">focus:bg-blue-200</p>
       <p className="font-family-paragraph">background-color: #bde2f5</p>
       <button
@@ -43,6 +43,6 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
       >
         Focus me
       </button>
-    </StoryWrapper.Row>
-  </StoryWrapper>
+    </StickerSheet.Row>
+  </StickerSheet>
 )

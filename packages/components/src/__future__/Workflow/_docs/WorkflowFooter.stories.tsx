@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { Button } from "@kaizen/button"
+import { Button } from "~components/Button"
 import { classNameOverrideArgType } from "../../../../../../storybook/argTypes"
 import { ComponentDocsTemplate } from "../../../../../../storybook/components/DocsContainer"
 import { FooterProps } from "../subcomponents/Footer"
