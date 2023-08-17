@@ -21,27 +21,27 @@ const Options = (): JSX.Element => (
       <span id="id--live-region" aria-live="polite">
         3 options total
       </span>
-      <div className=" flex focus-within:bg-blue-200" data-section="option">
+      <div className=" flex focus-within:bg-blue-200">
         <label className="flex w-full gap-6 items-start">
-          <input type="checkbox" />
+          <input id="id--option-1" type="checkbox" />
           <div className="flex flex-col">
             <span className=" font-weight-paragraph-bold">Option 1</span>
             <span className=" ">lorem ipsum</span>
           </div>
         </label>
       </div>
-      <div className=" flex focus-within:bg-blue-200" data-section="option">
+      <div className=" flex focus-within:bg-blue-200">
         <label className="flex w-full gap-6 items-start">
-          <input type="checkbox" />
+          <input id="id--option-2" type="checkbox" />
           <div className="flex flex-col">
             <span className=" font-weight-paragraph-bold">Option 2</span>
             <span className=" ">lorem ipsum</span>
           </div>
         </label>
       </div>
-      <div className=" flex focus-within:bg-blue-200" data-section="option">
+      <div className=" flex focus-within:bg-blue-200">
         <label className="flex w-full gap-6 items-start">
-          <input type="checkbox" />
+          <input id="id--option-3" type="checkbox" />
           <div className="flex flex-col">
             <span className=" font-weight-paragraph-bold">Option 3</span>
             <span className=" ">lorem ipsum</span>
@@ -362,6 +362,7 @@ export const SearchAndTagListOutside = (): JSX.Element => (
 
 export const SearchInside = (): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
+  const [activeIndex, setActiveIndex] = React.useState<number>(1)
   return (
     <div>
       <Label htmlFor="id--inline-tag-search" />
@@ -393,8 +394,74 @@ export const SearchInside = (): JSX.Element => {
                 className="grow m-2"
                 type="search"
                 aria-controls="id--all-options"
-                value=""
                 placeholder="🔍"
+              />
+              <ClearSearchInputButton />
+            </div>
+            <Options />
+          </>
+        )}
+      </Popover>
+    </div>
+  )
+}
+
+export const SearchInsideWithActiveDesc = (): JSX.Element => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false)
+  const [activeIndex, setActiveIndex] = React.useState<number>(1)
+  return (
+    <div>
+      <Label htmlFor="id--inline-tag-search" />
+      {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+    jsx-a11y/no-static-element-interactions */}
+      <div className=" flex rounded-default border-solid gap-6 border-red-300">
+        <div className="grow">
+          <TagList />
+        </div>
+        <ClearButton />
+        <ToggleButton
+          aria-expanded={true}
+          onClick={() => {
+            setIsOpen(!isOpen)
+          }}
+        />
+      </div>
+      <div id="id--combo-desc">I am a descriptions!</div>
+      <div className="bg-red-100" id="id--error-message" data-section="error">
+        I am an erar! RAWR!
+      </div>
+      <Popover data-section="popover" className=" border-solid border-blue-300">
+        {isOpen && (
+          <>
+            <div className="flex w-full">
+              <input
+                id="id--inline-tag-search"
+                className="grow m-2"
+                // type="search"
+                aria-controls="id--all-options"
+                placeholder="🔍"
+                aria-activedescendant={`id--option-${activeIndex}`}
+                onKeyDown={e => {
+                  if (e.key === "ArrowDown") {
+                    e.preventDefault()
+                    setActiveIndex(activeIndex + 1)
+                  }
+                  if (e.key === "ArrowUp") {
+                    e.preventDefault()
+                    setActiveIndex(activeIndex - 1)
+                  }
+                  if (e.key === "Enter") {
+                    const activeDesc = document.getElementById(
+                      `id--option-${activeIndex}`
+                    ) as HTMLFormElement
+
+                    if (activeDesc) {
+                      activeDesc.checked = !activeDesc.checked
+                    }
+                  }
+                }}
+                aria-owns="id--all-options"
               />
               <ClearSearchInputButton />
             </div>
