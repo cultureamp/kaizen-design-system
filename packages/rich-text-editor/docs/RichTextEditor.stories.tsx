@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { StoryFn } from "@storybook/react"
 import {
   RichTextEditor,
@@ -57,6 +57,23 @@ export const WithData: RTEStory = ({ labelText, ...args }) => {
   const [rteData, setRTEData] = useState<EditorContentArray>(dummyContent)
   const handleOnChange: RichTextEditorProps["onChange"] = (editorState): void =>
     setRTEData(editorState.toJSON().doc.content)
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("Setting updated RTE data")
+      setRTEData([
+        {
+          type: "paragraph",
+          content: [
+            {
+              type: "text",
+              marks: [{ type: "strong" }],
+              text: "Updated value prop!",
+            },
+          ],
+        },
+      ])
+    }, 1000)
+  }, [])
   return (
     <RichTextEditor
       labelText={labelText}
