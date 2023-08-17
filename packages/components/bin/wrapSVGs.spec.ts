@@ -26,7 +26,6 @@ describe("insertSvgData", () => {
   const componentTitle = "MyIcon"
   const svgContent = "<use></use>"
   const result = insertSvgData(reactTemplate, componentTitle, svgContent)
-  console.log(result)
 
   it("replaces COMPONENT_TITLE with the name of the icon component", () => {
     expect(result.includes("COMPONENT_TITLE")).toBe(false)
