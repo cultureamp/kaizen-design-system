@@ -1,15 +1,15 @@
 import React from "react"
-import { kebabToPascalCase } from "./wrapSVGUtils"
+const { svgToComponentTitle } = require("./wrapSVGUtils")
 
-describe("kebabToPascalCase", () => {
-  it("turns a single lower case name into Pascal case", () => {
-    const original = "academy"
-    const expected = "Academy"
-    expect(kebabToPascalCase(original)).toEqual(expected)
+describe("svgToComponentTitle", () => {
+  it("converts kebab case to pascal case, and replaces .icon with Icon", () => {
+    const original = "academy.icon"
+    const expected = "AcademyIcon"
+    expect(svgToComponentTitle(original)).toEqual(expected)
   })
-  it("turns kebab with multiple dashes to Pascal case", () => {
-    const original = "action-off-white"
-    const expected = "ActionOffWhite"
-    expect(kebabToPascalCase(original)).toEqual(expected)
+  it("handles multiple dashes in kebab case", () => {
+    const original = "action-off-white.icon"
+    const expected = "ActionOffWhiteIcon"
+    expect(svgToComponentTitle(original)).toEqual(expected)
   })
 })
