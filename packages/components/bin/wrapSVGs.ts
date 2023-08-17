@@ -5,10 +5,10 @@ const Utils = require("./wrapSVGUtils")
 
 const reactTemplate = fs.readFileSync("./src/Icons/Template.tsx").toString()
 
-// TODO: loop over all files in built-icons dir
-const svgFilePaths = ["./built-icons/academy.icon.svg"]
+const svgFileNames = fs.readdirSync("./built-icons/")
 
-svgFilePaths.forEach(svgPath => {
+svgFileNames.forEach((svgName: string) => {
+  const svgPath = path.join("./built-icons", svgName)
   const svgContent = fs.readFileSync(svgPath).toString()
   const svgFileName = path.parse(svgPath).name
   const pascalFileName = Utils.svgToComponentTitle(svgFileName)
@@ -22,6 +22,8 @@ svgFilePaths.forEach(svgPath => {
   fs.writeFile(
     `./IconComponents/${pascalFileName}.tsx`,
     newComponentContent,
-    (err: typeof Error) => console.log(err)
+    (err: typeof Error) => {
+      if (err) console.log(err)
+    }
   )
 })
