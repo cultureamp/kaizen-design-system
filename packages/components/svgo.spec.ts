@@ -2,6 +2,7 @@ const {
   removeRootSVGElement,
   replaceAttrKeys,
   replaceColor,
+  replaceId,
 } = require("./svgoUtils")
 
 type SVGOItem = {
@@ -89,5 +90,38 @@ describe("replaceColor", () => {
 
     replaceColor(dummyItem)
     expect(dummyItem.attributes.fill).toEqual("currentColor")
+  })
+})
+
+describe("replaceId", () => {
+  const newId = "NEW_ID"
+  it("replaces id attributes with provided id", () => {
+    const dummyItem: SVGOItem = {
+      type: "element",
+      name: "path",
+      attributes: {
+        id: "a",
+      },
+      children: [],
+    }
+
+    replaceId(dummyItem, newId)
+
+    expect(dummyItem.attributes.id).toEqual(newId)
+  })
+
+  it("replaces href attributes with `#PROVIDED_ID`", () => {
+    const dummyItem: SVGOItem = {
+      type: "element",
+      name: "use",
+      attributes: {
+        href: "#a",
+      },
+      children: [],
+    }
+
+    replaceId(dummyItem, newId)
+
+    expect(dummyItem.attributes.href).toEqual(`#${newId}`)
   })
 })

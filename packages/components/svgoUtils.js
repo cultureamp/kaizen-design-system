@@ -25,6 +25,18 @@ const replaceColor = child => {
   }
 }
 
+// Ids aren't necessarily unique when coming from figma, causing
+// Icon components to reference different, already-rendered Icons
+// with duplicate ids. This function allows us to set unique ids.
+const replaceId = (child, newId) => {
+  if (child.attributes.id) {
+    child.attributes.id = newId
+  }
+  if (child.attributes.href) {
+    child.attributes.href = `#${newId}`
+  }
+}
+
 // We remove the outermost <svg> element here, because we wrap its children in
 // our custom SVG component later
 const removeRootSVGElement = item => {
@@ -40,12 +52,13 @@ const removeRootSVGElement = item => {
 
 // Recurses through all elements and child elements of root item
 // Note: first item is not an element, it's children are the elements.
-const recurse = item => {
+const recurse = (item, fileName) => {
   item.children.forEach(child => {
     replaceAttrKeys(child)
     replaceColor(child)
+    replaceId(child, fileName)
 
-    recurse(child)
+    recurse(child, fileName)
   })
 }
 
@@ -54,4 +67,5 @@ module.exports = {
   removeRootSVGElement,
   replaceAttrKeys,
   replaceColor,
+  replaceId,
 }

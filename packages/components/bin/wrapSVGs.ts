@@ -11,8 +11,6 @@ if (!sourceDir) {
 `)
 }
 
-console.log("SOURCE ", sourceDir)
-
 const outputDirIndex = process.argv.indexOf("--output-dir")
 const outputDir = process.argv[outputDirIndex + 1]
 if (!outputDir) {

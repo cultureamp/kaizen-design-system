@@ -36,4 +36,8 @@ describe("insertSvgData", () => {
     expect(result.includes("SVG_CONTENT")).toBe(false)
     expect(result.includes(svgContent)).toBe(true)
   })
+  it("replaces SVG_CONTENT with the contents of the svg", () => {
+    expect(result.includes("SVG_CONTENT")).toBe(false)
+    expect(result.includes(svgContent)).toBe(true)
+  })
 })
