@@ -20,6 +20,9 @@
     "lint:styles": {
       "cache": false
     },
+    "test:ci": {
+      "cache": false
+    },
     "@kaizen/components#build": {
       "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["src/**"],

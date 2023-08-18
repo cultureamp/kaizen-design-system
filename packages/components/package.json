@@ -25,6 +25,7 @@
     "prepublishOnly": "pnpm build:components && pnpm postBuild && pnpm dist:clean",
     "build": "pnpm clean && pnpm prepublishOnly",
     "test": "jest",
+    "test:ci": "pnpm test -- --ci",
     "clean": "rimraf dist",
     "build:components": "rollup -c",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
@@ -32,7 +33,6 @@
     "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "pnpm dist:copy-tailwind && pnpm dist:combine-styles && pnpm dist:postcss",
-    "test:ci": "pnpm test --ci",
     "lint:styles": "pnpm stylelint '**/*.scss'"
   },
   "dependencies": {
