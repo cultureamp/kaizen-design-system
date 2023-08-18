@@ -24,7 +24,6 @@
     "lint:fix": "pnpm lint:styles --fix && pnpm lint:ts --max-warnings=0 --fix && pnpm lint:format --write",
     "reset": "pnpm clean && pnpm install --force",
     "chromatic": "chromatic",
-    "commit": "pnpm changeset",
     "plop": "plop",
     "pkg:aio": "pnpm --filter @kaizen/components",
     "ci:version": "pnpm turbo prepublishOnly && pnpm changeset version",

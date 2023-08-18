@@ -5,7 +5,7 @@ set -e
 . ".buildkite/scripts/helpers/setup-registry.sh"
 
 pnpm install --frozen-lockfile
-pnpm workspace @kaizen/design-tokens prepublishOnly
-pnpm workspace @kaizen/tailwind prepublishOnly
+pnpm --filter @kaizen/design-tokens prepublishOnly
+pnpm --filter @kaizen/tailwind prepublishOnly
 pnpm storybook:build
 tar -czf ./storybook.tar.gz ./storybook/public
