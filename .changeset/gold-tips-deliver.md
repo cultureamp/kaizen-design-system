@@ -1,5 +1,6 @@
 ---
 "@kaizen/notification": major
+"@kaizen/rich-text-editor": major
 ---
 
 Upgrade to React 18 render API
