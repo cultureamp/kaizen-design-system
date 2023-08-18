@@ -144,7 +144,7 @@ Kaizen utilises [Changesets](https://github.com/changesets/changesets) to outlin
 
 Creating a changeset is straight forward:
 
-1. Run `pnpm changeset` (or `pnpm commit`)
+1. Run `pnpm changeset`
 2. Select the packages you have made changes to with spacebar, followed by enter
 3. You will then be asked which packages should have a Major, Minor or Patch. So following [Semantic Versioning](#semantic-versioning), select the packages that apply and hit enter (you can also hit enter to skip)
 4. Add a short [description](#description).
