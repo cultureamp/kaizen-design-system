@@ -4,7 +4,7 @@
   "description": "Kaizen {{kebabCase packageName}} components",
   "scripts": {
     "prepublishOnly": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublishOnly",
+    "build": "pnpm clean && pnpm prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

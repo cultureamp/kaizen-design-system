@@ -1,5 +1,4 @@
 node_modules
-yarn-*.log
 /storybook/public/
 .DS_Store
 dist

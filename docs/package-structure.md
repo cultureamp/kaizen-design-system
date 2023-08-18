@@ -16,11 +16,11 @@ Recipe for creating a new package.
 To generate a new component and package, new component within an existing package, or a subcomponent,
 run the following command and follow the prompts:
 ```
-yarn plop
+pnpm plop
 ```
 or run the following command to answer the name prop (replace `NewComponentName` with your component name):
 ```
-yarn plop NewComponentName
+pnpm plop NewComponentName
 ```
 
 ## Package structure
@@ -79,7 +79,7 @@ The base package.json will look like this, where:
   "description": "The {{ COMPONENT_NAME }} component",
   "scripts": {
     "prepublishOnly": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublishOnly",
+    "build": "pnpm clean && pnpm prepublishOnly",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

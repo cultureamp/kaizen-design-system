@@ -22,20 +22,18 @@
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
-    "build": "yarn clean && yarn prepublishOnly",
+    "prepublishOnly": "pnpm build:components && pnpm postBuild && pnpm dist:clean",
+    "build": "pnpm clean && pnpm prepublishOnly",
     "test": "jest",
-    "clean": "rimraf dist node_modules",
+    "clean": "rimraf dist",
     "build:components": "rollup -c",
-    "compile": "tsc",
     "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
     "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
-    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "test:ci": "yarn test --ci",
-    "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
-    "ci:test:react-17": "USE_REACT_17=true yarn test:ci"
+    "postBuild": "pnpm dist:copy-tailwind && pnpm dist:combine-styles && pnpm dist:postcss",
+    "test:ci": "pnpm test --ci",
+    "lint:styles": "pnpm stylelint '**/*.scss'"
   },
   "dependencies": {
     "@cultureamp/i18n-react-intl": "^1.4.5",
@@ -82,6 +80,10 @@
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
+    "@storybook/addon-actions": "^7.3.1",
+    "@storybook/types": "^7.3.1",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@types/testing-library__jest-dom": "^6.0.0",
     "autoprefixer": "^10.4.14",
     "concat-cli": "^4.0.0",
     "esbuild": "^0.18.17",
@@ -99,7 +101,8 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+    "@kaizen/design-tokens": "^10.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

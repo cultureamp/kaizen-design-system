@@ -23,6 +23,7 @@ const colors = defaultTheme.color
 addons.setConfig({
   theme: KaizenTheme,
   sidebar: {
+    // @ts-ignore
     renderLabel: (item): JSX.Element =>
       item.type === "root" ? (
         <span

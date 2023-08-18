@@ -20,7 +20,7 @@ const meta = {
       container: ComponentDocsTemplate,
     },
     installation: [
-      "yarn add @kaizen/workflow",
+      "pnpm add @kaizen/workflow",
       "import { ProgressStepper } from `@kaizen/components`",
     ],
     resourceLinks: {

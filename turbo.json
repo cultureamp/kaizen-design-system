@@ -7,14 +7,17 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
-      "inputs": ["packages/**", "draft-packages/**"]
+      "inputs": ["packages/**"]
     },
     "prepublishOnly": {
       "dependsOn": ["^prepublishOnly"],
       "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
-      "inputs": ["packages/**", "draft-packages/**"]
+      "inputs": ["packages/**"]
     },
     "clean": {
+      "cache": false
+    },
+    "lint:styles": {
       "cache": false
     },
     "@kaizen/components#build": {

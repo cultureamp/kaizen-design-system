@@ -17,3 +17,4 @@
 /storybook/public/
 /packages/**/dist
 /packages/components/locales
+pnpm-lock.yaml

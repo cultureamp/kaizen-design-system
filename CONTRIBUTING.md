@@ -94,8 +94,8 @@ $ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
 # Add the package to your front-end codebase
 $ yalc add @kaizen/component-library
 
-# Yarn install
-$ yarn
+# pnpm install
+$ pnpm
 
 ```
 
@@ -144,7 +144,7 @@ Kaizen utilises [Changesets](https://github.com/changesets/changesets) to outlin
 
 Creating a changeset is straight forward:
 
-1. Run `yarn changeset` (or `yarn commit`)
+1. Run `pnpm changeset` (or `pnpm commit`)
 2. Select the packages you have made changes to with spacebar, followed by enter
 3. You will then be asked which packages should have a Major, Minor or Patch. So following [Semantic Versioning](#semantic-versioning), select the packages that apply and hit enter (you can also hit enter to skip)
 4. Add a short [description](#description).
@@ -181,7 +181,7 @@ This will run a build and publish a snapshot and its tag with a name that is con
 
 ## Using new package releases
 
-To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/component-library`).
+To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `pnpm upgrade --latest <scoped package name>` (e.g. `pnpm upgrade --latest @kaizen/component-library`).
 
 Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANGELOG.md`](./packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
 
@@ -198,5 +198,5 @@ Refer to the [docs folder](docs) for code guidelines and patterns.
 To generate a new component and package, new component within an existing package, or a subcomponent,
 run the following command and follow the prompts:
 ```
-yarn plop
+pnpm plop
 ```

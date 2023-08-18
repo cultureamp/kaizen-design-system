@@ -20,11 +20,11 @@ Recipe for creating a basic component.
 To generate a new component and package, new component within an existing package, or a subcomponent,
 run the following command and follow the prompts:
 ```
-yarn plop
+pnpm plop
 ```
 or run the following command to answer the name prop (replace `NewComponentName` with your component name):
 ```
-yarn plop NewComponentName
+pnpm plop NewComponentName
 ```
 
 ## Component structure

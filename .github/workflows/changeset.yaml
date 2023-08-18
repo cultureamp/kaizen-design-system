@@ -24,8 +24,8 @@ jobs:
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
-          version: yarn ci:version
-          publish: yarn ci:publish
+          version: pnpm ci:version
+          publish: pnpm ci:publish
       - name: Push git tags
         if: steps.changesets.outputs.published == 'true'
         run: git push --follow-tags

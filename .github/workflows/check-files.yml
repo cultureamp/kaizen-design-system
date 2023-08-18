@@ -27,15 +27,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup
-      - run: yarn changeset status --since=origin/main
-
-  yarn-integrity:
-    if: github.head_ref != 'changeset-release/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
-      - run: yarn check --integrity
+      - run: pnpm changeset status --since=origin/main
 
   verify-build:
     if: github.head_ref != 'changeset-release/main'
@@ -43,4 +35,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn build
+      - run: pnpm build

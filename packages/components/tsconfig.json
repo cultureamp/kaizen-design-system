@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "lib": ["es2019", "dom"],
     "module": "esnext",
     "jsx": "react",
