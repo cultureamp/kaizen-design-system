@@ -70,7 +70,7 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 ### Local development with other front-end codebases
 
-To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
+To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yalc](https://github.com/wclr/yalc) your local version of `@kaizen/component-library` with your other front-end codebase.
 
 #### For core components
 
@@ -80,34 +80,33 @@ To strengthen the Kaizen Design System, we encourage engineers to take a compone
 # Navigate to code source
 $ cd ./packages/component-library
 
-# Register package for linking
-$ yarn link
+# Publish the package
+$ yalc publish
 
-# Build in watch mode
-$ yarn build:watch
 ```
 
-**Step 2**: Link `@kaizen/component-library` to your other front-end codebase.
+**Step 2**: Install `@kaizen/component-library` in your other front-end codebase.
 
 ```sh
 # Navigate to code source
 $ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
 
-# Link repo to locally registered package
-$ yarn link @kaizen/component-library
+# Add the package to your front-end codebase
+$ yalc add @kaizen/component-library
+
+# Yarn install
+$ yarn
+
 ```
 
-Your local Kaizen changes will now show in your other front-end codebase.
+Your local Kaizen changes will now show in your other front-end codebase. If you want to test subsequent updates to the component, you'll need to run through step 1 again to republish the component, and then run `yalc update` in your front-end codebase to see the new changes.
 
-**Step 3**: Unlink
+**Step 3**: Removing the package
 
-When you are done, unlink the package from your front-end codebase:
+When you are done, remove the package from your front-end codebase:
 
-`yarn unlink @kaizen/component-library`
+`yalc remove @kaizen/component-library`
 
-You can also clean up generated files in your `@kaizen/component-library` repo:
-
-`yarn clean`
 
 ## Releasing packages
 
@@ -167,9 +166,16 @@ Note that in the case that a pull request touches files from more than one packa
 
 Canary releases create a way to test changes in production-like environments, and are a great way to reduce the risk of proposed changes to a package. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes.
 
-Any merged pull request into the (protected) `canary` branch will create a canary release, publishing a [pre-release version](https://semver.org/#spec-item-9) of any packages touched by that branch. Only repo admins are able to directly push to the `canary` branch without a pull request.
+Our implementation of this is actually a [Changeset snapshot](https://github.com/changesets/changesets/blob/main/docs/snapshot-releases.md) but serves the same purpose as testing a package in production environments.
 
-For example, opening a pull request to merge a branch containing `feat: Even more glitter` into the branch `canary` will release e.g. `@kaizen/some-package@1.1.0-canary.0` to npm. This pre-release package version will then be available elsewhere for testing those changes prior to a full release.
+### Triggering a release
+
+1. Create a new branch with the desired changes for your package
+2. Create a [changeset](#creating-a-changeset) and push your branch to github
+3. Go to the [github Actions](https://github.com/cultureamp/kaizen-design-system/actions/workflows/canary-release.yml) tab and click on the `Canary release` workflow
+4. Run the workflow, select your feature branch and give a brief label for your release, ie: `fix-button`
+
+This will run a build and publish a snapshot and its tag with a name that is constructed from the label and timestamp to npm, ie: `0.0.0-canary-fix-button-20230719002814`.
 
 :warning: **Note that canary releases should not be used in production.**
 

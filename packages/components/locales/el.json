@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Ημερομηνία από"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Ημερομηνία έως"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Μορφή εισαγωγής"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "επικοινωνήστε με την Υποστήριξη,"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Δυστυχώς, δεν ήταν δυνατό να ολοκληρωθεί το αίτημά σας. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Το αίτημά σας έπεσε στο κενό"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Δυστυχώς, δεν μπορούμε να επαληθεύσουμε αν μπορείτε να δείτε αυτή τη σελίδα. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Δεν μπορείτε να δείτε αυτή τη σελίδα"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Δυστυχώς, φαίνεται ότι δεν έχετε τα απαιτούμενα δικαιώματα για να δείτε αυτή τη σελίδα. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "H σελίδα δεν μπορεί να προβληθεί"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Δυστυχώς, δεν μπορούμε να βρούμε τη σελίδα που αναζητάτε. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Οι σελίδες που λείπουν είναι ένα από τα μυστήρια της ζωής"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Δυστυχώς, δεν ήταν δυνατό να γίνει η αλλαγή σας. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Η αλλαγή δεν είναι ποτέ εύκολη"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Δυστυχώς, υπάρχει πρόβλημα με το σύστημά μας και δεν είναι δυνατή η προβολή αυτής της σελίδας. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Κάτι πήγε στραβά από την πλευρά μας"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ζητούμε συγγνώμη. Το καλύτερο που έχετε να κάνετε είναι να επιστρέψετε και να προσπαθήσετε ξανά."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Η σελίδα δεν μπορεί να προβληθεί"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ζητούμε συγγνώμη. Το καλύτερο που έχετε να κάνετε είναι να επιστρέψετε και να προσπαθήσετε εκ νέου."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Η σελίδα δεν μπορεί να προβληθεί"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Ζητούμε συγγνώμη. Το καλύτερο που έχετε να κάνετε είναι να επιστρέψετε και να προσπαθήσετε ξανά."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Η σελίδα δεν μπορεί να προβληθεί"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Κωδικός σφάλματος {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Επιστροφή στην αρχή σελίδα"
   }
 }

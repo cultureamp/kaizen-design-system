@@ -8,14 +8,44 @@ on:
 jobs:
   version:
     runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - name: Create Release Pull Request
-        uses: changesets/action@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        run: |
+          npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
+      - uses: changesets/action@v1
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
           version: yarn ci:version
+          publish: yarn ci:publish
+      - name: Push git tags
+        if: steps.changesets.outputs.published == 'true'
+        run: git push --follow-tags
+  notify:
+    runs-on: ubuntu-latest
+    needs: version
+    steps:
+      - name: Publish successful
+        if: needs.version.outputs.published == 'true'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C02NUQ27G56"
+          slack-message: "Packages have been published"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Publish failed
+        if: needs.version.outputs.published == 'false'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C02NUQ27G56"
+          slack-message: "Publish failed"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

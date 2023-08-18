@@ -1,5 +1,0 @@
-export * from "./src/Tab"
-export * from "./src/TabList"
-export * from "./src/TabPanel"
-export * from "./src/TabPanels"
-export * from "./src/Tabs"

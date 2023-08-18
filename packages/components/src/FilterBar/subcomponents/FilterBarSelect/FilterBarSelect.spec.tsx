@@ -1,7 +1,14 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FilterAttributes, FilterBarProvider } from "~components/FilterBar"
+import {
+  FilterAttributes,
+  FilterBarProvider,
+  Filters,
+  FiltersValues,
+  useFilterBarContext,
+} from "~components/FilterBar"
+import { SelectOption } from "~components/FilterSelect"
 import { FilterBarSelect, FilterBarSelectProps } from "./FilterBarSelect"
 
 const user = userEvent.setup()
@@ -10,17 +17,19 @@ type Values = {
   flavour: string
 }
 
-const FilterBarSelectWrapper = ({
+const FilterBarSelectWrapper = <ValuesMap extends FiltersValues = Values>({
   defaultValues,
   filterAttributes,
+  additionalFilters = [],
   ...customProps
 }: {
-  defaultValues?: Partial<Values>
-  filterAttributes?: Partial<FilterAttributes<keyof Values>>
+  defaultValues?: Partial<ValuesMap>
+  filterAttributes?: Partial<FilterAttributes<ValuesMap>>
+  additionalFilters?: Filters<ValuesMap>
 } & Partial<FilterBarSelectProps>): JSX.Element => {
-  const [values, setValues] = useState<Partial<Values>>(defaultValues ?? {})
+  const [values, setValues] = useState<Partial<ValuesMap>>(defaultValues ?? {})
   return (
-    <FilterBarProvider<Values>
+    <FilterBarProvider<ValuesMap>
       filters={[
         {
           id: "flavour",
@@ -38,6 +47,7 @@ const FilterBarSelectWrapper = ({
           ),
           ...filterAttributes,
         },
+        ...additionalFilters,
       ]}
       values={values}
       onValuesChange={setValues}
@@ -45,8 +55,9 @@ const FilterBarSelectWrapper = ({
       {filters => (
         <>
           {Object.values(filters).map(({ id, Component }) => (
-            <React.Fragment key={id}>{Component}</React.Fragment>
+            <React.Fragment key={id as string}>{Component}</React.Fragment>
           ))}
+          <div data-testid="json-values">{JSON.stringify(values)}</div>
         </>
       )}
     </FilterBarProvider>
@@ -146,6 +157,92 @@ describe("<FilterBarSelect />", () => {
     await user.click(getByRole("option", { name: "Honey Milk Tea" }))
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith("honey-milk-tea")
+    })
+  })
+
+  it("clears selected values if updated items do not contain the value", async () => {
+    type ValuesDependent = Values & {
+      topping: string
+    }
+
+    type Item = SelectOption & {
+      flavour: string
+    }
+
+    const FilterTopping = (): JSX.Element => {
+      const data = [
+        { value: "pearls", label: "Pearls", flavour: "jasmine-milk-tea" },
+        {
+          value: "fruit-jelly",
+          label: "Fruit Jelly",
+          flavour: "honey-milk-tea",
+        },
+      ]
+
+      const [items, setItems] = useState<Item[]>([])
+
+      const { getFilterState } = useFilterBarContext<
+        ValuesDependent["topping"],
+        ValuesDependent
+      >()
+      const flavourFilter = getFilterState("flavour")
+
+      useEffect(() => {
+        setItems(data.filter(({ flavour }) => flavourFilter.value === flavour))
+      }, [flavourFilter.value])
+
+      return <FilterBarSelect id="topping" items={items} />
+    }
+
+    const { getByRole, getAllByRole, getByTestId } = render(
+      <FilterBarSelectWrapper<ValuesDependent>
+        additionalFilters={[
+          {
+            id: "topping",
+            name: "Topping",
+            Component: <FilterTopping />,
+          },
+        ]}
+      />
+    )
+
+    const flavourButton = getByRole("button", { name: "Flavour" })
+    await user.click(flavourButton)
+    await user.click(getByRole("option", { name: "Jasmine Milk Tea" }))
+    await user.click(document.body)
+
+    const toppingButton = getByRole("button", { name: "Topping" })
+    await user.click(toppingButton)
+
+    await waitFor(() => {
+      expect(getByRole("listbox")).toBeVisible()
+    })
+
+    const toppingOptions = getAllByRole("option")
+    expect(toppingOptions.length).toBe(1)
+    expect(toppingOptions[0].textContent).toBe("Pearls")
+
+    await user.click(toppingOptions[0])
+
+    await waitFor(() => {
+      expect(getByTestId("json-values").textContent).toBe(
+        JSON.stringify({
+          flavour: "jasmine-milk-tea",
+          topping: "pearls",
+        })
+      )
+    })
+
+    await user.click(document.body)
+    await user.click(flavourButton)
+    await user.click(getByRole("option", { name: "Honey Milk Tea" }))
+
+    await waitFor(() => {
+      expect(getByTestId("json-values").textContent).toBe(
+        JSON.stringify({
+          flavour: "honey-milk-tea",
+        })
+      )
     })
   })
 })

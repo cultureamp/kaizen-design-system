@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Дата з"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Дата по"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Формат вхідних даних"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "зверніться до служби підтримки,"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "На жаль, не вдалося виконати ваш запит. Поверніться та повторіть спробу або перейдіть на Головну"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Ваш запит зник"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "На жаль, ми не можемо перевірити, чи вам дозволено переглядати цю сторінку. Поверніться та повторіть спробу або перейдіть на Головну"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Ви не можете переглядати цю сторінку"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Вибачте, але схоже, у вас немає дозволу на перегляд цієї сторінки. Поверніться та повторіть спробу або перейдіть на Головну"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Ви не можете переглядати цю сторінку"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "На жаль, ми не можемо знайти сторінку, яку ви шукаєте. Поверніться та повторіть спробу або перейдіть на Головну"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Зниклі сторінки — одна із загадок життя"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "На жаль, неможливо внести зміни. Поверніться та повторіть спробу або перейдіть на Головну"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Зміни ніколи не даються легко"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "На жаль, у нашій системі виникла проблема, і цю сторінку неможливо відобразити. Поверніться та повторіть спробу або перейдіть на Головну"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "У нас сталася помилка"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Приносимо свої вибачення. Краще поверніться назад і спробуйте ще раз."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Ви не можете переглядати цю сторінку"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Приносимо свої вибачення. Краще поверніться назад і спробуйте ще раз."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Ви не можете переглядати цю сторінку"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Приносимо свої вибачення. Краще поверніться назад і спробуйте ще раз."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Ви не можете переглядати цю сторінку"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Код помилки {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Перейти на головну"
   }
 }

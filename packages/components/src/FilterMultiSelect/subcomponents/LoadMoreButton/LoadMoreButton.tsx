@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, ButtonProps } from "@kaizen/button"
+import { Button, ButtonProps } from "~components/Button"
 import styles from "./LoadMoreButton.module.scss"
 
 export type LoadMoreButtonProps = ButtonProps

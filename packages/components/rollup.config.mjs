@@ -7,7 +7,7 @@ import typescript from "@rollup/plugin-typescript"
 import dts from "rollup-plugin-dts"
 import esbuild from "rollup-plugin-esbuild"
 import ignore from "rollup-plugin-ignore"
-import peerDepsExternal from "rollup-plugin-peer-deps-external"
+import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
 import ttypescript from "ttypescript"
 
@@ -17,7 +17,9 @@ const OUTPUT_DIR = "dist"
 const getCompiledConfigByModuleType = format => ({
   input: {  future: "./src/__future__/index.ts", workflow: "./src/Workflow/index.ts" },
   plugins: [
-    peerDepsExternal(),
+    nodeExternals({
+      devDeps: true
+    }),
     // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
     alias({
       entries: [

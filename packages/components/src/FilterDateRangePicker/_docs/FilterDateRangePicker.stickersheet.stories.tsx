@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
@@ -48,7 +49,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   })
 
   return (
-    <>
+    <StaticIntlProvider locale="en">
       <StickerSheet
         heading="Filter Date Range Picker"
         style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
@@ -57,7 +58,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--partial-range`}
               isOpen={isOpenPartial}
               setIsOpen={setIsOpenPartial}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -72,7 +72,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               onRangeChange={setRangePartial}
             />
             <FilterDateRangePicker
-              id={`${textDirection}-stickersheet--filter-drp--complete-range`}
               isOpen={isOpenComplete}
               setIsOpen={setIsOpenComplete}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -132,7 +131,26 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
-    </>
+
+      <StickerSheet heading="Translated">
+        <StickerSheet.Body>
+          <StickerSheet.Row rowTitle="Japanese">
+            <StaticIntlProvider locale="ja">
+              <FilterDateRangePickerField
+                id={`${textDirection}-stickersheet--filter-drp-field--translated`}
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangeFieldValidation}
+                onRangeChange={setRangeFieldValidation}
+                onValidate={{
+                  dateStart: action("Validation story: date start onValidate"),
+                }}
+              />
+            </StaticIntlProvider>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    </StaticIntlProvider>
   )
 }
 
@@ -149,10 +167,12 @@ const applyStickerSheetStyles = async (
   await userEvent.type(validationInputEndDate, "potato")
   await userEvent.click(document.body)
 
-  const partialRangeButton = canvas.getByTestId(
-    `${textDirection}-stickersheet--filter-drp--partial-range-button`
-  )
-  await userEvent.click(partialRangeButton)
+  if (IS_CHROMATIC) {
+    const partialRangeButton = canvas.getByTestId(
+      `${textDirection}-stickersheet--filter-drp--partial-range-button`
+    )
+    await userEvent.click(partialRangeButton)
+  }
 }
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})

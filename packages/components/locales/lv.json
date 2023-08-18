@@ -10,15 +10,98 @@
     "variants_enabled" : true
   },
   "filterDateRangePicker.dateFrom" : {
-    "description" : "Label for the 'Date from' date range input field",
+    "description" : "Label for the 'Date from' field",
     "message" : "Datums no"
   },
   "filterDateRangePicker.dateTo" : {
-    "description" : "Label for the 'Date to' date range input field",
+    "description" : "Label for the 'date to' field",
     "message" : "Datums līdz"
   },
   "filterDateRangePicker.inputFormat" : {
-    "description" : "Label for the 'Input format' subtext",
+    "description" : "Label for the 'Input format' field",
     "message" : "Ievades formāts"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "sazinieties ar atbalsta dienestu"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atvainojiet, jūsu pieprasījumu nevar izpildīt. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Jūsu pieprasījums nav izpildīts"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atvainojiet, bet mēs nevaram pārbaudīt, vai jūs varat apskatīt šo lapu. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Jūs nevarat apskatīt šo lapu"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atvainojiet, šķiet, ka jums nav atļaujas apskatīt šo lapu. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "Jūs nevarat apskatīt šo lapu"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atvainojiet, bet mēs nevaram atrast jūsu meklēto lapu. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Trūkstošas lapas ir viena neizskaidrojama lieta"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atvainojiet, jūsu izmaiņas nevar ieviest. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Pārmaiņas nekad nav vieglas"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atvainojiet, mūsu sistēmā ir radusies problēma, un šo lapu nevaram parādīt. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Mūsu sistēmā ir radusies kaut kāda kļūda"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lūdzu, atvainojiet. Vislabākais, ko varat darīt, ir atgriezties un mēģināt vēlreiz."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "Jūs nevarat apskatīt šo lapu"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lūdzu, atvainojiet. Vislabākais, ko varat darīt, ir atgriezties un mēģināt vēlreiz."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "Jūs nevarat apskatīt šo lapu"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lūdzu, atvainojiet. Vislabākais, ko varat darīt, ir atgriezties un mēģināt vēlreiz."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "Jūs nevarat apskatīt šo lapu"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Kļūdas kods {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Doties uz sākumlapu"
   }
 }

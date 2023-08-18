@@ -91,8 +91,49 @@ describe("<FilterDatePickerField />", () => {
         await waitFor(() => {
           expect(inputDate).toHaveValue("1 May 2022")
           expect(inputDateOnBlur).toHaveBeenCalled()
-          expect(inputDateOnSubmit).toHaveBeenCalledWith(new Date("2022-05-01"))
           expect(targetDay).toHaveAttribute("aria-pressed", "true")
+        })
+      })
+    })
+
+    describe("Press Enter key", () => {
+      it("updates calendar values and calls submit when the date is valid", async () => {
+        render(
+          <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
+        )
+
+        const inputDate = screen.getByLabelText("Date")
+        expect(inputDate).toHaveValue("2 May 2022")
+
+        const targetDay = screen.getByRole("button", {
+          name: "1st May (Sunday)",
+        })
+        expect(targetDay).not.toHaveAttribute("aria-pressed")
+
+        await user.click(inputDate)
+        await user.clear(inputDate)
+        await user.type(inputDate, "01/05/2022")
+        await user.keyboard("{Enter}")
+
+        await waitFor(() => {
+          expect(targetDay).toHaveAttribute("aria-pressed", "true")
+          expect(inputDateOnSubmit).toHaveBeenCalledWith(new Date("2022-05-01"))
+        })
+      })
+
+      it("does not call submit when the date is invalid", async () => {
+        render(
+          <FilterDatePickerFieldWrapper selectedDate={new Date("2022-05-02")} />
+        )
+
+        const inputDate = screen.getByLabelText("Date")
+        await user.click(inputDate)
+        await user.clear(inputDate)
+        await user.type(inputDate, "32/05/2022")
+        await user.keyboard("{Enter}")
+
+        await waitFor(() => {
+          expect(inputDateOnSubmit).not.toHaveBeenCalled()
         })
       })
     })
@@ -114,7 +155,6 @@ describe("<FilterDatePickerField />", () => {
 
       await waitFor(() => {
         expect(screen.queryByText("May 2022")).not.toBeInTheDocument()
-        expect(inputDateOnSubmit).toHaveBeenCalledWith(new Date("2020-02-19"))
       })
     })
   })
@@ -254,7 +294,7 @@ describe("<FilterDatePickerField />", () => {
       })
     })
 
-    it("does not call onDateSubmit when the date is invlid", async () => {
+    it("does not call onDateSubmit when the input value is invalid", async () => {
       const { getByLabelText } = render(<FilterDatePickerFieldWrapper />)
 
       const inputDate = getByLabelText("Date")

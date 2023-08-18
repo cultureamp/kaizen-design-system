@@ -1,0 +1,24 @@
+# this is composite workflow that gets the repo ready for actions
+# for docs how composite workflows work see https://wallis.dev/blog/composite-github-actions
+
+name: Run Storybook
+description: Start server and run Storybook for Storybook tests
+inputs:
+  artifactName:
+    required: true
+    description: Artifact name of the Storybook build
+
+runs:
+  using: composite
+  steps:
+    - name: Download Storybook build artifact
+      id: download
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ inputs.artifactName }}
+        path: "./storybook/public"
+    - name: Run storybook
+      uses: Eun/http-server-action@v1
+      with:
+        directory: "./storybook/public"
+        port: 6006

@@ -10,12 +10,16 @@ const stateFilters = {
   flavour: {
     id: "flavour",
     name: "Flavour",
+    isRemovable: false,
     isOpen: false,
+    isUsable: true,
   },
   sugarLevel: {
     id: "sugarLevel",
     name: "Sugar Level",
+    isRemovable: false,
     isOpen: false,
+    isUsable: true,
   },
 } satisfies FilterBarState<Values>["filters"]
 
@@ -24,6 +28,9 @@ describe("filterBarStateReducer: update_single_filter", () => {
     const state = {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
+      values: {},
+      dependentFilterIds: new Set(),
+      hasUpdatedValues: false,
     } satisfies FilterBarState<Values>
 
     const newState = filterBarStateReducer<Values>(state, {
@@ -39,6 +46,9 @@ describe("filterBarStateReducer: update_single_filter", () => {
     const state = {
       filters: stateFilters,
       activeFilterIds: new Set<keyof Values>(["flavour"]),
+      values: {},
+      dependentFilterIds: new Set(),
+      hasUpdatedValues: false,
     } satisfies FilterBarState<Values>
 
     expect(state.filters.flavour.isOpen).toBe(false)

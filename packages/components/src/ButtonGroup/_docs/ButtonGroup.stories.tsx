@@ -2,14 +2,18 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { FilterButtonBase } from "~components/FilterButton/_subcomponents/FilterButtonBase"
+import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
 import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { ButtonGroup } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Button/Button Group",
+  // Not to be nested until full KAIO migration
+  // title: "Components/Button/Button Group",
+  title: "Components/Button Group",
   component: ButtonGroup,
+  argTypes: { ...classNameOverrideArgType },
   parameters: {
     docs: {
       container: ComponentDocsTemplate,

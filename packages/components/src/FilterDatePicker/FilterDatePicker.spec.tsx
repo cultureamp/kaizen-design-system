@@ -86,53 +86,82 @@ describe("<FilterDatePicker />", () => {
     })
   })
 
-  it("closes the popover when a valid date has been submitted via the text input field", async () => {
-    const { getByRole, getByLabelText } = render(<FilterDatePickerWrapper />)
-    const triggerButton = getByRole("button", {
-      name: "Drank",
+  describe("Text input", () => {
+    it("validates the date on blur", async () => {
+      const { getByRole, getByLabelText, getByText } = render(
+        <FilterDatePickerWrapper />
+      )
+      const triggerButton = getByRole("button", {
+        name: "Drank",
+      })
+
+      await user.click(triggerButton)
+      const dialog = getByRole("dialog")
+
+      await waitFor(() => {
+        expect(dialog).toBeInTheDocument()
+      })
+
+      const inputDate = getByLabelText("Date")
+      await user.clear(inputDate)
+      await user.type(inputDate, "32/13/2022")
+      await user.tab()
+
+      await waitFor(() => {
+        expect(getByText("32/13/2022 is an invalid date")).toBeInTheDocument()
+      })
     })
 
-    await user.click(triggerButton)
-    const dialog = getByRole("dialog")
+    describe("Pressing Enter in the text input", () => {
+      it("closes the popover when a valid date has been submitted via the text input field", async () => {
+        const { getByRole, getByLabelText } = render(
+          <FilterDatePickerWrapper />
+        )
+        const triggerButton = getByRole("button", {
+          name: "Drank",
+        })
 
-    await waitFor(() => {
-      expect(dialog).toBeInTheDocument()
-    })
+        await user.click(triggerButton)
 
-    const inputDate = getByLabelText("Date")
-    await user.clear(inputDate)
-    await user.type(inputDate, "07/06/2022")
-    await user.tab()
+        const dialog = getByRole("dialog")
+        await waitFor(() => {
+          expect(dialog).toBeInTheDocument()
+        })
 
-    await waitFor(() => {
-      expect(dialog).not.toBeInTheDocument()
-    })
-  })
+        const inputDate = getByLabelText("Date")
+        await user.clear(inputDate)
+        await user.type(inputDate, "07/06/2022")
+        await user.keyboard("{Enter}")
 
-  it("does not close the popover when an invalid date has been submitted via the text input field", async () => {
-    const { getByRole, getByLabelText, getByText } = render(
-      <FilterDatePickerWrapper />
-    )
-    const triggerButton = getByRole("button", {
-      name: "Drank",
-    })
+        await waitFor(() => {
+          expect(dialog).not.toBeInTheDocument()
+        })
+      })
 
-    await user.click(triggerButton)
-    const dialog = getByRole("dialog")
+      it("does not close the popover when an invalid date has been submitted via the text input field", async () => {
+        const { getByRole, getByLabelText, getByText } = render(
+          <FilterDatePickerWrapper />
+        )
+        const triggerButton = getByRole("button", {
+          name: "Drank",
+        })
 
-    await waitFor(() => {
-      expect(dialog).toBeInTheDocument()
-    })
+        await user.click(triggerButton)
+        const dialog = getByRole("dialog")
 
-    const inputDate = getByLabelText("Date")
-    await user.clear(inputDate)
-    await user.type(inputDate, "32/13/2022")
-    await user.tab()
+        await waitFor(() => {
+          expect(dialog).toBeInTheDocument()
+        })
 
-    await waitFor(() => {
-      expect(getByText("32/13/2022 is an invalid date")).toBeInTheDocument()
-      // We are double checking that the popover has not closed
-      expect(dialog).toBeInTheDocument()
+        const inputDate = getByLabelText("Date")
+        await user.clear(inputDate)
+        await user.type(inputDate, "32/13/2022")
+        await user.keyboard("{Enter}")
+
+        await waitFor(() => {
+          expect(getByText("32/13/2022 is an invalid date")).toBeInTheDocument()
+        })
+      })
     })
   })
 
@@ -161,6 +190,32 @@ describe("<FilterDatePicker />", () => {
         queryByText("Invalid Date is an invalid date")
       ).not.toBeInTheDocument()
       // We are double checking that the popover has not closed
+      expect(dialog).toBeInTheDocument()
+    })
+  })
+
+  it("does not close the popover when there is a selected date and the user navigates months", async () => {
+    const { getByRole } = render(
+      <FilterDatePickerWrapper selectedDate={new Date("01/01/2022")} />
+    )
+    const triggerButton = getByRole("button", {
+      name: "Drank : 1 Jan 2022",
+    })
+
+    await user.click(triggerButton)
+    const dialog = getByRole("dialog")
+
+    await waitFor(() => {
+      expect(dialog).toBeInTheDocument()
+    })
+
+    const navigateMonthsButton = getByRole("button", {
+      name: "Go to next month",
+    })
+
+    await user.click(navigateMonthsButton)
+
+    await waitFor(() => {
       expect(dialog).toBeInTheDocument()
     })
   })

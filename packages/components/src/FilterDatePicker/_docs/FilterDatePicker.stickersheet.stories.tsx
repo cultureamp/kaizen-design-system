@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
@@ -33,7 +34,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   )
 
   return (
-    <>
+    <StaticIntlProvider locale="en">
       <StickerSheet
         heading="Filter Date Picker"
         style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
@@ -42,7 +43,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-dp--no-value-display`}
               isOpen={isOpenNoValue}
               setIsOpen={setIsOpenNoValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -55,7 +55,6 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
               onDateChange={setNoDateValue}
             />
             <FilterDatePicker
-              id={`${textDirection}-stickersheet--filter-dp-value-display`}
               isOpen={isOpenValue}
               setIsOpen={setIsOpenValue}
               renderTrigger={(triggerButtonProps): JSX.Element => (
@@ -109,7 +108,7 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
-    </>
+    </StaticIntlProvider>
   )
 }
 

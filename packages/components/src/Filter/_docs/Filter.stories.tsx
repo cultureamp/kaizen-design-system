@@ -2,23 +2,27 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
+import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
 import { Filter, FilterContents } from ".."
 
 export default {
   title: "Components/Filter Base",
   component: Filter,
   argTypes: {
-    classNameOverride: {
-      type: "string",
-      description: "Add extra classnames to the component.",
-    },
+    children: { control: "disabled" },
+    isOpen: { control: "disabled" },
+    setIsOpen: { control: "disabled" },
+    renderTrigger: { control: "disabled" },
+    onMount: { control: "disabled" },
+    ...classNameOverrideArgType,
   },
 } satisfies Meta<typeof Filter>
 
-export const SimpleFilter: StoryFn<typeof Filter> = () => {
+export const SimpleFilter: StoryFn<typeof Filter> = args => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Filter
+      {...args}
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       renderTrigger={(triggerProps): JSX.Element => (

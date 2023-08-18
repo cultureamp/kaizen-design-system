@@ -1,0 +1,29 @@
+# Chromatic action from https://www.chromatic.com/docs/github-actions
+
+# Update the baseline snapshots in Chromatic (only applies to `main`)
+name: chromatic
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  update-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+      - name: Build Storybook
+        run: |
+          yarn storybook:build --webpack-stats-json
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ github.token }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: "./storybook/public"
+          autoAcceptChanges: main # 👈 Auto accept main builds (why https://www.chromatic.com/docs/github-actions#github-squashrebase-merge-and-the-main-branch)

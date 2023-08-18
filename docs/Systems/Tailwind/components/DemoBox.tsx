@@ -6,7 +6,7 @@ type Props = {
 
 const DemoBox = ({ classnameOverride }: Props): React.ReactElement => (
   <div
-    className={`h-100 w-100 rounded-default bg-blue-200 ${
+    className={`h-100 w-full rounded-default bg-blue-200 ${
       classnameOverride ? classnameOverride : ""
     }`}
   />

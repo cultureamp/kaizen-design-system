@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path fill-rule="evenodd" fill="#000" d="M6.179 13.155 10 9.253l3.821 3.902 1.18-1.204L10 6.845l-5.001 5.106z"/>
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Directional/chevron-up</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="6.17865149 13.155 10 9.25326703 13.8213485 13.155 15.0006742 11.9508665 10 6.84500003 4.99932583 11.9508665"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/Directional/chevron-up">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use fill="#000000" xlink:href="#path-1"></use>
+        </g>
+    </g>
 </svg>
-

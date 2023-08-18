@@ -1,6 +1,0 @@
-@import "../responsive";
-@import "../animation";
-
-body {
-  @include ca-transition-scale-fade(out);
-}
