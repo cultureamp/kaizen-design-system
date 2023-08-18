@@ -3,7 +3,7 @@
 yarn svgo -f ./icons -o ./built-icons/
 #yarn svgo ./icons/academy.icon.svg -o ./built-icons/academy.icon.svg
 
-ts-node ./bin/wrapSVGs.ts
+ts-node ./bin/wrapSVGs.ts --source-dir ./built-icons --output-dir ./IconComponents
 
 
 
