@@ -8,7 +8,7 @@ module.exports = {
       name: "Remove root SVG element",
       params: {},
       type: "SVG",
-      fn: (ast, _params, _info) => removeRootSVGElement(ast),
+      fn: (ast, _params, _source) => removeRootSVGElement(ast),
     },
     {
       name: "Recurse",
