@@ -7,7 +7,7 @@
   "scripts": {
     "build": "pnpm turbo build",
     "clean": "pnpm turbo clean && pnpm storybook:clean && rimraf node_modules",
-    "test": "jest && pnpm test:pkg:aio",
+    "test": "pnpm turbo test",
     "test:pkg:aio": "pnpm pkg:aio test",
     "test:ci": "pnpm turbo test:ci",
     "compile": "tsc",

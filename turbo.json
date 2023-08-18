@@ -20,6 +20,9 @@
     "lint:styles": {
       "cache": false
     },
+    "test": {
+      "cache": false
+    },
     "test:ci": {
       "cache": false
     },
