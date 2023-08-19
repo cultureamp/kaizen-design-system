@@ -83,7 +83,7 @@
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.15",
     "concat-cli": "^4.0.0",
     "esbuild": "^0.18.17",
     "query-string": "^8.1.0",
