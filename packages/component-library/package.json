@@ -32,7 +32,7 @@
     "@kaizen/component-base": "^1.1.7",
     "@kaizen/deprecated-component-library-helpers": "^2.5.8",
     "@kaizen/hosted-assets": "^2.0.3",
-    "@types/lodash": "^4.14.195",
+    "@types/lodash": "^4.14.197",
     "@types/uuid": "^9.0.2",
     "classnames": "^2.3.2"
   },
