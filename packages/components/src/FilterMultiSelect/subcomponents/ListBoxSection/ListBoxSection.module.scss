@@ -1,5 +1,18 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
 .listBoxSection {
   display: grid;
   list-style: none;
   padding: 0;
+}
+
+.listBoxSectionHeader {
+  font-family: $typography-heading-6-font-family;
+  font-size: $typography-heading-6-font-size;
+  font-weight: $typography-heading-6-font-weight;
+  line-height: $typography-heading-6-line-height;
+  color: rgba($color-purple-800-rgb, 0.7);
+  margin: $spacing-6 0;
 }
