@@ -1,4 +1,5 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 import { useFloating } from "@floating-ui/react-dom"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -21,33 +22,81 @@ export const Filter = ({
   children,
   isOpen,
   setIsOpen,
-  // renderTrigger,
+  renderTrigger,
   classNameOverride,
-  // onMount,
+  onMount,
   ...restProps
 }: FilterProps): JSX.Element => {
-  const [anchor, setAnchor] = useState<HTMLButtonElement | null>(null)
+  // const [isRefLoaded, setIsRefLoaded] = useState<boolean>(false)
 
-  // const { refs, elements } = useFloating()
+  // const [anchor, setAnchor] = useState<HTMLButtonElement | null>(null)
+
+  const { refs, elements } = useFloating()
+
+  const trigger = renderTrigger({
+    onClick: (): void => setIsOpen(!isOpen),
+    isOpen,
+  })
+
+  // const inbuiltButtonRef = useRef<HTMLButtonElement>(null)
+  const inbuiltRef = useRef<FilterTriggerRef>({
+    // triggerRef: setAnchor,
+    triggerRef: refs.setReference,
+  })
+  // const shouldUseInbuiltRef = trigger.ref === undefined
+  const filterButtonRef = trigger.ref ?? inbuiltRef
+// console.log("anchor", anchor)
+  // useEffect(() => {
+  //   // if (filterButtonRef.current?.triggerRef) {
+  //   //   setIsRefLoaded(true)
+  //   //   onMount?.(filterButtonRef.current.triggerRef)
+  //   // }
+  //   if (refs.reference.current) {
+  //     setIsRefLoaded(true)
+  //     onMount?.(refs.reference)
+  //   }
+  // }, [refs.reference.current, onMount])
 
   return (
     <div className={classNameOverride} {...restProps}>
-      <button
+      {React.cloneElement(trigger, {
+        ref: filterButtonRef,
+      })}
+
+      {/* <button
         onClick={() => setIsOpen(!isOpen)}
         ref={setAnchor}
         // ref={refs.setReference}
         type="button"
       >
         Pancakes!
-      </button>
+      </button> */}
+      {/* {isRefLoaded && isOpen && ( */}
       {isOpen && (
-        <FilterPopover referenceElement={anchor}>{children}</FilterPopover>
-        // <FilterPopover ref={refs.setFloating}  elements={elements}>
-        //   {children}
-        // </FilterPopover>
+        <Portal
+          scrollLock={false}
+          onClickOutside={(): void => setIsOpen(false)}
+          onEscapeKey={(): void => setIsOpen(false)}
+          shards={[
+            refs.reference,
+          ]}
+        >
+        {/* <FilterPopover referenceElement={anchor}>{children}</FilterPopover> */}
+        <FilterPopover ref={refs.setFloating}  elements={elements}>
+          {children}
+        </FilterPopover>
+        </Portal>
       )}
     </div>
   )
 }
 
 Filter.displayName = "Filter"
+
+const Portal = ({children, ...props}) => createPortal((
+    <FocusOn
+      {...props}
+    >
+    {children}
+    </FocusOn>
+  ), document.body)

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, useState } from "react"
 import { createPortal } from "react-dom"
-import { useFloating, offset, autoPlacement } from "@floating-ui/react-dom"
+import { useFloating, offset } from "@floating-ui/react-dom"
 import { Options } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
@@ -16,36 +16,36 @@ export interface FilterPopoverProps
 }
 
 export const FilterPopover =
-  // React.forwardRef(
+  React.forwardRef(
   (
     {
       children,
       referenceElement,
-      // elements,
+      elements,
       // popperOptions,
       classNameOverride,
       // refs,
       ...restProps
-    }: FilterPopoverProps
-    // ref
+    }: FilterPopoverProps,
+    ref
   ): JSX.Element => {
-    const { refs, floatingStyles } = useFloating({
-      elements: {
-        reference: referenceElement,
-      },
+    // const { refs, floatingStyles } = useFloating({
+    //   elements: {
+    //     reference: referenceElement,
+    //   },
+    //   placement: "bottom-start",
+    //   middleware: [offset(15)],
+    // })
+    const { floatingStyles } = useFloating({
+      elements,
       placement: "bottom-start",
       middleware: [offset(15)],
     })
-    // const { floatingStyles } = useFloating({
-    //   elements,
-    //   placement: "bottom-start",
-    //   middleware: [offset(15), autoPlacement()],
-    // })
 
-    return createPortal((
+    return (
       <div
-        ref={refs.setFloating}
-        // ref={ref}
+        // ref={refs.setFloating}
+        ref={ref}
         style={floatingStyles}
         // {...popperAttributes?.popper}
         className={classnames(styles.filterPopover, classNameOverride)}
@@ -55,7 +55,10 @@ export const FilterPopover =
       >
         {children}
       </div>
-    ), document.body)
+    // ), document.body)
+    // ), document.body
+    )
+    // ), document.getElementById("storybook-root"))
   }
-// )
+)
 FilterPopover.displayName = "FilterPopover"
