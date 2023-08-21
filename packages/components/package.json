@@ -36,7 +36,7 @@
     "test:ci": "yarn test --ci",
     "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
     "ci:test:react-17": "USE_REACT_17=true yarn test:ci",
-    "transform-svgs": "./bin/transform-svgs.sh"
+    "transform-svgs": "./src/Icons/bin/transform-svgs.sh"
   },
   "dependencies": {
     "@cultureamp/i18n-react-intl": "^1.4.5",
