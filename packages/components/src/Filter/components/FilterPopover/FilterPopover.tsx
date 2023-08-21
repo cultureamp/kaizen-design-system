@@ -1,4 +1,5 @@
 import React, { HTMLAttributes, useState } from "react"
+import { createPortal } from "react-dom"
 import { useFloating, offset, autoPlacement } from "@floating-ui/react-dom"
 import { Options } from "@popperjs/core"
 import classnames from "classnames"
@@ -41,7 +42,7 @@ export const FilterPopover =
     //   middleware: [offset(15), autoPlacement()],
     // })
 
-    return (
+    return createPortal((
       <div
         ref={refs.setFloating}
         // ref={ref}
@@ -54,7 +55,7 @@ export const FilterPopover =
       >
         {children}
       </div>
-    )
+    ), document.body)
   }
 // )
 FilterPopover.displayName = "FilterPopover"
