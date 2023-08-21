@@ -73,7 +73,8 @@
     "react-focus-on": "^3.9.1",
     "react-intl": "^6.4.4",
     "react-popper": "^2.3.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "@floating-ui/react-dom": "^2.0.1"
   },
   "devDependencies": {
     "@kaizen/tailwind": "^1.0.5",
