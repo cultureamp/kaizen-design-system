@@ -822,10 +822,6 @@ export const WithSectionNotification: StoryFn<
           </>
         )}
       </FilterMultiSelect>
-      <div style={{ marginTop: 4 }}>
-        <Paragraph variant="body">Items: </Paragraph>
-        <Highlight>{JSON.stringify(mockItems, null, "\t")}</Highlight>
-      </div>
     </>
   )
 }
