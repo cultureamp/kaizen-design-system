@@ -10,7 +10,7 @@ import { Button, ButtonProps } from "../index"
 =======
 import { Meta, StoryFn } from "@storybook/react"
 import { Button, ButtonProps } from "@kaizen/button"
-import { CheckIcon } from "~components/Icons/CheckIcon"
+import { CheckIcon } from "~icons/CheckIcon"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 >>>>>>> da81a9bc1 (Restructure directories)
 
