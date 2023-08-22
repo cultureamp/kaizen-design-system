@@ -61,6 +61,21 @@ describe("replaceAttrKeys", () => {
     expect(dummyItem.attributes.href).toEqual(dummyHref)
     expect(dummyItem.attributes).not.toHaveProperty("xlink:href")
   })
+  it("Replaces 'fill-rule' keys with 'fillRule'", () => {
+    const dummyFillRule = "evenodd"
+    const dummyItem: SVGOItem = {
+      type: "element",
+      name: "use",
+      attributes: {
+        "fill-rule": dummyFillRule,
+      },
+      children: [],
+    }
+
+    replaceAttrKeys(dummyItem)
+    expect(dummyItem.attributes.fillRule).toEqual(dummyFillRule)
+    expect(dummyItem.attributes).not.toHaveProperty("fill-rule")
+  })
 })
 
 describe("replaceColor", () => {

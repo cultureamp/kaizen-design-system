@@ -6,6 +6,10 @@ const attrKeysToReplace = [
     original: "xlink:href",
     replacement: "href",
   },
+  {
+    original: "fill-rule",
+    replacement: "fillRule",
+  },
 ]
 
 const replaceAttrKeys = child => {

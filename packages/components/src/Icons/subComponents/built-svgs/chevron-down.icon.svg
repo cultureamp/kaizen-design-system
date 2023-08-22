@@ -1,1 +1,1 @@
-<defs><path id="chevron-down.icon.svg" d="M6.18 6.845 10 10.747l3.82-3.902L15 8.049l-5 5.106-5-5.106z"/></defs><use fill="currentColor" fill-rule="evenodd" href="#chevron-down.icon.svg"/>
+<defs><path id="chevron-down.icon.svg" d="M6.18 6.845 10 10.747l3.82-3.902L15 8.049l-5 5.106-5-5.106z"/></defs><use fill="currentColor" href="#chevron-down.icon.svg" fillRule="evenodd"/>

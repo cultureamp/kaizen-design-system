@@ -1,1 +1,1 @@
-<defs><path id="ellipsis.icon.svg" d="M4 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"/></defs><use fill="currentColor" fill-rule="evenodd" href="#ellipsis.icon.svg"/>
+<defs><path id="ellipsis.icon.svg" d="M4 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Z"/></defs><use fill="currentColor" href="#ellipsis.icon.svg" fillRule="evenodd"/>

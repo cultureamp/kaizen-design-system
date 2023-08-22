@@ -1,4 +1,3 @@
-import React from "react"
 const { insertSvgData, svgToComponentTitle } = require("./wrapSVGUtils")
 
 describe("svgToComponentTitle", () => {
