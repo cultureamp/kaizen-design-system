@@ -37,7 +37,6 @@ jobs:
       PUBLISHED: ${{ needs.version.outputs.hasPublished }}
     steps:
       - name: Send
-        if:
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel-id: "C02NUQ27G56"
