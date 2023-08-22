@@ -52,6 +52,7 @@ describe("replaceAttrKeys", () => {
   const dummyLinejoin = "bevel"
   const dummyLinecap = "round"
   const dummyClipRule = "evenodd"
+  const dummyClass = "my-cool-class"
   const dummyItem: SVGOItem = {
     type: "element",
     name: "use",
@@ -62,6 +63,7 @@ describe("replaceAttrKeys", () => {
       "stroke-linejoin": dummyLinejoin,
       "stroke-linecap": dummyLinecap,
       "clip-rule": dummyClipRule,
+      class: dummyClass,
     },
     children: [],
   }
@@ -90,6 +92,10 @@ describe("replaceAttrKeys", () => {
   it("Replaces 'clip-rule' keys with 'clipRule'", () => {
     expect(dummyItem.attributes.clipRule).toEqual(dummyClipRule)
     expect(dummyItem.attributes).not.toHaveProperty("clip-rule")
+  })
+  it("Replaces 'class' keys with 'className'", () => {
+    expect(dummyItem.attributes.className).toEqual(dummyClass)
+    expect(dummyItem.attributes).not.toHaveProperty("class")
   })
 })
 

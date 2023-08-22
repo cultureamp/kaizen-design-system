@@ -6,7 +6,7 @@ import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
 export const SpinnerIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
   <SVG {...props}>
-    <path fill="none" d="M0 0h100v100H0z" class="bk" />
+    <path fill="none" d="M0 0h100v100H0z" className="bk" />
     <rect
       width="6"
       height="20"

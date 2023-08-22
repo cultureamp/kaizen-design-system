@@ -26,6 +26,10 @@ const attrKeysToReplace = [
     original: "clip-rule",
     replacement: "clipRule",
   },
+  {
+    original: "class",
+    replacement: "className",
+  },
 ]
 
 const replaceAttrKeys = child => {
