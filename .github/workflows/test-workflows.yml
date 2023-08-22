@@ -1,4 +1,4 @@
-name: Changeset
+name: Test workflow
 
 on: push
 
@@ -17,7 +17,10 @@ jobs:
                 {
                   "pretext": "Packages published",
                   "color": 7dd5bd,
-                  "fields": [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
+                  "fields": {
+                    "title": "Packages",
+                    "value": [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
+                  }
                 }
               ]
             }
