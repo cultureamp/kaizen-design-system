@@ -36,19 +36,11 @@ jobs:
     env:
       PUBLISHED: ${{ needs.version.outputs.hasPublished }}
     steps:
-      - name: Success
-        if: ${{ env.PUBLISHED == 'true' }}
+      - name: Send
+        if:
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel-id: "C02NUQ27G56"
-          slack-message: "Packages have been published"
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      - name: Failed
-        if: ${{ env.PUBLISHED == 'false' }}
-        uses: slackapi/slack-github-action@v1.24.0
-        with:
-          channel-id: "C02NUQ27G56"
-          slack-message: "Packages have been published"
+          slack-message: ${{ env.PUBLISHED == 'true' && 'Packages have been published' || 'Publishing failed' }}
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
