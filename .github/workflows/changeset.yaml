@@ -9,9 +9,8 @@ jobs:
   version:
     runs-on: ubuntu-latest
     outputs:
-      # Determine if there's a changeset present to infer that a publish is happening
-      # since changesets itself could either be creating a PR or publishing.
-      hasPublished: ${{ steps.changesets.outputs.hasChangesets == 'false' && steps.changesets.outputs.published == 'true' }}
+      hasChangesets: ${{ steps.changesets.outputs.hasChangesets }}
+      hasPublished: ${{ steps.changesets.outputs.published }}
     env:
       GITHUB_TOKEN: ${{ github.token }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -30,23 +29,17 @@ jobs:
           publish: yarn ci:publish
   notify-slack:
     runs-on: ubuntu-latest
-    needs: version
+    needs:
+      version
+      # We only trigger this flow if the publish is happening, inferred by not having a changeset.
+    if: needs.version.outputs.hasChangesets == 'false'
     env:
       PUBLISHED: ${{ needs.version.outputs.hasPublished }}
     steps:
-      - name: Publish successful
-        if: ${{ env.PUBLISHED == 'true' }}
+      - name: Send
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel-id: "C02NUQ27G56"
-          slack-message: "Packages have been published"
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      - name: Publish failed
-        if: ${{ env.PUBLISHED == 'false' }}
-        uses: slackapi/slack-github-action@v1.24.0
-        with:
-          channel-id: "C02NUQ27G56"
-          slack-message: "Publish failed"
+          slack-message: ${{ env.PUBLISHED == 'true' && 'Packages have been published' || 'Publishing failed' }}
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
