@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       version
-      # We only trigger this flow if the publish is happening, inferred by the presence of a changeset.
+      # We only trigger this flow if the publish is happening, inferred by not having a changeset.
     if: needs.version.outputs.hasChangesets == 'false'
     env:
       PUBLISHED: ${{ needs.version.outputs.hasPublished }}
