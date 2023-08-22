@@ -1,4 +1,3 @@
-import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
 export const COMPONENT_TITLE = (

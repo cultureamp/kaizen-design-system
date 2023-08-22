@@ -49,7 +49,7 @@ svgFileNames.forEach((svgName: string) => {
     `${outputDir}/${pascalFileName}.tsx`,
     newComponentContent,
     (err: typeof Error) => {
-      if (err) console.log(err)
+      if (err) throw err
     }
   )
 })
@@ -64,6 +64,6 @@ fs.writeFile(
   `${outputDir}/index.ts`,
   indexFileContents,
   (err: typeof Error) => {
-    if (err) console.log(err)
+    if (err) throw err
   }
 )
