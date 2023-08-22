@@ -19,7 +19,7 @@ jobs:
                   "color": 7dd5bd,
                   "fields": {
                     "title": "Packages",
-                    "value": [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
+                    "value": "[{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]"
                   }
                 }
               ]
