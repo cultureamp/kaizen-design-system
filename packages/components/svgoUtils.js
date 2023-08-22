@@ -10,6 +10,22 @@ const attrKeysToReplace = [
     original: "fill-rule",
     replacement: "fillRule",
   },
+  {
+    original: "stroke-width",
+    replacement: "strokeWidth",
+  },
+  {
+    original: "stroke-linejoin",
+    replacement: "strokeLinejoin",
+  },
+  {
+    original: "stroke-linecap",
+    replacement: "strokeLinecap",
+  },
+  {
+    original: "clip-rule",
+    replacement: "clipRule",
+  },
 ]
 
 const replaceAttrKeys = child => {

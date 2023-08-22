@@ -15,8 +15,8 @@ export const CautionWhiteIcon = (
     <path
       fill="#FFF"
       d="M10.8 15H9.2v-1.6h1.6V15Zm0-3.2H9.2V7h1.6v4.8Z"
-      clip-rule="evenodd"
       fillRule="evenodd"
+      clipRule="evenodd"
     />
   </SVG>
 )

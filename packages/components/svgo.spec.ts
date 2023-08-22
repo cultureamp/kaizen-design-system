@@ -46,35 +46,50 @@ describe("removeRootSVGElement", () => {
 })
 
 describe("replaceAttrKeys", () => {
-  it("Replaces 'xlink:href' keys with 'href'", () => {
-    const dummyHref = "#dummy"
-    const dummyItem: SVGOItem = {
-      type: "element",
-      name: "use",
-      attributes: {
-        "xlink:href": dummyHref,
-      },
-      children: [],
-    }
+  const dummyHref = "#dummy"
+  const dummyFillRule = "evenodd"
+  const dummyStrokeWidth = "3"
+  const dummyLinejoin = "bevel"
+  const dummyLinecap = "round"
+  const dummyClipRule = "evenodd"
+  const dummyItem: SVGOItem = {
+    type: "element",
+    name: "use",
+    attributes: {
+      "xlink:href": dummyHref,
+      "fill-rule": dummyFillRule,
+      "stroke-width": dummyStrokeWidth,
+      "stroke-linejoin": dummyLinejoin,
+      "stroke-linecap": dummyLinecap,
+      "clip-rule": dummyClipRule,
+    },
+    children: [],
+  }
+  replaceAttrKeys(dummyItem)
 
-    replaceAttrKeys(dummyItem)
+  it("Replaces 'xlink:href' keys with 'href'", () => {
     expect(dummyItem.attributes.href).toEqual(dummyHref)
     expect(dummyItem.attributes).not.toHaveProperty("xlink:href")
   })
   it("Replaces 'fill-rule' keys with 'fillRule'", () => {
-    const dummyFillRule = "evenodd"
-    const dummyItem: SVGOItem = {
-      type: "element",
-      name: "use",
-      attributes: {
-        "fill-rule": dummyFillRule,
-      },
-      children: [],
-    }
-
-    replaceAttrKeys(dummyItem)
     expect(dummyItem.attributes.fillRule).toEqual(dummyFillRule)
     expect(dummyItem.attributes).not.toHaveProperty("fill-rule")
+  })
+  it("Replaces 'stroke-width' keys with 'strokeWidth'", () => {
+    expect(dummyItem.attributes.strokeWidth).toEqual(dummyStrokeWidth)
+    expect(dummyItem.attributes).not.toHaveProperty("stroke-width")
+  })
+  it("Replaces 'stroke-linejoin' keys with 'strokeLinejoin'", () => {
+    expect(dummyItem.attributes.strokeLinejoin).toEqual(dummyLinejoin)
+    expect(dummyItem.attributes).not.toHaveProperty("stroke-linejoin")
+  })
+  it("Replaces 'stroke-linecap' keys with 'strokeLinecap'", () => {
+    expect(dummyItem.attributes.strokeLinecap).toEqual(dummyLinecap)
+    expect(dummyItem.attributes).not.toHaveProperty("stroke-linecap")
+  })
+  it("Replaces 'clip-rule' keys with 'clipRule'", () => {
+    expect(dummyItem.attributes.clipRule).toEqual(dummyClipRule)
+    expect(dummyItem.attributes).not.toHaveProperty("clip-rule")
   })
 })
 
