@@ -16,3 +16,8 @@
 .hidden {
   display: none;
 }
+
+// this is a div but remove styles briefly flickering to a bullet list as the sections are removed
+.noResultsWrapper {
+  list-style: none;
+}
