@@ -1,0 +1,25 @@
+name: Changeset
+
+on: push
+
+jobs:
+  notify-slack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish success
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: "C05BTHKJYR0"
+          payload: |
+            {
+              "text": "Packages have been published",
+              "attachments": [
+                {
+                  "pretext": "Packages published",
+                  "color": 7dd5bd,
+                  "fields": [{"name": "@xx/xx", "version": "1.2.0"}, {"name": "@xx/xy", "version": "0.8.9"}]
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN}}
