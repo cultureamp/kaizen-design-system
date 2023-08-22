@@ -1,3 +1,4 @@
+// @ts-ignore: Redeclared module error
 const svgToComponentTitle = (fileName: string): string => {
   const split = fileName.split("-")
   return split
@@ -6,6 +7,7 @@ const svgToComponentTitle = (fileName: string): string => {
     .replace(".icon", "Icon")
 }
 
+// @ts-ignore: Redeclared module error
 const insertSvgData = (
   reactTemplate: string,
   componentName: string,

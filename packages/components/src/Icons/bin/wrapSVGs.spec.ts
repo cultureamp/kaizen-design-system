@@ -1,3 +1,4 @@
+// @ts-ignore: Redeclared module error
 const { insertSvgData, svgToComponentTitle } = require("./wrapSVGUtils")
 
 describe("svgToComponentTitle", () => {
