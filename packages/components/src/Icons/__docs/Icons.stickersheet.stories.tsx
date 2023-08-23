@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import React from "react"
+import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import * as ICONS from "~components/Icons"
@@ -14,7 +14,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof FilterSelect>
+}
 
 const StickerSheetTemplate: StoryFn = () => {
   return (
@@ -25,9 +25,9 @@ const StickerSheetTemplate: StoryFn = () => {
       >
         <StickerSheet.Header headings={["Icon", "Name"]} />
         <StickerSheet.Body>
-          {Object.keys(ICONS).map(iconKey => (
+          {Object.keys(ICONS as { [key: string]: any }).map(iconKey => (
             <StickerSheet.Row>
-              {ICONS[iconKey]()}
+              {ICONS[iconKey as keyof typeof ICONS]({})}
               <p className="font-family-heading">{iconKey}</p>
             </StickerSheet.Row>
           ))}
