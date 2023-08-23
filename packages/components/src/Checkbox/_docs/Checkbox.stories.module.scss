@@ -1,5 +1,39 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+$checkbox-size: 24px;
+$focus-ring-offset: 2px;
+$focus-ring-size: calc(#{$checkbox-size} + #{$focus-ring-offset});
+
 .test {
   &::after {
     display: none !important;
+  }
+}
+
+.story-className--checkbox-unchecked {
+  background: $color-gray-200;
+  border-color: $color-gray-600;
+}
+
+.story-className--checkbox-checked {
+  background: $color-gray-600;
+  border-color: $color-gray-600;
+}
+
+.story-className--checkbox-focus {
+  &::after {
+    width: $focus-ring-size;
+    height: $focus-ring-size;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
   }
 }

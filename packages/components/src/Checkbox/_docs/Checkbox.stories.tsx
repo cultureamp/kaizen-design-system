@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Label } from "@kaizen/draft-form"
 import { Checkbox } from "../index"
 import styles from "./Checkbox.stories.module.scss"
 
@@ -24,10 +25,13 @@ export const Playground: StoryObj<typeof meta> = {
       },
     },
   },
+}
+
+export const Interactive: StoryObj<typeof meta> = {
   render: args => {
     const [status, setStatus] = React.useState(args.checkedStatus)
 
-    const handleClick = e => {
+    const handleClick = (e): void => {
       if (status === "unchecked") {
         setStatus("indeterminate")
       } else if (status === "indeterminate") {
@@ -47,7 +51,38 @@ export const Playground: StoryObj<typeof meta> = {
       />
     )
   },
-  // args: {
-  //   onChange: undefined,
-  // },
 }
+
+// export const OveriddenFocus: StoryObj<typeof meta> = {
+//   ...Interactive,
+//   args: {
+//     classNameOverride: styles.test,
+//   },
+//   // render: args => {
+//   //   const [status, setStatus] = React.useState(args.checkedStatus)
+
+//   //   const handleClick = (e): void => {
+//   //     if (status === "unchecked") {
+//   //       setStatus("indeterminate")
+//   //     } else if (status === "indeterminate") {
+//   //       setStatus("checked")
+//   //     } else if (status === "checked") {
+//   //       setStatus("unchecked")
+//   //     }
+//   //     args.onClick?.(e)
+//   //   }
+
+//   //   return (
+//   //     <div>
+//   //       <Checkbox
+//   //         {...args}
+//   //         onClick={handleClick}
+//   //         checkedStatus={status}
+//   //         classNameOverride={styles.test}
+//   //         id="id--checkbox"
+//   //       />
+//   //       <Label htmlFor="id--checkbox">Checkbox test label</Label>
+//   //     </div>
+//   //   )
+//   // },
+// }

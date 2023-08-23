@@ -2,6 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { Checkbox } from "../index"
+import styles from "./Checkbox.stories.module.scss"
 
 export default {
   title: "Components/Checkbox",
@@ -16,17 +17,43 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 }) => (
   /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
   <StickerSheet isReversed={isReversed}>
-    /** @note: Header is optional */
     <StickerSheet.Header
-      headings={["COLUMN 1", "COLUMN 2"]}
+      headings={["Default", "Hover", "Focus"]}
       hasVerticalHeadings
     />
     <StickerSheet.Body>
-      <StickerSheet.Row>
-        {/** @todo: Add column 1 + row 1 props */}
-        <Checkbox isReversed={isReversed} />
-        {/** @todo: Add column 2 + row 1 props */}
-        <Checkbox isReversed={isReversed} />
+      <StickerSheet.Row rowTitle="Unchecked">
+        <Checkbox checkedStatus="unchecked" />
+        <Checkbox
+          classNameOverride={styles["story-className--checkbox-unchecked"]}
+          checkedStatus="unchecked"
+        />
+        <Checkbox
+          classNameOverride={`${styles["story-className--checkbox-focus"]} ${styles["story-className--checkbox-unchecked"]}`}
+          checkedStatus="unchecked"
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row rowTitle="Checked">
+        <Checkbox checkedStatus="checked" />
+        <Checkbox
+          classNameOverride={styles["story-className--checkbox-checked"]}
+          checkedStatus="checked"
+        />
+        <Checkbox
+          classNameOverride={`${styles["story-className--checkbox-focus"]} ${styles["story-className--checkbox-checked"]}`}
+          checkedStatus="checked"
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row rowTitle="Indeterminate">
+        <Checkbox checkedStatus="indeterminate" />
+        <Checkbox
+          classNameOverride={styles["story-className--checkbox-checked"]}
+          checkedStatus="indeterminate"
+        />
+        <Checkbox
+          classNameOverride={`${styles["story-className--checkbox-focus"]} ${styles["story-className--checkbox-checked"]}`}
+          checkedStatus="indeterminate"
+        />
       </StickerSheet.Row>
     </StickerSheet.Body>
   </StickerSheet>
@@ -34,10 +61,3 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-
-export const StickerSheetReversed = StickerSheetTemplate.bind({})
-StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-StickerSheetReversed.args = { isReversed: true }
-StickerSheetReversed.parameters = {
-  backgrounds: { default: "Purple 700" },
-}
