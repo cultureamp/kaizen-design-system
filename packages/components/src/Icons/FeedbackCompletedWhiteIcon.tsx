@@ -2,28 +2,26 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 import { v4 as uuidv4 } from "uuid"
+import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
+const uniqueId = uuidv4()
 export const FeedbackCompletedWhiteIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => {
-  const uniqueId = uuidv4()
-  return (
-    <SVG {...props}>
-      <defs>
-        <path
-          id={uniqueId}
-          d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Z"
-        />
-      </defs>
-      <g fill="none" fillRule="evenodd">
-        <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
-        <path
-          fill="#FFF"
-          d="M14 14.8H6v-1.6h8zM8.64 11.6 6 8.96l1.12-1.12 1.52 1.52 4.24-4.24L14 6.24z"
-        />
-      </g>
-    </SVG>
-  )
-}
+): JSX.Element => (
+  <SVG {...props}>
+    <defs>
+      <path
+        id={uniqueId}
+        d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Z"
+      />
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
+      <path
+        fill="#FFF"
+        d="M14 14.8H6v-1.6h8zM8.64 11.6 6 8.96l1.12-1.12 1.52 1.52 4.24-4.24L14 6.24z"
+      />
+    </g>
+  </SVG>
+)

@@ -2,20 +2,18 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 import { v4 as uuidv4 } from "uuid"
+import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-export const WritingIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
-  const uniqueId = uuidv4()
-  return (
-    <SVG {...props}>
-      <defs>
-        <path
-          id={uniqueId}
-          d="M1 18.55h18.002V15.7H1v2.85ZM16.53 4.333a.689.689 0 0 0 0-1.009L14.78 1.66a.78.78 0 0 0-1.061 0L12.25 3.052l2.813 2.673 1.466-1.393Zm-2.216 2.105-2.813-2.672-7.5 7.126v2.672h2.812l7.501-7.126Z"
-        />
-      </defs>
-      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
-    </SVG>
-  )
-}
+const uniqueId = uuidv4()
+export const WritingIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
+  <SVG {...props}>
+    <defs>
+      <path
+        id={uniqueId}
+        d="M1 18.55h18.002V15.7H1v2.85ZM16.53 4.333a.689.689 0 0 0 0-1.009L14.78 1.66a.78.78 0 0 0-1.061 0L12.25 3.052l2.813 2.673 1.466-1.393Zm-2.216 2.105-2.813-2.672-7.5 7.126v2.672h2.812l7.501-7.126Z"
+      />
+    </defs>
+    <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+  </SVG>
+)

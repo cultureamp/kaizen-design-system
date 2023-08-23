@@ -2,22 +2,20 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 import { v4 as uuidv4 } from "uuid"
+import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
+const uniqueId = uuidv4()
 export const ExperienceIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => {
-  const uniqueId = uuidv4()
-  return (
-    <SVG {...props}>
-      <defs>
-        <path
-          id={uniqueId}
-          d="M11.645 4.653c-.62-.003-3.092 4.004-3.092 4.004 1.054 1.512 2.04 3.41 2.04 3.41l-1.235-.009C7.976 9.912 6.684 7.704 5.908 7.71 5.04 7.716 1 15.343 1 15.343h17.993s-6.086-10.685-7.348-10.69Z"
-        />
-      </defs>
-      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
-    </SVG>
-  )
-}
+): JSX.Element => (
+  <SVG {...props}>
+    <defs>
+      <path
+        id={uniqueId}
+        d="M11.645 4.653c-.62-.003-3.092 4.004-3.092 4.004 1.054 1.512 2.04 3.41 2.04 3.41l-1.235-.009C7.976 9.912 6.684 7.704 5.908 7.71 5.04 7.716 1 15.343 1 15.343h17.993s-6.086-10.685-7.348-10.69Z"
+      />
+    </defs>
+    <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+  </SVG>
+)

@@ -2,22 +2,20 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 import { v4 as uuidv4 } from "uuid"
+import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
+const uniqueId = uuidv4()
 export const DeltaBareWhiteIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => {
-  const uniqueId = uuidv4()
-  return (
-    <SVG {...props}>
-      <defs>
-        <path id={uniqueId} d="m10.482 3.37-8 12.8h16z" />
-      </defs>
-      <g fill="none" fillRule="evenodd">
-        <use fill="currentColor" href={`#${uniqueId}`} />
-        <path fill="#FFF" d="M15.181 14.199H5.783l4.7-7.523z" />
-      </g>
-    </SVG>
-  )
-}
+): JSX.Element => (
+  <SVG {...props}>
+    <defs>
+      <path id={uniqueId} d="m10.482 3.37-8 12.8h16z" />
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <use fill="currentColor" href={`#${uniqueId}`} />
+      <path fill="#FFF" d="M15.181 14.199H5.783l4.7-7.523z" />
+    </g>
+  </SVG>
+)

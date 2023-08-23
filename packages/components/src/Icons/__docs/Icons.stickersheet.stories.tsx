@@ -1,10 +1,8 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import * as ICONS from "~components/Icons"
-
-console.log({ ICONS: Object.keys(ICONS) })
+import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 
 const IS_CHROMATIC = isChromatic()
 
@@ -16,26 +14,24 @@ export default {
   },
 }
 
-const StickerSheetTemplate: StoryFn = () => {
-  return (
-    <>
-      <StickerSheet
-        heading="Icons"
-        style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
-      >
-        <StickerSheet.Header headings={["Icon", "Name"]} />
-        <StickerSheet.Body>
-          {Object.keys(ICONS as { [key: string]: any }).map(iconKey => (
-            <StickerSheet.Row>
-              {ICONS[iconKey as keyof typeof ICONS]({})}
-              <p className="font-family-heading">{iconKey}</p>
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
-  )
-}
+const StickerSheetTemplate: StoryFn = () => (
+  <>
+    <StickerSheet
+      heading="Icons"
+      style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
+    >
+      <StickerSheet.Header headings={["Icon", "Name"]} />
+      <StickerSheet.Body>
+        {Object.keys(ICONS as { [key: string]: any }).map(iconKey => (
+          <StickerSheet.Row key={iconKey}>
+            {ICONS[iconKey as keyof typeof ICONS]({})}
+            <p className="font-family-heading">{iconKey}</p>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+  </>
+)
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
 StickerSheetDefault.storyName = "Sticker Sheet (Default)"

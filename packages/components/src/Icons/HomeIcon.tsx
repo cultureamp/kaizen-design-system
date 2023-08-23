@@ -2,20 +2,18 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 import { v4 as uuidv4 } from "uuid"
+import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-export const HomeIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
-  const uniqueId = uuidv4()
-  return (
-    <SVG {...props}>
-      <defs>
-        <path
-          id={uniqueId}
-          d="M8.118 18v-5.647h3.764V18h4.706v-7.53h2.824L10 2 .588 10.47h2.824V18z"
-        />
-      </defs>
-      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
-    </SVG>
-  )
-}
+const uniqueId = uuidv4()
+export const HomeIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
+  <SVG {...props}>
+    <defs>
+      <path
+        id={uniqueId}
+        d="M8.118 18v-5.647h3.764V18h4.706v-7.53h2.824L10 2 .588 10.47h2.824V18z"
+      />
+    </defs>
+    <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+  </SVG>
+)

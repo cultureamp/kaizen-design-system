@@ -2,22 +2,20 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 import { v4 as uuidv4 } from "uuid"
+import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
+const uniqueId = uuidv4()
 export const ArrowBackwardIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => {
-  const uniqueId = uuidv4()
-  return (
-    <SVG {...props}>
-      <defs>
-        <path
-          id={uniqueId}
-          d="M17.5 9.167H5.692l2.987-2.988L7.5 5l-5 5 5 5 1.18-1.18-2.988-2.987H17.5z"
-        />
-      </defs>
-      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
-    </SVG>
-  )
-}
+): JSX.Element => (
+  <SVG {...props}>
+    <defs>
+      <path
+        id={uniqueId}
+        d="M17.5 9.167H5.692l2.987-2.988L7.5 5l-5 5 5 5 1.18-1.18-2.988-2.987H17.5z"
+      />
+    </defs>
+    <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+  </SVG>
+)

@@ -2,28 +2,26 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 import { v4 as uuidv4 } from "uuid"
+import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
+const uniqueId = uuidv4()
 export const SkipWhiteIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => {
-  const uniqueId = uuidv4()
-  return (
-    <SVG {...props}>
-      <defs>
-        <path
-          id={uniqueId}
-          d="M10 2c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8Z"
-        />
-      </defs>
-      <g fill="none" fillRule="evenodd">
-        <use fill="currentColor" href={`#${uniqueId}`} />
-        <path
-          fill="#FFF"
-          d="m6.8 12.935 4.272-3.068L6.8 6.8zM11.6 6.8v6.135h1.005V6.8z"
-        />
-      </g>
-    </SVG>
-  )
-}
+): JSX.Element => (
+  <SVG {...props}>
+    <defs>
+      <path
+        id={uniqueId}
+        d="M10 2c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8Z"
+      />
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <use fill="currentColor" href={`#${uniqueId}`} />
+      <path
+        fill="#FFF"
+        d="m6.8 12.935 4.272-3.068L6.8 6.8zM11.6 6.8v6.135h1.005V6.8z"
+      />
+    </g>
+  </SVG>
+)
