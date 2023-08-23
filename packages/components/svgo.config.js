@@ -13,7 +13,7 @@ module.exports = {
     {
       name: "Recurse",
       params: {},
-      fn: (ast, _params, source) => recurse(ast, path.basename(source.path)),
+      fn: (ast, _params, _source) => recurse(ast),
     },
   ],
 }

@@ -3,15 +3,19 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
-export const SuccessIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id="success.icon.svg"
-        d="M10 2c4.416 0 8 3.584 8 8s-3.584 8-8 8-8-3.584-8-8 3.584-8 8-8ZM8.4 14l7.2-7.2-1.128-1.136L8.4 11.736 5.528 8.872 4.4 10l4 4Z"
-      />
-    </defs>
-    <use fill="currentColor" href="#success.icon.svg" fillRule="evenodd" />
-  </SVG>
-)
+export const SuccessIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M10 2c4.416 0 8 3.584 8 8s-3.584 8-8 8-8-3.584-8-8 3.584-8 8-8ZM8.4 14l7.2-7.2-1.128-1.136L8.4 11.736 5.528 8.872 4.4 10l4 4Z"
+        />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </SVG>
+  )
+}

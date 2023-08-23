@@ -3,12 +3,16 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
-export const MinusIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path id="minus.icon.svg" d="M13.996 10.833H6.011V9.167h7.985z" />
-    </defs>
-    <use fill="currentColor" href="#minus.icon.svg" fillRule="evenodd" />
-  </SVG>
-)
+export const MinusIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path id={uniqueId} d="M13.996 10.833H6.011V9.167h7.985z" />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </SVG>
+  )
+}

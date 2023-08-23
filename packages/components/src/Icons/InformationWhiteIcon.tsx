@@ -3,20 +3,24 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
 export const InformationWhiteIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id="information-white.icon.svg"
-        d="M10 2c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8Z"
-      />
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <use fill="currentColor" href="#information-white.icon.svg" />
-      <path fill="#FFF" d="M9.2 7.6h1.6V6H9.2zM9.2 14h1.6V9.2H9.2z" />
-    </g>
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M10 2c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8Z"
+        />
+      </defs>
+      <g fill="none" fillRule="evenodd">
+        <use fill="currentColor" href={`#${uniqueId}`} />
+        <path fill="#FFF" d="M9.2 7.6h1.6V6H9.2zM9.2 14h1.6V9.2H9.2z" />
+      </g>
+    </SVG>
+  )
+}

@@ -3,20 +3,24 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
-export const SendRtlIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id="send-rtl.icon.svg"
-        d="M2.008 3.143 2 8.475l11.425 1.523L2 11.52l.008 5.332 15.987-6.855z"
+export const SendRtlIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M2.008 3.143 2 8.475l11.425 1.523L2 11.52l.008 5.332 15.987-6.855z"
+        />
+      </defs>
+      <use
+        fill="currentColor"
+        transform="matrix(-1 0 0 1 19.995 0)"
+        href={`#${uniqueId}`}
+        fillRule="evenodd"
       />
-    </defs>
-    <use
-      fill="currentColor"
-      transform="matrix(-1 0 0 1 19.995 0)"
-      href="#send-rtl.icon.svg"
-      fillRule="evenodd"
-    />
-  </SVG>
-)
+    </SVG>
+  )
+}

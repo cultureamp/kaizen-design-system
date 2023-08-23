@@ -3,11 +3,15 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
 export const DeltaFlatIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <path fill="currentColor" d="M4 9h12v2H4V9z" />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <path fill="currentColor" d="M4 9h12v2H4V9z" />
+    </SVG>
+  )
+}

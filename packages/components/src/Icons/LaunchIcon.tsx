@@ -3,13 +3,17 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
-export const LaunchIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
-  <SVG {...props}>
-    <path
-      fill="currentColor"
-      d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8ZM8.4 13.6l4.8-3.6-4.8-3.6v7.2Z"
-      fillRule="evenodd"
-    />
-  </SVG>
-)
+export const LaunchIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <path
+        fill="currentColor"
+        d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8ZM8.4 13.6l4.8-3.6-4.8-3.6v7.2Z"
+        fillRule="evenodd"
+      />
+    </SVG>
+  )
+}

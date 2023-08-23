@@ -3,18 +3,18 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
 export const SortDescendingIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path id="sort-descending.icon.svg" d="m5.833 8.333 4 4 4-4z" />
-    </defs>
-    <use
-      fill="currentColor"
-      href="#sort-descending.icon.svg"
-      fillRule="evenodd"
-    />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path id={uniqueId} d="m5.833 8.333 4 4 4-4z" />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </SVG>
+  )
+}

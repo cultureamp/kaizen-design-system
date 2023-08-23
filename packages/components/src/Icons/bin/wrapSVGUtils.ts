@@ -16,6 +16,8 @@ const insertSvgData = (
   reactTemplate
     .replace("COMPONENT_TITLE", componentName)
     .replace("SVG_CONTENT", svgContent)
+    .replace('"UNIQUE_ID"', "{uniqueId}")
+    .replace('href="#UNIQUE_ID"', "href={`#${uniqueId}`}")
 
 module.exports = {
   insertSvgData,

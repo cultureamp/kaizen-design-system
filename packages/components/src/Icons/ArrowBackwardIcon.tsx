@@ -3,21 +3,21 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
 export const ArrowBackwardIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id="arrow-backward.icon.svg"
-        d="M17.5 9.167H5.692l2.987-2.988L7.5 5l-5 5 5 5 1.18-1.18-2.988-2.987H17.5z"
-      />
-    </defs>
-    <use
-      fill="currentColor"
-      href="#arrow-backward.icon.svg"
-      fillRule="evenodd"
-    />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M17.5 9.167H5.692l2.987-2.988L7.5 5l-5 5 5 5 1.18-1.18-2.988-2.987H17.5z"
+        />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </SVG>
+  )
+}

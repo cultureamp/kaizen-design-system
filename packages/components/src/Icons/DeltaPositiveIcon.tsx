@@ -3,16 +3,20 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
 export const DeltaPositiveIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <path
-      fill="currentColor"
-      d="M6.775 4H16v9.225h-2.05V7.5L5.45 16 4 14.55l8.5-8.5H6.775V4z"
-      fillRule="evenodd"
-      clipRule="evenodd"
-    />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <path
+        fill="currentColor"
+        d="M6.775 4H16v9.225h-2.05V7.5L5.45 16 4 14.55l8.5-8.5H6.775V4z"
+        fillRule="evenodd"
+        clipRule="evenodd"
+      />
+    </SVG>
+  )
+}

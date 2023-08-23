@@ -130,8 +130,7 @@ describe("replaceColor", () => {
 })
 
 describe("replaceId", () => {
-  const newId = "NEW_ID"
-  it("replaces id attributes with provided id", () => {
+  it("replaces id attributes with UNIQUE_ID", () => {
     const dummyItem: SVGOItem = {
       type: "element",
       name: "path",
@@ -141,12 +140,12 @@ describe("replaceId", () => {
       children: [],
     }
 
-    replaceId(dummyItem, newId)
+    replaceId(dummyItem)
 
-    expect(dummyItem.attributes.id).toEqual(newId)
+    expect(dummyItem.attributes.id).toEqual("UNIQUE_ID")
   })
 
-  it("replaces href attributes with `#PROVIDED_ID`", () => {
+  it("replaces href attributes with `#UNIQUE_ID`", () => {
     const dummyItem: SVGOItem = {
       type: "element",
       name: "use",
@@ -156,8 +155,8 @@ describe("replaceId", () => {
       children: [],
     }
 
-    replaceId(dummyItem, newId)
+    replaceId(dummyItem)
 
-    expect(dummyItem.attributes.href).toEqual(`#${newId}`)
+    expect(dummyItem.attributes.href).toEqual("#UNIQUE_ID")
   })
 })

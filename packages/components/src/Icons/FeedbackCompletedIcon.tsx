@@ -3,21 +3,21 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
 export const FeedbackCompletedIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id="feedback-completed.icon.svg"
-        d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Zm4 12.8H6v-1.6h8v1.6Zm-5.36-3.2L6 8.96l1.12-1.12 1.52 1.52 4.24-4.24L14 6.24 8.64 11.6Z"
-      />
-    </defs>
-    <use
-      fill="currentColor"
-      href="#feedback-completed.icon.svg"
-      fillRule="nonzero"
-    />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Zm4 12.8H6v-1.6h8v1.6Zm-5.36-3.2L6 8.96l1.12-1.12 1.52 1.52 4.24-4.24L14 6.24 8.64 11.6Z"
+        />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
+    </SVG>
+  )
+}

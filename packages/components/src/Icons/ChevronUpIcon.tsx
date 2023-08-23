@@ -3,17 +3,21 @@
 
 import React from "react"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { v4 as uuidv4 } from "uuid"
 
 export const ChevronUpIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id="chevron-up.icon.svg"
-        d="M6.179 13.155 10 9.253l3.821 3.902 1.18-1.204L10 6.845l-5 5.106z"
-      />
-    </defs>
-    <use fill="currentColor" href="#chevron-up.icon.svg" fillRule="evenodd" />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  return (
+    <SVG {...props}>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M6.179 13.155 10 9.253l3.821 3.902 1.18-1.204L10 6.845l-5 5.106z"
+        />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </SVG>
+  )
+}
