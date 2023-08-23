@@ -73,7 +73,6 @@
     "react-focus-on": "^3.9.1",
     "react-intl": "^6.4.4",
     "react-popper": "^2.3.0",
-    "svgo": "^3.0.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -96,6 +95,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.64.2",
     "serialize-query-params": "^2.0.2",
+    "svgo": "^3.0.2",
     "ts-jest": "^29.1.1",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"
