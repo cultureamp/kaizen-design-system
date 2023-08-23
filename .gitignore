@@ -8,3 +8,4 @@ dist
 yalc.loc
 .turbo
 !/packages/components/svgoUtils.js
+/packages/components/src/Icons/subComponents/built-svgs/
