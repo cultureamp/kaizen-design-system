@@ -1,19 +1,25 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
 import { Checkbox, CheckedStatus } from "../subcomponents"
 
 const meta = {
   title: "Components/MultiSelect/Checkbox",
   component: Checkbox,
   args: {
-    checkedStatus: "checked",
-    readOnly: true,
+    checkedStatus: "unchecked",
+    readOnly: false,
+  },
+  argTypes: {
+    ...classNameOverrideArgType,
   },
 } satisfies Meta<typeof Checkbox>
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
+type Story = StoryObj<typeof meta>
+
+export const Playground: Story = {
   render: ({ readOnly, onChange, checkedStatus, ...args }) => {
     const [status, setStatus] = React.useState<CheckedStatus>(checkedStatus)
 
@@ -47,21 +53,10 @@ export const Playground: StoryObj<typeof meta> = {
   },
 }
 
-export const Interactive: StoryObj<typeof meta> = {
-  render: () => {
-    const [status, setStatus] = React.useState<CheckedStatus>("unchecked")
-
-    const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
-      if (status === "unchecked") {
-        setStatus("indeterminate")
-      } else if (status === "indeterminate") {
-        setStatus("checked")
-      } else if (status === "checked") {
-        setStatus("unchecked")
-      }
-    }
-
-    return <Checkbox onChange={handleChange} checkedStatus={status} />
+export const Interactive: Story = {
+  render: Playground.render,
+  args: {
+    readOnly: undefined,
   },
   parameters: {
     controls: { disable: true },

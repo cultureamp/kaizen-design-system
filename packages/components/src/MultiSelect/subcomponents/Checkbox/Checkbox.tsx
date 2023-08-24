@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, InputHTMLAttributes } from "react"
+import React, { useEffect, useRef, InputHTMLAttributes } from "react"
 import classnames from "classnames"
 import { CheckIcon } from "~icons/CheckIcon"
 import { MinusIcon } from "~icons/MinusIcon"
@@ -13,11 +13,12 @@ type ReadOnly = {
 }
 
 type Controlled = {
-  readOnly?: never
+  readOnly?: false
   onChange: Required<InputHTMLAttributes<HTMLInputElement>["onChange"]>
 }
 
 export type CheckboxProps = OverrideClassName<
+  // `checked` is omitted as it conflicts with controlled checkboxes
   Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
 > & {
   checkedStatus: CheckedStatus
@@ -41,9 +42,6 @@ export const Checkbox = ({
   ...restProps
 }: CheckboxProps): JSX.Element => {
   const checkboxRef = useRef<HTMLInputElement>(null)
-  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
-  // The `checked` attribute is representing the default checked state and never changes
-  // const [defaultChecked] = useState<boolean>(checkedStatus === "checked")
 
   useEffect(() => {
     if (checkboxRef.current) {
@@ -57,7 +55,6 @@ export const Checkbox = ({
         checkboxRef.current.checked = false
         checkboxRef.current.indeterminate = true
       }
-      console.log("checkboxRef.current.checked", checkboxRef.current.checked)
     }
   }, [checkedStatus])
 
@@ -73,7 +70,6 @@ export const Checkbox = ({
         ref={checkboxRef}
         type="checkbox"
         className={styles.nativeCheckbox}
-        // checked={defaultChecked}
         {...restProps}
       />
       <span className={styles.iconContainer}>{renderIcon(checkedStatus)}</span>

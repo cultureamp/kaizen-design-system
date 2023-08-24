@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { Checkbox } from "../subcomponents"
+import { Checkbox, CheckedStatus } from "../subcomponents"
 
 const meta = {
   title: "Components/MultiSelect/Checkbox",
@@ -13,7 +13,15 @@ const meta = {
 
 export default meta
 
-const StickerSheetTemplate: StoryObj<typeof meta> = {
+type Story = StoryObj<typeof meta>
+
+const STATUS_ROWS = [
+  { title: "Unchecked", status: "unchecked" },
+  { title: "Checked", status: "checked" },
+  { title: "Indeterminate", status: "indeterminate" },
+] satisfies Array<{ title: string; status: CheckedStatus }>
+
+const StickerSheetTemplate: Story = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Header
@@ -21,39 +29,21 @@ const StickerSheetTemplate: StoryObj<typeof meta> = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Unchecked">
-          <Checkbox checkedStatus="unchecked" />
-          <Checkbox
-            classNameOverride="story__checkbox--hover"
-            checkedStatus="unchecked"
-          />
-          <Checkbox
-            classNameOverride="story__checkbox--focus"
-            checkedStatus="unchecked"
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Checked">
-          <Checkbox checkedStatus="checked" />
-          <Checkbox
-            classNameOverride="story__checkbox--hover"
-            checkedStatus="checked"
-          />
-          <Checkbox
-            classNameOverride="story__checkbox--focus"
-            checkedStatus="checked"
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Indeterminate">
-          <Checkbox checkedStatus="indeterminate" />
-          <Checkbox
-            classNameOverride="story__checkbox--hover"
-            checkedStatus="indeterminate"
-          />
-          <Checkbox
-            classNameOverride="story__checkbox--focus"
-            checkedStatus="indeterminate"
-          />
-        </StickerSheet.Row>
+        {STATUS_ROWS.map(({ title, status }) => (
+          <StickerSheet.Row key={title} rowTitle={title}>
+            <Checkbox checkedStatus={status} readOnly />
+            <Checkbox
+              classNameOverride="story__checkbox--hover"
+              checkedStatus={status}
+              readOnly
+            />
+            <Checkbox
+              classNameOverride="story__checkbox--focus"
+              checkedStatus={status}
+              readOnly
+            />
+          </StickerSheet.Row>
+        ))}
       </StickerSheet.Body>
     </StickerSheet>
   ),
