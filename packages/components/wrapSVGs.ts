@@ -3,6 +3,8 @@ const path = require("path")
 
 const Utils = require("./src/Icons/bin/wrapSVGUtils")
 
+const deleteSourceDir = process.argv.includes("--delete-source-dir")
+
 const sourceDirIndex = process.argv.indexOf("--source-dir")
 const sourceDir = process.argv[sourceDirIndex + 1]
 if (!sourceDir) {
@@ -67,3 +69,5 @@ fs.writeFile(
     if (err) throw err
   }
 )
+
+deleteSourceDir && fs.rmdirSync(sourceDir, { recursive: true })
