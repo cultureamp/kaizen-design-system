@@ -1,47 +1,76 @@
-import React from "react"
-import { render, fireEvent } from "@testing-library/react"
-import { Checkbox } from "./"
+import React, { useState } from "react"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { Checkbox, CheckedStatus } from "./"
+
+const user = userEvent.setup()
 
 describe("<Checkbox />", () => {
   describe("unchecked", () => {
-    it("will set native input `checked` attribute to `false`", () => {
-      const { getByRole } = render(<Checkbox checkedStatus="unchecked" />)
-      const uncheckedCheckbox = getByRole("checkbox") as HTMLInputElement
-      expect(uncheckedCheckbox.checked).toBe(false)
+    it("has correct unchecked attributes", () => {
+      const { getByRole } = render(
+        <Checkbox checkedStatus="unchecked" readOnly />
+      )
+      const checkbox = getByRole("checkbox") as HTMLInputElement
+      expect(checkbox.checked).toBe(false)
+      expect(checkbox.indeterminate).toBe(false)
     })
   })
 
   describe("checked", () => {
-    it("will set native input `checked` attribute to `true`", () => {
-      const { getByRole } = render(<Checkbox checkedStatus="checked" />)
-      const uncheckedCheckbox = getByRole("checkbox") as HTMLInputElement
-      expect(uncheckedCheckbox.checked).toBe(true)
+    it("has correct checked attributes", () => {
+      const { getByRole } = render(
+        <Checkbox checkedStatus="checked" readOnly />
+      )
+      const checkbox = getByRole("checkbox") as HTMLInputElement
+      expect(checkbox.checked).toBe(true)
+      expect(checkbox.indeterminate).toBe(false)
     })
   })
 
   describe("indeterminate", () => {
-    it("will set native input `checked` attribute false", () => {
-      const { getByRole } = render(<Checkbox checkedStatus="indeterminate" />)
-      const indeterminateCheckbox = getByRole("checkbox") as HTMLInputElement
-      expect(indeterminateCheckbox.checked).toBe(false)
-    })
-    it("will have the `indeterminate` attribute", () => {
-      const { getByRole } = render(<Checkbox checkedStatus="indeterminate" />)
-      const indeterminateCheckbox = getByRole("checkbox") as HTMLInputElement
-      expect(indeterminateCheckbox.indeterminate).toBe(true)
+    it("has correct indeterminate attributes", () => {
+      const { getByRole } = render(
+        <Checkbox checkedStatus="indeterminate" readOnly />
+      )
+      const checkbox = getByRole("checkbox") as HTMLInputElement
+      expect(checkbox.checked).toBe(false)
+      expect(checkbox.indeterminate).toBe(true)
     })
   })
 
-  describe("onChange handler", () => {
-    it("will trigger onChange when input is clicked", () => {
-      const onChangeHandler = jest.fn()
-      const { getByRole } = render(
-        <Checkbox checkedStatus="unchecked" onChange={onChangeHandler} />
-      )
-      const checkbox = getByRole("checkbox") as HTMLInputElement
-      fireEvent.click(checkbox)
+  it("correctly changes the checked attributes according to status", async () => {
+    const Wrapper = (): JSX.Element => {
+      const [status, setStatus] = useState<CheckedStatus>("unchecked")
 
-      expect(onChangeHandler).toBeCalledTimes(1)
+      const handleChange: React.ChangeEventHandler<HTMLInputElement> = () => {
+        if (status === "unchecked") {
+          setStatus("indeterminate")
+        } else if (status === "indeterminate") {
+          setStatus("checked")
+        } else if (status === "checked") {
+          setStatus("unchecked")
+        }
+      }
+
+      return <Checkbox checkedStatus={status} onChange={handleChange} />
+    }
+
+    const { getByRole } = render(<Wrapper />)
+    const checkbox = getByRole("checkbox") as HTMLInputElement
+    expect(checkbox.checked).toBe(false)
+    expect(checkbox.indeterminate).toBe(false)
+
+    await user.click(checkbox)
+    await waitFor(() => {
+      expect(checkbox.checked).toBe(false)
+      expect(checkbox.indeterminate).toBe(true)
+    })
+
+    await user.click(checkbox)
+    await waitFor(() => {
+      expect(checkbox.checked).toBe(true)
+      expect(checkbox.indeterminate).toBe(false)
     })
   })
 })

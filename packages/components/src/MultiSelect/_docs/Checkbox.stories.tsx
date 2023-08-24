@@ -1,22 +1,43 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Checkbox } from "../subcomponents"
-// import styles from "./Checkbox.stories.module.scss"
+import { Checkbox, CheckedStatus } from "../subcomponents"
 
 const meta = {
   title: "Components/MultiSelect/Checkbox",
   component: Checkbox,
   args: {
     checkedStatus: "checked",
+    readOnly: true,
   },
 } satisfies Meta<typeof Checkbox>
 
 export default meta
 
-/**
- * @todo: Main Description goes here
- */
 export const Playground: StoryObj<typeof meta> = {
+  render: ({ readOnly, onChange, checkedStatus, ...args }) => {
+    const [status, setStatus] = React.useState<CheckedStatus>(checkedStatus)
+
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
+      if (status === "unchecked") {
+        setStatus("indeterminate")
+      } else if (status === "indeterminate") {
+        setStatus("checked")
+      } else if (status === "checked") {
+        setStatus("unchecked")
+      }
+      onChange?.(e)
+    }
+
+    React.useEffect(() => {
+      setStatus(checkedStatus)
+    }, [checkedStatus])
+
+    const props = readOnly
+      ? { ...args, readOnly }
+      : { ...args, onChange: handleChange }
+
+    return <Checkbox {...props} checkedStatus={status} />
+  },
   parameters: {
     docs: {
       canvas: {
@@ -27,10 +48,10 @@ export const Playground: StoryObj<typeof meta> = {
 }
 
 export const Interactive: StoryObj<typeof meta> = {
-  render: args => {
-    const [status, setStatus] = React.useState(args.checkedStatus)
+  render: () => {
+    const [status, setStatus] = React.useState<CheckedStatus>("unchecked")
 
-    const handleClick = (e): void => {
+    const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
       if (status === "unchecked") {
         setStatus("indeterminate")
       } else if (status === "indeterminate") {
@@ -38,50 +59,11 @@ export const Interactive: StoryObj<typeof meta> = {
       } else if (status === "checked") {
         setStatus("unchecked")
       }
-      args.onClick?.(e)
     }
 
-    return (
-      <Checkbox
-        {...args}
-        onClick={handleClick}
-        checkedStatus={status}
-        // classNameOverride={styles.test}
-      />
-    )
+    return <Checkbox onChange={handleChange} checkedStatus={status} />
+  },
+  parameters: {
+    controls: { disable: true },
   },
 }
-
-// export const OveriddenFocus: StoryObj<typeof meta> = {
-//   ...Interactive,
-//   args: {
-//     classNameOverride: styles.test,
-//   },
-//   // render: args => {
-//   //   const [status, setStatus] = React.useState(args.checkedStatus)
-
-//   //   const handleClick = (e): void => {
-//   //     if (status === "unchecked") {
-//   //       setStatus("indeterminate")
-//   //     } else if (status === "indeterminate") {
-//   //       setStatus("checked")
-//   //     } else if (status === "checked") {
-//   //       setStatus("unchecked")
-//   //     }
-//   //     args.onClick?.(e)
-//   //   }
-
-//   //   return (
-//   //     <div>
-//   //       <Checkbox
-//   //         {...args}
-//   //         onClick={handleClick}
-//   //         checkedStatus={status}
-//   //         classNameOverride={styles.test}
-//   //         id="id--checkbox"
-//   //       />
-//   //       <Label htmlFor="id--checkbox">Checkbox test label</Label>
-//   //     </div>
-//   //   )
-//   // },
-// }

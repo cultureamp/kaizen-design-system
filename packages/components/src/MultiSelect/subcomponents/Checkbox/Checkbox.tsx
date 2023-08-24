@@ -7,13 +7,22 @@ import styles from "./Checkbox.module.scss"
 
 export type CheckedStatus = "checked" | "unchecked" | "indeterminate"
 
-export interface CheckboxProps
-  extends OverrideClassName<
-    Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
-  > {
+type ReadOnly = {
+  readOnly: true
+  onChange?: never
+}
+
+type Controlled = {
+  readOnly?: never
+  onChange: Required<InputHTMLAttributes<HTMLInputElement>["onChange"]>
+}
+
+export type CheckboxProps = OverrideClassName<
+  Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
+> & {
   checkedStatus: CheckedStatus
   value?: string
-}
+} & (ReadOnly | Controlled)
 
 const renderIcon = (status: CheckedStatus): JSX.Element | null => {
   switch (status) {
@@ -28,14 +37,13 @@ const renderIcon = (status: CheckedStatus): JSX.Element | null => {
 
 export const Checkbox = ({
   checkedStatus,
-  onChange,
   classNameOverride,
   ...restProps
 }: CheckboxProps): JSX.Element => {
   const checkboxRef = useRef<HTMLInputElement>(null)
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value
   // The `checked` attribute is representing the default checked state and never changes
-  const [defaultChecked] = useState<boolean>(checkedStatus === "checked")
+  // const [defaultChecked] = useState<boolean>(checkedStatus === "checked")
 
   useEffect(() => {
     if (checkboxRef.current) {
@@ -49,6 +57,7 @@ export const Checkbox = ({
         checkboxRef.current.checked = false
         checkboxRef.current.indeterminate = true
       }
+      console.log("checkboxRef.current.checked", checkboxRef.current.checked)
     }
   }, [checkedStatus])
 
@@ -64,9 +73,7 @@ export const Checkbox = ({
         ref={checkboxRef}
         type="checkbox"
         className={styles.nativeCheckbox}
-        checked={defaultChecked}
-        onChange={onChange}
-        readOnly={onChange === undefined}
+        // checked={defaultChecked}
         {...restProps}
       />
       <span className={styles.iconContainer}>{renderIcon(checkedStatus)}</span>

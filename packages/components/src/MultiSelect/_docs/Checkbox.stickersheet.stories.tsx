@@ -1,10 +1,9 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { Checkbox } from "../subcomponents"
-import styles from "./Checkbox.stories.module.scss"
 
-export default {
+const meta = {
   title: "Components/MultiSelect/Checkbox",
   parameters: {
     chromatic: { disable: false },
@@ -12,52 +11,55 @@ export default {
   },
 } satisfies Meta<typeof Checkbox>
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
-  /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-  <StickerSheet isReversed={isReversed}>
-    <StickerSheet.Header
-      headings={["Default", "Hover", "Focus"]}
-      hasVerticalHeadings
-    />
-    <StickerSheet.Body>
-      <StickerSheet.Row rowTitle="Unchecked">
-        <Checkbox checkedStatus="unchecked" />
-        <Checkbox
-          classNameOverride={styles["story-className--checkbox-unchecked"]}
-          checkedStatus="unchecked"
-        />
-        <Checkbox
-          classNameOverride={`${styles["story-className--checkbox-focus"]} ${styles["story-className--checkbox-unchecked"]}`}
-          checkedStatus="unchecked"
-        />
-      </StickerSheet.Row>
-      <StickerSheet.Row rowTitle="Checked">
-        <Checkbox checkedStatus="checked" />
-        <Checkbox
-          classNameOverride={styles["story-className--checkbox-checked"]}
-          checkedStatus="checked"
-        />
-        <Checkbox
-          classNameOverride={`${styles["story-className--checkbox-focus"]} ${styles["story-className--checkbox-checked"]}`}
-          checkedStatus="checked"
-        />
-      </StickerSheet.Row>
-      <StickerSheet.Row rowTitle="Indeterminate">
-        <Checkbox checkedStatus="indeterminate" />
-        <Checkbox
-          classNameOverride={styles["story-className--checkbox-checked"]}
-          checkedStatus="indeterminate"
-        />
-        <Checkbox
-          classNameOverride={`${styles["story-className--checkbox-focus"]} ${styles["story-className--checkbox-checked"]}`}
-          checkedStatus="indeterminate"
-        />
-      </StickerSheet.Row>
-    </StickerSheet.Body>
-  </StickerSheet>
-)
+export default meta
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+const StickerSheetTemplate: StoryObj<typeof meta> = {
+  render: () => (
+    <StickerSheet>
+      <StickerSheet.Header
+        headings={["Default", "Hover", "Focus"]}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Unchecked">
+          <Checkbox checkedStatus="unchecked" />
+          <Checkbox
+            classNameOverride="story__checkbox--hover"
+            checkedStatus="unchecked"
+          />
+          <Checkbox
+            classNameOverride="story__checkbox--focus"
+            checkedStatus="unchecked"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Checked">
+          <Checkbox checkedStatus="checked" />
+          <Checkbox
+            classNameOverride="story__checkbox--hover"
+            checkedStatus="checked"
+          />
+          <Checkbox
+            classNameOverride="story__checkbox--focus"
+            checkedStatus="checked"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Indeterminate">
+          <Checkbox checkedStatus="indeterminate" />
+          <Checkbox
+            classNameOverride="story__checkbox--hover"
+            checkedStatus="indeterminate"
+          />
+          <Checkbox
+            classNameOverride="story__checkbox--focus"
+            checkedStatus="indeterminate"
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  ),
+}
+
+export const StickerSheetDefault = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+}
