@@ -7,11 +7,8 @@ const svgToComponentTitle = (fileName: string): string => {
     .replace(".icon", "Icon")
 }
 
-// This is an unfortunate workaround for a TS rule that prevents
-// template-curlies in non-back-quote strings.
-// However, we need it in this case in order to inject the ${} syntax
-// into a react component.
-const hrefReplacement = "href={`#${" + "uniqueId}`}"
+// eslint-disable-next-line no-template-curly-in-string
+const hrefReplacement = "href={`#${uniqueId}`}"
 
 // @ts-ignore: Redeclared module error
 const insertSvgData = (
