@@ -1,70 +1,46 @@
-import React from "react"
-import { render, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import { CheckboxProps } from "./Checkbox"
-import { Checkbox } from "."
-
-const user = userEvent.setup()
-
-const defaultProps = {
-  id: "someCheckboxId",
-  automationId: "someCheckboxAutomationId",
-  checkedStatus: "off",
-  disabled: false,
-  name: "someCheckboxName",
-  onCheck: jest.fn(),
-} satisfies CheckboxProps
-
-const renderCheckbox = (props?: CheckboxProps): ReturnType<typeof render> => {
-  const mergedInputProps = { ...defaultProps, ...props }
-
-  return render(<Checkbox {...mergedInputProps} />)
-}
+import React, { useState } from "react"
+import { render, fireEvent } from "@testing-library/react"
+import { Checkbox } from "./"
 
 describe("<Checkbox />", () => {
-  it("calls the `onCheck` event when clicked", async () => {
-    const { getByTestId } = render(<Checkbox {...defaultProps} />)
-    const checkbox = getByTestId(defaultProps.automationId)
-
-    await user.click(checkbox)
-    await waitFor(() => {
-      expect(defaultProps.onCheck).toBeCalledTimes(1)
+  describe("unchecked", () => {
+    it("will set native input `checked` attribute to `false`", () => {
+      const { getByRole } = render(<Checkbox checkedStatus="unchecked" />)
+      const uncheckedCheckbox = getByRole("checkbox") as HTMLInputElement
+      expect(uncheckedCheckbox.checked).toBe(false)
     })
   })
 
-  it("renders a disabled checkbox", () => {
-    const { container } = renderCheckbox({ disabled: true })
-    expect(container.querySelector("[disabled]")).toBeTruthy()
+  describe("checked", () => {
+    it("will set native input `checked` attribute to `true`", () => {
+      const { getByRole } = render(<Checkbox checkedStatus="checked" />)
+      const uncheckedCheckbox = getByRole("checkbox") as HTMLInputElement
+      expect(uncheckedCheckbox.checked).toBe(true)
+    })
   })
 
-  it("renders a `checked` checkbox", () => {
-    const { container } = renderCheckbox({ checkedStatus: "on" })
-    expect(container.querySelector("[checked]")).toBeTruthy()
+  describe("indeterminate", () => {
+    it("will set native input `checked` attribute false", () => {
+      const { getByRole } = render(<Checkbox checkedStatus="indeterminate" />)
+      const indeterminateCheckbox = getByRole("checkbox") as HTMLInputElement
+      expect(indeterminateCheckbox.checked).toBe(false)
+    })
+    it("will have the `indeterminate` attribute", () => {
+      const { getByRole } = render(<Checkbox checkedStatus="indeterminate" />)
+      const indeterminateCheckbox = getByRole("checkbox") as HTMLInputElement
+      expect(indeterminateCheckbox.indeterminate).toBe(true)
+    })
   })
-
-  it("renders a `mixed` checkbox", () => {
-    const { container } = renderCheckbox({ checkedStatus: "mixed" })
-    expect(container.querySelector("[data-indeterminate]")).toBeTruthy()
-  })
-
-  it("renders an `id` attribute", () => {
-    const { container } = renderCheckbox()
-    expect(container.querySelector(`[id="${defaultProps.id}"]`)).toBeTruthy()
-  })
-
-  it("renders a `name` attribute", () => {
-    const { container } = renderCheckbox()
-    expect(
-      container.querySelector(`[name="${defaultProps.name}"]`)
-    ).toBeTruthy()
-  })
-
-  it("renders a `data-automation-id` attribute", () => {
-    const { container } = renderCheckbox()
-    expect(
-      container.querySelector(
-        `[data-automation-id="${defaultProps.automationId}"]`
+  describe("onChange handler", () => {
+    it("will trigger onChange when input is clicked", () => {
+      const onChangeHandler = jest.fn()
+      const { getByRole } = render(
+        <Checkbox checkedStatus="unchecked" onChange={onChangeHandler} />
       )
-    ).toBeTruthy()
+      const checkbox = getByRole("checkbox") as HTMLInputElement
+      fireEvent.click(checkbox)
+
+      expect(onChangeHandler).toBeCalledTimes(1)
+    })
   })
 })
