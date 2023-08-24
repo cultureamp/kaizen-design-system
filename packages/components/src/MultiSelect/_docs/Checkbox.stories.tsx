@@ -1,11 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Label } from "@kaizen/draft-form"
-import { Checkbox } from "../index"
-import styles from "./Checkbox.stories.module.scss"
+import { Checkbox } from "../subcomponents"
+// import styles from "./Checkbox.stories.module.scss"
 
 const meta = {
-  title: "Components/Checkbox",
+  title: "Components/MultiSelect/Checkbox",
   component: Checkbox,
   args: {
     checkedStatus: "checked",

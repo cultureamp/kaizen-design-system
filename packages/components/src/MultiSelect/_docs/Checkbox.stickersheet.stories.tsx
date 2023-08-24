@@ -1,11 +1,11 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { Checkbox } from "../index"
+import { Checkbox } from "../subcomponents"
 import styles from "./Checkbox.stories.module.scss"
 
 export default {
-  title: "Components/Checkbox",
+  title: "Components/MultiSelect/Checkbox",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

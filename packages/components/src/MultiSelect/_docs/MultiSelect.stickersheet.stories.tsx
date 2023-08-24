@@ -16,17 +16,13 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 }) => (
   /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
   <StickerSheet isReversed={isReversed}>
-    /** @note: Header is optional */
     <StickerSheet.Header
       headings={["COLUMN 1", "COLUMN 2"]}
       hasVerticalHeadings
     />
     <StickerSheet.Body>
       <StickerSheet.Row>
-        {/** @todo: Add column 1 + row 1 props */}
-        <MultiSelect isReversed={isReversed} />
-        {/** @todo: Add column 2 + row 1 props */}
-        <MultiSelect isReversed={isReversed} />
+        <MultiSelect />
       </StickerSheet.Row>
     </StickerSheet.Body>
   </StickerSheet>

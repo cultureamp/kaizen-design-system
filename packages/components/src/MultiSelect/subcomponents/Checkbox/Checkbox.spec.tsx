@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { render, fireEvent } from "@testing-library/react"
 import { Checkbox } from "./"
 
@@ -31,6 +31,7 @@ describe("<Checkbox />", () => {
       expect(indeterminateCheckbox.indeterminate).toBe(true)
     })
   })
+
   describe("onChange handler", () => {
     it("will trigger onChange when input is clicked", () => {
       const onChangeHandler = jest.fn()
