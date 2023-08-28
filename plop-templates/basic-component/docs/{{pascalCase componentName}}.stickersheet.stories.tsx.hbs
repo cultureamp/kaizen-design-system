@@ -14,33 +14,41 @@ export default {
   },
 } satisfies Meta
 
-const StickerSheetTemplate: StickerSheetStory["render"] = ({ isReversed }) => (
-  /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-  <StickerSheet isReversed={isReversed}>
-    /** @note: Header is optional */
-    <StickerSheet.Header
-      headings={["COLUMN 1", "COLUMN 2"]}
-      hasVerticalHeadings
-    />
-    <StickerSheet.Body>
-      <StickerSheet.Row>
-        {/** @todo: Add column 1 + row 1 props */}
-        <{{pascalCase componentName}} isReversed={isReversed} />
-        {/** @todo: Add column 2 + row 1 props */}
-        <{{pascalCase componentName}} isReversed={isReversed} />
-      </StickerSheet.Row>
-    </StickerSheet.Body>
-  </StickerSheet>
-)
+const StickerSheetTemplate: StickerSheetStory = {
+  render: ({ isReversed }) => (
+    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
+    <StickerSheet isReversed={isReversed}>
+      /** @note: Header is optional */
+      <StickerSheet.Header
+        headings={["COLUMN 1", "COLUMN 2"]}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          {/** @todo: Add column 1 + row 1 props */}
+          <{{pascalCase componentName}} isReversed={isReversed} />
+          {/** @todo: Add column 2 + row 1 props */}
+          <{{pascalCase componentName}} isReversed={isReversed} />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  )
+}
 
 export const StickerSheetDefault: StickerSheetStory = {
-  render: StickerSheetTemplate,
+  ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
 }
 
 export const StickerSheetReversed: StickerSheetStory = {
-  render: StickerSheetTemplate,
+  ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
   parameters: { backgrounds: { default: "Purple 700" } },
   args: { isReversed: true },
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

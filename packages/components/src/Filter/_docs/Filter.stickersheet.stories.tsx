@@ -1,15 +1,17 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FilterButton } from "~components/FilterButton"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "../../../../../storybook/components/StickerSheet"
 import { Filter, FilterContents } from ".."
 
 const IS_CHROMATIC = isChromatic()
 
-const meta = {
+export default {
   title: "Components/Filter Base",
-  component: StickerSheet,
   parameters: {
     a11y: {
       config: {
@@ -25,40 +27,43 @@ const meta = {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-  args: { children: undefined },
-} satisfies Meta<typeof StickerSheet>
+} satisfies Meta
 
-export default meta
+const StickerSheetTemplate: StickerSheetStory = {
+  render: () => {
+    const [isOpen, setIsOpen] = React.useState(true)
 
-type Story = StoryObj<typeof meta>
-
-const StickerSheetTemplate: Story["render"] = () => {
-  const [isOpen, setIsOpen] = React.useState(true)
-
-  return (
-    <StickerSheet
-      heading="Filter"
-      style={{ paddingBottom: IS_CHROMATIC ? "6rem" : undefined }}
-    >
-      <StickerSheet.Header headings={["Open"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <Filter
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            renderTrigger={(triggerProps): JSX.Element => (
-              <FilterButton label="Label" {...triggerProps} />
-            )}
-          >
-            <FilterContents>Filter Contents</FilterContents>
-          </Filter>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-  )
+    return (
+      <StickerSheet
+        heading="Filter"
+        style={{ paddingBottom: IS_CHROMATIC ? "6rem" : undefined }}
+      >
+        <StickerSheet.Header headings={["Open"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <Filter
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              renderTrigger={(triggerProps): JSX.Element => (
+                <FilterButton label="Label" {...triggerProps} />
+              )}
+            >
+              <FilterContents>Filter Contents</FilterContents>
+            </Filter>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    )
+  },
 }
 
-export const StickerSheetDefault: Story = {
-  render: StickerSheetTemplate,
+export const StickerSheetDefault: StickerSheetStory = {
+  ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

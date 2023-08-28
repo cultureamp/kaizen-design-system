@@ -103,84 +103,92 @@ const removableFilters = [
   },
 ] satisfies Filters<ValuesRemovable>
 
-const StickerSheetTemplate: StickerSheetStory["render"] = () => {
-  const [activeValues, setActiveValues] = useState<Partial<Values>>({
-    flavour: "jasmine-milk-tea",
-  })
-  const [activeValuesOverflow, setActiveValuesOverflow] = useState<
-    Partial<Values>
-  >({
-    flavour: "jasmine-milk-tea",
-    sugarLevel: 50,
-  })
-  const [valuesRemovableAllActive, setValuesRemovableAllActive] = useState<
-    Partial<ValuesRemovable>
-  >({ topping: "pearls" })
-  const [valuesRemovablePartialActive, setValuesRemovablePartialActive] =
-    useState<Partial<ValuesRemovable>>({})
+const StickerSheetTemplate: StickerSheetStory = {
+  render: () => {
+    const [activeValues, setActiveValues] = useState<Partial<Values>>({
+      flavour: "jasmine-milk-tea",
+    })
+    const [activeValuesOverflow, setActiveValuesOverflow] = useState<
+      Partial<Values>
+    >({
+      flavour: "jasmine-milk-tea",
+      sugarLevel: 50,
+    })
+    const [valuesRemovableAllActive, setValuesRemovableAllActive] = useState<
+      Partial<ValuesRemovable>
+    >({ topping: "pearls" })
+    const [valuesRemovablePartialActive, setValuesRemovablePartialActive] =
+      useState<Partial<ValuesRemovable>>({})
 
-  return (
-    <>
-      <StickerSheet heading="Filter Bar" style={{ width: "100%" }}>
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterBar<Values>
-              filters={filters}
-              values={activeValues}
-              onValuesChange={setActiveValues}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-
-      <StickerSheet
-        heading="Overflow (container 500px)"
-        style={{ width: "100%" }}
-      >
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <div style={{ maxWidth: "500px" }}>
+    return (
+      <>
+        <StickerSheet heading="Filter Bar" style={{ width: "100%" }}>
+          <StickerSheet.Body>
+            <StickerSheet.Row>
               <FilterBar<Values>
                 filters={filters}
-                values={activeValuesOverflow}
-                onValuesChange={setActiveValuesOverflow}
+                values={activeValues}
+                onValuesChange={setActiveValues}
               />
-            </div>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
 
-      <StickerSheet heading="Removable; All active" style={{ width: "100%" }}>
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterBar<ValuesRemovable>
-              filters={removableFilters}
-              values={valuesRemovableAllActive}
-              onValuesChange={setValuesRemovableAllActive}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+        <StickerSheet
+          heading="Overflow (container 500px)"
+          style={{ width: "100%" }}
+        >
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <div style={{ maxWidth: "500px" }}>
+                <FilterBar<Values>
+                  filters={filters}
+                  values={activeValuesOverflow}
+                  onValuesChange={setActiveValuesOverflow}
+                />
+              </div>
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
 
-      <StickerSheet
-        heading="Removable; Partial active"
-        style={{ width: "100%" }}
-      >
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterBar<ValuesRemovable>
-              filters={removableFilters}
-              values={valuesRemovablePartialActive}
-              onValuesChange={setValuesRemovablePartialActive}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
-  )
+        <StickerSheet heading="Removable; All active" style={{ width: "100%" }}>
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <FilterBar<ValuesRemovable>
+                filters={removableFilters}
+                values={valuesRemovableAllActive}
+                onValuesChange={setValuesRemovableAllActive}
+              />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet
+          heading="Removable; Partial active"
+          style={{ width: "100%" }}
+        >
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <FilterBar<ValuesRemovable>
+                filters={removableFilters}
+                values={valuesRemovablePartialActive}
+                onValuesChange={setValuesRemovablePartialActive}
+              />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
-  render: StickerSheetTemplate,
+  ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

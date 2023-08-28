@@ -14,20 +14,25 @@ export default {
   },
 } satisfies Meta
 
-const StickerSheetTemplate: StickerSheetStory["render"] = () => (
-  <StickerSheet>
-    <StickerSheet.Body>
-      <StickerSheet.Row rowTitle="LTR" dir="ltr">
-        <LabelledMessage label="Label" message="Custom message here" />
-      </StickerSheet.Row>
-      <StickerSheet.Row rowTitle="RTL" dir="rtl">
-        <LabelledMessage label="Label" message="Custom message here" />
-      </StickerSheet.Row>
-    </StickerSheet.Body>
-  </StickerSheet>
-)
+const StickerSheetTemplate: StickerSheetStory = {
+  render: () => (
+    <StickerSheet>
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <LabelledMessage label="Label" message="Custom message here" />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  ),
+}
 
 export const StickerSheetDefault: StickerSheetStory = {
-  render: StickerSheetTemplate,
+  ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }
