@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.22.3
+
+### Patch Changes
+
+- [#3993](https://github.com/cultureamp/kaizen-design-system/pull/3993) [`5c9e52325`](https://github.com/cultureamp/kaizen-design-system/commit/5c9e52325f96548589eb33541c22c04fb1e6400c) - Added role=presentation to SVG icon usages where it was missing
+
 ## 1.22.2
 
 ### Patch Changes
