@@ -1,6 +1,9 @@
 import React, { useState } from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { Meta } from "@storybook/react"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "../../../../../storybook/components/StickerSheet"
 import { FilterBar, Filters } from "../index"
 
 export default {
@@ -9,7 +12,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof FilterBar>
+} satisfies Meta
 
 type Values = {
   flavour: string
@@ -100,7 +103,7 @@ const removableFilters = [
   },
 ] satisfies Filters<ValuesRemovable>
 
-const StickerSheetTemplate: StoryFn = () => {
+const StickerSheetTemplate: StickerSheetStory["render"] = () => {
   const [activeValues, setActiveValues] = useState<Partial<Values>>({
     flavour: "jasmine-milk-tea",
   })
@@ -177,5 +180,7 @@ const StickerSheetTemplate: StoryFn = () => {
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+export const StickerSheetDefault: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+}

@@ -1,20 +1,21 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { Button, ButtonProps } from "@kaizen/button"
-import { CheckIcon } from "~components/SVG/icons/CheckIcon"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { Meta } from "@storybook/react"
+import { AddIcon } from "~components/SVG/icons/AddIcon"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "../../../../../storybook/components/StickerSheet"
+import { Button, ButtonProps } from "../index"
 
 export default {
-  title: "Components/Stickersheets",
+  title: "Components/Button",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof Button>
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => {
+const StickerSheetTemplate: StickerSheetStory["render"] = ({ isReversed }) => {
   const REVERSED__VARIANT_PROPS: Array<{
     title: string
     props: ButtonProps
@@ -74,12 +75,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
 
   const ICON_LEFT_PROPS: ButtonProps = {
     label: "Label",
-    icon: <CheckIcon role="presentation" />,
+    icon: <AddIcon role="presentation" />,
   }
 
   const ICON_RIGHT_PROPS: ButtonProps = {
     label: "Label",
-    icon: <CheckIcon role="presentation" />,
+    icon: <AddIcon role="presentation" />,
     iconPosition: "end",
   }
 
@@ -89,12 +90,12 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   }
   const BADGE_LEFT_PROPS: ButtonProps = {
     ...BADGE_PROPS,
-    icon: <CheckIcon role="presentation" />,
+    icon: <AddIcon role="presentation" />,
   }
 
   const BADGE_RIGHT_PROPS: ButtonProps = {
     ...BADGE_PROPS,
-    icon: <CheckIcon role="presentation" />,
+    icon: <AddIcon role="presentation" />,
     iconPosition: "end",
   }
 
@@ -102,7 +103,15 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
     <>
       <StickerSheet heading="Button" isReversed={isReversed}>
         <StickerSheet.Header
-          headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
+          headings={[
+            "Base",
+            "Hover",
+            "Active",
+            "Focus",
+            "Disabled",
+            "Working",
+            "Working (Focus)",
+          ]}
           headingsWidth="10rem"
           hasVerticalHeadings
           verticalHeadingsWidth="12rem"
@@ -127,6 +136,13 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
                 {...props}
               />
               <Button reversed={isReversed} {...props} disabled />
+              <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
+              <Button
+                reversed={isReversed}
+                classNameOverride="story__button-focus"
+                {...props}
+                {...WORKING_PROPS}
+              />
             </StickerSheet.Row>
           ))}
         </StickerSheet.Body>
@@ -189,14 +205,9 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         </StickerSheet.Body>
       </StickerSheet>
 
-      <StickerSheet
-        isReversed={isReversed}
-        heading="Working / With Icon / With Badge"
-      >
+      <StickerSheet isReversed={isReversed} heading="With Icon / Badge">
         <StickerSheet.Header
           headings={[
-            "Working",
-            "Working (Focus)",
             "Icon Left",
             "Icon Right",
             "Icon Left with Badge",
@@ -210,13 +221,6 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
             <StickerSheet.Row key={title} rowTitle={title}>
-              <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
-              <Button
-                reversed={isReversed}
-                classNameOverride="story__button-focus"
-                {...props}
-                {...WORKING_PROPS}
-              />
               <Button reversed={isReversed} {...props} {...ICON_LEFT_PROPS} />
               <Button reversed={isReversed} {...props} {...ICON_RIGHT_PROPS} />
               <Button reversed={isReversed} {...props} {...BADGE_LEFT_PROPS} />
@@ -230,12 +234,14 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+export const StickerSheetDefault: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+}
 
-export const StickerSheetReversed = StickerSheetTemplate.bind({})
-StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-StickerSheetReversed.args = { isReversed: true }
-StickerSheetReversed.parameters = {
-  backgrounds: { default: "Purple 700" },
+export const StickerSheetReversed: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Reversed)",
+  parameters: { backgrounds: { default: "Purple 700" } },
+  args: { isReversed: true },
 }

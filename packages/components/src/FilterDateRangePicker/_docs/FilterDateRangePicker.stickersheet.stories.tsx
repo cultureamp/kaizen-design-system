@@ -1,11 +1,14 @@
 import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
 import { DateRange } from "~types/DatePicker"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { FilterDateRangePicker } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
@@ -18,9 +21,10 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof FilterDateRangePicker>
+  args: { textDirection: "ltr" },
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
+const StickerSheetTemplate: StickerSheetStory["render"] = ({
   textDirection,
 }) => {
   const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
@@ -175,20 +179,19 @@ const applyStickerSheetStyles = async (
   }
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.args = {
-  textDirection: "ltr",
-}
-StickerSheetDefault.play = ({ canvasElement }) => {
-  applyStickerSheetStyles(canvasElement, "ltr")
+export const StickerSheetDefault: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+  play: ({ canvasElement }) => {
+    applyStickerSheetStyles(canvasElement, "ltr")
+  },
 }
 
-export const StickerSheetRTL = StickerSheetTemplate.bind({})
-StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
-StickerSheetRTL.args = {
-  textDirection: "rtl",
-}
-StickerSheetRTL.play = ({ canvasElement }) => {
-  applyStickerSheetStyles(canvasElement, "rtl")
+export const StickerSheetRTL: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  args: { textDirection: "rtl" },
+  play: ({ canvasElement }) => {
+    applyStickerSheetStyles(canvasElement, "rtl")
+  },
 }

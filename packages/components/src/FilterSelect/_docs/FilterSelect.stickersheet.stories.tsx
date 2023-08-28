@@ -1,7 +1,10 @@
 import React, { useState } from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
 import {
@@ -20,9 +23,9 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof FilterSelect>
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn = () => {
+const StickerSheetTemplate: StickerSheetStory["render"] = () => {
   // Only open the dropdowns in Chromatic as the focus locks clash with
   // each other in Storybook.
   const [isOpenDefaultSingle, setIsOpenDefaultSingle] =
@@ -328,9 +331,7 @@ const StickerSheetTemplate: StoryFn = () => {
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
+export const StickerSheetDefault: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
 }

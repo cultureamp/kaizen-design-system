@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FilterButton } from "~components/FilterButton"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
@@ -7,8 +7,9 @@ import { Filter, FilterContents } from ".."
 
 const IS_CHROMATIC = isChromatic()
 
-export default {
+const meta = {
   title: "Components/Filter Base",
+  component: StickerSheet,
   parameters: {
     a11y: {
       config: {
@@ -24,9 +25,14 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof Filter>
+  args: { children: undefined },
+} satisfies Meta<typeof StickerSheet>
 
-const StickerSheetTemplate: StoryFn = () => {
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+const StickerSheetTemplate: Story["render"] = () => {
   const [isOpen, setIsOpen] = React.useState(true)
 
   return (
@@ -52,9 +58,7 @@ const StickerSheetTemplate: StoryFn = () => {
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
+export const StickerSheetDefault: Story = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
 }

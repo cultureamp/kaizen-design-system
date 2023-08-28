@@ -1,9 +1,12 @@
 import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { FilterDatePicker } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
@@ -16,9 +19,10 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof FilterDatePicker>
+  args: { textDirection: "ltr" },
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
+const StickerSheetTemplate: StickerSheetStory["render"] = ({
   textDirection,
 }) => {
   const [isOpenNoValue, setIsOpenNoValue] = useState<boolean>(IS_CHROMATIC)
@@ -112,14 +116,13 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
   )
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.args = {
-  textDirection: "ltr",
+export const StickerSheetDefault: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
 }
 
-export const StickerSheetRTL = StickerSheetTemplate.bind({})
-StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
-StickerSheetRTL.args = {
-  textDirection: "rtl",
+export const StickerSheetRTL: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  args: { textDirection: "rtl" },
 }

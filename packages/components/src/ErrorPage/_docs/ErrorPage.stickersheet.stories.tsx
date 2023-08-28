@@ -1,6 +1,9 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { Meta } from "@storybook/react"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "../../../../../storybook/components/StickerSheet"
 import { ErrorPage } from "../ErrorPage"
 
 export default {
@@ -25,11 +28,9 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof ErrorPage>
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+const StickerSheetTemplate: StickerSheetStory["render"] = ({ isReversed }) => (
   <>
     <StickerSheet heading="Error 400" isReversed={isReversed}>
       <StickerSheet.Body>
@@ -112,5 +113,7 @@ const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
   </>
 )
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+export const StickerSheetDefault: StickerSheetStory = {
+  render: StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+}
