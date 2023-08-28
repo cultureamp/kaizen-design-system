@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { globalA11yRules } from "../../../../../storybook/global-a11y-rules"
 import { FilterButton } from "../FilterButton"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
 import { FilterButtonBase } from "../_subcomponents/FilterButtonBase"
@@ -12,7 +11,6 @@ export default {
     a11y: {
       config: {
         rules: [
-          ...globalA11yRules,
           {
             // FIXME: text inside the buttons not meeting colour contrast requirements
             id: "color-contrast",

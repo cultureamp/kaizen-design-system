@@ -3,7 +3,6 @@ import { expect } from "@storybook/jest"
 import { StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
 import { FilterButton, FilterButtonProps } from "~components/FilterButton"
-import { globalA11yRules } from "../../../../storybook/global-a11y-rules"
 import { FilterDatePicker } from "./FilterDatePicker"
 
 export default {
@@ -13,7 +12,6 @@ export default {
     a11y: {
       config: {
         rules: [
-          ...globalA11yRules,
           {
             // FIXME: text inside the buttons not meeting colour contrast requirements
             id: "color-contrast",

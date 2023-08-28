@@ -3,7 +3,6 @@ import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FilterButton } from "~components/FilterButton"
 import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { globalA11yRules } from "../../../../../storybook/global-a11y-rules"
 import { Filter, FilterContents } from ".."
 
 const IS_CHROMATIC = isChromatic()
@@ -14,7 +13,6 @@ export default {
     a11y: {
       config: {
         rules: [
-          ...globalA11yRules,
           {
             // FIXME: dialog element should have an accessible name
             id: "aria-dialog-name",

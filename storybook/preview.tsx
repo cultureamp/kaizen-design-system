@@ -5,7 +5,6 @@ import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
-import { globalA11yRules } from "./global-a11y-rules"
 
 import "highlight.js/styles/a11y-light.css"
 
@@ -46,11 +45,6 @@ const decorators = [
 
 const preview = {
   parameters: {
-    a11y: {
-      config: {
-        rules: globalA11yRules,
-      },
-    },
     backgrounds: {
       default: "White",
       values: backgrounds,
