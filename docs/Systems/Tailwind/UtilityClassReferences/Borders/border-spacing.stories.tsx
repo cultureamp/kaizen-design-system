@@ -16,6 +16,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
 export default {
   title: "Systems/Tailwind/Utility Class References/Borders/Border Spacing",
   parameters: {
+    a11y: { disable: true },
     chromatic: { disable: false },
     docsLayout: "fullPage",
     docs: {

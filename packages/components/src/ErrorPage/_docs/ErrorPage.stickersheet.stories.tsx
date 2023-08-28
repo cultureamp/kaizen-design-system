@@ -6,6 +6,22 @@ import { ErrorPage } from "../ErrorPage"
 export default {
   title: "Pages/Error Page",
   parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // There's gonna be duplicate landmarks here because it's a stickersheet
+            id: "landmark-no-duplicate-banner",
+            enabled: false,
+          },
+          {
+            // There's gonna be duplicate landmarks here because it's a stickersheet
+            id: "landmark-no-duplicate-main",
+            enabled: false,
+          },
+        ],
+      },
+    },
     chromatic: { disable: false },
     controls: { disable: true },
   },

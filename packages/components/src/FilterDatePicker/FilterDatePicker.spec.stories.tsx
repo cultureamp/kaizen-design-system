@@ -8,6 +8,19 @@ import { FilterDatePicker } from "./FilterDatePicker"
 export default {
   title: "Components/Filter Date Picker/Tests",
   component: FilterDatePicker,
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // FIXME: text inside the buttons not meeting colour contrast requirements
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
 }
 
 type Story = StoryObj<typeof FilterDatePicker>

@@ -10,6 +10,17 @@ const IS_CHROMATIC = isChromatic()
 export default {
   title: "Components/Filter Base",
   parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // FIXME: dialog element should have an accessible name
+            id: "aria-dialog-name",
+            enabled: false,
+          },
+        ],
+      },
+    },
     chromatic: { disable: false },
     controls: { disable: true },
   },

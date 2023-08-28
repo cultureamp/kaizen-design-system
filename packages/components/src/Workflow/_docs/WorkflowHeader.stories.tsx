@@ -69,7 +69,7 @@ export const Playground: StoryFn<HeaderProps> = ({
       <Button
         key="would-use-uui-2"
         label="Save and close"
-        icon={<CloseIcon />}
+        icon={<CloseIcon role="presentation" />}
         secondary
         iconPosition="end"
         onClick={(): void => alert("mock example of a save action")}
@@ -107,14 +107,14 @@ MultipleActions.args = {
     <Button
       key="would-use-uui-1"
       label="Preview"
-      icon={<VisibleIcon />}
+      icon={<VisibleIcon role="presentation" />}
       secondary
       iconPosition="start"
     />,
     <Button
       key="would-use-uui-2"
       label="Save and close"
-      icon={<CloseIcon />}
+      icon={<CloseIcon role="presentation" />}
       secondary
       iconPosition="end"
       onClick={(): void => alert("mock example of a save action")}
