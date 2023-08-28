@@ -1,12 +1,12 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { useSelectionContext } from "../../../provider"
+import { useSelectionContext } from "../../../context"
 import { SelectAllButton } from "."
 
 const user = userEvent.setup()
 
-jest.mock("../../../provider", () => ({
+jest.mock("../../../context", () => ({
   useSelectionContext: jest.fn(),
 }))
 

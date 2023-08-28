@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Collection } from "@react-types/shared"
 import classnames from "classnames"
-import { useSelectionContext } from "../../provider/SelectionProvider"
+import { useSelectionContext } from "../../context/SelectionProvider"
 import { MultiSelectItem } from "../../types"
 import styles from "./ListBox.module.scss"
 

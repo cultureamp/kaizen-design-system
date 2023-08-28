@@ -10,7 +10,7 @@ import { FilterButton, FilterButtonProps } from "../FilterButton"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../_subcomponents/FilterButtonBase"
+} from "../subcomponents/FilterButtonBase"
 
 export interface FilterButtonRemovableProps
   extends Omit<ButtonGroupProps, "children"> {

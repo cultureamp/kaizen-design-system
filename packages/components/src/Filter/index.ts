@@ -1,3 +1,3 @@
 export * from "./Filter"
-export * from "./components/FilterContents"
+export * from "./subcomponents/FilterContents"
 export * from "./types"

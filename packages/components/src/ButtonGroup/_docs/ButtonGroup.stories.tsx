@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { FilterButtonBase } from "~components/FilterButton/_subcomponents/FilterButtonBase"
+import { FilterButtonBase } from "~components/FilterButton/subcomponents/FilterButtonBase"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { ButtonGroup } from ".."

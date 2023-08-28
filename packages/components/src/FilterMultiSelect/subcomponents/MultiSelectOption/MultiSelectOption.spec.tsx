@@ -14,7 +14,7 @@ jest.mock("@react-aria/listbox", () => ({
   useOption: jest.fn(),
 }))
 
-jest.mock("../../provider", () => ({
+jest.mock("../../context", () => ({
   useSelectionContext: (): { selectionState: Record<string, unknown> } => ({
     selectionState: {},
   }),

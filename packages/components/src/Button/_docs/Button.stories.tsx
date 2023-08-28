@@ -24,12 +24,12 @@ const meta = {
       argTypesRegex: "^on.*",
     },
     installation: [
-      "npm install @kaizen/button",
-      "import { Button } from `@kaizen/button`",
+      "yarn add @kaizen/components",
+      "import { Button } from `@kaizen/components`",
     ],
     resourceLinks: {
       sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/button",
+        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Button",
       figma:
         "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit%3A-Heart?node-id=1929%3A17364",
       designGuidelines:

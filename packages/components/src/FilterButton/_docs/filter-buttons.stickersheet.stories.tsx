@@ -6,7 +6,7 @@ import {
 } from "~storybook/components/StickerSheet"
 import { FilterButton } from "../FilterButton"
 import { FilterButtonRemovable } from "../FilterButtonRemovable"
-import { FilterButtonBase } from "../_subcomponents/FilterButtonBase"
+import { FilterButtonBase } from "../subcomponents/FilterButtonBase"
 
 export default {
   title: "Components/Filter Base/Filter Buttons",
