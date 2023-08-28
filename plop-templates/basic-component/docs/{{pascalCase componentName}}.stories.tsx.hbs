@@ -1,10 +1,12 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { classNameOverrideArgType } from "~storybook/argTypes"
 import { {{pascalCase componentName}} } from "../index"
 
 const meta = {
   title: "Components/{{pascalCase componentName}}",
   component: {{pascalCase componentName}},
+  argTypes: { ...classNameOverrideArgType },
   args: {
     /**
      * @note: Put consistent default values here.
