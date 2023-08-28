@@ -9,7 +9,7 @@ import {
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
 import { Paragraph } from "@kaizen/typography"
-// import { ArrowLeftIcon } from "~icons/ArrowLeftIcon"
+import { ArrowLeftIcon } from "~icons/ArrowLeftIcon"
 import { ArrowRightIcon } from "~icons/ArrowRightIcon"
 import { EmailIcon } from "~icons/EmailIcon"
 // import feedbackClassifyIcon from "../../../icons/feedback-classify.icon.svg"
@@ -52,7 +52,7 @@ const IconRTLTemplate: Pick<Story, "render" | "parameters"> = {
           globals.textDirection === "ltr" ? (
             <ArrowRightIcon />
           ) : (
-            <div>Boo!</div>
+            <ArrowLeftIcon />
           ),
       }}
     />
