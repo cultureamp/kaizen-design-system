@@ -10,13 +10,11 @@ type BaseSVGProps = {
 type MeaningfulIcon = {
   role: "img"
   "aria-label": string
-  desc?: string
 } & OverrideClassName<SVGAttributes<SVGElement>>
 
 type DecorativeIcon = {
   role: "presentation"
   "aria-label"?: never
-  desc?: never
 }
 
 export type IconProps = BaseSVGProps & (MeaningfulIcon | DecorativeIcon)
@@ -33,7 +31,7 @@ export const SVG = ({
   viewBox = "0 0 20 20",
   classNameOverride,
   children,
-  ...props
+  ...restProps
 }: SVGProps): JSX.Element => {
   const classes = classnames(
     styles.icon,
@@ -48,17 +46,15 @@ export const SVG = ({
         viewBox={viewBox}
         role={role}
         aria-hidden={true}
-        {...props}
+        {...restProps}
       >
         {children}
       </svg>
     )
   }
 
-  const { desc, ...restProps } = props
   return (
     <svg role={role} className={classes} viewBox={viewBox} {...restProps}>
-      {desc && <desc>{desc}</desc>}
       {children}
     </svg>
   )
