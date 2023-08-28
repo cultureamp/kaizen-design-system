@@ -2,6 +2,8 @@ module.exports = (
   /** @type {import('plop').NodePlopAPI} */
   plop
 ) => {
+  plop.setHelper("preCurly", t => `{${t}`)
+
   plop.setGenerator("basic component", {
     description: "Generate a basic component",
     prompts: [

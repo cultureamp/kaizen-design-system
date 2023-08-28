@@ -18,17 +18,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      /** @note: Header is optional */
-      <StickerSheet.Header
-        headings={["COLUMN 1", "COLUMN 2"]}
-        hasVerticalHeadings
-      />
+      {/* @note: Header is optional */}
+      <StickerSheet.Header headings={["COLUMN 1", "COLUMN 2"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           {/** @todo: Add column 1 + row 1 props */}
-          <{{pascalCase componentName}} isReversed={isReversed} />
+          <{{pascalCase componentName}} exampleRequiredString="One" isReversed={isReversed} />
           {/** @todo: Add column 2 + row 1 props */}
-          <{{pascalCase componentName}} isReversed={isReversed} />
+          <{{pascalCase componentName}} exampleRequiredString="Two" isReversed={isReversed} />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>

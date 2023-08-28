@@ -1,0 +1,44 @@
+import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as {{pascalCase componentName}}Stories from "./{{pascalCase componentName}}.stories"
+
+<Meta of={{preCurly (pascalCase componentName)}}Stories} />
+
+# {{pascalCase componentName}}
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/{{pascalCase componentName}}"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { {{pascalCase componentName}} } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={{preCurly (pascalCase componentName)}}Stories.Playground} />
+<Controls of={{preCurly (pascalCase componentName)}}Stories.Playground} />
+
+## API
+
+{/*
+  * @todo: Describe props and provide example stories.
+  * You can choose to write in MDX or to use <Description />.
+  */}
+### Reversed
+<Description of={{preCurly (pascalCase componentName)}}Stories.Reversed} />
+<Canvas of={{preCurly (pascalCase componentName)}}Stories.Reversed} />
