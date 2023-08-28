@@ -4,12 +4,14 @@ Recipe for creating a basic component.
 
 - [Intro](#intro)
 - [Component structure](#component-structure)
+  - [Documentation](#documentation)
   - [Subcomponents](#subcomponents)
   - [Hooks and Utils](#hooks-and-utils)
   - [index.ts](#indexts-1)
   - [Component.tsx](#componenttsx)
   - [Styles](#styles)
   - [Tests](#tests)
+  - [Types](#types)
 - [Component.tsx template](#componenttsx-template)
   - [Props](#props)
   - [The component](#the-component)
@@ -17,7 +19,9 @@ Recipe for creating a basic component.
 
 ## Intro
 
-To generate a new component and package, new component within an existing package, or a subcomponent,
+All components are to be added to `packages/components`.
+
+To generate a new component or a subcomponent,
 run the following command and follow the prompts:
 ```
 yarn plop
@@ -35,7 +39,15 @@ Given the component `PancakeStack`, the component structure will follow this:
 /* Component */
 src/
   PancakeStack/
-    components/
+    _docs/
+      - PancakeStack.mdx
+      - PancakeStack.stickersheet.stories.tsx
+      - PancakeStack.stories.tsx
+    hooks/
+      - index.ts
+      - useHook.ts
+      - useHook.spec.ts
+    subcomponents/
       - Pancake/
         - index.ts
         - Pancake.tsx
@@ -46,10 +58,6 @@ src/
         - Topping.tsx
         - Topping.module.scss
         - Topping.spec.tsx
-    hooks/
-      - index.ts
-      - useHook.ts
-      - useHook.spec.ts
     utils/
       - index.ts
       - groupedFunctions.ts (eg. getters)
@@ -62,11 +70,16 @@ src/
     - PancakeStack.tsx
     - PancakeStack.module.scss
     - PancakeStack.spec.tsx
+    - types.ts
 ```
+
+### Documentation
+
+The `_docs/` folder houses Storybook stories and stickersheets, and the directory is excluded from the published package.
 
 ### Subcomponents
 
-Subcomponents live in the `components/` directory and should not have subcomponents of their own. If you are finding that you want subcomponents for your subcomponents, then one (or both) should be a component instead.
+Subcomponents live in the `subcomponents/` directory and should not have subcomponents of their own. If you are finding that you want subcomponents for your subcomponents, then one (or both) should be a component instead.
 
 Aside from the above, subcomponents should follow the same structure as a normal component.
 
@@ -106,7 +119,13 @@ If you require scss variables or mixins to be shared between the parent and its 
 
 Test files should be named to match the component/function name (eg. `Pancake.spec.tsx` and `functionName.ts`) and live in the same directory.
 
-Ideally we would want to avoid snapshot tests as they do not have meaningful assertions/expectations and are very fragile (they can break with insignificant changes). We should instead write unit and functional tests.
+We should only write unit and functional tests in these files, and not snapshot tests as they do not have meaningful assertions/expectations.
+
+For visual regression testing, create a stickersheet story in Storybook and send it to Chromatic.
+
+### Types
+
+For any shared/useful TypeScript types that do not make sense to belong in the file it is used, create a `types.ts` file and export the types from `index.ts`.
 
 ## Component.tsx template
 
@@ -116,7 +135,7 @@ A basic component will follow this template:
 // PancakeStack.tsx
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
+import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./PancakeStack.module.scss"
 
 export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
@@ -165,7 +184,7 @@ PancakeStack.displayName = "PancakeStack"
 
 ```tsx
 import { HTMLAttributes } from "react"
-import { OverrideClassName } from "@kaizen/component-base"
+import { OverrideClassName } from "~types/OverrideClassName"
 
 export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
   children: React.ReactNode
