@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { InlineNotification } from "@kaizen/notification"
-import { StickerSheet } from "../../../../storybook/components/StickerSheet"
+import { StickerSheet } from "~storybook/components/StickerSheet"
 import { CodeSnippet } from "./CodeSnippet"
 
 type Props = {
   compiledCssPropertyName: string
-  classKeyValues: Array<{ utilityClassName; cssProperty }>
+  classKeyValues: Array<{ utilityClassName: string; cssProperty: string }>
   renderExampleComponent: (utilityClass: string) => React.ReactElement
   isReversed?: boolean
 }

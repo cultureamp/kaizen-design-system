@@ -20,6 +20,11 @@
     }
   },
   "files": ["./types.d.ts"],
-  "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],
+  "include": [
+    "packages/**/*",
+    "draft-packages/**/*",
+    "storybook/**/*",
+    "docs/**/*.tsx"
+  ],
   "exclude": ["**/node_modules", "packages/components/**/*"]
 }
