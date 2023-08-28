@@ -19,12 +19,9 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-  args: { textDirection: "ltr" },
 } satisfies Meta
 
-const StickerSheetTemplate: StickerSheetStory["render"] = ({
-  textDirection,
-}) => {
+const StickerSheetTemplate: StickerSheetStory["render"] = () => {
   const [isOpenNoValue, setIsOpenNoValue] = useState<boolean>(IS_CHROMATIC)
   const [isOpenValue, setIsOpenValue] = useState<boolean>(false)
 
@@ -77,7 +74,7 @@ const StickerSheetTemplate: StickerSheetStory["render"] = ({
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-dp-field--default`}
+              id="stickersheet--filter-dp-field--default"
               inputProps={{ labelText: "Date" }}
               locale="en-AU"
               defaultMonth={new Date("2022-05-01")}
@@ -87,7 +84,7 @@ const StickerSheetTemplate: StickerSheetStory["render"] = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Existing value">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-dp-field--existing`}
+              id="stickersheet--filter-dp-field--existing"
               inputProps={{ labelText: "Date" }}
               locale="en-AU"
               selectedDate={dateValue}
@@ -96,7 +93,7 @@ const StickerSheetTemplate: StickerSheetStory["render"] = ({
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Validation">
             <FilterDatePickerField
-              id={`${textDirection}-stickersheet--filter-dp-field--validation`}
+              id="stickersheet--filter-dp-field--validation"
               inputProps={{ labelText: "Date" }}
               locale="en-AU"
               selectedDate={dateValueValidation}
@@ -124,5 +121,5 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetRTL: StickerSheetStory = {
   render: StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  args: { textDirection: "rtl" },
+  parameters: { textDirection: "rtl" },
 }

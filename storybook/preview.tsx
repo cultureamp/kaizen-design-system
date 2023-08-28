@@ -32,7 +32,7 @@ const decorators = [
     </ThemeContext.Provider>
   ),
   (Story, props): JSX.Element => {
-    const dir = props.args.textDirection ?? props.globals.textDirection
+    const dir = props.parameters.textDirection ?? props.globals.textDirection
     return (
       <div dir={dir}>
         <KaizenProvider>
