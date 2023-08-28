@@ -4,7 +4,7 @@ import isChromatic from "chromatic"
 import {
   StickerSheet,
   StickerSheetStory,
-} from "../../../../../storybook/components/StickerSheet"
+} from "~storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
 import {

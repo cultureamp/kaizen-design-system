@@ -5,7 +5,7 @@ import { FilterButton } from "~components/FilterButton"
 import {
   StickerSheet,
   StickerSheetStory,
-} from "../../../../../storybook/components/StickerSheet"
+} from "~storybook/components/StickerSheet"
 import { Filter, FilterContents } from ".."
 
 const IS_CHROMATIC = isChromatic()

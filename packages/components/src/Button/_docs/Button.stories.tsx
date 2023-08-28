@@ -4,8 +4,8 @@ import { TextField } from "@kaizen/draft-form"
 import { LoadingInput } from "@kaizen/loading-skeleton"
 import { AddIcon } from "~components/SVG/icons/AddIcon"
 import { ArrowRightIcon } from "~components/SVG/icons/ArrowRightIcon"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
+import { StickerSheet } from "~storybook/components/StickerSheet"
 import { Button } from "../index"
 
 const meta = {

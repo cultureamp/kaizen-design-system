@@ -14,6 +14,7 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "paths": {
+      "~storybook/*": ["../../storybook/*"],
       "~types/*": ["src/types/*"],
       "~utils/*": ["src/utils/*"],
       "~components/*": ["src/*"],

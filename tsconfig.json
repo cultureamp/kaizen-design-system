@@ -13,6 +13,7 @@
     "allowJs": false,
     "noEmit": true,
     "paths": {
+      "~storybook/*": ["storybook/*"],
       "~types/*": ["packages/components/src/types/*"],
       "~utils/*": ["packages/components/src/utils/*"],
       "~components/*": ["packages/components/src/*"],

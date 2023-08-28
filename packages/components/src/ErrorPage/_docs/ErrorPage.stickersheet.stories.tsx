@@ -3,7 +3,7 @@ import { Meta } from "@storybook/react"
 import {
   StickerSheet,
   StickerSheetStory,
-} from "../../../../../storybook/components/StickerSheet"
+} from "~storybook/components/StickerSheet"
 import { ErrorPage } from "../ErrorPage"
 
 export default {

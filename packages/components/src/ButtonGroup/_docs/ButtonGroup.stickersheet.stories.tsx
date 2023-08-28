@@ -5,7 +5,7 @@ import { FilterButtonBase } from "~components/FilterButton/_subcomponents/Filter
 import {
   StickerSheet,
   StickerSheetStory,
-} from "../../../../../storybook/components/StickerSheet"
+} from "~storybook/components/StickerSheet"
 import { ButtonGroup } from "../index"
 
 export default {

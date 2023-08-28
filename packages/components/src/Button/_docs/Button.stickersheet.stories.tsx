@@ -4,7 +4,7 @@ import { AddIcon } from "~components/SVG/icons/AddIcon"
 import {
   StickerSheet,
   StickerSheetStory,
-} from "../../../../../storybook/components/StickerSheet"
+} from "~storybook/components/StickerSheet"
 import { Button, ButtonProps } from "../index"
 
 export default {

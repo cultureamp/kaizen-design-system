@@ -55,11 +55,6 @@ module.exports = (
           destination: `packages/components/${src}/{{pascalCase componentName}}/_docs`,
           base: "plop-templates/basic-component/docs",
           templateFiles: "plop-templates/basic-component/docs/**/*.hbs",
-          data: {
-            storybookDir: isFuture
-              ? "../../../../../../storybook"
-              : "../../../../../storybook",
-          },
         },
         {
           type: "modify",

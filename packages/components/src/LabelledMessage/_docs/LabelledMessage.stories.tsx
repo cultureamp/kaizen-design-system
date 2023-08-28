@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { ComponentDocsTemplate } from "../../../../../storybook/components/DocsContainer"
+import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { LabelledMessage } from "../LabelledMessage"
 
 const meta = {
