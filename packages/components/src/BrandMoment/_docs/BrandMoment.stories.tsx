@@ -1,102 +1,132 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { BrandMoment } from "@kaizen/brand-moment"
+import { Meta, StoryObj } from "@storybook/react"
+import isChromatic from "chromatic"
 import {
   BrandMomentCaptureIntro,
   BrandMomentPositiveOutro,
   BrandMomentError,
+  AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
 import { Paragraph } from "@kaizen/typography"
-import arrowLeftIcon from "../../../icons/arrow-left.icon.svg"
-import arrowRightIcon from "../../../icons/arrow-right.icon.svg"
-import mailIcon from "../../../icons/email.icon.svg"
-import feedbackClassifyIcon from "../../../icons/feedback-classify.icon.svg"
-import securityTipIcon from "../../../icons/security-tip.icon.svg"
+// import { ArrowLeftIcon } from "~icons/ArrowLeftIcon"
+import { ArrowRightIcon } from "~icons/ArrowRightIcon"
+import { EmailIcon } from "~icons/EmailIcon"
+// import feedbackClassifyIcon from "../../../icons/feedback-classify.icon.svg"
+// import securityTipIcon from "../../../icons/security-tip.icon.svg"
+import { BrandMoment } from "../index"
 import {
   MinimalBasic,
   MinimalCustomerFocused,
   FakeNavBar,
 } from "./ExampleHeaders"
 
-export default {
+const IS_CHROMATIC = isChromatic()
+
+const illustrationProps = (
+  IS_CHROMATIC ? {} : { isAnimated: true, loop: true }
+) satisfies AnimatedSceneProps
+
+const meta = {
   // Not to be released until full KAIO migration
   // tags: ["autodocs"],
   title: "Components/Brand Moment",
   component: BrandMoment,
   parameters: {
+    chromatic: { disable: false },
+  },
+} satisfies Meta<typeof BrandMoment>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+const IconRTLTemplate: Pick<Story, "render" | "parameters"> = {
+  render: ({ primaryAction, ...args }, { globals }) => (
+    <BrandMoment
+      {...args}
+      primaryAction={{
+        label: "Primary action label",
+        ...primaryAction,
+        icon:
+          globals.textDirection === "ltr" ? (
+            <ArrowRightIcon />
+          ) : (
+            <div>Boo!</div>
+          ),
+      }}
+    />
+  ),
+  parameters: {
     docs: {
-      description: {
-        component: 'import { BrandMoment } from "@kaizen/brand-moment";',
+      source: {
+        // Code snippets will cause the browser to freeze when using JSX.Elements
+        // within an object form prop, thus we must disable them to flip the
+        // primaryAction icon when changing the global text direction
+        code: "disabled",
       },
     },
   },
-  decorators: [
-    (story, { globals: { textDirection } }): JSX.Element => (
-      <div id="brand-moment-container" style={{ margin: "-1rem" }}>
-        {story({ isRTL: textDirection === "rtl" })}
-      </div>
-    ),
-  ],
-} satisfies Meta<typeof BrandMoment>
+}
 
-export const InformativeIntro: StoryFn<typeof BrandMoment> = (_, { isRTL }) => (
-  <BrandMoment
-    mood="informative"
-    illustration={<BrandMomentCaptureIntro isAnimated loop />}
-    header={<MinimalBasic />}
-    text={{
+export const InformativeIntro: Story = {
+  ...IconRTLTemplate,
+  name: "Informative intro",
+  args: {
+    mood: "informative",
+    illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
+    header: <MinimalBasic />,
+    text: {
       subtitle: "Welcome to Culture Amp",
-      title: "Let’s dive in and see how it works",
-    }}
-    primaryAction={{
+      title: "Let's dive in and see how it works",
+    },
+    primaryAction: {
       label: "Get started",
       href: "#",
-      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
+      icon: <ArrowRightIcon />,
       iconPosition: "end",
-    }}
-  />
-)
-InformativeIntro.storyName = "Informative intro"
-InformativeIntro.parameters = { chromatic: { disable: false } }
+    },
+  },
+}
 
-export const PositiveOutro: StoryFn<typeof BrandMoment> = (_, { isRTL }) => (
-  <BrandMoment
-    mood="positive"
-    illustration={<BrandMomentPositiveOutro isAnimated loop />}
-    header={<MinimalBasic />}
-    text={{
+export const PositiveOutro: Story = {
+  ...IconRTLTemplate,
+  name: "Positive outro",
+  args: {
+    mood: "positive",
+    illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
+    header: <MinimalBasic />,
+    text: {
       title: "Import in progress",
       body: (
         <>
-          That’s it for now. Your data is importing but you don’t need to hang
-          out here while it happens. Get on with your day and we’ll let you know
-          on the <a href="#">Users page</a> when it’s complete.
+          That&apos;s it for now. Your data is importing but you don&apos;t need
+          to hang out here while it happens. Get on with your day and we&apos;ll
+          let you know on the <a href="#">Users page</a> when it&apos;s
+          complete.
         </>
       ),
-    }}
-    primaryAction={{
+    },
+    primaryAction: {
       label: "Go to Users",
       href: "#",
-      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
+      icon: <ArrowRightIcon />,
       iconPosition: "end",
-    }}
-  />
-)
-PositiveOutro.storyName = "Positive outro"
+    },
+  },
+}
 
-export const InformativeIntroCustomerFocused: StoryFn<typeof BrandMoment> = (
-  _,
-  { isRTL }
-) => (
-  <BrandMoment
-    mood="informative"
-    illustration={<BrandMomentCaptureIntro isAnimated loop />}
-    header={<MinimalCustomerFocused />}
-    text={{
+export const InformativeIntroCustomerFocused: Story = {
+  ...IconRTLTemplate,
+  name: "Informative intro (customer focused)",
+  args: {
+    mood: "informative",
+    illustration: <BrandMomentCaptureIntro {...illustrationProps} />,
+    header: <MinimalCustomerFocused />,
+    text: {
       subtitle: "A survey for Hooli",
       title: "Manager Effectiveness Survey",
-      body: "Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective.",
+      body: "Thank you for taking the time to respond to this survey. It'll help us better understand your experience and perspective.",
       footer: (
         <>
           Your responses and information are securely collected and kept by
@@ -106,33 +136,31 @@ export const InformativeIntroCustomerFocused: StoryFn<typeof BrandMoment> = (
           us at <a href="#">support@cultureamp.com</a>.
         </>
       ),
-    }}
-    primaryAction={{
+    },
+    primaryAction: {
       label: "Take survey",
       href: "#",
-      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
+      icon: <ArrowRightIcon />,
       iconPosition: "end",
-    }}
-    secondaryAction={{
+    },
+    secondaryAction: {
       label: "About data safety",
-      icon: securityTipIcon,
-    }}
-  />
-)
-InformativeIntroCustomerFocused.storyName =
-  "Informative intro (customer focused)"
+      // @TODO: add this
+      // icon: securityTipIcon,
+    },
+  },
+}
 
-export const PositiveOutroCustomerFocused: StoryFn<typeof BrandMoment> = (
-  _,
-  { isRTL }
-) => (
-  <BrandMoment
-    mood="positive"
-    illustration={<BrandMomentPositiveOutro isAnimated loop />}
-    header={<MinimalCustomerFocused />}
-    text={{
+export const PositiveOutroCustomerFocused: Story = {
+  ...IconRTLTemplate,
+  name: "Positive outro (customer focused)",
+  args: {
+    mood: "positive",
+    illustration: <BrandMomentPositiveOutro {...illustrationProps} />,
+    header: <MinimalCustomerFocused />,
+    text: {
       subtitle: "Manager Effectiveness Survey",
-      title: "That’s it — thank you",
+      title: "That's it — thank you",
       body: (
         <>
           Your responses have been securely recorded. If you need to, you can{" "}
@@ -148,53 +176,52 @@ export const PositiveOutroCustomerFocused: StoryFn<typeof BrandMoment> = (
           us at <a href="#">support@cultureamp.com</a>.
         </>
       ),
-    }}
-    primaryAction={{
+    },
+    primaryAction: {
       label: "Go to Home",
       href: "#",
-      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
+      icon: <ArrowRightIcon />,
       iconPosition: "end",
-    }}
-    secondaryAction={{
+    },
+    secondaryAction: {
       label: "Rate this survey",
-      icon: feedbackClassifyIcon,
-    }}
-  />
-)
-PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
-PositiveOutroCustomerFocused.parameters = { chromatic: { disable: false } }
+      // @TODO: add this
+      // icon: feedbackClassifyIcon,
+    },
+  },
+}
 
-export const Error: StoryFn<typeof BrandMoment> = (_, { isRTL }) => (
-  <BrandMoment
-    mood="negative"
-    illustration={<BrandMomentError isAnimated loop />}
-    header={<FakeNavBar />}
-    text={{
-      title: "Missing pages are one of life’s mysteries",
-    }}
-    body={
+export const Error: Story = {
+  ...IconRTLTemplate,
+  args: {
+    mood: "negative",
+    illustration: <BrandMomentError {...illustrationProps} />,
+    header: <FakeNavBar />,
+    text: {
+      title: "Missing pages are one of life's mysteries",
+    },
+    body: (
       <>
         <div className="mb-16">
           <Paragraph variant="intro-lede">
-            Sorry but we can’t find the page you’re looking for. Go back and try
-            again, or head to <a href="#">Home</a>.
+            Sorry but we can&apos;t find the page you&apos;re looking for. Go
+            back and try again, or head to <a href="#">Home</a>.
           </Paragraph>
         </div>
         <Paragraph variant="small" color="dark-reduced-opacity">
           Error code 404
         </Paragraph>
       </>
-    }
-    primaryAction={{
+    ),
+    primaryAction: {
       label: "Go to Home",
       href: "#",
-      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
+      icon: <ArrowRightIcon />,
       iconPosition: "end",
-    }}
-    secondaryAction={{
+    },
+    secondaryAction: {
       label: "Contact support",
-      icon: mailIcon,
-    }}
-  />
-)
-Error.parameters = { chromatic: { disable: false } }
+      icon: <EmailIcon />,
+    },
+  },
+}
