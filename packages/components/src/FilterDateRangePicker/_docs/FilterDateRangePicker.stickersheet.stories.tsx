@@ -20,28 +20,13 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      // Translated strings start as an empty string which fails a11y.
+      // Allow the strings to populate before running axe.
+      timeout: 3000,
+    },
   },
 } satisfies Meta
-
-const applyStickerSheetStyles = async (
-  canvasElement: HTMLElement
-): Promise<void> => {
-  const canvas = within(canvasElement)
-
-  const validationInputEndDate = canvas.getByTestId(
-    "test__filter-drp-field--validation--end"
-  )
-  await userEvent.click(validationInputEndDate)
-  await userEvent.type(validationInputEndDate, "potato")
-  await userEvent.click(document.body)
-
-  if (IS_CHROMATIC) {
-    const partialRangeButton = canvas.getByTestId(
-      "stickersheet--filter-drp--partial-range-button"
-    )
-    await userEvent.click(partialRangeButton)
-  }
-}
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
@@ -177,7 +162,23 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StaticIntlProvider>
     )
   },
-  play: ({ canvasElement }) => applyStickerSheetStyles(canvasElement),
+  play: async ({ canvasElement }): Promise<void> => {
+    const canvas = within(canvasElement)
+
+    const validationInputEndDate = canvas.getByTestId(
+      "test__filter-drp-field--validation--end"
+    )
+    await userEvent.click(validationInputEndDate)
+    await userEvent.type(validationInputEndDate, "potato")
+    await userEvent.click(document.body)
+
+    if (IS_CHROMATIC) {
+      const partialRangeButton = canvas.getByTestId(
+        "stickersheet--filter-drp--partial-range-button"
+      )
+      await userEvent.click(partialRangeButton)
+    }
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {

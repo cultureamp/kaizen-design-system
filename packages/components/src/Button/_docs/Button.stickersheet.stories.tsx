@@ -12,6 +12,10 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      // Fade-in animation has colour contrast issues.
+      timeout: 1000,
+    },
   },
 } satisfies Meta
 

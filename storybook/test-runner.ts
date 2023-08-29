@@ -24,8 +24,9 @@ export const postRender: TestHook = async (page, context) => {
 
   await configureAxe(page, { ...parameters.a11y?.config, rules })
 
-  // give it time to finish all fade-in animations
-  await page.waitForTimeout(1000)
+  if (parameters?.a11y?.timeout) {
+    await page.waitForTimeout(parameters.a11y.timeout)
+  }
 
   const a11yResults = await getAxeResults(
     page,

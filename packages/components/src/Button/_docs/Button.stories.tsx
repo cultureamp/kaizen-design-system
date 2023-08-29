@@ -17,6 +17,10 @@ const meta = {
     label: "Label",
   },
   parameters: {
+    a11y: {
+      // Fade-in animation has colour contrast issues.
+      timeout: 1000,
+    },
     docs: {
       container: ComponentDocsTemplate,
     },
