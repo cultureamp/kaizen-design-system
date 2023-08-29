@@ -2,4 +2,7 @@
 "@kaizen/components": patch
 ---
 
-Rename directories to match convention (clean up only).
+Clean up @kaizen/components.
+
+- Add `isAnimated` prop to `ErrorPage` for Chromatic compatibility
+- Rename directories to match convention

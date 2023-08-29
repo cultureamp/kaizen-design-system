@@ -1,7 +1,10 @@
 import React, { HTMLAttributes } from "react"
 import { FormattedMessage, useIntl } from "@cultureamp/i18n-react-intl"
 import classNames from "classnames"
-import { BrandMomentError } from "@kaizen/draft-illustration"
+import {
+  AnimatedSceneProps,
+  BrandMomentError,
+} from "@kaizen/draft-illustration"
 import { Paragraph } from "@kaizen/typography"
 import { BrandMoment } from "~components/BrandMoment"
 import { ArrowRightIcon } from "~components/SVG/icons/ArrowRightIcon"
@@ -27,15 +30,17 @@ export type ErrorPageProps = {
     onContactSupport: () => void
     homeHref?: string
   }
+  isAnimated?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export function ErrorPage({
+export const ErrorPage = ({
   code,
   title,
   message,
   callToAction,
   classNameOverride,
-}: ErrorPageProps): JSX.Element {
+  isAnimated = true,
+}: ErrorPageProps): JSX.Element => {
   const { formatMessage } = useIntl()
   const content = useErrorMessages(code)
 
@@ -45,6 +50,10 @@ export function ErrorPage({
       ? { onClick: callToAction.onContactSupport }
       : { href: getMailToHref(code) },
   }
+
+  const illustrationProps = (
+    isAnimated ? { isAnimated: true, loop: true } : {}
+  ) satisfies AnimatedSceneProps
 
   return (
     <div className={classNames(classNameOverride)}>
@@ -66,7 +75,7 @@ export function ErrorPage({
             </Paragraph>
           </>
         }
-        illustration={<BrandMomentError isAnimated loop />}
+        illustration={<BrandMomentError {...illustrationProps} />}
         mood="negative"
         primaryAction={{
           ...actions.primary,
