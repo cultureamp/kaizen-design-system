@@ -3,6 +3,7 @@
 Recipe for creating a basic component.
 
 - [Intro](#intro)
+- [Adding a new component](#adding-a-new-component)
 - [Component structure](#component-structure)
   - [Documentation](#documentation)
   - [Subcomponents](#subcomponents)
@@ -19,7 +20,17 @@ Recipe for creating a basic component.
 
 ## Intro
 
-All components are to be added to `packages/components`.
+There are 2 types of components that live in `@kaizen/components`, `src` and `future`, both are **production safe**.
+
+### src components
+
+These are components which are essentially the "main" branch of components and only receive non-breaking changes. **Any brand new components should go here.**
+
+### future components
+
+Components which have an existing `src` component equivalent, but have any breaking changes to their API. Eventually `future` components will replace their `src` equivalent in the next major release.
+
+## Adding a new component
 
 To generate a new component or a subcomponent,
 run the following command and follow the prompts:
@@ -37,7 +48,7 @@ Given the component `PancakeStack`, the component structure will follow this:
 
 ```
 /* Component */
-src/
+src/(__future__/)
   PancakeStack/
     _docs/
       - PancakeStack.mdx
