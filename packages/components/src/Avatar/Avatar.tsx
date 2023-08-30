@@ -107,8 +107,8 @@ const renderInitials = (
 }
 
 /**
- * {@link https://cultureamp.design/components/avatar/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-avatar-avatar--default-story Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857475/Avatar Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-avatar-avatar--default-story Storybook}
  */
 export const Avatar = ({
   fullName,
