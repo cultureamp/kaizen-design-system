@@ -71,8 +71,8 @@ const renderAvatars = (
 )
 
 /**
- * {@link https://cultureamp.design/components/avatar-group/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-avatar-avatar-group--default-story Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3065021264/Avatar+Group Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-avatar-avatar-group--default-story Storybook}
  */
 export const AvatarGroup = ({
   size = "medium",
