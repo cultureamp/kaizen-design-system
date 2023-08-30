@@ -54,10 +54,7 @@ export interface CompanyAvatarProps extends BaseAvatarProps {
 
 export type AvatarProps = GenericAvatarProps | CompanyAvatarProps
 
-const getInitials: (fullName?: string, max2Characters?: boolean) => string = (
-  fullName,
-  max2Characters = false
-) =>
+const getInitials = (fullName?: string, max2Characters: boolean = false): string =>
   fullName == null
     ? ""
     : fullName
