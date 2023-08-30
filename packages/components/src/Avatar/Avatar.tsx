@@ -75,7 +75,14 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
 
 const fallbackIcon = (fullName: string): JSX.Element => (
   // @todo: replace with Icon when ready
-  <span className={styles.fallbackIcon}>Hello {fullName}</span>
+  // <span className={styles.fallbackIcon}>
+  //   <Icon
+  //     inheritSize
+  //     role={fullName ? "img" : "presentation"}
+  //     title={fullName}
+  //     icon={userIcon}
+  //   />
+  // </span>
 )
 
 const renderInitials = (
