@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./MenuFooter.module.scss"
 
-export interface MenuFooterProps {
+export type MenuFooterProps = {
   children: React.ReactNode
 }
 

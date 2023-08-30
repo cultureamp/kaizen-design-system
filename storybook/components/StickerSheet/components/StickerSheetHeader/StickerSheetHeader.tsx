@@ -1,14 +1,13 @@
 import React, { HTMLAttributes } from "react"
 import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
 
-export interface StickerSheetHeaderProps
-  extends HTMLAttributes<HTMLTableSectionElement> {
+export type StickerSheetHeaderProps = {
   headings: string[]
   headingsWidth?: number | string
   isReversed?: boolean
   hasVerticalHeadings?: boolean
   verticalHeadingsWidth?: number | string
-}
+} & HTMLAttributes<HTMLTableSectionElement>
 
 export const StickerSheetHeader = ({
   headings,

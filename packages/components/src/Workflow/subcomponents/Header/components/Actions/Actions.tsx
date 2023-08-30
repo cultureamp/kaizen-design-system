@@ -2,13 +2,12 @@ import React, { HTMLAttributes } from "react"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Actions.module.scss"
 
-export interface WorkflowActionsProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">> {
+export type WorkflowActionsProps = {
   /**
    * Header actions will render in order of the array.
    */
   headerActions?: JSX.Element[]
-}
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "children">>
 
 /** A wrapper for an exit trigger (and other) actions of the Header Workflow  */
 export const Actions = ({

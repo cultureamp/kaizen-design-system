@@ -4,7 +4,7 @@ import { InputSearch } from "~components/InputSearch"
 import { useSelectionContext } from "../../context"
 import styles from "./SearchInput.module.scss"
 
-export interface SearchInputProps {
+export type SearchInputProps = {
   label?: string
   id?: string
   isLoading?: boolean

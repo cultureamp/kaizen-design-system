@@ -20,12 +20,11 @@ const isReversibleSubcomponent = (
   React.isValidElement<ReversibleSubcomponents>(child) &&
   (child.type === StickerSheetHeader || child.type === StickerSheetBody)
 
-export interface StickerSheetProps
-  extends TableHTMLAttributes<HTMLTableElement> {
+export type StickerSheetProps = {
   children: React.ReactNode
   heading?: string
   isReversed?: boolean
-}
+} & TableHTMLAttributes<HTMLTableElement>
 
 export const StickerSheet = ({
   children,

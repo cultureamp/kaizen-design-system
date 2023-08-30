@@ -1,5 +1,4 @@
 import React, { HTMLAttributes } from "react"
-// import classnames from "classnames"
 import { Tag, DefaultTagProps } from "@kaizen/draft-tag"
 import { Heading } from "@kaizen/typography"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -11,12 +10,11 @@ export type WorkflowStatus = {
   content?: string
 }
 
-export interface WorkflowTitlesProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type WorkflowTitlesProps = {
   workflowName: string
   stepName: string
   status?: WorkflowStatus
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Titles = ({
   workflowName,

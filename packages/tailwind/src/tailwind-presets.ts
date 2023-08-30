@@ -3,7 +3,7 @@ import { defaultTheme } from "@kaizen/design-tokens"
 import { kzSpacing } from "./kz-spacing"
 
 export type KaizenTailwindTheme = Partial<ThemeConfig>
-export interface KaizenTailwindPreset {
+export type KaizenTailwindPreset = {
   theme: KaizenTailwindTheme
 }
 

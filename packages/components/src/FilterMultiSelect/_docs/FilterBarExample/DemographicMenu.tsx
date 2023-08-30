@@ -2,7 +2,7 @@ import React from "react"
 import { Menu, MenuItem, MenuList } from "@kaizen/draft-menu"
 import { Button, ButtonRef } from "~components/Button"
 
-export interface DemographicMenuProps {
+export type DemographicMenuProps = {
   isAddFilterDisabled: boolean
   addFilterButtonRef?: React.Ref<ButtonRef | undefined>
   groups: Array<{
@@ -12,6 +12,7 @@ export interface DemographicMenuProps {
   isSelected: (id: string) => boolean
   addFilter: (id: string) => void
 }
+
 export const DemographicMenu = ({
   isAddFilterDisabled,
   addFilterButtonRef,

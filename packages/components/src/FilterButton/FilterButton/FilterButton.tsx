@@ -10,12 +10,11 @@ import {
 } from "../subcomponents/FilterButtonBase"
 import styles from "./FilterButton.module.scss"
 
-export interface FilterButtonProps
-  extends Omit<FilterButtonBaseProps, "children"> {
+export type FilterButtonProps = {
   label: string
   selectedValue?: string | JSX.Element
   isOpen?: boolean
-}
+} & Omit<FilterButtonBaseProps, "children">
 
 export const FilterButton = forwardRef<FilterTriggerRef, FilterButtonProps>(
   (

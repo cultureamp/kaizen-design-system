@@ -2,11 +2,10 @@ import React, { ThHTMLAttributes } from "react"
 import classnames from "classnames"
 import styles from "./StickerSheetTableHeading.module.scss"
 
-export interface StickerSheetTableHeadingProps
-  extends ThHTMLAttributes<HTMLTableCellElement> {
+export type StickerSheetTableHeadingProps = {
   children: React.ReactNode
   isReversed?: boolean
-}
+} & ThHTMLAttributes<HTMLTableCellElement>
 
 export const StickerSheetTableHeading = ({
   children,

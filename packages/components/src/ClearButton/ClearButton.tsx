@@ -4,13 +4,9 @@ import { ClearIcon } from "~components/SVG/icons/ClearIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./ClearButton.module.scss"
 
-export interface ClearButtonProps
-  extends Omit<
-    OverrideClassName<ButtonHTMLAttributes<HTMLButtonElement>>,
-    "children"
-  > {
+export type ClearButtonProps = {
   isReversed?: boolean
-}
+} & OverrideClassName<Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">>
 
 export const ClearButton = ({
   classNameOverride,
