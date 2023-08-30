@@ -23,8 +23,7 @@ import styles from "./FilterDatePickerField.module.scss"
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
-export interface FilterDatePickerFieldProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type FilterDatePickerFieldProps = {
   id?: string
   locale: FilterDateSupportedLocales
   /**
@@ -62,7 +61,7 @@ export interface FilterDatePickerFieldProps
    */
   onValidate?: (validationResponse: DateValidationResponse) => void
   setIsFilterOpen?: FilterProps["setIsOpen"]
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const FilterDatePickerField = ({
   id: propsId,

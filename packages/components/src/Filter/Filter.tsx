@@ -4,8 +4,7 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { FilterPopover } from "./subcomponents/FilterPopover"
 import { FilterTriggerRef } from "./types"
 
-export interface FilterProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type FilterProps = {
   children: React.ReactNode
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
@@ -14,7 +13,7 @@ export interface FilterProps
     isOpen: boolean
   }) => JSX.Element & { ref?: React.RefObject<FilterTriggerRef> }
   onMount?: (triggerRef: React.RefObject<HTMLButtonElement>) => void
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Filter = ({
   children,

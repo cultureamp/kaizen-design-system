@@ -14,7 +14,7 @@ import {
 import { ItemType } from "../../types"
 import { MenuPopup, MenuPopupProps } from "../MenuPopup"
 
-interface SelectionProps {
+type SelectionProps = {
   label: string // provide A11y context for listbox
   items: ItemType[]
   selectedKeys?: Selection
@@ -24,13 +24,12 @@ interface SelectionProps {
   onSearchInputChange?: (searchInput: string) => void
 }
 
-export interface RootProps
-  extends Omit<MenuPopupProps, "children">,
-    Omit<MenuTriggerProviderProps, "children">,
-    SelectionProps {
+export type RootProps = {
   trigger: (value?: MenuTriggerProviderContextType) => React.ReactNode
   children: (value?: SelectionProviderContextType) => React.ReactNode // the content of the menu
-}
+} & Omit<MenuPopupProps, "children"> &
+  Omit<MenuTriggerProviderProps, "children"> &
+  SelectionProps
 
 export const Root = ({
   trigger,

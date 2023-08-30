@@ -5,12 +5,11 @@ import { usePopper } from "react-popper"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./FilterPopover.module.scss"
 
-export interface FilterPopoverProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type FilterPopoverProps = {
   children: React.ReactNode
   referenceElement: HTMLElement | null
   popperOptions?: Partial<Options>
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const FilterPopover = ({
   children,

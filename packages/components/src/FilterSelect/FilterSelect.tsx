@@ -29,17 +29,14 @@ type OmittedAriaSelectProps =
   | "defaultOpen"
   | "items"
 
-export interface FilterSelectProps<Option extends SelectOption = SelectOption>
-  extends OverrideClassName<
-    Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>
-  > {
+export type FilterSelectProps<Option extends SelectOption = SelectOption> = {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
   children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
   items: Array<SelectItem<Option>>
-}
+} & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 export const FilterSelect = <Option extends SelectOption = SelectOption>({
   isOpen,

@@ -5,7 +5,7 @@ import { SelectOption, SelectOptionGroupNode } from "../../types"
 import { Option } from "../Option/Option"
 import styles from "./ListBoxSection.module.scss"
 
-export interface ListBoxSectionProps<Option extends SelectOption> {
+export type ListBoxSectionProps<Option extends SelectOption> = {
   section: SelectOptionGroupNode<Option>
 }
 

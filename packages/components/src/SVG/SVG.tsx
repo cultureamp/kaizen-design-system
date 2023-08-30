@@ -8,13 +8,13 @@ type RolesType =
   | "img" // meaningful, title should be read aloud to users who can't see it
   | "presentation" // decorative, should be silent to users who can't see it
 
-export interface SVGProps extends OverrideClassName<SVGAttributes<SVGElement>> {
+export type SVGProps = {
   children: ReactNode
   inheritSize?: boolean
   role?: RolesType
   title?: string
   desc?: string
-}
+} & OverrideClassName<SVGAttributes<SVGElement>>
 
 /**
  * {@link https://cultureamp.design/components/icon/ Guidance} |

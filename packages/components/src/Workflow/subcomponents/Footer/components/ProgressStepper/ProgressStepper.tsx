@@ -6,7 +6,7 @@ import { IndicatorInactiveIcon } from "~icons/IndicatorInactiveIcon"
 import { SuccessIcon } from "~icons/SuccessIcon"
 import styles from "./ProgressStepper.module.scss"
 
-export interface ProgressStepperProps {
+export type ProgressStepperProps = {
   stepName: string
   steps: [string, ...string[]]
   isComplete?: boolean

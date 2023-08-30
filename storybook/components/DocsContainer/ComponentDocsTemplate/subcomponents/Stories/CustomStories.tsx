@@ -1,14 +1,14 @@
 import React, { useContext } from "react"
 import { DocsContext, DocsStory } from "@storybook/blocks"
 
-interface StoriesProps {
+export type CustomStoriesProps = {
   title?: JSX.Element | string
   includeStickerSheets?: boolean
 }
 
 export const CustomStories = ({
   title = "Component API",
-}: StoriesProps): JSX.Element | null => {
+}: CustomStoriesProps): JSX.Element | null => {
   const { componentStories } = useContext(DocsContext)
 
   const stories = componentStories().filter(

@@ -11,7 +11,7 @@ import {
   locationDemographicValues,
 } from "../MockData"
 
-export interface DemograhicValueSelectProps {
+export type DemograhicValueSelectProps = {
   label: string
   onRemove: () => void
   onSelectionChange: (selectedKeys: React.Key[]) => void

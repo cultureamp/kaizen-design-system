@@ -7,14 +7,13 @@ import {
   ProgressStepperProps,
 } from "./components"
 
-export interface FooterProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "children">>,
-    ProgressStepperProps {
+export type FooterProps = {
   /** An action to return to a previous step */
   previousAction?: JSX.Element
   /** An action to progress to the next step or submit the form */
   nextAction?: JSX.Element
-}
+} & ProgressStepperProps &
+  OverrideClassName<Omit<HTMLAttributes<HTMLElement>, "children">>
 
 export const Footer = ({
   steps,

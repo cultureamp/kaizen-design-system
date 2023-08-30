@@ -18,14 +18,11 @@ import {
 } from "../DateRangeValidationMessage"
 import styles from "./DateRangeInputField.module.scss"
 
-export interface DateRangeInputFieldProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type DateRangeInputFieldProps = {
   id: string
   legend: string
-
   inputStartDateProps: Omit<DateInputProps, "id">
   inputEndDateProps: Omit<DateInputProps, "id">
-
   locale: Locale
   /**
    * A description that provides context for the text field
@@ -34,7 +31,7 @@ export interface DateRangeInputFieldProps
   isReversed?: boolean
   validationMessage?: DateRangeValidationMessageProps["validationMessage"]
   disabled?: boolean
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export type DateRangeInputFieldRefs = {
   inputStartDateRef?: React.RefObject<HTMLInputElement>
@@ -148,4 +145,5 @@ export const DateRangeInputField = React.forwardRef<
     )
   }
 )
+
 DateRangeInputField.displayName = "DateRangeInputField"

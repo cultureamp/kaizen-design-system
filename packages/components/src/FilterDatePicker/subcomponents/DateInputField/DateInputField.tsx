@@ -5,12 +5,10 @@ import {
   DateInputDescription,
   DateInputDescriptionProps,
 } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
-
 import { ValidationMessage } from "../../types"
 import styles from "./DateInputField.module.scss"
 
-export interface DateInputFieldProps
-  extends Omit<DateInputProps, "id" | "labelText"> {
+export type DateInputFieldProps = {
   id: string
   locale: Locale
   /**
@@ -21,7 +19,7 @@ export interface DateInputFieldProps
   validationMessage?: ValidationMessage
   disabled?: boolean
   labelText?: DateInputProps["labelText"]
-}
+} & Omit<DateInputProps, "id" | "labelText">
 
 export const DateInputField = React.forwardRef<
   HTMLInputElement,
@@ -90,4 +88,5 @@ export const DateInputField = React.forwardRef<
     )
   }
 )
+
 DateInputField.displayName = "DateInputField"

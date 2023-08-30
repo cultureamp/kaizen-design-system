@@ -2,10 +2,10 @@ import React, { HTMLAttributes } from "react"
 import { linkTo } from "@storybook/addon-links"
 import classnames from "classnames"
 
-interface LinkToProps extends HTMLAttributes<HTMLButtonElement> {
+export type LinkToProps = {
   pageId: string
   sectionName?: string
-}
+} & HTMLAttributes<HTMLButtonElement>
 
 export const LinkTo = ({
   children,

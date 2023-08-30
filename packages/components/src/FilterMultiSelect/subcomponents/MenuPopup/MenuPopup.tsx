@@ -4,7 +4,7 @@ import { useOverlay, DismissButton } from "@react-aria/overlays"
 import { useMenuTriggerContext } from "../../context"
 import styles from "./MenuPopup.module.scss"
 
-export interface MenuPopupProps {
+export type MenuPopupProps = {
   isLoading?: boolean
   loadingSkeleton?: React.ReactNode
   children: React.ReactNode
