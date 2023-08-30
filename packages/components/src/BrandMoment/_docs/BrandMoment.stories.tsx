@@ -28,13 +28,8 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  // Not to be released until full KAIO migration
-  // tags: ["autodocs"],
   title: "Components/Brand Moment",
   component: BrandMoment,
-  parameters: {
-    chromatic: { disable: false },
-  },
 } satisfies Meta<typeof BrandMoment>
 
 export default meta

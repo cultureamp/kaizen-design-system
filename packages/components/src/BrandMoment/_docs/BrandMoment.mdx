@@ -1,0 +1,42 @@
+import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
+import { InlineNotification } from "@kaizen/notification"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as BrandMoment from "./BrandMoment.stories"
+
+<Meta of={BrandMoment} />
+
+# Badge
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/BrandMoment"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=9-132873&mode=design&t=ITSkv2Fu67xK6kBC-0"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { BrandMoment } from "@kaizen/components"'
+/>
+
+## Overview
+
+A brand moment is a page that showcases the brand's vibrant animations and illustration. The page provides an engaging experience for users when they reach these junction, helping to create a strong connection between the brand and product.
+
+<InlineNotification persistent type="informative">Code snippets on this page have been disabled due to performance issues, see [Source Code](https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/BrandMoment) for code examples.</InlineNotification>
+
+## Variants
+
+### Informative Intro
+<Canvas of={BrandMoment.InformativeIntro} />
+
+### Positive Outro
+<Canvas of={BrandMoment.PositiveOutro} />
+
+### Positive Outro Customer Focused
+<Canvas of={BrandMoment.PositiveOutroCustomerFocused} />
+
+### Error
+<Canvas of={BrandMoment.Error} />

@@ -23,6 +23,10 @@ export type BrandMomentProps = {
   }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
+/**
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061589/Brand+Moment Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-brand-moment--docs Storybook}
+ */
 export const BrandMoment = ({
   mood,
   illustration,
