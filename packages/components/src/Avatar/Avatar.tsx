@@ -80,6 +80,7 @@ const fallbackIcon = (fullName: string): JSX.Element => (
   //     icon={userIcon}
   //   />
   // </span>
+  <>{fullName}</>
 )
 
 const renderInitials = (
