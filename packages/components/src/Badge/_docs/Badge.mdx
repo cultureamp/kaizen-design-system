@@ -1,0 +1,39 @@
+import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as BadgeStories from "./Badge.stories"
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Badge"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Badge } from "@kaizen/components"'
+/>
+
+## Overview
+
+Badges show the count of some adjacent data. A dot badge notifies the user that something is new or updated without showing a count.
+
+<Canvas of={BadgeStories.Playground} />
+<Controls of={BadgeStories.Playground} />
+
+## API
+
+### Reversed
+<Description of={BadgeStories.Reversed} />
+<Canvas of={BadgeStories.Reversed} />
