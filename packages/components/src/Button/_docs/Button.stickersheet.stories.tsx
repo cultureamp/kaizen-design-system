@@ -1,18 +1,11 @@
 import React from "react"
-<<<<<<< HEAD
 import { Meta } from "@storybook/react"
-import { AddIcon } from "~components/SVG/icons/AddIcon"
+import { AddIcon } from "~components"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { Button, ButtonProps } from "../index"
-=======
-import { Meta, StoryFn } from "@storybook/react"
-import { Button, ButtonProps } from "@kaizen/button"
-import { CheckIcon } from "~icons/CheckIcon"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
->>>>>>> da81a9bc1 (Restructure directories)
 
 export default {
   title: "Components/Button",
