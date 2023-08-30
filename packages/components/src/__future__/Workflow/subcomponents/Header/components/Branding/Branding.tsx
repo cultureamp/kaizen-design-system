@@ -3,12 +3,10 @@ import { Brand, BrandProps } from "@kaizen/brand"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Branding.module.scss"
 
-export interface WorflowBrandingProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
-  /** * @default: "logo-horizontal" */
+export type WorflowBrandingProps = {
   variant?: BrandProps["variant"]
   alt: string
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Branding = ({
   variant = "logo-horizontal",

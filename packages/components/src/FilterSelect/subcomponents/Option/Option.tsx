@@ -9,10 +9,9 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { SelectOption, SelectOptionNode } from "../../types"
 import styles from "./Option.module.scss"
 
-export interface OptionProps<Option extends SelectOption = SelectOption>
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLLIElement>, "children">> {
+export type OptionProps<Option extends SelectOption = SelectOption> = {
   item: SelectOptionNode<Option>
-}
+} & OverrideClassName<Omit<HTMLAttributes<HTMLLIElement>, "children">>
 
 export const Option = <Option extends SelectOption = SelectOption>({
   item,

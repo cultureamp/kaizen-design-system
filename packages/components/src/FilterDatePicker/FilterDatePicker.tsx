@@ -7,14 +7,13 @@ import {
   FilterDatePickerFieldProps,
 } from "./subcomponents/FilterDatePickerField"
 
-export interface FilterDatePickerProps
-  extends Omit<FilterDatePickerFieldProps, "id"> {
+export type FilterDatePickerProps = {
   id?: string
   label: string
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
-}
+} & Omit<FilterDatePickerFieldProps, "id">
 
 export const FilterDatePicker = ({
   isOpen,

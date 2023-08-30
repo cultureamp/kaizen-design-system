@@ -4,7 +4,7 @@ import { LabelledMessage } from "~components/LabelledMessage"
 import { formatDescriptionInputFormat } from "./utils/formatDescriptionInputFormat"
 import styles from "./DateInputDescription.module.scss"
 
-export interface DateInputDescriptionProps {
+export type DateInputDescriptionProps = {
   description?: string | JSX.Element
   locale: Locale
 }

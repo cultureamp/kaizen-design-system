@@ -1,22 +1,20 @@
 import React, { InputHTMLAttributes, useRef } from "react"
 import classnames from "classnames"
-
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { SearchIcon } from "~components/SVG/icons/SearchIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { ClearButton } from "../ClearButton"
 import styles from "./InputSearch.module.scss"
 
-export interface InputSearchProps
-  extends OverrideClassName<
-    Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue">
-  > {
+export type InputSearchProps = {
   id: string
   reversed?: boolean
   loading?: boolean
   secondary?: boolean
   onClear?: () => void
-}
+} & OverrideClassName<
+  Omit<InputHTMLAttributes<HTMLInputElement>, "defaultValue">
+>
 
 export const InputSearch = (props: InputSearchProps): JSX.Element => {
   const {

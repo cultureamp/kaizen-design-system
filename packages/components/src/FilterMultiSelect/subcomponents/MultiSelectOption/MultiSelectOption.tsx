@@ -11,7 +11,7 @@ import { useSelectionContext } from "../../context"
 import { MultiSelectItem } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
 
-export interface MultiSelectOptionProps {
+export type MultiSelectOptionProps = {
   item: MultiSelectItem
 }
 

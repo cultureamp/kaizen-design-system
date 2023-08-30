@@ -35,8 +35,7 @@ type InputEndDateProps = DateRangeInputFieldProps["inputEndDateProps"]
 type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
   DataAttributes
 
-export interface FilterDateRangePickerFieldProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type FilterDateRangePickerFieldProps = {
   id: string
   label: string
   locale: FilterDateSupportedLocales
@@ -71,7 +70,7 @@ export interface FilterDateRangePickerFieldProps
     dateStart?: (validationResponse: DateValidationResponse) => void
     dateEnd?: (validationResponse: DateValidationResponse) => void
   }
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const FilterDateRangePickerField = ({
   id,

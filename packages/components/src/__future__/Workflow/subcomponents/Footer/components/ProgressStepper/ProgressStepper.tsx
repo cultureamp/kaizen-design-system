@@ -13,12 +13,11 @@ export type Step = {
 
 export type Steps = [Step, ...Step[]]
 
-export interface ProgressStepperProps {
-  /** the id reference to within a Step object */
+export type ProgressStepperProps = {
+  /** The id reference to within a Step object */
   currentStepId: Step["id"]
   /** A non-empty array of Steps */
   steps: Steps
-  /** @default false */
   isComplete?: boolean
 }
 

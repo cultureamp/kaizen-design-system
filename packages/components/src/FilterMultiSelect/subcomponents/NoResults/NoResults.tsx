@@ -2,9 +2,9 @@ import React, { HTMLAttributes } from "react"
 import { Paragraph } from "@kaizen/typography"
 import styles from "./NoResults.module.scss"
 
-export interface NoResultsProps extends HTMLAttributes<HTMLDivElement> {
+export type NoResultsProps = {
   children: React.ReactNode
-}
+} & HTMLAttributes<HTMLDivElement>
 
 export const NoResults = ({
   children,

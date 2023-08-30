@@ -149,12 +149,12 @@ import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./PancakeStack.module.scss"
 
-export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type PancakeStackProps = {
   children: React.ReactNode
   isBooleanProp: boolean
   hasOptionalBooleanProp?: boolean
   onCustomFunction: () => void
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const PancakeStack = ({
   children,
@@ -197,17 +197,15 @@ PancakeStack.displayName = "PancakeStack"
 import { HTMLAttributes } from "react"
 import { OverrideClassName } from "~types/OverrideClassName"
 
-export interface PancakeStackProps extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type PancakeStackProps = {
   children: React.ReactNode
   isBooleanProp: boolean
   hasOptionalBooleanProp?: boolean
   onCustomFunction: () => void
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 ```
 
-- Create and export an `interface` for your props in the format of `{PascalComponentName}Props`
-  - You can restrict a prop's type signature by redeclaring it (eg. changing a prop from `string | undefined` to `string`)
-  - If you need to change the type signature of an extended prop, ensure you `Omit` it otherwise it will become `never` (eg. changing a prop from `string | undefined` to `number`)
+- Create and export a`type` for your props in the format of `{PascalComponentName}Props`
 - Use our custom type `OverrideClassName` to replace `className` with the alias `classNameOverride`
   - The alias allows us to easier track usage (as ideally teams should not need to use this) and allows us to not be a bottleneck if the component does not meet their needs in the interim
   - Previously `classNameAndIHaveSpokenToDST`
@@ -228,7 +226,7 @@ export type ButtonProps = OverrideClassName<ButtonHTMLAttributes<HTMLButtonEleme
   - You don't need to extend HTML attributes as they would come from the child props (this also ensures consistency)
 
 ```tsx
-export interface NewComponentProps extends PancakeStackProps {}
+export type NewComponentProps = PancakeStackProps
 
 export const NewComponent = (props: NewComponentProps): JSX.Element => <PancakeStack {...props} />
 ```

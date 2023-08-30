@@ -8,8 +8,7 @@ import { Button, ButtonProps } from "~components/Button"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./BrandMoment.module.scss"
 
-export interface BrandMomentProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type BrandMomentProps = {
   mood: "informative" | "positive" | "negative"
   illustration: ReactElement<SceneProps>
   header: ReactNode
@@ -22,7 +21,7 @@ export interface BrandMomentProps
     body?: ReactNode
     footer?: ReactNode
   }
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const BrandMoment = ({
   mood,

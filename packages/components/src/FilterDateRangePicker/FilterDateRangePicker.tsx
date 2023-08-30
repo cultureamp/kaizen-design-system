@@ -11,13 +11,12 @@ import {
 import { isValidRange } from "./subcomponents/FilterDateRangePickerField/utils/isValidRange"
 import { isCompleteDateRange } from "./utils/isCompleteDateRange"
 
-export interface FilterDateRangePickerProps
-  extends Omit<FilterDateRangePickerFieldProps, "id"> {
+export type FilterDateRangePickerProps = {
   id?: string
   isOpen: FilterProps["isOpen"]
   setIsOpen: FilterProps["setIsOpen"]
   renderTrigger: (triggerProps: FilterButtonProps) => JSX.Element
-}
+} & Omit<FilterDateRangePickerFieldProps, "id">
 
 export const FilterDateRangePicker = ({
   id: propsId,
