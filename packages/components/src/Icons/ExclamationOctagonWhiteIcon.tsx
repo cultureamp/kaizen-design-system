@@ -5,23 +5,26 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
 export const ExclamationOctagonWhiteIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id={uniqueId}
-        d="M13.316 2H6.684L2 6.684v6.632L6.684 18h6.632L18 13.316V6.684z"
-      />
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
-      <path
-        fill="#FFF"
-        d="M10 14.711c-.64 0-1.156-.515-1.156-1.155S9.36 12.4 10 12.4c.64 0 1.156.516 1.156 1.156 0 .64-.516 1.155-1.156 1.155ZM10.889 10.889H9.11V5.556h1.778z"
-      />
-    </g>
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M13.316 2H6.684L2 6.684v6.632L6.684 18h6.632L18 13.316V6.684z"
+        />
+      </defs>
+      <g fill="none" fillRule="evenodd">
+        <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
+        <path
+          fill="#FFF"
+          d="M10 14.711c-.64 0-1.156-.515-1.156-1.155S9.36 12.4 10 12.4c.64 0 1.156.516 1.156 1.156 0 .64-.516 1.155-1.156 1.155ZM10.889 10.889H9.11V5.556h1.778z"
+        />
+      </g>
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}

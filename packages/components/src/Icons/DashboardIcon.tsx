@@ -5,22 +5,25 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
 export const DashboardIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id={uniqueId}
-        d="M10.889 7.333H18V2h-7.111v5.333ZM2 10.89h7.111V2H2v8.889ZM10.889 18H18V9.111h-7.111V18ZM2 18h7.111v-5.333H2V18Z"
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M10.889 7.333H18V2h-7.111v5.333ZM2 10.89h7.111V2H2v8.889ZM10.889 18H18V9.111h-7.111V18ZM2 18h7.111v-5.333H2V18Z"
+        />
+      </defs>
+      <use
+        fill="currentColor"
+        transform="translate(-2 -2)"
+        href={`#${uniqueId}`}
+        fillRule="evenodd"
       />
-    </defs>
-    <use
-      fill="currentColor"
-      transform="translate(-2 -2)"
-      href={`#${uniqueId}`}
-      fillRule="evenodd"
-    />
-  </SVG>
-)
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}

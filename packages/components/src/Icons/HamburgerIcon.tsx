@@ -5,14 +5,17 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
 export const HamburgerIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path id={uniqueId} d="M2 16h16v-2H2v2Zm0-5h16V9H2v2Zm0-7v2h16V4H2Z" />
-    </defs>
-    <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path id={uniqueId} d="M2 16h16v-2H2v2Zm0-5h16V9H2v2Zm0-7v2h16V4H2Z" />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}

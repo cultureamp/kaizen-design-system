@@ -5,16 +5,19 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
-export const RepeatsIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id={uniqueId}
-        fill="currentColor"
-        d="M4 5h10v3l4-4-4-4v3H2v6h2V5zm10 10H4v-3l-4 4 4 4v-3h12v-6h-2v4z"
-      />
-    </defs>
-    <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
-  </SVG>
-)
+export const RepeatsIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path
+          id={uniqueId}
+          fill="currentColor"
+          d="M4 5h10v3l4-4-4-4v3H2v6h2V5zm10 10H4v-3l-4 4 4 4v-3h12v-6h-2v4z"
+        />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}

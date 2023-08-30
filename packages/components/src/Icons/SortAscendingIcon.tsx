@@ -5,14 +5,17 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
 export const SortAscendingIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path id={uniqueId} d="m6 12 4-4 4 4z" />
-    </defs>
-    <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path id={uniqueId} d="m6 12 4-4 4 4z" />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}

@@ -5,15 +5,18 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
-export const EditIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id={uniqueId}
-        d="M1.556 14.666V18h3.519l10.383-9.837-3.519-3.334-10.383 9.837ZM18.17 5.594a.858.858 0 0 0 0-1.258L15.979 2.26a.978.978 0 0 0-1.328 0l-1.717 1.627 3.519 3.334 1.717-1.627Z"
-      />
-    </defs>
-    <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
-  </SVG>
-)
+export const EditIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M1.556 14.666V18h3.519l10.383-9.837-3.519-3.334-10.383 9.837ZM18.17 5.594a.858.858 0 0 0 0-1.258L15.979 2.26a.978.978 0 0 0-1.328 0l-1.717 1.627 3.519 3.334 1.717-1.627Z"
+        />
+      </defs>
+      <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}

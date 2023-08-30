@@ -5,23 +5,26 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
 export const EqualWhiteIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id={uniqueId}
-        d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8Z"
-      />
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <use fill="currentColor" href={`#${uniqueId}`} />
-      <path
-        fill="#FFF"
-        d="M6.153 12.1h7.694v-1.6H6.153zM6.153 9.219h7.694v-1.6H6.153z"
-      />
-    </g>
-  </SVG>
-)
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8Z"
+        />
+      </defs>
+      <g fill="none" fillRule="evenodd">
+        <use fill="currentColor" href={`#${uniqueId}`} />
+        <path
+          fill="#FFF"
+          d="M6.153 12.1h7.694v-1.6H6.153zM6.153 9.219h7.694v-1.6H6.153z"
+        />
+      </g>
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}

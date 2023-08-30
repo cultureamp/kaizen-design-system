@@ -5,22 +5,25 @@ import React from "react"
 import { v4 as uuidv4 } from "uuid"
 import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
 
-const uniqueId = uuidv4()
 export const ReportSharingIcon = (
   props: Omit<SVGProps, "children">
-): JSX.Element => (
-  <SVG {...props}>
-    <defs>
-      <path
-        id={uniqueId}
-        d="M8.223 6.89V3.335l-6.221 6.22 6.22 6.221v-3.643c4.444 0 7.554 1.422 9.776 4.532-.889-4.443-3.555-8.887-9.775-9.775Z"
+): JSX.Element => {
+  const uniqueId = uuidv4()
+  const svgContent = (
+    <>
+      <defs>
+        <path
+          id={uniqueId}
+          d="M8.223 6.89V3.335l-6.221 6.22 6.22 6.221v-3.643c4.444 0 7.554 1.422 9.776 4.532-.889-4.443-3.555-8.887-9.775-9.775Z"
+        />
+      </defs>
+      <use
+        fill="currentColor"
+        transform="matrix(-1 0 0 1 20 0)"
+        href={`#${uniqueId}`}
+        fillRule="nonzero"
       />
-    </defs>
-    <use
-      fill="currentColor"
-      transform="matrix(-1 0 0 1 20 0)"
-      href={`#${uniqueId}`}
-      fillRule="nonzero"
-    />
-  </SVG>
-)
+    </>
+  )
+  return <SVG {...props}>{svgContent}</SVG>
+}
