@@ -7,7 +7,7 @@ import { VisuallyHidden } from "@kaizen/a11y"
 import { ItemType, MultiSelectItem } from "../../types"
 import { useMenuTriggerContext } from "../MenuTriggerProvider"
 
-export interface SelectionProviderProps {
+export type SelectionProviderProps = {
   selectionMode: SelectionMode
   children: React.ReactNode // control how menu should look like
   items?: ItemType[]
@@ -21,7 +21,7 @@ export interface SelectionProviderProps {
   onSearchInputChange?: (searchInput: string) => void
 }
 
-export interface SelectionProviderContextType {
+export type SelectionProviderContextType = {
   listBoxProps: HTMLAttributes<HTMLElement>
   labelProps: HTMLAttributes<HTMLElement>
   selectionState: ListState<ItemType>

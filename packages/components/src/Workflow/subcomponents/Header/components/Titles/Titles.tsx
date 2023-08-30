@@ -11,12 +11,11 @@ export type WorkflowStatus = {
   content?: string
 }
 
-export interface WorkflowTitlesProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type WorkflowTitlesProps = {
   workflowName: string
   stepName: string
   status?: WorkflowStatus
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Titles = ({
   workflowName,

@@ -2,13 +2,12 @@ import React, { HTMLAttributes } from "react"
 import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
 import styles from "./StickerSheetRow.module.scss"
 
-export interface StickerSheetRowProps
-  extends HTMLAttributes<HTMLTableRowElement> {
+export type StickerSheetRowProps = {
   children: React.ReactNode
   rowTitle?: string
   rowTitleWidth?: number | string
   isReversed?: boolean
-}
+} & HTMLAttributes<HTMLTableRowElement>
 
 export const StickerSheetRow = ({
   children,

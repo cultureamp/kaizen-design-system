@@ -4,19 +4,18 @@ import { AriaMenuOptions, useMenuTrigger } from "@react-aria/menu"
 import { MenuTriggerState, useMenuTriggerState } from "@react-stately/menu"
 import { ItemType } from "../../types"
 
-export interface MenuTriggerProviderProps {
+export type MenuTriggerProviderProps = {
   isOpen?: boolean
   defaultOpen?: boolean
   onOpenChange?: (isOpen: boolean) => void
   children: React.ReactNode
 }
 
-export interface MenuTriggerProviderContextType {
+export type MenuTriggerProviderContextType = {
   menuTriggerProps: HTMLAttributes<HTMLElement>
   buttonProps: ButtonHTMLAttributes<HTMLButtonElement>
   menuProps: AriaMenuOptions<ItemType>
   menuTriggerState: MenuTriggerState
-
   buttonRef: React.RefObject<HTMLButtonElement>
 }
 

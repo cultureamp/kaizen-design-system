@@ -10,11 +10,11 @@ import styles from "./{{pascalCase componentName}}.module.scss"
 /**
  * @todo: Replace `HTMLAttributes<HTMLDivElement>` with attributes/props you need to extend
  */
-export interface {{pascalCase componentName}}Props extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type {{pascalCase componentName}}Props = {
   /** @todo: Add custom props here */
   exampleRequiredString: string
   isReversed?: boolean
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const {{pascalCase componentName}} = ({
   exampleRequiredString,

@@ -13,7 +13,7 @@ export type ListBoxItems = {
   hasNoItems: boolean
 }
 
-export interface ListBoxProps {
+export type ListBoxProps = {
   children: (items: ListBoxItems) => React.ReactNode
 }
 

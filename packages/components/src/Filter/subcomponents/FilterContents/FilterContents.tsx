@@ -3,10 +3,9 @@ import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./FilterContents.module.scss"
 
-export interface FilterContentsProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type FilterContentsProps = {
   children: React.ReactNode
-}
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const FilterContents = ({
   children,

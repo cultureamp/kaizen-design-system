@@ -6,18 +6,16 @@ import { isRefObject } from "~utils/isRefObject"
 import { ButtonGroup, ButtonGroupProps } from "../../ButtonGroup"
 import { FilterTriggerRef } from "../../Filter"
 import { FilterButton, FilterButtonProps } from "../FilterButton"
-
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
 } from "../subcomponents/FilterButtonBase"
 
-export interface FilterButtonRemovableProps
-  extends Omit<ButtonGroupProps, "children"> {
+export type FilterButtonRemovableProps = {
   triggerButtonProps: FilterButtonProps & DataAttributes
   removeButtonProps: Partial<Omit<FilterButtonBaseProps, "children">> &
     DataAttributes & { tooltipText?: string }
-}
+} & Omit<ButtonGroupProps, "children">
 
 export type FilterButtonRemovableRefs = FilterTriggerRef & {
   removeButtonRef?: React.RefObject<HTMLButtonElement>

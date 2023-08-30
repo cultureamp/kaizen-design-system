@@ -2,7 +2,7 @@ import { Node } from "@react-types/shared"
 
 export type ValueType = React.Key
 
-export interface ItemType {
+export type ItemType = {
   label: string
   value: ValueType
   count?: string

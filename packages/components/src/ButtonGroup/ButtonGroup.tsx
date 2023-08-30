@@ -13,12 +13,11 @@ const isFilterButton = (
 ): node is React.ReactElement<FilterButtonBaseProps> =>
   React.isValidElement(node) && node.type === FilterButtonBase
 
-export interface ButtonGroupProps
-  extends OverrideClassName<HTMLAttributes<HTMLDivElement>> {
+export type ButtonGroupProps = {
   children:
     | React.ReactElement<FilterButtonBaseProps | TooltipProps>
     | Array<React.ReactElement<FilterButtonBaseProps | TooltipProps>>
-}
+} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "children">
 
 export const ButtonGroup = ({
   children,

@@ -3,7 +3,7 @@ import { LoadingInput, LoadingParagraph } from "@kaizen/loading-skeleton"
 import { MenuFooter } from "../MenuFooter"
 import styles from "./MenuLoadingSkeleton.module.scss"
 
-export interface MenuLoadingSkeletonProps {
+export type MenuLoadingSkeletonProps = {
   isAnimated?: boolean
 }
 
