@@ -27,7 +27,7 @@ export type SVGProps = IconProps & {
  */
 export const SVG = ({
   inheritSize = false,
-  role = "img",
+  role,
   viewBox = "0 0 20 20",
   classNameOverride,
   children,
