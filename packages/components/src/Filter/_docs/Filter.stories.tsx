@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryFn } from "@storybook/react"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
-import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
+import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Filter, FilterContents } from ".."
 
 export default {

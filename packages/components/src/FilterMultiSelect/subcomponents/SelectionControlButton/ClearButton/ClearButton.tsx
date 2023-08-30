@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
-import { useSelectionContext } from "../../../provider"
+import { useSelectionContext } from "../../../context"
 import styles from "../SelectionControlButton.module.scss"
 
 export const ClearButton = (): JSX.Element => {

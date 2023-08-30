@@ -2,7 +2,7 @@ interface RecursiveKeyValuePair<K extends keyof any = string, V = string> {
   [key: string]: V | RecursiveKeyValuePair<K, V>
 }
 // needed untill we can use satisfies to create a similar object to tailwind class consumption
-type ResolvableTo<T> = T | ((utils) => T)
+type ResolvableTo<T> = T | ((utils: any) => T)
 
 export const flattenEntries = (
   prefix: string,

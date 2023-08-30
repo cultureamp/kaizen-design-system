@@ -29,13 +29,13 @@ export type ErrorPageProps = {
   }
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export function ErrorPage({
+export const ErrorPage = ({
   code,
   title,
   message,
   callToAction,
   classNameOverride,
-}: ErrorPageProps): JSX.Element {
+}: ErrorPageProps): JSX.Element => {
   const { formatMessage } = useIntl()
   const content = useErrorMessages(code)
 

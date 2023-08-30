@@ -7,7 +7,7 @@ import { v4 } from "uuid"
 import { VisuallyHidden } from "@kaizen/a11y"
 import { Badge } from "@kaizen/draft-badge"
 import { CheckIcon } from "~components/SVG/icons/CheckIcon"
-import { useSelectionContext } from "../../provider"
+import { useSelectionContext } from "../../context"
 import { MultiSelectItem } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
 

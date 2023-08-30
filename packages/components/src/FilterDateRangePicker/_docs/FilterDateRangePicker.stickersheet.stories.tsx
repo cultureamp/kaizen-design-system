@@ -1,11 +1,14 @@
 import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { DateRange } from "~types/DatePicker"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
 import { FilterButton } from "../../FilterButton"
 import { FilterDateRangePicker } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
@@ -17,127 +20,103 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      // Translated strings start as an empty string which fails a11y.
+      // Allow the strings to populate before running axe.
+      timeout: 3000,
+    },
   },
-} satisfies Meta<typeof FilterDateRangePicker>
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
-  textDirection,
-}) => {
-  const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
-  const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
-    from: new Date("2022-05-15"),
-  })
-  const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
-  const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
-    from: new Date("2022-05-15"),
-    to: new Date("2022-06-22"),
-  })
+const StickerSheetTemplate: StickerSheetStory = {
+  render: () => {
+    const [isOpenPartial, setIsOpenPartial] = useState<boolean>(false)
+    const [rangePartial, setRangePartial] = useState<DateRange | undefined>({
+      from: new Date("2022-05-15"),
+    })
+    const [isOpenComplete, setIsOpenComplete] = useState<boolean>(false)
+    const [rangeComplete, setRangeComplete] = useState<DateRange | undefined>({
+      from: new Date("2022-05-15"),
+      to: new Date("2022-06-22"),
+    })
 
-  const [rangeFieldDefault, setRangeFieldDefault] = useState<
-    DateRange | undefined
-  >()
-  const [rangeFieldExisting, setRangeFieldExisting] = useState<
-    DateRange | undefined
-  >({
-    from: new Date("2022-05-15"),
-    to: new Date("2022-06-22"),
-  })
-  const [rangeFieldValidation, setRangeFieldValidation] = useState<
-    DateRange | undefined
-  >({
-    from: new Date("2022-05-15"),
-  })
+    const [rangeFieldDefault, setRangeFieldDefault] = useState<
+      DateRange | undefined
+    >()
+    const [rangeFieldExisting, setRangeFieldExisting] = useState<
+      DateRange | undefined
+    >({
+      from: new Date("2022-05-15"),
+      to: new Date("2022-06-22"),
+    })
+    const [rangeFieldValidation, setRangeFieldValidation] = useState<
+      DateRange | undefined
+    >({
+      from: new Date("2022-05-15"),
+    })
 
-  return (
-    <StaticIntlProvider locale="en">
-      <StickerSheet
-        heading="Filter Date Range Picker"
-        style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
-      >
-        <StickerSheet.Header headings={["Partial range", "Complete range"]} />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <FilterDateRangePicker
-              isOpen={isOpenPartial}
-              setIsOpen={setIsOpenPartial}
-              renderTrigger={(triggerButtonProps): JSX.Element => (
-                <FilterButton
-                  {...triggerButtonProps}
-                  data-testid={`${textDirection}-stickersheet--filter-drp--partial-range-button`}
-                />
-              )}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangePartial}
-              onRangeChange={setRangePartial}
-            />
-            <FilterDateRangePicker
-              isOpen={isOpenComplete}
-              setIsOpen={setIsOpenComplete}
-              renderTrigger={(triggerButtonProps): JSX.Element => (
-                <FilterButton {...triggerButtonProps} />
-              )}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeComplete}
-              onRangeChange={setRangeComplete}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+    return (
+      <StaticIntlProvider locale="en">
+        <StickerSheet
+          heading="Filter Date Range Picker"
+          style={{ paddingBottom: IS_CHROMATIC ? "33rem" : undefined }}
+        >
+          <StickerSheet.Header headings={["Partial range", "Complete range"]} />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <FilterDateRangePicker
+                isOpen={isOpenPartial}
+                setIsOpen={setIsOpenPartial}
+                renderTrigger={(triggerButtonProps): JSX.Element => (
+                  <FilterButton
+                    {...triggerButtonProps}
+                    data-testid="stickersheet--filter-drp--partial-range-button"
+                  />
+                )}
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangePartial}
+                onRangeChange={setRangePartial}
+              />
+              <FilterDateRangePicker
+                isOpen={isOpenComplete}
+                setIsOpen={setIsOpenComplete}
+                renderTrigger={(triggerButtonProps): JSX.Element => (
+                  <FilterButton {...triggerButtonProps} />
+                )}
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangeComplete}
+                onRangeChange={setRangeComplete}
+              />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
 
-      <StickerSheet heading="Filter Date Range Picker Field">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--default`}
-              label="Dates"
-              locale="en-US"
-              defaultMonth={new Date("2022-05-01")}
-              selectedRange={rangeFieldDefault}
-              onRangeChange={setRangeFieldDefault}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Existing value">
-            <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--existing`}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeFieldExisting}
-              onRangeChange={setRangeFieldExisting}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Validation">
-            <FilterDateRangePickerField
-              id={`${textDirection}-stickersheet--filter-drp-field--validation`}
-              label="Dates"
-              locale="en-US"
-              selectedRange={rangeFieldValidation}
-              onRangeChange={setRangeFieldValidation}
-              onValidate={{
-                dateStart: action("Validation story: date start onValidate"),
-              }}
-              validationMessage={{
-                dateStart: {
-                  status: "error",
-                  message:
-                    "(Start date custom message) Jelly-filled doughnuts are my favourite!",
-                },
-              }}
-              inputEndDateProps={{
-                "data-testid": `${textDirection}-test__filter-drp-field--validation--end`,
-              }}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-
-      <StickerSheet heading="Translated">
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Japanese">
-            <StaticIntlProvider locale="ja">
+        <StickerSheet heading="Filter Date Range Picker Field">
+          <StickerSheet.Body>
+            <StickerSheet.Row rowTitle="Default">
               <FilterDateRangePickerField
-                id={`${textDirection}-stickersheet--filter-drp-field--translated`}
+                id="stickersheet--filter-drp-field--default"
+                label="Dates"
+                locale="en-US"
+                defaultMonth={new Date("2022-05-01")}
+                selectedRange={rangeFieldDefault}
+                onRangeChange={setRangeFieldDefault}
+              />
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="Existing value">
+              <FilterDateRangePickerField
+                id="stickersheet--filter-drp-field--existing"
+                label="Dates"
+                locale="en-US"
+                selectedRange={rangeFieldExisting}
+                onRangeChange={setRangeFieldExisting}
+              />
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="Validation">
+              <FilterDateRangePickerField
+                id="stickersheet--filter-drp-field--validation"
                 label="Dates"
                 locale="en-US"
                 selectedRange={rangeFieldValidation}
@@ -145,50 +124,70 @@ const StickerSheetTemplate: StoryFn<{ textDirection: "ltr" | "rtl" }> = ({
                 onValidate={{
                   dateStart: action("Validation story: date start onValidate"),
                 }}
+                validationMessage={{
+                  dateStart: {
+                    status: "error",
+                    message:
+                      "(Start date custom message) Jelly-filled doughnuts are my favourite!",
+                  },
+                }}
+                inputEndDateProps={{
+                  "data-testid": "test__filter-drp-field--validation--end",
+                }}
               />
-            </StaticIntlProvider>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </StaticIntlProvider>
-  )
-}
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
 
-const applyStickerSheetStyles = async (
-  canvasElement: HTMLElement,
-  textDirection: "ltr" | "rtl"
-): Promise<void> => {
-  const canvas = within(canvasElement)
-
-  const validationInputEndDate = canvas.getByTestId(
-    `${textDirection}-test__filter-drp-field--validation--end`
-  )
-  await userEvent.click(validationInputEndDate)
-  await userEvent.type(validationInputEndDate, "potato")
-  await userEvent.click(document.body)
-
-  if (IS_CHROMATIC) {
-    const partialRangeButton = canvas.getByTestId(
-      `${textDirection}-stickersheet--filter-drp--partial-range-button`
+        <StickerSheet heading="Translated">
+          <StickerSheet.Body>
+            <StickerSheet.Row rowTitle="Japanese">
+              <StaticIntlProvider locale="ja">
+                <FilterDateRangePickerField
+                  id="stickersheet--filter-drp-field--translated"
+                  label="Dates"
+                  locale="en-US"
+                  selectedRange={rangeFieldValidation}
+                  onRangeChange={setRangeFieldValidation}
+                  onValidate={{
+                    dateStart: action(
+                      "Validation story: date start onValidate"
+                    ),
+                  }}
+                />
+              </StaticIntlProvider>
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </StaticIntlProvider>
     )
-    await userEvent.click(partialRangeButton)
-  }
+  },
+  play: async ({ canvasElement }): Promise<void> => {
+    const canvas = within(canvasElement)
+
+    const validationInputEndDate = canvas.getByTestId(
+      "test__filter-drp-field--validation--end"
+    )
+    await userEvent.click(validationInputEndDate)
+    await userEvent.type(validationInputEndDate, "potato")
+    await userEvent.click(document.body)
+
+    if (IS_CHROMATIC) {
+      const partialRangeButton = canvas.getByTestId(
+        "stickersheet--filter-drp--partial-range-button"
+      )
+      await userEvent.click(partialRangeButton)
+    }
+  },
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.args = {
-  textDirection: "ltr",
-}
-StickerSheetDefault.play = ({ canvasElement }) => {
-  applyStickerSheetStyles(canvasElement, "ltr")
+export const StickerSheetDefault: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
 }
 
-export const StickerSheetRTL = StickerSheetTemplate.bind({})
-StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
-StickerSheetRTL.args = {
-  textDirection: "rtl",
-}
-StickerSheetRTL.play = ({ canvasElement }) => {
-  applyStickerSheetStyles(canvasElement, "rtl")
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

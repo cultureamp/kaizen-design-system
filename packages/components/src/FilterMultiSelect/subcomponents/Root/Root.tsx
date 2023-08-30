@@ -5,12 +5,12 @@ import {
   MenuTriggerProvider,
   MenuTriggerProviderContextType,
   MenuTriggerProviderProps,
-} from "../../provider/MenuTriggerProvider"
+} from "../../context/MenuTriggerProvider"
 import {
   SelectionConsumer,
   SelectionProvider,
   SelectionProviderContextType,
-} from "../../provider/SelectionProvider"
+} from "../../context/SelectionProvider"
 import { ItemType } from "../../types"
 import { MenuPopup, MenuPopupProps } from "../MenuPopup"
 

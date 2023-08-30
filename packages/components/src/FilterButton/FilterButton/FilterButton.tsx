@@ -7,7 +7,7 @@ import { FilterTriggerRef } from "../../Filter/types"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../_subcomponents/FilterButtonBase"
+} from "../subcomponents/FilterButtonBase"
 import styles from "./FilterButton.module.scss"
 
 export interface FilterButtonProps

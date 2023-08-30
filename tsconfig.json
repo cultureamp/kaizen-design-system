@@ -13,6 +13,7 @@
     "allowJs": false,
     "noEmit": true,
     "paths": {
+      "~storybook/*": ["storybook/*"],
       "~types/*": ["packages/components/src/types/*"],
       "~utils/*": ["packages/components/src/utils/*"],
       "~components/*": ["packages/components/src/*"],
@@ -20,6 +21,11 @@
     }
   },
   "files": ["./types.d.ts"],
-  "include": ["packages/**/*", "draft-packages/**/*", "storybook/**/*"],
+  "include": [
+    "packages/**/*",
+    "draft-packages/**/*",
+    "storybook/**/*",
+    "docs/**/*.tsx"
+  ],
   "exclude": ["**/node_modules", "packages/components/**/*"]
 }

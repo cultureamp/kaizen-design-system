@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { FilterTriggerRef } from "~components/Filter"
 import { FilterButton } from "~components/FilterButton"
-import { useMenuTriggerContext } from "../../../provider"
+import { useMenuTriggerContext } from "../../../context"
 import { getTruncatedLabels } from "../../../utils"
 
 export type FilterTriggerButtonProps = {

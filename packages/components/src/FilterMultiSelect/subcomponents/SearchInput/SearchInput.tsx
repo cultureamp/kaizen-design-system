@@ -1,7 +1,7 @@
 import React, { useMemo } from "react"
 import { v4 } from "uuid"
 import { InputSearch } from "~components/InputSearch"
-import { useSelectionContext } from "../../provider"
+import { useSelectionContext } from "../../context"
 import styles from "./SearchInput.module.scss"
 
 export interface SearchInputProps {

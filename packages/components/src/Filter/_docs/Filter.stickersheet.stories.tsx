@@ -1,8 +1,11 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
 import { FilterButton } from "~components/FilterButton"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Filter, FilterContents } from ".."
 
 const IS_CHROMATIC = isChromatic()
@@ -24,37 +27,43 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof Filter>
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn = () => {
-  const [isOpen, setIsOpen] = React.useState(true)
+const StickerSheetTemplate: StickerSheetStory = {
+  render: () => {
+    const [isOpen, setIsOpen] = React.useState(true)
 
-  return (
-    <StickerSheet
-      heading="Filter"
-      style={{ paddingBottom: IS_CHROMATIC ? "6rem" : undefined }}
-    >
-      <StickerSheet.Header headings={["Open"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <Filter
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            renderTrigger={(triggerProps): JSX.Element => (
-              <FilterButton label="Label" {...triggerProps} />
-            )}
-          >
-            <FilterContents>Filter Contents</FilterContents>
-          </Filter>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-  )
+    return (
+      <StickerSheet
+        heading="Filter"
+        style={{ paddingBottom: IS_CHROMATIC ? "6rem" : undefined }}
+      >
+        <StickerSheet.Header headings={["Open"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <Filter
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              renderTrigger={(triggerProps): JSX.Element => (
+                <FilterButton label="Label" {...triggerProps} />
+              )}
+            >
+              <FilterContents>Filter Contents</FilterContents>
+            </Filter>
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    )
+  },
 }
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
+export const StickerSheetDefault: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

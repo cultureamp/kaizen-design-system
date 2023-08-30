@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { useSelectionContext } from "../../../provider"
+import { useSelectionContext } from "../../../context"
 import styles from "../SelectionControlButton.module.scss"
 
 export const SelectAllButton = (): JSX.Element => {

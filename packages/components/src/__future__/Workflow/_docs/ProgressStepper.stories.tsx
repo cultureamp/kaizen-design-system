@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { ComponentDocsTemplate } from "../../../../../../storybook/components/DocsContainer"
+import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { ProgressStepperProps } from "../subcomponents"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"

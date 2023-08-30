@@ -33,6 +33,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
   config.resolve.alias = {
     ...config.resolve.alias,
+    "~storybook": path.resolve(__dirname, "../storybook"),
     "~types": path.resolve(__dirname, "../packages/components/src/types"),
     "~utils": path.resolve(__dirname, "../packages/components/src/utils"),
     "~components": path.resolve(__dirname, "../packages/components/src"),

@@ -1,6 +1,9 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { StickerSheet } from "{{storybookDir}}/components/StickerSheet"
+import { Meta } from "@storybook/react"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { {{pascalCase componentName}} } from "../index"
 
 export default {
@@ -9,35 +12,40 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof {{pascalCase componentName}}>
+} satisfies Meta
 
-const StickerSheetTemplate: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
-  /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-  <StickerSheet isReversed={isReversed}>
-    /** @note: Header is optional */
-    <StickerSheet.Header
-      headings={["COLUMN 1", "COLUMN 2"]}
-      hasVerticalHeadings
-    />
-    <StickerSheet.Body>
-      <StickerSheet.Row>
-        {/** @todo: Add column 1 + row 1 props */}
-        <{{pascalCase componentName}} isReversed={isReversed} />
-        {/** @todo: Add column 2 + row 1 props */}
-        <{{pascalCase componentName}} isReversed={isReversed} />
-      </StickerSheet.Row>
-    </StickerSheet.Body>
-  </StickerSheet>
-)
+const StickerSheetTemplate: StickerSheetStory = {
+  render: ({ isReversed }) => (
+    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
+    <StickerSheet isReversed={isReversed}>
+      {/* @note: Header is optional */}
+      <StickerSheet.Header headings={["COLUMN 1", "COLUMN 2"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          {/** @todo: Add column 1 + row 1 props */}
+          <{{pascalCase componentName}} exampleRequiredString="One" isReversed={isReversed} />
+          {/** @todo: Add column 2 + row 1 props */}
+          <{{pascalCase componentName}} exampleRequiredString="Two" isReversed={isReversed} />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
+  )
+}
 
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
+export const StickerSheetDefault: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+}
 
-export const StickerSheetReversed = StickerSheetTemplate.bind({})
-StickerSheetReversed.storyName = "Sticker Sheet (Reversed)"
-StickerSheetReversed.args = { isReversed: true }
-StickerSheetReversed.parameters = {
-  backgrounds: { default: "Purple 700" },
+export const StickerSheetReversed: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Reversed)",
+  parameters: { backgrounds: { default: "Purple 700" } },
+  args: { isReversed: true },
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
 }

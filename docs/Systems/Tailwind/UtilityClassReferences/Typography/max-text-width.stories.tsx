@@ -5,15 +5,12 @@ import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "max-w-"
-const classEntries: Array<{
-  utilityClassName: string
-  cssProperty: string
-}> = Object.entries(kaizenTailwindTheme?.extend.maxWidth || []).map(
-  ([suffix, cssPropertyArr]) => ({
-    utilityClassName: `${prefix}${suffix}`,
-    cssProperty: cssPropertyArr as string,
-  })
-)
+const classEntries = Object.entries(
+  kaizenTailwindTheme?.extend.maxWidth || []
+).map(([suffix, cssPropertyArr]) => ({
+  utilityClassName: `${prefix}${suffix}`,
+  cssProperty: cssPropertyArr as string,
+}))
 
 export default {
   title: "Systems/Tailwind/Utility Class References/Typography/Max Text Width",
@@ -36,6 +33,9 @@ const fontClasses = {
   "max-w-paragraph-xs": "text-paragraph-xs leading-paragraph-xs",
 }
 
+const getFontClass = (utilityClass: string): string =>
+  fontClasses[utilityClass as keyof typeof fontClasses] || ""
+
 export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
@@ -44,16 +44,14 @@ export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <>
-        <p
-          className={[utilityClass, fontClasses[utilityClass] || ""].join(" ")}
-        >
+        <p className={[utilityClass, getFontClass(utilityClass)].join(" ")}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, optio
           incidunt explicabo facilis ipsam, porro magni vero libero itaque rerum
           deserunt quo molestiae expedita dolor? Alias iusto ad maiores odit! (
-          {[utilityClass, fontClasses[utilityClass] || ""].join(" ")})
+          {[utilityClass, getFontClass(utilityClass)].join(" ")})
         </p>
         <code className="text-paragraph-sm bg-gray-300 py-4 px-8">
-          {[utilityClass, fontClasses[utilityClass] || ""].join(" ")}
+          {[utilityClass, getFontClass(utilityClass)].join(" ")}
         </code>
       </>
     )}

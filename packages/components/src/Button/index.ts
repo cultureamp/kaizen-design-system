@@ -1,2 +1,2 @@
 export * from "./Button"
-export * from "./components/GenericButton"
+export * from "./subcomponents/GenericButton"

@@ -3,7 +3,7 @@ import React, { forwardRef, Ref } from "react"
 import GenericButton, {
   ButtonProps,
   ButtonRef,
-} from "./components/GenericButton"
+} from "./subcomponents/GenericButton"
 
 /**
  * {@link https://cultureamp.design/components/button/ Guidance} |

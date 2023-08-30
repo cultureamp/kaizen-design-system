@@ -8,7 +8,7 @@ import {
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
-import { classNameOverrideFilterArgType } from "../../../../../storybook/argTypes"
+import { classNameOverrideFilterArgType } from "~storybook/argTypes"
 import {
   DateValidationResponse,
   FilterDatePicker,

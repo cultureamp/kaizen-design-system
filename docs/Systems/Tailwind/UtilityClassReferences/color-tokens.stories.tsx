@@ -23,7 +23,7 @@ const Stack = ({
   ...divAttributes
 }: HTMLAttributes<HTMLDivElement> & {
   horizontal?: boolean
-  gapSize?: number
+  gapSize?: keyof typeof theme.spacing
 }): JSX.Element => {
   const theme = useTheme()
 
