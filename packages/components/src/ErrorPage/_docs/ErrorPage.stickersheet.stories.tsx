@@ -1,13 +1,10 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { ErrorPage, ErrorPageProps } from "../ErrorPage"
-
-const IS_CHROMATIC = isChromatic()
 
 export default {
   title: "Pages/Error Page",
@@ -56,7 +53,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         >
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <ErrorPage isAnimated={!IS_CHROMATIC} code={code} />
+              <ErrorPage code={code} />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>
@@ -66,7 +63,6 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row>
             <ErrorPage
-              isAnimated={!IS_CHROMATIC}
               code="400"
               title="This is a 400 custom title"
               message="This is a custom 400 message"
