@@ -14,5 +14,10 @@ export const ItalicsIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "italics icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

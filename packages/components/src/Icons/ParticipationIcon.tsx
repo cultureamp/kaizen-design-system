@@ -25,5 +25,10 @@ export const ParticipationIcon = (
       />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "participation icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

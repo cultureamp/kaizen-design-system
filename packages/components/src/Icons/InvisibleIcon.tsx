@@ -17,5 +17,10 @@ export const InvisibleIcon = (
       />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "invisible icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

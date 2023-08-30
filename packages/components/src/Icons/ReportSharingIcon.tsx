@@ -25,5 +25,10 @@ export const ReportSharingIcon = (
       />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "report sharing icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

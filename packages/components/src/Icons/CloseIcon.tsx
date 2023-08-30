@@ -18,5 +18,10 @@ export const CloseIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       <use href={`#${uniqueId}`} fillRule="evenodd" />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "close icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

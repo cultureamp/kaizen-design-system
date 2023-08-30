@@ -17,5 +17,10 @@ export const HamburgerIcon = (
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "hamburger icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

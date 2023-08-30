@@ -1,10 +1,16 @@
 // @ts-ignore: Redeclared module error
+const path = require("path")
+// @ts-ignore: Redeclared module error
 const svgToComponentTitle = (fileName: string): string => {
   const split = fileName.split("-")
   return split
     .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
     .join("")
     .replace(".icon", "Icon")
+}
+
+const svgToAriaLabel = (fileName: string): string => {
+  return fileName.split(/[-,/.]/).join(" ")
 }
 
 // eslint-disable-next-line no-template-curly-in-string
@@ -14,11 +20,13 @@ const hrefReplacement = "href={`#${uniqueId}`}"
 const insertSvgData = (
   reactTemplate: string,
   componentName: string,
-  svgContent: string
+  svgContent: string,
+  ariaLabel: string
 ): string => {
   const completedTemplate = reactTemplate
     .replace("COMPONENT_TITLE", componentName)
     .replace("SVG_CONTENT", svgContent)
+    .replace("ARIA_LABEL", ariaLabel)
 
   if (completedTemplate.includes("UNIQUE_ID")) {
     return completedTemplate
@@ -36,4 +44,5 @@ const insertSvgData = (
 module.exports = {
   insertSvgData,
   svgToComponentTitle,
+  svgToAriaLabel,
 }

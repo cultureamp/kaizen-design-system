@@ -15,5 +15,10 @@ export const SkipIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "skip icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

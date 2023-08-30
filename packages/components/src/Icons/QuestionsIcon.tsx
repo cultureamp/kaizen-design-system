@@ -20,5 +20,10 @@ export const QuestionsIcon = (
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "questions icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

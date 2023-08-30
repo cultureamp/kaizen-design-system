@@ -1,16 +1,23 @@
-// @ts-ignore: Redeclared module error
-const { insertSvgData, svgToComponentTitle } = require("./wrapSVGUtils")
+const Utils = require("./wrapSVGUtils")
 
 describe("svgToComponentTitle", () => {
   it("converts kebab case to pascal case, and replaces .icon with Icon", () => {
     const original = "academy.icon"
     const expected = "AcademyIcon"
-    expect(svgToComponentTitle(original)).toEqual(expected)
+    expect(Utils.svgToComponentTitle(original)).toEqual(expected)
   })
   it("handles multiple dashes in kebab case", () => {
     const original = "action-off-white.icon"
     const expected = "ActionOffWhiteIcon"
-    expect(svgToComponentTitle(original)).toEqual(expected)
+    expect(Utils.svgToComponentTitle(original)).toEqual(expected)
+  })
+})
+
+describe("svgToAriaLabel", () => {
+  it("replaces '-' in the filename with spaces, and adds ' icon' at the end.", () => {
+    const original = "action-off-white.icon"
+    const expected = "action off white icon"
+    expect(Utils.svgToAriaLabel(original)).toEqual(expected)
   })
 })
 
@@ -25,7 +32,13 @@ describe("insertSvgData", () => {
   `
   const componentTitle = "MyIcon"
   const svgContent = "<use></use>"
-  const result = insertSvgData(reactTemplate, componentTitle, svgContent)
+  const ariaLabel = "my icon"
+  const result = Utils.insertSvgData(
+    reactTemplate,
+    componentTitle,
+    svgContent,
+    ariaLabel
+  )
 
   it("replaces COMPONENT_TITLE with the name of the icon component", () => {
     expect(result.includes("COMPONENT_TITLE")).toBe(false)

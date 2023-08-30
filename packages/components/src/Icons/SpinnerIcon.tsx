@@ -263,5 +263,10 @@ export const SpinnerIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       </rect>
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "spinner icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

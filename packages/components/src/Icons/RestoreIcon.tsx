@@ -15,5 +15,10 @@ export const RestoreIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "restore icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

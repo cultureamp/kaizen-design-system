@@ -23,5 +23,10 @@ export const KebabIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "kebab icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }

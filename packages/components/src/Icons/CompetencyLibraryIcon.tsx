@@ -23,5 +23,10 @@ export const CompetencyLibraryIcon = (
       <path fill="currentColor" d="M15 3h2v14h-2V3ZM20 3h-2v14h2V3Z" />
     </>
   )
-  return <SVG {...props}>{svgContent}</SVG>
+  const ariaLabel = props["aria-label"] ?? "competency library icon"
+  return (
+    <SVG {...props} aria-label={ariaLabel}>
+      {svgContent}
+    </SVG>
+  )
 }
