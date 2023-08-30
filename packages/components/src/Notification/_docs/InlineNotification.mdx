@@ -1,0 +1,44 @@
+import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as InlineNotificationStories from "./InlineNotification.stories"
+
+<Meta of={InlineNotificationStories} />
+
+# InlineNotification
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/InlineNotification"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { InlineNotification } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={InlineNotificationStories.Playground} />
+<Controls of={InlineNotificationStories.Playground} />
+
+## API
+
+{/*
+  * @todo: Describe props and provide example stories.
+  * You can choose to write in MDX or to use <Description />.
+  */}
+### Reversed
+<Description of={InlineNotificationStories.Reversed} />
+<Canvas of={InlineNotificationStories.Reversed} />
