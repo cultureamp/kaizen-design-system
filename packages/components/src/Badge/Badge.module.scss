@@ -82,7 +82,8 @@ $small: $spacing-md;
 $badge-duration-timing: ($animation-duration-slow / 2)
   $animation-easing-function-ease-in;
 
-$badge-transition: transform $badge-duration-timing,
+$badge-transition:
+  transform $badge-duration-timing,
   background-color $badge-duration-timing;
 
 .animation {
