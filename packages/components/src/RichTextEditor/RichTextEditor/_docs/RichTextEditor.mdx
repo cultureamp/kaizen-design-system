@@ -1,0 +1,44 @@
+import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as RichTextEditorStories from "./RichTextEditor.stories"
+
+<Meta of={RichTextEditorStories} />
+
+# RichTextEditor
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/RichTextEditor"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { RichTextEditor } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={RichTextEditorStories.Playground} />
+<Controls of={RichTextEditorStories.Playground} />
+
+## API
+
+{/*
+  * @todo: Describe props and provide example stories.
+  * You can choose to write in MDX or to use <Description />.
+  */}
+### Reversed
+<Description of={RichTextEditorStories.Reversed} />
+<Canvas of={RichTextEditorStories.Reversed} />

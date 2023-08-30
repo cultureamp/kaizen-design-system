@@ -1,0 +1,6 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.toolbar {
+  display: block;
+  border-bottom: 2px solid $color-gray-500;
+}
