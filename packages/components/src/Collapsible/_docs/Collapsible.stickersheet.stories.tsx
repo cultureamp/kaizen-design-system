@@ -12,13 +12,26 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
 const CollapsibleWrapped = ({
   title = "Collapsible",
   ...args
-}: Omit<CollapsibleProps, "children">): JSX.Element => (
+}: Omit<CollapsibleProps, "children" | "title"> & {
+  title?: string
+}): JSX.Element => (
   <Collapsible open title={title} {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
     scelerisque sem, vel ultricies justo. Donec eu porttitor ante, nec gravida
@@ -34,17 +47,28 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
-        <CollapsibleWrapped title="No Padding" noSectionPadding />
-        <CollapsibleWrapped title="Lazy load" lazyLoad />
-        <CollapsibleWrapped title="Clear" variant="clear" />
-        <CollapsibleWrapped
-          title="Custom header"
-          renderHeader={title => (
-            <Heading variant="heading-4" tag="span">
-              {title}
-            </Heading>
-          )}
-        />
+        <StickerSheet.Row rowTitle="Default">
+          <CollapsibleWrapped />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="noSectionPadding">
+          <CollapsibleWrapped title="No Padding" noSectionPadding />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="lazyLoad">
+          <CollapsibleWrapped title="Lazy load" lazyLoad />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="clear">
+          <CollapsibleWrapped title="Clear" variant="clear" />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="custom heading">
+          <CollapsibleWrapped
+            title="Custom header"
+            renderHeader={title => (
+              <Heading variant="heading-4" tag="span">
+                {title}
+              </Heading>
+            )}
+          />
+        </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),

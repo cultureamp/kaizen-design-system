@@ -12,7 +12,7 @@ export type CollapsibleGroupProps = {
   noSectionPadding?: boolean
   lazyLoad?: boolean
   onToggle?: (open: boolean, id: string) => void
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
+} & Omit<OverrideClassName<HTMLAttributes<HTMLDivElement>>, "children">
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible Guidance} |
