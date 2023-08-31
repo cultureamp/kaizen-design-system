@@ -1,9 +1,9 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { CloseIcon } from "~icons/CloseIcon"
 import { VisibleIcon } from "~icons/VisibleIcon"
-import { Workflow, WorkflowProps } from "../"
+import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const MockContent = (): JSX.Element => (
@@ -34,39 +34,39 @@ const MockContent = (): JSX.Element => (
   </div>
 )
 
-const defaultArgs = {
-  workflowName: "Create a self-reflection cycle",
-  stepName: "Settings",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: false,
-  status: {
-    content: "Draft",
-    variant: "statusDraft",
-  },
-  previousAction: <Button reversed label="Back" />,
-  nextAction: <Button reversed label="Next" />,
-  headerActions: [
-    <Button
-      key="would-use-uui-2"
-      label="Save and close"
-      icon={<CloseIcon role="presentation" />}
-      secondary
-      iconPosition="end"
-    />,
-  ],
-  children: <MockContent />,
-} satisfies WorkflowProps
-
 const meta = {
   title: "Pages/Workflow/Legacy/Components/Workflow",
   component: Workflow,
-  args: defaultArgs,
   argTypes: WorkflowControls,
+  args: {
+    workflowName: "Create a self-reflection cycle",
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: false,
+    status: {
+      content: "Draft",
+      variant: "statusDraft",
+    },
+    previousAction: <Button reversed label="Back" />,
+    nextAction: <Button reversed label="Next" />,
+    headerActions: [
+      <Button
+        key="would-use-uui-2"
+        label="Save and close"
+        icon={<CloseIcon role="presentation" />}
+        secondary
+        iconPosition="end"
+      />,
+    ],
+    children: <MockContent />,
+  },
 } satisfies Meta<typeof Workflow>
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
+type Story = StoryObj<typeof meta>
+
+export const Playground: Story = {
   parameters: {
     docs: {
       canvas: {
@@ -77,19 +77,8 @@ export const Playground: StoryObj<typeof meta> = {
   },
 }
 
-Playground.args = { ...defaultArgs }
-
-export const MultipleActions: StoryObj<typeof meta> = {
+export const MultipleActions: Story = {
   args: {
-    workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-    isComplete: false,
-    status: {
-      content: "Draft",
-      variant: "statusDraft",
-    },
-    nextAction: <Button reversed label="Next" />,
     headerActions: [
       <Button
         key="would-use-uui-1"
@@ -110,99 +99,64 @@ export const MultipleActions: StoryObj<typeof meta> = {
   },
 }
 
-export const FinalStep: StoryObj<typeof meta> = {
+export const FinalStep: Story = {
   args: {
-    workflowName: "Create a self-reflection cycle",
     stepName: "Schedule",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-    isComplete: false,
-    status: {
-      content: "Draft",
-      variant: "statusDraft",
-    },
-    nextAction: <Button reversed label="Next" />,
-    headerActions: [
-      <Button
-        key="would-use-uui-2"
-        label="Save and close"
-        icon={<CloseIcon role="presentation" />}
-        secondary
-        iconPosition="end"
-        onClick={(): void => alert("mock example of a save action")}
-      />,
-    ],
   },
 }
 
-export const CompletedWorkflow: StoryObj<typeof meta> = {
+export const CompletedWorkflow: Story = {
   args: {
-    workflowName: "Create a self-reflection cycle",
-    stepName: "Settings",
-    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
     isComplete: true,
-    status: {
-      content: "Draft",
-      variant: "statusDraft",
-    },
-    nextAction: <Button reversed label="Next" />,
-    headerActions: [
-      <Button
-        key="would-use-uui-2"
-        label="Save and close"
-        icon={<CloseIcon role="presentation" />}
-        secondary
-        iconPosition="end"
-        onClick={(): void => alert("mock example of a save action")}
-      />,
-    ],
   },
   parameters: {
     chromatic: { disable: false },
   },
 }
 
-export const ComposableWorkflow: StoryFn<WorkflowProps> = ({
-  steps,
-  isComplete,
-  workflowName,
-  stepName,
-  status,
-  headerActions,
-  previousAction,
-  nextAction,
-  ...restProps
-}) => (
-  <Workflow.Wrapper {...restProps}>
-    <Workflow.Header
-      workflowName={workflowName}
-      stepName={stepName}
-      status={status}
-      headerActions={headerActions}
-    />
-    <Workflow.Main>
-      <h3>Content</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
-        labore dolorum debitis eaque laboriosam qui quidem itaque necessitatibus
-        obcaecati aut earum consectetur excepturi accusamus nulla libero maxime,
-        quibusdam vero?
-      </p>
-    </Workflow.Main>
-    <Workflow.Footer
-      stepName={stepName}
-      steps={steps}
-      isComplete={isComplete}
-      nextAction={nextAction}
-      previousAction={previousAction}
-    />
-  </Workflow.Wrapper>
-)
-
-ComposableWorkflow.parameters = {
-  chromatic: { disable: false },
+export const ComposableWorkflow: Story = {
+  render: ({
+    steps,
+    isComplete,
+    workflowName,
+    stepName,
+    status,
+    headerActions,
+    previousAction,
+    nextAction,
+    ...restProps
+  }) => (
+    <Workflow.Wrapper {...restProps}>
+      <Workflow.Header
+        workflowName={workflowName}
+        stepName={stepName}
+        status={status}
+        headerActions={headerActions}
+      />
+      <Workflow.Main>
+        <h3>Content</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
+          labore dolorum debitis eaque laboriosam qui quidem itaque
+          necessitatibus obcaecati aut earum consectetur excepturi accusamus
+          nulla libero maxime, quibusdam vero?
+        </p>
+      </Workflow.Main>
+      <Workflow.Footer
+        stepName={stepName}
+        steps={steps}
+        isComplete={isComplete}
+        nextAction={nextAction}
+        previousAction={previousAction}
+      />
+    </Workflow.Wrapper>
+  ),
+  parameters: {
+    chromatic: { disable: false },
+  },
 }
 
-export const ResponsiveWorkflow: StoryObj<typeof meta> = {
+export const ResponsiveWorkflow: Story = {
   parameters: {
     docs: {
       canvas: {
@@ -228,5 +182,3 @@ export const ResponsiveWorkflow: StoryObj<typeof meta> = {
     },
   },
 }
-
-ResponsiveWorkflow.args = { ...defaultArgs }
