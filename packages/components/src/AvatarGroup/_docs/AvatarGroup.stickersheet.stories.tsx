@@ -16,7 +16,7 @@ export default {
       config: {
         rules: [
           {
-            // @todo: revisit this, stickersheet headings are causing color-contrast errors
+            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
             id: "color-contrast",
             enabled: false,
           },
