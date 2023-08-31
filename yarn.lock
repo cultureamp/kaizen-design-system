@@ -1771,10 +1771,10 @@
   dependencies:
     chromatic "^6.14.0"
 
-"@cultureamp/i18n-react-intl@^1.4.5":
-  version "1.4.8"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/1.4.8/b73975152faba922f9d1d257462137a2e43b57a9#b73975152faba922f9d1d257462137a2e43b57a9"
-  integrity sha512-ChU6oCpLUtjl/1421BrU94l0Hfqr2ZHJ+Zh1rK7xan15L4ubzmeAZu3My8sKVdqCabh1jDQnVj9LA+pKg/7IzA==
+"@cultureamp/i18n-react-intl@^1.6.2":
+  version "1.6.2"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/1.6.2/a892a024b1aaa09c062774dbd94d575d27f5b1b1#a892a024b1aaa09c062774dbd94d575d27f5b1b1"
+  integrity sha512-WxMd+305c8FaZVZO2V8VVGzl/l/d6Ly7/tCy8LD3e4wzQJehF9VcczanoFk+2lk31QmWUrWZJNS9mlwvL8Dvmw==
   dependencies:
     "@calm/eslint-plugin-react-intl" "^1.4.1"
     "@cultureamp/frontend-apis" "*"
