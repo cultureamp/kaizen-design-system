@@ -13,9 +13,9 @@ export type InlineNotificationProps = {
   /** @default "short" */
   autohideDelay?: "short" | "long"
   /** @default false */
-  persistent: boolean
+  persistent?: boolean
   /** @default false */
-  hideCloseIcon: boolean
+  hideCloseIcon?: boolean
   onHide?: () => void
   noBottomMargin?: boolean
   forceMultiline?: boolean
