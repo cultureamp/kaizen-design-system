@@ -8,8 +8,7 @@ import styles from "./Avatar.module.scss"
 
 export type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"
 
-interface BaseAvatarProps
-  extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
+export type BaseAvatarProps = {
   /**
    * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
    */
@@ -33,7 +32,7 @@ interface BaseAvatarProps
    * Renders Company Avatar variant - If true `fullName` and `avatarSrc` will be strictly typed.
    */
   isCompany?: boolean
-}
+} & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
 export interface GenericAvatarProps extends BaseAvatarProps {
   isCompany?: false
