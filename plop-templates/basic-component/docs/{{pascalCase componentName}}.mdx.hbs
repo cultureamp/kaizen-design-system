@@ -1,4 +1,4 @@
-import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as {{pascalCase componentName}}Stories from "./{{pascalCase componentName}}.stories"
 
@@ -35,10 +35,5 @@ Brief summary of the component here.
 
 ## API
 
-{/*
-  * @todo: Describe props and provide example stories.
-  * You can choose to write in MDX or to use <Description />.
-  */}
-### Reversed
-<Description of={{preCurly (pascalCase componentName)}}Stories.Reversed} />
-<Canvas of={{preCurly (pascalCase componentName)}}Stories.Reversed} />
+{/* @todo: Describe props and provide example stories. */}
+<DocsStory of={{preCurly (pascalCase componentName)}}Stories.Reversed} />
