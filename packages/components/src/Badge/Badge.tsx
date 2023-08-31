@@ -70,3 +70,5 @@ export const BadgeAnimated = (props: BadgeProps): JSX.Element => {
     </span>
   )
 }
+
+Badge.displayName = "Badge"
