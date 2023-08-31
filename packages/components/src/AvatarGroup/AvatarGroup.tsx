@@ -15,8 +15,7 @@ export type AvatarGroupAvatarProps =
 export type AvatarGroupSize = "small" | "medium" | "large"
 export type AvatarList = [AvatarGroupAvatarProps, ...AvatarGroupAvatarProps[]]
 
-export interface AvatarGroupProps
-  extends OverrideClassName<HTMLAttributes<HTMLUListElement>> {
+export type AvatarGroupProps = {
   /**
    * There are 3 fixed sizes available. `"small"` will remove border and box shadow to save space.
    * @default "medium"
@@ -32,7 +31,7 @@ export interface AvatarGroupProps
    * Note that 'size' is omitted from the `AvatarProps` type so it will throw a type error if size is provided.
    * */
   avatars: AvatarList
-}
+} & OverrideClassName<HTMLAttributes<HTMLUListElement>>
 
 const renderCounter = (remainingAvatars: number): JSX.Element | void => {
   if (remainingAvatars <= 0) return

@@ -19,7 +19,7 @@ type BadgeCommonProps = {
   size?: "small" | "large"
 } & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
-interface DotProps extends Omit<BadgeCommonProps, "variant"> {
+type DotProps = Omit<BadgeCommonProps, "variant"> & {
   children?: undefined
   variant: "dot"
 }
