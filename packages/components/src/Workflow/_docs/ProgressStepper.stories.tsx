@@ -1,19 +1,17 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
-import { ProgressStepperProps } from "../subcomponents"
 import { Workflow } from "../"
-
-const defaultArgs = {
-  stepName: "Settings",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: false,
-} satisfies ProgressStepperProps
 
 const meta = {
   tags: ["autodocs"],
   title: "Pages/Workflow/Legacy/Components/Progress Stepper",
   component: Workflow.ProgressStepper,
+  args: {
+    stepName: "Settings",
+    steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
+    isComplete: false,
+  },
   parameters: {
     docs: {
       source: { type: "code" },
@@ -33,95 +31,75 @@ const meta = {
         "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
     },
   },
+  decorators: [
+    Story => (
+      <div className="bg-blue-500 p-8">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Workflow.ProgressStepper>
 
 export default meta
+
+type Story = StoryObj<typeof meta>
 
 /**
  * <p>This component is used in the `Footer` to track progress of the Workflows steps.</p>
  * <p>It has no reverse variant and should only be used in the Worflow's `Footer` component.</p>
  */
-export const Playground: StoryFn<ProgressStepperProps> = ({
-  stepName,
-  steps,
-  isComplete,
-  ...restProps
-}) => (
-  <div className="bg-blue-500 p-8">
-    <Workflow.ProgressStepper
-      stepName={stepName}
-      steps={steps}
-      isComplete={isComplete}
-      {...restProps}
-    />
-  </div>
-)
-
-Playground.args = { ...defaultArgs }
-
-const VariantTemplate: StoryFn<ProgressStepperProps> = ({
-  stepName,
-  steps,
-  isComplete,
-  ...restProps
-}) => (
-  <div className="bg-blue-500 p-8">
-    <Workflow.ProgressStepper
-      stepName={stepName}
-      steps={steps}
-      isComplete={isComplete}
-      {...restProps}
-    />
-  </div>
-)
+export const Playground: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+}
 
 /** <p>To ensure WCAG AA compliance, there are 3 visually destinct states.</p>
  * <p>These are reflected in their accessible names for screen reader: "Completed", "Current" and "Not started"</p>
  */
-export const ProgressStates = VariantTemplate.bind({})
-
-ProgressStates.args = {
-  stepName: "Questions",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: false,
+export const ProgressStates: Story = {
+  args: {
+    stepName: "Questions",
+  },
 }
 
 /**
  * <p>You can use the `isComplete` follow a successful submission to render all steps as complete.</p>
  */
-export const AllStepsComplete = VariantTemplate.bind({})
-
-AllStepsComplete.args = {
-  stepName: "Schedule",
-  steps: ["Settings", "Questions", "Preview", "Employees", "Schedule"],
-  isComplete: true,
+export const AllStepsComplete: Story = {
+  args: {
+    stepName: "Schedule",
+    isComplete: true,
+  },
 }
 
-export const FewerSteps = VariantTemplate.bind({})
-
-FewerSteps.args = {
-  stepName: "Questions",
-  steps: ["Settings", "Questions", "Preview"],
-  isComplete: false,
+export const FewerSteps: Story = {
+  args: {
+    stepName: "Questions",
+    steps: ["Settings", "Questions", "Preview"],
+  },
 }
 
 /**
  * <p>We have baked in a container query to ensure the component can be responsive.</p>
  * <p>When a step reaches its minimum size (4.5rem), it will hide the display name to maximise realestate.</p>
  */
-export const SevenSteps = VariantTemplate.bind({})
-
-SevenSteps.args = {
-  stepName: "Questions",
-  steps: [
-    "Settings",
-    "Questions",
-    "Preview",
-    "Employees",
-    "Schedule",
-    "Plan",
-    "Provision",
-    "Another thing",
-  ],
-  isComplete: false,
+export const EightSteps: Story = {
+  args: {
+    stepName: "Questions",
+    steps: [
+      "Settings",
+      "Questions",
+      "Preview",
+      "Employees",
+      "Schedule",
+      "Plan",
+      "Provision",
+      "Another thing",
+    ],
+  },
 }
