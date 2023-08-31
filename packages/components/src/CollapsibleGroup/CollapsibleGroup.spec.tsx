@@ -5,6 +5,8 @@ import { Collapsible } from "~components/Collapsible"
 import { CollapsibleGroup } from "./CollapsibleGroup"
 
 const user = userEvent.setup()
+
+// @todo write a test to ensure right props are passed to children?
 describe("<CollapsibleGroup />", () => {
   it("only toggles the height of the clicked panel in a group", async () => {
     const { getByTestId } = render(
@@ -18,10 +20,10 @@ describe("<CollapsibleGroup />", () => {
       </CollapsibleGroup>
     )
 
-    const button = getByTestId("collapsible-button-1")
+    const header = getByTestId("collapsible-header-1")
     const section = getByTestId("collapsible-section-2")
 
-    await user.click(button)
+    await user.click(header)
     await waitFor(() => {
       expect(section.style.height).toEqual("auto")
     })
