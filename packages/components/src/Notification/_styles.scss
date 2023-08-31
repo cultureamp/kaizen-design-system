@@ -6,7 +6,7 @@
 @import "./mixins";
 
 $notification-vertical-padding: calc(
-  #{$spacing-xs} - #{$border-solid-border-width}
+  #{$spacing-6} - #{$border-solid-border-width}
 );
 $notification-fade-out: opacity 200ms ease;
 $notification-collapse-height:
@@ -26,7 +26,7 @@ $notification-slide-right: transform 300ms ease-out;
   // Variants
   &%ca-notification---inline,
   &%ca-notification---toast {
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-24;
     border: $border-solid-border-width $border-solid-border-style;
     border-radius: $border-solid-border-radius;
   }
@@ -34,7 +34,7 @@ $notification-slide-right: transform 300ms ease-out;
   &%ca-notification---inline {
     width: auto;
     min-height: 46px;
-    padding: $notification-vertical-padding $spacing-sm;
+    padding: $notification-vertical-padding $spacing-12;
     transition: $notification-fade-out, $notification-pop-up,
       $notification-collapse-height;
   }
@@ -173,16 +173,16 @@ $notification-slide-right: transform 300ms ease-out;
   %ca-notification---toast & {
     width: 22px;
     height: 22px;
-    margin-top: $spacing-xs;
+    margin-top: $spacing-6;
   }
 
   %ca-notification---global & {
-    $size: calc(#{$spacing-md} * 1.25);
+    $size: calc(#{$spacing-24} * 1.25);
 
     width: $size;
     height: $size;
-    padding: calc(((#{$spacing-md} * 2) - #{$size}) / 2);
-    margin: calc(#{$spacing-md} / 4);
+    padding: calc(((#{$spacing-24} * 2) - #{$size}) / 2);
+    margin: calc(#{$spacing-24} / 4);
     border-radius: $border-solid-border-radius;
 
     // Override the type-specific color values set above
@@ -211,19 +211,19 @@ $notification-slide-right: transform 300ms ease-out;
 
   %ca-notification---inline &,
   %ca-notification---toast & {
-    margin-left: 6px;
+    margin-inline-start: $spacing-6;
   }
 
   %ca-notification---toast & {
-    margin-left: 6px;
-    max-width: calc(100% - #{$spacing-xl});
+    margin-inline-start: $spacing-6;
+    max-width: calc(100% - #{$spacing-48});
     overflow-wrap: break-word;
     hyphens: auto;
   }
 
   %ca-notification---global & {
-    margin-left: 14px;
-    padding: calc(0.25 * #{$spacing-md}) 0;
+    margin-inline-start: $spacing-12;
+    padding: calc(0.25 * #{$spacing-24}) 0;
   }
 
   %ca-notification---inline & {
@@ -272,9 +272,9 @@ $notification-slide-right: transform 300ms ease-out;
     letter-spacing: $typography-paragraph-small-letter-spacing;
     // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
     // When they are both on a single line it ensures both are 1 grid unit tall.
-    margin-top: $spacing-xs;
+    margin-top: $spacing-6;
     flex: 0 1 auto;
-    padding-bottom: $spacing-sm;
+    padding-bottom: $spacing-12;
     top: 0.21em;
   }
   %ca-notification---toast & {
@@ -328,14 +328,14 @@ $notification-slide-right: transform 300ms ease-out;
   // The negative margins below are so that our clickable area will overlap the notification padding
   %ca-notification---inline &,
   %ca-notification---toast & {
-    width: $spacing-xl;
-    height: $spacing-xl;
-    margin-top: calc(-1 * #{$spacing-xs});
-    margin-bottom: calc(-1 * #{$spacing-xs});
+    width: $spacing-48;
+    height: $spacing-48;
+    margin-top: calc(-1 * #{$spacing-6});
+    margin-bottom: calc(-1 * #{$spacing-6});
   }
 
   %ca-notification---inline & {
-    margin-right: calc(-1 * #{$spacing-sm});
+    margin-right: calc(-1 * #{$spacing-12});
   }
 
   %ca-notification---toast & {
@@ -343,12 +343,12 @@ $notification-slide-right: transform 300ms ease-out;
   }
 
   %ca-notification---global & {
-    padding-right: calc((5 / 8) * #{$spacing-md});
-    width: $spacing-xxl;
-    height: $spacing-xxl;
+    padding-right: calc((5 / 8) * #{$spacing-24});
+    width: 3.75rem;
+    height: 3.75rem;
     margin-right: -15px;
-    margin-top: calc(-1 * #{$spacing-sm});
-    margin-bottom: calc(-1 * #{$spacing-sm});
+    margin-top: calc(-1 * #{$spacing-12});
+    margin-bottom: calc(-1 * #{$spacing-12});
   }
 }
 

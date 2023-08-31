@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react"
+import React from "react"
 import classnames from "classnames"
 import { Heading, HeadingProps } from "@kaizen/typography"
 

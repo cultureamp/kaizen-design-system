@@ -1,20 +1,13 @@
-import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
-import * as InlineNotificationStories from "./InlineNotification.stories"
+import { Canvas, Controls, DocsStory, Meta, Description} from "@storybook/blocks"
+import { Installation, KaioNotification, ResourceLinks } from "~storybook/components"
+import * as InlineNotificationExamples from "./InlineNotification.stories"
 
-<Meta of={InlineNotificationStories} />
+<Meta title="Components/Notifications/Inline Notification" />
 
-# InlineNotification
+# Inline Notification
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
 <ResourceLinks
-  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/InlineNotification"
-  figma=""
-  designGuidelines=""
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Notification/InlineNotification"
   className="!mb-8"
 />
 
@@ -27,18 +20,29 @@ import * as InlineNotificationStories from "./InlineNotification.stories"
 
 ## Overview
 
-{/* @todo: Update summary. */}
-Brief summary of the component here.
+`<InlineNotification>` is used to display contextual information, including positive feedback or confirmation about an action, warnings about possible issues or show-stopping errors.
 
-<Canvas of={InlineNotificationStories.Playground} />
-<Controls of={InlineNotificationStories.Playground} />
+<Canvas of={InlineNotificationExamples.Playground} />
 
 ## API
 
-{/*
-  * @todo: Describe props and provide example stories.
-  * You can choose to write in MDX or to use <Description />.
-  */}
-### Reversed
-<Description of={InlineNotificationStories.Reversed} />
-<Canvas of={InlineNotificationStories.Reversed} />
+<Controls of={InlineNotificationExamples.Playground} />
+
+
+### persistent
+
+<Description of={InlineNotificationExamples.Persistent} />
+<Canvas of={InlineNotificationExamples.Persistent} />
+
+### forceMultiline
+
+<Description of={InlineNotificationExamples.ForceMultilineDemo} />
+<Canvas of={InlineNotificationExamples.ForceMultilineDemo} />
+
+<Description of={InlineNotificationExamples.ContentMultilineDemo} />
+<Canvas of={InlineNotificationExamples.ContentMultilineDemo} />
+
+### autohide
+
+<Description of={InlineNotificationExamples.AutohideDemo} />
+<Canvas of={InlineNotificationExamples.AutohideDemo} />

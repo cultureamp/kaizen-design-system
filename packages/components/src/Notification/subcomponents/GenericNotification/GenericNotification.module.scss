@@ -1,7 +1,8 @@
-@import "../styles";
+@import "../../styles";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 .notification {
   @extend %ca-notification;
@@ -38,9 +39,7 @@
 
   &:focus-visible::after {
     content: "";
-
     $focus-ring-offset: 6px;
-
     pointer-events: none;
     position: absolute;
     background: transparent;
@@ -59,7 +58,7 @@
 .notificationTitle {
   top: 0.42em;
   position: relative;
-  padding-right: 6px;
+  margin-inline-end: $spacing-6;
   line-height: $typography-heading-6-line-height;
 }
 

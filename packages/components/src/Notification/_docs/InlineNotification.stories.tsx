@@ -1,26 +1,38 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
-import { InlineNotification } from "../index"
+import {
+  InlineNotification,
+  InlineNotificationProps,
+} from "../InlineNotification"
+
+const DEFAULT_PROPS: Partial<InlineNotificationProps> = {
+  headingProps: {
+    children: "Informative",
+    tag: "span",
+    variant: "heading-6",
+  },
+  type: "informative",
+  children:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque",
+}
 
 const meta = {
-  title: "Components/InlineNotification",
+  title: "Components/Notifications/Inline Notification",
   component: InlineNotification,
-  argTypes: { ...classNameOverrideArgType },
+  argTypes: {
+    isSubtle: { type: "boolean" },
+    forceMultiline: { type: "boolean" },
+    noBottomMargin: { type: "boolean" },
+    autohide: { type: "boolean" },
+  },
   args: {
-    /**
-     * @note: Put consistent default values here.
-     * If your value differs between stories, add the arg to the story instead.
-     */
-    exampleRequiredString: "Replace me!"
-  }
+    ...DEFAULT_PROPS,
+  },
 } satisfies Meta<typeof InlineNotification>
 
 export default meta
 
-type Story = StoryObj<typeof meta>
-
-export const Playground: Story = {
+export const Playground: StoryObj<typeof meta> = {
   parameters: {
     docs: {
       canvas: {
@@ -31,9 +43,52 @@ export const Playground: Story = {
 }
 
 /**
- * @todo: Add your description here and use <Description /> in the MDX,
- * or write directly in the MDX.
+ * `persistent` notification will remain on screen and cannot be removed by the user. This will also remove the fly in animation on page load
  */
-export const Reversed: Story = {
-  args: { isReversed: true }
+export const Persistent: StoryObj<typeof meta> = {
+  args: {
+    persistent: true,
+    type: "negative",
+    children: "Please fill in all required fields before submitting",
+    headingProps: {
+      children: "Form error",
+      variant: "heading-6",
+      tag: "span",
+    },
+  },
+}
+
+/**
+ * `forceMultiline` will break child content onto a new line, regardless of content width. Without this prop, child content will be next to the heading until it stretches past its maximum content width. */
+export const ForceMultilineDemo: StoryObj<typeof meta> = {
+  args: {
+    forceMultiline: true,
+    children: "Even with a small amount of text",
+  },
+}
+
+/**
+ * Without the `forceMultiline` prop, child content must exceed the maximum width of the container before it breaks onto a new line. */
+export const ContentMultilineDemo: StoryObj<typeof meta> = {
+  args: {
+    forceMultiline: true,
+    children:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus.",
+  },
+}
+
+/**
+ * `autohide` can be use to display temporary information. You can use the `autohideDelay` to set a longer duration before the component removes itself.
+ */
+export const AutohideDemo: StoryObj<typeof meta> = {
+  args: {
+    autohide: true,
+    autohideDelay: "short",
+  },
+  render: args => (
+    <div>
+      <InlineNotification {...args} />
+      <div>Content below autohide notification</div>
+    </div>
+  ),
 }

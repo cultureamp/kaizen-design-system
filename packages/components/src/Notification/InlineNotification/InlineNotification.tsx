@@ -1,26 +1,26 @@
 import React from "react"
 import { HeadingProps } from "@kaizen/typography"
-import { GenericNotification, NotificationType } from "../subcomponents"
-import styles from "./components/GenericNotification.module.scss"
+import GenericNotification, {
+  NotificationType,
+} from "../subcomponents/GenericNotification"
+import styles from "../subcomponents/GenericNotification/GenericNotification.module.scss"
 
 export type InlineNotificationProps = {
   type: NotificationType
   children?: React.ReactNode
+  /** @default false */
   autohide?: boolean
+  /** @default "short" */
   autohideDelay?: "short" | "long"
+  /** @default false */
   persistent: boolean
+  /** @default false */
   hideCloseIcon: boolean
   onHide?: () => void
-  automationId?: string
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
   isSubtle?: boolean
-  /**
-   * **Deprecated:** Use headingProps
-   * @deprecated
-   */
-  title?: string
 }
 
 /**
@@ -28,24 +28,21 @@ export type InlineNotificationProps = {
  * {@link https://cultureamp.design/storybook/?path=/docs/components-notification-inline-notification--default-kaizen-demo Storybook}
  */
 export const InlineNotification = ({
-  persistent,
-  hideCloseIcon,
   isSubtle,
+  autohideDelay = "short",
+  autohide = false,
+  hideCloseIcon = false,
+  persistent = false,
   ...otherProps
 }: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
+    autohide={autohide}
+    autohideDelay={autohideDelay}
     persistent={persistent || hideCloseIcon}
     classNameOverride={isSubtle ? styles.subtle : undefined}
     {...otherProps}
   />
 )
-
-InlineNotification.defaultProps = {
-  autohideDelay: "short",
-  autohide: false,
-  hideCloseIcon: false,
-  persistent: false,
-}
 
 InlineNotification.displayName = "InlineNotification"
