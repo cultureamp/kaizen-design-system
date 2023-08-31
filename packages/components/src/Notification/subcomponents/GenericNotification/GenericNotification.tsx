@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { Heading, HeadingProps } from "@kaizen/typography"
-
+import { NotificationType } from "~components/Notification/type"
 import { CautionIcon } from "~icons/CautionIcon"
 import { CloseIcon } from "~icons/CloseIcon"
 import { ExclamationIcon } from "~icons/ExclamationIcon"
@@ -10,13 +10,6 @@ import { SecurityTipIcon } from "~icons/SecurityTipIcon"
 import { SuccessIcon } from "~icons/SuccessIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./GenericNotification.module.scss"
-
-export type NotificationType =
-  | "positive"
-  | "informative"
-  | "cautionary"
-  | "negative"
-  | "security"
 
 export type GenericNotificationProps = OverrideClassName<{
   type: NotificationType
@@ -41,17 +34,17 @@ type State = {
 const renderIcon = (type: NotificationType): JSX.Element => {
   switch (type) {
     case "positive":
-      return <SuccessIcon />
+      return <SuccessIcon inheritSize />
     case "negative":
-      return <ExclamationIcon />
+      return <ExclamationIcon inheritSize />
     case "cautionary":
-      return <CautionIcon />
+      return <CautionIcon inheritSize />
     case "informative":
-      return <InformationIcon />
+      return <InformationIcon inheritSize />
     case "security":
-      return <SecurityTipIcon />
+      return <SecurityTipIcon inheritSize />
     default:
-      return <InformationIcon />
+      return <InformationIcon inheritSize />
   }
 }
 

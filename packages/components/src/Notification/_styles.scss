@@ -3,6 +3,7 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/animation";
 @import "./mixins";
 
 $notification-vertical-padding: calc(
@@ -317,7 +318,35 @@ $notification-slide-right: transform 300ms ease-out;
 %ca-notification__cancel {
   @include button-reset;
 
-  composes: interactiveIconWrapper from from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+  .icon {
+    opacity: 70%;
+    transition: $animation-duration-fast opacity;
+  }
+
+  &:disabled,
+  &.disabled {
+    .icon {
+      opacity: 30%;
+    }
+  }
+
+  &:not(:disabled, .disabled) {
+    &:hover,
+    &:focus,
+    &.hover {
+      .icon {
+        opacity: 100%;
+      }
+    }
+
+    &:active,
+    &.active {
+      .icon {
+        opacity: 100%;
+      }
+    }
+  }
+  cursor: pointer;
   color: $color-purple-800;
   transform: none;
 

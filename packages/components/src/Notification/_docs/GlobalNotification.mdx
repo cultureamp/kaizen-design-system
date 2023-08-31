@@ -1,0 +1,34 @@
+import { Canvas, Controls, Meta, Description} from "@storybook/blocks"
+import { Installation, KaioNotification, ResourceLinks } from "~storybook/components"
+import * as GlobalNotificationExamples from "./GlobalNotification.stories"
+
+<Meta title="Components/Notifications/Global Notification" />
+
+# GlobalNotification
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Notification/GlobalNotification"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { GlobalNotification } from "@kaizen/components"'
+/>
+
+## Overview
+
+`<GlobalNotification>` are used to inform the user of system level messages.
+
+<Canvas of={GlobalNotificationExamples.Playground} />
+
+## API
+
+<Controls of={GlobalNotificationExamples.Playground} />
+
+### persistent
+
+<Description of={GlobalNotificationExamples.Persistent} />
+<Canvas of={GlobalNotificationExamples.Persistent} />
