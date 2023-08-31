@@ -21,9 +21,7 @@ const meta = {
     renderTrigger: (triggerProps): JSX.Element => (
       <FilterButton label="Label" {...triggerProps} />
     ),
-    // Open state is set by FilterTemplate
-    isOpen: undefined,
-    setIsOpen: undefined,
+    isOpen: false,
   },
 } satisfies Meta<typeof Filter>
 
@@ -32,13 +30,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const FilterTemplate: Story = {
-  render: ({ children, ...args }) => {
-    const [isOpen, setIsOpen] = useState(false)
-    return (
-      <Filter {...args} isOpen={isOpen} setIsOpen={setIsOpen}>
-        {children}
-      </Filter>
-    )
+  render: args => {
+    const [isOpen, setIsOpen] = useState(args.isOpen)
+    return <Filter {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
   },
 }
 
