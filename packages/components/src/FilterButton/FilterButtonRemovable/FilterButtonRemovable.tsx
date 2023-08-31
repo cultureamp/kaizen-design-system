@@ -37,7 +37,7 @@ export const FilterButtonRemovable = forwardRef<
       <FilterButton ref={ref} {...triggerButtonProps} />
       <Tooltip text={removeButtonLabel} display="inline-block" position="below">
         <FilterButtonBase ref={removeButtonRef} {...removeButtonProps}>
-          <ClearIcon title={removeButtonLabel} />
+          <ClearIcon role="img" aria-label={removeButtonLabel} />
         </FilterButtonBase>
       </Tooltip>
     </ButtonGroup>

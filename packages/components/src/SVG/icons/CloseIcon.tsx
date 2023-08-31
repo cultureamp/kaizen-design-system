@@ -1,7 +1,7 @@
 import React from "react"
-import { SVG, SVGProps } from "~components/SVG"
+import { SVG, IconProps } from "~components/SVG"
 
-export const CloseIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
+export const CloseIcon = (props: IconProps): JSX.Element => (
   <SVG {...props}>
     <path
       fillRule="evenodd"

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.23.0
+
+### Minor Changes
+
+- [#3959](https://github.com/cultureamp/kaizen-design-system/pull/3959) [`38a16d00a`](https://github.com/cultureamp/kaizen-design-system/commit/38a16d00ac383b9a4bc8748a20f347171c77aecd) - TS guarding on icon components to better ensure accessibility. `role` is a required prop, prompting engineers to consciously choose between meaningful (`role="img"`) or decorative (`role="presentation"`) on each usage. The `aria-label` prop is required when the icon is meaningful.
+
 ## 1.22.3
 
 ### Patch Changes
