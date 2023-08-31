@@ -3,11 +3,9 @@
 
 import React from "react"
 import { v4 as uuidv4 } from "uuid"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icons/subComponents/SVG"
 
-export const HeatmapWhiteIcon = (
-  props: Omit<SVGProps, "children">
-): JSX.Element => {
+export const HeatmapWhiteIcon = (props: IconProps): JSX.Element => {
   const uniqueId = uuidv4()
   const svgContent = (
     <>

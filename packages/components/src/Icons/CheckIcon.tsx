@@ -3,9 +3,9 @@
 
 import React from "react"
 import { v4 as uuidv4 } from "uuid"
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icons/subComponents/SVG"
 
-export const CheckIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+export const CheckIcon = (props: IconProps): JSX.Element => {
   const uniqueId = uuidv4()
   const svgContent = (
     <>

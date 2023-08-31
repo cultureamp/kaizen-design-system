@@ -3,9 +3,9 @@
 
 import React from "react"
 
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icons/subComponents/SVG"
 
-export const SpinnerIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
+export const SpinnerIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path fill="none" d="M0 0h100v100H0z" className="bk" />

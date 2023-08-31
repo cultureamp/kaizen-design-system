@@ -1,9 +1,5 @@
 import React from "react"
-<<<<<<< HEAD:packages/components/src/SVG/icons/IndicatorInactiveIcon.tsx
-import { SVG, IconProps } from "~components/SVG"
-=======
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
->>>>>>> 75aaa7f4d (Add script to convert raw svgs to React Icon components.):packages/components/src/Icons/IndicatorInactiveIcon.tsx
+import { SVG, IconProps } from "~components/Icons/subComponents/SVG"
 
 // formally named "empty"
 export const IndicatorInactiveIcon = (props: IconProps): JSX.Element => (

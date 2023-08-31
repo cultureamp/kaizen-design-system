@@ -3,11 +3,9 @@
 
 import React from "react"
 
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icons/subComponents/SVG"
 
-export const PrintWhiteIcon = (
-  props: Omit<SVGProps, "children">
-): JSX.Element => {
+export const PrintWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <g fill="none" fillRule="evenodd">

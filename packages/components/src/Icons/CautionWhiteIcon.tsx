@@ -3,11 +3,9 @@
 
 import React from "react"
 
-import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icons/subComponents/SVG"
 
-export const CautionWhiteIcon = (
-  props: Omit<SVGProps, "children">
-): JSX.Element => {
+export const CautionWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path
