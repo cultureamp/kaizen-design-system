@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { AddIcon } from "~components/SVG/icons/AddIcon"
 import { classNameOverrideArgType } from "~storybook/argTypes"
@@ -42,40 +42,60 @@ export const Playground: Story = {
   },
 }
 
-export const NoPadding: StoryFn<typeof Collapsible> = () => (
-  <Collapsible open noSectionPadding title="No padding">
-    <Paragraph variant="body">
-      In that case you should use the &apos;noSectionPadding&apos; prop.
-    </Paragraph>
-  </Collapsible>
-)
+export const NoPadding: Story = {
+  args: {
+    title: "No padding",
+  },
+  render: ({ title }) => (
+    <Collapsible open noSectionPadding title={title}>
+      <Paragraph variant="body">
+        In that case you should use the &apos;noSectionPadding&apos; prop.
+      </Paragraph>
+    </Collapsible>
+  ),
+}
 
-export const Clear: StoryFn<typeof Collapsible> = () => (
-  <Collapsible open variant="clear" title="Clear">
-    <Paragraph variant="body">The header becomes clear</Paragraph>
-  </Collapsible>
-)
+export const Clear: Story = {
+  args: {
+    title: "Clear",
+  },
+  render: ({ title }) => (
+    <Collapsible open variant="clear" title={title}>
+      <Paragraph variant="body">The header becomes clear</Paragraph>
+    </Collapsible>
+  ),
+}
 
-export const CustomHeader: StoryFn<typeof Collapsible> = () => (
-  <Collapsible
-    open
-    title="Custom header"
-    renderHeader={title => (
-      <Heading variant="heading-4" tag="span">
-        <span className="flex gap-8 items-center">
-          <AddIcon role="presentation" /> {title}
-        </span>
-      </Heading>
-    )}
-  >
-    <Paragraph variant="body">
-      You can create a custom header using the renderHeader prop.
-    </Paragraph>
-  </Collapsible>
-)
+export const CustomHeader: Story = {
+  args: {
+    title: "Custom header",
+  },
+  render: ({ title: standardTitle }) => (
+    <Collapsible
+      open
+      title={standardTitle}
+      renderHeader={title => (
+        <Heading variant="heading-4" tag="span">
+          <span className="flex gap-8 items-center">
+            <AddIcon role="presentation" /> {title}
+          </span>
+        </Heading>
+      )}
+    >
+      <Paragraph variant="body">
+        You can create a custom header using the renderHeader prop.
+      </Paragraph>
+    </Collapsible>
+  ),
+}
 
-export const Sticky: StoryFn<typeof Collapsible> = () => (
-  <Collapsible open title="Sticky header" sticky={{ top: "-1px" }}>
-    This does not work in Storybook docs, so use this as a code example only.
-  </Collapsible>
-)
+export const Sticky: Story = {
+  args: {
+    title: "Sticky header",
+  },
+  render: ({ title }) => (
+    <Collapsible open title={title} sticky={{ top: "-1px" }}>
+      This does not work in Storybook docs, so use this as a code example only.
+    </Collapsible>
+  ),
+}

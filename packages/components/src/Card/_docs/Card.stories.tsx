@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Card } from "../index"
 
@@ -26,39 +26,43 @@ export const Playground: Story = {
   },
 }
 
-export const Variants: StoryFn<typeof Card> = () => (
-  <ul className="flex list-none gap-16">
-    <li>
-      <Card variant="default">Default</Card>
-    </li>
-    <li>
-      <Card variant="informative">Informative</Card>
-    </li>
-    <li>
-      <Card variant="positive">Positive</Card>
-    </li>
-    <li>
-      <Card variant="cautionary">Cautionary</Card>
-    </li>
-    <li>
-      <Card variant="destructive">Destructive</Card>
-    </li>
-    <li>
-      <Card variant="assertive">Assertive</Card>
-    </li>
-    <li>
-      <Card variant="highlight">Highlight</Card>
-    </li>
-  </ul>
-)
+export const Variants: Story = {
+  render: () => (
+    <ul className="flex list-none gap-16">
+      <li>
+        <Card variant="default">Default</Card>
+      </li>
+      <li>
+        <Card variant="informative">Informative</Card>
+      </li>
+      <li>
+        <Card variant="positive">Positive</Card>
+      </li>
+      <li>
+        <Card variant="cautionary">Cautionary</Card>
+      </li>
+      <li>
+        <Card variant="destructive">Destructive</Card>
+      </li>
+      <li>
+        <Card variant="assertive">Assertive</Card>
+      </li>
+      <li>
+        <Card variant="highlight">Highlight</Card>
+      </li>
+    </ul>
+  ),
+}
 
-export const Elevated: StoryFn<typeof Card> = () => (
-  <ul className="flex list-none gap-16">
-    <li>
-      <Card>Default</Card>
-    </li>
-    <li>
-      <Card isElevated>isElevated</Card>
-    </li>
-  </ul>
-)
+export const Elevated: Story = {
+  render: () => (
+    <ul className="flex list-none gap-16">
+      <li>
+        <Card>Default</Card>
+      </li>
+      <li>
+        <Card isElevated>isElevated</Card>
+      </li>
+    </ul>
+  ),
+}

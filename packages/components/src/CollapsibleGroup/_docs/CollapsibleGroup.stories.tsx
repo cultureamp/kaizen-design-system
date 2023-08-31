@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Collapsible, CollapsibleProps } from "~components/Collapsible"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
@@ -70,6 +70,6 @@ export const Playground: Story = {
   },
 }
 
-export const Separated: StoryFn<typeof CollapsibleGroup> = () => (
-  <CollapsibleGroupWrapped separated />
-)
+export const Separated: Story = {
+  render: () => <CollapsibleGroupWrapped separated />,
+}
