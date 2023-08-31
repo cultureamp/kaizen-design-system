@@ -4,10 +4,10 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Badge } from "../index"
+import { Card } from "../index"
 
 export default {
-  title: "Components/Badge",
+  title: "Components/Card",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -27,17 +27,38 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
+    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Active", "Dot"]} />
+      {/* @note: Header is optional */}
+      <StickerSheet.Header
+        headings={[
+          "Base",
+          "Informative",
+          "Positive",
+          "Cautionary",
+          "Destructive",
+          "Assertive",
+          "Highlight",
+        ]}
+      />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Badge size="small" variant="default" reversed={isReversed}>
-            3
-          </Badge>
-          <Badge size="small" variant="active" reversed={isReversed}>
-            3
-          </Badge>
-          <Badge size="small" variant="dot" reversed={isReversed} />
+          <Card variant="default" />
+          <Card variant="informative" />
+          <Card variant="positive" />
+          <Card variant="cautionary" />
+          <Card variant="destructive" />
+          <Card variant="assertive" />
+          <Card variant="highlight" />
+        </StickerSheet.Row>
+        <StickerSheet.Row>
+          <Card variant="default" isElevated />
+          <Card variant="informative" isElevated />
+          <Card variant="positive" isElevated />
+          <Card variant="cautionary" isElevated />
+          <Card variant="destructive" isElevated />
+          <Card variant="assertive" isElevated />
+          <Card variant="highlight" isElevated />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
