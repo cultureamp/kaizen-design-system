@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Filter, FilterContents } from ".."
 
-export default {
+const meta = {
   title: "Components/Filter Base",
   component: Filter,
   argTypes: {
@@ -16,43 +16,43 @@ export default {
     onMount: { control: "disabled" },
     ...classNameOverrideArgType,
   },
+  args: {
+    children: <FilterContents>Filter Contents</FilterContents>,
+    renderTrigger: (triggerProps): JSX.Element => (
+      <FilterButton label="Label" {...triggerProps} />
+    ),
+    isOpen: false,
+  },
 } satisfies Meta<typeof Filter>
 
-export const SimpleFilter: StoryFn<typeof Filter> = args => {
-  const [isOpen, setIsOpen] = useState(false)
-  return (
-    <Filter
-      {...args}
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      renderTrigger={(triggerProps): JSX.Element => (
-        <FilterButton label="Label" {...triggerProps} />
-      )}
-    >
-      <FilterContents>Filter Contents</FilterContents>
-    </Filter>
-  )
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+const FilterTemplate: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState(args.isOpen)
+    return <Filter {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
+  },
 }
 
-export const RemovableFilter: StoryFn = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  return (
-    <Filter
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      renderTrigger={(triggerProps): JSX.Element => (
-        <FilterButtonRemovable
-          triggerButtonProps={{
-            label: "Label",
-            ...triggerProps,
-          }}
-          removeButtonProps={{
-            onClick: action("remove button clicked"),
-          }}
-        />
-      )}
-    >
-      <FilterContents>Filter Contents</FilterContents>
-    </Filter>
-  )
+export const SimpleFilter: Story = {
+  ...FilterTemplate,
+}
+
+export const RemovableFilter: Story = {
+  ...FilterTemplate,
+  args: {
+    renderTrigger: (triggerProps): JSX.Element => (
+      <FilterButtonRemovable
+        triggerButtonProps={{
+          label: "Label",
+          ...triggerProps,
+        }}
+        removeButtonProps={{
+          onClick: action("remove button clicked"),
+        }}
+      />
+    ),
+  },
 }

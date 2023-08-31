@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import queryString from "query-string"
 import Highlight from "react-highlight"
 import {
@@ -29,9 +29,15 @@ const meta = {
     onValuesChange: { control: "disabled" },
     ...classNameOverrideArgType,
   },
+  args: {
+    filters: [], // Defined in stories
+    values: {}, // Defined in stories
+  },
 } satisfies Meta<typeof FilterBar>
 
 export default meta
+
+type Story = StoryObj<typeof meta>
 
 const sampleCode = `
 type Values = {
@@ -176,144 +182,154 @@ const filters = [
   },
 ] satisfies Filters<Values>
 
-export const BasicImplementation: StoryFn<typeof FilterBar> = args => {
-  const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
-    flavour: "jasmine-milk-tea",
-    toppings: ["pearls", "fruit-jelly"],
-  })
+export const BasicImplementation: Story = {
+  render: args => {
+    const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
+      flavour: "jasmine-milk-tea",
+      toppings: ["pearls", "fruit-jelly"],
+    })
 
-  return (
-    <FilterBar<Values>
-      {...args}
-      filters={filters}
-      values={activeValues}
-      onValuesChange={onActiveValuesChange}
-    />
-  )
-}
-BasicImplementation.parameters = {
-  docs: {
-    source: {
-      code: sampleCode,
-    },
-  },
-}
-
-export const OnValuesChange: StoryFn<typeof FilterBar> = () => {
-  const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
-    flavour: "jasmine-milk-tea",
-    toppings: ["pearls", "fruit-jelly"],
-  })
-
-  return (
-    <>
+    return (
       <FilterBar<Values>
+        {...args}
         filters={filters}
         values={activeValues}
         onValuesChange={onActiveValuesChange}
       />
-      <Highlight className="json">
-        {JSON.stringify(activeValues, null, 4)}
-      </Highlight>
-    </>
-  )
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: sampleCode,
+      },
+    },
+  },
 }
 
-export const DependentFilter: StoryFn<typeof FilterBar> = () => {
-  type ValuesDependent = {
-    coffee: string
-    milk: string
-    syrup: string
-    sugar: string
-    ice: string
-  }
+export const OnValuesChange: Story = {
+  render: () => {
+    const [activeValues, onActiveValuesChange] = useState<Partial<Values>>({
+      flavour: "jasmine-milk-tea",
+      toppings: ["pearls", "fruit-jelly"],
+    })
 
-  const filtersDependent = [
-    {
-      id: "coffee",
-      name: "Coffee",
-      Component: (
-        <FilterBar.Select
-          items={[
-            { value: "long-black", label: "Long Black" },
-            { value: "latte", label: "Latte" },
-          ]}
+    return (
+      <>
+        <FilterBar<Values>
+          filters={filters}
+          values={activeValues}
+          onValuesChange={onActiveValuesChange}
         />
-      ),
-    },
-    {
-      id: "milk",
-      name: "Milk",
-      Component: (
-        <FilterBar.Select
-          items={[
-            { value: "full-cream", label: "Full Cream" },
-            { value: "oat", label: "Oat" },
-          ]}
-        />
-      ),
-      isUsableWhen: state => state.coffee.value === "latte",
-    },
-    {
-      id: "syrup",
-      name: "Syrup",
-      Component: (
-        <FilterBar.Select
-          items={[
-            { value: "vanilla", label: "Vanilla" },
-            { value: "caramel", label: "Caramel" },
-          ]}
-        />
-      ),
-      isRemovable: true,
-      isUsableWhen: state =>
-        state.milk.value !== undefined && !state.sugar.isActive,
-    },
-    {
-      id: "sugar",
-      name: "Sugar",
-      Component: <FilterBar.Select items={[{ value: "yes", label: "Yes" }]} />,
-      isRemovable: true,
-      isUsableWhen: state =>
-        state.milk.value !== undefined && !state.syrup.isActive,
-    },
-    {
-      id: "ice",
-      name: "Ice",
-      Component: (
-        <FilterBar.Select
-          items={[
-            { value: "yes", label: "Yes" },
-            { value: "no", label: "No" },
-          ]}
-        />
-      ),
-      isUsableWhen: state => state.coffee.value !== undefined,
-    },
-  ] satisfies Filters<ValuesDependent>
+        <Highlight className="json">
+          {JSON.stringify(activeValues, null, 4)}
+        </Highlight>
+      </>
+    )
+  },
+}
 
-  const [values, setValues] = useState<Partial<ValuesDependent>>({
-    milk: "full-cream",
-  })
+export const DependentFilter: Story = {
+  render: () => {
+    type ValuesDependent = {
+      coffee: string
+      milk: string
+      syrup: string
+      sugar: string
+      ice: string
+    }
 
-  return (
-    <>
-      <FilterBar<ValuesDependent>
-        filters={filtersDependent}
-        values={values}
-        onValuesChange={setValues}
-      />
-      <div className="flex gap-8 my-16">
-        <button
-          type="button"
-          onClick={() => setValues({ ...values, coffee: undefined })}
-        >
-          Clear Coffee
-        </button>
-      </div>
-      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
-    </>
-  )
+    const filtersDependent = [
+      {
+        id: "coffee",
+        name: "Coffee",
+        Component: (
+          <FilterBar.Select
+            items={[
+              { value: "long-black", label: "Long Black" },
+              { value: "latte", label: "Latte" },
+            ]}
+          />
+        ),
+      },
+      {
+        id: "milk",
+        name: "Milk",
+        Component: (
+          <FilterBar.Select
+            items={[
+              { value: "full-cream", label: "Full Cream" },
+              { value: "oat", label: "Oat" },
+            ]}
+          />
+        ),
+        isUsableWhen: state => state.coffee.value === "latte",
+      },
+      {
+        id: "syrup",
+        name: "Syrup",
+        Component: (
+          <FilterBar.Select
+            items={[
+              { value: "vanilla", label: "Vanilla" },
+              { value: "caramel", label: "Caramel" },
+            ]}
+          />
+        ),
+        isRemovable: true,
+        isUsableWhen: state =>
+          state.milk.value !== undefined && !state.sugar.isActive,
+      },
+      {
+        id: "sugar",
+        name: "Sugar",
+        Component: (
+          <FilterBar.Select items={[{ value: "yes", label: "Yes" }]} />
+        ),
+        isRemovable: true,
+        isUsableWhen: state =>
+          state.milk.value !== undefined && !state.syrup.isActive,
+      },
+      {
+        id: "ice",
+        name: "Ice",
+        Component: (
+          <FilterBar.Select
+            items={[
+              { value: "yes", label: "Yes" },
+              { value: "no", label: "No" },
+            ]}
+          />
+        ),
+        isUsableWhen: state => state.coffee.value !== undefined,
+      },
+    ] satisfies Filters<ValuesDependent>
+
+    const [values, setValues] = useState<Partial<ValuesDependent>>({
+      milk: "full-cream",
+    })
+
+    return (
+      <>
+        <FilterBar<ValuesDependent>
+          filters={filtersDependent}
+          values={values}
+          onValuesChange={setValues}
+        />
+        <div className="flex gap-8 my-16">
+          <button
+            type="button"
+            onClick={() => setValues({ ...values, coffee: undefined })}
+          >
+            Clear Coffee
+          </button>
+        </div>
+        <Highlight className="json">
+          {JSON.stringify(values, null, 4)}
+        </Highlight>
+      </>
+    )
+  },
 }
 
 const ExampleFilterMultiSelect = (
@@ -439,47 +455,6 @@ const FilterRoom = (props: {
   return <FilterBar.Select<Item> id={props.id} items={items} />
 }
 
-export const SiblingValueDependentFilter: StoryFn<typeof FilterBar> = () => {
-  const filtersDependent = [
-    {
-      id: "role",
-      name: "Role",
-      Component: (
-        <ExampleFilterMultiSelect
-          items={[
-            { value: "designer", label: "Designer" },
-            { value: "engineer", label: "Engineer" },
-          ]}
-        />
-      ),
-    },
-    {
-      id: "person",
-      name: "Person",
-      Component: <FilterPerson />,
-    },
-    {
-      id: "room",
-      name: "Room",
-      Component: <FilterRoom />,
-      isRemovable: true,
-      isUsableWhen: state => state.role.value !== undefined,
-    },
-  ] satisfies Filters<ValuesSiblingDependent>
-
-  const [values, setValues] = useState<Partial<ValuesSiblingDependent>>({})
-
-  return (
-    <>
-      <FilterBar<ValuesSiblingDependent>
-        filters={filtersDependent}
-        values={values}
-        onValuesChange={setValues}
-      />
-      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
-    </>
-  )
-}
 const sourceCodeSiblingValueDependentFilter = `
 type Values = {
   role: string[]
@@ -580,97 +555,147 @@ const CustomFilterBar = () => {
   return <FilterBar<Values> filters={filters} values={values} onValuesChange={setValues} />
 }
 `
-SiblingValueDependentFilter.parameters = {
-  docs: {
-    source: {
-      code: sourceCodeSiblingValueDependentFilter,
+
+export const SiblingValueDependentFilter: Story = {
+  render: () => {
+    const filtersDependent = [
+      {
+        id: "role",
+        name: "Role",
+        Component: (
+          <ExampleFilterMultiSelect
+            items={[
+              { value: "designer", label: "Designer" },
+              { value: "engineer", label: "Engineer" },
+            ]}
+          />
+        ),
+      },
+      {
+        id: "person",
+        name: "Person",
+        Component: <FilterPerson />,
+      },
+      {
+        id: "room",
+        name: "Room",
+        Component: <FilterRoom />,
+        isRemovable: true,
+        isUsableWhen: state => state.role.value !== undefined,
+      },
+    ] satisfies Filters<ValuesSiblingDependent>
+
+    const [values, setValues] = useState<Partial<ValuesSiblingDependent>>({})
+
+    return (
+      <>
+        <FilterBar<ValuesSiblingDependent>
+          filters={filtersDependent}
+          values={values}
+          onValuesChange={setValues}
+        />
+        <Highlight className="json">
+          {JSON.stringify(values, null, 4)}
+        </Highlight>
+      </>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: sourceCodeSiblingValueDependentFilter,
+      },
     },
   },
 }
 
-export const ExternalEventValuesUpdate: StoryFn<typeof FilterBar> = () => {
-  const [values, setValues] = useState<Partial<Values>>({
-    flavour: "jasmine-milk-tea",
-    toppings: ["pearls", "fruit-jelly"],
-  })
+export const ExternalEventValuesUpdate: Story = {
+  render: () => {
+    const [values, setValues] = useState<Partial<Values>>({
+      flavour: "jasmine-milk-tea",
+      toppings: ["pearls", "fruit-jelly"],
+    })
 
-  const DateRangeParam = {
-    encode: dateRange => {
-      if (!dateRange) return undefined
-      return (
-        encodeObject({
-          from: encodeDate(dateRange?.from),
-          to: encodeDate(dateRange?.to),
-        }) ?? undefined
-      )
-    },
+    const DateRangeParam = {
+      encode: dateRange => {
+        if (!dateRange) return undefined
+        return (
+          encodeObject({
+            from: encodeDate(dateRange?.from),
+            to: encodeDate(dateRange?.to),
+          }) ?? undefined
+        )
+      },
 
-    decode: (dateRangeStr): DateRange | undefined => {
-      const obj = decodeObject(dateRangeStr)
-      return obj
-        ? {
-            from: decodeDate(obj.from) ?? undefined,
-            to: decodeDate(obj.to) ?? undefined,
-          }
-        : undefined
-    },
-  } satisfies QueryParamConfig<DateRange | undefined>
+      decode: (dateRangeStr): DateRange | undefined => {
+        const obj = decodeObject(dateRangeStr)
+        return obj
+          ? {
+              from: decodeDate(obj.from) ?? undefined,
+              to: decodeDate(obj.to) ?? undefined,
+            }
+          : undefined
+      },
+    } satisfies QueryParamConfig<DateRange | undefined>
 
-  const paramConfigMap = {
-    flavour: StringParam,
-    toppings: ArrayParam,
-    deliveryDates: DateRangeParam,
-    drank: DateParam,
-  }
+    const paramConfigMap = {
+      flavour: StringParam,
+      toppings: ArrayParam,
+      deliveryDates: DateRangeParam,
+      drank: DateParam,
+    }
 
-  const encodedQueryParams = encodeQueryParams(paramConfigMap, values)
-  const decodedQueryParams = decodeQueryParams(
-    paramConfigMap,
-    encodedQueryParams
-  )
+    const encodedQueryParams = encodeQueryParams(paramConfigMap, values)
+    const decodedQueryParams = decodeQueryParams(
+      paramConfigMap,
+      encodedQueryParams
+    )
 
-  return (
-    <>
-      <FilterBar<Values>
-        filters={filters}
-        values={values}
-        onValuesChange={setValues}
-      />
+    return (
+      <>
+        <FilterBar<Values>
+          filters={filters}
+          values={values}
+          onValuesChange={setValues}
+        />
 
-      <div className="flex gap-8 my-16">
-        <button
-          type="button"
-          onClick={() => setValues({ ...values, flavour: "honey-milk-tea" })}
-        >
-          Update Flavour to honey-milk-tea
-        </button>
-        <button
-          type="button"
-          onClick={() => setValues({ ...values, toppings: ["fruit-jelly"] })}
-        >
-          Update Toppings to fruit-jelly
-        </button>
-        <button type="button" onClick={() => setValues({})}>
-          Clear all values
-        </button>
-      </div>
+        <div className="flex gap-8 my-16">
+          <button
+            type="button"
+            onClick={() => setValues({ ...values, flavour: "honey-milk-tea" })}
+          >
+            Update Flavour to honey-milk-tea
+          </button>
+          <button
+            type="button"
+            onClick={() => setValues({ ...values, toppings: ["fruit-jelly"] })}
+          >
+            Update Toppings to fruit-jelly
+          </button>
+          <button type="button" onClick={() => setValues({})}>
+            Clear all values
+          </button>
+        </div>
 
-      <code className="mt-16">Values:</code>
-      <Highlight className="json">{JSON.stringify(values, null, 4)}</Highlight>
+        <code className="mt-16">Values:</code>
+        <Highlight className="json">
+          {JSON.stringify(values, null, 4)}
+        </Highlight>
 
-      <code>
-        queryString.stringify(encodeQueryParams(paramConfigMap, values))
-      </code>
-      <Highlight className="json">
-        {queryString.stringify(encodedQueryParams)}
-      </Highlight>
+        <code>
+          queryString.stringify(encodeQueryParams(paramConfigMap, values))
+        </code>
+        <Highlight className="json">
+          {queryString.stringify(encodedQueryParams)}
+        </Highlight>
 
-      <code>decodeQueryParams(paramConfigMap, encodedQueryParams)</code>
-      <Highlight className="json">
-        {JSON.stringify(decodedQueryParams, null, 4)}
-      </Highlight>
-    </>
-  )
+        <code>decodeQueryParams(paramConfigMap, encodedQueryParams)</code>
+        <Highlight className="json">
+          {JSON.stringify(decodedQueryParams, null, 4)}
+        </Highlight>
+      </>
+    )
+  },
 }
 
 type CycleFilterValues = {
@@ -699,36 +724,38 @@ const CycleFilter = ({ id }: { id?: string }): JSX.Element => {
   )
 }
 
-export const ExternalEventOpenFilter: StoryFn<typeof FilterBar> = () => {
-  const [values, setValues] = useState<Partial<CycleFilterValues>>({})
+export const ExternalEventOpenFilter: Story = {
+  render: () => {
+    const [values, setValues] = useState<Partial<CycleFilterValues>>({})
 
-  const cycleFilters = [
-    {
-      id: "cycle",
-      name: "Cycle",
-      Component: <CycleFilter />,
-    },
-    {
-      id: "customRange",
-      name: "Custom Range",
-      Component: <FilterBar.DateRangePicker />,
-      isUsableWhen: state => state.cycle.value === "custom",
-    },
-  ] satisfies Filters<CycleFilterValues>
+    const cycleFilters = [
+      {
+        id: "cycle",
+        name: "Cycle",
+        Component: <CycleFilter />,
+      },
+      {
+        id: "customRange",
+        name: "Custom Range",
+        Component: <FilterBar.DateRangePicker />,
+        isUsableWhen: state => state.cycle.value === "custom",
+      },
+    ] satisfies Filters<CycleFilterValues>
 
-  return (
-    <>
-      <FilterBar<CycleFilterValues>
-        filters={cycleFilters}
-        values={values}
-        onValuesChange={setValues}
-      />
-      <div className="mt-16">
-        <code>Values:</code>
-        <Highlight className="json">
-          {JSON.stringify(values, null, 4)}
-        </Highlight>
-      </div>
-    </>
-  )
+    return (
+      <>
+        <FilterBar<CycleFilterValues>
+          filters={cycleFilters}
+          values={values}
+          onValuesChange={setValues}
+        />
+        <div className="mt-16">
+          <code>Values:</code>
+          <Highlight className="json">
+            {JSON.stringify(values, null, 4)}
+          </Highlight>
+        </div>
+      </>
+    )
+  },
 }

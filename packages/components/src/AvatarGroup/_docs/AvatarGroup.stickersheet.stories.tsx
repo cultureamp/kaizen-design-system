@@ -36,18 +36,12 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={[
-          "With counter",
-          "Without counter",
-          "With counter (RTL)",
-          "Without counter (RTL)",
-        ]}
+        headings={["Size", "With counter", "Without counter"]}
       />
       <StickerSheet.Body>
         {ROWS.map(({ title, size }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
             <AvatarGroup maxVisible={2} avatars={AVATARS} size={size} />
-
             <AvatarGroup
               maxVisible={2}
               avatars={[EXAMPLE_USER_1, EXAMPLE_USER_2]}

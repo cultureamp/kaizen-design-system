@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { FilterButton } from "../../FilterButton"
@@ -7,7 +7,7 @@ import { FilterSelect } from "../FilterSelect"
 import { SelectOption } from "../types"
 import { groupedMockItems, singleMockItems } from "./mockData"
 
-export default {
+const meta = {
   title: "Components/Filter Select",
   component: FilterSelect,
   argTypes: {
@@ -24,6 +24,14 @@ export default {
       },
     },
   },
+  args: {
+    label: "Label",
+    isOpen: false,
+    items: singleMockItems,
+    renderTrigger: (triggerProps): JSX.Element => (
+      <FilterButton {...triggerProps} />
+    ),
+  },
   parameters: {
     actions: {
       argTypesRegex: "^on.*",
@@ -31,60 +39,68 @@ export default {
   },
 } satisfies Meta<typeof FilterSelect>
 
-export const Playground: StoryFn<typeof FilterSelect> = args => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+export default meta
 
-  return <FilterSelect {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
+type Story = StoryObj<typeof meta>
+
+const FilterSelectTemplate: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
+    return <FilterSelect {...args} isOpen={isOpen} setIsOpen={setIsOpen} />
+  },
 }
-Playground.storyName = "Filter Select"
-Playground.args = {
-  label: "Coffee",
-  /* @ts-expect-error: Storybook controls key; see argTypes in default export */
-  items: "Single",
-  /* @ts-expect-error: Storybook controls key; see argTypes in default export */
-  renderTrigger: "Filter Button",
+
+export const Playground: Story = {
+  ...FilterSelectTemplate,
+  args: {
+    label: "Coffee",
+    /* @ts-expect-error: Storybook controls key; see argTypes in default export */
+    items: "Single",
+    /* @ts-expect-error: Storybook controls key; see argTypes in default export */
+    renderTrigger: "Filter Button",
+  },
 }
 
 /**
  * Extend the option type to have additional properties to use for rendering.
  */
-export const AdditionalProperties: StoryFn = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+export const AdditionalProperties: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  return (
-    <FilterSelect<SelectOption & { isFruit: boolean }>
-      label="Custom"
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
-      renderTrigger={(triggerProps): JSX.Element => (
-        <FilterButton {...triggerProps} />
-      )}
-      items={[
-        { label: "Bubblegum", value: "bubblegum", isFruit: false },
-        { label: "Strawberry", value: "strawberry", isFruit: true },
-        { label: "Chocolate", value: "chocolate", isFruit: false },
-        { label: "Apple", value: "apple", isFruit: true },
-        { label: "Lemon", value: "lemon", isFruit: true },
-      ]}
-    >
-      {({ items }): JSX.Element[] =>
-        items.map(item =>
-          item.type === "item" ? (
-            <FilterSelect.Option
-              key={item.key}
-              item={{
-                ...item,
-                rendered: item.value?.isFruit
-                  ? `${item.rendered} (Fruit)`
-                  : item.rendered,
-              }}
-            />
-          ) : (
-            <FilterSelect.ItemDefaultRender key={item.key} item={item} />
+    return (
+      <FilterSelect<SelectOption & { isFruit: boolean }>
+        {...args}
+        label="Custom"
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        items={[
+          { label: "Bubblegum", value: "bubblegum", isFruit: false },
+          { label: "Strawberry", value: "strawberry", isFruit: true },
+          { label: "Chocolate", value: "chocolate", isFruit: false },
+          { label: "Apple", value: "apple", isFruit: true },
+          { label: "Lemon", value: "lemon", isFruit: true },
+        ]}
+      >
+        {({ items }): JSX.Element[] =>
+          items.map(item =>
+            item.type === "item" ? (
+              <FilterSelect.Option
+                key={item.key}
+                item={{
+                  ...item,
+                  rendered: item.value?.isFruit
+                    ? `${item.rendered} (Fruit)`
+                    : item.rendered,
+                }}
+              />
+            ) : (
+              <FilterSelect.ItemDefaultRender key={item.key} item={item} />
+            )
           )
-        )
-      }
-    </FilterSelect>
-  )
+        }
+      </FilterSelect>
+    )
+  },
+  name: "Additional option properties",
 }
-AdditionalProperties.storyName = "Additional option properties"

@@ -1,0 +1,45 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { Installation, KaioNotification, ResourceLinks } from "~storybook/components"
+import { InlineNotification } from "@kaizen/notification"
+import * as WorkflowFooterStories from "./WorkflowFooter.stories"
+
+<Meta of={WorkflowFooterStories} />
+
+# Footer
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Workflow"
+  figma="https://www.figma.com/file/IJTy1JpS4Xyop5cQwroRje/%F0%9F%9B%A0%EF%B8%8F-Self-reflection%3A-Build-Handoff?node-id=188%3A62005&t=x4zyx07E2G3BmKGw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<InlineNotification type="informative" persistent>
+  {`If you are using "@kaizen/components" at 1.16.0 or lower, please refer to our legacy documentation.`}
+</InlineNotification>
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement="import { WorkflowFooter } from `@kaizen/components/future`"
+/>
+
+## Overview
+
+<Canvas of={WorkflowFooterStories.Playground} />
+<Controls of={WorkflowFooterStories.Playground} />
+
+## API
+
+<DocsStory of={WorkflowFooterStories.FirstStep} />
+
+<DocsStory of={WorkflowFooterStories.NextStepDisabled} />
+
+<DocsStory of={WorkflowFooterStories.LastStep} />
+
+<DocsStory of={WorkflowFooterStories.AllStepsComplete} />
+
+<DocsStory of={WorkflowFooterStories.FewerSteps} />
+
+<DocsStory of={WorkflowFooterStories.EightSteps} />
