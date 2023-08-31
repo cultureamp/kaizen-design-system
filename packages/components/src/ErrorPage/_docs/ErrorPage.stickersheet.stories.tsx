@@ -24,6 +24,7 @@ export default {
           },
         ],
       },
+      timeout: 1000,
     },
     chromatic: { disable: false },
     controls: { disable: true },

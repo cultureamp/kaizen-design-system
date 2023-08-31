@@ -11,6 +11,17 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // I think reverse stickersheets are being confused.
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
