@@ -14,10 +14,5 @@ export const StartIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "start icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

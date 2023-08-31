@@ -20,10 +20,5 @@ export const DepartmentIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "department icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

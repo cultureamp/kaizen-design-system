@@ -26,10 +26,5 @@ export const CommentWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "comment white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

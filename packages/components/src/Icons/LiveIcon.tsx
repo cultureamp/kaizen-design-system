@@ -25,10 +25,5 @@ export const LiveIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "live icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

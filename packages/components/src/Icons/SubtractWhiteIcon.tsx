@@ -23,10 +23,5 @@ export const SubtractWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "subtract white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

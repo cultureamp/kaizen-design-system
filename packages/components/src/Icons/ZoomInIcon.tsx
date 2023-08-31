@@ -14,10 +14,5 @@ export const ZoomInIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "zoom in icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

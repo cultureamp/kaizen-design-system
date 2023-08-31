@@ -26,10 +26,5 @@ export const ExclamationOctagonWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "exclamation octagon white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

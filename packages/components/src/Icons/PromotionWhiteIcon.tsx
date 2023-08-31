@@ -26,10 +26,5 @@ export const PromotionWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "promotion white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

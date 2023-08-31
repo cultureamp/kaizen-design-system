@@ -20,10 +20,5 @@ export const EngagementIcon = (
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "engagement icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

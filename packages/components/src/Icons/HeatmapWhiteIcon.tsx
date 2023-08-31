@@ -26,10 +26,5 @@ export const HeatmapWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "heatmap white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

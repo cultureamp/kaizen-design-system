@@ -25,10 +25,5 @@ export const TextAnalyticsWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "text analytics white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

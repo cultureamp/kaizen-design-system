@@ -23,10 +23,5 @@ export const SendRtlIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "send rtl icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

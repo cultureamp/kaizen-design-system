@@ -20,10 +20,5 @@ export const ArrowLeftIcon = (
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "arrow left icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

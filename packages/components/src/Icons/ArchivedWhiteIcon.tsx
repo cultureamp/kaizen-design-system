@@ -26,10 +26,5 @@ export const ArchivedWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "archived white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

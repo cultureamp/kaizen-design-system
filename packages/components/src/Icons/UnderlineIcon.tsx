@@ -16,10 +16,5 @@ export const UnderlineIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "underline icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

@@ -22,10 +22,5 @@ export const FlagOffWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "flag off white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

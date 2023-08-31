@@ -20,10 +20,5 @@ export const NotificationIcon = (
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "notification icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

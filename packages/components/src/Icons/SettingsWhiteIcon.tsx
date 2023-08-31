@@ -26,10 +26,5 @@ export const SettingsWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "settings white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

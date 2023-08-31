@@ -35,10 +35,5 @@ export const FaceNeutralWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "face neutral white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

@@ -7,10 +7,5 @@ export const COMPONENT_TITLE = (
 ): JSX.Element => {
   const uniqueId = uuidv4()
   const svgContent = <>SVG_CONTENT</>
-  const ariaLabel = props["aria-label"] ?? "ARIA_LABEL"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

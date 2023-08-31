@@ -20,10 +20,5 @@ export const DeltaBareWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "delta bare white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

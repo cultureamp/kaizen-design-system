@@ -38,15 +38,13 @@ svgFileNames.forEach((svgName: string) => {
   const svgPath = path.join(sourceDir, svgName)
   const svgContent = fs.readFileSync(svgPath).toString()
   const svgFileName = path.parse(svgPath).name
-  const ariaLabel = Utils.svgToAriaLabel(svgFileName)
   const pascalFileName = Utils.svgToComponentTitle(svgFileName)
   pascalFileNames.push(pascalFileName)
 
   const newComponentContent = Utils.insertSvgData(
     reactTemplate,
     pascalFileName,
-    svgContent,
-    ariaLabel
+    svgContent
   )
 
   fs.writeFile(

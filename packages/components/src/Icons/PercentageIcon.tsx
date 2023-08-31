@@ -18,10 +18,5 @@ export const PercentageIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "percentage icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

@@ -16,10 +16,5 @@ export const MaximizeIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "maximize icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

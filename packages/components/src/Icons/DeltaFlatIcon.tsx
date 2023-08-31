@@ -13,10 +13,5 @@ export const DeltaFlatIcon = (
       <path fill="currentColor" d="M4 9h12v2H4V9z" />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "delta flat icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

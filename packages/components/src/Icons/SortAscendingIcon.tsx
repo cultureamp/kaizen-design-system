@@ -17,10 +17,5 @@ export const SortAscendingIcon = (
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "sort ascending icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

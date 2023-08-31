@@ -18,10 +18,5 @@ export const EmptyIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "empty icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

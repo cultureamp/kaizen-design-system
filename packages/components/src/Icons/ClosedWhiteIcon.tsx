@@ -26,10 +26,5 @@ export const ClosedWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "closed white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

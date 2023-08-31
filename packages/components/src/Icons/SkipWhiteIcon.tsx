@@ -26,10 +26,5 @@ export const SkipWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "skip white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

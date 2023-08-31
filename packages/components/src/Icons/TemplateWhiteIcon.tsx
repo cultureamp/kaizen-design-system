@@ -26,10 +26,5 @@ export const TemplateWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "template white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

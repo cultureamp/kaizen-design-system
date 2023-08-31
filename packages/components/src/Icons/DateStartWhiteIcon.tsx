@@ -24,10 +24,5 @@ export const DateStartWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "date start white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

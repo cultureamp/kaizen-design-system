@@ -26,10 +26,5 @@ export const DraftWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "draft white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

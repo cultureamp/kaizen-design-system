@@ -18,10 +18,5 @@ export const LockIcon = (props: Omit<SVGProps, "children">): JSX.Element => {
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "lock icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

@@ -16,10 +16,5 @@ export const PhotoUploadIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "photo upload icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

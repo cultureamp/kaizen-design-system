@@ -26,10 +26,5 @@ export const SuccessWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "success white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

@@ -26,10 +26,5 @@ export const EqualWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "equal white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

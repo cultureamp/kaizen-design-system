@@ -16,10 +16,5 @@ export const SecurityTipIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "security tip icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

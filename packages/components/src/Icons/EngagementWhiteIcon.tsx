@@ -26,10 +26,5 @@ export const EngagementWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "engagement white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

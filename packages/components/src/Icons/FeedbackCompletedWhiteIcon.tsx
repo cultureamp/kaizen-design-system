@@ -26,10 +26,5 @@ export const FeedbackCompletedWhiteIcon = (
       </g>
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "feedback completed white icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

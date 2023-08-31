@@ -18,10 +18,5 @@ export const DeltaPositiveIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "delta positive icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

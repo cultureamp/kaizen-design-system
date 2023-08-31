@@ -16,10 +16,5 @@ export const BullettedListIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "bulletted list icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }

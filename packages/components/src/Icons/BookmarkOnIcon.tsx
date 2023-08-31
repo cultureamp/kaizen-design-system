@@ -16,10 +16,5 @@ export const BookmarkOnIcon = (
       />
     </>
   )
-  const ariaLabel = props["aria-label"] ?? "bookmark on icon"
-  return (
-    <SVG {...props} aria-label={ariaLabel}>
-      {svgContent}
-    </SVG>
-  )
+  return <SVG {...props}>{svgContent}</SVG>
 }
