@@ -3,8 +3,7 @@ import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Badge.module.scss"
 
-interface CommonProps
-  extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
+type BadgeCommonProps = {
   children?: string
   /**
    * The "dark" variant is no longer in the UI kit
@@ -18,7 +17,7 @@ interface CommonProps
    * Supports "small" and "large" sizes - defaults to "small"
    */
   size?: "small" | "large"
-}
+} & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
 interface DotProps extends Omit<CommonProps, "variant"> {
   children?: undefined
