@@ -1,8 +1,8 @@
 import React from "react"
-import { Button } from "@kaizen/button"
+import { Button } from "~components/Button"
 import { Select } from "@kaizen/draft-select"
 import { assetUrl } from "@kaizen/hosted-assets"
-import closeIcon from "../../../assets/svgs/icons/close.icon.svg"
+import { CloseIcon } from "~components/Icons"
 import styles from "./ExampleHeaders.scss"
 
 export const MinimalBasic = (): JSX.Element => (
@@ -17,7 +17,7 @@ export const MinimalBasic = (): JSX.Element => (
     </div>
     <div className={styles.headerRight}>
       <div className="mr-8">
-        <Button href="#" label="Exit" icon={closeIcon} secondary />
+        <Button href="#" label="Exit" icon={CloseIcon} secondary />
       </div>
       <div className={styles.logoContainer}>
         <img src={assetUrl("brand/enso-default.svg")} alt="Culture Amp" />
