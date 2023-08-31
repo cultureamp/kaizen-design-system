@@ -44,8 +44,8 @@ type State = {
 }
 
 /**
- * {@link https://cultureamp.design/components/collapsible/ Guidance} |
- * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-collapsible--docs Storybook}
  */
 export class Collapsible extends React.Component<CollapsibleProps, State> {
   public state = {

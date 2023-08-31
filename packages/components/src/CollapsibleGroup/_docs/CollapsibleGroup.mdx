@@ -1,0 +1,44 @@
+import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CollapsibleGroupStories from "./CollapsibleGroup.stories"
+
+<Meta of={CollapsibleGroupStories} />
+
+# CollapsibleGroup
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/CollapsibleGroup"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { CollapsibleGroup } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={CollapsibleGroupStories.Playground} />
+<Controls of={CollapsibleGroupStories.Playground} />
+
+## API
+
+{/*
+  * @todo: Describe props and provide example stories.
+  * You can choose to write in MDX or to use <Description />.
+  */}
+### Reversed
+<Description of={CollapsibleGroupStories.Reversed} />
+<Canvas of={CollapsibleGroupStories.Reversed} />
