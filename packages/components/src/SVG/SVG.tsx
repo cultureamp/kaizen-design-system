@@ -10,7 +10,7 @@ type BaseSVGProps = {
 type MeaningfulIcon = {
   role: "img"
   "aria-label": string
-} & OverrideClassName<SVGAttributes<SVGElement>>
+}
 
 type DecorativeIcon = {
   role: "presentation"
