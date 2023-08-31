@@ -5,10 +5,21 @@ import { AddIcon } from "~components/SVG/icons/AddIcon"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Collapsible } from "../index"
 
+// eslint-disable-next-line storybook/prefer-pascal-case
+export const controlsSettings = {
+  children: { control: "disable" },
+  "data-testid": { control: "disable" },
+  sticky: { control: "disabled" },
+  open: { control: "boolean" },
+  noSectionPadding: { control: "boolean" },
+  lazyLoad: { control: "boolean" },
+  controlled: { control: "boolean" },
+}
+
 const meta = {
   title: "Components/Collapsible",
   component: Collapsible,
-  argTypes: { ...classNameOverrideArgType },
+  argTypes: { ...classNameOverrideArgType, ...controlsSettings },
   args: {
     children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
     ac scelerisque sem, vel ultricies justo. Donec eu porttitor ante,
