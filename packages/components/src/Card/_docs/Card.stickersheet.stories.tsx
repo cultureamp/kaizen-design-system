@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Card } from "../index"
+import { Card, CardProps } from "../index"
 
 export default {
   title: "Components/Card",
@@ -25,6 +25,12 @@ export default {
   },
 } satisfies Meta
 
+const CardWrapper = (args: CardProps): JSX.Element => (
+  <Card {...args}>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </Card>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
@@ -43,22 +49,22 @@ const StickerSheetTemplate: StickerSheetStory = {
       />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Card variant="default" />
-          <Card variant="informative" />
-          <Card variant="positive" />
-          <Card variant="cautionary" />
-          <Card variant="destructive" />
-          <Card variant="assertive" />
-          <Card variant="highlight" />
+          <CardWrapper variant="default" />
+          <CardWrapper variant="informative" />
+          <CardWrapper variant="positive" />
+          <CardWrapper variant="cautionary" />
+          <CardWrapper variant="destructive" />
+          <CardWrapper variant="assertive" />
+          <CardWrapper variant="highlight" />
         </StickerSheet.Row>
         <StickerSheet.Row>
-          <Card variant="default" isElevated />
-          <Card variant="informative" isElevated />
-          <Card variant="positive" isElevated />
-          <Card variant="cautionary" isElevated />
-          <Card variant="destructive" isElevated />
-          <Card variant="assertive" isElevated />
-          <Card variant="highlight" isElevated />
+          <CardWrapper variant="default" isElevated />
+          <CardWrapper variant="informative" isElevated />
+          <CardWrapper variant="positive" isElevated />
+          <CardWrapper variant="cautionary" isElevated />
+          <CardWrapper variant="destructive" isElevated />
+          <CardWrapper variant="assertive" isElevated />
+          <CardWrapper variant="highlight" isElevated />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
