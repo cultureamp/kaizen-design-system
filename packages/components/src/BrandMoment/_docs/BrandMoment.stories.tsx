@@ -50,7 +50,7 @@ const IconRTLTemplate: Pick<Story, "render" | "parameters"> = {
         ...primaryAction,
         icon:
           globals.textDirection === "ltr" ? (
-            <ArrowRightIcon />
+            <ArrowRightIcon role="presentation" />
           ) : (
             <div>Boo!</div>
           ),
@@ -83,7 +83,7 @@ export const InformativeIntro: Story = {
     primaryAction: {
       label: "Get started",
       href: "#",
-      icon: <ArrowRightIcon />,
+      icon: <ArrowRightIcon role="presentation" />,
       iconPosition: "end",
     },
   },
@@ -110,7 +110,7 @@ export const PositiveOutro: Story = {
     primaryAction: {
       label: "Go to Users",
       href: "#",
-      icon: <ArrowRightIcon />,
+      icon: <ArrowRightIcon role="presentation" />,
       iconPosition: "end",
     },
   },
@@ -140,7 +140,7 @@ export const InformativeIntroCustomerFocused: Story = {
     primaryAction: {
       label: "Take survey",
       href: "#",
-      icon: <ArrowRightIcon />,
+      icon: <ArrowRightIcon role="presentation" />,
       iconPosition: "end",
     },
     secondaryAction: {
@@ -180,7 +180,7 @@ export const PositiveOutroCustomerFocused: Story = {
     primaryAction: {
       label: "Go to Home",
       href: "#",
-      icon: <ArrowRightIcon />,
+      icon: <ArrowRightIcon role="presentation" />,
       iconPosition: "end",
     },
     secondaryAction: {
@@ -216,12 +216,12 @@ export const Error: Story = {
     primaryAction: {
       label: "Go to Home",
       href: "#",
-      icon: <ArrowRightIcon />,
+      icon: <ArrowRightIcon role="presentation" />,
       iconPosition: "end",
     },
     secondaryAction: {
       label: "Contact support",
-      icon: <EmailIcon />,
+      icon: <EmailIcon role="presentation" />,
     },
   },
 }

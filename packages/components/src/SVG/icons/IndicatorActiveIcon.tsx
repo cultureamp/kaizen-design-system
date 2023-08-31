@@ -1,10 +1,8 @@
 import React from "react"
-import { SVG, SVGProps } from "~components/SVG"
+import { SVG, IconProps } from "~components/SVG"
 
 // formally named "full"
-export const IndicatorActiveIcon = (
-  props: Omit<SVGProps, "children">
-): JSX.Element => (
+export const IndicatorActiveIcon = (props: IconProps): JSX.Element => (
   <SVG {...props}>
     <path
       fillRule="evenodd"
