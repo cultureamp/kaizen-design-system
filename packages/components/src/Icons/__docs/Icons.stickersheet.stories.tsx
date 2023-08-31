@@ -24,7 +24,7 @@ const StickerSheetTemplate: StoryFn = () => (
       <StickerSheet.Body>
         {Object.keys(ICONS as { [key: string]: any }).map(iconKey => (
           <StickerSheet.Row key={iconKey}>
-            {ICONS[iconKey as keyof typeof ICONS]({})}
+            {ICONS[iconKey as keyof typeof ICONS]({ role: "presentation" })}
             <p className="font-family-heading">{iconKey}</p>
           </StickerSheet.Row>
         ))}
