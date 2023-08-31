@@ -1,7 +1,7 @@
 import React from "react"
-import { SVG, SVGProps } from "~components/SVG"
+import { SVG, IconProps } from "~components/SVG"
 
-export const EmailIcon = (props: Omit<SVGProps, "children">): JSX.Element => (
+export const EmailIcon = (props: IconProps): JSX.Element => (
   <SVG {...props}>
     <path
       fill="currentColor"

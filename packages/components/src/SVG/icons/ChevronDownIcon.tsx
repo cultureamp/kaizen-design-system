@@ -1,9 +1,7 @@
 import React from "react"
-import { SVG, SVGProps } from "~components/SVG"
+import { SVG, IconProps } from "~components/SVG"
 
-export const ChevronDownIcon = (
-  props: Omit<SVGProps, "children">
-): JSX.Element => (
+export const ChevronDownIcon = (props: IconProps): JSX.Element => (
   <SVG {...props}>
     <path
       fill="currentColor"
