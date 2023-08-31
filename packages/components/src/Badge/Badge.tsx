@@ -19,12 +19,12 @@ type BadgeCommonProps = {
   size?: "small" | "large"
 } & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
-interface DotProps extends Omit<CommonProps, "variant"> {
+interface DotProps extends Omit<BadgeCommonProps, "variant"> {
   children?: undefined
   variant: "dot"
 }
 
-export type BadgeProps = CommonProps | DotProps
+export type BadgeProps = BadgeCommonProps | DotProps
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857333/Badge Guidance} |
