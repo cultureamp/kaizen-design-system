@@ -32,7 +32,7 @@ describe("<Collapsible />", () => {
 
   it("includes the 'sticky' class on buttons when the 'sticky' prop is specified", () => {
     const { getByTestId } = render(
-      <Collapsible id="1" title="First panel">
+      <Collapsible id="1" title="First panel" sticky={{ top: "0px" }}>
         First panel content
       </Collapsible>
     )
@@ -49,15 +49,15 @@ describe("<Collapsible />", () => {
       </Collapsible>
     )
 
-    const button = getByTestId("collapsible-button-1")
+    const collapsible = getByTestId("collapsible-header-1")
     const section = getByTestId("collapsible-section-1")
 
-    await user.click(button)
+    await user.click(collapsible)
     await waitFor(() => {
       expect(section.style.height).toEqual("0px")
     })
 
-    await user.click(button)
+    await user.click(collapsible)
     await waitFor(() => {
       expect(section.style.height).toEqual("auto")
     })
@@ -88,7 +88,7 @@ describe("<Collapsible />", () => {
   it("doesn't render section content when lazyLoad is enabled", () => {
     const { container } = render(
       <Collapsible id="1" title="Title" lazyLoad>
-        <div data-automation-id="lazy-load-content">First panel content</div>
+        <div data-testid="lazy-load-content">First panel content</div>
       </Collapsible>
     )
 
@@ -106,15 +106,15 @@ describe("<Collapsible />", () => {
       </Collapsible>
     )
 
-    const button = getByTestId("collapsible-button-1")
+    const collapsible = getByTestId("collapsible-header-1")
 
-    await user.click(button)
+    await user.click(collapsible)
     await waitFor(() => {
       expect(onToggle).toHaveBeenCalledTimes(1)
       expect(onToggle).toHaveBeenCalledWith(false, "1")
     })
 
-    await user.click(button)
+    await user.click(collapsible)
     await waitFor(() => {
       expect(onToggle).toHaveBeenCalledTimes(2)
       expect(onToggle).toHaveBeenCalledWith(true, "1")
@@ -128,10 +128,10 @@ describe("<Collapsible />", () => {
       </Collapsible>
     )
 
-    const button = getByTestId("collapsible-button-1")
+    const collapsible = getByTestId("collapsible-header-1")
     const section = getByTestId("collapsible-section-1")
 
-    await user.click(button)
+    await user.click(collapsible)
     await waitFor(() => {
       expect(section.style.height).toEqual("auto")
     })

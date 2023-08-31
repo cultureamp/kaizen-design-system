@@ -84,7 +84,6 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         className={classnames(
           classNameOverride,
           isContainer && styles.container,
-          isContainer && sticky && styles.stickyContainer,
           group && !separated && styles.groupItem,
           separated && styles.separated,
           open && styles.open,
@@ -106,7 +105,6 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           )}
           style={sticky && { top: sticky.top }}
           onClick={this.handleSectionToggle}
-          data-automation-id={`collapsible-header-${id}`}
           data-testid={`collapsible-header-${id}`}
         >
           {renderHeader !== undefined ? (
@@ -114,7 +112,6 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           ) : (
             <div
               className={styles.title}
-              data-automation-id={`collapsible-button-title-${id}`}
               data-testid={`collapsible-button-title-${id}`}
             >
               <Heading variant="heading-4" tag="span">

@@ -50,6 +50,12 @@ export const NoPadding: StoryFn<typeof Collapsible> = () => (
   </Collapsible>
 )
 
+export const Clear: StoryFn<typeof Collapsible> = () => (
+  <Collapsible open variant="clear" title="Clear">
+    <Paragraph variant="body">The header becomes clear</Paragraph>
+  </Collapsible>
+)
+
 export const CustomHeader: StoryFn<typeof Collapsible> = () => (
   <Collapsible
     open
@@ -65,5 +71,11 @@ export const CustomHeader: StoryFn<typeof Collapsible> = () => (
     <Paragraph variant="body">
       You can create a custom header using the renderHeader prop.
     </Paragraph>
+  </Collapsible>
+)
+
+export const Sticky: StoryFn<typeof Collapsible> = () => (
+  <Collapsible open title="Sticky header" sticky={{ top: "-1px" }}>
+    This does not work in Storybook docs, so use this as a code example only.
   </Collapsible>
 )
