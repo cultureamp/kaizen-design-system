@@ -30,6 +30,9 @@ const illustrationProps = (
 const meta = {
   title: "Components/Brand Moment",
   component: BrandMoment,
+  parameters: {
+    chromatic: { disable: false },
+  },
 } satisfies Meta<typeof BrandMoment>
 
 export default meta
