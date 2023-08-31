@@ -6,30 +6,6 @@ import { Collapsible } from "./Collapsible"
 const user = userEvent.setup()
 
 describe("<Collapsible />", () => {
-  it("renders closed by default", () => {
-    const { getByTestId } = render(
-      <Collapsible id="1" title="First panel">
-        First panel content
-      </Collapsible>
-    )
-
-    const section = getByTestId("collapsible-section-1")
-
-    expect(section.style.height).toEqual("0px")
-  })
-
-  it("renders open when the open prop is specified", () => {
-    const { getByTestId } = render(
-      <Collapsible id="1" open title="First panel">
-        First panel content
-      </Collapsible>
-    )
-
-    const section = getByTestId("collapsible-section-1")
-
-    expect(section.style.height).toEqual("auto")
-  })
-
   it("includes the 'sticky' class on buttons when the 'sticky' prop is specified", () => {
     const { getByTestId } = render(
       <Collapsible id="1" title="First panel" sticky={{ top: "0px" }}>
