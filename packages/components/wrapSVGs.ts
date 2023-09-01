@@ -32,14 +32,11 @@ const reactTemplate =
   fs.readFileSync("./src/Icons/subComponents/Template.tsx").toString()
 const svgFileNames = fs.readdirSync(sourceDir)
 
-const pascalFileNames: string[] = []
-
 svgFileNames.forEach((svgName: string) => {
   const svgPath = path.join(sourceDir, svgName)
   const svgContent = fs.readFileSync(svgPath).toString()
   const svgFileName = path.parse(svgPath).name
   const pascalFileName = Utils.svgToComponentTitle(svgFileName)
-  pascalFileNames.push(pascalFileName)
 
   const newComponentContent = Utils.insertSvgData(
     reactTemplate,
@@ -56,7 +53,16 @@ svgFileNames.forEach((svgName: string) => {
   )
 })
 
-const importStatements = pascalFileNames.map(
+const filesToExportFromIndex: string[] = []
+fs.readdirSync(outputDir).forEach((file: string) => {
+  // To only export React components
+  if (!file.includes(".tsx")) {
+    return
+  }
+  filesToExportFromIndex.push(path.parse(file).name)
+})
+
+const importStatements = filesToExportFromIndex.map(
   fileName => `export * from "./${fileName}";`
 )
 

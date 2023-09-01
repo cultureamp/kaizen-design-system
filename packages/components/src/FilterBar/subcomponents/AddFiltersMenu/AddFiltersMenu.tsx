@@ -1,7 +1,7 @@
 import React from "react"
 import { Menu, MenuList, MenuItem } from "@kaizen/draft-menu"
 import { Button } from "~components/Button"
-import { AddIcon } from "~icons/AddIcon"
+import { AddIcon } from "~components/Icons"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 
 export const AddFiltersMenu = (): JSX.Element => {
