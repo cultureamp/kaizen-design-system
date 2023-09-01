@@ -15,7 +15,3 @@ export * from "./InputSearch"
 export * from "./KaizenProvider"
 export * from "./Workflow"
 export * from "./Icons"
-
-// TODO: Remove when Date Picker is migrated to KAIO
-export * from "./types/DatePicker"
-export * from "./ErrorPage"
