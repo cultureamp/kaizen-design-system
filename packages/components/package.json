@@ -33,9 +33,7 @@
     "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "test:ci": "yarn test --ci",
-    "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
-    "ci:test:react-17": "USE_REACT_17=true yarn test:ci"
+    "test:ci": "yarn test --ci"
   },
   "dependencies": {
     "@cultureamp/i18n-react-intl": "^1.6.2",
