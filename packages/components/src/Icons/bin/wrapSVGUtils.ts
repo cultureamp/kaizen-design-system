@@ -24,13 +24,12 @@ const insertSvgData = (
     return completedTemplate
       .replace('"UNIQUE_ID"', "{uniqueId}")
       .replace('href="#UNIQUE_ID"', hrefReplacement)
-  } else {
-    // Some raw svgs do not use the use + href pattern.
-    // This removes unused uuids from the template to prevent lint errors.
-    return completedTemplate
-      .replace("const uniqueId = uuidv4()", "")
-      .replace('import { v4 as uuidv4 } from "uuid"', "")
   }
+  // Some raw svgs do not use the use + href pattern.
+  // This removes unused uuids from the template to prevent lint errors.
+  return completedTemplate
+    .replace("const uniqueId = uuidv4()", "")
+    .replace('import { v4 as uuidv4 } from "uuid"', "")
 }
 
 module.exports = {
