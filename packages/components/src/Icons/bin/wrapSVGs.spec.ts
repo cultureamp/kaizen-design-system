@@ -1,5 +1,6 @@
 // @ts-ignore: Redeclared module error
 const { insertSvgData, svgToComponentTitle } = require("./wrapSVGUtils")
+const fs = require("fs")
 
 describe("svgToComponentTitle", () => {
   it("converts kebab case to pascal case, and replaces .icon with Icon", () => {
@@ -15,29 +16,25 @@ describe("svgToComponentTitle", () => {
 })
 
 describe("insertSvgData", () => {
-  const reactTemplate = `
-    import React from "react"
-    import { SVG, SVGProps } from "~components/Icons/subComponents/SVG"
+  const reactTemplate = fs
+    .readFileSync("./src/Icons/subComponents/Template.tsx")
+    .toString()
 
-    export const COMPONENT_TITLE = (props: Omit<SVGProps, "children">): JSX.Element => (
-      <SVG {...props}>SVG_CONTENT</SVG>
-    )
-  `
-  const componentTitle = "MyIcon"
-  const svgContent = "<use></use>"
-  const result = insertSvgData(reactTemplate, componentTitle, svgContent)
+  it("Returns the template with component title and svg content inserted", () => {
+    const componentTitle = "MyIcon"
+    const svgContent = "<use></use>"
+    const result = insertSvgData(reactTemplate, componentTitle, svgContent)
+    const expected = `import React from "react"
 
-  it("replaces COMPONENT_TITLE with the name of the icon component", () => {
-    expect(result.includes("COMPONENT_TITLE")).toBe(false)
-    expect(result.includes(componentTitle)).toBe(true)
-  })
+import { SVG, IconProps } from "~components/Icons/subComponents/SVG"
 
-  it("replaces SVG_CONTENT with the contents of the svg", () => {
-    expect(result.includes("SVG_CONTENT")).toBe(false)
-    expect(result.includes(svgContent)).toBe(true)
-  })
-  it("replaces SVG_CONTENT with the contents of the svg", () => {
-    expect(result.includes("SVG_CONTENT")).toBe(false)
-    expect(result.includes(svgContent)).toBe(true)
+export const MyIcon = (props: IconProps): JSX.Element => {
+  
+  const svgContent = <><use></use></>
+  return <SVG {...props}>{svgContent}</SVG>
+}
+`
+
+    expect(result).toBe(expected)
   })
 })
