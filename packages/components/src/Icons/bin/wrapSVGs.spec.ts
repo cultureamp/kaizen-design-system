@@ -1,6 +1,6 @@
+const fs = require("fs")
 // @ts-ignore: Redeclared module error
 const { insertSvgData, svgToComponentTitle } = require("./wrapSVGUtils")
-const fs = require("fs")
 
 describe("svgToComponentTitle", () => {
   it("converts kebab case to pascal case, and replaces .icon with Icon", () => {
