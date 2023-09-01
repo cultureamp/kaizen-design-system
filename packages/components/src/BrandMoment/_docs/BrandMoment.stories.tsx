@@ -9,11 +9,13 @@ import {
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
 import { Paragraph } from "@kaizen/typography"
-// import { ArrowLeftIcon } from "~icons/ArrowLeftIcon"
-import { ArrowRightIcon } from "~icons/ArrowRightIcon"
-import { EmailIcon } from "~icons/EmailIcon"
-// import feedbackClassifyIcon from "../../../icons/feedback-classify.icon.svg"
-// import securityTipIcon from "../../../icons/security-tip.icon.svg"
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  EmailIcon,
+  FeedbackClassifyIcon,
+  SecurityTipIcon,
+} from "~components/Icons"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,
@@ -52,7 +54,7 @@ const IconRTLTemplate: Pick<Story, "render" | "parameters"> = {
           globals.textDirection === "ltr" ? (
             <ArrowRightIcon role="presentation" />
           ) : (
-            <div>Boo!</div>
+            <ArrowLeftIcon role="presentation" />
           ),
       }}
     />
@@ -145,8 +147,7 @@ export const InformativeIntroCustomerFocused: Story = {
     },
     secondaryAction: {
       label: "About data safety",
-      // @TODO: add this
-      // icon: securityTipIcon,
+      icon: <SecurityTipIcon role="presentation" />,
     },
   },
 }
@@ -185,8 +186,7 @@ export const PositiveOutroCustomerFocused: Story = {
     },
     secondaryAction: {
       label: "Rate this survey",
-      // @TODO: add this
-      // icon: feedbackClassifyIcon,
+      icon: <FeedbackClassifyIcon role="presentation" />,
     },
   },
 }

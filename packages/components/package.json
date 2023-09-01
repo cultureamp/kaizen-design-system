@@ -35,7 +35,8 @@
     "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
     "test:ci": "yarn test --ci",
     "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
-    "ci:test:react-17": "USE_REACT_17=true yarn test:ci"
+    "ci:test:react-17": "USE_REACT_17=true yarn test:ci",
+    "update-icons": "./src/Icons/bin/update-icons.sh"
   },
   "dependencies": {
     "@cultureamp/i18n-react-intl": "^1.6.2",
@@ -94,6 +95,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.66.1",
     "serialize-query-params": "^2.0.2",
+    "svgo": "^3.0.2",
     "ts-jest": "^29.1.1",
     "ttypescript": "^1.5.15",
     "typescript-transform-paths": "^3.4.6"

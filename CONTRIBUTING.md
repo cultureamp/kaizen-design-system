@@ -7,7 +7,6 @@ Kaizen Design System follows a federated, open-source model. All teams contribut
 ### Issues
 
 An issue is a way to track ideas, enhancements and bugs.
-
 Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-discourse/issues/) to see if any relevant issues already exist.
 
 To create a new issue for changes to design documentation or missing documentation:
@@ -200,3 +199,16 @@ run the following command and follow the prompts:
 ```
 yarn plop
 ```
+
+## Adding icons
+
+1. Find the new svg in our [figma file](https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=35882-93662&mode=design&t=X18YN2TWqlxEIFc3-0)
+2. Export the svg in kebab-case (eg. `zoom-out.svg`), and save it in `/packages/components/icons`
+3. In the root of Kaizen, run `yarn update-icons`
+
+This process will:
+
+- Add a new react icon component to `packages/components/src/Icons`
+- Export the new icon component from `packages/components/src/Icons/index.ts`
+
+To confirm that the process has been completed successfully, check to see that your icon is now visible in the Icons stickersheet in Storybook.

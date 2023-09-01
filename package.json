@@ -31,7 +31,8 @@
     "plop": "plop",
     "pkg:aio": "yarn workspace @kaizen/components",
     "ci:version": "yarn turbo prepublishOnly && yarn changeset version",
-    "ci:publish": "yarn turbo prepublishOnly && yarn changeset publish"
+    "ci:publish": "yarn turbo prepublishOnly && yarn changeset publish",
+    "update-icons": "yarn pkg:aio update-icons"
   },
   "dependencies": {
     "@kaizen/design-tokens": "*",

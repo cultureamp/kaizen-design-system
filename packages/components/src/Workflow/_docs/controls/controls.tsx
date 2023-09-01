@@ -1,7 +1,6 @@
 import React from "react"
 import { Button } from "@kaizen/button"
-import { CloseIcon } from "~icons/CloseIcon"
-import { VisibleIcon } from "~icons/VisibleIcon"
+import { CloseIcon, VisibleIcon } from "~components/Icons"
 
 export const WorkflowControls = {
   headerActions: {
