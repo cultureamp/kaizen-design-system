@@ -3894,7 +3894,7 @@
   dependencies:
     slash "^4.0.0"
 
-"@rollup/plugin-commonjs@^25.0.3":
+"@rollup/plugin-commonjs@^25.0.4":
   version "25.0.4"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-commonjs/-/plugin-commonjs-25.0.4.tgz#a7547a0c4ec3fa79818eb313e1de0023e548f4e6"
   integrity sha512-L92Vz9WUZXDnlQQl3EwbypJR4+DM2EbsO+/KOcEkP4Mc6Ct453EeDB2uH9lgRwj4w5yflgNpq9pHOiY8aoUXBQ==
