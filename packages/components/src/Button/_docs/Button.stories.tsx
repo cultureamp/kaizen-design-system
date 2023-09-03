@@ -1,9 +1,8 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { StoryObj, Meta } from "@storybook/react"
 import { TextField } from "@kaizen/draft-form"
 import { LoadingInput } from "@kaizen/loading-skeleton"
-import { AddIcon } from "~components/SVG/icons/AddIcon"
-import { ArrowRightIcon } from "~components/SVG/icons/ArrowRightIcon"
+import { AddIcon, ArrowRightIcon } from "~components/Icons"
 import { Button } from "../index"
 
 const meta = {
