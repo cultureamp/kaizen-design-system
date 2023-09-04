@@ -5,7 +5,7 @@ import { NotificationType } from "~components/Notification/types"
 import { CautionIcon } from "~icons/CautionIcon"
 import { CloseIcon } from "~icons/CloseIcon"
 import { ExclamationIcon } from "~icons/ExclamationIcon"
-import { InformationIcon } from "~icons/Information"
+import { InformationIcon } from "~icons/InformationIcon"
 import { SecurityTipIcon } from "~icons/SecurityTipIcon"
 import { SuccessIcon } from "~icons/SuccessIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -31,17 +31,17 @@ type State = {
 const renderIcon = (type: NotificationType): JSX.Element => {
   switch (type) {
     case "positive":
-      return <SuccessIcon inheritSize />
+      return <SuccessIcon role="presentation" inheritSize />
     case "negative":
-      return <ExclamationIcon inheritSize />
+      return <ExclamationIcon role="presentation" inheritSize />
     case "cautionary":
-      return <CautionIcon inheritSize />
+      return <CautionIcon role="presentation" inheritSize />
     case "informative":
-      return <InformationIcon inheritSize />
+      return <InformationIcon role="presentation" inheritSize />
     case "security":
-      return <SecurityTipIcon inheritSize />
+      return <SecurityTipIcon role="presentation" inheritSize />
     default:
-      return <InformationIcon inheritSize />
+      return <InformationIcon role="presentation" inheritSize />
   }
 }
 
