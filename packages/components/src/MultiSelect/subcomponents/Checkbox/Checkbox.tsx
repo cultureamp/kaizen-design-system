@@ -18,7 +18,6 @@ type Controlled = {
 
 export type CheckboxProps = {
   checkedStatus: CheckedStatus
-  value?: string
 } & (ReadOnly | Controlled) &
   OverrideClassName<
     // `checked` is omitted as it conflicts with controlled checkboxes
