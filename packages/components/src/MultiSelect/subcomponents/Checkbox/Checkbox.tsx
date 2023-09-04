@@ -17,13 +17,14 @@ type Controlled = {
   onChange: Required<InputHTMLAttributes<HTMLInputElement>["onChange"]>
 }
 
-export type CheckboxProps = OverrideClassName<
-  // `checked` is omitted as it conflicts with controlled checkboxes
-  Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
-> & {
+export type CheckboxProps = {
   checkedStatus: CheckedStatus
   value?: string
-} & (ReadOnly | Controlled)
+} & (ReadOnly | Controlled) &
+  OverrideClassName<
+    // `checked` is omitted as it conflicts with controlled checkboxes
+    Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
+  >
 
 const renderIcon = (status: CheckedStatus): JSX.Element | null => {
   switch (status) {
