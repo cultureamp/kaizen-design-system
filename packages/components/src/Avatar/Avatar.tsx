@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Textfit } from "react-textfit"
-// import { Icon } from "@kaizen/component-library"
-// import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { UserIcon } from ".."
 import styles from "./Avatar.module.scss"
 
 export type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"
@@ -72,18 +71,13 @@ const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   return 22
 }
 
-const fallbackIcon = (fullName: string): JSX.Element => (
-  // @todo: replace with Icon when ready
-  // <span className={styles.fallbackIcon}>
-  //   <Icon
-  //     inheritSize
-  //     role={fullName ? "img" : "presentation"}
-  //     title={fullName}
-  //     icon={userIcon}
-  //   />
-  // </span>
-  <>{fullName}</>
-)
+const fallbackIcon = (fullName: string): JSX.Element => {
+  if (fullName) {
+    return <UserIcon inheritSize role="img" aria-label={fullName} />
+  }
+
+  return <UserIcon inheritSize role="presentation" />
+}
 
 const renderInitials = (
   fullName = "",
@@ -95,7 +89,7 @@ const renderInitials = (
   const renderFallback = disableInitials || initials === ""
 
   return renderFallback ? (
-    fallbackIcon(fullName)
+    <span className={styles.fallbackIcon}>{fallbackIcon(fullName)}</span>
   ) : (
     <abbr
       className={classnames(styles.initials, isLongName && styles.longName)}
