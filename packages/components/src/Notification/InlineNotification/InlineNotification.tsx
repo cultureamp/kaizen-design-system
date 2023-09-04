@@ -1,7 +1,7 @@
 import React from "react"
 import { HeadingProps } from "@kaizen/typography"
-import GenericNotification from "../subcomponents/GenericNotification"
-import styles from "../subcomponents/GenericNotification/GenericNotification.module.scss"
+import GenericNotification from "../GenericNotification"
+import styles from "../GenericNotification/GenericNotification.module.scss"
 import { NotificationType } from "../types"
 
 export type InlineNotificationProps = {
