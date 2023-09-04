@@ -16,6 +16,15 @@ export default {
     a11y: {
       // Fade-in animation has colour contrast issues.
       timeout: 1000,
+      config: {
+        rules: [
+          {
+            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
     },
   },
 } satisfies Meta
