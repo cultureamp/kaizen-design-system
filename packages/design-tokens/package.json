@@ -36,7 +36,7 @@
     "@types/yargs": "^17.0.24",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
-    "postcss": "^8.4.20",
+    "postcss": "^8.4.29",
     "prettier": "*",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
