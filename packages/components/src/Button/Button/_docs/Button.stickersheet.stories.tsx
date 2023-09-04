@@ -1,14 +1,15 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { ButtonProps } from "~components/Button"
 import { AddIcon } from "~components/Icons"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button, ButtonProps } from "../index"
+import { Button } from "../index"
 
 export default {
-  title: "Components/Button",
+  title: "Components/Buttons/Button",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

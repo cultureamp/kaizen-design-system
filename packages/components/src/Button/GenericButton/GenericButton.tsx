@@ -103,7 +103,7 @@ const getCustomProps = (props: Record<string, any>): Record<string, string> => {
   }, {})
 }
 
-const GenericButton = forwardRef(
+export const GenericButton = forwardRef(
   (props: RenderProps, ref: Ref<ButtonRef | undefined>) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     useImperativeHandle(ref, () => ({
@@ -147,6 +147,7 @@ GenericButton.defaultProps = {
   disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
   type: "button",
 }
+
 GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (

@@ -1,9 +1,10 @@
 import React, { forwardRef, Ref } from "react"
 
-import GenericButton, {
+import {
+  GenericButton,
   ButtonProps,
   ButtonRef,
-} from "./subcomponents/GenericButton"
+} from "../GenericButton"
 
 /**
  * {@link https://cultureamp.design/components/button/ Guidance} |

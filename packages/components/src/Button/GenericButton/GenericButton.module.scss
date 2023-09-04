@@ -1,5 +1,6 @@
-@import "../variables";
-@import "../Button.module";
+@import "../utils/variables";
+@import "../Button/Button.module";
+@import "../IconButton/IconButton.module";
 
 .container {
   display: inline-block;
@@ -89,4 +90,8 @@
 
 .hidden {
   visibility: hidden;
+}
+
+.iconButton {
+  @extend %icon-button;
 }

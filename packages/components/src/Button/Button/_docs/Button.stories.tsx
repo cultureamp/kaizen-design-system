@@ -6,7 +6,7 @@ import { AddIcon, ArrowRightIcon } from "~components/Icons"
 import { Button } from "../index"
 
 const meta = {
-  title: "Components/Button",
+  title: "Components/Buttons/Button",
   component: Button,
   args: {
     label: "Label",

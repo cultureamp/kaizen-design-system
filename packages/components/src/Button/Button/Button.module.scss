@@ -2,9 +2,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "../../styles/button-reset";
-@import "mixins";
-@import "variables";
+@import "../../../styles/button-reset";
+@import "../utils/mixins";
+@import "../utils/variables";
 
 %button {
   @include button-reset;
