@@ -9,6 +9,10 @@ export type GlobalNotificationProps = {
   persistent?: boolean
 }
 
+/**
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060757/Global+Notification Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-notifications-global-notification--docs Storybook}
+ */
 export const GlobalNotification = ({
   persistent = false,
   ...props

@@ -19,8 +19,8 @@ export type InlineNotificationProps = {
 }
 
 /**
- * {@link https://cultureamp.design/components/inline-notification/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-notification-inline-notification--default-kaizen-demo Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093392/Inline+Notification Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-notifications-inline-notification--docs Storybook}
  */
 export const InlineNotification = ({
   isSubtle,
