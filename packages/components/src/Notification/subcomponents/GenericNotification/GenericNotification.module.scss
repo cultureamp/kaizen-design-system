@@ -39,7 +39,9 @@
 
   &:focus-visible::after {
     content: "";
+
     $focus-ring-offset: 6px;
+
     pointer-events: none;
     position: absolute;
     background: transparent;
