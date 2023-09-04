@@ -1,0 +1,109 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../utils/mixins";
+@import "../utils/variables";
+
+%circle-button {
+  width: 40px;
+  height: 40px;
+  min-height: auto;
+  margin: 0 $spacing-xs;
+  border-radius: 50%;
+
+  &:not(:disabled) {
+    #{$selectors--button-focus} {
+      &::after {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  #{$className--content} {
+    height: auto;
+    color: $color-blue-500;
+  }
+
+  &.reversed {
+    #{$className--content} {
+      color: $color-white;
+    }
+  }
+}
+
+%directional-link {
+  [dir="rtl"] & {
+    transform: rotate(180deg);
+  }
+
+  border: $border-solid-border-width solid $color-blue-300;
+
+  @include enabled-pseudo-states-variant($color-blue-100, $color-blue-400);
+
+  &:disabled {
+    border-color: $color-blue-300;
+  }
+
+  &.reversed {
+    &:disabled {
+      border-color: $color-white;
+    }
+  }
+}
+
+%pagination-link {
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  border-color: $border-borderless-border-color;
+
+  @include enabled-pseudo-states-variant(
+    $color-blue-100,
+    $border-borderless-border-color
+  );
+
+  #{$className--content} {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  &.reversed {
+    border-color: $border-borderless-border-color;
+
+    @include enabled-pseudo-states-variant(
+      $border-color: $border-borderless-border-color
+    );
+  }
+}
+
+%pagination-link--active {
+  background-color: $color-blue-500;
+  border-color: $border-borderless-border-color;
+  cursor: initial;
+
+  @include enabled-pseudo-states-variant(
+    $color-blue-500,
+    $border-borderless-border-color
+  );
+
+  &:not(:disabled) {
+    #{$selectors--button-active} {
+      transform: unset;
+    }
+  }
+
+  #{$className--content} {
+    color: $color-white;
+  }
+
+  &.reversed {
+    background-color: $color-white;
+
+    @include enabled-pseudo-states-variant($color-white);
+
+    #{$className--content} {
+      color: $color-purple-800;
+    }
+  }
+}
