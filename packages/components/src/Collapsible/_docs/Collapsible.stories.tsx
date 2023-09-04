@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { AddIcon } from "~components/SVG/icons/AddIcon"
+import { AddIcon } from "~components/Icons"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Collapsible } from "../index"
 
