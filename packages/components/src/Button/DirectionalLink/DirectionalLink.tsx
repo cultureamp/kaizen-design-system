@@ -1,5 +1,10 @@
 import React from "react"
-import { ArrowBackwardIcon, ArrowForwardIcon, EndIcon, StartIcon } from "~components/Icons"
+import {
+  ArrowBackwardIcon,
+  ArrowForwardIcon,
+  EndIcon,
+  StartIcon,
+} from "~components/Icons"
 import { GenericButton, GenericProps } from "../GenericButton"
 
 export interface DirectionalLinkProps extends GenericProps {

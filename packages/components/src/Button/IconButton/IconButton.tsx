@@ -1,5 +1,12 @@
 import React from "react"
-import { GenericButton, GenericProps, ButtonFormAttributes, WorkingProps, WorkingUndefinedProps, ButtonBadgeProps } from "../GenericButton"
+import {
+  GenericButton,
+  GenericProps,
+  ButtonFormAttributes,
+  WorkingProps,
+  WorkingUndefinedProps,
+  ButtonBadgeProps,
+} from "../GenericButton"
 
 export type IconButtonProps = GenericProps &
   ButtonFormAttributes &

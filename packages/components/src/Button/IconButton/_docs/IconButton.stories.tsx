@@ -16,12 +16,12 @@ const meta = {
         MeatballsIcon: <MeatballsIcon role="presentation" />,
         AddIcon: <AddIcon role="presentation" />,
       },
-    }
+    },
   },
   args: {
     label: "icon button",
-    icon: <MeatballsIcon role="presentation" />
-  }
+    icon: <MeatballsIcon role="presentation" />,
+  },
 } satisfies Meta<typeof IconButton>
 
 export default meta

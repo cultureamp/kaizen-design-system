@@ -44,26 +44,26 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {PAGINATION_LINK_PROPS.map(({ title, props }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
-              <PaginationLink
-                {...props}
-                reversed={isReversed}
-                classNameOverride="story__button-hover"
-              />
-              <PaginationLink
-                {...props}
-                reversed={isReversed}
-                classNameOverride="story__button-active"
-              />
-              <PaginationLink
-                {...props}
-                reversed={isReversed}
-                classNameOverride="story__button-focus"
-              />
+            <PaginationLink
+              {...props}
+              reversed={isReversed}
+              classNameOverride="story__button-hover"
+            />
+            <PaginationLink
+              {...props}
+              reversed={isReversed}
+              classNameOverride="story__button-active"
+            />
+            <PaginationLink
+              {...props}
+              reversed={isReversed}
+              classNameOverride="story__button-focus"
+            />
           </StickerSheet.Row>
         ))}
       </StickerSheet.Body>
     </StickerSheet>
-  )
+  ),
 }
 
 export const StickerSheetDefault: StickerSheetStory = {

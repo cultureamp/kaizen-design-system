@@ -8,8 +8,8 @@ const meta = {
   argTypes: { ...classNameOverrideArgType },
   args: {
     label: "Back",
-    direction: "prev"
-  }
+    direction: "prev",
+  },
 } satisfies Meta<typeof DirectionalLink>
 
 export default meta

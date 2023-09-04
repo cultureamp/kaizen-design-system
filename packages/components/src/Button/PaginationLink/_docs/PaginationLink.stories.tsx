@@ -8,8 +8,8 @@ const meta = {
   argTypes: { ...classNameOverrideArgType },
   args: {
     pageNumber: 1,
-    "aria-label": "Page 1"
-  }
+    "aria-label": "Page 1",
+  },
 } satisfies Meta<typeof PaginationLink>
 
 export default meta

@@ -14,7 +14,6 @@ export default {
   },
 } satisfies Meta
 
-
 const DIRECTIONAL_LINK_PROPS: Array<{
   title: string
   props: DirectionalLinkProps
@@ -75,11 +74,11 @@ const StickerSheetTemplate: StickerSheetStory = {
               classNameOverride="story__button-focus"
             />
             <DirectionalLink {...props} reversed={isReversed} disabled />
-        </StickerSheet.Row>
+          </StickerSheet.Row>
         ))}
       </StickerSheet.Body>
     </StickerSheet>
-  )
+  ),
 }
 
 export const StickerSheetDefault: StickerSheetStory = {

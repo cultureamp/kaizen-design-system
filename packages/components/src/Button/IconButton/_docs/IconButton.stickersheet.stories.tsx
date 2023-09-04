@@ -59,36 +59,36 @@ const REVERSED__VARIANT_PROPS: Array<{
   },
 ]
 
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
-
-  const VARIANTS_PROPS: Array<{
-    title: string
-    props: ButtonProps
-  }> = isReversed
-    ? REVERSED__VARIANT_PROPS
-    : [
-        ...REVERSED__VARIANT_PROPS,
-        {
-          title: "Secondary Destructive",
-          props: {
-            label: "Label",
-            icon: <TrashIcon role="presentation" />,
-            secondary: true,
-            destructive: true,
+    const VARIANTS_PROPS: Array<{
+      title: string
+      props: ButtonProps
+    }> = isReversed
+      ? REVERSED__VARIANT_PROPS
+      : [
+          ...REVERSED__VARIANT_PROPS,
+          {
+            title: "Secondary Destructive",
+            props: {
+              label: "Label",
+              icon: <TrashIcon role="presentation" />,
+              secondary: true,
+              destructive: true,
+            },
           },
-        },
-      ]
+        ]
     return (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-    <StickerSheet isReversed={isReversed}>
-      {/* @note: Header is optional */}
-      <StickerSheet.Header headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]} />
-      <StickerSheet.Body>
-      {VARIANTS_PROPS.map(({ title, props }) => (
-          <StickerSheet.Row key={title} rowTitle={title}>
-            <IconButton reversed={isReversed} {...props} />
+      /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
+      <StickerSheet isReversed={isReversed}>
+        {/* @note: Header is optional */}
+        <StickerSheet.Header
+          headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
+        />
+        <StickerSheet.Body>
+          {VARIANTS_PROPS.map(({ title, props }) => (
+            <StickerSheet.Row key={title} rowTitle={title}>
+              <IconButton reversed={isReversed} {...props} />
               <IconButton
                 reversed={isReversed}
                 classNameOverride="story__button-hover"
@@ -106,12 +106,12 @@ const StickerSheetTemplate: StickerSheetStory = {
               />
               <IconButton reversed={isReversed} {...props} disabled />
               <IconButton reversed={isReversed} {...props} {...WORKING_PROPS} />
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-    </StickerSheet>
-  )
-}
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
