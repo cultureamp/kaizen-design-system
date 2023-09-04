@@ -9,6 +9,7 @@ const meta = {
   args: {
     checkedStatus: "unchecked",
     readOnly: false,
+    "aria-label": "Checkbox label",
   },
   argTypes: {
     ...classNameOverrideArgType,

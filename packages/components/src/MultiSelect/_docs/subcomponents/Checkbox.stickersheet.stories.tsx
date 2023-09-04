@@ -31,13 +31,19 @@ const StickerSheetTemplate: Story = {
       <StickerSheet.Body>
         {STATUS_ROWS.map(({ title, status }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
-            <Checkbox checkedStatus={status} readOnly />
             <Checkbox
+              aria-label="Read only label"
+              checkedStatus={status}
+              readOnly
+            />
+            <Checkbox
+              aria-label="Hover label"
               classNameOverride="story__checkbox--hover"
               checkedStatus={status}
               readOnly
             />
             <Checkbox
+              aria-label="Focus label"
               classNameOverride="story__checkbox--focus"
               checkedStatus={status}
               readOnly
