@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-import { Checkbox, CheckedStatus } from "../subcomponents"
+import { StickerSheet } from "~storybook/components/StickerSheet"
+import { Checkbox, CheckedStatus } from "../../subcomponents/Checkbox"
 
 const meta = {
   title: "Components/MultiSelect/Checkbox",

@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "../../../../../storybook/argTypes"
-import { Checkbox, CheckedStatus } from "../subcomponents"
+import { classNameOverrideArgType } from "~storybook/argTypes"
+import { Checkbox, CheckedStatus } from "../../subcomponents/Checkbox"
 
 const meta = {
   title: "Components/MultiSelect/Checkbox",
