@@ -2,9 +2,14 @@ import React, { forwardRef, Ref } from "react"
 
 import {
   GenericButton,
-  ButtonProps,
+  ButtonProps as GenericButtonProps,
+  CustomButtonProps as GenericCustomButtonProps,
   ButtonRef,
 } from "../GenericButton"
+
+// Re-export since we are no longer exporting the GenericButton
+export type ButtonProps = GenericButtonProps
+export type CustomButtonProps = GenericCustomButtonProps
 
 /**
  * {@link https://cultureamp.design/components/button/ Guidance} |

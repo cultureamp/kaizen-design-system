@@ -5,7 +5,9 @@ import { IconButton } from "./IconButton"
 
 describe("<IconButton />", () => {
   it("renders an accessible label when it's a link", () => {
-    const {getByLabelText } = render(<IconButton href="#" label="Accessible label on the link version" />)
+    const { getByLabelText } = render(
+      <IconButton href="#" label="Accessible label on the link version" />
+    )
 
     expect(
       getByLabelText("Accessible label on the link version")
