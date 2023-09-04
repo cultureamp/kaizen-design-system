@@ -1,7 +1,7 @@
 import React from "react"
 import classnames from "classnames"
 import { Heading, HeadingProps } from "@kaizen/typography"
-import { NotificationType } from "~components/Notification/type"
+import { NotificationType } from "~components/Notification/types"
 import { CautionIcon } from "~icons/CautionIcon"
 import { CloseIcon } from "~icons/CloseIcon"
 import { ExclamationIcon } from "~icons/ExclamationIcon"
@@ -17,10 +17,7 @@ export type GenericNotificationProps = OverrideClassName<{
   children?: React.ReactNode
   title?: string
   persistent: boolean
-  autohide: boolean
-  autohideDelay?: "short" | "long"
   onHide?: () => void
-  automationId?: string
   noBottomMargin?: boolean
   forceMultiline?: boolean
   headingProps?: HeadingProps
@@ -54,16 +51,12 @@ class GenericNotification extends React.Component<
 > {
   static defaultProps = {
     persistent: false,
-    autohide: false,
-    autohideDelay: "short",
   }
 
   state = {
     hidden: true,
     removed: false,
   }
-
-  autoHideTimeoutId: null | ReturnType<typeof setTimeout> = null
 
   containerRef = React.createRef<HTMLDivElement>()
 
@@ -80,25 +73,6 @@ class GenericNotification extends React.Component<
         this.setState({ hidden: false })
       }
     })
-
-    if (["toast", "inline"].includes(this.props.style) && this.props.autohide) {
-      this.autoHideTimeoutId = setTimeout(this.hide, this.autohideDelayMs())
-    }
-  }
-
-  componentWillUnmount(): void {
-    if (this.autoHideTimeoutId) {
-      clearTimeout(this.autoHideTimeoutId)
-      this.autoHideTimeoutId = null
-    }
-  }
-
-  autohideDelayMs(): number {
-    if (this.props.autohideDelay == "long") {
-      return 30_000
-    } else {
-      return 5_000
-    }
   }
 
   render(): JSX.Element | null {
@@ -112,13 +86,6 @@ class GenericNotification extends React.Component<
         style={{ marginTop: this.marginTop() }}
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
-        data-automation-id={this.props.automationId}
-        data-testid={this.props.automationId}
-        data-automation-class={classnames(
-          "generic-notification",
-          this.props.type,
-          this.props.style
-        )}
       >
         <div className={styles.icon}>{renderIcon(this.props.type)}</div>
         <div className={this.textContainerClassName()}>
@@ -188,7 +155,7 @@ const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
     type="button"
     onClick={onClick}
     data-testid="close-button"
-    aria-label="close notification"
+    aria-label="Close notification"
   >
     <CloseIcon role="presentation" />
   </button>

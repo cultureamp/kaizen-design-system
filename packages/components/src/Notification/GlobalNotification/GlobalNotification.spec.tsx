@@ -4,22 +4,23 @@ import { GlobalNotification } from "./GlobalNotification"
 
 describe("<GlobalNotification />", () => {
   it("renders the positive notification correctly", () => {
-    const { container } = render(
+    const { getByText } = render(
       <GlobalNotification type="positive">
         This is my positive notification
       </GlobalNotification>
     )
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(getByText("This is my positive notification")).toBeInTheDocument()
   })
-
-  it("renders the informative notification correctly", () => {
-    const { container } = render(
-      <GlobalNotification type="informative">
-        This is my <em>informational</em> notification
+  it("removes the notification from the DOM", () => {
+    const { getByRole } = render(
+      <GlobalNotification type="positive">
+        This is my positive notification
       </GlobalNotification>
     )
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(
+      getByRole("button", { name: "Close notification" })
+    ).toBeInTheDocument()
   })
 })

@@ -23,7 +23,6 @@ const meta = {
     isSubtle: { type: "boolean" },
     forceMultiline: { type: "boolean" },
     noBottomMargin: { type: "boolean" },
-    autohide: { type: "boolean" },
   },
   args: {
     ...DEFAULT_PROPS,
@@ -75,20 +74,4 @@ export const ContentMultilineDemo: StoryObj<typeof meta> = {
     children:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis esse, iste, obcaecati laborum dolorum eius, similique fugit itaque illum ipsam sapiente facilis cum? Accusamus eos possimus quae voluptates laboriosam necessitatibus.",
   },
-}
-
-/**
- * `autohide` can be use to display temporary information. You can use the `autohideDelay` to set a longer duration before the component removes itself.
- */
-export const AutohideDemo: StoryObj<typeof meta> = {
-  args: {
-    autohide: true,
-    autohideDelay: "short",
-  },
-  render: args => (
-    <div>
-      <InlineNotification {...args} />
-      <div>Content below autohide notification</div>
-    </div>
-  ),
 }

@@ -29,8 +29,6 @@ const DEFAULT_CHILDREN: JSX.Element = (
 )
 
 const DEFAULT_PROPS = {
-  autohideDelay: "short",
-  autohide: false,
   hideCloseIcon: false,
   persistent: false,
   children: DEFAULT_CHILDREN,

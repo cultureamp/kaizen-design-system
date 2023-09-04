@@ -4,7 +4,6 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/animation";
-@import "./mixins";
 
 $notification-vertical-padding: calc(
   #{$spacing-6} - #{$border-solid-border-width}
@@ -316,7 +315,13 @@ $notification-slide-right: transform 300ms ease-out;
 }
 
 %ca-notification__cancel {
-  @include button-reset;
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none;
 
   .icon {
     opacity: 70%;

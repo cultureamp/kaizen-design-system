@@ -1,5 +1,5 @@
 import React from "react"
-import { NotificationType } from "~components/Notification/type"
+import { NotificationType } from "~components/Notification/types"
 import GenericNotification from "../subcomponents/GenericNotification"
 
 export type GlobalNotificationProps = {

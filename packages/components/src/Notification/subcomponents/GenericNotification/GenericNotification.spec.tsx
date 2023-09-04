@@ -73,31 +73,4 @@ describe("<GenericNotification />", () => {
     })
     await waitFor(() => expect(onHide).toHaveBeenCalledTimes(1))
   })
-
-  it("starts hiding after 5s when autohide is specified", async () => {
-    const { container } = render(
-      <GenericNotification
-        type="positive"
-        style="toast"
-        title="Success"
-        autohide
-      >
-        This is my positive notification
-      </GenericNotification>
-    )
-    expect(container.querySelector(".hidden")).toBeTruthy()
-    expect(container.querySelector(".hidden")).toBeInTheDocument()
-
-    await act(async () => {
-      jest.advanceTimersByTime(4999)
-    })
-
-    expect(container.querySelector(".hidden")).not.toBeInTheDocument()
-
-    await act(async () => {
-      jest.advanceTimersByTime(1)
-    })
-
-    expect(container.querySelector(".hidden")).toBeInTheDocument()
-  })
 })

@@ -1,17 +1,12 @@
 import React from "react"
 import { HeadingProps } from "@kaizen/typography"
-import GenericNotification, {
-  NotificationType,
-} from "../subcomponents/GenericNotification"
+import GenericNotification from "../subcomponents/GenericNotification"
 import styles from "../subcomponents/GenericNotification/GenericNotification.module.scss"
+import { NotificationType } from "../types"
 
 export type InlineNotificationProps = {
   type: NotificationType
   children?: React.ReactNode
-  /** @default false */
-  autohide?: boolean
-  /** @default "short" */
-  autohideDelay?: "short" | "long"
   /** @default false */
   persistent?: boolean
   /** @default false */
@@ -29,16 +24,12 @@ export type InlineNotificationProps = {
  */
 export const InlineNotification = ({
   isSubtle,
-  autohideDelay = "short",
-  autohide = false,
   hideCloseIcon = false,
   persistent = false,
   ...otherProps
 }: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
-    autohide={autohide}
-    autohideDelay={autohideDelay}
     persistent={persistent || hideCloseIcon}
     classNameOverride={isSubtle ? styles.subtle : undefined}
     {...otherProps}
