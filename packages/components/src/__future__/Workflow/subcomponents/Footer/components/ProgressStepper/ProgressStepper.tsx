@@ -1,9 +1,11 @@
 import React from "react"
 import classnames from "classnames"
 import { Paragraph } from "@kaizen/typography"
-import { IndicatorActiveIcon } from "~icons/IndicatorActiveIcon"
-import { IndicatorInactiveIcon } from "~icons/IndicatorInactiveIcon"
-import { SuccessIcon } from "~icons/SuccessIcon"
+import {
+  IndicatorActiveIcon,
+  IndicatorInactiveIcon,
+  SuccessIcon,
+} from "~components/Icons"
 import styles from "./ProgressStepper.module.scss"
 
 export type Step = {
