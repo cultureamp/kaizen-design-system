@@ -7,7 +7,7 @@ import {
 import { Badge } from "../index"
 
 export default {
-  title: "Components/Badge",
+  title: "KAIO/Badge",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
