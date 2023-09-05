@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+.popover {
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
+}
