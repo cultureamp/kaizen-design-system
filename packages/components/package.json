@@ -74,7 +74,6 @@
     "react-focus-on": "^3.9.1",
     "react-intl": "^6.4.4",
     "react-popper": "^2.3.0",
-    "react-textfit": "^1.1.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
