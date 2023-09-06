@@ -33,7 +33,7 @@ export type BaseAvatarProps = {
   isCompany?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
-export interface GenericAvatarProps extends BaseAvatarProps {
+export type GenericAvatarProps = BaseAvatarProps & {
   isCompany?: false
   /**
    * Shows a different background colour if the avatar is the current user and does not have a avatar img.
