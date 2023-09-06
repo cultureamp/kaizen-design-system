@@ -4,7 +4,7 @@ import { AvatarGroup } from "../index"
 import { AVATARS } from "./example-data"
 
 const meta = {
-  title: "KAIO/Avatar/Avatar Group",
+  title: "KAIO-staging/Avatar/Avatar Group",
   component: AvatarGroup,
   argTypes: { ...classNameOverrideArgType },
   args: {

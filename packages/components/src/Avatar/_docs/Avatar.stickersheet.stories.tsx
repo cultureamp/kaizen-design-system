@@ -13,7 +13,7 @@ import {
 } from "../index"
 
 export default {
-  title: "KAIO/Avatar",
+  title: "KAIO-staging/Avatar",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

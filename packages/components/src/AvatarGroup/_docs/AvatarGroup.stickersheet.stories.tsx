@@ -8,7 +8,7 @@ import { AvatarGroup, AvatarGroupSize } from "../index"
 import { AVATARS, EXAMPLE_USER_1, EXAMPLE_USER_2 } from "./example-data"
 
 export default {
-  title: "KAIO/Avatar/Avatar Group",
+  title: "KAIO-staging/Avatar/Avatar Group",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

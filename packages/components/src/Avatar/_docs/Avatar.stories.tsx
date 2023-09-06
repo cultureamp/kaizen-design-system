@@ -3,7 +3,7 @@ import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Avatar } from "../index"
 
 const meta = {
-  title: "KAIO/Avatar",
+  title: "KAIO-staging/Avatar",
   component: Avatar,
   argTypes: {
     ...classNameOverrideArgType,
