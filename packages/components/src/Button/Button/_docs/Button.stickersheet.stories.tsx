@@ -1,20 +1,30 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { ButtonProps } from "~components/Button"
 import { AddIcon } from "~components/Icons"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button, ButtonProps } from "../index"
+import { Button } from "../index"
 
 export default {
-  title: "Components/Button",
+  title: "KAIO-staging/Buttons/Button",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
     a11y: {
       // Fade-in animation has colour contrast issues.
       timeout: 1000,
+      config: {
+        rules: [
+          {
+            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
     },
   },
 } satisfies Meta

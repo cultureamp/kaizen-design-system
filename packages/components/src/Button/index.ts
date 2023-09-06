@@ -1,2 +1,4 @@
 export * from "./Button"
-export * from "./subcomponents/GenericButton"
+export * from "./IconButton"
+export * from "./PaginationLink"
+export * from "./DirectionalLink"
