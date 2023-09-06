@@ -5,15 +5,6 @@
     // We can't always stick to latest due to infra and compatibility with other plugins
     "node",
     "typescript",
-    // We include older versions of React things in order to test against React 16 & 17
-    "react-16",
-    "react-17",
-    "react-dom-16",
-    "react-dom-17",
-    "@testing-library/react-12",
-    "react-test-renderer-17",
-    // Codemods only work for stylelint v13
-    "stylelint",
     // the 8.4.19 -> 8.4.21 patch causes typescript issues
     "postcss"
   ],

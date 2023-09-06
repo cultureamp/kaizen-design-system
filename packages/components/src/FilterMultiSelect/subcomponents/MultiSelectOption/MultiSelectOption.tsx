@@ -11,11 +11,13 @@ import { useSelectionContext } from "../../context"
 import { MultiSelectItem } from "../../types"
 import styles from "./MultiSelectOption.module.scss"
 
-export type MultiSelectOptionProps = {
+export interface MultiSelectOptionProps {
+  classNameOverride?: string
   item: MultiSelectItem
 }
 
 export const MultiSelectOption = ({
+  classNameOverride,
   item,
 }: MultiSelectOptionProps): JSX.Element => {
   const { selectionState: state } = useSelectionContext()
@@ -38,6 +40,7 @@ export const MultiSelectOption = ({
       ref={ref}
       className={classnames(
         styles.option,
+        classNameOverride,
         isSelected && styles.isSelected,
         isFocusVisible && styles.isFocusVisible,
         isDisabled && styles.isDisabled
