@@ -42,7 +42,7 @@ export type GenericAvatarProps = BaseAvatarProps & {
   isCurrentUser?: boolean
 }
 
-export interface CompanyAvatarProps extends BaseAvatarProps {
+export type CompanyAvatarProps = BaseAvatarProps & {
   fullName: string
   avatarSrc: string
   disableInitials?: undefined
