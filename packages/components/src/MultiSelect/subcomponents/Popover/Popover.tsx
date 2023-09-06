@@ -17,7 +17,10 @@ import styles from "./Popover.module.scss"
 export type PopoverProps = {
   children: React.ReactNode
   refs: UseFloatingReturn["refs"]
-  useFloatingOptions?: Omit<UseFloatingOptions, "elements">
+  /**
+   * passes in additional options / override for https://floating-ui.com/docs/tooltip#usefloating-hook
+   */
+  floatingOptions?: Omit<UseFloatingOptions, "elements">
   focusOnProps?: Omit<ReactFocusOnProps, "children">
   portalContainer?: Element | DocumentFragment | null
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
@@ -25,7 +28,7 @@ export type PopoverProps = {
 export const Popover = ({
   children,
   refs,
-  useFloatingOptions,
+  floatingOptions,
   focusOnProps,
   portalContainer,
   classNameOverride,
@@ -60,7 +63,7 @@ export const Popover = ({
       ),
     ],
     whileElementsMounted: autoUpdate,
-    ...useFloatingOptions,
+    ...floatingOptions,
   })
 
   return createPortal(

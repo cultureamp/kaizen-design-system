@@ -4,7 +4,7 @@ import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Popover, useFloating } from "../index"
 
 const meta = {
-  title: "Components/Popover",
+  title: "Components/MultiSelect/Popover",
   component: Popover,
   argTypes: { ...classNameOverrideArgType },
   args: {
