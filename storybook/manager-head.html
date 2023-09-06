@@ -19,10 +19,9 @@
 
 <script>
   const storybookDocPath = "kaio-staging"
-  const production = new URLPattern("http{s}?://cultureamp.design");
-  currentUrl = window.location.href;
+  const production = new RegExp("^https://cultureamp\.design");
 
-  const shouldHideKAIOStories = production.test(currentUrl);
+  const shouldHideKAIOStories = production.test(window.location.href);
   
   if(shouldHideKAIOStories) {
     const style = document.createElement('style');
