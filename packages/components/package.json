@@ -73,7 +73,6 @@
     "react-focus-on": "^3.9.1",
     "react-intl": "^6.4.4",
     "react-popper": "^2.3.0",
-    "react-textfit": "^1.1.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -84,7 +83,6 @@
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
-    "@types/react-textfit": "^1.1.0",
     "autoprefixer": "^10.4.14",
     "concat-cli": "^4.0.0",
     "esbuild": "^0.18.17",
