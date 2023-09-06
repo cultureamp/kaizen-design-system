@@ -11,28 +11,39 @@ const PopoverWrapper = (customProps?: Partial<PopoverProps>): JSX.Element => {
   )
 }
 
-describe("portalContainer prop", () => {
-  it("does something", async () => {
+describe("<Popover />", () => {
+  describe("Portals", () => {
     const portalContainer = document.createElement("div")
-    portalContainer.id = "portal-container"
-    //@ts-ignore
-    portalContainer["data-testid"] = "portal-container"
-    document.body.append(portalContainer)
+    portalContainer.setAttribute("id", "portal-container")
+    portalContainer.setAttribute("data-testid", "portal-container")
 
-    const { getByTestId } = render(
-      <>
+    beforeAll(() => {
+      document.body.append(portalContainer)
+    })
+
+    afterAll(() => {
+      document.body.removeChild(portalContainer)
+    })
+
+    it("renders within portal container", async () => {
+      const { getByTestId } = render(
         <PopoverWrapper
           portalContainer={document.getElementById("portal-container")}
-        >
-          Hello
-        </PopoverWrapper>
-      </>,
-      { container: portalContainer }
-    )
-    /** @todo: Fill in test case */
+        />
+      )
 
-    await waitFor(() => {
-      expect(getByTestId("portal-container")).toHaveTextContent("Hello")
+      await waitFor(() => {
+        expect(getByTestId("portal-container")).toHaveTextContent("Hello")
+      })
+    })
+
+    it("renders in document.body by default", async () => {
+      const { getByTestId } = render(<PopoverWrapper />)
+
+      await waitFor(() => {
+        expect(document.body).toHaveTextContent("Hello")
+        expect(getByTestId("portal-container")).not.toHaveTextContent("Hello")
+      })
     })
   })
 })
