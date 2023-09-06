@@ -6,13 +6,13 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
-      "inputs": ["packages/**", "draft-packages/**"]
+      "inputs": ["packages/**"],
+      "outputs": ["dist/**"]
     },
     "prepublishOnly": {
       "dependsOn": ["^prepublishOnly"],
-      "outputs": ["**/*.d.ts", "**/*.js", "**/*.map"],
-      "inputs": ["packages/**", "draft-packages/**"]
+      "inputs": ["packages/**"],
+      "outputs": ["dist/**"]
     },
     "clean": {
       "cache": false
