@@ -18,15 +18,16 @@
 </style>
 
 <script>
+  const storybookDocPath = "kaio-staging"
   const production = new URLPattern("http{s}?://cultureamp.design");
   currentUrl = window.location.href;
 
   const shouldHideKAIOStories = production.test(currentUrl);
-
+  
   if(shouldHideKAIOStories) {
     const style = document.createElement('style');
     style.textContent = `
-      #kaio, [data-parent-id="kaio"], [data-id^="kaio"]{
+      #${storybookDocPath}, [data-parent-id="${storybookDocPath}"], [data-id^="${storybookDocPath}"]{
         display: none !important;
       }
     `;
