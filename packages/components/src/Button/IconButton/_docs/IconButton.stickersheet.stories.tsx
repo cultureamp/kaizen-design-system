@@ -90,9 +90,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           },
         ]
     return (
-      /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
       <StickerSheet isReversed={isReversed}>
-        {/* @note: Header is optional */}
         <StickerSheet.Header
           headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
         />

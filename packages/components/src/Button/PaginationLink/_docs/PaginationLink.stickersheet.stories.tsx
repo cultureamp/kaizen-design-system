@@ -48,9 +48,7 @@ const PAGINATION_LINK_PROPS: Array<{
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      {/* @note: Header is optional */}
       <StickerSheet.Header headings={["Base", "Hover", "Active", "Focus"]} />
       <StickerSheet.Body>
         {PAGINATION_LINK_PROPS.map(({ title, props }) => (
