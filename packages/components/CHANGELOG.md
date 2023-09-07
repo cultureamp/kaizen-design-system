@@ -1,5 +1,36 @@
 # Change Log
 
+## 1.24.0
+
+### Minor Changes
+
+- [#4013](https://github.com/cultureamp/kaizen-design-system/pull/4013) [`d0569ec98`](https://github.com/cultureamp/kaizen-design-system/commit/d0569ec98db237087c41a14115bd937ae55f37d1) - Export Icon components.
+
+  Exports the react-icon-component version of each of our svg files.
+  For each of our existing raw svg files, users can now import them as a React component from "@kaizen/components".
+
+- [#4036](https://github.com/cultureamp/kaizen-design-system/pull/4036) [`fe4e366b3`](https://github.com/cultureamp/kaizen-design-system/commit/fe4e366b3fbcc53b84e993664bd4077b0f907d52) - Add classNameOverride to MultiSelectOption
+
+### Patch Changes
+
+- [#4022](https://github.com/cultureamp/kaizen-design-system/pull/4022) [`7eb6aac22`](https://github.com/cultureamp/kaizen-design-system/commit/7eb6aac22cc271193b44756a14d738d17efb616a) - Dependency updates:
+  @cultureamp/i18n-react-intl to 1.7.0
+  @kaizen/date-picker to 6.3.1
+  @kaizen/draft-form to 10.5.0
+  @rollup/plugin-commonjs to 25.0.4
+  autoprefixer to 10.4.15
+  rollup to 3.28.1
+  rollup-plugin-dts to 5.3.1
+
+- [#4018](https://github.com/cultureamp/kaizen-design-system/pull/4018) [`42cb73a86`](https://github.com/cultureamp/kaizen-design-system/commit/42cb73a86ccaa762771ab0e64e129024df0d9749) - Dependency updates:
+
+  - @cultureamp/i18n-react-intl to 1.6.2
+  - @rollup/plugin-node-resolve to 15.2.1
+  - @rollup/plugin-typescript 11.1.3
+  - sass to 1.66.1
+
+- [#4039](https://github.com/cultureamp/kaizen-design-system/pull/4039) [`225249a91`](https://github.com/cultureamp/kaizen-design-system/commit/225249a91e478be0fc4a125553290730aec154ad) - Bump dev dep rollup-plugin-dts to 6.0.1
+
 ## 1.23.0
 
 ### Minor Changes
