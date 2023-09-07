@@ -55,7 +55,9 @@ const PopoverTemplate: Story = {
         {isOpen && (
           <Popover
             {...args}
-            portalContainer={document.getElementById("testing-ground")}
+            portalContainer={
+              document.getElementById("testing-ground") ?? undefined
+            }
             refs={refs}
             focusOnProps={{
               onClickOutside: handleClose,

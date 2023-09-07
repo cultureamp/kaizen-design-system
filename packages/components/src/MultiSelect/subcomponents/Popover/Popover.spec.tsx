@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import { Popover, PopoverProps, useFloating } from "./"
 
@@ -13,23 +13,33 @@ const PopoverWrapper = (customProps?: Partial<PopoverProps>): JSX.Element => {
 
 describe("<Popover />", () => {
   describe("Portals", () => {
-    const portalContainer = document.createElement("div")
-    portalContainer.setAttribute("id", "portal-container")
-    portalContainer.setAttribute("data-testid", "portal-container")
+    const PopoverWrapperWithPortal = ({
+      shouldUsePortal = false,
+    }: {
+      shouldUsePortal?: boolean
+    }): JSX.Element => {
+      const portalRef = useRef<HTMLDivElement>(null)
+      const [portalContainer, setPortalContainer] = useState<HTMLDivElement>()
 
-    beforeAll(() => {
-      document.body.append(portalContainer)
-    })
+      useEffect(() => {
+        if (portalRef.current !== null) {
+          setPortalContainer(portalRef.current)
+        }
+      }, [])
 
-    afterAll(() => {
-      document.body.removeChild(portalContainer)
-    })
+      return (
+        <>
+          <div ref={portalRef} data-testid="portal-container" />
+          <PopoverWrapper
+            portalContainer={shouldUsePortal ? portalContainer : undefined}
+          />
+        </>
+      )
+    }
 
     it("renders within portal container", async () => {
       const { getByTestId } = render(
-        <PopoverWrapper
-          portalContainer={document.getElementById("portal-container")}
-        />
+        <PopoverWrapperWithPortal shouldUsePortal />
       )
 
       await waitFor(() => {
@@ -38,7 +48,7 @@ describe("<Popover />", () => {
     })
 
     it("renders in document.body by default", async () => {
-      const { getByTestId } = render(<PopoverWrapper />)
+      const { getByTestId } = render(<PopoverWrapperWithPortal />)
 
       await waitFor(() => {
         expect(document.body).toHaveTextContent("Hello")

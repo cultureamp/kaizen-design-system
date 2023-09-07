@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Meta } from "@storybook/react"
 import { Heading } from "@kaizen/typography"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
-import { Popover, useFloating } from "../index"
+import { Popover, PopoverProps, useFloating } from "../index"
 
 export default {
   title: "Components/MultiSelect/Popover",
@@ -12,7 +12,9 @@ export default {
   },
 } satisfies Meta
 
-const PopoverTemplate = (): JSX.Element => {
+const PopoverTemplate = (
+  args: Partial<Omit<PopoverProps, "refs">>
+): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
   const { refs } = useFloating()
 
@@ -26,7 +28,7 @@ const PopoverTemplate = (): JSX.Element => {
         Pancakes!
       </button>
       {isOpen && (
-        <Popover refs={refs}>
+        <Popover refs={refs} {...args}>
           <div className="p-16">Content here!</div>
         </Popover>
       )}
@@ -35,33 +37,49 @@ const PopoverTemplate = (): JSX.Element => {
 }
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: (_, { parameters }) => (
-    <div className="flex flex-col justify-between gap-160">
-      <div>
-        <Heading variant="heading-3" tag="div" classNameOverride="!mb-16">
-          {parameters.textDirection === "rtl"
-            ? "Default alignment to bottom-right; align to left when no space on left"
-            : "Default alignment to bottom-left; align to right when no space on right"}
-        </Heading>
-        <div className="flex justify-between w-[100%]">
-          <PopoverTemplate />
-          <PopoverTemplate />
-          <PopoverTemplate />
-        </div>
-      </div>
+  render: (_, { parameters }) => {
+    const portalRef = useRef<HTMLDivElement>(null)
+    const [portalContainer, setPortalContainer] = useState<HTMLDivElement>()
 
-      <div>
-        <Heading variant="heading-3" tag="div" classNameOverride="!mb-64">
-          Flips to top when no space below
-        </Heading>
-        <div>Content below popover</div>
-        <div className="flex justify-between w-[100%]">
-          <PopoverTemplate />
-          <PopoverTemplate />
+    useEffect(() => {
+      if (portalRef.current !== null) {
+        setPortalContainer(portalRef.current)
+      }
+    }, [])
+
+    return (
+      <div
+        ref={portalRef}
+        id="stickersheet__popover"
+        // overflow-hidden is added so we can ensure the last row autoplaces above
+        className="relative flex flex-col justify-between gap-160 h-[500px] overflow-hidden"
+      >
+        <div>
+          <Heading variant="heading-3" tag="div" classNameOverride="!mb-16">
+            {parameters.textDirection === "rtl"
+              ? "Default alignment to bottom-right; align to left when no space on left"
+              : "Default alignment to bottom-left; align to right when no space on right"}
+          </Heading>
+          <div className="flex justify-between w-[100%]">
+            <PopoverTemplate />
+            <PopoverTemplate />
+            <PopoverTemplate />
+          </div>
+        </div>
+
+        <div>
+          <Heading variant="heading-3" tag="div" classNameOverride="!mb-64">
+            Flips to top when no space below
+          </Heading>
+          <div>Content below popover</div>
+          <div className="flex justify-between w-[100%]">
+            <PopoverTemplate portalContainer={portalContainer} />
+            <PopoverTemplate portalContainer={portalContainer} />
+          </div>
         </div>
       </div>
-    </div>
-  ),
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
