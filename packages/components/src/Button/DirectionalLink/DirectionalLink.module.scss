@@ -1,9 +1,26 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../utils/mixins";
+@import "../utils/variables";
 
-.directionalLink {
-  color: $color-purple-800;
-}
+%directional-link {
+  [dir="rtl"] & {
+    transform: rotate(180deg);
+  }
 
-.isReversed {
-  color: $color-yellow-600;
+  border: $border-solid-border-width solid $color-blue-300;
+
+  @include enabled-pseudo-states-variant($color-blue-100, $color-blue-400);
+
+  &:disabled {
+    border-color: $color-blue-300;
+  }
+
+  &.reversed {
+    &:disabled {
+      border-color: $color-white;
+    }
+  }
 }
