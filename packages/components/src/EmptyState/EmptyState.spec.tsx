@@ -36,14 +36,6 @@ describe("<EmptyState />", () => {
     expect(container.querySelector("#someId")).toBeTruthy()
   })
 
-  it("renders a `data-automation-id` attribute", () => {
-    const { container } = render(<EmptyState {...defaultProps} />)
-
-    expect(
-      container.querySelector("[data-automation-id='someAutomationId']")
-    ).toBeTruthy()
-  })
-
   it("renders given children", () => {
     const { getByText } = render(
       <EmptyState {...defaultProps}>
