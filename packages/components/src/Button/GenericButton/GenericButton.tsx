@@ -47,7 +47,7 @@ export type GenericProps = {
   classNameOverride?: string
 }
 
-export type ButtonType = "submit" | "reset" | "button"
+export type GenericButtonType = "submit" | "reset" | "button"
 
 export type WorkingProps = {
   working: true
@@ -66,7 +66,7 @@ export type ButtonBadgeProps = {
   reversed?: boolean
 }
 
-export type RenderProps = ButtonProps & {
+export type RenderProps = GenericButtonProps & {
   additionalContent?: React.ReactNode
   iconButton?: boolean
   directionalLink?: boolean
@@ -76,7 +76,7 @@ export type RenderProps = ButtonProps & {
 
 export type ButtonRef = { focus: () => void }
 
-export type ButtonProps = GenericProps &
+export type GenericButtonProps = GenericProps &
   ButtonFormAttributes &
   (WorkingProps | WorkingUndefinedProps) & {
     label: string

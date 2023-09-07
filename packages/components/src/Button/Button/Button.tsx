@@ -1,19 +1,12 @@
 import React, { forwardRef, Ref } from "react"
 
-import {
-  GenericButton,
-  ButtonProps as GenericButtonProps,
-  CustomButtonProps as GenericCustomButtonProps,
-  ButtonRef,
-} from "../GenericButton"
+import { GenericButton, GenericButtonProps, ButtonRef } from "../GenericButton"
 
-// Re-export since we are no longer exporting the GenericButton
 export type ButtonProps = GenericButtonProps
-export type CustomButtonProps = GenericCustomButtonProps
 
 /**
- * {@link https://cultureamp.design/components/button/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-button--default-kaizen-site-demo Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-buttons-button--docs Storybook}
  */
 export const Button = forwardRef(
   (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
