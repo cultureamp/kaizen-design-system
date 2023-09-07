@@ -7,7 +7,7 @@ import styles from "./Avatar.module.scss"
 
 export type AvatarSizes = "small" | "medium" | "large" | "xlarge" | "xxlarge"
 
-export type BaseAvatarProps = {
+type BaseAvatarProps = {
   /**
    * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
    */
