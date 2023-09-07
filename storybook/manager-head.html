@@ -15,8 +15,21 @@
   #storybook-explorer-searchfield {
     background-color: white;
   }
-
-  data-title["Legacy"] {
-    background-color: red;
-  }
 </style>
+
+<script>
+  const storybookDocPath = "kaio-staging"
+  const production = new RegExp("^https://cultureamp\.design");
+
+  const shouldHideKAIOStories = production.test(window.location.href);
+  
+  if(shouldHideKAIOStories) {
+    const style = document.createElement('style');
+    style.textContent = `
+      #${storybookDocPath}, [data-parent-id="${storybookDocPath}"], [data-id^="${storybookDocPath}"]{
+        display: none !important;
+      }
+    `;
+    document.head.append(style);
+  }
+</script>
