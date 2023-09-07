@@ -22,7 +22,7 @@ export type PopoverProps = {
    */
   floatingOptions?: Omit<UseFloatingOptions, "elements">
   focusOnProps?: Omit<ReactFocusOnProps, "children">
-  portalContainer?: Element | DocumentFragment | null
+  portalContainer?: Element | DocumentFragment
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const Popover = ({
