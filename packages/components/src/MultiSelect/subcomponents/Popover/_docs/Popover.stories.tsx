@@ -13,7 +13,7 @@ const meta = {
       <div className="p-16">
         <button type="button">Waffles</button>
         <button type="button">Pikelets</button>
-        <button type="button">Pikelets</button>
+        <button type="button">Crumpets</button>
       </div>
     ),
   },
