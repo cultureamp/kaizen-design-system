@@ -1,4 +1,6 @@
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { BadgeAnimated } from "@kaizen/draft-badge"
 import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Badge } from "../index"
 
@@ -23,4 +25,10 @@ export const Playground: Story = {
       },
     },
   },
+}
+
+// Adding story just for development testing/knowing it exists
+// Not particularly useful to show on docs cause the animation is too quick
+export const Animated: Story = {
+  render: props => <BadgeAnimated {...props} />,
 }
