@@ -6,7 +6,7 @@ import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Divider } from "../index"
 
 const meta = {
-  title: "Components/Divider",
+  title: "KAIO-staging/Divider",
   component: Divider,
   argTypes: { ...classNameOverrideArgType, isReversed: { control: "boolean" } },
   args: {
