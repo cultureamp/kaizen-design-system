@@ -1,5 +1,20 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+- [#4016](https://github.com/cultureamp/kaizen-design-system/pull/4016) [`df9886a71`](https://github.com/cultureamp/kaizen-design-system/commit/df9886a71767fee270929c0fa175287a2dcabb76) - Clean up tailwind config.
+
+  - Remove unnecessary dependencies
+  - Change tailwindcss from devDep to peerDep
+  - Remove tsx references as this package does not need React
+
+### Patch Changes
+
+- Updated dependencies [[`7eb6aac22`](https://github.com/cultureamp/kaizen-design-system/commit/7eb6aac22cc271193b44756a14d738d17efb616a)]:
+  - @kaizen/design-tokens@10.3.12
+
 ## 1.0.5
 
 ### Patch Changes
