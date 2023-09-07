@@ -7,11 +7,11 @@ import {
 } from "~components/Icons"
 import { GenericButton, GenericProps } from "../GenericButton"
 
-export type DirectionalLinkProps = GenericProps & {
+export type DirectionalLinkProps = {
   label: string
   disabled?: boolean
   direction: "prev" | "next" | "start" | "end"
-}
+} & GenericProps
 
 const iconMap = {
   prev: <ArrowBackwardIcon role="presentation" />,
