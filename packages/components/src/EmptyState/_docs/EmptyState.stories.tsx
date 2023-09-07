@@ -7,7 +7,7 @@ import { EmptyState } from "../index"
 import styles from "./EmptyState.stories.module.scss"
 
 const meta = {
-  title: "Components/EmptyState",
+  title: "KAIO-staging/EmptyState",
   component: EmptyState,
   argTypes: {
     ...classNameOverrideArgType,
