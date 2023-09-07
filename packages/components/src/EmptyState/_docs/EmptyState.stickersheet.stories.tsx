@@ -115,10 +115,7 @@ const CUSTOM_HEADING_PROPS: EmptyStateProps = {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      {/* @note: Header is optional */}
-      <StickerSheet.Header headings={["COLUMN 1", "COLUMN 2"]} />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Positive">
           <EmptyStateWrapper {...POSTIVE_PROPS} />
