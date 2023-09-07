@@ -11,26 +11,15 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // I think reverse stickersheets are being confused.
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
   },
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Active", "Dot"]} />
+      <StickerSheet.Header headings={["Size", "Default", "Active", "Dot"]} />
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Small">
           <Badge size="small" variant="default" reversed={isReversed}>
             3
           </Badge>
@@ -38,6 +27,15 @@ const StickerSheetTemplate: StickerSheetStory = {
             3
           </Badge>
           <Badge size="small" variant="dot" reversed={isReversed} />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Large">
+          <Badge size="large" variant="default" reversed={isReversed}>
+            3
+          </Badge>
+          <Badge size="large" variant="active" reversed={isReversed}>
+            3
+          </Badge>
+          <Badge size="large" variant="dot" reversed={isReversed} />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
@@ -52,7 +50,13 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    backgrounds: { default: "Purple 700" },
+    a11y: {
+      // Fade-in animation has colour contrast issues.
+      timeout: 1000,
+    },
+  },
   args: { isReversed: true },
 }
 
