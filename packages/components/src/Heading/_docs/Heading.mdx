@@ -1,0 +1,38 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as HeadingStories from "./Heading.stories"
+
+<Meta of={HeadingStories} />
+
+# Heading
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Heading"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3074885298/Typography#Headings"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Heading } from "@kaizen/components"'
+/>
+
+## Overview
+Renders a heading element `h1-h6` and applies styling for headings.
+
+<Canvas of={HeadingStories.Playground} />
+<Controls of={HeadingStories.Playground} />
+
+## Accessibility
+
+People using a screen reader rely on heading elements to get an understanding of the content and navigate through it. It's crucial that the heading elements on your page reflect the content structure correctly.
+
+- You should have a single `h1` on the page (usually done for you in the title block) that summarises the page.
+- Heading levels should not be skipped. E.g. `h2` -> `h4`.
+
+In most cases, you will need to use the `tag` prop to adjust the heading level to suit your page.
+
+There will the odd case where you want heading styling, but the text isn't actually acting as a heading. In those cases, use `tag="div"` or `tag="span"`.
+
