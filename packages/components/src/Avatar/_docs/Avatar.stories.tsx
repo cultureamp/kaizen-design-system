@@ -7,11 +7,6 @@ const meta = {
   component: Avatar,
   argTypes: {
     ...classNameOverrideArgType,
-    isCompany: { type: "boolean" },
-    isCurrentUser: { type: "boolean" },
-    disableInitials: { type: "boolean" },
-    fullName: { type: "string" },
-    avatarSrc: { type: "string" },
   },
   args: {
     avatarSrc:
