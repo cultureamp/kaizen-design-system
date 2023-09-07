@@ -102,7 +102,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           ))}
         </StickerSheet.Body>
       </StickerSheet>
-      <StickerSheet>
+      <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
           headings={["Initials Unicode", "Initials Long", "Company Avatar"]}
         />
@@ -128,7 +128,13 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    backgrounds: { default: "Purple 700" },
+    a11y: {
+      // Fade-in animation has colour contrast issues.
+      timeout: 1000,
+    },
+  },
   args: { isReversed: true },
 }
 
