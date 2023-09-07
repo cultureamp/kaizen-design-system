@@ -1,5 +1,12 @@
 # Change Log
 
+## 10.3.12
+
+### Patch Changes
+
+- [#4022](https://github.com/cultureamp/kaizen-design-system/pull/4022) [`7eb6aac22`](https://github.com/cultureamp/kaizen-design-system/commit/7eb6aac22cc271193b44756a14d738d17efb616a) - Dependency updates:
+  postcss to 8.4.29
+
 ## 10.3.11
 
 ### Patch Changes
