@@ -39,7 +39,12 @@ const meta = {
     },
   },
   args: {
-    bodyText: "I am an empty state",
+    headingProps: {
+      variant: "heading-3",
+      children: "Empty state title",
+    },
+    bodyText:
+      "If providing further actions, include a link to an action or use a Default or Primary action.",
   },
 } satisfies Meta<typeof EmptyState>
 
