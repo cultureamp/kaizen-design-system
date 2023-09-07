@@ -47,6 +47,14 @@ export const StickerSheetDefault: StickerSheetStory = {
   name: "Sticker Sheet (Default)",
 }
 
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: {
+    textDirection: "rtl",
+  },
+}
+
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
@@ -58,10 +66,4 @@ export const StickerSheetReversed: StickerSheetStory = {
     },
   },
   args: { isReversed: true },
-}
-
-export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
 }
