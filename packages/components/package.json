@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -34,8 +34,6 @@
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
     "test:ci": "yarn test --ci",
-    "ci:test:react-16": "USE_REACT_16=true yarn test:ci",
-    "ci:test:react-17": "USE_REACT_17=true yarn test:ci",
     "update-icons": "./src/Icons/bin/update-icons.sh"
   },
   "dependencies": {
@@ -77,7 +75,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@kaizen/tailwind": "^1.0.5",
+    "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-image": "^3.0.2",
