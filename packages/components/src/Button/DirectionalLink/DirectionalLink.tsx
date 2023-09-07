@@ -7,7 +7,7 @@ import {
 } from "~components/Icons"
 import { GenericButton, GenericProps } from "../GenericButton"
 
-export interface DirectionalLinkProps extends GenericProps {
+export type DirectionalLinkProps = GenericProps & {
   label: string
   disabled?: boolean
   direction: "prev" | "next" | "start" | "end"
