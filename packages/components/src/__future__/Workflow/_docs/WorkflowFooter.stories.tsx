@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
@@ -12,7 +11,6 @@ const meta = {
     nextAction: WorkflowControls.nextAction,
     previousAction: WorkflowControls.previousAction,
     currentStepId: WorkflowControls.currentStepId,
-    ...classNameOverrideArgType,
   },
   args: {
     currentStepId: "preview-step",

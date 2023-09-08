@@ -1,12 +1,10 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Popover, useFloating } from "../index"
 
 const meta = {
   title: "Components/MultiSelect/Popover",
   component: Popover,
-  argTypes: { ...classNameOverrideArgType },
   args: {
     refs: undefined,
     children: (
