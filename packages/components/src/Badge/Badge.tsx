@@ -28,7 +28,7 @@ export type BadgeProps = BadgeCommonProps | DotProps
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857333/Badge Guidance} |
- * {@link https://cultureamp.design/?path=/docs/components-badge--default-story Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-badge--docs Storybook}
  */
 export const Badge = ({
   children,
