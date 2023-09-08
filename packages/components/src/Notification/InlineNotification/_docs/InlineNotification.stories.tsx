@@ -18,11 +18,6 @@ const DEFAULT_PROPS: Partial<InlineNotificationProps> = {
 const meta = {
   title: "KAIO-staging/Notifications/Inline Notification",
   component: InlineNotification,
-  argTypes: {
-    isSubtle: { type: "boolean" },
-    forceMultiline: { type: "boolean" },
-    noBottomMargin: { type: "boolean" },
-  },
   args: {
     ...DEFAULT_PROPS,
   },
