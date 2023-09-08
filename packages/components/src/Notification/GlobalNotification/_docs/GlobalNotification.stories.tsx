@@ -28,6 +28,10 @@ export const Playground: StoryObj<typeof meta> = {
         sourceState: "shown",
       },
     },
+    a11y: {
+      // Fade-in animation has colour contrast issues.
+      timeout: 1000,
+    },
   },
 }
 

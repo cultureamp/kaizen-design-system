@@ -21,6 +21,12 @@ const meta = {
   args: {
     ...DEFAULT_PROPS,
   },
+  parameters: {
+    a11y: {
+      // Fade-in animation has colour contrast issues.
+      timeout: 1000,
+    },
+  },
 } satisfies Meta<typeof InlineNotification>
 
 export default meta
