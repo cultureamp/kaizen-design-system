@@ -32,8 +32,6 @@ You can edit Kaizen Site documentation using GitHub's interface.
 
 To learn more, see the designer section of the [Contributing guidelines](./CONTRIBUTING.md).
 
-
-
 ## Getting started
 
 ### Setup

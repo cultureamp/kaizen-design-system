@@ -6,9 +6,9 @@
 ## Sass-specific
 * Better helper methods
 
-## Less-specific 
+## Less-specific
 * Build to generate lib/less for less support
 * Better helper methods
 
 ## Done
-✅ Add types for tokens 
+✅ Add types for tokens

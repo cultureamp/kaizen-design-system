@@ -20,7 +20,6 @@ to support this feature, so when consuming tokens in SASS/LESS you should assume
 These values are supplied by the ThemeManager.
 
 
-
 ## Installation
 
 ```sh
@@ -46,7 +45,7 @@ yarn add @kaizen/design-tokens
 ### JavaScript
 
 ```js
-import * as tokens from @kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]
+import * as tokens from "@kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]"
 ```
 
 ## Where possible, we keep things unitless.
