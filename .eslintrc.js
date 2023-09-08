@@ -316,5 +316,15 @@ module.exports = {
         ],
       },
     },
+    {
+      files: ["*.md", "*.mdx"],
+      extends: "plugin:mdx/recommended",
+      rules: {
+        "import/no-extraneous-dependencies": "off",
+        // This is throwing false positives in MDX
+        // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/780
+        "jsx-a11y/anchor-has-content": "off",
+      },
+    },
   ],
 }
