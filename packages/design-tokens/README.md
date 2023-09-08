@@ -20,7 +20,6 @@ to support this feature, so when consuming tokens in SASS/LESS you should assume
 These values are supplied by the ThemeManager.
 
 
-
 ## Installation
 
 ```sh

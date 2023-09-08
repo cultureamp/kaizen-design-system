@@ -1,4 +1,4 @@
-import { Meta, Unstyled } from '@storybook/blocks'
+import { Meta } from "@storybook/blocks"
 import { InlineNotification } from "@kaizen/notification"
 import { LinkTo } from "~storybook/components/LinkTo"
 
@@ -10,16 +10,16 @@ This guide is all about how to introduce the Kaizen Design System to your app.
 
 Whilst the Kaizen Design System mainly focuses on the more atomic components in your app, some of the components have a high level of complexity requiring various global components to be present in order for them to function.
 
-<InlineNotification persistent type="informative">You won't need to apply this if you started your app with the <a href="https://github.com/cultureamp/frontend-template" target="_blank">Frontend template</a> or are using <a href="https://github.com/cultureamp/frontend-services/tree/main/packages/next-services">next-services</a>.</InlineNotification>
+<InlineNotification persistent type="informative">You won't need to apply this if you started your app with the <a href="https://github.com/cultureamp/frontend-template" target="_blank" rel="noreferrer">Frontend template</a> or are using <a href="https://github.com/cultureamp/frontend-services/tree/main/packages/next-services">next-services</a>.</InlineNotification>
 
 ## 1. Add the KaizenProvider (replaces ThemeProvider)
 
 The <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> feeds your entire app with the theme and various other defaults, so it's important that it goes at the very root of your application.
-```jsx
-  import { KaizenProvider } from '@kaizen/components';
-  <KaizenProvider>
-    <App />
-  </KaizenProvider>
+```tsx
+import { KaizenProvider } from '@kaizen/components';
+<KaizenProvider>
+  <App />
+</KaizenProvider>
 ```
 Be sure to read the <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> documentation for migration tips and in case your app requires any further config, but generally this should be it!
 
