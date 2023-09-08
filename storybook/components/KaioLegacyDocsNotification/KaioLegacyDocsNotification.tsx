@@ -9,7 +9,6 @@ export const KaioLegacyDocsNotification = ({
   version,
 }: KaioLegacyDocsNotificationProps): JSX.Element => (
   <InlineNotification type="informative" persistent>
-    {/* If you are using &quot;@kaizen/components&quot; at {version} or lower, please refer to our legacy documentation. */}
     If you are using <code>@kaizen/components</code> at {version} or lower,
     please refer to our legacy documentation.
   </InlineNotification>
