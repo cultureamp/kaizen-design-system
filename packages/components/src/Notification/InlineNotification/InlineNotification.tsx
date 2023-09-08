@@ -1,10 +1,13 @@
 import React from "react"
+import classnames from "classnames"
 import { HeadingProps } from "@kaizen/typography"
+import { OverrideClassName } from "~types/OverrideClassName"
 import GenericNotification from "../GenericNotification"
+
 import styles from "../GenericNotification/GenericNotification.module.scss"
 import { NotificationType } from "../types"
 
-export type InlineNotificationProps = {
+export type InlineNotificationProps = OverrideClassName<{
   type: NotificationType
   children?: React.ReactNode
   /** @default false */
@@ -16,7 +19,7 @@ export type InlineNotificationProps = {
   forceMultiline?: boolean
   headingProps?: HeadingProps
   isSubtle?: boolean
-}
+}>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093392/Inline+Notification Guidance} |
@@ -26,12 +29,15 @@ export const InlineNotification = ({
   isSubtle,
   hideCloseIcon = false,
   persistent = false,
+  classNameOverride,
   ...otherProps
 }: InlineNotificationProps): JSX.Element => (
   <GenericNotification
     style="inline"
     persistent={persistent || hideCloseIcon}
-    classNameOverride={isSubtle ? styles.subtle : undefined}
+    classNameOverride={classnames(classNameOverride, [
+      isSubtle && styles.subtle,
+    ])}
     {...otherProps}
   />
 )
