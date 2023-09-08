@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
@@ -31,7 +30,6 @@ const meta = {
   argTypes: {
     nextAction: WorkflowControls.nextAction,
     previousAction: WorkflowControls.previousAction,
-    ...classNameOverrideArgType,
   },
   args: {
     stepName: "Preview",
