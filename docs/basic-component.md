@@ -240,7 +240,7 @@ export const NewComponent = (props: NewComponentProps): JSX.Element => <PancakeS
   - Unless you specifically have a need to differentiate between `false` and `undefined`, this allows you to have the type safety of only needing to cater for a boolean value in any usages (eg. in a util)
   - Aim to name the prop so that the default value is `false`
     - Consumer experience:
-      ```tsx
+      ```
       // Good - default `false`
       <Component /> // isBoolean={false}
       <Component isBoolean /> // isBoolean={true}

@@ -45,7 +45,7 @@ yarn add @kaizen/design-tokens
 ### JavaScript
 
 ```js
-import * as tokens from @kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]
+import * as tokens from "@kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]"
 ```
 
 ## Where possible, we keep things unitless.

@@ -325,6 +325,22 @@ module.exports = {
         // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/780
         "jsx-a11y/anchor-has-content": "off",
       },
+      settings: {
+        "mdx/code-blocks": true,
+      },
+    },
+    {
+      files: "**/*.{md,mdx}/**",
+      extends: "plugin:mdx/code-blocks",
+      rules: {
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-no-undef": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "react/jsx-no-comment-textnodes": "off",
+        "react/no-unknown-property": "off",
+        "no-duplicate-imports": "off",
+      },
     },
   ],
 }

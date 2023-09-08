@@ -38,7 +38,7 @@ There is a slight difference in the implementation of the `KaizenProvider`, depe
 For more information on `@cultureamp/i18n-react-intl`, see their docs here.
 
 Note: This will work with StaticIntlProvider or DynamicIntlProvider.
-```ts
+```tsx
 import { DynamicIntlProvider } from "@cultureamp/i18n-react-intl"
 import { KaizenProvider } from "@kaizen/components"
 
@@ -53,7 +53,7 @@ import { KaizenProvider } from "@kaizen/components"
 
 In these cases, you’ll need to pass the current locale as a prop to the `KaizenProvider`, so it knows which language is currently active.
 
-```ts
+```tsx
 import { KaizenProvider } from "@kaizen/components"
 
 <KaizenProvider locale={locale}>
