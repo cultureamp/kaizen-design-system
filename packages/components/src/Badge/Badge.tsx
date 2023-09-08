@@ -20,7 +20,7 @@ type BadgeCommonProps = {
 } & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
 type DotProps = Omit<BadgeCommonProps, "variant"> & {
-  children?: undefined
+  children?: never
   variant: "dot"
 }
 

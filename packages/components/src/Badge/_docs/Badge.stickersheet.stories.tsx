@@ -60,10 +60,6 @@ export const StickerSheetReversed: StickerSheetStory = {
   name: "Sticker Sheet (Reversed)",
   parameters: {
     backgrounds: { default: "Purple 700" },
-    a11y: {
-      // Fade-in animation has colour contrast issues.
-      timeout: 1000,
-    },
   },
   args: { isReversed: true },
 }
