@@ -10,11 +10,20 @@ import {
 } from "../InlineNotification"
 
 export default {
-  title: "Components/Notifications/Inline Notification",
+  title: "KAIO-staging/Notifications/Inline Notification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
     a11y: {
+      config: {
+        rules: [
+          {
+            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
       // Fade-in animation has colour contrast issues.
       timeout: 1000,
     },
