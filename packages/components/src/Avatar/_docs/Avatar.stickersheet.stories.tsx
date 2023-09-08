@@ -17,17 +17,6 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
   },
 } satisfies Meta
 
@@ -125,6 +114,12 @@ export const StickerSheetDefault: StickerSheetStory = {
   name: "Sticker Sheet (Default)",
 }
 
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: { textDirection: "rtl" },
+}
+
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
@@ -136,10 +131,4 @@ export const StickerSheetReversed: StickerSheetStory = {
     },
   },
   args: { isReversed: true },
-}
-
-export const StickerSheetRTL: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
 }

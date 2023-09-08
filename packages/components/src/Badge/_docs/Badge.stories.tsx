@@ -1,13 +1,11 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { BadgeAnimated } from "@kaizen/draft-badge"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Badge } from "../index"
 
 const meta = {
   title: "KAIO-staging/Badge",
   component: Badge,
-  argTypes: { ...classNameOverrideArgType },
   args: {
     children: "3",
   },

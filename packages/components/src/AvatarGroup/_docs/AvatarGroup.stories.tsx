@@ -1,12 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { AvatarGroup } from "../index"
 import { AVATARS } from "./example-data"
 
 const meta = {
   title: "KAIO-staging/Avatar/Avatar Group",
   component: AvatarGroup,
-  argTypes: { ...classNameOverrideArgType },
   args: {
     maxVisible: 2,
     size: "medium",
