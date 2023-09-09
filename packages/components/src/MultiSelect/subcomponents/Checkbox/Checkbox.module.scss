@@ -1,0 +1,85 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+$checkbox-size: 24px;
+$focus-ring-offset: 2px;
+$focus-ring-size: calc(#{$checkbox-size} + #{$focus-ring-offset});
+
+// Classnames to simulate pseudo states in storybook
+$story-className--checkbox--hover: ":global(.story__checkbox--hover)";
+$story-className--checkbox--focus: ":global(.story__checkbox--focus)";
+
+// Combined pseudo state classes
+$selectors--checkbox--hover: "&:hover, &#{$story-className--checkbox--hover}";
+$selectors--checkbox--focus: "&:focus-within, &#{$story-className--checkbox--focus}";
+
+.checkbox {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  width: $checkbox-size;
+  height: $checkbox-size;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  background: $color-white;
+
+  #{$selectors--checkbox--hover},
+  #{$selectors--checkbox--focus} {
+    background: $color-gray-200;
+    border-color: $color-gray-600;
+  }
+
+  #{$selectors--checkbox--focus} {
+    &::after {
+      width: $focus-ring-size;
+      height: $focus-ring-size;
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: $border-focus-ring-border-radius;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
+    }
+  }
+}
+
+// Selected = Checked or Indeterminate
+.selected {
+  background: $color-gray-500;
+  background-color: $color-gray-500;
+
+  #{$selectors--checkbox--hover},
+  #{$selectors--checkbox--focus} {
+    background: $color-gray-600;
+    border-color: $color-gray-600;
+  }
+}
+
+.nativeCheckbox {
+  opacity: 0%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.iconContainer {
+  display: inline-block;
+  position: relative;
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+}
+
+.icon {
+  height: $checkbox-size;
+  width: $checkbox-size;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $color-white;
+}
