@@ -3041,7 +3041,7 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/a11y@^1.7.11", "@kaizen/a11y@^1.7.12":
+"@kaizen/a11y@^1.7.12":
   version "1.7.12"
   resolved "https://registry.yarnpkg.com/@kaizen/a11y/-/a11y-1.7.12.tgz#448fb57ade9d657e51cc820684f28dd928495007"
   integrity sha512-E+PxnewE98q8NIRsM7v1zY7O2WRUAY8HQePsqgVYGeyjx+aGBI7AbsASNebglqtIWcCZRB+DSN16HEZ0IgUMWw==
