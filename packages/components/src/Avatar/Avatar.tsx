@@ -109,7 +109,7 @@ const renderInitials = (
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857475/Avatar Guidance} |
- * {@link https://cultureamp.design/?path=/docs/components-avatar-avatar-docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-avatar-avatar--docs Storybook}
  */
 export const Avatar = ({
   fullName,
