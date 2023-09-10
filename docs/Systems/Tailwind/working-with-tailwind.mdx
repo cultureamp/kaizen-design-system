@@ -1,4 +1,4 @@
-import { Canvas, Meta, Story } from "@storybook/blocks"
+import { Canvas, Meta } from "@storybook/blocks"
 import * as Examples from "./working-with-tailwind.stories"
 
 <Meta of={Examples} />
@@ -18,7 +18,7 @@ This page describes and demonstrates the main intended use cases for this packag
 
 For information about Cultureamp's spacing and layout system in general, see [here](/story/systems-layout-and-spacing--page)
 
-When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-design-system) components should be used as much as possible, with the front-end engineer responsible for the spacing between them. In these cases, our Tailwind preset makes it easy by adding our spacing tokens to Tailwind's core spacing modules.  
+When building a page, ideally [Kaizen](https://github.com/cultureamp/kaizen-design-system) components should be used as much as possible, with the front-end engineer responsible for the spacing between them. In these cases, our Tailwind preset makes it easy by adding our spacing tokens to Tailwind's core spacing modules.
 
 Here, Tailwind has been used to center a Kaizen button within a div.
 
@@ -37,7 +37,7 @@ Here's a more complex example, where some `<Card>` components and text have been
 
 ## Altering Kaizen components with classNameOverride
 
-If a Kaizen component supports classNameOverride, Tailwind classes can also be used.  
+If a Kaizen component supports classNameOverride, Tailwind classes can also be used.
 This is particularly useful for adding margins to Kaizen components. In this example, our preset is being used to add `margin-right: 1.5rem` to Kaizen's `<Card/>` component, without the need to wrap it in a div.
 
 <Canvas of={Examples.TailwindExampleClassNameOverrideMargin} />

@@ -1,6 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { Installation, KaioNotification, ResourceLinks } from "~storybook/components"
-import { InlineNotification } from "@kaizen/notification"
+import { Installation, KaioNotification, KaioLegacyDocsNotification, ResourceLinks } from "~storybook/components"
 import * as WorkflowFooterStories from "./WorkflowFooter.stories"
 
 <Meta of={WorkflowFooterStories} />
@@ -16,9 +15,7 @@ import * as WorkflowFooterStories from "./WorkflowFooter.stories"
 
 <KaioNotification />
 
-<InlineNotification type="informative" persistent>
-  {`If you are using "@kaizen/components" at 1.16.0 or lower, please refer to our legacy documentation.`}
-</InlineNotification>
+<KaioLegacyDocsNotification version="1.16.0" />
 
 <Installation
   installCommand="yarn add @kaizen/components"

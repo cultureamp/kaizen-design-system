@@ -105,7 +105,7 @@ const filters = [
     name: "Filter 3",
     Component: <FilterBar.DateRangePicker {...props} />,
     isRemovable: true,
-    isUsableWhen: (state) => state.filterId1.value !== undefined
+    isUsableWhen: state => state.filterId1.value !== undefined
   },
 ] satisfies Filters<ValuesMap>
 ```
@@ -192,13 +192,13 @@ const filters = [
     id: "milk",
     name: "Milk",
     Component: <FilterBar.Select {...props} />,
-    isUsableWhen: (state) => state.coffee.value === "latte",
+    isUsableWhen: state => state.coffee.value === "latte",
   },
 ] satisfies Filters<ValuesMap>
 ```
 
 The `state` arg will provide you with the following attributes for all the filters (mapped to the keys of the `ValuesMap`):
-```ts
+```
 id: keyof ValuesMap
 name: string
 value?: ValueMap[keyof ValuesMap]
