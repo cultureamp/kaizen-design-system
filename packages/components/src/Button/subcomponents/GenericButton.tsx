@@ -59,7 +59,7 @@ export type WorkingUndefinedProps = {
   working?: false
 }
 
-export type BadgeProps = {
+export type ButtonBadgeProps = {
   text: string
   animateChange?: boolean
   variant?: "default" | "dark" | "active"
@@ -85,7 +85,7 @@ export type ButtonProps = GenericProps &
     secondary?: boolean
     /** @default "regular" */
     size?: "small" | "regular"
-    badge?: BadgeProps
+    badge?: ButtonBadgeProps
     type?: "submit" | "reset" | "button"
     fullWidth?: boolean
     iconPosition?: "start" | "end"
