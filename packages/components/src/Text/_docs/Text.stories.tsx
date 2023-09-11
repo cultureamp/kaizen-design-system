@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { Paragraph } from "../index"
+import { Text } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Paragraph",
-  component: Paragraph,
+  title: "KAIO-staging/Text",
+  component: Text,
   args: {
     variant: "body",
     children: "The quick brown fox jumps over the lazy dog.",
   },
-} satisfies Meta<typeof Paragraph>
+} satisfies Meta<typeof Text>
 
 export default meta
 

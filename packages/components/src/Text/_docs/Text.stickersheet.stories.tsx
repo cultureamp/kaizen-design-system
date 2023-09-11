@@ -4,10 +4,10 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Paragraph } from "../index"
+import { Text } from "../index"
 
 export default {
-  title: "KAIO-Staging/Paragraph",
+  title: "KAIO-Staging/Text",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -23,53 +23,53 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet isReversed={isReversed}>
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="Intro Lede">
-              <Paragraph variant="intro-lede" color={fontColour}>
+              <Text variant="intro-lede" color={fontColour}>
                 The quick brown fox jumps over the lazy dog.
-              </Paragraph>
+              </Text>
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Body">
-              <Paragraph variant="body" color={fontColour}>
+              <Text variant="body" color={fontColour}>
                 The quick brown fox jumps over the lazy dog.
-              </Paragraph>
+              </Text>
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Body strong">
-              <Paragraph variant="body" color={fontColour}>
+              <Text variant="body" color={fontColour}>
                 <strong>The quick brown fox jumps over the lazy dog.</strong>
-              </Paragraph>
+              </Text>
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Small">
-              <Paragraph variant="small" color={fontColour}>
+              <Text variant="small" color={fontColour}>
                 The quick brown fox jumps over the lazy dog.
-              </Paragraph>
+              </Text>
             </StickerSheet.Row>
             <StickerSheet.Row rowTitle="Extra small">
-              <Paragraph variant="extra-small" color={fontColour}>
+              <Text variant="extra-small" color={fontColour}>
                 The quick brown fox jumps over the lazy dog.
-              </Paragraph>
+              </Text>
             </StickerSheet.Row>
             {!isReversed ? (
               <>
                 <StickerSheet.Row rowTitle="Dark Reduced Opacity">
-                  <Paragraph variant="intro-lede" color="dark-reduced-opacity">
+                  <Text variant="intro-lede" color="dark-reduced-opacity">
                     The quick brown fox jumps over the lazy dog.
-                  </Paragraph>
+                  </Text>
                 </StickerSheet.Row>
                 <StickerSheet.Row rowTitle="Positive">
-                  <Paragraph variant="intro-lede" color="positive">
+                  <Text variant="intro-lede" color="positive">
                     The quick brown fox jumps over the lazy dog.
-                  </Paragraph>
+                  </Text>
                 </StickerSheet.Row>
                 <StickerSheet.Row rowTitle="Negative">
-                  <Paragraph variant="intro-lede" color="negative">
+                  <Text variant="intro-lede" color="negative">
                     The quick brown fox jumps over the lazy dog.
-                  </Paragraph>
+                  </Text>
                 </StickerSheet.Row>
               </>
             ) : (
               <StickerSheet.Row rowTitle="White Reduced Opacity">
-                <Paragraph variant="intro-lede" color="white-reduced-opacity">
+                <Text variant="intro-lede" color="white-reduced-opacity">
                   The quick brown fox jumps over the lazy dog.
-                </Paragraph>
+                </Text>
               </StickerSheet.Row>
             )}
           </StickerSheet.Body>

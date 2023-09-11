@@ -1,11 +1,11 @@
 import { createElement, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import styles from "./Paragraph.module.scss"
+import styles from "./Text.module.scss"
 
-export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
+export type TextVariants = "intro-lede" | "body" | "small" | "extra-small"
 
-export type AllowedParagraphTags =
+export type AllowedTextTags =
   | "pre"
   | "p"
   | "div"
@@ -18,7 +18,7 @@ export type AllowedParagraphTags =
   | "h6"
   | "label"
 
-export type AllowedParagraphColors =
+export type AllowedTextColors =
   | "dark"
   | "dark-reduced-opacity"
   | "white"
@@ -26,35 +26,35 @@ export type AllowedParagraphColors =
   | "positive"
   | "negative"
 
-export interface ParagraphProps
+export interface TextProps
   extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
   /**
-   * HTML elements that are allowed on Paragraphs
+   * HTML elements that are allowed on Text
    * @default "p"
    */
-  tag?: AllowedParagraphTags
+  tag?: AllowedTextTags
   /**
-   * Allowed paragraph variants
+   * Allowed text variants
    */
-  variant: ParagraphVariants
-  color?: AllowedParagraphColors
+  variant: TextVariants
+  color?: AllowedTextColors
 }
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3074885298/Typography#Paragraph Guidance}
- * {@link https://cultureamp.design/?path=/docs/components-typography-paragraph--body Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-typography-text--body Storybook}
  */
-export const Paragraph = ({
+export const Text = ({
   children,
   tag,
   variant,
   color = "dark",
   classNameOverride,
   ...restProps
-}: ParagraphProps): JSX.Element => {
+}: TextProps): JSX.Element => {
   const className = classnames(
-    styles.paragraph,
+    styles.text,
     styles[variant],
     styles[color],
     classNameOverride
