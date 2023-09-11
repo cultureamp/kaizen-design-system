@@ -18,20 +18,16 @@ $dt-content-border-color: rgba($color-gray-600-rgb, 0.1);
 .content {
   border-top: 1px solid;
   border-color: $dt-content-border-color;
-
-  &.reversed {
-    border-color: rgba($color-white-rgb, 0.1);
-  }
 }
 
 .canvas {
   border-top: 1px solid;
   border-bottom: 1px solid;
   border-color: rgba($color-gray-600-rgb, 0.1);
+}
 
-  &.reversed {
-    border-color: rgba($color-white-rgb, 0.1);
-  }
+.reversed {
+  border-color: rgba($color-white-rgb, 0.1);
 }
 
 .menuSeparator {
