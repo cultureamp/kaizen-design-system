@@ -15,7 +15,6 @@ import {
   decodeQueryParams,
 } from "serialize-query-params"
 import { DateRange, ItemType, SelectOption } from "~components/index"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { FilterMultiSelect } from "../../index"
 import { FilterBar, Filters, useFilterBarContext } from "../index"
 import { FilterBarMultiSelectProps } from "../subcomponents"
@@ -27,7 +26,6 @@ const meta = {
     filters: { control: "disabled" },
     values: { control: "disabled" },
     onValuesChange: { control: "disabled" },
-    ...classNameOverrideArgType,
   },
   args: {
     filters: [], // Defined in stories

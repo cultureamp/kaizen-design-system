@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Filter, FilterContents } from ".."
 
 const meta = {
@@ -14,7 +13,6 @@ const meta = {
     setIsOpen: { control: "disabled" },
     renderTrigger: { control: "disabled" },
     onMount: { control: "disabled" },
-    ...classNameOverrideArgType,
   },
   args: {
     children: <FilterContents>Filter Contents</FilterContents>,

@@ -2,7 +2,6 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "@kaizen/button"
 import { CloseIcon, VisibleIcon } from "~components/Icons"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
@@ -31,7 +30,6 @@ const meta = {
   },
   argTypes: {
     headerActions: WorkflowControls.headerActions,
-    ...classNameOverrideArgType,
   },
   args: {
     workflowName: "Create a self-reflection cycle",

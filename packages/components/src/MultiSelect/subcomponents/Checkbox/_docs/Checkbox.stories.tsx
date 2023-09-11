@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Checkbox, CheckedStatus } from "../index"
 
 const meta = {
@@ -10,9 +9,6 @@ const meta = {
     checkedStatus: "unchecked",
     readOnly: false,
     "aria-label": "Checkbox label",
-  },
-  argTypes: {
-    ...classNameOverrideArgType,
   },
 } satisfies Meta<typeof Checkbox>
 

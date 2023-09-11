@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
 import { SelectOption } from "../types"
@@ -11,7 +10,6 @@ const meta = {
   title: "Components/Filter Select",
   component: FilterSelect,
   argTypes: {
-    ...classNameOverrideArgType,
     isOpen: { control: "disabled" },
     setIsOpen: { control: "disabled" },
     renderTrigger: renderTriggerControls,

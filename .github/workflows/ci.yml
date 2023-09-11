@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint:ts
+      - run: yarn lint:ts && yarn lint:md
 
   prettier:
     if: github.head_ref != 'changeset-release/main'

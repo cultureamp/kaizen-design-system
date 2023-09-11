@@ -8,7 +8,6 @@ import {
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
-import { classNameOverrideFilterArgType } from "~storybook/argTypes"
 import {
   DateValidationResponse,
   FilterDatePicker,
@@ -23,7 +22,6 @@ const meta = {
   title: "Components/Filter Date Picker",
   component: FilterDatePicker,
   argTypes: {
-    ...classNameOverrideFilterArgType,
     ...defaultMonthControls,
     ...validationControls,
     disabledDays: disabledDaysControls,
