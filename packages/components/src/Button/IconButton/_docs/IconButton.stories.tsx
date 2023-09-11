@@ -1,14 +1,12 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AddIcon, MeatballsIcon } from "~components/Icons"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { IconButton } from "../index"
 
 const meta = {
   title: "KAIO-staging/Buttons/IconButton",
   component: IconButton,
   argTypes: {
-    ...classNameOverrideArgType,
     icon: {
       options: ["MeatballsIcon", "AddIcon"],
       control: { type: "radio" },

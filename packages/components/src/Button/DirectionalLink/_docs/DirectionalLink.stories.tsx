@@ -1,11 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { DirectionalLink } from "../index"
 
 const meta = {
   title: "KAIO-staging/Buttons/DirectionalLink",
   component: DirectionalLink,
-  argTypes: { ...classNameOverrideArgType },
   args: {
     label: "Back",
     direction: "prev",
