@@ -2,7 +2,6 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { ChevronRightIcon } from "~components/Icons"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { EmptyState } from "../index"
 import styles from "./EmptyState.stories.module.scss"
 
@@ -10,16 +9,6 @@ const meta = {
   title: "KAIO-staging/EmptyState",
   component: EmptyState,
   argTypes: {
-    ...classNameOverrideArgType,
-    loop: {
-      control: { type: "boolean" },
-    },
-    isAnimated: {
-      control: { type: "boolean" },
-    },
-    straightCorners: {
-      control: { type: "boolean" },
-    },
     children: {
       table: { type: { summary: "React.ReactNode" } },
       control: { type: "radio" },

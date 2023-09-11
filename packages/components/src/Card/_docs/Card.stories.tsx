@@ -1,12 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Card } from "../index"
 
 const meta = {
-  title: "Components/Card",
+  title: "KAIO-staging/Card",
   component: Card,
-  argTypes: { ...classNameOverrideArgType, isElevated: { control: "boolean" } },
   args: {
     children: "This is a default container",
   },

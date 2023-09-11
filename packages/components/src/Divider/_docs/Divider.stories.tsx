@@ -2,13 +2,11 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { Card } from "~components/Card"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Divider } from "../index"
 
 const meta = {
   title: "KAIO-staging/Divider",
   component: Divider,
-  argTypes: { ...classNameOverrideArgType, isReversed: { control: "boolean" } },
   args: {
     variant: "content",
   },
