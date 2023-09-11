@@ -55,3 +55,5 @@ export const Card = ({
     </Tag>
   )
 }
+
+Card.displayName = "Card"
