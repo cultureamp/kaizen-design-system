@@ -57,5 +57,4 @@ export const ContentGroup: Story = {
       </div>
     </Card>
   ),
-  args: { isReversed: true },
 }
