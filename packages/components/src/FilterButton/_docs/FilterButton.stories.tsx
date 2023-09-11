@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { FilterButton } from "../FilterButton"
 
 const meta = {
@@ -9,7 +8,6 @@ const meta = {
   argTypes: {
     selectedValue: { type: "string" },
     isOpen: { type: "boolean" },
-    ...classNameOverrideArgType,
   },
   args: {
     label: "Label",

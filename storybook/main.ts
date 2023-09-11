@@ -60,6 +60,7 @@ const config = {
     reactDocgenTypescriptOptions: {
       skipChildrenPropWithoutDoc: false,
       shouldExtractLiteralValuesFromEnum: true,
+      shouldRemoveUndefinedFromOptional: true,
       propFilter: (prop): boolean => {
         const isHTMLElementProp =
           prop.parent?.fileName.includes("node_modules/@types/react") ?? false
