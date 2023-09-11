@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={display-0} /> 1`] = `
+<body>
+  <div>
+    <h1
+      class="heading display-0 dark large"
+    >
+      Example
+    </h1>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-1} /> 1`] = `
+<body>
+  <div>
+    <h1
+      class="heading heading-1 dark large"
+    >
+      Example
+    </h1>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-2} /> 1`] = `
+<body>
+  <div>
+    <h2
+      class="heading heading-2 dark large"
+    >
+      Example
+    </h2>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-3} /> 1`] = `
+<body>
+  <div>
+    <h3
+      class="heading heading-3 dark small"
+    >
+      Example
+    </h3>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-4} /> 1`] = `
+<body>
+  <div>
+    <h4
+      class="heading heading-4 dark small"
+    >
+      Example
+    </h4>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-5} /> 1`] = `
+<body>
+  <div>
+    <h5
+      class="heading heading-5 dark small"
+    >
+      Example
+    </h5>
+  </div>
+</body>
+`;
+
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-6} /> 1`] = `
+<body>
+  <div>
+    <h6
+      class="heading heading-6 dark small"
+    >
+      Example
+    </h6>
+  </div>
+</body>
+`;
