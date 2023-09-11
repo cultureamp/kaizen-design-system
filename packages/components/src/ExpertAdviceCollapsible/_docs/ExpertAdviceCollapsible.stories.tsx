@@ -1,20 +1,12 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Paragraph } from "@kaizen/typography"
-import { controlsSettings } from "~components/Collapsible/_docs/Collapsible.stories"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { ExpertAdviceCollapsible } from "../index"
 
 const meta = {
-  title: "Components/Collapsible/ExpertAdviceCollapsible",
+  title: "KAIO-staging/Collapsible/ExpertAdviceCollapsible",
   component: ExpertAdviceCollapsible,
-  parameters: {
-    chromatic: { disable: false },
-  },
-  argTypes: {
-    ...classNameOverrideArgType,
-    ...controlsSettings,
-  },
+  parameters: { chromatic: { disable: false } },
   args: {
     title: "Expert advice collapsible",
     children: (

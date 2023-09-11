@@ -2,7 +2,6 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { AddIcon } from "~components/Icons"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Collapsible } from "../index"
 
 // eslint-disable-next-line storybook/prefer-pascal-case
@@ -17,9 +16,8 @@ export const controlsSettings = {
 }
 
 const meta = {
-  title: "Components/Collapsible",
+  title: "KAIO-staging/Collapsible",
   component: Collapsible,
-  argTypes: { ...classNameOverrideArgType, ...controlsSettings },
   args: {
     children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
     ac scelerisque sem, vel ultricies justo. Donec eu porttitor ante,

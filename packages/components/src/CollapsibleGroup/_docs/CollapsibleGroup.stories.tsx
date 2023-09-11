@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Collapsible, CollapsibleProps } from "~components/Collapsible"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 const CollapsibleWrapped = (
@@ -29,17 +28,8 @@ const CollapsibleGroupWrapped = (
 )
 
 const meta = {
-  title: "Components/Collapsible/CollapsibleGroup",
+  title: "KAIO-staging/Collapsible/CollapsibleGroup",
   component: CollapsibleGroup,
-  argTypes: {
-    ...classNameOverrideArgType,
-    separated: { control: "boolean" },
-    noSectionPadding: { control: "boolean" },
-    lazyLoad: { control: "boolean" },
-    sticky: { control: "disabled" },
-    onToggle: { control: "disabled" },
-    children: { control: "disabled" },
-  },
   parameters: { backgrounds: { default: "Gray 100" } },
   args: {
     children: [

@@ -1,13 +1,11 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { Brand } from "../index"
 
 const meta = {
   title: "Components/Brand",
   component: Brand,
-  argTypes: { ...classNameOverrideArgType },
 } satisfies Meta<typeof Brand>
 
 export default meta
