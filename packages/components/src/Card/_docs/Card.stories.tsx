@@ -52,7 +52,7 @@ export const Variants: Story = {
   ),
 }
 
-export const Elevated: Story = {
+export const Elevation: Story = {
   render: () => (
     <ul className="flex list-none gap-16">
       <li>

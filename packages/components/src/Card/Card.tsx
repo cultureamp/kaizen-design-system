@@ -12,7 +12,7 @@ export type CardVariants =
   | "assertive"
   | "highlight"
 
-export type CardProps = { ...props} & OverrideClassName<HTMLAttributes<HTMLElement>>
+export type CardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
   children?: React.ReactNode
   /**
    * HTML elements that are allowed on Card.
@@ -29,8 +29,8 @@ export type CardProps = { ...props} & OverrideClassName<HTMLAttributes<HTMLEleme
 }
 
 /**
- * {@link https://cultureamp.design/components/card/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/story/components-card--default-story Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094938/Card Guidance} |
+ * {@link https://cultureamp.design/?path=/story/components-card--docs Storybook}
  */
 export const Card = ({
   children,

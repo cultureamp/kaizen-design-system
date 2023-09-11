@@ -15,17 +15,6 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
   },
 } satisfies Meta
 

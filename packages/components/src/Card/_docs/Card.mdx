@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as CardStories from "./Card.stories"
 
@@ -6,15 +6,8 @@ import * as CardStories from "./Card.stories"
 
 # Card
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Card"
-  figma=""
-  designGuidelines=""
   className="!mb-8"
 />
 
@@ -34,8 +27,6 @@ The `Card` component is a flexible container used to wrap primary content. It ha
 
 ## API
 
-### Variants
-<Canvas of={CardStories.Variants} />
+<DocsStory of={CardStories.Variants} />
 
-### Elevation
-<Canvas of={CardStories.Elevated} />
+<DocsStory of={CardStories.Elevation} />
