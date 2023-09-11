@@ -1,6 +1,7 @@
 // TODO: Remove when Date Picker is migrated to KAIO
 export * from "./types/DatePicker"
 
+export * from "./Button"
 export * from "./ClearButton"
 export * from "./ErrorPage"
 export * from "./Filter"
