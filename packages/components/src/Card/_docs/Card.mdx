@@ -1,0 +1,32 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CardStories from "./Card.stories"
+
+<Meta of={CardStories} />
+
+# Card
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Card"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Card } from "@kaizen/components"'
+/>
+
+## Overview
+
+The `Card` component is a flexible container used to wrap primary content. It has several variants (moods) to assist in displaying information to a user. In the UI toolkit you will find the `Card` component is referred to as `Container`.
+
+<Canvas of={CardStories.Playground} />
+<Controls of={CardStories.Playground} />
+
+## API
+
+<DocsStory of={CardStories.Variants} />
+
+<DocsStory of={CardStories.Elevation} />

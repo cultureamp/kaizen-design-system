@@ -30,7 +30,6 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  tags: ["autodocs"],
   title: "KAIO-staging/Brand Moment",
   component: BrandMoment,
   parameters: {
