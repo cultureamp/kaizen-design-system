@@ -12,13 +12,11 @@ export type PaginationLinkProps = GenericProps & {
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination Guidance} |
  * {@link https://cultureamp.design/?path=/story/components-buttons-paginationlink--docs Storybook}
  */
-export const PaginationLink = (props: PaginationLinkProps): JSX.Element => (
-  <GenericButton
-    {...props}
-    paginationLink
-    label={`${props.pageNumber}`}
-    aria-label={props["aria-label"]}
-  />
+export const PaginationLink = ({
+  pageNumber,
+  ...restProps
+}: PaginationLinkProps): JSX.Element => (
+  <GenericButton {...restProps} paginationLink label={`${pageNumber}`} />
 )
 
 PaginationLink.defaultProps = {
