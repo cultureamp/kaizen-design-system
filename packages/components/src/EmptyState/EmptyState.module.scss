@@ -1,0 +1,157 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "./mixins";
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 2% $spacing-md;
+  color: $color-purple-800;
+  border: $border-solid-border-width $border-solid-border-style
+    $border-borderless-border-color-id;
+  border-radius: $border-solid-border-radius;
+
+  @include small {
+    flex-direction: column;
+    align-items: center;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+  }
+
+  &.straightCorners {
+    border-radius: 0;
+  }
+
+  // These class names must match the possible values of the component's layoutContext prop
+  &.sidebarAndContent {
+    @include large-sidebar-and-content {
+      padding-top: $spacing-md;
+      padding-bottom: $spacing-md;
+    }
+  }
+
+  &.contentOnly {
+    @include large-content-only {
+      padding-top: $spacing-md;
+      padding-bottom: $spacing-md;
+    }
+  }
+
+  &.positive {
+    background-color: $color-green-100;
+  }
+
+  &.negative {
+    background-color: $color-red-100;
+  }
+
+  &.action {
+    background-color: $color-orange-100;
+  }
+
+  &.neutral {
+    background-color: $color-purple-100;
+  }
+
+  &.informative {
+    background-color: $color-blue-100;
+  }
+}
+
+.illustrationSide,
+.textSide {
+  display: inline-block;
+}
+
+.illustrationSide {
+  min-width: 224px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  margin-bottom: $spacing-md;
+
+  @include small {
+    width: 224px;
+  }
+
+  @include medium {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 0;
+    min-width: 40%;
+    max-width: 50%;
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding-inline-end: $spacing-md;
+  }
+
+  .sidebarAndContent & {
+    @include large-sidebar-and-content {
+      flex-shrink: 1;
+      flex-basis: auto;
+    }
+  }
+
+  .contentOnly & {
+    @include large-content-only {
+      flex-shrink: 1;
+      flex-basis: auto;
+    }
+  }
+}
+
+.illustration,
+.illustrationSide video {
+  max-width: 100%;
+  max-height: 366px;
+  width: auto;
+
+  // Fixes for IE11 Flexbox issues
+  min-height: 196px;
+
+  @include small {
+    max-height: 196px;
+  }
+}
+
+.textSide {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+
+  @include medium {
+    flex-basis: 50%;
+    flex-grow: 0;
+  }
+}
+
+.textSideInner {
+  flex-grow: 0;
+  height: auto;
+  margin: 0 $spacing-sm;
+
+  @include small {
+    margin-bottom: 0;
+  }
+
+  @include medium {
+    max-width: 426px;
+  }
+}
+
+.heading {
+  margin-bottom: $spacing-md;
+
+  @media (max-width: (375px)) {
+    @include typography-heading-3-sm;
+  }
+}
+
+.description {
+  margin-bottom: $spacing-md;
+}

@@ -1,0 +1,32 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as DividerStories from "./Divider.stories"
+
+<Meta of={DividerStories} />
+
+# Divider
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Divider"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=6%3A18248&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061035/Divider"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Divider } from "@kaizen/components"'
+/>
+
+## Overview
+
+Dividers are thin lines that group content in lists and layouts, or separate blocks of content.
+
+<Canvas of={DividerStories.Playground} />
+<Controls of={DividerStories.Playground} />
+
+## Examples
+
+<DocsStory of={DividerStories.ContentGroup} />
