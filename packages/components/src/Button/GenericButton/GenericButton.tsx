@@ -47,8 +47,6 @@ export type GenericProps = {
   classNameOverride?: string
 }
 
-export type GenericButtonType = "submit" | "reset" | "button"
-
 export type WorkingProps = {
   working: true
   workingLabel: string

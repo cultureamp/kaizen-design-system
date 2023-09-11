@@ -1,12 +1,11 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { ButtonProps } from "~components/Button"
 import { AddIcon } from "~components/Icons"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Button } from "../index"
+import { Button, ButtonProps } from "../index"
 
 export default {
   title: "KAIO-staging/Buttons/Button",
