@@ -2,7 +2,6 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { CloseIcon, VisibleIcon } from "~components/Icons"
-import { classNameOverrideArgType } from "~storybook/argTypes"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
@@ -11,7 +10,6 @@ const meta = {
   component: Workflow.Header,
   argTypes: {
     headerActions: WorkflowControls.headerActions,
-    ...classNameOverrideArgType,
   },
   args: {
     workflowName: "Create a self-reflection cycle",

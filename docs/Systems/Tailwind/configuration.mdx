@@ -1,9 +1,9 @@
-import { Canvas, Meta } from "@storybook/blocks"
+import { Meta } from "@storybook/blocks"
 import { InlineNotification } from "@kaizen/notification"
 
 <Meta title="Systems/Tailwind/Configuration" />
 
-# Configuration 
+# Configuration
 
 This page provides guidance on potential configuration options and how they work with the preset and Kaizen components.
 
@@ -14,7 +14,7 @@ This page provides guidance on potential configuration options and how they work
 
 ## Extending the Kaizen preset
 
-> Extending your config is a good option when you intend to _reuse_ the style.  
+> Extending your config is a good option when you intend to _reuse_ the style.
 > If you need a value not available in our preset for a specific use case, consider using [arbitrary values](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) instead.
 
 To extend upon the preset with values specific to your project, we recommend passing a theme object to `theme.extend`.
@@ -35,7 +35,7 @@ module.exports = {
 }
 ```
 
-Here, the Kaizen preset overwrites the default Tailwind preset, and the `extend` field adds in some new values.  
+Here, the Kaizen preset overwrites the default Tailwind preset, and the `extend` field adds in some new values.
 Be careful though! While adding in a _new_ field to `colors` won't overwrite any existing ones, passing in an existing field _will_. In this example, `purple-100` has unfortunately been overwritten.
 
 `<p className="text-sky">...` ❌ Default TW config overwritten by `Preset`
