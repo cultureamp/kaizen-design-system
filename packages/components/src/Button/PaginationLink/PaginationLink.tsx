@@ -1,7 +1,7 @@
 import React from "react"
 import { GenericProps, GenericButton } from "../GenericButton"
 
-export interface PaginationLinkProps extends GenericProps {
+export type PaginationLinkProps = GenericButtonProps & {
   pageNumber: number
   isActive?: boolean
   /* A description for screen readers to understand because label used here is a number */
