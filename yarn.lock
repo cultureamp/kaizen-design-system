@@ -3778,17 +3778,17 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@react-aria/button@^3.8.1":
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/@react-aria/button/-/button-3.8.1.tgz#9445beb27f61b1c4ddfb51a85ce91477eb497274"
-  integrity sha512-igxZ871An3Clpmpw+beN8F792NfEnEaLRAZ4jITtC/FdzwQwRM7eCu/ZEaqpNtbUtruAmYhafnG/2uCkKhTpTw==
+"@react-aria/button@^3.8.2":
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/@react-aria/button/-/button-3.8.2.tgz#b392df6db7368198be6e6e4791c0f9d8e23b96ae"
+  integrity sha512-d1Fgx2XrSk8WMFtGu/ta76m5Rx+f2CuHY1k6nD45QciszD26GbzHdLOSjxev97M6vHj/BOsGL01XcwmTL4fZHA==
   dependencies:
-    "@react-aria/focus" "^3.14.0"
-    "@react-aria/interactions" "^3.17.0"
-    "@react-aria/utils" "^3.19.0"
-    "@react-stately/toggle" "^3.6.1"
-    "@react-types/button" "^3.7.4"
-    "@react-types/shared" "^3.19.0"
+    "@react-aria/focus" "^3.14.1"
+    "@react-aria/interactions" "^3.18.0"
+    "@react-aria/utils" "^3.20.0"
+    "@react-stately/toggle" "^3.6.2"
+    "@react-types/button" "^3.8.0"
+    "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
 
 "@react-aria/datepicker@^3.6.0":
@@ -4189,14 +4189,14 @@
     "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
 
-"@react-stately/toggle@^3.6.1":
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.6.1.tgz#3c14b0015aa7e306920bc14fd1a44932fbb4efb2"
-  integrity sha512-UUWtuI6gZlX6wpF9/bxBikjyAW1yQojRPCJ4MPkjMMBQL0iveAm3WEQkXRLNycEiOCeoaVFBwAd1L9h9+fuCFg==
+"@react-stately/toggle@^3.6.2":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@react-stately/toggle/-/toggle-3.6.2.tgz#6f6e6c3010e45210cd18c147541876857930f570"
+  integrity sha512-O+0XtIjRX9YgAwNRhSdX2qi49PzY4eGL+F326jJfqc17HU3Qm6+nfqnODuxynpk1gw79sZr7AtROSXACTVueMQ==
   dependencies:
     "@react-stately/utils" "^3.7.0"
-    "@react-types/checkbox" "^3.5.0"
-    "@react-types/shared" "^3.19.0"
+    "@react-types/checkbox" "^3.5.1"
+    "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
 
 "@react-stately/tree@^3.7.1":
@@ -4224,6 +4224,13 @@
   dependencies:
     "@react-types/shared" "^3.19.0"
 
+"@react-types/button@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@react-types/button/-/button-3.8.0.tgz#e5ced04d718a9aaae6af175e7d2cb38552354cc9"
+  integrity sha512-hVVK5iWXhDYQZwxOBfN7nQDeFQ4Pp48uYclQbXWz8D74XnuGtiUziGR008ioLXRHf47dbIPLF1QHahsCOhh05g==
+  dependencies:
+    "@react-types/shared" "^3.20.0"
+
 "@react-types/calendar@^3.3.1":
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@react-types/calendar/-/calendar-3.3.1.tgz#1c5b0e916877e8b61b9746338f4e0f637aa3a673"
@@ -4232,12 +4239,12 @@
     "@internationalized/date" "^3.4.0"
     "@react-types/shared" "^3.19.0"
 
-"@react-types/checkbox@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.5.0.tgz#64cb3bf45eae7da731a2a191fbecdbe50589df7a"
-  integrity sha512-fCisTdqFKkz7FvxNoexXIiVsTBt0ZwIyeIZz/S41M6hzIZM38nKbh6yS/lveQ+/877Dn7+ngvbpJ8QYnXYVrIQ==
+"@react-types/checkbox@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.5.1.tgz#ba86d4ec8230781df2aed8bc7d21dfe88f4deb15"
+  integrity sha512-7iQqBRnpNC/k8ztCC+gNGTKpTWj6yJijXPKJ8UduqPNuJ0mIqWgk7DJDBuIG0cVvnenTNxYuOL6mt3dgdcEj9w==
   dependencies:
-    "@react-types/shared" "^3.19.0"
+    "@react-types/shared" "^3.20.0"
 
 "@react-types/datepicker@^3.5.0":
   version "3.5.0"
