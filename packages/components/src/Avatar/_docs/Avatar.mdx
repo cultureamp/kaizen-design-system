@@ -1,0 +1,32 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as AvatarStories from "./Avatar.stories"
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Avatar"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=0-1&mode=design&t=ITSkv2Fu67xK6kBC-0"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857475/Avatar"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Avatar } from "@kaizen/components"'
+/>
+
+## Overview
+
+An avatar represents an individual or company visually.
+
+<Canvas of={AvatarStories.Playground} />
+<Controls of={AvatarStories.Playground} />
+
+## API
+
+Coming Soon
