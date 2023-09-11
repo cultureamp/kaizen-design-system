@@ -12,8 +12,7 @@ export type CardVariants =
   | "assertive"
   | "highlight"
 
-export interface CardProps
-  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
+export type CardProps = { ...props} & OverrideClassName<HTMLAttributes<HTMLElement>>
   children?: React.ReactNode
   /**
    * HTML elements that are allowed on Card.
