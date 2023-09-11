@@ -8,7 +8,7 @@ import {
 import { Button, ButtonProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Buttons/Button",
+  title: "Components/Buttons/Button",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
