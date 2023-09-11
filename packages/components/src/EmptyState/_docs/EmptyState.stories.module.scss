@@ -1,0 +1,15 @@
+@import "../mixins";
+
+.buttonContainer {
+  // This size mixin comes from EmptyState's _mixins.scss - useful for
+  // applying your own styles at the component's own breakpoints.
+  // Unfortunately if you want full-width buttons at the "sm" size and
+  // regular buttons otherwise, you'll have to specify a fixed width for
+  // "md" size and above (fullWidth prop on the Button controls full width;
+  // can't use CSS breakpoints unless we make the Button component aware
+  // of which page layout and component it's a part of).
+  // If in doubt, ask Design Systems Team!
+  @include medium {
+    width: 118px;
+  }
+}
