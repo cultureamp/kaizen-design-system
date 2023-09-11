@@ -1,26 +1,8 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { EmptyState, EmptyStateProps } from "./EmptyState"
 
-jest.mock("@kaizen/draft-illustration", () => ({
-  EmptyStatesPositive: (): JSX.Element => (
-    <div>EmptyStatesPositive_Component</div>
-  ),
-  EmptyStatesNeutral: (): JSX.Element => (
-    <div>EmptyStatesNeutral_Component</div>
-  ),
-  EmptyStatesNegative: (): JSX.Element => (
-    <div>EmptyStatesNegative_Component</div>
-  ),
-  EmptyStatesInformative: (): JSX.Element => (
-    <div>EmptyStatesInformative_Component</div>
-  ),
-  EmptyStatesAction: (): JSX.Element => <div>EmptyStatesAction_Component</div>,
-}))
-
 describe("<EmptyState />", () => {
-  afterEach(cleanup)
-
   const defaultProps: EmptyStateProps = {
     id: "someId",
     headingProps: {
