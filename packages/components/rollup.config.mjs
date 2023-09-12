@@ -14,11 +14,12 @@ import ttypescript from "ttypescript"
 const TYPES_TEMP_DIR = "dts"
 const OUTPUT_DIR = "dist"
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const getCompiledConfigByModuleType = format => ({
   input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
   plugins: [
     nodeExternals({
-      devDeps: true
+      devDeps: true,
     }),
     // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
     alias({
