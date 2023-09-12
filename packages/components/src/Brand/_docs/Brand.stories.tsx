@@ -4,7 +4,7 @@ import { StickerSheet } from "~storybook/components/StickerSheet"
 import { Brand } from "../index"
 
 const meta = {
-  title: "Components/Brand",
+  title: "KAIO-staging/Brand",
   component: Brand,
 } satisfies Meta<typeof Brand>
 
