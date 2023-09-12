@@ -75,6 +75,9 @@
     "react-textfit": "^1.1.1",
     "uuid": "^9.0.0"
   },
+  "devDependenciesComments": {
+    "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
+  },
   "devDependencies": {
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.0",
@@ -87,7 +90,7 @@
     "@types/react-dom": "^18.2.7",
     "autoprefixer": "^10.4.15",
     "concat-cli": "^4.0.0",
-    "esbuild": "^0.18.17",
+    "esbuild": "0.18.20",
     "query-string": "^8.1.0",
     "rollup": "^3.28.1",
     "rollup-plugin-dts": "^6.0.1",
