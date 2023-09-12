@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { StoryObj, Meta } from "@storybook/react"
 import { TextField } from "@kaizen/draft-form"
 import { LoadingInput } from "@kaizen/loading-skeleton"
@@ -6,7 +6,7 @@ import { AddIcon, ArrowRightIcon } from "~components/Icons"
 import { Button } from "../index"
 
 const meta = {
-  title: "Components/Button",
+  title: "KAIO-staging/Buttons/Button",
   component: Button,
   args: {
     label: "Label",
@@ -103,6 +103,10 @@ export const FullWidth: Story = {
   args: { fullWidth: true },
 }
 
+const WorkingWrapper = ({ children }: { children: ReactNode }): JSX.Element => (
+  <div style={{ display: "flex", gap: "1rem" }}>{children}</div>
+)
+
 /**
  * <p>The `working` prop should be used in situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form</p>
  * <p>In conjuction use the `workingLabel` prop to update the label of the button when the working state is triggered.</p>
@@ -110,7 +114,7 @@ export const FullWidth: Story = {
  */
 export const Working: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: "1rem" }}>
+    <WorkingWrapper>
       <Button label="Label" working workingLabel="Submitting" />
       <Button
         label="Label"
@@ -118,7 +122,7 @@ export const Working: Story = {
         workingLabel="Submitting"
         workingLabelHidden
       />
-    </div>
+    </WorkingWrapper>
   ),
   parameters: { controls: { disable: true } },
 }

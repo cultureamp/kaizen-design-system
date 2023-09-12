@@ -1,0 +1,29 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as PaginationLinkStories from "./PaginationLink.stories"
+
+<Meta of={PaginationLinkStories} />
+
+# PaginationLink
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/PaginationLink"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&mode=design&t=ktWFeE0DneVQfysI-0"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { PaginationLink } from "@kaizen/components"'
+/>
+
+## Overview
+
+A link that represents pages.
+
+<Canvas of={PaginationLinkStories.Playground} />
+<Controls of={PaginationLinkStories.Playground} />
+

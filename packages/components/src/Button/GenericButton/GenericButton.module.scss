@@ -1,5 +1,8 @@
-@import "../variables";
-@import "../Button.module";
+@import "../utils/variables";
+@import "../Button/Button.module";
+@import "../IconButton/IconButton.module";
+@import "../PaginationLink/PaginationLink.module";
+@import "../DirectionalLink/DirectionalLink.module";
 
 .container {
   display: inline-block;
@@ -89,4 +92,24 @@
 
 .hidden {
   visibility: hidden;
+}
+
+.iconButton {
+  @extend %icon-button;
+}
+
+.circleButton {
+  @extend %circle-button;
+}
+
+.directionalLink {
+  @extend %directional-link;
+}
+
+.paginationLink {
+  @extend %pagination-link;
+}
+
+.isPaginationLinkActive {
+  @extend %pagination-link--active;
 }

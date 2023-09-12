@@ -47,8 +47,6 @@ export type GenericProps = {
   classNameOverride?: string
 }
 
-export type ButtonType = "submit" | "reset" | "button"
-
 export type WorkingProps = {
   working: true
   workingLabel: string
@@ -66,7 +64,7 @@ export type ButtonBadgeProps = {
   reversed?: boolean
 }
 
-export type RenderProps = ButtonProps & {
+export type RenderProps = GenericButtonProps & {
   additionalContent?: React.ReactNode
   iconButton?: boolean
   directionalLink?: boolean
@@ -76,7 +74,7 @@ export type RenderProps = ButtonProps & {
 
 export type ButtonRef = { focus: () => void }
 
-export type ButtonProps = GenericProps &
+export type GenericButtonProps = GenericProps &
   ButtonFormAttributes &
   (WorkingProps | WorkingUndefinedProps) & {
     label: string
@@ -103,7 +101,7 @@ const getCustomProps = (props: Record<string, any>): Record<string, string> => {
   }, {})
 }
 
-const GenericButton = forwardRef(
+export const GenericButton = forwardRef(
   (props: RenderProps, ref: Ref<ButtonRef | undefined>) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     useImperativeHandle(ref, () => ({
@@ -147,6 +145,7 @@ GenericButton.defaultProps = {
   disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
   type: "button",
 }
+
 GenericButton.displayName = "GenericButton"
 
 const renderCustomComponent = (
