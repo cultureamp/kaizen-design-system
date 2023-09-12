@@ -1,0 +1,326 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/component-library/styles/responsive";
+@import "./mixins";
+
+$bannerPadding: $spacing-lg;
+$ca-banner-fade-out: opacity $animation-duration-slow ease;
+$ca-banner-collapse-height-delayed: margin-top $animation-duration-fast
+  $animation-duration-slow ease;
+$illustration-size: 155px;
+$scene-illustration-size: 300px;
+
+.banner.noMaxWidth {
+  max-width: inherit;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  background: $color-white;
+  min-width: 320px;
+  max-width: $layout-breakpoints-large;
+  border: $border-borderless-border-width $border-borderless-border-style
+    $border-borderless-border-color;
+  border-radius: $border-solid-border-radius;
+  padding: $bannerPadding;
+  box-shadow: $shadow-small-box-shadow;
+  position: relative;
+  top: -1px;
+  transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;
+  color: $color-purple-800;
+
+  @include ca-media-desktop {
+    min-height: calc(12rem - calc(#{$bannerPadding} * 2));
+    flex-direction: row;
+    gap: $spacing-md;
+    width: auto;
+    align-items: center;
+  }
+
+  @include ca-media-mobile {
+    min-width: unset;
+  }
+}
+
+.illustrationWrapper {
+  display: flex;
+
+  @include ca-media-tablet {
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    padding: $spacing-sm;
+  }
+
+  @include ca-media-mobile {
+    display: none;
+  }
+}
+
+.illustration {
+  width: $illustration-size;
+  height: $illustration-size;
+
+  // This has been created to handle scene illustrations consistently until the tile component is created
+  .hasSceneIllustration & {
+    display: flex;
+    justify-content: center;
+    max-width: $scene-illustration-size;
+    max-height: $scene-illustration-size;
+    width: $scene-illustration-size;
+    height: auto;
+
+    figure {
+      max-height: 100%;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
+
+.descriptionContainer {
+  flex: 1;
+  text-align: center;
+  align-self: center;
+  max-width: 780px;
+
+  @include ca-media-desktop {
+    padding: 0 $spacing-sm;
+    text-align: left;
+  }
+
+  @include ca-media-mobile {
+    margin: $spacing-sm;
+    max-width: 100%;
+  }
+
+  [dir="rtl"] & {
+    @include ca-media-desktop {
+      padding: 0 $spacing-sm;
+      text-align: right;
+    }
+  }
+}
+
+.descriptionAndActions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+
+  @include ca-media-tablet-and-under {
+    flex-direction: column;
+    width: 100%;
+    align-items: unset;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: $spacing-sm;
+  min-width: max-content;
+
+  @include ca-media-tablet-and-up {
+    text-align: center;
+  }
+
+  @include ca-media-mobile {
+    flex-direction: column;
+    width: 100%;
+    margin-top: $spacing-xs;
+  }
+
+  [dir="rtl"] & svg {
+    transform: rotate(180deg);
+  }
+}
+
+.hidden {
+  opacity: 0%;
+  margin-bottom: 0;
+}
+
+.headingWrapper {
+  margin-bottom: $spacing-md;
+}
+
+.cancel {
+  @include button-reset;
+
+  composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  color: $color-purple-800;
+}
+
+.positive {
+  background: $color-green-100;
+}
+
+.negative {
+  background: $color-red-100;
+}
+
+.informative {
+  background: $color-blue-100;
+}
+
+.cautionary {
+  background: $color-yellow-100;
+}
+
+.assertive {
+  background: $color-orange-100;
+}
+
+.prominent {
+  background: $color-purple-100;
+}
+
+.inline,
+.stacked {
+  flex-flow: row wrap;
+  align-items: unset;
+  gap: $spacing-md;
+  min-width: unset;
+
+  @include ca-media-tablet-and-under {
+    flex-direction: unset;
+  }
+
+  .illustrationWrapper {
+    margin-right: $spacing-sm;
+
+    [dir="rtl"] & {
+      margin-left: $spacing-sm;
+      margin-right: inherit;
+    }
+
+    @include ca-media-tablet {
+      padding: 0;
+    }
+
+    @include ca-media-mobile {
+      display: flex;
+    }
+  }
+
+  .descriptionAndActions {
+    margin: auto 0;
+  }
+
+  .descriptionContainer {
+    text-align: left;
+    max-width: unset;
+    min-width: 320px;
+
+    @include ca-media-desktop {
+      padding: 0;
+    }
+
+    @include ca-media-mobile {
+      margin: 0;
+    }
+
+    [dir="rtl"] & {
+      text-align: right;
+
+      @include ca-media-desktop {
+        padding: 0;
+      }
+    }
+  }
+
+  .buttonContainer {
+    padding-left: $spacing-sm;
+    justify-content: flex-start;
+    width: unset;
+    min-width: unset;
+
+    @include ca-media-mobile {
+      flex-direction: row-reverse;
+    }
+
+    [dir="rtl"] & {
+      padding-left: 0;
+      padding-right: $spacing-sm;
+    }
+
+    > * {
+      width: unset;
+    }
+  }
+
+  &.hasSceneIllustration {
+    justify-content: center;
+  }
+
+  &.centerContent {
+    flex-direction: column;
+
+    &.hasSceneIllustration .illustration {
+      width: 100%;
+    }
+
+    .illustrationWrapper {
+      margin: 0 auto;
+      align-self: center;
+    }
+
+    .descriptionContainer {
+      text-align: center;
+      min-width: unset;
+
+      [dir="rtl"] & {
+        text-align: center;
+      }
+    }
+
+    .buttonContainer {
+      padding: 0;
+      flex-direction: column;
+      min-width: unset;
+      justify-content: center;
+    }
+  }
+
+  &.centerContent.smallScreenTextAlignment {
+    .descriptionContainer {
+      text-align: left;
+
+      [dir="rtl"] & {
+        text-align: right;
+      }
+    }
+  }
+}
+
+/* stylelint-disable no-descending-specificity */
+.stacked {
+  .descriptionAndActions {
+    flex-direction: column;
+    align-items: unset;
+  }
+
+  .descriptionContainer {
+    align-self: flex-start;
+  }
+}
+/* stylelint-enable no-descending-specificity */
