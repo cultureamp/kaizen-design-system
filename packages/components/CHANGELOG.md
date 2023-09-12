@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.24.1
+
+### Patch Changes
+
+- [#4050](https://github.com/cultureamp/kaizen-design-system/pull/4050) [`848670ba0`](https://github.com/cultureamp/kaizen-design-system/commit/848670ba0364384fe940f965ffd97acd3c4b23da) - update dependency @react-aria/focus to ^3.14.1
+
+- [#4050](https://github.com/cultureamp/kaizen-design-system/pull/4050) [`848670ba0`](https://github.com/cultureamp/kaizen-design-system/commit/848670ba0364384fe940f965ffd97acd3c4b23da) - update dependency @react-aria/button to ^3.8.2
+
+- [#4050](https://github.com/cultureamp/kaizen-design-system/pull/4050) [`848670ba0`](https://github.com/cultureamp/kaizen-design-system/commit/848670ba0364384fe940f965ffd97acd3c4b23da) - update dependency @react-aria/listbox to ^3.10.2
+
 ## 1.24.0
 
 ### Minor Changes
