@@ -3,8 +3,10 @@ import classnames from "classnames"
 import AnimateHeight from "react-animate-height"
 import { v4 } from "uuid"
 import { Heading } from "@kaizen/typography"
+import { IconButton } from "~components/Button"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { Sticky } from "~types/Sticky"
+import { ChevronDownIcon, ChevronUpIcon } from ".."
 import styles from "./Collapsible.module.scss"
 
 type Variant = "default" | "clear"
@@ -120,19 +122,23 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
             </div>
           )}
           <div>
-            {/* Replace with React Icons */}
-            {/* <IconButton
+            <IconButton
               label={title}
-              icon={open ? chevronUp : chevronDown}
+              icon={
+                open ? (
+                  <ChevronUpIcon role="presentation" />
+                ) : (
+                  <ChevronDownIcon role="presentation" />
+                )
+              }
               type="button"
               aria-expanded={open}
               aria-controls={sectionId}
-              data-automation-id={`collapsible-button-${id}`}
               data-testid={`collapsible-button-${id}`}
               id={buttonId}
               onClick={this.handleButtonPress}
               classNameOverride={styles.chevronButton}
-            /> */}
+            />
           </div>
         </div>
         {(!lazyLoad || open) && (

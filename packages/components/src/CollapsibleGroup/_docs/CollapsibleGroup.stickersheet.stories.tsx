@@ -8,7 +8,7 @@ import {
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 export default {
-  title: "Components/Collapsible/CollapsibleGroup",
+  title: "KAIO-staging/Collapsible/CollapsibleGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

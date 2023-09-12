@@ -4,17 +4,6 @@ import { Heading, Paragraph } from "@kaizen/typography"
 import { AddIcon } from "~components/Icons"
 import { Collapsible } from "../index"
 
-// eslint-disable-next-line storybook/prefer-pascal-case
-export const controlsSettings = {
-  children: { control: "disable" },
-  "data-testid": { control: "disable" },
-  sticky: { control: "disabled" },
-  open: { control: "boolean" },
-  noSectionPadding: { control: "boolean" },
-  lazyLoad: { control: "boolean" },
-  controlled: { control: "boolean" },
-}
-
 const meta = {
   title: "KAIO-staging/Collapsible",
   component: Collapsible,

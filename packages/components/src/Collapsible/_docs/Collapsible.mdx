@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as CollapsibleStories from "./Collapsible.stories"
 
@@ -29,14 +29,10 @@ Collapsibles are used to collapse and expand content inline on a page. This lets
 
 ## API
 
-### No Padding
-<Canvas of={CollapsibleStories.NoPadding} />
+<DocsStory of={CollapsibleStories.NoPadding} />
 
-### Clear
-<Canvas of={CollapsibleStories.Clear} />
+<DocsStory of={CollapsibleStories.Clear} />
 
-### Custom Header
-<Canvas of={CollapsibleStories.CustomHeader} />
+<DocsStory of={CollapsibleStories.CustomHeader} />
 
-### Sticky Header
-<Canvas of={CollapsibleStories.Sticky} sourceState="shown" />
+<DocsStory of={CollapsibleStories.Sticky} sourceState="shown" />

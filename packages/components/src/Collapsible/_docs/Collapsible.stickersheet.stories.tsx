@@ -8,31 +8,17 @@ import {
 import { Collapsible, CollapsibleProps } from "../index"
 
 export default {
-  title: "Components/Collapsible",
+  title: "KAIO-staging/Collapsible",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
   },
 } satisfies Meta
 
-const CollapsibleWrapped = ({
-  title = "Collapsible",
-  ...args
-}: Omit<CollapsibleProps, "children" | "title"> & {
-  title?: string
-}): JSX.Element => (
-  <Collapsible open title={title} {...args}>
+const CollapsibleWrapped = (
+  args: Omit<CollapsibleProps, "children">
+): JSX.Element => (
+  <Collapsible open {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
     scelerisque sem, vel ultricies justo. Donec eu porttitor ante, nec gravida
     orci. Nulla facilisi. Cras varius erat id fermentum mattis. Mauris bibendum
@@ -44,11 +30,11 @@ const CollapsibleWrapped = ({
 )
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
+  render: () => (
+    <StickerSheet>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Default">
-          <CollapsibleWrapped />
+          <CollapsibleWrapped title="Collapsible" />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="noSectionPadding">
           <CollapsibleWrapped title="No Padding" noSectionPadding />
@@ -77,13 +63,6 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
-}
-
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
-  args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
