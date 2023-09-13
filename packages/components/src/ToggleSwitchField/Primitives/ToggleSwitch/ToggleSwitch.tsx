@@ -20,18 +20,12 @@ export interface ToggleSwitchProps
    */
   onToggle?: React.ChangeEventHandler<HTMLInputElement>
   reversed?: boolean
-  /**
-   * **Deprecated:** Use test id compatible with your testing library (eg. `data-testid`).
-   * @deprecated
-   */
-  automationId?: string
 }
 
 export const ToggleSwitch = ({
   toggledStatus,
   onToggle,
   reversed,
-  automationId,
   ...restProps
 }: ToggleSwitchProps): JSX.Element => {
   const isOn = toggledStatus === ToggledStatus.ON
@@ -45,7 +39,6 @@ export const ToggleSwitch = ({
     >
       <input
         type="checkbox"
-        data-automation-id={automationId}
         className={styles.checkbox}
         checked={isOn ? true : false}
         onChange={onToggle}
