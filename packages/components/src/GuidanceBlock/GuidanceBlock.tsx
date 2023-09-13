@@ -271,7 +271,7 @@ export class GuidanceBlock extends React.Component<
               isMobile || componentIsMobile
                 ? "mr-0"
                 : this.props.layout === "default"
-                ? "mr-[0.5px]"
+                ? "mr-8"
                 : "mr-0"
             }
           >

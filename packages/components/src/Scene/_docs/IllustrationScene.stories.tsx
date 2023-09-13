@@ -1,7 +1,6 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
-import { Box } from "@kaizen/component-library"
 import { Heading } from "@kaizen/typography"
 import {
   EmptyStatesAction,
@@ -92,16 +91,16 @@ const SceneWrapper = ({
   heading: string
   width: string
 }): JSX.Element => (
-  <Box mb={3}>
+  <div className="mb-72">
     <div style={{ width }}>
-      <Box mb={1}>
+      <div className="mb-24">
         <Heading variant="heading-4" tag="div">
           {heading}
         </Heading>
-      </Box>
+      </div>
       {children}
     </div>
-  </Box>
+  </div>
 )
 
 type StaticSceneProps = SceneProps & {
