@@ -42,14 +42,12 @@ describe("<Heading />", () => {
   })
 
   it("passes through data attributes", () => {
-    const { container } = render(
-      <Heading variant="display-0" data-automation-id="test-id">
+    const { getByTestId } = render(
+      <Heading variant="display-0" data-testid="test-id">
         Example
       </Heading>
     )
-    expect(
-      container.querySelector('[data-automation-id="test-id"]')
-    ).not.toBeNull()
+    expect(getByTestId("test-id")).not.toBeNull()
   })
 
   describe("defaults to the correct HTML element", () => {
