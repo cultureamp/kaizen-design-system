@@ -21,9 +21,9 @@ export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
 }
 
 /**
- * {@link https://cultureamp.design/components/toggle-switch-field/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-form-toggle-switch-field--default Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-toggle-field-switch--docs}
  */
+
 export const ToggleSwitchField = ({
   id: propsId,
   labelText,
