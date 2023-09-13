@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.24.2
+
+### Patch Changes
+
+- [#4063](https://github.com/cultureamp/kaizen-design-system/pull/4063) [`53ea8bc6c`](https://github.com/cultureamp/kaizen-design-system/commit/53ea8bc6c25ba22013855a98695510878a8da889) - Use @cultureamp/i18n-react-intl as a peer dependency
+
 ## 1.24.1
 
 ### Patch Changes
