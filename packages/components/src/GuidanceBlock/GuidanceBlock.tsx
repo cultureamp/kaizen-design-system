@@ -2,7 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import Media from "react-media"
 import { Button, ButtonProps } from "@kaizen/button"
-import { Box, Icon } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { SceneProps, SpotProps } from "@kaizen/draft-illustration"
@@ -266,13 +266,13 @@ export class GuidanceBlock extends React.Component<
     return (
       <Media query="(max-width: 767px)">
         {(isMobile): JSX.Element => (
-          <Box
-            mr={
+          <div
+            className={
               isMobile || componentIsMobile
-                ? 0
+                ? "mr-0"
                 : this.props.layout === "default"
-                ? 0.5
-                : 0
+                ? "mr-[0.5px]"
+                : "mr-0"
             }
           >
             <div
@@ -307,7 +307,7 @@ export class GuidanceBlock extends React.Component<
                 </WithTooltip>
               )}
             </div>
-          </Box>
+          </div>
         )}
       </Media>
     )
