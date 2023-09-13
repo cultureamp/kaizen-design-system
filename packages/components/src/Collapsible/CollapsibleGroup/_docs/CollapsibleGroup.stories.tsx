@@ -1,6 +1,9 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Collapsible, CollapsibleProps } from "~components/Collapsible"
+import {
+  Collapsible,
+  CollapsibleProps,
+} from "~components/Collapsible/Collapsible"
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 const CollapsibleWrapped = (
@@ -28,7 +31,7 @@ const CollapsibleGroupWrapped = (
 )
 
 const meta = {
-  title: "KAIO-staging/Collapsible/CollapsibleGroup",
+  title: "KAIO-staging/Collapsibles/CollapsibleGroup",
   component: CollapsibleGroup,
   parameters: { backgrounds: { default: "Gray 100" } },
   args: {

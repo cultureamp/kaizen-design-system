@@ -1,14 +1,17 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { Heading } from "@kaizen/typography"
+import {
+  Collapsible,
+  CollapsibleProps,
+} from "~components/Collapsible/Collapsible"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Collapsible, CollapsibleProps } from "../index"
+import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Collapsible",
+  title: "KAIO-staging/Collapsibles/CollapsibleGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -16,9 +19,9 @@ export default {
 } satisfies Meta
 
 const CollapsibleWrapped = (
-  args: Omit<CollapsibleProps, "children">
+  args: Omit<CollapsibleProps, "children" | "title">
 ): JSX.Element => (
-  <Collapsible open {...args}>
+  <Collapsible title="Title" open {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac
     scelerisque sem, vel ultricies justo. Donec eu porttitor ante, nec gravida
     orci. Nulla facilisi. Cras varius erat id fermentum mattis. Mauris bibendum
@@ -29,31 +32,31 @@ const CollapsibleWrapped = (
   </Collapsible>
 )
 
+const CollapsibleGroupWrapped = (
+  args: Omit<CollapsibleGroupProps, "children">
+): JSX.Element => (
+  <CollapsibleGroup {...args}>
+    <CollapsibleWrapped key="collapsible-1" />
+    <CollapsibleWrapped key="collapsible-2" />
+    <CollapsibleWrapped key="collapsible-3" />
+  </CollapsibleGroup>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
-  render: () => (
-    <StickerSheet>
+  render: ({ isReversed }) => (
+    <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Default">
-          <CollapsibleWrapped title="Collapsible" />
+        <StickerSheet.Row rowTitle="default">
+          <CollapsibleGroupWrapped />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="noSectionPadding">
-          <CollapsibleWrapped title="No Padding" noSectionPadding />
+          <CollapsibleGroupWrapped noSectionPadding />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="lazyLoad">
-          <CollapsibleWrapped title="Lazy load" lazyLoad />
+          <CollapsibleGroupWrapped lazyLoad />
         </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="clear">
-          <CollapsibleWrapped title="Clear" variant="clear" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="custom heading">
-          <CollapsibleWrapped
-            title="Custom header"
-            renderHeader={title => (
-              <Heading variant="heading-4" tag="span">
-                {title}
-              </Heading>
-            )}
-          />
+        <StickerSheet.Row rowTitle="separated">
+          <CollapsibleGroupWrapped separated />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
