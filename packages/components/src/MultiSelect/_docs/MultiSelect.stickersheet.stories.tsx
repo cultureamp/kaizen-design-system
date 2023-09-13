@@ -22,9 +22,12 @@ const StickerSheetTemplate: StickerSheetStory = {
         heading="MultiSelect"
         className="w-full"
       >
-        <StickerSheet.Header headings={["Default"]} />
         <StickerSheet.Body>
-          <StickerSheet.Row>
+          <StickerSheet.Row rowTitle="Default">
+            <MultiSelect />
+          </StickerSheet.Row>
+          <StickerSheet.Row rowTitle="Open">
+            {/* @TODO: Update this */}
             <MultiSelect />
           </StickerSheet.Row>
         </StickerSheet.Body>

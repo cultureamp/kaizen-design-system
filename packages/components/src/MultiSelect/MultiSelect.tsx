@@ -31,13 +31,14 @@ export const MultiSelect = ({
     <>
       <div id={id} className={classnames(classNameOverride)} {...restProps}>
         {/* Label */}
+        <span id={`${id}--label`}>Pancakes</span>
         {/* Toggle */}
         <div ref={refs.setReference} className={styles.toggle}>
           <button
             ref={toggleButtonRef}
             className={styles.toggleButton}
-            aria-label={`${isOpen ? "Close" : "Open"} menu: Pancakes`}
-            aria-controls={`${id}--popper`}
+            aria-labelledby={`${id}--label`}
+            aria-controls={`${id}--popover`}
             aria-expanded={isOpen}
             aria-haspopup="dialog"
             type="button"
@@ -56,46 +57,14 @@ export const MultiSelect = ({
             <ul role="list" className={styles.selectedItems}>
               <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
                 Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
-              </li>
-              <li className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                Waffle
-                <ClearButton onClick={() => console.log(">:]")} />
+                <ClearButton
+                  aria-label="Clear waffle"
+                  onClick={() => console.log(">:]")}
+                />
               </li>
             </ul>
             <ClearButton
+              aria-label="Clear all waffles"
               classNameOverride={styles.clearAllButton}
               onClick={() => console.log(">:]")}
             />
@@ -105,7 +74,7 @@ export const MultiSelect = ({
         {isOpen && (
           <Popover
             refs={refs}
-            id={`${id}--popper`}
+            id={`${id}--popover`}
             focusOnProps={{
               onClickOutside,
               onEscapeKey: handleClose,
