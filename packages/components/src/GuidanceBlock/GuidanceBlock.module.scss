@@ -5,7 +5,7 @@
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/responsive";
-@import "./mixins";
+@import "~@kaizen/components/styles/button-reset";
 
 $bannerPadding: $spacing-lg;
 $ca-banner-fade-out: opacity $animation-duration-slow ease;
