@@ -1,7 +1,7 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { Collapsible } from "~components/Collapsible"
+import { Collapsible } from "~components/Collapsible/Collapsible"
 import { CollapsibleGroup } from "./CollapsibleGroup"
 
 const user = userEvent.setup()
