@@ -16,7 +16,3 @@ export * from "./InputSearch"
 export * from "./KaizenProvider"
 export * from "./Workflow"
 export * from "./Icons"
-// Migrated components
-// export * from "./ToggleSwitchField"
-// export * from "./GuidanceBlock"
-// export * from "./Scene"
