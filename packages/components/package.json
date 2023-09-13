@@ -37,7 +37,6 @@
     "update-icons": "./src/Icons/bin/update-icons.sh"
   },
   "dependencies": {
-    "@cultureamp/i18n-react-intl": "^1.7.0",
     "@floating-ui/react-dom": "^2.0.2",
     "@kaizen/a11y": "^1.7.11",
     "@kaizen/brand": "^1.5.8",
@@ -79,6 +78,7 @@
     "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
   },
   "devDependencies": {
+    "@cultureamp/i18n-react-intl": "^2.1.0",
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-commonjs": "^25.0.4",
@@ -106,6 +106,7 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
+    "@cultureamp/i18n-react-intl": "^1.7.0 || ^2.0.0",
     "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
   }
