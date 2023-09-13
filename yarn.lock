@@ -2044,10 +2044,10 @@
     cross-fetch "^3.1.5"
     node-fetch "^2.6.7"
 
-"@cultureamp/frontend-apis@*":
-  version "7.0.5"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/7.0.5/8ab55eeac022ebfff3af0c385b7fcca67951a683#8ab55eeac022ebfff3af0c385b7fcca67951a683"
-  integrity sha512-ozg463i9oJkXZW5tx+B+orQQUJ3ObW9eubn+zv0e1Ov6ql/2uiJ+St3/vwVC63PrN9XB5Xp5zZoUpUttBAw/GQ==
+"@cultureamp/frontend-apis@^8.0.0":
+  version "8.0.0"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/8.0.0/62c68fd82e352de037b0e3d68b69cf69d89df7de#62c68fd82e352de037b0e3d68b69cf69d89df7de"
+  integrity sha512-B+xpzhAuBnebsPe4zGZH1sW8jIiCT6tBXnNfKkE172FnnlIj58KErM7lG3yfVqzJvPj55bG2jInNliEKOh2Qzw==
   dependencies:
     "@cultureamp/fetch-sgw" "^1.1.3"
     "@cultureamp/frontend-env" "^2.0.11"
@@ -2079,23 +2079,22 @@
   dependencies:
     chromatic "^6.14.0"
 
-"@cultureamp/i18n-react-intl@^1.7.0":
-  version "1.7.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/1.7.0/69ea423a411656874ac8f398524c757f119b7091#69ea423a411656874ac8f398524c757f119b7091"
-  integrity sha512-DWwhNx4vdSjnN7RQacGShbU0veNQCy6Y83sed1AjYTiMryWwcfaIWGTqgb/Y4aboS9wBHE9kAwtM5r6NzyFbxA==
+"@cultureamp/i18n-react-intl@^2.1.0":
+  version "2.1.0"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.1.0/874b57799a4f30b6f05ac4633fb47ad7050c0cf8#874b57799a4f30b6f05ac4633fb47ad7050c0cf8"
+  integrity sha512-cNBpDNk0oRFOTX7vkZi2CyicCXTQ7PakJP/yp5YjDAE4cfX9QzO+EO3kuSdRMA1oEoy3rrNvnNciyxJMrbWe9w==
   dependencies:
     "@calm/eslint-plugin-react-intl" "^1.4.1"
-    "@cultureamp/frontend-apis" "*"
     "@cultureamp/frontend-env" "^2.0.11"
     "@formatjs/cli" "^6.1.3"
     "@formatjs/cli-lib" "^6.1.3"
-    "@lingui/detect-locale" "^4.3.0"
     babel-plugin-formatjs "^10.5.3"
     date-fns "^2.30.0"
     eslint-plugin-formatjs "^4.10.3"
     fast-glob "^3.3.0"
     form-data "^4.0.0"
     intl-messageformat "^10.5.0"
+    isomorphic-resolve "^1.0.0"
     json-stable-stringify "^1.0.2"
     limiter-es6-compat "^2.1.2"
     react-intl "^6.4.4"
@@ -3297,11 +3296,6 @@
   dependencies:
     "@kaizen/component-base" "^1.1.7"
     classnames "^2.3.2"
-
-"@lingui/detect-locale@^4.3.0":
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/@lingui/detect-locale/-/detect-locale-4.4.2.tgz#614ddc492a436a1e0b824001b105d6b38c6c0df9"
-  integrity sha512-I9lE2ZRBhX67yTQeOS2bYidHMu/8SsL97dPKjPOJMw0ahy3eafHyKViVkjWqQkgU2xiA4zQmJqNlCH/HHN55+Q==
 
 "@manypkg/find-root@^1.1.0":
   version "1.1.0"
@@ -5519,7 +5513,20 @@
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.33.0.tgz#7756da9a75a424e521622b1d84eb55b7a2b33715"
   integrity sha512-qYu73ptvnzRh6se2nyBIDHGBQvPY1XXl3yR769B7B6mIDD7s+EZhdlWHQ67JI6UOTFRaI7wupnTnwJ3gE0Mr/g==
 
-"@tanstack/react-query@^4.29.25", "@tanstack/react-query@^4.33.0":
+"@tanstack/query-core@4.35.0":
+  version "4.35.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-4.35.0.tgz#61e5cf9363b423ed665740c422902e65619eb7da"
+  integrity sha512-4GMcKQuLZQi6RFBiBZNsLhl+hQGYScRZ5ZoVq8QAzfqz9M7vcGin/2YdSESwl7WaV+Qzsb5CZOAbMBes4lNTnA==
+
+"@tanstack/react-query@^4.29.25":
+  version "4.35.0"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.35.0.tgz#6286d2706e69384accc4d6b9ff8e4becd427db74"
+  integrity sha512-LLYDNnM9ewYHgjm2rzhk4KG/puN2rdoqCUD+N9+V7SwlsYwJk5ypX58rpkoZAhFyZ+KmFUJ7Iv2lIEOoUqydIg==
+  dependencies:
+    "@tanstack/query-core" "4.35.0"
+    use-sync-external-store "^1.2.0"
+
+"@tanstack/react-query@^4.33.0":
   version "4.33.0"
   resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-4.33.0.tgz#e927b0343a6ecaa948fee59e9ca98fe561062638"
   integrity sha512-97nGbmDK0/m0B86BdiXzx3EW9RcDYKpnyL2+WwyuLHEgpfThYAnXFaMMmnTDuAO4bQJXEhflumIEUfKmP7ESGA==
@@ -6213,7 +6220,7 @@
     "@types/mime" "*"
     "@types/node" "*"
 
-"@types/set-cookie-parser@^2.4.0", "@types/set-cookie-parser@^2.4.3":
+"@types/set-cookie-parser@^2.4.0":
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/@types/set-cookie-parser/-/set-cookie-parser-2.4.3.tgz#963a7437ed026c6adec2a71478ed6e3df2837160"
   integrity sha512-7QhnH7bi+6KAhBB+Auejz1uV9DHiopZqu7LfR/5gZZTkejJV5nYeZZpgfFoE0N8aDsXuiYpfKyfyMatCwQhyTQ==
@@ -8354,9 +8361,9 @@ core-js-pure@^3.23.3:
   integrity sha512-f52QZwkFVDPf7UEQZGHKx6NYxsxmVGJe5DIvbzOdRMJlmT6yv0KDjR8rmy3ngr/t5wU54c7Sp/qIJH0ppbhVpQ==
 
 core-js@^3.6.5, core-js@^3.8.2:
-  version "3.32.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.32.1.tgz#a7d8736a3ed9dd05940c3c4ff32c591bb735be77"
-  integrity sha512-lqufgNn9NLnESg5mQeYsxQP5w7wrViSj0jr/kv6ECQiByzQkrn1MKvV0L3acttpDqfQrHLwr2KCMgX5b8X+lyQ==
+  version "3.32.2"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.32.2.tgz#172fb5949ef468f93b4be7841af6ab1f21992db7"
+  integrity sha512-pxXSw1mYZPDGvTQqEc5vgIb83jGQKFGYWY76z4a7weZXUolw3G+OvpZqSRcfYOoOVUQJYEPsWeQK8pKEnUtWxQ==
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -11032,12 +11039,9 @@ header-case@^2.0.4:
     tslib "^2.0.3"
 
 headers-polyfill@^3.1.0, headers-polyfill@^3.2.0:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/headers-polyfill/-/headers-polyfill-3.2.1.tgz#f760811ed6c042803436f42157a0f6d59f805d59"
-  integrity sha512-jpY9fNMWPWwkqRN9CpSRNqL9svpiuSmg4CsbPl4s43KltIDIVHlPv75UOXVgc/PTP6BzHSUvd9UMdxSW1I+ETQ==
-  dependencies:
-    "@types/set-cookie-parser" "^2.4.3"
-    set-cookie-parser "^2.6.0"
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/headers-polyfill/-/headers-polyfill-3.2.3.tgz#ac656b4415b83f989fea3595931399fe9f055c7e"
+  integrity sha512-oj6MO8sdFQ9gQQedSVdMGh96suxTNp91vPQu7C4qx/57FqYsA5TiNr92nhIZwVQq8zygn4nu3xS1aEqpakGqdw==
 
 headers-utils@^3.0.2:
   version "3.0.2"
@@ -11988,6 +11992,11 @@ isobject@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
   integrity sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
+
+isomorphic-resolve@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-resolve/-/isomorphic-resolve-1.0.0.tgz#477ef131eda1212c2e896883b564d9ac40e749ce"
+  integrity sha512-FWn6176keSYAapzv5P6ZzLdbCXj5uaG49h1y+EXRNqZm2RBztzBOYqCMmSe4Dmo+bIvk7sX/SN4pI/3QmfH3aw==
 
 istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.2.0:
   version "3.2.0"
@@ -15034,9 +15043,9 @@ openapi-types@^12.1.3:
   integrity sha512-N4YtSYJqghVu4iek2ZUvcN/0aqH1kRDuNqzcycDxhOUpg7GdvLa2F3DgS6yBNhInhv2r/6I0Flkn7CqL8+nIcw==
 
 openapi-typescript@^6.2.8:
-  version "6.5.4"
-  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-6.5.4.tgz#66b05a011bf4fe6239485a70aab7bb8d23d2b339"
-  integrity sha512-ndNgrYIGSWSMrcXC8bFdx/voXRINB3dcHIm2+Sg9Tn7LJPXc7ufuaSr9E2eVucSwNxPu8oBbJxmMnxEZgT1lzA==
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-6.6.0.tgz#1ef6be7d06512dc60e211dc1f1799295c2e16cb4"
+  integrity sha512-j5axpZ17ZBuWA0nQmdVMK0nyBf/PDJqdVSUO1IC/FGVKc5aeelCRrRUA2tZGtxHKC+UetKIoZ4pnxiNazGO9ww==
   dependencies:
     ansi-colors "^4.1.3"
     fast-glob "^3.3.1"
@@ -17551,7 +17560,7 @@ set-blocking@^2.0.0:
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==
 
-set-cookie-parser@^2.4.6, set-cookie-parser@^2.6.0:
+set-cookie-parser@^2.4.6:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/set-cookie-parser/-/set-cookie-parser-2.6.0.tgz#131921e50f62ff1a66a461d7d62d7b21d5d15a51"
   integrity sha512-RVnVQxTXuerk653XfuliOxBP81Sf0+qfQE73LIYKcyMYHG94AuH0kgrQpRDuTZnSmjpysHmzxJXKNfa6PjFhyQ==
@@ -19152,9 +19161,9 @@ unc-path-regex@^0.1.2:
   integrity sha512-eXL4nmJT7oCpkZsHZUOJo8hcX3GbsiDOa0Qu9F646fi8dT3XuSVopVqAcEiVzSKKH7UoDti23wNX3qGFxcW5Qg==
 
 undici@^5.23.0:
-  version "5.23.0"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-5.23.0.tgz#e7bdb0ed42cebe7b7aca87ced53e6eaafb8f8ca0"
-  integrity sha512-1D7w+fvRsqlQ9GscLBwcAJinqcZGHUKjbOmXdlE/v8BvEGXjeWAax+341q44EuTcHXXnfyKNbKRq4Lg7OzhMmg==
+  version "5.24.0"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.24.0.tgz#6133630372894cfeb3c3dab13b4c23866bd344b5"
+  integrity sha512-OKlckxBjFl0oXxcj9FU6oB8fDAaiRUq+D8jrFWGmOfI/gIyjk/IeS75LMzgYKUaeHzLUcYvf9bbJGSrUwTfwwQ==
   dependencies:
     busboy "^1.6.0"
 
