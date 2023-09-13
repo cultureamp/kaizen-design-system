@@ -1,5 +1,6 @@
-import React, { useState, HTMLAttributes } from "react"
+import React, { useState, HTMLAttributes, useRef, useId } from "react"
 import classnames from "classnames"
+import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { ClearButton } from "~components/ClearButton"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icons"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -9,24 +10,34 @@ import styles from "./MultiSelect.module.scss"
 export type MultiSelectProps = OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelect = ({
+  id: propsId,
   classNameOverride,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
+  const id = propsId ?? useId()
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
+
   const handleClose = (): void => setIsOpen(false)
+
+  const onClickOutside: ReactFocusOnProps["onClickOutside"] = e => {
+    const toggle = refs.reference.current as Node
+    const isInToggle = toggle.contains(e.target as HTMLElement)
+    if (!isInToggle) handleClose()
+  }
 
   return (
     <>
-      <div className={classnames(classNameOverride)} {...restProps}>
+      <div id={id} className={classnames(classNameOverride)} {...restProps}>
         {/* Label */}
         {/* Toggle */}
-        <div className={styles.toggle} ref={refs.setReference}>
+        <div ref={refs.setReference} className={styles.toggle}>
           <button
-            // className={`${styles.toggleButton} story__multi-select__toggle--focus`}
+            ref={toggleButtonRef}
             className={styles.toggleButton}
             aria-label={`${isOpen ? "Close" : "Open"} menu: Pancakes`}
-            aria-controls="id--popper"
+            aria-controls={`${id}--popper`}
             aria-expanded={isOpen}
             aria-haspopup="dialog"
             type="button"
@@ -94,13 +105,15 @@ export const MultiSelect = ({
         {isOpen && (
           <Popover
             refs={refs}
-            id="id--popper"
+            id={`${id}--popper`}
             focusOnProps={{
-              onClickOutside: handleClose,
+              onClickOutside,
               onEscapeKey: handleClose,
-              shards: [refs.reference],
+              shards: [toggleButtonRef],
+              noIsolation: true,
             }}
           >
+            <button type="button">Auto focus please!</button>
             Hello, is it me your looking for?
           </Popover>
         )}

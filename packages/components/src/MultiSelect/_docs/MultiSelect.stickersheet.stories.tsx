@@ -16,16 +16,41 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <MultiSelect />
-          <MultiSelect classNameOverride="story__multi-select__toggle--hover" />
-          <MultiSelect classNameOverride="story__multi-select__toggle--focus" />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
+    <>
+      <StickerSheet
+        isReversed={isReversed}
+        heading="MultiSelect"
+        className="w-full"
+      >
+        <StickerSheet.Header headings={["Default"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <MultiSelect />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet
+        isReversed={isReversed}
+        heading="Pseudo states"
+        className="w-full"
+      >
+        <StickerSheet.Header
+          headings={["Hover", "Focus"]}
+          hasVerticalHeadings
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row rowTitle="Toggle">
+            <MultiSelect classNameOverride="story__multi-select__toggle--hover" />
+            <MultiSelect classNameOverride="story__multi-select__toggle--focus" />
+          </StickerSheet.Row>
+          <StickerSheet.Row rowTitle="Toggle Button">
+            <MultiSelect classNameOverride="story__multi-select__toggle-button--hover" />
+            <MultiSelect classNameOverride="story__multi-select__toggle-button--focus" />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
   ),
 }
 

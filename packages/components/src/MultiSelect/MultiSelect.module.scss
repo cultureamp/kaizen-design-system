@@ -3,14 +3,17 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "../../styles/button-reset";
 
-
-$story-className--multi-select__toggle--focus: ":global(.story__multi-select__toggle--focus)";
 $story-className--multi-select__toggle--hover: ":global(.story__multi-select__toggle--hover)";
+$story-className--multi-select__toggle--focus: ":global(.story__multi-select__toggle--focus)";
+$story-className--multi-select__toggle-button--hover: ":global(.story__multi-select__toggle-button--hover)";
+$story-className--multi-select__toggle-button--focus: ":global(.story__multi-select__toggle-button--focus)";
 
-$selectors--multi-select__toggle-button--focus: "&:focus, #{$story-className--multi-select__toggle--focus} &";
-$selectors--multi-select__toggle-button--hover: "&:hover, #{$story-className--multi-select__toggle--hover} &";
+$selectors--multi-select__toggle-button--hover: "&:hover, #{$story-className--multi-select__toggle-button--hover} &";
+$selectors--multi-select__toggle-button--focus: "&:focus, #{$story-className--multi-select__toggle-button--focus} &";
+$selectors--multi-select__toggle-button--focus-ring: "&:focus, #{$story-className--multi-select__toggle-button--focus} &, #{$story-className--multi-select__toggle--focus} &";
 
-$selectors--multi-select__toggle--focus-within: "&:focus-within, #{$story-className--multi-select__toggle--focus} &";
+$selectors--multi-select__toggle--hover: "&:hover, #{$story-className--multi-select__toggle--hover} &, #{$story-className--multi-select__toggle-button--hover} &";
+$selectors--multi-select__toggle--focus-within: "&:focus-within, #{$story-className--multi-select__toggle--focus} &, #{$story-className--multi-select__toggle-button--focus} &";
 
 .toggle {
   position: relative;
@@ -21,24 +24,20 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, #{$story-classN
   flex-direction: row-reverse;
   padding: calc(#{$spacing-12} - #{$border-solid-border-width});
   box-sizing: border-box;
-  
-  #{$selectors--multi-select__toggle-button--hover} {
-    // TODO: DQ: do we want want the cursor to go dark?
-    .toggleButton {
-      color: $color-purple-800;
-    }
-  }
-  #{$selectors--multi-select__toggle--focus-within},
-  #{$selectors--multi-select__toggle-button--hover} {
+
+  #{$selectors--multi-select__toggle--hover},
+  #{$selectors--multi-select__toggle--focus-within} {
     border-color: $color-gray-600;
+    background-color: $color-gray-200;
   }
 }
 
-
 .toggleButton {
   @include button-reset;
+
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 3px;
   color: rgba($color-purple-800-rgb, 0.7);
 
   #{$selectors--multi-select__toggle-button--hover} {
@@ -48,9 +47,12 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, #{$story-classN
   #{$selectors--multi-select__toggle-button--focus} {
     color: $color-purple-800;
     outline: none;
+  }
 
+  #{$selectors--multi-select__toggle-button--focus-ring} {
     &::after {
       position: absolute;
+      pointer-events: none;
       content: "";
       inset: calc(
         -1 * calc(#{$border-focus-ring-border-width} + #{$border-solid-border-width} +
@@ -59,12 +61,9 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, #{$story-classN
       border-radius: $border-focus-ring-border-radius;
       border: $border-focus-ring-border-style $border-focus-ring-border-width
         $color-blue-500;
-      // TODO: remove this after explaining: This need to be here or you will trigger open and close when click tag text
-      pointer-events: none;
     }
   }
 }
-
 
 .selectedItemsContainer {
   display: flex;
