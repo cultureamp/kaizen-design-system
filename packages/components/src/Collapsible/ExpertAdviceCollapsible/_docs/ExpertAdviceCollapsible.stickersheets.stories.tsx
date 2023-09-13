@@ -35,9 +35,6 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Row rowTitle="Default">
           <ExpertAdviceCollapsibleWrapped title="Collapsible" />
         </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="noSectionPadding">
-          <ExpertAdviceCollapsibleWrapped title="No Padding" noSectionPadding />
-        </StickerSheet.Row>
         <StickerSheet.Row rowTitle="lazyLoad">
           <ExpertAdviceCollapsibleWrapped title="Lazy load" lazyLoad />
         </StickerSheet.Row>

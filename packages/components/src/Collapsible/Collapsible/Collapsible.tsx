@@ -144,7 +144,6 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
         {(!lazyLoad || open) && (
           <AnimateHeight
             height={open ? "auto" : 0}
-            data-automation-id={`collapsible-section-${id}`}
             data-testid={`collapsible-section-${id}`}
           >
             <div
