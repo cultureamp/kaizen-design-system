@@ -64,7 +64,7 @@ const STATIC_SCENE_CONTROLS = {
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Scene",
+  title: "KAIO-staging/Scene",
   component: BrandMomentCaptureIntro,
   parameters: {
     chromatic: { disable: false },

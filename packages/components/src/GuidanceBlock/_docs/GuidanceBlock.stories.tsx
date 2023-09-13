@@ -20,7 +20,7 @@ const ICON_EXTERNAL_LINK =
 
 export default {
   tags: ["autodocs"],
-  title: "Components/Guidance Block",
+  title: "KAIO-staging/Guidance Block",
   component: GuidanceBlock,
   parameters: {
     docs: {
