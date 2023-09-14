@@ -3,6 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { ComponentDocsTemplate } from "../../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
 import { Tag } from ".."
+import { TagIcon } from "~components/Icons"
 
 export default {
   tags: ["autodocs"],
@@ -50,23 +51,23 @@ const StickerSheetTemplate: StoryFn = () => (
             <Tag color="purple">Purple</Tag>
           </List>
           <List>
-            <Tag icon="tag">Gray</Tag>
-            <Tag color="blue" icon="tag">
+            <Tag Icon={<TagIcon role="presentation" />}>Gray</Tag>
+            <Tag color="blue" Icon={<TagIcon role="presentation" />}>
               Blue
             </Tag>
-            <Tag color="green" icon="tag">
+            <Tag color="green" Icon={<TagIcon role="presentation" />}>
               Green
             </Tag>
-            <Tag color="yellow" icon="tag">
+            <Tag color="yellow" Icon={<TagIcon role="presentation" />}>
               Yellow
             </Tag>
-            <Tag color="orange" icon="tag">
+            <Tag color="orange" Icon={<TagIcon role="presentation" />}>
               Orange
             </Tag>
-            <Tag color="red" icon="tag">
+            <Tag color="red" Icon={<TagIcon role="presentation" />}>
               Red
             </Tag>
-            <Tag color="purple" icon="tag">
+            <Tag color="purple" Icon={<TagIcon role="presentation" />}>
               Purple
             </Tag>
           </List>
@@ -88,23 +89,23 @@ const StickerSheetTemplate: StoryFn = () => (
             <Tag color="purple">Purple</Tag>
           </List>
           <List>
-            <Tag icon="tag">Gray</Tag>
-            <Tag color="blue" icon="tag">
+            <Tag Icon={<TagIcon role="presentation" />}>Gray</Tag>
+            <Tag color="blue" Icon={<TagIcon role="presentation" />}>
               Blue
             </Tag>
-            <Tag color="green" icon="tag">
+            <Tag color="green" Icon={<TagIcon role="presentation" />}>
               Green
             </Tag>
-            <Tag color="yellow" icon="tag">
+            <Tag color="yellow" Icon={<TagIcon role="presentation" />}>
               Yellow
             </Tag>
-            <Tag color="orange" icon="tag">
+            <Tag color="orange" Icon={<TagIcon role="presentation" />}>
               Orange
             </Tag>
-            <Tag color="red" icon="tag">
+            <Tag color="red" Icon={<TagIcon role="presentation" />}>
               Red
             </Tag>
-            <Tag color="purple" icon="tag">
+            <Tag color="purple" Icon={<TagIcon role="presentation" />}>
               Purple
             </Tag>
           </List>
