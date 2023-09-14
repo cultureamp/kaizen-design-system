@@ -1,11 +1,8 @@
 import React from "react"
-import { IconButton } from "@kaizen/button"
-import { Box, Icon } from "@kaizen/component-library"
-import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
-import externalLinkIcon from "@kaizen/component-library/icons/external-link.icon.svg"
-import removeLinkIcon from "@kaizen/component-library/icons/remove-link.icon.svg"
-import { usePopover } from "@kaizen/draft-popover"
 import { Paragraph } from "@kaizen/typography"
+import { IconButton } from "~components/Button"
+import { RemoveLinkIcon, ExternalLinkIcon, EditIcon } from "~components/Icons"
+import { usePopover } from "~components/Popover"
 import { SelectionPosition } from "../../types"
 import { Positioner } from "./Positioner"
 import styles from "./LinkPopover.scss"
@@ -26,8 +23,8 @@ export const LinkPopover: React.VFC<LinkPopoverProps> = props => {
       <Positioner ref={ElementRef} {...selectionPosition} />
       <Popover size="large">
         <div className={styles.popoverContent}>
-          <Icon icon={externalLinkIcon} role="presentation" />
-          <Box pl={0.5} pr={0.75}>
+          <ExternalLinkIcon role="presentation" />
+          <div className={styles.linkContent}>
             <Paragraph
               variant="body"
               tag="div"
@@ -42,15 +39,18 @@ export const LinkPopover: React.VFC<LinkPopoverProps> = props => {
                 {href}
               </a>
             </Paragraph>
-          </Box>
-          <Box pr={0.25} pl={0.25} classNameOverride={styles.popoverActions}>
-            <IconButton onClick={onEdit} icon={editIcon} label="Edit link" />
-          </Box>
-          <IconButton
-            onClick={onRemove}
-            icon={removeLinkIcon}
-            label="Remove link"
-          />
+          </div>
+
+          <div className={styles.popoverActions}>
+            {/* TODO: replace with IconButton when ported across */}
+            <button aria-label="Edit link" type="button" onClick={onEdit}>
+              <EditIcon role="presentation" />
+            </button>
+          </div>
+          {/* TODO: replace with IconButton when ported across */}
+          <button aria-label="Remove link" type="button" onClick={onRemove}>
+            <RemoveLinkIcon role="presentation" />
+          </button>
         </div>
       </Popover>
     </>

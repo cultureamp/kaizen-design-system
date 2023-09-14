@@ -1,9 +1,15 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 
 .popoverContent {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.linkContent {
+  padding-inline-start: calc(.75 * #{$spacing-24});
+  padding-inline-end: calc(.5 * #{$spacing-24});
 }
 
 .popoverLink {
@@ -19,4 +25,6 @@
 
 .popoverActions {
   border-left: 1px solid rgba($color-gray-600-rgb, 0.1);
+  padding: 0 $spacing-6;
 }
+
