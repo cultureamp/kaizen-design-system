@@ -1,7 +1,6 @@
 import React, { ReactNode, HTMLAttributes } from "react"
 import classNames from "classnames"
-import { Icon } from "@kaizen/component-library/components/Icon"
-import tagIcon from "@kaizen/component-library/icons/tag.icon.svg"
+import { TagIcon } from "~components/Icons"
 import { OverrideClassName } from "~types/OverrideClassName"
 
 /** @todo Add list of all icons names */
@@ -20,7 +19,7 @@ export interface TagProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
   children: ReactNode
   color?: TagColors
-  icon?: TagIcons
+  icon?: React.ReactElement
 }
 
 export const Tag = ({
@@ -44,7 +43,6 @@ export const Tag = ({
       classNameOverride
     )}
   >
-    {/** @todo use proper icon after we have a list of all icons */}
     {icon && (
       <span
         className={classNames("inline-flex -my-[1px]", {
@@ -56,7 +54,7 @@ export const Tag = ({
           ["text-purple-500"]: color === "purple",
         })}
       >
-        <Icon icon={tagIcon} />
+        <TagIcon role="presentation" />
       </span>
     )}
     {children}
