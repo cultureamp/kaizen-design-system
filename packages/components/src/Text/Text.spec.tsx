@@ -75,7 +75,7 @@ describe("<Text />", () => {
         Example
       </Text>
     )
-    expect(getByTestId("test-id")).not.toBeNull()
+    expect(getByTestId("test-id")).toBeInTheDocument()
   })
 
   describe("defaults to the correct HTML element", () => {
