@@ -37,7 +37,6 @@ export type CollapsibleProps = {
    * Disables internal `open` state, allowing it to be controlled in the usage.
    */
   controlled?: boolean
-  "data-testid"?: string
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 type State = {
@@ -71,9 +70,9 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
       lazyLoad,
       controlled: _controlled, // Unused, but extracted so as not to spread into the container
       classNameOverride,
-      "data-testid": dataTestId,
       ...props
     } = this.props
+
     const { id } = this.state
     const buttonId = `${id}-button`
     const sectionId = `${id}-section`
@@ -91,7 +90,7 @@ export class Collapsible extends React.Component<CollapsibleProps, State> {
           open && styles.open,
           !group && styles.single
         )}
-        data-testid={dataTestId || `collapsible-container-${id}`}
+        data-testid={`collapsible-container-${id}`}
         {...props} // `title` is missing because it is used for the header; requires breaking change to fix
       >
         {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
