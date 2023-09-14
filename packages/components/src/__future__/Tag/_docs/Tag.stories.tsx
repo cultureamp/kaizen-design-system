@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from "react"
 import { Meta, StoryFn } from "@storybook/react"
+import { TagIcon } from "~components/Icons"
 import { ComponentDocsTemplate } from "../../../../../../storybook/components/DocsContainer"
 import { StickerSheet } from "../../../../../../storybook/components/StickerSheet"
 import { Tag } from ".."
-import { TagIcon } from "~components/Icons"
 
 export default {
   tags: ["autodocs"],
