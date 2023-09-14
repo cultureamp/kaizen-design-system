@@ -6,6 +6,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "~components/Icons"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { Popover, useFloating } from "./subcomponents/Popover"
 import styles from "./MultiSelect.module.scss"
+import { Heading } from "~components/Heading"
 
 export type MultiSelectProps = {
   label: string
@@ -34,7 +35,14 @@ export const MultiSelect = ({
     <>
       <div id={id} className={classnames(classNameOverride)} {...restProps}>
         {/* Label */}
-        <span id={`${id}--label`}>{label}</span>
+        <Heading
+          tag="span"
+          variant="heading-6"
+          id={`${id}--label`}
+          classNameOverride={styles.label}
+        >
+          {label}
+        </Heading>
         {/* Toggle */}
         <div ref={refs.setReference} className={styles.toggle}>
           <button

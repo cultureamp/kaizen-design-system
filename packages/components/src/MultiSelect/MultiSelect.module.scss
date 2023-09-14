@@ -19,6 +19,7 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, #{$story-classN
   position: relative;
   display: inline-flex;
   width: 100%;
+  margin-top: $spacing-6;
   border: $border-solid-border-style $border-solid-border-width $color-gray-500;
   border-radius: $border-solid-border-radius;
   flex-direction: row-reverse;
