@@ -1,0 +1,6 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.label {
+  display: block;
+  margin-bottom: $spacing-xs; // @note: add gap between label and input
+}
