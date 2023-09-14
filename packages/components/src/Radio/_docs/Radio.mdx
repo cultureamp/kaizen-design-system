@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as RadioStories from "./Radio.stories"
+
+<Meta of={RadioStories} />
+
+# Radio
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Radio"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Radio } from "@kaizen/components"'
+/>
+
+## Overview
+
+Either one or the other. Commonly used via [RadioField](https://cultureamp.design/?path=/docs/components-radio-controls-radio-field--docs) or [RadioGroup](https://cultureamp.design/?path=/docs/components-radio-controls-radio-group--docs), proceed with caution.
+
+<Canvas of={RadioStories.Playground} />
+<Controls of={RadioStories.Playground} />
