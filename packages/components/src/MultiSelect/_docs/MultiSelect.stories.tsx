@@ -6,6 +6,9 @@ const meta = {
   title: "Components/MultiSelect",
   component: MultiSelect,
   argTypes: { ...classNameOverrideArgType },
+  args: {
+    label: "Jalapeno",
+  },
 } satisfies Meta<typeof MultiSelect>
 
 export default meta

@@ -6,7 +6,7 @@ import { MultiSelect, MultiSelectProps } from "./MultiSelect"
 
 const MultiSelectWrapper = (
   customProps?: Partial<MultiSelectProps>
-): JSX.Element => <MultiSelect {...customProps} />
+): JSX.Element => <MultiSelect label="Jalapeno" {...customProps} />
 
 const user = userEvent.setup()
 
@@ -16,7 +16,7 @@ describe("<MultiSelect />", () => {
       const { getByTestId, getByRole } = render(
         <MultiSelectWrapper data-testid="test-id--waffle" id="waffle" />
       )
-      const toggleButton = getByRole("button", { name: "Pancakes" })
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
       await user.click(toggleButton)
 
       await waitFor(() => {
@@ -40,7 +40,7 @@ describe("<MultiSelect />", () => {
   describe("Open popover", () => {
     it("updates accessible attribute to reflect open state", async () => {
       const { getByRole } = render(<MultiSelectWrapper id="jalapeno" />)
-      const toggleButton = getByRole("button", { name: "Pancakes" })
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
 
       expect(toggleButton).toHaveAttribute("aria-haspopup", "dialog")
       expect(toggleButton).toHaveAttribute("aria-controls", "jalapeno--popover")
@@ -66,7 +66,7 @@ describe("<MultiSelect />", () => {
 
       await user.tab()
       await waitFor(() => {
-        expect(getByRole("button", { name: "Pancakes" })).toHaveFocus()
+        expect(getByRole("button", { name: "Jalapeno" })).toHaveFocus()
       })
 
       await user.keyboard(" ")
@@ -80,7 +80,7 @@ describe("<MultiSelect />", () => {
 
       await user.tab()
       await waitFor(() => {
-        expect(getByRole("button", { name: "Pancakes" })).toHaveFocus()
+        expect(getByRole("button", { name: "Jalapeno" })).toHaveFocus()
       })
 
       await user.keyboard("{Enter}")
@@ -94,7 +94,7 @@ describe("<MultiSelect />", () => {
     it("closes the popover on ESC", async () => {
       const { getByRole } = render(<MultiSelectWrapper />)
 
-      const toggleButton = getByRole("button", { name: "Pancakes" })
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
       await user.click(toggleButton)
 
       const popover = getByRole("dialog")
@@ -112,7 +112,7 @@ describe("<MultiSelect />", () => {
     it("closes the popover on click outside", async () => {
       const { getByRole } = render(<MultiSelectWrapper />)
 
-      const toggleButton = getByRole("button", { name: "Pancakes" })
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
       await user.click(toggleButton)
 
       const popover = getByRole("dialog")
@@ -130,7 +130,7 @@ describe("<MultiSelect />", () => {
     it("does not close the popover when interacting with elements within the toggle", async () => {
       const { getByRole } = render(<MultiSelectWrapper />)
 
-      const toggleButton = getByRole("button", { name: "Pancakes" })
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
       await user.click(toggleButton)
 
       const popover = getByRole("dialog")
@@ -149,7 +149,7 @@ describe("<MultiSelect />", () => {
     describe("When open", () => {
       it("restricts focusable elements to toggle button and popover contents", async () => {
         const { getByRole } = render(<MultiSelectWrapper />)
-        const toggleButton = getByRole("button", { name: "Pancakes" })
+        const toggleButton = getByRole("button", { name: "Jalapeno" })
 
         await user.click(toggleButton)
         await waitFor(() => {
@@ -172,7 +172,7 @@ describe("<MultiSelect />", () => {
       describe("When closed", () => {
         it("has expected focus order", async () => {
           const { getByRole } = render(<MultiSelectWrapper />)
-          const toggleButton = getByRole("button", { name: "Pancakes" })
+          const toggleButton = getByRole("button", { name: "Jalapeno" })
 
           await user.tab()
           await waitFor(() => {

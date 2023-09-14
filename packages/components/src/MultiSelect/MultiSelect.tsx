@@ -7,9 +7,12 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { Popover, useFloating } from "./subcomponents/Popover"
 import styles from "./MultiSelect.module.scss"
 
-export type MultiSelectProps = OverrideClassName<HTMLAttributes<HTMLDivElement>>
+export type MultiSelectProps = {
+  label: string
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelect = ({
+  label,
   id: propsId,
   classNameOverride,
   ...restProps
@@ -31,7 +34,7 @@ export const MultiSelect = ({
     <>
       <div id={id} className={classnames(classNameOverride)} {...restProps}>
         {/* Label */}
-        <span id={`${id}--label`}>Pancakes</span>
+        <span id={`${id}--label`}>{label}</span>
         {/* Toggle */}
         <div ref={refs.setReference} className={styles.toggle}>
           <button

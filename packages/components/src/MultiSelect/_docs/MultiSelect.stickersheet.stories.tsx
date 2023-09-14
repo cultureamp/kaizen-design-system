@@ -24,11 +24,11 @@ const StickerSheetTemplate: StickerSheetStory = {
       >
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
-            <MultiSelect />
+            <MultiSelect label="Jalapeno" />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Open">
             {/* @TODO: Update this */}
-            <MultiSelect />
+            <MultiSelect label="Jalapeno" />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
@@ -44,12 +44,24 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Toggle">
-            <MultiSelect classNameOverride="story__multi-select__toggle--hover" />
-            <MultiSelect classNameOverride="story__multi-select__toggle--focus" />
+            <MultiSelect
+              label="Jalapeno"
+              classNameOverride="story__multi-select__toggle--hover"
+            />
+            <MultiSelect
+              label="Jalapeno"
+              classNameOverride="story__multi-select__toggle--focus"
+            />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Toggle Button">
-            <MultiSelect classNameOverride="story__multi-select__toggle-button--hover" />
-            <MultiSelect classNameOverride="story__multi-select__toggle-button--focus" />
+            <MultiSelect
+              label="Jalapeno"
+              classNameOverride="story__multi-select__toggle-button--hover"
+            />
+            <MultiSelect
+              label="Jalapeno"
+              classNameOverride="story__multi-select__toggle-button--focus"
+            />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
