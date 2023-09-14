@@ -1,0 +1,50 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.expertAdviceContainer {
+  background-color: $color-purple-100;
+  border: 2px $border-solid-border-style $color-purple-300;
+  box-shadow: none;
+  color: $color-purple-800;
+
+  > div {
+    &:first-of-type {
+      background-color: $color-purple-100;
+      border-radius: $border-borderless-border-radius;
+
+      &:hover {
+        background-color: $color-purple-100;
+      }
+    }
+  }
+}
+
+.expertAdviceContainer:hover {
+  border-color: $color-purple-500;
+}
+
+.expertAdviceHeader {
+  background-color: $color-purple-100;
+  flex: 1 1 auto;
+  align-items: center;
+  display: flex;
+}
+
+.expertAdviceHeading {
+  color: $color-purple-600;
+
+  .expertAdviceContainer:hover & {
+    color: $color-purple-700;
+  }
+}
+
+.expertAdviceIcon {
+  margin-inline-end: $spacing-sm;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.expertAdviceSection {
+  padding: 0 $spacing-md $spacing-md;
+}
