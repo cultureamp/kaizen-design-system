@@ -70,14 +70,12 @@ describe("<Text />", () => {
   })
 
   it("passes through data attributes", () => {
-    const { container } = render(
-      <Text variant="intro-lede" data-automation-id="test-id">
+    const { getByTestId } = render(
+      <Text variant="intro-lede" data-testid="test-id">
         Example
       </Text>
     )
-    expect(
-      container.querySelector('[data-automation-id="test-id"]')
-    ).not.toBeNull()
+    expect(getByTestId("test-id")).toBeInTheDocument()
   })
 
   describe("defaults to the correct HTML element", () => {
