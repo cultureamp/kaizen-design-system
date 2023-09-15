@@ -1,12 +1,18 @@
-import React, { useState, HTMLAttributes, useRef, useId } from "react"
+import React, {
+  useState,
+  HTMLAttributes,
+  useRef,
+  useId,
+  MouseEventHandler,
+} from "react"
 import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { ClearButton } from "~components/ClearButton"
+import { Heading } from "~components/Heading"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icons"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { Popover, useFloating } from "./subcomponents/Popover"
 import styles from "./MultiSelect.module.scss"
-import { Heading } from "~components/Heading"
 
 export type MultiSelectProps = {
   label: string
@@ -23,6 +29,7 @@ export const MultiSelect = ({
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
 
+  const handleToggle = (): void => setIsOpen(!isOpen)
   const handleClose = (): void => setIsOpen(false)
 
   const onClickOutside: ReactFocusOnProps["onClickOutside"] = e => {
@@ -30,6 +37,17 @@ export const MultiSelect = ({
     const isInToggle = toggle.contains(e.target as HTMLElement)
     if (!isInToggle) handleClose()
   }
+
+  /* eslint-disable no-console */
+  const handleSelectedOptionClick: MouseEventHandler = e => {
+    e.stopPropagation()
+    console.log(">:]")
+  }
+  const handleClearAllOptionsClick: MouseEventHandler = e => {
+    e.stopPropagation()
+    console.log("ALL >:]")
+  }
+  /* eslint-enable no-console */
 
   return (
     <>
@@ -44,7 +62,13 @@ export const MultiSelect = ({
           {label}
         </Heading>
         {/* Toggle */}
-        <div ref={refs.setReference} className={styles.toggle}>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+        <div
+          ref={refs.setReference}
+          id={`${id}--toggle`}
+          className={styles.toggle}
+          onClick={handleToggle}
+        >
           <button
             ref={toggleButtonRef}
             className={styles.toggleButton}
@@ -53,7 +77,7 @@ export const MultiSelect = ({
             aria-expanded={isOpen}
             aria-haspopup="dialog"
             type="button"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={handleToggle}
           >
             {isOpen ? (
               <ChevronUpIcon role="presentation" />
@@ -61,7 +85,7 @@ export const MultiSelect = ({
               <ChevronDownIcon role="presentation" />
             )}
           </button>
-          {/* eslint-disable no-console */}
+
           <div className={styles.selectedItemsContainer}>
             {/* list-style: none removes role="list" in Safari */}
             {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
@@ -70,18 +94,18 @@ export const MultiSelect = ({
                 Waffle
                 <ClearButton
                   aria-label="Clear waffle"
-                  onClick={() => console.log(">:]")}
+                  onClick={handleSelectedOptionClick}
                 />
               </li>
             </ul>
             <ClearButton
               aria-label="Clear all waffles"
               classNameOverride={styles.clearAllButton}
-              onClick={() => console.log(">:]")}
+              onClick={handleClearAllOptionsClick}
             />
           </div>
-          {/* eslint-enable no-console */}
         </div>
+
         {isOpen && (
           <Popover
             refs={refs}

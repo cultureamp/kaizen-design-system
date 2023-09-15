@@ -54,12 +54,16 @@ describe("<MultiSelect />", () => {
       })
     })
 
-    // Add this back in when we allow for a isOpen callback
-    // it("opens the popover on toggle click", () => {
-    //   render(<MultiSelectWrapper />)
-    //   /** @todo: Fill in test case */
-    //   expect(true).toBe(false)
-    // })
+    it("opens the popover on toggle click", async () => {
+      const { getByRole } = render(<MultiSelectWrapper id="jalapeno" />)
+      const toggle = document.getElementById("jalapeno--toggle")
+
+      if (toggle) await user.click(toggle)
+
+      await waitFor(() => {
+        expect(getByRole("dialog")).toBeVisible()
+      })
+    })
 
     it("opens the popover on pressing Spacebar key", async () => {
       const { getByRole } = render(<MultiSelectWrapper />)
@@ -127,6 +131,7 @@ describe("<MultiSelect />", () => {
       })
     })
 
+    // @todo: Split into specific tests for individual tags vs clear all
     it("does not close the popover when interacting with elements within the toggle", async () => {
       const { getByRole } = render(<MultiSelectWrapper />)
 
