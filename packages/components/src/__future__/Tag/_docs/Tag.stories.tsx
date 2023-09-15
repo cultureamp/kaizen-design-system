@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { TagIcon } from "~components/Icons"
 import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
@@ -39,83 +39,43 @@ const List = ({ children }: ListProps): JSX.Element => (
 )
 
 const StickerSheetTemplate: StoryFn = () => (
-  <>
-    <StickerSheet heading="Tag">
-      <StickerSheet.Header headings={["Label Only", "Icon"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <List>
-            <Tag>Gray</Tag>
-            <Tag color="blue">Blue</Tag>
-            <Tag color="green">Green</Tag>
-            <Tag color="yellow">Yellow</Tag>
-            <Tag color="orange">Orange</Tag>
-            <Tag color="red">Red</Tag>
-            <Tag color="purple">Purple</Tag>
-          </List>
-          <List>
-            <Tag Icon={<TagIcon role="presentation" />}>Gray</Tag>
-            <Tag color="blue" Icon={<TagIcon role="presentation" />}>
-              Blue
-            </Tag>
-            <Tag color="green" Icon={<TagIcon role="presentation" />}>
-              Green
-            </Tag>
-            <Tag color="yellow" Icon={<TagIcon role="presentation" />}>
-              Yellow
-            </Tag>
-            <Tag color="orange" Icon={<TagIcon role="presentation" />}>
-              Orange
-            </Tag>
-            <Tag color="red" Icon={<TagIcon role="presentation" />}>
-              Red
-            </Tag>
-            <Tag color="purple" Icon={<TagIcon role="presentation" />}>
-              Purple
-            </Tag>
-          </List>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-
-    <StickerSheet heading="RTL">
-      <StickerSheet.Header headings={["Label Only", "Icon"]} />
-      <StickerSheet.Body dir="rtl">
-        <StickerSheet.Row>
-          <List>
-            <Tag>Gray</Tag>
-            <Tag color="blue">Blue</Tag>
-            <Tag color="green">Green</Tag>
-            <Tag color="yellow">Yellow</Tag>
-            <Tag color="orange">Orange</Tag>
-            <Tag color="red">Red</Tag>
-            <Tag color="purple">Purple</Tag>
-          </List>
-          <List>
-            <Tag Icon={<TagIcon role="presentation" />}>Gray</Tag>
-            <Tag color="blue" Icon={<TagIcon role="presentation" />}>
-              Blue
-            </Tag>
-            <Tag color="green" Icon={<TagIcon role="presentation" />}>
-              Green
-            </Tag>
-            <Tag color="yellow" Icon={<TagIcon role="presentation" />}>
-              Yellow
-            </Tag>
-            <Tag color="orange" Icon={<TagIcon role="presentation" />}>
-              Orange
-            </Tag>
-            <Tag color="red" Icon={<TagIcon role="presentation" />}>
-              Red
-            </Tag>
-            <Tag color="purple" Icon={<TagIcon role="presentation" />}>
-              Purple
-            </Tag>
-          </List>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-  </>
+  <StickerSheet heading="Tag">
+    <StickerSheet.Header headings={["Label Only", "Icon"]} />
+    <StickerSheet.Body>
+      <StickerSheet.Row>
+        <List>
+          <Tag>Gray</Tag>
+          <Tag color="blue">Blue</Tag>
+          <Tag color="green">Green</Tag>
+          <Tag color="yellow">Yellow</Tag>
+          <Tag color="orange">Orange</Tag>
+          <Tag color="red">Red</Tag>
+          <Tag color="purple">Purple</Tag>
+        </List>
+        <List>
+          <Tag Icon={<TagIcon role="presentation" />}>Gray</Tag>
+          <Tag color="blue" Icon={<TagIcon role="presentation" />}>
+            Blue
+          </Tag>
+          <Tag color="green" Icon={<TagIcon role="presentation" />}>
+            Green
+          </Tag>
+          <Tag color="yellow" Icon={<TagIcon role="presentation" />}>
+            Yellow
+          </Tag>
+          <Tag color="orange" Icon={<TagIcon role="presentation" />}>
+            Orange
+          </Tag>
+          <Tag color="red" Icon={<TagIcon role="presentation" />}>
+            Red
+          </Tag>
+          <Tag color="purple" Icon={<TagIcon role="presentation" />}>
+            Purple
+          </Tag>
+        </List>
+      </StickerSheet.Row>
+    </StickerSheet.Body>
+  </StickerSheet>
 )
 
 export const StickerSheetDefault = StickerSheetTemplate.bind({})
@@ -123,4 +83,12 @@ StickerSheetDefault.storyName = "Sticker Sheet (Default)"
 StickerSheetDefault.parameters = {
   chromatic: { disable: false },
   controls: { disable: true },
+}
+
+export const StickerSheetRTL = StickerSheetTemplate.bind({})
+StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
+StickerSheetRTL.parameters = {
+  chromatic: { disable: false },
+  controls: { disable: true },
+  textDirection: "rtl",
 }
