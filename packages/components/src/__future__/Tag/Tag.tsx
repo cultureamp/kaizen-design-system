@@ -2,9 +2,6 @@ import React, { ReactNode, HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 
-/** @todo Add list of all icons names */
-export type TagIcons = "tag"
-
 export type TagColors =
   | "gray"
   | "blue"
