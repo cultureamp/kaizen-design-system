@@ -7,7 +7,7 @@ import { Tag } from ".."
 
 export default {
   tags: ["autodocs"],
-  title: "KAIO/Tag",
+  title: "KAIO-staging/Tag",
   component: Tag,
   parameters: {
     docs: {
