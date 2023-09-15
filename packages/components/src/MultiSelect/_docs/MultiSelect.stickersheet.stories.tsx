@@ -16,56 +16,20 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <>
-      <StickerSheet
-        isReversed={isReversed}
-        heading="MultiSelect"
-        className="w-full"
-      >
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
-            <MultiSelect label="Jalapeno" />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Open">
-            {/* @TODO: Update this */}
-            <MultiSelect label="Jalapeno" />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-
-      <StickerSheet
-        isReversed={isReversed}
-        heading="Pseudo states"
-        className="w-full"
-      >
-        <StickerSheet.Header
-          headings={["Hover", "Focus"]}
-          hasVerticalHeadings
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Toggle">
-            <MultiSelect
-              label="Jalapeno"
-              classNameOverride="story__multi-select__toggle--hover"
-            />
-            <MultiSelect
-              label="Jalapeno"
-              classNameOverride="story__multi-select__toggle--focus"
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Toggle Button">
-            <MultiSelect
-              label="Jalapeno"
-              classNameOverride="story__multi-select__toggle-button--hover"
-            />
-            <MultiSelect
-              label="Jalapeno"
-              classNameOverride="story__multi-select__toggle-button--focus"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
+    <StickerSheet
+      isReversed={isReversed}
+      heading="MultiSelect"
+      className="w-full"
+    >
+      <StickerSheet.Header headings={["Closed", "Open"]} />
+      <StickerSheet.Body>
+        <StickerSheet.Row>
+          <MultiSelect label="Jalapeno" />
+          {/* @TODO: Update this when open works wew >:] */}
+          <MultiSelect label="Jalapeno" />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+    </StickerSheet>
   ),
 }
 

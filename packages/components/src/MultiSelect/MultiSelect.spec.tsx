@@ -1,6 +1,5 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
-
 import userEvent from "@testing-library/user-event"
 import { MultiSelect, MultiSelectProps } from "./MultiSelect"
 
@@ -56,8 +55,8 @@ describe("<MultiSelect />", () => {
 
     it("opens the popover on toggle click", async () => {
       const { getByRole } = render(<MultiSelectWrapper id="jalapeno" />)
-      const toggle = document.getElementById("jalapeno--toggle")
 
+      const toggle = document.getElementById("jalapeno--toggle")
       if (toggle) await user.click(toggle)
 
       await waitFor(() => {
@@ -131,8 +130,7 @@ describe("<MultiSelect />", () => {
       })
     })
 
-    // @todo: Split into specific tests for individual tags vs clear all
-    it("does not close the popover when interacting with elements within the toggle", async () => {
+    it("does not close the popover when clearing selected options", async () => {
       const { getByRole } = render(<MultiSelectWrapper />)
 
       const toggleButton = getByRole("button", { name: "Jalapeno" })
