@@ -3077,7 +3077,7 @@
     "@kaizen/component-base" "^1.1.7"
     "@kaizen/hosted-assets" "^2.0.3"
 
-"@kaizen/button@^3.0.3", "@kaizen/button@^3.0.4":
+"@kaizen/button@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.4.tgz#f48c9a58457babc5719a1f40b0dc6911bb6d3c21"
   integrity sha512-Pa18apJ4wEh1DRxFGOOCwEtVyZ36TljZMutLg7S8eVNghOBpY/j/eCJrB04SZVFLL1PYbEFLe9GjmsuLWxDPKQ==
