@@ -6099,10 +6099,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest-axe@^3.5.5":
-  version "3.5.5"
-  resolved "https://registry.yarnpkg.com/@types/jest-axe/-/jest-axe-3.5.5.tgz#21fd8152dc3963bf6e1f72f34a7ce4e827838b7b"
-  integrity sha512-b8WDIdoeKtr/JDJ2+QjFXMuS8UhfdMA6+15Z5KjjIie3jQrSXD9KZWMSQxc0nPtx7L9rIFKdiDpQk+m7s4a/8w==
+"@types/jest-axe@^3.5.6":
+  version "3.5.6"
+  resolved "https://registry.yarnpkg.com/@types/jest-axe/-/jest-axe-3.5.6.tgz#ae4df83897ed29ec9bd6a99eb7b02965c703bd0d"
+  integrity sha512-dQyD3XWfB+wUqVqWwGDyW4j7NmLyWWOdFeNIGXl01HR8/n8LeP3BtQTFdygHtInDm/EYKizaNprhgjSr8sPxHA==
   dependencies:
     "@types/jest" "*"
     axe-core "^3.5.5"
