@@ -3363,7 +3363,7 @@
     "@kaizen/deprecated-component-library-helpers" "^2.5.8"
     classnames "^2.3.2"
 
-"@kaizen/draft-tag@^3.4.16", "@kaizen/draft-tag@^3.4.17":
+"@kaizen/draft-tag@^3.4.17", "@kaizen/draft-tag@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-tag/-/draft-tag-3.5.0.tgz#81261e6a64e5cdda2db6637f114c32982a4d0404"
   integrity sha512-DhXICSS5olSuK+D4FQ4K5nQP2vXSQizhkyzo5K04kd/lG7lhawNA2q3+SGTIV1NvtUTWV75bWaU5NYX4FCFIkQ==
