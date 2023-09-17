@@ -3284,7 +3284,7 @@
   dependencies:
     "@kaizen/component-base" "^1.1.7"
 
-"@kaizen/draft-divider@^2.2.10", "@kaizen/draft-divider@^2.2.11":
+"@kaizen/draft-divider@^2.2.11":
   version "2.2.11"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-divider/-/draft-divider-2.2.11.tgz#48620384673c899a26b8861d0799890c762a1d11"
   integrity sha512-b2GKnLXouASTlzzcKubG1ELxSQx44F4KfvaP7emDZSxFC1gnVSX4rdudSRG/DifVNH6MrsO8+/g8xhFDQLrMQg==
