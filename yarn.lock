@@ -3305,7 +3305,7 @@
     classnames "^2.3.2"
     uuid "^9.0.0"
 
-"@kaizen/draft-illustration@^7.0.0":
+"@kaizen/draft-illustration@^7.0.0", "@kaizen/draft-illustration@^7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-illustration/-/draft-illustration-7.0.1.tgz#b86dc598edb49ca59cb51102361b105fd0c3ebb2"
   integrity sha512-Ug4is9ygKWI/BitcB4W9NI98Q2+GL9+umZ3P4/orXGt6n28Fl1P8QHUhg5VVOh3chD2ciQGutgfeFc7Xx1VBng==

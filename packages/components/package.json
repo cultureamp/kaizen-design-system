@@ -44,7 +44,7 @@
     "@kaizen/draft-badge": "^1.13.12",
     "@kaizen/draft-divider": "^2.2.10",
     "@kaizen/draft-form": "^10.5.0",
-    "@kaizen/draft-illustration": "^7.0.0",
+    "@kaizen/draft-illustration": "^7.0.1",
     "@kaizen/draft-menu": "^5.0.2",
     "@kaizen/draft-tag": "^3.4.16",
     "@kaizen/draft-tooltip": "^5.4.47",
