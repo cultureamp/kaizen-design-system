@@ -5965,10 +5965,10 @@
   dependencies:
     classnames "*"
 
-"@types/color-string@^1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@types/color-string/-/color-string-1.5.2.tgz#cdb9879b6feca2aa27846adfc3988ef2413ee138"
-  integrity sha512-hAhTmfFYVdzgsKwpC9Flc6h9Do64PhKoNxy3YxE0ze+0LIh3a7TrDQAxiujmANQbDRDgGduEz+9sMS+Zd+J7hA==
+"@types/color-string@^1.5.3":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@types/color-string/-/color-string-1.5.3.tgz#430dd887b4ea2341f258962b76c763ca42ba4afc"
+  integrity sha512-1zi6lMFL2+wHzpcLfODTFN5eQr3wQ4Mzq8dqMwPzPRkh9wKydkr4Bu7772hEBQ+wMhLpgPLwThNMJ2Yq+9BpbA==
 
 "@types/commander@^2.12.2":
   version "2.12.2"
