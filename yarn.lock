@@ -3232,10 +3232,10 @@
     "@types/uuid" "^9.0.2"
     classnames "^2.3.2"
 
-"@kaizen/date-picker@^6.3.1":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/date-picker/-/date-picker-6.3.1.tgz#e015d6ff3a6fd89939652a730a93076001bcb085"
-  integrity sha512-fzYHv9o1TVekAQ4jBDbLueGHkxKKd5qv9b4k4lLxKAzSWse9XxiEasORAjn+aGHkikVkZGcuXpL0WmGtI3Imlg==
+"@kaizen/date-picker@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/date-picker/-/date-picker-6.3.2.tgz#7d1b4fdbd35873bb96a161b18f67eff627c99e0b"
+  integrity sha512-IRhK4L+/32tGbmNjajdqhJp5wFWANRoWH/U++sBZNr6hhhAXrrh147/FHAgYIWIdtbeZoUonXT4+rV+r6PdqQA==
   dependencies:
     "@internationalized/date" "^3.4.0"
     "@kaizen/a11y" "^1.7.12"
