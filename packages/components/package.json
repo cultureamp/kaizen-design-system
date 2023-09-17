@@ -62,7 +62,7 @@
     "@react-aria/select": "^3.12.0",
     "@react-aria/utils": "^3.19.0",
     "@react-stately/collections": "^3.10.0",
-    "@react-stately/list": "^3.9.1",
+    "@react-stately/list": "^3.9.2",
     "@react-stately/menu": "^3.5.4",
     "@react-stately/select": "^3.5.3",
     "@react-types/shared": "^3.19.0",
