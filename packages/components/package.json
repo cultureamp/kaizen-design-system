@@ -73,7 +73,7 @@
     "react-intl": "^6.4.4",
     "react-popper": "^2.3.0",
     "react-textfit": "^1.1.1",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   },
   "devDependenciesComments": {
     "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
