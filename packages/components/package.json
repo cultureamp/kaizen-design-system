@@ -57,23 +57,23 @@
     "@react-aria/button": "^3.8.2",
     "@react-aria/focus": "^3.14.1",
     "@react-aria/listbox": "^3.10.2",
-    "@react-aria/menu": "^3.10.1",
+    "@react-aria/menu": "^3.10.2",
     "@react-aria/overlays": "^3.16.0",
     "@react-aria/select": "^3.12.0",
     "@react-aria/utils": "^3.19.0",
-    "@react-stately/collections": "^3.10.0",
+    "@react-stately/collections": "^3.10.1",
     "@react-stately/list": "^3.9.2",
-    "@react-stately/menu": "^3.5.4",
+    "@react-stately/menu": "^3.5.5",
     "@react-stately/select": "^3.5.3",
     "@react-types/shared": "^3.19.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "react-animate-height": "^3.2.2",
     "react-focus-on": "^3.9.1",
-    "react-intl": "^6.4.4",
+    "react-intl": "^6.4.6",
     "react-popper": "^2.3.0",
     "react-textfit": "^1.1.1",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   },
   "devDependenciesComments": {
     "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
