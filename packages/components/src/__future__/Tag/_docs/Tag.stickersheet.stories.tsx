@@ -1,8 +1,8 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
+import { TagIcon } from "~components/Icons"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { Tag } from "../Tag"
-import { TagIcon } from "~components/Icons"
 
 type ListProps = {
   children: React.ReactNode
