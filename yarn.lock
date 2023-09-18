@@ -4421,6 +4421,20 @@
     "@react-types/shared" "^3.19.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/select@^3.5.4":
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.5.4.tgz#9bd2c82fe6b27e1c459514e4bef82b328081cb7b"
+  integrity sha512-CO+5ORMwx/nEKAf7285S3QRAWLJlD1TZPKosO5ND87SZt9j6LKTyJjsT5IYcny8W/ejFOKg5VP4evYNkd5ZtEQ==
+  dependencies:
+    "@react-stately/collections" "^3.10.1"
+    "@react-stately/list" "^3.9.2"
+    "@react-stately/menu" "^3.5.5"
+    "@react-stately/selection" "^3.13.4"
+    "@react-stately/utils" "^3.7.0"
+    "@react-types/select" "^3.8.3"
+    "@react-types/shared" "^3.20.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/selection@^3.13.3":
   version "3.13.3"
   resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.13.3.tgz#ee4b457753b5631f90573fd298fa1bac2c4f3857"
@@ -4591,6 +4605,13 @@
   integrity sha512-m11J/xBR8yFwPLuueoFHzr4DiLyY7nKLCbZCz1W2lwIyd8Tl2iJwcLcuJiyUTJwdSTcCDgvbkY4vdTfLOIktYQ==
   dependencies:
     "@react-types/shared" "^3.19.0"
+
+"@react-types/select@^3.8.3":
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/@react-types/select/-/select-3.8.3.tgz#18888bf42cae6e89e1dc4b5112c08382152bf650"
+  integrity sha512-x0x/qJq48QqVnBXFqvPaiS/TQOmCIL9ZmzM4AzRtYMU++kxjy3L03cdnzDBmxKN+KkfDn7OU++vKI44ksgTCRA==
+  dependencies:
+    "@react-types/shared" "^3.20.0"
 
 "@react-types/shared@^3.19.0":
   version "3.19.0"

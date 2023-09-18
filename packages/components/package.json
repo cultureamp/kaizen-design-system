@@ -64,7 +64,7 @@
     "@react-stately/collections": "^3.10.1",
     "@react-stately/list": "^3.9.1",
     "@react-stately/menu": "^3.5.5",
-    "@react-stately/select": "^3.5.3",
+    "@react-stately/select": "^3.5.4",
     "@react-types/shared": "^3.19.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
