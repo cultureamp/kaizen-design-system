@@ -2574,17 +2574,17 @@
     intl-messageformat "10.5.0"
     tslib "^2.4.0"
 
-"@formatjs/intl@2.9.2":
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl/-/intl-2.9.2.tgz#83fbd8fccb1088aee084508fd5a387d30c2f83e4"
-  integrity sha512-brettBil92sd8i4dHEc6by8mqp4NbRvR2A94dZK9pQuSghkoqn2TIvwuaetmMNsBXexv7hYsehNQPi1qqkdPig==
+"@formatjs/intl@2.9.3":
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl/-/intl-2.9.3.tgz#e570c4b1afb173dfb1f80a42624425dde9841329"
+  integrity sha512-hclPdyCF1zk2XmhgdXfl5Sd30QEdRBnIijH7Vc1AWz2K0/saVRrxuL3UYn+m3xEyfOa4yDbTWVbmXDL0XEzlsQ==
   dependencies:
     "@formatjs/ecma402-abstract" "1.17.2"
     "@formatjs/fast-memoize" "2.2.0"
     "@formatjs/icu-messageformat-parser" "2.6.2"
     "@formatjs/intl-displaynames" "6.5.2"
     "@formatjs/intl-listformat" "7.4.2"
-    intl-messageformat "10.5.2"
+    intl-messageformat "10.5.3"
     tslib "^2.4.0"
 
 "@formatjs/ts-transformer@3.13.3":
@@ -3238,7 +3238,7 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/a11y@^1.7.11", "@kaizen/a11y@^1.7.12":
+"@kaizen/a11y@^1.7.12":
   version "1.7.12"
   resolved "https://registry.yarnpkg.com/@kaizen/a11y/-/a11y-1.7.12.tgz#448fb57ade9d657e51cc820684f28dd928495007"
   integrity sha512-E+PxnewE98q8NIRsM7v1zY7O2WRUAY8HQePsqgVYGeyjx+aGBI7AbsASNebglqtIWcCZRB+DSN16HEZ0IgUMWw==
@@ -3295,10 +3295,10 @@
     "@types/uuid" "^9.0.2"
     classnames "^2.3.2"
 
-"@kaizen/date-picker@^6.3.1":
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/date-picker/-/date-picker-6.3.1.tgz#e015d6ff3a6fd89939652a730a93076001bcb085"
-  integrity sha512-fzYHv9o1TVekAQ4jBDbLueGHkxKKd5qv9b4k4lLxKAzSWse9XxiEasORAjn+aGHkikVkZGcuXpL0WmGtI3Imlg==
+"@kaizen/date-picker@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/date-picker/-/date-picker-6.3.2.tgz#7d1b4fdbd35873bb96a161b18f67eff627c99e0b"
+  integrity sha512-IRhK4L+/32tGbmNjajdqhJp5wFWANRoWH/U++sBZNr6hhhAXrrh147/FHAgYIWIdtbeZoUonXT4+rV+r6PdqQA==
   dependencies:
     "@internationalized/date" "^3.4.0"
     "@kaizen/a11y" "^1.7.12"
@@ -3347,7 +3347,7 @@
   dependencies:
     "@kaizen/component-base" "^1.1.7"
 
-"@kaizen/draft-divider@^2.2.10", "@kaizen/draft-divider@^2.2.11":
+"@kaizen/draft-divider@^2.2.11":
   version "2.2.11"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-divider/-/draft-divider-2.2.11.tgz#48620384673c899a26b8861d0799890c762a1d11"
   integrity sha512-b2GKnLXouASTlzzcKubG1ELxSQx44F4KfvaP7emDZSxFC1gnVSX4rdudSRG/DifVNH6MrsO8+/g8xhFDQLrMQg==
@@ -3368,7 +3368,7 @@
     classnames "^2.3.2"
     uuid "^9.0.0"
 
-"@kaizen/draft-illustration@^7.0.0":
+"@kaizen/draft-illustration@^7.0.0", "@kaizen/draft-illustration@^7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-illustration/-/draft-illustration-7.0.1.tgz#b86dc598edb49ca59cb51102361b105fd0c3ebb2"
   integrity sha512-Ug4is9ygKWI/BitcB4W9NI98Q2+GL9+umZ3P4/orXGt6n28Fl1P8QHUhg5VVOh3chD2ciQGutgfeFc7Xx1VBng==
@@ -3426,7 +3426,7 @@
     "@kaizen/deprecated-component-library-helpers" "^2.5.8"
     classnames "^2.3.2"
 
-"@kaizen/draft-tag@^3.4.16", "@kaizen/draft-tag@^3.4.17":
+"@kaizen/draft-tag@^3.4.17", "@kaizen/draft-tag@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-tag/-/draft-tag-3.5.0.tgz#81261e6a64e5cdda2db6637f114c32982a4d0404"
   integrity sha512-DhXICSS5olSuK+D4FQ4K5nQP2vXSQizhkyzo5K04kd/lG7lhawNA2q3+SGTIV1NvtUTWV75bWaU5NYX4FCFIkQ==
@@ -3480,7 +3480,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/responsive/-/responsive-1.8.10.tgz#ce42f0b3d0c8b96196aa0459927f0538917495d7"
   integrity sha512-buwE/sVl1etZm9BpdM+iGn8oUA3CPgLsspCNbkbxGqksXB+nwpT4idKm4+boz3SWK1eqV3At+GgaPvPYwt+YjQ==
 
-"@kaizen/typography@^2.3.10", "@kaizen/typography@^2.3.11":
+"@kaizen/typography@^2.3.11":
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/@kaizen/typography/-/typography-2.3.11.tgz#d1b8883d077ceccd339ab884f68dcb4bba74b64f"
   integrity sha512-TCVMXFB4fRja9dRVMYAR2KuN8BWwTIGACpNZZfXR+PrPBqPVwV8QLi4+pQX/aUMnAvtU3cVnEqLlAEI3o0CcOg==
@@ -4130,24 +4130,7 @@
     "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
 
-"@react-aria/overlays@^3.16.0":
-  version "3.16.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/overlays/-/overlays-3.16.0.tgz#47ef9f6876e2a9d3d596771b47c3a4ae6ade4622"
-  integrity sha512-jclyCqs1U4XqDA1DAdZaiijKtHLVZ78FV0+IzL4QQfrvzCPC+ba+MC8pe/tw8dMQzXBSnTx/IEqOHu07IwrESQ==
-  dependencies:
-    "@react-aria/focus" "^3.14.0"
-    "@react-aria/i18n" "^3.8.1"
-    "@react-aria/interactions" "^3.17.0"
-    "@react-aria/ssr" "^3.7.1"
-    "@react-aria/utils" "^3.19.0"
-    "@react-aria/visually-hidden" "^3.8.3"
-    "@react-stately/overlays" "^3.6.1"
-    "@react-types/button" "^3.7.4"
-    "@react-types/overlays" "^3.8.1"
-    "@react-types/shared" "^3.19.0"
-    "@swc/helpers" "^0.5.0"
-
-"@react-aria/overlays@^3.17.0":
+"@react-aria/overlays@^3.16.0", "@react-aria/overlays@^3.17.0":
   version "3.17.0"
   resolved "https://registry.yarnpkg.com/@react-aria/overlays/-/overlays-3.17.0.tgz#93976917cf094d5e5ee5453659d9cdd5fe730d38"
   integrity sha512-wfQ00llAIMLDtIid+0MvNqvbLP6Fqi2/hfvAxhDaRqrkiARwuCAclWNCIdCzF599IpZOMcjjBgIILEXdfA0ziw==
@@ -4245,17 +4228,6 @@
     "@swc/helpers" "^0.5.0"
     clsx "^1.1.1"
 
-"@react-aria/visually-hidden@^3.8.3":
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.8.3.tgz#09db58c639a8c2baed23a66a56f90527d41ba856"
-  integrity sha512-Ln3rqUnPF/UiiPjj8Xjc5FIagwNvG16qtAR2Diwnsju+X9o2xeDEZhN/5fg98PxH2JBS3IvtsmMZRzPT9mhpmg==
-  dependencies:
-    "@react-aria/interactions" "^3.17.0"
-    "@react-aria/utils" "^3.19.0"
-    "@react-types/shared" "^3.19.0"
-    "@swc/helpers" "^0.5.0"
-    clsx "^1.1.1"
-
 "@react-aria/visually-hidden@^3.8.4":
   version "3.8.4"
   resolved "https://registry.yarnpkg.com/@react-aria/visually-hidden/-/visually-hidden-3.8.4.tgz#7812ec32d5a317019acb2639b5e47d3de2886a4c"
@@ -4266,14 +4238,6 @@
     "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
     clsx "^1.1.1"
-
-"@react-stately/collections@^3.10.0":
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.10.0.tgz#5c772e5eae8d21ae8d1c023fb9b9ae6fa35b1092"
-  integrity sha512-PyJEFmt9X0kDMF7D4StGnTdXX1hgyUcTXvvXU2fEw6OyXLtmfWFHmFARRtYbuelGKk6clmJojYmIEds0k8jdww==
-  dependencies:
-    "@react-types/shared" "^3.19.0"
-    "@swc/helpers" "^0.5.0"
 
 "@react-stately/collections@^3.10.1":
   version "3.10.1"
@@ -4296,17 +4260,6 @@
     "@react-types/shared" "^3.19.0"
     "@swc/helpers" "^0.5.0"
 
-"@react-stately/list@^3.9.1":
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.9.1.tgz#ef542c3adc12d6dfecb383078deb29032088c568"
-  integrity sha512-GiKrxGakzMTZKe3mp410l4xKiHbZplJCGrtqlxq/+YRD0uCQwWGYpRG+z9A7tTCusruRD3m91/OjWsbfbGdiEw==
-  dependencies:
-    "@react-stately/collections" "^3.10.0"
-    "@react-stately/selection" "^3.13.3"
-    "@react-stately/utils" "^3.7.0"
-    "@react-types/shared" "^3.19.0"
-    "@swc/helpers" "^0.5.0"
-
 "@react-stately/list@^3.9.2":
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.9.2.tgz#ca4119bae68efd27c242dc7097fdf0b413414abb"
@@ -4316,17 +4269,6 @@
     "@react-stately/selection" "^3.13.4"
     "@react-stately/utils" "^3.7.0"
     "@react-types/shared" "^3.20.0"
-    "@swc/helpers" "^0.5.0"
-
-"@react-stately/menu@^3.5.4":
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/@react-stately/menu/-/menu-3.5.4.tgz#3c4a6383af97c6c5ab984f4c545003c7ab61fb9e"
-  integrity sha512-+Q71fMDhMM1iARPFtwqpXY/8qkb0dN4PBJbcjwjGCumGs+ja2YbZxLBHCP0DYBElS9l6m3ssF47RKNMtF/Oi5w==
-  dependencies:
-    "@react-stately/overlays" "^3.6.1"
-    "@react-stately/utils" "^3.7.0"
-    "@react-types/menu" "^3.9.3"
-    "@react-types/shared" "^3.19.0"
     "@swc/helpers" "^0.5.0"
 
 "@react-stately/menu@^3.5.5":
@@ -4358,20 +4300,6 @@
     "@react-types/overlays" "^3.8.2"
     "@swc/helpers" "^0.5.0"
 
-"@react-stately/select@^3.5.3":
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.5.3.tgz#a6a6e16592bb3032f3aadab9ef80e9160d8aea0d"
-  integrity sha512-bzHcCyp2nka6+Gy/YIDM2eWhk+Dz6KP+l2XnGeM62LhbQ7OWdZW/cEjqhCw0MXZFIC+TDMQcLsX4GRkiRDmL7g==
-  dependencies:
-    "@react-stately/collections" "^3.10.0"
-    "@react-stately/list" "^3.9.1"
-    "@react-stately/menu" "^3.5.4"
-    "@react-stately/selection" "^3.13.3"
-    "@react-stately/utils" "^3.7.0"
-    "@react-types/select" "^3.8.2"
-    "@react-types/shared" "^3.19.0"
-    "@swc/helpers" "^0.5.0"
-
 "@react-stately/select@^3.5.4":
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/@react-stately/select/-/select-3.5.4.tgz#9bd2c82fe6b27e1c459514e4bef82b328081cb7b"
@@ -4384,16 +4312,6 @@
     "@react-stately/utils" "^3.7.0"
     "@react-types/select" "^3.8.3"
     "@react-types/shared" "^3.20.0"
-    "@swc/helpers" "^0.5.0"
-
-"@react-stately/selection@^3.13.3":
-  version "3.13.3"
-  resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.13.3.tgz#ee4b457753b5631f90573fd298fa1bac2c4f3857"
-  integrity sha512-+CmpZpyIXfbxEwd9eBvo5Jatc2MNX7HinBcW3X8GfvqNzkbgOXETsmXaW6jlKJekvLLE13Is78Ob8NNzZVxQYg==
-  dependencies:
-    "@react-stately/collections" "^3.10.0"
-    "@react-stately/utils" "^3.7.0"
-    "@react-types/shared" "^3.19.0"
     "@swc/helpers" "^0.5.0"
 
 "@react-stately/selection@^3.13.4":
@@ -4502,14 +4420,6 @@
   dependencies:
     "@react-types/shared" "^3.20.0"
 
-"@react-types/menu@^3.9.3":
-  version "3.9.3"
-  resolved "https://registry.yarnpkg.com/@react-types/menu/-/menu-3.9.3.tgz#5a03fb4545bc766fc3fcccaddaa4cc33561d3902"
-  integrity sha512-0dgIIM9z3hzjFltT+1/L8Hj3oDEcdYkexQhaA+jv6xBHUI5Bqs4SaJAeSGrGz5u6tsrHBPEgf/TLk9Dg9c7XMA==
-  dependencies:
-    "@react-types/overlays" "^3.8.1"
-    "@react-types/shared" "^3.19.0"
-
 "@react-types/menu@^3.9.4":
   version "3.9.4"
   resolved "https://registry.yarnpkg.com/@react-types/menu/-/menu-3.9.4.tgz#58256482f63efdda4a0d9cfacd98445ee0c4f327"
@@ -4531,13 +4441,6 @@
   integrity sha512-HpLYzkNvuvC6nKd06vF9XbcLLv3u55+e7YUFNVpgWq8yVxcnduOcJdRJhPaAqHUl6iVii04mu1GKnCFF8jROyQ==
   dependencies:
     "@react-types/shared" "^3.20.0"
-
-"@react-types/select@^3.8.2":
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/@react-types/select/-/select-3.8.2.tgz#bb1fbb8e846ea6e99acb191f5150ae5de6090f49"
-  integrity sha512-m11J/xBR8yFwPLuueoFHzr4DiLyY7nKLCbZCz1W2lwIyd8Tl2iJwcLcuJiyUTJwdSTcCDgvbkY4vdTfLOIktYQ==
-  dependencies:
-    "@react-types/shared" "^3.19.0"
 
 "@react-types/select@^3.8.3":
   version "3.8.3"
@@ -11822,10 +11725,10 @@ intl-messageformat@10.5.0, intl-messageformat@^10.1.0, intl-messageformat@^10.5.
     "@formatjs/icu-messageformat-parser" "2.6.0"
     tslib "^2.4.0"
 
-intl-messageformat@10.5.2:
-  version "10.5.2"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-10.5.2.tgz#eb746b4b895bd37e8ef91be7b488e450aa4e9d7b"
-  integrity sha512-X4rlUNbgCc8/RdMhmvUEEZ38yNDn5S4r0u8n8yQH2OOdhsR46SmOuQsCKG35nRXmL5u2nxPsNN6qNhHoMm6FMQ==
+intl-messageformat@10.5.3:
+  version "10.5.3"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-10.5.3.tgz#db0779d4a1988faa2977d76574489b7a25f0d5d0"
+  integrity sha512-TzKn1uhJBMyuKTO4zUX47SU+d66fu1W9tVzIiZrQ6hBqQQeYscBMIzKL/qEXnFbJrH9uU5VV3+T5fWib4SIcKA==
   dependencies:
     "@formatjs/ecma402-abstract" "1.17.2"
     "@formatjs/fast-memoize" "2.2.0"
@@ -17190,19 +17093,19 @@ react-intl@^6.4.4:
     tslib "^2.4.0"
 
 react-intl@^6.4.6:
-  version "6.4.6"
-  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.4.6.tgz#64e3a615f1d30e0d75d081a5edaa85eb29c9c2eb"
-  integrity sha512-8FiQ1GO6vm0wuO4B7yls9wIbINIo6ZH91geuwyR0VtwfhPc9+ONXKVfzwzkr/GZnwKW93nmH43MS+NSkmttIaA==
+  version "6.4.7"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.4.7.tgz#28ec40350ff791a6a773f5e76b9e12835ae17e19"
+  integrity sha512-0hnOHAZhxTFqD1hGTxrF40qNyZJPPYiGhWIIxIz0Udz+3e3c7sdN80qlxArR+AbJ+jb5ALXZkJYH20+GPFCM0Q==
   dependencies:
     "@formatjs/ecma402-abstract" "1.17.2"
     "@formatjs/icu-messageformat-parser" "2.6.2"
-    "@formatjs/intl" "2.9.2"
+    "@formatjs/intl" "2.9.3"
     "@formatjs/intl-displaynames" "6.5.2"
     "@formatjs/intl-listformat" "7.4.2"
     "@types/hoist-non-react-statics" "^3.3.1"
     "@types/react" "16 || 17 || 18"
     hoist-non-react-statics "^3.3.2"
-    intl-messageformat "10.5.2"
+    intl-messageformat "10.5.3"
     tslib "^2.4.0"
 
 react-is@18.1.0:
