@@ -1,10 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 
 .container {
   display: inline-flex;
   align-items: center;
-  padding: 5px 0.5rem 5px 0.5rem;
+  padding: 0.3rem $spacing-8 0.3rem $spacing-8;
   gap: 0.25rem;
   border-radius: 28px;
   font-family: $typography-paragraph-intro-lede-font-family;
