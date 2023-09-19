@@ -12,7 +12,7 @@ const List = ({ children }: ListProps): JSX.Element => (
 )
 
 export default {
-  title: "KAIO-staging/Tag",
+  title: "Components/Tag",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
