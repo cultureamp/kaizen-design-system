@@ -16,19 +16,19 @@ export interface TagProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
   children: ReactNode
   color?: TagColors
-  Icon?: React.ReactElement
+  icon?: React.ReactElement
 }
 
 export const Tag = ({
   children,
   classNameOverride,
-  Icon,
+  icon,
   color = "gray",
 }: TagProps): JSX.Element => (
   <span
     className={classNames(styles.container, styles[color], classNameOverride)}
   >
-    {Icon && <span className={styles.iconContainer}>{Icon}</span>}
+    {icon && <span className={styles.iconContainer}>{icon}</span>}
     {children}
   </span>
 )

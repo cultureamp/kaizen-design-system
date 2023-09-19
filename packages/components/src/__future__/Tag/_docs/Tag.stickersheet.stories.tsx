@@ -34,23 +34,23 @@ const StickerSheetTemplate: StoryFn = () => (
           <Tag color="purple">Purple</Tag>
         </List>
         <List>
-          <Tag Icon={<TagIcon role="presentation" />}>Gray</Tag>
-          <Tag color="blue" Icon={<TagIcon role="presentation" />}>
+          <Tag icon={<TagIcon role="presentation" />}>Gray</Tag>
+          <Tag color="blue" icon={<TagIcon role="presentation" />}>
             Blue
           </Tag>
-          <Tag color="green" Icon={<TagIcon role="presentation" />}>
+          <Tag color="green" icon={<TagIcon role="presentation" />}>
             Green
           </Tag>
-          <Tag color="yellow" Icon={<TagIcon role="presentation" />}>
+          <Tag color="yellow" icon={<TagIcon role="presentation" />}>
             Yellow
           </Tag>
-          <Tag color="orange" Icon={<TagIcon role="presentation" />}>
+          <Tag color="orange" icon={<TagIcon role="presentation" />}>
             Orange
           </Tag>
-          <Tag color="red" Icon={<TagIcon role="presentation" />}>
+          <Tag color="red" icon={<TagIcon role="presentation" />}>
             Red
           </Tag>
-          <Tag color="purple" Icon={<TagIcon role="presentation" />}>
+          <Tag color="purple" icon={<TagIcon role="presentation" />}>
             Purple
           </Tag>
         </List>
