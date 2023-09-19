@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { TagIcon } from "~components/Icons"
 import { StickerSheet } from "~storybook/components/StickerSheet"
-import { Tag } from "../Tag"
+import { Tag, TagColors } from "../Tag"
 
 type ListProps = {
   children: React.ReactNode
@@ -19,40 +19,33 @@ export default {
   },
 } satisfies Meta
 
+const colors: TagColors[] = [
+  "gray",
+  "blue",
+  "green",
+  "yellow",
+  "orange",
+  "red",
+  "purple",
+]
 const StickerSheetTemplate: StoryFn = () => (
   <StickerSheet heading="Tag">
     <StickerSheet.Header headings={["Label Only", "Icon"]} />
     <StickerSheet.Body>
       <StickerSheet.Row>
         <List>
-          <Tag>Gray</Tag>
-          <Tag color="blue">Blue</Tag>
-          <Tag color="green">Green</Tag>
-          <Tag color="yellow">Yellow</Tag>
-          <Tag color="orange">Orange</Tag>
-          <Tag color="red">Red</Tag>
-          <Tag color="purple">Purple</Tag>
+          {colors.map(color => (
+            <Tag color={color}>
+              {color.charAt(0).toUpperCase() + color.slice(1)}
+            </Tag>
+          ))}
         </List>
         <List>
-          <Tag icon={<TagIcon role="presentation" />}>Gray</Tag>
-          <Tag color="blue" icon={<TagIcon role="presentation" />}>
-            Blue
-          </Tag>
-          <Tag color="green" icon={<TagIcon role="presentation" />}>
-            Green
-          </Tag>
-          <Tag color="yellow" icon={<TagIcon role="presentation" />}>
-            Yellow
-          </Tag>
-          <Tag color="orange" icon={<TagIcon role="presentation" />}>
-            Orange
-          </Tag>
-          <Tag color="red" icon={<TagIcon role="presentation" />}>
-            Red
-          </Tag>
-          <Tag color="purple" icon={<TagIcon role="presentation" />}>
-            Purple
-          </Tag>
+          {colors.map(color => (
+            <Tag icon={<TagIcon role="presentation" />} color={color}>
+              {color.charAt(0).toUpperCase() + color.slice(1)}
+            </Tag>
+          ))}
         </List>
       </StickerSheet.Row>
     </StickerSheet.Body>
