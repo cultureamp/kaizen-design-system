@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Tag } from ".."
 
 export default {
-  title: "KAIO-staging/Tag",
+  title: "Components/Tag",
   component: Tag,
 } satisfies Meta<typeof Tag>
 
