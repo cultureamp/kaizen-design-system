@@ -3,6 +3,7 @@ import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { MultiSelectOptionField } from "./subcomponents/MultiSelectOptionField"
 import { MultiSelectToggle } from "./subcomponents/MultiSelectToggle"
 import { Popover, useFloating } from "./subcomponents/Popover"
 import styles from "./MultiSelect.module.scss"
@@ -59,8 +60,33 @@ export const MultiSelect = ({
             noIsolation: true,
           }}
         >
-          <button type="button">Auto focus please!</button>
-          Hello, is it me your looking for?
+          <MultiSelectOptionField
+            id={`${id}--option-1`}
+            option={{
+              label: "Waffle",
+              value: "waffle",
+            }}
+            onChange={undefined}
+            checkedStatus="unchecked"
+          />
+          <MultiSelectOptionField
+            id={`${id}--option-2`}
+            option={{
+              label: "Pancake",
+              value: "pancake",
+            }}
+            onChange={undefined}
+            checkedStatus="checked"
+          />
+          <MultiSelectOptionField
+            id={`${id}--option-2`}
+            option={{
+              label: "Flapjack",
+              value: "flapjack",
+            }}
+            onChange={undefined}
+            checkedStatus="indeterminate"
+          />
         </Popover>
       )}
       {/* Description */}

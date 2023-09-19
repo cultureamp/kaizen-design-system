@@ -29,7 +29,9 @@ export const MultiSelectOptionField = ({
       checkedStatus={checkedStatus}
       onChange={onChange}
       value={option.value}
-      classNameOverride={styles.checkbox}
+      classNameOverride={classnames(styles.checkbox, [
+        checkedStatus !== "unchecked" && styles.checked,
+      ])}
     />
     <label htmlFor={id} className={styles.label}>
       {option.label}
