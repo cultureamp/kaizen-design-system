@@ -3,14 +3,17 @@ import classNames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Tag.module.scss"
 
-export type TagColors =
-  | "gray"
-  | "blue"
-  | "green"
-  | "yellow"
-  | "orange"
-  | "red"
-  | "purple"
+export const TagColorKeys = [
+  "gray",
+  "blue",
+  "green",
+  "yellow",
+  "orange",
+  "red",
+  "purple",
+] as const
+
+export type TagColors = (typeof TagColorKeys)[number]
 
 export interface TagProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
