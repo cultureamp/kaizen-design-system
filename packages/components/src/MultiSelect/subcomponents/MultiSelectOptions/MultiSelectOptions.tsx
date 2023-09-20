@@ -9,11 +9,15 @@ import { VisuallyHidden } from "@kaizen/a11y"
 export type MultiSelectOptionsProps = {
   id: string
   options: MultiSelectOption[]
-} & OverrideClassName<HTMLAttributes<HTMLFieldSetElement>>
+  selectedValues: MultiSelectOption["value"][]
+  onChange: (selectedValues: MultiSelectOption["value"][]) => void
+} & OverrideClassName<Omit<HTMLAttributes<HTMLFieldSetElement>, "onChange">>
 
 export const MultiSelectOptions = ({
   id,
   options,
+  selectedValues,
+  onChange,
   classNameOverride,
   ...restProps
 }: MultiSelectOptionsProps): JSX.Element => {
@@ -35,8 +39,16 @@ export const MultiSelectOptions = ({
         options.map(option => (
           <MultiSelectOptionField
             id={`${id}--${option.value}`}
-            onChange={() => undefined}
-            checkedStatus="unchecked"
+            onChange={() => {
+              const isCurrentlySelected = selectedValues.includes(option.value)
+              const newValues = isCurrentlySelected
+                ? selectedValues.filter(v => v !== option.value)
+                : [...selectedValues, option.value]
+              onChange(newValues)
+            }}
+            checkedStatus={
+              selectedValues.includes(option.value) ? "checked" : "unchecked"
+            }
             option={option}
           />
         ))

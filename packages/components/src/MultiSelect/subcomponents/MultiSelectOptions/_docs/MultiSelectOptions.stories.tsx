@@ -6,6 +6,7 @@ const meta = {
   component: MultiSelectOptions,
   args: {
     id: "id--multi-select-options",
+    selectedValues: ["pancakes"],
     options: [
       {
         label: "Pancakes",

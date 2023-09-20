@@ -1,4 +1,5 @@
 export type MultiSelectOption = {
   label: string
-  value: string | number
+  // Used for "value" attribute in option - must be unique
+  value: React.Key
 }

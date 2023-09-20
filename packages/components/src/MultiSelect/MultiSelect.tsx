@@ -3,10 +3,10 @@ import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { MultiSelectOptionField } from "./subcomponents/MultiSelectOptionField"
 import { MultiSelectToggle } from "./subcomponents/MultiSelectToggle"
 import { Popover, useFloating } from "./subcomponents/Popover"
 import styles from "./MultiSelect.module.scss"
+import { MultiSelectOptions } from "./subcomponents/MultiSelectOptions"
 
 export type MultiSelectProps = {
   label: string
@@ -20,6 +20,7 @@ export const MultiSelect = ({
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [selectedValues, setSelectedValues] = useState<React.Key[]>([])
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
 
@@ -59,33 +60,26 @@ export const MultiSelect = ({
             shards: [toggleButtonRef],
             noIsolation: true,
           }}
+          classNameOverride={styles.popover}
         >
-          <MultiSelectOptionField
-            id={`${id}--option-1`}
-            option={{
-              label: "Waffle",
-              value: "waffle",
-            }}
-            onChange={undefined}
-            checkedStatus="unchecked"
-          />
-          <MultiSelectOptionField
-            id={`${id}--option-2`}
-            option={{
-              label: "Pancake",
-              value: "pancake",
-            }}
-            onChange={undefined}
-            checkedStatus="checked"
-          />
-          <MultiSelectOptionField
-            id={`${id}--option-2`}
-            option={{
-              label: "Flapjack",
-              value: "flapjack",
-            }}
-            onChange={undefined}
-            checkedStatus="indeterminate"
+          <MultiSelectOptions
+            id={`${id}--options`}
+            options={[
+              {
+                label: "Pancakes",
+                value: "pancakes",
+              },
+              {
+                label: "Waffle",
+                value: "waffle",
+              },
+              {
+                label: "Toastie",
+                value: "toastie",
+              },
+            ]}
+            onChange={setSelectedValues}
+            selectedValues={selectedValues}
           />
         </Popover>
       )}
