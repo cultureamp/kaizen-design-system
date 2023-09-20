@@ -9,9 +9,9 @@ export default {
   component: Tag,
 } satisfies Meta<typeof Tag>
 
-export const Playground: StoryFn<typeof Tag> = args => (
-  <Tag {...args}>My tag</Tag>
-)
+export const Playground: StoryObj = {
+  render: args => <Tag {...args}>My tag</Tag>,
+}
 
 export const SimpleTag: StoryObj = {
   render: args => <Tag {...args}>My Tag</Tag>,
