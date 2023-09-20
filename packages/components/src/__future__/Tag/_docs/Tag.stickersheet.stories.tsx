@@ -1,18 +1,11 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { TagIcon } from "~components/Icons"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { Tag, TagColors } from "../Tag"
-
-type ListProps = {
-  children: React.ReactNode
-}
-const List = ({ children }: ListProps): JSX.Element => (
-  <div className="flex flex-col gap-12 items-start">{children}</div>
-)
 
 export default {
   title: "Components/Tag",
