@@ -21,7 +21,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Header headings={["Label Only", "Icon"]} />
       <StickerSheet.Body>
         {TagColorKeys.map(color => (
-          <StickerSheet.Row>
+          <StickerSheet.Row key={color}>
             <Tag color={color}>
               {color.charAt(0).toUpperCase() + color.slice(1)}
             </Tag>

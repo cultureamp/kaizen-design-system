@@ -1,7 +1,7 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
-import { Tag, TagColorKeys } from ".."
+import { Meta, StoryObj } from "@storybook/react"
 import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icons"
+import { Tag, TagColorKeys } from ".."
 import styles from "./TagStories.module.scss"
 
 export default {
@@ -22,33 +22,29 @@ export const Children: StoryObj = {
 }
 
 export const Color: StoryObj = {
-  render: _args => {
-    return (
-      <>
-        {TagColorKeys.map(color => (
-          <Tag color={color} icon={<TagIcon role="presentation" />}>
-            {color}
-          </Tag>
-        ))}
-      </>
-    )
-  },
+  render: _args => (
+    <>
+      {TagColorKeys.map(color => (
+        <Tag color={color} icon={<TagIcon role="presentation" />} key={color}>
+          {color}
+        </Tag>
+      ))}
+    </>
+  ),
 }
 
 export const Icon: StoryObj = {
-  render: _args => {
-    return (
-      <>
-        <Tag icon={<AcademyIcon role="presentation" />}>AcademyIcon</Tag>
-        <Tag color="yellow" icon={<ActionOffIcon role="presentation" />}>
-          ActionOffIcon
-        </Tag>
-        <Tag color="green" icon={<AddIcon role="presentation" />}>
-          AddIcon
-        </Tag>
-      </>
-    )
-  },
+  render: _args => (
+    <>
+      <Tag icon={<AcademyIcon role="presentation" />}>AcademyIcon</Tag>
+      <Tag color="yellow" icon={<ActionOffIcon role="presentation" />}>
+        ActionOffIcon
+      </Tag>
+      <Tag color="green" icon={<AddIcon role="presentation" />}>
+        AddIcon
+      </Tag>
+    </>
+  ),
 }
 
 export const ClassNameOverride: StoryObj = {
