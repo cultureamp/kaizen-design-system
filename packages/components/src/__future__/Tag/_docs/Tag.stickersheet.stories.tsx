@@ -1,7 +1,10 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { TagIcon } from "~components/Icons"
-import { StickerSheet } from "~storybook/components/StickerSheet"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Tag, TagColors } from "../Tag"
 
 type ListProps = {
@@ -28,35 +31,38 @@ const colors: TagColors[] = [
   "red",
   "purple",
 ]
-const StickerSheetTemplate: StoryFn = () => (
-  <StickerSheet heading="Tag">
-    <StickerSheet.Header headings={["Label Only", "Icon"]} />
-    <StickerSheet.Body>
-      {colors.map(color => (
-        <StickerSheet.Row>
-          <Tag color={color}>
-            {color.charAt(0).toUpperCase() + color.slice(1)}
-          </Tag>
-          <Tag icon={<TagIcon role="presentation" />} color={color}>
-            {color.charAt(0).toUpperCase() + color.slice(1)}
-          </Tag>
-        </StickerSheet.Row>
-      ))}
-    </StickerSheet.Body>
-  </StickerSheet>
-)
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
+const StickerSheetTemplate: StickerSheetStory = {
+  render: () => (
+    <StickerSheet heading="Tag">
+      <StickerSheet.Header headings={["Label Only", "Icon"]} />
+      <StickerSheet.Body>
+        {colors.map(color => (
+          <StickerSheet.Row>
+            <Tag color={color}>
+              {color.charAt(0).toUpperCase() + color.slice(1)}
+            </Tag>
+            <Tag icon={<TagIcon role="presentation" />} color={color}>
+              {color.charAt(0).toUpperCase() + color.slice(1)}
+            </Tag>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
+  ),
 }
 
-export const StickerSheetRTL = StickerSheetTemplate.bind({})
-StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
-StickerSheetRTL.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-  textDirection: "rtl",
+export const StickerSheetDefault: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
+  parameters: {
+    controls: { disable: true },
+  },
+}
+
+export const StickerSheetRTL: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (RTL)",
+  parameters: {
+    textDirection: "rtl",
+  },
 }
