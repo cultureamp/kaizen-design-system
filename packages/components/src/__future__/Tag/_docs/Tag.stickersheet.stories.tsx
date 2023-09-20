@@ -32,22 +32,16 @@ const StickerSheetTemplate: StoryFn = () => (
   <StickerSheet heading="Tag">
     <StickerSheet.Header headings={["Label Only", "Icon"]} />
     <StickerSheet.Body>
-      <StickerSheet.Row>
-        <List>
-          {colors.map(color => (
-            <Tag color={color}>
-              {color.charAt(0).toUpperCase() + color.slice(1)}
-            </Tag>
-          ))}
-        </List>
-        <List>
-          {colors.map(color => (
-            <Tag icon={<TagIcon role="presentation" />} color={color}>
-              {color.charAt(0).toUpperCase() + color.slice(1)}
-            </Tag>
-          ))}
-        </List>
-      </StickerSheet.Row>
+      {colors.map(color => (
+        <StickerSheet.Row>
+          <Tag color={color}>
+            {color.charAt(0).toUpperCase() + color.slice(1)}
+          </Tag>
+          <Tag icon={<TagIcon role="presentation" />} color={color}>
+            {color.charAt(0).toUpperCase() + color.slice(1)}
+          </Tag>
+        </StickerSheet.Row>
+      ))}
     </StickerSheet.Body>
   </StickerSheet>
 )
