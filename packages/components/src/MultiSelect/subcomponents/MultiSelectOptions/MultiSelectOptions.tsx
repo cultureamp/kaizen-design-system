@@ -38,6 +38,7 @@ export const MultiSelectOptions = ({
       ) : (
         options.map(option => (
           <MultiSelectOptionField
+            key={option.value}
             id={`${id}--${option.value}`}
             onChange={() => {
               const isCurrentlySelected = selectedValues.includes(option.value)
