@@ -1,16 +1,16 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
+import { VisuallyHidden } from "@kaizen/a11y"
 import { OverrideClassName } from "~types/OverrideClassName"
-import styles from "./MultiSelectOptions.module.scss"
 import { MultiSelectOption } from "../../types"
 import { MultiSelectOptionField } from "../MultiSelectOptionField"
-import { VisuallyHidden } from "@kaizen/a11y"
+import styles from "./MultiSelectOptions.module.scss"
 
 export type MultiSelectOptionsProps = {
   id: string
   options: MultiSelectOption[]
-  selectedValues: MultiSelectOption["value"][]
-  onChange: (selectedValues: MultiSelectOption["value"][]) => void
+  selectedValues: Set<MultiSelectOption["value"]>
+  onChange: (selectedValues: Set<MultiSelectOption["value"]>) => void
 } & OverrideClassName<Omit<HTMLAttributes<HTMLFieldSetElement>, "onChange">>
 
 export const MultiSelectOptions = ({
@@ -22,6 +22,18 @@ export const MultiSelectOptions = ({
   ...restProps
 }: MultiSelectOptionsProps): JSX.Element => {
   const optionsCountId = `${id}--options-count`
+
+  const handleOptionChange = (
+    optionValue: MultiSelectOption["value"]
+  ): void => {
+    const newValues = new Set(selectedValues.values())
+    if (newValues.has(optionValue)) {
+      newValues.delete(optionValue)
+    } else {
+      newValues.add(optionValue)
+    }
+    onChange(newValues)
+  }
 
   return (
     <fieldset
@@ -40,15 +52,9 @@ export const MultiSelectOptions = ({
           <MultiSelectOptionField
             key={option.value}
             id={`${id}--${option.value}`}
-            onChange={() => {
-              const isCurrentlySelected = selectedValues.includes(option.value)
-              const newValues = isCurrentlySelected
-                ? selectedValues.filter(v => v !== option.value)
-                : [...selectedValues, option.value]
-              onChange(newValues)
-            }}
+            onChange={() => handleOptionChange(option.value)}
             checkedStatus={
-              selectedValues.includes(option.value) ? "checked" : "unchecked"
+              selectedValues.has(option.value) ? "checked" : "unchecked"
             }
             option={option}
           />

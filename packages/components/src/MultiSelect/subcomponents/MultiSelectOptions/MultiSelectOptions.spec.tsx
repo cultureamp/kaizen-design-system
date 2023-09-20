@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import {
@@ -26,15 +26,23 @@ const testOptions = [
 
 const MultiSelectOptionsWrapper = (
   customProps?: Partial<MultiSelectOptionsProps>
-): JSX.Element => (
-  <MultiSelectOptions
-    id="id--options"
-    options={testOptions}
-    selectedValues={[]}
-    onChange={onChange}
-    {...customProps}
-  />
-)
+): JSX.Element => {
+  const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
+    customProps?.selectedValues ?? new Set()
+  )
+  return (
+    <MultiSelectOptions
+      id="id--options"
+      options={testOptions}
+      {...customProps}
+      selectedValues={selectedValues}
+      onChange={newValues => {
+        setSelectedValues(newValues)
+        onChange(newValues)
+      }}
+    />
+  )
+}
 
 describe("<MultiSelectOptions />", () => {
   afterEach(() => {
@@ -66,7 +74,7 @@ describe("<MultiSelectOptions />", () => {
 
     it("renders the correct checked status for each option", () => {
       const { getAllByRole } = render(
-        <MultiSelectOptionsWrapper selectedValues={["waffle"]} />
+        <MultiSelectOptionsWrapper selectedValues={new Set(["waffle"])} />
       )
       const options = getAllByRole("checkbox")
       expect(options[0]).not.toBeChecked()
@@ -75,24 +83,40 @@ describe("<MultiSelectOptions />", () => {
     })
 
     it("returns updated selected values when selecting an option", async () => {
-      const { getByRole } = render(
-        <MultiSelectOptionsWrapper selectedValues={["pancakes"]} />
+      const { getByRole, queryAllByRole } = render(
+        <MultiSelectOptionsWrapper selectedValues={new Set(["pancakes"])} />
       )
+      expect(queryAllByRole("presentation", { hidden: true }).length).toBe(1)
+
       const waffleOption = getByRole("checkbox", { name: "Waffle" })
+      expect(waffleOption).not.toBeChecked()
+
       await user.click(waffleOption)
+
       await waitFor(() => {
-        expect(onChange).toBeCalledWith(["pancakes", "waffle"])
+        expect(onChange).toBeCalledWith(new Set(["pancakes", "waffle"]))
+        expect(waffleOption).toBeChecked()
+        expect(queryAllByRole("presentation", { hidden: true }).length).toBe(2)
       })
     })
 
     it("returns updated selected values when unselecting an option", async () => {
-      const { getByRole } = render(
-        <MultiSelectOptionsWrapper selectedValues={["pancakes", "waffle"]} />
+      const { getByRole, queryAllByRole } = render(
+        <MultiSelectOptionsWrapper
+          selectedValues={new Set(["pancakes", "waffle"])}
+        />
       )
+      expect(queryAllByRole("presentation", { hidden: true }).length).toBe(2)
+
       const waffleOption = getByRole("checkbox", { name: "Waffle" })
+      expect(waffleOption).toBeChecked()
+
       await user.click(waffleOption)
+
       await waitFor(() => {
-        expect(onChange).toBeCalledWith(["pancakes"])
+        expect(onChange).toBeCalledWith(new Set(["pancakes"]))
+        expect(waffleOption).not.toBeChecked()
+        expect(queryAllByRole("presentation", { hidden: true }).length).toBe(1)
       })
     })
   })
