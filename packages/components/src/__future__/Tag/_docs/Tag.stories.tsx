@@ -15,7 +15,17 @@ const meta = {
 
 export default meta
 
-export const Playground: StoryObj = {}
+type Story = StoryObj<typeof meta>
+
+export const Playground: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+}
 
 export const Children: StoryObj = {
   args: { children: "This text is the children" },
