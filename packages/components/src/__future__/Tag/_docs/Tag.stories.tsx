@@ -1,9 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icons"
-import { Tag } from ".."
 import { TagColorKeys } from "../types"
-import styles from "./TagStories.module.scss"
+import { Tag } from ".."
 
 const meta = {
   title: "Components/Tag",
