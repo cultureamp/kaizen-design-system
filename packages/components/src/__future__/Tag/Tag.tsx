@@ -2,18 +2,7 @@ import React, { ReactNode, HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Tag.module.scss"
-
-export const TagColorKeys = [
-  "gray",
-  "blue",
-  "green",
-  "yellow",
-  "orange",
-  "red",
-  "purple",
-] as const
-
-export type TagColors = (typeof TagColorKeys)[number]
+import { TagColors } from "./types"
 
 export interface TagProps
   extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
@@ -37,3 +26,5 @@ export const Tag = ({
 )
 
 Tag.displayName = "Tag"
+
+export { TagColors }

@@ -5,7 +5,8 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Tag, TagColorKeys } from "../Tag"
+import { Tag } from "../Tag"
+import { TagColorKeys } from "../types"
 
 export default {
   title: "Components/Tag",
