@@ -5,25 +5,24 @@ import { Tag } from ".."
 import { TagColorKeys } from "../types"
 import styles from "./TagStories.module.scss"
 
-export default {
+const meta = {
   title: "Components/Tag",
   component: Tag,
+  args: {
+    children: "My tag",
+  },
 } satisfies Meta<typeof Tag>
 
-export const Playground: StoryObj = {
-  render: args => <Tag {...args}>My tag</Tag>,
-}
+export default meta
 
-export const SimpleTag: StoryObj = {
-  render: args => <Tag {...args}>My Tag</Tag>,
-}
+export const Playground: StoryObj = {}
 
 export const Children: StoryObj = {
-  render: args => <Tag {...args}>This text is the children</Tag>,
+  args: { children: "This text is the children" },
 }
 
 export const Color: StoryObj = {
-  render: _args => (
+  render: () => (
     <>
       {TagColorKeys.map(color => (
         <Tag color={color} icon={<TagIcon role="presentation" />} key={color}>
@@ -35,7 +34,7 @@ export const Color: StoryObj = {
 }
 
 export const Icon: StoryObj = {
-  render: _args => (
+  render: () => (
     <>
       <Tag icon={<AcademyIcon role="presentation" />}>AcademyIcon</Tag>
       <Tag color="yellow" icon={<ActionOffIcon role="presentation" />}>
@@ -49,5 +48,7 @@ export const Icon: StoryObj = {
 }
 
 export const ClassNameOverride: StoryObj = {
-  render: _args => <Tag classNameOverride={styles.myCustomClass}>Hello</Tag>,
+  args: {
+    classNameOverride: "border-red-500 border-solid border-",
+  },
 }
