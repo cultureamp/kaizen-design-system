@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0.3rem $spacing-8 0.3rem $spacing-8;
-  gap: 0.25rem;
+  gap: $spacing-4;
   border-radius: 28px;
   font-family: $typography-paragraph-intro-lede-font-family;
   font-size: $typography-paragraph-small-font-size;
