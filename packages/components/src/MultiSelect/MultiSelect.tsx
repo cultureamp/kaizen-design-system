@@ -3,26 +3,33 @@ import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { MultiSelectOptions } from "./subcomponents/MultiSelectOptions"
+import {
+  MultiSelectOptions,
+  MultiSelectOptionsProps,
+} from "./subcomponents/MultiSelectOptions"
 import { MultiSelectToggle } from "./subcomponents/MultiSelectToggle"
 import { Popover, useFloating } from "./subcomponents/Popover"
 import styles from "./MultiSelect.module.scss"
 
 export type MultiSelectProps = {
   label: string
+  options: MultiSelectOptionsProps["options"]
+  selectedValues: MultiSelectOptionsProps["selectedValues"]
+  onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelect = ({
-  label,
   id: propsId,
+  label,
+  options,
+  selectedValues,
+  onSelectedValuesChange,
   classNameOverride,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
-    new Set()
-  )
+
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
 
@@ -66,21 +73,8 @@ export const MultiSelect = ({
         >
           <MultiSelectOptions
             id={`${id}--options`}
-            options={[
-              {
-                label: "Pancakes",
-                value: "pancakes",
-              },
-              {
-                label: "Waffle",
-                value: "waffle",
-              },
-              {
-                label: "Toastie",
-                value: "toastie",
-              },
-            ]}
-            onChange={setSelectedValues}
+            options={options}
+            onChange={onSelectedValuesChange}
             selectedValues={selectedValues}
           />
         </Popover>
