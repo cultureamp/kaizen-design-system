@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Meta } from "@storybook/react"
 import {
   StickerSheet,
@@ -14,23 +14,60 @@ export default {
   },
 } satisfies Meta
 
+const options = [
+  {
+    label: "Pancakes",
+    value: "pancakes",
+  },
+  {
+    label: "Waffle",
+    value: "waffle",
+  },
+  {
+    label: "Toastie",
+    value: "toastie",
+  },
+]
+
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <StickerSheet
-      isReversed={isReversed}
-      heading="MultiSelect"
-      className="w-full"
-    >
-      <StickerSheet.Header headings={["Closed", "Open"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <MultiSelect label="Jalapeno" />
-          {/* @TODO: Update this when open works wew >:] */}
-          <MultiSelect label="Jalapeno" />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-  ),
+  render: () => {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
+      new Set()
+    )
+    const [isOpen2, setIsOpen2] = useState<boolean>(true)
+    const [selectedValues2, setSelectedValues2] = useState<Set<React.Key>>(
+      new Set()
+    )
+
+    return (
+      <StickerSheet heading="MultiSelect" className="w-full">
+        <StickerSheet.Header headings={["Closed", "Open"]} />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <MultiSelect
+              id="id--multi-select-options"
+              label="Jalapeno"
+              isOpen={isOpen}
+              onOpenChange={setIsOpen}
+              onSelectedValuesChange={setSelectedValues}
+              selectedValues={selectedValues}
+              options={options}
+            />
+            <MultiSelect
+              id="id--multi-select-options-2"
+              label="Jalapeno open"
+              isOpen={isOpen2}
+              onOpenChange={setIsOpen2}
+              onSelectedValuesChange={setSelectedValues2}
+              selectedValues={selectedValues2}
+              options={options}
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+    )
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {

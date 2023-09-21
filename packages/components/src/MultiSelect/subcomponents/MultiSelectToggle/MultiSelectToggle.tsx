@@ -28,8 +28,7 @@ export const MultiSelectToggle = forwardRef<
     ref
   ): JSX.Element => {
     /* eslint-disable no-console */
-    const handleSelectedOptionClick: React.MouseEventHandler = e => {
-      e.stopPropagation()
+    const handleSelectedOptionClick: React.MouseEventHandler = () => {
       console.log(">:]")
     }
     const handleClearAllOptionsClick: React.MouseEventHandler = e => {
@@ -74,7 +73,9 @@ export const MultiSelectToggle = forwardRef<
             {/* list-style: none removes role="list" in Safari */}
             {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
             <ul role="list" className={styles.selectedItems}>
-              <li>
+              {/* This stops the underlying toggle collapsing the popover when interactive with Tags */}
+              {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */}
+              <li onClick={e => e.stopPropagation()}>
                 <span className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
                   Waffle
                   <ClearButton

@@ -1,11 +1,43 @@
-import React from "react"
+import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MultiSelect, MultiSelectProps } from "./MultiSelect"
 
-const MultiSelectWrapper = (
-  customProps?: Partial<MultiSelectProps>
-): JSX.Element => <MultiSelect label="Jalapeno" {...customProps} />
+const defaultOptions = [
+  {
+    label: "Pancakes",
+    value: "pancakes",
+  },
+  {
+    label: "Waffle",
+    value: "waffle",
+  },
+  {
+    label: "Toastie",
+    value: "toastie",
+  },
+]
+
+const MultiSelectWrapper = ({
+  isOpen: propsIsOpen = false,
+  selectedValues: propsSelectedValues = new Set(),
+  ...otherProps
+}: Partial<MultiSelectProps>): JSX.Element => {
+  const [selectedValues, setSelectedValues] =
+    useState<Set<React.Key>>(propsSelectedValues)
+  const [isOpen, setIsOpen] = useState<boolean>(propsIsOpen)
+  return (
+    <MultiSelect
+      options={defaultOptions}
+      label="Jalapeno"
+      {...otherProps}
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
+      selectedValues={selectedValues}
+      onSelectedValuesChange={setSelectedValues}
+    />
+  )
+}
 
 const user = userEvent.setup()
 
@@ -13,7 +45,14 @@ describe("<MultiSelect />", () => {
   describe("id", () => {
     it("uses the consumer-provided id", async () => {
       const { getByTestId, getByRole } = render(
-        <MultiSelectWrapper data-testid="test-id--waffle" id="waffle" />
+        <MultiSelectWrapper
+          id="waffle"
+          label="Jalapeno"
+          options={defaultOptions}
+          isOpen={false}
+          selectedValues={new Set()}
+          data-testid="test-id--waffle"
+        />
       )
       const toggleButton = getByRole("button", { name: "Jalapeno" })
       await user.click(toggleButton)
@@ -151,7 +190,11 @@ describe("<MultiSelect />", () => {
   describe("Focus lock", () => {
     describe("When open", () => {
       it("restricts focusable elements to toggle button and popover contents", async () => {
-        const { getByRole } = render(<MultiSelectWrapper />)
+        const { getByRole } = render(
+          <MultiSelectWrapper
+            options={[{ label: "Pancakes", value: "pancakes" }]}
+          />
+        )
         const toggleButton = getByRole("button", { name: "Jalapeno" })
 
         await user.click(toggleButton)
@@ -161,9 +204,7 @@ describe("<MultiSelect />", () => {
 
         await user.tab()
         await waitFor(() => {
-          expect(
-            getByRole("button", { name: "Auto focus please!" })
-          ).toHaveFocus()
+          expect(getByRole("checkbox", { name: "Pancakes" })).toHaveFocus()
         })
 
         await user.tab()

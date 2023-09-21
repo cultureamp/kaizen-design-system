@@ -8,6 +8,7 @@ const meta = {
   args: {
     label: "Jalapeno",
     selectedValues: new Set(),
+    isOpen: false,
     options: [
       {
         label: "Pancakes",
@@ -34,12 +35,15 @@ const MultiSelectTemplate: Story = {
     const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
       new Set()
     )
+    const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
 
     return (
       <MultiSelect
         {...args}
         selectedValues={selectedValues}
         onSelectedValuesChange={setSelectedValues}
+        isOpen={isOpen}
+        onOpenChange={setIsOpen}
       />
     )
   },

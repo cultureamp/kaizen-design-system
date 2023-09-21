@@ -16,6 +16,8 @@ export type MultiSelectProps = {
   options: MultiSelectOptionsProps["options"]
   selectedValues: MultiSelectOptionsProps["selectedValues"]
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
+  isOpen: boolean
+  onOpenChange: (isOpen: boolean) => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelect = ({
@@ -24,22 +26,26 @@ export const MultiSelect = ({
   options,
   selectedValues,
   onSelectedValuesChange,
+  isOpen,
+  onOpenChange,
   classNameOverride,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
-  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
 
-  const handleToggleClick = (): void => setIsOpen(!isOpen)
-  const handleClose = (): void => setIsOpen(false)
+  const handleToggleClick = (): void => onOpenChange(!isOpen)
+  const handleClose = (): void => onOpenChange(false)
 
   const onClickOutside: ReactFocusOnProps["onClickOutside"] = e => {
     const toggle = refs.reference.current as Node
     const isInToggle = toggle.contains(e.target as HTMLElement)
-    if (!isInToggle) handleClose()
+    if (!isInToggle) {
+      e.stopPropagation()
+      handleClose()
+    }
   }
 
   return (
