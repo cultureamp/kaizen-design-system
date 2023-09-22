@@ -85,6 +85,7 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, &#{$story-class
   list-style: none;
 }
 
+// @todo: Remove this when Tag colour is fixed
 .selectedItemTag {
   background-color: $color-gray-300;
 }
