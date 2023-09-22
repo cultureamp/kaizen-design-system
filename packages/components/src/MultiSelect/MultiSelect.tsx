@@ -49,6 +49,14 @@ export const MultiSelect = ({
     }
   }
 
+  const itemsMap = items.reduce(
+    (acc, item) => {
+      acc[item.value] = item
+      return acc
+    },
+    {} as Record<MultiSelectOption["value"], MultiSelectOption>
+  )
+
   return (
     <div id={id} className={classnames(classNameOverride)} {...restProps}>
       <Heading tag="span" variant="heading-6" id={`${id}--label`}>
@@ -63,8 +71,8 @@ export const MultiSelect = ({
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
-          selectedOptions={items.filter(({ value }) =>
-            selectedValues.has(value)
+          selectedOptions={Array.from(selectedValues).map(
+            value => itemsMap[value]
           )}
         />
       </div>

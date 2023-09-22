@@ -242,4 +242,23 @@ describe("<MultiSelect />", () => {
       })
     })
   })
+
+  it("shows selected items in the selected order", async () => {
+    const { getByRole, getAllByRole } = render(
+      <MultiSelectWrapper
+        id="jalapeno"
+        selectedValues={new Set(["toastie"])}
+        isOpen
+      />
+    )
+    const waffleOption = getByRole("checkbox", { name: "Waffle" })
+    await user.click(waffleOption)
+
+    await waitFor(() => {
+      const selectedItemsTags = getAllByRole("listitem")
+      expect(selectedItemsTags.length).toBe(2)
+      expect(selectedItemsTags[0]).toHaveTextContent("Toastie")
+      expect(selectedItemsTags[1]).toHaveTextContent("Waffle")
+    })
+  })
 })
