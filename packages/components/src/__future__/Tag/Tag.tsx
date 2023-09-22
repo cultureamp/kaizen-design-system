@@ -26,7 +26,7 @@ export const Tag = ({
 }: TagProps): JSX.Element => (
   <span
     className={classNames(
-      "inline-flex items-center px-8 py-[5px] gap-4 rounded-[28px] font-family-paragraph text-paragraph-sm font-weight-paragraph leading-paragraph-sm whitespace-nowrap",
+      "inline-flex items-center px-8 py-[4px] gap-4 rounded-[28px] font-family-paragraph text-paragraph-sm font-weight-paragraph leading-paragraph-sm whitespace-nowrap",
       {
         ["bg-gray-200 text-purple-800"]: color === "gray",
         ["bg-blue-100 text-blue-700"]: color === "blue",
