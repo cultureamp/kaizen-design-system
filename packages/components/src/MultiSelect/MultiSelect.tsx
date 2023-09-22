@@ -1,4 +1,4 @@
-import React, { useState, HTMLAttributes, useRef, useId } from "react"
+import React, { HTMLAttributes, useRef, useId } from "react"
 import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { Heading } from "~components/Heading"
@@ -9,12 +9,13 @@ import {
 } from "./subcomponents/MultiSelectOptions"
 import { MultiSelectToggle } from "./subcomponents/MultiSelectToggle"
 import { Popover, useFloating } from "./subcomponents/Popover"
+import { MultiSelectOption } from "./types"
 import styles from "./MultiSelect.module.scss"
 
 export type MultiSelectProps = {
   label: string
   options: MultiSelectOptionsProps["options"]
-  selectedValues: MultiSelectOptionsProps["selectedValues"]
+  selectedValues: Set<MultiSelectOption["value"]>
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
@@ -62,6 +63,9 @@ export const MultiSelect = ({
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
+          selectedOptions={options.filter(({ value }) =>
+            selectedValues.has(value)
+          )}
         />
       </div>
 

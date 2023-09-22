@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { MultiSelect } from "../index"
 
@@ -33,9 +33,13 @@ type Story = StoryObj<typeof meta>
 const MultiSelectTemplate: Story = {
   render: args => {
     const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
-      new Set()
+      new Set(args.selectedValues)
     )
     const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
+
+    useEffect(() => {
+      setIsOpen(args.isOpen)
+    }, [args.isOpen])
 
     return (
       <MultiSelect

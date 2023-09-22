@@ -13,6 +13,7 @@ const MultiSelectToggleWrapper = (
   <>
     <span id="id--label">Waffle</span>
     <MultiSelectToggle
+      selectedOptions={[]}
       onClick={onClick}
       isOpen={false}
       aria-labelledby="id--label"
@@ -66,21 +67,40 @@ describe("<MultiSelectToggle />", () => {
     })
   })
 
-  it("does not call onClick when clearing a single selected item", async () => {
-    const { getByRole } = render(<MultiSelectToggleWrapper />)
-
-    await user.click(getByRole("button", { name: "Clear waffle" }))
-    await waitFor(() => {
-      expect(onClick).not.toHaveBeenCalled()
+  describe("Has no selected options", () => {
+    it("does not show the clear all button", () => {
+      const { queryByRole } = render(<MultiSelectToggleWrapper />)
+      expect(
+        queryByRole("button", { name: "Clear all waffles" })
+      ).not.toBeInTheDocument()
     })
   })
 
-  it("does not call onClick when clearing all selected items", async () => {
-    const { getByRole } = render(<MultiSelectToggleWrapper />)
+  describe("Has selected options", () => {
+    it("does not call onClick when clearing a single selected item", async () => {
+      const { getByRole } = render(
+        <MultiSelectToggleWrapper
+          selectedOptions={[{ value: "waffle", label: "Waffle" }]}
+        />
+      )
 
-    await user.click(getByRole("button", { name: "Clear all waffles" }))
-    await waitFor(() => {
-      expect(onClick).not.toHaveBeenCalled()
+      await user.click(getByRole("button", { name: "Clear waffle" }))
+      await waitFor(() => {
+        expect(onClick).not.toHaveBeenCalled()
+      })
+    })
+
+    it("does not call onClick when clearing all selected items", async () => {
+      const { getByRole } = render(
+        <MultiSelectToggleWrapper
+          selectedOptions={[{ value: "waffle", label: "Waffle" }]}
+        />
+      )
+
+      await user.click(getByRole("button", { name: "Clear all waffles" }))
+      await waitFor(() => {
+        expect(onClick).not.toHaveBeenCalled()
+      })
     })
   })
 })

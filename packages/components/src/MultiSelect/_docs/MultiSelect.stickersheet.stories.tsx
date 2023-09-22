@@ -42,7 +42,10 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <StickerSheet heading="MultiSelect" className="w-full">
-        <StickerSheet.Header headings={["Closed", "Open"]} />
+        <StickerSheet.Header
+          headings={["Closed", "Open"]}
+          headingsWidth="50%"
+        />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <MultiSelect

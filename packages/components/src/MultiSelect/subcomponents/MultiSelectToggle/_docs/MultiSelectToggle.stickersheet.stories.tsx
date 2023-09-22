@@ -31,6 +31,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <MultiSelectToggle
+              selectedOptions={[]}
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
@@ -38,6 +39,16 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Open">
             <MultiSelectToggle
+              selectedOptions={[]}
+              isOpen
+              aria-labelledby="id--label"
+              aria-controls="id--popover"
+              onClick={() => undefined}
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row rowTitle="Has selected values">
+            <MultiSelectToggle
+              selectedOptions={[{ value: "pancakes", label: "Pancakes" }]}
               isOpen
               aria-labelledby="id--label"
               aria-controls="id--popover"
@@ -59,12 +70,14 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Toggle">
             <MultiSelectToggle
+              selectedOptions={[]}
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
               classNameOverride="story__multi-select__toggle--hover"
             />
             <MultiSelectToggle
+              selectedOptions={[]}
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
@@ -73,12 +86,14 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Toggle Button">
             <MultiSelectToggle
+              selectedOptions={[]}
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
               classNameOverride="story__multi-select__toggle-button--hover"
             />
             <MultiSelectToggle
+              selectedOptions={[]}
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}

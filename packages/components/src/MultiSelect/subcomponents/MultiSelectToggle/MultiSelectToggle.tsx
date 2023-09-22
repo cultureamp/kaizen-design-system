@@ -3,12 +3,14 @@ import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icons"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { MultiSelectOption } from "../../types"
 import styles from "./MultiSelectToggle.module.scss"
 
 export type MultiSelectToggleProps = {
   onClick: React.MouseEventHandler
   ["aria-labelledby"]: string
   ["aria-controls"]: string
+  selectedOptions: MultiSelectOption[]
   isOpen?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -23,6 +25,7 @@ export const MultiSelectToggle = forwardRef<
       "aria-controls": ariaControls,
       isOpen = false,
       classNameOverride,
+      selectedOptions,
       ...restProps
     },
     ref
@@ -70,26 +73,32 @@ export const MultiSelectToggle = forwardRef<
           </button>
 
           <div className={styles.selectedItemsContainer}>
-            {/* list-style: none removes role="list" in Safari */}
-            {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-            <ul role="list" className={styles.selectedItems}>
-              {/* This stops the underlying toggle collapsing the popover when interactive with Tags */}
-              {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */}
-              <li onClick={e => e.stopPropagation()}>
-                <span className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
-                  Waffle
-                  <ClearButton
-                    aria-label="Clear waffle"
-                    onClick={handleSelectedOptionClick}
-                  />
-                </span>
-              </li>
-            </ul>
-            <ClearButton
-              aria-label="Clear all waffles"
-              classNameOverride={styles.clearAllButton}
-              onClick={handleClearAllOptionsClick}
-            />
+            {selectedOptions.length > 0 && (
+              <>
+                {/* list-style: none removes role="list" in Safari */}
+                {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+                <ul role="list" className={styles.selectedItems}>
+                  {selectedOptions.map(({ label, value }) => (
+                    // This stops the underlying toggle collapsing the popover when interactive with Tags
+                    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
+                    <li key={value} onClick={e => e.stopPropagation()}>
+                      <span className="inline-flex items-center bg-gray-200 h-[26px] border-solid box-border rounded-default">
+                        {label}
+                        <ClearButton
+                          aria-label="Clear waffle"
+                          onClick={handleSelectedOptionClick}
+                        />
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <ClearButton
+                  aria-label="Clear all waffles"
+                  classNameOverride={styles.clearAllButton}
+                  onClick={handleClearAllOptionsClick}
+                />
+              </>
+            )}
           </div>
         </div>
       </>

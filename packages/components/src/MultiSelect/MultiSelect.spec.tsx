@@ -170,7 +170,9 @@ describe("<MultiSelect />", () => {
     })
 
     it("does not close the popover when clearing selected options", async () => {
-      const { getByRole } = render(<MultiSelectWrapper />)
+      const { getByRole } = render(
+        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+      )
 
       const toggleButton = getByRole("button", { name: "Jalapeno" })
       await user.click(toggleButton)
@@ -215,7 +217,9 @@ describe("<MultiSelect />", () => {
 
       describe("When closed", () => {
         it("has expected focus order", async () => {
-          const { getByRole } = render(<MultiSelectWrapper />)
+          const { getByRole } = render(
+            <MultiSelectWrapper selectedValues={new Set(["waffle"])} />
+          )
           const toggleButton = getByRole("button", { name: "Jalapeno" })
 
           await user.tab()
