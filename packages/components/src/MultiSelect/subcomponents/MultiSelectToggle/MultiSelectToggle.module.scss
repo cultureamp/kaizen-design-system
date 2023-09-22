@@ -37,7 +37,7 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, &#{$story-class
 
   display: inline-flex;
   align-items: flex-start;
-  margin-top: 3px;
+  margin: 3px 0;
   color: rgba($color-purple-800-rgb, 0.7);
 
   #{$selectors--multi-select__toggle-button--hover} {
@@ -85,6 +85,10 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, &#{$story-class
   list-style: none;
 }
 
+.selectedItemTag {
+  background-color: $color-gray-300;
+}
+
 .clearAllButton {
-  margin-top: 3px;
+  margin: 3px 0;
 }
