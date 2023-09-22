@@ -49,29 +49,24 @@ describe("<MultiSelect />", () => {
           id="waffle"
           label="Jalapeno"
           items={defaultOptions}
-          isOpen={false}
           selectedValues={new Set()}
           data-testid="test-id--waffle"
+          isOpen
         />
       )
-      const toggleButton = getByRole("button", { name: "Jalapeno" })
-      await user.click(toggleButton)
 
       await waitFor(() => {
         expect(getByTestId("test-id--waffle")).toHaveAttribute("id", "waffle")
-        expect(toggleButton).toHaveAttribute("aria-labelledby", "waffle--label")
+        expect(getByRole("button", { name: "Jalapeno" })).toHaveAttribute("aria-labelledby", "waffle--label")
         expect(getByRole("dialog")).toHaveAttribute("id", "waffle--popover")
       })
     })
 
-    it("creates a fallback id when one is not provided", async () => {
+    it("creates a fallback id when one is not provided", () => {
       const { getByTestId } = render(
         <MultiSelectWrapper data-testid="test-id--waffle" />
       )
-
-      await waitFor(() => {
-        expect(getByTestId("test-id--waffle")).toHaveAttribute("id")
-      })
+      expect(getByTestId("test-id--waffle")).toHaveAttribute("id")
     })
   })
 
@@ -169,24 +164,26 @@ describe("<MultiSelect />", () => {
       })
     })
 
-    it("does not close the popover when clearing selected options", async () => {
-      const { getByRole } = render(
-        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
-      )
+  // @todo: Enable when adding functionality for removing selected item
+  // eslint-disable-next-line jest/no-commented-out-tests
+  //   it("does not close the popover when clearing selected options", async () => {
+  //     const { getByRole } = render(
+  //       <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+  //     )
 
-      const toggleButton = getByRole("button", { name: "Jalapeno" })
-      await user.click(toggleButton)
+  //     const toggleButton = getByRole("button", { name: "Jalapeno" })
+  //     await user.click(toggleButton)
 
-      const popover = getByRole("dialog")
-      await waitFor(() => {
-        expect(popover).toBeVisible()
-      })
+  //     const popover = getByRole("dialog")
+  //     await waitFor(() => {
+  //       expect(popover).toBeVisible()
+  //     })
 
-      await user.click(getByRole("button", { name: "Clear waffle" }))
-      await waitFor(() => {
-        expect(popover).toBeVisible()
-      })
-    })
+  //     await user.click(getByRole("button", { name: "Clear waffle" }))
+  //     await waitFor(() => {
+  //       expect(popover).toBeVisible()
+  //     })
+  //   })
   })
 
   describe("Focus lock", () => {
@@ -195,14 +192,11 @@ describe("<MultiSelect />", () => {
         const { getByRole } = render(
           <MultiSelectWrapper
             items={[{ label: "Pancakes", value: "pancakes" }]}
+            isOpen
           />
         )
         const toggleButton = getByRole("button", { name: "Jalapeno" })
-
-        await user.click(toggleButton)
-        await waitFor(() => {
-          expect(toggleButton).toHaveFocus()
-        })
+        expect(toggleButton).toHaveFocus()
 
         await user.tab()
         await waitFor(() => {
@@ -227,17 +221,19 @@ describe("<MultiSelect />", () => {
             expect(toggleButton).toHaveFocus()
           })
 
-          await user.tab()
-          await waitFor(() => {
-            expect(getByRole("button", { name: "Clear waffle" })).toHaveFocus()
-          })
+          // @todo: Enable when adding functionality for removing selected item
+          // await user.tab()
+          // await waitFor(() => {
+          //   expect(getByRole("button", { name: "Clear waffle" })).toHaveFocus()
+          // })
 
-          await user.tab()
-          await waitFor(() => {
-            expect(
-              getByRole("button", { name: "Clear all waffles" })
-            ).toHaveFocus()
-          })
+          // @todo: Enable when adding functionality for removing all selected items
+          // await user.tab()
+          // await waitFor(() => {
+          //   expect(
+          //     getByRole("button", { name: "Clear all waffles" })
+          //   ).toHaveFocus()
+          // })
         })
       })
     })
