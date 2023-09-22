@@ -14,7 +14,7 @@ import styles from "./MultiSelect.module.scss"
 
 export type MultiSelectProps = {
   label: string
-  options: MultiSelectOptionsProps["options"]
+  items: MultiSelectOptionsProps["options"]
   selectedValues: Set<MultiSelectOption["value"]>
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
@@ -24,7 +24,7 @@ export type MultiSelectProps = {
 export const MultiSelect = ({
   id: propsId,
   label,
-  options,
+  items,
   selectedValues,
   onSelectedValuesChange,
   isOpen,
@@ -63,7 +63,7 @@ export const MultiSelect = ({
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
-          selectedOptions={options.filter(({ value }) =>
+          selectedOptions={items.filter(({ value }) =>
             selectedValues.has(value)
           )}
         />
@@ -83,7 +83,7 @@ export const MultiSelect = ({
         >
           <MultiSelectOptions
             id={`${id}--options`}
-            options={options}
+            options={items}
             onChange={onSelectedValuesChange}
             selectedValues={selectedValues}
           />

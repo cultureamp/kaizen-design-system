@@ -9,7 +9,7 @@ const meta = {
     label: "Jalapeno",
     selectedValues: new Set(),
     isOpen: false,
-    options: [
+    items: [
       {
         label: "Pancakes",
         value: "pancakes",

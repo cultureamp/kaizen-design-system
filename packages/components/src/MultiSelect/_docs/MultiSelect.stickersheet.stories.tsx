@@ -55,7 +55,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               onOpenChange={setIsOpen}
               onSelectedValuesChange={setSelectedValues}
               selectedValues={selectedValues}
-              options={options}
+              items={options}
             />
             <MultiSelect
               id="id--multi-select-options-2"
@@ -64,7 +64,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               onOpenChange={setIsOpen2}
               onSelectedValuesChange={setSelectedValues2}
               selectedValues={selectedValues2}
-              options={options}
+              items={options}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>

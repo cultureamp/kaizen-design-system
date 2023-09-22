@@ -28,7 +28,7 @@ const MultiSelectWrapper = ({
   const [isOpen, setIsOpen] = useState<boolean>(propsIsOpen)
   return (
     <MultiSelect
-      options={defaultOptions}
+      items={defaultOptions}
       label="Jalapeno"
       {...otherProps}
       isOpen={isOpen}
@@ -48,7 +48,7 @@ describe("<MultiSelect />", () => {
         <MultiSelectWrapper
           id="waffle"
           label="Jalapeno"
-          options={defaultOptions}
+          items={defaultOptions}
           isOpen={false}
           selectedValues={new Set()}
           data-testid="test-id--waffle"
@@ -194,7 +194,7 @@ describe("<MultiSelect />", () => {
       it("restricts focusable elements to toggle button and popover contents", async () => {
         const { getByRole } = render(
           <MultiSelectWrapper
-            options={[{ label: "Pancakes", value: "pancakes" }]}
+            items={[{ label: "Pancakes", value: "pancakes" }]}
           />
         )
         const toggleButton = getByRole("button", { name: "Jalapeno" })
