@@ -6384,10 +6384,10 @@
   resolved "https://registry.yarnpkg.com/@types/picomatch/-/picomatch-2.3.0.tgz#75db5e75a713c5a83d5b76780c3da84a82806003"
   integrity sha512-O397rnSS9iQI4OirieAtsDqvCj4+3eY1J+EPdNTKuHuRWIfUoGyzX294o8C4KJYaLqgSrd2o60c5EqCU8Zv02g==
 
-"@types/postcss-flexbugs-fixes@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@types/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-5.0.0.tgz#907f14da404d0cf7ea529e682051170756a57c19"
-  integrity sha512-EglgYTFYZT7CAJ8TPenkgfHz3b2+2OHSZAxa5APz5yK9pawmE63Uoe8MEVQnD5TYrFGFVNZLAM2l+2sU9WmHuw==
+"@types/postcss-flexbugs-fixes@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@types/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-5.0.1.tgz#23e1065fe7720e67c9fed11970ea23a0c1661f67"
+  integrity sha512-u4ZF/Q2oL/bjGWilu6qrIPt67nR9TWMm+sFmRbkIIIah4q46KyW3lgt4REWrzPPKdjjvemdDqFdeWot5d3Ve+g==
   dependencies:
     postcss "^8.1.4"
 
