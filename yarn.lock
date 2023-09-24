@@ -6391,10 +6391,10 @@
   dependencies:
     postcss "^8.1.4"
 
-"@types/postcss-import@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@types/postcss-import/-/postcss-import-14.0.0.tgz#79ee6d407fbf663535e5bf7042d7356ce8205278"
-  integrity sha512-rYonq8jtSbdbBKNpi2xzi9CGFF7IcS/tzX6vMKFH1TMberRgTgTzYqCzRHPavBej/KId/AJd255iDSOsLv8esQ==
+"@types/postcss-import@^14.0.1":
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/@types/postcss-import/-/postcss-import-14.0.1.tgz#7be673ba78a2ccf10c29431c362423943ba30c15"
+  integrity sha512-tn0rPu/x0hvAHXtYB0YATwqDEYmNkWk6wp8Ah6LwKLs9bfUHsDybapSMda35V5HG/HguAltsgIyuiUk2a6JH4g==
   dependencies:
     postcss "^8.0.0"
 
