@@ -61,12 +61,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                 reversed={isReversed}
                 labelText={type}
                 labelType={type}
-                disabled
-              />
-              <InlineControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
                 variant="prominent"
               />
             </StickerSheet.Row>
@@ -86,6 +80,49 @@ const StickerSheetTemplate: StickerSheetStory = {
                 reversed={isReversed}
                 labelText={type}
                 labelType={type}
+                variant="prominent"
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
+  ),
+}
+
+const StickerSheetDisabledTemplate: StickerSheetStory = {
+  render: ({ isReversed }) => (
+    <>
+      <StickerSheet isReversed={isReversed}>
+        <StickerSheet.Header headings={["Type", "Default", "Prominent"]} />
+        <StickerSheet.Body>
+          {InlineLabelTypes.map(type => (
+            <StickerSheet.Row key={type} rowTitle={type}>
+              <InlineControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+                disabled
+              />
+              <InlineControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+                variant="prominent"
+                disabled
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet isReversed={isReversed}>
+        <StickerSheet.Body>
+          {BlockLabelTypes.map(type => (
+            <StickerSheet.Row key={type} rowTitle={type}>
+              <BlockControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
                 disabled
               />
               <BlockControl
@@ -93,6 +130,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelText={type}
                 labelType={type}
                 variant="prominent"
+                disabled
               />
             </StickerSheet.Row>
           ))}
@@ -107,10 +145,48 @@ export const StickerSheetDefault: StickerSheetStory = {
   name: "Sticker Sheet (Default)",
 }
 
+export const StickerSheetDisabled: StickerSheetStory = {
+  ...StickerSheetDisabledTemplate,
+  name: "Sticker Sheet (Disabled)",
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Disabled text will always trigger contrast issues
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
+}
+
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
   parameters: { backgrounds: { default: "Purple 700" } },
+  args: { isReversed: true },
+}
+
+export const StickerSheetDisabledReversed: StickerSheetStory = {
+  ...StickerSheetDisabledTemplate,
+  name: "Sticker Sheet (Disabled Reversed)",
+  parameters: {
+    backgrounds: { default: "Purple 700" },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Disabled text will always trigger contrast issues
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
   args: { isReversed: true },
 }
 
