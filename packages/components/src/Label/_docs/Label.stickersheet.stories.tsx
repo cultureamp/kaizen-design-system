@@ -19,7 +19,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header headings={["Default", "Disabled", "Prominent"]} />
       <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Base">
+        <StickerSheet.Row>
           <Label labelText="Label Text" reversed={isReversed}></Label>
           <Label labelText="Label Text" reversed={isReversed} disabled></Label>
           <Label
