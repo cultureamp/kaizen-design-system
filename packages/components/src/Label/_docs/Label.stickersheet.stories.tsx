@@ -4,7 +4,8 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Label } from "../index"
+import { Label, LabelProps } from "../index"
+import { LabelTypes } from "../types"
 
 export default {
   title: "KAIO-staging/Label",
@@ -14,16 +15,73 @@ export default {
   },
 } satisfies Meta
 
+const InlineControl = (props: LabelProps): JSX.Element => (
+  <Label {...props}>
+    <span className="inline-block w-16 h-16 bg-gray-500"></span>
+  </Label>
+)
+
+const BlockControl = (props: LabelProps): JSX.Element => (
+  <>
+    <Label {...props} />
+    <span className="block w-200 h-16 bg-gray-500"></span>
+  </>
+)
+
+const inlineTypes = ["checkbox", "radio", "toggle"]
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Disabled", "Prominent"]} />
+      <StickerSheet.Header
+        headings={["Type", "Default", "Disabled", "Prominent"]}
+      />
       <StickerSheet.Body>
-        <StickerSheet.Row>
-          <Label reversed={isReversed}>Label Text</Label>
-          <Label reversed={isReversed} disabled>Label Text</Label>
-          <Label reversed={isReversed} variant="prominent">Label Text</Label>
-        </StickerSheet.Row>
+        {LabelTypes.map(type => (
+          <>
+            {inlineTypes.includes(type) ? (
+              <StickerSheet.Row key={type} rowTitle={type}>
+                <InlineControl
+                  reversed={isReversed}
+                  labelText={type}
+                  labelType={type}
+                />
+                <InlineControl
+                  reversed={isReversed}
+                  labelText={type}
+                  labelType={type}
+                  disabled
+                />
+                <InlineControl
+                  reversed={isReversed}
+                  labelText={type}
+                  labelType={type}
+                  variant="prominent"
+                />
+              </StickerSheet.Row>
+            ) : (
+              <StickerSheet.Row key={type} rowTitle={type}>
+                <BlockControl
+                  reversed={isReversed}
+                  labelText={type}
+                  labelType={type}
+                />
+                <BlockControl
+                  reversed={isReversed}
+                  labelText={type}
+                  labelType={type}
+                  disabled
+                />
+                <BlockControl
+                  reversed={isReversed}
+                  labelText={type}
+                  labelType={type}
+                  variant="prominent"
+                />
+              </StickerSheet.Row>
+            )}
+          </>
+        ))}
       </StickerSheet.Body>
     </StickerSheet>
   ),

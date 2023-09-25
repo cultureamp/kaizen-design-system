@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as LabelStories from "./Label.stories"
 
@@ -24,3 +24,23 @@ Atomic `Label` component for use in `Field` components.
 
 <Canvas of={LabelStories.Playground} />
 <Controls of={LabelStories.Playground} />
+
+## API
+
+<DocsStory of={LabelStories.Variant} />
+
+<DocsStory of={LabelStories.Types} />
+
+<DocsStory of={LabelStories.Position} />
+
+<DocsStory of={LabelStories.LabelText} />
+
+### Composing
+
+There are two different ways to utilise the `Label` component depending on the type of form control you are composing it with.
+
+The main difference is that when dealing with an inline form control, the form control is passed as children.
+
+<DocsStory of={LabelStories.InlineControls} />
+
+<DocsStory of={LabelStories.BlockControls} />
