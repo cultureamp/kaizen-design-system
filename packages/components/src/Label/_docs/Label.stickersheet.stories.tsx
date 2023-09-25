@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import { Meta } from "@storybook/react"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { Label, LabelProps } from "../index"
-import { LabelTypes } from "../types"
+import { BlockLabelTypes, InlineLabelTypes, LabelTypes } from "../types"
 
 export default {
   title: "KAIO-staging/Label",
@@ -42,62 +42,63 @@ const BlockControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
   </>
 )
 
-const inlineTypes = ["checkbox", "radio", "toggle"]
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Type", "Default", "Disabled", "Prominent"]}
-      />
-      <StickerSheet.Body>
-        {LabelTypes.map(type => (
-          <>
-            {inlineTypes.includes(type) ? (
-              <StickerSheet.Row key={type} rowTitle={type}>
-                <InlineControl
-                  reversed={isReversed}
-                  labelText={type}
-                  labelType={type}
-                />
-                <InlineControl
-                  reversed={isReversed}
-                  labelText={type}
-                  labelType={type}
-                  disabled
-                />
-                <InlineControl
-                  reversed={isReversed}
-                  labelText={type}
-                  labelType={type}
-                  variant="prominent"
-                />
-              </StickerSheet.Row>
-            ) : (
-              <StickerSheet.Row key={type} rowTitle={type}>
-                <BlockControl
-                  reversed={isReversed}
-                  labelText={type}
-                  labelType={type}
-                />
-                <BlockControl
-                  reversed={isReversed}
-                  labelText={type}
-                  labelType={type}
-                  disabled
-                />
-                <BlockControl
-                  reversed={isReversed}
-                  labelText={type}
-                  labelType={type}
-                  variant="prominent"
-                />
-              </StickerSheet.Row>
-            )}
-          </>
-        ))}
-      </StickerSheet.Body>
-    </StickerSheet>
+    <>
+      <StickerSheet isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Type", "Default", "Disabled", "Prominent"]}
+        />
+        <StickerSheet.Body>
+          {InlineLabelTypes.map(type => (
+            <StickerSheet.Row key={type} rowTitle={type}>
+              <InlineControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+              />
+              <InlineControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+                disabled
+              />
+              <InlineControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+                variant="prominent"
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+      <StickerSheet isReversed={isReversed}>
+        <StickerSheet.Body>
+          {BlockLabelTypes.map(type => (
+            <StickerSheet.Row key={type} rowTitle={type}>
+              <BlockControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+              />
+              <BlockControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+                disabled
+              />
+              <BlockControl
+                reversed={isReversed}
+                labelText={type}
+                labelType={type}
+                variant="prominent"
+              />
+            </StickerSheet.Row>
+          ))}
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
   ),
 }
 
