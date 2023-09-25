@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Meta } from "@storybook/react"
 import {
   StickerSheet,
@@ -15,15 +15,29 @@ export default {
   },
 } satisfies Meta
 
-const InlineControl = (props: LabelProps): JSX.Element => (
-  <Label {...props}>
+const InlineControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
+  <Label
+    {...props}
+    labelText={
+      <>
+        {labelText} <a href="/">a</a>
+      </>
+    }
+  >
     <span className="inline-block w-16 h-16 bg-gray-500"></span>
   </Label>
 )
 
-const BlockControl = (props: LabelProps): JSX.Element => (
+const BlockControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
   <>
-    <Label {...props} />
+    <Label
+      {...props}
+      labelText={
+        <>
+          {labelText} <a href="/">anchor</a>
+        </>
+      }
+    />
     <span className="block w-200 h-16 bg-gray-500"></span>
   </>
 )
