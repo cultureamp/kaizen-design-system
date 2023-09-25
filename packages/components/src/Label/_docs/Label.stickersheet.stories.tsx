@@ -5,7 +5,7 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { Label, LabelProps } from "../index"
-import { BlockLabelTypes, InlineLabelTypes, LabelTypes } from "../types"
+import { BlockLabelTypes, InlineLabelTypes } from "../types"
 
 export default {
   title: "KAIO-staging/Label",
