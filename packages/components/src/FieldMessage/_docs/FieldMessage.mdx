@@ -1,0 +1,66 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as FieldMessageStories from "./FieldMessage.stories"
+
+<Meta of={FieldMessageStories} />
+
+# FieldMessage
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FieldMessage"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=34254%3A91754&mode=design&t=HvwF2tRq9DbfkSuV-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928705/Text+Field"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FieldMessage } from "@kaizen/components"'
+/>
+
+## Overview
+
+FieldMessage is used and consumed in Kaizen form elements to display either form field descriptions or validation messages.
+
+<Canvas of={FieldMessageStories.Playground} />
+<Controls of={FieldMessageStories.Playground} />
+
+## API
+
+### Message
+
+Accepts any `ReactNode` as a child of the component.
+
+<Canvas of={FieldMessageStories.HelperText} />
+
+Simple `string`s will be wrapped in a `p` tag with the default `small` text styles. To provide more context to the user (ie: anchor links) you can use any valid `ReactNode`.
+
+<Canvas of={FieldMessageStories.DetailedHelperText} />
+
+Note that when using this for helper text, the component should not recieve `status` - this is reserved for validation messages.
+
+
+### Status
+
+`status` can used to create form validation message that provide additional context to a form field's state, ie: `error`, `caution` or `success`.
+
+<Canvas of={FieldMessageStories.Error} />
+
+<Canvas of={FieldMessageStories.Cautionary} />
+
+Note that the `success` status has no decernable difference to default styles.
+
+<Canvas of={FieldMessageStories.Success} />
+
+### Reversed
+
+Reversed styles should be used on dark background to ensure correct colour contrast
+
+<DocsStory of={FieldMessageStories.Reversed} />
