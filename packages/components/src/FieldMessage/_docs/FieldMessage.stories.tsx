@@ -60,6 +60,7 @@ export const Success: Story = {
 export const Reversed: Story = {
   args: { reversed: true, status: "error" },
   parameters: { backgrounds: { default: "Purple 700" } },
+  name: "reversed",
 }
 
 export const Position: Story = {

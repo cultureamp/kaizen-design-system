@@ -34,7 +34,7 @@ FieldMessage is used and consumed in Kaizen form elements to display either form
 
 ## API
 
-### Message
+### message
 
 Accepts any `ReactNode` as a child of the component.
 
@@ -47,7 +47,7 @@ Simple `string`s will be wrapped in a `p` tag with the default `small` text styl
 Note that when using this for helper text, the component should not recieve `status` - this is reserved for validation messages.
 
 
-### Status
+### status
 
 `status` can used to create form validation message that provide additional context to a form field's state, ie: `error`, `caution` or `success`.
 
@@ -59,8 +59,10 @@ Note that the `success` status has no decernable difference to default styles.
 
 <Canvas of={FieldMessageStories.Success} />
 
-### Reversed
+### position
 
-Reversed styles should be used on dark background to ensure correct colour contrast
+Gives the correct spacing between the form element and the description based on where it is positioned, ie: the default position of the helper text is below a form field, so `bottom` gives margin to the top of the `FieldMessage`.
+
+<Canvas of={FieldMessageStories.Position} />
 
 <DocsStory of={FieldMessageStories.Reversed} />
