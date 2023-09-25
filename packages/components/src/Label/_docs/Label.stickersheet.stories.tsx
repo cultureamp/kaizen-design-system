@@ -46,9 +46,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header
-          headings={["Type", "Default", "Disabled", "Prominent"]}
-        />
+        <StickerSheet.Header headings={["Type", "Default", "Prominent"]} />
         <StickerSheet.Body>
           {InlineLabelTypes.map(type => (
             <StickerSheet.Row key={type} rowTitle={type}>
