@@ -20,13 +20,9 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Header headings={["Default", "Disabled", "Prominent"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Label labelText="Label Text" reversed={isReversed}></Label>
-          <Label labelText="Label Text" reversed={isReversed} disabled></Label>
-          <Label
-            labelText="Label Text"
-            reversed={isReversed}
-            variant="prominent"
-          ></Label>
+          <Label reversed={isReversed}>Label Text</Label>
+          <Label reversed={isReversed} disabled>Label Text</Label>
+          <Label reversed={isReversed} variant="prominent">Label Text</Label>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
