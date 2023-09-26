@@ -15,13 +15,46 @@ export default {
   },
 } satisfies Meta
 
-const InlineControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
+type WrapperProps = LabelProps & {
+  "data-sb-a11y-color-contrast-disable"?: boolean
+}
+
+const DefaultLabelWrapper = ({
+  labelText,
+  ...props
+}: WrapperProps): JSX.Element => (
+  <Label
+    labelText={
+      // Need this so we can add a data attrib to the labelText
+      // since none of the props apply to the internal labelText wrapper
+      <span
+        data-sb-a11y-color-contrast-disable={
+          props["data-sb-a11y-color-contrast-disable"]
+        }
+      >
+        {labelText}
+      </span>
+    }
+    {...props}
+  />
+)
+
+const InlineControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
   <Label
     {...props}
     labelText={
-      <span data-sb-a11y-color-contrast-disable>
+      <span
+        data-sb-a11y-color-contrast-disable={
+          props["data-sb-a11y-color-contrast-disable"]
+        }
+      >
         {labelText}{" "}
-        <a href="/" data-sb-a11y-color-contrast-disable>
+        <a
+          href="/"
+          data-sb-a11y-color-contrast-disable={
+            props["data-sb-a11y-color-contrast-disable"]
+          }
+        >
           a
         </a>
       </span>
@@ -31,14 +64,23 @@ const InlineControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
   </Label>
 )
 
-const BlockControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
+const BlockControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
   <>
     <Label
       {...props}
       labelText={
-        <span data-sb-a11y-color-contrast-disable>
+        <span
+          data-sb-a11y-color-contrast-disable={
+            props["data-sb-a11y-color-contrast-disable"]
+          }
+        >
           {labelText}{" "}
-          <a href="/" data-sb-a11y-color-contrast-disable>
+          <a
+            href="/"
+            data-sb-a11y-color-contrast-disable={
+              props["data-sb-a11y-color-contrast-disable"]
+            }
+          >
             anchor
           </a>
         </span>
@@ -62,14 +104,24 @@ const StickerSheetTemplate: StickerSheetStory = {
       />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Base">
-          <Label reversed={isReversed} labelText="Label" />
-          <Label reversed={isReversed} labelText="Label" disabled />
-          <Label reversed={isReversed} labelText="Label" variant="prominent" />
-          <Label
+          <DefaultLabelWrapper reversed={isReversed} labelText="Label" />
+          <DefaultLabelWrapper
+            reversed={isReversed}
+            labelText="Label"
+            disabled
+            data-sb-a11y-color-contrast-disable
+          />
+          <DefaultLabelWrapper
+            reversed={isReversed}
+            labelText="Label"
+            variant="prominent"
+          />
+          <DefaultLabelWrapper
             reversed={isReversed}
             labelText="Label"
             variant="prominent"
             disabled
+            data-sb-a11y-color-contrast-disable
           />
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -87,6 +139,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               labelText={type}
               labelType={type}
               disabled
+              data-sb-a11y-color-contrast-disable
             />
             <InlineControl
               reversed={isReversed}
@@ -100,6 +153,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               labelType={type}
               variant="prominent"
               disabled
+              data-sb-a11y-color-contrast-disable
             />
           </StickerSheet.Row>
         ))}
@@ -118,6 +172,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               labelText={type}
               labelType={type}
               disabled
+              data-sb-a11y-color-contrast-disable
             />
             <BlockControl
               reversed={isReversed}
@@ -131,6 +186,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               labelType={type}
               variant="prominent"
               disabled
+              data-sb-a11y-color-contrast-disable
             />
           </StickerSheet.Row>
         ))}
