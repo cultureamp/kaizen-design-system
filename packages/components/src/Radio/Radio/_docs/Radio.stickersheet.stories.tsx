@@ -11,6 +11,17 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Built with no label on purpose, to be used within `RadioField` where label is present
+            id: "label",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 

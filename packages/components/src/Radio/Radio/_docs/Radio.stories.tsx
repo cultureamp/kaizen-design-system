@@ -9,6 +9,19 @@ const meta = {
     name: "Radio",
     value: "Radio",
   },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Built with no label on purpose, to be used within `RadioField` where label is present
+            id: "label",
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
 } satisfies Meta<typeof Radio>
 
 export default meta
