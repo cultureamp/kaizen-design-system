@@ -13,7 +13,8 @@ export default {
       config: {
         rules: [
           {
-            // FIXME: text inside the buttons not meeting colour contrast requirements
+            // Pseudo states of FilterButton do not meet contrast ratios, however
+            // given this test is functional, we can ignore this rule.
             id: "color-contrast",
             enabled: false,
           },
