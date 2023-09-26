@@ -1,19 +1,18 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
-import { StickerSheet } from "~storybook/components/StickerSheet"
+import { Meta } from "@storybook/react"
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 import { Checkbox, CheckedStatus } from "../index"
 
-const meta = {
+export default {
   title: "Components/MultiSelect/Checkbox",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof Checkbox>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+} satisfies Meta
 
 const STATUS_ROWS = [
   { title: "Unchecked", status: "unchecked" },
@@ -21,7 +20,7 @@ const STATUS_ROWS = [
   { title: "Indeterminate", status: "indeterminate" },
 ] satisfies Array<{ title: string; status: CheckedStatus }>
 
-const StickerSheetTemplate: Story = {
+const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
       <StickerSheet.Header
@@ -53,9 +52,15 @@ const StickerSheetTemplate: Story = {
       </StickerSheet.Body>
     </StickerSheet>
   ),
+  parameters: {
+    pseudo: {
+      hover: ".story__checkbox--hover",
+      focusWithin: ".story__checkbox--focus",
+    },
+  },
 }
 
-export const StickerSheetDefault = {
+export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
 }
