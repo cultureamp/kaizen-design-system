@@ -20,9 +20,12 @@ const InlineControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
   <Label
     {...props}
     labelText={
-      <>
-        {labelText} <a href="/">a</a>
-      </>
+      <span data-sb-a11y-color-contrast-disable>
+        {labelText}{" "}
+        <a href="/" data-sb-a11y-color-contrast-disable>
+          a
+        </a>
+      </span>
     }
   >
     <span className="inline-block w-16 h-16 bg-gray-500"></span>
@@ -34,9 +37,12 @@ const BlockControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
     <Label
       {...props}
       labelText={
-        <>
-          {labelText} <a href="/">anchor</a>
-        </>
+        <span data-sb-a11y-color-contrast-disable>
+          {labelText}{" "}
+          <a href="/" data-sb-a11y-color-contrast-disable>
+            anchor
+          </a>
+        </span>
       }
     />
     <span className="block w-200 h-16 bg-gray-500"></span>
@@ -98,7 +104,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelText={type}
                 labelType={type}
                 disabled
-                data-sb-a11y-color-contrast-disable
               />
               <InlineControl
                 reversed={isReversed}
@@ -106,7 +111,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelType={type}
                 variant="prominent"
                 disabled
-                data-sb-a11y-color-contrast-disable
               />
             </StickerSheet.Row>
           ))}
@@ -121,7 +125,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelText={type}
                 labelType={type}
                 disabled
-                data-sb-a11y-color-contrast-disable
               />
               <BlockControl
                 reversed={isReversed}
@@ -129,7 +132,6 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelType={type}
                 variant="prominent"
                 disabled
-                data-sb-a11y-color-contrast-disable
               />
             </StickerSheet.Row>
           ))}
