@@ -56,7 +56,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--hover"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 First
               </FilterButtonBase>
@@ -65,7 +65,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--active"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 First
               </FilterButtonBase>
@@ -74,7 +74,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--focus story__button-group--focus"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 First
               </FilterButtonBase>
@@ -87,7 +87,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--hover"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 Last
               </FilterButtonBase>
@@ -96,7 +96,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--active"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 Last
               </FilterButtonBase>
@@ -105,7 +105,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--focus story__button-group--focus"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 Last
               </FilterButtonBase>
@@ -117,7 +117,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--hover"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 Middle
               </FilterButtonBase>
@@ -127,7 +127,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--active"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 Middle
               </FilterButtonBase>
@@ -137,7 +137,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
                 classNameOverride="story__filter-button-base--focus story__button-group--focus"
-                data-a11y-color-contrast-disable
+                data-sb-a11y-color-contrast-disable
               >
                 Middle
               </FilterButtonBase>

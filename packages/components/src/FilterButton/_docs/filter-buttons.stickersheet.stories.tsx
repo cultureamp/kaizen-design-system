@@ -28,19 +28,19 @@ const StickerSheetTemplate: StickerSheetStory = {
             <FilterButtonBase>Label</FilterButtonBase>
             <FilterButtonBase
               classNameOverride="story__filter-button-base--hover"
-              data-a11y-color-contrast-disable
+              data-sb-a11y-color-contrast-disable
             >
               Label
             </FilterButtonBase>
             <FilterButtonBase
               classNameOverride="story__filter-button-base--active"
-              data-a11y-color-contrast-disable
+              data-sb-a11y-color-contrast-disable
             >
               Label
             </FilterButtonBase>
             <FilterButtonBase
               classNameOverride="story__filter-button-base--focus"
-              data-a11y-color-contrast-disable
+              data-sb-a11y-color-contrast-disable
             >
               Label
             </FilterButtonBase>
