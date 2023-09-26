@@ -11,17 +11,6 @@ import { FilterButtonBase } from "../subcomponents/FilterButtonBase"
 export default {
   title: "Components/Filter Base/Filter Buttons",
   parameters: {
-    a11y: {
-      config: {
-        rules: [
-          {
-            // FIXME: text inside the buttons not meeting colour contrast requirements
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
     chromatic: { disable: false },
     controls: { disable: true },
   },
@@ -37,13 +26,22 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterButtonBase>Label</FilterButtonBase>
-            <FilterButtonBase classNameOverride="story__filter-button-base--hover">
+            <FilterButtonBase
+              classNameOverride="story__filter-button-base--hover"
+              data-a11y-color-contrast-disable
+            >
               Label
             </FilterButtonBase>
-            <FilterButtonBase classNameOverride="story__filter-button-base--active">
+            <FilterButtonBase
+              classNameOverride="story__filter-button-base--active"
+              data-a11y-color-contrast-disable
+            >
               Label
             </FilterButtonBase>
-            <FilterButtonBase classNameOverride="story__filter-button-base--focus">
+            <FilterButtonBase
+              classNameOverride="story__filter-button-base--focus"
+              data-a11y-color-contrast-disable
+            >
               Label
             </FilterButtonBase>
           </StickerSheet.Row>
