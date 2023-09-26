@@ -2,11 +2,10 @@ import React, { LabelHTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Label.module.scss"
+
 type LabelType = "text" | "checkbox" | "toggle" | "radio"
 
-export type LabelProps = OverrideClassName<
-  LabelHTMLAttributes<HTMLLabelElement>
-> & {
+export type LabelProps = {
   children?: React.ReactNode
   labelText?: string | React.ReactNode
   labelType?: LabelType
@@ -14,7 +13,7 @@ export type LabelProps = OverrideClassName<
   reversed?: boolean
   variant?: "default" | "prominent"
   disabled?: boolean
-}
+} & OverrideClassName<LabelHTMLAttributes<HTMLLabelElement>>
 
 export const Label = ({
   children,
