@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { Heading } from "~components/Heading"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -51,93 +50,92 @@ const BlockControl = ({ labelText, ...props }: LabelProps): JSX.Element => (
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    <>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header headings={["Type", "Default", "Prominent"]} />
-        <StickerSheet.Body>
-          {InlineLabelTypes.map(type => (
-            <StickerSheet.Row key={type} rowTitle={type}>
-              <InlineControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-              />
-              <InlineControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-                variant="prominent"
-              />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Body>
-          {BlockLabelTypes.map(type => (
-            <StickerSheet.Row key={type} rowTitle={type}>
-              <BlockControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-              />
-              <BlockControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-                variant="prominent"
-              />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-      <Heading variant="heading-5" color={isReversed ? "white" : "dark"}>
-        Disabled
-      </Heading>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Header headings={["Type", "Default", "Prominent"]} />
-        <StickerSheet.Body>
-          {InlineLabelTypes.map(type => (
-            <StickerSheet.Row key={type} rowTitle={type}>
-              <InlineControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-                disabled
-              />
-              <InlineControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-                variant="prominent"
-                disabled
-              />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-      <StickerSheet isReversed={isReversed}>
-        <StickerSheet.Body>
-          {BlockLabelTypes.map(type => (
-            <StickerSheet.Row key={type} rowTitle={type}>
-              <BlockControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-                disabled
-              />
-              <BlockControl
-                reversed={isReversed}
-                labelText={type}
-                labelType={type}
-                variant="prominent"
-                disabled
-              />
-            </StickerSheet.Row>
-          ))}
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
+    <StickerSheet isReversed={isReversed}>
+      <StickerSheet.Header
+        headings={[
+          "Default",
+          "Default (disabled)",
+          "Prominent",
+          "Prominent (disabled)",
+        ]}
+        hasVerticalHeadings
+      />
+      <StickerSheet.Body>
+        <StickerSheet.Row rowTitle="Base">
+          <Label reversed={isReversed} labelText="Label" />
+          <Label reversed={isReversed} labelText="Label" disabled />
+          <Label reversed={isReversed} labelText="Label" variant="prominent" />
+          <Label
+            reversed={isReversed}
+            labelText="Label"
+            variant="prominent"
+            disabled
+          />
+        </StickerSheet.Row>
+      </StickerSheet.Body>
+
+      <StickerSheet.Body>
+        {InlineLabelTypes.map(type => (
+          <StickerSheet.Row key={type} rowTitle={type}>
+            <InlineControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+            />
+            <InlineControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+              disabled
+            />
+            <InlineControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+              variant="prominent"
+            />
+            <InlineControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+              variant="prominent"
+              disabled
+            />
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+
+      <StickerSheet.Body>
+        {BlockLabelTypes.map(type => (
+          <StickerSheet.Row key={type} rowTitle={type}>
+            <BlockControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+            />
+            <BlockControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+              disabled
+            />
+            <BlockControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+              variant="prominent"
+            />
+            <BlockControl
+              reversed={isReversed}
+              labelText={type}
+              labelType={type}
+              variant="prominent"
+              disabled
+            />
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+    </StickerSheet>
   ),
 }
 
