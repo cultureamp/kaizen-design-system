@@ -55,7 +55,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row rowTitle="First">
             <ButtonGroup>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--hover"
+                classNameOverride="story__button-group--hover"
                 data-sb-a11y-color-contrast-disable
               >
                 First
@@ -64,7 +64,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--active"
+                classNameOverride="story__button-group--active"
                 data-sb-a11y-color-contrast-disable
               >
                 First
@@ -73,7 +73,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--focus story__button-group--focus"
+                classNameOverride="story__button-group--focus"
                 data-sb-a11y-color-contrast-disable
               >
                 First
@@ -86,7 +86,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--hover"
+                classNameOverride="story__button-group--hover"
                 data-sb-a11y-color-contrast-disable
               >
                 Last
@@ -95,7 +95,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--active"
+                classNameOverride="story__button-group--active"
                 data-sb-a11y-color-contrast-disable
               >
                 Last
@@ -104,7 +104,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--focus story__button-group--focus"
+                classNameOverride="story__button-group--focus"
                 data-sb-a11y-color-contrast-disable
               >
                 Last
@@ -116,7 +116,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--hover"
+                classNameOverride="story__button-group--hover"
                 data-sb-a11y-color-contrast-disable
               >
                 Middle
@@ -126,7 +126,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--active"
+                classNameOverride="story__button-group--active"
                 data-sb-a11y-color-contrast-disable
               >
                 Middle
@@ -136,7 +136,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__filter-button-base--focus story__button-group--focus"
+                classNameOverride="story__button-group--focus"
                 data-sb-a11y-color-contrast-disable
               >
                 Middle
@@ -148,6 +148,14 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
     </>
   ),
+  parameters: {
+    pseudo: {
+      hover: ".story__button-group--hover",
+      active: ".story__button-group--active",
+      focus: ".story__button-group--focus",
+      focusVisible: ".story__button-group--focus",
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -158,5 +166,8 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    textDirection: "rtl",
+  },
 }
