@@ -13,17 +13,6 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Only apply the color-contrast to items that are "not" data-disabled
-            id: "color-contrast",
-            selector: "*:not[data-disabled]",
-          },
-        ],
-      },
-    },
   },
 } satisfies Meta
 
@@ -109,7 +98,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelText={type}
                 labelType={type}
                 disabled
-                data-disabled
+                data-sb-a11y-color-contrast-disable
               />
               <InlineControl
                 reversed={isReversed}
@@ -117,7 +106,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelType={type}
                 variant="prominent"
                 disabled
-                data-disabled
+                data-sb-a11y-color-contrast-disable
               />
             </StickerSheet.Row>
           ))}
@@ -132,7 +121,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelText={type}
                 labelType={type}
                 disabled
-                data-disabled
+                data-sb-a11y-color-contrast-disable
               />
               <BlockControl
                 reversed={isReversed}
@@ -140,7 +129,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 labelType={type}
                 variant="prominent"
                 disabled
-                data-disabled
+                data-sb-a11y-color-contrast-disable
               />
             </StickerSheet.Row>
           ))}

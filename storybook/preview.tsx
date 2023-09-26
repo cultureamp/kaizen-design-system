@@ -87,6 +87,16 @@ const preview = {
       },
     },
     chromatic: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            id: "color-contrast",
+            selector: "*:not([data-sb-a11y-color-contrast-disable])",
+          },
+        ],
+      },
+    },
   },
   globalTypes,
   decorators,
