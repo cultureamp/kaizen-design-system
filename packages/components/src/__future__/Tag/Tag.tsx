@@ -23,5 +23,3 @@ export const Tag = ({
 )
 
 Tag.displayName = "Tag"
-
-export { TagColors }
