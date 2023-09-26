@@ -5,7 +5,7 @@
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.3rem $spacing-8 0.3rem $spacing-8;
+  padding: $spacing-4 $spacing-8;
   gap: $spacing-4;
   border-radius: 28px;
   font-family: $typography-paragraph-intro-lede-font-family;
