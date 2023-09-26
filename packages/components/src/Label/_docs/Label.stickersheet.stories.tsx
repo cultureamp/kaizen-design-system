@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { Heading } from "~components/Heading"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -12,6 +13,17 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Disabled style elements will always trigger color contrast issues
+            id: "color-contrast",
+            selector: "*:not[data-disabled]",
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
@@ -84,13 +96,9 @@ const StickerSheetTemplate: StickerSheetStory = {
           ))}
         </StickerSheet.Body>
       </StickerSheet>
-    </>
-  ),
-}
-
-const StickerSheetDisabledTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <>
+      <Heading variant="heading-5" color={isReversed ? "white" : "dark"}>
+        Disabled
+      </Heading>
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header headings={["Type", "Default", "Prominent"]} />
         <StickerSheet.Body>
@@ -101,6 +109,7 @@ const StickerSheetDisabledTemplate: StickerSheetStory = {
                 labelText={type}
                 labelType={type}
                 disabled
+                data-disabled
               />
               <InlineControl
                 reversed={isReversed}
@@ -108,6 +117,7 @@ const StickerSheetDisabledTemplate: StickerSheetStory = {
                 labelType={type}
                 variant="prominent"
                 disabled
+                data-disabled
               />
             </StickerSheet.Row>
           ))}
@@ -122,6 +132,7 @@ const StickerSheetDisabledTemplate: StickerSheetStory = {
                 labelText={type}
                 labelType={type}
                 disabled
+                data-disabled
               />
               <BlockControl
                 reversed={isReversed}
@@ -129,6 +140,7 @@ const StickerSheetDisabledTemplate: StickerSheetStory = {
                 labelType={type}
                 variant="prominent"
                 disabled
+                data-disabled
               />
             </StickerSheet.Row>
           ))}
@@ -143,48 +155,10 @@ export const StickerSheetDefault: StickerSheetStory = {
   name: "Sticker Sheet (Default)",
 }
 
-export const StickerSheetDisabled: StickerSheetStory = {
-  ...StickerSheetDisabledTemplate,
-  name: "Sticker Sheet (Disabled)",
-  parameters: {
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Disabled text will always trigger contrast issues
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
-  },
-}
-
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
   parameters: { backgrounds: { default: "Purple 700" } },
-  args: { isReversed: true },
-}
-
-export const StickerSheetDisabledReversed: StickerSheetStory = {
-  ...StickerSheetDisabledTemplate,
-  name: "Sticker Sheet (Disabled Reversed)",
-  parameters: {
-    backgrounds: { default: "Purple 700" },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Disabled text will always trigger contrast issues
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
-  },
   args: { isReversed: true },
 }
 
