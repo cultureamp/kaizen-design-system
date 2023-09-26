@@ -77,6 +77,14 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
     </>
   ),
+  parameters: {
+    pseudo: {
+      hover: ".story__filter-button-base--hover",
+      active: ".story__filter-button-base--active",
+      focus: ".story__filter-button-base--focus",
+      focusVisible: ".story__filter-button-base--focus",
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -87,5 +95,8 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate["parameters"],
+    textDirection: "rtl",
+  },
 }
