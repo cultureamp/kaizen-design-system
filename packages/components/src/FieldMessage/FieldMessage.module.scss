@@ -11,7 +11,7 @@ $form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
   display: flex;
   position: relative;
   align-items: center;
-  gap: $spacing-xs;
+  gap: $spacing-6;
 }
 
 .default {
@@ -48,11 +48,11 @@ $form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
 }
 
 .positionBottom {
-  margin-top: $spacing-xs;
+  margin-top: $spacing-6;
 }
 
 .positionTop {
-  margin-bottom: $spacing-xs;
+  margin-bottom: $spacing-6;
 }
 
 .warningIcon {
