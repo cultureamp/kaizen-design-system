@@ -38,10 +38,16 @@ module.exports = (
         return [
           {
             type: "addMany",
-            destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents`,
+            destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents/{{pascalCase componentName}}`,
             base: "plop-templates/basic-component/src",
             templateFiles: "plop-templates/basic-component/src/**/*.hbs",
           },
+          {
+            type: "addMany",
+            destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents/{{pascalCase componentName}}/_docs`,
+            base: "plop-templates/basic-component/docs",
+            templateFiles: "plop-templates/basic-component/docs/**/!(*.mdx.hbs)"
+          }
         ]
       }
 
