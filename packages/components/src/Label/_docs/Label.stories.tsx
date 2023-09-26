@@ -45,11 +45,6 @@ export const InlineControls: Story = {
   },
 }
 
-/**
- * By default, your label text will always sit to the right of the inline form control (ie. in RTL terms, the "end").
- * Using the `labelPosition` you can flip the label text to sit to the left (ie. in RTL terms, the "start").
- */
-
 export const Position: Story = {
   render: () => (
     <span className="flex flex-col gap-16">

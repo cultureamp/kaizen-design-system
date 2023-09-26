@@ -31,7 +31,13 @@ Atomic `Label` component for use in `Field` components.
 
 <DocsStory of={LabelStories.Types} />
 
-<DocsStory of={LabelStories.Position} />
+### Position
+By default, your label text will always sit to the right of the inline form control (ie. in RTL terms, the "end").
+Using the `labelPosition` you can flip the label text to sit to the left (ie. in RTL terms, the "start").
+
+Note: this only works when you have an inline form control passed in via `children`.
+
+<Canvas of={LabelStories.Position} />
 
 <DocsStory of={LabelStories.LabelText} />
 
