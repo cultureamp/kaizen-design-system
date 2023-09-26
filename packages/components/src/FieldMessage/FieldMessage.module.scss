@@ -1,0 +1,74 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+$message-icon-size: 1.25rem;
+$validation-message-padding: 0.5625rem;
+$form-text-color-label: rgba($color-purple-800-rgb, 0.7);
+$form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
+
+.message {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: $spacing-6;
+}
+
+.default {
+  color: $form-text-color-label;
+
+  &.reversed {
+    color: $form-text-color-label-reversed;
+  }
+}
+
+.error,
+.caution {
+  border-radius: $border-solid-border-radius;
+  padding: $validation-message-padding;
+  color: $color-purple-800;
+}
+
+.error {
+  background: $color-red-100;
+  opacity: 100%;
+
+  &.reversed {
+    background: $color-red-300;
+  }
+}
+
+.caution {
+  background: $color-yellow-100;
+  opacity: 100%;
+
+  &.reversed {
+    background: $color-yellow-400;
+  }
+}
+
+.positionBottom {
+  margin-top: $spacing-6;
+}
+
+.positionTop {
+  margin-bottom: $spacing-6;
+}
+
+.warningIcon {
+  display: inline-flex;
+  width: $message-icon-size;
+  align-self: flex-start;
+
+  .error & {
+    color: $color-red-500;
+  }
+
+  .caution & {
+    color: $color-yellow-500;
+  }
+
+  .reversed & {
+    color: $color-purple-800;
+  }
+}
