@@ -46,8 +46,9 @@ module.exports = (
             type: "addMany",
             destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents/{{pascalCase componentName}}/_docs`,
             base: "plop-templates/basic-component/docs",
-            templateFiles: "plop-templates/basic-component/docs/**/!(*.mdx.hbs)"
-          }
+            templateFiles:
+              "plop-templates/basic-component/docs/**/!(*.mdx.hbs)",
+          },
         ]
       }
 
