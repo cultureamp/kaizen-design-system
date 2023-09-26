@@ -17,7 +17,7 @@ export default {
       config: {
         rules: [
           {
-            // Disabled style elements will always trigger color contrast issues
+            // Only apply the color-contrast to items that are "not" data-disabled
             id: "color-contrast",
             selector: "*:not[data-disabled]",
           },
