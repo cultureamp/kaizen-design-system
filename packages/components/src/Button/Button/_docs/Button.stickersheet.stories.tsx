@@ -123,24 +123,24 @@ const StickerSheetTemplate: StickerSheetStory = {
                 <Button reversed={isReversed} {...props} />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-hover"
+                  classNameOverride="story__button--hover"
                   {...props}
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-active"
+                  classNameOverride="story__button--active"
                   {...props}
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-focus"
+                  classNameOverride="story__button--focus"
                   {...props}
                 />
                 <Button reversed={isReversed} {...props} disabled />
                 <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-focus"
+                  classNameOverride="story__button--focus"
                   {...props}
                   {...WORKING_PROPS}
                 />
@@ -171,19 +171,19 @@ const StickerSheetTemplate: StickerSheetStory = {
                 <Button reversed={isReversed} {...props} size="small" />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-hover"
+                  classNameOverride="story__button--hover"
                   {...props}
                   size="small"
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-active"
+                  classNameOverride="story__button--active"
                   {...props}
                   size="small"
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-focus"
+                  classNameOverride="story__button--focus"
                   {...props}
                   size="small"
                 />
@@ -203,7 +203,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   reversed={isReversed}
                   {...props}
                   size="small"
-                  classNameOverride="story__button-focus"
+                  classNameOverride="story__button--focus"
                   {...WORKING_PROPS}
                 />
               </StickerSheet.Row>
@@ -251,6 +251,14 @@ const StickerSheetTemplate: StickerSheetStory = {
       </>
     )
   },
+  parameters: {
+    pseudo: {
+      hover: ".story__button--hover",
+      active: ".story__button--active",
+      focus: ".story__button--focus",
+      focusVisible: ".story__button--focus",
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -261,12 +269,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    textDirection: "rtl",
+  },
 }

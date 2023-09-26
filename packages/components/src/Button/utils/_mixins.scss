@@ -3,9 +3,9 @@
   $border-color: undefined
 ) {
   &:not(:disabled) {
-    #{$selectors--button-hover},
-    #{$selectors--button-active},
-    #{$selectors--button-focus} {
+    &:hover,
+    &:active,
+    &:focus-visible {
       @if ($background-color != undefined) {
         background-color: $background-color;
       }
