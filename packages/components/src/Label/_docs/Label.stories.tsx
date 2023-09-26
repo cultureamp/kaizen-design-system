@@ -52,9 +52,18 @@ export const InlineControls: Story = {
 
 export const Position: Story = {
   render: () => (
-    <Label labelText="Checkbox" labelType="checkbox" labelPosition="start">
-      <InlineFormControl />
-    </Label>
+    <span className="flex flex-col gap-16">
+      <Label labelText="Checkbox (default position: end)" labelType="checkbox">
+        <InlineFormControl />
+      </Label>
+      <Label
+        labelText="Checkbox (position: start)"
+        labelType="checkbox"
+        labelPosition="start"
+      >
+        <InlineFormControl />
+      </Label>
+    </span>
   ),
   parameters: {
     docs: {
