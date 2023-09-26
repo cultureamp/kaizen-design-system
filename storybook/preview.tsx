@@ -12,6 +12,7 @@ import "highlight.js/styles/a11y-light.css"
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
+import { globalA11yRules } from "./global-a11y-rules"
 
 const globalTypes = {
   textDirection: {
@@ -89,12 +90,7 @@ const preview = {
     chromatic: { disable: true },
     a11y: {
       config: {
-        rules: [
-          {
-            id: "color-contrast",
-            selector: "*:not([data-sb-a11y-color-contrast-disable])",
-          },
-        ],
+        rules: globalA11yRules,
       },
     },
   },
