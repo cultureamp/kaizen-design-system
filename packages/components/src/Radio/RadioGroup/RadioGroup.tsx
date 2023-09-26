@@ -1,6 +1,5 @@
-import React, { HTMLAttributes, useState } from "react"
+import React, { HTMLAttributes, useId } from "react"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import { Label } from "~components/Label"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./RadioGroup.module.scss"
@@ -26,7 +25,8 @@ export const RadioGroup = ({
   "data-testId": dataTestId,
   ...restProps
 }: RadioGroupProps): JSX.Element => {
-  const [labelId] = useState<string>(propsLabelId || v4())
+  const labelId = propsLabelId ?? useId()
+
   return (
     <div
       data-testId={dataTestId}

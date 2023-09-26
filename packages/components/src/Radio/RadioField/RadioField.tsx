@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React, { useId } from "react"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import { Label } from "~components/Label"
 import { Radio, RadioProps } from "../Radio/Radio"
 import styles from "./RadioField.module.scss"
@@ -9,10 +8,9 @@ export type RadioFieldProps = Omit<RadioProps, "id"> & {
   id?: string
   labelText: string | React.ReactNode
   selectedStatus?: boolean
-  inline?: boolean
   disabled?: boolean
   reversed?: boolean
-  "data-testId"?: string
+  "data-testid"?: string
 }
 
 /**
@@ -23,28 +21,26 @@ export const RadioField = ({
   id: propsId,
   labelText,
   selectedStatus = false,
-  inline = false,
   disabled = false,
   reversed = false,
   classNameOverride,
-  "data-testId": dataTestId,
+  "data-testid": dataTestId,
   ...restProps
 }: RadioFieldProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+  const id = propsId ?? useId()
   // @todo: Move restProps to the wrapping div?
   return (
     <div
-      data-testId={dataTestId}
+      data-testid={dataTestId}
       className={classnames(
         styles.container,
         classNameOverride,
         selectedStatus && styles.selected,
-        inline && styles.inline,
         reversed && styles.reversed
       )}
     >
       <Label
-        data-testId={`${id}-field-label`}
+        data-testid={`${id}-field-label`}
         id={`${id}-field-label`}
         htmlFor={id}
         labelText={labelText}
@@ -53,7 +49,7 @@ export const RadioField = ({
         reversed={reversed}
       >
         <Radio
-          data-testId={`${id}-radio-input`}
+          data-testid={`${id}-radio-input`}
           id={id}
           disabled={disabled}
           reversed={reversed}
