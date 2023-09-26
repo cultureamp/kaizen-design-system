@@ -13,17 +13,6 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // FIXME: text inside the buttons not meeting colour contrast requirements
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
   },
 } satisfies Meta
 
@@ -65,19 +54,28 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="First">
             <ButtonGroup>
-              <FilterButtonBase classNameOverride="story__filter-button-base--hover">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--hover"
+                data-sb-a11y-color-contrast-disable
+              >
                 First
               </FilterButtonBase>
               <FilterButtonBase>Last</FilterButtonBase>
             </ButtonGroup>
             <ButtonGroup>
-              <FilterButtonBase classNameOverride="story__filter-button-base--active">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--active"
+                data-sb-a11y-color-contrast-disable
+              >
                 First
               </FilterButtonBase>
               <FilterButtonBase>Last</FilterButtonBase>
             </ButtonGroup>
             <ButtonGroup>
-              <FilterButtonBase classNameOverride="story__filter-button-base--focus story__button-group--focus">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--focus story__button-group--focus"
+                data-sb-a11y-color-contrast-disable
+              >
                 First
               </FilterButtonBase>
               <FilterButtonBase>Last</FilterButtonBase>
@@ -87,19 +85,28 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row rowTitle="Last">
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase classNameOverride="story__filter-button-base--hover">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--hover"
+                data-sb-a11y-color-contrast-disable
+              >
                 Last
               </FilterButtonBase>
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase classNameOverride="story__filter-button-base--active">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--active"
+                data-sb-a11y-color-contrast-disable
+              >
                 Last
               </FilterButtonBase>
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase classNameOverride="story__filter-button-base--focus story__button-group--focus">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--focus story__button-group--focus"
+                data-sb-a11y-color-contrast-disable
+              >
                 Last
               </FilterButtonBase>
             </ButtonGroup>
@@ -108,21 +115,30 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row rowTitle="Middle">
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase classNameOverride="story__filter-button-base--hover">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--hover"
+                data-sb-a11y-color-contrast-disable
+              >
                 Middle
               </FilterButtonBase>
               <FilterButtonBase>Last</FilterButtonBase>
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase classNameOverride="story__filter-button-base--active">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--active"
+                data-sb-a11y-color-contrast-disable
+              >
                 Middle
               </FilterButtonBase>
               <FilterButtonBase>Last</FilterButtonBase>
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
-              <FilterButtonBase classNameOverride="story__filter-button-base--focus story__button-group--focus">
+              <FilterButtonBase
+                classNameOverride="story__filter-button-base--focus story__button-group--focus"
+                data-sb-a11y-color-contrast-disable
+              >
                 Middle
               </FilterButtonBase>
               <FilterButtonBase>Last</FilterButtonBase>
