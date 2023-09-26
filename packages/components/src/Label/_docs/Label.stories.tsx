@@ -33,15 +33,10 @@ const BlockFormControl = (): JSX.Element => (
 )
 
 export const InlineControls: Story = {
-  render: () => (
-    <Label labelText="Checkbox" labelType="checkbox">
-      <InlineFormControl />
-    </Label>
-  ),
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
-    },
+  args: {
+    labelText: "Inline controls",
+    labelType: "checkbox",
+    children: <InlineFormControl />,
   },
 }
 
@@ -98,33 +93,20 @@ export const Types: Story = {
   },
 }
 
-/**
- * Adds text to your form control. `labelText` styling greatly depends on how you compose and what `labelType` you apply, please see Composing below for examples.
- */
-
 export const LabelText: Story = {
-  render: () => (
-    <Label labelType="checkbox" labelText="Label text">
-      <InlineFormControl />
-    </Label>
-  ),
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
-    },
+  args: {
+    labelText: "Label text",
+    labelType: "checkbox",
+    children: <InlineFormControl />,
   },
 }
 
 export const Variant: Story = {
   render: () => (
-    <ul className="flex gap-16 list-none m-0 p-0">
-      <li>
-        <Label variant="default">Label default</Label>
-      </li>
-      <li>
-        <Label variant="prominent">Label prominent</Label>
-      </li>
-    </ul>
+    <div className="flex flex-col gap-16">
+      <Label variant="default">Label default</Label>
+      <Label variant="prominent">Label prominent</Label>
+    </div>
   ),
   parameters: {
     docs: {

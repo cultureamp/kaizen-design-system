@@ -1,4 +1,4 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as LabelStories from "./Label.stories"
 
@@ -27,9 +27,11 @@ Atomic `Label` component for use in `Field` components.
 
 ## API
 
-<DocsStory of={LabelStories.Variant} />
+### Variants
+<Canvas of={LabelStories.Variant} />
 
-<DocsStory of={LabelStories.Types} />
+### Types
+<Canvas of={LabelStories.Types} />
 
 ### Position
 By default, your label text will always sit to the right of the inline form control (ie. in RTL terms, the "end").
@@ -39,7 +41,10 @@ Note: this only works when you have an inline form control passed in via `childr
 
 <Canvas of={LabelStories.Position} />
 
-<DocsStory of={LabelStories.LabelText} />
+### Label text
+Adds text to your form control. `labelText` styling greatly depends on how you compose and what `labelType` you apply, please see Composing below for examples.
+
+<Canvas of={LabelStories.LabelText} />
 
 ### Composing
 
@@ -47,6 +52,8 @@ There are two different ways to utilise the `Label` component depending on the t
 
 The main difference is that when dealing with an inline form control, the form control is passed as children.
 
-<DocsStory of={LabelStories.InlineControls} />
+#### Inline form controls
+<Canvas of={LabelStories.InlineControls} />
 
-<DocsStory of={LabelStories.BlockControls} />
+#### Block form controls
+<Canvas of={LabelStories.BlockControls} />
