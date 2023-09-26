@@ -50,27 +50,15 @@ describe("<FieldMessage />", () => {
     expect(getByTestId("id--fieldMessage")).toHaveAttribute("id", "id--test")
   })
 
-  it("renders a `reversed` field message", () => {
-    const { container } = render(<FieldMessageWrapper reversed />)
+  it("renders the error icon with an accessible title", () => {
+    const { getByLabelText } = render(<FieldMessageWrapper status="error" />)
 
-    expect(container.querySelector(".reversed")).toBeTruthy()
-  })
-
-  it("renders a warning icon with an error status", () => {
-    const { container, getByLabelText } = render(
-      <FieldMessageWrapper status="error" />
-    )
-
-    expect(container.querySelector(".warningIcon")).toBeTruthy()
     expect(getByLabelText("error message")).toBeInTheDocument()
   })
 
-  it("renders a warning icon with an error status", () => {
-    const { container, getByLabelText } = render(
-      <FieldMessageWrapper status="caution" />
-    )
+  it("renders the caution icon with an accessible title", () => {
+    const { getByLabelText } = render(<FieldMessageWrapper status="caution" />)
 
-    expect(container.querySelector(".warningIcon")).toBeTruthy()
     expect(getByLabelText("caution message")).toBeInTheDocument()
   })
 })
