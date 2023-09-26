@@ -4,12 +4,11 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { TagColors } from "./types"
 import styles from "./Tag.module.scss"
 
-export interface TagProps
-  extends OverrideClassName<HTMLAttributes<HTMLSpanElement>> {
+export type TagProps {
   children: ReactNode
   color?: TagColors
   icon?: React.ReactElement
-}
+} & OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
 export const Tag = ({
   children,
