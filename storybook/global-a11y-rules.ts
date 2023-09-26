@@ -19,4 +19,8 @@ export const globalA11yRules = [
     id: "empty-table-header",
     enabled: false,
   },
+  {
+    id: "color-contrast",
+    selector: "*:not([data-sb-a11y-color-contrast-disable])",
+  },
 ]
