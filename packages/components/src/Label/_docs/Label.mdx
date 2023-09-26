@@ -1,0 +1,59 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as LabelStories from "./Label.stories"
+
+<Meta of={LabelStories} />
+
+# Label
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Label"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Label } from "@kaizen/components"'
+/>
+
+## Overview
+
+Atomic `Label` component for use in `Field` components.
+
+<Canvas of={LabelStories.Playground} />
+<Controls of={LabelStories.Playground} />
+
+## API
+
+### Variants
+<Canvas of={LabelStories.Variant} />
+
+### Types
+<Canvas of={LabelStories.Types} />
+
+### Position
+By default, your label text will always sit to the right of the inline form control (ie. in RTL terms, the "end").
+Using the `labelPosition` you can flip the label text to sit to the left (ie. in RTL terms, the "start").
+
+Note: this only works when you have an inline form control passed in via `children`.
+
+<Canvas of={LabelStories.Position} />
+
+### Label text
+Adds text to your form control. `labelText` styling greatly depends on how you compose and what `labelType` you apply, please see Composing below for examples.
+
+<Canvas of={LabelStories.LabelText} />
+
+### Composing
+
+There are two different ways to utilise the `Label` component depending on the type of form control you are composing it with.
+
+The main difference is that when dealing with an inline form control, the form control is passed as children.
+
+#### Inline form controls
+<Canvas of={LabelStories.InlineControls} />
+
+#### Block form controls
+<Canvas of={LabelStories.BlockControls} />
