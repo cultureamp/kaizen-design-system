@@ -1,5 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { Label } from "~components/Label"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -7,41 +8,48 @@ import {
 import { FieldGroup } from "../index"
 
 export default {
-  title: "Components/FieldGroup",
+  title: "KAIO-Staging/FieldGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
+const FormFieldContent = ({ id }: { id: string }): JSX.Element => (
+  <>
+    <Label htmlFor={`id--field-${id}`}>Email</Label>
+    <input
+      className="ms-6"
+      placeholder="Native text input..."
+      type="text"
+      id={`id--field-${id}`}
+    />
+  </>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
       {/* @note: Header is optional */}
-      <StickerSheet.Header headings={["COLUMN 1", "COLUMN 2"]} />
+      <StickerSheet.Header headings={["Default", "Inline"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          {/** @todo: Add column 1 + row 1 props */}
-          <FieldGroup exampleRequiredString="One" isReversed={isReversed} />
-          {/** @todo: Add column 2 + row 1 props */}
-          <FieldGroup exampleRequiredString="Two" isReversed={isReversed} />
+          <FieldGroup>
+            <FormFieldContent id="1" />
+          </FieldGroup>
+          <FieldGroup inline={true}>
+            <FormFieldContent id="2" />
+          </FieldGroup>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
-  )
+  ),
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
-}
-
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
-  args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

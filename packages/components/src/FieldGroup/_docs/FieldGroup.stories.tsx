@@ -1,17 +1,36 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Label } from "~components/Label"
 import { FieldGroup } from "../index"
 
+const SimpleFormComponent = (): JSX.Element => (
+  <>
+    <Label htmlFor="id--field-1">Email</Label>
+    <input
+      className="ms-6"
+      placeholder="Native text input..."
+      type="text"
+      id="id--field-1"
+    />
+  </>
+)
+
 const meta = {
-  title: "Components/FieldGroup",
+  title: "KAIO-Staging/FieldGroup",
   component: FieldGroup,
   args: {
-    /**
-     * @note: Put consistent default values here.
-     * If your value differs between stories, add the arg to the story instead.
-     */
-    exampleRequiredString: "Replace me!"
-  }
+    children: (
+      <>
+        <Label htmlFor="id--field-1">Email</Label>
+        <input
+          className="ms-6"
+          placeholder="Native text input..."
+          type="text"
+          id="id--field-1"
+        />
+      </>
+    ),
+  },
 } satisfies Meta<typeof FieldGroup>
 
 export default meta
@@ -28,10 +47,6 @@ export const Playground: Story = {
   },
 }
 
-/**
- * @todo: Add your description here and use <Description /> in the MDX,
- * or write directly in the MDX.
- */
-export const Reversed: Story = {
-  args: { isReversed: true }
+export const Inline: Story = {
+  args: { inline: true },
 }
