@@ -7,6 +7,7 @@ import {
   UseFloatingOptions,
   autoPlacement,
   autoUpdate,
+  ReferenceType,
 } from "@floating-ui/react-dom"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
@@ -14,9 +15,9 @@ import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Popover.module.scss"
 
-export type PopoverProps = {
+export type PopoverProps<RT extends ReferenceType = ReferenceType> = {
   children: React.ReactNode
-  refs: UseFloatingReturn["refs"]
+  refs: UseFloatingReturn<RT>["refs"]
   /**
    * passes in additional options / override for https://floating-ui.com/docs/tooltip#usefloating-hook
    */
@@ -25,7 +26,7 @@ export type PopoverProps = {
   portalContainer?: Element | DocumentFragment
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export const Popover = ({
+export const Popover = <RT extends ReferenceType>({
   children,
   refs,
   floatingOptions,
@@ -33,7 +34,7 @@ export const Popover = ({
   portalContainer,
   classNameOverride,
   ...restProps
-}: PopoverProps): JSX.Element => {
+}: PopoverProps<RT>): JSX.Element => {
   const { floatingStyles } = useFloating({
     elements: {
       reference: refs.reference.current,
