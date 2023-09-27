@@ -20,14 +20,20 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <InputSearch id="input-search--default" reversed={isReversed} />
+          <InputSearch
+            id="input-search--default"
+            aria-label="Search"
+            reversed={isReversed}
+          />
           <InputSearch
             id="input-search--hover"
+            aria-label="Search"
             reversed={isReversed}
             classNameOverride="story__input-search--hover"
           />
           <InputSearch
             id="input-search--focus"
+            aria-label="Search"
             reversed={isReversed}
             classNameOverride="story__input-search--focus"
           />
