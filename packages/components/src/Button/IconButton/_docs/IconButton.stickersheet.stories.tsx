@@ -82,6 +82,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
           headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
+          hasVerticalHeadings
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
