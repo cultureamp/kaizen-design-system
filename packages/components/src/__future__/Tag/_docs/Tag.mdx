@@ -1,0 +1,59 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TagStories from "./Tag.stories"
+
+<Meta of={TagStories} />
+
+# Tag
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__future__/Tag"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3293283155/Tag"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement="import { Tag } from `@kaizen/components/future`"
+/>
+
+## Overview
+
+Tags helps users quickly recognize important information about items that organize and categorize them.
+
+Note: Tag does not yet have feature parity with the legacy Tag component. The goal with this
+component was to have a more flexible version of legacy Tag, and we will slowly add more functionality
+to this component until we reach feature parity.
+
+
+## API
+
+<Canvas of={TagStories.Playground} />
+<Controls of={TagStories.Playground} />
+
+### `children`
+
+Takes a `ReactNode`. This should be the text that is displayed inside the Tag.
+
+<Canvas of={TagStories.Children} />
+
+### `color`
+
+Determines the color of the background, text, and icon.
+
+<Canvas of={TagStories.Color} />
+
+### `icon`
+
+An optional icon can be passed via this prop. The icon will be rendered on the left of `children`
+in LTR, and on the right of `children` in RTL. For a list of icons, see [Icons](?path=/story/components-icons--sticker-sheet-default)
+
+<Canvas of={TagStories.Icon} />
+
+### `classNameOverride`
+
+Allows classnames to be attached to the outermost element of Tag.
+
+<Canvas of={TagStories.ClassNameOverride} />
