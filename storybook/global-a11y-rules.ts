@@ -15,11 +15,6 @@ export const globalA11yRules = [
     enabled: false,
   },
   {
-    // we have a bunch of stickersheet tables without captions
-    id: "empty-table-header",
-    enabled: false,
-  },
-  {
     // add a data-attribute for exceptions such as pseudo states
     id: "color-contrast",
     selector: ":not([data-sb-a11y-color-contrast-disable])",

@@ -13,7 +13,7 @@
   border-radius: 50%;
 
   &:not(:disabled) {
-    #{$selectors--button-focus} {
+    &:focus-visible {
       &::after {
         border-radius: 50%;
       }
@@ -68,7 +68,7 @@
   );
 
   &:not(:disabled) {
-    #{$selectors--button-active} {
+    &:active {
       transform: unset;
     }
   }

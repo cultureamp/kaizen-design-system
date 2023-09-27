@@ -5,13 +5,3 @@ $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
 $focus-ring-offset-outer: calc(
   -1 * calc(#{$border-focus-ring-border-width} + #{$focus-ring-offset})
 );
-
-// Classnames to simulate pseudo states in storybook
-$story-className--filter-button-base--hover: ":global(.story__filter-button-base--hover)";
-$story-className--filter-button-base--active: ":global(.story__filter-button-base--active)";
-$story-className--filter-button-base--focus: ":global(.story__filter-button-base--focus)";
-
-// Combined pseudo state classes
-$selectors--filter-button-base--hover: "&:hover, &#{$story-className--filter-button-base--hover}";
-$selectors--filter-button-base--active: "&:active, &#{$story-className--filter-button-base--active}";
-$selectors--filter-button-base--focus: "&:focus-visible, &#{$story-className--filter-button-base--focus}";
