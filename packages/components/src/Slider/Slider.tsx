@@ -1,5 +1,6 @@
 import React, { ReactNode, useId } from "react"
 import classnames from "classnames"
+import { InputRange, InputRangeProps } from "~components/InputRange"
 import { Label } from "~components/Label"
 import { Text } from "~components/Text"
 import styles from "./Slider.module.scss"
