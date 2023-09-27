@@ -1,0 +1,42 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelWrapper {
+  margin-bottom: $spacing-sm;
+}
+
+@media (min-width: $layout-breakpoints-medium) {
+  .labelInline {
+    &.wrapper {
+      align-items: center;
+      flex-direction: row;
+    }
+
+    .labelWrapper {
+      flex: 1;
+    }
+
+    .inputWrapper {
+      flex-basis: 50%;
+    }
+  }
+}
+
+.descriptionDisabled {
+  opacity: 30%;
+}
+
+.readOnlyMessage {
+  text-align: center;
+  font-family: $typography-paragraph-small-font-family;
+  font-size: $typography-paragraph-small-font-size;
+  font-weight: $typography-paragraph-bold-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+}
