@@ -31,42 +31,47 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Header headings={["Default", "Disabled", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Radio id="radio" name="radio" value="radio" reversed={isReversed} />
           <Radio
-            id="radio"
-            name="radio"
-            value="radio"
+            id="radio1"
+            name="radio1"
+            value="radio1"
+            reversed={isReversed}
+          />
+          <Radio
+            id="radio2"
+            name="radio2"
+            value="radio2"
             reversed={isReversed}
             disabled
           />
           <Radio
-            id="radio4"
-            name="radio"
-            value="radio4"
+            id="radio3"
+            name="radio3"
+            value="radio3"
             reversed={isReversed}
             data-sb-pseudo-styles="focus"
           />
         </StickerSheet.Row>
         <StickerSheet.Row>
           <Radio
-            id="radio"
-            name="radio"
-            value="radio"
+            id="radio11"
+            name="radio11"
+            value="radio11"
             reversed={isReversed}
             selectedStatus
           />
           <Radio
-            id="radio"
-            name="radio"
-            value="radio"
+            id="radio22"
+            name="radio22"
+            value="radio22"
             reversed={isReversed}
             selectedStatus
             disabled
           />
           <Radio
-            id="radio4"
-            name="radio"
-            value="radio4"
+            id="radio33"
+            name="radio33"
+            value="radio33"
             reversed={isReversed}
             selectedStatus
             data-sb-pseudo-styles="focus"
@@ -94,8 +99,6 @@ export const StickerSheetReversed: StickerSheetStory = {
   name: "Sticker Sheet (Reversed)",
   parameters: {
     backgrounds: { default: "Purple 700" },
-    // Focus state on Reverse takes a bit of time
-    chromatic: { delay: 300 },
   },
   args: { isReversed: true },
 }
