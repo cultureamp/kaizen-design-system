@@ -1,0 +1,130 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as SceneStories from "./Scene.stories"
+
+<Meta of={SceneStories} />
+
+# Scene
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Scene"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Scene } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+<Canvas of={SceneStories.EmptyStatesActionStory} />
+<Controls of={SceneStories.EmptyStatesActionStory} />
+
+
+### EmptyStatesAction
+<Canvas of={SceneStories.EmptyStatesActionStory} />
+### EmptyStatesInformative
+<Canvas of={SceneStories.EmptyStatesInformativeStory} />
+### EmptyStatesNegative
+<Canvas of={SceneStories.EmptyStatesNegativeStory} />
+### EmptyStatesNeutral
+<Canvas of={SceneStories.EmptyStatesNeutralStory} />
+### EmptyStatesPositive
+<Canvas of={SceneStories.EmptyStatesPositiveStory} />
+### Information360Upgrade
+<Canvas of={SceneStories.Information360UpgradeStory} />
+### InformationDemographicFocus
+<Canvas of={SceneStories.InformationDemographicFocusStory} />
+### InformationEmergingTrends
+<Canvas of={SceneStories.InformationEmergingTrendsStory} />
+### InformationEmployeeLifecycle
+<Canvas of={SceneStories.InformationEmployeeLifecycleStory} />
+### InformationReportOwner
+<Canvas of={SceneStories.InformationReportOwnerStory} />
+### InformationReportOwnerByRule
+<Canvas of={SceneStories.InformationReportOwnerByRuleStory} />
+### InformationTurnoverCalculator
+<Canvas of={SceneStories.InformationTurnoverCalculatorStory} />
+### InformationTurnoverForecast
+<Canvas of={SceneStories.InformationTurnoverForecastStory} />
+### Collaboration
+<Canvas of={SceneStories.CollaborationStory} />
+### Communication
+<Canvas of={SceneStories.CommunicationStory} />
+### CompanyValues
+<Canvas of={SceneStories.CompanyValuesStory} />
+### ConnectTheDots
+<Canvas of={SceneStories.ConnectTheDotsStory} />
+### CultureLab
+<Canvas of={SceneStories.CultureLabStory} />
+### TermsAgreement
+<Canvas of={SceneStories.TermsAgreementStory} />
+### Programs
+<Canvas of={SceneStories.ProgramsStory} />
+### PerformanceCompanySettings
+<Canvas of={SceneStories.PerformanceCompanySettingsStory} />
+### EngagementSurveySummaryFemale
+<Canvas of={SceneStories.EngagementSurveySummaryFemaleStory} />
+### EngagementSurveySummaryMale
+<Canvas of={SceneStories.EngagementSurveySummaryMaleStory} />
+### BrandMomentNewAccountOnboarding
+<Canvas of={SceneStories.BrandMomentNewAccountOnboardingStory} />
+### BrandMomentUploadEmployeeData
+<Canvas of={SceneStories.BrandMomentUploadEmployeeDataStory} />
+### BrandMomentPositiveOutro
+<Canvas of={SceneStories.BrandMomentPositiveOutroStory} />
+### BrandMomentLogin
+<Canvas of={SceneStories.BrandMomentLoginStory} />
+### BrandMomentError
+<Canvas of={SceneStories.BrandMomentErrorStory} />
+### BrandMomentStarterKit
+<Canvas of={SceneStories.BrandMomentStarterKitStory} />
+### SkillsCoach1On1Meetings
+<Canvas of={SceneStories.SkillsCoach1On1MeetingsStory} />
+### SkillsCoachCoaching
+<Canvas of={SceneStories.SkillsCoachCoachingStory} />
+### SkillsCoachEmployeeDevelopment
+<Canvas of={SceneStories.SkillsCoachEmployeeDevelopmentStory} />
+### SkillsCoachEssentialFeedback
+<Canvas of={SceneStories.SkillsCoachEssentialFeedbackStory} />
+### SkillsCoachEssentialProductivity
+<Canvas of={SceneStories.SkillsCoachEssentialProductivityStory} />
+### SkillsCoachEssentialResilience
+<Canvas of={SceneStories.SkillsCoachEssentialResilienceStory} />
+### SkillsCoachInfluentialCommunication
+<Canvas of={SceneStories.SkillsCoachInfluentialCommunicationStory} />
+### SkillsCoachLeadingChange
+<Canvas of={SceneStories.SkillsCoachLeadingChangeStory} />
+### SkillsCoachFeedback
+<Canvas of={SceneStories.SkillsCoachFeedbackStory} />
+### SkillsCoachManagerHub
+<Canvas of={SceneStories.SkillsCoachManagerHubStory} />
+### SkillsCoachProductivity
+<Canvas of={SceneStories.SkillsCoachProductivityStory} />
+### SkillsCoachRemoteManager
+<Canvas of={SceneStories.SkillsCoachRemoteManagerStory} />
+### SkillsCoachResilience
+<Canvas of={SceneStories.SkillsCoachResilienceStory} />
+### SkillsCoachStrategy
+<Canvas of={SceneStories.SkillsCoachStrategyStory} />
+### SurveyGetStarted
+<Canvas of={SceneStories.SurveyGetStartedStory} />
+### SurveyOverviewClosed
+<Canvas of={SceneStories.SurveyOverviewClosedStory} />
+
+## API
+
+{/* @todo: Describe props and provide example stories. */}
+{/* <DocsStory of={SceneStories.Reversed} /> */}
