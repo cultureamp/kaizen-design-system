@@ -25,6 +25,7 @@ export const StickerSheetRow = ({
     <tr {...restProps}>
       {rowTitle && (
         <StickerSheetTableHeading
+          scope="row"
           isReversed={isReversed}
           style={{ width: `calc(${rowTitleWidthString} - ${headingPaddingX})` }}
         >
