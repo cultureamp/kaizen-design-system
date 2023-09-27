@@ -19,10 +19,11 @@ export const StickerSheetHeader = ({
 }: StickerSheetHeaderProps): JSX.Element => (
   <thead {...restProps}>
     <tr>
-      {hasVerticalHeadings && <th style={{ width: verticalHeadingsWidth }} />}
+      {hasVerticalHeadings && <td style={{ width: verticalHeadingsWidth }} />}
       {headings.map(heading => (
         <StickerSheetTableHeading
           key={heading}
+          scope="col"
           isReversed={isReversed}
           style={{ width: headingsWidth }}
         >
