@@ -28,17 +28,17 @@ const StickerSheetTemplate: StickerSheetStory = {
           <{{pascalCase componentName}}
             isReversed={isReversed}
             exampleRequiredString="{{pascalCase componentName}}"
-            data-pseudo-styles="hover"
+            data-sb-pseudo-styles="hover"
           />
           <{{pascalCase componentName}}
             isReversed={isReversed}
             exampleRequiredString="{{pascalCase componentName}}"
-            data-pseudo-styles="active"
+            data-sb-pseudo-styles="active"
           />
           <{{pascalCase componentName}}
             isReversed={isReversed}
             exampleRequiredString="{{pascalCase componentName}}"
-            data-pseudo-styles="focus"
+            data-sb-pseudo-styles="focus"
           />
         </StickerSheet.Row>
       </StickerSheet.Body>
@@ -48,10 +48,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   parameters: {
     /** @todo: Remove any inapplicable pseudo states */
     pseudo: {
-      hover: '[data-pseudo-styles="hover"]',
-      active: '[data-pseudo-styles="active"]',
-      focus: '[data-pseudo-styles="focus"]',
-      focusVisible: '[data-pseudo-styles="focus"]',
+      hover: '[data-sb-pseudo-styles="hover"]',
+      active: '[data-sb-pseudo-styles="active"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
     },
   },
 }

@@ -21,17 +21,17 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <ClearButton isReversed={isReversed} />
-          <ClearButton isReversed={isReversed} data-pseudo-styles="hover" />
-          <ClearButton isReversed={isReversed} data-pseudo-styles="focus" />
+          <ClearButton isReversed={isReversed} data-sb-pseudo-styles="hover" />
+          <ClearButton isReversed={isReversed} data-sb-pseudo-styles="focus" />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
   parameters: {
     pseudo: {
-      hover: '[data-pseudo-styles="hover"]',
-      focus: '[data-pseudo-styles="focus"]',
-      focusVisible: '[data-pseudo-styles="focus"]',
+      hover: '[data-sb-pseudo-styles="hover"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
     },
   },
 }
