@@ -28,10 +28,17 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Focus"]} />
+      <StickerSheet.Header headings={["Default", "Disabled", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <Radio id="radio" name="radio" value="radio" reversed={isReversed} />
+          <Radio
+            id="radio"
+            name="radio"
+            value="radio"
+            reversed={isReversed}
+            disabled
+          />
           <Radio
             id="radio4"
             name="radio"
@@ -47,6 +54,14 @@ const StickerSheetTemplate: StickerSheetStory = {
             value="radio"
             reversed={isReversed}
             selectedStatus
+          />
+          <Radio
+            id="radio"
+            name="radio"
+            value="radio"
+            reversed={isReversed}
+            selectedStatus
+            disabled
           />
           <Radio
             id="radio4"
@@ -77,6 +92,10 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    backgrounds: { default: "Purple 700" },
+    // Focus state on Reverse takes a bit of time
+    chromatic: { delay: 300 },
+  },
   args: { isReversed: true },
 }
