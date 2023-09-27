@@ -19,4 +19,9 @@ export const globalA11yRules = [
     id: "empty-table-header",
     enabled: false,
   },
+  {
+    // add a data-attribute for exceptions such as pseudo states
+    id: "color-contrast",
+    selector: ":not([data-sb-a11y-color-contrast-disable])",
+  },
 ]
