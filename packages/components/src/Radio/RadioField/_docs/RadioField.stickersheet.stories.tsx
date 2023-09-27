@@ -17,7 +17,10 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["", "Base", "Disabled"]} />
+      <StickerSheet.Header
+        headings={["Base", "Disabled"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="On">
           <RadioField
