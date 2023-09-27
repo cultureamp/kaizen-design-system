@@ -3,18 +3,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Label } from "~components/Label"
 import { FieldGroup } from "../index"
 
-const SimpleFormComponent = (): JSX.Element => (
-  <>
-    <Label htmlFor="id--field-1">Email</Label>
-    <input
-      className="ms-6"
-      placeholder="Native text input..."
-      type="text"
-      id="id--field-1"
-    />
-  </>
-)
-
 const meta = {
   title: "KAIO-Staging/FieldGroup",
   component: FieldGroup,

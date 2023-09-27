@@ -1,4 +1,4 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as FieldGroupStories from "./FieldGroup.stories"
 
@@ -6,11 +6,6 @@ import * as FieldGroupStories from "./FieldGroup.stories"
 
 # FieldGroup
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FieldGroup"
   figma=""
@@ -27,7 +22,7 @@ import * as FieldGroupStories from "./FieldGroup.stories"
 
 ## Overview
 
-A simple wrapper to wrap form field components and their related siblings. This a primitive is used in components like `TextField`, `TextArea`, `Slider`, etc
+A simple wrapper to wrap form field components and their related siblings. This a primitive is used in components like `TextField`, `TextArea`, `Slider`, etc.
 
 <Canvas of={FieldGroupStories.Playground} />
 <Controls of={FieldGroupStories.Playground} />

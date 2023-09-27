@@ -29,9 +29,7 @@ const FormFieldContent = ({ id }: { id: string }): JSX.Element => (
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      {/* @note: Header is optional */}
       <StickerSheet.Header headings={["Default", "Inline"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
