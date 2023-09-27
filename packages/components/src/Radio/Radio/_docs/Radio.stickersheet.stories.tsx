@@ -28,9 +28,17 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
+      <StickerSheet.Header headings={["Default", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
           <Radio id="radio" name="radio" value="radio" reversed={isReversed} />
+          <Radio
+            id="radio4"
+            name="radio"
+            value="radio4"
+            reversed={isReversed}
+            data-sb-pseudo-styles="focus"
+          />
         </StickerSheet.Row>
         <StickerSheet.Row>
           <Radio
@@ -40,10 +48,25 @@ const StickerSheetTemplate: StickerSheetStory = {
             reversed={isReversed}
             selectedStatus
           />
+          <Radio
+            id="radio4"
+            name="radio"
+            value="radio4"
+            reversed={isReversed}
+            selectedStatus
+            data-sb-pseudo-styles="focus"
+          />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
+  parameters: {
+    pseudo: {
+      // Unfortunately the way this component is built, these selectors can't be applied to the inner element
+      // to provide the pseudo state affect
+      focus: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
