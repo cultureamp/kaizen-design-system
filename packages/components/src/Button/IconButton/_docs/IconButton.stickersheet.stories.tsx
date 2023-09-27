@@ -89,17 +89,17 @@ const StickerSheetTemplate: StickerSheetStory = {
               <IconButton reversed={isReversed} {...props} />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__button-hover"
+                classNameOverride="story__icon-button--hover"
                 {...props}
               />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__button-active"
+                classNameOverride="story__icon-button--active"
                 {...props}
               />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__button-focus"
+                classNameOverride="story__icon-button--focus"
                 {...props}
               />
               <IconButton reversed={isReversed} {...props} disabled />
@@ -109,6 +109,14 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
     )
+  },
+  parameters: {
+    pseudo: {
+      hover: ".story__icon-button--hover",
+      active: ".story__icon-button--active",
+      focus: ".story__icon-button--focus",
+      focusVisible: ".story__icon-button--focus",
+    },
   },
 }
 
@@ -120,12 +128,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    textDirection: "rtl",
+  },
 }
