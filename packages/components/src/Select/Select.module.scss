@@ -1,0 +1,24 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.notFullWidth {
+  width: 180px;
+}
+
+.popover {
+  box-sizing: border-box;
+  // border-radius: $border-solid-border-radius;
+  // box-shadow: $shadow-large-box-shadow;
+  // background: $color-white;
+  min-width: 12.25rem; // 196px
+  max-width: 25rem; // 400px
+  overflow: auto;
+  padding: $spacing-12;
+}

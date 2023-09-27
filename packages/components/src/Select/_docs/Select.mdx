@@ -1,0 +1,33 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as SelectStories from "./Select.stories"
+
+<Meta of={SelectStories} />
+
+# Select
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Select"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%F0%9F%96%BC%EF%B8%8F-Component-Gallery?type=design&node-id=6-28579&t=bowQ0LWOQKOd0UYS-0"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093959/Filters"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Select } from "@kaizen/components"'
+/>
+
+## Playground
+
+<Canvas of={SelectStories.Playground} />
+<Controls of={SelectStories.Playground} />
+
+## API
+
+{/* ### Additional option properties (generic)
+
+<Description of={SelectStories.AdditionalProperties} />
+<Canvas of={SelectStories.AdditionalProperties} /> */}

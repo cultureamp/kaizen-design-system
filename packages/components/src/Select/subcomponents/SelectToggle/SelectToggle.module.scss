@@ -1,0 +1,142 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "./mixins";
+@import "./variables";
+
+.icon {
+  margin-left: $spacing-sm;
+  color: $color-gray-500;
+}
+
+.button {
+  @include button;
+
+  background-color: $color-white;
+  border-radius: $border-solid-border-radius;
+  margin-top: $spacing-xs;
+  width: 100%;
+  height: $spacing-xl;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+
+  &:hover .icon,
+  &:global(.story__button-hover) .icon,
+  &:active .icon,
+  &:global(.story__button-active) .icon,
+  &:focus .icon {
+    color: $color-gray-600;
+  }
+
+  &.placeholder {
+    color: rgba($color-purple-800-rgb, 0.7);
+  }
+}
+
+.error {
+  border: $border-solid-border-width $border-solid-border-style $color-red-500;
+}
+
+.caution {
+  border: $border-solid-border-width $border-solid-border-style
+    $color-yellow-600;
+}
+
+.value {
+  width: 100%;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* stylelint-disable no-descending-specificity */
+.disabled:not(.reversed) {
+  border: $border-solid-border-width $border-solid-border-style $color-gray-300;
+  background-color: $color-gray-100;
+  color: $color-gray-500;
+
+  .icon,
+  &:hover .icon {
+    color: $color-gray-400;
+  }
+}
+
+.reversed:not(.disabled) {
+  border: $border-solid-border-width $border-solid-border-style
+    rgba($color-white-rgb, 0.8);
+  background-color: transparent;
+  color: $color-white;
+
+  &.placeholder {
+    color: rgba($color-white-rgb, 0.65);
+  }
+
+  .icon {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  #{$story-className--button-active},
+  #{$selectors--button-hover} {
+    background-color: rgba($color-white-rgb, 0.1);
+    border: $border-solid-border-width $border-solid-border-style $color-white;
+
+    .icon {
+      color: $color-white;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  #{$selectors--button-focus} {
+    background-color: rgba($color-white-rgb, 0.1);
+    border: $border-solid-border-width $border-solid-border-style $color-white;
+
+    .icon {
+      color: $color-white;
+    }
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-300;
+      border-radius: $border-focus-ring-border-radius;
+      inset: calc(-1 * #{$focus-ring-offset});
+    }
+  }
+
+  .error {
+    border-color: $color-red-300;
+  }
+
+  .caution {
+    border-color: $color-yellow-400;
+  }
+}
+
+.reversed.disabled {
+  background-color: transparent;
+  border-color: rgba($color-white-rgb, 0.3);
+  color: rgba($color-white-rgb, 0.3);
+
+  .icon,
+  &:hover .icon {
+    color: rgba($color-white-rgb, 0.3);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.placeholder {
+    color: rgba($color-white-rgb, 0.3);
+  }
+}
+/* stylelint-enable no-descending-specificity */
