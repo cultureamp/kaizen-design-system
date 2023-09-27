@@ -35,6 +35,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             id="input-search--focus"
             aria-label="Search"
             reversed={isReversed}
+            data-pseudo-styles="focus"
             classNameOverride="story__input-search--focus"
           />
         </StickerSheet.Row>
@@ -43,9 +44,11 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
+      focus: '[data-pseudo-styles="focus"]',
+      // We need to use `classNameOverride` to target the container div
+      // as data-attributes are passed into the input.
       hover: ".story__input-search--hover",
       focusWithin: ".story__input-search--focus",
-      focus: ".story__input-search--focus > input",
     },
   },
 }

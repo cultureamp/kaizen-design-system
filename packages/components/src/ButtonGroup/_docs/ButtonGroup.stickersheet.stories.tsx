@@ -55,7 +55,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row rowTitle="First">
             <ButtonGroup>
               <FilterButtonBase
-                classNameOverride="story__button-group--hover"
+                data-pseudo-styles="hover"
                 data-sb-a11y-color-contrast-disable
               >
                 First
@@ -64,7 +64,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase
-                classNameOverride="story__button-group--active"
+                data-pseudo-styles="active"
                 data-sb-a11y-color-contrast-disable
               >
                 First
@@ -73,7 +73,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </ButtonGroup>
             <ButtonGroup>
               <FilterButtonBase
-                classNameOverride="story__button-group--focus"
+                data-pseudo-styles="focus"
                 data-sb-a11y-color-contrast-disable
               >
                 First
@@ -86,7 +86,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__button-group--hover"
+                data-pseudo-styles="hover"
                 data-sb-a11y-color-contrast-disable
               >
                 Last
@@ -95,7 +95,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__button-group--active"
+                data-pseudo-styles="active"
                 data-sb-a11y-color-contrast-disable
               >
                 Last
@@ -104,7 +104,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__button-group--focus"
+                data-pseudo-styles="focus"
                 data-sb-a11y-color-contrast-disable
               >
                 Last
@@ -116,7 +116,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__button-group--hover"
+                data-pseudo-styles="hover"
                 data-sb-a11y-color-contrast-disable
               >
                 Middle
@@ -126,7 +126,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__button-group--active"
+                data-pseudo-styles="active"
                 data-sb-a11y-color-contrast-disable
               >
                 Middle
@@ -136,7 +136,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <ButtonGroup>
               <FilterButtonBase>First</FilterButtonBase>
               <FilterButtonBase
-                classNameOverride="story__button-group--focus"
+                data-pseudo-styles="focus"
                 data-sb-a11y-color-contrast-disable
               >
                 Middle
@@ -150,10 +150,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      hover: ".story__button-group--hover",
-      active: ".story__button-group--active",
-      focus: ".story__button-group--focus",
-      focusVisible: ".story__button-group--focus",
+      hover: '[data-pseudo-styles="hover"]',
+      active: '[data-pseudo-styles="active"]',
+      focus: '[data-pseudo-styles="focus"]',
+      focusVisible: '[data-pseudo-styles="focus"]',
     },
   },
 }

@@ -58,17 +58,17 @@ const StickerSheetTemplate: StickerSheetStory = {
             <DirectionalLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__directional-link--hover"
+              data-pseudo-styles="hover"
             />
             <DirectionalLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__directional-link--active"
+              data-pseudo-styles="active"
             />
             <DirectionalLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__directional-link--focus"
+              data-pseudo-styles="focus"
             />
             <DirectionalLink {...props} reversed={isReversed} disabled />
           </StickerSheet.Row>
@@ -78,10 +78,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      hover: ".story__directional-link--hover",
-      active: ".story__directional-link--active",
-      focus: ".story__directional-link--focus",
-      focusVisible: ".story__directional-link--focus",
+      hover: '[data-pseudo-styles="hover"]',
+      active: '[data-pseudo-styles="active"]',
+      focus: '[data-pseudo-styles="focus"]',
+      focusVisible: '[data-pseudo-styles="focus"]',
     },
   },
 }

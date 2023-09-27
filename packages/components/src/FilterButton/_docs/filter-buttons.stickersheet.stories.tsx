@@ -27,19 +27,19 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row>
             <FilterButtonBase>Label</FilterButtonBase>
             <FilterButtonBase
-              classNameOverride="story__filter-button-base--hover"
+              data-pseudo-styles="hover"
               data-sb-a11y-color-contrast-disable
             >
               Label
             </FilterButtonBase>
             <FilterButtonBase
-              classNameOverride="story__filter-button-base--active"
+              data-pseudo-styles="active"
               data-sb-a11y-color-contrast-disable
             >
               Label
             </FilterButtonBase>
             <FilterButtonBase
-              classNameOverride="story__filter-button-base--focus"
+              data-pseudo-styles="focus"
               data-sb-a11y-color-contrast-disable
             >
               Label
@@ -79,10 +79,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      hover: ".story__filter-button-base--hover",
-      active: ".story__filter-button-base--active",
-      focus: ".story__filter-button-base--focus",
-      focusVisible: ".story__filter-button-base--focus",
+      hover: '[data-pseudo-styles="hover"]',
+      active: '[data-pseudo-styles="active"]',
+      focus: '[data-pseudo-styles="focus"]',
+      focusVisible: '[data-pseudo-styles="focus"]',
     },
   },
 }

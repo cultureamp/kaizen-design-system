@@ -90,17 +90,17 @@ const StickerSheetTemplate: StickerSheetStory = {
               <IconButton reversed={isReversed} {...props} />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__icon-button--hover"
+                data-pseudo-styles="hover"
                 {...props}
               />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__icon-button--active"
+                data-pseudo-styles="active"
                 {...props}
               />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__icon-button--focus"
+                data-pseudo-styles="focus"
                 {...props}
               />
               <IconButton reversed={isReversed} {...props} disabled />
@@ -113,10 +113,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   },
   parameters: {
     pseudo: {
-      hover: ".story__icon-button--hover",
-      active: ".story__icon-button--active",
-      focus: ".story__icon-button--focus",
-      focusVisible: ".story__icon-button--focus",
+      hover: '[data-pseudo-styles="hover"]',
+      active: '[data-pseudo-styles="active"]',
+      focus: '[data-pseudo-styles="focus"]',
+      focusVisible: '[data-pseudo-styles="focus"]',
     },
   },
 }

@@ -54,6 +54,8 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
+      // We need to use `classNameOverride` to target the container div
+      // as data-attributes are passed into the input.
       hover: ".story__checkbox--hover",
       focusWithin: ".story__checkbox--focus",
     },

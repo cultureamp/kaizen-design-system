@@ -50,17 +50,17 @@ const StickerSheetTemplate: StickerSheetStory = {
             <PaginationLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__pagination-link--hover"
+              data-pseudo-styles="hover"
             />
             <PaginationLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__pagination-link--active"
+              data-pseudo-styles="active"
             />
             <PaginationLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__pagination-link--focus"
+              data-pseudo-styles="focus"
             />
           </StickerSheet.Row>
         ))}
@@ -69,10 +69,10 @@ const StickerSheetTemplate: StickerSheetStory = {
   ),
   parameters: {
     pseudo: {
-      hover: ".story__pagination-link--hover",
-      active: ".story__pagination-link--active",
-      focus: ".story__pagination-link--focus",
-      focusVisible: ".story__pagination-link--focus",
+      hover: '[data-pseudo-styles="hover"]',
+      active: '[data-pseudo-styles="active"]',
+      focus: '[data-pseudo-styles="focus"]',
+      focusVisible: '[data-pseudo-styles="focus"]',
     },
   },
 }
