@@ -19,52 +19,62 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Base", "Disabled"]} />
+      <StickerSheet.Header headings={["", "Base", "Disabled"]} />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Default">
-          <RadioGroup labelText="Radio group label" reversed={isReversed}>
-            <RadioField
-              labelText="Label"
-              name="radio"
-              value="radio-1"
-              reversed={isReversed}
-            />
-            <RadioField
-              labelText="Label"
-              name="radio"
-              value="radio-2"
-              reversed={isReversed}
-            />
-            <RadioField
-              labelText="Label"
-              name="radio"
-              value="radio-3"
-              reversed={isReversed}
-            />
-          </RadioGroup>
-          <RadioGroup labelText="Radio group label" reversed={isReversed}>
-            <RadioField
-              labelText="Label"
-              name="radio"
-              value="radio-1"
-              disabled
-              reversed={isReversed}
-            />
-            <RadioField
-              labelText="Label"
-              name="radio"
-              value="radio-2"
-              disabled
-              reversed={isReversed}
-            />
-            <RadioField
-              labelText="Label"
-              name="radio"
-              value="radio-3"
-              disabled
-              reversed={isReversed}
-            />
-          </RadioGroup>
+          <>
+            <RadioGroup labelText="Radio group label" reversed={isReversed}>
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-1"
+                reversed={isReversed}
+              />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-2"
+                reversed={isReversed}
+              />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-3"
+                reversed={isReversed}
+              />
+            </RadioGroup>
+            <Text variant="body" color={isReversed ? "white" : "dark"}>
+              Next line
+            </Text>
+          </>
+          <>
+            <RadioGroup labelText="Radio group label" reversed={isReversed}>
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-1"
+                disabled
+                reversed={isReversed}
+              />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-2"
+                disabled
+                reversed={isReversed}
+              />
+              <RadioField
+                labelText="Label"
+                name="radio"
+                value="radio-3"
+                disabled
+                reversed={isReversed}
+              />
+            </RadioGroup>
+            <Text variant="body" color={isReversed ? "white" : "dark"}>
+              Next line
+            </Text>
+          </>
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="No Bottom Margin">
           <div>
