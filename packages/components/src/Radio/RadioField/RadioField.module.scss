@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "../../../styles/form-variables";
 
-$dt-color-radio-background-color-hover: $color-gray-100;
+$dt-color-radio-background-color-hover: $color-gray-200;
 
 .container {
   position: relative;
@@ -22,19 +22,17 @@ $dt-color-radio-background-color-hover: $color-gray-100;
     }
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    &:not(.reversed) label:hover {
-      input:not([disabled]) + span {
-        border-color: $dt-color-form-border-color-hover;
-        background-color: $dt-color-radio-background-color-hover;
-      }
+  &:not(.reversed) label:hover {
+    input:not([disabled]) + span {
+      border-color: $dt-color-form-border-color-hover;
+      background-color: $dt-color-radio-background-color-hover;
     }
+  }
 
-    &.reversed label:hover {
-      input:not([disabled]) + span {
-        border-color: $color-white;
-        background-color: transparent;
-      }
+  &.reversed label:hover {
+    input:not([disabled]) + span {
+      border-color: $color-white;
+      background-color: transparent;
     }
   }
 

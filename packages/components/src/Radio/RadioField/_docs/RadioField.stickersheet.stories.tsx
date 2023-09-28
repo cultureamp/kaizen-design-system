@@ -18,7 +18,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Base", "Disabled"]}
+        headings={["Base", "Disabled", "Hover"]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -29,15 +29,23 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedStatus
             value="radio-1"
             reversed={isReversed}
-          ></RadioField>
+          />
           <RadioField
             name="radio"
             labelText="Label"
             selectedStatus
             disabled
-            value="radio-1"
+            value="radio-2"
             reversed={isReversed}
-          ></RadioField>
+          />
+          <RadioField
+            name="radio"
+            labelText="Label"
+            selectedStatus
+            value="radio-3"
+            reversed={isReversed}
+            classNameOverride="story__radio-field--hover"
+          />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Off">
           <RadioField
@@ -45,18 +53,30 @@ const StickerSheetTemplate: StickerSheetStory = {
             labelText="Label"
             value="radio-1"
             reversed={isReversed}
-          ></RadioField>
+          />
           <RadioField
             name="radio"
             labelText="Label"
             disabled
-            value="radio-1"
+            value="radio-2"
             reversed={isReversed}
-          ></RadioField>
+          />
+          <RadioField
+            name="radio"
+            labelText="Label"
+            value="radio-3"
+            reversed={isReversed}
+            classNameOverride="story__radio-field--hover"
+          />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
+  parameters: {
+    pseudo: {
+      hover: ".story__radio-field--hover > label",
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -67,7 +87,10 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
