@@ -1,6 +1,3 @@
----
-"@kaizen/components": patch
----
 
 ---
 ---

@@ -33,12 +33,30 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Header headings={["Default", "Inline"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <FieldGroup>
-            <FormFieldContent id="1" />
-          </FieldGroup>
-          <FieldGroup inline={true}>
-            <FormFieldContent id="2" />
-          </FieldGroup>
+          <div className="">
+            <p className="inline">Inline content </p>
+            <FieldGroup inline={true}>
+              <Label htmlFor="id--field-2">Label</Label>
+              <input
+                className="ms-6"
+                placeholder="Native text input..."
+                type="text"
+                id="id--field-2"
+              />
+            </FieldGroup>
+          </div>
+          <div>
+            <p className="inline">Inline content </p>
+            <FieldGroup>
+              <Label htmlFor="id--field-1">Label</Label>
+              <input
+                className="ms-6"
+                placeholder="Native text input..."
+                type="text"
+                id="id--field-2"
+              />
+            </FieldGroup>
+          </div>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
