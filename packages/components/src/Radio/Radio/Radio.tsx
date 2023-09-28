@@ -6,6 +6,9 @@ import styles from "./Radio.module.scss"
 export type RadioProps = OverrideClassName<
   Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
 > & {
+  /**
+   * This needs to be enforced to ensure the Radio always gets an id to match a label when composed.
+   */
   id: string
   name: string
   value: string
