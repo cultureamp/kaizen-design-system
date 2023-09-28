@@ -1,0 +1,41 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { LinkTo } from "~storybook/components/LinkTo"
+import * as FieldGroupStories from "./FieldGroup.stories"
+
+<Meta of={FieldGroupStories} />
+
+# FieldGroup
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FieldGroup"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { FieldGroup } from "@kaizen/components"'
+/>
+
+## Overview
+
+A simple wrapper to wrap form field components and their related siblings. This is a primitive used in components like `TextField`, `TextArea`, `Slider`, etc.
+
+<Canvas of={FieldGroupStories.Playground} />
+<Controls of={FieldGroupStories.Playground} />
+
+## API
+
+### Inline
+Changes the FieldGroup to an inline element with no bottom margin. This can be seen in the `Slider`<LinkTo pageId="components-slider--docs">component</LinkTo>. You can see inline vs block scope in the following stories:
+
+#### Inline
+<Canvas of={FieldGroupStories.Inline} />
+
+#### Default (block)
+
+<Canvas of={FieldGroupStories.Default} />
+
+

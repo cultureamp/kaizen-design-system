@@ -26,14 +26,14 @@
   color: $color-blue-500;
   white-space: nowrap;
 
-  #{$selectors--filter-button-base--hover},
-  #{$selectors--filter-button-base--active} {
+  &:hover,
+  &:active {
     z-index: 2;
   }
 
-  #{$selectors--filter-button-base--hover},
-  #{$selectors--filter-button-base--active},
-  #{$selectors--filter-button-base--focus} {
+  &:hover,
+  &:active,
+  &:focus-visible {
     background-color: $color-blue-200;
   }
 
@@ -41,7 +41,7 @@
     outline: none;
   }
 
-  #{$selectors--filter-button-base--focus} {
+  &:focus-visible {
     outline: none;
 
     &::after {
