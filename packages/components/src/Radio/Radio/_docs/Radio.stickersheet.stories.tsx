@@ -91,6 +91,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             name="radio44"
             value="radio44"
             reversed={isReversed}
+            selectedStatus
             data-sb-pseudo-styles="hover"
           />
         </StickerSheet.Row>
