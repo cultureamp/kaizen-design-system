@@ -26,17 +26,14 @@
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
 
   &:not(.disabled, .reversed) {
-    #{$story-className--button-active},
-    #{$selectors--button-hover} {
+    &:active,
+    &:hover {
       background-color: $color-gray-200;
       border-color: $color-gray-600;
     }
 
     &:focus {
       outline: none;
-    }
-
-    #{$selectors--button-focus} {
       background-color: $color-gray-200;
       border-color: $color-gray-600;
 

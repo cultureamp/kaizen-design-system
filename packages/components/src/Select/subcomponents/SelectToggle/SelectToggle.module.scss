@@ -22,9 +22,7 @@
   min-width: 0;
 
   &:hover .icon,
-  &:global(.story__button-hover) .icon,
   &:active .icon,
-  &:global(.story__button-active) .icon,
   &:focus .icon {
     color: $color-gray-600;
   }
@@ -77,8 +75,8 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
-  #{$story-className--button-active},
-  #{$selectors--button-hover} {
+  &:active,
+  &:hover {
     background-color: rgba($color-white-rgb, 0.1);
     border: $border-solid-border-width $border-solid-border-style $color-white;
 
@@ -89,9 +87,6 @@
 
   &:focus {
     outline: none;
-  }
-
-  #{$selectors--button-focus} {
     background-color: rgba($color-white-rgb, 0.1);
     border: $border-solid-border-width $border-solid-border-style $color-white;
 

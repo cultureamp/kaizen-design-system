@@ -2,13 +2,3 @@
 @import "~@kaizen/design-tokens/sass/border";
 
 $button-vertical-padding: calc(#{$spacing-sm} - #{$border-solid-border-width});
-
-// Classnames to simulate pseudo states in storybook
-$story-className--button-hover: ":global(.story__button-hover)";
-$story-className--button-active: ":global(.story__button-active)";
-$story-className--button-focus: ":global(.story__button-focus)";
-
-// Combined pseudo state classes
-$selectors--button-hover: "&:hover, &#{$story-className--button-hover}";
-$selectors--button-active: "&:active, &#{$story-className--button-active}";
-$selectors--button-focus: "&:focus, &#{$story-className--button-focus}";
