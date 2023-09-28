@@ -15,18 +15,6 @@ export default {
   },
 } satisfies Meta
 
-const FormFieldContent = ({ id }: { id: string }): JSX.Element => (
-  <>
-    <Label htmlFor={`id--field-${id}`}>Email</Label>
-    <input
-      className="ms-6"
-      placeholder="Native text input..."
-      type="text"
-      id={`id--field-${id}`}
-    />
-  </>
-)
-
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
