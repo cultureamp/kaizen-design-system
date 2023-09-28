@@ -16,12 +16,12 @@ export default {
         rules: [
           {
             // Built with no label on purpose, to be used within `Slider` where label is present
-            id: "label-title-only",
+            id: "label",
             enabled: false,
           },
           {
             // Built with no label on purpose, to be used within `Slider` where label is present
-            id: "label",
+            id: "label-title-only",
             enabled: false,
           },
         ],
@@ -44,7 +44,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Uncontrolled default value">
           <InputRange
-            id="inputRange"
+            id="inputRange2"
             minLabel="Minimum"
             maxLabel="Maximum"
             defaultValue={2}
