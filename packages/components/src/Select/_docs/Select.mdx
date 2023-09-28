@@ -27,7 +27,60 @@ import * as SelectStories from "./Select.stories"
 
 ## API
 
-{/* ### Additional option properties (generic)
+### Items
 
-<Description of={SelectStories.AdditionalProperties} />
-<Canvas of={SelectStories.AdditionalProperties} /> */}
+Provide `items` in the `SelectOption` format to populate the options.
+```ts
+export type SelectOption = {
+  label: string
+  value: React.Key
+  disabled?: boolean
+  options?: never
+}
+
+```
+<Canvas of={SelectStories.SingleItems} />
+
+### Grouped items
+
+Group options by providing your `items` in the `SelectOptionGroup` format.
+```ts
+export type SelectOptionGroup<Option extends SelectOption> = {
+  label: string
+  options: Iterable<Option>
+}
+
+```
+<Canvas of={SelectStories.GroupedItems} />
+
+### Disabled items
+
+Disable options by setting the `disabled` attribute within an individual option your `items` to `true`.
+
+<Canvas of={SelectStories.DisabledItems} />
+
+### Additional option properties (generic) & custom options rendering
+
+Extend the option type to have additional properties to use for rendering.
+
+Customise the options using `children` (render function with arg `{ items: Array<SelectItemNode<Option>>}`).
+
+<Canvas of={SelectStories.AdditionalProperties} />
+
+### Customise trigger button
+
+The `trigger` prop allows you to extend the existing `<Select.TriggerButton>` with additional properties (eg. `id`).
+
+Note that the `ref` exists as part of these spread props (there is a second arg containing the `ref` which is deprecated).
+
+<Canvas of={SelectStories.CustomiseTrigger} />
+
+### Validation
+
+Add validation messages using `status` and `validationMessage`.
+<Canvas of={SelectStories.Validation} />
+
+### Full width
+
+Set `isFullWidth` to `true` to have the Select span the full width of its container.
+<Canvas of={SelectStories.FullWidth} />
