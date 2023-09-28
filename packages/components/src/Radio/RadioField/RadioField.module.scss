@@ -22,6 +22,17 @@ $dt-color-radio-background-color-hover: $color-gray-200;
     }
   }
 
+  &.selected {
+    label {
+      font-family: $typography-paragraph-body-font-family;
+      font-size: $typography-paragraph-body-font-size;
+      line-height: $typography-paragraph-body-line-height;
+      letter-spacing: $typography-paragraph-body-letter-spacing;
+      font-weight: $typography-paragraph-bold-font-weight;
+      position: static;
+    }
+  }
+
   &:not(.reversed) label:hover {
     input:not([disabled]) + span {
       border-color: $dt-color-form-border-color-hover;
@@ -33,17 +44,6 @@ $dt-color-radio-background-color-hover: $color-gray-200;
     input:not([disabled]) + span {
       border-color: $color-white;
       background-color: transparent;
-    }
-  }
-
-  &.selected {
-    label {
-      font-family: $typography-paragraph-body-font-family;
-      font-size: $typography-paragraph-body-font-size;
-      line-height: $typography-paragraph-body-line-height;
-      letter-spacing: $typography-paragraph-body-letter-spacing;
-      font-weight: $typography-paragraph-bold-font-weight;
-      position: static;
     }
   }
 }
