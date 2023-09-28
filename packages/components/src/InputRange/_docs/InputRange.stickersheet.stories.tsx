@@ -7,20 +7,33 @@ import {
 import { InputRange } from "../index"
 
 export default {
-  title: "Components/InputRange",
+  title: "KAIO-staging/InputRange",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Built with no label on purpose, to be used within `Slider` where label is present
+            id: "label-title-only",
+            enabled: false,
+          },
+          {
+            // Built with no label on purpose, to be used within `Slider` where label is present
+            id: "label",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <StickerSheet isReversed={isReversed}>
+  render: () => (
+    <StickerSheet>
       <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Default">
-          <InputRange id="inputRange" minLabel="Minimum" maxLabel="Maximum" />
-        </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Controlled value">
           <InputRange
             id="inputRange"
@@ -45,13 +58,6 @@ const StickerSheetTemplate: StickerSheetStory = {
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
-}
-
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
-  args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

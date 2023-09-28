@@ -11,9 +11,6 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    args: {
-      labelText: "Slider label",
-    },
   },
 } satisfies Meta
 
@@ -32,66 +29,86 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Label Left">
           <Slider
+            labelText="Slider"
             description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            minLabel="Min"
+            maxLabel="Max"
           />
           <Slider
-            description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            labelText="Slider"
+            description={
+              <span data-sb-a11y-color-contrast-disable>
+                Example Description
+              </span>
+            }
+            minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
+            maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             disabled
+            data-sb-a11y-color-contrast-disable
           />
           <Slider
+            labelText="Slider"
             description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            minLabel="Min"
+            maxLabel="Max"
             variant="prominent"
           />
           <Slider
-            description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            labelText="Slider"
+            description={
+              <span data-sb-a11y-color-contrast-disable>
+                Example Description
+              </span>
+            }
+            minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
+            maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             variant="prominent"
             disabled
+            data-sb-a11y-color-contrast-disable
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Label Top">
           <Slider
+            labelText="Slider"
             description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            minLabel="Min"
+            maxLabel="Max"
             labelPosition="block"
           />
           <Slider
-            description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            labelText="Slider"
+            description={
+              <span data-sb-a11y-color-contrast-disable>
+                Example Description
+              </span>
+            }
+            minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
+            maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             labelPosition="block"
             disabled
+            data-sb-a11y-color-contrast-disable
           />
           <Slider
+            labelText="Slider"
             description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
+            maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             labelPosition="block"
             variant="prominent"
           />
           <Slider
-            description="Example Description"
-            labelText="Label"
-            minLabel="Minimum"
-            maxLabel="Maximum"
+            labelText="Slider"
+            description={
+              <span data-sb-a11y-color-contrast-disable>
+                Example Description
+              </span>
+            }
+            minLabel={<span data-sb-a11y-color-contrast-disable>Min</span>}
+            maxLabel={<span data-sb-a11y-color-contrast-disable>Max</span>}
             variant="prominent"
             labelPosition="block"
             disabled
+            data-sb-a11y-color-contrast-disable
           />
         </StickerSheet.Row>
       </StickerSheet.Body>
