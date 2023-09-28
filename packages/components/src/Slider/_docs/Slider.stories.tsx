@@ -6,7 +6,11 @@ import { Slider } from "../index"
 const meta = {
   title: "KAIO-staging/Slider",
   component: Slider,
-  args: {},
+  args: {
+    labelText: <>Slider</>,
+    minLabel: "Min",
+    maxLabel: "Max",
+  },
 } satisfies Meta<typeof Slider>
 
 export default meta
@@ -24,34 +28,38 @@ export const Playground: Story = {
 }
 
 export const Variants: Story = {
-  render: () => (
+  render: args => (
     <div className="flex flex-col gap-16">
-      <Slider labelText="Default" variant="default" />
-      <Slider labelText="Prominent" variant="prominent" />
+      <Slider {...args} labelText="Default" variant="default" />
+      <Slider {...args} labelText="Prominent" variant="prominent" />
     </div>
   ),
 }
 
 export const MinMaxLabels: Story = {
   render: () => (
-    <div className="flex flex-col gap-16">
-      <Slider labelText="Minimum" minLabel="Minimum" variant="default" />
-      <Slider labelText="Maximum" maxLabel="Maximum" variant="default" />
-      <Slider
-        labelText="Min Max Labels"
-        minLabel="Minimum"
-        maxLabel="Maximum"
-        variant="default"
-      />
-    </div>
+    <Slider
+      labelText="Min Max Labels"
+      minLabel="Minimum"
+      maxLabel="Maximum"
+      variant="default"
+    />
   ),
 }
 
 export const LabelPosition: Story = {
-  render: () => (
+  render: args => (
     <div className="flex flex-col gap-16">
-      <Slider labelText="Inline Label Position" labelPosition="inline" />
-      <Slider labelText="Block Label Position" labelPosition="block" />
+      <Slider
+        {...args}
+        labelText="Inline Label Position"
+        labelPosition="inline"
+      />
+      <Slider
+        {...args}
+        labelText="Block Label Position"
+        labelPosition="block"
+      />
     </div>
   ),
 }
