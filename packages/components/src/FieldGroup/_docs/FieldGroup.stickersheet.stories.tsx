@@ -15,36 +15,43 @@ export default {
   },
 } satisfies Meta
 
+const FieldGroupTemplate = ({
+  id,
+  inline = false,
+}: {
+  id: string
+  inline?: boolean
+}): JSX.Element => (
+  <div>
+    <FieldGroup inline={inline} classNameOverride="mr-6">
+      <Label htmlFor={`id--field-${id}`}>Email</Label>
+      <input
+        className="ms-6"
+        placeholder="Native text input..."
+        type="text"
+        id="id--field-2"
+      />
+    </FieldGroup>
+    <FieldGroup inline={inline}>
+      <Label htmlFor={`id--field-${id}`}>Username</Label>
+      <input
+        className="ms-6"
+        placeholder="Native text input..."
+        type="text"
+        id="id--field-2"
+      />
+    </FieldGroup>
+  </div>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header headings={["Default", "Inline"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <div className="">
-            <p className="inline">Inline content </p>
-            <FieldGroup inline={true}>
-              <Label htmlFor="id--field-2">Label</Label>
-              <input
-                className="ms-6"
-                placeholder="Native text input..."
-                type="text"
-                id="id--field-2"
-              />
-            </FieldGroup>
-          </div>
-          <div>
-            <p className="inline">Inline content </p>
-            <FieldGroup>
-              <Label htmlFor="id--field-1">Label</Label>
-              <input
-                className="ms-6"
-                placeholder="Native text input..."
-                type="text"
-                id="id--field-2"
-              />
-            </FieldGroup>
-          </div>
+          <FieldGroupTemplate id="1" />
+          <FieldGroupTemplate id="2" inline={true} />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>

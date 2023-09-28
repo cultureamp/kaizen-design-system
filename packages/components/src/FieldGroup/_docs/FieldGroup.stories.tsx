@@ -39,36 +39,50 @@ export const Inline: Story = {
   args: { inline: true },
   render: () => (
     <>
-      <div className="mb-12">
-        <p className="inline">
-          This is an example of inline scoped <code>FieldGroup</code> next to
-          inline content{" "}
-        </p>
-        <FieldGroup inline={true}>
-          <Label htmlFor="id--field-2">Label</Label>
-          <input
-            className="ms-6"
-            placeholder="Native text input..."
-            type="text"
-            id="id--field-2"
-          />
-        </FieldGroup>
-      </div>
-      <div>
-        <p className="inline">
-          This is an example of the default block scoped <code>FieldGroup</code>{" "}
-          next to inline content{" "}
-        </p>
-        <FieldGroup>
-          <Label htmlFor="id--field-1">Label</Label>
-          <input
-            className="ms-6"
-            placeholder="Native text input..."
-            type="text"
-            id="id--field-2"
-          />
-        </FieldGroup>
-      </div>
+      <FieldGroup classNameOverride="mr-6" inline>
+        <Label htmlFor="id--field-1">Email</Label>
+        <input
+          className="ms-6"
+          placeholder="Native text input..."
+          type="text"
+          id="id--field-2"
+        />
+      </FieldGroup>
+      <FieldGroup inline>
+        <Label htmlFor="id--field-1">Username</Label>
+        <input
+          className="ms-6"
+          placeholder="Native text input..."
+          type="text"
+          id="id--field-2"
+        />
+      </FieldGroup>
+    </>
+  ),
+}
+
+export const Default: Story = {
+  args: { inline: true },
+  render: () => (
+    <>
+      <FieldGroup>
+        <Label htmlFor="id--field-1">Email</Label>
+        <input
+          className="ms-6"
+          placeholder="Native text input..."
+          type="text"
+          id="id--field-2"
+        />
+      </FieldGroup>
+      <FieldGroup>
+        <Label htmlFor="id--field-1">Username</Label>
+        <input
+          className="ms-6"
+          placeholder="Native text input..."
+          type="text"
+          id="id--field-2"
+        />
+      </FieldGroup>
     </>
   ),
 }
