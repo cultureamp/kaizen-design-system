@@ -27,9 +27,9 @@ import * as SelectStories from "./Select.stories"
 
 ## API
 
-### Items
+### Options
 
-Provide `items` in the `SelectOption` format to populate the options.
+Provide options in `items` in the `SelectOption` format to populate the options.
 ```ts
 export type SelectOption = {
   label: string
@@ -41,7 +41,7 @@ export type SelectOption = {
 ```
 <Canvas of={SelectStories.SingleItems} />
 
-### Grouped items
+### Grouped options
 
 Group options by providing your `items` in the `SelectOptionGroup` format.
 ```ts
@@ -53,17 +53,28 @@ export type SelectOptionGroup<Option extends SelectOption> = {
 ```
 <Canvas of={SelectStories.GroupedItems} />
 
-### Disabled items
+### Disabled options
 
 Disable options by setting the `disabled` attribute within an individual option your `items` to `true`.
 
 <Canvas of={SelectStories.DisabledItems} />
 
-### Additional option properties (generic) & custom options rendering
+### Custom options rendering
+
+Customise the list of options using `children` (render function with arg `{ items: Array<SelectItemNode<Option>>}`).
+
+Use the default render component `<Select.ItemDefaultRender>` for any items you do not want to customise.
+
+#### Section divider
+
+To add a section divider between your options, use the `children` render function and find the item or group
+you want to prepend/append to and add a `<Select.SectionDivider>`.
+
+<Canvas of={SelectStories.SectionDivider} />
+
+#### Additional option properties (generic)
 
 Extend the option type to have additional properties to use for rendering.
-
-Customise the options using `children` (render function with arg `{ items: Array<SelectItemNode<Option>>}`).
 
 <Canvas of={SelectStories.AdditionalProperties} />
 

@@ -66,24 +66,24 @@ export const DisabledItems: Story = {
   },
 }
 
-const sourceCodeCustomiseTrigger = `
-<Select
-  trigger={props => <Select.TriggerButton {...props} id="select--custom-trigger" />}
-/>
-`
-export const CustomiseTrigger: Story = {
+export const SectionDivider: Story = {
   args: {
-    trigger: props => (
-      <Select.TriggerButton {...props} id="select--custom-trigger" />
-    ),
+    items: [{ label: "Customise...", value: "custom" }, ...singleMockItems],
+    children: ({ items }): JSX.Element[] =>
+      items.map(item => {
+        if (item.type === "item" && item.key === "custom") {
+          return (
+            <React.Fragment key={item.key}>
+              <Select.Option item={item} />
+              <Select.SectionDivider />
+            </React.Fragment>
+          )
+        }
+
+        return <Select.ItemDefaultRender key={item.key} item={item} />
+      }),
   },
-  parameters: {
-    docs: {
-      source: {
-        code: sourceCodeCustomiseTrigger,
-      },
-    },
-  },
+  parameters: { docs: { source: { type: "code" } } },
 }
 
 export const AdditionalProperties: Story = {
@@ -119,6 +119,26 @@ export const AdditionalProperties: Story = {
     </Select>
   ),
   parameters: { docs: { source: { type: "code" } } },
+}
+
+const sourceCodeCustomiseTrigger = `
+<Select
+  trigger={props => <Select.TriggerButton {...props} id="select--custom-trigger" />}
+/>
+`
+export const CustomiseTrigger: Story = {
+  args: {
+    trigger: props => (
+      <Select.TriggerButton {...props} id="select--custom-trigger" />
+    ),
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: sourceCodeCustomiseTrigger,
+      },
+    },
+  },
 }
 
 export const Validation: Story = {
