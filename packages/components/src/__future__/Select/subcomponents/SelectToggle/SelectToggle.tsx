@@ -44,7 +44,7 @@ export const SelectToggle = React.forwardRef<
       {...restProps}
       ref={ref}
       className={classnames(
-        styles.button,
+        styles.selectToggle,
         (value === null || value === undefined) && styles.placeholder,
         status === "error" && styles.error,
         status === "caution" && styles.caution,

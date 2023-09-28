@@ -1,35 +1,80 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "./mixins";
-@import "./variables";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "../../../../../styles/button-reset";
+
+.iconWrapper {
+  line-height: 1;
+}
 
 .icon {
   margin-left: $spacing-sm;
   color: $color-gray-500;
 }
 
-.button {
-  @include button;
+.selectToggle {
+  @include button-reset;
 
-  background-color: $color-white;
-  border-radius: $border-solid-border-radius;
-  margin-top: $spacing-xs;
-  width: 100%;
-  height: $spacing-xl;
-  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  display: inline-flex;
   flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  height: $spacing-xl;
+  width: 100%;
   min-width: 0;
+  margin-top: $spacing-xs;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  background-color: $color-white;
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width}) $spacing-sm
+    calc(#{$spacing-sm} - #{$border-solid-border-width}) 0.875rem;
+  font-family: $typography-paragraph-body-font-family;
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  color: $color-purple-800;
+  white-space: nowrap;
 
-  &:hover .icon,
-  &:active .icon,
-  &:focus .icon {
-    color: $color-gray-600;
+  &:hover,
+  &:active,
+  &:focus {
+    .icon {
+      color: $color-gray-600;
+    }
   }
 
-  &.placeholder {
-    color: rgba($color-purple-800-rgb, 0.7);
+  &:active,
+  &:hover {
+    background-color: $color-gray-200;
+    border-color: $color-gray-600;
   }
+
+  &:focus {
+    outline: none;
+    background-color: $color-gray-200;
+    border-color: $color-gray-600;
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+      border-radius: $border-focus-ring-border-radius;
+      inset: calc(-1 * #{$focus-ring-offset});
+    }
+  }
+}
+
+.placeholder {
+  color: rgba($color-purple-800-rgb, 0.7);
 }
 
 .error {
@@ -41,27 +86,14 @@
     $color-yellow-600;
 }
 
-.value {
-  width: 100%;
-  text-align: start;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* stylelint-disable no-descending-specificity */
-.disabled:not(.reversed) {
+.disabled {
   border: $border-solid-border-width $border-solid-border-style $color-gray-300;
   background-color: $color-gray-100;
   color: $color-gray-500;
-
-  .icon,
-  &:hover .icon {
-    color: $color-gray-400;
-  }
+  pointer-events: none;
 }
 
-.reversed:not(.disabled) {
+.reversed {
   border: $border-solid-border-width $border-solid-border-style
     rgba($color-white-rgb, 0.8);
   background-color: transparent;
@@ -71,12 +103,13 @@
     color: rgba($color-white-rgb, 0.65);
   }
 
-  .icon {
+  &.selectToggle .icon {
     color: rgba(255, 255, 255, 0.8);
   }
 
   &:active,
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: rgba($color-white-rgb, 0.1);
     border: $border-solid-border-width $border-solid-border-style $color-white;
 
@@ -86,24 +119,8 @@
   }
 
   &:focus {
-    outline: none;
-    background-color: rgba($color-white-rgb, 0.1);
-    border: $border-solid-border-width $border-solid-border-style $color-white;
-
-    .icon {
-      color: $color-white;
-    }
-
     &::after {
-      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
-
-      content: "";
-      position: absolute;
-      background: transparent;
-      border: $border-focus-ring-border-width $border-focus-ring-border-style
-        $color-blue-300;
-      border-radius: $border-focus-ring-border-radius;
-      inset: calc(-1 * #{$focus-ring-offset});
+      border-color: $color-blue-300;
     }
   }
 
@@ -120,18 +137,12 @@
   background-color: transparent;
   border-color: rgba($color-white-rgb, 0.3);
   color: rgba($color-white-rgb, 0.3);
-
-  .icon,
-  &:hover .icon {
-    color: rgba($color-white-rgb, 0.3);
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  &.placeholder {
-    color: rgba($color-white-rgb, 0.3);
-  }
 }
-/* stylelint-enable no-descending-specificity */
+
+.value {
+  width: 100%;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
