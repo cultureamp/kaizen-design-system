@@ -79,6 +79,12 @@ const StickerSheetTemplate: StickerSheetStory = {
       </>
     )
   },
+  parameters: {
+    pseudo: {
+      hover: ".story__input-search-hover > div",
+      focus: ".story__input-search-focus > div > input",
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -89,7 +95,10 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
