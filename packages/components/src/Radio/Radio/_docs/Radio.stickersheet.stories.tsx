@@ -29,7 +29,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default", "Disabled", "Focus", "Hover"]}
+        headings={["Default", "Focus", "Hover"]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -45,19 +45,12 @@ const StickerSheetTemplate: StickerSheetStory = {
             name="radio2"
             value="radio2"
             reversed={isReversed}
-            disabled
+            data-sb-pseudo-styles="focus"
           />
           <Radio
             id="radio3"
             name="radio3"
             value="radio3"
-            reversed={isReversed}
-            data-sb-pseudo-styles="focus"
-          />
-          <Radio
-            id="radio4"
-            name="radio4"
-            value="radio4"
             reversed={isReversed}
             data-sb-pseudo-styles="hover"
           />
@@ -76,20 +69,12 @@ const StickerSheetTemplate: StickerSheetStory = {
             value="radio22"
             reversed={isReversed}
             selectedStatus
-            disabled
+            data-sb-pseudo-styles="focus"
           />
           <Radio
             id="radio33"
             name="radio33"
             value="radio33"
-            reversed={isReversed}
-            selectedStatus
-            data-sb-pseudo-styles="focus"
-          />
-          <Radio
-            id="radio44"
-            name="radio44"
-            value="radio44"
             reversed={isReversed}
             selectedStatus
             data-sb-pseudo-styles="hover"
