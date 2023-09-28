@@ -30,6 +30,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
         headings={["Default", "Disabled", "Focus", "Hover"]}
+        hasVerticalHeadings
       />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Off">
