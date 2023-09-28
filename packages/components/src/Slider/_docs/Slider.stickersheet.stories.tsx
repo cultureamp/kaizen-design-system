@@ -22,12 +22,12 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet>
       <StickerSheet.Header
         headings={[
-          "",
           "Default",
           "Default (Disabled)",
           "Prominant",
           "Prominant (Disabled)",
         ]}
+        hasVerticalHeadings
       />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Label Left">
