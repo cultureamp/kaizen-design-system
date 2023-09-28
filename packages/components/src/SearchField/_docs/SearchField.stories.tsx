@@ -35,3 +35,26 @@ export const Playground: Story = {
     },
   },
 }
+
+export const Secondary: Story = {
+  args: {
+    secondary: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+}
+
+export const Reversed: Story = {
+  render: () => (
+    <div className="flex flex-col gap-16">
+      <SearchField labelText="Search (default)" reversed />
+      <SearchField labelText="Search (secondary)" reversed secondary />
+    </div>
+  ),
+  args: { reversed: true },
+  parameters: { backgrounds: { default: "Purple 700" } },
+}
