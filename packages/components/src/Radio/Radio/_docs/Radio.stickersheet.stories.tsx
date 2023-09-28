@@ -32,7 +32,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         headings={["Default", "Disabled", "Focus", "Hover"]}
       />
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Off">
           <Radio
             id="radio1"
             name="radio1"
@@ -61,7 +61,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             data-sb-pseudo-styles="hover"
           />
         </StickerSheet.Row>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="On">
           <Radio
             id="radio11"
             name="radio11"
