@@ -24,7 +24,7 @@ import { Overlay } from "./subcomponents/Overlay"
 import { SectionDivider } from "./subcomponents/SectionDivider"
 import { SelectToggle, SelectToggleProps } from "./subcomponents/SelectToggle"
 import { SelectItem, SelectItemNode, SelectOption } from "./types"
-import { isSelectOptionGroup } from "./utils/isSelectOptionGroup"
+import { getDisabledKeysFromItems } from "./utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"
 import styles from "./Select.module.scss"
 
@@ -90,16 +90,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   const id = propsId ?? useId()
   const descriptionId = `${id}--description`
 
-  const disabledKeys = items.reduce((acc: React.Key[], item) => {
-    if (isSelectOptionGroup(item)) {
-      const keys = Array.from(item.options)
-        .filter(groupItem => groupItem.disabled)
-        .map(disabledItems => disabledItems.value)
-      return [...acc, ...keys]
-    }
-
-    return item.disabled ? [...acc, item.value] : acc
-  }, [])
+  const disabledKeys = getDisabledKeysFromItems(items)
 
   const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
     label,
