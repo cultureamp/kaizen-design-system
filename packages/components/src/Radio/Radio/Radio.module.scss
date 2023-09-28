@@ -8,7 +8,7 @@ $icon-size: 10px;
 $icon-offset: 5px;
 $focus-ring-offset: 2px;
 
-$dt-color-radio-background-color-hover: $color-gray-200;
+$dt-color-radio-background-color-hover: $color-gray-100;
 $dt-color-radio-disc-color-base: $color-gray-600;
 $dt-color-radio-border-color-focus: $color-blue-500;
 $dt-color-radio-border-color-focus-reversed: $color-blue-300;
@@ -67,11 +67,9 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
     );
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .radioInput:not([disabled]) + &:hover {
-      border-color: $dt-color-form-border-color-hover;
-      background-color: $dt-color-radio-background-color-hover;
-    }
+  .radioInput:not([disabled]) + &:hover {
+    border-color: $dt-color-form-border-color-hover;
+    background-color: $dt-color-radio-background-color-hover;
   }
 
   &.reversed {
@@ -87,11 +85,9 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
       border-color: $dt-color-radio-border-color-focus-reversed;
     }
 
-    @media (hover: hover) and (pointer: fine) {
-      .radioInput:not([disabled]) + &:hover {
-        border-color: $color-white;
-        background-color: transparent;
-      }
+    .radioInput:not([disabled]) + &:hover {
+      border-color: $color-white;
+      background-color: transparent;
     }
   }
 
