@@ -7,18 +7,18 @@ import {
 } from "@react-stately/select"
 import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
+import { SelectProvider } from "~components/__future__/Select/context"
+import { ListBox } from "~components/__future__/Select/subcomponents/ListBox"
+import { ListBoxSection } from "~components/__future__/Select/subcomponents/ListBoxSection"
+import { ListItem } from "~components/__future__/Select/subcomponents/ListItem"
+import { ListItems } from "~components/__future__/Select/subcomponents/ListItems"
+import { Option } from "~components/__future__/Select/subcomponents/Option"
+import { Overlay } from "~components/__future__/Select/subcomponents/Overlay"
+import { SectionDivider } from "~components/__future__/Select/subcomponents/SectionDivider"
+import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
+import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { SelectProvider } from "./context"
-import { ListBox } from "./subcomponents/ListBox"
-import { ListBoxSection } from "./subcomponents/ListBoxSection"
-import { ListItem } from "./subcomponents/ListItem"
-import { ListItems } from "./subcomponents/ListItems"
-import { Option } from "./subcomponents/Option"
-import { Overlay } from "./subcomponents/Overlay"
-import { SectionDivider } from "./subcomponents/SectionDivider"
 import { SelectItem, SelectItemNode, SelectOption } from "./types"
-import { isSelectOptionGroup } from "./utils/isSelectOptionGroup"
-import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"
 import styles from "./FilterSelect.module.scss"
 
 type OmittedAriaSelectProps =
@@ -54,16 +54,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
     React.RefObject<HTMLButtonElement>
   >({ current: null })
 
-  const disabledKeys = items.reduce((acc: React.Key[], item) => {
-    if (isSelectOptionGroup(item)) {
-      const keys = Array.from(item.options)
-        .filter(groupItem => groupItem.disabled)
-        .map(disabledItems => disabledItems.value)
-      return [...acc, ...keys]
-    }
-
-    return item.disabled ? [...acc, item.value] : acc
-  }, [])
+  const disabledKeys = getDisabledKeysFromItems(items)
 
   const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
     label,
