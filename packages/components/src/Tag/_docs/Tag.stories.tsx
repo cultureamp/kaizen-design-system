@@ -2,6 +2,11 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Avatar } from "~components/Avatar"
 import { Tag } from "../index"
+import {
+  SentimentTagVariants,
+  StatusTagVariants,
+  ValidationTagVariants,
+} from "../types"
 
 const meta = {
   title: "KAIO-staging/Tag",
@@ -26,6 +31,57 @@ export const Playground: Story = {
   },
 }
 
+export const Status: Story = {
+  render: () => (
+    <>
+      {StatusTagVariants.map(variant => (
+        <Tag key={variant} variant={variant}>
+          Tag
+        </Tag>
+      ))}
+    </>
+  ),
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+}
+
+export const Validation: Story = {
+  render: () => (
+    <>
+      {ValidationTagVariants.map(variant => (
+        <Tag key={variant} variant={variant}>
+          Tag
+        </Tag>
+      ))}
+    </>
+  ),
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+}
+
+export const Sentiments: Story = {
+  render: () => (
+    <>
+      {SentimentTagVariants.map(variant => (
+        <Tag key={variant} variant={variant}>
+          Tag
+        </Tag>
+      ))}
+    </>
+  ),
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+}
+
 export const Sizes: Story = {
   render: () => (
     <>
@@ -33,6 +89,11 @@ export const Sizes: Story = {
       <Tag size="small">Small</Tag>
     </>
   ),
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
 }
 
 export const Profile: Story = {
