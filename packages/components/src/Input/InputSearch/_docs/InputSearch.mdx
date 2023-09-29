@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as InputSearchStories from "./InputSearch.stories"
+
+<Meta of={InputSearchStories} />
+
+# InputSearch
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Input/InputSearch"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { InputSearch } from "@kaizen/components"'
+/>
+
+## Overview
+
+A range of things.
+
+<Canvas of={InputSearchStories.Playground} />
+<Controls of={InputSearchStories.Playground} />
+
+## API
+
+## Secondary
+
+<Canvas of={InputSearchStories.Secondary} />
+
+## Loading
+
+<Canvas of={InputSearchStories.Loading} />
+
+## Disabled
+
+<Canvas of={InputSearchStories.Disabled} />
+
+## Reversed
+
+<Canvas of={InputSearchStories.Reversed} />
+

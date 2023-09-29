@@ -7,34 +7,133 @@ import {
 import { InputSearch } from "../index"
 
 export default {
-  title: "Components/Inputs/InputSearch",
+  title: "KAIO-staging/Inputs/InputSearch",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Built with no label on purpose, to be used within `TextField` where label is present
+            id: "label",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
+      <StickerSheet.Header
+        headings={["Default", "Disabled", "Hover", "Focus"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Default">
+          <InputSearch id="input-search--default" reversed={isReversed} />
           <InputSearch
             id="input-search--default"
-            aria-label="Search"
             reversed={isReversed}
+            disabled
+            data-sb-a11y-color-contrast-disable
           />
           <InputSearch
             id="input-search--hover"
-            aria-label="Search"
             reversed={isReversed}
             classNameOverride="story__input-search--hover"
           />
           <InputSearch
             id="input-search--focus"
-            aria-label="Search"
             reversed={isReversed}
+            data-sb-pseudo-styles="focus"
+            classNameOverride="story__input-search--focus"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Loading">
+          <InputSearch
+            id="input-search--loading"
+            loading
+            reversed={isReversed}
+          />
+          <InputSearch
+            id="input-search--loading"
+            reversed={isReversed}
+            loading
+            disabled
+            data-sb-a11y-color-contrast-disable
+          />
+          <InputSearch
+            id="input-search--hover"
+            reversed={isReversed}
+            loading
+            classNameOverride="story__input-search--hover"
+          />
+          <InputSearch
+            id="input-search--focus"
+            reversed={isReversed}
+            loading
+            data-sb-pseudo-styles="focus"
+            classNameOverride="story__input-search--focus"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Secondary">
+          <InputSearch
+            id="input-search--secondary"
+            secondary
+            reversed={isReversed}
+          />
+          <InputSearch
+            id="input-search--secondary"
+            reversed={isReversed}
+            secondary
+            disabled
+            data-sb-a11y-color-contrast-disable
+          />
+          <InputSearch
+            id="input-search--hover"
+            reversed={isReversed}
+            secondary
+            classNameOverride="story__input-search--hover"
+          />
+          <InputSearch
+            id="input-search--focus"
+            reversed={isReversed}
+            secondary
+            data-sb-pseudo-styles="focus"
+            classNameOverride="story__input-search--focus"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Secondary (Loading)">
+          <InputSearch
+            id="input-search--secondary-loading"
+            secondary
+            loading
+            reversed={isReversed}
+          />
+          <InputSearch
+            id="input-search--secondary-loading"
+            reversed={isReversed}
+            secondary
+            loading
+            disabled
+            data-sb-a11y-color-contrast-disable
+          />
+          <InputSearch
+            id="input-search--hover"
+            reversed={isReversed}
+            secondary
+            loading
+            classNameOverride="story__input-search--hover"
+          />
+          <InputSearch
+            id="input-search--focus"
+            reversed={isReversed}
+            secondary
+            loading
             data-sb-pseudo-styles="focus"
             classNameOverride="story__input-search--focus"
           />

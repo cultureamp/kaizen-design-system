@@ -7,6 +7,7 @@ import { ClearButton } from "../../ClearButton"
 import styles from "./InputSearch.module.scss"
 
 export type InputSearchProps = {
+  // id is enforced here as there's no label included in this component
   id: string
   reversed?: boolean
   loading?: boolean
