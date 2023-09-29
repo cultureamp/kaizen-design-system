@@ -66,3 +66,5 @@ export const Text = ({
     children
   )
 }
+
+Text.displayName = "Text"
