@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
 import { SearchIcon } from "~components/Icons/SearchIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { ClearButton } from "../ClearButton"
+import { ClearButton } from "../../ClearButton"
 import styles from "./InputSearch.module.scss"
 
 export type InputSearchProps = {
