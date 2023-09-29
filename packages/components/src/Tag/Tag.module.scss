@@ -1,0 +1,316 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$medium: calc(#{$spacing-md} * 1.25);
+$small: $spacing-md;
+
+// reset user agent styles for button element type
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none;
+}
+
+.root {
+  margin-inline-end: calc(#{$spacing-md} * 0.5);
+  font-size: $typography-paragraph-small-font-size;
+  font-weight: $typography-paragraph-small-font-weight;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
+  color: $color-purple-800;
+  display: inline-block;
+  border: $border-borderless-border-width $border-borderless-border-style
+    $border-borderless-border-color;
+  border-radius: calc(#{$spacing-md} * 0.75);
+  padding: 0 calc(#{$spacing-md} * 0.4);
+  box-sizing: border-box;
+
+  &.profile {
+    padding-left: calc(#{$spacing-md} * 0.2);
+  }
+}
+
+.layoutContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.validationIcon {
+  align-items: center;
+  display: flex;
+  color: $color-white;
+  margin-inline-start: calc(#{$spacing-md} * -0.15);
+  margin-inline-end: $spacing-xs;
+}
+
+.profile {
+  margin-inline-start: calc(#{$spacing-md} * -0.15);
+  margin-inline-end: $spacing-xs;
+  display: inline-flex;
+  align-items: center;
+}
+
+.textContent {
+  margin-top: -1px;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
+  white-space: nowrap;
+}
+
+.iconWrapper {
+  position: relative;
+  height: 16px;
+  width: 16px;
+}
+
+.dismissButton {
+  @include button-reset;
+
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 $spacing-xs;
+  margin-inline-end: -0.6625rem;
+  margin-inline-start: -0.225rem;
+  color: rgba($color-purple-800-rgb, 0.7);
+  cursor: pointer;
+
+  &:hover {
+    color: $color-purple-800;
+  }
+
+  &:active {
+    color: $color-purple-800;
+  }
+
+  svg {
+    position: relative;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible .iconWrapper {
+    color: $color-purple-800;
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width}));
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-radius: 50%;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
+      inset: calc(-1 * #{$focus-ring-offset});
+    }
+  }
+}
+
+.background {
+  // As our icons are only one-tone, this span places
+  // a white background under the dismissible icon to
+  // give the illusion of a background colour that is
+  // different to the rest of the tag
+  position: absolute;
+  display: inline-block;
+  width: calc(#{$spacing-xs} + 0.125rem); // optical adjustment
+  height: calc(#{$spacing-xs} + 0.125rem); // optical adjustment
+  background-color: white;
+  left: 10px;
+  top: 10px;
+}
+
+.truncate {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.inline {
+  margin: 0;
+}
+
+.medium {
+  height: $medium;
+}
+
+.small {
+  height: $small;
+}
+
+.default {
+  background-color: $color-gray-300;
+}
+
+.sentimentPositive {
+  background-color: $color-green-100;
+}
+
+.sentimentNeutral {
+  background-color: $color-gray-300;
+}
+
+.sentimentNegative {
+  background-color: $color-red-100;
+}
+
+.sentimentNone {
+  background-color: $color-white;
+  border-color: $color-gray-300;
+}
+
+.validationPositive {
+  background-color: $color-green-100;
+
+  .validationIcon {
+    color: $color-green-500;
+  }
+}
+
+.validationInformative {
+  background-color: $color-blue-100;
+
+  .validationIcon {
+    color: $color-blue-500;
+  }
+}
+
+.validationNegative {
+  background-color: $color-red-100;
+
+  .validationIcon {
+    color: $color-red-500;
+  }
+}
+
+.validationCautionary {
+  background-color: $color-yellow-100;
+
+  .validationIcon {
+    color: $color-yellow-500;
+  }
+}
+
+.statusLive {
+  background-color: $color-green-100;
+  color: $color-purple-800;
+}
+
+.statusAction {
+  background-color: $color-orange-100;
+  color: $color-purple-800;
+}
+
+.statusClosed {
+  background-color: $color-red-100;
+}
+
+.statusDraft {
+  background-color: $color-blue-100;
+  color: $color-purple-800;
+}
+
+.liveIcon {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-inline-start: 0.25rem;
+  color: $color-green-500;
+}
+
+.liveIcon_base {
+  opacity: 30%;
+  display: block;
+}
+
+.liveIcon_1,
+.liveIcon_2,
+.liveIcon_3 {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.liveIcon_1 {
+  clip-path: circle(16%);
+}
+
+.liveIcon_2,
+.liveIcon_3 {
+  animation-duration: 3s;
+  animation-iteration-count: 3;
+  animation-delay: 1s;
+}
+
+.liveIcon_2 {
+  clip-path: circle(32%);
+  animation-name: pulse-inner;
+}
+
+.liveIcon_3 {
+  clip-path: circle(50%);
+  animation-name: pulse-outer;
+}
+
+@keyframes pulse-inner {
+  0% {
+    opacity: 0%;
+  }
+
+  25% {
+    opacity: 0%;
+  }
+
+  50% {
+    opacity: 100%;
+  }
+
+  75% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes pulse-outer {
+  0% {
+    opacity: 0%;
+  }
+
+  25% {
+    opacity: 0%;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+
+  75% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}

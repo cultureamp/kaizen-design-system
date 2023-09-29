@@ -1,0 +1,15 @@
+export const TagVariants = [
+  "default",
+  "sentimentPositive",
+  "sentimentNeutral",
+  "sentimentNegative",
+  "sentimentNone",
+  "validationPositive",
+  "validationInformative",
+  "validationNegative",
+  "validationCautionary",
+  "statusLive",
+  "statusDraft",
+  "statusClosed",
+  "statusAction",
+] as const

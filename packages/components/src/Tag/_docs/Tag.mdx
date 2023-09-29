@@ -1,0 +1,49 @@
+import { Canvas, Controls , Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TagStories from "./Tag.stories"
+
+<Meta of={TagStories} />
+
+# Tag
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tag"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A37843&t=zlNKMVZd1i6MB4db-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928978/Tags"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Tag } from "@kaizen/components"'
+/>
+
+## Overview
+
+Tags help users quickly recognize important information about items that organize and categorize them. They visually label items with small amounts of information or the item's status, usually with keywords that help organize and categorize the items.
+
+<Canvas of={TagStories.Playground} />
+<Controls of={TagStories.Playground} />
+
+## API
+
+### Sizes
+<Canvas of={TagStories.Sizes} />
+
+### Avatar
+<Canvas of={TagStories.Profile} />
+
+### Dismissable
+<Canvas of={TagStories.Dismissable} />
+
+### TruncateWidth
+A pixel width which sets a limit for when the text starts to truncate
+
+<Canvas of={TagStories.Truncate} />
+
+### Inline
+Removes the default right-hand margin
+
+<Canvas of={TagStories.Inline} />
