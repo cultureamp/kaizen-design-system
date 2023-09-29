@@ -36,16 +36,7 @@ export const Variants: Story = {
   ),
 }
 
-export const MinMaxLabels: Story = {
-  render: () => (
-    <Slider
-      labelText="Min Max Labels"
-      minLabel="Minimum"
-      maxLabel="Maximum"
-      variant="default"
-    />
-  ),
-}
+export const MinMaxLabels: Story = {}
 
 export const LabelPosition: Story = {
   render: args => (
