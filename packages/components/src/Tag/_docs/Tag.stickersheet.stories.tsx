@@ -13,6 +13,20 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    parameters: {
+      a11y: {
+        config: {
+          rules: [
+            {
+              // Known issue as we do not have a "presentational" Avatar yet
+              // But the use case in this stickersheet is valid.
+              id: "image-redundant-alt",
+              enabled: false,
+            },
+          ],
+        },
+      },
+    },
   },
 } satisfies Meta
 

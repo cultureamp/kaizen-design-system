@@ -15,6 +15,20 @@ const meta = {
     variant: "default",
     children: "Tag",
   },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Known issue as we do not have a "presentational" Avatar yet
+            // But the use case in this stickersheet is valid.
+            id: "image-redundant-alt",
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
 } satisfies Meta<typeof Tag>
 
 export default meta
