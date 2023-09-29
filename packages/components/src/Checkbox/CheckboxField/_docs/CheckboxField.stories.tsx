@@ -48,10 +48,6 @@ export const Playground: Story = {
   },
 }
 
-/**
- * @todo: Add your description here and use <Description /> in the MDX,
- * or write directly in the MDX.
- */
 export const NoBottomMargin: Story = {
   render: args => (
     <div className="flex gap-16">
