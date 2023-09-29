@@ -1,0 +1,148 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "../../../styles/forms";
+@import "../../../styles/form-variables";
+
+$checkbox-size: 24px;
+$icon-size: 24px;
+$focus-ring-offset: 2px;
+
+$dt-color-checkbox-background-color-checked: $color-gray-500;
+
+// override bootstrap styles
+.checkbox.checkbox {
+  @include form-input-visually-hidden;
+
+  width: $checkbox-size;
+  height: $checkbox-size;
+  margin: 0;
+}
+
+.icon {
+  height: $checkbox-size;
+  width: $checkbox-size;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  // .icon is inside .box so .box's border-box rule means
+  // .icon sits to the right of .box's left-side border
+  left: calc(-1 * #{$border-solid-border-width});
+  color: $color-white;
+}
+
+.icon.reversed {
+  color: $dt-color-form-color-icon-reversed;
+}
+
+.box {
+  display: block;
+  position: relative;
+  pointer-events: none;
+  background: $color-white;
+  height: $checkbox-size;
+  width: $checkbox-size;
+  top: 0;
+  border: $border-solid-border-width $border-solid-border-style
+    $dt-color-form-border-color;
+  border-radius: $border-solid-border-radius;
+  box-sizing: border-box;
+  background-color: white;
+  border-color: $dt-color-form-border-color;
+
+  .checkbox:checked + &,
+  .checkbox:indeterminate + & {
+    background: $dt-color-checkbox-background-color-checked;
+    background-color: $dt-color-form-border-color;
+  }
+
+  .checkbox:focus + & {
+    background: white;
+    border-color: $dt-color-form-border-color-hover;
+  }
+
+  .checkbox:checked:focus + &,
+  .checkbox:indeterminate:focus + & {
+    background: $dt-color-form-border-color-hover;
+    border-color: $dt-color-form-border-color-hover;
+  }
+
+  .checkbox:not([disabled]):hover + & {
+    border-color: $dt-color-form-border-color-hover;
+  }
+
+  .checkbox:checked:not([disabled]):hover + &,
+  .checkbox:indeterminate:not([disabled]):hover + & {
+    background: $dt-color-form-border-color-hover;
+    border-color: $dt-color-form-border-color-hover;
+  }
+
+  .checkbox:focus + &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $dt-color-form-border-color-focus;
+    top: -$focus-ring-offset - ($checkbox-size / 8);
+    left: -$focus-ring-offset - ($checkbox-size / 8);
+    width: calc(
+      #{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} *
+        2
+    );
+    height: calc(
+      #{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} *
+        2
+    );
+  }
+}
+
+.box.reversed {
+  border: $border-solid-border-width $border-solid-border-style
+    rgba($color-white-rgb, 0.65);
+  background: transparent;
+
+  .checkbox:checked + &,
+  .checkbox:indeterminate + & {
+    background: rgba($color-white-rgb, 0.65);
+  }
+
+  .checkbox:not([checked]):focus + & {
+    border-color: $color-white;
+    background: rgba($color-white-rgb, 0.1);
+  }
+
+  .checkbox:not([checked], [disabled]):hover + & {
+    border-color: $color-white;
+    background: rgba($color-white-rgb, 0.1);
+  }
+
+  .checkbox:checked:focus + &,
+  .checkbox:indeterminate:focus + & {
+    background: $color-white;
+    border-color: $color-white;
+  }
+
+  .checkbox:indeterminate:not([disabled]):hover + &,
+  .checkbox:checked:not([disabled]):hover + & {
+    background: $color-white;
+    border-color: $color-white;
+  }
+
+  .checkbox:focus + &::after {
+    border-color: $dt-color-form-border-color-reversed-focus;
+  }
+}
+
+.box.error {
+  border-color: $color-red-300;
+
+  .checkbox:not([checked]):focus + & {
+    border-color: $color-red-300;
+  }
+
+  .checkbox:not([checked]):hover + & {
+    border-color: $color-red-300;
+  }
+}
