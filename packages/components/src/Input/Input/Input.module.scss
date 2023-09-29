@@ -140,7 +140,7 @@ $input-with-icon-padding: calc(
     }
   }
 
-  &.isDisabled {
+  &.withDisabled {
     .endIconAdornment {
       opacity: $input-disabled-opacity;
     }
