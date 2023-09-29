@@ -20,22 +20,35 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default (Medium)", "Small"]}
+        headings={["Default", "Dismissable"]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        {TagVariants.map(variant => (
-          <StickerSheet.Row key={variant} rowTitle={variant}>
-            <Tag variant={variant}>Tag</Tag>
-            <Tag variant={variant} size="small">
-              Tag
-            </Tag>
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-      <StickerSheet.Header headings={["Avatar"]} />
-      <StickerSheet.Body>
-        <StickerSheet.Row>
+        <>
+          {TagVariants.map(variant => (
+            <StickerSheet.Row key={variant} rowTitle={variant}>
+              <>
+                <Tag variant={variant}>Tag</Tag>
+                <Tag variant={variant} size="small">
+                  Small
+                </Tag>
+              </>
+              <>
+                <Tag variant={variant} dismissible={variant !== "statusLive"}>
+                  Tag
+                </Tag>
+                <Tag
+                  variant={variant}
+                  size="small"
+                  dismissible={variant !== "statusLive"}
+                >
+                  Small
+                </Tag>
+              </>
+            </StickerSheet.Row>
+          ))}
+        </>
+        <StickerSheet.Row rowTitle="Avatar">
           <Tag
             variant="profile"
             avatar={
