@@ -1,59 +1,54 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { CheckboxField } from "~components/Checkbox/CheckboxField"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { CheckboxGroup } from "../index"
+import { CheckboxGroup, CheckboxGroupProps } from "../index"
 
 export default {
-  title: "Components/CheckboxGroup",
+  title: "KAIO-staging/Checkbox controls/CheckboxGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
+const CheckboxGroupWrapped = ({
+  labelText,
+  reversed,
+}: CheckboxGroupProps): JSX.Element => (
+  <CheckboxGroup labelText={labelText} reversed={reversed}>
+    <CheckboxField labelText="Checkbox one" reversed={reversed} />
+    <CheckboxField
+      labelText="Checkbox two"
+      reversed={reversed}
+      checkedStatus="on"
+    />
+    <CheckboxField
+      labelText="Checkbox three"
+      reversed={reversed}
+      checkedStatus="mixed"
+    />
+  </CheckboxGroup>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
+      <StickerSheet.Header headings={["Default"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <CheckboxGroup
-            isReversed={isReversed}
-            exampleRequiredString="CheckboxGroup"
-          />
-          <CheckboxGroup
-            isReversed={isReversed}
-            exampleRequiredString="CheckboxGroup"
-            data-sb-pseudo-styles="hover"
-          />
-          <CheckboxGroup
-            isReversed={isReversed}
-            exampleRequiredString="CheckboxGroup"
-            data-sb-pseudo-styles="active"
-          />
-          <CheckboxGroup
-            isReversed={isReversed}
-            exampleRequiredString="CheckboxGroup"
-            data-sb-pseudo-styles="focus"
+          <CheckboxGroupWrapped
+            reversed={isReversed}
+            labelText="CheckboxGroup"
           />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
-  /** @note: Only required if you have pseudo states, otherwise this can be removed */
-  parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
-    pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
-      active: '[data-sb-pseudo-styles="active"]',
-      focus: '[data-sb-pseudo-styles="focus"]',
-      focusVisible: '[data-sb-pseudo-styles="focus"]',
-    },
-  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
