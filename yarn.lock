@@ -3795,7 +3795,7 @@
   dependencies:
     "@react-types/shared" "^3.20.0"
 
-"@react-types/shared@^3.19.0", "@react-types/shared@^3.20.0":
+"@react-types/shared@^3.20.0":
   version "3.20.0"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.20.0.tgz#15f0cbe3978831589f083c8e316810669b4fa606"
   integrity sha512-lgTO/S/EMIZKU1EKTg8wT0qYP5x/lZTK2Xw6BZZk5c4nn36JYhGCRb/OoR/jBCIeRb2x9yNbwERO6NYVkoQMSw==
