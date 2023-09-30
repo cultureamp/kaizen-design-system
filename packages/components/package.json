@@ -94,7 +94,7 @@
     "concat-cli": "^4.0.0",
     "esbuild": "0.18.20",
     "query-string": "^8.1.0",
-    "rollup": "^3.28.1",
+    "rollup": "^3.29.4",
     "rollup-plugin-dts": "^6.0.2",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-ignore": "^1.0.10",
