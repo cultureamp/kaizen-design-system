@@ -36,8 +36,7 @@ $iconAndBadgeHeight: $spacing-md;
     outline: none;
   }
 
-  &.isFocusVisible,
-  &:global(.story__option-focus) {
+  &.isFocusVisible {
     background-color: $color-blue-100;
     color: $color-blue-500;
 
@@ -60,8 +59,7 @@ $iconAndBadgeHeight: $spacing-md;
   }
 
   &:hover:not(.disabled),
-  &:active:not(.disabled),
-  &:global(.story__option-hover):not(.disabled) {
+  &:active:not(.disabled) {
     background-color: $color-blue-100;
     color: $color-blue-500;
 

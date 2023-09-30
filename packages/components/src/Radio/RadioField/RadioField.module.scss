@@ -1,0 +1,49 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "../../../styles/form-variables";
+
+$dt-color-radio-background-color-hover: $color-gray-200;
+
+.container {
+  position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  margin-bottom: $spacing-sm;
+
+  label {
+    -webkit-tap-highlight-color: transparent;
+
+    :global(.ideal-sans) & {
+      // This is to override bootstrap styles. Remove when appropriate
+      font-size: $typography-paragraph-body-font-size;
+      padding-top: 0;
+    }
+  }
+
+  &.selected {
+    label {
+      font-family: $typography-paragraph-body-font-family;
+      font-size: $typography-paragraph-body-font-size;
+      line-height: $typography-paragraph-body-line-height;
+      letter-spacing: $typography-paragraph-body-letter-spacing;
+      font-weight: $typography-paragraph-bold-font-weight;
+      position: static;
+    }
+  }
+
+  &:not(.reversed) label:hover {
+    input:not([disabled]) + span {
+      border-color: $dt-color-form-border-color-hover;
+      background-color: $dt-color-radio-background-color-hover;
+    }
+  }
+
+  &.reversed label:hover {
+    input:not([disabled]) + span {
+      border-color: $color-white;
+      background-color: transparent;
+    }
+  }
+}

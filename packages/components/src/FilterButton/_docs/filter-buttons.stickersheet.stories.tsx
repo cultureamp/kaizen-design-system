@@ -11,17 +11,6 @@ import { FilterButtonBase } from "../subcomponents/FilterButtonBase"
 export default {
   title: "Components/Filter Base/Filter Buttons",
   parameters: {
-    a11y: {
-      config: {
-        rules: [
-          {
-            // FIXME: text inside the buttons not meeting colour contrast requirements
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
     chromatic: { disable: false },
     controls: { disable: true },
   },
@@ -37,13 +26,22 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row>
             <FilterButtonBase>Label</FilterButtonBase>
-            <FilterButtonBase classNameOverride="story__filter-button-base--hover">
+            <FilterButtonBase
+              data-sb-pseudo-styles="hover"
+              data-sb-a11y-color-contrast-disable
+            >
               Label
             </FilterButtonBase>
-            <FilterButtonBase classNameOverride="story__filter-button-base--active">
+            <FilterButtonBase
+              data-sb-pseudo-styles="active"
+              data-sb-a11y-color-contrast-disable
+            >
               Label
             </FilterButtonBase>
-            <FilterButtonBase classNameOverride="story__filter-button-base--focus">
+            <FilterButtonBase
+              data-sb-pseudo-styles="focus"
+              data-sb-a11y-color-contrast-disable
+            >
               Label
             </FilterButtonBase>
           </StickerSheet.Row>
@@ -79,6 +77,14 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
     </>
   ),
+  parameters: {
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      active: '[data-sb-pseudo-styles="active"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -89,5 +95,8 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate["parameters"],
+    textDirection: "rtl",
+  },
 }

@@ -1,0 +1,93 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "../../../styles/forms";
+@import "../../../styles/form-variables";
+
+$radio-size: 24px;
+$icon-size: 10px;
+$icon-offset: 5px;
+$focus-ring-offset: 2px;
+
+$dt-color-radio-background-color-hover: $color-gray-200;
+$dt-color-radio-disc-color-base: $color-gray-600;
+$dt-color-radio-border-color-focus: $color-blue-500;
+$dt-color-radio-border-color-focus-reversed: $color-blue-300;
+
+.radioInput {
+  @include form-input-visually-hidden;
+}
+
+.icon {
+  top: $icon-offset;
+  left: $icon-offset;
+  width: $icon-size;
+  height: $icon-size;
+  border-radius: 50%;
+  background: $dt-color-radio-disc-color-base;
+  position: absolute;
+
+  &.reversed {
+    background: $color-white;
+  }
+}
+
+.box {
+  display: block;
+  position: relative;
+  background: $color-white;
+  height: $radio-size;
+  width: $radio-size;
+  top: 0;
+  border: $border-solid-border-width $border-solid-border-style
+    $dt-color-form-border-color;
+  box-sizing: border-box;
+  border-radius: 50%;
+
+  .radioInput:focus:not([disabled]) + & {
+    border-color: $dt-color-radio-disc-color-base;
+  }
+
+  .radioInput:focus:not([disabled]) + &::after {
+    pointer-events: none;
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    background: transparent;
+    border-radius: $radio-size + $focus-ring-offset;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $dt-color-radio-border-color-focus;
+    top: -$focus-ring-offset - ($radio-size / 8);
+    left: -$focus-ring-offset - ($radio-size / 8);
+    width: calc(
+      #{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2
+    );
+    height: calc(
+      #{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2
+    );
+  }
+
+  .radioInput:not([disabled]) + &:hover {
+    border-color: $dt-color-form-border-color-hover;
+    background-color: $dt-color-radio-background-color-hover;
+  }
+
+  &.reversed {
+    border: $border-solid-border-width $border-solid-border-style
+      rgba($color-white-rgb, 0.65);
+    background: transparent;
+
+    .radioInput:focus:not([disabled]) + & {
+      border-color: $color-white;
+    }
+
+    .radioInput:focus:not([disabled]) + &::after {
+      border-color: $dt-color-radio-border-color-focus-reversed;
+    }
+
+    .radioInput:not([disabled]) + &:hover {
+      border-color: $color-white;
+      background-color: transparent;
+    }
+  }
+}
