@@ -1,0 +1,32 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as ToastNotificationStories from "./ToastNotification.stories"
+
+<Meta title="Components/Notifications/Toast Notification" />
+
+# ToastNotification
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Notification/ToastNotification"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A21829&mode=design&t=QHnBiBn4stf5UxJ3-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075638310/Toast+Notification"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+{/*
+<Canvas of={ToastNotificationStories.Playground} />
+<Controls of={ToastNotificationStories.Playground} /> */}
+
+## API
+
