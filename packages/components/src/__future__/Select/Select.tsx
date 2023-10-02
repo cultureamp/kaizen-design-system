@@ -162,7 +162,11 @@ export const Select = <Option extends SelectOption = SelectOption>({
           <Popover
             refs={refs}
             classNameOverride={styles.popover}
-            focusOnProps={{ noIsolation: true }}
+            focusOnProps={{
+              onEscapeKey: state.close,
+              onClickOutside: state.close,
+              noIsolation: true,
+            }}
           >
             <SelectProvider<Option> state={state}>
               <Overlay<Option>>
