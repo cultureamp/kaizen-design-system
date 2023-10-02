@@ -1,4 +1,5 @@
 import React, { useId } from "react"
+import { UseFloatingReturn } from "@floating-ui/react-dom"
 import { useButton } from "@react-aria/button"
 import { HiddenSelect, useSelect } from "@react-aria/select"
 import {
@@ -9,7 +10,6 @@ import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
 import {
   Popover,
-  UseFloatingReturn,
   useFloating,
 } from "~components/MultiSelect/subcomponents/Popover"
 import { OverrideClassName } from "~types/OverrideClassName"
