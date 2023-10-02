@@ -13,8 +13,7 @@ import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
 export type SceneProps = {
   /** @todo: Add custom props here */
   enableAspectRatio?: boolean
-} & OverrideClassName<HTMLAttributes<HTMLDivElement>> &
-  Pick<BaseProps, "alt" | "classNameOverride">
+} & Pick<BaseProps, "alt" | "classNameOverride">
 
 interface BaseAnimatedSceneProps
   extends SceneProps,
