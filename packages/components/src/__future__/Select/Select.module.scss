@@ -11,11 +11,3 @@
 .notFullWidth {
   width: 180px;
 }
-
-.popover {
-  box-sizing: border-box;
-  min-width: 12.25rem; // 196px
-  max-width: 25rem; // 400px
-  overflow: auto;
-  padding: $spacing-12;
-}

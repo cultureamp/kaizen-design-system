@@ -152,7 +152,6 @@ export const Select = <Option extends SelectOption = SelectOption>({
         {state.isOpen && (
           <Popover
             refs={refs}
-            classNameOverride={styles.popover}
             focusOnProps={{
               onEscapeKey: state.close,
               onClickOutside: state.close,

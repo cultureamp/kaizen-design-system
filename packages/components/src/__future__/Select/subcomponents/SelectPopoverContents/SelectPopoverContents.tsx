@@ -5,6 +5,7 @@ import { SelectOption, SelectItem, SelectItemNode } from "../../types"
 import { ListBox } from "../ListBox"
 import { ListItems } from "../ListItems"
 import { Overlay } from "../Overlay"
+import styles from "./SelectPopoverContents.module.scss"
 
 export type SelectPopoverContentsProps<Option extends SelectOption> = {
   children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
@@ -26,15 +27,17 @@ export const SelectPopoverContents = <Option extends SelectOption>({
   >
 
   return (
-    <Overlay<Option>>
-      <ListBox<Option> menuProps={menuProps}>
-        {children ? (
-          children({ items: itemNodes })
-        ) : (
-          <ListItems<Option> items={itemNodes} />
-        )}
-      </ListBox>
-    </Overlay>
+    <div className={styles.selectPopoverContents}>
+      <Overlay<Option>>
+        <ListBox<Option> menuProps={menuProps}>
+          {children ? (
+            children({ items: itemNodes })
+          ) : (
+            <ListItems<Option> items={itemNodes} />
+          )}
+        </ListBox>
+      </Overlay>
+    </div>
   )
 }
 
