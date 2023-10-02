@@ -2,20 +2,10 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "../../styles/button-reset";
 
 $medium: calc(#{$spacing-md} * 1.25);
 $small: $spacing-md;
-
-// reset user agent styles for button element type
-@mixin button-reset {
-  appearance: none;
-  background: transparent;
-  border: none;
-  font: inherit;
-  margin: 0;
-  padding: 0;
-  transition: none;
-}
 
 .root {
   margin-inline-end: calc(#{$spacing-md} * 0.5);
