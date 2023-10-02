@@ -50,10 +50,17 @@ export const Disabled: Story = {
 
 export const Reversed: Story = {
   render: () => (
-    <div className="flex gap-16">
+    <>
       <SearchField labelText="Search (default)" reversed />
       <SearchField labelText="Search (secondary)" reversed secondary />
-    </div>
+    </>
   ),
-  parameters: { backgrounds: { default: "Purple 700" } },
+  decorators: [
+    Story => (
+      <div className="flex gap-16 bg-purple-700 p-16">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: { docs: { source: { type: "dynamic" } } },
 }
