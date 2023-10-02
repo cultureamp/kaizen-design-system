@@ -110,7 +110,7 @@ export const Sizes: Story = {
   },
 }
 
-export const Profile: Story = {
+export const ProfileWithAvatarImport: Story = {
   args: {
     children: "Jane Doe",
     variant: "profile",
@@ -121,6 +121,19 @@ export const Profile: Story = {
         fullName="Jane Doe"
       />
     ),
+  },
+}
+
+export const ProfileWithAvatarProps: Story = {
+  args: {
+    children: "Jane Doe",
+    variant: "profile",
+    avatar: {
+      size: "small",
+      avatarSrc:
+        "https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png",
+      fullName: "Jane Doe",
+    },
   },
 }
 
