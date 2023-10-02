@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { InputSearch } from "../index"
 
@@ -27,6 +28,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
+  render: args => {
+    const [searchTerm, setSearchTerm] = useState<string>("")
+
+    return (
+      <InputSearch
+        {...args}
+        value={searchTerm}
+        onChange={event => {
+          setSearchTerm(event.target.value)
+        }}
+      />
+    )
+  },
   parameters: {
     docs: {
       canvas: {
@@ -34,6 +48,10 @@ export const Playground: Story = {
       },
     },
   },
+}
+
+export const Filled: Story = {
+  args: { value: "Search me" },
 }
 
 export const Secondary: Story = {
@@ -50,5 +68,11 @@ export const Disabled: Story = {
 
 export const Reversed: Story = {
   args: { reversed: true },
-  parameters: { backgrounds: { default: "Purple 700" } },
+  decorators: [
+    Story => (
+      <div className="bg-purple-700 p-16">
+        <Story />
+      </div>
+    ),
+  ],
 }

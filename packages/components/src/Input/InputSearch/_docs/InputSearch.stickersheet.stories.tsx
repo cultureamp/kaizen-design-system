@@ -29,7 +29,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default", "Disabled", "Hover", "Focus"]}
+        headings={["Default", "Disabled", "Hover", "Focus", "Filled"]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -51,6 +51,13 @@ const StickerSheetTemplate: StickerSheetStory = {
             reversed={isReversed}
             data-sb-pseudo-styles="focus"
             classNameOverride="story__input-search--focus"
+          />
+          <InputSearch
+            id="input-search--filled"
+            reversed={isReversed}
+            value="Search me"
+            data-sb-pseudo-styles="filled"
+            classNameOverride="story__input-search--filled"
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Loading">
@@ -79,6 +86,14 @@ const StickerSheetTemplate: StickerSheetStory = {
             data-sb-pseudo-styles="focus"
             classNameOverride="story__input-search--focus"
           />
+          <InputSearch
+            id="input-search--filled"
+            reversed={isReversed}
+            loading
+            value="Search me"
+            data-sb-pseudo-styles="filled"
+            classNameOverride="story__input-search--filled"
+          />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Secondary">
           <InputSearch
@@ -105,6 +120,14 @@ const StickerSheetTemplate: StickerSheetStory = {
             secondary
             data-sb-pseudo-styles="focus"
             classNameOverride="story__input-search--focus"
+          />
+          <InputSearch
+            id="input-search--filled"
+            reversed={isReversed}
+            secondary
+            value="Search me"
+            data-sb-pseudo-styles="filled"
+            classNameOverride="story__input-search--filled"
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Secondary (Loading)">
@@ -136,6 +159,15 @@ const StickerSheetTemplate: StickerSheetStory = {
             loading
             data-sb-pseudo-styles="focus"
             classNameOverride="story__input-search--focus"
+          />
+          <InputSearch
+            id="input-search--filled"
+            reversed={isReversed}
+            secondary
+            loading
+            value="Search me"
+            data-sb-pseudo-styles="filled"
+            classNameOverride="story__input-search--filled"
           />
         </StickerSheet.Row>
       </StickerSheet.Body>
