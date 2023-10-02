@@ -1,5 +1,4 @@
-import React from "react"
-import { useState, RefObject } from "react"
+import React, { useState, RefObject } from "react"
 import { LaunchIcon, PauseIcon } from "~components/Icons"
 
 export type usePausePlayHook = {

@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta } from "@storybook/react"
 import { Base } from "../Base"
 import {
   EmptyStatesAction,
