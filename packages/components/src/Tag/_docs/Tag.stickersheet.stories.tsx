@@ -36,30 +36,30 @@ const StickerSheetTemplate: StickerSheetStory = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        <>
-          {TagVariants.map(variant => (
-            <StickerSheet.Row key={variant} rowTitle={variant}>
-              <>
-                <Tag variant={variant}>Tag</Tag>
-                <Tag variant={variant} size="small">
-                  Small
-                </Tag>
-              </>
-              <>
-                <Tag variant={variant} dismissible={variant !== "statusLive"}>
-                  Tag
-                </Tag>
-                <Tag
-                  variant={variant}
-                  size="small"
-                  dismissible={variant !== "statusLive"}
-                >
-                  Small
-                </Tag>
-              </>
-            </StickerSheet.Row>
-          ))}
-        </>
+        {TagVariants.map(variant => (
+          <StickerSheet.Row key={variant} rowTitle={variant}>
+            <>
+              <Tag variant={variant}>Tag</Tag>
+              <Tag variant={variant} size="small">
+                Small
+              </Tag>
+            </>
+            <>
+              <Tag variant={variant} dismissible={variant !== "statusLive"}>
+                Tag
+              </Tag>
+              <Tag
+                variant={variant}
+                size="small"
+                dismissible={variant !== "statusLive"}
+              >
+                Small
+              </Tag>
+            </>
+          </StickerSheet.Row>
+        ))}
+      </StickerSheet.Body>
+      <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Avatar">
           <Tag
             variant="profile"
@@ -70,6 +70,19 @@ const StickerSheetTemplate: StickerSheetStory = {
                 fullName="Jane Doe"
               />
             }
+          >
+            Jane Doe
+          </Tag>
+          <Tag
+            variant="profile"
+            avatar={
+              <Avatar
+                size="small"
+                avatarSrc="https://www.cultureampcom-preview-1.usw2.wp-dev-us.cultureamp-cdn.com/assets/slices/main/assets/public/media/chapters-card-1@2x.05e547444387f29f14df0b82634bf2b6.png"
+                fullName="Jane Doe"
+              />
+            }
+            dismissible
           >
             Jane Doe
           </Tag>
