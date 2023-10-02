@@ -57,6 +57,9 @@ export type SelectOptionGroup<Option extends SelectOption> = {
 
 Disable options by setting the `disabled` attribute within an individual option your `items` to `true`.
 
+Alternatively, define the `disabledKeys` prop with the `value` of your options.<br/>
+**Note:** This will override the definitions in `items`.
+
 <Canvas of={SelectStories.DisabledItems} />
 
 ### Custom options rendering
