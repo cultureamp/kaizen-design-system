@@ -8,13 +8,11 @@ import {
 import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
 import { SelectProvider } from "~components/__future__/Select/context"
-import { ListBox } from "~components/__future__/Select/subcomponents/ListBox"
 import { ListBoxSection } from "~components/__future__/Select/subcomponents/ListBoxSection"
 import { ListItem } from "~components/__future__/Select/subcomponents/ListItem"
-import { ListItems } from "~components/__future__/Select/subcomponents/ListItems"
 import { Option } from "~components/__future__/Select/subcomponents/Option"
-import { Overlay } from "~components/__future__/Select/subcomponents/Overlay"
 import { SectionDivider } from "~components/__future__/Select/subcomponents/SectionDivider"
+import { SelectPopoverContents } from "~components/__future__/Select/subcomponents/SelectPopoverContents"
 import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -78,14 +76,6 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
 
-  // The collection structure is set by useSelectState's `children`
-  // which we have used a util to ensure the following structure
-  // - SelectOptionGroup => Section
-  // - Option => Item
-  const itemNodes = Array.from(state.collection) as Array<
-    SelectItemNode<Option>
-  >
-
   return (
     <>
       <HiddenSelect label={label} state={state} triggerRef={triggerRef} />
@@ -105,15 +95,9 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
       >
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectProvider<Option> state={state}>
-            <Overlay<Option>>
-              <ListBox<Option> menuProps={menuProps}>
-                {children ? (
-                  children({ items: itemNodes })
-                ) : (
-                  <ListItems<Option> items={itemNodes} />
-                )}
-              </ListBox>
-            </Overlay>
+            <SelectPopoverContents menuProps={menuProps}>
+              {children}
+            </SelectPopoverContents>
           </SelectProvider>
         </FilterContents>
       </Filter>

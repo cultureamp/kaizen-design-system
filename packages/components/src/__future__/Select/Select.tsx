@@ -17,10 +17,9 @@ import { SelectProvider } from "./context"
 import { ListBox } from "./subcomponents/ListBox"
 import { ListBoxSection } from "./subcomponents/ListBoxSection"
 import { ListItem } from "./subcomponents/ListItem"
-import { ListItems } from "./subcomponents/ListItems"
 import { Option } from "./subcomponents/Option"
-import { Overlay } from "./subcomponents/Overlay"
 import { SectionDivider } from "./subcomponents/SectionDivider"
+import { SelectPopoverContents } from "./subcomponents/SelectPopoverContents"
 import { SelectToggle, SelectToggleProps } from "./subcomponents/SelectToggle"
 import { SelectItem, SelectItemNode, SelectOption } from "./types"
 import { getDisabledKeysFromItems } from "./utils/getDisabledKeysFromItems"
@@ -130,14 +129,6 @@ export const Select = <Option extends SelectOption = SelectOption>({
     ref: refs.setReference,
   }
 
-  // The collection structure is set by useSelectState's `children`
-  // which we have used a util to ensure the following structure
-  // - SelectOptionGroup => Section
-  // - Option => Item
-  const itemNodes = Array.from(state.collection) as Array<
-    SelectItemNode<Option>
-  >
-
   return (
     <div
       className={classnames(
@@ -169,15 +160,9 @@ export const Select = <Option extends SelectOption = SelectOption>({
             }}
           >
             <SelectProvider<Option> state={state}>
-              <Overlay<Option>>
-                <ListBox<Option> menuProps={menuProps}>
-                  {children ? (
-                    children({ items: itemNodes })
-                  ) : (
-                    <ListItems<Option> items={itemNodes} />
-                  )}
-                </ListBox>
-              </Overlay>
+              <SelectPopoverContents menuProps={menuProps}>
+                {children}
+              </SelectPopoverContents>
             </SelectProvider>
           </Popover>
         )}
