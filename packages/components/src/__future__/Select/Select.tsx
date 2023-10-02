@@ -14,13 +14,16 @@ import {
 } from "~components/MultiSelect/subcomponents/Popover"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { SelectProvider } from "./context"
-import { ListBox } from "./subcomponents/ListBox"
-import { ListBoxSection } from "./subcomponents/ListBoxSection"
-import { ListItem } from "./subcomponents/ListItem"
-import { Option } from "./subcomponents/Option"
-import { SectionDivider } from "./subcomponents/SectionDivider"
-import { SelectPopoverContents } from "./subcomponents/SelectPopoverContents"
-import { SelectToggle, SelectToggleProps } from "./subcomponents/SelectToggle"
+import {
+  ListBox,
+  ListBoxSection,
+  ListItem,
+  Option,
+  SectionDivider,
+  SelectPopoverContents,
+  SelectToggle,
+  SelectToggleProps,
+} from "./subcomponents"
 import { SelectItem, SelectItemNode, SelectOption } from "./types"
 import { getDisabledKeysFromItems } from "./utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"

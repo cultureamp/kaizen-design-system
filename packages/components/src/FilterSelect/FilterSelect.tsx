@@ -8,11 +8,13 @@ import {
 import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
 import { SelectProvider } from "~components/__future__/Select/context"
-import { ListBoxSection } from "~components/__future__/Select/subcomponents/ListBoxSection"
-import { ListItem } from "~components/__future__/Select/subcomponents/ListItem"
-import { Option } from "~components/__future__/Select/subcomponents/Option"
-import { SectionDivider } from "~components/__future__/Select/subcomponents/SectionDivider"
-import { SelectPopoverContents } from "~components/__future__/Select/subcomponents/SelectPopoverContents"
+import {
+  ListBoxSection,
+  ListItem,
+  Option,
+  SectionDivider,
+  SelectPopoverContents,
+} from "~components/__future__/Select/subcomponents"
 import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
 import { OverrideClassName } from "~types/OverrideClassName"
