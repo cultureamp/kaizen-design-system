@@ -57,7 +57,10 @@ describe("<MultiSelect />", () => {
 
       await waitFor(() => {
         expect(getByTestId("test-id--waffle")).toHaveAttribute("id", "waffle")
-        expect(getByRole("button", { name: "Jalapeno" })).toHaveAttribute("aria-labelledby", "waffle--label")
+        expect(getByRole("button", { name: "Jalapeno" })).toHaveAttribute(
+          "aria-labelledby",
+          "waffle--label"
+        )
         expect(getByRole("dialog")).toHaveAttribute("id", "waffle--popover")
       })
     })
@@ -164,26 +167,26 @@ describe("<MultiSelect />", () => {
       })
     })
 
-  // @todo: Enable when adding functionality for removing selected item
-  // eslint-disable-next-line jest/no-commented-out-tests
-  //   it("does not close the popover when clearing selected options", async () => {
-  //     const { getByRole } = render(
-  //       <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
-  //     )
+    // @todo: Enable when adding functionality for removing selected item
+    // eslint-disable-next-line jest/no-commented-out-tests
+    //   it("does not close the popover when clearing selected options", async () => {
+    //     const { getByRole } = render(
+    //       <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+    //     )
 
-  //     const toggleButton = getByRole("button", { name: "Jalapeno" })
-  //     await user.click(toggleButton)
+    //     const toggleButton = getByRole("button", { name: "Jalapeno" })
+    //     await user.click(toggleButton)
 
-  //     const popover = getByRole("dialog")
-  //     await waitFor(() => {
-  //       expect(popover).toBeVisible()
-  //     })
+    //     const popover = getByRole("dialog")
+    //     await waitFor(() => {
+    //       expect(popover).toBeVisible()
+    //     })
 
-  //     await user.click(getByRole("button", { name: "Clear waffle" }))
-  //     await waitFor(() => {
-  //       expect(popover).toBeVisible()
-  //     })
-  //   })
+    //     await user.click(getByRole("button", { name: "Clear waffle" }))
+    //     await waitFor(() => {
+    //       expect(popover).toBeVisible()
+    //     })
+    //   })
   })
 
   describe("Focus lock", () => {
