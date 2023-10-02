@@ -1,5 +1,4 @@
-import React, { HTMLAttributes } from "react"
-import { OverrideClassName } from "~types/OverrideClassName"
+import React from "react"
 import { Base, BaseProps } from "./Base"
 import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
 

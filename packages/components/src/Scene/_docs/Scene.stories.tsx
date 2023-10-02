@@ -47,10 +47,7 @@ import {
   SkillsCoachStrategy,
   SurveyGetStarted,
   SurveyOverviewClosed,
-  AnimatedSceneProps,
-  SceneProps,
 } from ".."
-import { Brand } from "@kaizen/brand"
 
 const meta = {
   title: "Components/Scene",
@@ -134,9 +131,6 @@ export const EngagementSurveySummaryFemaleStory = {
 }
 export const EngagementSurveySummaryMaleStory = {
   render: () => <EngagementSurveySummaryMale />,
-}
-export const BrandMomentCaptureIntroStory = {
-  render: () => <BrandMomentCaptureIntro isAnimated={true} />,
 }
 export const BrandMomentNewAccountOnboardingStory = {
   render: () => <BrandMomentNewAccountOnboarding />,
