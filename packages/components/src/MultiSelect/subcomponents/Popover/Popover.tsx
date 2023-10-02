@@ -1,13 +1,13 @@
 import React, { HTMLAttributes } from "react"
 import { createPortal } from "react-dom"
 import {
-  useFloating,
+  autoUpdate,
+  flip,
   offset,
+  ReferenceType,
+  useFloating,
   UseFloatingReturn,
   UseFloatingOptions,
-  autoPlacement,
-  autoUpdate,
-  ReferenceType,
 } from "@floating-ui/react-dom"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
@@ -41,28 +41,7 @@ export const Popover = <RT extends ReferenceType>({
       floating: refs.floating.current,
     },
     placement: "bottom-start",
-    middleware: [
-      offset(15),
-      autoPlacement(state =>
-        state.platform.isRTL?.(state.elements.reference)
-          ? {
-              allowedPlacements: [
-                "bottom-end",
-                "bottom-start",
-                "top-end",
-                "top-start",
-              ],
-            }
-          : {
-              allowedPlacements: [
-                "bottom-start",
-                "bottom-end",
-                "top-start",
-                "top-end",
-              ],
-            }
-      ),
-    ],
+    middleware: [offset(15), flip()],
     whileElementsMounted: autoUpdate,
     ...floatingOptions,
   })
