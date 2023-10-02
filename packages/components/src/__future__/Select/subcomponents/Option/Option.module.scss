@@ -1,0 +1,85 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$iconAndBadgeHeight: $spacing-md;
+
+.icon {
+  line-height: 1;
+  height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option {
+  height: fit-content;
+  align-items: center;
+  display: inline-grid;
+  grid-template-columns: auto $spacing-md;
+  gap: $spacing-xs;
+  padding-block: $spacing-8;
+  padding-inline-start: $spacing-12;
+  padding-inline-end: $spacing-6;
+  position: relative;
+  font-family: $typography-paragraph-body-font-family;
+  font-size: $typography-paragraph-body-font-size;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  font-weight: $typography-paragraph-body-font-weight;
+  line-height: $typography-paragraph-body-line-height;
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $border-borderless-border-color;
+  border-radius: 4px;
+  cursor: default;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.isFocusVisible {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+      border-radius: 4px;
+      inset: calc(-1 * #{$focus-ring-offset});
+      z-index: 1; // show border when sibling option is hovered
+    }
+
+    .icon {
+      color: $color-blue-500;
+    }
+  }
+
+  &:hover:not(.disabled),
+  &:active:not(.disabled) {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+
+    .icon {
+      color: $color-blue-500;
+    }
+  }
+}
+
+.isSelected {
+  font-weight: $typography-paragraph-bold-font-weight;
+  color: $color-blue-500;
+
+  &.icon {
+    color: $color-blue-500;
+  }
+}
+
+.disabled {
+  color: $color-gray-500;
+}

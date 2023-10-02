@@ -22,10 +22,6 @@ $start-icon-opacity--reversed: $input-placeholder-opacity--reversed;
 // [type="search"] is required to override performance-ui global materialize CSS >:|
 $classname--input: '.input[type="search"]';
 
-// Classnames to simulate pseudo states in storybook
-$story-className--input-search-hover: ":global(.story__input-search-hover)";
-$story-className--input-search-focus: ":global(.story__input-search-focus)";
-
 .wrapper {
   position: relative;
 }
@@ -60,9 +56,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   }
 
   &:focus,
-  #{$story-className--input-search-focus} &,
-  &:hover,
-  #{$story-className--input-search-hover} & {
+  &:hover {
     @include form-input-placeholder {
       opacity: 0%;
     }
@@ -70,8 +64,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
 }
 
 .focusRing {
-  #{$classname--input}:focus + &,
-  #{$story-className--input-search-focus} & {
+  #{$classname--input}:focus + & {
     $focus-ring-offset: 3px;
 
     position: absolute;
@@ -141,9 +134,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   }
 
   &:hover,
-  &#{$story-className--input-search-hover},
-  &:focus-within,
-  &#{$story-className--input-search-focus} {
+  &:focus-within {
     #{$classname--input} {
       @include form-input-placeholder {
         opacity: 100%;
@@ -182,9 +173,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   }
 
   &:hover,
-  &#{$story-className--input-search-hover},
-  &:focus-within,
-  &#{$story-className--input-search-focus} {
+  &:focus-within {
     #{$classname--input} {
       @include form-input-placeholder {
         opacity: 100%;
@@ -222,9 +211,7 @@ $story-className--input-search-focus: ":global(.story__input-search-focus)";
   }
 
   &:hover,
-  &#{$story-className--input-search-hover},
-  &:focus-within,
-  &#{$story-className--input-search-focus} {
+  &:focus-within {
     #{$classname--input} {
       border-color: transparent;
       background-color: rgba($color-white-rgb, 0.2);

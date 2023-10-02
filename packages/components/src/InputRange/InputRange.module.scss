@@ -1,0 +1,186 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+
+$thumb-color: $color-blue-500;
+$thumb-color-hover: $color-blue-600;
+$thumb-radius: 100%;
+$thumb-border-width: 4px;
+$thumb-border-color: $color-white;
+$thumb-height: 26px;
+$thumb-width: 26px;
+$thumb-height-with-border: $thumb-height + ($thumb-border-width * 2);
+$thumb-width-with-border: $thumb-width + ($thumb-border-width * 2);
+
+// The range
+$track-color: $color-gray-500;
+$track-radius: 4px;
+
+@mixin track {
+  width: auto;
+  height: 0;
+  box-sizing: border-box;
+  border-top: 1px solid $track-color;
+  border-bottom: 2px solid $track-color;
+  border-radius: $track-radius;
+}
+
+@mixin thumb {
+  box-sizing: content-box;
+  width: $thumb-width;
+  height: $thumb-height;
+  border: $thumb-border-width solid $thumb-border-color;
+  border-radius: $thumb-radius;
+  background: $thumb-color;
+
+  &:not(:disabled) {
+    transition: all 0.2s;
+    transition-property: background, height, width;
+
+    &:hover {
+      background: $thumb-color-hover;
+      width: $thumb-height + 6px;
+      height: $thumb-width + 6px;
+    }
+  }
+}
+
+@mixin hidden-thumb {
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+// extra input[type="range"] is required to override materialize.css in performance-ui
+input[type="range"].ratingScaleRange {
+  all: unset;
+  appearance: none;
+  width: 100%;
+  margin: 0; // performance-ui materialize override
+
+  &.disabled {
+    opacity: 40%;
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-blue-500;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+
+    margin: $spacing-sm 0;
+  }
+
+  &::-moz-range-track {
+    @include track;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+
+    -webkit-appearance: none;
+    margin-top: ($thumb-height-with-border/2) * -1;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &.hideThumb::-webkit-slider-thumb {
+    @include hidden-thumb;
+  }
+
+  &.hideThumb::-moz-range-thumb {
+    @include hidden-thumb;
+  }
+
+  &::-ms-track {
+    @include track;
+
+    color: transparent;
+    border-width: $thumb-width 0;
+    border-color: transparent;
+    background: transparent;
+  }
+
+  &::-ms-fill-lower {
+    border: none;
+    border-radius: $track-radius * 2;
+    background: $track-color;
+  }
+
+  &::-ms-fill-upper {
+    border: none;
+    border-radius: $track-radius * 2;
+    background: $track-color;
+  }
+
+  &::-ms-thumb {
+    @include thumb;
+  }
+}
+
+.spokes {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 $thumb-width-with-border/2 $spacing-sm;
+}
+
+.spokes.disabled {
+  opacity: 40%;
+}
+
+.spokeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1px;
+}
+
+.spoke {
+  width: 0;
+  height: 0;
+  background: $track-color;
+  border: 2px solid $track-color;
+  border-radius: 100%;
+}
+
+.labelsContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sliderLabels {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sliderLabels.disabled {
+  opacity: 40%;
+}
+
+// If the .visually-hidden class is applied to natively focusable elements
+// (such as a, button, input, etc) they must become visible when they receive
+// keyboard focus. Otherwise, a sighted keyboard user would have to try and
+// figure out where their visible focus indicator had gone to.
+.visuallyHidden:not(:focus, :active) {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+}

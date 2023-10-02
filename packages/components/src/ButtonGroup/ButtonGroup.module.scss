@@ -4,12 +4,6 @@
 $focus-ring-offset: 1px;
 $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
 
-// Classnames to simulate pseudo states in storybook
-$story-className--button-group--focus: ":global(.story__button-group--focus)";
-
-// Combined pseudo state classes
-$selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-group--focus}";
-
 %firstChildBorders {
   border-start-start-radius: $border-focus-ring-border-radius;
   border-end-start-radius: $border-focus-ring-border-radius;
@@ -26,7 +20,7 @@ $selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-g
   .child {
     border-radius: 0;
 
-    #{$selectors--button-group--focus} {
+    &:focus-visible {
       &::after {
         border-radius: 0;
       }
@@ -35,7 +29,7 @@ $selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-g
     &.firstChild {
       @extend %firstChildBorders;
 
-      #{$selectors--button-group--focus} {
+      &:focus-visible {
         &::after {
           @extend %firstChildBorders;
 
@@ -49,7 +43,7 @@ $selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-g
     }
 
     &:not(.firstChild, .lastChild) {
-      #{$selectors--button-group--focus} {
+      &:focus-visible {
         &::after {
           inset-inline-start: $focus-ring-offset-inner;
           inset-inline-end: $focus-ring-offset-inner;
@@ -60,7 +54,7 @@ $selectors--button-group--focus: "&:focus-visible, &#{$story-className--button-g
     &.lastChild {
       @extend %lastChildBorders;
 
-      #{$selectors--button-group--focus} {
+      &:focus-visible {
         &::after {
           @extend %lastChildBorders;
 

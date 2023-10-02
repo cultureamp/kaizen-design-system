@@ -1,0 +1,79 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-4 $spacing-8;
+  gap: $spacing-4;
+  border-radius: 28px;
+  font-family: $typography-paragraph-intro-lede-font-family;
+  font-size: $typography-paragraph-small-font-size;
+  font-weight: $typography-paragraph-small-font-weight;
+  line-height: $typography-paragraph-small-line-height;
+  white-space: nowrap;
+}
+
+.iconContainer {
+  display: inline-flex;
+}
+
+.gray {
+  background-color: $color-gray-300;
+  color: $color-purple-800;
+}
+
+.blue {
+  background-color: $color-blue-100;
+  color: $color-blue-700;
+
+  .iconContainer {
+    color: $color-blue-500;
+  }
+}
+
+.green {
+  background-color: $color-green-100;
+  color: $color-green-700;
+
+  .iconContainer {
+    color: $color-green-500;
+  }
+}
+
+.yellow {
+  background-color: $color-yellow-100;
+  color: $color-yellow-700;
+
+  .iconContainer {
+    color: $color-yellow-500;
+  }
+}
+
+.orange {
+  background-color: $color-orange-100;
+  color: $color-orange-700;
+
+  .iconContainer {
+    color: $color-orange-500;
+  }
+}
+
+.red {
+  background-color: $color-red-100;
+  color: $color-red-700;
+
+  .iconContainer {
+    color: $color-red-500;
+  }
+}
+
+.purple {
+  background-color: $color-purple-100;
+  color: $color-purple-700;
+
+  .iconContainer {
+    color: $color-purple-500;
+  }
+}
