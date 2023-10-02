@@ -5,6 +5,7 @@ import {
   StickerSheetBody,
   StickerSheetBodyProps,
 } from "./components/StickerSheetBody"
+import { StickerSheetCell } from "./components/StickerSheetCell"
 import {
   StickerSheetHeader,
   StickerSheetHeaderProps,
@@ -65,5 +66,6 @@ export const StickerSheet = ({
 StickerSheet.Header = StickerSheetHeader
 StickerSheet.Body = StickerSheetBody
 StickerSheet.Row = StickerSheetRow
+StickerSheet.Cell = StickerSheetCell
 
 StickerSheet.displayName = "StickerSheet"

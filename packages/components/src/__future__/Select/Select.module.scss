@@ -1,0 +1,13 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.notFullWidth {
+  width: 180px;
+}
