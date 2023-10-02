@@ -7,7 +7,6 @@ import {
 } from "@react-stately/select"
 import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
-import { Label } from "~components/Label"
 import {
   Popover,
   UseFloatingReturn,
@@ -119,6 +118,8 @@ export const Select = <Option extends SelectOption = SelectOption>({
   const { buttonProps } = useButton(triggerProps, triggerRef)
   const selectToggleProps = {
     ...buttonProps,
+    label,
+    labelProps,
     value: state?.selectedItem?.rendered,
     valueProps,
     isOpen: state.isOpen,
@@ -144,9 +145,6 @@ export const Select = <Option extends SelectOption = SelectOption>({
         classNameOverride
       )}
     >
-      <Label {...labelProps} reversed={isReversed} disabled={isDisabled}>
-        {label}
-      </Label>
       <HiddenSelect
         label={label}
         name={id}
