@@ -14,11 +14,12 @@ import {
   Option,
   SectionDivider,
   SelectPopoverContents,
+  SelectPopoverContentsProps,
 } from "~components/__future__/Select/subcomponents"
 import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { SelectItem, SelectItemNode, SelectOption } from "./types"
+import { SelectItem, SelectOption } from "./types"
 import styles from "./FilterSelect.module.scss"
 
 type OmittedAriaSelectProps =
@@ -34,7 +35,7 @@ export type FilterSelectProps<Option extends SelectOption = SelectOption> = {
   setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
-  children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
+  children?: SelectPopoverContentsProps<Option>["children"]
   items: Array<SelectItem<Option>>
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 

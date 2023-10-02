@@ -21,10 +21,11 @@ import {
   Option,
   SectionDivider,
   SelectPopoverContents,
+  SelectPopoverContentsProps,
   SelectToggle,
   SelectToggleProps,
 } from "./subcomponents"
-import { SelectItem, SelectItemNode, SelectOption } from "./types"
+import { SelectItem, SelectOption } from "./types"
 import { getDisabledKeysFromItems } from "./utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"
 import styles from "./Select.module.scss"
@@ -44,7 +45,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
     // @deprecated: This arg is unnecessary now, but provided for legacy usages
     ref: UseFloatingReturn<HTMLButtonElement>["refs"]["setReference"]
   ) => JSX.Element
-  children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
+  children?: SelectPopoverContentsProps<Option>["children"]
   /**
    * Updates the styling of the validation FieldMessage.
    */
