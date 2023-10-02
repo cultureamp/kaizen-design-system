@@ -37,11 +37,17 @@ export const Playground: Story = {
 
 export const Types: Story = {
   render: () => (
-    <div className="flex gap-16">
-      <Input type="text" value="Text" />
-      <Input type="email" value="email@email.com" />
-      <Input type="password" value="password" />
-    </div>
+    <ul className="flex gap-16 list-none p-0 m-0">
+      <li>
+        <Input type="text" value="Text" />
+      </li>
+      <li>
+        <Input type="email" value="email@email.com" />
+      </li>
+      <li>
+        <Input type="password" value="password" />
+      </li>
+    </ul>
   ),
   parameters: {
     docs: {
@@ -52,12 +58,20 @@ export const Types: Story = {
 
 export const Status: Story = {
   render: () => (
-    <div className="flex gap-16">
-      <Input type="text" value="Default" status="default" />
-      <Input type="text" value="Success" status="success" />
-      <Input type="text" value="Caution" status="caution" />
-      <Input type="text" value="Error" status="error" />
-    </div>
+    <ul className="flex gap-16 list-none p-0 m-0">
+      <li>
+        <Input type="text" value="Default" status="default" />
+      </li>
+      <li>
+        <Input type="text" value="Success" status="success" />
+      </li>
+      <li>
+        <Input type="text" value="Caution" status="caution" />
+      </li>
+      <li>
+        <Input type="text" value="Error" status="error" />
+      </li>
+    </ul>
   ),
   parameters: {
     docs: {
@@ -68,18 +82,22 @@ export const Status: Story = {
 
 export const Icons: Story = {
   render: () => (
-    <div className="flex gap-16">
-      <Input
-        type="text"
-        value="Start Icon"
-        startIconAdornment={<UserAddIcon role="presentation" />}
-      />
-      <Input
-        type="text"
-        value="End Icon"
-        endIconAdornment={<WritingIcon role="presentation" />}
-      />
-    </div>
+    <ul className="flex gap-16 list-none p-0 m-0">
+      <li>
+        <Input
+          type="text"
+          value="Start Icon"
+          startIconAdornment={<UserAddIcon role="presentation" />}
+        />
+      </li>
+      <li>
+        <Input
+          type="text"
+          value="End Icon"
+          endIconAdornment={<WritingIcon role="presentation" />}
+        />
+      </li>
+    </ul>
   ),
   parameters: {
     docs: {
@@ -90,5 +108,11 @@ export const Icons: Story = {
 
 export const Reversed: Story = {
   args: { reversed: true },
-  parameters: { backgrounds: { default: "Purple 700" } },
+  decorators: [
+    Story => (
+      <div className="bg-purple-700 p-16">
+        <Story />
+      </div>
+    ),
+  ],
 }

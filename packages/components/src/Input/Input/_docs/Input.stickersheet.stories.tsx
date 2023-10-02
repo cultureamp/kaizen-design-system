@@ -28,32 +28,33 @@ export default {
 } satisfies Meta
 
 const InputExampleGroup = (props: InputProps): JSX.Element => (
-  <div className="grid gap-16">
+  <ul className="grid gap-16 list-none p-0 m-0">
     {InputTypes.map(type => (
-      <Input
-        key={type}
-        value={type}
-        type={type}
-        startIconAdornment={
-          <WritingIcon
-            role="presentation"
-            data-sb-a11y-color-contrast-disable={
-              props.disabled ? "true" : "false"
-            }
-          />
-        }
-        endIconAdornment={
-          <MeatballsIcon
-            role="presentation"
-            data-sb-a11y-color-contrast-disable={
-              props.disabled ? "true" : "false"
-            }
-          />
-        }
-        {...props}
-      />
+      <li key={type}>
+        <Input
+          value={type}
+          type={type}
+          startIconAdornment={
+            <WritingIcon
+              role="presentation"
+              data-sb-a11y-color-contrast-disable={
+                props.disabled ? "true" : "false"
+              }
+            />
+          }
+          endIconAdornment={
+            <MeatballsIcon
+              role="presentation"
+              data-sb-a11y-color-contrast-disable={
+                props.disabled ? "true" : "false"
+              }
+            />
+          }
+          {...props}
+        />
+      </li>
     ))}
-  </div>
+  </ul>
 )
 
 const StickerSheetTemplate: StickerSheetStory = {
