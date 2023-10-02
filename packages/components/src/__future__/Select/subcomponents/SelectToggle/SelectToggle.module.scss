@@ -9,7 +9,7 @@
 }
 
 .icon {
-  margin-left: $spacing-sm;
+  margin-inline-start: $spacing-12;
   color: $color-gray-500;
 }
 
@@ -30,8 +30,9 @@
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   border-radius: $border-solid-border-radius;
   background-color: $color-white;
-  padding: calc(#{$spacing-sm} - #{$border-solid-border-width}) $spacing-sm
-    calc(#{$spacing-sm} - #{$border-solid-border-width}) 0.875rem;
+  padding-block: calc(#{$spacing-12} - #{$border-solid-border-width});
+  padding-inline-start: 0.875rem;
+  padding-inline-end: $spacing-12;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;
