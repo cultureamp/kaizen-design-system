@@ -57,8 +57,6 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
-
 export const Playground = {
   render: () => <EmptyStatesAction isAnimated={true} />,
 }

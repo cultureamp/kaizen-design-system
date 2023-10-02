@@ -1,15 +1,10 @@
+import React from "react"
 import { useState, RefObject } from "react"
-import playIcon from "@kaizen/component-library/icons/launch.icon.svg"
-import pauseIcon from "@kaizen/component-library/icons/pause.icon.svg"
-
-type IconType = {
-  id: string
-  viewBox: string
-}
+import { LaunchIcon, PauseIcon } from "~components/Icons"
 
 export type usePausePlayHook = {
   toggle: () => void
-  icon: IconType
+  icon: React.ReactElement
   label: string
 }
 
@@ -30,7 +25,11 @@ export const usePausePlay = (
         videoRef.current.pause()
       }
     },
-    icon: isPaused ? playIcon : pauseIcon,
+    icon: isPaused ? (
+      <LaunchIcon role="presentation" />
+    ) : (
+      <PauseIcon role="presentation" />
+    ),
     label: isPaused ? "Play animation" : "Pause animation",
   }
 }
