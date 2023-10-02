@@ -68,7 +68,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
- * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-select--docs Storybook}
  */
 export const Select = <Option extends SelectOption = SelectOption>({
