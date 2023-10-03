@@ -27,6 +27,7 @@
 
   &:focus-within {
     &::after {
+      z-index: 2;
       width: calc(100% + 2px);
       height: calc(100% + 2px);
       content: "";
