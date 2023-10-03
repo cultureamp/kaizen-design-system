@@ -3,14 +3,6 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
 
-// Classnames to simulate pseudo states in storybook
-$story-className--multi-select-option-field--hover: ":global(.story__multi-select-option-field--hover)";
-$story-className--multi-select-option-field--focus: ":global(.story__multi-select-option-field--focus)";
-
-// Combined pseudo state classes
-$selectors--multi-select-option-field--hover: "&:hover, &#{$story-className--multi-select-option-field--hover}";
-$selectors--multi-select-option-field--focus: "&:focus-within, &#{$story-className--multi-select-option-field--focus}";
-
 .multiSelectOptionField {
   display: flex;
   align-items: flex-start;
@@ -19,8 +11,8 @@ $selectors--multi-select-option-field--focus: "&:focus-within, &#{$story-classNa
   border-radius: $border-solid-border-radius;
   position: relative;
 
-  #{$selectors--multi-select-option-field--hover},
-  #{$selectors--multi-select-option-field--focus} {
+  &:hover,
+  &:focus-within {
     background: $color-blue-100;
 
     .checkbox {
@@ -33,7 +25,7 @@ $selectors--multi-select-option-field--focus: "&:focus-within, &#{$story-classNa
     }
   }
 
-  #{$selectors--multi-select-option-field--focus} {
+  &:focus-within {
     &::after {
       width: calc(100% + 2px);
       height: calc(100% + 2px);

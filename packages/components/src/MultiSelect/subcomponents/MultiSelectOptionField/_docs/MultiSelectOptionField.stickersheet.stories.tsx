@@ -51,7 +51,7 @@ const StickerSheetTemplate: Story = {
                 label: "Waffle",
                 value: "waffle",
               }}
-              classNameOverride="story__multi-select-option-field--hover"
+              data-sb-pseudo-styles="hover"
               checkedStatus={status}
             />
             <MultiSelectOptionField
@@ -61,7 +61,7 @@ const StickerSheetTemplate: Story = {
                 label: "Flapjack",
                 value: "flapjack",
               }}
-              classNameOverride="story__multi-select-option-field--focus"
+              data-sb-pseudo-styles="focus"
               checkedStatus={status}
             />
           </StickerSheet.Row>
@@ -69,6 +69,12 @@ const StickerSheetTemplate: Story = {
       </StickerSheet.Body>
     </StickerSheet>
   ),
+  parameters: {
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      focusWithin: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
 
 export const StickerSheetDefault = {
