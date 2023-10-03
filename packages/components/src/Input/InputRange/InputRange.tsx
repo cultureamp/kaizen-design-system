@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes, ReactNode, useState } from "react"
 import classnames from "classnames"
+import { VisuallyHidden } from "@kaizen/a11y"
 import { Text } from "~components/Text"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./InputRange.module.scss"
@@ -76,9 +77,9 @@ export const InputRange = ({
           </div>
         ))}
       </div>
-      <div className={styles.visuallyHidden} id={visuallyHiddenHintId}>
+      <VisuallyHidden id={visuallyHiddenHintId}>
         {min} is {minLabel}, {max} is {maxLabel}
-      </div>
+      </VisuallyHidden>
       <div className={styles.labelsContainer}>
         {!readOnlyWithNoValue && (
           <div

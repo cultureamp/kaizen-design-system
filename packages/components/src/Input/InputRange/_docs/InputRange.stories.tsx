@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { InputRange } from "../index"
 
 const meta = {
-  title: "KAIO-staging/InputRange",
+  title: "KAIO-staging/Inputs/InputRange",
   component: InputRange,
   args: {
     id: "inputRange",
