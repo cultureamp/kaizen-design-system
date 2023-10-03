@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { MultiSelectOption } from "../../types"
 import {
   MultiSelectOptions,
   MultiSelectOptionsProps,
@@ -27,9 +28,9 @@ const testOptions = [
 const MultiSelectOptionsWrapper = (
   customProps?: Partial<MultiSelectOptionsProps>
 ): JSX.Element => {
-  const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
-    customProps?.selectedValues ?? new Set()
-  )
+  const [selectedValues, setSelectedValues] = useState<
+    Set<MultiSelectOption["value"]>
+  >(customProps?.selectedValues ?? new Set())
   return (
     <MultiSelectOptions
       id="id--options"

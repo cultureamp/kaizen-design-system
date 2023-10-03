@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MultiSelect, MultiSelectProps } from "./MultiSelect"
+import { MultiSelectOption } from "./types"
 
 const defaultOptions = [
   {
@@ -24,7 +25,7 @@ const MultiSelectWrapper = ({
   ...otherProps
 }: Partial<MultiSelectProps>): JSX.Element => {
   const [selectedValues, setSelectedValues] =
-    useState<Set<React.Key>>(propsSelectedValues)
+    useState<Set<MultiSelectOption["value"]>>(propsSelectedValues)
   const [isOpen, setIsOpen] = useState<boolean>(propsIsOpen)
   return (
     <MultiSelect
