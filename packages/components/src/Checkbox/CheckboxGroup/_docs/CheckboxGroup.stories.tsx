@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { ChangeEventHandler, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import {
   CheckboxField,
@@ -27,30 +27,51 @@ type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   render: args => {
-    const [checkedStatus, setCheckedStatus] =
-      useState<CheckboxFieldProps["checkedStatus"]>("mixed")
+    const [checkedStatus, setCheckedStatus] = useState<
+      Record<string, CheckboxFieldProps["checkedStatus"]>
+    >({
+      one: "off",
+      two: "on",
+      three: "mixed",
+    })
 
-    const onCheckHandler = (): void => {
-      const newStatus = checkedStatus === "on" ? "off" : "on"
-      setCheckedStatus(newStatus)
-    }
+    const onCheckHandler =
+      (id: string): ChangeEventHandler<HTMLInputElement> =>
+      () => {
+        if (checkedStatus[id] === "off") {
+          setCheckedStatus({
+            ...checkedStatus,
+            [id]: "mixed",
+          })
+        } else if (checkedStatus[id] === "mixed") {
+          setCheckedStatus({
+            ...checkedStatus,
+            [id]: "on",
+          })
+        } else if (checkedStatus[id] === "on") {
+          setCheckedStatus({
+            ...checkedStatus,
+            [id]: "off",
+          })
+        }
+      }
 
     return (
       <CheckboxGroup {...args}>
         <CheckboxField
           labelText="Checkbox one"
-          checkedStatus={checkedStatus}
-          onCheck={onCheckHandler}
+          checkedStatus={checkedStatus["one"]}
+          onCheck={onCheckHandler("one")}
         />
         <CheckboxField
           labelText="Checkbox two"
-          checkedStatus={checkedStatus}
-          onCheck={onCheckHandler}
+          checkedStatus={checkedStatus["two"]}
+          onCheck={onCheckHandler("two")}
         />
         <CheckboxField
           labelText="Checkbox three"
-          checkedStatus={checkedStatus}
-          onCheck={onCheckHandler}
+          checkedStatus={checkedStatus["three"]}
+          onCheck={onCheckHandler("three")}
         />
       </CheckboxGroup>
     )

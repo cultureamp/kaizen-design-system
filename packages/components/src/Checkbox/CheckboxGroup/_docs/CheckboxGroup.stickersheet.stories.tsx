@@ -18,8 +18,9 @@ export default {
 const CheckboxGroupWrapped = ({
   labelText,
   reversed,
+  ...props
 }: CheckboxGroupProps): JSX.Element => (
-  <CheckboxGroup labelText={labelText} reversed={reversed}>
+  <CheckboxGroup labelText={labelText} reversed={reversed} {...props}>
     <CheckboxField labelText="Checkbox one" reversed={reversed} />
     <CheckboxField
       labelText="Checkbox two"
@@ -36,15 +37,25 @@ const CheckboxGroupWrapped = ({
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default"]} />
+      <StickerSheet.Header headings={["Default", "No Bottom Margin"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <CheckboxGroupWrapped
-            reversed={isReversed}
-            labelText="CheckboxGroup"
-          />
+          <>
+            <CheckboxGroupWrapped
+              reversed={isReversed}
+              labelText="CheckboxGroup"
+            />
+            Next line
+          </>
+          <>
+            <CheckboxGroupWrapped
+              reversed={isReversed}
+              labelText="CheckboxGroup"
+              noBottomMargin
+            />
+            Next line
+          </>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
