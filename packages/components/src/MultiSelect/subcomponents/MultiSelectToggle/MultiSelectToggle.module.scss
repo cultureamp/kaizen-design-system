@@ -3,18 +3,6 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "../../../../styles/button-reset";
 
-$story-className--multi-select__toggle--hover: ":global(.story__multi-select__toggle--hover)";
-$story-className--multi-select__toggle--focus: ":global(.story__multi-select__toggle--focus)";
-$story-className--multi-select__toggle-button--hover: ":global(.story__multi-select__toggle-button--hover)";
-$story-className--multi-select__toggle-button--focus: ":global(.story__multi-select__toggle-button--focus)";
-
-$selectors--multi-select__toggle-button--hover: "&:hover, #{$story-className--multi-select__toggle-button--hover} &";
-$selectors--multi-select__toggle-button--focus: "&:focus, #{$story-className--multi-select__toggle-button--focus} &";
-$selectors--multi-select__toggle-button--focus-ring: "&:focus, #{$story-className--multi-select__toggle-button--focus} &, #{$story-className--multi-select__toggle--focus} &";
-
-$selectors--multi-select__toggle--hover: "&:hover, &#{$story-className--multi-select__toggle--hover}, &#{$story-className--multi-select__toggle-button--hover}";
-$selectors--multi-select__toggle--focus-within: "&:focus-within, &#{$story-className--multi-select__toggle--focus}, &#{$story-className--multi-select__toggle-button--focus}";
-
 .multiSelectToggle {
   position: relative;
   display: inline-flex;
@@ -25,8 +13,8 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, &#{$story-class
   padding: calc(#{$spacing-12} - #{$border-solid-border-width});
   box-sizing: border-box;
 
-  #{$selectors--multi-select__toggle--hover},
-  #{$selectors--multi-select__toggle--focus-within} {
+  &:hover,
+  &:focus-within {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
@@ -40,16 +28,14 @@ $selectors--multi-select__toggle--focus-within: "&:focus-within, &#{$story-class
   margin: 3px 0;
   color: rgba($color-purple-800-rgb, 0.7);
 
-  #{$selectors--multi-select__toggle-button--hover} {
+  &:hover {
     color: $color-purple-800;
   }
 
-  #{$selectors--multi-select__toggle-button--focus} {
+  &:focus {
     color: $color-purple-800;
     outline: none;
-  }
 
-  #{$selectors--multi-select__toggle-button--focus-ring} {
     &::after {
       position: absolute;
       pointer-events: none;

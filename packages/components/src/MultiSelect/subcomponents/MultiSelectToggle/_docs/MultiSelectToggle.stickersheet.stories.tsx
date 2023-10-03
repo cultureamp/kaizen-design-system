@@ -11,18 +11,28 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Built with no controlled element on purpose, to be used within `MultiSelect` where popover is present
+            id: "aria-valid-attr-value",
+            enabled: false,
+          },
+          {
+            // Built with no label for the button on purpose, to be used within `MultiSelect` where label is present
+            id: "button-name",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      {/* This is for a11y; not example of how to actually use this */}
-      <div style={{ display: "none" }}>
-        <span id="id--label">Label</span>
-        <div id="id--popover"></div>
-      </div>
-
       <StickerSheet
         isReversed={isReversed}
         heading="MultiSelectToggle"
@@ -74,14 +84,14 @@ const StickerSheetTemplate: StickerSheetStory = {
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
-              classNameOverride="story__multi-select__toggle--hover"
+              data-sb-pseudo-styles="hover"
             />
             <MultiSelectToggle
               selectedOptions={[]}
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
-              classNameOverride="story__multi-select__toggle--focus"
+              data-sb-pseudo-styles="focus"
             />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Toggle Button">
@@ -90,20 +100,37 @@ const StickerSheetTemplate: StickerSheetStory = {
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
-              classNameOverride="story__multi-select__toggle-button--hover"
+              data-sb-pseudo-styles="hover--button"
             />
             <MultiSelectToggle
               selectedOptions={[]}
               aria-labelledby="id--label"
               aria-controls="id--popover"
               onClick={() => undefined}
-              classNameOverride="story__multi-select__toggle-button--focus"
+              data-sb-pseudo-styles="focus--button"
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
     </>
   ),
+  parameters: {
+    pseudo: {
+      hover: [
+        '[data-sb-pseudo-styles="hover"]',
+        '[data-sb-pseudo-styles="hover--button"]',
+        '[data-sb-pseudo-styles="hover--button"] > button',
+      ],
+      focusWithin: [
+        '[data-sb-pseudo-styles="focus"]',
+        '[data-sb-pseudo-styles="focus--button"]',
+      ],
+      focus: [
+        '[data-sb-pseudo-styles="focus"] > button',
+        '[data-sb-pseudo-styles="focus--button"] > button',
+      ],
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
