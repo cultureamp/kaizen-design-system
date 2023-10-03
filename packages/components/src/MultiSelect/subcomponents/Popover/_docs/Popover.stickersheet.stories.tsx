@@ -52,7 +52,8 @@ const StickerSheetTemplate: StickerSheetStory = {
         ref={portalRef}
         id="stickersheet__popover"
         // overflow-hidden is added so we can ensure the last row autoplaces above
-        className="relative flex flex-col justify-between gap-160 h-[500px] overflow-hidden"
+        // padding added to allow buffer for box-shadow which gets cut off by overflow-hidden
+        className="relative flex flex-col justify-between gap-160 h-[400px] px-16 overflow-hidden"
       >
         <div>
           <Heading variant="heading-3" tag="div" classNameOverride="!mb-16">
