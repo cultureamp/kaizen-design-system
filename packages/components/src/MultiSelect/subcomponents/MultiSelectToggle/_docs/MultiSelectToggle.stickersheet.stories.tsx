@@ -145,7 +145,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 selectedOptions={[
                   { value: "pancakes", label: "Pancakes" },
                   { value: "toastie", label: "Toastie" },
-                  { value: "jaffle", label: "jaffle" },
+                  { value: "jaffle", label: "Jaffle" },
                   { value: "pikelets", label: "Pikelets" },
                   { value: "crumpets", label: "Crumpets" },
                   { value: "waffles", label: "Waffles" },
