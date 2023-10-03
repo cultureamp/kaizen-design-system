@@ -43,6 +43,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     const [selectedValues2, setSelectedValues2] = useState<
       MultiSelectProps["selectedValues"]
     >(new Set())
+    const [isOpen3, setIsOpen3] = useState<boolean>(true)
 
     return (
       <StickerSheet
@@ -50,14 +51,14 @@ const StickerSheetTemplate: StickerSheetStory = {
         className={classnames("w-full", IS_CHROMATIC && "pb-160")}
       >
         <StickerSheet.Header
-          headings={["Closed", "Open"]}
-          headingsWidth="50%"
+          headings={["Closed", "Open", "No items"]}
+          headingsWidth="30%"
         />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <MultiSelect
               id="id--multi-select-options"
-              label="Jalapeno"
+              label="Label"
               isOpen={isOpen}
               onOpenChange={setIsOpen}
               onSelectedValuesChange={setSelectedValues}
@@ -66,12 +67,21 @@ const StickerSheetTemplate: StickerSheetStory = {
             />
             <MultiSelect
               id="id--multi-select-options-2"
-              label="Jalapeno open"
+              label="Label"
               isOpen={isOpen2}
               onOpenChange={setIsOpen2}
               onSelectedValuesChange={setSelectedValues2}
               selectedValues={selectedValues2}
               items={options}
+            />
+            <MultiSelect
+              id="id--multi-select-options-3"
+              label="Label"
+              isOpen={isOpen3}
+              onOpenChange={setIsOpen3}
+              selectedValues={new Set()}
+              onSelectedValuesChange={() => undefined}
+              items={[]}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>

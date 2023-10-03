@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
+import { Text } from "~components/Text"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
 import { MultiSelectOptionField } from "../MultiSelectOptionField"
@@ -46,7 +47,7 @@ export const MultiSelectOptions = ({
         Options available: {options.length}
       </VisuallyHidden>
       {options.length === 0 ? (
-        <span>No options available</span>
+        <Text variant="body">No options available</Text>
       ) : (
         options.map(option => (
           <MultiSelectOptionField
