@@ -134,15 +134,3 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
     border-color: $dt-color-form-border-color-reversed-focus;
   }
 }
-
-.box.error {
-  border-color: $color-red-300;
-
-  .checkbox:not([checked]):focus + & {
-    border-color: $color-red-300;
-  }
-
-  .checkbox:not([checked]):hover + & {
-    border-color: $color-red-300;
-  }
-}
