@@ -39,7 +39,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         className="w-full"
       >
         <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default">
+          <StickerSheet.Row rowTitle="Default" rowTitleWidth="10rem">
             <MultiSelectToggle
               selectedOptions={[]}
               aria-labelledby="id--label"
@@ -50,15 +50,6 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row rowTitle="Open">
             <MultiSelectToggle
               selectedOptions={[]}
-              isOpen
-              aria-labelledby="id--label"
-              aria-controls="id--popover"
-              onClick={() => undefined}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Has selected values">
-            <MultiSelectToggle
-              selectedOptions={[{ value: "pancakes", label: "Pancakes" }]}
               isOpen
               aria-labelledby="id--label"
               aria-controls="id--popover"
@@ -76,6 +67,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Header
           headings={["Hover", "Focus"]}
           hasVerticalHeadings
+          verticalHeadingsWidth="10rem"
         />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Toggle">
@@ -109,6 +101,60 @@ const StickerSheetTemplate: StickerSheetStory = {
               onClick={() => undefined}
               data-sb-pseudo-styles="focus--button"
             />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
+      </StickerSheet>
+
+      <StickerSheet
+        isReversed={isReversed}
+        heading="Has selected values"
+        className="w-full"
+      >
+        <StickerSheet.Header
+          headings={["Hover", "Focus", "Multi-line"]}
+          headingsWidth="30%"
+        />
+        <StickerSheet.Body>
+          <StickerSheet.Row>
+            <StickerSheet.Cell className="align-top">
+              <MultiSelectToggle
+                selectedOptions={[
+                  { value: "pancakes", label: "Pancakes" },
+                  { value: "waffles", label: "Waffles" },
+                ]}
+                isOpen
+                aria-labelledby="id--label"
+                aria-controls="id--popover"
+                onClick={() => undefined}
+              />
+            </StickerSheet.Cell>
+            <StickerSheet.Cell className="align-top">
+              <MultiSelectToggle
+                selectedOptions={[
+                  { value: "pancakes", label: "Pancakes" },
+                  { value: "waffles", label: "Waffles" },
+                ]}
+                aria-labelledby="id--label"
+                aria-controls="id--popover"
+                onClick={() => undefined}
+                data-sb-pseudo-styles="hover"
+              />
+            </StickerSheet.Cell>
+            <StickerSheet.Cell className="align-top">
+              <MultiSelectToggle
+                selectedOptions={[
+                  { value: "pancakes", label: "Pancakes" },
+                  { value: "toastie", label: "Toastie" },
+                  { value: "jaffle", label: "jaffle" },
+                  { value: "pikelets", label: "Pikelets" },
+                  { value: "crumpets", label: "Crumpets" },
+                  { value: "waffles", label: "Waffles" },
+                ]}
+                aria-labelledby="id--label"
+                aria-controls="id--popover"
+                onClick={() => undefined}
+              />
+            </StickerSheet.Cell>
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
