@@ -77,6 +77,9 @@ export const MultiSelect = ({
         />
       </div>
 
+      {/* Description */}
+      {/* ValidationMessage */}
+
       {isOpen && (
         <Popover
           refs={refs}
@@ -97,8 +100,6 @@ export const MultiSelect = ({
           />
         </Popover>
       )}
-      {/* Description */}
-      {/* ValidationMessage */}
     </div>
   )
 }
