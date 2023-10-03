@@ -7,7 +7,7 @@ import {
 import { Checkbox, CheckedStatus } from "../index"
 
 export default {
-  title: "Components/MultiSelect/Checkbox",
+  title: "Components/Multi Select/Checkbox",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
