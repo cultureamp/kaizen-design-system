@@ -47,7 +47,9 @@ export const MultiSelectOptions = ({
         Options available: {options.length}
       </VisuallyHidden>
       {options.length === 0 ? (
-        <Text variant="body">No options available</Text>
+        <Text tag="span" variant="body">
+          No options available
+        </Text>
       ) : (
         options.map(option => (
           <MultiSelectOptionField
