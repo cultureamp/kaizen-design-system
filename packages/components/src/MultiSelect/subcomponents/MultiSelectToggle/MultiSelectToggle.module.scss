@@ -56,9 +56,13 @@
   gap: $spacing-12;
   align-items: flex-start;
   width: 100%;
-  border-inline-end: 1px solid rgba($color-gray-600-rgb, 0.2);
+  border-inline-end: 1px solid transparent;
   padding-inline-end: $spacing-12;
   margin-inline-end: $spacing-12;
+
+  &.hasSelectedItems {
+    border-inline-end-color: rgba($color-gray-600-rgb, 0.2);
+  }
 }
 
 .selectedItems {

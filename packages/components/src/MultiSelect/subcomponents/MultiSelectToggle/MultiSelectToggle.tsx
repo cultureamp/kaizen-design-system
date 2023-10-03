@@ -62,7 +62,12 @@ export const MultiSelectToggle = forwardRef<
           )}
         </button>
 
-        <div className={styles.selectedItemsContainer}>
+        <div
+          className={classnames(
+            styles.selectedItemsContainer,
+            selectedOptions.length && styles.hasSelectedItems
+          )}
+        >
           {selectedOptions.length > 0 && (
             <>
               {/* list-style: none removes role="list" in Safari */}
