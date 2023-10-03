@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { CheckboxField } from "../index"
+import { CheckboxField, CheckboxFieldProps } from "../index"
 
 export default {
   title: "KAIO-staging/Checkbox controls/CheckboxField",
@@ -13,6 +13,14 @@ export default {
     controls: { disable: true },
   },
 } satisfies Meta
+
+const CheckboxFieldGroupWrapper = (props: CheckboxFieldProps) => (
+  <div className="grid gap-8">
+    <CheckboxField {...props} />
+    <CheckboxField {...props} checkedStatus="on" />
+    <CheckboxField {...props} checkedStatus="mixed" />
+  </div>
+)
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
@@ -24,38 +32,45 @@ const StickerSheetTemplate: StickerSheetStory = {
       />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Enabled">
-          <CheckboxField labelText="Checkbox" reversed={isReversed} />
-          <CheckboxField
+          <CheckboxFieldGroupWrapper
+            labelText="Checkbox"
+            reversed={isReversed}
+          />
+          <CheckboxFieldGroupWrapper
             labelText="Hover"
             reversed={isReversed}
             data-sb-pseudo-styles="hover"
           />
-          <CheckboxField
+          <CheckboxFieldGroupWrapper
             labelText="Active"
             reversed={isReversed}
             data-sb-pseudo-styles="active"
           />
-          <CheckboxField
+          <CheckboxFieldGroupWrapper
             labelText="Focus"
             reversed={isReversed}
             data-sb-pseudo-styles="focus"
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Disabled">
-          <CheckboxField labelText="Checkbox" disabled reversed={isReversed} />
-          <CheckboxField
+          <CheckboxFieldGroupWrapper
+            labelText="Checkbox"
+            disabled
+            reversed={isReversed}
+          />
+          <CheckboxFieldGroupWrapper
             labelText="Hover"
             reversed={isReversed}
             disabled
             data-sb-pseudo-styles="hover"
           />
-          <CheckboxField
+          <CheckboxFieldGroupWrapper
             labelText="Active"
             reversed={isReversed}
             disabled
             data-sb-pseudo-styles="active"
           />
-          <CheckboxField
+          <CheckboxFieldGroupWrapper
             labelText="Focus"
             reversed={isReversed}
             disabled
