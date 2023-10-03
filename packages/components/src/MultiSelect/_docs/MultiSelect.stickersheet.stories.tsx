@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { MultiSelect } from "../index"
+import { MultiSelect, MultiSelectProps } from "../index"
 
 export default {
   title: "Components/MultiSelect",
@@ -32,13 +32,13 @@ const options = [
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
-      new Set()
-    )
+    const [selectedValues, setSelectedValues] = useState<
+      MultiSelectProps["selectedValues"]
+    >(new Set())
     const [isOpen2, setIsOpen2] = useState<boolean>(true)
-    const [selectedValues2, setSelectedValues2] = useState<Set<React.Key>>(
-      new Set()
-    )
+    const [selectedValues2, setSelectedValues2] = useState<
+      MultiSelectProps["selectedValues"]
+    >(new Set())
 
     return (
       <StickerSheet heading="MultiSelect" className="w-full">

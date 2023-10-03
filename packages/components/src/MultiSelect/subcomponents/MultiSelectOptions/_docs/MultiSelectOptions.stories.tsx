@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { MultiSelectOptions } from "../index"
+import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 const meta = {
   title: "Components/MultiSelect/MultiSelectOptions",
@@ -31,9 +31,9 @@ type Story = StoryObj<typeof meta>
 
 const MultiSelectOptionsTemplate: Story = {
   render: args => {
-    const [selectedValues, setSelectedValues] = useState<Set<React.Key>>(
-      args.selectedValues
-    )
+    const [selectedValues, setSelectedValues] = useState<
+      MultiSelectOptionsProps["selectedValues"]
+    >(args.selectedValues)
     return (
       <MultiSelectOptions
         {...args}

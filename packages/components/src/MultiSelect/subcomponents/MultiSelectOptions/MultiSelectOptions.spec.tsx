@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { MultiSelectOption } from "../../types"
 import {
   MultiSelectOptions,
   MultiSelectOptionsProps,
@@ -29,7 +28,7 @@ const MultiSelectOptionsWrapper = (
   customProps?: Partial<MultiSelectOptionsProps>
 ): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<
-    Set<MultiSelectOption["value"]>
+    MultiSelectOptionsProps["selectedValues"]
   >(customProps?.selectedValues ?? new Set())
   return (
     <MultiSelectOptions
