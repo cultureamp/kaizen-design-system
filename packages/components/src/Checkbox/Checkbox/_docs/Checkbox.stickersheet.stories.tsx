@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from "react"
 import { Meta } from "@storybook/react"
 import {
@@ -43,16 +44,43 @@ const StickerSheetTemplate: StickerSheetStory = {
       />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Enabled">
+          <CheckboxExampleGroup onCheck={() => {}} />
+          <CheckboxExampleGroup
+            onCheck={() => {}}
+            data-sb-pseudo-styles="hover"
+          />
+          <CheckboxExampleGroup
+            onCheck={() => {}}
+            data-sb-pseudo-styles="active"
+          />
+          <CheckboxExampleGroup
+            onCheck={() => {}}
+            data-sb-pseudo-styles="focus"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Disabled">
+          <CheckboxExampleGroup onCheck={() => {}} disabled />
+          <CheckboxExampleGroup
+            onCheck={() => {}}
+            disabled
+            data-sb-pseudo-styles="hover"
+          />
+          <CheckboxExampleGroup
+            onCheck={() => {}}
+            disabled
+            data-sb-pseudo-styles="active"
+          />
+          <CheckboxExampleGroup
+            onCheck={() => {}}
+            disabled
+            data-sb-pseudo-styles="focus"
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Read Only">
           <CheckboxExampleGroup />
           <CheckboxExampleGroup data-sb-pseudo-styles="hover" />
           <CheckboxExampleGroup data-sb-pseudo-styles="active" />
           <CheckboxExampleGroup data-sb-pseudo-styles="focus" />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Disabled">
-          <CheckboxExampleGroup disabled />
-          <CheckboxExampleGroup disabled data-sb-pseudo-styles="hover" />
-          <CheckboxExampleGroup disabled data-sb-pseudo-styles="active" />
-          <CheckboxExampleGroup disabled data-sb-pseudo-styles="focus" />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
