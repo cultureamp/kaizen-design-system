@@ -1,7 +1,6 @@
 import "./tailwind.scss"
-import React from "react"
+import React, { useEffect } from "react"
 import { Preview } from "@storybook/react"
-import { defaultTheme, ThemeContext } from "@kaizen/design-tokens"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
@@ -28,19 +27,18 @@ const globalTypes = {
 
 const decorators = [
   (Story): JSX.Element => (
-    <ThemeContext.Provider value={defaultTheme}>
+    <KaizenProvider>
       <Story />
-    </ThemeContext.Provider>
+    </KaizenProvider>
   ),
   (Story, props): JSX.Element => {
-    const dir = props.parameters.textDirection ?? props.globals.textDirection
-    return (
-      <div dir={dir}>
-        <KaizenProvider>
-          <Story {...props} />
-        </KaizenProvider>
-      </div>
-    )
+    useEffect(() => {
+      const dir = props.parameters.textDirection ?? props.globals.textDirection
+      if (document.body.getAttribute("dir") !== dir)
+        document.body.setAttribute("dir", dir)
+    }, [props])
+
+    return <Story />
   },
 ] satisfies Preview["decorators"]
 

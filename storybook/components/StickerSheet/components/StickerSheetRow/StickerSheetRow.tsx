@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
+import { StickerSheetCell } from "../StickerSheetCell"
 import { StickerSheetTableHeading } from "../StickerSheetTableHeading"
-import styles from "./StickerSheetRow.module.scss"
 
 export type StickerSheetRowProps = {
   children: React.ReactNode
@@ -32,11 +32,13 @@ export const StickerSheetRow = ({
           {rowTitle}
         </StickerSheetTableHeading>
       )}
-      {React.Children.map(children, child => (
-        <td dir={dir} className={styles.stickerSheetCell}>
-          {child}
-        </td>
-      ))}
+      {React.Children.map(children, child => {
+        if (React.isValidElement(child) && child.type === StickerSheetCell) {
+          return child
+        }
+
+        return <StickerSheetCell dir={dir}>{child}</StickerSheetCell>
+      })}
     </tr>
   )
 }
