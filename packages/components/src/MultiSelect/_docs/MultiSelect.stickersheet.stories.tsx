@@ -1,10 +1,14 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react"
+import isChromatic from "chromatic"
+import classnames from "classnames"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { MultiSelect, MultiSelectProps } from "../index"
+
+const IS_CHROMATIC = isChromatic()
 
 export default {
   title: "Components/MultiSelect",
@@ -41,7 +45,10 @@ const StickerSheetTemplate: StickerSheetStory = {
     >(new Set())
 
     return (
-      <StickerSheet heading="MultiSelect" className="w-full">
+      <StickerSheet
+        heading="MultiSelect"
+        className={classnames("w-full", IS_CHROMATIC && "pb-160")}
+      >
         <StickerSheet.Header
           headings={["Closed", "Open"]}
           headingsWidth="50%"
