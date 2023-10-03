@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { CheckboxField } from "~components/Checkbox/CheckboxField"
+import { Text } from "~components/Text"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -46,7 +47,9 @@ const StickerSheetTemplate: StickerSheetStory = {
               reversed={isReversed}
               labelText="CheckboxGroup"
             />
-            Next line
+            <Text variant="body" color={isReversed ? "white" : "dark"}>
+              Next line
+            </Text>
           </>
           <>
             <CheckboxGroupWrapped
@@ -54,7 +57,9 @@ const StickerSheetTemplate: StickerSheetStory = {
               labelText="CheckboxGroup"
               noBottomMargin
             />
-            Next line
+            <Text variant="body" color={isReversed ? "white" : "dark"}>
+              Next line
+            </Text>
           </>
         </StickerSheet.Row>
       </StickerSheet.Body>
