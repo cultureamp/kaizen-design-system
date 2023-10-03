@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { v4 } from "uuid"
 
-import { InputSearch, InputSearchProps } from "~components/InputSearch"
+import { InputSearch, InputSearchProps } from "~components/Input/InputSearch"
 import { Label } from "~components/Label"
 import styles from "./SearchField.module.scss"
 

@@ -168,19 +168,3 @@ input[type="range"].ratingScaleRange {
 .sliderLabels.disabled {
   opacity: 40%;
 }
-
-// If the .visually-hidden class is applied to natively focusable elements
-// (such as a, button, input, etc) they must become visible when they receive
-// keyboard focus. Otherwise, a sighted keyboard user would have to try and
-// figure out where their visible focus indicator had gone to.
-.visuallyHidden:not(:focus, :active) {
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border: 0;
-}
