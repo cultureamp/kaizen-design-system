@@ -8,7 +8,7 @@ import {
 import { Collapsible, CollapsibleProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Collapsibles/Collapsible",
+  title: "Components/Collapsibles/Collapsible",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

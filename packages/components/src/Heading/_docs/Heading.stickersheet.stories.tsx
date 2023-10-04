@@ -7,7 +7,7 @@ import {
 import { Heading } from "../index"
 
 export default {
-  title: "KAIO-staging/Heading",
+  title: "Components/Heading",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

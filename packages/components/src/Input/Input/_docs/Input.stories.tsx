@@ -4,7 +4,7 @@ import { UserAddIcon, WritingIcon } from "~components/Icons"
 import { Input } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Inputs/Input",
+  title: "Components/Inputs/Input",
   component: Input,
   parameters: {
     a11y: {

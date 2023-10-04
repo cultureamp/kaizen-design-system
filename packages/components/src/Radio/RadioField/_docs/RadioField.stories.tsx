@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { RadioField } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Radio controls/RadioField",
+  title: "Components/Radio controls/RadioField",
   component: RadioField,
   args: {
     labelText: "Radio label",
