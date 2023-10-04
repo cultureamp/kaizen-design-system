@@ -9,6 +9,10 @@ Migrate some kaizen-legacy components to Kaizen All-in-One
 - Badge
 - Brand
 - BrandMoment
+- Button/Button
+- Button/DirectionalLink
+- Button/IconButton
+- Button/PaginationLink
 - ButtonGroup
 - Card
 - Checkbox/Checkbox
