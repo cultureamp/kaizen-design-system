@@ -35,15 +35,20 @@ const options = [
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [selectedValues, setSelectedValues] = useState<
+    const [isOpenClosed, setIsOpenClosed] = useState<boolean>(false)
+    const [selectedValuesClosed, setSelectedValuesClosed] = useState<
       MultiSelectProps["selectedValues"]
     >(new Set())
-    const [isOpen2, setIsOpen2] = useState<boolean>(true)
-    const [selectedValues2, setSelectedValues2] = useState<
+
+    const [isOpenOpen, setIsOpenOpen] = useState<boolean>(true)
+    const [selectedValuesOpen, setSelectedValuesOpen] = useState<
       MultiSelectProps["selectedValues"]
     >(new Set())
-    const [isOpen3, setIsOpen3] = useState<boolean>(true)
+
+    const [isOpenNoItems, setIsOpenNoItems] = useState<boolean>(true)
+    const [selectedValuesNoItems, setSelectedValuesNoItems] = useState<
+      MultiSelectProps["selectedValues"]
+    >(new Set())
 
     return (
       <StickerSheet
@@ -57,30 +62,30 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Body>
           <StickerSheet.Row>
             <MultiSelect
-              id="id--multi-select-options"
+              id="id--multi-select-options--closed"
               label="Label"
-              isOpen={isOpen}
-              onOpenChange={setIsOpen}
-              onSelectedValuesChange={setSelectedValues}
-              selectedValues={selectedValues}
+              isOpen={isOpenClosed}
+              onOpenChange={setIsOpenClosed}
+              onSelectedValuesChange={setSelectedValuesClosed}
+              selectedValues={selectedValuesClosed}
               items={options}
             />
             <MultiSelect
-              id="id--multi-select-options-2"
+              id="id--multi-select-options--open"
               label="Label"
-              isOpen={isOpen2}
-              onOpenChange={setIsOpen2}
-              onSelectedValuesChange={setSelectedValues2}
-              selectedValues={selectedValues2}
+              isOpen={isOpenOpen}
+              onOpenChange={setIsOpenOpen}
+              onSelectedValuesChange={setSelectedValuesOpen}
+              selectedValues={selectedValuesOpen}
               items={options}
             />
             <MultiSelect
-              id="id--multi-select-options-3"
+              id="id--multi-select-options--no-items"
               label="Label"
-              isOpen={isOpen3}
-              onOpenChange={setIsOpen3}
-              selectedValues={new Set()}
-              onSelectedValuesChange={() => undefined}
+              isOpen={isOpenNoItems}
+              onOpenChange={setIsOpenNoItems}
+              selectedValues={selectedValuesNoItems}
+              onSelectedValuesChange={setSelectedValuesNoItems}
               items={[]}
             />
           </StickerSheet.Row>
