@@ -159,13 +159,10 @@ const ListLong = (): JSX.Element => (
   </ul>
 )
 
-const StickerSheetTemplateResize: StickerSheetStory = {
+export const StickerSheetWidth: StickerSheetStory = {
+  name: "Sticker Sheet (Width)",
   render: () => (
     <div className="flex flex-col gap-16">
-      <Heading variant="heading-2" tag="div">
-        Width
-      </Heading>
-
       <Heading variant="heading-3" tag="div">
         Content short (min-width)
       </Heading>
@@ -198,11 +195,14 @@ const StickerSheetTemplateResize: StickerSheetStory = {
           </li>
         </ul>
       </PopoverWithPortal>
+    </div>
+  ),
+}
 
-      <Heading variant="heading-2" tag="div">
-        Height
-      </Heading>
-
+export const StickerSheetHeight: StickerSheetStory = {
+  name: "Sticker Sheet (Height)",
+  render: () => (
+    <div className="flex flex-col gap-16">
       <Heading variant="heading-3" tag="div">
         Content overflow (max-height)
       </Heading>
@@ -218,8 +218,4 @@ const StickerSheetTemplateResize: StickerSheetStory = {
       </PopoverWithPortal>
     </div>
   ),
-}
-
-export const StickerSheetResize: StickerSheetStory = {
-  ...StickerSheetTemplateResize,
 }
