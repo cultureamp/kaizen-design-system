@@ -8,7 +8,7 @@ import { Label, LabelProps } from "../index"
 import { BlockLabelTypes, InlineLabelTypes } from "../types"
 
 export default {
-  title: "KAIO-staging/Label",
+  title: "Components/Label",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

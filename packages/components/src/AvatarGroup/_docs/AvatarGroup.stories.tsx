@@ -3,7 +3,7 @@ import { AvatarGroup } from "../index"
 import { AVATARS } from "./example-data"
 
 const meta = {
-  title: "KAIO-staging/Avatar/Avatar Group",
+  title: "Components/Avatar/Avatar Group",
   component: AvatarGroup,
   args: {
     maxVisible: 2,

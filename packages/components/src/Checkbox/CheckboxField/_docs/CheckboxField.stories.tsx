@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { CheckboxField, CheckboxFieldProps } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Checkbox controls/CheckboxField",
+  title: "Components/Checkbox controls/CheckboxField",
   component: CheckboxField,
   args: {
     labelText: "Checkbox",

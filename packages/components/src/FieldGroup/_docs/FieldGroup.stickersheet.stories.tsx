@@ -8,7 +8,7 @@ import {
 import { FieldGroup } from "../index"
 
 export default {
-  title: "KAIO-Staging/FieldGroup",
+  title: "Components/FieldGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

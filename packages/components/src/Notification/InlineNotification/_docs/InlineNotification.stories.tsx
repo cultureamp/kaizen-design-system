@@ -16,7 +16,7 @@ const DEFAULT_PROPS: Partial<InlineNotificationProps> = {
 }
 
 const meta = {
-  title: "KAIO-staging/Notifications/Inline Notification",
+  title: "Components/Notifications/Inline Notification",
   component: InlineNotification,
   args: {
     ...DEFAULT_PROPS,

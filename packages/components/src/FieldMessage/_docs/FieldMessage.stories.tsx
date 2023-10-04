@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { FieldMessage } from "../index"
 
 const meta = {
-  title: "KAIO-staging/FieldMessage",
+  title: "Components/FieldMessage",
   component: FieldMessage,
   args: {
     message:

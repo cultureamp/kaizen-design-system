@@ -17,7 +17,7 @@ import {
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "KAIO-staging/Select",
+  title: "Components/Select/Future",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

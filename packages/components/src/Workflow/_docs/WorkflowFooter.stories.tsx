@@ -7,7 +7,7 @@ import { WorkflowControls } from "./controls"
 
 const meta = {
   tags: ["autodocs"],
-  title: "Pages/Workflow/Legacy/Components/Footer",
+  title: "Pages/Workflow/Components/Footer",
   component: Workflow.Footer,
   parameters: {
     docs: {

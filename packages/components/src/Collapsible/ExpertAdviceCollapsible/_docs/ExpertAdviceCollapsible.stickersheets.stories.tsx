@@ -7,7 +7,7 @@ import {
 import { ExpertAdviceCollapsible, ExpertAdviceCollapsibleProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Collapsibles/ExpertAdviceCollapsible",
+  title: "Components/Collapsibles/ExpertAdviceCollapsible",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -9,7 +9,7 @@ import {
 import { CheckboxGroup, CheckboxGroupProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Checkbox controls/CheckboxGroup",
+  title: "Components/Checkbox controls/CheckboxGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
