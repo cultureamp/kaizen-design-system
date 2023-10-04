@@ -7,6 +7,7 @@ Migrate some kaizen-legacy components to Kaizen All-in-One
 - Avatar
 - AvatarGroup
 - Badge
+- Brand
 - BrandMoment
 - ButtonGroup
 - Card
