@@ -22,13 +22,11 @@ export const RemoveableTag = ({
 }: RemoveableTagProps): JSX.Element => (
   <Tag classNameOverride={classNameOverride} icon={icon} color={color}>
     {children}
-    <span className={styles.clearIconContainer}>
-      <ClearIcon
-        inheritSize
-        role="presentation"
-        onClick={() => removeButtonProps.onClick()}
-      />
-    </span>
+    <ClearIcon
+      // TODO: Use inheritSize prop once we decide what size this should be
+      role="presentation"
+      onClick={() => removeButtonProps.onClick()}
+    />
   </Tag>
 )
 
