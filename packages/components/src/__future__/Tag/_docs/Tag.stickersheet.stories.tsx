@@ -9,7 +9,7 @@ import { Tag } from "../Tag"
 import { TagColorKeys } from "../types"
 
 export default {
-  title: "KAIO-staging/Tag/Future",
+  title: "Components/Tag/Future",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
