@@ -25,6 +25,7 @@ Migrate some kaizen-legacy components to Kaizen All-in-One
 - EmptyState
 - FieldGroup
 - FieldMessage
+- Heading
 - Input/Input
 - Input/InputRange
 - Input/InputSearch
