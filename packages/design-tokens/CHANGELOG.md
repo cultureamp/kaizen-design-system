@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.3.13
+
+### Patch Changes
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @types/color-string to ^1.5.3
+
 ## 10.3.12
 
 ### Patch Changes
