@@ -4,7 +4,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { MultiSelectToggle } from "../index"
+import { MultiSelectToggle, MultiSelectToggleProps } from "../index"
 
 export default {
   title: "Components/Multi Select/MultiSelectToggle",
@@ -31,135 +31,114 @@ export default {
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    <>
-      <StickerSheet
-        isReversed={isReversed}
-        heading="MultiSelectToggle"
-        className="w-full"
-      >
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Default" rowTitleWidth="10rem">
-            <MultiSelectToggle
-              selectedOptions={[]}
-              aria-labelledby="id--label"
-              aria-controls="id--popover"
-              onClick={() => undefined}
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Open">
-            <MultiSelectToggle
-              selectedOptions={[]}
-              isOpen
-              aria-labelledby="id--label"
-              aria-controls="id--popover"
-              onClick={() => undefined}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+  render: ({ isReversed }) => {
+    const defaultProps = {
+      selectedOptions: [],
+      "aria-labelledby": "id--label",
+      "aria-controls": "id--popover",
+      onClick: () => undefined,
+    } satisfies MultiSelectToggleProps
 
-      <StickerSheet
-        isReversed={isReversed}
-        heading="Pseudo states"
-        className="w-full"
-      >
-        <StickerSheet.Header
-          headings={["Hover", "Focus"]}
-          hasVerticalHeadings
-          verticalHeadingsWidth="10rem"
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Toggle">
-            <MultiSelectToggle
-              selectedOptions={[]}
-              aria-labelledby="id--label"
-              aria-controls="id--popover"
-              onClick={() => undefined}
-              data-sb-pseudo-styles="hover"
-            />
-            <MultiSelectToggle
-              selectedOptions={[]}
-              aria-labelledby="id--label"
-              aria-controls="id--popover"
-              onClick={() => undefined}
-              data-sb-pseudo-styles="focus"
-            />
-          </StickerSheet.Row>
-          <StickerSheet.Row rowTitle="Toggle Button">
-            <MultiSelectToggle
-              selectedOptions={[]}
-              aria-labelledby="id--label"
-              aria-controls="id--popover"
-              onClick={() => undefined}
-              data-sb-pseudo-styles="hover--button"
-            />
-            <MultiSelectToggle
-              selectedOptions={[]}
-              aria-labelledby="id--label"
-              aria-controls="id--popover"
-              onClick={() => undefined}
-              data-sb-pseudo-styles="focus--button"
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+    return (
+      <>
+        <StickerSheet
+          isReversed={isReversed}
+          heading="MultiSelectToggle"
+          className="w-full"
+        >
+          <StickerSheet.Body>
+            <StickerSheet.Row rowTitle="Default" rowTitleWidth="10rem">
+              <MultiSelectToggle {...defaultProps} />
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="Open">
+              <MultiSelectToggle {...defaultProps} isOpen />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
 
-      <StickerSheet
-        isReversed={isReversed}
-        heading="Has selected values"
-        className="w-full"
-      >
-        <StickerSheet.Header
-          headings={["Hover", "Focus", "Multi-line"]}
-          headingsWidth="30%"
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <StickerSheet.Cell className="align-top">
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Pseudo states"
+          className="w-full"
+        >
+          <StickerSheet.Header
+            headings={["Hover", "Focus"]}
+            hasVerticalHeadings
+            verticalHeadingsWidth="10rem"
+          />
+          <StickerSheet.Body>
+            <StickerSheet.Row rowTitle="Toggle">
               <MultiSelectToggle
-                selectedOptions={[
-                  { value: "pancakes", label: "Pancakes" },
-                  { value: "waffles", label: "Waffles" },
-                ]}
-                isOpen
-                aria-labelledby="id--label"
-                aria-controls="id--popover"
-                onClick={() => undefined}
-              />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className="align-top">
-              <MultiSelectToggle
-                selectedOptions={[
-                  { value: "pancakes", label: "Pancakes" },
-                  { value: "waffles", label: "Waffles" },
-                ]}
-                aria-labelledby="id--label"
-                aria-controls="id--popover"
-                onClick={() => undefined}
+                {...defaultProps}
                 data-sb-pseudo-styles="hover"
               />
-            </StickerSheet.Cell>
-            <StickerSheet.Cell className="align-top">
               <MultiSelectToggle
-                selectedOptions={[
-                  { value: "pancakes", label: "Pancakes" },
-                  { value: "toastie", label: "Toastie" },
-                  { value: "jaffle", label: "Jaffle" },
-                  { value: "pikelets", label: "Pikelets" },
-                  { value: "crumpets", label: "Crumpets" },
-                  { value: "waffles", label: "Waffles" },
-                ]}
-                aria-labelledby="id--label"
-                aria-controls="id--popover"
-                onClick={() => undefined}
+                {...defaultProps}
+                data-sb-pseudo-styles="focus"
               />
-            </StickerSheet.Cell>
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
-    </>
-  ),
+            </StickerSheet.Row>
+            <StickerSheet.Row rowTitle="Toggle Button">
+              <MultiSelectToggle
+                {...defaultProps}
+                data-sb-pseudo-styles="hover--button"
+              />
+              <MultiSelectToggle
+                {...defaultProps}
+                data-sb-pseudo-styles="focus--button"
+              />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Has selected values"
+          className="w-full"
+        >
+          <StickerSheet.Header
+            headings={["Default", "Hover", "Multi-line"]}
+            headingsWidth="30%"
+          />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <StickerSheet.Cell className="align-top">
+                <MultiSelectToggle
+                  {...defaultProps}
+                  selectedOptions={[
+                    { value: "pancakes", label: "Pancakes" },
+                    { value: "waffles", label: "Waffles" },
+                  ]}
+                />
+              </StickerSheet.Cell>
+              <StickerSheet.Cell className="align-top">
+                <MultiSelectToggle
+                  {...defaultProps}
+                  selectedOptions={[
+                    { value: "pancakes", label: "Pancakes" },
+                    { value: "waffles", label: "Waffles" },
+                  ]}
+                  data-sb-pseudo-styles="hover"
+                />
+              </StickerSheet.Cell>
+              <StickerSheet.Cell className="align-top">
+                <MultiSelectToggle
+                  {...defaultProps}
+                  selectedOptions={[
+                    { value: "pancakes", label: "Pancakes" },
+                    { value: "toastie", label: "Toastie" },
+                    { value: "jaffle", label: "Jaffle" },
+                    { value: "pikelets", label: "Pikelets" },
+                    { value: "crumpets", label: "Crumpets" },
+                    { value: "waffles", label: "Waffles" },
+                  ]}
+                />
+              </StickerSheet.Cell>
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
+    )
+  },
   parameters: {
     pseudo: {
       hover: [
