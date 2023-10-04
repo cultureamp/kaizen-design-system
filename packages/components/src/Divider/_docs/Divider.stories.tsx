@@ -5,7 +5,7 @@ import { Card } from "~components/Card"
 import { Divider } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Divider",
+  title: "Components/Divider",
   component: Divider,
   args: {
     variant: "content",

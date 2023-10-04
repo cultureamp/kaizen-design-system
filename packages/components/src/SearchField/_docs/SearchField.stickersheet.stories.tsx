@@ -7,7 +7,7 @@ import {
 import { SearchField, SearchFieldProps } from "../index"
 
 export default {
-  title: "KAIO-staging/SearchField",
+  title: "Components/SearchField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Card } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Card",
+  title: "Components/Card",
   component: Card,
   args: {
     children: "This is a default container",

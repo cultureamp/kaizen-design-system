@@ -6,7 +6,7 @@ import { EmptyState } from "../index"
 import styles from "./EmptyState.stories.module.scss"
 
 const meta = {
-  title: "KAIO-staging/EmptyState",
+  title: "Components/EmptyState",
   component: EmptyState,
   argTypes: {
     children: {

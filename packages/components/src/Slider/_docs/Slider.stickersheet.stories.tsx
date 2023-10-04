@@ -7,7 +7,7 @@ import {
 import { Slider } from "../index"
 
 export default {
-  title: "KAIO-staging/Slider",
+  title: "Components/Slider",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -4,7 +4,7 @@ import { Brand } from "../index"
 import { StickerSheetDefault } from "./Brand.stickersheet.stories"
 
 const meta = {
-  title: "KAIO-staging/Brand",
+  title: "Components/Brand",
   component: Brand,
   args: {
     variant: "logo-horizontal",

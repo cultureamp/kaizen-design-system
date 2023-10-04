@@ -7,7 +7,7 @@ import {
 import { CheckboxGroup } from "../index"
 
 const meta = {
-  title: "KAIO-Staging/Checkbox controls/CheckboxGroup",
+  title: "Components/Checkbox controls/CheckboxGroup",
   component: CheckboxGroup,
   args: {
     labelText: "Label",

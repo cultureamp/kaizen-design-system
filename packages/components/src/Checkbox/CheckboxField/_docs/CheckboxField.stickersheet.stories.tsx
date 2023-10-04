@@ -7,7 +7,7 @@ import {
 import { CheckboxField, CheckboxFieldProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Checkbox controls/CheckboxField",
+  title: "Components/Checkbox controls/CheckboxField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

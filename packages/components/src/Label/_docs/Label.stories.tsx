@@ -4,7 +4,7 @@ import { Label } from "../index"
 import { LabelTypes } from "../types"
 
 const meta = {
-  title: "KAIO-staging/Label",
+  title: "Components/Label",
   component: Label,
   args: {
     children: "I am Label",
