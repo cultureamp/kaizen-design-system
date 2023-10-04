@@ -26,7 +26,8 @@ Migrate some kaizen-legacy components to Kaizen All-in-One
 - Input/InputSearch
 - Label
 - LabelledMessage
-- Notification
+- Notification/GlobalNotification
+- Notification/InlineNotification
 - Radio/Radio
 - Radio/RadioField
 - Radio/RadioGroup
