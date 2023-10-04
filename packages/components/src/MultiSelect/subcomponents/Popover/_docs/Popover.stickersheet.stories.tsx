@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react"
 import { Meta } from "@storybook/react"
 import classnames from "classnames"
 import { Heading } from "@kaizen/typography"
-import { singleMockItems } from "~components/FilterSelect/_docs/mockData"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { Popover, PopoverProps, useFloating } from "../index"
 
