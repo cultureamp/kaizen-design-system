@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState } from "react"
+import { v4 as uuidv4 } from "uuid"
 import { Meta, StoryObj } from "@storybook/react"
 import { RemoveableTag } from "../RemoveableTag"
 import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icons"
@@ -8,7 +9,7 @@ const meta = {
   title: "Components/RemoveableTag",
   component: RemoveableTag,
   args: {
-    children: "My removeable tag",
+    children: "My tag",
     removeButtonProps: {
       onClick: () => console.log("Clicked"),
       "aria-label": "remove tag icon",
@@ -21,6 +22,37 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
+  decorators: [
+    (Story, ctx) => {
+      const [tags, setTags] = useState([{ id: uuidv4(), label: "My tag 1" }])
+      const [count, setCount] = useState(1)
+      return (
+        <div>
+          <button
+            onClick={() => {
+              setCount(count + 1)
+              setTags([...tags, { id: uuidv4(), label: `My tag ${count + 1}` }])
+            }}
+          >
+            Add tag
+          </button>
+          {tags.map(tag => (
+            <Story
+              args={{
+                ...ctx.args,
+                children: tag.label,
+                removeButtonProps: {
+                  onClick: () =>
+                    setTags(() => tags.filter(e => e.id !== tag.id)),
+                  "aria-label": "remove tag icon",
+                },
+              }}
+            />
+          ))}
+        </div>
+      )
+    },
+  ],
   parameters: {
     docs: {
       canvas: {

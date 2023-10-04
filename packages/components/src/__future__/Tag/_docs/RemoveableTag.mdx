@@ -1,0 +1,67 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as RemoveableTagStories from "./RemoveableTag.stories"
+
+<Meta of={RemoveableTagStories} />
+
+# RemoveableTag
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__future__/RemoveableTag"
+  designGuidelines="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=48986-137441&mode=design&t=9o7AOjKCbdVADUkP-0"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement="import { RemoveableTag } from `@kaizen/components/future`"
+/>
+
+## Overview
+
+Similar to the Tag component, but with a clear icon, that recieves a callback from props.
+The consumer should manage the state regarding whether or not the icon should be rendered,
+and pass a callback to remove the RemoveableTag component via the `removeButtonProps` prop.
+
+## API
+
+<Canvas of={RemoveableTagStories.Playground} />
+<Controls of={RemoveableTagStories.Playground} />
+
+### `children`
+
+Takes a `ReactNode`. This should be the text that is displayed inside the Tag.
+
+<Canvas of={RemoveableTagStories.Children} />
+
+### `color`
+
+Determines the color of the background, text, and icon.
+
+<Canvas of={RemoveableTagStories.Color} />
+
+### `icon`
+
+An optional icon can be passed via this prop. The icon will be rendered on the left of `children`
+in LTR, and on the right of `children` in RTL. For a list of icons, see [Icons](?path=/story/components-icons--sticker-sheet-default)
+
+<Canvas of={RemoveableTagStories.Icon} />
+
+### `classNameOverride`
+
+Allows classnames to be attached to the outermost element of Tag.
+
+<Canvas of={RemoveableTagStories.ClassNameOverride} />
+
+### `removeButtonProps`
+
+An object containing the following properties that relate to the clear button:
+
+#### `aria-label`
+
+An aria label that is attached to the clear button.
+
+#### `onClick`
+
+A callback that gets invoked when clicking the clear button.
