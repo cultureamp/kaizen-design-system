@@ -7,7 +7,7 @@ import {
 import { FieldMessage } from "../index"
 
 export default {
-  title: "KAIO-Staging/FieldMessage",
+  title: "Components/FieldMessage",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

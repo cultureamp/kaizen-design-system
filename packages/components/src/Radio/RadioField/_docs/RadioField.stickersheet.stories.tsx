@@ -7,7 +7,7 @@ import {
 import { RadioField } from "../index"
 
 export default {
-  title: "KAIO-staging/Radio controls/RadioField",
+  title: "Components/Radio controls/RadioField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -10,7 +10,7 @@ import {
 } from "../GlobalNotification"
 
 export default {
-  title: "KAIO-staging/Notifications/Global Notification",
+  title: "Components/Notifications/Global Notification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

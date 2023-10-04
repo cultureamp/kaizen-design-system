@@ -9,7 +9,7 @@ import {
 import { IconButton, IconButtonProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Buttons/IconButton",
+  title: "Components/Buttons/IconButton",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

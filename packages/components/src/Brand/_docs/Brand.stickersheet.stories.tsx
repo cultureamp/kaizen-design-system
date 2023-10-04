@@ -7,7 +7,7 @@ import {
 import { Brand } from "../index"
 
 export default {
-  title: "KAIO-staging/Brand",
+  title: "Components/Brand",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

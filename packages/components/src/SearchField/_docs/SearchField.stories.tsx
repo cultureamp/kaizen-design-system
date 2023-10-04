@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { SearchField } from "../index"
 
 const meta = {
-  title: "KAIO-staging/SearchField",
+  title: "Components/SearchField",
   component: SearchField,
   args: {
     labelText: "Search field",

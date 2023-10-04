@@ -11,7 +11,7 @@ const DEFAULT_PROPS: Partial<GlobalNotificationProps> = {
 }
 
 const meta = {
-  title: "KAIO-staging/Notifications/Global Notification",
+  title: "Components/Notifications/Global Notification",
   component: GlobalNotification,
 
   args: {

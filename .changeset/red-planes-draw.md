@@ -32,3 +32,7 @@ Migrate some kaizen-legacy components to Kaizen All-in-One
 - SearchField
 - Slider
 - Text
+
+Future components:
+- Future/Select
+- Future/Tag

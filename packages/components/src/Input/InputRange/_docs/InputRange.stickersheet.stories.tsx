@@ -7,7 +7,7 @@ import {
 import { InputRange } from "../index"
 
 export default {
-  title: "KAIO-staging/Inputs/InputRange",
+  title: "Components/Inputs/InputRange",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

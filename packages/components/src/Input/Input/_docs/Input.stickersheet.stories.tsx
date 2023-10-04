@@ -9,7 +9,7 @@ import { Input, InputProps } from "../index"
 import { InputStatus, InputTypes } from "../types"
 
 export default {
-  title: "KAIO-staging/Inputs/Input",
+  title: "Components/Inputs/Input",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

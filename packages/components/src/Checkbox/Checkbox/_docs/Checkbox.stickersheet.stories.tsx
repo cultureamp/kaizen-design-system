@@ -8,7 +8,7 @@ import {
 import { Checkbox, CheckboxProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Checkbox controls/Checkbox",
+  title: "Components/Checkbox controls/Checkbox",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -4,7 +4,7 @@ import { CheckboxFieldProps } from "@kaizen/draft-form"
 import { Checkbox } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Checkbox controls/Checkbox",
+  title: "Components/Checkbox controls/Checkbox",
   component: Checkbox,
   args: {
     checkedStatus: "off",

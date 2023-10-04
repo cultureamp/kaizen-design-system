@@ -10,7 +10,7 @@ import {
 } from "../InlineNotification"
 
 export default {
-  title: "KAIO-staging/Notifications/Inline Notification",
+  title: "Components/Notifications/Inline Notification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

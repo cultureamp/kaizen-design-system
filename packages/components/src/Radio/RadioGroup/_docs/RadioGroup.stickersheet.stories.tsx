@@ -9,7 +9,7 @@ import {
 import { RadioGroup } from "../index"
 
 export default {
-  title: "KAIO-staging/Radio controls/RadioGroup",
+  title: "Components/Radio controls/RadioGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

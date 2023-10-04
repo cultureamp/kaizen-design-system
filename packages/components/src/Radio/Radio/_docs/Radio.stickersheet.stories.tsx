@@ -7,7 +7,7 @@ import {
 import { Radio } from "../index"
 
 export default {
-  title: "KAIO-staging/Radio controls/Radio",
+  title: "Components/Radio controls/Radio",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

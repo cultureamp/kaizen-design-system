@@ -9,7 +9,7 @@ import {
 } from "./mockData"
 
 const meta = {
-  title: "KAIO-staging/Select",
+  title: "Components/Select/Future",
   component: Select,
   argTypes: {
     items: {

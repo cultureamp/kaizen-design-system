@@ -7,7 +7,7 @@ import {
 import { Text } from "../index"
 
 export default {
-  title: "KAIO-Staging/Text",
+  title: "Components/Text",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
