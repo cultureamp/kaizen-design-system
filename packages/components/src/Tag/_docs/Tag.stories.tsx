@@ -9,7 +9,7 @@ import {
 } from "../types"
 
 const meta = {
-  title: "Staging/Tag",
+  title: "Components/Tag",
   component: Tag,
   args: {
     variant: "default",
