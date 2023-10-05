@@ -6,7 +6,7 @@ import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { Popover, PopoverProps, useFloating } from "../index"
 
 export default {
-  title: "Components/Multi Select/Popover",
+  title: "Staging/Multi Select/Popover",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

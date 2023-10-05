@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Popover, useFloating } from "../index"
 
 const meta = {
-  title: "Components/Multi Select/Popover",
+  title: "Staging/Multi Select/Popover",
   component: Popover,
   args: {
     refs: undefined,
