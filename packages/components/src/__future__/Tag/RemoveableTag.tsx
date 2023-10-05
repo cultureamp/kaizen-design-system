@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import { ClearIcon } from "~components/Icons"
+import { ClearButton } from "~components/ClearButton"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { Tag, TagProps } from "./Tag"
 
@@ -20,11 +20,7 @@ export const RemoveableTag = ({
 }: RemoveableTagProps): JSX.Element => (
   <Tag classNameOverride={classNameOverride} icon={icon} color={color}>
     {children}
-    <ClearIcon
-      // TODO: Use inheritSize prop once we decide what size this should be
-      role="presentation"
-      onClick={() => removeButtonProps.onClick()}
-    />
+    <ClearButton onClick={() => removeButtonProps.onClick()} />
   </Tag>
 )
 
