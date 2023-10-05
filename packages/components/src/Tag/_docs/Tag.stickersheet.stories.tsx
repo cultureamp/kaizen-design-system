@@ -9,7 +9,7 @@ import { Tag } from "../index"
 import { TagVariants } from "../types"
 
 export default {
-  title: "KAIO-staging/Tag",
+  title: "Staging/Tag",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
