@@ -128,7 +128,51 @@ const PopoverWithPortal = ({
   )
 }
 
-const items = [
+const List = ({ items }: { items: string[] }): JSX.Element => (
+  <ul>
+    {items.map(item => (
+      <li key={item}>{item}</li>
+    ))}
+  </ul>
+)
+
+export const StickerSheetWidth: StickerSheetStory = {
+  name: "Sticker Sheet (Width)",
+  render: () => (
+    <div className="flex flex-col gap-16">
+      <Heading variant="heading-3" tag="div">
+        Content short (min-width)
+      </Heading>
+      <PopoverWithPortal portalClassName="h-[250px]">
+        <List items={["A"]} />
+      </PopoverWithPortal>
+
+      <Heading variant="heading-3" tag="div">
+        Content long (max-width)
+      </Heading>
+      <PopoverWithPortal portalClassName="h-[250px]">
+        <List
+          items={[
+            "Super long string where the container is fixed width and the selected string goes multiline",
+          ]}
+        />
+      </PopoverWithPortal>
+
+      <Heading variant="heading-3" tag="div">
+        Window max-width 250px
+      </Heading>
+      <PopoverWithPortal portalClassName="w-[250px] h-[250px]">
+        <List
+          items={[
+            "Super long string where the container is fixed width and the selected string goes multiline",
+          ]}
+        />
+      </PopoverWithPortal>
+    </div>
+  ),
+}
+
+const itemsLong = [
   "Super long string where the container is fixed width and the selected string goes multiline",
   "Another super long string where the container is fixed width and the selected string goes multiline",
   "Item 1",
@@ -148,54 +192,6 @@ const items = [
   "Item 15",
 ]
 
-const ListLong = (): JSX.Element => (
-  <ul>
-    {items.map(item => (
-      <li key={item}>{item}</li>
-    ))}
-  </ul>
-)
-
-export const StickerSheetWidth: StickerSheetStory = {
-  name: "Sticker Sheet (Width)",
-  render: () => (
-    <div className="flex flex-col gap-16">
-      <Heading variant="heading-3" tag="div">
-        Content short (min-width)
-      </Heading>
-      <PopoverWithPortal portalClassName="h-[250px]">
-        <ul>
-          <li>A</li>
-        </ul>
-      </PopoverWithPortal>
-
-      <Heading variant="heading-3" tag="div">
-        Content long (max-width)
-      </Heading>
-      <PopoverWithPortal portalClassName="h-[250px]">
-        <ul>
-          <li>
-            Super long string where the container is fixed width and the
-            selected string goes multiline
-          </li>
-        </ul>
-      </PopoverWithPortal>
-
-      <Heading variant="heading-3" tag="div">
-        Window max-width 250px
-      </Heading>
-      <PopoverWithPortal portalClassName="w-[250px] h-[250px]">
-        <ul>
-          <li>
-            Super long string where the container is fixed width and the
-            selected string goes multiline
-          </li>
-        </ul>
-      </PopoverWithPortal>
-    </div>
-  ),
-}
-
 export const StickerSheetHeight: StickerSheetStory = {
   name: "Sticker Sheet (Height)",
   render: () => (
@@ -204,14 +200,14 @@ export const StickerSheetHeight: StickerSheetStory = {
         Content overflow (max-height)
       </Heading>
       <PopoverWithPortal portalClassName="h-[500px]">
-        <ListLong />
+        <List items={itemsLong} />
       </PopoverWithPortal>
 
       <Heading variant="heading-3" tag="div">
         Window max-height 250px
       </Heading>
       <PopoverWithPortal portalClassName="h-[250px]">
-        <ListLong />
+        <List items={itemsLong} />
       </PopoverWithPortal>
     </div>
   ),
