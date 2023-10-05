@@ -9,7 +9,7 @@ import {
 } from "../types"
 
 const meta = {
-  title: "KAIO-staging/Tag",
+  title: "Staging/Tag",
   component: Tag,
   args: {
     variant: "default",
