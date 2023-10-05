@@ -1,14 +1,12 @@
-import React, { ReactNode, HTMLAttributes } from "react"
-import classNames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
+import React, { HTMLAttributes } from "react"
 import { ClearIcon } from "~components/Icons"
+import { OverrideClassName } from "~types/OverrideClassName"
 import { Tag, TagProps } from "./Tag"
-import styles from "./RemoveableTag.module.scss"
 
 export type RemoveableTagProps = {
   removeButtonProps: {
     "aria-label": string
-    onClick: Function
+    onClick: () => void
   }
 } & TagProps &
   OverrideClassName<HTMLAttributes<HTMLSpanElement>>

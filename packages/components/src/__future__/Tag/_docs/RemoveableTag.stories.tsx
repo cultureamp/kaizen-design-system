@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { v4 as uuidv4 } from "uuid"
 import { Meta, StoryObj } from "@storybook/react"
-import { RemoveableTag } from "../RemoveableTag"
+import { v4 as uuidv4 } from "uuid"
 import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icons"
+import { RemoveableTag } from "../RemoveableTag"
 import { TagColorKeys } from "../types"
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
   args: {
     children: "My tag",
     removeButtonProps: {
-      onClick: () => console.log("Clicked"),
+      onClick: () => alert("Clicked"),
       "aria-label": "remove tag icon",
     },
   },
@@ -29,6 +29,7 @@ export const Playground: Story = {
       return (
         <div>
           <button
+            type="button"
             onClick={() => {
               setCount(count + 1)
               setTags([...tags, { id: uuidv4(), label: `My tag ${count + 1}` }])
@@ -38,6 +39,7 @@ export const Playground: Story = {
           </button>
           {tags.map(tag => (
             <Story
+              key={tag.id}
               args={{
                 ...ctx.args,
                 children: tag.label,
@@ -76,7 +78,7 @@ export const Color: Story = {
           key={color}
           removeButtonProps={{
             "aria-label": "close",
-            onClick: () => console.log("Clicked"),
+            onClick: () => alert("Clicked"),
           }}
         >
           {color}
@@ -93,7 +95,7 @@ export const Icon: StoryObj = {
         icon={<AcademyIcon role="presentation" />}
         removeButtonProps={{
           "aria-label": "close",
-          onClick: () => console.log("Clicked"),
+          onClick: () => alert("Clicked"),
         }}
       >
         AcademyIcon
@@ -103,7 +105,7 @@ export const Icon: StoryObj = {
         icon={<ActionOffIcon role="presentation" />}
         removeButtonProps={{
           "aria-label": "close",
-          onClick: () => console.log("Clicked"),
+          onClick: () => alert("Clicked"),
         }}
       >
         ActionOffIcon
@@ -113,7 +115,7 @@ export const Icon: StoryObj = {
         icon={<AddIcon role="presentation" />}
         removeButtonProps={{
           "aria-label": "close",
-          onClick: () => console.log("Clicked"),
+          onClick: () => alert("Clicked"),
         }}
       >
         AddIcon
