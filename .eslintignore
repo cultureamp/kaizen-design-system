@@ -1,2 +1,2 @@
 /packages/**/dist
-/packages/components/src/Icon/subcomponents/Template.tsx
+/packages/components/src/Icon/bin/Template.tsx

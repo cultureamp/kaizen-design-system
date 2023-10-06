@@ -1,7 +1,7 @@
 #!/bin/bash
 
-yarn svgo -f ./assets/svgs/icons -o ./src/Icon/subcomponents/built-svgs/
+yarn svgo -f ./assets/svgs/icons -o ./src/Icon/bin/built-svgs/
 
-ts-node ./wrapSVGs.ts --source-dir ./src/Icon/subcomponents/built-svgs --output-dir ./src/Icon --delete-source-dir
+ts-node ./src/Icon/bin/wrapSVGs.ts --source-dir ./src/Icon/bin/built-svgs --output-dir ./src/Icon --delete-source-dir
 
 yarn prettier -w ./src/Icon

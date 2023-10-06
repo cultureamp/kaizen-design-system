@@ -1,17 +1,7 @@
-// @ts-ignore: Redeclared module error
-const svgToComponentTitle = (fileName: string): string => {
-  const split = fileName.split("-")
-  return split
-    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join("")
-    .replace(".icon", "Icon")
-}
-
 // eslint-disable-next-line no-template-curly-in-string
 const hrefReplacement = "href={`#${uniqueId}`}"
 
-// @ts-ignore: Redeclared module error
-const insertSvgData = (
+export const insertSvgData = (
   reactTemplate: string,
   componentName: string,
   svgContent: string
@@ -28,11 +18,6 @@ const insertSvgData = (
   // Some raw svgs do not use the use + href pattern.
   // This removes unused uuids from the template to prevent lint errors.
   return completedTemplate
-    .replace("const uniqueId = uuidv4()", "")
+    .replace("  const uniqueId = uuidv4()", "")
     .replace('import { v4 as uuidv4 } from "uuid"', "")
-}
-
-module.exports = {
-  insertSvgData,
-  svgToComponentTitle,
 }
