@@ -1,5 +1,5 @@
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
 
 // formally named "full"
 export const IndicatorActiveIcon = (props: IconProps): JSX.Element => (

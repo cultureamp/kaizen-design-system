@@ -3,7 +3,7 @@
 
 import React from "react"
 
-import { SVG, IconProps } from "~components/Icon/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
 
 export const PercentageIcon = (props: IconProps): JSX.Element => {
   const svgContent = (

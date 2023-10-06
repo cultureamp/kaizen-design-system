@@ -17,7 +17,7 @@ describe("svgToComponentTitle", () => {
 
 describe("insertSvgData", () => {
   const reactTemplate = fs
-    .readFileSync("./src/Icon/subComponents/Template.tsx")
+    .readFileSync("./src/Icon/subcomponents/Template.tsx")
     .toString()
 
   it("Returns the template with component title and svg content inserted", () => {
@@ -26,7 +26,7 @@ describe("insertSvgData", () => {
     const result = insertSvgData(reactTemplate, componentTitle, svgContent)
     const expected = `import React from "react"
 
-import { SVG, IconProps } from "~components/Icon/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
 
 export const MyIcon = (props: IconProps): JSX.Element => {
 

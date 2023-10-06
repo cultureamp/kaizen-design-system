@@ -3,7 +3,7 @@
 
 import React from "react"
 import { v4 as uuidv4 } from "uuid"
-import { SVG, IconProps } from "~components/Icon/subComponents/SVG"
+import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
 
 export const DraftIcon = (props: IconProps): JSX.Element => {
   const uniqueId = uuidv4()
