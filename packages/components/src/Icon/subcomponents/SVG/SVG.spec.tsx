@@ -2,7 +2,7 @@ import React from "react"
 import { render, screen } from "@testing-library/react"
 import { SVG } from "./SVG"
 
-describe("Icons", () => {
+describe("<SVG />", () => {
   describe("Meaningful (role=img)", () => {
     it("renders an accessible name", () => {
       const label = "My accessible label"
