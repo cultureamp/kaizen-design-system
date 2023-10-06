@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
-import { AddIcon } from "~components/Icons"
+import { AddIcon } from "~components/Icon"
 import { Collapsible } from "../index"
 
 const meta = {

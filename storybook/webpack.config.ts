@@ -37,7 +37,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
     "~types": path.resolve(__dirname, "../packages/components/src/types"),
     "~utils": path.resolve(__dirname, "../packages/components/src/utils"),
     "~components": path.resolve(__dirname, "../packages/components/src"),
-    "~icons": path.resolve(__dirname, "../packages/components/src/Icons"),
+    "~icons": path.resolve(__dirname, "../packages/components/src/Icon"),
     // i18n-react-intl package attempts to import locales from this path.
     // When rollup attempts to import from the 'find' path, it will be
     // redirected to import from the replacement path (Same as KAIO rollup config).

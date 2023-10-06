@@ -17,7 +17,7 @@
       "~types/*": ["packages/components/src/types/*"],
       "~utils/*": ["packages/components/src/utils/*"],
       "~components/*": ["packages/components/src/*"],
-      "~icons/*": ["packages/components/src/Icons/*"]
+      "~icons/*": ["packages/components/src/Icon/*"]
     }
   },
   "files": ["./types.d.ts"],

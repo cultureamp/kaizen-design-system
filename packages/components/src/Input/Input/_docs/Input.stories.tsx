@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { UserAddIcon, WritingIcon } from "~components/Icons"
+import { UserAddIcon, WritingIcon } from "~components/Icon"
 import { Input } from "../index"
 
 const meta = {

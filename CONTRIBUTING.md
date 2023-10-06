@@ -208,7 +208,7 @@ yarn plop
 
 This process will:
 
-- Add a new react icon component to `packages/components/src/Icons`
-- Export the new icon component from `packages/components/src/Icons/index.ts`
+- Add a new react icon component to `packages/components/src/Icon`
+- Export the new icon component from `packages/components/src/Icon/index.ts`
 
 To confirm that the process has been completed successfully, check to see that your icon is now visible in the Icons stickersheet in Storybook.
