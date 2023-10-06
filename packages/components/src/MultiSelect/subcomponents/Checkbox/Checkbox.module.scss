@@ -9,6 +9,7 @@ $focus-ring-size: calc(#{$checkbox-size} + #{$focus-ring-offset});
   display: inline-block;
   position: relative;
   box-sizing: border-box;
+  min-width: $checkbox-size;
   width: $checkbox-size;
   height: $checkbox-size;
   border: $border-solid-border-width $border-solid-border-style $color-gray-500;
