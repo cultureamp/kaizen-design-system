@@ -25,7 +25,6 @@ const getCompiledConfigByModuleType = format => ({
       entries: [
         { find: "~types", replacement: "src/types" },
         { find: "~utils", replacement: "src/utils" },
-        { find: "~icons", replacement: "src/Icon" },
         { find: "~components", replacement: "src" },
         // i18n-react-intl package attempts to import locales from this path.
         // When rollup attempts to import from the 'find' path, it will be
