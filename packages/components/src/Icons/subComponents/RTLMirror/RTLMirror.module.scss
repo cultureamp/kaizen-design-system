@@ -1,0 +1,5 @@
+.rtlMirror {
+  [dir="rtl"] & {
+    transform: scale(-1, 1);
+  }
+}
