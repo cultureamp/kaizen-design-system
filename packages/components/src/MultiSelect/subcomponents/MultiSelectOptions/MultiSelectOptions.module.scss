@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.multiSelectOptions {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 0;
+  margin: 0;
+}

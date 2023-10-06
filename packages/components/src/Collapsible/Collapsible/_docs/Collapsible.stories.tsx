@@ -5,7 +5,7 @@ import { AddIcon } from "~components/Icons"
 import { Collapsible } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Collapsibles/Collapsible",
+  title: "Components/Collapsibles/Collapsible",
   component: Collapsible,
   args: {
     children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus

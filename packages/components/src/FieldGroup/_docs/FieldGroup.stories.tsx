@@ -4,7 +4,7 @@ import { Label } from "~components/Label"
 import { FieldGroup } from "../index"
 
 const meta = {
-  title: "KAIO-Staging/FieldGroup",
+  title: "Components/FieldGroup",
   component: FieldGroup,
   args: {
     children: (

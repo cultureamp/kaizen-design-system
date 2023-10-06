@@ -3,7 +3,9 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 
 .popover {
-  border-radius: $border-solid-border-radius;
+  box-sizing: border-box;
   box-shadow: $shadow-large-box-shadow;
+  border-radius: $border-solid-border-radius;
   background: $color-white;
+  overflow: auto;
 }

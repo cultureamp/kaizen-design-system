@@ -1,5 +1,78 @@
 # Change Log
 
+## 1.25.0
+
+### Minor Changes
+
+- [#4130](https://github.com/cultureamp/kaizen-design-system/pull/4130) [`ebc1f8d59`](https://github.com/cultureamp/kaizen-design-system/commit/ebc1f8d590ac778583b8da1825acfe3ddba7b24f) - Migrate some kaizen-legacy components to Kaizen All-in-One
+
+  - Avatar
+  - AvatarGroup
+  - Badge
+  - Brand
+  - BrandMoment
+  - Button/Button
+  - Button/DirectionalLink
+  - Button/IconButton
+  - Button/PaginationLink
+  - ButtonGroup
+  - Card
+  - Checkbox/Checkbox
+  - Checkbox/CheckboxField
+  - Checkbox/CheckboxGroup
+  - Collapsible/Collapsible
+  - Collapsible/CollapsibleGroup
+  - Collapsible/ExpertAdviceCollapsible
+  - Divider
+  - EmptyState
+  - FieldGroup
+  - FieldMessage
+  - Heading
+  - Input/Input
+  - Input/InputRange
+  - Input/InputSearch
+  - Label
+  - LabelledMessage
+  - Notification/GlobalNotification
+  - Notification/InlineNotification
+  - Radio/Radio
+  - Radio/RadioField
+  - Radio/RadioGroup
+  - SearchField
+  - Slider
+  - Text
+
+  Future components:
+
+  - Future/Select
+  - Future/Tag
+
+- [#3851](https://github.com/cultureamp/kaizen-design-system/pull/3851) [`00f0d53f1`](https://github.com/cultureamp/kaizen-design-system/commit/00f0d53f17e99551ed285ac85d86b1e4e5cb104d) - - Added `Tag` component and stories to KAIO
+
+### Patch Changes
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-aria/button to ^3.8.2
+
+- [#4088](https://github.com/cultureamp/kaizen-design-system/pull/4088) [`410d26fb4`](https://github.com/cultureamp/kaizen-design-system/commit/410d26fb42a88238ca8aaba8613b7c08825c3bb3) - Update docs for Tag and convert TW to SCSS
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-aria/menu to ^3.10.2
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-aria/select to ^3.12.1
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/menu to ^3.5.5
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/collections to ^3.10.1
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency uuid to ^9.0.1
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - Update Kaizen dependencies
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency react-intl to ^6.4.6
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/select to ^3.5.4
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/list to ^3.9.2
+
 ## 1.24.2
 
 ### Patch Changes

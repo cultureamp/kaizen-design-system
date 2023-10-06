@@ -7,7 +7,7 @@ import {
 import { PaginationLink, PaginationLinkProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Buttons/PaginationLink",
+  title: "Components/Buttons/PaginationLink",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

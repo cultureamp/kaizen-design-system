@@ -7,7 +7,7 @@ import {
 import { Card, CardProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Card",
+  title: "Components/Card",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

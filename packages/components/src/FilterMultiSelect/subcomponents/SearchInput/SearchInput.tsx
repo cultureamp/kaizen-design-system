@@ -1,6 +1,6 @@
 import React, { useMemo } from "react"
 import { v4 } from "uuid"
-import { InputSearch } from "~components/InputSearch"
+import { InputSearch } from "~components/Input/InputSearch"
 import { useSelectionContext } from "../../context"
 import styles from "./SearchInput.module.scss"
 
