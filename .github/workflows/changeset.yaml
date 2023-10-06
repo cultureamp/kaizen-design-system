@@ -11,6 +11,7 @@ jobs:
     outputs:
       hasChangesets: ${{ steps.changesets.outputs.hasChangesets }}
       hasPublished: ${{ steps.changesets.outputs.published }}
+      publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
     env:
       GITHUB_TOKEN: ${{ github.token }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -27,6 +28,22 @@ jobs:
           commit: "version packages"
           version: yarn ci:version
           publish: yarn ci:publish
+  deployment:
+    runs-on: ubuntu-latest
+    needs: version
+    permissions:
+      deployments: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - uses: chrnorm/deployment-action@v2
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "$GITHUB_TOKEN"
+          environment-url: http://cultureamp.design
+          environment: production
+          description: ${{ needs.version.outputs.publishedPackages }}
   notify-slack:
     runs-on: ubuntu-latest
     needs:

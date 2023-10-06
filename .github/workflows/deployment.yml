@@ -1,0 +1,24 @@
+name: "Deployment"
+
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        required: true
+        type: string
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - uses: chrnorm/deployment-action@v2
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "$GITHUB_TOKEN"
+          environment-url: http://cultureamp.design
+          environment: production
