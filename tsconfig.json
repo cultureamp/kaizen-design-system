@@ -16,7 +16,7 @@
       "~storybook/*": ["storybook/*"],
       "~types/*": ["packages/components/src/types/*"],
       "~utils/*": ["packages/components/src/utils/*"],
-      "~components/*": ["packages/components/src/*"],
+      "~components/*": ["packages/components/src/*"]
     }
   },
   "files": ["./types.d.ts"],
