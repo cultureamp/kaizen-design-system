@@ -15,7 +15,6 @@ jobs:
       deployments: write
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
       - uses: chrnorm/deployment-action@v2
         name: Create GitHub deployment
         id: deployment
