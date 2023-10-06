@@ -1,8 +1,16 @@
-@import "~@kaizen/design-tokens/sass/animation";
-@import "./styles";
+$ca-icon-width: 20px;
+$ca-icon-height: 20px;
 
 .icon {
-  @extend %caIcon;
+  width: $ca-icon-width;
+  height: $ca-icon-height;
+  display: inline-block;
+
+  // jQuery has an IE11 bug where delegated events aren't registered if the click was on an icon.
+  // A workaround is to disable `point-events` on the use element. See https://github.com/jquery/jquery/issues/3877
+  > use {
+    pointer-events: none;
+  }
 
   @media screen and (-ms-high-contrast: active) {
     color: black;
@@ -18,57 +26,7 @@
 }
 
 .inheritSize {
-  @extend %caIconInheritSize;
+  width: inherit;
+  height: inherit;
+  display: block;
 }
-
-.interactiveIconWrapper {
-  cursor: pointer;
-
-  .icon {
-    opacity: 70%;
-    transition: $animation-duration-fast opacity;
-  }
-
-  &:disabled,
-  &.disabled {
-    .icon {
-      opacity: 30%;
-    }
-  }
-
-  &:not(:disabled, .disabled) {
-    &:hover,
-    &:focus,
-    &.hover {
-      .icon {
-        opacity: 100%;
-      }
-    }
-
-    &:active,
-    &.active {
-      .icon {
-        opacity: 100%;
-      }
-    }
-  }
-}
-
-/* stylelint-disable no-descending-specificity */
-.reversedInteractiveIconWrapper {
-  composes: interactiveIconWrapper;
-
-  .icon {
-    opacity: 100%;
-  }
-
-  &:not(:disabled, .disabled) {
-    &:active,
-    &.active {
-      .icon {
-        opacity: 50%;
-      }
-    }
-  }
-}
-/* stylelint-enable no-descending-specificity */
