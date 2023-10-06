@@ -8,6 +8,7 @@ import {
   useFloating,
   UseFloatingReturn,
   UseFloatingOptions,
+  size,
 } from "@floating-ui/react-dom"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
@@ -41,7 +42,19 @@ export const Popover = <RT extends ReferenceType>({
       floating: refs.floating.current,
     },
     placement: "bottom-start",
-    middleware: [offset(15), flip()],
+    middleware: [
+      offset(15),
+      flip(),
+      size({
+        apply({ availableWidth, availableHeight, elements }) {
+          Object.assign(elements.floating.style, {
+            maxWidth: `${Math.min(availableWidth, 400)}px`,
+            minWidth: `${Math.min(availableWidth, 196)}px`,
+            maxHeight: `${Math.min(availableHeight, 352)}px`,
+          })
+        },
+      }),
+    ],
     whileElementsMounted: autoUpdate,
     ...floatingOptions,
   })
