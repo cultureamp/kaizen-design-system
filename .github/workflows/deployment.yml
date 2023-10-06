@@ -3,9 +3,10 @@ name: "Deployment"
 on:
   workflow_dispatch:
     inputs:
-      label:
+      environment:
+        description: "Environment to deploy to"
+        type: environment
         required: true
-        type: string
 
 jobs:
   deployment:
@@ -21,4 +22,4 @@ jobs:
         with:
           token: "$GITHUB_TOKEN"
           environment-url: http://cultureamp.design
-          environment: production
+          environment: ${{ github.event.inputs.environment }}
