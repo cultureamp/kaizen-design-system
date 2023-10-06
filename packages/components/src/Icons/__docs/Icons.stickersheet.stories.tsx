@@ -1,10 +1,10 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
-import isChromatic from "chromatic"
+import { Meta } from "@storybook/react"
 import * as ICONS from "~components/Icons"
-import { StickerSheet } from "../../../../../storybook/components/StickerSheet"
-
-const IS_CHROMATIC = isChromatic()
+import {
+  StickerSheet,
+  StickerSheetStory,
+} from "~storybook/components/StickerSheet"
 
 export default {
   title: "Components/Icons",
@@ -12,30 +12,34 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
+} as Meta
+
+const StickerSheetTemplate: StickerSheetStory = {
+  render: () => (
+    <>
+      <StickerSheet heading="Icons">
+        <StickerSheet.Header headings={["LTR", "RTL"]} hasVerticalHeadings />
+        <StickerSheet.Body>
+          {Object.keys(ICONS as Record<string, any>).map(iconName => {
+            const Icon = ICONS[iconName as keyof typeof ICONS]
+            return (
+              <StickerSheet.Row key={iconName} rowTitle={iconName}>
+                <StickerSheet.Cell>
+                  <Icon role="presentation" />
+                </StickerSheet.Cell>
+                <StickerSheet.Cell dir="rtl">
+                  <Icon role="presentation" />
+                </StickerSheet.Cell>
+              </StickerSheet.Row>
+            )
+          })}
+        </StickerSheet.Body>
+      </StickerSheet>
+    </>
+  ),
 }
 
-const StickerSheetTemplate: StoryFn = () => (
-  <>
-    <StickerSheet
-      heading="Icons"
-      style={{ paddingBottom: IS_CHROMATIC ? "26rem" : undefined }}
-    >
-      <StickerSheet.Header headings={["Icon", "Name"]} />
-      <StickerSheet.Body>
-        {Object.keys(ICONS as { [key: string]: any }).map(iconKey => (
-          <StickerSheet.Row key={iconKey}>
-            {ICONS[iconKey as keyof typeof ICONS]({ role: "presentation" })}
-            <p className="font-family-heading">{iconKey}</p>
-          </StickerSheet.Row>
-        ))}
-      </StickerSheet.Body>
-    </StickerSheet>
-  </>
-)
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
+export const StickerSheetDefault: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Default)",
 }
