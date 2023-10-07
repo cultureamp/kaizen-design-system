@@ -2717,6 +2717,16 @@
     "@kaizen/loading-spinner" "^2.3.11"
     classnames "^2.3.2"
 
+"@kaizen/button@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.5.tgz#fdfc44b56331638801754a7646e53a3ed7e9a0ea"
+  integrity sha512-TRmaU/fhWWfJXJ9/Yg8wplm1Ww7rNKvNVxjbMO/d0N4FyTbszfIwjMGn7Un1xl8m6Goau9Aa2DOk+5KEtSmu6Q==
+  dependencies:
+    "@kaizen/component-library" "^16.8.2"
+    "@kaizen/draft-badge" "^1.13.11"
+    "@kaizen/loading-spinner" "^2.3.11"
+    classnames "^2.3.2"
+
 "@kaizen/component-base@^1.1.7":
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
