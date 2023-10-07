@@ -80,7 +80,7 @@
     "@storybook/addon-essentials": "^7.4.5",
     "@storybook/addon-interactions": "^7.4.5",
     "@storybook/addon-links": "^7.4.5",
-    "@storybook/jest": "^0.2.2",
+    "@storybook/jest": "^0.2.3",
     "@storybook/node-logger": "^7.4.5",
     "@storybook/react-webpack5": "^7.4.5",
     "@storybook/test-runner": "^0.13.0",
