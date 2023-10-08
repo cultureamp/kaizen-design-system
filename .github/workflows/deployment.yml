@@ -1,0 +1,24 @@
+name: "Deployment"
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to deploy to"
+        type: environment
+        required: true
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: chrnorm/deployment-action@v2
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: ${{ github.token }}
+          environment-url: http://cultureamp.design
+          environment: ${{ github.event.inputs.environment }}
