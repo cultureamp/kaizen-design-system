@@ -7,7 +7,7 @@ import {
 import { DirectionalLink, DirectionalLinkProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Buttons/DirectionalLink",
+  title: "Components/Buttons/DirectionalLink",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

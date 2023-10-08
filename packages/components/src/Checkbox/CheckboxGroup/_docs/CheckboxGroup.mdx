@@ -1,0 +1,42 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CheckboxGroupStories from "./CheckboxGroup.stories"
+
+<Meta of={CheckboxGroupStories} />
+
+# CheckboxGroup
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/CheckboxGroup"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=6%3A4586&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094522/Checkbox+Group Guidance"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { CheckboxGroup } from "@kaizen/components"'
+/>
+
+## Overview
+
+A checkbox group contains checkbox fields that let people select zero or more options from a set.
+
+<Canvas of={CheckboxGroupStories.Playground} />
+<Controls of={CheckboxGroupStories.Playground} />
+
+## API
+
+### No Bottom Margin
+Removes the margin from below the Checkbox Field.
+
+**Note** This is a bit of an antiquated pattern, we advise you to keep this on by default and use flex containers to apply spacing
+
+<Canvas of={CheckboxGroupStories.NoBottomMargin} />

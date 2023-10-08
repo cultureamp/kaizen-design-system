@@ -47,6 +47,12 @@ const replaceColor = child => {
   if (child.attributes.fill === "#000" || child.attributes.fill === "#000000") {
     child.attributes.fill = "currentColor"
   }
+  if (
+    child.attributes.stroke === "#000" ||
+    child.attributes.stroke === "#000000"
+  ) {
+    child.attributes.stroke = "currentColor"
+  }
 }
 
 // Ids aren't necessarily unique when coming from figma, causing
@@ -54,7 +60,7 @@ const replaceColor = child => {
 // with duplicate ids. This function allows us to set unique ids.
 const replaceId = child => {
   if (child.attributes.id) {
-    child.attributes.id = `UNIQUE_ID`
+    child.attributes.id = "UNIQUE_ID"
   }
   if (child.attributes.href) {
     child.attributes.href = "#UNIQUE_ID"

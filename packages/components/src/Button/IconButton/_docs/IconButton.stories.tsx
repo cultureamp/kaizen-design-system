@@ -4,7 +4,7 @@ import { AddIcon, MeatballsIcon } from "~components/Icons"
 import { IconButton } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Buttons/IconButton",
+  title: "Components/Buttons/IconButton",
   component: IconButton,
   argTypes: {
     icon: {

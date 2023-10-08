@@ -5,7 +5,7 @@ import { Workflow } from "../"
 
 const meta = {
   tags: ["autodocs"],
-  title: "Pages/Workflow/Legacy/Components/Progress Stepper",
+  title: "Pages/Workflow/Components/Progress Stepper",
   component: Workflow.ProgressStepper,
   args: {
     stepName: "Settings",

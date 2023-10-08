@@ -34,7 +34,7 @@ const MockContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Pages/Workflow/Components/Workflow",
+  title: "Pages/Workflow/Future/Components/Workflow",
   component: Workflow,
   argTypes: WorkflowControls,
   args: {

@@ -4,7 +4,7 @@ import { RadioField } from "~components/Radio/RadioField"
 import { RadioGroup } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Radio controls/RadioGroup",
+  title: "Components/Radio controls/RadioGroup",
   component: RadioGroup,
   args: {
     labelText: "Radio group",
