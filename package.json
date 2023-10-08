@@ -130,7 +130,7 @@
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.1.4",
-    "postcss-scss": "^4.0.8",
+    "postcss-scss": "^4.0.9",
     "prettier": "^3.0.3",
     "raw-loader": "^4.0.2",
     "react-highlight": "^0.15.0",
