@@ -80,7 +80,7 @@
   },
   "devDependencies": {
     "@cultureamp/frontend-apis": "^8.0.1",
-    "@cultureamp/i18n-react-intl": "^2.1.0",
+    "@cultureamp/i18n-react-intl": "^2.1.1",
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-commonjs": "^25.0.4",
