@@ -83,7 +83,7 @@
     "@cultureamp/i18n-react-intl": "^2.1.1",
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.1",
-    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-commonjs": "^25.0.5",
     "@rollup/plugin-image": "^3.0.2",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.1",
