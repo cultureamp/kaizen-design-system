@@ -5773,7 +5773,14 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@types/yargs@^17.0.24", "@types/yargs@^17.0.8":
+"@types/yargs@^17.0.28":
+  version "17.0.28"
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.28.tgz#d106e4301fbacde3d1796ab27374dd16588ec851"
+  integrity sha512-N3e3fkS86hNhtk6BEnc0rj3zcehaxx8QWhCROJkqpl5Zaoi7nAic3jH8q94jVD3zu5LGk+PUB6KAiDmimYOEQw==
+  dependencies:
+    "@types/yargs-parser" "*"
+
+"@types/yargs@^17.0.8":
   version "17.0.25"
   resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.25.tgz#3edd102803c97356fb4c805b2bbaf7dfc9ab6abc"
   integrity sha512-gy7iPgwnzNvxgAEi2bXOHWCVOG6f7xsprVJH4MjlAWeBmJ7vh/Y1kwMtUrs64ztf24zVIRCpr3n/z6gm9QIkgg==
