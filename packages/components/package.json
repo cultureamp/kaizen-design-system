@@ -79,7 +79,7 @@
     "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
   },
   "devDependencies": {
-    "@cultureamp/frontend-apis": "^8.0.1",
+    "@cultureamp/frontend-apis": "^8.0.3",
     "@cultureamp/i18n-react-intl": "^2.1.0",
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.0",
