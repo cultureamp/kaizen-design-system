@@ -1716,26 +1716,26 @@
   dependencies:
     chromatic "^6.14.0"
 
-"@cultureamp/i18n-react-intl@^2.1.0":
-  version "2.1.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.1.0/874b57799a4f30b6f05ac4633fb47ad7050c0cf8#874b57799a4f30b6f05ac4633fb47ad7050c0cf8"
-  integrity sha512-cNBpDNk0oRFOTX7vkZi2CyicCXTQ7PakJP/yp5YjDAE4cfX9QzO+EO3kuSdRMA1oEoy3rrNvnNciyxJMrbWe9w==
+"@cultureamp/i18n-react-intl@^2.1.1":
+  version "2.1.1"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.1.1/9fd5fefe60439dfbeea409463cf8c869fc960f0a#9fd5fefe60439dfbeea409463cf8c869fc960f0a"
+  integrity sha512-vR6I3brmACC2frEzem/oYBkp491f7bvCSmJ7TM2Axah1PuPk5ag2TZ8ev/rnQTf+N4dYdtuyTP9LCCaJrT89mA==
   dependencies:
     "@calm/eslint-plugin-react-intl" "^1.4.1"
     "@cultureamp/frontend-env" "^2.0.11"
-    "@formatjs/cli" "^6.1.3"
-    "@formatjs/cli-lib" "^6.1.3"
-    babel-plugin-formatjs "^10.5.3"
+    "@formatjs/cli" "^6.2.0"
+    "@formatjs/cli-lib" "^6.2.0"
+    babel-plugin-formatjs "^10.5.6"
     date-fns "^2.30.0"
-    eslint-plugin-formatjs "^4.10.3"
+    eslint-plugin-formatjs "^4.10.5"
     fast-glob "^3.3.0"
     form-data "^4.0.0"
-    intl-messageformat "^10.5.0"
+    intl-messageformat "^10.5.3"
     isomorphic-resolve "^1.0.0"
     json-stable-stringify "^1.0.2"
     limiter-es6-compat "^2.1.2"
-    react-intl "^6.4.4"
-    smartling-api-sdk-nodejs "^1.5.4"
+    react-intl "^6.4.7"
+    smartling-api-sdk-nodejs "^1.5.6"
     yargs "^17.7.2"
 
 "@cultureamp/redirect-to-login@^2.0.3":
@@ -2010,7 +2010,7 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.4.tgz#19654d1026cc410975d46445180e70a5089b3e7d"
   integrity sha512-qprfWkn82Iw821mcKofJ5Pk9wgioHicxcQMxx+5zt5GSKoqdWvgG5AxVmpmUUjzTLPVSH5auBrhI93Deayn/DA==
 
-"@formatjs/cli-lib@^6.1.3":
+"@formatjs/cli-lib@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@formatjs/cli-lib/-/cli-lib-6.2.0.tgz#f38d361f76aa9a55a473e6476ba803daa32501ac"
   integrity sha512-SuId7R5krjfaiNC9BeZafXHUTvXYtfRUNtfeiYdYJkRJzv7T67JBuQ1QfyhVbq2qBJGNywnYdO//oI5I6Tx3yw==
@@ -2030,7 +2030,7 @@
     tslib "^2.4.0"
     typescript "^4.7 || 5"
 
-"@formatjs/cli@^6.1.3":
+"@formatjs/cli@^6.2.0":
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/@formatjs/cli/-/cli-6.2.0.tgz#17fbd40753eeb1f6e79c3caf25845c3a9c044d90"
   integrity sha512-sP04UpocRHYwSovUnunAZHYvCTVbNcaLtWKnr1lETGRUnRRQqnXy/3d2Ce271ELXmNUSde2eHRdu4rv2XaVaiQ==
@@ -6683,7 +6683,7 @@ babel-plugin-add-react-displayname@^0.0.5:
   resolved "https://registry.yarnpkg.com/babel-plugin-add-react-displayname/-/babel-plugin-add-react-displayname-0.0.5.tgz#339d4cddb7b65fd62d1df9db9fe04de134122bd5"
   integrity sha512-LY3+Y0XVDYcShHHorshrDbt4KFWL4bSeniCtl4SYZbask+Syngk1uMPCeN9+nSiZo6zX5s0RTq/J9Pnaaf/KHw==
 
-babel-plugin-formatjs@^10.5.3:
+babel-plugin-formatjs@^10.5.6:
   version "10.5.6"
   resolved "https://registry.yarnpkg.com/babel-plugin-formatjs/-/babel-plugin-formatjs-10.5.6.tgz#394908db02594ec34d4341fb38342302cd304a45"
   integrity sha512-XlE8WHF/ZstS5K3ZCWb5nQ6e9u6KpNquTpHpjteGaMSguSjvbfNb7CsF4YHq1fTPBdHWNspA3qfAqMGgHBO4mw==
@@ -9056,7 +9056,7 @@ eslint-module-utils@^2.7.4, eslint-module-utils@^2.8.0:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-formatjs@^4.10.3:
+eslint-plugin-formatjs@^4.10.5:
   version "4.10.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-formatjs/-/eslint-plugin-formatjs-4.10.5.tgz#3b38ce5da1f8e9d135298df777cf87115e4d0818"
   integrity sha512-pBPA4idiYHXPQMrIb9/Le+D0snlNa7MFQsw12yIzyva/z9uz0u/4NOK3NkfyENMBNMeTX2tZXtugk9FyqM5SRw==
@@ -10870,7 +10870,7 @@ interpret@^2.2.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-2.2.0.tgz#1a78a0b5965c40a5416d007ad6f50ad27c417df9"
   integrity sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw==
 
-intl-messageformat@10.5.3, intl-messageformat@^10.1.0, intl-messageformat@^10.5.0:
+intl-messageformat@10.5.3, intl-messageformat@^10.1.0, intl-messageformat@^10.5.3:
   version "10.5.3"
   resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-10.5.3.tgz#db0779d4a1988faa2977d76574489b7a25f0d5d0"
   integrity sha512-TzKn1uhJBMyuKTO4zUX47SU+d66fu1W9tVzIiZrQ6hBqQQeYscBMIzKL/qEXnFbJrH9uU5VV3+T5fWib4SIcKA==
@@ -16100,7 +16100,7 @@ react-inspector@^6.0.0:
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-6.0.2.tgz#aa3028803550cb6dbd7344816d5c80bf39d07e9d"
   integrity sha512-x+b7LxhmHXjHoU/VrFAzw5iutsILRoYyDq97EDYdFpPLcvqtEzk4ZSZSQjnFPbr5T57tLXnHcqFYoN1pI6u8uQ==
 
-react-intl@^6.4.4, react-intl@^6.4.6:
+react-intl@^6.4.6, react-intl@^6.4.7:
   version "6.4.7"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.4.7.tgz#28ec40350ff791a6a773f5e76b9e12835ae17e19"
   integrity sha512-0hnOHAZhxTFqD1hGTxrF40qNyZJPPYiGhWIIxIz0Udz+3e3c7sdN80qlxArR+AbJ+jb5ALXZkJYH20+GPFCM0Q==
@@ -17163,7 +17163,7 @@ smart-buffer@^4.2.0:
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
-smartling-api-sdk-nodejs@^1.5.4:
+smartling-api-sdk-nodejs@^1.5.6:
   version "1.5.6"
   resolved "https://registry.yarnpkg.com/smartling-api-sdk-nodejs/-/smartling-api-sdk-nodejs-1.5.6.tgz#867159e41d196a9a57cb8c3d97e3fad173e842e6"
   integrity sha512-nxBfD/QrGnWFO1uJGdgBfw0xEujhLIwcEuYiVkrRJ45k3+c4ogF7WuWEWE2zynNQRNOp3A0h0fMXBaQyBulYeg==
