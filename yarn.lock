@@ -5640,10 +5640,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-highlight@^0.12.5":
-  version "0.12.5"
-  resolved "https://registry.yarnpkg.com/@types/react-highlight/-/react-highlight-0.12.5.tgz#b2af7ca998247b0bc7859b674552df97b366c3b1"
-  integrity sha512-P8+mTxltxDdQ+99l+pjn40clziSbNrZy5d5zmvG+j3jKzokAhCoCZlIRmmnFgETTYubuqwKjvXSlvesBZcTfvQ==
+"@types/react-highlight@^0.12.6":
+  version "0.12.6"
+  resolved "https://registry.yarnpkg.com/@types/react-highlight/-/react-highlight-0.12.6.tgz#d78c898096d4f2843068d0541f8cdbbef763e9ab"
+  integrity sha512-mT09xsLcKhsytXkx7jOIYPl/tJjbajupnG1/ElBMnudDMMUGhqqCt2RIHnK5ycuqGYoOgIIoMVnLInlUk/WQDA==
   dependencies:
     "@types/react" "*"
 
