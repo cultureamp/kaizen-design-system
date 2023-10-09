@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import { ClearIcon } from "~components/Icons"
+import { ClearIcon } from "~components/Icon"
 import { DataAttributes } from "~types/DataAttributes"
 import { isRefObject } from "~utils/isRefObject"
 import { ButtonGroup, ButtonGroupProps } from "../../ButtonGroup"

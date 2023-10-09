@@ -17,8 +17,7 @@
       "~storybook/*": ["../../storybook/*"],
       "~types/*": ["src/types/*"],
       "~utils/*": ["src/utils/*"],
-      "~components/*": ["src/*"],
-      "~icons/*": ["src/Icons/*"]
+      "~components/*": ["src/*"]
     },
     // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
     "plugins": [
@@ -30,5 +29,10 @@
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*", "icons/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "moduleTypes": {
+      "src/Icon/bin/**/*": "cjs"
+    }
+  }
 }
