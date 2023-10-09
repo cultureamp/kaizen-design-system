@@ -203,7 +203,7 @@ yarn plop
 ## Adding icons
 
 1. Find the new svg in our [figma file](https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=35882-93662&mode=design&t=X18YN2TWqlxEIFc3-0)
-2. Export the svg in kebab-case (eg. `zoom-out.svg`), and save it in `/packages/components/icons`
+2. Export the svg in kebab-case with `.icon` suffix (eg. `zoom-out.icon.svg`), and save it in `/packages/components/assets/svgs/icons`
 3. In the root of Kaizen, run `yarn update-icons`
 
 This process will:
