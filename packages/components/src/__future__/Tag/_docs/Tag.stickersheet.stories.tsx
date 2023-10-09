@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { TagIcon } from "~components/Icons"
+import { TagIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,

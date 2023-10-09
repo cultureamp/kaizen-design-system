@@ -15,7 +15,7 @@ import {
   EmailIcon,
   FeedbackClassifyIcon,
   SecurityTipIcon,
-} from "~components/Icons"
+} from "~components/Icon"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,

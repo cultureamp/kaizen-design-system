@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
 // import { ClearButton } from "~components/ClearButton"
-import { ChevronDownIcon, ChevronUpIcon } from "~components/Icons"
+import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { Tag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { MultiSelectOption } from "../../types"

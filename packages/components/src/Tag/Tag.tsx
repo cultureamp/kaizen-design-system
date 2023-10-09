@@ -8,7 +8,7 @@ import {
   InformationIcon,
   LiveIcon,
   SuccessIcon,
-} from "~components/Icons"
+} from "~components/Icon"
 import { TagVariants } from "./types"
 import styles from "./Tag.module.scss"
 

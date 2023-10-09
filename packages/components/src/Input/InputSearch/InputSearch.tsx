@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, useRef } from "react"
 import classnames from "classnames"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { SearchIcon } from "~components/Icons/SearchIcon"
+import { SearchIcon } from "~components/Icon/SearchIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { ClearButton } from "../../ClearButton"
 import styles from "./InputSearch.module.scss"

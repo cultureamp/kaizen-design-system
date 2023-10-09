@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "~components/Button"
-import { ChevronRightIcon } from "~components/Icons"
+import { ChevronRightIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
