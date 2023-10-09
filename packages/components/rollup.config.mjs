@@ -70,6 +70,7 @@ const getCompiledConfigByModuleType = format => ({
       dir: `${OUTPUT_DIR}/${format}`,
       format,
       sourcemap: true,
+      preserveModules: true
     },
   ],
 })
