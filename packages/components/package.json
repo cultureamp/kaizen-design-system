@@ -23,6 +23,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
+    "test:trees": "agadoo ./dist/es/index.js",
     "build": "yarn clean && yarn prepublishOnly",
     "test": "jest",
     "clean": "rimraf dist node_modules",
@@ -89,6 +90,7 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/react-dom": "^18.2.7",
     "@types/react-textfit": "^1.1.1",
+    "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.16",
     "concat-cli": "^4.0.0",
     "esbuild": "0.18.20",
