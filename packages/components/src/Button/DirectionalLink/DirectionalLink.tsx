@@ -4,7 +4,7 @@ import {
   ArrowForwardIcon,
   EndIcon,
   StartIcon,
-} from "~components/Icons"
+} from "~components/Icon"
 import { GenericButton, GenericProps } from "../GenericButton"
 
 export type DirectionalLinkProps = {

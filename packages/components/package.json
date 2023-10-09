@@ -34,7 +34,7 @@
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
     "test:ci": "yarn test --ci",
-    "update-icons": "./src/Icons/bin/update-icons.sh"
+    "update-icons": "./src/Icon/bin/update-icons.sh"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.2",

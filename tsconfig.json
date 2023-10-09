@@ -16,8 +16,7 @@
       "~storybook/*": ["storybook/*"],
       "~types/*": ["packages/components/src/types/*"],
       "~utils/*": ["packages/components/src/utils/*"],
-      "~components/*": ["packages/components/src/*"],
-      "~icons/*": ["packages/components/src/Icons/*"]
+      "~components/*": ["packages/components/src/*"]
     }
   },
   "files": ["./types.d.ts"],
