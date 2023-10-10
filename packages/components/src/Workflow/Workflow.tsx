@@ -14,7 +14,10 @@ export type WorkflowProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> &
   FooterProps &
   HeaderProps
 
-const WorkflowComponent = ({
+/**
+ * @deprecated Use { Workflow } from `@kaizen/components/future`
+ */
+export const Workflow = ({
   stepName,
   steps,
   isComplete,
@@ -45,13 +48,8 @@ const WorkflowComponent = ({
   </Workflow.Wrapper>
 )
 
-/**
- * @deprecated Use { Workflow } from `@kaizen/components/future`
- */
-export const Workflow = Object.assign(WorkflowComponent, {
-  Header,
-  Footer,
-  Main,
-  ProgressStepper,
-  Wrapper,
-})
+Workflow.Header = Header;
+Workflow.Footer = Footer;
+Workflow.Main = Main;
+Workflow.ProgressStepper = ProgressStepper;
+Workflow.Wrapper = Wrapper;
