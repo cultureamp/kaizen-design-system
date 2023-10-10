@@ -79,10 +79,12 @@
     "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
   },
   "devDependencies": {
+    "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
     "@cultureamp/frontend-apis": "^8.0.3",
     "@cultureamp/i18n-react-intl": "^2.1.1",
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.1",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.5",
     "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-json": "^6.0.1",
@@ -92,6 +94,7 @@
     "@types/react-textfit": "^1.1.1",
     "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.16",
+    "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
     "esbuild": "0.18.20",
     "query-string": "^8.1.0",

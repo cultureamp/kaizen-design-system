@@ -1,15 +1,14 @@
 import alias from "@rollup/plugin-alias"
+import { getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs"
 import image from "@rollup/plugin-image"
 import jsonPlugin from "@rollup/plugin-json"
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import dts from "rollup-plugin-dts"
-import esbuild from "rollup-plugin-esbuild"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
-import { PluginPure as pure } from "rollup-plugin-pure"
 import ttypescript from "ttypescript"
 
 const TYPES_TEMP_DIR = "dts"
@@ -56,36 +55,19 @@ const getCompiledConfigByModuleType = format => ({
       // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
       typescript: ttypescript,
     }),
-    pure({
-      functions: [
-        "React.cloneElement",
-        "cloneElement",
-        "React.createContext",
-        "createContext",
-        "React.createElement",
-        "createElement",
-        "React.createFactory",
-        "createFactory",
-        "React.createRef",
-        "createRef",
-        "React.forwardRef",
-        "forwardRef",
-        "React.isValidElement",
-        "isValidElement",
-        "React.memo",
-        "memo",
-        "React.lazy",
-        "lazy"
-      ],
-    }),
     commonjs(),
-    esbuild(),
     image(),
     jsonPlugin(),
     // These libraries aren't used in KAIO, and require polyfills to be set up
     // in consuming repos. Ignoring them here removes the need for extra setup in
     // consuming repos.
     ignore(["stream", "http", "https", "zlib"]),
+    getBabelOutputPlugin({
+      plugins: [
+        "@babel/plugin-transform-react-pure-annotations",
+        "babel-plugin-pure-static-props"
+      ]
+    }),
   ],
   output: [
     {
