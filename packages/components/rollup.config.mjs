@@ -9,6 +9,7 @@ import esbuild from "rollup-plugin-esbuild"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
+import { PluginPure as pure } from "rollup-plugin-pure"
 import ttypescript from "ttypescript"
 
 const TYPES_TEMP_DIR = "dts"
@@ -54,6 +55,28 @@ const getCompiledConfigByModuleType = format => ({
       ],
       // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
       typescript: ttypescript,
+    }),
+    pure({
+      functions: [
+        "React.cloneElement",
+        "cloneElement",
+        "React.createContext",
+        "createContext",
+        "React.createElement",
+        "createElement",
+        "React.createFactory",
+        "createFactory",
+        "React.createRef",
+        "createRef",
+        "React.forwardRef",
+        "forwardRef",
+        "React.isValidElement",
+        "isValidElement",
+        "React.memo",
+        "memo",
+        "React.lazy",
+        "lazy"
+      ],
     }),
     commonjs(),
     esbuild(),
