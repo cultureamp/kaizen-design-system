@@ -6,6 +6,7 @@ import jsonPlugin from "@rollup/plugin-json"
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import dts from "rollup-plugin-dts"
+import esbuild from "rollup-plugin-esbuild"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
@@ -56,6 +57,7 @@ const getCompiledConfigByModuleType = format => ({
       typescript: ttypescript,
     }),
     commonjs(),
+    esbuild(),
     image(),
     jsonPlugin(),
     // These libraries aren't used in KAIO, and require polyfills to be set up
