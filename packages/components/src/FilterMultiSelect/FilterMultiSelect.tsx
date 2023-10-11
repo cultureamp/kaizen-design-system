@@ -1,6 +1,5 @@
 import React from "react"
 import { SelectionMode, Selection } from "@react-types/shared"
-import { ClearButton } from "@kaizen/draft-form"
 import {
   MenuTriggerConsumer,
   MenuTriggerProvider,
@@ -19,7 +18,10 @@ import { MultiSelectOption } from "./subcomponents/MultiSelectOption"
 import { NoResults } from "./subcomponents/NoResults"
 import { SearchInput } from "./subcomponents/SearchInput"
 import { SectionDivider } from "./subcomponents/SectionDivider"
-import { SelectAllButton } from "./subcomponents/SelectionControlButton"
+import {
+  ClearButton,
+  SelectAllButton,
+} from "./subcomponents/SelectionControlButton"
 import {
   FilterTriggerButton,
   RemovableFilterTrigger,
