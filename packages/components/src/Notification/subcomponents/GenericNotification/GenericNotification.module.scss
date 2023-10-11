@@ -1,8 +1,8 @@
-@import "../utils/styles";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "./mixins";
 
 .notification {
   @extend %ca-notification;

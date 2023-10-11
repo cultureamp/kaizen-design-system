@@ -1,32 +1,12 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
-import { Heading, HeadingProps } from "@kaizen/typography"
-import { CautionIcon } from "~components/Icon/CautionIcon"
-import { CloseIcon } from "~components/Icon/CloseIcon"
-import { ExclamationIcon } from "~components/Icon/ExclamationIcon"
-import { InformationIcon } from "~components/Icon/InformationIcon"
-import { SecurityTipIcon } from "~components/Icon/SecurityTipIcon"
-import { SuccessIcon } from "~components/Icon/SuccessIcon"
+import { HeadingProps } from "@kaizen/typography"
 import { NotificationType } from "~components/Notification/types"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { CancelButton } from "../CancelButton"
+import { NotificationHeading } from "../NotificationHeading"
+import { NotificationIcon } from "../NotificationIcon"
 import styles from "./GenericNotification.module.scss"
-
-const renderIcon = (type: NotificationType): JSX.Element | null => {
-  switch (type) {
-    case "positive":
-      return <SuccessIcon role="presentation" inheritSize />
-    case "negative":
-      return <ExclamationIcon role="presentation" inheritSize />
-    case "cautionary":
-      return <CautionIcon role="presentation" inheritSize />
-    case "informative":
-      return <InformationIcon role="presentation" inheritSize />
-    case "security":
-      return <SecurityTipIcon role="presentation" inheritSize />
-    default:
-      return null
-  }
-}
 
 export type GenericNotificationProps = {
   type: NotificationType
@@ -101,7 +81,9 @@ export const GenericNotification = ({
       onTransitionEnd={onTransitionEnd}
       {...restProps}
     >
-      <div className={styles.icon}>{renderIcon(type)}</div>
+      <div className={styles.icon}>
+        <NotificationIcon type={type} />
+      </div>
       <div
         className={classnames(
           styles.textContainer,
@@ -119,53 +101,3 @@ export const GenericNotification = ({
 }
 
 GenericNotification.displayName = "GenericNotification"
-
-type CancelButtonProps = {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
-  <button
-    className={styles.cancel}
-    type="button"
-    onClick={onClick}
-    data-testid="close-button"
-    aria-label="Close notification"
-  >
-    <CloseIcon role="presentation" />
-  </button>
-)
-
-type NotificationHeadingProps = {
-  titleProp?: HeadingProps["children"]
-  headingProps?: HeadingProps
-}
-
-const NotificationHeading = ({
-  titleProp,
-  headingProps,
-}: NotificationHeadingProps): JSX.Element | null => {
-  if (headingProps) {
-    return (
-      <Heading
-        variant={headingProps.variant || "heading-6"}
-        tag={headingProps.tag || "div"}
-        color={headingProps.color || "dark"}
-        classNameOverride={styles.notificationTitle}
-      >
-        {headingProps.children}
-      </Heading>
-    )
-  } else if (titleProp) {
-    return (
-      <Heading
-        variant="heading-6"
-        tag="div"
-        color="dark"
-        classNameOverride={styles.notificationTitle}
-      >
-        {titleProp}
-      </Heading>
-    )
-  } else return null
-}
