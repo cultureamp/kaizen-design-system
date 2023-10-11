@@ -19,15 +19,13 @@ export type MenuTriggerProviderContextType = {
   buttonRef: React.RefObject<HTMLButtonElement>
 }
 
-const MenuTriggerContext = React.createContext<MenuTriggerProviderContextType>(
-  {} as MenuTriggerProviderContextType
-)
-export function MenuTriggerProvider({
-  isOpen,
-  defaultOpen,
-  onOpenChange,
-  children,
-}: MenuTriggerProviderProps): JSX.Element {
+export const MenuTriggerContext =
+  React.createContext<MenuTriggerProviderContextType>(
+    {} as MenuTriggerProviderContextType
+  )
+export function MenuTriggerProvider(
+  { isOpen, defaultOpen, onOpenChange, children }: MenuTriggerProviderProps
+): JSX.Element {
   // Create state based on the incoming props to manage the open/close
   const state = useMenuTriggerState({ isOpen, defaultOpen, onOpenChange })
 
@@ -59,7 +57,3 @@ export function MenuTriggerProvider({
 
 export const useMenuTriggerContext = (): MenuTriggerProviderContextType =>
   useContext(MenuTriggerContext)
-
-export const MenuTriggerConsumer = MenuTriggerContext.Consumer
-
-MenuTriggerContext.displayName = "MenuTriggerContext"
