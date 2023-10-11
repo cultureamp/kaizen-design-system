@@ -43,24 +43,22 @@ export type FilterMultiSelectProps = {
   Omit<MenuTriggerProviderProps, "children"> &
   SelectionProps
 
-export const FilterMultiSelect = (
-  {
-    trigger,
-    children,
-    isOpen,
-    defaultOpen,
-    onOpenChange,
-    isLoading,
-    loadingSkeleton,
-    label,
-    items,
-    selectedKeys,
-    defaultSelectedKeys,
-    onSelectionChange,
-    selectionMode = "multiple",
-    onSearchInputChange,
-  }: FilterMultiSelectProps
-): JSX.Element => {
+export const FilterMultiSelect = ({
+  trigger,
+  children,
+  isOpen,
+  defaultOpen,
+  onOpenChange,
+  isLoading,
+  loadingSkeleton,
+  label,
+  items,
+  selectedKeys,
+  defaultSelectedKeys,
+  onSelectionChange,
+  selectionMode = "multiple",
+  onSearchInputChange,
+}: FilterMultiSelectProps): JSX.Element => {
   const menuTriggerProps = { isOpen, defaultOpen, onOpenChange }
   const menuPopupProps = { isLoading, loadingSkeleton }
   const disabledKeys: Selection = new Set(

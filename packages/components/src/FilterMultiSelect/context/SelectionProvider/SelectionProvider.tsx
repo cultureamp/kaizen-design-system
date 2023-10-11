@@ -101,8 +101,8 @@ export const SelectionProvider = (
 export const useSelectionContext = (): SelectionProviderContextType =>
   useContext(SelectionContext)
 
-export const SelectionConsumer = (
-  { children }: React.ConsumerProps<SelectionProviderContextType>
-): JSX.Element => (
+export const SelectionConsumer = ({
+  children,
+}: React.ConsumerProps<SelectionProviderContextType>): JSX.Element => (
   <SelectionContext.Consumer>{children}</SelectionContext.Consumer>
 )
