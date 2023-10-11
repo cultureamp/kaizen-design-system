@@ -7,6 +7,7 @@
 
   position: relative;
   display: inline-flex;
+  border-radius: 50%;
 
   &:hover {
     cursor: pointer;
@@ -18,7 +19,7 @@
 
   &:focus-visible {
     &::after {
-      $focus-ring-offset: -1px;
+      $focus-ring-offset: -3px;
 
       content: "";
       position: absolute;
@@ -41,9 +42,8 @@
 .default {
   color: $color-gray-500;
 
-  &:hover,
-  &:focus-visible {
-    color: $color-purple-800;
+  &:hover {
+    background-color: $color-gray-400;
   }
 
   &:focus-visible {
@@ -55,11 +55,6 @@
 
 .reversed {
   color: rgba($color-white-rgb, 0.8);
-
-  &:hover,
-  &:focus-visible {
-    color: $color-white;
-  }
 
   &:focus-visible {
     &::after {
