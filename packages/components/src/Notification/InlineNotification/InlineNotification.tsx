@@ -2,8 +2,8 @@ import React from "react"
 import classnames from "classnames"
 import { HeadingProps } from "@kaizen/typography"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { GenericNotification } from "../GenericNotification"
-import styles from "../GenericNotification/GenericNotification.module.scss"
+import { GenericNotification } from "../subcomponents/GenericNotification"
+import styles from "../subcomponents/GenericNotification/GenericNotification.module.scss"
 import { NotificationType } from "../types"
 
 export type InlineNotificationProps = OverrideClassName<{
