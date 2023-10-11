@@ -48,8 +48,8 @@ export const Workflow = ({
   </Workflow.Wrapper>
 )
 
-Workflow.Header = Header;
-Workflow.Footer = Footer;
-Workflow.Main = Main;
-Workflow.ProgressStepper = ProgressStepper;
-Workflow.Wrapper = Wrapper;
+Workflow.Header = Header
+Workflow.Footer = Footer
+Workflow.Main = Main
+Workflow.ProgressStepper = ProgressStepper
+Workflow.Wrapper = Wrapper
