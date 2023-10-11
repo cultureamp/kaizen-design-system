@@ -21,6 +21,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublishOnly",
