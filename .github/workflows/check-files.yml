@@ -43,4 +43,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn build
+      - run: yarn build && yarn test:treeshake
