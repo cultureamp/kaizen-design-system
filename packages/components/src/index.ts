@@ -35,6 +35,6 @@ export * from "./Text"
 export * from "./Workflow"
 
 // PROBLEMS
-export * from "./FilterBar"
-export * from "./FilterMultiSelect"
+// export * from "./FilterBar"
+// export * from "./FilterMultiSelect"
 export * from "./Notification"

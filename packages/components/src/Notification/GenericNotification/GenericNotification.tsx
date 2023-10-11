@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
 import classnames from "classnames"
 import { Heading, HeadingProps } from "@kaizen/typography"
 import { CautionIcon } from "~components/Icon/CautionIcon"
@@ -11,24 +11,7 @@ import { NotificationType } from "~components/Notification/types"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./GenericNotification.module.scss"
 
-export type GenericNotificationProps = OverrideClassName<{
-  type: NotificationType
-  style: "global" | "inline" | "toast"
-  children?: React.ReactNode
-  title?: string
-  persistent: boolean
-  onHide?: () => void
-  noBottomMargin?: boolean
-  forceMultiline?: boolean
-  headingProps?: HeadingProps
-}>
-
-type State = {
-  hidden: boolean
-  removed: boolean
-}
-
-const renderIcon = (type: NotificationType): JSX.Element => {
+const renderIcon = (type: NotificationType): JSX.Element | null => {
   switch (type) {
     case "positive":
       return <SuccessIcon role="presentation" inheritSize />
@@ -41,109 +24,101 @@ const renderIcon = (type: NotificationType): JSX.Element => {
     case "security":
       return <SecurityTipIcon role="presentation" inheritSize />
     default:
-      return <InformationIcon role="presentation" inheritSize />
+      return null
   }
 }
 
-class GenericNotification extends React.Component<
-  GenericNotificationProps,
-  State
-> {
-  static defaultProps = {
-    persistent: false,
-  }
+export type GenericNotificationProps = {
+  type: NotificationType
+  style: "global" | "inline" | "toast"
+  children?: React.ReactNode
+  title?: string
+  persistent?: boolean
+  onHide?: () => void
+  noBottomMargin?: boolean
+  forceMultiline?: boolean
+  headingProps?: HeadingProps
+} & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-  state = {
-    hidden: true,
-    removed: false,
-  }
+export const GenericNotification = ({
+  type,
+  style,
+  children,
+  title,
+  persistent = false,
+  onHide,
+  noBottomMargin,
+  forceMultiline,
+  headingProps,
+  classNameOverride,
+  ...restProps
+}: GenericNotificationProps): JSX.Element | null => {
+  const [isHidden, setIsHidden] = useState<boolean>(true)
+  const [isRemoved, setIsRemoved] = useState<boolean>(false)
 
-  containerRef = React.createRef<HTMLDivElement>()
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  constructor(props: GenericNotificationProps) {
-    super(props)
-
-    this.hide = this.hide.bind(this)
-    this.onTransitionEnd = this.onTransitionEnd.bind(this)
-  }
-
-  componentDidMount(): void {
+  useEffect(() => {
     requestAnimationFrame(() => {
-      if (this.containerRef.current) {
-        this.setState({ hidden: false })
+      if (containerRef.current) {
+        setIsHidden(false)
       }
     })
-  }
+  }, [])
 
-  render(): JSX.Element | null {
-    if (this.state.removed) {
-      return null
-    }
-
-    return (
-      <div
-        className={this.className()}
-        style={{ marginTop: this.marginTop() }}
-        ref={this.containerRef}
-        onTransitionEnd={this.onTransitionEnd}
-      >
-        <div className={styles.icon}>{renderIcon(this.props.type)}</div>
-        <div className={this.textContainerClassName()}>
-          {this.props.style !== "global" && (
-            <NotificationHeading
-              titleProp={this.props.title}
-              headingProps={this.props.headingProps}
-            />
-          )}
-          {this.props.children && (
-            <div className={styles.text}>{this.props.children}</div>
-          )}
-        </div>
-        {!this.props.persistent && <CancelButton onClick={this.hide} />}
-      </div>
-    )
-  }
-
-  className(): string {
-    return classnames(
-      styles.notification,
-      styles[this.props.type],
-      styles[this.props.style],
-      this.state.hidden && styles.hidden,
-      this.props.noBottomMargin && styles.noBottomMargin,
-      this.props.classNameOverride,
-      this.props.persistent && styles.persistent
-    )
-  }
-
-  textContainerClassName(): string {
-    return classnames(
-      styles.textContainer,
-      this.props.forceMultiline && styles.forceMultiline
-    )
-  }
-
-  marginTop(): string {
-    if (this.state.hidden && this.containerRef.current) {
-      return -this.containerRef.current.clientHeight + "px"
+  const getMarginTop = (): string => {
+    if (isHidden && containerRef.current) {
+      return -containerRef.current.clientHeight + "px"
     }
     return "0"
   }
 
-  onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>): void {
+  const onTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>): void => {
     // Be careful: this assumes the final CSS property to be animated is "margin-top".
-    if (this.state.hidden && e.propertyName === "margin-top") {
-      this.setState({ removed: true })
-      if (this.props.onHide) {
-        this.props.onHide()
-      }
+    if (isHidden && e.propertyName === "margin-top") {
+      setIsRemoved(true)
+      onHide?.()
     }
   }
 
-  hide(): void {
-    this.setState({ hidden: true })
+  if (isRemoved) {
+    return null
   }
+
+  return (
+    <div
+      ref={containerRef}
+      className={classnames(
+        styles.notification,
+        styles[type],
+        styles[style],
+        isHidden && styles.hidden,
+        noBottomMargin && styles.noBottomMargin,
+        classNameOverride,
+        persistent && styles.persistent
+      )}
+      style={{ marginTop: getMarginTop() }}
+      onTransitionEnd={onTransitionEnd}
+      {...restProps}
+    >
+      <div className={styles.icon}>{renderIcon(type)}</div>
+      <div
+        className={classnames(
+          styles.textContainer,
+          forceMultiline && styles.forceMultiline
+        )}
+      >
+        {style !== "global" && (
+          <NotificationHeading titleProp={title} headingProps={headingProps} />
+        )}
+        {children && <div className={styles.text}>{children}</div>}
+      </div>
+      {!persistent && <CancelButton onClick={() => setIsHidden(true)} />}
+    </div>
+  )
 }
+
+GenericNotification.displayName = "GenericNotification"
 
 type CancelButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
@@ -194,5 +169,3 @@ const NotificationHeading = ({
     )
   } else return null
 }
-
-export default GenericNotification
