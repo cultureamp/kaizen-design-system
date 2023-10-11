@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { AddIcon } from "~components/Icon"
@@ -96,4 +96,21 @@ export const Sticky: Story = {
       This does not work in Storybook docs, so use this as a code example only.
     </Collapsible>
   ),
+}
+
+const controlledSourceCode = `
+const [isOpen, setIsOpen] = useState<boolean>(false)
+return (<Collapsible {...args} open={isOpen} onToggle={setIsOpen} />)
+`
+
+export const Controlled: Story = {
+  args: {
+    title: "Controlled",
+    controlled: true,
+  },
+  render: args => {
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+    return <Collapsible {...args} open={isOpen} onToggle={setIsOpen} />
+  },
+  parameters: { docs: { source: { code: controlledSourceCode } } },
 }
