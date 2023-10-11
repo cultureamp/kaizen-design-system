@@ -1,12 +1,11 @@
 import alias from "@rollup/plugin-alias"
-import { getBabelOutputPlugin } from "@rollup/plugin-babel";
+import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs"
 import image from "@rollup/plugin-image"
 import jsonPlugin from "@rollup/plugin-json"
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import dts from "rollup-plugin-dts"
-import esbuild from "rollup-plugin-esbuild"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
@@ -57,13 +56,13 @@ const getCompiledConfigByModuleType = format => ({
       typescript: ttypescript,
     }),
     commonjs(),
-    esbuild(),
     image(),
     jsonPlugin(),
     // These libraries aren't used in KAIO, and require polyfills to be set up
     // in consuming repos. Ignoring them here removes the need for extra setup in
     // consuming repos.
     ignore(["stream", "http", "https", "zlib"]),
+    babel({ babelHelpers: "bundled" }),
     getBabelOutputPlugin({
       plugins: [
         "@babel/plugin-transform-react-pure-annotations",

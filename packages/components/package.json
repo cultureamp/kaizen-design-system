@@ -75,9 +75,6 @@
     "react-textfit": "^1.1.1",
     "uuid": "^9.0.1"
   },
-  "devDependenciesComments": {
-    "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
-  },
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
     "@cultureamp/frontend-apis": "^8.0.3",
@@ -96,12 +93,10 @@
     "autoprefixer": "^10.4.16",
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
-    "esbuild": "0.18.20",
     "query-string": "^8.1.0",
     "react-intl": "^6.4.7",
     "rollup": "^3.28.1",
     "rollup-plugin-dts": "^6.0.2",
-    "rollup-plugin-esbuild": "^6.1.0",
     "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-node-externals": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
