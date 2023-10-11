@@ -1,7 +1,9 @@
 import React, { HTMLAttributes } from "react"
-import { ClearButton } from "~components/ClearButton"
+import { RemoveButton } from "./RemoveButton"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { Tag, TagProps } from "./Tag"
+import classNames from "classnames"
+import styles from "./RemoveableTag.module.scss"
 
 export type RemoveableTagProps = {
   removeButtonProps: {
@@ -18,9 +20,13 @@ export const RemoveableTag = ({
   color = "gray",
   removeButtonProps,
 }: RemoveableTagProps): JSX.Element => (
-  <Tag classNameOverride={classNameOverride} icon={icon} color={color}>
+  <Tag
+    classNameOverride={classNames(classNameOverride, styles.removeableTag)}
+    icon={icon}
+    color={color}
+  >
     {children}
-    <ClearButton onClick={() => removeButtonProps.onClick()} />
+    <RemoveButton onClick={() => removeButtonProps.onClick()} />
   </Tag>
 )
 

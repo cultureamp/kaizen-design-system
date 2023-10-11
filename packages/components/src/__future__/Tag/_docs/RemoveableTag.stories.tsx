@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { v4 as uuidv4 } from "uuid"
-import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icons"
+import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
 import { RemoveableTag } from "../RemoveableTag"
 import { TagColorKeys } from "../types"
 

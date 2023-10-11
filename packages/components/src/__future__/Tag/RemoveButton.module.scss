@@ -1,0 +1,69 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "../../../styles/button-reset";
+
+.removeButton {
+  @include button-reset;
+
+  position: relative;
+  display: inline-flex;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    &::after {
+      $focus-ring-offset: -1px;
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-radius: 50%;
+      inset: $focus-ring-offset;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    inset: -5px;
+    border-radius: 50%;
+  }
+}
+
+.default {
+  color: $color-gray-500;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-purple-800;
+  }
+
+  &:focus-visible {
+    &::after {
+      border-color: $color-blue-500;
+    }
+  }
+}
+
+.reversed {
+  color: rgba($color-white-rgb, 0.8);
+
+  &:hover,
+  &:focus-visible {
+    color: $color-white;
+  }
+
+  &:focus-visible {
+    &::after {
+      border-color: $color-blue-300;
+    }
+  }
+}
