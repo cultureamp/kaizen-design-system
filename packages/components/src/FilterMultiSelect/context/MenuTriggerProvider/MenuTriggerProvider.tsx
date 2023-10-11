@@ -19,10 +19,9 @@ export type MenuTriggerProviderContextType = {
   buttonRef: React.RefObject<HTMLButtonElement>
 }
 
-export const MenuTriggerContext =
-  React.createContext<MenuTriggerProviderContextType>(
-    {} as MenuTriggerProviderContextType
-  )
+const MenuTriggerContext = React.createContext<MenuTriggerProviderContextType>(
+  {} as MenuTriggerProviderContextType
+)
 export function MenuTriggerProvider(
   { isOpen, defaultOpen, onOpenChange, children }: MenuTriggerProviderProps
 ): JSX.Element {
@@ -57,3 +56,9 @@ export function MenuTriggerProvider(
 
 export const useMenuTriggerContext = (): MenuTriggerProviderContextType =>
   useContext(MenuTriggerContext)
+
+export const MenuTriggerConsumer = (
+  { children }: React.ConsumerProps<MenuTriggerProviderContextType>
+): JSX.Element => (
+  <MenuTriggerContext.Consumer>{children}</MenuTriggerContext.Consumer>
+)

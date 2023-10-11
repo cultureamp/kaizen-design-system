@@ -30,10 +30,9 @@ export type SelectionProviderContextType = {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const SelectionContext =
-  React.createContext<SelectionProviderContextType>(
-    {} as SelectionProviderContextType
-  )
+const SelectionContext = React.createContext<SelectionProviderContextType>(
+  {} as SelectionProviderContextType
+)
 
 export const SelectionProvider = (
   props: SelectionProviderProps
@@ -101,3 +100,9 @@ export const SelectionProvider = (
 
 export const useSelectionContext = (): SelectionProviderContextType =>
   useContext(SelectionContext)
+
+export const SelectionConsumer = (
+  { children }: React.ConsumerProps<SelectionProviderContextType>
+): JSX.Element => (
+  <SelectionContext.Consumer>{children}</SelectionContext.Consumer>
+)

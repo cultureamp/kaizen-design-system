@@ -2,11 +2,11 @@ import React from "react"
 import { SelectionMode, Selection } from "@react-types/shared"
 import { ClearButton } from "@kaizen/draft-form"
 import {
-  MenuTriggerContext,
+  MenuTriggerConsumer,
   MenuTriggerProvider,
   MenuTriggerProviderContextType,
   MenuTriggerProviderProps,
-  SelectionContext,
+  SelectionConsumer,
   SelectionProvider,
   SelectionProviderContextType,
 } from "./context"
@@ -82,10 +82,10 @@ export const FilterMultiSelect = (
   return (
     <MenuTriggerProvider {...menuTriggerProps}>
       <div>
-        <MenuTriggerContext.Consumer>{trigger}</MenuTriggerContext.Consumer>
+        <MenuTriggerConsumer>{trigger}</MenuTriggerConsumer>
         <MenuPopup {...menuPopupProps}>
           <SelectionProvider {...selectionProps}>
-            <SelectionContext.Consumer>{children}</SelectionContext.Consumer>
+            <SelectionConsumer>{children}</SelectionConsumer>
           </SelectionProvider>
         </MenuPopup>
       </div>
