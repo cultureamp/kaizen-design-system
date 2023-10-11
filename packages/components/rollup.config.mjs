@@ -75,7 +75,8 @@ const getCompiledConfigByModuleType = format => ({
       dir: `${OUTPUT_DIR}/${format}`,
       format,
       sourcemap: true,
-      preserveModules: true
+      preserveModules: true,
+      entryFileNames: format === "esm" ? "[name].mjs" : "[name].cjs",
     },
   ],
 })

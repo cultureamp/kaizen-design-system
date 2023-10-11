@@ -27,7 +27,7 @@
     "build": "yarn clean && yarn prepublishOnly",
     "test": "jest",
     "test:ci": "yarn test --ci",
-    "test:treeshake": "agadoo ./dist/esm/index.js",
+    "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist node_modules",
     "build:components": "rollup -c",
     "compile": "tsc",
