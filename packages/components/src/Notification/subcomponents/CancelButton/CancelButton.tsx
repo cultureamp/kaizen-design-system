@@ -17,3 +17,5 @@ export const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
     <CloseIcon role="presentation" />
   </button>
 )
+
+CancelButton.displayName = "CancelButton"
