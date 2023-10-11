@@ -20,6 +20,7 @@
   &:focus-visible {
     &::after {
       $focus-ring-offset: -3px;
+      border-color: $color-blue-500;
 
       content: "";
       position: absolute;
@@ -31,34 +32,16 @@
     }
   }
 
-  &:after {
+  &:before {
     position: absolute;
     content: "";
     inset: -5px;
     border-radius: 50%;
   }
-}
 
-.default {
   color: $color-gray-500;
 
   &:hover {
     background-color: $color-gray-400;
-  }
-
-  &:focus-visible {
-    &::after {
-      border-color: $color-blue-500;
-    }
-  }
-}
-
-.reversed {
-  color: rgba($color-white-rgb, 0.8);
-
-  &:focus-visible {
-    &::after {
-      border-color: $color-blue-300;
-    }
   }
 }
