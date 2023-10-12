@@ -25,7 +25,7 @@ export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>({
   return (
     <>
       <ThemeContext.Provider value={theme}>
-        <div id="theme-root" style={themeVariables}>
+        <div id="kaizen--theme-root" style={themeVariables}>
           {props.children}
         </div>
       </ThemeContext.Provider>

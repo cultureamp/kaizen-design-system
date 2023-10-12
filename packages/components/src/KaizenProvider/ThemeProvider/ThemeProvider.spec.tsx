@@ -23,7 +23,10 @@ describe("<ThemeProvider />", () => {
     render(<ThemeProvider>hello</ThemeProvider>)
 
     await waitFor(() => {
-      assertThemeIsActive(heartTheme, document.getElementById("theme-root"))
+      assertThemeIsActive(
+        heartTheme,
+        document.getElementById("kaizen--theme-root")
+      )
     })
   })
 
@@ -40,7 +43,10 @@ describe("<ThemeProvider />", () => {
     render(<ThemeProvider theme={customTheme}>hello</ThemeProvider>)
 
     await waitFor(() => {
-      assertThemeIsActive(customTheme, document.getElementById("theme-root"))
+      assertThemeIsActive(
+        customTheme,
+        document.getElementById("kaizen--theme-root")
+      )
     })
   })
 })
