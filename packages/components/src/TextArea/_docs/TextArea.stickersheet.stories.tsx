@@ -28,13 +28,34 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
+      <StickerSheet.Header
+        headings={["Default", "Hover", "Active", "Focus"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Enabled">
           <TextArea reversed={isReversed} />
           <TextArea reversed={isReversed} data-sb-pseudo-styles="hover" />
           <TextArea reversed={isReversed} data-sb-pseudo-styles="active" />
           <TextArea reversed={isReversed} data-sb-pseudo-styles="focus" />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Disabled">
+          <TextArea reversed={isReversed} disabled />
+          <TextArea
+            reversed={isReversed}
+            disabled
+            data-sb-pseudo-styles="hover"
+          />
+          <TextArea
+            reversed={isReversed}
+            disabled
+            data-sb-pseudo-styles="active"
+          />
+          <TextArea
+            reversed={isReversed}
+            disabled
+            data-sb-pseudo-styles="focus"
+          />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
