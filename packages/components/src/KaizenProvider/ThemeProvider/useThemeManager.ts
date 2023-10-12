@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
-import {
-  makeCssVariableDefinitionsMap,
-  Theme as BaseTheme,
-} from "@kaizen/design-tokens"
+import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
+import { Theme as BaseTheme } from "./themes"
 
 type UseThemeManagerReturn<Theme extends BaseTheme = BaseTheme> = {
   theme: Theme

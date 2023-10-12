@@ -1,6 +1,5 @@
 import React, { createContext, useContext } from "react"
-import { Theme as BaseTheme } from "@kaizen/design-tokens"
-import { defaultTheme } from "./themes"
+import { defaultTheme, Theme as BaseTheme } from "./themes"
 import { useThemeManager } from "./useThemeManager"
 
 // We set the generic default value to `any` as SelectContext
