@@ -1,19 +1,25 @@
-import React, { Context, createContext, useContext } from "react"
-
+import React, { createContext, useContext } from "react"
 import { Theme as BaseTheme } from "@kaizen/design-tokens"
-
-import { defaultTheme, Theme } from "./themes"
+import { defaultTheme } from "./themes"
 import { useThemeManager } from "./useThemeManager"
 
-export const ThemeContext: Context<Theme> = createContext<Theme>(defaultTheme)
+// We set the generic default value to `any` as SelectContext
+// is instantiated as a constant which does not accept generics.
+type ThemeContextValue<Theme extends BaseTheme = any> = Theme
+
+export const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 /**
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
  * This allows child react elements to more easily use theme variables, using the {@link useTheme} hook.
  */
-export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>(
-  { theme: userTheme, ...props }: { theme?: Theme; children: React.ReactNode }
-): JSX.Element => {
+export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>({
+  theme: userTheme,
+  ...props
+}: {
+  theme?: Theme
+  children: React.ReactNode
+}): JSX.Element => {
   const { theme } = useThemeManager(userTheme ?? defaultTheme)
 
   return (
@@ -60,4 +66,14 @@ export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>(
   )
 }
 
-export const useTheme = (): Theme => useContext(ThemeContext)
+export const useTheme = <
+  Theme extends BaseTheme = BaseTheme,
+>(): ThemeContextValue<Theme> => {
+  const context = useContext(ThemeContext)
+
+  if (!context) {
+    throw new Error("useTheme must be used within the ThemeContext.Provider")
+  }
+
+  return context
+}

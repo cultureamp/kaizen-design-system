@@ -1,19 +1,12 @@
 import React from "react"
 import { render, waitFor } from "@testing-library/react"
-import {
-  makeCssVariableDefinitionsMap,
-  heartTheme,
-  Theme,
-} from "@kaizen/design-tokens"
+import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
 import { ThemeProvider } from "./ThemeProvider"
+import { Theme, heartTheme } from "./themes"
 
-const assertThemeIsActive = (
-  theme: Theme,
-  rootElement: HTMLElement | null
-): void => {
+const assertThemeIsActive = (theme: Theme, rootElement: HTMLElement): void => {
   const variables = makeCssVariableDefinitionsMap(theme)
   Object.entries(variables).forEach(([key, value]) => {
-    console.info(key, rootElement?.style.getPropertyValue(key))
     expect(rootElement?.style.getPropertyValue(key)).toBe(value)
   })
 }

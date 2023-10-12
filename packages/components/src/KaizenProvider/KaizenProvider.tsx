@@ -9,9 +9,11 @@ export type KaizenProviderProps<Theme extends BaseTheme = BaseTheme> = {
   locale?: string
 }
 
-export const KaizenProvider = (
-  { children, theme, locale = "en" }: KaizenProviderProps
-): JSX.Element => (
+export const KaizenProvider = ({
+  children,
+  theme,
+  locale = "en",
+}: KaizenProviderProps): JSX.Element => (
   <OptionalIntlProvider locale={locale}>
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </OptionalIntlProvider>
