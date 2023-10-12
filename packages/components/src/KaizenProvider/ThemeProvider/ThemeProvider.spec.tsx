@@ -1,5 +1,5 @@
 import React from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
 import { ThemeProvider } from "./ThemeProvider"
 import { Theme, heartTheme } from "./themes"
@@ -18,35 +18,29 @@ const assertThemeIsActive = (
 
 describe("<ThemeProvider />", () => {
   // TODO: JSDom/CSSOM doesn't support CSS variables, as it seems. Figure out a way to test them. Maybe jest or jsdom just needs an upgrade.
-  // eslint-disable-next-line jest/expect-expect
-  it("activates initial theme on construction", async () => {
+  it("activates initial theme on construction", () => {
     render(<ThemeProvider>hello</ThemeProvider>)
 
-    await waitFor(() => {
-      assertThemeIsActive(
-        heartTheme,
-        document.getElementById("kaizen--theme-root")
-      )
-    })
+    const rootElement = document.getElementById("kaizen--theme-root")
+    assertThemeIsActive(heartTheme, rootElement)
+    expect(rootElement?.style.getPropertyValue("--color-purple-800")).toBe(
+      "#2f2438"
+    )
   })
 
-  // eslint-disable-next-line jest/expect-expect
-  it("applies custom theme", async () => {
+  it("applies custom theme", () => {
     const customTheme = {
       ...heartTheme,
       color: {
         ...heartTheme.color,
-        white: "#000",
+        pancake: "#000",
       },
     }
 
     render(<ThemeProvider theme={customTheme}>hello</ThemeProvider>)
 
-    await waitFor(() => {
-      assertThemeIsActive(
-        customTheme,
-        document.getElementById("kaizen--theme-root")
-      )
-    })
+    const rootElement = document.getElementById("kaizen--theme-root")
+    assertThemeIsActive(customTheme, rootElement)
+    expect(rootElement?.style.getPropertyValue("--color-pancake")).toBe("#000")
   })
 })
