@@ -1,3 +1,4 @@
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Text } from "../index"
 
@@ -24,12 +25,5 @@ export const Playground: Story = {
         sourceState: "shown",
       },
     },
-  },
-}
-
-export const Reversed: Story = {
-  args: { color: "white" },
-  parameters: {
-    backgrounds: { default: "Purple 700" },
   },
 }
