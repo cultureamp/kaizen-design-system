@@ -4,7 +4,7 @@ import { CloseIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./RemoveButton.module.scss"
 
-export type RemoveButtonProps = {} & OverrideClassName<
+export type RemoveButtonProps = OverrideClassName<
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">
 >
 
