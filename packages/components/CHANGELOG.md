@@ -1,5 +1,29 @@
 # Change Log
 
+## 1.26.0
+
+### Minor Changes
+
+- [#4111](https://github.com/cultureamp/kaizen-design-system/pull/4111) [`8e5c10a19`](https://github.com/cultureamp/kaizen-design-system/commit/8e5c10a1997c58652c5a42b51e6acdfc6c2dacf9) - - Migrate kaizen-legacy Tag component
+
+### Patch Changes
+
+- [#4133](https://github.com/cultureamp/kaizen-design-system/pull/4133) [`d9d060f73`](https://github.com/cultureamp/kaizen-design-system/commit/d9d060f738a5f5513b378ec349df5993f1b7c7f0) - - Add an icon for AI (Artificial Intelligence)
+
+- [#4154](https://github.com/cultureamp/kaizen-design-system/pull/4154) [`5f2afd593`](https://github.com/cultureamp/kaizen-design-system/commit/5f2afd5933f18dfd3c99ff68adcf546d39e30ce3) - Fix support for tree shaking by:
+
+  - Adding `babel-plugin-pure-static-props` plugin to Rollup config
+  - Adding `@babel/pugin-transform-react-pure-annotations` plugin to Rollup config
+  - Updating components to be tree-shakeable, more detail on [Confluence](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3320647009/Tree+Shaking)
+
+  Addtionally:
+
+  - Replaced `esbuild` with `babel` to streamline tooling
+  - Added a ci check for tree shaking via [Agadoo](https://github.com/Rich-Harris/agadoo)
+  - Moved `react-intl` to peerDep
+  - Added `tslib` to dependencies
+  - Removed `ThemeManager` in favour of `theme` prop on `KaizenProvider` (simplified to remove unused code)
+
 ## 1.25.0
 
 ### Minor Changes
