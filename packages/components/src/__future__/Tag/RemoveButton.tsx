@@ -23,7 +23,7 @@ export const RemoveButton = ({
     )}
     {...restProps}
   >
-    <CloseIcon role="presentation" />
+    <CloseIcon role="presentation" classNameOverride={styles.closeIcon} />
   </button>
 )
 

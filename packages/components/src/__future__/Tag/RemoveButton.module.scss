@@ -39,7 +39,14 @@
     border-radius: 50%;
   }
 
+  .closeIcon {
+    fill: #6d6674; // purple-800 at 0.7 opacity
+  }
+
   &:hover {
+    .closeIcon {
+      fill: $color-purple-800;
+    }
     &.gray {
       background-color: #dcdcdd; // gray-600 at 0.2 opacity
     }
