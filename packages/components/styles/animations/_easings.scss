@@ -1,0 +1,11 @@
+@import "~@kaizen/design-tokens/sass/animation";
+
+$ca-ease-in-out: $animation-easing-function-ease-in-out;
+$ca-ease-in: $animation-easing-function-ease-in;
+$ca-ease-out: $animation-easing-function-ease-out;
+$ca-ease: $animation-easing-function-ease-in-out;
+$ca-default: $animation-easing-function-ease-in-out;
+$ca-linear: $animation-easing-function-linear;
+$ca-bounce-in: $animation-easing-function-bounce-in;
+$ca-bounce-out: $animation-easing-function-bounce-out;
+$ca-bounce-in-out: $animation-easing-function-bounce-in-out;
