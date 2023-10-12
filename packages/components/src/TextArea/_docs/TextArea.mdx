@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { LinkTo } from "~storybook/components/LinkTo"
+import * as TextAreaStories from "./TextArea.stories"
+
+<Meta of={TextAreaStories} />
+
+# TextArea
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/TextArea"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { TextArea } from "@kaizen/components"'
+/>
+
+## Overview
+
+Usually part of compositions such as <LinkTo pageId="components-text-area-field">TextAreaField</LinkTo>
+
+<Canvas of={TextAreaStories.Playground} />
+<Controls of={TextAreaStories.Playground} />
