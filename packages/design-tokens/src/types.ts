@@ -57,25 +57,25 @@ export type Theme = {
       borderStyle: KaizenCSSProperties["borderStyle"]
     }
   }
-  animation: {
-    easingFunction: {
-      easeInOut: string
-      easeIn: string
-      easeOut: string
-      linear: string
-      bounceIn: string
-      bounceOut: string
-      bounceInOut: string
-    }
-    duration: {
-      instant: string
-      immediate: string
-      rapid: string
-      fast: string
-      slow: string
-      deliberate: string
-    }
-  }
+  // animation: {
+  //   easingFunction: {
+  //     easeInOut: string
+  //     easeIn: string
+  //     easeOut: string
+  //     linear: string
+  //     bounceIn: string
+  //     bounceOut: string
+  //     bounceInOut: string
+  //   }
+  //   duration: {
+  //     instant: string
+  //     immediate: string
+  //     rapid: string
+  //     fast: string
+  //     slow: string
+  //     deliberate: string
+  //   }
+  // }
   color: {
     purple: {
       "100": Hex

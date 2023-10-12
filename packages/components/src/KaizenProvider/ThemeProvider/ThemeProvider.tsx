@@ -1,12 +1,9 @@
-import React, {
-  Context,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react"
-import { ThemeManager } from "./ThemeManager"
+import React, { Context, createContext, useContext } from "react"
+
+import { Theme as BaseTheme } from "@kaizen/design-tokens"
+
 import { defaultTheme, Theme } from "./themes"
+import { useThemeManager } from "./useThemeManager"
 
 export const ThemeContext: Context<Theme> = createContext<Theme>(defaultTheme)
 
@@ -14,32 +11,10 @@ export const ThemeContext: Context<Theme> = createContext<Theme>(defaultTheme)
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
  * This allows child react elements to more easily use theme variables, using the {@link useTheme} hook.
  */
-export const ThemeProvider = ({
-  themeManager,
-  ...props
-}: {
-  themeManager?: ThemeManager
-  children: React.ReactNode
-}): JSX.Element => {
-  const [themeManagerInstance] = useState<ThemeManager>(
-    () => themeManager || new ThemeManager(defaultTheme)
-  )
-
-  const [theme, setTheme] = useState<Theme>(
-    themeManagerInstance.getCurrentTheme()
-  )
-
-  useEffect(() => {
-    let cancelled = false
-    const listener = (newTheme: Theme): void => {
-      if (!cancelled) setTheme(newTheme)
-    }
-    themeManagerInstance.addThemeChangeListener(listener)
-    return () => {
-      cancelled = true
-      themeManagerInstance.removeThemeChangeListener(listener)
-    }
-  }, [])
+export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>(
+  { theme: userTheme, ...props }: { theme?: Theme; children: React.ReactNode }
+): JSX.Element => {
+  const { theme } = useThemeManager(userTheme ?? defaultTheme)
 
   return (
     <>

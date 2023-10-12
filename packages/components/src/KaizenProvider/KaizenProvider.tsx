@@ -1,20 +1,19 @@
 import React from "react"
+import { Theme as BaseTheme } from "@kaizen/design-tokens"
 import { OptionalIntlProvider } from "./OptionalIntlProvider"
-import { ThemeProvider, ThemeManager } from "./ThemeProvider"
+import { ThemeProvider } from "./ThemeProvider"
 
-export type KaizenProviderProps = {
+export type KaizenProviderProps<Theme extends BaseTheme = BaseTheme> = {
   children: React.ReactNode
-  themeManager?: ThemeManager
+  theme?: Theme
   locale?: string
 }
 
-export const KaizenProvider = ({
-  children,
-  themeManager,
-  locale = "en",
-}: KaizenProviderProps): JSX.Element => (
+export const KaizenProvider = (
+  { children, theme, locale = "en" }: KaizenProviderProps
+): JSX.Element => (
   <OptionalIntlProvider locale={locale}>
-    <ThemeProvider themeManager={themeManager}>{children}</ThemeProvider>
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </OptionalIntlProvider>
 )
 

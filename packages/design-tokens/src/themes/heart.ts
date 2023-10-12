@@ -2,25 +2,25 @@ import { Theme } from "../types"
 
 export const heartTheme: Theme = {
   themeKey: "heart",
-  animation: {
-    easingFunction: {
-      easeInOut: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
-      easeIn: "cubic-bezier(0.55, 0.085, 0.68, 0.53)",
-      easeOut: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-      linear: "linear",
-      bounceIn: "cubic-bezier(0.485, 0.155, 0.24, 1.245)",
-      bounceOut: "cubic-bezier(0.485, 0.155, 0.515, 0.845)",
-      bounceInOut: "cubic-bezier(0.76, -0.245, 0.24, 1.245)",
-    },
-    duration: {
-      instant: "0ms",
-      immediate: "100ms",
-      rapid: "200ms",
-      fast: "300ms",
-      slow: "400ms",
-      deliberate: "700ms",
-    },
-  },
+  // animation: {
+  //   easingFunction: {
+  //     easeInOut: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
+  //     easeIn: "cubic-bezier(0.55, 0.085, 0.68, 0.53)",
+  //     easeOut: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+  //     linear: "linear",
+  //     bounceIn: "cubic-bezier(0.485, 0.155, 0.24, 1.245)",
+  //     bounceOut: "cubic-bezier(0.485, 0.155, 0.515, 0.845)",
+  //     bounceInOut: "cubic-bezier(0.76, -0.245, 0.24, 1.245)",
+  //   },
+  //   duration: {
+  //     instant: "0ms",
+  //     immediate: "100ms",
+  //     rapid: "200ms",
+  //     fast: "300ms",
+  //     slow: "400ms",
+  //     deliberate: "700ms",
+  //   },
+  // },
   border: {
     solid: {
       borderWidth: "2px",
@@ -269,7 +269,7 @@ export const heartTheme: Theme = {
       fontSize: "1.25rem",
       lineHeight: "1.875rem",
       letterSpacing: "0",
-      maxWidth: "975px",
+      // maxWidth: "975px",
     },
     paragraphBody: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
