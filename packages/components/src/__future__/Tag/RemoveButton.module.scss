@@ -40,7 +40,7 @@
   }
 
   .closeIcon {
-    fill: #6d6674; // purple-800 at 0.7 opacity
+    fill: rgba($color-purple-800-rgb, 0.7);
   }
 
   &:hover {
@@ -48,25 +48,25 @@
       fill: $color-purple-800;
     }
     &.gray {
-      background-color: #dcdcdd; // gray-600 at 0.2 opacity
+      background-color: rgba($color-gray-600-rgb, 0.2);
     }
     &.blue {
-      background-color: #b3d2e8; // blue-500 at 0.3 opacity
+      background-color: rgba($color-blue-500-rgb, 0.3);
     }
     &.green {
-      background-color: #c7e3dc; // green-500 at 0.3 opacity
+      background-color: rgba($color-green-500-rgb, 0.3);
     }
     &.yellow {
-      background-color: #ffdb80; // yellow-500 at 0.5 opacity
+      background-color: rgba($color-yellow-500-rgb, 0.5);
     }
     &.orange {
-      background-color: #f8d3c1; // orange-500 at 0.3 opacity
+      background-color: rgba($color-orange-500-rgb, 0.3);
     }
     &.red {
-      background-color: #efc4cc; // red-500 at 0.3 opacity
+      background-color: rgba($color-red-500-rgb, 0.3);
     }
     &.purple {
-      background-color: #dac7db; // purple-500 at 0.3 opacity
+      background-color: rgba($color-purple-500-rgb, 0.3);
     }
   }
 }
