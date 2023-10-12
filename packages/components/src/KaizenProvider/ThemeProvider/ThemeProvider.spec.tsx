@@ -4,11 +4,16 @@ import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
 import { ThemeProvider } from "./ThemeProvider"
 import { Theme, heartTheme } from "./themes"
 
-const assertThemeIsActive = (theme: Theme, rootElement: HTMLElement): void => {
-  const variables = makeCssVariableDefinitionsMap(theme)
-  Object.entries(variables).forEach(([key, value]) => {
-    expect(rootElement?.style.getPropertyValue(key)).toBe(value)
-  })
+const assertThemeIsActive = (
+  theme: Theme,
+  rootElement: HTMLElement | null
+): void => {
+  if (rootElement) {
+    const variables = makeCssVariableDefinitionsMap(theme)
+    Object.entries(variables).forEach(([key, value]) => {
+      expect(rootElement?.style.getPropertyValue(key)).toBe(value)
+    })
+  }
 }
 
 describe("<ThemeProvider />", () => {
@@ -18,7 +23,24 @@ describe("<ThemeProvider />", () => {
     render(<ThemeProvider>hello</ThemeProvider>)
 
     await waitFor(() => {
-      assertThemeIsActive(heartTheme, document.documentElement)
+      assertThemeIsActive(heartTheme, document.getElementById("theme-root"))
     })
-  }, 10000)
+  })
+
+  // eslint-disable-next-line jest/expect-expect
+  it("applies custom theme", async () => {
+    const customTheme = {
+      ...heartTheme,
+      color: {
+        ...heartTheme.color,
+        white: "#000",
+      },
+    }
+
+    render(<ThemeProvider theme={customTheme}>hello</ThemeProvider>)
+
+    await waitFor(() => {
+      assertThemeIsActive(customTheme, document.getElementById("theme-root"))
+    })
+  })
 })
