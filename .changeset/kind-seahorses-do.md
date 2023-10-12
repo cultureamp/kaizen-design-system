@@ -11,3 +11,4 @@ Addtionally:
 - Replaced `esbuild` with `babel` to streamline tooling
 - Added a ci check for tree shaking via [Agadoo](https://github.com/Rich-Harris/agadoo)
 - Moved `react-intl` to peerDep
+- Removed `ThemeManager` in favour of `theme` prop on `KaizenProvider` (simplified to remove unused code)
