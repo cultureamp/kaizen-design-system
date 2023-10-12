@@ -12,9 +12,13 @@ export const ThemeContext = createContext<ThemeContextValue | null>(null)
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
  * This allows child react elements to more easily use theme variables, using the {@link useTheme} hook.
  */
-export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>(
-  { theme: userTheme, ...props }: { theme?: Theme; children: React.ReactNode }
-): JSX.Element => {
+export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>({
+  theme: userTheme,
+  ...props
+}: {
+  theme?: Theme
+  children: React.ReactNode
+}): JSX.Element => {
   const theme = userTheme ?? defaultTheme
   const themeVariables = makeCssVariableDefinitionsMap(theme)
 
