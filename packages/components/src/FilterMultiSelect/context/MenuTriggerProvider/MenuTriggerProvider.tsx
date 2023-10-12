@@ -60,6 +60,8 @@ export function MenuTriggerProvider({
 export const useMenuTriggerContext = (): MenuTriggerProviderContextType =>
   useContext(MenuTriggerContext)
 
-export const MenuTriggerConsumer = MenuTriggerContext.Consumer
-
-MenuTriggerContext.displayName = "MenuTriggerContext"
+export const MenuTriggerConsumer = ({
+  children,
+}: React.ConsumerProps<MenuTriggerProviderContextType>): JSX.Element => (
+  <MenuTriggerContext.Consumer>{children}</MenuTriggerContext.Consumer>
+)

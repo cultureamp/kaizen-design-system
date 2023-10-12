@@ -9,6 +9,10 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "test:treeshake": {
+      "dependsOn": ["^build"],
+      "inputs": ["dist/**"]
+    },
     "prepublishOnly": {
       "dependsOn": ["^prepublishOnly"],
       "inputs": ["packages/**"],
@@ -21,6 +25,10 @@
       "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
+    },
+    "@kaizen/components#test:treeshake": {
+      "dependsOn": ["@kaizen/components#build"],
+      "inputs": ["dist/**"]
     },
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],

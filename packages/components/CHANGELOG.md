@@ -665,7 +665,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.5.1...@kaizen/components@1.6.0) (2023-03-22)
 
-### Features
+## Features
 
 - css processing ([#3362](https://github.com/cultureamp/kaizen-design-system/issues/3362)) ([38c0fa3](https://github.com/cultureamp/kaizen-design-system/commit/38c0fa3475a5f78cd4f2c9836815b53d65f2d039))
 
@@ -675,7 +675,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.26...@kaizen/components@1.5.0) (2023-03-16)
 
-### Features
+## Features
 
 - **filter:** Add Filter component into the AIO ([#3341](https://github.com/cultureamp/kaizen-design-system/issues/3341)) ([1806853](https://github.com/cultureamp/kaizen-design-system/commit/180685395ee53094f618af7f7292b16d72eb348b))
 
@@ -795,7 +795,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.7...@kaizen/components@1.4.0) (2023-02-20)
 
-### Features
+## Features
 
 - re-export-all-existing-components-from-the-new-aio ([#3285](https://github.com/cultureamp/kaizen-design-system/issues/3285)) ([c9a483d](https://github.com/cultureamp/kaizen-design-system/commit/c9a483db2fe6b21f0b75552dc7b6735df6ae68df))
 
@@ -835,18 +835,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.2.0...@kaizen/components@1.3.0) (2023-02-15)
 
-### Features
+## Features
 
 - 44-processing-tailwind-css ([#3273](https://github.com/cultureamp/kaizen-design-system/issues/3273)) ([4f2ace5](https://github.com/cultureamp/kaizen-design-system/commit/4f2ace55edb1d3b5fc0005b65165fd584357a0d2))
 
 # [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.1.0...@kaizen/components@1.2.0) (2023-02-13)
 
-### Features
+## Features
 
 - **KaizenProvider:** add KaizenProvider to @kaizen/components ([#3239](https://github.com/cultureamp/kaizen-design-system/issues/3239)) ([16819f0](https://github.com/cultureamp/kaizen-design-system/commit/16819f0717dfebd6a938b2784dc84751650f8be4))
 
 # 1.1.0 (2023-01-24)
 
-### Features
+## Features
 
 - add components AIO ([#3229](https://github.com/cultureamp/kaizen-design-system/issues/3229)) ([2b63a37](https://github.com/cultureamp/kaizen-design-system/commit/2b63a3726fafa02c977ba84eedaab4119e40cf51))

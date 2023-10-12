@@ -1,14 +1,13 @@
 - import { ThemeManager, ThemeProvider, defaultTheme } from "@kaizen/design-tokens"
-+ import { defaultTheme } from "@kaizen/design-tokens"
-+ import { KaizenProvider, ThemeManager } from "@kaizen/components"
++ import { KaizenProvider } from "@kaizen/components"
 
-const themeManager = new ThemeManager(defaultTheme)
+- const themeManager = new ThemeManager(defaultTheme)
 
 ...
 
 return(
 -  <ThemeProvider themeManager={themeManager}>
-+  <KaizenProvider themeManager={themeManager}>
++  <KaizenProvider>
      <App />
 +  </KaizenProvider>
 -  </ThemeProvider>

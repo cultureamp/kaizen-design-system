@@ -310,5 +310,3 @@ export const heartTheme: Theme = {
     },
   },
 }
-
-export default heartTheme

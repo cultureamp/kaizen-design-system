@@ -7,38 +7,36 @@ import { Meta } from "@storybook/blocks"
 Out of the box, the `KaizenProvider` utilises the `defaultTheme` from `@kaizen/design-tokens`. However if you want to roll your own theme, we provide a `ThemeManager` function which can apply your custom theme.
 
 ```jsx
-import { ThemeManager } from '@kaizen/components'
-
-export const themeManager = new ThemeManager({
+export const customTheme = {
   themeKey: "custom",
   spacing: {
     md: "1rem",
   },
-});
+};
 
-<KaizenProvider themeManager={themeManager}>
+<KaizenProvider theme={customTheme}>
   <App />
 </KaizenProvider>
 ```
 
 ## How to switch themes
 
-You can use the `setAndApplyTheme` method to change the current theme to either Heart or a customised object.
+You can use any method you want to switch themes, one way is React state.
 
 Example:
 
 ```js
-themeManager.setAndApplyTheme(heartTheme)
+import { defaultTheme } from "@kaizen/components"
+const [useCustomTheme, setUseCustomTheme] = useState(false)
 
-// or make your own modifications
-themeManager.setAndApplyTheme({
-  ...heartTheme,
-  themeKey: "custom",
-  spacing: {
-    ...heartTheme.spacing,
-    md: "1rem",
-  },
-})
+useEffect(() => {
+  // Conditional logic to change the boolean
+  setUseCustomTheme(data ? true : false)
+}, []);
+
+<KaizenProvider theme={useCustomTheme ? customTheme : defaultTheme}>
+  <App />
+</KaizenProvider>
 ```
 
 ## Using the theme in apps
