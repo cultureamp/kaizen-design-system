@@ -10,12 +10,17 @@ export type RemoveButtonProps = {} & OverrideClassName<
 
 export const RemoveButton = ({
   classNameOverride,
+  color = "gray",
   ...restProps
 }: RemoveButtonProps): JSX.Element => (
   <button
     type="button"
     aria-label="clear"
-    className={classnames(styles.removeButton, classNameOverride)}
+    className={classnames(
+      styles.removeButton,
+      styles[color],
+      classNameOverride
+    )}
     {...restProps}
   >
     <CloseIcon role="presentation" />
