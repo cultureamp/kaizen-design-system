@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react"
 import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
 import { defaultTheme, Theme as BaseTheme } from "./themes"
 
-// We set the generic default value to `any` as SelectContext
+// We set the generic default value to `any` as ThemeContext
 // is instantiated as a constant which does not accept generics.
 type ThemeContextValue<Theme extends BaseTheme = any> = Theme
 
