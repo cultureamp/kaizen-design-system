@@ -8,13 +8,12 @@ import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./TextArea.module.scss"
 
-export interface TextAreaProps
-  extends OverrideClassName<TextareaHTMLAttributes<HTMLTextAreaElement>> {
+export type TextAreaProps = {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   status?: "default" | "error" | "caution"
   autogrow?: boolean
   reversed?: boolean
-}
+} & OverrideClassName<TextareaHTMLAttributes<HTMLTextAreaElement>>
 
 export const TextArea = ({
   textAreaRef: propsTextAreaRef,
