@@ -8,6 +8,7 @@ const user = userEvent.setup()
 describe("<TextArea />", () => {
   it("renders a value when component is controlled", () => {
     const { queryByText } = render(
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       <TextArea value="Some field value" onChange={() => {}} />
     )
     expect(queryByText("Some field value")).toBeTruthy()
