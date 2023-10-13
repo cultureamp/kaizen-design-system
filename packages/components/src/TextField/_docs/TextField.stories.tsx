@@ -81,9 +81,11 @@ export const Validation: Story = {
   },
 }
 
-export const Inline: Story = {
-  args: { inline: true },
-}
+// Inline should be documented but currently the styles for <FieldGroup inline /> don't match expectations
+// ie. it appears block level no matter what you do.
+// export const Inline: Story = {
+//   args: { inline: true },
+// }
 
 export const Reversed: Story = {
   args: { reversed: true },
