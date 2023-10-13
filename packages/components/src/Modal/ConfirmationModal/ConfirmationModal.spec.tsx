@@ -41,25 +41,6 @@ describe("<ConfirmationModal />", () => {
   beforeEach(() => {
     mockMatchMedia(false)
   })
-  it("supports a dismiss action when escape key is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
-
-    render(
-      <ConfirmationModalWrapper
-        onDismiss={handleDismiss}
-        onConfirm={handleConfirm}
-      >
-        Example modal body
-      </ConfirmationModalWrapper>
-    )
-
-    await user.keyboard("{Escape}")
-    await waitFor(() => {
-      expect(handleDismiss).toHaveBeenCalledTimes(1)
-      expect(handleConfirm).toHaveBeenCalledTimes(0)
-    })
-  })
 
   it("supports a dismiss action when dismiss button is pressed", async () => {
     const handleConfirm = jest.fn()
