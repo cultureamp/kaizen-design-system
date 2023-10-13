@@ -7,10 +7,14 @@ const user = userEvent.setup()
 
 const ExampleModalWithState = (props: {
   onAfterLeave?: () => void
+  onEscapeKeyup?: () => void
   children: React.ReactNode
 }): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState<boolean>(true)
-  const handleDismiss = (): void => setIsOpen(false)
+  const handleDismiss = (): void => {
+    setIsOpen(false)
+    props.onEscapeKeyup?.()
+  }
 
   return (
     <GenericModal
@@ -28,26 +32,23 @@ const ExampleModalWithState = (props: {
 describe("<GenericModal />", () => {
   it("renders an open modal with the provided content", () => {
     const { getByText } = render(
-      <GenericModal isOpen={true}>
-        Example
-      </GenericModal>
+      <GenericModal isOpen={true}>Example</GenericModal>
     )
     expect(getByText("Example")).toBeTruthy()
   })
 
   it("does not render a closed modal with the provided content", () => {
     const { getByText } = render(
-      <GenericModal isOpen={false}>
-        Example
-      </GenericModal>
+      <GenericModal isOpen={false}>Example</GenericModal>
     )
     expect(() => getByText("Example")).toThrow()
   })
 
   it("closes the modal when escape key is pressed", async () => {
+    const handleDismiss = jest.fn()
 
-    const {getByTestId} = render(
-      <ExampleModalWithState>
+    const { getByTestId } = render(
+      <ExampleModalWithState onEscapeKeyup={handleDismiss}>
         Example
       </ExampleModalWithState>
     )
@@ -62,6 +63,7 @@ describe("<GenericModal />", () => {
 
     await waitFor(() => {
       expect(modal).not.toBeInTheDocument()
+      expect(handleDismiss).toHaveBeenCalledTimes(1)
     })
   })
 
@@ -82,7 +84,6 @@ describe("<GenericModal />", () => {
       expect(handleDismiss).toHaveBeenCalledTimes(1)
     })
   })
-
 
   it("calls onAfterLeave after it closes", async () => {
     const mockOnAfterLeave = jest.fn()

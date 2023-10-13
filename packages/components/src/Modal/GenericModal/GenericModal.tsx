@@ -1,5 +1,6 @@
 import React, { HTMLAttributes, useId, useState } from "react"
 import { createPortal } from "react-dom"
+import { warn } from "console"
 import { Transition } from "@headlessui/react"
 import FocusLock from "react-focus-lock"
 import { ModalContext, ModalContextType } from "./subcomponents/ModalContext"
@@ -13,21 +14,21 @@ export type GenericModalProps = {
   onEscapeKeyup?: (event: KeyboardEvent) => void
   onOutsideModalClick?: (event: React.MouseEvent) => void
   onAfterLeave?: () => void
-} & ModalContextType &
+} & Omit<ModalContextType, "labelledByID" | "describedByID"> &
   HTMLAttributes<HTMLDivElement>
 
 export const GenericModal = ({
   id: propsId,
   children,
   isOpen = true,
-  labelledByID,
-  describedByID,
   focusLockDisabled,
   onEscapeKeyup,
   onOutsideModalClick,
   onAfterLeave: propsOnAfterLeave,
 }: GenericModalProps): JSX.Element => {
   const id = propsId ?? useId()
+  const labelledByID = useId()
+  const describedByID = useId()
   const [scrollLayer, setScrollLayer] = useState<HTMLDivElement | null>(null)
   const [modalLayer, setModalLayer] = useState<HTMLDivElement | null>(null)
 
@@ -47,6 +48,28 @@ export const GenericModal = ({
     }
   }
 
+  const focusAccessibleLabel = (): void => {
+    if (modalLayer) {
+      const labelElement: HTMLElement | null =
+        document.getElementById(labelledByID)
+      if (labelElement) {
+        labelElement.focus()
+      }
+    }
+  }
+
+  const a11yWarn = (): void => {
+    if (!modalLayer) return
+    // Ensure that consumers have provided an element that labels the modal
+    // to meet ARIA accessibility guidelines.
+    if (!document.getElementById(labelledByID)) {
+      warn(
+        `When using the Modal component, you must provide a label for the modal.
+        Make sure you have a <ModalLabel /> component with content that labels the modal.`
+      )
+    }
+  }
+
   const preventBodyScroll = (): void => {
     const hasScrollbar =
       window.innerWidth > document.documentElement.clientWidth
@@ -61,6 +84,8 @@ export const GenericModal = ({
 
   const onAfterEnterHandler = (): void => {
     scrollModalToTop()
+    focusAccessibleLabel()
+    a11yWarn()
   }
 
   const onBeforeEnterHandler = (): void => {

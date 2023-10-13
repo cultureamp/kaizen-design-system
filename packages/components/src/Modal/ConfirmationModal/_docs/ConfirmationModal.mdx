@@ -1,0 +1,39 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as ConfirmationModalStories from "./ConfirmationModal.stories"
+
+<Meta of={ConfirmationModalStories} />
+
+# ConfirmationModal
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/ConfirmationModal"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { ConfirmationModal } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={ConfirmationModalStories.Playground} />
+<Controls of={ConfirmationModalStories.Playground} />
+
+## API
+
+{/* @todo: Describe props and provide example stories. */}
+<DocsStory of={ConfirmationModalStories.Reversed} />
