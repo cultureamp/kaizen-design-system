@@ -16,7 +16,7 @@ export type TextAreaFieldProps = {
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081895966/Text+Area+Field Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-text-area-field--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-text-area-field--docs Storybook}
  */
 export const TextAreaField = ({
   labelText,
