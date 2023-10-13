@@ -26,7 +26,6 @@ const CalendarSingleExample = (
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <>
       <StickerSheet heading="Calendars - Day">
         <StickerSheet.Header headings={["Hover", "Focus", "Disabled"]} />

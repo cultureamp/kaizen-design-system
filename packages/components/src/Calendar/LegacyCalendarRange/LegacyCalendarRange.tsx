@@ -6,10 +6,10 @@ import {
   Matcher,
 } from "react-day-picker"
 import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
-import { legacyCalendarRangeClasses } from "./CalendarClassNames"
-import { DayOfWeek } from "./enums"
-import { isInvalidDate } from "./utils/isInvalidDate"
-import { isValidWeekStartsOn } from "./utils/isValidWeekStartsOn"
+import { legacyCalendarRangeClasses } from "../CalendarClassNames"
+import { DayOfWeek } from "../enums"
+import { isInvalidDate } from "../utils/isInvalidDate"
+import { isValidWeekStartsOn } from "../utils/isValidWeekStartsOn"
 
 export type LegacyCalendarRangeElement = HTMLDivElement
 
