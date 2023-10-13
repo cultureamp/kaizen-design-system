@@ -17,7 +17,7 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
   /**
    * A short example of input text. For context or additional information use the `description` prop
    */
-  labelText: string | React.ReactNode
+  labelText: React.ReactNode
   inline?: boolean
   icon?: JSX.Element
   /**
