@@ -8,7 +8,7 @@ import {
 import { TextAreaField } from "../index"
 
 export default {
-  title: "Components/Text Area Field",
+  title: "Components/Text Input controls/Text Area Field",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
