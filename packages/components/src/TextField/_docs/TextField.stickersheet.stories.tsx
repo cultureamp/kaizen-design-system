@@ -76,9 +76,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet.Body>
     </StickerSheet>
   ),
-  /** @note: Only required if you have pseudo states, otherwise this can be removed */
   parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
     pseudo: {
       hover: '[data-sb-pseudo-styles="hover"]',
       active: '[data-sb-pseudo-styles="active"]',
@@ -97,7 +95,6 @@ export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
   parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
     backgrounds: { default: "Purple 700" },
   },
@@ -108,7 +105,6 @@ export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
   },
