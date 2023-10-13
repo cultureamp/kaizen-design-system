@@ -7,9 +7,21 @@ const meta = {
   component: RadioField,
   args: {
     labelText: "Radio label",
-    name: "radio",
+    name: "radio-group",
     value: "radio-value",
     selectedStatus: false,
+  },
+  argTypes: {
+    name: {
+      description:
+        "Unique identifier for the group this RadioField belongs to. Required for keyboard navigation of the group. See also [Defining a radio group](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#defining_a_radio_group) on MDN. E.g. the question ID for which this is one possible answer to.",
+      table: { type: { summary: "string" } },
+    },
+    value: {
+      description:
+        "The value for this form field when this radio button is selected.",
+      table: { type: { summary: "string" } },
+    },
   },
 } satisfies Meta<typeof RadioField>
 
