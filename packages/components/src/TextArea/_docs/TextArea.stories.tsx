@@ -9,7 +9,7 @@ const meta = {
       config: {
         rules: [
           {
-            // Built with no label on purpose, to be used within `TextField` where label is present
+            // Built with no label on purpose, to be used within `TextAreaField` where label is present
             id: "label",
             enabled: false,
           },
