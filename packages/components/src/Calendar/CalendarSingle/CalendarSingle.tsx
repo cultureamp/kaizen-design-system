@@ -3,18 +3,17 @@ import { enAU } from "date-fns/locale"
 import { DayPicker, DayPickerSingleProps } from "react-day-picker"
 import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { calendarSingleClasses } from "../CalendarClassNames"
+import { calendarSingleClasses } from "../calendarClassNames"
 import { DayOfWeek } from "../enums"
 import { isInvalidDate } from "../utils/isInvalidDate"
 import { isValidWeekStartsOn } from "../utils/isValidWeekStartsOn"
 
 export type CalendarSingleElement = HTMLDivElement
 
-export interface CalendarSingleProps
-  extends OverrideClassName<Omit<DayPickerSingleProps, "mode">> {
+export type CalendarSingleProps = {
   id?: string
   onMount?: (calendarElement: CalendarSingleElement) => void
-}
+} & OverrideClassName<Omit<DayPickerSingleProps, "mode">>
 
 export const CalendarSingle = ({
   id,
