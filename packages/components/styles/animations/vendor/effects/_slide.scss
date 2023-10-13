@@ -3,6 +3,8 @@
 /// @param {Keyword} $direction [null] - Direction to move. Can be `up`, `right`, `down`, or `left`. By default `left` and `right` for `in` and `out` states respectively.
 /// @param {Number} $amount [100%] - Distance to move. Can be any CSS length unit.
 /// @return {Map} A keyframes map that can be used with the `generate-keyframes()` mixin.
+
+/* prettier-ignore */
 @function slide($state: in, $direction: null, $amount: 100%) {
   $from: $amount;
   $to: 0;

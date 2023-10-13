@@ -99,6 +99,8 @@
 ///
 /// @return {*}
 ///
+
+/* prettier-ignore */
 @function -mui-safe-call($func, $args...) {
   @if -mui-assert-function($func) {
     @return call(-mui-safe-get-function($func), $args...);
