@@ -1,0 +1,37 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CalendarRangeStories from "./CalendarRange.stories"
+
+<Meta of={CalendarRangeStories} />
+
+# Calendar Range
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Calendar/CalendarRange"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { CalendarRange } from "@kaizen/components"'
+/>
+
+## Overview
+
+Subcomponent for date range pickers.
+
+<Canvas of={CalendarRangeStories.Playground} />
+<Controls of={CalendarRangeStories.Playground} />
+
+## API
+
+Coming soon.

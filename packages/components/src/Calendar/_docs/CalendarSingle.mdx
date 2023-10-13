@@ -1,0 +1,37 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CalendarSingleStories from "./CalendarSingle.stories"
+
+<Meta of={CalendarSingleStories} />
+
+# Calendars
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Calendar/CalendarSingle"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { CalendarSingle } from "@kaizen/components"'
+/>
+
+## Overview
+
+Subcomponent for date pickers.
+
+<Canvas of={CalendarSingleStories.Playground} />
+<Controls of={CalendarSingleStories.Playground} />
+
+## API
+
+Coming soon.
