@@ -1,18 +1,33 @@
 import React from "react"
-import { render } from "@testing-library/react"
-import { TextArea, TextAreaProps } from "./TextArea"
+import { render, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { TextArea } from "./TextArea"
 
-const TextAreaWrapper = (customProps?: Partial<TextAreaProps>): JSX.Element => (
-  <TextArea
-    exampleRequiredString="Hello!" /** @todo: Add default values for your required props (override them with customProps if needed) */
-    {...customProps}
-  />
-)
+const user = userEvent.setup()
 
 describe("<TextArea />", () => {
-  it("does something", () => {
-    render(<TextAreaWrapper />)
-    /** @todo: Fill in test case */
-    expect(true).toBe(false)
+  it("renders a value when component is controlled", () => {
+    const { queryByText } = render(
+      <TextArea value="Some field value" onChange={() => {}} />
+    )
+    expect(queryByText("Some field value")).toBeTruthy()
+  })
+
+  it("renders a default value when component is uncontrolled", () => {
+    const { queryByText } = render(<TextArea defaultValue="default value" />)
+
+    expect(queryByText("Some field value")).toBeFalsy()
+    expect(queryByText("default value")).toBeTruthy()
+  })
+
+  it("calls the `onChange` event when the value is updated", async () => {
+    const mockFn = jest.fn()
+    const { getByRole } = render(<TextArea onChange={mockFn} />)
+
+    await user.type(getByRole("textbox"), "Hello")
+
+    await waitFor(() => {
+      expect(mockFn).toBeCalledTimes(5)
+    })
   })
 })

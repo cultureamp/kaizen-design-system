@@ -1,18 +1,25 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import { TextAreaField, TextAreaFieldProps } from "./TextAreaField"
+import { TextAreaField } from "./TextAreaField"
 
-const TextAreaFieldWrapper = (customProps?: Partial<TextAreaFieldProps>): JSX.Element => (
-  <TextAreaField
-    exampleRequiredString="Hello!" /** @todo: Add default values for your required props (override them with customProps if needed) */
-    {...customProps}
-  />
-)
+const defaultProps = {
+  id: "text-area-field-test",
+  labelText: "Label",
+}
 
 describe("<TextAreaField />", () => {
-  it("does something", () => {
-    render(<TextAreaFieldWrapper />)
-    /** @todo: Fill in test case */
-    expect(true).toBe(false)
+  it("renders empty aria-describedby when no description or validation message provided", () => {
+    const { getByRole } = render(
+      <TextAreaField
+        {...defaultProps}
+        description={undefined}
+        validationMessage={undefined}
+      />
+    )
+    const ariaDescribedBy = getByRole("textbox", {
+      description: "",
+    })
+
+    expect(ariaDescribedBy).toBeInTheDocument()
   })
 })
