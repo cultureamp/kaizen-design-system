@@ -72,11 +72,15 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "react-animate-height": "^3.2.2",
+    "react-day-picker": "8.4.1",
     "react-focus-on": "^3.9.1",
     "react-popper": "^2.3.0",
     "react-textfit": "^1.1.1",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
+  },
+  "dependenciesComments": {
+    "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
