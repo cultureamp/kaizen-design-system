@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { GenericModal } from "../index"
 
 const meta = {
-  title: "Components/GenericModal",
+  title: "Components/Modals/GenericModal",
   component: GenericModal,
   args: {
     children: "Example content",
@@ -44,11 +44,3 @@ export const Playground: Story = {
     },
   },
 }
-
-/**
- * @todo: Add your description here and use <Description /> in the MDX,
- * or write directly in the MDX.
- */
-// export const Reversed: Story = {
-//   args: { isReversed: true },
-// }
