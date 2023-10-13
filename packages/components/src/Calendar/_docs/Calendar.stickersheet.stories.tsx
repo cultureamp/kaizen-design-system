@@ -17,7 +17,7 @@ export default {
 } satisfies Meta
 
 const CalendarSingleExample = (
-  props: Partial<CalendarSingleProps> & { id: CalendarSingleProps["id"] }
+  props: Partial<CalendarSingleProps>
 ): JSX.Element => (
   <div data-testid={props.id}>
     <CalendarSingle defaultMonth={new Date("2021-09-05")} {...props} />
@@ -31,14 +31,13 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Header headings={["Hover", "Focus", "Disabled"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
-            <CalendarSingleExample id="default-hover" />
-            <CalendarSingleExample id="default-focus" />
+            <CalendarSingleExample id="id--calendar--hover" />
+            <CalendarSingleExample id="id--calendar--focus" />
             <CalendarSingleExample
               disabled={[
                 new Date("2021-09-15"),
                 { after: new Date("2021-09-17") },
               ]}
-              id="disabled-default"
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -48,17 +47,14 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Header headings={["Default", "Hover", "Focus"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
+            <CalendarSingleExample selected={new Date("2021-09-05")} />
             <CalendarSingleExample
               selected={new Date("2021-09-05")}
-              id="selected-default"
+              id="id--calendar-selected--hover"
             />
             <CalendarSingleExample
               selected={new Date("2021-09-05")}
-              id="selected-hover"
-            />
-            <CalendarSingleExample
-              selected={new Date("2021-09-05")}
-              id="selected-focus"
+              id="id--calendar-selected--focus"
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -70,16 +66,16 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row>
             <CalendarSingleExample
               defaultMonth={new Date("2022-05-01")}
-              id="today-default"
+              id="id--calendar-today--default"
             />
             <CalendarSingleExample
               defaultMonth={new Date("2022-05-01")}
-              id="today-selected"
+              id="id--calendar-today--selected"
               selected={new Date("2022-05-01")}
             />
             <CalendarSingleExample
               defaultMonth={new Date("2022-05-01")}
-              id="today-disabled"
+              id="id--calendar-today--disabled"
               selected={new Date("2022-05-01")}
               disabled={[new Date("2022-05-01")]}
             />
@@ -91,8 +87,8 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Header headings={["Hover", "Focus"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
-            <CalendarSingleExample id="navigation-hover" />
-            <CalendarSingleExample id="navigation-focus" />
+            <CalendarSingleExample id="id--calendar-navigation--hover" />
+            <CalendarSingleExample id="id--calendar-navigation--focus" />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
@@ -123,12 +119,9 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet>
     </>
   ),
-  /** @note: Only required if you have pseudo states, otherwise this can be removed */
   parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
     pseudo: {
       hover: '[data-sb-pseudo-styles="hover"]',
-      active: '[data-sb-pseudo-styles="active"]',
       focus: '[data-sb-pseudo-styles="focus"]',
       focusVisible: '[data-sb-pseudo-styles="focus"]',
     },
@@ -148,7 +141,11 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
     })
   }
 
-  const todayCalendarIds = ["today-default", "today-selected", "today-disabled"]
+  const todayCalendarIds = [
+    "id--calendar-today--default",
+    "id--calendar-today--selected",
+    "id--calendar-today--disabled",
+  ]
 
   todayCalendarIds.forEach(id => {
     getElementWithinCalendar(id, "1st May (Sunday)").classList.add(
@@ -156,18 +153,41 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
     )
   })
 
-  const calendars = [
-    { row: "default", buttonDescription: "5th September (Sunday)" },
-    { row: "selected", buttonDescription: "5th September (Sunday)" },
-    { row: "navigation", buttonDescription: "Go to previous month" },
+  const calendarsHover = [
+    { id: "id--calendar--hover", buttonDescription: "5th September (Sunday)" },
+    {
+      id: "id--calendar-selected--hover",
+      buttonDescription: "5th September (Sunday)",
+    },
+    {
+      id: "id--calendar-navigation--hover",
+      buttonDescription: "Go to previous month",
+    },
   ]
 
-  calendars.forEach(({ row, buttonDescription }) => {
-    getElementWithinCalendar(`${row}-hover`, buttonDescription).classList.add(
-      "story__datepicker__calendar--hover"
+  calendarsHover.forEach(({ id, buttonDescription }) => {
+    getElementWithinCalendar(id, buttonDescription).setAttribute(
+      "data-sb-pseudo-styles",
+      "hover"
     )
-    getElementWithinCalendar(`${row}-focus`, buttonDescription).classList.add(
-      "story__datepicker__calendar--focus"
+  })
+
+  const calendarsFocus = [
+    { id: "id--calendar--focus", buttonDescription: "5th September (Sunday)" },
+    {
+      id: "id--calendar-selected--focus",
+      buttonDescription: "5th September (Sunday)",
+    },
+    {
+      id: "id--calendar-navigation--focus",
+      buttonDescription: "Go to previous month",
+    },
+  ]
+
+  calendarsFocus.forEach(({ id, buttonDescription }) => {
+    getElementWithinCalendar(id, buttonDescription).setAttribute(
+      "data-sb-pseudo-styles",
+      "focus"
     )
   })
 }

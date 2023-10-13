@@ -7,20 +7,16 @@
 $button-border-radius: 3px;
 $rdp-cell-size: 40px;
 
-$story-className--calendar--hover: ":global(.story__datepicker__calendar--hover)";
-$story-className--calendar--focus: ":global(.story__datepicker__calendar--focus)";
-
-$selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus}";
-
 %focus-ring {
   position: relative;
 
-  &:focus,
-  #{$selectors--button-focus} {
+  &:focus {
     outline: none;
   }
 
-  #{$selectors--button-focus} {
+  &:focus-visible {
+    outline: none;
+
     &::after {
       $focus-ring-offset: calc(
         -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
@@ -37,7 +33,7 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
 %focus-ring--enabled {
   @extend %focus-ring;
 
-  #{$selectors--button-focus} {
+  &:focus-visible {
     &::after {
       border: $border-focus-ring-border-width $border-focus-ring-border-style
         $color-blue-500;
@@ -93,13 +89,12 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
   border: $border-solid-border-width $border-solid-border-style transparent;
   border-radius: $button-border-radius;
 
-  &:hover,
-  &#{$story-className--calendar--hover} {
+  &:hover {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
 
-  #{$selectors--button-focus} {
+  &:focus-visible {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
@@ -159,13 +154,12 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
   padding: calc(#{$spacing-md} / 3) 0.625rem;
   color: $color-purple-800;
 
-  &:hover,
-  &#{$story-className--calendar--hover} {
+  &:hover {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
 
-  #{$selectors--button-focus} {
+  &:focus-visible {
     background-color: $color-blue-100;
     color: $color-blue-500;
   }
@@ -181,8 +175,7 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
   color: $color-white;
 
   &:hover,
-  &#{$story-className--calendar--hover},
-  #{$selectors--button-focus} {
+  &:focus-visible {
     background-color: $color-blue-400;
     color: $color-white;
   }
@@ -198,7 +191,7 @@ $selectors--button-focus: "&:focus-visible, &#{$story-className--calendar--focus
   color: rgba($color-purple-800-rgb, 0.3);
   opacity: 100%;
 
-  #{$selectors--button-focus} {
+  &:focus-visible {
     color: rgba($color-purple-800-rgb, 0.3);
     background-color: transparent;
     opacity: 100%;
