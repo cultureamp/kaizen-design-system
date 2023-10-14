@@ -18513,10 +18513,15 @@ to-vfile@^7.0.0:
     is-buffer "^2.0.0"
     vfile "^5.1.0"
 
-tocbot@^4.20.1, tocbot@^4.21.1:
+tocbot@^4.20.1:
   version "4.21.1"
   resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.21.1.tgz#7b667bef1c3ea1a07e4f400b742aa71e7e7e5ba0"
   integrity sha512-IfajhBTeg0HlMXu1f+VMbPef05QpDTsZ9X2Yn1+8npdaXsXg/+wrm9Ze1WG5OS1UDC3qJ5EQN/XOZ3gfXjPFCw==
+
+tocbot@^4.21.2:
+  version "4.21.2"
+  resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.21.2.tgz#7ae513d73dddb80f126724160bd6f72bf8638edb"
+  integrity sha512-R5Muhi/TUu4i4snWVrMgNoXyJm2f8sJfdgIkQvqb+cuIXQEIMAiWGWgCgYXHqX4+XiS/Bnm7IYZ9Zy6NVe6lhw==
 
 toidentifier@1.0.1:
   version "1.0.1"
