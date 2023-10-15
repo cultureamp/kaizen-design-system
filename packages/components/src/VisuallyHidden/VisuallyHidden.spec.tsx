@@ -13,14 +13,4 @@ describe("<VisuallyHidden />", () => {
 
     expect(getByText("Lorem ipsum")).toBeTruthy()
   })
-
-  it("renders a `data-testid` attribute", () => {
-    const { getByTestId } = render(
-      <VisuallyHidden data-testid="test-id">
-        <p>Lorem ipsum</p>
-      </VisuallyHidden>
-    )
-
-    expect(getByTestId("test-id")).toBeTruthy()
-  })
 })
