@@ -1,15 +1,15 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { RemoveButton } from "./subcomponents/RemoveButton"
+import {
+  RemoveButton,
+  RemoveButtonBaseProps,
+} from "./subcomponents/RemoveButton"
 import { Tag, TagProps } from "./Tag"
 import styles from "./RemoveableTag.module.scss"
 
 export type RemoveableTagProps = {
-  removeButtonProps: {
-    "aria-label": string
-    onClick: () => void
-  }
+  removeButtonProps: RemoveButtonBaseProps
 } & TagProps &
   OverrideClassName<HTMLAttributes<HTMLSpanElement>>
 
@@ -26,8 +26,7 @@ export const RemoveableTag = ({
     color={color}
   >
     {children}
-
-    <RemoveButton color={color} onClick={() => removeButtonProps.onClick()} />
+    <RemoveButton color={color} onClick={removeButtonProps.onClick} />
   </Tag>
 )
 

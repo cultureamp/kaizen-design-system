@@ -13,25 +13,32 @@ type RemoveButtonColor =
   | "red"
   | "purple"
 
+export type RemoveButtonBaseProps = {
+  color: RemoveButtonColor
+  ariaLabel: string
+  onClick: () => void
+}
 export type RemoveButtonProps = OverrideClassName<
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "color"> & {
-    color: RemoveButtonColor
-  }
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "color"> &
+    RemoveButtonBaseProps
 >
 
 export const RemoveButton = ({
   classNameOverride,
   color = "gray",
+  ariaLabel,
+  onClick,
   ...restProps
 }: RemoveButtonProps): JSX.Element => (
   <button
     type="button"
-    aria-label="clear"
+    aria-label={ariaLabel}
     className={classnames(
       styles.removeButton,
       styles[color],
       classNameOverride
     )}
+    onClick={onClick}
     {...restProps}
   >
     <CloseIcon role="presentation" classNameOverride={styles.closeIcon} />
