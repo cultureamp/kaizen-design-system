@@ -82,7 +82,7 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal Guidance} |
- * {@link https://cultureamp.design/?path=/docs/components-modals-confirmation-modal--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-modals-confirmationmodal--docs Storybook}
  */
 export const ConfirmationModal = ({
   isOpen,

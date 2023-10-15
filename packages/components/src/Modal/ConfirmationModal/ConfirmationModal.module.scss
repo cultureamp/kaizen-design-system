@@ -1,9 +1,171 @@
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "../GenericModal/GenericModal.module.scss";
 
-.confirmationModal {
-  color: $color-purple-800;
+$dt-positive-header-background: $color-green-100;
+$dt-informative-header-background: $color-blue-100;
+$dt-negative-header-background: $color-red-100;
+$dt-cautionary-header-background: $color-yellow-100;
+$dt-heading-text-color: $color-purple-800;
+$dt-cautionary-heading-text-color: $color-purple-800;
+$dt-assertive-header-background: $color-orange-100;
+
+.modal {
+  @extend .genericModal;
+  min-width: 300px;
+  max-width: 600px;
 }
 
-.isReversed {
-  color: $color-yellow-600;
+.header {
+  color: $color-white;
+  text-align: left;
+  border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
+
+  &.padded {
+    padding: $spacing-md $spacing-lg;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      padding: $spacing-md;
+    }
+  }
+
+  // override Murmur global styles :(
+  h1 {
+    color: $dt-heading-text-color;
+  }
+}
+
+.iconContainer {
+  position: relative;
+}
+
+.positiveHeader {
+  background-color: $dt-positive-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-green-500;
+  }
+}
+
+.assertiveHeader {
+  background-color: $dt-assertive-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-orange-500;
+  }
+}
+
+.informativeHeader {
+  background-color: $dt-informative-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-blue-500;
+  }
+}
+
+.negativeHeader {
+  background-color: $dt-negative-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-red-500;
+  }
+}
+
+.cautionaryHeader {
+  background-color: $dt-cautionary-header-background;
+
+  .spotIcon,
+  .svgIcon > svg {
+    color: $color-yellow-500;
+  }
+}
+
+.positiveHeader,
+.informativeHeader,
+.negativeHeader,
+.cautionaryHeader,
+.assertiveHeader {
+  display: grid;
+  grid-template-columns: 0.2fr 2fr;
+  align-items: center;
+
+  .iconContainer {
+    align-self: flex-start;
+
+    @media (min-width: $layout-breakpoints-medium) {
+      align-self: center;
+    }
+  }
+
+  .spotIcon,
+  .svgIcon > svg {
+    width: 30px;
+    height: 30px;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      margin-right: 0.9375rem;
+      position: relative;
+      top: 0.125rem;
+    }
+  }
+
+  &.prominent {
+    grid-template-columns: 1.1fr 2fr;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      display: flex;
+      flex-direction: column;
+      align-content: flex-start;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .iconContainer {
+      position: absolute;
+      top: 8%;
+
+      @media (max-width: $layout-breakpoints-medium) {
+        position: relative;
+        top: 0;
+        margin-bottom: $spacing-sm;
+      }
+    }
+
+    .spotIcon,
+    .svgIcon > svg {
+      width: 155px;
+      height: 155px;
+      margin: 0 auto;
+      color: $color-purple-800;
+
+      @media (max-width: $layout-breakpoints-medium) {
+        width: 86px;
+        height: 86px;
+      }
+    }
+  }
+}
+
+.prominent {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  align-items: center;
+
+  @media (max-width: $layout-breakpoints-medium) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.padded {
+  padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+
+  @media (max-width: $layout-breakpoints-medium) {
+    padding: $spacing-md;
+  }
 }
