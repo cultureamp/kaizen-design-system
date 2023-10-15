@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
-    "@cultureamp/frontend-apis": "^8.0.3",
+    "@cultureamp/frontend-apis": "^8.1.0",
     "@cultureamp/i18n-react-intl": "^2.1.1",
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.1",

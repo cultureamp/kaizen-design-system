@@ -1681,10 +1681,10 @@
     cross-fetch "^3.1.5"
     node-fetch "^2.6.7"
 
-"@cultureamp/frontend-apis@^8.0.3":
-  version "8.0.3"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/8.0.3/cd6b9e9966e8e844c87f73e31c2d545d52bdf5ac#cd6b9e9966e8e844c87f73e31c2d545d52bdf5ac"
-  integrity sha512-RpRhu8QlP6QLegoT8wHGyR+ZrwoPTc0tVxlDLJDVpyf/iKI6v2+NvudZXErYfNszCfuVKcIxZ3F4KfAMjsShUQ==
+"@cultureamp/frontend-apis@^8.1.0":
+  version "8.1.0"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/8.1.0/d47139a91199f83391875aab7c4b6e56377214b0#d47139a91199f83391875aab7c4b6e56377214b0"
+  integrity sha512-svK0oSAH8MDZOsbEeU61cIDAoH9ELx1wehCRXzPyrY8LD4cntk7lkpsGn57IKNJIToNQQQiu/TcE8nGajGeCAg==
   dependencies:
     "@cultureamp/fetch-sgw" "^2.0.0"
     "@cultureamp/frontend-env" "^2.0.11"
