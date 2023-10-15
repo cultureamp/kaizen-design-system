@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { RemoveButton } from "./RemoveButton"
+import { RemoveButton } from "./subcomponents/RemoveButton"
 import { Tag, TagProps } from "./Tag"
 import styles from "./RemoveableTag.module.scss"
 
