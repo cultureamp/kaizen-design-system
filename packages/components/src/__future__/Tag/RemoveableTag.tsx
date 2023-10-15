@@ -14,13 +14,13 @@ export type RemoveableTagProps = {
 export const RemoveableTag = ({
   children,
   classNameOverride,
-  icon,
   color = "gray",
   removeButtonProps,
+  ...restProps
 }: RemoveableTagProps): JSX.Element => (
   <Tag
     classNameOverride={classNames(classNameOverride, styles.removeableTag)}
-    icon={icon}
+    {...restProps}
     color={color}
   >
     {children}
