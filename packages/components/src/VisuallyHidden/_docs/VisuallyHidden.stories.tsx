@@ -7,7 +7,6 @@ const meta = {
   component: VisuallyHidden,
   args: {
     children: "👋 Hello!",
-    tag: "span",
   },
 } satisfies Meta<typeof VisuallyHidden>
 

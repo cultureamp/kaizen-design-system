@@ -23,20 +23,4 @@ describe("<VisuallyHidden />", () => {
 
     expect(getByTestId("test-id")).toBeTruthy()
   })
-
-  describe("Rendered tag", () => {
-    it("renders a `span` by default", () => {
-      const { container } = render(<VisuallyHidden>Lorem ipsum</VisuallyHidden>)
-      expect(container.firstChild?.nodeName).toEqual("SPAN")
-    })
-
-    describe("when passed `div` as the `tag` prop", () => {
-      it("renders a `div`", () => {
-        const { container } = render(
-          <VisuallyHidden tag="div">Lorem ipsum</VisuallyHidden>
-        )
-        expect(container.firstChild?.nodeName).toEqual("DIV")
-      })
-    })
-  })
 })
