@@ -4,8 +4,19 @@ import { CloseIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./RemoveButton.module.scss"
 
+type RemoveButtonColor =
+  | "gray"
+  | "blue"
+  | "green"
+  | "yellow"
+  | "orange"
+  | "red"
+  | "purple"
+
 export type RemoveButtonProps = OverrideClassName<
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "color"> & {
+    color: RemoveButtonColor
+  }
 >
 
 export const RemoveButton = ({
