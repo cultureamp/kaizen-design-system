@@ -1,8 +1,8 @@
 import React, { HTMLAttributes, useId, useState } from "react"
 import { createPortal } from "react-dom"
-import { warn } from "console"
 import { Transition } from "@headlessui/react"
 import FocusLock from "react-focus-lock"
+import { warn } from "~utils/console"
 import { ModalContext, ModalContextType } from "./subcomponents/ModalContext"
 import styles from "./GenericModal.module.scss"
 
