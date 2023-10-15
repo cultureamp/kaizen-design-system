@@ -1,6 +1,5 @@
 import React, { HTMLAttributes } from "react"
 import classNames from "classnames"
-import { OverrideClassName } from "~types/OverrideClassName"
 import {
   RemoveButton,
   RemoveButtonBaseProps,
@@ -10,8 +9,7 @@ import styles from "./RemoveableTag.module.scss"
 
 export type RemoveableTagProps = {
   removeButtonProps: RemoveButtonBaseProps
-} & TagProps &
-  OverrideClassName<HTMLAttributes<HTMLSpanElement>>
+} & TagProps
 
 export const RemoveableTag = ({
   children,
