@@ -1,0 +1,75 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
+
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.actionsAlignStart {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.padded {
+  padding: $spacing-md;
+  flex-direction: column;
+
+  @media (min-width: $layout-breakpoints-medium) {
+    padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+    flex-direction: row-reverse;
+  }
+}
+
+.actionButton {
+  width: 100%;
+
+  @media (min-width: $layout-breakpoints-medium) {
+    width: inherit;
+  }
+}
+
+.actionButton + .actionButton {
+  margin-right: $spacing-sm;
+
+  @media (max-width: ( $layout-breakpoints-medium - 1px)) {
+    margin-top: $spacing-sm;
+  }
+}
+
+.footerWrap {
+  align-items: baseline;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.border {
+  border-top: 1px solid $border-solid-border-color;
+}
+
+.start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fixed {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.filler {
+  visibility: hidden;
+}

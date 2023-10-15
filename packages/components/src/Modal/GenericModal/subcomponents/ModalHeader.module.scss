@@ -1,0 +1,24 @@
+@import "~@kaizen/design-tokens/sass/layout";
+@import "../../../../styles/legacy/layout";
+@import "../../../../styles/layers";
+
+.dismissButton {
+  @include ca-position($end: 0, $top: 0);
+
+  position: absolute;
+  z-index: $ca-z-index-popover;
+}
+
+.layout {
+  width: 100%;
+}
+
+.fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.filler {
+  visibility: hidden;
+}

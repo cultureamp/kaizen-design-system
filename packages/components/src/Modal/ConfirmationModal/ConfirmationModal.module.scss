@@ -13,7 +13,7 @@ $dt-cautionary-heading-text-color: $color-purple-800;
 $dt-assertive-header-background: $color-orange-100;
 
 .modal {
-  @extend .genericModal;
+  @extend %genericModal;
   min-width: 300px;
   max-width: 600px;
 }
