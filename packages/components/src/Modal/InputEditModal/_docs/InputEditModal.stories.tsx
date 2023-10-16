@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { ModalDescription } from "~components/Modal/GenericModal/subcomponents/ModalDescription"
 import { Text } from "~components/Text"
+import { TextField } from "~components/TextField"
 import { InputEditModal, InputEditModalProps } from "../index"
 
 const InputEditModalWithState = (
@@ -34,7 +35,9 @@ const ExampleForm = (): JSX.Element => (
         Instructive text to drive user selection goes here.
       </Text>
     </ModalDescription>
-    <form>{/* <TextField /> */}</form>
+    <form>
+      <TextField labelText="Opinion" />
+    </form>
   </>
 )
 
