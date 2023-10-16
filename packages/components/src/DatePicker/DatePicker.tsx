@@ -7,10 +7,6 @@ import {
   CalendarSingleProps,
 } from "~components/Calendar"
 import { CalendarPopover } from "~components/Calendar/CalendarPopover"
-import {
-  DateInputSingleField,
-  DateInputSingleFieldProps,
-} from "~components/DateInputField"
 import { DisabledDayMatchers } from "~types/date-controls"
 import {
   DatePickerSupportedLocales,
@@ -22,12 +18,16 @@ import {
   isInvalidDate,
   parseDateAsTextOrNumeral,
 } from "~utils/date-controls"
+import {
+  DateInputField,
+  DateInputFieldProps,
+} from "./subcomponents/DateInputField"
 import { ValidationResponse } from "./types"
 import { isSelectingDayInCalendar } from "./utils/isSelectingDayInCalendar"
 import { setFocusInCalendar } from "./utils/setFocusInCalendar"
 import { validateDate } from "./utils/validateDate"
 
-type OmittedDateInputSingleFieldProps =
+type OmittedDateInputFieldProps =
   | "onClick"
   | "onFocus"
   | "onChange"
@@ -40,11 +40,11 @@ type OmittedDateInputSingleFieldProps =
 export type DatePickerProps = {
   id?: string
   buttonRef?: RefObject<HTMLButtonElement>
-  onInputClick?: DateInputSingleFieldProps["onClick"]
-  onInputFocus?: DateInputSingleFieldProps["onFocus"]
-  onInputChange?: DateInputSingleFieldProps["onChange"]
-  onInputBlur?: DateInputSingleFieldProps["onBlur"]
-  onButtonClick?: DateInputSingleFieldProps["onButtonClick"]
+  onInputClick?: DateInputFieldProps["onClick"]
+  onInputFocus?: DateInputFieldProps["onFocus"]
+  onInputChange?: DateInputFieldProps["onChange"]
+  onInputBlur?: DateInputFieldProps["onBlur"]
+  onButtonClick?: DateInputFieldProps["onButtonClick"]
   locale?: DatePickerSupportedLocales
   /**
    * Accepts a DayOfWeek value to start the week on that day. By default,
@@ -71,13 +71,13 @@ export type DatePickerProps = {
   /**
    * Updates the styling of the validation FieldMessage.
    */
-  status?: DateInputSingleFieldProps["status"] | undefined
+  status?: DateInputFieldProps["status"] | undefined
   /**
    * A descriptive message for the 'status' states.
    */
-  validationMessage?: DateInputSingleFieldProps["validationMessage"] | undefined
+  validationMessage?: DateInputFieldProps["validationMessage"] | undefined
 } & DisabledDayMatchers &
-  Omit<DateInputSingleFieldProps, OmittedDateInputSingleFieldProps>
+  Omit<DateInputFieldProps, OmittedDateInputFieldProps>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082061174/Date+Picker Guidance} |
@@ -105,7 +105,7 @@ export const DatePicker = ({
   onButtonClick,
   onDayChange,
   onValidate,
-  ...restDateInputSingleFieldProps
+  ...restDateInputFieldProps
 }: DatePickerProps): JSX.Element => {
   const [id] = useState<string>(propsId || useId())
   const containerRef = useRef<HTMLInputElement>(null)
@@ -121,7 +121,7 @@ export const DatePicker = ({
     "inputFocus" | "inputKeydown" | "calendarButton"
   >()
   const [inbuiltStatus, setInbuiltStatus] = useState<
-    DateInputSingleFieldProps["status"] | undefined
+    DateInputFieldProps["status"] | undefined
   >()
   const [inbuiltValidationMessage, setInbuiltValidationMessage] = useState<
     string | undefined
@@ -275,7 +275,7 @@ export const DatePicker = ({
       enabled={isOpen}
     >
       <div ref={containerRef}>
-        <DateInputSingleField
+        <DateInputField
           ref={dateInputRefs}
           id={id}
           role="combobox"
@@ -300,7 +300,7 @@ export const DatePicker = ({
               ? validationMessage
               : inbuiltValidationMessage
           }
-          {...restDateInputSingleFieldProps}
+          {...restDateInputFieldProps}
         />
       </div>
 

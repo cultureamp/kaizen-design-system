@@ -4,10 +4,10 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { DateInputSingleField } from "../index"
+import { DateInputField } from "../index"
 
 export default {
-  title: "Components/Date controls/DateInputSingleField",
+  title: "Components/Date controls/DateInputField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -17,10 +17,10 @@ export default {
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
-      <StickerSheet isReversed={isReversed} heading="DateInputSingleField">
+      <StickerSheet isReversed={isReversed} heading="DateInputField">
         <StickerSheet.Body>
           <StickerSheet.Row>
-            <DateInputSingleField
+            <DateInputField
               onButtonClick={() => undefined}
               isReversed={isReversed}
               labelText="Date"
@@ -36,13 +36,13 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Container">
-            <DateInputSingleField
+            <DateInputField
               onButtonClick={() => undefined}
               isReversed={isReversed}
               labelText="Date"
               data-sb-pseudo-styles="hover"
             />
-            <DateInputSingleField
+            <DateInputField
               onButtonClick={() => undefined}
               isReversed={isReversed}
               labelText="Date"
@@ -51,13 +51,13 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Row>
 
           <StickerSheet.Row rowTitle="Icon button">
-            <DateInputSingleField
+            <DateInputField
               onButtonClick={() => undefined}
               isReversed={isReversed}
               labelText="Date"
               classNameOverride="story__date-input-single-field--hover"
             />
-            <DateInputSingleField
+            <DateInputField
               onButtonClick={() => undefined}
               isReversed={isReversed}
               labelText="Date"

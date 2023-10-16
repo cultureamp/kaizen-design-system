@@ -1,4 +1,4 @@
-import { DateInputProps } from "~components/DateInputField/subcomponents/DateInput"
+import { DateInputProps } from "~components/DateInput"
 import { isSelectingDayInCalendar } from "~components/DatePicker/utils/isSelectingDayInCalendar"
 import { DisabledDays } from "~types/date-controls"
 import {

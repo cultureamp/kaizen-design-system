@@ -1,16 +1,16 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { DateInputSingleField } from "../index"
+import { DateInputField } from "../index"
 
 const meta = {
-  title: "Components/Date controls/DateInputSingleField",
-  component: DateInputSingleField,
+  title: "Components/Date controls/DateInputField",
+  component: DateInputField,
   args: {
     labelText: "Date",
     onButtonClick: action("Icon button clicked"),
   },
-} satisfies Meta<typeof DateInputSingleField>
+} satisfies Meta<typeof DateInputField>
 
 export default meta
 

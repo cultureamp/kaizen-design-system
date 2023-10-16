@@ -1,19 +1,17 @@
 import React, { useId, useState } from "react"
 import classnames from "classnames"
 import { enAU } from "date-fns/locale"
-import { FieldMessage, FieldMessageStatus } from "~components/FieldMessage"
 import {
   DateInputDescription,
   DateInputDescriptionProps,
-} from "../subcomponents/DateInputDescription"
-import {
   DateInputWithIconButton,
   DateInputWithIconButtonProps,
   DateInputWithIconButtonRefs,
-} from "../subcomponents/DateInputWithIconButton"
-import styles from "./DateInputSingleField.module.scss"
+} from "~components/DateInput"
+import { FieldMessage, FieldMessageStatus } from "~components/FieldMessage"
+import styles from "./DateInputField.module.scss"
 
-export type DateInputSingleFieldProps = {
+export type DateInputFieldProps = {
   /**
    * A description that provides context for the text field
    */
@@ -29,9 +27,9 @@ export type DateInputSingleFieldProps = {
   locale?: Locale
 } & DateInputWithIconButtonProps
 
-export const DateInputSingleField = React.forwardRef<
+export const DateInputField = React.forwardRef<
   DateInputWithIconButtonRefs,
-  DateInputSingleFieldProps
+  DateInputFieldProps
 >(
   (
     {
@@ -85,4 +83,4 @@ export const DateInputSingleField = React.forwardRef<
   }
 )
 
-DateInputSingleField.displayName = "DateInputSingleField"
+DateInputField.displayName = "DateInputField"

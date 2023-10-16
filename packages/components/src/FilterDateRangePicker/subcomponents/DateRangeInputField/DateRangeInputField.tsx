@@ -1,10 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { VisuallyHidden } from "@kaizen/a11y"
-import {
-  DateInput,
-  DateInputProps,
-} from "~components/DateInputField/subcomponents/DateInput"
+import { DateInput, DateInputProps } from "~components/DateInput/DateInput"
 import { FieldMessage } from "~components/FieldMessage"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { isRefObject } from "~utils/isRefObject"

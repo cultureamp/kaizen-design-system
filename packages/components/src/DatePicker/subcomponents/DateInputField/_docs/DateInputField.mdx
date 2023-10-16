@@ -1,10 +1,10 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
-import * as DateInputSingleFieldStories from "./DateInputSingleField.stories"
+import * as DateInputFieldStories from "./DateInputField.stories"
 
-<Meta of={DateInputSingleFieldStories} />
+<Meta of={DateInputFieldStories} />
 
-# DateInputSingleField
+# DateInputField
 
 {/*
   * @todo:
@@ -12,7 +12,7 @@ import * as DateInputSingleFieldStories from "./DateInputSingleField.stories"
   * - Add Figma and Design Guidelines (Confluence) link
   */}
 <ResourceLinks
-  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/DateInputSingleField"
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/DateInputField"
   figma=""
   designGuidelines=""
   className="!mb-8"
@@ -22,16 +22,16 @@ import * as DateInputSingleFieldStories from "./DateInputSingleField.stories"
 
 <Installation
   installCommand="yarn add @kaizen/components"
-  importStatement='import { DateInputSingleField } from "@kaizen/components"'
+  importStatement='import { DateInputField } from "@kaizen/components"'
 />
 
 ## Overview
 
 Subcomponent: Input field with an icon button for single date pickers with a popover.
 
-<Canvas of={DateInputSingleFieldStories.Playground} />
-<Controls of={DateInputSingleFieldStories.Playground} />
+<Canvas of={DateInputFieldStories.Playground} />
+<Controls of={DateInputFieldStories.Playground} />
 
 ## API
 
-<DocsStory of={DateInputSingleFieldStories.Reversed} />
+<DocsStory of={DateInputFieldStories.Reversed} />

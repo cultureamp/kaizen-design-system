@@ -1,8 +1,5 @@
 import React from "react"
-import {
-  DateInput,
-  DateInputProps,
-} from "~components/DateInputField/subcomponents/DateInput"
+import { DateInput, DateInputProps } from "~components/DateInput"
 import { FieldMessage } from "~components/FieldMessage"
 import {
   DateInputDescription,

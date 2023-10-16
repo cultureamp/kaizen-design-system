@@ -2,14 +2,11 @@ import React, { useRef } from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { enUS } from "date-fns/locale"
-import {
-  DateInputSingleField,
-  DateInputSingleFieldProps,
-} from "./DateInputSingleField"
+import { DateInputField, DateInputFieldProps } from "./DateInputField"
 
 const user = userEvent.setup()
 
-const defaultProps: DateInputSingleFieldProps = {
+const defaultProps: DateInputFieldProps = {
   id: "test__date-input-field",
   labelText: "Bacon expiry",
   onButtonClick: jest.fn<void, []>(),
@@ -18,14 +15,14 @@ const defaultProps: DateInputSingleFieldProps = {
   locale: enUS,
 }
 
-const DateInputSingleFieldWrapper = (
-  props: Partial<DateInputSingleFieldProps>
-): JSX.Element => <DateInputSingleField {...defaultProps} {...props} />
+const DateInputFieldWrapper = (
+  props: Partial<DateInputFieldProps>
+): JSX.Element => <DateInputField {...defaultProps} {...props} />
 
-describe("<DateInputSingleField />", () => {
+describe("<DateInputField />", () => {
   describe("Input", () => {
     it("associates the description with the input", () => {
-      render(<DateInputSingleFieldWrapper />)
+      render(<DateInputFieldWrapper />)
       expect(
         screen.getByRole("textbox", {
           name: "Bacon expiry",
@@ -37,7 +34,7 @@ describe("<DateInputSingleField />", () => {
 
   describe("Icon button", () => {
     it("has helpful label", () => {
-      render(<DateInputSingleFieldWrapper />)
+      render(<DateInputFieldWrapper />)
       expect(
         screen.getByRole("button", { name: "Choose date" })
       ).toBeInTheDocument()
@@ -45,7 +42,7 @@ describe("<DateInputSingleField />", () => {
 
     it("has helpful label showing the current date when one is selected", () => {
       render(
-        <DateInputSingleFieldWrapper
+        <DateInputFieldWrapper
           value="Mar 1, 2022"
           onChange={(): void => undefined}
         />
@@ -58,7 +55,7 @@ describe("<DateInputSingleField />", () => {
 
   describe("States", () => {
     it("disables both input and icon button", () => {
-      render(<DateInputSingleFieldWrapper disabled />)
+      render(<DateInputFieldWrapper disabled />)
       const input = screen.getByRole("textbox", { name: "Bacon expiry" })
       const calendarButton = screen.getByRole("button", { name: "Choose date" })
       expect(input).toBeDisabled()
@@ -69,7 +66,7 @@ describe("<DateInputSingleField />", () => {
   describe("Validation", () => {
     it("shows validation message", () => {
       render(
-        <DateInputSingleFieldWrapper
+        <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
         />
@@ -80,7 +77,7 @@ describe("<DateInputSingleField />", () => {
 
     it("does not show validation message when field is disabled", () => {
       render(
-        <DateInputSingleFieldWrapper
+        <DateInputFieldWrapper
           status="error"
           validationMessage="There is an error"
           disabled
@@ -111,7 +108,7 @@ describe("<DateInputSingleField />", () => {
 
         return (
           <>
-            <DateInputSingleField
+            <DateInputField
               ref={ref}
               id="test__date-input-field--ref"
               labelText="Adventure time"
