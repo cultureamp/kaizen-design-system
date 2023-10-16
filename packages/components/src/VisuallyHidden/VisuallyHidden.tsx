@@ -1,4 +1,4 @@
-import { ReactNode, createElement, HTMLAttributes } from "react"
+import React, { ReactNode, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./VisuallyHidden.module.scss"
@@ -10,10 +10,11 @@ export type VisuallyHiddenProps = {
 export const VisuallyHidden = ({
   children,
   classNameOverride,
-  ...otherProps
-}: VisuallyHiddenProps): JSX.Element => {
-  const className = classnames(styles.srOnly, classNameOverride)
-  return createElement("span", { ...otherProps, className }, children)
-}
+  ...restProps
+}: VisuallyHiddenProps): JSX.Element => (
+  <span className={classnames(styles.srOnly, classNameOverride)} {...restProps}>
+    {children}
+  </span>
+)
 
 VisuallyHidden.displayName = "VisuallyHidden"
