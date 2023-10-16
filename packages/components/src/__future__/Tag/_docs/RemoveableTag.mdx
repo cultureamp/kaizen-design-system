@@ -20,7 +20,7 @@ import * as RemoveableTagStories from "./RemoveableTag.stories"
 
 ## Overview
 
-Similar to the Tag component, but with a clear icon, that recieves a callback from props.
+Similar to the Tag component, but with a remove icon, that recieves a callback from props.
 The consumer should manage the state regarding whether or not the icon should be rendered,
 and pass a callback to remove the RemoveableTag component via the `removeButtonProps` prop.
 
@@ -54,14 +54,18 @@ Allows classnames to be attached to the outermost element of Tag.
 
 <Canvas of={RemoveableTagStories.ClassNameOverride} />
 
-### `removeButtonProps`
+### `Controlling the remove button`
 
-An object containing the following properties that relate to the clear button:
+RemoveableTag tags a `removeButtonProps` prop that can be used to control the behaviour of the remove button.
 
 #### `aria-label`
 
-An aria label that is attached to the clear button.
+An aria label that is attached to the remove button. This is necessary for assistive technology, such as screen-readers.
+The string passed here will be read out by screen-readers when the remove button is focused.
 
 #### `onClick`
 
-A callback that gets invoked when clicking the clear button.
+A callback that gets invoked when clicking the remove button. 
+For example, if the removal of a tag is controlled by a function, that function can
+be passed as a callback via this prop, and executed when clicking the remove button.
+
