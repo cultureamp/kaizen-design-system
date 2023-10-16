@@ -6,6 +6,7 @@
 @import "../../../styles/responsive";
 @import "../../../styles/layers";
 @import "../../../styles/border";
+@import "../../../styles/animation";
 
 .defaultModalWidth {
   min-width: 300px;
@@ -55,51 +56,31 @@
   }
 }
 
-.genericModal {
-  @extend %genericModal;
+.animatingEnter {
+  transition-duration: $ca-duration-fast;
+
+  .backdropLayer {
+    /*
+      There's a weird bug in Chrome/Blink 102.x that animates the opacity
+      all the way to 1 with 200ms ("rapid" token), but is fine with
+      201ms, see Jira [KDS-523]
+    */
+    @include ca-animation-fade($duration: 201ms, $from: 0, $to: 0.5);
+  }
 }
 
-// WAITING FOR TEXTFIELD
-// .animatingEnter {
-//   transition-duration: $ca-duration-fast;
+.animatingLeave {
+  transition-duration: $ca-duration-rapid;
 
-//   .backdropLayer {
-//     /*
-//       There's a weird bug in Chrome/Blink 102.x that animates the opacity
-//       all the way to 1 with 200ms ("rapid" token), but is fine with
-//       201ms, see Jira [KDS-523]
-//     */
-//     @include ca-animation-fade($duration: 201ms, $from: 0, $to: 0.5);
-//   }
+  .backdropLayer {
+    @include ca-animation-fade(
+      $duration: $ca-duration-rapid,
+      $from: 0.5,
+      $to: 0
+    );
+  }
+}
 
-//   .genericModal {
-//     @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
-
-//     animation-duration: $ca-duration-fast;
-//     animation-fill-mode: forwards;
-//     animation-timing-function: $ca-bounce-in;
-//   }
-// }
-
-// .animatingLeave {
-//   transition-duration: $ca-duration-rapid;
-
-//   .backdropLayer {
-//     @include ca-animation-fade(
-//       $duration: $ca-duration-rapid,
-//       $from: 0.5,
-//       $to: 0
-//     );
-//   }
-
-//   .genericModal {
-//     @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
-
-//     animation-duration: $ca-duration-rapid;
-//     animation-fill-mode: forwards;
-//     animation-timing-function: $ca-bounce-out;
-//   }
-// }
 .unscrollable {
   /* Tech debt - this !important existed before Stylelint rules */
   overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
