@@ -40,7 +40,6 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.2",
-    "@kaizen/a11y": "^1.7.12",
     "@kaizen/brand": "^1.5.8",
     "@kaizen/design-tokens": "^10.3.13",
     "@kaizen/draft-badge": "^1.13.12",
