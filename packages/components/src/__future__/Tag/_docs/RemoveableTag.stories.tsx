@@ -12,7 +12,7 @@ const meta = {
     children: "My tag",
     removeButtonProps: {
       onClick: () => alert("Clicked"),
-      "aria-label": "remove tag icon",
+      "aria-label": "Remove tag icon",
     },
   },
 } satisfies Meta<typeof RemoveableTag>
