@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as ConfirmationModalStories from "./ConfirmationModal.stories"
+
+<Meta of={ConfirmationModalStories} />
+
+# ConfirmationModal
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Modal/ConfirmationModal"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A39910&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { ConfirmationModal } from "@kaizen/components"'
+/>
+
+## Overview
+
+The Confirmation Modal confirms the end result of an interaction such as Positive, Informative, Cautionary or Negative.
+
+<Canvas of={ConfirmationModalStories.Playground} />
+<Controls of={ConfirmationModalStories.Playground} />
+
+## API
+
+### Prominant
+
+includes an animated spot illustration to help convey increased sentiment to the user.
+Use the Prominent Confirmation Modal when you want to celebrate the completion of a task or make
+it known to the user that they need to pay attention to important information.
+
+<Canvas of={ConfirmationModalStories.Prominent} />
+
+### Assertive
+
+The Assertive Confirmation Modal indicates a show-stopping problem that we couldn't address earlier in the flow.
+Use as a last resort.For example, server-side validation shows a form error that needs to be addressed before continuing.
+
+<Canvas of={ConfirmationModalStories.Assertive} />
