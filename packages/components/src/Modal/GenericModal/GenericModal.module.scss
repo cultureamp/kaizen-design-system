@@ -100,7 +100,6 @@
 //     animation-timing-function: $ca-bounce-out;
 //   }
 // }
-
 .unscrollable {
   /* Tech debt - this !important existed before Stylelint rules */
   overflow: hidden !important; /* stylelint-disable-line declaration-no-important */

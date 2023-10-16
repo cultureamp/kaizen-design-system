@@ -1,10 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../GenericModal/GenericModal.module.scss";
+@import "../GenericModal/GenericModal.module";
 
 .modal {
   @extend %genericModal;
+
   min-width: 300px;
   max-width: 840px;
 
@@ -40,6 +41,7 @@
 
 .footerWithSecondaryAction {
   @extend %footer;
+
   margin-left: calc(-1 * #{$spacing-sm});
 }
 

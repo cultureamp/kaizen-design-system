@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../GenericModal/GenericModal.module.scss";
+@import "../GenericModal/GenericModal.module";
 
 $dt-positive-header-background: $color-green-100;
 $dt-informative-header-background: $color-blue-100;
@@ -14,6 +14,7 @@ $dt-assertive-header-background: $color-orange-100;
 
 .modal {
   @extend %genericModal;
+
   min-width: 300px;
   max-width: 600px;
 }
