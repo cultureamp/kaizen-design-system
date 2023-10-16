@@ -2,16 +2,16 @@ import React from "react"
 import classnames from "classnames"
 import styles from "./ModalSection.module.scss"
 
-export interface GenericModalSectionProps {
+export interface ModalSectionProps {
   inputEdit?: boolean
   children: React.ReactNode
 }
 
-const GenericModalSection = ({
+export const ModalSection = ({
   inputEdit = false,
   children,
-}: GenericModalSectionProps): JSX.Element => (
+}: ModalSectionProps): JSX.Element => (
   <div className={classnames(inputEdit && styles.inputEdit)}>{children}</div>
 )
 
-export default GenericModalSection
+ModalSection.displayName = "ModalSection"

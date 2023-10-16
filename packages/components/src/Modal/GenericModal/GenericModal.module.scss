@@ -55,6 +55,10 @@
   }
 }
 
+.genericModal {
+  @extend %genericModal;
+}
+
 // WAITING FOR TEXTFIELD
 // .animatingEnter {
 //   transition-duration: $ca-duration-fast;

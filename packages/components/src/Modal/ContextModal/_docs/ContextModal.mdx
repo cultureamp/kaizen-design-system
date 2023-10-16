@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as ContextModalStories from "./ContextModal.stories"
+
+<Meta of={ContextModalStories} />
+
+# ContextModal
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/ContextModal"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A39910&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { ContextModal } from "@kaizen/components"'
+/>
+
+## Overview
+
+Context Modals assist with education. They're user triggered. They may be relative to a deeper level of information.
+May be useful for first time users. Heavily optional. Visual aid is good. Primary action optional.
+
+<Canvas of={ContextModalStories.Playground} />
+<Controls of={ContextModalStories.Playground} />
+
+## API
+
+### Layout
+
+#### Portrait (Default)
+<Canvas of={ContextModalStories.Potrait} />
+
+#### Landscape
+<Canvas of={ContextModalStories.Landscape} />

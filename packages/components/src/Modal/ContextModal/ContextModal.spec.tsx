@@ -2,27 +2,28 @@ import React from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { mockMatchMedia } from "~utils/useMediaQueries.spec"
-import { ConfirmationModal, ConfirmationModalProps } from "./ConfirmationModal"
+import { ContextModal, ContextModalProps } from "./ContextModal"
 
 const user = userEvent.setup()
 
-const ConfirmationModalWrapper = ({
+const ContextModalWrapper = ({
   children,
   ...props
-}: Partial<ConfirmationModalProps>): JSX.Element => (
-  <ConfirmationModal
-    mood="informative"
+}: Partial<ContextModalProps>): JSX.Element => (
+  <ContextModal
     isOpen={true}
-    title="Example Modal Title"
-    onDismiss={(): void => undefined}
+    title="Example modal title"
     onConfirm={(): void => undefined}
+    onDismiss={(): void => undefined}
+    secondaryLabel="Example secondary"
+    onSecondaryAction={(): void => undefined}
     {...props}
   >
     {children}
-  </ConfirmationModal>
+  </ContextModal>
 )
 
-describe("<ConfirmationModal />", () => {
+describe("<ContextModal />", () => {
   beforeEach(() => {
     mockMatchMedia()
   })
@@ -31,12 +32,9 @@ describe("<ConfirmationModal />", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByLabelText } = render(
-      <ConfirmationModalWrapper
-        onConfirm={handleConfirm}
-        onDismiss={handleDismiss}
-      >
+      <ContextModalWrapper onConfirm={handleConfirm} onDismiss={handleDismiss}>
         Example modal body
-      </ConfirmationModalWrapper>
+      </ContextModalWrapper>
     )
     await user.click(getByLabelText(/Dismiss/i))
     await waitFor(() => {
@@ -49,12 +47,9 @@ describe("<ConfirmationModal />", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
-      <ConfirmationModalWrapper
-        onDismiss={handleDismiss}
-        onConfirm={handleConfirm}
-      >
+      <ContextModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
-      </ConfirmationModalWrapper>
+      </ContextModalWrapper>
     )
     await user.click(getByText(/Cancel/i))
     await waitFor(() => {
@@ -67,12 +62,9 @@ describe("<ConfirmationModal />", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
-      <ConfirmationModalWrapper
-        onDismiss={handleDismiss}
-        onConfirm={handleConfirm}
-      >
+      <ContextModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
         Example modal body
-      </ConfirmationModalWrapper>
+      </ContextModalWrapper>
     )
     await user.click(getByText(/Confirm/i))
     await waitFor(() => {

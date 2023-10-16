@@ -2,7 +2,7 @@ import React from "react"
 import { IconButton } from "~components/Button"
 
 import { CloseIcon } from "~components/Icon"
-import ModalSection from "./ModalSection"
+import { ModalSection } from "./ModalSection"
 import styles from "./ModalHeader.module.scss"
 
 export type ModalHeaderProps = {
@@ -12,25 +12,23 @@ export type ModalHeaderProps = {
   children: React.ReactNode
 }
 
-class ModalHeader extends React.Component<ModalHeaderProps> {
-  render(): JSX.Element {
-    const { reversed, onDismiss, children } = this.props
+export const ModalHeader = ({
+  reversed,
+  onDismiss,
+  children,
+}: ModalHeaderProps): JSX.Element => (
+  <ModalSection>
+    <div className={styles.dismissButton}>
+      <IconButton
+        label="Dismiss"
+        icon={<CloseIcon role="presentation" />}
+        reversed={reversed}
+        onClick={onDismiss}
+        disabled={onDismiss == undefined}
+      />
+    </div>
+    {children}
+  </ModalSection>
+)
 
-    return (
-      <ModalSection>
-        <div className={styles.dismissButton}>
-          <IconButton
-            label="Dismiss"
-            icon={<CloseIcon role="presentation" />}
-            reversed={reversed}
-            onClick={onDismiss}
-            disabled={onDismiss == undefined}
-          />
-        </div>
-        {children}
-      </ModalSection>
-    )
-  }
-}
-
-export default ModalHeader
+ModalHeader.displayName = "ModalHeader"

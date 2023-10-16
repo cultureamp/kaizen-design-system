@@ -24,7 +24,7 @@ const ExampleComponent = (): JSX.Element => {
   )
 }
 
-const mockMatchMedia = (matches: boolean): void => {
+export const mockMatchMedia = (matches: boolean = false): void => {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
     value: jest.fn().mockImplementation(query => ({
@@ -42,7 +42,7 @@ const mockMatchMedia = (matches: boolean): void => {
 
 describe("useMediaQueries()", () => {
   it("shows and hides content based on Kaizen break points", () => {
-    mockMatchMedia(false)
+    mockMatchMedia()
     render(<ExampleComponent />)
     expect(
       screen.queryByRole("button", { name: /Small only boolean/i })
@@ -63,7 +63,7 @@ describe("useMediaQueries()", () => {
   })
 
   it("shows and hides content based on based on custom queries passed in", () => {
-    mockMatchMedia(false)
+    mockMatchMedia()
     render(<ExampleComponent />)
 
     expect(
