@@ -10,9 +10,9 @@ import {
 } from "~components/Icon"
 import { ModalDescription } from "../GenericModal/subcomponents/ModalDescription"
 import { ModalFooter } from "../GenericModal/subcomponents/ModalFooter"
-import ModalHeader from "../GenericModal/subcomponents/ModalHeader"
+import { ModalHeader } from "../GenericModal/subcomponents/ModalHeader"
 import { ModalLabel } from "../GenericModal/subcomponents/ModalLabel"
-import ModalSection from "../GenericModal/subcomponents/ModalSection"
+import { ModalSection } from "../GenericModal/subcomponents/ModalSection"
 import { GenericModal } from ".."
 import styles from "./ConfirmationModal.module.scss"
 
