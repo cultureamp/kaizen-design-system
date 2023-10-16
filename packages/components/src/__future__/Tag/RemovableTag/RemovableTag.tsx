@@ -4,7 +4,7 @@ import {
   RemoveButton,
   RemoveButtonBaseProps,
 } from "./subcomponents/RemoveButton"
-import { Tag, TagProps } from "./Tag"
+import { Tag, TagProps } from "../Tag"
 import styles from "./RemovableTag.module.scss"
 
 export type RemovableTagProps = {

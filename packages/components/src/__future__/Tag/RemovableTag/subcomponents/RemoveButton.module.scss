@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../../../styles/button-reset";
+@import "../../../../../styles/button-reset";
 
 .removeButton {
   @include button-reset;
