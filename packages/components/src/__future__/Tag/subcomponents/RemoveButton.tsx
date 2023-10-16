@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react"
 import classnames from "classnames"
-import { CloseIcon } from "~components/Icon"
+import { RemoveTagIcon } from "./RemoveTagIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./RemoveButton.module.scss"
 
@@ -41,7 +41,7 @@ export const RemoveButton = ({
     onClick={onClick}
     {...restProps}
   >
-    <CloseIcon role="presentation" classNameOverride={styles.closeIcon} />
+    <RemoveTagIcon role="presentation" classNameOverride={styles.closeIcon} />
   </button>
 )
 
