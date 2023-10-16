@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { VisuallyHidden } from "@kaizen/a11y"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { useSelectionContext } from "../../../context"
 import styles from "../SelectionControlButton.module.scss"
 

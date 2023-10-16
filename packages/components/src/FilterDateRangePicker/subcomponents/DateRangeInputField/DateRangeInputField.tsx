@@ -1,11 +1,11 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { VisuallyHidden } from "@kaizen/a11y"
 import {
   DateInput,
   DateInputProps,
 } from "@kaizen/date-picker/src/_subcomponents/DateInput"
 import { FieldMessage } from "@kaizen/draft-form"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { isRefObject } from "~utils/isRefObject"
 import {
