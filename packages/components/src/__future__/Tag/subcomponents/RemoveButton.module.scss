@@ -39,7 +39,8 @@
     fill: rgba($color-purple-800-rgb, 0.7);
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     cursor: pointer;
 
     .closeIcon {
