@@ -1,3 +1,6 @@
+// Export shared Date(Range)Picker types
+export * from "~types/date-controls"
+
 export * from "./Avatar"
 export * from "./AvatarGroup"
 export * from "./Badge"
@@ -11,6 +14,7 @@ export * from "./Checkbox"
 export * from "./ClearButton"
 export * from "./Collapsible"
 export * from "./DateInputField"
+export * from "./DateRangePicker"
 export * from "./Divider"
 export * from "./EmptyState"
 export * from "./ErrorPage"

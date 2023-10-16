@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as DateRangePickerStories from "./DateRangePicker.stories"
+
+<Meta of={DateRangePickerStories} />
+
+# DateRangePicker
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/DateRangePicker"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { DateRangePicker } from "@kaizen/components"'
+/>
+
+## Overview
+
+Date range picker form field.
+
+**Note:** While we do not yet have a replacement, this is a legacy component since it is not accessible.
+
+<Canvas of={DateRangePickerStories.Playground} />
+<Controls of={DateRangePickerStories.Playground} />
+
+## API
+
+Coming soon.

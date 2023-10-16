@@ -1,5 +1,5 @@
 import { Matcher } from "react-day-picker"
-import { DisabledDayMatchers } from "../types"
+import { DisabledDayMatchers } from "~types/date-controls"
 
 export const calculateDisabledDays = ({
   disabledDates = [],
