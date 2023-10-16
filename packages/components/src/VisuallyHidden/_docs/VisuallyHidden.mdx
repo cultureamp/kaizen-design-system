@@ -1,0 +1,40 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as VisuallyHiddenStories from "./VisuallyHidden.stories"
+
+<Meta of={VisuallyHiddenStories} />
+
+# VisuallyHidden
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/VisuallyHidden"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { VisuallyHidden } from "@kaizen/components"'
+/>
+
+## Overview
+
+Utility component to render text that will be read out when using screen readers (and similar assistive technologies), but won't be shown visually on screen.
+
+<Canvas of={VisuallyHiddenStories.Playground} />
+<Controls of={VisuallyHiddenStories.Playground} />
+
+## Usage
+
+This is often used to add context to a button or link, given screen reader users don't have the context from the surrounding elements like visual users do.
+
+For example, imagine a list of surveys, each with a link that reads "View report".
+
+Visual users can see the name of the survey to the left of the link, but screen reader users will often scan the page for links, or skip straight to links.
+
+The context can be added like so:
+
+```jsx
+<a href="/path">View report<VisuallyHidden> for Camper Check-in 2023</VisuallyHidden></a>
+```
