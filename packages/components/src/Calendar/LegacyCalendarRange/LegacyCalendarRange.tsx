@@ -47,7 +47,7 @@ export const LegacyCalendarRange = ({
         }
         disabled={disabledDays}
         onDayClick={onDayChange}
-        classNames={legacyCalendarRangeClasses}
+        classNames={legacyCalendarRangeClasses()}
         components={{
           IconRight: () => <ArrowForwardIcon role="presentation" />,
           IconLeft: () => <ArrowBackwardIcon role="presentation" />,

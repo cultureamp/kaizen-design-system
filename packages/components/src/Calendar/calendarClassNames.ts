@@ -23,18 +23,20 @@ const baseCalendarClasses: ClassNames = {
   day_disabled: calendarStyles.dayDisabled,
 }
 
-export const calendarSingleClasses: ClassNames = {
+// This needs to be a function to be tree-shakeable
+export const calendarSingleClasses = (): ClassNames => ({
   ...baseCalendarClasses,
   nav: calendarSingleStyles.nav,
   nav_button_next: calendarSingleStyles.navButtonNext,
-}
+})
 
-export const legacyCalendarRangeClasses: ClassNames = {
-  ...calendarSingleClasses,
+// This needs to be a function to be tree-shakeable
+export const legacyCalendarRangeClasses = (): ClassNames => ({
+  ...calendarSingleClasses(),
   day_range_start: calendarRangeStyles.dayRangeStart,
   day_range_end: calendarRangeStyles.dayRangeEnd,
   day_range_middle: calendarRangeStyles.dayRangeMiddle,
-}
+})
 
 export const calendarRangeClasses = (hasDivider: boolean): ClassNames => ({
   ...baseCalendarClasses,

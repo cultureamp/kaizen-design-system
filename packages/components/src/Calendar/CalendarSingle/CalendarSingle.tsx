@@ -44,7 +44,7 @@ export const CalendarSingle = ({
         weekStartsOn={
           isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
         }
-        classNames={calendarSingleClasses}
+        classNames={calendarSingleClasses()}
         components={{
           IconRight: () => <ArrowForwardIcon role="presentation" />,
           IconLeft: () => <ArrowBackwardIcon role="presentation" />,
