@@ -1,4 +1,5 @@
 import React from "react"
+import { useIntl } from "@cultureamp/i18n-react-intl"
 import { LabelledMessage } from "~components/LabelledMessage"
 import { formatDescriptionInputFormat } from "./utils/formatDescriptionInputFormat"
 import styles from "./DateInputDescription.module.scss"
@@ -12,9 +13,16 @@ export const DateInputDescription = ({
   description,
   locale,
 }: DateInputDescriptionProps): JSX.Element => {
+  const { formatMessage } = useIntl()
   const hasCustomDescription =
     (typeof description === "string" && description !== "") ||
     React.isValidElement(description)
+
+  const translatedInputFormatMessage = formatMessage({
+    id: "dateInputDescription.inputFormat",
+    defaultMessage: "Input format",
+    description: "Label for the 'Input format' field",
+  })
 
   if (hasCustomDescription) {
     return (
@@ -23,7 +31,7 @@ export const DateInputDescription = ({
         <span className={styles.dateInputFormatContainer}>
           (
           <LabelledMessage
-            label="Input format"
+            label={translatedInputFormatMessage}
             message={formatDescriptionInputFormat(locale)}
           />
           )
@@ -34,7 +42,7 @@ export const DateInputDescription = ({
 
   return (
     <LabelledMessage
-      label="Input format"
+      label={translatedInputFormatMessage}
       message={formatDescriptionInputFormat(locale)}
     />
   )

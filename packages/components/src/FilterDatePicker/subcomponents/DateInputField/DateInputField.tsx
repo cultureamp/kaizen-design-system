@@ -1,10 +1,11 @@
 import React from "react"
-import { DateInput, DateInputProps } from "~components/DateInput"
-import { FieldMessage } from "~components/FieldMessage"
 import {
+  DateInput,
+  DateInputProps,
   DateInputDescription,
   DateInputDescriptionProps,
-} from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
+} from "~components/DateInput"
+import { FieldMessage } from "~components/FieldMessage"
 import { ValidationMessage } from "../../types"
 import styles from "./DateInputField.module.scss"
 

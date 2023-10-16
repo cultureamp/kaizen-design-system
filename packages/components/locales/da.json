@@ -17,7 +17,7 @@
     "description" : "Label for the 'date to' field",
     "message" : "Til dato"
   },
-  "filterDateRangePicker.inputFormat" : {
+  "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "Input-format"
   },
