@@ -1,3 +1,3 @@
 export * from "./CalendarSingle"
 export * from "./CalendarRange"
-export * from "./LegacyCalendarRange/LegacyCalendarRange"
+export * from "./LegacyCalendarRange"
