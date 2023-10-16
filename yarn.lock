@@ -2677,14 +2677,6 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/a11y@^1.7.12":
-  version "1.7.12"
-  resolved "https://registry.yarnpkg.com/@kaizen/a11y/-/a11y-1.7.12.tgz#448fb57ade9d657e51cc820684f28dd928495007"
-  integrity sha512-E+PxnewE98q8NIRsM7v1zY7O2WRUAY8HQePsqgVYGeyjx+aGBI7AbsASNebglqtIWcCZRB+DSN16HEZ0IgUMWw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.7.6"
-
 "@kaizen/brand-moment@^1.13.8":
   version "1.13.8"
   resolved "https://registry.yarnpkg.com/@kaizen/brand-moment/-/brand-moment-1.13.8.tgz#662a68f17d9237cbf35dbfddf4c49227aada72a4"
@@ -2732,7 +2724,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
   integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
 
-"@kaizen/component-library@^16.7.6", "@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
+"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
   version "16.9.3"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.9.3.tgz#67212943dbe76f50e33679cae477c4709ac94bec"
   integrity sha512-r4dpEQ5MxxntMXAoOPb6lBJjZAOKiFPPMIJmsTBFTuubOPUeLG52VMDSD2IhSxCqu2ON8LqwPU8VvlGZXRlSqQ==
