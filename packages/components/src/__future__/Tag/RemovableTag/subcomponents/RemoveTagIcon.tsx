@@ -5,15 +5,15 @@ export const RemoveTagIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M3.97304 5.0337L0.0589218 8.94782L1.11958 10.0085L5.0337 6.09436L8.94781 10.0085L10.0085 8.94782L6.09436 5.0337L10.0085 1.11959L8.94781 0.0589294L5.0337 3.97304L1.11958 0.0589294L0.0589218 1.11959L3.97304 5.0337Z"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M8.97304 10.0337L5.05893 13.9478L6.11959 15.0085L10.0337 11.0944L13.9478 15.0085L15.0085 13.9478L11.0944 10.0337L15.0085 6.11959L13.9478 5.05893L10.0337 8.97304L6.11959 5.05893L5.05893 6.11959L8.97304 10.0337Z"
         fill="#2F2438"
       />
     </>
   )
   return (
-    <SVG {...props} viewBox="-5 -5 20 20">
+    <SVG {...props} viewBox="0 0 20 20">
       {svgContent}
     </SVG>
   )
