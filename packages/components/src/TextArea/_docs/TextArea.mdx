@@ -1,0 +1,51 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { LinkTo } from "~storybook/components/LinkTo"
+import * as TextAreaStories from "./TextArea.stories"
+
+<Meta of={TextAreaStories} />
+
+# TextArea
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/TextArea"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { TextArea } from "@kaizen/components"'
+/>
+
+## Overview
+
+Usually part of compositions such as <LinkTo pageId="components-text-area-field">TextAreaField</LinkTo>.
+
+<Canvas of={TextAreaStories.Playground} />
+<Controls of={TextAreaStories.Playground} />
+
+## Usage
+
+In order to use this component by itself, you **must** manually link up a label.
+
+This component uses the native `<textarea>` element under the hood, so normal methods of creating a label connection work.
+
+### Connecting a Label
+
+You can use our <LinkTo pageId="components-label">Label</LinkTo> component
+
+```
+<Label htmlFor="exampleTextArea">This is my Label</Label>
+<TextArea id="exampleTextArea" />
+```
+
+### Connecting a custom element
+For linking text that isn't in a `Label` you can use `aria-labelledBy`
+
+```
+<Text id="exampleTextArea">My free form text label<Text>
+<TextArea aria-labelledby="exampleTextArea" />
+```
+
