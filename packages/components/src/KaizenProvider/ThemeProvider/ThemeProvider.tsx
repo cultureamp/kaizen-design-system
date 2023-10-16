@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react"
+import React, { createContext, useContext, useEffect } from "react"
 import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
 import { defaultTheme, Theme as BaseTheme } from "./themes"
 
@@ -20,14 +20,21 @@ export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>({
   children: React.ReactNode
 }): JSX.Element => {
   const theme = userTheme ?? defaultTheme
-  const themeVariables = makeCssVariableDefinitionsMap(theme)
+
+  useEffect(() => {
+    // Add the Theme CSS vars to the document HTML element
+    if (typeof window !== "undefined") {
+      const cssVariableDefinitions = makeCssVariableDefinitionsMap(theme)
+      Object.entries(cssVariableDefinitions).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(key, value)
+      })
+    }
+  }, [])
 
   return (
     <>
       <ThemeContext.Provider value={theme}>
-        <div id="kaizen--theme-root" style={themeVariables}>
-          {props.children}
-        </div>
+        {props.children}
       </ThemeContext.Provider>
       <link
         rel="preload"
