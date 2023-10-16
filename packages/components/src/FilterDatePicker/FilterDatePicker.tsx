@@ -1,5 +1,5 @@
 import React from "react"
-import { formatDateAsText, getLocale } from "@kaizen/date-picker"
+import { formatDateAsText, getLocale } from "~utils/date-controls"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import {

@@ -1,8 +1,4 @@
 import { FieldMessageStatus } from "~components/FieldMessage"
-import { StringSuggestions } from "~types/StringSuggestions"
-
-// Ensure you update the storybook DATE_PICKER_SUPPORTED_LOCALES arg options when updating DatePickerSupportedLocales.
-export type DatePickerSupportedLocales = StringSuggestions<"en-US" | "en-AU">
 
 export type ValidationResponse = {
   date: Date | undefined

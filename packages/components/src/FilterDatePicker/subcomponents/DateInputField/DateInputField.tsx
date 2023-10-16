@@ -1,6 +1,9 @@
 import React from "react"
-import { DateInput, DateInputProps } from "@kaizen/date-picker"
-import { FieldMessage } from "@kaizen/draft-form"
+import {
+  DateInput,
+  DateInputProps,
+} from "~components/DateInputField/subcomponents/DateInput"
+import { FieldMessage } from "~components/FieldMessage"
 import {
   DateInputDescription,
   DateInputDescriptionProps,

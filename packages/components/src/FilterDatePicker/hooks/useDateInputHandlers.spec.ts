@@ -1,7 +1,7 @@
 import { ChangeEvent, FocusEvent, KeyboardEvent, SetStateAction } from "react"
 import { renderHook, act } from "@testing-library/react-hooks"
 import { enAU } from "date-fns/locale"
-import * as isSelectingDayInCalendar from "@kaizen/date-picker/src/utils/isSelectingDayInCalendar"
+import * as isSelectingDayInCalendar from "~components/DatePicker/utils/isSelectingDayInCalendar"
 import { useDateInputHandlers } from "./useDateInputHandlers"
 
 const locale = enAU

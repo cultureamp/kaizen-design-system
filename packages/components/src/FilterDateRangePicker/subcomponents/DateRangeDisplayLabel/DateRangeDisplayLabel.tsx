@@ -1,5 +1,5 @@
 import React from "react"
-import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
+import { formatDateAsText } from "~utils/date-controls"
 import styles from "./DateRangeDisplayLabel.module.scss"
 
 export type DateRangeDisplayLabelProps = {

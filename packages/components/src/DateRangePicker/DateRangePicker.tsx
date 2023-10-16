@@ -1,16 +1,15 @@
-import React, { RefObject, useRef, useState } from "react"
+import React, { RefObject, useId, useRef, useState } from "react"
 import cx from "classnames"
 import { enUS } from "date-fns/locale"
 import { DateRange, isMatch } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
-import { v4 } from "uuid"
-import { Label } from "@kaizen/draft-form"
 import { CalendarPopover } from "~components/Calendar/CalendarPopover"
 import {
   LegacyCalendarRange,
   LegacyCalendarRangeProps,
 } from "~components/Calendar/LegacyCalendarRange"
 import { DateStartIcon } from "~components/Icon"
+import { Label } from "~components/Label"
 import { DisabledDayMatchers } from "~types/date-controls"
 import { calculateDisabledDays, isDisabledDate } from "~utils/date-controls"
 import styles from "./DateRangePicker.module.scss"
@@ -72,7 +71,7 @@ export const DateRangePicker = ({
   onChange,
   ...inputProps
 }: DateRangePickerProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+  const [id] = useState<string>(propsId || useId())
   const containerRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 

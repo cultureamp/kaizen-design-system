@@ -1,5 +1,5 @@
 import React from "react"
-import { FieldMessageStatus } from "@kaizen/draft-form"
+import { FieldMessageStatus } from "~components/FieldMessage"
 
 export type DateValidationResponse = {
   date: Date | undefined

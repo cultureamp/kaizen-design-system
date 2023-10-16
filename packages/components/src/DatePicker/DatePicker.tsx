@@ -13,16 +13,17 @@ import {
 } from "~components/DateInputField"
 import { DisabledDayMatchers } from "~types/date-controls"
 import {
+  DatePickerSupportedLocales,
   calculateDisabledDays,
+  formatDateAsNumeral,
+  formatDateAsText,
+  getLocale,
   isDisabledDate,
   isInvalidDate,
+  parseDateAsTextOrNumeral,
 } from "~utils/date-controls"
-import { DatePickerSupportedLocales, ValidationResponse } from "./types"
-import { formatDateAsNumeral } from "./utils/formatDateAsNumeral"
-import { formatDateAsText } from "./utils/formatDateAsText"
-import { getLocale } from "./utils/getLocale"
+import { ValidationResponse } from "./types"
 import { isSelectingDayInCalendar } from "./utils/isSelectingDayInCalendar"
-import { parseDateAsTextOrNumeral } from "./utils/parseDateAsTextOrNumeral"
 import { setFocusInCalendar } from "./utils/setFocusInCalendar"
 import { validateDate } from "./utils/validateDate"
 

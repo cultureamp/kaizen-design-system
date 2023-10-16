@@ -1,6 +1,5 @@
-import React, { useState } from "react"
-import { v4 } from "uuid"
-import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
+import React, { useId, useState } from "react"
+import { getLocale } from "~utils/date-controls"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import { DateRangeDisplayLabel } from "./subcomponents/DateRangeDisplayLabel"
@@ -28,7 +27,7 @@ export const FilterDateRangePicker = ({
   locale,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+  const [id] = useState<string>(propsId || useId())
   return (
     <Filter
       isOpen={isOpen}

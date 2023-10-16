@@ -1,20 +1,19 @@
 import React, { useEffect, HTMLAttributes, useReducer } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
-import {
-  CalendarRange,
-  CalendarRangeProps,
-} from "@kaizen/date-picker/src/_subcomponents/Calendar"
-import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
-import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
-import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
-import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
-import { DatePickerSupportedLocales } from "~components/DatePicker"
+import { CalendarRange, CalendarRangeProps } from "~components/Calendar"
 import { DateValidationResponse } from "~components/FilterDatePicker"
 import { useDateInputHandlers } from "~components/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { DateRange, DisabledDays } from "~types/date-controls"
+import {
+  DatePickerSupportedLocales,
+  formatDateAsText,
+  getLocale,
+  isInvalidDate,
+  parseDateFromTextFormatValue,
+} from "~utils/date-controls"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,

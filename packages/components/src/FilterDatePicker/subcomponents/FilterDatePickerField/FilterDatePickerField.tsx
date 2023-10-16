@@ -1,13 +1,12 @@
-import React, { HTMLAttributes, useEffect, useReducer, useState } from "react"
+import React, {
+  HTMLAttributes,
+  useEffect,
+  useId,
+  useReducer,
+  useState,
+} from "react"
 import classnames from "classnames"
-import { v4 } from "uuid"
-import {
-  CalendarSingle,
-  CalendarSingleProps,
-  isInvalidDate,
-  getLocale,
-} from "@kaizen/date-picker"
-import { DatePickerSupportedLocales } from "~components/DatePicker"
+import { CalendarSingle, CalendarSingleProps } from "~components/Calendar"
 import { FilterProps } from "~components/Filter"
 import { useDateValidation } from "~components/FilterDatePicker/hooks/useDateValidation"
 import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
@@ -15,6 +14,11 @@ import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/sub
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { DisabledDays } from "~types/date-controls"
+import {
+  DatePickerSupportedLocales,
+  getLocale,
+  isInvalidDate,
+} from "~utils/date-controls"
 import { useDateInputHandlers } from "../../hooks/useDateInputHandlers"
 import { DateValidationResponse, ValidationMessage } from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"
@@ -79,7 +83,7 @@ export const FilterDatePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+  const [id] = useState<string>(propsId || useId())
   const locale = getLocale(propsLocale)
 
   const dateValidation = useDateValidation({
