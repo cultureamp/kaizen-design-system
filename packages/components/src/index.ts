@@ -1,6 +1,3 @@
-// TODO: Remove when Date Picker is migrated to KAIO
-export * from "./types/DatePicker"
-
 export * from "./Avatar"
 export * from "./AvatarGroup"
 export * from "./Badge"

@@ -1,5 +1,5 @@
 import { parse } from "date-fns"
-import { DateFormat } from "../enums"
+import { DateFormat } from "../../Calendar/enums"
 import { isInvalidDate } from "./isInvalidDate"
 
 describe("isInvalidDate", () => {

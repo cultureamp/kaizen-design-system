@@ -7,12 +7,15 @@ import {
   isInvalidDate,
   getLocale,
 } from "@kaizen/date-picker"
+import {
+  DatePickerSupportedLocales,
+  DisabledDays,
+} from "~components/DatePicker"
 import { FilterProps } from "~components/Filter"
 import { useDateValidation } from "~components/FilterDatePicker/hooks/useDateValidation"
 import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
 import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
-import { DisabledDays, FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { useDateInputHandlers } from "../../hooks/useDateInputHandlers"
 import { DateValidationResponse, ValidationMessage } from "../../types"
@@ -25,7 +28,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 
 export type FilterDatePickerFieldProps = {
   id?: string
-  locale: FilterDateSupportedLocales
+  locale: DatePickerSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */

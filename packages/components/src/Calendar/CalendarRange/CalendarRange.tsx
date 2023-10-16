@@ -3,9 +3,9 @@ import { enAU } from "date-fns/locale"
 import { DayPicker, DayPickerRangeProps } from "react-day-picker"
 import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { isInvalidDate } from "~utils/date-controls"
 import { calendarRangeClasses } from "../calendarClassNames"
 import { DayOfWeek } from "../enums"
-import { isInvalidDate } from "../utils/isInvalidDate"
 
 export type CalendarRangeElement = HTMLDivElement
 
