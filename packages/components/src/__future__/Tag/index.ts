@@ -1,2 +1,2 @@
-export * from "./RemoveableTag"
+export * from "./RemovableTag"
 export * from "./Tag"

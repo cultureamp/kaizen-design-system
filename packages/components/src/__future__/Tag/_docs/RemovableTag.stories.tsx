@@ -1,20 +1,20 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
-import { RemoveableTag } from "../RemoveableTag"
+import { RemovableTag } from "../RemovableTag"
 import { TagColorKeys } from "../types"
 
 const meta = {
-  title: "Components/Tag/RemoveableTag",
-  component: RemoveableTag,
+  title: "Components/Tag/RemovableTag",
+  component: RemovableTag,
   args: {
     children: "My tag",
     removeButtonProps: {
       onClick: () => alert("Clicked"),
-      "aria-label": "Remove tag icon",
+      ariaLabel: "Remove tag icon",
     },
   },
-} satisfies Meta<typeof RemoveableTag>
+} satisfies Meta<typeof RemovableTag>
 
 export default meta
 
@@ -38,17 +38,17 @@ export const Color: Story = {
   render: () => (
     <>
       {TagColorKeys.map(color => (
-        <RemoveableTag
+        <RemovableTag
           color={color}
           icon={<TagIcon role="presentation" />}
           key={color}
           removeButtonProps={{
-            "aria-label": "close",
+            ariaLabel: "close",
             onClick: () => alert("Clicked"),
           }}
         >
           {color}
-        </RemoveableTag>
+        </RemovableTag>
       ))}
     </>
   ),
@@ -57,35 +57,35 @@ export const Color: Story = {
 export const Icon: Story = {
   render: () => (
     <>
-      <RemoveableTag
+      <RemovableTag
         icon={<AcademyIcon role="presentation" />}
         removeButtonProps={{
-          "aria-label": "close",
+          ariaLabel: "close",
           onClick: () => alert("Clicked"),
         }}
       >
         AcademyIcon
-      </RemoveableTag>
-      <RemoveableTag
+      </RemovableTag>
+      <RemovableTag
         color="yellow"
         icon={<ActionOffIcon role="presentation" />}
         removeButtonProps={{
-          "aria-label": "close",
+          ariaLabel: "close",
           onClick: () => alert("Clicked"),
         }}
       >
         ActionOffIcon
-      </RemoveableTag>
-      <RemoveableTag
+      </RemovableTag>
+      <RemovableTag
         color="green"
         icon={<AddIcon role="presentation" />}
         removeButtonProps={{
-          "aria-label": "close",
+          ariaLabel: "close",
           onClick: () => alert("Clicked"),
         }}
       >
         AddIcon
-      </RemoveableTag>
+      </RemovableTag>
     </>
   ),
 }

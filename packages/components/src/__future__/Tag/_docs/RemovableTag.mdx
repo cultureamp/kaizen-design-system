@@ -1,61 +1,59 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
-import * as RemoveableTagStories from "./RemoveableTag.stories"
+import * as RemovableTagStories from "./RemovableTag.stories"
 
-<Meta of={RemoveableTagStories} />
+<Meta of={RemovableTagStories} />
 
-# RemoveableTag
+# RemovableTag
 
 <ResourceLinks
-  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__future__/Tag/RemoveableTag.tsx"
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__future__/Tag/RemovableTag.tsx"
 />
 
 <KaioNotification />
 
 <Installation
   installCommand="yarn add @kaizen/components"
-  importStatement="import { RemoveableTag } from `@kaizen/components/future`"
+  importStatement="import { RemovableTag } from `@kaizen/components/future`"
 />
 
 ## Overview
 
 Similar to the Tag component, but with a remove icon, that recieves a callback from props.
 The consumer should manage the state regarding whether or not the icon should be rendered,
-and pass a callback to remove the RemoveableTag component via the `removeButtonProps` prop.
+and pass a callback to remove the RemovableTag component via the `removeButtonProps` prop.
 
 ## API
 
-<Canvas of={RemoveableTagStories.Playground} />
-<Controls of={RemoveableTagStories.Playground} />
+<Canvas of={RemovableTagStories.Playground} />
+<Controls of={RemovableTagStories.Playground} />
 
 ### `children`
 
 Takes a `ReactNode`. This should be the text that is displayed inside the Tag.
 
-<Canvas of={RemoveableTagStories.Children} />
+<Canvas of={RemovableTagStories.Children} />
 
 ### `color`
 
 Determines the color of the background, text, and icon.
 
-<Canvas of={RemoveableTagStories.Color} />
+<Canvas of={RemovableTagStories.Color} />
 
 ### `icon`
 
 An optional icon can be passed via this prop. The icon will be rendered on the left of `children`
 in LTR, and on the right of `children` in RTL. For a list of icons, see [Icons](?path=/story/components-icons--sticker-sheet-default)
 
-<Canvas of={RemoveableTagStories.Icon} />
-
 ### `classNameOverride`
 
 Allows classnames to be attached to the outermost element of Tag.
 
-<Canvas of={RemoveableTagStories.ClassNameOverride} />
+<Canvas of={RemovableTagStories.ClassNameOverride} />
 
 ### `Controlling the remove button`
 
-RemoveableTag tags a `removeButtonProps` prop that can be used to control the behaviour of the remove button.
+RemovableTag tags a `removeButtonProps` prop that can be used to control the behaviour of the remove button.
 
 #### `aria-label`
 

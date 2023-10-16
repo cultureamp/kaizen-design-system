@@ -14,7 +14,7 @@ type RemoveButtonColor =
   | "purple"
 
 export type RemoveButtonBaseProps = {
-  color: RemoveButtonColor
+  color?: RemoveButtonColor
   ariaLabel: string
   onClick: () => void
 }

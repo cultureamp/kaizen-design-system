@@ -5,21 +5,21 @@ import {
   RemoveButtonBaseProps,
 } from "./subcomponents/RemoveButton"
 import { Tag, TagProps } from "./Tag"
-import styles from "./RemoveableTag.module.scss"
+import styles from "./RemovableTag.module.scss"
 
-export type RemoveableTagProps = {
+export type RemovableTagProps = {
   removeButtonProps: RemoveButtonBaseProps
 } & TagProps
 
-export const RemoveableTag = ({
+export const RemovableTag = ({
   children,
   classNameOverride,
   color = "gray",
   removeButtonProps,
   ...restProps
-}: RemoveableTagProps): JSX.Element => (
+}: RemovableTagProps): JSX.Element => (
   <Tag
-    classNameOverride={classNames(classNameOverride, styles.removeableTag)}
+    classNameOverride={classNames(classNameOverride, styles.removableTag)}
     {...restProps}
     color={color}
   >
@@ -28,4 +28,4 @@ export const RemoveableTag = ({
   </Tag>
 )
 
-RemoveableTag.displayName = "RemoveableTag"
+RemovableTag.displayName = "RemovableTag"
