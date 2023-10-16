@@ -1,5 +1,12 @@
 import React from "react"
 import classnames from "classnames"
+import {
+  Assertive,
+  Cautionary,
+  Informative,
+  Negative,
+  Positive,
+} from "@kaizen/draft-illustration"
 import { ButtonProps } from "~components/Button"
 import { Heading } from "~components/Heading"
 import {
@@ -44,36 +51,31 @@ const getIcon = (mood: Mood, isProminent: boolean): JSX.Element => {
   switch (mood) {
     case "cautionary":
       return isProminent ? (
-        // <Cautionary alt="" isAnimated />
-        <>Hello</>
+        <Cautionary />
       ) : (
         <CautionWhiteIcon inheritSize role="presentation" />
       )
     case "informative":
       return isProminent ? (
-        // <Informative alt="" isAnimated />
-        <>Hello</>
+        <Informative />
       ) : (
         <InformationWhiteIcon inheritSize role="presentation" />
       )
     case "negative":
       return isProminent ? (
-        // <Negative alt="" isAnimated />
-        <>Hello</>
+        <Negative />
       ) : (
         <ExclamationWhiteIcon inheritSize role="presentation" />
       )
     case "positive":
       return isProminent ? (
-        // <Positive alt="" isAnimated />
-        <>Hello</>
+        <Positive />
       ) : (
         <SuccessWhiteIcon inheritSize role="presentation" />
       )
     case "assertive":
       return isProminent ? (
-        // <Assertive alt="" isAnimated />
-        <>Hello</>
+        <Assertive />
       ) : (
         <ExclamationWhiteIcon inheritSize role="presentation" />
       )
