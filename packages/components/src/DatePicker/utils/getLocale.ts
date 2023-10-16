@@ -1,7 +1,7 @@
 import { enAU, enUS } from "date-fns/locale"
-import { SupportedLocales } from "../types"
+import { DatePickerSupportedLocales } from "../types"
 
-export const getLocale = (locale: SupportedLocales): Locale => {
+export const getLocale = (locale: DatePickerSupportedLocales): Locale => {
   switch (locale) {
     case "en-AU":
       return enAU

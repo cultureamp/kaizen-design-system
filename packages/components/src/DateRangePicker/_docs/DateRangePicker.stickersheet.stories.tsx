@@ -86,6 +86,8 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet>
         <StickerSheet.Header
           headings={["Default", "Selected Value", "Disabled"]}
+          hasVerticalHeadings
+          headingsWidth={250}
         />
         <StickerSheet.Row rowTitle="Date Range Picker Input">
           <DateRangePickerTemplate />
@@ -100,6 +102,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet>
         <StickerSheet.Header
           headings={["Selected Range Dates", "Disabled Dates"]}
+          hasVerticalHeadings
         />
         <StickerSheet.Row rowTitle="Date Range Calendar (Legacy)">
           <LegacyCalendarRangeTemplate selectedRange={selectedDateRange} />
