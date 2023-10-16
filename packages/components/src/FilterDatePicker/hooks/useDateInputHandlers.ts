@@ -8,7 +8,7 @@ import { isDisabledDate } from "@kaizen/date-picker/src/utils/isDisabledDate"
 import { isSelectingDayInCalendar } from "@kaizen/date-picker/src/utils/isSelectingDayInCalendar"
 import { parseDateFromNumeralFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromNumeralFormatValue"
 import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
-import { DisabledDays } from "~types/DatePicker"
+import { DisabledDays } from "~types/date-controls"
 
 type UseDateInputHandlersArgs = {
   locale: Locale

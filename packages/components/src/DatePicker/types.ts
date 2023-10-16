@@ -1,8 +1,5 @@
-import { DateInterval, DateRange } from "react-day-picker"
 import { FieldMessageStatus } from "~components/FieldMessage"
 import { StringSuggestions } from "~types/StringSuggestions"
-
-export type { DateInterval, DateRange }
 
 // Ensure you update the storybook DATE_PICKER_SUPPORTED_LOCALES arg options when updating DatePickerSupportedLocales.
 export type DatePickerSupportedLocales = StringSuggestions<"en-US" | "en-AU">

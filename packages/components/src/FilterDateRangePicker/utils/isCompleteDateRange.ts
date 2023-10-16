@@ -1,4 +1,4 @@
-import { DateRange } from "~types/DatePicker"
+import { DateRange } from "~types/date-controls"
 
 export const isCompleteDateRange = (
   dateRange: DateRange | undefined

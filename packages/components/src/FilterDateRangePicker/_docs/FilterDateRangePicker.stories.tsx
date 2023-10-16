@@ -9,7 +9,7 @@ import {
   FilterButtonRemovable,
 } from "~components/FilterButton"
 import { DateValidationResponse } from "~components/FilterDatePicker"
-import { DateRange } from "~types/DatePicker"
+import { DateRange } from "~types/date-controls"
 import {
   DateRangeFieldValidationMessage,
   FilterDateRangePicker,

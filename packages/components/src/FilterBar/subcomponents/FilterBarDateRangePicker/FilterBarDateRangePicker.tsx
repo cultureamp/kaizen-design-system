@@ -3,7 +3,7 @@ import {
   FilterDateRangePicker,
   FilterDateRangePickerProps,
 } from "~components/FilterDateRangePicker"
-import { DateRange } from "~types/DatePicker"
+import { DateRange } from "~types/date-controls"
 import { useFilterBarContext } from "../../context/FilterBarContext"
 import { FilterBarButton } from "../FilterBarButton"
 

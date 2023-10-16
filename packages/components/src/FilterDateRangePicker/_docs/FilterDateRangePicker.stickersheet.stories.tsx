@@ -8,7 +8,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { DateRange } from "~types/DatePicker"
+import { DateRange } from "~types/date-controls"
 import { FilterButton } from "../../FilterButton"
 import { FilterDateRangePicker } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"

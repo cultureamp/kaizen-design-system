@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterButton } from "~components/FilterButton"
-import { DateRange } from "~types/DatePicker"
+import { DateRange } from "~types/date-controls"
 import { FilterDateRangePicker, FilterDateRangePickerProps } from "./index"
 
 const user = userEvent.setup()

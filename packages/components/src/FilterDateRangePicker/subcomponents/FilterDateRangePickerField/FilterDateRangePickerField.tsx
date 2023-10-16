@@ -9,12 +9,12 @@ import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText
 import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
 import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
 import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
-import { DatePickerSupportedLocales, DateRange } from "~components/DatePicker"
+import { DatePickerSupportedLocales } from "~components/DatePicker"
 import { DateValidationResponse } from "~components/FilterDatePicker"
 import { useDateInputHandlers } from "~components/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { DisabledDays } from "~types/date-controls"
+import { DateRange, DisabledDays } from "~types/date-controls"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,

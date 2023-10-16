@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { CalendarSingle } from "../_subcomponents/Calendar"
+import { CalendarSingle } from "~components/Calendar"
 import { isSelectingDayInCalendar } from "./isSelectingDayInCalendar"
 
 describe("isSelectingDayInCalendar", () => {
