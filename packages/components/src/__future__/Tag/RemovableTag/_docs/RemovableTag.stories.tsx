@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
-import { RemovableTag } from "../RemovableTag"
 import { TagColorKeys } from "../../Tag/types"
+import { RemovableTag } from "../RemovableTag"
 
 const meta = {
   title: "Components/Tag/Future/RemovableTag",

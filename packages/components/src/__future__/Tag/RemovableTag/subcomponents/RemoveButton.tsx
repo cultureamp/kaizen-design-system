@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from "react"
 import classnames from "classnames"
-import { RemoveTagIcon } from "./RemoveTagIcon"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { RemoveTagIcon } from "./RemoveTagIcon"
 import styles from "./RemoveButton.module.scss"
 
 type RemoveButtonColor =
