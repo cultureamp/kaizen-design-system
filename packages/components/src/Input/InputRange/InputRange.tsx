@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, ReactNode, useState } from "react"
 import classnames from "classnames"
-import { VisuallyHidden } from "@kaizen/a11y"
 import { Text } from "~components/Text"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./InputRange.module.scss"
 

@@ -41,7 +41,6 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.2",
     "@headlessui/react": "<=1.5.0",
-    "@kaizen/a11y": "^1.7.12",
     "@kaizen/brand": "^1.5.8",
     "@kaizen/date-picker": "^6.3.2",
     "@kaizen/design-tokens": "^10.3.13",

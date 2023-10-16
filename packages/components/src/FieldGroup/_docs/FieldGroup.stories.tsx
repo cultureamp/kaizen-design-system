@@ -36,7 +36,6 @@ export const Playground: Story = {
 }
 
 export const Inline: Story = {
-  args: { inline: true },
   render: () => (
     <>
       <FieldGroup classNameOverride="mr-6" inline>
@@ -62,7 +61,6 @@ export const Inline: Story = {
 }
 
 export const Default: Story = {
-  args: { inline: true },
   render: () => (
     <>
       <FieldGroup>
