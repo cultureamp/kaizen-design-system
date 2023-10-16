@@ -6,7 +6,7 @@ import { RemoveableTag } from "../RemoveableTag"
 import { TagColorKeys } from "../types"
 
 const meta = {
-  title: "Components/RemoveableTag",
+  title: "Components/Tag/RemoveableTag",
   component: RemoveableTag,
   args: {
     children: "My tag",
