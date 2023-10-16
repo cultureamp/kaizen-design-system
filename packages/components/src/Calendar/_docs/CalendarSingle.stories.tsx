@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { CalendarSingle } from "../index"
 
 const meta = {
-  title: "Components/Calendars/CalendarSingle",
+  title: "Components/Date controls/Calendars/CalendarSingle",
   component: CalendarSingle,
 } satisfies Meta<typeof CalendarSingle>
 

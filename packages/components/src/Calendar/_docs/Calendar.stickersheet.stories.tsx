@@ -9,7 +9,7 @@ import styles from "../Calendar.module.scss"
 import { CalendarRange, CalendarSingle, CalendarSingleProps } from "../index"
 
 export default {
-  title: "Components/Calendars",
+  title: "Components/Date controls/Calendars",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

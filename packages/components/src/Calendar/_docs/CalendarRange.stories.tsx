@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { CalendarRange } from "../index"
 
 const meta = {
-  title: "Components/Calendars/CalendarRange",
+  title: "Components/Date controls/Calendars/CalendarRange",
   component: CalendarRange,
 } satisfies Meta<typeof CalendarRange>
 
