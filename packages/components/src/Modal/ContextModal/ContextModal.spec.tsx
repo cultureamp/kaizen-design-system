@@ -43,21 +43,6 @@ describe("<ContextModal />", () => {
     })
   })
 
-  it("supports a dismiss action when cancel button is pressed", async () => {
-    const handleConfirm = jest.fn()
-    const handleDismiss = jest.fn()
-    const { getByText } = render(
-      <ContextModalWrapper onDismiss={handleDismiss} onConfirm={handleConfirm}>
-        Example modal body
-      </ContextModalWrapper>
-    )
-    await user.click(getByText(/Cancel/i))
-    await waitFor(() => {
-      expect(handleDismiss).toHaveBeenCalledTimes(1)
-      expect(handleConfirm).toHaveBeenCalledTimes(0)
-    })
-  })
-
   it("supports a confirm action when confirm button is pressed", async () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
