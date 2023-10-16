@@ -3,13 +3,11 @@ import { Meta, StoryObj } from "@storybook/react"
 import { GenericModal } from "../index"
 
 const meta = {
-  title: "Components/Modals/GenericModal",
+  title: "Components/Modals/Generic Modal",
   component: GenericModal,
   args: {
     children: "Example content",
     isOpen: false,
-    labelledByID: "example",
-    describedByID: "example",
   },
 } satisfies Meta<typeof GenericModal>
 

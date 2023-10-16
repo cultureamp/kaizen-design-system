@@ -28,7 +28,7 @@ const ConfirmationModalWithState = ({
 }
 
 const meta = {
-  title: "Components/Modals/ConfirmationModal",
+  title: "Components/Modals/Confirmation Modal",
   component: ConfirmationModal,
   args: {
     isOpen: false,

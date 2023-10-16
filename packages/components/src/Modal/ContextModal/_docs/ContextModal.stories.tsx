@@ -5,10 +5,7 @@ import { ModalDescription } from "~components/Modal/GenericModal/subcomponents/M
 import { Text } from "~components/Text"
 import { ContextModal, ContextModalProps } from "../index"
 
-const ContextModalWithState = ({
-  triggerTitle,
-  ...args
-}: ContextModalProps & { triggerTitle?: string }): JSX.Element => {
+const ContextModalWithState = (args: ContextModalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleOpen = (): void => setIsOpen(true)
@@ -17,7 +14,7 @@ const ContextModalWithState = ({
   return (
     <>
       <button type="button" onClick={handleOpen}>
-        {triggerTitle || "Open Modal"}
+        Open Modal
       </button>
       <ContextModal
         {...args}
@@ -64,7 +61,7 @@ const ExampleContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Components/Modals/ContextModal",
+  title: "Components/Modals/Context Modal",
   component: ContextModal,
   args: {
     isOpen: false,
