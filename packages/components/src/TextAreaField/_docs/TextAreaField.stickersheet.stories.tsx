@@ -5,7 +5,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { TextAreaField } from "../index"
+import { TextAreaField, TextAreaFieldProps } from "../index"
 
 export default {
   title: "Components/Text Input controls/Text Area Field",
@@ -16,6 +16,55 @@ export default {
 } satisfies Meta
 
 const TAFieldStatus = ["default", "error", "caution"] as const
+
+const TAFieldStatusGroup = ({
+  isReversed,
+  ...props
+}: Omit<TextAreaFieldProps, "labelText"> & {
+  isReversed?: boolean
+}): JSX.Element => (
+  <>
+    {TAFieldStatus.map(status => (
+      <StickerSheet.Row key={status} rowTitle={status} isReversed={isReversed}>
+        <TextAreaField
+          labelText={`Variant: ${props.variant}`}
+          reversed={isReversed}
+          status={status}
+          validationMessage="A valid question"
+          description="A short description"
+          {...props}
+        />
+        <TextAreaField
+          labelText={`Variant: ${props.variant}`}
+          reversed={isReversed}
+          status={status}
+          validationMessage="A valid question"
+          description="A short description"
+          data-sb-pseudo-styles="hover"
+          {...props}
+        />
+        <TextAreaField
+          labelText={`Variant: ${props.variant}`}
+          reversed={isReversed}
+          status={status}
+          validationMessage="A valid question"
+          description="A short description"
+          data-sb-pseudo-styles="active"
+          {...props}
+        />
+        <TextAreaField
+          labelText={`Variant: ${props.variant}`}
+          reversed={isReversed}
+          status={status}
+          validationMessage="A valid question"
+          description="A short description"
+          data-sb-pseudo-styles="focus"
+          {...props}
+        />
+      </StickerSheet.Row>
+    ))}
+  </>
+)
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
@@ -29,80 +78,8 @@ const StickerSheetTemplate: StickerSheetStory = {
           hasVerticalHeadings
         />
         <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Prominent">
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-            />
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-              data-sb-pseudo-styles="hover"
-            />
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-              data-sb-pseudo-styles="active"
-            />
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-              data-sb-pseudo-styles="focus"
-            />
-          </StickerSheet.Row>
-          <>
-            {TAFieldStatus.map(status => (
-              <StickerSheet.Row
-                key={status}
-                rowTitle={status}
-                isReversed={isReversed}
-              >
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                />
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                  data-sb-pseudo-styles="hover"
-                />
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                  data-sb-pseudo-styles="active"
-                />
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                  data-sb-pseudo-styles="focus"
-                />
-              </StickerSheet.Row>
-            ))}
-          </>
+          <TAFieldStatusGroup isReversed={isReversed} variant="default" />
+          <TAFieldStatusGroup isReversed={isReversed} variant="prominent" />
         </StickerSheet.Body>
       </StickerSheet>
       <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
@@ -114,88 +91,16 @@ const StickerSheetTemplate: StickerSheetStory = {
           hasVerticalHeadings
         />
         <StickerSheet.Body>
-          <StickerSheet.Row rowTitle="Prominent">
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-              disabled
-            />
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-              disabled
-              data-sb-pseudo-styles="hover"
-            />
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-              disabled
-              data-sb-pseudo-styles="active"
-            />
-            <TextAreaField
-              labelText="Prominent Label"
-              reversed={isReversed}
-              variant="prominent"
-              validationMessage="A valid question"
-              description="A short description"
-              disabled
-              data-sb-pseudo-styles="focus"
-            />
-          </StickerSheet.Row>
-          <>
-            {TAFieldStatus.map(status => (
-              <StickerSheet.Row
-                key={status}
-                rowTitle={status}
-                isReversed={isReversed}
-              >
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                  disabled
-                />
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                  disabled
-                  data-sb-pseudo-styles="hover"
-                />
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                  disabled
-                  data-sb-pseudo-styles="active"
-                />
-                <TextAreaField
-                  labelText="Label"
-                  reversed={isReversed}
-                  status={status}
-                  validationMessage="A valid question"
-                  description="A short description"
-                  disabled
-                  data-sb-pseudo-styles="focus"
-                />
-              </StickerSheet.Row>
-            ))}
-          </>
+          <TAFieldStatusGroup
+            isReversed={isReversed}
+            disabled
+            variant="default"
+          />
+          <TAFieldStatusGroup
+            isReversed={isReversed}
+            disabled
+            variant="prominent"
+          />
         </StickerSheet.Body>
       </StickerSheet>
     </>
