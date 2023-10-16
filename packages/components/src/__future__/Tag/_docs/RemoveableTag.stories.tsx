@@ -30,7 +30,7 @@ export const Playground: Story = {
   },
 }
 
-export const Children: StoryObj = {
+export const Children: Story = {
   args: { children: "This text is the children" },
 }
 
@@ -54,7 +54,7 @@ export const Color: Story = {
   ),
 }
 
-export const Icon: StoryObj = {
+export const Icon: Story = {
   render: () => (
     <>
       <RemoveableTag
