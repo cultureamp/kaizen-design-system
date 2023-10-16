@@ -80,8 +80,8 @@ const DatePickerTemplate: Story = {
     return (
       <DatePicker
         {...args}
-        onDayChange={setValueDate}
         selectedDay={selectedDate}
+        onDayChange={setValueDate}
       />
     )
   },
@@ -96,6 +96,43 @@ export const Playground: Story = {
       },
     },
   },
+}
+
+export const LabelText: Story = {
+  ...DatePickerTemplate,
+  args: { labelText: "Label text" },
+}
+
+const sourceCodeControlled = `
+const [selectedDate, setValueDate] = useState<Date | undefined>()
+
+return (
+  <DatePicker
+    selectedDay={selectedDate}
+    onDayChange={setValueDate}
+  />
+)
+`
+
+export const Controlled: Story = {
+  ...DatePickerTemplate,
+  args: { selectedDay: new Date() },
+  parameters: {
+    docs: {
+      source: {
+        code: sourceCodeControlled,
+      },
+    },
+  },
+}
+
+export const Locale: Story = {
+  ...DatePickerTemplate,
+  args: { locale: "en-US", selectedDay: new Date() },
+}
+
+export const Description: Story = {
+  args: { description: "Custom description!" },
 }
 
 export const Validation: Story = {
@@ -207,4 +244,8 @@ export const Validation: Story = {
     docs: { source: { type: "code" } },
     controls: { disable: true },
   },
+}
+
+export const DisabledDays: Story = {
+  parameters: { controls: { include: /^disabled/ } },
 }
