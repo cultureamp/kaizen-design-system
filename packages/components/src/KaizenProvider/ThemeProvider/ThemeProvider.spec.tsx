@@ -21,7 +21,7 @@ describe("<ThemeProvider />", () => {
   it("activates initial theme on construction", () => {
     render(<ThemeProvider>hello</ThemeProvider>)
 
-    const rootElement = document.getElementById("kaizen--theme-root")
+    const rootElement = document.documentElement
     assertThemeIsActive(heartTheme, rootElement)
     expect(rootElement?.style.getPropertyValue("--color-purple-800")).toBe(
       "#2f2438"
@@ -39,7 +39,7 @@ describe("<ThemeProvider />", () => {
 
     render(<ThemeProvider theme={customTheme}>hello</ThemeProvider>)
 
-    const rootElement = document.getElementById("kaizen--theme-root")
+    const rootElement = document.documentElement
     assertThemeIsActive(customTheme, rootElement)
     expect(rootElement?.style.getPropertyValue("--color-pancake")).toBe("#000")
   })
