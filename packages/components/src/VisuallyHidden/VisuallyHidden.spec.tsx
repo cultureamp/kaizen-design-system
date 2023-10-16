@@ -11,6 +11,6 @@ describe("<VisuallyHidden />", () => {
       </VisuallyHidden>
     )
 
-    expect(getByText("Lorem ipsum")).toBeTruthy()
+    expect(getByText("Lorem ipsum")).toBeInTheDocument()
   })
 })
