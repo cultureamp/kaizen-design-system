@@ -24,7 +24,7 @@ export const RemoveableTag = ({
     color={color}
   >
     {children}
-    <RemoveButton color={color} onClick={removeButtonProps.onClick} />
+    <RemoveButton color={color} {...removeButtonProps} />
   </Tag>
 )
 
