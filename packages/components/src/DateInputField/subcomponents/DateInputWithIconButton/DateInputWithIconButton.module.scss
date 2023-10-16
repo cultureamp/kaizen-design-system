@@ -1,0 +1,52 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/animation";
+@import "../../../../styles/button-reset";
+
+$input-disabled-opacity: 0.3;
+
+.iconButton {
+  @include button-reset;
+
+  display: inherit;
+  padding: 0.25rem $spacing-xs;
+  border: $border-solid-border-width $border-solid-border-style transparent;
+  border-radius: $border-solid-border-radius;
+  position: relative;
+  right: -0.35rem;
+  top: -40%;
+
+  [dir="rtl"] & {
+    right: 0.25rem;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
+    outline: $color-blue-500 $border-focus-ring-border-style
+      $border-focus-ring-border-width;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: $color-blue-100;
+    color: $color-blue-500;
+  }
+
+  svg {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.calendarActive {
+  color: $color-blue-500;
+  background-color: $color-blue-100;
+}
+
+.disabled {
+  opacity: $input-disabled-opacity;
+}

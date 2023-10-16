@@ -1,0 +1,19 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.dateInputDescription {
+  display: inline;
+}
+
+.dateInputFormatContainer {
+  margin-inline-start: $spacing-xs;
+  white-space: nowrap;
+}
+
+.descriptionInputFormat {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.labelSeparator {
+  margin-inline-end: $spacing-xs;
+}
