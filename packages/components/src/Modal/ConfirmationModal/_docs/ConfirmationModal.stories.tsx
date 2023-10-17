@@ -33,9 +33,6 @@ const ConfirmationModalWithState = ({
 const meta = {
   title: "Components/Modals/Confirmation Modal",
   component: ConfirmationModal,
-  parameters: {
-    chromatic: { disable: false },
-  },
   args: {
     isOpen: false,
     title: "Confirmation modal title",
@@ -61,6 +58,7 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: ConfirmationModalWithState,
   parameters: {
+    chromatic: { disable: false },
     docs: {
       canvas: {
         sourceState: "shown",
@@ -72,9 +70,15 @@ export const Playground: Story = {
 export const Prominent: Story = {
   render: ConfirmationModalWithState,
   args: { isProminent: true },
+  parameters: {
+    chromatic: { disable: false },
+  },
 }
 
 export const Assertive: Story = {
   render: ConfirmationModalWithState,
   args: { mood: "assertive" },
+  parameters: {
+    chromatic: { disable: false },
+  },
 }
