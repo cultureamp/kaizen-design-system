@@ -6,10 +6,9 @@ import { ConfirmationModal, ConfirmationModalProps } from "../index"
 
 const IS_CHROMATIC = isChromatic()
 
-const ConfirmationModalWithState = ({
-  triggerTitle,
-  ...args
-}: ConfirmationModalProps & { triggerTitle?: string }): JSX.Element => {
+const ConfirmationModalWithState = (
+  args: ConfirmationModalProps
+): JSX.Element => {
   const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
   const handleOpen = (): void => setIsOpen(true)
@@ -18,7 +17,7 @@ const ConfirmationModalWithState = ({
   return (
     <>
       <button type="button" onClick={handleOpen}>
-        {triggerTitle || "Open Modal"}
+        Open Modal
       </button>
       <ConfirmationModal
         {...args}
