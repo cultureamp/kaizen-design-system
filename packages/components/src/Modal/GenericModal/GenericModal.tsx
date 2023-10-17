@@ -155,7 +155,7 @@ export const GenericModal = ({
               className={styles.modalLayer}
               aria-labelledby={labelledByID}
               aria-describedby={describedByID}
-              ref={(modalLayerRef): void => setModalLayer(modalLayerRef)}
+              ref={setModalLayer}
               data-testid={id}
             >
               {children}
