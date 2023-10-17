@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Button, ButtonProps } from "~components/Button"
 import { useMediaQueries } from "~utils/useMediaQueries"
@@ -19,18 +19,21 @@ export type ModalFooterProps = Readonly<{
   unpadded?: boolean
   actions: ButtonProps[]
   appearance?: "primary" | "destructive"
+  /**
+   * @deprecated Please use data-testid
+   */
   automationId?: string
   alignStart?: boolean
-}>
+}> &
+  HTMLAttributes<HTMLDivElement>
 
-export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
-  const {
-    unpadded,
-    actions,
-    appearance = "primary",
-    automationId,
-    variant,
-  } = props
+export const ModalFooter = ({
+  unpadded,
+  actions,
+  appearance = "primary",
+  variant,
+  ...props
+}: ModalFooterProps): JSX.Element => {
   const { queries } = useMediaQueries()
 
   return (
@@ -42,6 +45,7 @@ export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
           variant === "context" && styles.informationPadded,
           props.alignStart && styles.actionsAlignStart
         )}
+        {...props}
       >
         {actions.map((action, index) => (
           <div className={styles.actionButton} key={index}>
@@ -50,8 +54,6 @@ export const ModalFooter = (props: ModalFooterProps): JSX.Element => {
               primary={index === 0 && appearance === "primary"}
               destructive={index === 0 && appearance === "destructive"}
               secondary={index > 0}
-              data-automation-id={`${automationId}-action-${index}`}
-              data-testid={`${automationId}-action-${index}`}
               fullWidth={queries.isSmall}
               {...action}
             />
