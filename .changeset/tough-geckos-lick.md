@@ -2,4 +2,4 @@
 "@kaizen/components": minor
 ---
 
-Migrate Modals from kaizen-legacy
+Migrate GenericModal from kaizen-legacy

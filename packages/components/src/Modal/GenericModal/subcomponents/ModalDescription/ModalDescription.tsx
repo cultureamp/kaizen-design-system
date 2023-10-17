@@ -1,5 +1,5 @@
 import React from "react"
-import { ModalContext } from "./ModalContext"
+import { ModalContext } from "../ModalContext"
 import styles from "./ModalDescription.module.scss"
 
 export interface ModalDescriptionProps {
