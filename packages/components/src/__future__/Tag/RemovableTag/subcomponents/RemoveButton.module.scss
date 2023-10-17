@@ -37,42 +37,59 @@
 
   .closeIcon {
     fill: rgba($color-purple-800-rgb, 0.7);
-  }
-
-  &:hover,
-  &:focus-visible {
-    cursor: pointer;
-
-    .closeIcon {
+    &:hover,
+    &:focus-visible {
+      cursor: pointer;
       fill: $color-purple-800;
     }
+  }
+}
 
-    &.gray {
-      background-color: rgba($color-gray-600-rgb, 0.2);
-    }
+.gray {
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-gray-600-rgb, 0.2);
+  }
+}
 
-    &.blue {
-      background-color: rgba($color-blue-500-rgb, 0.3);
-    }
+.blue {
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-blue-500-rgb, 0.3);
+  }
+}
 
-    &.green {
-      background-color: rgba($color-green-500-rgb, 0.3);
-    }
+.green {
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-green-500-rgb, 0.3);
+  }
+}
 
-    &.yellow {
-      background-color: rgba($color-yellow-500-rgb, 0.5);
-    }
+.yellow {
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-yellow-500-rgb, 0.5);
+  }
+}
 
-    &.orange {
-      background-color: rgba($color-orange-500-rgb, 0.3);
-    }
+.orange {
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-orange-500-rgb, 0.3);
+  }
+}
 
-    &.red {
-      background-color: rgba($color-red-500-rgb, 0.3);
-    }
+.red {
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-red-500-rgb, 0.3);
+  }
+}
 
-    &.purple {
-      background-color: rgba($color-purple-500-rgb, 0.3);
-    }
+.purple {
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-purple-500-rgb, 0.3);
   }
 }
