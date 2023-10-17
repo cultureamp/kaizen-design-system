@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Decorator, Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { ModalDescription } from "~components/Modal/GenericModal/subcomponents/ModalDescription"
 import { Text } from "~components/Text"
@@ -44,6 +44,22 @@ const ExampleForm = (): JSX.Element => (
   </>
 )
 
+// Add additional height to the stories when running in Chromatic only.
+// Modals have fixed position and would be cropped from snapshot tests.
+// Setting height to 100vh ensures we capture as much content of the
+// modal, as it's height responds to the content within it.
+const HeightDecorator: Decorator<InputEditModalProps> = Story => {
+  if (IS_CHROMATIC) {
+    return (
+      <div style={{ minHeight: "100vh" }}>
+        <Story />
+      </div>
+    )
+  }
+
+  return <Story />
+}
+
 const meta = {
   title: "Components/Modals/Input Edit Modal",
   component: InputEditModal,
@@ -66,23 +82,6 @@ const meta = {
       control: false,
     },
   },
-  decorators: [
-    // Add additional height to the stories when running in Chromatic only.
-    // Modals have fixed position and would be cropped from snapshot tests.
-    // Setting height to 100vh ensures we capture as much content of the
-    // modal, as it's height responds to the content within it.
-    Story => {
-      if (IS_CHROMATIC) {
-        return (
-          <div style={{ minHeight: "100vh" }}>
-            <Story />
-          </div>
-        )
-      }
-
-      return <Story />
-    },
-  ],
 } satisfies Meta<typeof InputEditModal>
 
 export default meta
@@ -103,9 +102,11 @@ export const Playground: Story = {
 export const Positive: Story = {
   render: InputEditModalWithState,
   args: { mood: "positive" },
+  decorators: [HeightDecorator],
 }
 
 export const Destructive: Story = {
   render: InputEditModalWithState,
   args: { mood: "destructive" },
+  decorators: [HeightDecorator],
 }
