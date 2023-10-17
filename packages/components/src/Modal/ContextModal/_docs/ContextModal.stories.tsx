@@ -142,3 +142,9 @@ export const Landscape: Story = {
   args: { layout: "landscape" },
   ...chromaticModalSettings,
 }
+
+export const Unpadded: Story = {
+  ...ContextModalTemplate,
+  args: { unpadded: true },
+  ...chromaticModalSettings,
+}
