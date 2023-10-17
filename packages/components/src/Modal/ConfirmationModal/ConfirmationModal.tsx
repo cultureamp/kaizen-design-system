@@ -15,12 +15,14 @@ import {
   InformationWhiteIcon,
   SuccessWhiteIcon,
 } from "~components/Icon"
-import { ModalDescription } from "../GenericModal/subcomponents/ModalDescription"
-import { ModalFooter } from "../GenericModal/subcomponents/ModalFooter"
-import { ModalHeader } from "../GenericModal/subcomponents/ModalHeader"
-import { ModalLabel } from "../GenericModal/subcomponents/ModalLabel"
-import { ModalSection } from "../GenericModal/subcomponents/ModalSection"
-import { GenericModal } from ".."
+import {
+  GenericModal,
+  ModalDescription,
+  ModalFooter,
+  ModalHeader,
+  ModalLabel,
+  ModalSection,
+} from "~components/Modal/GenericModal"
 import styles from "./ConfirmationModal.module.scss"
 
 export type ConfirmationModalProps = {
