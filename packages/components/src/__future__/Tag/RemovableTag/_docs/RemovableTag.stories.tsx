@@ -21,6 +21,18 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
+  argTypes: {
+    icon: {
+      options: ["AcademyIcon", "ActionOffIcon", "AddIcon", "TagIcon"],
+      control: { type: "radio" },
+      mapping: {
+        AcademyIcon: <AcademyIcon role="presentation" />,
+        ActionOffIcon: <ActionOffIcon role="presentation" />,
+        AddIcon: <AddIcon role="presentation" />,
+        TagIcon: <TagIcon role="presentation" />,
+      },
+    },
+  },
   parameters: {
     docs: {
       canvas: {
