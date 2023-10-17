@@ -1,5 +1,5 @@
 import React, { useEffect, useState, ReactNode, useMemo } from "react"
-import { useTheme } from "@kaizen/design-tokens"
+import { useTheme } from "~components/KaizenProvider"
 
 type Props = { [key: string]: string }
 type GenericChildrenType = { children?: ReactNode }
