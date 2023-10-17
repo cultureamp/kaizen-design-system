@@ -14,7 +14,7 @@ export type GenericModalProps = {
   onEscapeKeyup?: (event: KeyboardEvent) => void
   onOutsideModalClick?: (event: React.MouseEvent) => void
   onAfterLeave?: () => void
-} & Omit<ModalContextType, "labelledByID" | "describedByID"> &
+} &
   HTMLAttributes<HTMLDivElement>
 
 export const GenericModal = ({
