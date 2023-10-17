@@ -1,9 +1,9 @@
-import React, { HTMLAttributes, useId, useState } from "react"
+import React, { useId, useState } from "react"
 import { createPortal } from "react-dom"
 import { Transition } from "@headlessui/react"
 import FocusLock from "react-focus-lock"
-import { warn } from "~utils/console"
-import { ModalContext, ModalContextType } from "./subcomponents/ModalContext"
+import { warn } from "~components/Modal/util/console"
+import { ModalContext } from "./context/ModalContext"
 import styles from "./GenericModal.module.scss"
 
 export type GenericModalProps = {
@@ -14,8 +14,7 @@ export type GenericModalProps = {
   onEscapeKeyup?: (event: KeyboardEvent) => void
   onOutsideModalClick?: (event: React.MouseEvent) => void
   onAfterLeave?: () => void
-} & Omit<ModalContextType, "labelledByID" | "describedByID"> &
-  HTMLAttributes<HTMLDivElement>
+}
 
 export const GenericModal = ({
   id: propsId,
@@ -26,9 +25,12 @@ export const GenericModal = ({
   onOutsideModalClick,
   onAfterLeave: propsOnAfterLeave,
 }: GenericModalProps): JSX.Element => {
-  const id = propsId ?? useId()
+  const reactId = useId()
+  const id = propsId ?? reactId
+
   const labelledByID = useId()
   const describedByID = useId()
+
   const [scrollLayer, setScrollLayer] = useState<HTMLDivElement | null>(null)
   const [modalLayer, setModalLayer] = useState<HTMLDivElement | null>(null)
 

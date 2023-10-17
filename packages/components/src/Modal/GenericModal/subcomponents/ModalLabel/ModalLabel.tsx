@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { ModalContext } from "../ModalContext"
+import { ModalContext } from "../../context/ModalContext"
 import styles from "./ModalLabel.module.scss"
 
 export type ModalLabelProps = {
