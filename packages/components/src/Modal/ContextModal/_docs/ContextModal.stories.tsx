@@ -114,7 +114,6 @@ export const Playground: Story = {
       },
     },
   },
-  decorators: [HeightDecorator],
 }
 
 export const Potrait: Story = {
