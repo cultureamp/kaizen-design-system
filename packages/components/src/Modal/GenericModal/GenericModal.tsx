@@ -2,7 +2,7 @@ import React, { useId, useState } from "react"
 import { createPortal } from "react-dom"
 import { Transition } from "@headlessui/react"
 import FocusLock from "react-focus-lock"
-import { warn } from "~utils/console"
+import { warn } from "~components/Modal/util/console"
 import { ModalContext } from "./context/ModalContext"
 import styles from "./GenericModal.module.scss"
 
