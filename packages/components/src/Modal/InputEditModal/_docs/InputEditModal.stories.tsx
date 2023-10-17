@@ -114,3 +114,9 @@ export const Destructive: Story = {
   args: { mood: "destructive" },
   ...chromaticModalSettings,
 }
+
+export const Unpadded: Story = {
+  ...InputModalTemplate,
+  args: { unpadded: true },
+  ...chromaticModalSettings,
+}
