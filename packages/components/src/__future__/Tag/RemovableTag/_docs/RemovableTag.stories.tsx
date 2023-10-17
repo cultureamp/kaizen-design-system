@@ -64,6 +64,11 @@ export const Color: Story = {
       ))}
     </>
   ),
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
 }
 
 export const Icon: Story = {
