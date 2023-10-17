@@ -2,11 +2,13 @@ import React from "react"
 import classnames from "classnames"
 import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "~components/Button"
-import { GenericModal } from "../GenericModal"
-import { ModalFooter } from "../GenericModal/subcomponents/ModalFooter"
-import { ModalHeader } from "../GenericModal/subcomponents/ModalHeader"
-import { ModalLabel } from "../GenericModal/subcomponents/ModalLabel"
-import { ModalSection } from "../GenericModal/subcomponents/ModalSection"
+import {
+  GenericModal,
+  ModalFooter,
+  ModalHeader,
+  ModalLabel,
+  ModalSection,
+} from "~components/Modal/GenericModal"
 import styles from "./ContextModal.module.scss"
 
 export type ContextModalSecondaryActionProps =
