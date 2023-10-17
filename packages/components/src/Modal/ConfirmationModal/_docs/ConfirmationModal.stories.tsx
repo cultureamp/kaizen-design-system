@@ -1,13 +1,16 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import isChromatic from "chromatic"
 import { Text } from "~components/Text"
 import { ConfirmationModal, ConfirmationModalProps } from "../index"
+
+const IS_CHROMATIC = isChromatic()
 
 const ConfirmationModalWithState = ({
   triggerTitle,
   ...args
 }: ConfirmationModalProps & { triggerTitle?: string }): JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
   const handleOpen = (): void => setIsOpen(true)
   const handleClose = (): void => setIsOpen(false)
@@ -30,6 +33,9 @@ const ConfirmationModalWithState = ({
 const meta = {
   title: "Components/Modals/Confirmation Modal",
   component: ConfirmationModal,
+  parameters: {
+    chromatic: { disable: false },
+  },
   args: {
     isOpen: false,
     title: "Confirmation modal title",
