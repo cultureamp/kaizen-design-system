@@ -1,12 +1,15 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import isChromatic from "chromatic"
 import { AddImage } from "@kaizen/draft-illustration"
 import { ModalDescription } from "~components/Modal/GenericModal/subcomponents/ModalDescription"
 import { Text } from "~components/Text"
 import { ContextModal, ContextModalProps } from "../index"
 
+const IS_CHROMATIC = isChromatic()
+
 const ContextModalWithState = (args: ContextModalProps): JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
   const handleOpen = (): void => setIsOpen(true)
   const handleClose = (): void => setIsOpen(false)
@@ -63,6 +66,13 @@ const ExampleContent = (): JSX.Element => (
 const meta = {
   title: "Components/Modals/Context Modal",
   component: ContextModal,
+  parameters: {
+    chromatic: {
+      disable: false,
+      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
+      pauseAnimationAtEnd: true,
+    },
+  },
   args: {
     isOpen: false,
     title: "Context modal title",
@@ -73,6 +83,23 @@ const meta = {
       control: false,
     },
   },
+  decorators: [
+    // Add additional height to the stories when running in Chromatic only.
+    // Modals have fixed position and would be cropped from snapshot tests.
+    // Setting height to 100vh ensures we capture as much content of the
+    // modal, as it's height responds to the content within it.
+    Story => {
+      if (IS_CHROMATIC) {
+        return (
+          <div style={{ minHeight: "100vh" }}>
+            <Story />
+          </div>
+        )
+      }
+
+      return <Story />
+    },
+  ],
 } satisfies Meta<typeof ContextModal>
 
 export default meta
