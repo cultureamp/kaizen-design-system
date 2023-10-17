@@ -102,3 +102,8 @@ export const Assertive: Story = {
   ...ConfirmationModalTemplate,
   args: { mood: "assertive" },
 }
+
+export const Unpadded: Story = {
+  ...ConfirmationModalTemplate,
+  args: { unpadded: true },
+}
