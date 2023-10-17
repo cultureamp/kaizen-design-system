@@ -31,6 +31,7 @@ export const ModalFooter = ({
   unpadded,
   actions,
   appearance = "primary",
+  alignStart,
   variant,
   ...props
 }: ModalFooterProps): JSX.Element => {
@@ -43,7 +44,7 @@ export const ModalFooter = ({
           styles.actions,
           !unpadded && styles.padded,
           variant === "context" && styles.informationPadded,
-          props.alignStart && styles.actionsAlignStart
+          alignStart && styles.actionsAlignStart
         )}
         {...props}
       >
