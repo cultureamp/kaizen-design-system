@@ -3,7 +3,7 @@ import { createPortal } from "react-dom"
 import { Transition } from "@headlessui/react"
 import FocusLock from "react-focus-lock"
 import { warn } from "~utils/console"
-import { ModalContext } from "./subcomponents/ModalContext"
+import { ModalContext } from "./context/ModalContext"
 import styles from "./GenericModal.module.scss"
 
 export type GenericModalProps = {

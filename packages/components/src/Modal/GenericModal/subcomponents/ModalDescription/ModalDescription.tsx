@@ -1,8 +1,8 @@
 import React from "react"
-import { ModalContext } from "../ModalContext"
+import { ModalContext } from "../../context/ModalContext"
 import styles from "./ModalDescription.module.scss"
 
-export interface ModalDescriptionProps {
+export type ModalDescriptionProps = {
   children: React.ReactNode
 }
 
