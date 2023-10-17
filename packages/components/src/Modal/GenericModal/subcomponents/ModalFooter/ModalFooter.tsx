@@ -2,7 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import { Button, ButtonProps } from "~components/Button"
 import { useMediaQueries } from "~utils/useMediaQueries"
-import { ModalSection } from "./ModalSection"
+import { ModalSection } from "../ModalSection/ModalSection"
 import styles from "./ModalFooter.module.scss"
 
 type ActionsVariantProps = "context" | "inputEdit"
