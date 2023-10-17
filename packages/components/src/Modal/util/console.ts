@@ -1,13 +1,9 @@
-const red = "\u001b[31m "
 const yellow = "\u001b[33m "
 const reset = "\u001b[0m "
 
-export const error = (message: string): Error => {
-  throw new Error(
-    `${red}\nCULTUREAMP UI ERROR:\n${singleLine(message)}${reset}\n`
-  )
-}
-
+/**
+ * @deprecated Do not use ever again
+ */
 export const warn = (message: string): void => {
   // eslint-disable-next-line no-console
   console.warn(
