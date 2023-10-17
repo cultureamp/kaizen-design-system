@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import {
   Assertive,
@@ -43,9 +43,12 @@ export type ConfirmationModalProps = {
   confirmLabel?: string
   dismissLabel?: string
   confirmWorking?: { label: string; labelHidden?: boolean }
+  /**
+   * @deprecated Please use data-testid
+   */
   automationId?: string
   children: React.ReactNode
-}
+} & HTMLAttributes<HTMLDivElement>
 
 type Mood = "positive" | "informative" | "negative" | "cautionary" | "assertive"
 
@@ -99,11 +102,11 @@ export const ConfirmationModal = ({
   confirmLabel = "Confirm",
   dismissLabel = "Cancel",
   confirmWorking,
-  automationId,
+  onDismiss: propsOnDismiss,
   children,
   ...props
 }: ConfirmationModalProps): JSX.Element => {
-  const onDismiss = confirmWorking ? undefined : props.onDismiss
+  const onDismiss = confirmWorking ? undefined : propsOnDismiss
 
   const footerActions: ButtonProps[] = []
   if (onConfirm) {
@@ -132,7 +135,7 @@ export const ConfirmationModal = ({
       onOutsideModalClick={onDismiss}
       onAfterLeave={onAfterLeave}
     >
-      <div className={styles.modal} data-modal>
+      <div className={styles.modal} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(
@@ -172,7 +175,6 @@ export const ConfirmationModal = ({
         <ModalFooter
           actions={footerActions}
           appearance={mood === "negative" ? "destructive" : "primary"}
-          automationId={automationId}
           unpadded={unpadded}
         />
       </div>
