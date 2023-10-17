@@ -34,7 +34,7 @@
 .actionButton + .actionButton {
   margin-right: $spacing-sm;
 
-  @media (max-width: ( $layout-breakpoints-medium - 1px)) {
+  @media (max-width: (calc(#{$layout-breakpoints-medium} - 1px))) {
     margin-top: $spacing-sm;
   }
 }
