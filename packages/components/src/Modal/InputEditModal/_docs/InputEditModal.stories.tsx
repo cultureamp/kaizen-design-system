@@ -35,27 +35,27 @@ const chromaticModalSettings = {
   decorators: [HeightDecorator],
 }
 
-const InputEditModalWithState = (
-  args: Omit<InputEditModalProps, "onDismiss" | "onSubmit">
-): JSX.Element => {
-  const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
+const InputModalTemplate: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
 
-  const handleOpen = (): void => setIsOpen(true)
-  const handleClose = (): void => setIsOpen(false)
+    const handleOpen = (): void => setIsOpen(true)
+    const handleClose = (): void => setIsOpen(false)
 
-  return (
-    <>
-      <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button>
-      <InputEditModal
-        {...args}
-        isOpen={isOpen}
-        onSubmit={handleClose}
-        onDismiss={handleClose}
-      />
-    </>
-  )
+    return (
+      <>
+        <button type="button" onClick={handleOpen}>
+          Open Modal
+        </button>
+        <InputEditModal
+          {...args}
+          isOpen={isOpen}
+          onSubmit={handleClose}
+          onDismiss={handleClose}
+        />
+      </>
+    )
+  },
 }
 
 const ExampleForm = (): JSX.Element => (
@@ -93,7 +93,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
-  render: InputEditModalWithState,
+  ...InputModalTemplate,
   parameters: {
     docs: {
       canvas: {
@@ -104,13 +104,13 @@ export const Playground: Story = {
 }
 
 export const Positive: Story = {
-  render: InputEditModalWithState,
+  ...InputModalTemplate,
   args: { mood: "positive" },
   ...chromaticModalSettings,
 }
 
 export const Destructive: Story = {
-  render: InputEditModalWithState,
+  ...InputModalTemplate,
   args: { mood: "destructive" },
   ...chromaticModalSettings,
 }

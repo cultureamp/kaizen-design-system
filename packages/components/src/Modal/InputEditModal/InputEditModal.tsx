@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "~components/Button"
@@ -24,10 +24,13 @@ export type InputEditModalProps = {
   submitLabel?: string
   dismissLabel?: string
   secondaryLabel?: string
+  /**
+   * @deprecated Please use data-testid
+   */
   automationId?: string
   children: React.ReactNode
   submitWorking?: { label: string; labelHidden?: boolean }
-}
+} & HTMLAttributes<HTMLDivElement>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal#Input-Edit-Modal Guidance} |
@@ -45,12 +48,12 @@ export const InputEditModal = ({
   dismissLabel = "Cancel",
   secondaryLabel,
   submitWorking,
-  automationId,
   children,
   unpadded = false,
+  onDismiss: propsOnDismiss,
   ...props
 }: InputEditModalProps): JSX.Element => {
-  const onDismiss = submitWorking ? undefined : props.onDismiss
+  const onDismiss = submitWorking ? undefined : propsOnDismiss
   const submitAction = { label: submitLabel, onClick: onSubmit }
   const workingProps = submitWorking
     ? {
@@ -77,7 +80,7 @@ export const InputEditModal = ({
       onEscapeKeyup={onDismiss}
       onAfterLeave={onAfterLeave}
     >
-      <div className={styles.modal} dir={localeDirection} data-modal>
+      <div className={styles.modal} dir={localeDirection} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(
@@ -104,7 +107,6 @@ export const InputEditModal = ({
         <ModalFooter
           actions={footerActions}
           appearance={mood === "destructive" ? "destructive" : "primary"}
-          automationId={automationId}
           variant="inputEdit"
           unpadded={unpadded}
         />
