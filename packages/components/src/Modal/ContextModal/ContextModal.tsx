@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "~components/Button"
@@ -34,12 +34,16 @@ export type ContextModalProps = Readonly<
     onAfterLeave?: () => void
     confirmLabel?: string
     confirmWorking?: { label: string; labelHidden?: boolean }
+    /**
+     * @deprecated use data-testid instead
+     */
     automationId?: string
     renderBackground?: () => React.ReactNode
     image?: React.ReactNode
     children: React.ReactNode
     contentHeader?: React.ReactNode
-  } & ContextModalSecondaryActionProps
+  } & ContextModalSecondaryActionProps &
+    HTMLAttributes<HTMLDivElement>
 >
 
 /**
@@ -55,7 +59,6 @@ export const ContextModal = ({
   onAfterLeave,
   confirmLabel = "Confirm",
   confirmWorking,
-  automationId,
   renderBackground,
   children,
   contentHeader,
@@ -94,7 +97,7 @@ export const ContextModal = ({
       onOutsideModalClick={onDismiss}
       onAfterLeave={onAfterLeave}
     >
-      <div className={styles.modal} data-modal>
+      <div className={styles.modal} data-modal {...props}>
         {renderBackground && renderBackground()}
         <ModalHeader onDismiss={onDismiss}>
           <div
@@ -136,7 +139,6 @@ export const ContextModal = ({
           variant={image ? "context" : undefined}
           actions={footerActions}
           appearance="primary"
-          automationId={automationId}
           unpadded={unpadded}
         />
       </div>
