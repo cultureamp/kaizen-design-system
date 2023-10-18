@@ -1,5 +1,5 @@
 export * from "./GenericModal"
-export * from "./subcomponents/ModalContext"
+export * from "./context/ModalContext"
 export * from "./subcomponents/ModalDescription"
 export * from "./subcomponents/ModalFooter"
 export * from "./subcomponents/ModalHeader"
