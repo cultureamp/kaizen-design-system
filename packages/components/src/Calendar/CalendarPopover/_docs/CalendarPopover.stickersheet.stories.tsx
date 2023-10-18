@@ -4,9 +4,9 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { CalendarPopover, CalendarPopoverProps } from "../CalendarPopover"
-import { CalendarRange } from "../CalendarRange"
-import { CalendarSingle } from "../CalendarSingle"
+import { CalendarRange } from "../../CalendarRange"
+import { CalendarSingle } from "../../CalendarSingle"
+import { CalendarPopover, CalendarPopoverProps } from "../index"
 
 export default {
   title: "Components/Date controls/Calendars/CalendarPopover",

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { CalendarRange, DateRange } from "../index"
+import { DateRange } from "../../types"
+import { CalendarRange } from "../index"
 
 const meta = {
   title: "Components/Date controls/Calendars/CalendarRange",
