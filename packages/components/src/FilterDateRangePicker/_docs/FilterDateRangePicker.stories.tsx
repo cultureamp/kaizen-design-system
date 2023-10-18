@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
 import { DateRange } from "~components/Calendar"
+import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
@@ -15,7 +16,6 @@ import {
   FilterDateRangePicker,
 } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
-import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 

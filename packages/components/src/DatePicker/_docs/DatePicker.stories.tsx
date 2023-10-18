@@ -3,13 +3,13 @@ import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Button } from "~components/Button"
+import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
+import { weekStartsOnControls } from "~components/Calendar/_docs/controls/weekStartsOnControls"
 import { FieldMessageStatus } from "~components/FieldMessage"
 import { Text } from "~components/Text"
 import { DatePicker, ValidationResponse } from "../index"
 import { datePickerLocaleControls } from "./controls/datePickerLocaleControls"
-import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDayMatchersControls } from "./controls/disabledDayMatchersControls"
-import { weekStartsOnControls } from "./controls/weekStartsOnControls"
 
 const meta = {
   title: "Components/Date controls/DatePicker",
