@@ -1,5 +1,5 @@
 import React, { useId, useState } from "react"
-import { getLocale } from "~components/Calendar"
+import { getLocale } from "~components/DatePicker/utils/getLocale"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import { DateRangeDisplayLabel } from "./subcomponents/DateRangeDisplayLabel"
