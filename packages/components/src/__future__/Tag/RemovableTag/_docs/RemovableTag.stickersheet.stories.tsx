@@ -23,21 +23,30 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Row>
             <RemovableTag
               color="gray"
-              removeButtonProps={{ ariaLabel: "Remove tag", onClick: () => {} }}
+              removeButtonProps={{
+                ariaLabel: "Remove tag",
+                onClick: () => alert("clicked"),
+              }}
             >
               Gray
             </RemovableTag>
             <RemovableTag
               color="gray"
               data-sb-pseudo-styles="hover"
-              removeButtonProps={{ ariaLabel: "Remove tag", onClick: () => {} }}
+              removeButtonProps={{
+                ariaLabel: "Remove tag",
+                onClick: () => alert("clicked"),
+              }}
             >
               Gray
             </RemovableTag>
             <RemovableTag
               color="gray"
               data-sb-pseudo-styles="focus"
-              removeButtonProps={{ ariaLabel: "Remove tag", onClick: () => {} }}
+              removeButtonProps={{
+                ariaLabel: "Remove tag",
+                onClick: () => alert("clicked"),
+              }}
             >
               Gray
             </RemovableTag>
