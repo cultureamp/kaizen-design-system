@@ -1,7 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@kaizen/typography"
 import { Card } from "~components/Card"
+import { Heading } from "~components/Heading"
 import { Divider } from "../index"
 
 const meta = {

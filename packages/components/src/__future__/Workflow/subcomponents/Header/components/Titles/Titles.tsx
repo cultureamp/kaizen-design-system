@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import { Tag, DefaultTagProps } from "@kaizen/draft-tag"
-import { Heading } from "@kaizen/typography"
+import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Titles.module.scss"
 

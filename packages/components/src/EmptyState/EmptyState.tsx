@@ -8,7 +8,8 @@ import {
   EmptyStatesNeutral,
   EmptyStatesPositive,
 } from "@kaizen/draft-illustration"
-import { HeadingProps, Heading, Paragraph } from "@kaizen/typography"
+import { Paragraph } from "@kaizen/typography"
+import { HeadingProps, Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./EmptyState.module.scss"
 
