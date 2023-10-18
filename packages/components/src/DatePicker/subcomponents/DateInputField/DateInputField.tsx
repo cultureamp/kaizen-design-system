@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react"
+import React, { useId } from "react"
 import classnames from "classnames"
 import { enAU } from "date-fns/locale"
 import {
@@ -45,7 +45,8 @@ export const DateInputField = React.forwardRef<
     },
     ref
   ) => {
-    const [id] = useState<string>(propsId ?? useId())
+    const reactId = useId()
+    const id = propsId ?? reactId
 
     const descriptionId = `${id}-field-message`
 

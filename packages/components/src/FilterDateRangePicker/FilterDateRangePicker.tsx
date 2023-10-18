@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react"
+import React, { useId } from "react"
 import { getLocale } from "~components/DatePicker/utils/getLocale"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
@@ -27,7 +27,9 @@ export const FilterDateRangePicker = ({
   locale,
   ...restProps
 }: FilterDateRangePickerProps): JSX.Element => {
-  const [id] = useState<string>(propsId || useId())
+  const reactId = useId()
+  const id = propsId ?? reactId
+
   return (
     <Filter
       isOpen={isOpen}

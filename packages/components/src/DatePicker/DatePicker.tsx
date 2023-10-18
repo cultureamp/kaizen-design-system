@@ -104,7 +104,9 @@ export const DatePicker = ({
   onValidate,
   ...restDateInputFieldProps
 }: DatePickerProps): JSX.Element => {
-  const [id] = useState<string>(propsId || useId())
+  const reactId = useId()
+  const id = propsId ?? reactId
+
   const containerRef = useRef<HTMLInputElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(propsButtonRef?.current || null)

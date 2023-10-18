@@ -1,10 +1,4 @@
-import React, {
-  HTMLAttributes,
-  useEffect,
-  useId,
-  useReducer,
-  useState,
-} from "react"
+import React, { HTMLAttributes, useEffect, useId, useReducer } from "react"
 import classnames from "classnames"
 import {
   CalendarSingle,
@@ -86,7 +80,9 @@ export const FilterDatePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
-  const [id] = useState<string>(propsId || useId())
+  const reactId = useId()
+  const id = propsId ?? reactId
+
   const locale = getLocale(propsLocale)
 
   const dateValidation = useDateValidation({

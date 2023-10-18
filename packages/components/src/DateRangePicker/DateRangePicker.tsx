@@ -74,7 +74,9 @@ export const DateRangePicker = ({
   onChange,
   ...inputProps
 }: DateRangePickerProps): JSX.Element => {
-  const [id] = useState<string>(propsId || useId())
+  const reactId = useId()
+  const id = propsId ?? reactId
+
   const containerRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 
