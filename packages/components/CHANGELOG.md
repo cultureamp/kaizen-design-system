@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.27.0
+
+### Minor Changes
+
+- [#4157](https://github.com/cultureamp/kaizen-design-system/pull/4157) [`19c6fdc19`](https://github.com/cultureamp/kaizen-design-system/commit/19c6fdc191a1e58b2fefad61e78ed8adf123aeb2) - - Migrate kaizen-legacy TextField, TextArea, TextAreaField to KAIO
+
+- [#4158](https://github.com/cultureamp/kaizen-design-system/pull/4158) [`5093f486e`](https://github.com/cultureamp/kaizen-design-system/commit/5093f486e9eaf09e510300ffe2bdaf3a0e0bd95d) - Migrate VisuallyHidden component to KAIO
+
+### Patch Changes
+
+- [#4180](https://github.com/cultureamp/kaizen-design-system/pull/4180) [`afe86b01e`](https://github.com/cultureamp/kaizen-design-system/commit/afe86b01e81493c35a0b26dd9b7b7ab19123b5ec) - Fixes issue where styles.css was being tree-shaken by Webpack
+
+- [#4155](https://github.com/cultureamp/kaizen-design-system/pull/4155) [`9b29d7c3e`](https://github.com/cultureamp/kaizen-design-system/commit/9b29d7c3e4359dbf1b90e886b2fd359c1b7678fd) - Change `@kaizen/design-tokens` from peerDep to devDep.
+
+  No longer required by consumers as we distribute compiled css.
+
 ## 1.26.0
 
 ### Minor Changes
