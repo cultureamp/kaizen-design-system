@@ -20,8 +20,8 @@ export const RemovableTag = ({
 }: RemovableTagProps): JSX.Element => (
   <Tag
     classNameOverride={classNames(classNameOverride, styles.removableTag)}
-    {...restProps}
     color={color}
+    {...restProps}
   >
     {children}
     <RemoveButton color={color} {...removeButtonProps} />
