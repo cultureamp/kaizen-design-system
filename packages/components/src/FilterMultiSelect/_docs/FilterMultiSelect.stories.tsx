@@ -10,7 +10,7 @@ import {
 import isChromatic from "chromatic"
 import { TextField } from "@kaizen/draft-form"
 import { InlineNotification } from "@kaizen/notification"
-import { Paragraph } from "@kaizen/typography"
+import { Text } from "~components/Text"
 import {
   FilterMultiSelect,
   getSelectedOptionLabels,
@@ -282,17 +282,17 @@ export const Async: Story = {
                         No results found for {searchState}.
                       </FilterMultiSelect.NoResults>
                     ) : searchState !== "" ? (
-                      <Paragraph
+                      <Text
                         classNameOverride={styles.helperMessage}
                         variant="extra-small"
                         tag="span"
                         color="dark-reduced-opacity"
                       >
                         Showing {filteredCount} of {totalCount}
-                      </Paragraph>
+                      </Text>
                     ) : (
                       hasNextPage && (
-                        <Paragraph
+                        <Text
                           classNameOverride={styles.helperMessage}
                           variant="extra-small"
                           tag="span"
@@ -300,7 +300,7 @@ export const Async: Story = {
                         >
                           There are a lot of options. Narrow them further by
                           searching for a more precise term.
-                        </Paragraph>
+                        </Text>
                       )
                     )}
 

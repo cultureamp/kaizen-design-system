@@ -2,9 +2,9 @@ import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { SceneProps } from "@kaizen/draft-illustration"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { Paragraph } from "@kaizen/typography"
 import { Button, ButtonProps } from "~components/Button"
 import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { useMediaQueries } from "~utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
@@ -72,12 +72,12 @@ export const BrandMoment = ({
                   {text.title}
                 </Heading>
                 {text.body && (
-                  <Paragraph
+                  <Text
                     variant="intro-lede"
                     classNameOverride={styles.textBody}
                   >
                     {text.body}
-                  </Paragraph>
+                  </Text>
                 )}
                 {body && <div className={styles.textBody}>{body}</div>}
                 <div className={styles.actions}>
@@ -108,9 +108,9 @@ export const BrandMoment = ({
           <div className={styles.container}>
             <div className={styles.footerInner}>
               <div className={styles.poweredByContainer}>
-                <Paragraph variant="extra-small" color="dark-reduced-opacity">
+                <Text variant="extra-small" color="dark-reduced-opacity">
                   Powered by
-                </Paragraph>
+                </Text>
                 <a
                   href="https://www.cultureamp.com"
                   className={styles.poweredByLogo}
@@ -122,7 +122,7 @@ export const BrandMoment = ({
                 </a>
               </div>
               <div className={styles.footerTextContainer}>
-                <Paragraph variant="extra-small">{text.footer}</Paragraph>
+                <Text variant="extra-small">{text.footer}</Text>
               </div>
             </div>
           </div>
