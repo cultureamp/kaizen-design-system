@@ -12,6 +12,18 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Pseudo states of Calendar days do not meet contrast ratios
+            id: "color-contrast",
+            selector:
+              ':not([data-sb-pseudo-styles="hover"], [data-sb-pseudo-styles="focus"])',
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
