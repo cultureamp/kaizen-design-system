@@ -2,7 +2,7 @@
 import { ClassNames } from "react-day-picker"
 import calendarRangeStyles from "./CalendarRange/CalendarRange.module.scss"
 import calendarSingleStyles from "./CalendarSingle/CalendarSingle.module.scss"
-import calendarStyles from "./Calendar.module.scss"
+import calendarStyles from "./calendarClassNames.module.scss"
 
 const baseCalendarClasses: ClassNames = {
   vhidden: calendarStyles.vHidden,

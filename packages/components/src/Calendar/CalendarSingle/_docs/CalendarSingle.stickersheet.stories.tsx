@@ -5,7 +5,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import styles from "../../Calendar.module.scss"
+import styles from "../../calendarClassNames.module.scss"
 import { CalendarSingle, CalendarSingleProps } from "../index"
 
 export default {
