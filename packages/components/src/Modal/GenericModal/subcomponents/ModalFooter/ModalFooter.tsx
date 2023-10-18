@@ -24,8 +24,7 @@ export type ModalFooterProps = {
    */
   automationId?: string
   alignStart?: boolean
-}> &
-  HTMLAttributes<HTMLDivElement>
+}> & HTMLAttributes<HTMLDivElement>
 
 export const ModalFooter = ({
   unpadded,
