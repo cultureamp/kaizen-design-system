@@ -2,7 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import styles from "./ModalSection.module.scss"
 
-export interface ModalSectionProps {
+export type ModalSectionProps = {
   inputEdit?: boolean
   children: React.ReactNode
 }

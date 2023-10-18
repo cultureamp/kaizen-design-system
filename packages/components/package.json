@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.26.0",
+  "version": "1.27.0",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -21,7 +21,9 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/index.d.ts",
-  "sideEffects": false,
+  "sideEffects": [
+    "styles.css"
+  ],
   "scripts": {
     "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublishOnly",
