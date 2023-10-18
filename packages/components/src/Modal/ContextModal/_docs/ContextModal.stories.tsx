@@ -97,13 +97,6 @@ const ContextModalTemplate: Story = {
 const meta = {
   title: "Components/Modals/Context Modal",
   component: ContextModal,
-  parameters: {
-    chromatic: {
-      disable: false,
-      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
-      pauseAnimationAtEnd: true,
-    },
-  },
   args: {
     isOpen: false,
     title: "Context modal title",
