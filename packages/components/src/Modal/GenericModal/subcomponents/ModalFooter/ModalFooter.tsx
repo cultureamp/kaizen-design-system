@@ -7,7 +7,7 @@ import styles from "./ModalFooter.module.scss"
 
 type ActionsVariantProps = "context" | "inputEdit"
 
-export type ModalFooterProps = Readonly<{
+export type ModalFooterProps = {
   /**
    * We have a special case for the InformationModal when it has an image.
    * Since this modal may have an image on the right side the actions might look disconected from the content.
@@ -24,8 +24,7 @@ export type ModalFooterProps = Readonly<{
    */
   automationId?: string
   alignStart?: boolean
-}> &
-  HTMLAttributes<HTMLDivElement>
+} & HTMLAttributes<HTMLDivElement>
 
 export const ModalFooter = ({
   unpadded,
