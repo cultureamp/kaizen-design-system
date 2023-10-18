@@ -42,7 +42,7 @@ export interface TextProps
 }
 
 /**
- * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3074885298/Typography#Paragraph Guidance}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3074885298/Typography#Text Guidance}
  * {@link https://cultureamp.design/?path=/docs/components-typography-text--body Storybook}
  */
 export const Text = ({

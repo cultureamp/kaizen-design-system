@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { Heading } from "@kaizen/typography"
+import { Heading } from "~components/Heading"
 import {
   StickerSheet,
   StickerSheetStory,

@@ -8,7 +8,7 @@ import {
   BrandMomentError,
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
-import { Paragraph } from "@kaizen/typography"
+import { Text } from "~components/Text"
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -201,14 +201,14 @@ export const Error: Story = {
     body: (
       <>
         <div className="mb-16">
-          <Paragraph variant="intro-lede">
+          <Text variant="intro-lede">
             Sorry but we can&apos;t find the page you&apos;re looking for. Go
             back and try again, or head to <a href="#">Home</a>.
-          </Paragraph>
+          </Text>
         </div>
-        <Paragraph variant="small" color="dark-reduced-opacity">
+        <Text variant="small" color="dark-reduced-opacity">
           Error code 404
-        </Paragraph>
+        </Text>
       </>
     ),
     primaryAction: {
