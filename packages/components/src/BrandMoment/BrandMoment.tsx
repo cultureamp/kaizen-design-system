@@ -2,10 +2,10 @@ import React, { ReactNode, ReactElement, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { SceneProps } from "@kaizen/draft-illustration"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { useMediaQueries } from "@kaizen/responsive"
 import { Heading, Paragraph } from "@kaizen/typography"
 import { Button, ButtonProps } from "~components/Button"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { useMediaQueries } from "~utils/useMediaQueries"
 import styles from "./BrandMoment.module.scss"
 
 export type BrandMomentProps = {

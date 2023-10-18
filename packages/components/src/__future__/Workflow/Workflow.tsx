@@ -14,7 +14,7 @@ export type WorkflowProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> &
   FooterProps &
   Pick<HeaderProps, "workflowName" | "status" | "headerActions">
 
-const WorkflowComponent = ({
+export const Workflow = ({
   steps,
   currentStepId,
   isComplete,
@@ -48,10 +48,8 @@ const WorkflowComponent = ({
   )
 }
 
-export const Workflow = Object.assign(WorkflowComponent, {
-  Header,
-  Footer,
-  Main,
-  ProgressStepper,
-  Wrapper,
-})
+Workflow.Header = Header
+Workflow.Footer = Footer
+Workflow.Main = Main
+Workflow.ProgressStepper = ProgressStepper
+Workflow.Wrapper = Wrapper

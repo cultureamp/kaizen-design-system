@@ -1,50 +1,33 @@
-import React, {
-  Context,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react"
-import { ThemeManager } from "./ThemeManager"
-import { defaultTheme, Theme } from "./themes"
+import React, { createContext, useContext } from "react"
+import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
+import { defaultTheme, Theme as BaseTheme } from "./themes"
 
-export const ThemeContext: Context<Theme> = createContext<Theme>(defaultTheme)
+// We set the generic default value to `any` as ThemeContext
+// is instantiated as a constant which does not accept generics.
+type ThemeContextValue<Theme extends BaseTheme = any> = Theme
+
+export const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 /**
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
  * This allows child react elements to more easily use theme variables, using the {@link useTheme} hook.
  */
-export const ThemeProvider = ({
-  themeManager,
+export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>({
+  theme: userTheme,
   ...props
 }: {
-  themeManager?: ThemeManager
+  theme?: Theme
   children: React.ReactNode
 }): JSX.Element => {
-  const [themeManagerInstance] = useState<ThemeManager>(
-    () => themeManager || new ThemeManager(defaultTheme)
-  )
-
-  const [theme, setTheme] = useState<Theme>(
-    themeManagerInstance.getCurrentTheme()
-  )
-
-  useEffect(() => {
-    let cancelled = false
-    const listener = (newTheme: Theme): void => {
-      if (!cancelled) setTheme(newTheme)
-    }
-    themeManagerInstance.addThemeChangeListener(listener)
-    return () => {
-      cancelled = true
-      themeManagerInstance.removeThemeChangeListener(listener)
-    }
-  }, [])
+  const theme = userTheme ?? defaultTheme
+  const themeVariables = makeCssVariableDefinitionsMap(theme)
 
   return (
     <>
       <ThemeContext.Provider value={theme}>
-        {props.children}
+        <div id="kaizen--theme-root" style={themeVariables}>
+          {props.children}
+        </div>
       </ThemeContext.Provider>
       <link
         rel="preload"
@@ -85,4 +68,14 @@ export const ThemeProvider = ({
   )
 }
 
-export const useTheme = (): Theme => useContext(ThemeContext)
+export const useTheme = <
+  Theme extends BaseTheme = BaseTheme,
+>(): ThemeContextValue<Theme> => {
+  const context = useContext(ThemeContext)
+
+  if (!context) {
+    throw new Error("useTheme must be used within the KaizenProvider")
+  }
+
+  return context
+}

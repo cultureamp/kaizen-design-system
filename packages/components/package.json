@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.25.0",
+  "version": "1.27.0",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -18,13 +18,18 @@
     "icons",
     "locales"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
   "types": "dist/index.d.ts",
+  "sideEffects": [
+    "styles.css"
+  ],
   "scripts": {
     "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublishOnly",
     "test": "jest",
+    "test:ci": "yarn test --ci",
+    "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist node_modules",
     "build:components": "rollup -c",
     "compile": "tsc",
@@ -33,14 +38,14 @@
     "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
-    "test:ci": "yarn test --ci",
     "update-icons": "./src/Icon/bin/update-icons.sh"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.2",
-    "@kaizen/a11y": "^1.7.12",
+    "@headlessui/react": "<=1.5.0",
     "@kaizen/brand": "^1.5.8",
     "@kaizen/date-picker": "^6.3.2",
+    "@kaizen/design-tokens": "^10.3.13",
     "@kaizen/draft-badge": "^1.13.12",
     "@kaizen/draft-divider": "^2.2.11",
     "@kaizen/draft-form": "^10.5.0",
@@ -69,20 +74,20 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "react-animate-height": "^3.2.2",
+    "react-focus-lock": "^2.9.6",
     "react-focus-on": "^3.9.1",
-    "react-intl": "^6.4.6",
     "react-popper": "^2.3.0",
     "react-textfit": "^1.1.1",
+    "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },
-  "devDependenciesComments": {
-    "esbuild": "It appears that 0.19.x breaks the import of rollup-plugin-esbuild"
-  },
   "devDependencies": {
+    "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
     "@cultureamp/frontend-apis": "^8.0.3",
     "@cultureamp/i18n-react-intl": "^2.1.1",
     "@kaizen/tailwind": "^1.1.0",
     "@rollup/plugin-alias": "^5.0.1",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.5",
     "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-json": "^6.0.1",
@@ -90,13 +95,14 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/react-dom": "^18.2.7",
     "@types/react-textfit": "^1.1.1",
+    "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.16",
+    "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
-    "esbuild": "0.18.20",
     "query-string": "^8.1.0",
+    "react-intl": "^6.4.7",
     "rollup": "^3.28.1",
     "rollup-plugin-dts": "^6.0.2",
-    "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-node-externals": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
@@ -108,8 +114,8 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "@cultureamp/i18n-react-intl": "^1.7.0 || ^2.0.0",
-    "@kaizen/design-tokens": "^2.10.3 || ^3.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0",
-    "react": "^16.14.0 || ^17.0.0 || ^18.0.0"
+    "@cultureamp/i18n-react-intl": "^2.0.0",
+    "react": "^18.0.0",
+    "react-intl": "^6.4.6"
   }
 }

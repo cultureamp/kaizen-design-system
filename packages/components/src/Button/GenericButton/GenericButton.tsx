@@ -380,5 +380,3 @@ const generateAriaLabel = (props: RenderProps): string | undefined => {
 
   return undefined
 }
-
-export default GenericButton

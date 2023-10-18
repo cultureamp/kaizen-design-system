@@ -1,0 +1,52 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { LinkTo } from "~storybook/components/LinkTo"
+import * as TextFieldStories from "./TextField.stories"
+
+<Meta of={TextFieldStories} />
+
+# TextField
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/TextField"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=893%3A155422&t=zlNKMVZd1i6MB4db-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928705/Text+Field"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { TextField } from "@kaizen/components"'
+/>
+
+## Overview
+
+A text field includes a label, an input field you can type text into, a description and validation styling
+
+Composed of <LinkTo pageId="components-label">Label</LinkTo>, <LinkTo pageId="components-input">Input</LinkTo> and <LinkTo pageId="components-field-group">FieldGroup</LinkTo>.
+
+<Canvas of={TextFieldStories.Playground} />
+<Controls of={TextFieldStories.Playground} />
+
+## API
+
+### Types
+<Canvas of={TextFieldStories.Types} />
+
+### Description
+<Canvas of={TextFieldStories.Description} />
+
+### Icon
+<Canvas of={TextFieldStories.Icon} />
+
+### Inline
+Our default setting is `block`, so this applies `inline` to the `FieldGroup` that wraps the `Input`
+<Canvas of={TextFieldStories.Inline} />
+
+### Validation
+<Canvas of={TextFieldStories.Validation} />
+
+### Reversed
+<Canvas of={TextFieldStories.Reversed} />
