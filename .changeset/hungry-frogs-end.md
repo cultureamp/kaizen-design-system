@@ -2,4 +2,4 @@
 "@kaizen/components": minor
 ---
 
-Add RemoveableButton component
+Add Future RemovableTag and RemovableButton components
