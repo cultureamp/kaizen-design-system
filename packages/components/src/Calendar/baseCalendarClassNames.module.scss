@@ -22,6 +22,7 @@ $rdp-cell-size: 40px;
         -1 * calc((#{$border-focus-ring-border-width} * 2) + 1px)
       );
 
+      z-index: 2;
       content: "";
       position: absolute;
       inset: $focus-ring-offset;
@@ -170,8 +171,18 @@ $rdp-cell-size: 40px;
   font-weight: bold;
 }
 
-// Increased specificity to override selected days
-.day.dayDisabled {
+.daySelected {
+  background-color: $color-blue-500;
+  color: $color-white;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-blue-400;
+    color: $color-white;
+  }
+}
+
+.dayDisabled {
   // Focus ring styles have been removed as react-day-picker has been updated such that
   // disabled days do not receive focus, and keyboard navigation only lands on available days.
   // https://github.com/gpbl/react-day-picker/pull/1519

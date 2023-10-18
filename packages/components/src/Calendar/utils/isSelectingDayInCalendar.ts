@@ -1,4 +1,4 @@
-import calendarStyles from "../calendarClassNames.module.scss"
+import calendarStyles from "../baseCalendarClassNames.module.scss"
 
 export const isSelectingDayInCalendar = (
   target: (EventTarget & Element) | null

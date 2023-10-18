@@ -5,7 +5,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import styles from "../../calendarClassNames.module.scss"
+import styles from "../../baseCalendarClassNames.module.scss"
 import { CalendarSingle, CalendarSingleProps } from "../index"
 
 export default {
@@ -111,9 +111,7 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
 
   const getElementWithinCalendar = (id: string, name: string): HTMLElement => {
     const calendar = canvas.getByTestId(id)
-    return within(calendar).getByRole("button", {
-      name,
-    })
+    return within(calendar).getByRole("button", { name })
   }
 
   const todayCalendarIds = [

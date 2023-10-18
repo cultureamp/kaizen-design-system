@@ -3,9 +3,10 @@ import { enAU } from "date-fns/locale"
 import { DayPicker, DayPickerSingleProps } from "react-day-picker"
 import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { calendarSingleClasses } from "../calendarClassNames"
+import { baseCalendarClassNames } from "../baseCalendarClassNames"
 import { DayOfWeek } from "../enums"
 import { isInvalidDate, isValidWeekStartsOn } from "../utils"
+import styles from "./CalendarSingle.module.scss"
 
 export type CalendarSingleElement = HTMLDivElement
 
@@ -34,6 +35,14 @@ export const CalendarSingle = ({
   const selectedMonth =
     monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
+  /* eslint-disable camelcase */
+  const classNames = {
+    ...baseCalendarClassNames,
+    nav: styles.nav,
+    nav_button_next: styles.navButtonNext,
+  } satisfies DayPickerSingleProps["classNames"]
+  /* eslint-enable camelcase */
+
   return (
     <div ref={calendarRef} id={id} className={classNameOverride}>
       <DayPicker
@@ -43,7 +52,7 @@ export const CalendarSingle = ({
         weekStartsOn={
           isValidWeekStartsOn(weekStartsOn) ? weekStartsOn : undefined
         }
-        classNames={calendarSingleClasses()}
+        classNames={classNames}
         components={{
           IconRight: () => <ArrowForwardIcon role="presentation" />,
           IconLeft: () => <ArrowBackwardIcon role="presentation" />,

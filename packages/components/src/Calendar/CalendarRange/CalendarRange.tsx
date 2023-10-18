@@ -3,9 +3,10 @@ import { enAU } from "date-fns/locale"
 import { DayPicker, DayPickerRangeProps } from "react-day-picker"
 import { ArrowBackwardIcon, ArrowForwardIcon } from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { calendarRangeClasses } from "../calendarClassNames"
+import { baseCalendarClassNames } from "../baseCalendarClassNames"
 import { DayOfWeek } from "../enums"
 import { isInvalidDate } from "../utils"
+import styles from "./CalendarRange.module.scss"
 
 export type CalendarRangeElement = HTMLDivElement
 
@@ -35,6 +36,18 @@ export const CalendarRange = ({
   const selectedMonth =
     monthToShow && isInvalidDate(monthToShow) ? undefined : monthToShow
 
+  /* eslint-disable camelcase */
+  const classNames = {
+    ...baseCalendarClassNames,
+    month: hasDivider ? styles.monthWithDivider : styles.month,
+    caption_end: styles.captionEnd,
+    nav: styles.nav,
+    day_range_start: styles.dayRangeStart,
+    day_range_end: styles.dayRangeEnd,
+    day_range_middle: styles.dayRangeMiddle,
+  } satisfies DayPickerRangeProps["classNames"]
+  /* eslint-enable camelcase */
+
   return (
     <div ref={calendarRef} id={id} className={classNameOverride}>
       <DayPicker
@@ -42,7 +55,7 @@ export const CalendarRange = ({
         selected={selected}
         defaultMonth={selectedMonth}
         weekStartsOn={DayOfWeek.Mon}
-        classNames={calendarRangeClasses(hasDivider)}
+        classNames={classNames}
         components={{
           IconRight: () => <ArrowForwardIcon role="presentation" />,
           IconLeft: () => <ArrowBackwardIcon role="presentation" />,
