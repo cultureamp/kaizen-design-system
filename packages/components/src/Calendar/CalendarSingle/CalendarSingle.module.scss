@@ -16,3 +16,14 @@
     right: auto;
   }
 }
+
+.daySelected {
+  background-color: $color-blue-500;
+  color: $color-white;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-blue-400;
+    color: $color-white;
+  }
+}
