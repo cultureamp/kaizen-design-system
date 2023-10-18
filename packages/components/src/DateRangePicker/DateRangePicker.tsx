@@ -17,7 +17,7 @@ import { DateStartIcon } from "~components/Icon"
 import { Label } from "~components/Label"
 import styles from "./DateRangePicker.module.scss"
 
-export interface DateRangePickerProps extends DisabledDayMatchers {
+export type DateRangePickerProps = {
   id?: string
   classNameOverride?: string
   labelText: string
@@ -48,7 +48,7 @@ export interface DateRangePickerProps extends DisabledDayMatchers {
    * Event passed from consumer to handle the date on change.
    */
   onChange: (dateRange: DateRange) => void
-}
+} & DisabledDayMatchers
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094237/Date+Range+Picker Guidance} |
