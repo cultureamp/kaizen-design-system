@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.2",
+    "@headlessui/react": "<=1.5.0",
     "@kaizen/brand": "^1.5.8",
     "@kaizen/date-picker": "^6.3.2",
     "@kaizen/design-tokens": "^10.3.13",
@@ -73,6 +74,7 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "react-animate-height": "^3.2.2",
+    "react-focus-lock": "^2.9.6",
     "react-focus-on": "^3.9.1",
     "react-popper": "^2.3.0",
     "react-textfit": "^1.1.1",
