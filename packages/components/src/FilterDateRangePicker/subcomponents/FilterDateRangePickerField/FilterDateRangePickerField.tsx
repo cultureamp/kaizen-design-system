@@ -1,12 +1,16 @@
 import React, { useEffect, HTMLAttributes, useReducer } from "react"
 import { useIntl } from "@cultureamp/i18n-react-intl"
 import classnames from "classnames"
-import { CalendarRange, CalendarRangeProps } from "~components/Calendar"
+import {
+  CalendarRange,
+  CalendarRangeProps,
+  DateRange,
+  DisabledDays,
+} from "~components/Calendar"
 import { DateValidationResponse } from "~components/FilterDatePicker"
 import { useDateInputHandlers } from "~components/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { DateRange, DisabledDays } from "~types/date-controls"
 import {
   DatePickerSupportedLocales,
   formatDateAsText,

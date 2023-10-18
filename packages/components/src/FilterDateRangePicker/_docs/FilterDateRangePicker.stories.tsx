@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
+import { DateRange } from "~components/Calendar"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
@@ -9,7 +10,6 @@ import {
   FilterButtonRemovable,
 } from "~components/FilterButton"
 import { DateValidationResponse } from "~components/FilterDatePicker"
-import { DateRange } from "~types/date-controls"
 import {
   DateRangeFieldValidationMessage,
   FilterDateRangePicker,

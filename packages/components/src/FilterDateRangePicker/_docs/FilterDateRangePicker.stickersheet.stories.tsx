@@ -4,11 +4,11 @@ import { action } from "@storybook/addon-actions"
 import { Meta } from "@storybook/react"
 import { within, userEvent } from "@storybook/testing-library"
 import isChromatic from "chromatic"
+import { DateRange } from "~components/Calendar"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { DateRange } from "~types/date-controls"
 import { FilterButton } from "../../FilterButton"
 import { FilterDateRangePicker } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"

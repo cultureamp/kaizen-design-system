@@ -1,4 +1,4 @@
-import { DisabledDays } from "~types/date-controls"
+import { DisabledDays } from "~components/Calendar"
 import { isDisabledDate, isInvalidDate } from "~utils/date-controls"
 import { ValidationResponse } from "../types"
 

@@ -1,5 +1,5 @@
 import { format } from "date-fns"
-import { DateFormat, DisabledDays } from "~types/date-controls"
+import { DateFormat, DisabledDays } from "~components/Calendar"
 import { isDisabledDate } from "./isDisabledDate"
 import { isInvalidDate } from "./isInvalidDate"
 

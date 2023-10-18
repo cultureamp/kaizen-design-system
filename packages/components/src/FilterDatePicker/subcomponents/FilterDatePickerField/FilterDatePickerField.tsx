@@ -6,14 +6,17 @@ import React, {
   useState,
 } from "react"
 import classnames from "classnames"
-import { CalendarSingle, CalendarSingleProps } from "~components/Calendar"
+import {
+  CalendarSingle,
+  CalendarSingleProps,
+  DisabledDays,
+} from "~components/Calendar"
 import { DateInputDescriptionProps } from "~components/DateInput"
 import { FilterProps } from "~components/Filter"
 import { useDateValidation } from "~components/FilterDatePicker/hooks/useDateValidation"
 import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { DisabledDays } from "~types/date-controls"
 import {
   DatePickerSupportedLocales,
   getLocale,

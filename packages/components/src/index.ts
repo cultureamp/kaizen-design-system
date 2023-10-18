@@ -1,5 +1,5 @@
 // Export shared Date(Range)Picker types
-export * from "~types/date-controls"
+export * from "~components/Calendar"
 
 export * from "./Avatar"
 export * from "./AvatarGroup"

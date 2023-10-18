@@ -1,5 +1,5 @@
 import { isMatch } from "react-day-picker"
-import { DisabledDays } from "~types/date-controls"
+import { DisabledDays } from "~components/Calendar"
 
 export const isDisabledDate = (
   date: Date,

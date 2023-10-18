@@ -1,5 +1,7 @@
 import { DateInterval, DateRange, DayPickerProps } from "react-day-picker"
-import { DayOfWeek } from "~components/Calendar"
+import { DayOfWeek } from "./enums"
+
+export type { DateInterval, DateRange }
 
 export type DisabledDays = DayPickerProps["disabled"]
 

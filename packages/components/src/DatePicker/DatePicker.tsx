@@ -5,9 +5,9 @@ import {
   CalendarSingle,
   CalendarSingleElement,
   CalendarSingleProps,
+  DisabledDayMatchers,
 } from "~components/Calendar"
 import { CalendarPopover } from "~components/Calendar/CalendarPopover"
-import { DisabledDayMatchers } from "~types/date-controls"
 import {
   DatePickerSupportedLocales,
   calculateDisabledDays,
