@@ -7,10 +7,10 @@ import styles from "./DateInput.module.scss"
 
 type OmittedInputProps = "reversed" | "type" | "inputRef"
 
-export interface DateInputProps extends Omit<InputProps, OmittedInputProps> {
+export type DateInputProps = {
   labelText: React.ReactNode
   isReversed?: boolean
-}
+} & Omit<InputProps, OmittedInputProps>
 
 export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
   (
@@ -44,4 +44,5 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
     </div>
   )
 )
+
 DateInput.displayName = "DateInput"
