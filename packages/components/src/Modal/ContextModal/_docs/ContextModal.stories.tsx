@@ -131,7 +131,7 @@ export const Playground: Story = {
   },
 }
 
-export const Potrait: Story = {
+export const Portrait: Story = {
   ...ContextModalTemplate,
   args: { layout: "portrait" },
   ...chromaticModalSettings,
