@@ -7,7 +7,7 @@ import {
   CustomUnattributedSurvey,
 } from "@kaizen/draft-illustration"
 import { Skirt } from "@kaizen/draft-page-layout"
-import { Heading } from "@kaizen/typography"
+import { Heading } from "~components/Heading"
 import { CardContent } from "./components/CardContent"
 
 export default {
