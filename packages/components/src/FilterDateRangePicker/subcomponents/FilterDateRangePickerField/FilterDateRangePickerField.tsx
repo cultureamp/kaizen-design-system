@@ -6,18 +6,18 @@ import {
   CalendarRangeProps,
   DateRange,
   DisabledDays,
+  formatDateAsText,
+  isInvalidDate,
+  parseDateFromTextFormatValue,
 } from "~components/Calendar"
+import {
+  DatePickerSupportedLocales,
+  getLocale,
+} from "~components/DatePicker/utils/getLocale"
 import { DateValidationResponse } from "~components/FilterDatePicker"
 import { useDateInputHandlers } from "~components/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
-import {
-  DatePickerSupportedLocales,
-  formatDateAsText,
-  getLocale,
-  isInvalidDate,
-  parseDateFromTextFormatValue,
-} from "~utils/date-controls"
 import {
   DateRangeInputField,
   DateRangeInputFieldProps,

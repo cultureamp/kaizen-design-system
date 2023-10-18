@@ -1,5 +1,5 @@
 import { format } from "date-fns"
-import { DateFormat } from "./enums"
+import { DateFormat } from "../enums"
 import { isInvalidDate } from "./isInvalidDate"
 
 export const formatDateAsNumeral = (date: Date, locale: Locale): string =>

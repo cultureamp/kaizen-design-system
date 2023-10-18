@@ -3,7 +3,11 @@ import cx from "classnames"
 import { enUS } from "date-fns/locale"
 import { DateRange, isMatch } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
-import { DisabledDayMatchers } from "~components/Calendar"
+import {
+  DisabledDayMatchers,
+  calculateDisabledDays,
+  isDisabledDate,
+} from "~components/Calendar"
 import { CalendarPopover } from "~components/Calendar/CalendarPopover"
 import {
   LegacyCalendarRange,
@@ -11,7 +15,6 @@ import {
 } from "~components/Calendar/LegacyCalendarRange"
 import { DateStartIcon } from "~components/Icon"
 import { Label } from "~components/Label"
-import { calculateDisabledDays, isDisabledDate } from "~utils/date-controls"
 import styles from "./DateRangePicker.module.scss"
 
 export interface DateRangePickerProps extends DisabledDayMatchers {

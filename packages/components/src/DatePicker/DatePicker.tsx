@@ -6,25 +6,22 @@ import {
   CalendarSingleElement,
   CalendarSingleProps,
   DisabledDayMatchers,
-} from "~components/Calendar"
-import { CalendarPopover } from "~components/Calendar/CalendarPopover"
-import {
-  DatePickerSupportedLocales,
   calculateDisabledDays,
   formatDateAsNumeral,
   formatDateAsText,
-  getLocale,
   isDisabledDate,
   isInvalidDate,
+  isSelectingDayInCalendar,
   parseDateAsTextOrNumeral,
-} from "~utils/date-controls"
+  setFocusInCalendar,
+} from "~components/Calendar"
+import { CalendarPopover } from "~components/Calendar/CalendarPopover"
 import {
   DateInputField,
   DateInputFieldProps,
 } from "./subcomponents/DateInputField"
 import { ValidationResponse } from "./types"
-import { isSelectingDayInCalendar } from "./utils/isSelectingDayInCalendar"
-import { setFocusInCalendar } from "./utils/setFocusInCalendar"
+import { DatePickerSupportedLocales, getLocale } from "./utils/getLocale"
 import { validateDate } from "./utils/validateDate"
 
 type OmittedDateInputFieldProps =

@@ -1,4 +1,4 @@
-import { isInvalidDate } from "~utils/date-controls"
+import { isInvalidDate } from "~components/Calendar"
 
 type DateRangeFieldActions =
   | {

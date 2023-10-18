@@ -2,7 +2,7 @@ import React from "react"
 import { render, screen } from "@testing-library/react"
 import { format } from "date-fns"
 import { enUS } from "date-fns/locale"
-import { CalendarSingle, CalendarSingleProps } from "~components/Calendar"
+import { CalendarSingle, CalendarSingleProps } from "../CalendarSingle"
 import { setFocusInCalendar } from "./setFocusInCalendar"
 
 const CalendarWrapper = (props: Partial<CalendarSingleProps>): JSX.Element => (

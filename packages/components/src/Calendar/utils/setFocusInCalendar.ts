@@ -1,9 +1,7 @@
-import {
-  CalendarSingleElement,
-  CalendarRangeElement,
-} from "~components/Calendar"
-import calendarStyles from "~components/Calendar/Calendar.module.scss"
-import { isInvalidDate } from "~utils/date-controls"
+import calendarStyles from "../Calendar.module.scss"
+import { CalendarRangeElement } from "../CalendarRange"
+import { CalendarSingleElement } from "../CalendarSingle"
+import { isInvalidDate } from "./isInvalidDate"
 
 const isHTMLElement = (element: Element | undefined): element is HTMLElement =>
   element instanceof HTMLElement

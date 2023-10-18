@@ -1,5 +1,5 @@
 import { parse } from "date-fns"
-import { DateFormat } from "./enums"
+import { DateFormat } from "../enums"
 
 export const parseDateFromNumeralFormatValue = (
   value: string,

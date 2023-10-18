@@ -10,18 +10,18 @@ import {
   CalendarSingle,
   CalendarSingleProps,
   DisabledDays,
+  isInvalidDate,
 } from "~components/Calendar"
 import { DateInputDescriptionProps } from "~components/DateInput"
+import {
+  DatePickerSupportedLocales,
+  getLocale,
+} from "~components/DatePicker/utils/getLocale"
 import { FilterProps } from "~components/Filter"
 import { useDateValidation } from "~components/FilterDatePicker/hooks/useDateValidation"
 import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
-import {
-  DatePickerSupportedLocales,
-  getLocale,
-  isInvalidDate,
-} from "~utils/date-controls"
 import { useDateInputHandlers } from "../../hooks/useDateInputHandlers"
 import { DateValidationResponse, ValidationMessage } from "../../types"
 import { DateInputField, DateInputFieldProps } from "../DateInputField"

@@ -1,5 +1,6 @@
 import React from "react"
-import { formatDateAsText, getLocale } from "~utils/date-controls"
+import { formatDateAsText } from "~components/Calendar"
+import { getLocale } from "~components/DatePicker/utils/getLocale"
 import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import {

@@ -1,5 +1,4 @@
-import { DisabledDays } from "~components/Calendar"
-import { formatDateAsText } from "~utils/date-controls"
+import { DisabledDays, formatDateAsText } from "~components/Calendar"
 
 export const transformDateToInputValue = (
   date: Date | undefined,

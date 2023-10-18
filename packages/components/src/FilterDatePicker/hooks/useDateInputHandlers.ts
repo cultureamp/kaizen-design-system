@@ -1,14 +1,14 @@
-import { DisabledDays } from "~components/Calendar"
-import { DateInputProps } from "~components/DateInput"
-import { isSelectingDayInCalendar } from "~components/DatePicker/utils/isSelectingDayInCalendar"
 import {
+  DisabledDays,
   formatDateAsNumeral,
   formatDateAsText,
   isDisabledDate,
   isInvalidDate,
+  isSelectingDayInCalendar,
   parseDateFromNumeralFormatValue,
   parseDateFromTextFormatValue,
-} from "~utils/date-controls"
+} from "~components/Calendar"
+import { DateInputProps } from "~components/DateInput"
 
 type UseDateInputHandlersArgs = {
   locale: Locale
