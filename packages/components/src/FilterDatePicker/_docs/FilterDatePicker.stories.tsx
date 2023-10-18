@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
-import { Text } from "~components/Text"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
+import { Text } from "~components/Text"
 import {
   DateValidationResponse,
   FilterDatePicker,

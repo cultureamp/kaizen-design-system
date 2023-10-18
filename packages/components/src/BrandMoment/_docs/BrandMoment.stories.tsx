@@ -8,7 +8,6 @@ import {
   BrandMomentError,
   AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
-import { Text } from "~components/Text"
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -16,6 +15,7 @@ import {
   FeedbackClassifyIcon,
   SecurityTipIcon,
 } from "~components/Icon"
+import { Text } from "~components/Text"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,
