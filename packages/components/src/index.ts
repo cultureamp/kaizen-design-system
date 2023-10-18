@@ -1,6 +1,3 @@
-// Export shared Date(Range)Picker types
-export * from "~components/Calendar"
-
 export * from "./Avatar"
 export * from "./AvatarGroup"
 export * from "./Badge"
@@ -14,6 +11,7 @@ export * from "./Checkbox"
 export * from "./ClearButton"
 export * from "./Collapsible"
 export * from "./DateInput"
+export * from "./DatePicker"
 export * from "./DateRangePicker"
 export * from "./Divider"
 export * from "./EmptyState"

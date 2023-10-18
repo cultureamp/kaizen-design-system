@@ -1,4 +1,4 @@
-import { DateRange } from "react-day-picker"
+import { DateRange } from "~components/Calendar"
 import { formatDateRangeValue } from "./formatDateRangeValue"
 
 describe("formatDateRangeValue", () => {
