@@ -63,23 +63,19 @@ export const ArbitraryMediaQueries: StoryFn = () => (
     </Heading>
 
     <div className="py-32">
-      <Paragraph variant="body">
+      <Text variant="body">
         <strong>Min-width breakpoint</strong> (applied when the screen gets{" "}
         <em>wider</em>)
-      </Paragraph>
-      <Paragraph variant="body">
-        In this example: min-[500px]:bg-blue-400
-      </Paragraph>
+      </Text>
+      <Text variant="body">In this example: min-[500px]:bg-blue-400</Text>
       <div className="border-solid min-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
     </div>
 
-    <Paragraph variant="body">
+    <Text variant="body">
       <strong>Max-width breakpoint</strong> (applied when the screen gets{" "}
       <em>slimmer</em>)
-    </Paragraph>
-    <Paragraph variant="body">
-      In this example: max-[500px]:bg-blue-400
-    </Paragraph>
+    </Text>
+    <Text variant="body">In this example: max-[500px]:bg-blue-400</Text>
     <div className="border-solid max-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
   </div>
 )
