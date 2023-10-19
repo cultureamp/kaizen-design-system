@@ -7,7 +7,6 @@ import Highlight from "react-highlight"
 import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
-import { Text } from "../../components/src/Text"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 import { defaultTheme } from "../src/themes"
 import animationSass from "!!raw-loader!../sass/animation.scss"
@@ -35,11 +34,7 @@ export const CodeBlock = (props: {
 
       {props.caption && (
         <div className={styles.codeWrapperCaption}>
-          <Text variant="small">
-            <span className={styles.codeWrapperCaptionText}>
-              {props.caption}
-            </span>
-          </Text>
+          <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
         </div>
       )}
     </Box>
