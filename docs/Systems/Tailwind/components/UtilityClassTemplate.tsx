@@ -62,9 +62,11 @@ export const UtilityClassTemplate = ({
           <InlineNotification
             type="positive"
             hideCloseIcon
-            autohide
             onHide={(): void => setCopiedText(null)}
-            title="Copied to clipboard: "
+            headingProps={{
+              children: "Copied to clipboard: ",
+              variant: "heading-6",
+            }}
           >
             {copiedText}
           </InlineNotification>
