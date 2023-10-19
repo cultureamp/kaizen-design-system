@@ -19,7 +19,7 @@ import {
   GenericModal,
   ModalAccessibleDescription,
   ModalAccessibleFooter,
-  ModalHeader,
+  ModalAccessibleHeader,
   ModalLabel,
   ModalSection,
 } from "~components/Modal/GenericModal"
@@ -136,7 +136,7 @@ export const ConfirmationModal = ({
       onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal} data-modal {...props}>
-        <ModalHeader onDismiss={onDismiss}>
+        <ModalAccessibleHeader onDismiss={onDismiss}>
           <div
             className={classnames(
               styles.header,
@@ -161,7 +161,7 @@ export const ConfirmationModal = ({
               </Heading>
             </ModalLabel>
           </div>
-        </ModalHeader>
+        </ModalAccessibleHeader>
         <ModalSection>
           <div
             className={classnames(
