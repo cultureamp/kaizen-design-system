@@ -8,9 +8,9 @@ import {
   useQueryClient,
 } from "@tanstack/react-query"
 import isChromatic from "chromatic"
-import { TextField } from "@kaizen/draft-form"
 import { InlineNotification } from "@kaizen/notification"
 import { Text } from "~components/Text"
+import { TextField } from "~components/TextField"
 import {
   FilterMultiSelect,
   getSelectedOptionLabels,
