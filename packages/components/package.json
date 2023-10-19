@@ -43,7 +43,6 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.2",
     "@headlessui/react": "<=1.5.0",
-    "@kaizen/brand": "^1.5.8",
     "@kaizen/design-tokens": "^10.3.13",
     "@kaizen/draft-divider": "^2.2.11",
     "@kaizen/draft-illustration": "^7.0.1",
