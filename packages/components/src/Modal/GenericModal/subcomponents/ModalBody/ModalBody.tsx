@@ -1,17 +1,17 @@
 import React from "react"
 import classnames from "classnames"
-import styles from "./ModalSection.module.scss"
+import styles from "./ModalBody.module.scss"
 
-export type ModalSectionProps = {
+export type ModalBodyProps = {
   inputEdit?: boolean
   children: React.ReactNode
 }
 
-export const ModalSection = ({
+export const ModalBody = ({
   inputEdit = false,
   children,
-}: ModalSectionProps): JSX.Element => (
+}: ModalBodyProps): JSX.Element => (
   <div className={classnames(inputEdit && styles.inputEdit)}>{children}</div>
 )
 
-ModalSection.displayName = "ModalSection"
+ModalBody.displayName = "ModalBody"

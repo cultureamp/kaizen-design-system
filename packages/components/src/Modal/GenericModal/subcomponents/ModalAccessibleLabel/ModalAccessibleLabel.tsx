@@ -1,17 +1,17 @@
 import React from "react"
 import classnames from "classnames"
 import { ModalContext } from "../../context/ModalContext"
-import styles from "./ModalLabel.module.scss"
+import styles from "./ModalAccessibleLabel.module.scss"
 
-export type ModalLabelProps = {
+export type ModalAccessibleLabelProps = {
   children: React.ReactNode
   isProminent?: boolean
 }
 
-export const ModalLabel = ({
+export const ModalAccessibleLabel = ({
   children,
   isProminent = false,
-}: ModalLabelProps): JSX.Element => (
+}: ModalAccessibleLabelProps): JSX.Element => (
   <ModalContext.Consumer>
     {({ labelledByID }): JSX.Element => (
       <div
@@ -28,4 +28,4 @@ export const ModalLabel = ({
   </ModalContext.Consumer>
 )
 
-ModalLabel.displayName = "ModalLabel"
+ModalAccessibleLabel.displayName = "ModalAccessibleLabel"

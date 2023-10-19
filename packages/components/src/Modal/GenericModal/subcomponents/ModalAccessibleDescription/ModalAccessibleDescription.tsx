@@ -1,14 +1,14 @@
 import React from "react"
 import { ModalContext } from "../../context/ModalContext"
-import styles from "./ModalDescription.module.scss"
+import styles from "./ModalAccessibleDescription.module.scss"
 
-export type ModalDescriptionProps = {
+export type ModalAccessibleDescriptionProps = {
   children: React.ReactNode
 }
 
-export const ModalDescription = ({
+export const ModalAccessibleDescription = ({
   children,
-}: ModalDescriptionProps): JSX.Element => (
+}: ModalAccessibleDescriptionProps): JSX.Element => (
   <ModalContext.Consumer>
     {({ describedByID }): JSX.Element => (
       <div id={describedByID} className={styles.modalDescription}>
@@ -18,4 +18,4 @@ export const ModalDescription = ({
   </ModalContext.Consumer>
 )
 
-ModalDescription.displayName = "ModalDescription"
+ModalAccessibleDescription.displayName = "ModalAccessibleDescription"

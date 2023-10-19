@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { Button, ButtonProps } from "~components/Button"
 import { useMediaQueries } from "~utils/useMediaQueries"
-import { ModalSection } from "../ModalSection/ModalSection"
+import { ModalBody } from "../ModalBody/ModalBody"
 import styles from "./ModalFooter.module.scss"
 
 type ActionsVariantProps = "context" | "inputEdit"
@@ -37,7 +37,7 @@ export const ModalFooter = ({
   const { queries } = useMediaQueries()
 
   return (
-    <ModalSection inputEdit={variant === "inputEdit"}>
+    <ModalBody inputEdit={variant === "inputEdit"}>
       <div
         className={classnames(
           styles.actions,
@@ -60,7 +60,7 @@ export const ModalFooter = ({
           </div>
         ))}
       </div>
-    </ModalSection>
+    </ModalBody>
   )
 }
 
