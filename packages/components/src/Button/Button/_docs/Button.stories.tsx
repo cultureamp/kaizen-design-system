@@ -67,7 +67,7 @@ export const Disabled: Story = {
 
 /**
  * <p>When a Button is supplied to the `icon` prop, it displays an icon.</p>
- * <p>`import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"`</p>
+ * <p>`import { TrashIcon } from "@kaizen/components"`</p>
  * <p>Once the icons are imported, you can pass them directly into the Button component.</p>
  * <h3>IconPosition</h3>
  * <p>The consumer can specify the icon placement with the iconPosition prop, default position is start.</p>
