@@ -6,8 +6,8 @@ import {
   GenericModal,
   ModalFooter,
   ModalHeader,
-  ModalLabel,
-  ModalSection,
+  ModalAccessibleLabel,
+  ModalBody,
 } from "~components/Modal/GenericModal"
 import styles from "./ContextModal.module.scss"
 
@@ -103,17 +103,17 @@ export const ContextModal = ({
           <div
             className={classnames(styles.header, !unpadded && styles.padded)}
           >
-            <ModalLabel>
+            <ModalAccessibleLabel>
               <Heading variant="heading-2" tag="h2">
                 {title}
               </Heading>
-            </ModalLabel>
+            </ModalAccessibleLabel>
           </div>
         </ModalHeader>
         {contentHeader && (
           <div className={styles.contentHeader}>{contentHeader}</div>
         )}
-        <ModalSection>
+        <ModalBody>
           <div
             className={classnames(
               styles.contentLayout,
@@ -134,7 +134,7 @@ export const ContextModal = ({
               )}
             </div>
           </div>
-        </ModalSection>
+        </ModalBody>
         <ModalFooter
           variant={image ? "context" : undefined}
           actions={footerActions}
