@@ -20,7 +20,7 @@ import {
   ModalAccessibleDescription,
   ModalAccessibleFooter,
   ModalAccessibleHeader,
-  ModalLabel,
+  ModalAccessibleLabel,
   ModalSection,
 } from "~components/Modal/GenericModal"
 import styles from "./ConfirmationModal.module.scss"
@@ -155,11 +155,11 @@ export const ConfirmationModal = ({
                 {getIcon(mood, isProminent)}
               </div>
             </div>
-            <ModalLabel isProminent={isProminent}>
+            <ModalAccessibleLabel isProminent={isProminent}>
               <Heading tag="h2" variant="heading-2">
                 {title}
               </Heading>
-            </ModalLabel>
+            </ModalAccessibleLabel>
           </div>
         </ModalAccessibleHeader>
         <ModalSection>

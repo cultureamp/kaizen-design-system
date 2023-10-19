@@ -6,7 +6,7 @@ import {
   GenericModal,
   ModalAccessibleFooter,
   ModalAccessibleHeader,
-  ModalLabel,
+  ModalAccessibleLabel,
   ModalSection,
 } from "~components/Modal/GenericModal"
 import styles from "./InputEditModal.module.scss"
@@ -89,11 +89,11 @@ export const InputEditModal = ({
               !unpadded && styles.padded
             )}
           >
-            <ModalLabel>
+            <ModalAccessibleLabel>
               <Heading tag="h2" variant="heading-2">
                 {title}
               </Heading>
-            </ModalLabel>
+            </ModalAccessibleLabel>
           </div>
         </ModalAccessibleHeader>
         <ModalSection>
