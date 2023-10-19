@@ -2164,7 +2164,7 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@internationalized/date@^3.4.0", "@internationalized/date@^3.5.0":
+"@internationalized/date@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@internationalized/date/-/date-3.5.0.tgz#67f1dd62355f05140cc80e324842e9bfb4553abe"
   integrity sha512-nw0Q+oRkizBWMioseI8+2TeUPEyopJVz5YxoYVzR0W1v+2YytiYah7s/ot35F149q/xAg4F1gT/6eTd+tsUpFQ==
@@ -2682,14 +2682,6 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/a11y@^1.7.12":
-  version "1.7.12"
-  resolved "https://registry.yarnpkg.com/@kaizen/a11y/-/a11y-1.7.12.tgz#448fb57ade9d657e51cc820684f28dd928495007"
-  integrity sha512-E+PxnewE98q8NIRsM7v1zY7O2WRUAY8HQePsqgVYGeyjx+aGBI7AbsASNebglqtIWcCZRB+DSN16HEZ0IgUMWw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.7.6"
-
 "@kaizen/brand-moment@^1.13.8":
   version "1.13.8"
   resolved "https://registry.yarnpkg.com/@kaizen/brand-moment/-/brand-moment-1.13.8.tgz#662a68f17d9237cbf35dbfddf4c49227aada72a4"
@@ -2737,7 +2729,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
   integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
 
-"@kaizen/component-library@^16.7.6", "@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
+"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
   version "16.9.3"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.9.3.tgz#67212943dbe76f50e33679cae477c4709ac94bec"
   integrity sha512-r4dpEQ5MxxntMXAoOPb6lBJjZAOKiFPPMIJmsTBFTuubOPUeLG52VMDSD2IhSxCqu2ON8LqwPU8VvlGZXRlSqQ==
@@ -2748,28 +2740,6 @@
     "@types/lodash" "^4.14.195"
     "@types/uuid" "^9.0.2"
     classnames "^2.3.2"
-
-"@kaizen/date-picker@^6.3.2":
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/@kaizen/date-picker/-/date-picker-6.3.2.tgz#7d1b4fdbd35873bb96a161b18f67eff627c99e0b"
-  integrity sha512-IRhK4L+/32tGbmNjajdqhJp5wFWANRoWH/U++sBZNr6hhhAXrrh147/FHAgYIWIdtbeZoUonXT4+rV+r6PdqQA==
-  dependencies:
-    "@internationalized/date" "^3.4.0"
-    "@kaizen/a11y" "^1.7.12"
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/draft-form" "^10.5.0"
-    "@kaizen/draft-tooltip" "^5.4.47"
-    "@kaizen/typography" "^2.3.11"
-    "@popperjs/core" "^2.11.8"
-    "@react-aria/datepicker" "^3.6.0"
-    "@react-aria/i18n" "^3.8.1"
-    "@react-stately/datepicker" "^3.6.0"
-    classnames "^2.3.2"
-    date-fns "^2.30.0"
-    react-day-picker "8.4.1"
-    react-focus-on "^3.9.1"
-    react-popper "^2.3.0"
-    uuid "^9.0.0"
 
 "@kaizen/deprecated-component-library-helpers@^2.5.8":
   version "2.5.8"
@@ -3430,28 +3400,6 @@
     "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
 
-"@react-aria/datepicker@^3.6.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@react-aria/datepicker/-/datepicker-3.7.0.tgz#a21436989eca57c256855cdedcede41deb2fd6a5"
-  integrity sha512-zekxxC2dpQIEFFb2Yj6odwgBb9s81g3V7VwjUilkthW2vaVzTjWTZTUYffgcmbfVv++ZGtvlY7iSSTLN7+54Og==
-  dependencies:
-    "@internationalized/date" "^3.5.0"
-    "@internationalized/number" "^3.2.1"
-    "@internationalized/string" "^3.1.1"
-    "@react-aria/focus" "^3.14.1"
-    "@react-aria/i18n" "^3.8.2"
-    "@react-aria/interactions" "^3.18.0"
-    "@react-aria/label" "^3.7.0"
-    "@react-aria/spinbutton" "^3.5.2"
-    "@react-aria/utils" "^3.20.0"
-    "@react-stately/datepicker" "^3.7.0"
-    "@react-types/button" "^3.8.0"
-    "@react-types/calendar" "^3.4.0"
-    "@react-types/datepicker" "^3.6.0"
-    "@react-types/dialog" "^3.5.5"
-    "@react-types/shared" "^3.20.0"
-    "@swc/helpers" "^0.5.0"
-
 "@react-aria/focus@^3.14.1":
   version "3.14.1"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.14.1.tgz#f91733e158eed0fda4dd495511c8e4a7a7bcd998"
@@ -3463,7 +3411,7 @@
     "@swc/helpers" "^0.5.0"
     clsx "^1.1.1"
 
-"@react-aria/i18n@^3.8.1", "@react-aria/i18n@^3.8.2":
+"@react-aria/i18n@^3.8.2":
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/@react-aria/i18n/-/i18n-3.8.2.tgz#7d7e267647271b45ce5095652d9fa9d83459d0ef"
   integrity sha512-WsdByq3DmqEhr8sOdooVcDoS0CGGv+7cegZmmpw5VfUu0f0+0y7YBj/lRS9RuEqlgvSH+K3sPW/+0CkjM/LRGQ==
@@ -3511,13 +3459,6 @@
     "@react-stately/list" "^3.9.2"
     "@react-types/listbox" "^3.4.4"
     "@react-types/shared" "^3.20.0"
-    "@swc/helpers" "^0.5.0"
-
-"@react-aria/live-announcer@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@react-aria/live-announcer/-/live-announcer-3.3.1.tgz#bf864b8820fb02daaeefc1c972782a0174fd60b9"
-  integrity sha512-hsc77U7S16trM86d+peqJCOCQ7/smO1cybgdpOuzXyiwcHQw8RQ4GrXrS37P4Ux/44E9nMZkOwATQRT2aK8+Ew==
-  dependencies:
     "@swc/helpers" "^0.5.0"
 
 "@react-aria/menu@^3.10.2":
@@ -3589,18 +3530,6 @@
     "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
 
-"@react-aria/spinbutton@^3.5.2":
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/@react-aria/spinbutton/-/spinbutton-3.5.2.tgz#e887174b8fcf2d5801c5ce5281ccbf1453ce0d81"
-  integrity sha512-qD1yjCE7dMdiyFMV7DPz/+qn7lLdU2BqMx/aT4eN2RMcrjSw5AIc1IYsfwQGg9XkQw7FWSRxDud+EuuGSzMB2w==
-  dependencies:
-    "@react-aria/i18n" "^3.8.2"
-    "@react-aria/live-announcer" "^3.3.1"
-    "@react-aria/utils" "^3.20.0"
-    "@react-types/button" "^3.8.0"
-    "@react-types/shared" "^3.20.0"
-    "@swc/helpers" "^0.5.0"
-
 "@react-aria/ssr@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.8.0.tgz#e7f467ac42f72504682724304ce221f785d70d49"
@@ -3635,19 +3564,6 @@
   resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.10.1.tgz#c936d2f97f5508ead5c22aa0d600cae410bf82ae"
   integrity sha512-C9FPqoQUt7NeCmmP8uabQXapcExBOTA3PxlnUw+Nq3+eWH1gOi93XWXL26L8/3OQpkvAbUcyrTXhCybLk4uMAg==
   dependencies:
-    "@react-types/shared" "^3.20.0"
-    "@swc/helpers" "^0.5.0"
-
-"@react-stately/datepicker@^3.6.0", "@react-stately/datepicker@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.7.0.tgz#ac1093b6d9068a680f458012311f28b9e234bea4"
-  integrity sha512-yPEfgKVXmwLwn41H8KeLuwgAN5oVmmcQemyn6iKLCPaIsQjXGpbfB0diQhg/aTjnm0VtdqdCBYPhHZzPkCml/w==
-  dependencies:
-    "@internationalized/date" "^3.5.0"
-    "@internationalized/string" "^3.1.1"
-    "@react-stately/overlays" "^3.6.2"
-    "@react-stately/utils" "^3.7.0"
-    "@react-types/datepicker" "^3.6.0"
     "@react-types/shared" "^3.20.0"
     "@swc/helpers" "^0.5.0"
 
@@ -3741,37 +3657,11 @@
   dependencies:
     "@react-types/shared" "^3.20.0"
 
-"@react-types/calendar@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@react-types/calendar/-/calendar-3.4.0.tgz#e441b9db468bdcf9eefdbdce1996f3d2e6fe8364"
-  integrity sha512-kHEjkZ+NAPOhLGpIMGKwe2xPgwDvtFiKU6FWPghSeslxGUAzC0mop/sSdD8NvWbSdqKd/GqeCen5khlA1MoyGQ==
-  dependencies:
-    "@internationalized/date" "^3.5.0"
-    "@react-types/shared" "^3.20.0"
-
 "@react-types/checkbox@^3.5.1":
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.5.1.tgz#ba86d4ec8230781df2aed8bc7d21dfe88f4deb15"
   integrity sha512-7iQqBRnpNC/k8ztCC+gNGTKpTWj6yJijXPKJ8UduqPNuJ0mIqWgk7DJDBuIG0cVvnenTNxYuOL6mt3dgdcEj9w==
   dependencies:
-    "@react-types/shared" "^3.20.0"
-
-"@react-types/datepicker@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@react-types/datepicker/-/datepicker-3.6.0.tgz#59f8c57fc4803a92f8637414d1399a3e6eb178b9"
-  integrity sha512-eMWAqsavA7PpjKwUuij4RjThAc3l2MtxKT51XnTA192EoYyTRVcDK+cuYjzWYn1kTj6+dNap+WvKJlYrxmS5aA==
-  dependencies:
-    "@internationalized/date" "^3.5.0"
-    "@react-types/calendar" "^3.4.0"
-    "@react-types/overlays" "^3.8.2"
-    "@react-types/shared" "^3.20.0"
-
-"@react-types/dialog@^3.5.5":
-  version "3.5.5"
-  resolved "https://registry.yarnpkg.com/@react-types/dialog/-/dialog-3.5.5.tgz#bcd8d40bedc4c704161496d4c19a417ecc753b6a"
-  integrity sha512-XidCDLmbagLQZlnV8QVPhS3a63GdwiSa/0MYsHLDeb81+7P2vc3r+wNgnHWZw64mICWYzyyKxpzV3QpUm4f6+g==
-  dependencies:
-    "@react-types/overlays" "^3.8.2"
     "@react-types/shared" "^3.20.0"
 
 "@react-types/label@^3.8.0":

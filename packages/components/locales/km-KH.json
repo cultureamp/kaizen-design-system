@@ -17,7 +17,7 @@
     "description" : "Label for the 'date to' field",
     "message" : "កាលបរិច្ឆេទទៅ"
   },
-  "filterDateRangePicker.inputFormat" : {
+  "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "ទ្រង់ទ្រាយបញ្ចូល"
   },

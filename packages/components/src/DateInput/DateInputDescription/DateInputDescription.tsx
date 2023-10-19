@@ -19,7 +19,7 @@ export const DateInputDescription = ({
     React.isValidElement(description)
 
   const translatedInputFormatMessage = formatMessage({
-    id: "filterDateRangePicker.inputFormat",
+    id: "dateInputDescription.inputFormat",
     defaultMessage: "Input format",
     description: "Label for the 'Input format' field",
   })
