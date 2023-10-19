@@ -3,11 +3,11 @@ import classnames from "classnames"
 import { Button, ButtonProps } from "~components/Button"
 import { useMediaQueries } from "~utils/useMediaQueries"
 import { ModalSection } from "../ModalSection/ModalSection"
-import styles from "./ModalAccessibleFooter.module.scss"
+import styles from "./ModalFooter.module.scss"
 
 type ActionsVariantProps = "context" | "inputEdit"
 
-export type ModalAccessibleFooterProps = {
+export type ModalFooterProps = {
   /**
    * We have a special case for the InformationModal when it has an image.
    * Since this modal may have an image on the right side the actions might look disconected from the content.
@@ -26,14 +26,14 @@ export type ModalAccessibleFooterProps = {
   alignStart?: boolean
 } & HTMLAttributes<HTMLDivElement>
 
-export const ModalAccessibleFooter = ({
+export const ModalFooter = ({
   unpadded,
   actions,
   appearance = "primary",
   alignStart,
   variant,
   ...props
-}: ModalAccessibleFooterProps): JSX.Element => {
+}: ModalFooterProps): JSX.Element => {
   const { queries } = useMediaQueries()
 
   return (
@@ -64,4 +64,4 @@ export const ModalAccessibleFooter = ({
   )
 }
 
-ModalAccessibleFooter.displayName = "ModalAccessibleFooter"
+ModalFooter.displayName = "ModalFooter"

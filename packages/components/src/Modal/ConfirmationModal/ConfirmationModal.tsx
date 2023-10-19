@@ -18,7 +18,7 @@ import {
 import {
   GenericModal,
   ModalAccessibleDescription,
-  ModalAccessibleFooter,
+  ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
   ModalSection,
@@ -172,7 +172,7 @@ export const ConfirmationModal = ({
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
         </ModalSection>
-        <ModalAccessibleFooter
+        <ModalFooter
           actions={footerActions}
           appearance={mood === "negative" ? "destructive" : "primary"}
           unpadded={unpadded}

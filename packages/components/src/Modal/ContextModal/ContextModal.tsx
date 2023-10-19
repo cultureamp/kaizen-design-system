@@ -4,7 +4,7 @@ import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "~components/Button"
 import {
   GenericModal,
-  ModalAccessibleFooter,
+  ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
   ModalSection,
@@ -135,7 +135,7 @@ export const ContextModal = ({
             </div>
           </div>
         </ModalSection>
-        <ModalAccessibleFooter
+        <ModalFooter
           variant={image ? "context" : undefined}
           actions={footerActions}
           appearance="primary"

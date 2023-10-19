@@ -4,7 +4,7 @@ import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "~components/Button"
 import {
   GenericModal,
-  ModalAccessibleFooter,
+  ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
   ModalSection,
@@ -104,7 +104,7 @@ export const InputEditModal = ({
             {children}
           </div>
         </ModalSection>
-        <ModalAccessibleFooter
+        <ModalFooter
           actions={footerActions}
           appearance={mood === "destructive" ? "destructive" : "primary"}
           variant="inputEdit"
