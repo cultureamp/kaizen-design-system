@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Decorator, Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
-import { ModalDescription } from "~components/Modal/GenericModal/subcomponents/ModalDescription"
+import { ModalDescription } from "~components/Modal"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
 import { InputEditModal, InputEditModalProps } from "../index"
