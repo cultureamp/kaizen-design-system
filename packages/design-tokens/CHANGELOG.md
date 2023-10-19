@@ -898,7 +898,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Added types to colours ([#149](https://github.com/cultureamp/kaizen-design-system/issues/149)) ([13dd295](https://github.com/cultureamp/kaizen-design-system/commit/13dd295))
 
-# 0.2.0 (2020-01-23)
+## 0.2.0 (2020-01-23)
 
 ### Bug Fixes
 
