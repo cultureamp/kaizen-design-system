@@ -2682,20 +2682,6 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/brand-moment@^1.13.8":
-  version "1.13.8"
-  resolved "https://registry.yarnpkg.com/@kaizen/brand-moment/-/brand-moment-1.13.8.tgz#662a68f17d9237cbf35dbfddf4c49227aada72a4"
-  integrity sha512-+LCh6BiDnAOpu4Q5cJ5t+pUl4wlDz6otmrhdNdmmzYg064UuCWFAKmZqD7HhTHXTHEjgR66yhoQefu2bu9YotQ==
-  dependencies:
-    "@kaizen/button" "^3.0.4"
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.1"
-    "@kaizen/draft-illustration" "^7.0.0"
-    "@kaizen/hosted-assets" "^2.0.3"
-    "@kaizen/responsive" "^1.8.10"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-
 "@kaizen/brand@^1.5.8":
   version "1.5.8"
   resolved "https://registry.yarnpkg.com/@kaizen/brand/-/brand-1.5.8.tgz#934d90e710c3f82b173e06c58111215c3bca40d6"
@@ -2729,7 +2715,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
   integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
 
-"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
+"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
   version "16.9.3"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.9.3.tgz#67212943dbe76f50e33679cae477c4709ac94bec"
   integrity sha512-r4dpEQ5MxxntMXAoOPb6lBJjZAOKiFPPMIJmsTBFTuubOPUeLG52VMDSD2IhSxCqu2ON8LqwPU8VvlGZXRlSqQ==
@@ -2792,7 +2778,7 @@
     classnames "^2.3.2"
     uuid "^9.0.0"
 
-"@kaizen/draft-illustration@^7.0.0", "@kaizen/draft-illustration@^7.0.1":
+"@kaizen/draft-illustration@^7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-illustration/-/draft-illustration-7.0.1.tgz#b86dc598edb49ca59cb51102361b105fd0c3ebb2"
   integrity sha512-Ug4is9ygKWI/BitcB4W9NI98Q2+GL9+umZ3P4/orXGt6n28Fl1P8QHUhg5VVOh3chD2ciQGutgfeFc7Xx1VBng==
