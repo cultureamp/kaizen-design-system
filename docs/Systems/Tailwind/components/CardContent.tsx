@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "@kaizen/button"
+import { Button } from "~components/Button"
 import { Heading } from "~components/Heading"
 
 type CardContentProps = {

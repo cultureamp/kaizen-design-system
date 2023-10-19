@@ -1,5 +1,4 @@
 import React, { HTMLAttributes } from "react"
-// import classnames from "classnames"
 import { Heading } from "~components/Heading"
 import { Tag, DefaultTagProps } from "~components/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
