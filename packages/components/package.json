@@ -77,6 +77,7 @@
     "react-focus-lock": "^2.9.6",
     "react-focus-on": "^3.9.1",
     "react-popper": "^2.3.0",
+    "react-select": "^5.7.7",
     "react-textfit": "^1.1.1",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
