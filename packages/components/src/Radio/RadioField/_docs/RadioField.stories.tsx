@@ -7,7 +7,7 @@ const meta = {
   component: RadioField,
   args: {
     labelText: "Radio label",
-    name: "radio",
+    name: "radio-group",
     value: "radio-value",
     selectedStatus: false,
   },
