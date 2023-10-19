@@ -21,7 +21,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
-  ModalSection,
+  ModalBody,
 } from "~components/Modal/GenericModal"
 import styles from "./ConfirmationModal.module.scss"
 
@@ -162,7 +162,7 @@ export const ConfirmationModal = ({
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <ModalSection>
+        <ModalBody>
           <div
             className={classnames(
               isProminent && styles.prominent,
@@ -171,7 +171,7 @@ export const ConfirmationModal = ({
           >
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
-        </ModalSection>
+        </ModalBody>
         <ModalFooter
           actions={footerActions}
           appearance={mood === "negative" ? "destructive" : "primary"}

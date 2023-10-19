@@ -7,7 +7,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
-  ModalSection,
+  ModalBody,
 } from "~components/Modal/GenericModal"
 import styles from "./InputEditModal.module.scss"
 
@@ -96,14 +96,14 @@ export const InputEditModal = ({
             </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <ModalSection>
+        <ModalBody>
           <div
             className={classnames(styles.body, !unpadded && styles.padded)}
             dir={localeDirection}
           >
             {children}
           </div>
-        </ModalSection>
+        </ModalBody>
         <ModalFooter
           actions={footerActions}
           appearance={mood === "destructive" ? "destructive" : "primary"}

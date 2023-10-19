@@ -7,7 +7,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalAccessibleLabel,
-  ModalSection,
+  ModalBody,
 } from "~components/Modal/GenericModal"
 import styles from "./ContextModal.module.scss"
 
@@ -113,7 +113,7 @@ export const ContextModal = ({
         {contentHeader && (
           <div className={styles.contentHeader}>{contentHeader}</div>
         )}
-        <ModalSection>
+        <ModalBody>
           <div
             className={classnames(
               styles.contentLayout,
@@ -134,7 +134,7 @@ export const ContextModal = ({
               )}
             </div>
           </div>
-        </ModalSection>
+        </ModalBody>
         <ModalFooter
           variant={image ? "context" : undefined}
           actions={footerActions}
