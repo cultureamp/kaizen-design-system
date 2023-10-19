@@ -235,7 +235,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * @kaizen/button@1.3.3
 * @kaizen/component-library@16.1.0
 * @kaizen/date-picker@5.10.5
-* @kaizen/notification@0.11.3
+* ~components/Notification@0.11.3
 * @kaizen/pagination@1.6.3
 * @kaizen/progress-bar@2.2.3
 * @kaizen/rich-text-editor@1.18.5
