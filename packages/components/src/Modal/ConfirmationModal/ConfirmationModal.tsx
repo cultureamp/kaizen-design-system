@@ -17,7 +17,7 @@ import {
 } from "~components/Icon"
 import {
   GenericModal,
-  ModalDescription,
+  ModalAccessibleDescription,
   ModalFooter,
   ModalHeader,
   ModalLabel,
@@ -169,7 +169,7 @@ export const ConfirmationModal = ({
               !unpadded && styles.padded
             )}
           >
-            <ModalDescription>{children}</ModalDescription>
+            <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
         </ModalSection>
         <ModalFooter

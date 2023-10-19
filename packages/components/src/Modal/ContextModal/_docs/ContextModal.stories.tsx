@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Decorator, Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { AddImage } from "@kaizen/draft-illustration"
-import { ModalDescription } from "~components/Modal/GenericModal/subcomponents/ModalDescription"
+import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
 import { Text } from "~components/Text"
 import { ContextModal, ContextModalProps } from "../index"
 
@@ -61,12 +61,12 @@ const ContextModalTemplate: Story = {
             />
           }
         >
-          <ModalDescription>
+          <ModalAccessibleDescription>
             <Text variant="body">
               Intro defining what the modal is trying to explain or depict.
               Intro defining what the modal is trying to explain or depict.
             </Text>
-          </ModalDescription>
+          </ModalAccessibleDescription>
           <ul>
             <li>
               <Text variant="body">
