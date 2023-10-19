@@ -2,16 +2,14 @@ import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import {
   DateInput,
+  DateInputDescription,
+  DateInputDescriptionProps,
   DateInputProps,
-} from "@kaizen/date-picker/src/_subcomponents/DateInput"
-import { FieldMessage } from "@kaizen/draft-form"
+} from "~components/DateInput"
+import { FieldMessage } from "~components/FieldMessage"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { isRefObject } from "~utils/isRefObject"
-import {
-  DateInputDescription,
-  DateInputDescriptionProps,
-} from "../DateInputDescription"
 import {
   DateRangeValidationMessage,
   DateRangeValidationMessageProps,
