@@ -8,7 +8,7 @@ import {
   useQueryClient,
 } from "@tanstack/react-query"
 import isChromatic from "chromatic"
-import { InlineNotification } from "@kaizen/notification"
+import { InlineNotification } from "~components/Notification"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
 import {
