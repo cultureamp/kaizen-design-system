@@ -4,7 +4,6 @@ import React from "react"
 import { Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
 import Highlight from "react-highlight"
-import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
@@ -25,7 +24,7 @@ export const CodeBlock = (props: {
   code: string
 }): JSX.Element => (
   <Unstyled>
-    <Box py={0.5}>
+    <div className="py-2">
       <Card>
         <div className={styles.codeWrapper}>
           <Highlight className={props.language}>{props.code}</Highlight>
@@ -37,7 +36,7 @@ export const CodeBlock = (props: {
           <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
         </div>
       )}
-    </Box>
+    </div>
   </Unstyled>
 )
 
@@ -54,7 +53,7 @@ const TabbedCodeBlocks = ({
   return (
     <div style={{ minHeight: "32rem" }}>
       <div style={{ overflowX: "auto" }}>
-        <Box pl={0.25}>
+        <div className="pl-4">
           <Tabs
             renderTab={({
               tab,
@@ -83,7 +82,7 @@ const TabbedCodeBlocks = ({
               onClick: () => setCurrentTab(block),
             }))}
           />
-        </Box>
+        </div>
       </div>
       <CodeBlock {...codeBlockProps} />
     </div>
