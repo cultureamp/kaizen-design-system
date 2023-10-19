@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
+import { DateRange } from "~components/Calendar"
+import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
@@ -9,13 +11,11 @@ import {
 } from "~components/FilterButton"
 import { DateValidationResponse } from "~components/FilterDatePicker"
 import { Text } from "~components/Text"
-import { DateRange } from "~types/DatePicker"
 import {
   DateRangeFieldValidationMessage,
   FilterDateRangePicker,
 } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"
-import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 

@@ -44,7 +44,6 @@
     "@floating-ui/react-dom": "^2.0.2",
     "@headlessui/react": "<=1.5.0",
     "@kaizen/brand": "^1.5.8",
-    "@kaizen/date-picker": "^6.3.2",
     "@kaizen/design-tokens": "^10.3.13",
     "@kaizen/draft-badge": "^1.13.12",
     "@kaizen/draft-divider": "^2.2.11",
@@ -73,12 +72,16 @@
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
     "react-animate-height": "^3.2.2",
+    "react-day-picker": "8.4.1",
     "react-focus-lock": "^2.9.6",
     "react-focus-on": "^3.9.1",
     "react-popper": "^2.3.0",
     "react-textfit": "^1.1.1",
     "tslib": "^2.6.2",
     "uuid": "^9.0.1"
+  },
+  "dependenciesComments": {
+    "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.22.5",

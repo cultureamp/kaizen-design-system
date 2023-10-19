@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
+import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
@@ -14,7 +15,6 @@ import {
   ValidationMessage,
 } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
-import { defaultMonthControls } from "./controls/defaultMonthControls"
 import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 

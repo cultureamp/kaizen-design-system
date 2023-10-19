@@ -67,7 +67,7 @@ export const GenericModal = ({
     if (!document.getElementById(labelledByID)) {
       warn(
         `When using the Modal component, you must provide a label for the modal.
-        Make sure you have a <ModalLabel /> component with content that labels the modal.`
+        Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`
       )
     }
   }

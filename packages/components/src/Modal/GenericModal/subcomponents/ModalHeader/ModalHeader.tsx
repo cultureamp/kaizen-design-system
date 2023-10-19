@@ -1,7 +1,7 @@
 import React from "react"
 import { IconButton } from "~components/Button"
 import { CloseIcon } from "~components/Icon"
-import { ModalSection } from "../ModalSection"
+import { ModalBody } from "../ModalBody"
 import styles from "./ModalHeader.module.scss"
 
 export type ModalHeaderProps = {
@@ -16,7 +16,7 @@ export const ModalHeader = ({
   onDismiss,
   children,
 }: ModalHeaderProps): JSX.Element => (
-  <ModalSection>
+  <ModalBody>
     <div className={styles.dismissButton}>
       <IconButton
         label="Dismiss"
@@ -27,7 +27,7 @@ export const ModalHeader = ({
       />
     </div>
     {children}
-  </ModalSection>
+  </ModalBody>
 )
 
 ModalHeader.displayName = "ModalHeader"
