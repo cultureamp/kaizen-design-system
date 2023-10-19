@@ -1,5 +1,4 @@
 import React from "react"
-import { Select } from "@kaizen/draft-select"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Button } from "~components/Button"
 import { CloseIcon } from "~components/Icon"
@@ -31,26 +30,10 @@ export const MinimalBasic = (): JSX.Element => (
   </div>
 )
 
-const exampleLocales = [
-  { value: "a", label: "English (US English)" },
-  { value: "b", label: "العربية (Arabic)" },
-  { value: "c", label: "беларускі (Belarusian)" },
-  { value: "d", label: "български (Bulgarian)" },
-  { value: "e", label: "čeština (Czech)" },
-]
-
 export const MinimalCustomerFocused = (): JSX.Element => (
   <div className={styles.headerCustomerFocused}>
     <div className={styles.logoContainer}>
       <img src={assetUrl("brand/enso-default.svg")} alt="Culture Amp" />
-    </div>
-    <div className={styles.rightAlign}>
-      <Select
-        options={exampleLocales}
-        isSearchable={false}
-        defaultValue={exampleLocales[0]}
-        variant="secondary"
-      />
     </div>
   </div>
 )
