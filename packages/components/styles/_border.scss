@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+$ca-box-shadow: 0 1px 2px rbga(0, 0, 0, 10%);
+$ca-border-color: $border-solid-border-color;
+$ca-border-color-hover: $color-purple-400;
+$ca-border-color-focus: $color-blue-500;
+$ca-border-color-focus-reversed: $color-blue-300;
+$ca-border-radius: 3px;
