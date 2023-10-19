@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
-import { TagColorKeys } from "../../Tag/types"
+// import { TagColorKeys } from "../../Tag/types"
 import { RemovableTag } from "../RemovableTag"
 
 const meta = {
@@ -46,30 +46,30 @@ export const Children: Story = {
   args: { children: "This text is the children" },
 }
 
-export const Color: Story = {
-  render: () => (
-    <>
-      {TagColorKeys.map(color => (
-        <RemovableTag
-          color={color}
-          icon={<TagIcon role="presentation" />}
-          key={color}
-          removeButtonProps={{
-            ariaLabel: "close",
-            onClick: () => alert("Clicked"),
-          }}
-        >
-          {color}
-        </RemovableTag>
-      ))}
-    </>
-  ),
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
-    },
-  },
-}
+// export const Color: Story = {
+// render: () => (
+// <>
+// {TagColorKeys.map(color => (
+// <RemovableTag
+// color={color}
+// icon={<TagIcon role="presentation" />}
+// key={color}
+// removeButtonProps={{
+// ariaLabel: "close",
+// onClick: () => alert("Clicked"),
+// }}
+// >
+// {color}
+// </RemovableTag>
+// ))}
+// </>
+// ),
+// parameters: {
+// docs: {
+// source: { type: "dynamic" },
+// },
+// },
+// }
 
 export const Icon: Story = {
   render: () => (
@@ -84,7 +84,7 @@ export const Icon: Story = {
         AcademyIcon
       </RemovableTag>
       <RemovableTag
-        color="yellow"
+        // color="yellow"
         icon={<ActionOffIcon role="presentation" />}
         removeButtonProps={{
           ariaLabel: "close",
@@ -94,7 +94,7 @@ export const Icon: Story = {
         ActionOffIcon
       </RemovableTag>
       <RemovableTag
-        color="green"
+        // color="green"
         icon={<AddIcon role="presentation" />}
         removeButtonProps={{
           ariaLabel: "close",

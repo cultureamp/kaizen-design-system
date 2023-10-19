@@ -35,6 +35,11 @@
     border-radius: 50%;
   }
 
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-gray-600-rgb, 0.2);
+  }
+
   .closeIcon {
     fill: rgba($color-purple-800-rgb, 0.7);
 
@@ -46,51 +51,51 @@
   }
 }
 
-.gray {
-  &:hover,
-  &:focus-visible {
-    background-color: rgba($color-gray-600-rgb, 0.2);
-  }
-}
+// .gray {
+// &:hover,
+// &:focus-visible {
+// background-color: rgba($color-gray-600-rgb, 0.2);
+// }
+// }
 
-.blue {
-  &:hover,
-  &:focus-visible {
-    background-color: rgba($color-blue-500-rgb, 0.3);
-  }
-}
+// .blue {
+// &:hover,
+// &:focus-visible {
+// background-color: rgba($color-blue-500-rgb, 0.3);
+// }
+// }
 
-.green {
-  &:hover,
-  &:focus-visible {
-    background-color: rgba($color-green-500-rgb, 0.3);
-  }
-}
+// .green {
+// &:hover,
+// &:focus-visible {
+// background-color: rgba($color-green-500-rgb, 0.3);
+// }
+// }
 
-.yellow {
-  &:hover,
-  &:focus-visible {
-    background-color: rgba($color-yellow-500-rgb, 0.5);
-  }
-}
+// .yellow {
+// &:hover,
+// &:focus-visible {
+// background-color: rgba($color-yellow-500-rgb, 0.5);
+// }
+// }
 
-.orange {
-  &:hover,
-  &:focus-visible {
-    background-color: rgba($color-orange-500-rgb, 0.3);
-  }
-}
+// .orange {
+// &:hover,
+// &:focus-visible {
+// background-color: rgba($color-orange-500-rgb, 0.3);
+// }
+// }
 
-.red {
-  &:hover,
-  &:focus-visible {
-    background-color: rgba($color-red-500-rgb, 0.3);
-  }
-}
+// .red {
+// &:hover,
+// &:focus-visible {
+// background-color: rgba($color-red-500-rgb, 0.3);
+// }
+// }
 
-.purple {
-  &:hover,
-  &:focus-visible {
-    background-color: rgba($color-purple-500-rgb, 0.3);
-  }
-}
+// .purple {
+// &:hover,
+// &:focus-visible {
+// background-color: rgba($color-purple-500-rgb, 0.3);
+// }
+// }

@@ -9,22 +9,27 @@ import styles from "./RemovableTag.module.scss"
 
 export type RemovableTagProps = {
   removeButtonProps: RemoveButtonBaseProps
-} & TagProps
+} & Omit<TagProps, "color">
 
 export const RemovableTag = ({
   children,
   classNameOverride,
-  color = "gray",
+  // Note: We've commented out color support for now, but may introduce it back in later
+  // if a good use case comes along.
+  // color = "gray",
   removeButtonProps,
   ...restProps
 }: RemovableTagProps): JSX.Element => (
   <Tag
     classNameOverride={classNames(classNameOverride, styles.removableTag)}
-    color={color}
+    // color={color}
     {...restProps}
   >
     {children}
-    <RemoveButton color={color} {...removeButtonProps} />
+    <RemoveButton
+      // color={color}
+      {...removeButtonProps}
+    />
   </Tag>
 )
 
