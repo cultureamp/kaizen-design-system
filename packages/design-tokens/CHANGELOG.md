@@ -77,7 +77,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [10.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.2.2...@kaizen/design-tokens@10.3.0) (2023-02-20)
+## [10.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.2.2...@kaizen/design-tokens@10.3.0) (2023-02-20)
 
 ### Features
 
@@ -91,7 +91,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [10.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.7...@kaizen/design-tokens@10.2.0) (2023-02-13)
+## [10.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.1.7...@kaizen/design-tokens@10.2.0) (2023-02-13)
 
 ### Features
 
@@ -125,7 +125,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [10.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.14...@kaizen/design-tokens@10.1.0) (2022-12-08)
+## [10.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@10.0.14...@kaizen/design-tokens@10.1.0) (2022-12-08)
 
 ### Features
 
@@ -195,7 +195,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - be able to specify root element applying theme ([#2951](https://github.com/cultureamp/kaizen-design-system/issues/2951)) ([6498509](https://github.com/cultureamp/kaizen-design-system/commit/6498509d7e198421657e640dbe9f953a918500f3))
 
-# [10.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.1.0...@kaizen/design-tokens@10.0.0) (2022-09-07)
+## [10.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.1.0...@kaizen/design-tokens@10.0.0) (2022-09-07)
 
 ### Bug Fixes
 
@@ -235,7 +235,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * @kaizen/button@1.3.3
 * @kaizen/component-library@16.1.0
 * @kaizen/date-picker@5.10.5
-* ~components/Notification@0.11.3
+* @kaizen/notification@0.11.3
 * @kaizen/pagination@1.6.3
 * @kaizen/progress-bar@2.2.3
 * @kaizen/rich-text-editor@1.18.5
@@ -243,7 +243,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * @kaizen/split-button@1.3.3
 * @kaizen/tabs@1.5.3
 
-# [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.5...@kaizen/design-tokens@9.1.0) (2022-08-16)
+## [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@9.0.5...@kaizen/design-tokens@9.1.0) (2022-08-16)
 
 ### Features
 
@@ -269,7 +269,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.1.0...@kaizen/design-tokens@9.0.0) (2022-06-20)
+## [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.1.0...@kaizen/design-tokens@9.0.0) (2022-06-20)
 
 ### Code Refactoring
 
@@ -279,7 +279,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Remove exported zenTheme and config from `design-tokens` package
 
-# [8.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.3...@kaizen/design-tokens@8.1.0) (2022-05-20)
+## [8.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@8.0.3...@kaizen/design-tokens@8.1.0) (2022-05-20)
 
 ### Features
 
@@ -299,7 +299,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.2...@kaizen/design-tokens@8.0.0) (2022-04-13)
+## [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.2.2...@kaizen/design-tokens@8.0.0) (2022-04-13)
 
 ### Features
 
@@ -324,7 +324,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - update small box shadow design token value ([#2666](https://github.com/cultureamp/kaizen-design-system/issues/2666)) ([3eb65c1](https://github.com/cultureamp/kaizen-design-system/commit/3eb65c16deea41bb3ecc18db32c843c346398976))
 
-# [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.4...@kaizen/design-tokens@7.2.0) (2022-03-31)
+## [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.1.4...@kaizen/design-tokens@7.2.0) (2022-03-31)
 
 ### Features
 
@@ -348,7 +348,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [7.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.0.2...@kaizen/design-tokens@7.1.0) (2022-03-03)
+## [7.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@7.0.2...@kaizen/design-tokens@7.1.0) (2022-03-03)
 
 ### Features
 
@@ -362,7 +362,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.3.1...@kaizen/design-tokens@7.0.0) (2022-02-18)
+## [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.3.1...@kaizen/design-tokens@7.0.0) (2022-02-18)
 
 ### Features
 
@@ -392,7 +392,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - deprecate loading spinner draft-package ([#2540](https://github.com/cultureamp/kaizen-design-system/issues/2540)) ([417477b](https://github.com/cultureamp/kaizen-design-system/commit/417477bd160f80bb542299e189e2d8cd46f5cd62))
 
-# [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.2.1...@kaizen/design-tokens@6.3.0) (2022-02-15)
+## [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.2.1...@kaizen/design-tokens@6.3.0) (2022-02-15)
 
 ### Features
 
@@ -402,7 +402,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [6.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.1.3...@kaizen/design-tokens@6.2.0) (2022-02-10)
+## [6.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.1.3...@kaizen/design-tokens@6.2.0) (2022-02-10)
 
 ### Features
 
@@ -420,7 +420,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.4...@kaizen/design-tokens@6.1.0) (2022-01-19)
+## [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@6.0.4...@kaizen/design-tokens@6.1.0) (2022-01-19)
 
 ### Features
 
@@ -444,7 +444,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@5.0.0...@kaizen/design-tokens@6.0.0) (2021-12-09)
+## [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@5.0.0...@kaizen/design-tokens@6.0.0) (2021-12-09)
 
 ### Features
 
@@ -458,7 +458,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - InformationModal renamed to ContextModal - You will need to update any imports.
 - Deprecated RoadblockModal - use ConfirmationModal instead.
 
-# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.4...@kaizen/design-tokens@5.0.0) (2021-12-02)
+## [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.4...@kaizen/design-tokens@5.0.0) (2021-12-02)
 
 ### Bug Fixes
 
@@ -476,7 +476,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - InformationModal renamed to ContextModal - You will need to update any imports.
 - Deprecated RoadblockModal - use ConfirmationModal instead.
 
-# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.4...@kaizen/design-tokens@4.0.0) (2021-12-02)
+## [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.3.4...@kaizen/design-tokens@4.0.0) (2021-12-02)
 
 ### Features
 
@@ -508,7 +508,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.2...@kaizen/design-tokens@3.3.0) (2021-10-22)
+## [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.2.2...@kaizen/design-tokens@3.3.0) (2021-10-22)
 
 ### Features
 
@@ -524,13 +524,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.1.0...@kaizen/design-tokens@3.2.0) (2021-10-07)
+## [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.1.0...@kaizen/design-tokens@3.2.0) (2021-10-07)
 
 ### Features
 
 - Create new version of Slider in Form package ([#1956](https://github.com/cultureamp/kaizen-design-system/issues/1956)) ([0aad050](https://github.com/cultureamp/kaizen-design-system/commit/0aad0503c3d870dd3f8b69bd16e7543826646477))
 
-# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.0.2...@kaizen/design-tokens@3.1.0) (2021-09-22)
+## [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@3.0.2...@kaizen/design-tokens@3.1.0) (2021-09-22)
 
 ### Features
 
@@ -545,7 +545,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.11.0...@kaizen/design-tokens@3.0.0) (2021-08-12)
+## [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.11.0...@kaizen/design-tokens@3.0.0) (2021-08-12)
 
 ### Features
 
@@ -561,7 +561,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Exported utilities from `@kaizen/design-tokens` have been renamed and pruned.
 
-# [2.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.10.3...@kaizen/design-tokens@2.11.0) (2021-08-11)
+## [2.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.10.3...@kaizen/design-tokens@2.11.0) (2021-08-11)
 
 ### Features
 
@@ -581,7 +581,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Exclude spec files from being compiled and published ([#1799](https://github.com/cultureamp/kaizen-design-system/issues/1799)) ([388b31a](https://github.com/cultureamp/kaizen-design-system/commit/388b31a739bf18c47811fd93f0f0df81d5e6f628))
 
-# [2.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.9.6...@kaizen/design-tokens@2.10.0) (2021-07-27)
+## [2.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.9.6...@kaizen/design-tokens@2.10.0) (2021-07-27)
 
 ### Features
 
@@ -611,7 +611,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.8.3...@kaizen/design-tokens@2.9.0) (2021-06-11)
+## [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.8.3...@kaizen/design-tokens@2.9.0) (2021-06-11)
 
 ### Features
 
@@ -631,7 +631,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.7.2...@kaizen/design-tokens@2.8.0) (2021-04-13)
+## [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.7.2...@kaizen/design-tokens@2.8.0) (2021-04-13)
 
 ### Features
 
@@ -645,13 +645,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.6.0...@kaizen/design-tokens@2.7.0) (2021-04-01)
+## [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.6.0...@kaizen/design-tokens@2.7.0) (2021-04-01)
 
 ### Features
 
 - Add new tokens for favorable and unfavorable colors ([#1348](https://github.com/cultureamp/kaizen-design-system/issues/1348)) ([543fcda](https://github.com/cultureamp/kaizen-design-system/commit/543fcda68b9f9fcf8262a6c0b91095a68cf20b38))
 
-# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.5.3...@kaizen/design-tokens@2.6.0) (2021-03-17)
+## [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.5.3...@kaizen/design-tokens@2.6.0) (2021-03-17)
 
 ### Features
 
@@ -671,7 +671,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - export the ThemeContext ([#1132](https://github.com/cultureamp/kaizen-design-system/issues/1132)) ([acfc643](https://github.com/cultureamp/kaizen-design-system/commit/acfc643593babdbd815e5fc130134bcfd770a706))
 
-# [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.4...@kaizen/design-tokens@2.5.0) (2021-02-18)
+## [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.4...@kaizen/design-tokens@2.5.0) (2021-02-18)
 
 ### Features
 
@@ -699,7 +699,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Add missing files to publications ([#1055](https://github.com/cultureamp/kaizen-design-system/issues/1055)) ([a05b804](https://github.com/cultureamp/kaizen-design-system/commit/a05b804d8b3f71b281dc2d18555abeb0ffeb84fd))
 
-# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.3.2...@kaizen/design-tokens@2.4.0) (2021-02-14)
+## [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.3.2...@kaizen/design-tokens@2.4.0) (2021-02-14)
 
 ### Features
 
@@ -717,13 +717,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - added compiled sass and less tokens for shadows ([#1002](https://github.com/cultureamp/kaizen-design-system/issues/1002)) ([b9dd56d](https://github.com/cultureamp/kaizen-design-system/commit/b9dd56dc0779f21f8c1e73362a57f6dac2d73553))
 
-# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.2.0...@kaizen/design-tokens@2.3.0) (2021-02-04)
+## [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.2.0...@kaizen/design-tokens@2.3.0) (2021-02-04)
 
 ### Features
 
 - Updated color of shadow to black with opacity ([#997](https://github.com/cultureamp/kaizen-design-system/issues/997)) ([f7c7a52](https://github.com/cultureamp/kaizen-design-system/commit/f7c7a52641d45279a7ebaff907e811a465a35f5a))
 
-# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.3...@kaizen/design-tokens@2.2.0) (2021-01-22)
+## [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.3...@kaizen/design-tokens@2.2.0) (2021-01-22)
 
 ### Features
 
@@ -743,7 +743,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.2...@kaizen/design-tokens@2.1.0) (2020-07-15)
+## [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.2...@kaizen/design-tokens@2.1.0) (2020-07-15)
 
 ### Features
 
@@ -759,7 +759,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Replace the sized-bold values with the new variant ([#627](https://github.com/cultureamp/kaizen-design-system/issues/627)) ([4d98ecd](https://github.com/cultureamp/kaizen-design-system/commit/4d98ecdd022ee547ca3b24e568d09f10f34021af))
 
-# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.15.0...@kaizen/design-tokens@2.0.0) (2020-07-06)
+## [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.15.0...@kaizen/design-tokens@2.0.0) (2020-07-06)
 
 ### Features
 
@@ -769,13 +769,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Replace paragraph\*Bold with single variant
 
-# [1.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.14.0...@kaizen/design-tokens@1.15.0) (2020-07-01)
+## [1.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.14.0...@kaizen/design-tokens@1.15.0) (2020-07-01)
 
 ### Features
 
 - add Badge component ([#601](https://github.com/cultureamp/kaizen-design-system/issues/601)) ([7c42a5f](https://github.com/cultureamp/kaizen-design-system/commit/7c42a5fef271ae1100acbd3b05a000ff82f51acb))
 
-# [1.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.13.1...@kaizen/design-tokens@1.14.0) (2020-06-26)
+## [1.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.13.1...@kaizen/design-tokens@1.14.0) (2020-06-26)
 
 ### Features
 
@@ -787,61 +787,61 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Add fallback font stacks ([#558](https://github.com/cultureamp/kaizen-design-system/issues/558)) ([cd92fa1](https://github.com/cultureamp/kaizen-design-system/commit/cd92fa18eb31fe4bde3ccebd9f1ca429b4462e32))
 
-# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.12.0...@kaizen/design-tokens@1.13.0) (2020-06-22)
+## [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.12.0...@kaizen/design-tokens@1.13.0) (2020-06-22)
 
 ### Features
 
 - Added spacing tokens ([#549](https://github.com/cultureamp/kaizen-design-system/issues/549)) ([e398249](https://github.com/cultureamp/kaizen-design-system/commit/e39824905821397726d5b295449cf56ea06bd686))
 
-# [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.11.0...@kaizen/design-tokens@1.12.0) (2020-06-22)
+## [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.11.0...@kaizen/design-tokens@1.12.0) (2020-06-22)
 
 ### Features
 
 - Add tokens for breakpoints ([#564](https://github.com/cultureamp/kaizen-design-system/issues/564)) ([a644e5d](https://github.com/cultureamp/kaizen-design-system/commit/a644e5dc25db918ec0afbfea517b8a985a6c0c9b))
 
-# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.10.0...@kaizen/design-tokens@1.11.0) (2020-06-18)
+## [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.10.0...@kaizen/design-tokens@1.11.0) (2020-06-18)
 
 ### Features
 
 - Add new hex values for Coral ([#521](https://github.com/cultureamp/kaizen-design-system/issues/521)) ([bc684a1](https://github.com/cultureamp/kaizen-design-system/commit/bc684a1e183e349df9979a4bfc463c38821c973b)), closes [#B02130](https://github.com/cultureamp/kaizen-design-system/issues/B02130) [#FC7C89](https://github.com/cultureamp/kaizen-design-system/issues/FC7C89) [#FCAEB6](https://github.com/cultureamp/kaizen-design-system/issues/FCAEB6) [#FCCFD4](https://github.com/cultureamp/kaizen-design-system/issues/FCCFD4)
 
-# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.9.0...@kaizen/design-tokens@1.10.0) (2020-06-02)
+## [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.9.0...@kaizen/design-tokens@1.10.0) (2020-06-02)
 
 ### Features
 
 - Add Sass and Less tokens for layout ([#524](https://github.com/cultureamp/kaizen-design-system/issues/524)) ([4502df3](https://github.com/cultureamp/kaizen-design-system/commit/4502df335feaa94ebedb4a9466a9f5723d4314a6))
 
-# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.8.0...@kaizen/design-tokens@1.9.0) (2020-06-02)
+## [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.8.0...@kaizen/design-tokens@1.9.0) (2020-06-02)
 
 ### Features
 
 - Create layout tokens file ([#519](https://github.com/cultureamp/kaizen-design-system/issues/519)) ([c84e106](https://github.com/cultureamp/kaizen-design-system/commit/c84e1063ab4d0644292b0cf0c3d959bf1280ef66))
 
-# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.7.0...@kaizen/design-tokens@1.8.0) (2020-05-27)
+## [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.7.0...@kaizen/design-tokens@1.8.0) (2020-05-27)
 
 ### Features
 
 - Change Coral 500 hex value ([#514](https://github.com/cultureamp/kaizen-design-system/issues/514)) ([73e5d23](https://github.com/cultureamp/kaizen-design-system/commit/73e5d230a8c84e7e0a81b106dd2e3e29a7486f92)), closes [#F04C5](https://github.com/cultureamp/kaizen-design-system/issues/F04C5) [#E22B3](https://github.com/cultureamp/kaizen-design-system/issues/E22B3)
 
-# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.6.0...@kaizen/design-tokens@1.7.0) (2020-05-26)
+## [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.6.0...@kaizen/design-tokens@1.7.0) (2020-05-26)
 
 ### Features
 
 - Add tokens for button type styles ([#512](https://github.com/cultureamp/kaizen-design-system/issues/512)) ([baf326e](https://github.com/cultureamp/kaizen-design-system/commit/baf326e526c0cfd0988a12389348f17ae83e3abb))
 
-# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.5.0...@kaizen/design-tokens@1.6.0) (2020-05-04)
+## [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.5.0...@kaizen/design-tokens@1.6.0) (2020-05-04)
 
 ### Features
 
 - Add Peach 600 and Cluny 600 to color tokens ([#441](https://github.com/cultureamp/kaizen-design-system/issues/441)) ([4c6bf66](https://github.com/cultureamp/kaizen-design-system/commit/4c6bf665d2f39c1aca2d54821beee4239d6d7212))
 
-# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.4.0...@kaizen/design-tokens@1.5.0) (2020-04-15)
+## [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.4.0...@kaizen/design-tokens@1.5.0) (2020-04-15)
 
 ### Features
 
 - Publish the draft well component ([#369](https://github.com/cultureamp/kaizen-design-system/issues/369)) ([517ed88](https://github.com/cultureamp/kaizen-design-system/commit/517ed8836719652bf18a8c1d8776092da598dc1c))
 
-# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.3.1...@kaizen/design-tokens@1.4.0) (2020-04-08)
+## [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.3.1...@kaizen/design-tokens@1.4.0) (2020-04-08)
 
 ### Features
 
@@ -853,25 +853,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Sass and Less variables for tokens ([#376](https://github.com/cultureamp/kaizen-design-system/issues/376)) ([6566ac5](https://github.com/cultureamp/kaizen-design-system/commit/6566ac5899a0f7bd5297cbf9317e90a58c17ddcd))
 
-# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.2.0...@kaizen/design-tokens@1.3.0) (2020-04-07)
+## [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.2.0...@kaizen/design-tokens@1.3.0) (2020-04-07)
 
 ### Features
 
 - Add shadow tokens ([#362](https://github.com/cultureamp/kaizen-design-system/issues/362)) ([38dcbc2](https://github.com/cultureamp/kaizen-design-system/commit/38dcbc2ef0599fcbc6158d6623e2d9c1ecafc0a3))
 
-# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.1.0...@kaizen/design-tokens@1.2.0) (2020-02-18)
+## [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.1.0...@kaizen/design-tokens@1.2.0) (2020-02-18)
 
 ### Features
 
 - regenerate design token scss and less files ([#286](https://github.com/cultureamp/kaizen-design-system/issues/286)) ([8570bbb](https://github.com/cultureamp/kaizen-design-system/commit/8570bbb))
 
-# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.0.0...@kaizen/design-tokens@1.1.0) (2020-02-18)
+## [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.0.0...@kaizen/design-tokens@1.1.0) (2020-02-18)
 
 ### Features
 
 - Add type styles for data ([#282](https://github.com/cultureamp/kaizen-design-system/issues/282)) ([9ea1150](https://github.com/cultureamp/kaizen-design-system/commit/9ea1150))
 
-# [1.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.4.1...@kaizen/design-tokens@1.0.0) (2020-02-17)
+## [1.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.4.1...@kaizen/design-tokens@1.0.0) (2020-02-17)
 
 ### Code Refactoring
 
@@ -886,13 +886,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/design-tokens
 
-# [0.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.3.0...@kaizen/design-tokens@0.4.0) (2020-02-14)
+## [0.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.3.0...@kaizen/design-tokens@0.4.0) (2020-02-14)
 
 ### Features
 
 - Add typography tokens ([#268](https://github.com/cultureamp/kaizen-design-system/issues/268)) ([3d89146](https://github.com/cultureamp/kaizen-design-system/commit/3d89146))
 
-# [0.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.2.0...@kaizen/design-tokens@0.3.0) (2020-01-31)
+## [0.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.2.0...@kaizen/design-tokens@0.3.0) (2020-01-31)
 
 ### Features
 
@@ -927,7 +927,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Tokens package now links to the Less tokens ([#173](https://github.com/cultureamp/kaizen-design-system/issues/173)) ([64fc6ba](https://github.com/cultureamp/kaizen-design-system/commit/64fc6ba))
 
-# [0.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.0.4...@cultureamp/kaizen-design-tokens@0.1.0) (2019-12-17)
+## [0.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.0.4...@cultureamp/kaizen-design-tokens@0.1.0) (2019-12-17)
 
 ### Features
 
