@@ -76,6 +76,7 @@
     "@kaizen/draft-select": "^2.10.42",
     "@kaizen/draft-tabs": "^5.2.43",
     "@kaizen/notification": "^1.7.0",
+    "@kaizen/typography": "^2.3.11",
     "@storybook/addon-a11y": "^7.4.5",
     "@storybook/addon-essentials": "^7.4.5",
     "@storybook/addon-interactions": "^7.4.5",
