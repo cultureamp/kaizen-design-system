@@ -5,7 +5,7 @@ import { ButtonProps } from "~components/Button"
 import {
   GenericModal,
   ModalAccessibleFooter,
-  ModalAccessibleHeader,
+  ModalHeader,
   ModalAccessibleLabel,
   ModalSection,
 } from "~components/Modal/GenericModal"
@@ -99,7 +99,7 @@ export const ContextModal = ({
     >
       <div className={styles.modal} data-modal {...props}>
         {renderBackground && renderBackground()}
-        <ModalAccessibleHeader onDismiss={onDismiss}>
+        <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(styles.header, !unpadded && styles.padded)}
           >
@@ -109,7 +109,7 @@ export const ContextModal = ({
               </Heading>
             </ModalAccessibleLabel>
           </div>
-        </ModalAccessibleHeader>
+        </ModalHeader>
         {contentHeader && (
           <div className={styles.contentHeader}>{contentHeader}</div>
         )}

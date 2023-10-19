@@ -2,20 +2,20 @@ import React from "react"
 import { IconButton } from "~components/Button"
 import { CloseIcon } from "~components/Icon"
 import { ModalSection } from "../ModalSection"
-import styles from "./ModalAccessibleHeader.module.scss"
+import styles from "./ModalHeader.module.scss"
 
-export type ModalAccessibleHeaderProps = {
+export type ModalHeaderProps = {
   unpadded?: boolean
   reversed?: boolean
   onDismiss?: (evt: React.MouseEvent) => void
   children: React.ReactNode
 }
 
-export const ModalAccessibleHeader = ({
+export const ModalHeader = ({
   reversed,
   onDismiss,
   children,
-}: ModalAccessibleHeaderProps): JSX.Element => (
+}: ModalHeaderProps): JSX.Element => (
   <ModalSection>
     <div className={styles.dismissButton}>
       <IconButton
@@ -30,4 +30,4 @@ export const ModalAccessibleHeader = ({
   </ModalSection>
 )
 
-ModalAccessibleHeader.displayName = "ModalAccessibleHeader"
+ModalHeader.displayName = "ModalHeader"

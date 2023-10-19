@@ -5,7 +5,7 @@ import { ButtonProps } from "~components/Button"
 import {
   GenericModal,
   ModalAccessibleFooter,
-  ModalAccessibleHeader,
+  ModalHeader,
   ModalAccessibleLabel,
   ModalSection,
 } from "~components/Modal/GenericModal"
@@ -81,7 +81,7 @@ export const InputEditModal = ({
       onAfterLeave={onAfterLeave}
     >
       <div className={styles.modal} dir={localeDirection} data-modal {...props}>
-        <ModalAccessibleHeader onDismiss={onDismiss}>
+        <ModalHeader onDismiss={onDismiss}>
           <div
             className={classnames(
               styles.header,
@@ -95,7 +95,7 @@ export const InputEditModal = ({
               </Heading>
             </ModalAccessibleLabel>
           </div>
-        </ModalAccessibleHeader>
+        </ModalHeader>
         <ModalSection>
           <div
             className={classnames(styles.body, !unpadded && styles.padded)}
