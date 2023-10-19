@@ -4,7 +4,7 @@ import { Paragraph } from "@kaizen/typography"
 import { ExpertAdviceCollapsible } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Collapsibles/ExpertAdviceCollapsible",
+  title: "Components/Collapsibles/ExpertAdviceCollapsible",
   component: ExpertAdviceCollapsible,
   parameters: { chromatic: { disable: false } },
   args: {

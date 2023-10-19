@@ -2,11 +2,11 @@ import React, { ReactNode } from "react"
 import { StoryObj, Meta } from "@storybook/react"
 import { TextField } from "@kaizen/draft-form"
 import { LoadingInput } from "@kaizen/loading-skeleton"
-import { AddIcon, ArrowRightIcon } from "~components/Icons"
+import { AddIcon, ArrowRightIcon } from "~components/Icon"
 import { Button } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Buttons/Button",
+  title: "Components/Buttons/Button",
   component: Button,
   args: {
     label: "Label",

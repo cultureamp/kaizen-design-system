@@ -7,7 +7,7 @@ import {
 import { DirectionalLink, DirectionalLinkProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Buttons/DirectionalLink",
+  title: "Components/Buttons/DirectionalLink",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -58,17 +58,17 @@ const StickerSheetTemplate: StickerSheetStory = {
             <DirectionalLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__button-hover"
+              data-sb-pseudo-styles="hover"
             />
             <DirectionalLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__button-active"
+              data-sb-pseudo-styles="active"
             />
             <DirectionalLink
               {...props}
               reversed={isReversed}
-              classNameOverride="story__button-focus"
+              data-sb-pseudo-styles="focus"
             />
             <DirectionalLink {...props} reversed={isReversed} disabled />
           </StickerSheet.Row>
@@ -76,6 +76,14 @@ const StickerSheetTemplate: StickerSheetStory = {
       </StickerSheet.Body>
     </StickerSheet>
   ),
+  parameters: {
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      active: '[data-sb-pseudo-styles="active"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -86,12 +94,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    textDirection: "rtl",
+  },
 }

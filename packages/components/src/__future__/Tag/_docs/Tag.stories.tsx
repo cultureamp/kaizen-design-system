@@ -1,94 +1,73 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
-import { TagIcon } from "~components/Icons"
-import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
-import { StickerSheet } from "~storybook/components/StickerSheet"
+import { Meta, StoryObj } from "@storybook/react"
+import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
+import { TagColorKeys } from "../types"
 import { Tag } from ".."
 
-export default {
-  tags: ["autodocs"],
-  title: "KAIO-staging/Tag",
+const meta = {
+  title: "Components/Tag/Future",
   component: Tag,
-  parameters: {
-    docs: {
-      container: ComponentDocsTemplate,
-    },
-    isInKaio: true,
-    installation: [
-      "yarn add @kaizen/components",
-      "import { Tag } from `@kaizen/components/future`",
-    ],
-    resourceLinks: {
-      sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__future__/Tag",
-      figma:
-        "https://www.figma.com/file/hANEprZKom5Br1IBXhE8mr/%F0%9F%A7%AA-Kaizen-Labs?type=design&node-id=28588-183332&mode=design&t=VHZDCTJUpaon8PXg-0",
-    },
+  args: {
+    children: "My tag",
   },
 } satisfies Meta<typeof Tag>
 
-export const Playground: StoryFn<typeof Tag> = args => (
-  <Tag {...args}>My tag</Tag>
-)
+export default meta
 
-type ListProps = {
-  children: React.ReactNode
-}
-const List = ({ children }: ListProps): JSX.Element => (
-  <div className="flex flex-col gap-12 items-start">{children}</div>
-)
+type Story = StoryObj<typeof meta>
 
-const StickerSheetTemplate: StoryFn = () => (
-  <StickerSheet heading="Tag">
-    <StickerSheet.Header headings={["Label Only", "Icon"]} />
-    <StickerSheet.Body>
-      <StickerSheet.Row>
-        <List>
-          <Tag>Gray</Tag>
-          <Tag color="blue">Blue</Tag>
-          <Tag color="green">Green</Tag>
-          <Tag color="yellow">Yellow</Tag>
-          <Tag color="orange">Orange</Tag>
-          <Tag color="red">Red</Tag>
-          <Tag color="purple">Purple</Tag>
-        </List>
-        <List>
-          <Tag Icon={<TagIcon role="presentation" />}>Gray</Tag>
-          <Tag color="blue" Icon={<TagIcon role="presentation" />}>
-            Blue
-          </Tag>
-          <Tag color="green" Icon={<TagIcon role="presentation" />}>
-            Green
-          </Tag>
-          <Tag color="yellow" Icon={<TagIcon role="presentation" />}>
-            Yellow
-          </Tag>
-          <Tag color="orange" Icon={<TagIcon role="presentation" />}>
-            Orange
-          </Tag>
-          <Tag color="red" Icon={<TagIcon role="presentation" />}>
-            Red
-          </Tag>
-          <Tag color="purple" Icon={<TagIcon role="presentation" />}>
-            Purple
-          </Tag>
-        </List>
-      </StickerSheet.Row>
-    </StickerSheet.Body>
-  </StickerSheet>
-)
-
-export const StickerSheetDefault = StickerSheetTemplate.bind({})
-StickerSheetDefault.storyName = "Sticker Sheet (Default)"
-StickerSheetDefault.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
+export const Playground: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
 }
 
-export const StickerSheetRTL = StickerSheetTemplate.bind({})
-StickerSheetRTL.storyName = "Sticker Sheet (RTL)"
-StickerSheetRTL.parameters = {
-  chromatic: { disable: false },
-  controls: { disable: true },
-  textDirection: "rtl",
+export const Children: StoryObj = {
+  args: { children: "This text is the children" },
+}
+
+export const Color: StoryObj = {
+  render: () => (
+    <div className="flex gap-16">
+      {TagColorKeys.map(color => (
+        <Tag color={color} icon={<TagIcon role="presentation" />} key={color}>
+          {color}
+        </Tag>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+}
+
+export const Icon: StoryObj = {
+  render: () => (
+    <div className="flex gap-16">
+      <Tag icon={<AcademyIcon role="presentation" />}>AcademyIcon</Tag>
+      <Tag color="yellow" icon={<ActionOffIcon role="presentation" />}>
+        ActionOffIcon
+      </Tag>
+      <Tag color="green" icon={<AddIcon role="presentation" />}>
+        AddIcon
+      </Tag>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+}
+
+export const ClassNameOverride: StoryObj = {
+  args: {
+    classNameOverride: "border-red-500 border-solid border",
+  },
 }

@@ -1,0 +1,85 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../../../../styles/button-reset";
+
+.multiSelectToggle {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  border: $border-solid-border-style $border-solid-border-width $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  flex-direction: row-reverse;
+  padding: calc(#{$spacing-12} - #{$border-solid-border-width});
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus-within {
+    border-color: $color-gray-600;
+    background-color: $color-gray-200;
+  }
+}
+
+.toggleButton {
+  @include button-reset;
+
+  display: inline-flex;
+  align-items: flex-start;
+  margin: 3px 0;
+  color: rgba($color-purple-800-rgb, 0.7);
+
+  &:hover {
+    color: $color-purple-800;
+  }
+
+  &:focus {
+    color: $color-purple-800;
+    outline: none;
+
+    &::after {
+      position: absolute;
+      pointer-events: none;
+      content: "";
+      inset: calc(
+        -1 * calc(#{$border-focus-ring-border-width} + #{$border-solid-border-width} +
+              1px)
+      );
+      border-radius: $border-focus-ring-border-radius;
+      border: $border-focus-ring-border-style $border-focus-ring-border-width
+        $color-blue-500;
+    }
+  }
+}
+
+.selectedItemsContainer {
+  display: flex;
+  gap: $spacing-12;
+  align-items: flex-start;
+  width: 100%;
+  border-inline-end: 1px solid transparent;
+  padding-inline-end: $spacing-12;
+  margin-inline-end: $spacing-12;
+
+  &.hasSelectedItems {
+    border-inline-end-color: rgba($color-gray-600-rgb, 0.2);
+  }
+}
+
+.selectedItems {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  gap: $spacing-6;
+  list-style: none;
+}
+
+// @todo: Remove this when Tag colour is fixed
+.selectedItemTag {
+  background-color: $color-gray-300;
+}
+
+.clearAllButton {
+  margin: 3px 0;
+}

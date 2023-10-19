@@ -34,8 +34,7 @@
   }
 
   &:not(:disabled) {
-    &:active,
-    &#{$story-className--button-active} {
+    &:active {
       transform: translateY(1px);
     }
 
@@ -43,7 +42,7 @@
       outline: none;
     }
 
-    #{$selectors--button-focus} {
+    &:focus-visible {
       &::after {
         $focus-ring-offset: calc(
           (#{$border-focus-ring-border-width} * 2) + 1px
@@ -63,7 +62,7 @@
 
   &.reversed {
     &:not(:disabled) {
-      #{$selectors--button-focus} {
+      &:focus-visible {
         &::after {
           border-color: $color-blue-300;
         }

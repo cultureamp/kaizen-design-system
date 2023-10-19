@@ -1,0 +1,56 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../GenericModal/GenericModal.module";
+
+.modal {
+  @extend %genericModal;
+
+  min-width: 300px;
+  max-width: 600px;
+
+  .animatingEnter & {
+    @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
+
+    animation-duration: $ca-duration-fast;
+    animation-fill-mode: forwards;
+    animation-timing-function: $ca-bounce-in;
+  }
+
+  .animatingLeave & {
+    @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
+
+    animation-duration: $ca-duration-rapid;
+    animation-fill-mode: forwards;
+    animation-timing-function: $ca-bounce-out;
+  }
+}
+
+.header {
+  color: $color-purple-800;
+  text-align: left;
+
+  &.textAlignRTL {
+    text-align: right;
+  }
+
+  &.padded {
+    padding: $spacing-md $spacing-lg;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      padding: $spacing-md;
+    }
+  }
+}
+
+.body {
+  background: $color-gray-200;
+
+  &.padded {
+    padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;
+
+    @media (max-width: $layout-breakpoints-medium) {
+      padding: $spacing-md;
+    }
+  }
+}

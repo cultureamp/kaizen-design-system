@@ -1,10 +1,10 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AddIcon, MeatballsIcon } from "~components/Icons"
+import { AddIcon, MeatballsIcon } from "~components/Icon"
 import { IconButton } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Buttons/IconButton",
+  title: "Components/Buttons/IconButton",
   component: IconButton,
   argTypes: {
     icon: {

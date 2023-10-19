@@ -1,0 +1,28 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as RadioFieldStories from "./RadioField.stories"
+
+<Meta of={RadioFieldStories} />
+
+# RadioField
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/RadioField"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A86404&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092822/Radio+Field"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { RadioField } from "@kaizen/components"'
+/>
+
+## Overview
+
+A radio includes a radio input and its label. Radios are used in radio groups that let people select exactly one option from a set.
+
+<Canvas of={RadioFieldStories.Playground} />
+<Controls of={RadioFieldStories.Playground} />

@@ -7,18 +7,19 @@ import {
 } from "@react-stately/select"
 import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/FilterButton"
+import { SelectProvider } from "~components/__future__/Select/context"
+import {
+  ListBoxSection,
+  ListItem,
+  Option,
+  SectionDivider,
+  SelectPopoverContents,
+  SelectPopoverContentsProps,
+} from "~components/__future__/Select/subcomponents"
+import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
+import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { SelectProvider } from "./context"
-import { ListBox } from "./subcomponents/ListBox"
-import { ListBoxSection } from "./subcomponents/ListBoxSection"
-import { ListItem } from "./subcomponents/ListItem"
-import { ListItems } from "./subcomponents/ListItems"
-import { Option } from "./subcomponents/Option"
-import { Overlay } from "./subcomponents/Overlay"
-import { SectionDivider } from "./subcomponents/SectionDivider"
-import { SelectItem, SelectItemNode, SelectOption } from "./types"
-import { isSelectOptionGroup } from "./utils/isSelectOptionGroup"
-import { transformSelectItemToCollectionElement } from "./utils/transformSelectItemToCollectionElement"
+import { SelectItem, SelectOption } from "./types"
 import styles from "./FilterSelect.module.scss"
 
 type OmittedAriaSelectProps =
@@ -34,7 +35,7 @@ export type FilterSelectProps<Option extends SelectOption = SelectOption> = {
   setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerButtonProps: FilterButtonProps) => JSX.Element
   label: string
-  children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
+  children?: SelectPopoverContentsProps<Option>["children"]
   items: Array<SelectItem<Option>>
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
@@ -54,16 +55,7 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
     React.RefObject<HTMLButtonElement>
   >({ current: null })
 
-  const disabledKeys = items.reduce((acc: React.Key[], item) => {
-    if (isSelectOptionGroup(item)) {
-      const keys = Array.from(item.options)
-        .filter(groupItem => groupItem.disabled)
-        .map(disabledItems => disabledItems.value)
-      return [...acc, ...keys]
-    }
-
-    return item.disabled ? [...acc, item.value] : acc
-  }, [])
+  const disabledKeys = getDisabledKeysFromItems(items)
 
   const ariaSelectProps: AriaSelectProps<SelectItem<Option>> = {
     label,
@@ -87,14 +79,6 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
 
-  // The collection structure is set by useSelectState's `children`
-  // which we have used a util to ensure the following structure
-  // - SelectOptionGroup => Section
-  // - Option => Item
-  const itemNodes = Array.from(state.collection) as Array<
-    SelectItemNode<Option>
-  >
-
   return (
     <>
       <HiddenSelect label={label} state={state} triggerRef={triggerRef} />
@@ -114,15 +98,9 @@ export const FilterSelect = <Option extends SelectOption = SelectOption>({
       >
         <FilterContents classNameOverride={styles.filterContents}>
           <SelectProvider<Option> state={state}>
-            <Overlay<Option>>
-              <ListBox<Option> menuProps={menuProps}>
-                {children ? (
-                  children({ items: itemNodes })
-                ) : (
-                  <ListItems<Option> items={itemNodes} />
-                )}
-              </ListBox>
-            </Overlay>
+            <SelectPopoverContents menuProps={menuProps}>
+              {children}
+            </SelectPopoverContents>
           </SelectProvider>
         </FilterContents>
       </Filter>

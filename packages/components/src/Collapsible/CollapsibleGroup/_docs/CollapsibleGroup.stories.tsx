@@ -31,7 +31,7 @@ const CollapsibleGroupWrapped = (
 )
 
 const meta = {
-  title: "KAIO-staging/Collapsibles/CollapsibleGroup",
+  title: "Components/Collapsibles/CollapsibleGroup",
   component: CollapsibleGroup,
   parameters: { backgrounds: { default: "Gray 100" } },
   args: {

@@ -17,7 +17,7 @@
     "description" : "Label for the 'date to' field",
     "message" : "التاريخ إلى"
   },
-  "filterDateRangePicker.inputFormat" : {
+  "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "تنسيق الإدخال"
   },

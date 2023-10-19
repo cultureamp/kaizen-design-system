@@ -36,3 +36,10 @@ Collapsibles are used to collapse and expand content inline on a page. This lets
 <DocsStory of={CollapsibleStories.CustomHeader} />
 
 <DocsStory of={CollapsibleStories.Sticky} sourceState="shown" />
+
+### Controlled
+
+Control the open state using a `useState` (or similar) by setting the `controlled` prop to `true`
+and defining the `open` and `onToggle` props.
+
+<Canvas of={CollapsibleStories.Controlled} />

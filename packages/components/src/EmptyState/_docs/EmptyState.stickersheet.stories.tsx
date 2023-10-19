@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "~components/Button"
-import { ChevronRightIcon } from "~components/Icons"
+import { ChevronRightIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -11,7 +11,7 @@ import { EmptyState, EmptyStateProps } from "../index"
 import styles from "./EmptyState.stories.module.scss"
 
 export default {
-  title: "KAIO-staging/EmptyState",
+  title: "Components/EmptyState",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

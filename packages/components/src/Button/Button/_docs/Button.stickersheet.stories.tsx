@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { AddIcon } from "~components/Icons"
+import { AddIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -8,7 +8,7 @@ import {
 import { Button, ButtonProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Buttons/Button",
+  title: "Components/Buttons/Button",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -123,24 +123,24 @@ const StickerSheetTemplate: StickerSheetStory = {
                 <Button reversed={isReversed} {...props} />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-hover"
+                  data-sb-pseudo-styles="hover"
                   {...props}
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-active"
+                  data-sb-pseudo-styles="active"
                   {...props}
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-focus"
+                  data-sb-pseudo-styles="focus"
                   {...props}
                 />
                 <Button reversed={isReversed} {...props} disabled />
                 <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-focus"
+                  data-sb-pseudo-styles="focus"
                   {...props}
                   {...WORKING_PROPS}
                 />
@@ -171,19 +171,19 @@ const StickerSheetTemplate: StickerSheetStory = {
                 <Button reversed={isReversed} {...props} size="small" />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-hover"
+                  data-sb-pseudo-styles="hover"
                   {...props}
                   size="small"
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-active"
+                  data-sb-pseudo-styles="active"
                   {...props}
                   size="small"
                 />
                 <Button
                   reversed={isReversed}
-                  classNameOverride="story__button-focus"
+                  data-sb-pseudo-styles="focus"
                   {...props}
                   size="small"
                 />
@@ -203,7 +203,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   reversed={isReversed}
                   {...props}
                   size="small"
-                  classNameOverride="story__button-focus"
+                  data-sb-pseudo-styles="focus"
                   {...WORKING_PROPS}
                 />
               </StickerSheet.Row>
@@ -251,6 +251,14 @@ const StickerSheetTemplate: StickerSheetStory = {
       </>
     )
   },
+  parameters: {
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      active: '[data-sb-pseudo-styles="active"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -261,12 +269,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    textDirection: "rtl",
+  },
 }

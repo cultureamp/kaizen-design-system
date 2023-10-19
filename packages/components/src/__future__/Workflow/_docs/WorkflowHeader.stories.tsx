@@ -1,12 +1,12 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
-import { CloseIcon, VisibleIcon } from "~components/Icons"
+import { CloseIcon, VisibleIcon } from "~components/Icon"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: "Pages/Workflow/Components/Header",
+  title: "Pages/Workflow/Future/Components/Header",
   component: Workflow.Header,
   argTypes: {
     headerActions: WorkflowControls.headerActions,
