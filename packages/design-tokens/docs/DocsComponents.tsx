@@ -24,7 +24,7 @@ export const CodeBlock = (props: {
   code: string
 }): JSX.Element => (
   <Unstyled>
-    <div className="py-2">
+    <div className="py-8">
       <Card>
         <div className={styles.codeWrapper}>
           <Highlight className={props.language}>{props.code}</Highlight>
