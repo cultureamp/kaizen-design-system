@@ -6,8 +6,8 @@ const meta = {
   component: Radio,
   args: {
     id: "radio",
-    name: "Radio",
-    value: "Radio",
+    name: "name",
+    value: "value",
   },
   parameters: {
     a11y: {
