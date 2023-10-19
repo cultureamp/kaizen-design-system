@@ -3,8 +3,11 @@
 "@kaizen/components": patch
 ---
 
-Replace internal usage of `@kaizen/typography`
-Remove `@kaizen/brand-moment` and its usages
-Remove `@kaizen/button` and its usages
-Remove `@kaizen/draft-select` and its usages
-Remove `@kaizen/notification` and its usages
+- Replace all usages of `Heading` from `@kaizen/typography` with the same from KAIO
+- Replace all usages of `Paragraph` from `@kaizen/typography` with `Text` from KAIO
+- Remove `@kaizen/brand` and its usages
+- Remove `@kaizen/draft-badge` and its usages
+- Remove `@kaizen/draft-divider` and its usages
+- Remove `@kaizen/draft-form` and its usages
+- Remove `@kaizen/draft-tag` and its usages
+- Remove `@kaizen/responsive` and its usages
