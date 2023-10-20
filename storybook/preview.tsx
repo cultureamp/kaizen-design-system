@@ -1,4 +1,4 @@
-import "./tailwind.scss"
+import "./styles/tailwind.scss"
 import React, { useEffect } from "react"
 import { Preview } from "@storybook/react"
 import { KaizenProvider } from "~components/KaizenProvider"
@@ -7,10 +7,6 @@ import { DefaultDocsContainer } from "./components/DocsContainer"
 import { globalA11yRules } from "./global-a11y-rules"
 
 import "highlight.js/styles/a11y-light.css"
-
-// Standard base stylesheet used across Culture Amp products
-// See: https://github.com/necolas/normalize.css/
-import "normalize.css"
 
 const globalTypes = {
   textDirection: {
