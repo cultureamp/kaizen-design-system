@@ -89,7 +89,7 @@
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.2",
     "@rollup/plugin-typescript": "^11.1.5",
-    "@types/react-dom": "^18.2.7",
+    "@types/react-dom": "^18.2.14",
     "@types/react-textfit": "^1.1.1",
     "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.16",
@@ -111,7 +111,7 @@
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.0.0",
-    "react": "^18.0.0",
+    "react": "^18.2.0",
     "react-intl": "^6.4.6"
   }
 }
