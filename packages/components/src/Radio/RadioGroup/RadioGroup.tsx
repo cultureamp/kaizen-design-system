@@ -29,7 +29,7 @@ export const RadioGroup = ({
 
   return (
     <div
-      data-testId={dataTestId}
+      data-testid={dataTestId}
       className={classnames(
         styles.radioGroupContainer,
         classNameOverride,
@@ -43,7 +43,7 @@ export const RadioGroup = ({
       <div className={styles.radioGroupLabel}>
         <Label
           id={labelId}
-          data-testId={dataTestId && `${dataTestId}-field-label`}
+          data-testid={dataTestId && `${dataTestId}-field-label`}
           labelText={labelText}
           labelType="text"
           reversed={reversed}
