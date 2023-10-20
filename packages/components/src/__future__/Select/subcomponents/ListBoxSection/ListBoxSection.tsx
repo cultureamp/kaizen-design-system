@@ -1,6 +1,6 @@
 import React from "react"
 import { useListBoxSection } from "@react-aria/listbox"
-import { Heading } from "~components/Heading"
+import { Heading } from "@kaizen/typography"
 import { SelectOption, SelectOptionGroupNode } from "../../types"
 import { Option } from "../Option/Option"
 import styles from "./ListBoxSection.module.scss"

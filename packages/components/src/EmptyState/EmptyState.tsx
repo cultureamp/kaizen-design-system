@@ -8,8 +8,7 @@ import {
   EmptyStatesNeutral,
   EmptyStatesPositive,
 } from "@kaizen/draft-illustration"
-import { HeadingProps, Heading } from "~components/Heading"
-import { Text } from "~components/Text"
+import { HeadingProps, Heading, Paragraph } from "@kaizen/typography"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./EmptyState.module.scss"
 
@@ -95,9 +94,9 @@ export const EmptyState = ({
           {headingProps && (
             <Heading classNameOverride={styles.heading} {...headingProps} />
           )}
-          <Text variant="body" classNameOverride={styles.description}>
+          <Paragraph variant="body" classNameOverride={styles.description}>
             {bodyText}
-          </Text>
+          </Paragraph>
           {children}
         </div>
       </div>

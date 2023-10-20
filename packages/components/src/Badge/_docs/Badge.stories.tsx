@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { BadgeAnimated } from "~components/Badge"
+import { BadgeAnimated } from "@kaizen/draft-badge"
 import { Badge } from "../index"
 
 const meta = {
