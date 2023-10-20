@@ -67,46 +67,6 @@ See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/
 
 To learn more about what browsers and devices we support in Kaizen Component Library, Culture Amp employees can see [the Browser Support wiki page](https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/1572948/Browser+Support+and+Stats).
 
-### Local development with other front-end codebases
-
-To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yalc](https://github.com/wclr/yalc) your local version of `@kaizen/component-library` with your other front-end codebase.
-
-#### For core components
-
-**Step 1**: Make your local copy of `@kaizen/component-library` available.
-
-```sh
-# Navigate to code source
-$ cd ./packages/component-library
-
-# Publish the package
-$ yalc publish
-
-```
-
-**Step 2**: Install `@kaizen/component-library` in your other front-end codebase.
-
-```sh
-# Navigate to code source
-$ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
-
-# Add the package to your front-end codebase
-$ yalc add @kaizen/component-library
-
-# Yarn install
-$ yarn
-
-```
-
-Your local Kaizen changes will now show in your other front-end codebase. If you want to test subsequent updates to the component, you'll need to run through step 1 again to republish the component, and then run `yalc update` in your front-end codebase to see the new changes.
-
-**Step 3**: Removing the package
-
-When you are done, remove the package from your front-end codebase:
-
-`yalc remove @kaizen/component-library`
-
-
 ## Releasing packages
 
 Automated releases to the npm public registry are triggered for all pull requests containing modifications to one or more npm packages (found in the `/packages/` directory). The information required to determine the version update for each release is taken from the title and content of the pull request.
@@ -180,7 +140,7 @@ This will run a build and publish a snapshot and its tag with a name that is con
 
 ## Using new package releases
 
-To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/component-library`).
+To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/components`).
 
 Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANGELOG.md`](./packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
 

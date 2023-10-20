@@ -1,5 +1,5 @@
 import React from "react"
-import { Divider } from "@kaizen/draft-divider"
+import { Divider } from "~components/Divider"
 import styles from "./SectionDivider.module.scss"
 
 export const SectionDivider = (): JSX.Element => (
