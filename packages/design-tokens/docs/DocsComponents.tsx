@@ -4,8 +4,10 @@ import React from "react"
 import { Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
 import Highlight from "react-highlight"
+import { Box } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
+import { Paragraph } from "@kaizen/typography"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 import { defaultTheme } from "../src/themes"
 import animationSass from "!!raw-loader!../sass/animation.scss"
@@ -24,7 +26,7 @@ export const CodeBlock = (props: {
   code: string
 }): JSX.Element => (
   <Unstyled>
-    <div className="py-8">
+    <Box py={0.5}>
       <Card>
         <div className={styles.codeWrapper}>
           <Highlight className={props.language}>{props.code}</Highlight>
@@ -33,10 +35,14 @@ export const CodeBlock = (props: {
 
       {props.caption && (
         <div className={styles.codeWrapperCaption}>
-          <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
+          <Paragraph variant="small">
+            <span className={styles.codeWrapperCaptionText}>
+              {props.caption}
+            </span>
+          </Paragraph>
         </div>
       )}
-    </div>
+    </Box>
   </Unstyled>
 )
 
@@ -53,7 +59,7 @@ const TabbedCodeBlocks = ({
   return (
     <div style={{ minHeight: "32rem" }}>
       <div style={{ overflowX: "auto" }}>
-        <div className="pl-4">
+        <Box pl={0.25}>
           <Tabs
             renderTab={({
               tab,
@@ -82,7 +88,7 @@ const TabbedCodeBlocks = ({
               onClick: () => setCurrentTab(block),
             }))}
           />
-        </div>
+        </Box>
       </div>
       <CodeBlock {...codeBlockProps} />
     </div>

@@ -35,7 +35,8 @@ export type AllowedHeadingColors =
   | "positive"
   | "negative"
 
-export type HeadingProps = {
+export interface HeadingProps
+  extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
   /**
    * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
@@ -47,7 +48,7 @@ export type HeadingProps = {
    */
   variant: HeadingVariants
   color?: AllowedHeadingColors
-} & OverrideClassName<HTMLAttributes<HTMLElement>>
+}
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3074885298/Typography#Headings Guidance}

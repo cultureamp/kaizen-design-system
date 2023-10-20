@@ -8,8 +8,8 @@ import React, {
   FocusEvent,
 } from "react"
 import classnames from "classnames"
+import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { LoadingSpinner } from "@kaizen/loading-spinner"
-import { Badge, BadgeAnimated } from "~components/Badge"
 import styles from "./GenericButton.module.scss"
 
 export type CustomButtonProps = {

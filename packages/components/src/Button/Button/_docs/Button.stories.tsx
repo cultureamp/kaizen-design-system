@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react"
 import { StoryObj, Meta } from "@storybook/react"
+import { TextField } from "@kaizen/draft-form"
 import { LoadingInput } from "@kaizen/loading-skeleton"
 import { AddIcon, ArrowRightIcon } from "~components/Icon"
-import { TextField } from "~components/TextField"
 import { Button } from "../index"
 
 const meta = {
@@ -67,7 +67,7 @@ export const Disabled: Story = {
 
 /**
  * <p>When a Button is supplied to the `icon` prop, it displays an icon.</p>
- * <p>`import { TrashIcon } from "@kaizen/components"`</p>
+ * <p>`import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"`</p>
  * <p>Once the icons are imported, you can pass them directly into the Button component.</p>
  * <h3>IconPosition</h3>
  * <p>The consumer can specify the icon placement with the iconPosition prop, default position is start.</p>
