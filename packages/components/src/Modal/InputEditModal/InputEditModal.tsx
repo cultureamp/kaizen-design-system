@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { Heading } from "@kaizen/typography"
 import { ButtonProps } from "~components/Button"
+import { Heading } from "~components/Heading"
 import {
   GenericModal,
   ModalFooter,

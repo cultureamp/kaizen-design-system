@@ -2,9 +2,9 @@ import React, { useId } from "react"
 import classnames from "classnames"
 import { FieldGroup } from "~components/FieldGroup"
 import { FieldMessage } from "~components/FieldMessage"
+import { SuccessIcon } from "~components/Icon"
 import { Input, InputProps } from "~components/Input"
 import { Label } from "~components/Label"
-import { SuccessIcon } from ".."
 import styles from "./TextField.module.scss"
 
 type OmittedInputProps =

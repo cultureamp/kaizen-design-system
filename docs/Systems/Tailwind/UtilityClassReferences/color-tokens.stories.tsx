@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import colorString from "color-string"
 import { useTheme } from "@kaizen/design-tokens"
-import { Heading } from "@kaizen/typography"
+import { Heading } from "~components/Heading"
 
 export default {
   title: "Systems/Tokens/Classname References/Color Tokens",

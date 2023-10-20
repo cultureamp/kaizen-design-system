@@ -1141,10 +1141,17 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.17.8", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.1", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.17.8", "@babel/runtime@^7.20.1", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.23.1"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.1.tgz#72741dc4d413338a91dcb044a86f3c0bc402646d"
   integrity sha512-hC2v6p8ZSI/W0HUzh3V8C5g+NwSKzKPtJwSpTjwl0o297GP9+ZLQSkdvHz46CM3LqyoXxq+5G9komY+eSqSO0g==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
+"@babel/runtime@^7.12.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.8.7":
+  version "7.23.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.2.tgz#062b0ac103261d68a966c4c7baf2ae3e62ec3885"
+  integrity sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==
   dependencies:
     regenerator-runtime "^0.14.0"
 
@@ -2682,42 +2689,10 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/brand-moment@^1.13.8":
-  version "1.13.8"
-  resolved "https://registry.yarnpkg.com/@kaizen/brand-moment/-/brand-moment-1.13.8.tgz#662a68f17d9237cbf35dbfddf4c49227aada72a4"
-  integrity sha512-+LCh6BiDnAOpu4Q5cJ5t+pUl4wlDz6otmrhdNdmmzYg064UuCWFAKmZqD7HhTHXTHEjgR66yhoQefu2bu9YotQ==
-  dependencies:
-    "@kaizen/button" "^3.0.4"
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.1"
-    "@kaizen/draft-illustration" "^7.0.0"
-    "@kaizen/hosted-assets" "^2.0.3"
-    "@kaizen/responsive" "^1.8.10"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-
-"@kaizen/brand@^1.5.8":
-  version "1.5.8"
-  resolved "https://registry.yarnpkg.com/@kaizen/brand/-/brand-1.5.8.tgz#934d90e710c3f82b173e06c58111215c3bca40d6"
-  integrity sha512-XGbgwhyBUNjF7/GONBHKpEmVar6TfiTYu7sU/tLzcjQroasa9bf0NBf4Lp0MhUHSXXHShRX1tdRW038zfDtCFQ==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/hosted-assets" "^2.0.3"
-
 "@kaizen/button@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.4.tgz#f48c9a58457babc5719a1f40b0dc6911bb6d3c21"
   integrity sha512-Pa18apJ4wEh1DRxFGOOCwEtVyZ36TljZMutLg7S8eVNghOBpY/j/eCJrB04SZVFLL1PYbEFLe9GjmsuLWxDPKQ==
-  dependencies:
-    "@kaizen/component-library" "^16.8.2"
-    "@kaizen/draft-badge" "^1.13.11"
-    "@kaizen/loading-spinner" "^2.3.11"
-    classnames "^2.3.2"
-
-"@kaizen/button@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.5.tgz#fdfc44b56331638801754a7646e53a3ed7e9a0ea"
-  integrity sha512-TRmaU/fhWWfJXJ9/Yg8wplm1Ww7rNKvNVxjbMO/d0N4FyTbszfIwjMGn7Un1xl8m6Goau9Aa2DOk+5KEtSmu6Q==
   dependencies:
     "@kaizen/component-library" "^16.8.2"
     "@kaizen/draft-badge" "^1.13.11"
@@ -2729,7 +2704,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
   integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
 
-"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
+"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.3":
   version "16.9.3"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.9.3.tgz#67212943dbe76f50e33679cae477c4709ac94bec"
   integrity sha512-r4dpEQ5MxxntMXAoOPb6lBJjZAOKiFPPMIJmsTBFTuubOPUeLG52VMDSD2IhSxCqu2ON8LqwPU8VvlGZXRlSqQ==
@@ -2746,17 +2721,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/deprecated-component-library-helpers/-/deprecated-component-library-helpers-2.5.8.tgz#914785d4623411a170e8c93c217cf830d35ca364"
   integrity sha512-13Wp85K8gxLM2wxISWnaQhOoaFmlk6swaZhCcgGvxposFQHlaM6vThQjvzH1+gRoSwYnz9hjPlQNFgl8VIqo8Q==
 
-"@kaizen/draft-avatar@^2.8.40":
-  version "2.8.40"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-avatar/-/draft-avatar-2.8.40.tgz#cb0ea602b7cd47ec189251d34134f128067042cf"
-  integrity sha512-N7QimJchV6E1Wuj4aCYmv+x8QzDWLEMdeYQzb/aO+BJtycfyqaYTZ8BPOsp/G/EAL1Zo/t0XptYbwoo/3kzcvw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.8.2"
-    classnames "^2.3.2"
-    react-textfit "^1.1.1"
-
-"@kaizen/draft-badge@^1.13.11", "@kaizen/draft-badge@^1.13.12":
+"@kaizen/draft-badge@^1.13.11":
   version "1.13.12"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-badge/-/draft-badge-1.13.12.tgz#feade901af352bd0c4c8b7ecac7eee8d47ec0a12"
   integrity sha512-Dyf+KLbpHgbKnMznj6vhRsgcpfcuLaIG6v6LMoKi5GJ9DL/IyMuckpjCFwmbIOPdpgsF8vVTuI4q796Q/k8h7w==
@@ -2779,20 +2744,7 @@
     "@kaizen/component-base" "^1.1.7"
     classnames "^2.3.2"
 
-"@kaizen/draft-form@^10.4.8", "@kaizen/draft-form@^10.5.0":
-  version "10.5.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-10.5.0.tgz#caafd8452de144cb131c6b76eaac3ae2c90651eb"
-  integrity sha512-Obmm5m2Z+Rf1jyRMYyXQTFaG/1JtcMJByW3Ssniqth8Vj2y8Ufu4/aS4Wf21dUShO6AX8xBAa3zwBLud5uoZTw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@kaizen/loading-spinner" "^2.3.11"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-    uuid "^9.0.0"
-
-"@kaizen/draft-illustration@^7.0.0", "@kaizen/draft-illustration@^7.0.1":
+"@kaizen/draft-illustration@^7.0.1":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-illustration/-/draft-illustration-7.0.1.tgz#b86dc598edb49ca59cb51102361b105fd0c3ebb2"
   integrity sha512-Ug4is9ygKWI/BitcB4W9NI98Q2+GL9+umZ3P4/orXGt6n28Fl1P8QHUhg5VVOh3chD2ciQGutgfeFc7Xx1VBng==
@@ -2828,19 +2780,6 @@
     classnames "^2.3.2"
     resize-observer-polyfill "^1.5.1"
 
-"@kaizen/draft-select@^2.10.42":
-  version "2.10.42"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-select/-/draft-select-2.10.42.tgz#b4066ac81f2c8cfcadb8a46b932974d62d077e33"
-  integrity sha512-uOe5PWoyv+IdDHy/mj7cBgFX/0FBGj9n8IvOZRRMY/AAfwpCmMG3wm3QanjuTNgZz3TVIhOl+62Oo2gDgogDug==
-  dependencies:
-    "@kaizen/button" "^3.0.4"
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/draft-form" "^10.4.8"
-    "@kaizen/draft-tag" "^3.4.17"
-    classnames "^2.3.2"
-    react-select "^5.7.4"
-    uuid "^9.0.0"
-
 "@kaizen/draft-tabs@^5.2.43":
   version "5.2.43"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-tabs/-/draft-tabs-5.2.43.tgz#cf66521b876ac772effb37bd62e4c2dc2203e38b"
@@ -2848,15 +2787,6 @@
   dependencies:
     "@kaizen/component-library" "^16.8.2"
     "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    classnames "^2.3.2"
-
-"@kaizen/draft-tag@^3.4.17", "@kaizen/draft-tag@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-tag/-/draft-tag-3.5.0.tgz#81261e6a64e5cdda2db6637f114c32982a4d0404"
-  integrity sha512-DhXICSS5olSuK+D4FQ4K5nQP2vXSQizhkyzo5K04kd/lG7lhawNA2q3+SGTIV1NvtUTWV75bWaU5NYX4FCFIkQ==
-  dependencies:
-    "@kaizen/component-library" "^16.9.2"
-    "@kaizen/draft-avatar" "^2.8.40"
     classnames "^2.3.2"
 
 "@kaizen/draft-tooltip@^5.4.47":
@@ -2888,21 +2818,6 @@
   dependencies:
     "@kaizen/component-base" "^1.1.7"
     classnames "^2.3.2"
-
-"@kaizen/notification@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/notification/-/notification-1.7.0.tgz#d442b49f824099802ce7f70cde4dcba7474dd868"
-  integrity sha512-d/q2ROewMACPalYANnM49eAtOxAmQKept4SMxztGk6BfRlUWexPD+8mrD9m1DFc6Qp/yUn/DiGbq4D/dyNY6Yg==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.3"
-    classnames "^2.3.2"
-    uuid "^9.0.0"
-
-"@kaizen/responsive@^1.8.10":
-  version "1.8.10"
-  resolved "https://registry.yarnpkg.com/@kaizen/responsive/-/responsive-1.8.10.tgz#ce42f0b3d0c8b96196aa0459927f0538917495d7"
-  integrity sha512-buwE/sVl1etZm9BpdM+iGn8oUA3CPgLsspCNbkbxGqksXB+nwpT4idKm4+boz3SWK1eqV3At+GgaPvPYwt+YjQ==
 
 "@kaizen/typography@^2.3.11":
   version "2.3.11"
@@ -5576,9 +5491,9 @@
     "@types/react" "*"
 
 "@types/react-transition-group@^4.4.0":
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.6.tgz#18187bcda5281f8e10dfc48f0943e2fdf4f75e2e"
-  integrity sha512-VnCdSxfcm08KjsJVQcfBmhEQAPnLB8G08hAxn39azX1qYBQ/5RVQuoHuKIcfKOdncuaUvEpFKFzEvbtIMsfVew==
+  version "4.4.8"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.8.tgz#46f87d80512959cac793ecc610a93d80ef241ccf"
+  integrity sha512-QmQ22q+Pb+HQSn04NL3HtrqHwYMf4h3QKArOy5F8U5nEVMaihBs3SR10WiOM1iwPz5jIo8x/u11al+iEGZZrvg==
   dependencies:
     "@types/react" "*"
 
@@ -16136,21 +16051,6 @@ react-resize-detector@^7.1.2:
   integrity sha512-zXnPJ2m8+6oq9Nn8zsep/orts9vQv3elrpA+R8XTcW7DVVUJ9vwDwMXaBtykAYjMnkCIaOoK9vObyR7ZgFNlOw==
   dependencies:
     lodash "^4.17.21"
-
-react-select@^5.7.4:
-  version "5.7.5"
-  resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.7.5.tgz#d2d0f29994e0f06000147bfb2adf58324926c2fd"
-  integrity sha512-jgYZa2xgKP0DVn5GZk7tZwbRx7kaVz1VqU41S8z1KWmshRDhlrpKS0w80aS1RaK5bVIXpttgSou7XCjWw1ncKA==
-  dependencies:
-    "@babel/runtime" "^7.12.0"
-    "@emotion/cache" "^11.4.0"
-    "@emotion/react" "^11.8.1"
-    "@floating-ui/dom" "^1.0.1"
-    "@types/react-transition-group" "^4.4.0"
-    memoize-one "^6.0.0"
-    prop-types "^15.6.0"
-    react-transition-group "^4.3.0"
-    use-isomorphic-layout-effect "^1.1.2"
 
 react-select@^5.7.7:
   version "5.7.7"
