@@ -31,16 +31,35 @@ module.exports = (
         default: false,
       },
     ],
-    actions: ({ isSubcomponent, isFuture }) => {
+    actions: ({
+      isSubcomponent,
+      isFuture,
+      componentName,
+      parentComponentName,
+    }) => {
       const src = isFuture ? "src/__future__" : "src"
+      const componentNamePascal = plop.getHelper("pascalCase")(componentName)
 
       if (isSubcomponent) {
+        const parentComponentNamePascal =
+          plop.getHelper("pascalCase")(parentComponentName)
+
         return [
           {
             type: "addMany",
-            destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents`,
+            destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents/{{pascalCase componentName}}`,
             base: "plop-templates/basic-component/src",
             templateFiles: "plop-templates/basic-component/src/**/*.hbs",
+          },
+          {
+            type: "addMany",
+            destination: `packages/components/${src}/{{pascalCase parentComponentName}}/subcomponents/{{pascalCase componentName}}/_docs`,
+            base: "plop-templates/basic-component/docs",
+            templateFiles:
+              "plop-templates/basic-component/docs/**/!(*.mdx.hbs)",
+            data: {
+              storyTitle: `Components/${parentComponentNamePascal}/${componentNamePascal}`,
+            },
           },
         ]
       }
@@ -57,15 +76,15 @@ module.exports = (
           destination: `packages/components/${src}/{{pascalCase componentName}}/_docs`,
           base: "plop-templates/basic-component/docs",
           templateFiles: "plop-templates/basic-component/docs/**/*.hbs",
+          data: {
+            storyTitle: `Components/${componentNamePascal}`,
+          },
         },
         {
           type: "modify",
           path: `packages/components/${src}/index.ts`,
-          transform: (content, answers) => {
-            const componentName = plop.getHelper("pascalCase")(
-              answers.componentName
-            )
-            const exportStatement = `export * from "./${componentName}"`
+          transform: content => {
+            const exportStatement = `export * from "./${componentNamePascal}"`
 
             if (content.includes(exportStatement)) return content
 

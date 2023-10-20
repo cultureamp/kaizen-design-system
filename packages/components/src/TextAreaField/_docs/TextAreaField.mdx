@@ -1,0 +1,47 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TextAreaFieldStories from "./TextAreaField.stories"
+
+<Meta of={TextAreaFieldStories} />
+
+# TextAreaField
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/TextAreaField"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=891%3A179030&t=zlNKMVZd1i6MB4db-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081895966/Text+Area+Field"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { TextAreaField } from "@kaizen/components"'
+/>
+
+## Overview
+
+A text area includes a label and a longer area you can type multiple lines of text into, a description and validation styling.
+
+<Canvas of={TextAreaFieldStories.Playground} />
+<Controls of={TextAreaFieldStories.Playground} />
+
+## API
+
+### Variant
+<Canvas of={TextAreaFieldStories.Variant} />
+
+### Autogrow
+Autogrow expands the textarea as the user's typing exceeds the minimum height of  the text area.
+
+<Canvas of={TextAreaFieldStories.Autogrow} />
+
+### Description
+<Canvas of={TextAreaFieldStories.Description} />
+
+### Validation
+<Canvas of={TextAreaFieldStories.Validation} />
+
+### Reversed
+<Canvas of={TextAreaFieldStories.Reversed} />

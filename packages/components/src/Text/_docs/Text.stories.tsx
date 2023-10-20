@@ -26,10 +26,3 @@ export const Playground: Story = {
     },
   },
 }
-
-export const Reversed: Story = {
-  args: { color: "white" },
-  parameters: {
-    backgrounds: { default: "Purple 700" },
-  },
-}

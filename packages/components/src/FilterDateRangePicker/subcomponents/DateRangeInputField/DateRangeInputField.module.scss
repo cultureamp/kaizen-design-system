@@ -9,7 +9,7 @@ $input-disabled-opacity: 0.3;
   border: none;
 }
 
-.inputStartDate {
+.inputStartDate input {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 
@@ -23,7 +23,7 @@ $input-disabled-opacity: 0.3;
   }
 }
 
-.inputEndDate {
+.inputEndDate input {
   position: relative;
   inset-inline-start: calc(-1 * #{$border-solid-border-width});
   border-start-start-radius: 0;

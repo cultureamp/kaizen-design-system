@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from "react"
 import { v4 } from "uuid"
-import { VisuallyHidden } from "@kaizen/a11y"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { MultiSelectItem } from "../../types"
 import styles from "./ListBoxSection.module.scss"
 

@@ -4,19 +4,19 @@ import classnames from "classnames"
 import {
   CalendarRange,
   CalendarRangeProps,
-} from "@kaizen/date-picker/src/_subcomponents/Calendar"
-import { formatDateAsText } from "@kaizen/date-picker/src/utils/formatDateAsText"
-import { getLocale } from "@kaizen/date-picker/src/utils/getLocale"
-import { isInvalidDate } from "@kaizen/date-picker/src/utils/isInvalidDate"
-import { parseDateFromTextFormatValue } from "@kaizen/date-picker/src/utils/parseDateFromTextFormatValue"
+  DateRange,
+  DisabledDays,
+  formatDateAsText,
+  isInvalidDate,
+  parseDateFromTextFormatValue,
+} from "~components/Calendar"
+import {
+  DatePickerSupportedLocales,
+  getLocale,
+} from "~components/DatePicker/utils/getLocale"
 import { DateValidationResponse } from "~components/FilterDatePicker"
 import { useDateInputHandlers } from "~components/FilterDatePicker/hooks/useDateInputHandlers"
 import { DataAttributes } from "~types/DataAttributes"
-import {
-  DateRange,
-  DisabledDays,
-  FilterDateSupportedLocales,
-} from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
   DateRangeInputField,
@@ -38,7 +38,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 export type FilterDateRangePickerFieldProps = {
   id: string
   label: string
-  locale: FilterDateSupportedLocales
+  locale: DatePickerSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */

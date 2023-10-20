@@ -4,14 +4,9 @@ import { Preview } from "@storybook/react"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
+import { globalA11yRules } from "./global-a11y-rules"
 
 import "highlight.js/styles/a11y-light.css"
-
-// Standard base stylesheet used across Culture Amp products
-// See: https://github.com/necolas/normalize.css/
-import "normalize.css"
-import "@kaizen/component-library/styles/fonts.scss"
-import { globalA11yRules } from "./global-a11y-rules"
 
 const globalTypes = {
   textDirection: {

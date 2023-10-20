@@ -6,10 +6,6 @@ import { render, screen } from "@testing-library/react"
 import { ItemType } from "../../types"
 import { MultiSelectOption, MultiSelectOptionProps } from "./MultiSelectOption"
 
-jest.mock("@kaizen/draft-badge", () => ({
-  Badge: "badge-mock",
-}))
-
 jest.mock("@react-aria/listbox", () => ({
   useOption: jest.fn(),
 }))
@@ -93,7 +89,7 @@ describe("<MultiSelectOptionWrapper /> - Visual content", () => {
 
     it("shows the count in the badge", () => {
       const badge = screen.getByText("count-mock")
-      expect(badge.tagName).toEqual("BADGE-MOCK")
+      expect(badge).toBeInTheDocument()
     })
 
     it("has aria-description to describe the count are available for this option", () => {
