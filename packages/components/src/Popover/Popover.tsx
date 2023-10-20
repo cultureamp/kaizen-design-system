@@ -191,7 +191,7 @@ type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
  */
 export const usePopover = (): [
   (element: HTMLElement | null) => void,
-  (props: PopoverPropsWithoutRef) => JSX.Element | null
+  (props: PopoverPropsWithoutRef) => JSX.Element | null,
 ] => {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null

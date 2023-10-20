@@ -11,6 +11,17 @@ export default {
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Placeholders do not pass color contrast
+            id: "color-contrast",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
@@ -35,53 +46,58 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <>
       <StickerSheet isReversed={isReversed} heading="Default Select">
-        <StickerSheet.Header headings={["Base", "Clearable", "Disabled"]} hasVerticalHeadings/>
+        <StickerSheet.Header
+          headings={["Base", "Clearable", "Disabled"]}
+          hasVerticalHeadings
+        />
         <StickerSheet.Body>
-        <StickerSheet.Row rowTitle="Default">
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            placeholder="Edit survey"
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[0]}
-            isClearable
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            placeholder="Edit survey"
-            isDisabled
-          />
-        </StickerSheet.Row>
-        <StickerSheet.Row rowTitle="Ellipsis">
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[9]}
-            placeholder="Edit survey"
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[9]}
-            placeholder="Edit survey"
-            isClearable
-          />
-          <Select
-            options={OPTIONS}
-            reversed={isReversed}
-            defaultValue={OPTIONS[9]}
-            placeholder="Edit survey"
-            isDisabled
-          />
-        </StickerSheet.Row>
-      </StickerSheet.Body>
+          <StickerSheet.Row rowTitle="Default">
+            <Select
+              options={OPTIONS}
+              reversed={isReversed}
+              label="Select"
+              data-sb-a11y-color-contrast-disable
+            />
+            <Select
+              options={OPTIONS}
+              reversed={isReversed}
+              defaultValue={OPTIONS[0]}
+              isClearable
+              label="Select"
+            />
+            <Select
+              options={OPTIONS}
+              reversed={isReversed}
+              label="Select"
+              isDisabled
+            />
+          </StickerSheet.Row>
+          <StickerSheet.Row rowTitle="Ellipsis">
+            <Select
+              options={OPTIONS}
+              reversed={isReversed}
+              defaultValue={OPTIONS[9]}
+              label="Select"
+            />
+            <Select
+              options={OPTIONS}
+              reversed={isReversed}
+              defaultValue={OPTIONS[9]}
+              label="Select"
+              isClearable
+            />
+            <Select
+              options={OPTIONS}
+              reversed={isReversed}
+              defaultValue={OPTIONS[9]}
+              label="Select"
+              isDisabled
+            />
+          </StickerSheet.Row>
+        </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Multi Select">
-        <StickerSheet.Header headings={["Base", "Disabled"]}/>
+        <StickerSheet.Header headings={["Base", "Disabled"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <Select
@@ -89,20 +105,24 @@ const StickerSheetTemplate: StickerSheetStory = {
               reversed={isReversed}
               isMulti={true}
               defaultValue={OPTIONS[0]}
+              label="Select"
             />
             <Select
               options={OPTIONS}
               reversed={isReversed}
               defaultValue={OPTIONS[0]}
-              placeholder="Edit survey"
               isDisabled
               isMulti
+              label="Select"
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Secondary">
-        <StickerSheet.Header headings={["Base", "Disabled"]} hasVerticalHeadings/>
+        <StickerSheet.Header
+          headings={["Base", "Disabled"]}
+          hasVerticalHeadings
+        />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
             <Select
@@ -110,14 +130,15 @@ const StickerSheetTemplate: StickerSheetStory = {
               variant="secondary"
               options={OPTIONS}
               defaultValue={OPTIONS[0]}
+              label="Select"
             />
             <Select
               reversed={isReversed}
               variant="secondary"
               options={OPTIONS}
               defaultValue={OPTIONS[0]}
-              placeholder="Edit survey"
               isDisabled
+              label="Select"
             />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Small">
@@ -126,6 +147,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               variant="secondary-small"
               options={OPTIONS}
               defaultValue={OPTIONS[0]}
+              label="Select"
             />
             <Select
               reversed={isReversed}
@@ -133,12 +155,13 @@ const StickerSheetTemplate: StickerSheetStory = {
               options={OPTIONS}
               defaultValue={OPTIONS[0]}
               isDisabled
+              label="Select"
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
       <StickerSheet isReversed={isReversed} heading="Menu">
-        <StickerSheet.Header headings={["Base", "Disabled"]}/>
+        <StickerSheet.Header headings={["Base", "Disabled"]} />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <Select
@@ -146,12 +169,14 @@ const StickerSheetTemplate: StickerSheetStory = {
               variant="secondary"
               options={OPTIONS}
               menuIsOpen
+              label="Select"
             />
             <Select
               reversed={isReversed}
               variant="secondary"
               options={[]}
               menuIsOpen
+              label="Select"
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
