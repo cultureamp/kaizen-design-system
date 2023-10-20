@@ -11,7 +11,7 @@ import "highlight.js/styles/a11y-light.css"
 // Standard base stylesheet used across Culture Amp products
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
-import "./assets/fonts.scss"
+import "./assets/_fonts.scss"
 
 const globalTypes = {
   textDirection: {
