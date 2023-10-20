@@ -12,7 +12,7 @@ import { Label } from "~components/Label"
 import { Tag } from "~components/Tag"
 import styles from "./Select.module.scss"
 
-export type { OnChangeValue as ValueType } from "react-select"
+export type { OnChangeValue as SelectValueType } from "react-select"
 
 export type SelectProps = {
   /**
