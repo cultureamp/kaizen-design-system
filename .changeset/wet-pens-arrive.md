@@ -10,3 +10,4 @@
 - Remove `@kaizen/draft-form` and its usages
 - Remove `@kaizen/draft-tag` and its usages
 - Remove `@kaizen/responsive` and its usages
+- Add `@layer` to Heading style that resets margin to zero
