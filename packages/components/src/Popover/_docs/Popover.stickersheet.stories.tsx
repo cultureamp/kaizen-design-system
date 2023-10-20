@@ -41,34 +41,6 @@ const PopoverRow = ({
     <StickerSheet.Cell style={cellStyle}>
       <PopoverWrapper placement={placement} />
     </StickerSheet.Cell>
-    <StickerSheet.Cell style={cellStyle}>
-      <PopoverWrapper
-        placement={placement}
-        variant="positive"
-        heading="Positive"
-      />
-    </StickerSheet.Cell>
-    <StickerSheet.Cell style={cellStyle}>
-      <PopoverWrapper
-        placement={placement}
-        variant="informative"
-        heading="Informative"
-      />
-    </StickerSheet.Cell>
-    <StickerSheet.Cell style={cellStyle}>
-      <PopoverWrapper
-        placement={placement}
-        variant="negative"
-        heading="Negative"
-      />
-    </StickerSheet.Cell>
-    <StickerSheet.Cell style={cellStyle}>
-      <PopoverWrapper
-        placement={placement}
-        variant="cautionary"
-        heading="Cautionary"
-      />
-    </StickerSheet.Cell>
   </StickerSheet.Row>
 )
 
@@ -86,9 +58,28 @@ const StickerSheetTemplate: StickerSheetStory = {
         hasVerticalHeadings
       />
       <StickerSheet.Body>
-        {PlacementKeys.map(placement => (
-          <PopoverRow key={placement} placement={placement} />
-        ))}
+        <StickerSheet.Row rowTitle="Variants">
+          <StickerSheet.Cell style={cellStyle}>
+            <PopoverWrapper />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell style={cellStyle}>
+            <PopoverWrapper variant="positive" heading="Positive" />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell style={cellStyle}>
+            <PopoverWrapper variant="informative" heading="Informative" />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell style={cellStyle}>
+            <PopoverWrapper variant="negative" heading="Negative" />
+          </StickerSheet.Cell>
+          <StickerSheet.Cell style={cellStyle}>
+            <PopoverWrapper variant="cautionary" heading="Cautionary" />
+          </StickerSheet.Cell>
+        </StickerSheet.Row>
+        <>
+          {PlacementKeys.map(placement => (
+            <PopoverRow key={placement} placement={placement} />
+          ))}
+        </>
       </StickerSheet.Body>
     </StickerSheet>
   ),
