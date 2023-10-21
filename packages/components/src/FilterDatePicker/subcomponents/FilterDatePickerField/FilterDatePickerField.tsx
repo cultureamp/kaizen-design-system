@@ -1,18 +1,20 @@
-import React, { HTMLAttributes, useEffect, useReducer, useState } from "react"
+import React, { HTMLAttributes, useEffect, useId, useReducer } from "react"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import {
   CalendarSingle,
   CalendarSingleProps,
+  DisabledDays,
   isInvalidDate,
+} from "~components/Calendar"
+import { DateInputDescriptionProps } from "~components/DateInput"
+import {
+  DatePickerSupportedLocales,
   getLocale,
-} from "@kaizen/date-picker"
+} from "~components/DatePicker/utils/getLocale"
 import { FilterProps } from "~components/Filter"
 import { useDateValidation } from "~components/FilterDatePicker/hooks/useDateValidation"
 import { transformDateToInputValue } from "~components/FilterDatePicker/utils/transformDateToInputValue"
-import { DateInputDescriptionProps } from "~components/FilterDateRangePicker/subcomponents/DateInputDescription"
 import { DataAttributes } from "~types/DataAttributes"
-import { DisabledDays, FilterDateSupportedLocales } from "~types/DatePicker"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { useDateInputHandlers } from "../../hooks/useDateInputHandlers"
 import { DateValidationResponse, ValidationMessage } from "../../types"
@@ -25,7 +27,7 @@ type FilterInputProps<InputProps> = Omit<Partial<InputProps>, "value"> &
 
 export type FilterDatePickerFieldProps = {
   id?: string
-  locale: FilterDateSupportedLocales
+  locale: DatePickerSupportedLocales
   /**
    * Sets first displayed month to month of provided date if there isn't a date set.
    */
@@ -78,7 +80,9 @@ export const FilterDatePickerField = ({
   classNameOverride,
   ...restProps
 }: FilterDatePickerFieldProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+  const reactId = useId()
+  const id = propsId ?? reactId
+
   const locale = getLocale(propsLocale)
 
   const dateValidation = useDateValidation({

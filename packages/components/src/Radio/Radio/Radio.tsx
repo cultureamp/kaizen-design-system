@@ -4,14 +4,17 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Radio.module.scss"
 
 export type RadioProps = OverrideClassName<
-  Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked">
+  Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    "id" | "name" | "value" | "checked" | "type"
+  >
 > & {
-  /**
-   * This needs to be enforced to ensure the Radio always gets an id to match a label when composed.
-   */
+  /** Required to ensure the Radio always gets an ID to match a label when composed. */
   id: string
+  /** Unique identifier for the group this Radio belongs to. Required for keyboard navigation of the group. See also [Defining a radio group](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio#defining_a_radio_group) on MDN. E.g. the question ID for which this is one possible answer to. */
   name: string
-  value: string
+  /** The value for this form field when this radio button is selected. */
+  value?: string | readonly string[] | number
   selectedStatus?: boolean
   reversed?: boolean
 }

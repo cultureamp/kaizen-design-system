@@ -1,4 +1,4 @@
-import { DisabledDays, formatDateAsText } from "@kaizen/date-picker"
+import { DisabledDays, formatDateAsText } from "~components/Calendar"
 
 export const transformDateToInputValue = (
   date: Date | undefined,

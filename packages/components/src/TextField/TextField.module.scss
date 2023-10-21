@@ -1,0 +1,49 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "../../styles/animation";
+@import "../../styles/legacy/layout";
+@import "../../styles/legacy/type";
+
+@mixin input-icon($color, $reversed) {
+  color: $color;
+
+  .withReversed & {
+    color: $reversed;
+  }
+}
+
+.input {
+  margin-top: $spacing-6;
+}
+
+$input-disabled-opacity: 0.3;
+
+///////////////////////////////////////////////////
+// VALIDATION STYLES
+///////////////////////////////////////////////////
+.success {
+  @include input-icon($color-green-500, $color-green-400);
+  @include ca-animation-fade(in);
+
+  &.disabled {
+    @include input-icon(
+      rgba($color-green-500-rgb, $input-disabled-opacity),
+      rgba($color-green-400-rgb, $input-disabled-opacity)
+    );
+  }
+}
+
+.error {
+  @include input-icon($color-red-100, $color-purple-700);
+  @include ca-animation-fade(in);
+}
+
+.caution {
+  @include input-icon($color-yellow-200, $color-purple-700);
+  @include ca-animation-fade(in);
+}
+
+.message {
+  &.disabled {
+    opacity: $input-disabled-opacity;
+  }
+}
