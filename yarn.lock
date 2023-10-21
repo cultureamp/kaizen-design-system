@@ -5699,10 +5699,10 @@
   dependencies:
     postcss "^8.1.4"
 
-"@types/postcss-import@^14.0.1":
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/@types/postcss-import/-/postcss-import-14.0.1.tgz#7be673ba78a2ccf10c29431c362423943ba30c15"
-  integrity sha512-tn0rPu/x0hvAHXtYB0YATwqDEYmNkWk6wp8Ah6LwKLs9bfUHsDybapSMda35V5HG/HguAltsgIyuiUk2a6JH4g==
+"@types/postcss-import@^14.0.2":
+  version "14.0.2"
+  resolved "https://registry.yarnpkg.com/@types/postcss-import/-/postcss-import-14.0.2.tgz#b9dbae1e99c80a8dc409d9bddc25007bd29993c2"
+  integrity sha512-AQ9RSYVoi7wu60g/82rWmz0CKsUT5GumPSMgD9JNn25rou+/e2OeW3kpoHsql/Lz5epkPuWnRD17k6hhlP62Fw==
   dependencies:
     postcss "^8.0.0"
 

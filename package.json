@@ -97,7 +97,7 @@
     "@types/jest-axe": "^3.5.7",
     "@types/node": "^18.18.6",
     "@types/postcss-flexbugs-fixes": "^5.0.2",
-    "@types/postcss-import": "^14.0.1",
+    "@types/postcss-import": "^14.0.2",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
