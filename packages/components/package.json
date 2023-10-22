@@ -59,7 +59,7 @@
     "@kaizen/typography": "^2.3.11",
     "@popperjs/core": "^2.11.8",
     "@react-aria/button": "^3.8.2",
-    "@react-aria/focus": "^3.14.1",
+    "@react-aria/focus": "^3.14.3",
     "@react-aria/listbox": "^3.10.2",
     "@react-aria/menu": "^3.10.2",
     "@react-aria/overlays": "^3.16.0",
