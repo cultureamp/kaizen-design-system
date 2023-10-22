@@ -1,8 +1,8 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import { makeCssVariableDefinitionsMap } from "@kaizen/design-tokens"
 import { ThemeProvider } from "./ThemeProvider"
 import { Theme, heartTheme } from "./themes"
+import { makeCssVariableDefinitionsMap } from "./utils/makeCssVariableDefinitionsMap"
 
 const assertThemeIsActive = (
   theme: Theme,

@@ -1,2 +1,2 @@
 export * from "./KaizenProvider"
-export * from "./ThemeProvider"
+export * from "./subcomponents/ThemeProvider"

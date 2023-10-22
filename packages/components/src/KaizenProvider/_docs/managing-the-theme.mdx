@@ -4,7 +4,7 @@ import { Meta } from "@storybook/blocks"
 
 # Managing the theme
 
-Out of the box, the `KaizenProvider` utilises the `defaultTheme` from `@kaizen/design-tokens`. However if you want to roll your own theme, we provide a `ThemeManager` function which can apply your custom theme.
+Out of the box, the `KaizenProvider` sets the `defaultTheme`. However if you want to roll your own theme, you can construct a Theme object and pass it in.
 
 ```jsx
 export const customTheme = {
@@ -27,7 +27,7 @@ Example:
 
 ```js
 import { defaultTheme } from "@kaizen/components"
-const [useCustomTheme, setUseCustomTheme] = useState(false)
+const [ useCustomTheme, setUseCustomTheme ] = useState(false)
 
 useEffect(() => {
   // Conditional logic to change the boolean
