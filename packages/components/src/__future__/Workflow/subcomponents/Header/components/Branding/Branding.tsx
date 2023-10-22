@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import { Brand, BrandProps } from "~components/Brand"
+import { Brand, BrandProps } from "@kaizen/brand"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Branding.module.scss"
 

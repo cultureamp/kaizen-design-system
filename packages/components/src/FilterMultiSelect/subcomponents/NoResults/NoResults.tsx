@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from "react"
-import { Text } from "~components/Text"
+import { Paragraph } from "@kaizen/typography"
 import styles from "./NoResults.module.scss"
 
 export type NoResultsProps = {
@@ -11,9 +11,9 @@ export const NoResults = ({
   ...restProps
 }: NoResultsProps): JSX.Element => (
   <div className={styles.container} {...restProps}>
-    <Text variant="extra-small" color="dark-reduced-opacity">
+    <Paragraph variant="extra-small" color="dark-reduced-opacity">
       {children}
-    </Text>
+    </Paragraph>
   </div>
 )
 

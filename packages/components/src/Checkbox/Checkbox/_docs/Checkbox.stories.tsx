@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { CheckboxFieldProps } from "~components/Checkbox"
+import { CheckboxFieldProps } from "@kaizen/draft-form"
 import { Checkbox } from "../index"
 
 const meta = {
