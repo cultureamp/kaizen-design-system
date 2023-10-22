@@ -5583,10 +5583,10 @@
     "@types/fined" "*"
     "@types/node" "*"
 
-"@types/lodash.flatmap@^4.5.7":
-  version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@types/lodash.flatmap/-/lodash.flatmap-4.5.7.tgz#f9eb29afd2d81121950d7647b4520367b1b3d81f"
-  integrity sha512-ZTfFXFpta2MU1SkoidRz4QMPpFJdFuZkDNffofj/b3XGT59vD0cpddO0agiwjp9l8KIjLNHRcaAUpi2/izUmFw==
+"@types/lodash.flatmap@^4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@types/lodash.flatmap/-/lodash.flatmap-4.5.8.tgz#b36dba0ea56b36cae808448d605e5c341b385672"
+  integrity sha512-P9lunRwFzv1CXSIo8RAl570GuIcfbyB2R7iJrHUBBfUUM1GfnRCc1ud4FRyEKaD1z1ywFaoaVAXUIHjtmk+ugA==
   dependencies:
     "@types/lodash" "*"
 
