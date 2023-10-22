@@ -44,6 +44,7 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
+    "@kaizen/components": "^1.28.0",
     "@types/color-string": "^1.5.3",
     "@types/lodash.kebabcase": "^4.1.7",
     "color-string": "^1.9.1",
