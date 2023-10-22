@@ -2948,10 +2948,23 @@
     "@kaizen/component-base" "^1.1.7"
     classnames "^2.3.2"
 
-"@kaizen/draft-form@^10.4.8", "@kaizen/draft-form@^10.5.0":
+"@kaizen/draft-form@^10.4.8":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-10.5.0.tgz#caafd8452de144cb131c6b76eaac3ae2c90651eb"
   integrity sha512-Obmm5m2Z+Rf1jyRMYyXQTFaG/1JtcMJByW3Ssniqth8Vj2y8Ufu4/aS4Wf21dUShO6AX8xBAa3zwBLud5uoZTw==
+  dependencies:
+    "@kaizen/component-base" "^1.1.7"
+    "@kaizen/component-library" "^16.9.3"
+    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
+    "@kaizen/loading-spinner" "^2.3.11"
+    "@kaizen/typography" "^2.3.11"
+    classnames "^2.3.2"
+    uuid "^9.0.0"
+
+"@kaizen/draft-form@^10.5.1":
+  version "10.5.1"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-10.5.1.tgz#3dbf542d9e902ee7d8b58e05ddd5dfd10c8b6369"
+  integrity sha512-avuCrQLLathqdez0kw9lp+qvGNrRx1PgGtqkYgeJtdcn3pdTHzHmXghYApdEfKK5G6nGIBc21uu58//zuHlUZA==
   dependencies:
     "@kaizen/component-base" "^1.1.7"
     "@kaizen/component-library" "^16.9.3"
