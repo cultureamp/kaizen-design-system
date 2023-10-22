@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
+import { Paragraph } from "@kaizen/typography"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
@@ -8,7 +9,6 @@ import {
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/FilterButton"
-import { Text } from "~components/Text"
 import {
   DateValidationResponse,
   FilterDatePicker,
@@ -222,11 +222,11 @@ const ValidationHelpText = ({
   validationResponse: DateValidationResponse | undefined
 }): JSX.Element => (
   <div>
-    <Text variant="body">
+    <Paragraph variant="body">
       NOTE: This story includes additional custom validation to provide some
       guidance when dealing with validation other than date isInvalid or
       isDisabled.
-    </Text>
+    </Paragraph>
     <ul>
       <li>
         There will be a caution when the selectedDay <strong>is valid</strong>{" "}
@@ -238,11 +238,11 @@ const ValidationHelpText = ({
         <strong>current error</strong>.
       </li>
     </ul>
-    <Text variant="body">
+    <Paragraph variant="body">
       The <code>onValidate</code> callback returns a{" "}
       <code>validationResponse</code> object which provides data such as a
       default validation message, and can be utilised for custom validation.
-    </Text>
+    </Paragraph>
 
     <Highlight className="json">
       {JSON.stringify(validationResponse, null, "\t")}

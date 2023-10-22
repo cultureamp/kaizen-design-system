@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Heading } from "~components/Heading"
+import { Heading, Paragraph } from "@kaizen/typography"
 import { AddIcon } from "~components/Icon"
-import { Text } from "~components/Text"
 import { Collapsible } from "../index"
 
 const meta = {
@@ -47,9 +46,9 @@ export const NoPadding: Story = {
   },
   render: ({ title }) => (
     <Collapsible open noSectionPadding title={title}>
-      <Text variant="body">
+      <Paragraph variant="body">
         In that case you should use the &apos;noSectionPadding&apos; prop.
-      </Text>
+      </Paragraph>
     </Collapsible>
   ),
 }
@@ -60,7 +59,7 @@ export const Clear: Story = {
   },
   render: ({ title }) => (
     <Collapsible open variant="clear" title={title}>
-      <Text variant="body">The header becomes clear</Text>
+      <Paragraph variant="body">The header becomes clear</Paragraph>
     </Collapsible>
   ),
 }
@@ -81,9 +80,9 @@ export const CustomHeader: Story = {
         </Heading>
       )}
     >
-      <Text variant="body">
+      <Paragraph variant="body">
         You can create a custom header using the renderHeader prop.
-      </Text>
+      </Paragraph>
     </Collapsible>
   ),
 }

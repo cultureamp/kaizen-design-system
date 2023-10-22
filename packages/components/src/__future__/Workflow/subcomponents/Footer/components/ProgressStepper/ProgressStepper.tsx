@@ -1,11 +1,11 @@
 import React from "react"
 import classnames from "classnames"
+import { Paragraph } from "@kaizen/typography"
 import {
   IndicatorActiveIcon,
   IndicatorInactiveIcon,
   SuccessIcon,
 } from "~components/Icon"
-import { Text } from "~components/Text"
 import styles from "./ProgressStepper.module.scss"
 
 export type Step = {
@@ -108,14 +108,14 @@ export const ProgressStepper = ({
                   {/* will need to be translated */}
                   {accessibleName}
                 </span>
-                <Text
+                <Paragraph
                   classNameOverride={styles.stepName}
                   variant="small"
                   color="white"
                   aria-hidden
                 >
                   {step.label}
-                </Text>
+                </Paragraph>
                 <div className={styles.stepIndicator}>
                   <span className={styles.stepIcon}>{Icon}</span>
                 </div>
@@ -132,14 +132,14 @@ export const ProgressStepper = ({
           )
         })}
       </ol>
-      <Text
+      <Paragraph
         classNameOverride={styles.stepperDescription}
         variant="small"
         color="white"
         id="stepper-description"
       >
         Step {currentStepIndex + 1} of {steps.length}
-      </Text>
+      </Paragraph>
     </div>
   )
 }
