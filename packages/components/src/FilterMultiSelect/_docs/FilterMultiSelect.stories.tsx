@@ -8,9 +8,9 @@ import {
   useQueryClient,
 } from "@tanstack/react-query"
 import isChromatic from "chromatic"
-import { InlineNotification } from "~components/Notification"
-import { Text } from "~components/Text"
-import { TextField } from "~components/TextField"
+import { TextField } from "@kaizen/draft-form"
+import { InlineNotification } from "@kaizen/notification"
+import { Paragraph } from "@kaizen/typography"
 import {
   FilterMultiSelect,
   getSelectedOptionLabels,
@@ -282,17 +282,17 @@ export const Async: Story = {
                         No results found for {searchState}.
                       </FilterMultiSelect.NoResults>
                     ) : searchState !== "" ? (
-                      <Text
+                      <Paragraph
                         classNameOverride={styles.helperMessage}
                         variant="extra-small"
                         tag="span"
                         color="dark-reduced-opacity"
                       >
                         Showing {filteredCount} of {totalCount}
-                      </Text>
+                      </Paragraph>
                     ) : (
                       hasNextPage && (
-                        <Text
+                        <Paragraph
                           classNameOverride={styles.helperMessage}
                           variant="extra-small"
                           tag="span"
@@ -300,7 +300,7 @@ export const Async: Story = {
                         >
                           There are a lot of options. Narrow them further by
                           searching for a more precise term.
-                        </Text>
+                        </Paragraph>
                       )
                     )}
 

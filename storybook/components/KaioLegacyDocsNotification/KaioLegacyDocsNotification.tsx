@@ -1,5 +1,5 @@
 import React from "react"
-import { InlineNotification } from "~components/Notification"
+import { InlineNotification } from "@kaizen/notification"
 
 type KaioLegacyDocsNotificationProps = {
   version: string
