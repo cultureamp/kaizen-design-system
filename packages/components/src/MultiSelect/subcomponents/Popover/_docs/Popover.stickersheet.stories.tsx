@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { Meta } from "@storybook/react"
 import classnames from "classnames"
-import { Heading } from "~components/Heading"
+import { Heading } from "@kaizen/typography"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { Popover, PopoverProps, useFloating } from "../index"
 

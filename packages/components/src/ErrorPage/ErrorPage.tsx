@@ -2,9 +2,9 @@ import React, { HTMLAttributes } from "react"
 import { FormattedMessage, useIntl } from "@cultureamp/i18n-react-intl"
 import classNames from "classnames"
 import { BrandMomentError } from "@kaizen/draft-illustration"
+import { Paragraph } from "@kaizen/typography"
 import { BrandMoment } from "~components/BrandMoment"
 import { ArrowRightIcon, EmailIcon } from "~components/Icon"
-import { Text } from "~components/Text"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { ErrorStatuses, useErrorMessages } from "./hooks"
 import styles from "./ErrorPage.module.scss"
@@ -52,15 +52,17 @@ export const ErrorPage = ({
         body={
           <>
             <div className={styles.paragraphPadding}>
-              <Text variant="intro-lede">{message || content.message}</Text>
+              <Paragraph variant="intro-lede">
+                {message || content.message}
+              </Paragraph>
             </div>
-            <Text color="dark-reduced-opacity" variant="small">
+            <Paragraph color="dark-reduced-opacity" variant="small">
               <FormattedMessage
                 id="kzErrorPage.errorCode"
                 defaultMessage="Error code {code}"
                 values={{ code }}
               />
-            </Text>
+            </Paragraph>
           </>
         }
         illustration={<BrandMomentError isAnimated loop />}

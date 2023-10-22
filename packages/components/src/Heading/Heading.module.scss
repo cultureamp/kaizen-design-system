@@ -1,10 +1,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 
-@layer {
-  .heading {
-    margin: 0;
-  }
+.heading {
+  margin: 0;
 }
 
 .display-0 {
