@@ -1,5 +1,8 @@
 import { Theme } from "../types"
 
+/**
+ * @deprecated Remove if you are using `KaizenProvider`, otherwise you can import the same object from `@kaizen/components`
+ */
 export const heartTheme: Theme = {
   themeKey: "heart",
   animation: {
