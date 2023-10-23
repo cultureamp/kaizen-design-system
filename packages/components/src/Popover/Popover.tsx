@@ -23,7 +23,7 @@ export type PopoverProps = {
   size?: Size
   heading?: string
   dismissible?: boolean
-  onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
+  onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
   singleLine?: boolean
   /**
    * For almost all intents and purposes, you should be using a pre-defined variant.
