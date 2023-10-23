@@ -63,7 +63,7 @@ export const AppearanceAnim = ({
 
   return isVisible || isAnimOut || isAnimIn ? (
     <div
-      className={cx([
+      className={classnames([
         {
           [styles.defaultHiddenState]: true,
           [styles.visibleState]: isVisible && !isAnimIn,

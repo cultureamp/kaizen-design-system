@@ -5,7 +5,7 @@ import { Heading } from "~components/Heading"
 import { CloseIcon } from "~components/Icon"
 import { Text } from "~components/Text"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { Placement, Size, Variant } from "./types"
+import { Placement, PopoverSize, PopoverVariant } from "./types"
 import {
   mapArrowVariantToClass,
   mapLineVariant,
@@ -18,9 +18,9 @@ import styles from "./Popover.module.scss"
 
 export type PopoverProps = {
   children: React.ReactNode
-  variant?: Variant
+  variant?: PopoverVariant
   placement?: Placement
-  size?: Size
+  size?: PopoverSize
   heading?: string
   dismissible?: boolean
   onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void

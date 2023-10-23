@@ -52,12 +52,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         />
         <StickerSheet.Body>
           <StickerSheet.Row rowTitle="Default">
-            <Select
-              options={OPTIONS}
-              reversed={isReversed}
-              label="Select"
-              data-sb-a11y-color-contrast-disable
-            />
+            <Select options={OPTIONS} reversed={isReversed} label="Select" />
             <Select
               options={OPTIONS}
               reversed={isReversed}

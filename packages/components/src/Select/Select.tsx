@@ -12,8 +12,6 @@ import { Label } from "~components/Label"
 import { Tag } from "~components/Tag"
 import styles from "./Select.module.scss"
 
-export type { OnChangeValue as SelectValueType } from "react-select"
-
 export type SelectProps = {
   /**
    * The secondary variant is a more subdued variant that takes up as little space as possible

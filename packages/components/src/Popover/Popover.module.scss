@@ -1,23 +1,13 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "../../styles/button-reset";
 
 // Sync with PopoverModern.tsx
 $arrow-width: 14px;
 $arrow-height: 7px;
 
 $large-width: 450px;
-
-@mixin button-reset {
-  appearance: none;
-  display: inline;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
 
 // Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
 // we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
