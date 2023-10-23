@@ -57,3 +57,34 @@ For example:
     </KaizenProvider>
   )
 ```
+
+## ThemeProvider & useTheme (deprecated)
+
+Note: this is a legacy approach, please aim to remove your dependency on a custom theme or migrate to the above methods.
+
+### 1. Install design tokens v10.0.0+
+
+This is the last version which supports the tools you'll need.
+
+```shell
+yarn add @design-tokens@10.0.0
+```
+
+### 2. Wrap your App in the ThemeProvider
+
+```jsx
+import { ThemeProvider, ThemeManager, defaultTheme } from "@kaizen/design-tokens"
+
+
+const App = () => {
+  export const themeManager = new ThemeManager(defaultTheme);
+
+  return (
+  <KaizenProvider>
+    <ThemeProvider theme={themeManager}>
+      <App />
+    </ThemeProvider>
+  </KaizenProvider>
+)
+}
+```
