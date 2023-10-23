@@ -50,7 +50,25 @@ const PopoverWrapper = (
 }
 
 export const Playground: Story = {
-  render: args => <PopoverWrapper {...args} />,
+  render: args => {
+    const [referenceElementRef, Popover] = usePopover()
+
+    return (
+      <div className="text-center relative">
+        <button
+          type="button"
+          className="inline-block mt-112"
+          ref={referenceElementRef}
+        >
+          Pop
+        </button>
+        <Popover {...args}>
+          Popover body that explains something useful.{" "}
+          <a href="/">Optional link</a>
+        </Popover>
+      </div>
+    )
+  },
   decorators: [
     Story => (
       <div className="h-[300px]">
