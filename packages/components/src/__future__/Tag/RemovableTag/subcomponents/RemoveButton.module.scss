@@ -36,10 +36,10 @@
   }
 
   color: rgba($color-purple-800-rgb, 0.7);
+
   &:hover,
   &:focus-visible {
     background-color: rgba($color-gray-600-rgb, 0.2);
-
     cursor: pointer;
     color: $color-purple-800;
   }
