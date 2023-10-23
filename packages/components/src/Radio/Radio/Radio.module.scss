@@ -57,8 +57,8 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $dt-color-radio-border-color-focus;
-    top: -$focus-ring-offset - ($radio-size / 8);
-    left: -$focus-ring-offset - ($radio-size / 8);
+    top: -$focus-ring-offset - ($radio-size * 0.125);
+    left: -$focus-ring-offset - ($radio-size * 0.125);
     width: calc(
       #{$radio-size} + #{$focus-ring-offset} + #{$border-solid-border-width} * 2
     );

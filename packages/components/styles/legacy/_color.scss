@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 
@@ -13,7 +15,7 @@ $black: black;
 }
 
 @function add-alpha($color, $percentage) {
-  $decimal: $percentage / 100%;
+  $decimal: math.div($percentage, 100%);
   $inverse: 1 - $decimal;
 
   @return transparentize($color, $inverse);

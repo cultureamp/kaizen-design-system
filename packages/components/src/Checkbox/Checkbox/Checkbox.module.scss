@@ -85,8 +85,8 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $dt-color-form-border-color-focus;
-    top: -$focus-ring-offset - ($checkbox-size / 8);
-    left: -$focus-ring-offset - ($checkbox-size / 8);
+    top: -$focus-ring-offset - ($checkbox-size * 0.125);
+    left: -$focus-ring-offset - ($checkbox-size * 0.125);
     width: calc(
       #{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} *
         2

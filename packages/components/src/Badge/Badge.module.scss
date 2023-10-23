@@ -79,7 +79,7 @@ $small: $spacing-md;
   color: $color-white;
 }
 
-$badge-duration-timing: ($animation-duration-slow / 2)
+$badge-duration-timing: calc($animation-duration-slow * 0.5)
   $animation-easing-function-ease-in;
 
 $badge-transition:

@@ -1,6 +1,8 @@
 // Copied from @kaizen/deprecated-component-library-helpers/styles/type
 // Avoiding making `deprecated-component-library-helpers` a dep
 
+@use "sass:math";
+
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
@@ -70,13 +72,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
   // Migrating the following two lines to use CSS vars causes Gatsby to fail with a very ambiguous error, around trying to divide by a "rem".
   $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
-  $line-height-ratio: $absolute-line-height / $font-size; // unitless number
+  $line-height-ratio: math.div($absolute-line-height, $font-size); // unitless number
   $line-spacing: $line-height-ratio - 1;
 
   font-size: $font-size;
   line-height: $line-height-ratio;
   position: relative;
-  top: #{$descender-height + $line-spacing / 2}em;
+  top: #{$descender-height + $line-spacing * 0.5}em;
   // If `position: relative` creates issues, we could alternatively use a transform,
   // though this creates a new stacking context which can break z-index based layers:
   // transform: translateY(#{$descender-height + $line-spacing / 2}em);
@@ -104,7 +106,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin ca-type-title($args...) {
   @include ca-type(
-    $size-ratio: 12/7,
+    $size-ratio: math.div(12, 7),
     $line-height-in-grid-units: 1.5,
     $weight: $ca-weight-medium,
     $args...
@@ -112,15 +114,15 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-display($args...) {
-  @include ca-type($size-ratio: 10/7, $weight: $ca-weight-medium, $args...);
+  @include ca-type($size-ratio: math.div(10, 7), $weight: $ca-weight-medium, $args...);
 }
 
 @mixin ca-type-heading($args...) {
-  @include ca-type($size-ratio: 8/7, $weight: $ca-weight-medium, $args...);
+  @include ca-type($size-ratio: math.div(8, 7), $weight: $ca-weight-medium, $args...);
 }
 
 @mixin ca-type-lede($args...) {
-  @include ca-type($size-ratio: 8/7, $args...);
+  @include ca-type($size-ratio: math.div(8, 7), $args...);
 }
 
 @mixin ca-type-body($args...) {
@@ -132,11 +134,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-small($args...) {
-  @include ca-type($size-ratio: 6/7, $args...);
+  @include ca-type($size-ratio: math.div(6, 7), $args...);
 }
 
 @mixin ca-type-labels-and-legends($args...) {
-  @include ca-type($size-ratio: 6/7, $letter-spacing: 0.04em, $args...);
+  @include ca-type($size-ratio: math.div(6, 7), $letter-spacing: 0.04em, $args...);
 
   text-transform: uppercase;
 }
@@ -151,7 +153,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: $size / 16,
+    $size-ratio: math.div($size, 16),
     $family: $ca-ideal-sans-font-family,
     $base-size: $ca-ideal-sans-font-base-size,
     $descender-height: $ca-ideal-sans-font-descender-height,
@@ -220,7 +222,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: 3/4,
+    $line-height-in-grid-units: 3*0.25,
     $args...
   );
 }
@@ -231,7 +233,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-medium,
-    $letter-spacing: $letter-spacing-in-px / $size * 1em,
+    $letter-spacing: math.div($letter-spacing-in-px, $size) * 1em,
     $args...
   );
 
@@ -270,7 +272,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: $size / 16,
+    $size-ratio: math.div($size, 16),
     $family: $ca-inter-font-family,
     $base-size: $ca-inter-font-base-size,
     $descender-height: $ca-inter-font-descender-height,
@@ -339,7 +341,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-inter(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: 3/4,
+    $line-height-in-grid-units: 3*0.25,
     $args...
   );
 }
@@ -350,7 +352,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-inter(
     $size: $size,
     $weight: 600,
-    $letter-spacing: $letter-spacing-in-px / $size * 1em,
+    $letter-spacing: math.div($letter-spacing-in-px, $size) * 1em,
     $args...
   );
 
@@ -397,7 +399,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 // A utility to strip the unit from a value. Eg: `1.5rem` to `1.5`
 @function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, $value * 0 + 1);
 }
 
 // Given a rem unit like `1.5rem`, convert to pixels, but without the unit,
@@ -410,7 +412,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @function to-grid-units($value-in-rems) {
-  @return $value-in-rems / $ca-grid;
+  @return math.div($value-in-rems, $ca-grid);
 }
 
 /*
@@ -426,7 +428,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: $size / 16,
+    $size-ratio: math.div($size, 16),
     $family:
       unquote(
         "#{$typography-heading-1-font-family}, Helvetica, Arial, sans-serif"
@@ -448,7 +450,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $args...
 ) {
   @include ca-type(
-    $size-ratio: $size / 16,
+    $size-ratio: math.div($size, 16),
     $family:
       unquote(
         "#{$typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif"
