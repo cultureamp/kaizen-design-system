@@ -33,11 +33,11 @@
     "clean": "rimraf dist node_modules",
     "build:components": "rollup -c",
     "compile": "tsc",
-    "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
-    "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
-    "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
+    "dist:clean": "rm ./dist/global.css ./dist/raw-styles.css",
+    "dist:combine-styles": "concat-cli -f ./dist/*.css ./dist/esm/*.css  -o ./dist/raw-styles.css",
+    "dist:copy-global-css": "cp styles/global.css dist/global.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
-    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
+    "postBuild": "yarn dist:copy-global-css && yarn dist:combine-styles && yarn dist:postcss",
     "update-icons": "./src/Icon/bin/update-icons.sh"
   },
   "dependencies": {
@@ -105,6 +105,7 @@
     "autoprefixer": "^10.4.16",
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
+    "copy": "^0.3.2",
     "query-string": "^8.1.0",
     "react-intl": "^6.4.7",
     "rollup": "^3.28.1",

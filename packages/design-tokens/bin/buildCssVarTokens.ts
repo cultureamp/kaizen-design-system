@@ -1,8 +1,9 @@
 import fs from "fs"
 import path from "path"
+import { toCustomPropertiesString } from "object-to-css-variables"
 import { format } from "prettier"
 import * as yargs from "yargs"
-import { defaultTheme } from "../src"
+import { defaultTheme, makeCssVariableDefinitionsMap } from "../src"
 import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
 
 const output = yargs
@@ -59,8 +60,16 @@ const run = async (): Promise<void> => {
   const augmentedThemeWithCSSVariableValuesVersion =
     makeCSSVariableTheme(defaultTheme)
 
-  /* Write JSON tokens */
+  const cssVars = toCustomPropertiesString(
+    makeCssVariableDefinitionsMap(defaultTheme)
+  )
 
+  fs.writeFileSync(
+    path.resolve(cssOutput, "variables.css"),
+    `html {${cssVars}}`
+  )
+
+  /* Write JSON tokens */
   fs.writeFileSync(
     path.resolve(jsonOutput, "color.json"),
     await formatJson(

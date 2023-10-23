@@ -1,6 +1,6 @@
-import React, { createContext, useContext } from "react"
-import { makeCssVariableDefinitionsMap } from "~components/KaizenProvider/subcomponents/ThemeProvider/utils/makeCssVariableDefinitionsMap"
+import React, { createContext } from "react"
 import { defaultTheme, Theme as BaseTheme } from "./themes"
+import { makeCssVariableDefinitionsMap } from "./utils/makeCssVariableDefinitionsMap"
 
 // We set the generic default value to `any` as ThemeContext
 // is instantiated as a constant which does not accept generics.
@@ -20,25 +20,11 @@ export const ThemeProvider = <Theme extends BaseTheme = BaseTheme>({
   children: React.ReactNode
 }): JSX.Element => {
   const theme = userTheme ?? defaultTheme
-  const themeVariables = makeCssVariableDefinitionsMap(theme)
+  const designTokensCSSVars = makeCssVariableDefinitionsMap(theme)
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <div id="kaizen--theme-root" style={themeVariables}>
-        {props.children}
-      </div>
-    </ThemeContext.Provider>
+    <div id="kaizen--theme-root" style={designTokensCSSVars}>
+      {props.children}
+    </div>
   )
-}
-
-export const useTheme = <
-  Theme extends BaseTheme = BaseTheme,
->(): ThemeContextValue<Theme> => {
-  const context = useContext(ThemeContext)
-
-  if (!context) {
-    throw new Error("useTheme must be used within the KaizenProvider")
-  }
-
-  return context
 }

@@ -14,6 +14,7 @@
     "tokens",
     "sass",
     "less",
+    "css",
     "dist"
   ],
   "main": "dist/index.js",
@@ -36,6 +37,7 @@
     "@types/yargs": "^17.0.28",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
+    "object-to-css-variables": "^0.2.1",
     "postcss": "^8.4.29",
     "prettier": "*",
     "react-highlight": "^0.15.0",
