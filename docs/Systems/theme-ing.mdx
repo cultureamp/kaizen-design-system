@@ -1,0 +1,59 @@
+import { Meta } from "@storybook/blocks"
+import { InlineNotification } from "@kaizen/notification"
+
+<Meta title="Systems/Theme-ing" />
+
+# Theme-ing
+
+<InlineNotification
+  persistent
+  type="cautionary"
+  style="inline"
+>Warning: these are very global changes, use with care.</InlineNotification>
+
+Kaizen does not currently offer multiple themes, however you can access and change the default theme's design tokens in a variety of ways should
+your application need to.
+
+## Globally overriding CSS vars
+
+Our `@kaizen/components/dist/styles.css` comes with CSS variables based on the tokens from our `@kaizen/design-tokens` package, which are
+available at a global scope, allowing your application CSS files to access and change these values.
+
+For example:
+
+```css
+  // myGlobalStyles.css
+  @import "@kaizen/components/dist/styles.css";
+
+  html {
+    --color-blue-500: pink;
+  }
+```
+
+## Conditionally changing themes
+
+Similar concept to the above method, but you can create your own CSS and use JS to conditionally load themes.
+
+For example:
+
+```js
+  // App.tsx
+  const customTheme = `
+    html {
+      --color-blue-500: pink;
+    }
+  `
+
+  const ThemeStyles = () => (
+    <styles>
+      {customTheme}
+    </styles>
+  )
+
+ return (
+  <>
+    { data && <ThemeStyles /> }
+    <App />
+  </>
+ )
+```
