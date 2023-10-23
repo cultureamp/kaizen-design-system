@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import cx from "classnames"
+import classnames from "classnames"
 import { useDebouncedCallback } from "use-debounce"
 import styles from "./AppearanceAnim.module.scss"
 
