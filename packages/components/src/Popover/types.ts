@@ -1,4 +1,4 @@
-export type Variant =
+export type PopoverVariant =
   | "default"
   | "informative"
   | "positive"
