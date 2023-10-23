@@ -18,8 +18,8 @@ export type SelectProps = {
    * `variant="secondary" reversed="false" is not implemented and will throw a "not implemented" error
    * @default "default"
    */
-  variant?: VariantType
-  status?: StatusType
+  variant?: "default" | "secondary" | "secondary-small"
+  status?: "default" | "error"
   label?: React.ReactNode
   validationMessage?: React.ReactNode
   description?: React.ReactNode
@@ -36,10 +36,6 @@ export type SelectProps = {
    */
   fullWidth?: boolean
 } & ReactSelectProps<any, boolean>
-
-export type VariantType = "default" | "secondary" | "secondary-small"
-
-export type StatusType = "default" | "error"
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance} |
