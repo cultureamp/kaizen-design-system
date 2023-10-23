@@ -7,7 +7,7 @@ export type PopoverVariant =
 
 export type PopoverSize = "small" | "large"
 
-export const PlacementKeys = [
+export const popoverPlacements = [
   "top",
   "bottom",
   "top-start",
