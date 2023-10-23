@@ -12,6 +12,7 @@
   &:focus,
   &:focus-visible {
     outline: none;
+
     &::after {
       $focus-ring-offset: -3px;
 
