@@ -30,8 +30,18 @@ const run = async (): Promise<void> => {
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
+  // Write CSS vars tokens to CSS format
+  const cssVars = toCustomPropertiesString(
+    makeCssVariableDefinitionsMap(defaultTheme)
+  )
+
+  fs.writeFileSync(
+    path.resolve(cssOutput, "variables.css"),
+    `html {${cssVars}}`
+  )
+
   /**
-   *
+   * augmentedThemeWithCSSVariableValuesVersion
    * It will look something like:
    * ```
    * {
@@ -59,15 +69,6 @@ const run = async (): Promise<void> => {
    */
   const augmentedThemeWithCSSVariableValuesVersion =
     makeCSSVariableTheme(defaultTheme)
-
-  const cssVars = toCustomPropertiesString(
-    makeCssVariableDefinitionsMap(defaultTheme)
-  )
-
-  fs.writeFileSync(
-    path.resolve(cssOutput, "variables.css"),
-    `html {${cssVars}}`
-  )
 
   /* Write JSON tokens */
   fs.writeFileSync(
