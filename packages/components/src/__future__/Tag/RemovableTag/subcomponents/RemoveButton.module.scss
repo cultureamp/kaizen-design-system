@@ -35,19 +35,13 @@
     border-radius: 50%;
   }
 
+  color: rgba($color-purple-800-rgb, 0.7);
   &:hover,
   &:focus-visible {
     background-color: rgba($color-gray-600-rgb, 0.2);
-  }
-}
 
-.closeIcon {
-  fill: rgba($color-purple-800-rgb, 0.7);
-
-  &:hover,
-  &:focus-visible {
     cursor: pointer;
-    fill: $color-purple-800;
+    color: $color-purple-800;
   }
 }
 

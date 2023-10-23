@@ -37,7 +37,7 @@ export const RemoveButton = ({
     onClick={onClick}
     {...restProps}
   >
-    <RemoveTagIcon role="presentation" classNameOverride={styles.closeIcon} />
+    <RemoveTagIcon role="presentation" />
   </button>
 )
 
