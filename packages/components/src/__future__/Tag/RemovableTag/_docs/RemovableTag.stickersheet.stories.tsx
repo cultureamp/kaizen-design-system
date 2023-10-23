@@ -18,7 +18,9 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <>
       <StickerSheet heading="Button Group">
-        <StickerSheet.Header headings={["Default", "Hover", "Focus visible"]} />
+        <StickerSheet.Header
+          headings={["Default", "Hover", "Focus", "Focus visible"]}
+        />
         <StickerSheet.Body>
           <StickerSheet.Row>
             <RemovableTag
@@ -47,6 +49,15 @@ const StickerSheetTemplate: StickerSheetStory = {
             >
               My tag
             </RemovableTag>
+            <RemovableTag
+              data-sb-pseudo-styles="focus-visible"
+              removeButtonProps={{
+                ariaLabel: "Remove tag",
+                onClick: () => alert("clicked"),
+              }}
+            >
+              My tag
+            </RemovableTag>
           </StickerSheet.Row>
         </StickerSheet.Body>
       </StickerSheet>
@@ -58,9 +69,13 @@ const StickerSheetTemplate: StickerSheetStory = {
         '[data-sb-pseudo-styles="hover"]',
         '[data-sb-pseudo-styles="hover"] > button',
       ],
-      focusVisible: [
+      focus: [
         '[data-sb-pseudo-styles="focus"]',
         '[data-sb-pseudo-styles="focus"] > button',
+      ],
+      focusVisible: [
+        '[data-sb-pseudo-styles="focus-visible"]',
+        '[data-sb-pseudo-styles="focus-visible"] > button',
       ],
     },
   },

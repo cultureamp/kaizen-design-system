@@ -9,7 +9,7 @@ import styles from "./RemovableTag.module.scss"
 
 export type RemovableTagProps = {
   removeButtonProps: RemoveButtonBaseProps
-} & Omit<TagProps, "color">
+} & Omit<TagProps, "color" | "icon">
 
 export const RemovableTag = ({
   children,
