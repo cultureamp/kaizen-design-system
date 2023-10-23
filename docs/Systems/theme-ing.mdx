@@ -36,24 +36,24 @@ Similar concept to the above method, but you can create your own CSS and use JS 
 
 For example:
 
-```js
+```jsx
   // App.tsx
+  const [ shouldUseCustomTheme, setShouldUseCustomTheme ] = useState(false)
+
+  useEffect(() => {
+    // Conditional logic to change the boolean
+    setShouldUseCustomTheme(data ? true : false)
+  }, []);
+
   const customTheme = `
     html {
       --color-blue-500: pink;
-    }
-  `
+    }`
 
-  const ThemeStyles = () => (
-    <styles>
-      {customTheme}
-    </styles>
+  return (
+    <KaizenProvider>
+      { shouldUseCustomTheme && <styles>{customTheme}</styles> }
+      <App />
+    </KaizenProvider>
   )
-
- return (
-  <>
-    { data && <ThemeStyles /> }
-    <App />
-  </>
- )
 ```

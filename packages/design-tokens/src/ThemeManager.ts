@@ -9,7 +9,7 @@ import { Theme as BaseTheme } from "./types"
  */
 
 /**
- * @deprecated Remove if you are using `KaizenProvider`, otherwise you can import the same component from `@kaizen/components`
+ * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
  */
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>

@@ -1,7 +1,7 @@
 import { Theme } from "../types"
 
 /**
- * @deprecated Remove if you are using `KaizenProvider`
+ * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
  */
 export const heartTheme: Theme = {
   themeKey: "heart",

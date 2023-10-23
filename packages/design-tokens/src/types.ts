@@ -21,7 +21,7 @@ type Hex = string
 // type Hex = Lowercase<string>
 
 /**
- * @deprecated Please use the same type from `@kaizen/components`
+ * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
  */
 export type TypographyFont = {
   fontFamily: KaizenCSSProperties["fontFamily"]
@@ -33,12 +33,12 @@ export type TypographyFont = {
 }
 
 /**
- * @deprecated Please use the same type from `@kaizen/components`
+ * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
  */
 export type ThemeKey = "heart" | "custom"
 
 /**
- * @deprecated Please use the same type from `@kaizen/components`
+ * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
  */
 export type Theme = {
   themeKey: ThemeKey
@@ -237,7 +237,7 @@ export type Theme = {
 
 // Converts all leafs (values that aren't objects) of an object tree to LeafType.
 /**
- * @deprecated Please use the same type from `@kaizen/components`
+ * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
  */
 export type DeepMapObjectLeafs<T, LeafType> = T extends
   | string
@@ -261,6 +261,6 @@ export type DeepMapObjectLeafs<T, LeafType> = T extends
  * The reason for this is to have a more accurate type for the generated hierarchy of design tokens which are represented as CSS custom properties, e.g. `var(--color-purple-800)`.
  */
 /**
- * @deprecated Please use the same type from `@kaizen/components`
+ * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
  */
 export type CSSVariableTheme = DeepMapObjectLeafs<Theme, string>
