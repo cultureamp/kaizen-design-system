@@ -21,9 +21,9 @@ export const Playground: Story = {
     return (
       <RadioGroup {...args}>
         <RadioField
-          labelText="Label"
-          name="radio"
-          value="radio-1"
+          labelText="Label 1"
+          name="radio-group"
+          value="radio-value-1"
           reversed={args?.reversed}
           onChange={event => {
             setSelected(event.target.value)
@@ -31,9 +31,9 @@ export const Playground: Story = {
           selectedStatus={selected === "radio-1"}
         />
         <RadioField
-          labelText="Label"
-          name="radio"
-          value="radio-2"
+          labelText="Label 2"
+          name="radio-group"
+          value="radio-value-2"
           reversed={args?.reversed}
           onChange={event => {
             setSelected(event.target.value)
@@ -41,9 +41,9 @@ export const Playground: Story = {
           selectedStatus={selected === "radio-2"}
         />
         <RadioField
-          labelText="Label"
-          name="radio"
-          value="radio-3"
+          labelText="Label 3"
+          name="radio-group"
+          value="radio-value-3"
           reversed={args?.reversed}
           onChange={event => {
             setSelected(event.target.value)

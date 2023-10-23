@@ -17,11 +17,11 @@ import {
 } from "~components/Icon"
 import {
   GenericModal,
-  ModalDescription,
+  ModalAccessibleDescription,
   ModalFooter,
   ModalHeader,
-  ModalLabel,
-  ModalSection,
+  ModalAccessibleLabel,
+  ModalBody,
 } from "~components/Modal/GenericModal"
 import styles from "./ConfirmationModal.module.scss"
 
@@ -155,23 +155,23 @@ export const ConfirmationModal = ({
                 {getIcon(mood, isProminent)}
               </div>
             </div>
-            <ModalLabel isProminent={isProminent}>
+            <ModalAccessibleLabel isProminent={isProminent}>
               <Heading tag="h2" variant="heading-2">
                 {title}
               </Heading>
-            </ModalLabel>
+            </ModalAccessibleLabel>
           </div>
         </ModalHeader>
-        <ModalSection>
+        <ModalBody>
           <div
             className={classnames(
               isProminent && styles.prominent,
               !unpadded && styles.padded
             )}
           >
-            <ModalDescription>{children}</ModalDescription>
+            <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
-        </ModalSection>
+        </ModalBody>
         <ModalFooter
           actions={footerActions}
           appearance={mood === "negative" ? "destructive" : "primary"}

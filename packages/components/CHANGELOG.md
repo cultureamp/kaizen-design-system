@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.28.0
+
+### Minor Changes
+
+- [#4178](https://github.com/cultureamp/kaizen-design-system/pull/4178) [`3e0ce69bb`](https://github.com/cultureamp/kaizen-design-system/commit/3e0ce69bb6c012c4b18d43c784cf40267234a2a8) - Migrate ContextModal from kaizen-legacy
+
+- [#4176](https://github.com/cultureamp/kaizen-design-system/pull/4176) [`3436dc296`](https://github.com/cultureamp/kaizen-design-system/commit/3436dc29670ae1bb0bc97b647be75c6a94cd700a) - Migrate DatePicker and DateRangePicker
+
+- [#4179](https://github.com/cultureamp/kaizen-design-system/pull/4179) [`3f35b9051`](https://github.com/cultureamp/kaizen-design-system/commit/3f35b9051453a807620146347acaa8aeaa068cff) - Migrate InputEditModal from kaizen-legacy
+
+- [#4177](https://github.com/cultureamp/kaizen-design-system/pull/4177) [`526d2fa2b`](https://github.com/cultureamp/kaizen-design-system/commit/526d2fa2bca09be9752b24ee3fa9f7f0396ebe12) - Migrate ConfirmationModal from kaizen-legacy
+
+- [#4174](https://github.com/cultureamp/kaizen-design-system/pull/4174) [`da3701bf1`](https://github.com/cultureamp/kaizen-design-system/commit/da3701bf1da3056aa0029fccec9d9125c55afc04) - Migrate GenericModal from kaizen-legacy
+
+### Patch Changes
+
+- [#4159](https://github.com/cultureamp/kaizen-design-system/pull/4159) [`b9700c9fb`](https://github.com/cultureamp/kaizen-design-system/commit/b9700c9fba0542fe67cb7954d5831e97fd84bb78) - Add TypeScript JSDocs to Radio id, name and value props
+
 ## 1.27.0
 
 ### Minor Changes
