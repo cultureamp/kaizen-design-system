@@ -87,7 +87,7 @@ input[type="range"].ratingScaleRange {
     @include thumb;
 
     -webkit-appearance: none;
-    margin-top: ($thumb-height-with-border*0.5) * -1;
+    margin-top: ($thumb-height-with-border * 0.5) * -1;
   }
 
   &::-moz-range-thumb {
@@ -131,7 +131,7 @@ input[type="range"].ratingScaleRange {
 .spokes {
   display: flex;
   justify-content: space-between;
-  padding: 0 $thumb-width-with-border*0.5 $spacing-sm;
+  padding: 0 $thumb-width-with-border * 0.5 $spacing-sm;
 }
 
 .spokes.disabled {

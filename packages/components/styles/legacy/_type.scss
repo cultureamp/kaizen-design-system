@@ -72,7 +72,10 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
   // Migrating the following two lines to use CSS vars causes Gatsby to fail with a very ambiguous error, around trying to divide by a "rem".
   $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
-  $line-height-ratio: math.div($absolute-line-height, $font-size); // unitless number
+  $line-height-ratio: math.div(
+    $absolute-line-height,
+    $font-size
+  ); // unitless number
   $line-spacing: $line-height-ratio - 1;
 
   font-size: $font-size;
@@ -114,11 +117,19 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-display($args...) {
-  @include ca-type($size-ratio: math.div(10, 7), $weight: $ca-weight-medium, $args...);
+  @include ca-type(
+    $size-ratio: math.div(10, 7),
+    $weight: $ca-weight-medium,
+    $args...
+  );
 }
 
 @mixin ca-type-heading($args...) {
-  @include ca-type($size-ratio: math.div(8, 7), $weight: $ca-weight-medium, $args...);
+  @include ca-type(
+    $size-ratio: math.div(8, 7),
+    $weight: $ca-weight-medium,
+    $args...
+  );
 }
 
 @mixin ca-type-lede($args...) {
@@ -138,7 +149,11 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-labels-and-legends($args...) {
-  @include ca-type($size-ratio: math.div(6, 7), $letter-spacing: 0.04em, $args...);
+  @include ca-type(
+    $size-ratio: math.div(6, 7),
+    $letter-spacing: 0.04em,
+    $args...
+  );
 
   text-transform: uppercase;
 }
@@ -222,7 +237,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-ideal(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: 3*0.25,
+    $line-height-in-grid-units: 3 * 0.25,
     $args...
   );
 }
@@ -341,7 +356,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-inter(
     $size: $size,
     $weight: $ca-weight-light,
-    $line-height-in-grid-units: 3*0.25,
+    $line-height-in-grid-units: 3 * 0.25,
     $args...
   );
 }
