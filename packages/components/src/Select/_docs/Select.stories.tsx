@@ -71,7 +71,7 @@ export const Playground: Story = {
 }
 
 export const MultiSelect: Story = {
-  args: { options: OPTIONS, isMulti: true },
+  args: { isMulti: true },
 }
 
 export const Grouped: Story = {
