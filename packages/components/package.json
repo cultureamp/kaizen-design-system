@@ -105,7 +105,6 @@
     "autoprefixer": "^10.4.16",
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
-    "copy": "^0.3.2",
     "query-string": "^8.1.0",
     "react-intl": "^6.4.7",
     "rollup": "^3.28.1",
