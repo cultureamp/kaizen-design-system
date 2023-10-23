@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/blocks"
 import { InlineNotification } from "@kaizen/notification"
+import { LinkTo } from "~storybook/components/LinkTo"
 
 <Meta title="Systems/Theme-ing" />
 
@@ -62,7 +63,7 @@ For example:
 
 Note: this is a legacy approach, please aim to remove your dependency on a custom theme or migrate to the above methods.
 
-### 1. Install design tokens v10.0.0+
+### 1. Install design tokens ^10.0.0
 
 This is the last version which supports the tools you'll need.
 
@@ -80,11 +81,16 @@ const App = () => {
   export const themeManager = new ThemeManager(defaultTheme);
 
   return (
-  <KaizenProvider>
-    <ThemeProvider theme={themeManager}>
-      <App />
-    </ThemeProvider>
-  </KaizenProvider>
-)
+    <KaizenProvider>
+      <ThemeProvider theme={themeManager}>
+        <App />
+      </ThemeProvider>
+    </KaizenProvider>
+  )
 }
 ```
+
+#### useTheme
+
+This will also allow you to continue to use the `useTheme` hook, however please checkout the <LinkTo pageId="systems-tokens-access-tokens-via-jsx--docs">Access tokesn via JSX</LinkTo> docs to
+see how best to utilise design tokens in your application. If these are insufficient, reach out!
