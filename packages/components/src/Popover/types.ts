@@ -5,7 +5,7 @@ export type PopoverVariant =
   | "negative"
   | "cautionary"
 
-export type Size = "small" | "large"
+export type PopoverSize = "small" | "large"
 
 export const PlacementKeys = [
   "top",
