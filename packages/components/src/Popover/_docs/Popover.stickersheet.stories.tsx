@@ -5,7 +5,7 @@ import {
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { PopoverProps, usePopover } from "../index"
-import { PlacementKeys } from "../types"
+import { popoverPlacements } from "../types"
 
 export default {
   title: "Components/Popover",
@@ -76,7 +76,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Cell>
         </StickerSheet.Row>
         <>
-          {PlacementKeys.map(placement => (
+          {popoverPlacements.map(placement => (
             <PopoverRow key={placement} placement={placement} />
           ))}
         </>

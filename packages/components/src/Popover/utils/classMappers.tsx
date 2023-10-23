@@ -6,9 +6,9 @@ import {
   SuccessIcon,
 } from "~components/Icon"
 import styles from "../Popover.module.scss"
-import { Variant, Size } from "../types"
+import { PopoverVariant, PopoverSize } from "../types"
 
-export const mapVariantToBoxClass = (variant: Variant): string => {
+export const mapVariantToBoxClass = (variant: PopoverVariant): string => {
   switch (variant) {
     case "informative":
       return styles.informativeBox
@@ -23,7 +23,9 @@ export const mapVariantToBoxClass = (variant: Variant): string => {
   }
 }
 
-export const mapVariantToIconClass = (variant: Variant): string | undefined => {
+export const mapVariantToIconClass = (
+  variant: PopoverVariant
+): string | undefined => {
   switch (variant) {
     case "informative":
       return styles.informativeIcon
@@ -38,7 +40,7 @@ export const mapVariantToIconClass = (variant: Variant): string | undefined => {
   }
 }
 
-export const mapVariantToIcon = (variant: Variant): JSX.Element => {
+export const mapVariantToIcon = (variant: PopoverVariant): JSX.Element => {
   switch (variant) {
     case "informative":
       return <InformationIcon role="presentation" />
@@ -53,7 +55,7 @@ export const mapVariantToIcon = (variant: Variant): JSX.Element => {
   }
 }
 
-export const mapArrowVariantToClass = (variant: Variant): string => {
+export const mapArrowVariantToClass = (variant: PopoverVariant): string => {
   switch (variant) {
     case "informative":
       return styles.informativeArrow
@@ -68,7 +70,7 @@ export const mapArrowVariantToClass = (variant: Variant): string => {
   }
 }
 
-export const mapSizeToClass = (size: Size): string => {
+export const mapSizeToClass = (size: PopoverSize): string => {
   switch (size) {
     case "large":
       return styles.large

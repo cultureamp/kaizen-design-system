@@ -18,4 +18,4 @@ export const popoverPlacements = [
   "right",
 ] as const
 
-export type Placement = (typeof PlacementKeys)[number]
+export type Placement = (typeof popoverPlacements)[number]
