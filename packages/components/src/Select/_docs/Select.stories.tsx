@@ -110,7 +110,6 @@ export const Async: Story = {
     )
   },
   args: {
-    options: OPTIONS,
     placeholder: "Placeholder",
   },
 }
