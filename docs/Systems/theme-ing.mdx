@@ -38,25 +38,26 @@ Similar concept to the above method, but you can create your own CSS and use JS 
 For example:
 
 ```jsx
-  // App.tsx
-  const [ shouldUseCustomTheme, setShouldUseCustomTheme ] = useState(false)
+  const Root = () => {
+    const [ shouldUseCustomTheme, setShouldUseCustomTheme ] = useState(false)
 
-  useEffect(() => {
-    // Conditional logic to change the boolean
-    setShouldUseCustomTheme(data ? true : false)
-  }, []);
+    useEffect(() => {
+      // Conditional logic to change the boolean
+      setShouldUseCustomTheme(data ? true : false)
+    }, []);
 
-  const customTheme = `
-    html {
-      --color-blue-500: pink;
-    }`
+    const customTheme = `
+      html {
+        --color-blue-500: pink;
+      }`
 
-  return (
-    <KaizenProvider>
-      { shouldUseCustomTheme && <styles>{customTheme}</styles> }
-      <App />
-    </KaizenProvider>
-  )
+    return (
+      <KaizenProvider>
+        { shouldUseCustomTheme && <styles>{customTheme}</styles> }
+        <App />
+      </KaizenProvider>
+    )
+  }
 ```
 
 ## ThemeProvider & useTheme (deprecated)
@@ -77,7 +78,7 @@ yarn add @design-tokens@10.0.0
 import { ThemeProvider, ThemeManager, defaultTheme } from "@kaizen/design-tokens"
 
 
-const App = () => {
+const Root = () => {
   export const themeManager = new ThemeManager(defaultTheme);
 
   return (
@@ -92,5 +93,6 @@ const App = () => {
 
 #### useTheme
 
-This will also allow you to continue to use the `useTheme` hook, however please checkout the <LinkTo pageId="systems-tokens-access-tokens-via-jsx--docs">Access tokesn via JSX</LinkTo> docs to
-see how best to utilise design tokens in your application. If these are insufficient, reach out!
+This will also allow you to continue to use the `useTheme` hook, however please checkout the
+<LinkTo pageId="systems-tokens-access-tokens-via-jsx--docs">Access tokesn via JSX</LinkTo> docs to
+see how best to utilise design tokens in your application. If these are insufficient, do reach out!
