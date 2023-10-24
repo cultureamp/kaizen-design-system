@@ -1,5 +1,2 @@
 @import "@kaizen/design-tokens/css/variables.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./tailwind.css";
