@@ -3,6 +3,5 @@
 .removableTag {
   padding: $spacing-4 $spacing-4 $spacing-4 $spacing-8;
   padding-block: $spacing-4;
-  padding-inline-start: $spacing-8;
-  padding-inline-end: $spacing-4;
+  padding-inline: $spacing-8 $spacing-4;
 }

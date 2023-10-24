@@ -123,8 +123,7 @@ $dt-assertive-header-background: $color-orange-100;
     @media (max-width: $layout-breakpoints-medium) {
       display: flex;
       flex-direction: column;
-      align-content: flex-start;
-      justify-content: center;
+      place-content: flex-start center;
       align-items: flex-start;
     }
 
