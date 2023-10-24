@@ -1,12 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 
-/* stylelint-disable */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 pre code {
-  font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono",
+  font-family: ui-monospace, "Menlo", "Monaco", "Roboto Mono", "Oxygen Mono",
     "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
     monospace !important;
   font-size: 14px !important;

@@ -15,8 +15,12 @@ export const Tag = ({
   classNameOverride,
   icon,
   color = "gray",
+  ...restProps
 }: TagProps): JSX.Element => (
-  <span className={classNames(styles.tag, styles[color], classNameOverride)}>
+  <span
+    className={classNames(styles.tag, styles[color], classNameOverride)}
+    {...restProps}
+  >
     {icon && <span className={styles.iconContainer}>{icon}</span>}
     {children}
   </span>
