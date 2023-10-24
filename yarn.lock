@@ -5057,12 +5057,7 @@
   dependencies:
     classnames "*"
 
-"@types/color-string@^1.5.3":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@types/color-string/-/color-string-1.5.4.tgz#cf5af7bad22c0db64e43b49078a1db0a68e8854b"
-  integrity sha512-FfRPJbKtmmfczTbMgU1pO3dSHUhfmH8HJb/AffvU4WgzmM3RnHp4uT95BS+9PJNpZNJQcDyLnxusFPjzQ0sl7w==
-
-"@types/color-string@^1.5.4":
+"@types/color-string@^1.5.3", "@types/color-string@^1.5.4":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@types/color-string/-/color-string-1.5.4.tgz#cf5af7bad22c0db64e43b49078a1db0a68e8854b"
   integrity sha512-FfRPJbKtmmfczTbMgU1pO3dSHUhfmH8HJb/AffvU4WgzmM3RnHp4uT95BS+9PJNpZNJQcDyLnxusFPjzQ0sl7w==
