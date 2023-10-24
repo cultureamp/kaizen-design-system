@@ -1,0 +1,23 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/component-library/styles/responsive";
+@import "../subcomponents/GenericTile/variables";
+
+.grid {
+  display: grid;
+  // the more we shave off the width here,
+  // the less the tiles will grow when they lose one from the row
+  grid-template-columns: repeat(auto-fill, minmax($tileWidth - 40px, 1fr));
+  grid-gap: $spacing-md;
+
+  @include ca-media-mobile {
+    grid-template-columns: repeat(2, minmax(226px, $tileHeight));
+
+    > * {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 100%);
+  }
+}

@@ -1,0 +1,30 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TileGridStories from "./TileGrid.stories"
+
+<Meta of={TileGridStories} />
+
+# TileGrid
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tile/TileGrid"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3079077889/Tile#TileGrid"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { TileGrid } from "@kaizen/components"'
+/>
+
+## Overview
+
+<Canvas of={TileGridStories.Playground} />
+<Controls of={TileGridStories.Playground} />
