@@ -5,7 +5,7 @@ export type InformationTileProps = GenericTileProps
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3079077889/Tile#InformationTile%3A Guidance} |
- * {@link https://cultureamp.design/?path=/docs/components-tile-informationtile--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-tiles-informationtile--docs Storybook}
  */
 export const InformationTile = (props: InformationTileProps): JSX.Element => (
   <GenericTile {...props} />

@@ -28,7 +28,7 @@ const renderActions = (
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3079077889/Tile#MultiActionTile.1 Guidance} |
- * {@link https://cultureamp.design/?path=/docs/components-tile-multiactiontile--docs Storybook}
+ * {@link https://cultureamp.design/?path=/docs/components-tiles-multiactiontile--docs Storybook}
  */
 export const MultiActionTile = ({
   children,

@@ -16,7 +16,7 @@ export interface TileGridProps
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3079077889/Tile#TileGrid Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-tiles-tile-grid--docs Storybook}
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-tiles-tilegrid--docs Storybook}
  */
 export const TileGrid = ({
   children,
