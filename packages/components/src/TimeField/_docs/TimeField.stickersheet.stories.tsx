@@ -29,7 +29,10 @@ const StickerSheetTemplate: StickerSheetStory = {
     return (
       <>
         <StickerSheet heading="TimeField" className="w-full">
-          <StickerSheet.Header headings={["Default", "Disabled", "Error"]} />
+          <StickerSheet.Header
+            headings={["Default", "Disabled", "Error"]}
+            headingsWidth="30%"
+          />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <StickerSheet.Cell className="align-top">
@@ -86,7 +89,10 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
 
         <StickerSheet heading="Localisation" className="w-full">
-          <StickerSheet.Header headings={["en-US", "en-GB", "zh-HANS-SG"]} />
+          <StickerSheet.Header
+            headings={["en-US", "en-GB", "zh-HANS-SG"]}
+            headingsWidth="30%"
+          />
           <StickerSheet.Body>
             <StickerSheet.Row>
               <TimeField
