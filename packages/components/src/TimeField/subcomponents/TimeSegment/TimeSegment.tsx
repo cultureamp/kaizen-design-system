@@ -24,7 +24,7 @@ export const TimeSegment = ({
   return (
     <span className={styles.timeSegmentWrapper}>
       &#8203;
-      <div
+      <span
         {...segmentProps}
         ref={ref}
         className={classnames(
@@ -35,7 +35,7 @@ export const TimeSegment = ({
         )}
       >
         {generateSegmentDisplayText(segment)}
-      </div>
+      </span>
       &#8203;
     </span>
   )
