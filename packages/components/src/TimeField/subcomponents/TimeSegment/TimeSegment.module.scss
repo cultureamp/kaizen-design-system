@@ -1,19 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
 
-$className--timesegment-wrapper: ".timeSegmentWrapper";
-
-// Classnames to simulate pseudo states in storybook
-$story-className--timesegment-hover: ":global(.story__timefield-hover) #{$className--timesegment-wrapper}:first-child &";
-$story-className--timesegment-focus: ":global(.story__timefield-focus) #{$className--timesegment-wrapper}:first-child &";
-
-$selectors--timesegment-hover: "&:hover, #{$story-className--timesegment-hover}";
-$selectors--timesegment-focus: "&:focus-visible, #{$story-className--timesegment-focus}";
-
 // Chrome has a bug where `contenteditable` elements receive focus from external clicks.
 // This (in combination with the invisible character &#8203;) creates boundaries
 // for the element.
 // https://stackoverflow.com/a/34445203
-#{$className--timesegment-wrapper} {
+.timeSegmentWrapper {
   white-space: nowrap;
 }
 
@@ -24,11 +15,11 @@ $selectors--timesegment-focus: "&:focus-visible, #{$story-className--timesegment
   border-radius: 3px;
   color: $color-purple-800;
 
-  #{$selectors--timesegment-hover} {
+  &:hover {
     background-color: $color-white;
   }
 
-  #{$selectors--timesegment-focus} {
+  &:focus-visible {
     color: white;
     background: $color-blue-500;
     outline: none;
@@ -41,7 +32,7 @@ $selectors--timesegment-focus: "&:focus-visible, #{$story-className--timesegment
 
 .literal {
   &,
-  #{$selectors--timesegment-hover} {
+  &:hover {
     background: none;
   }
 }

@@ -5,10 +5,6 @@
 
 $input-height: 48px;
 
-// Classnames to simulate pseudo states in storybook
-$story-className--timefield-hover: ":global(.story__timefield-hover)";
-$story-className--timefield-focus: ":global(.story__timefield-focus)";
-
 .wrapper {
   position: relative;
   display: flex;
@@ -41,16 +37,13 @@ $story-className--timefield-focus: ":global(.story__timefield-focus)";
   box-sizing: border-box;
 
   &:hover,
-  #{$story-className--timefield-hover} &,
-  &:focus-within,
-  #{$story-className--timefield-focus} & {
+  &:focus-within {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
 }
 
-.input:focus-within,
-#{$story-className--timefield-focus} .input {
+.input:focus-within {
   .focusRing {
     $focus-ring-offset: 3px;
 

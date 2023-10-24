@@ -72,14 +72,14 @@ const StickerSheetTemplate: StickerSheetStory = {
                 locale="en-AU"
                 value={{ hour: 22, minutes: 30 }}
                 onChange={(): void => undefined}
-                classNameOverride="story__timefield-hover"
+                data-sb-pseudo-styles="hover--segment"
               />
               <TimeField
                 label="Label (focus on hour)"
                 locale="en-AU"
                 value={{ hour: 22, minutes: 30 }}
                 onChange={(): void => undefined}
-                classNameOverride="story__timefield-focus"
+                data-sb-pseudo-styles="focus--segment"
               />
             </StickerSheet.Row>
           </StickerSheet.Body>
@@ -113,14 +113,15 @@ const StickerSheetTemplate: StickerSheetStory = {
       </>
     )
   },
-  /** @note: Only required if you have pseudo states, otherwise this can be removed */
   parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
     pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
-      active: '[data-sb-pseudo-styles="active"]',
-      focus: '[data-sb-pseudo-styles="focus"]',
-      focusVisible: '[data-sb-pseudo-styles="focus"]',
+      hover: [
+        '[data-sb-pseudo-styles="hover--segment"]',
+        '[data-sb-pseudo-styles="hover--segment"] [aria-label*="hour"]',
+      ],
+      focusVisible:
+        '[data-sb-pseudo-styles="focus--segment"] [aria-label*="hour"]',
+      focusWithin: '[data-sb-pseudo-styles="focus--segment"]',
     },
   },
 }
@@ -134,7 +135,6 @@ export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
   },
