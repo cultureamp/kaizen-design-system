@@ -1,9 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/responsive";
+@import "../../../../styles/legacy/layout";
+@import "../../../../styles/animation";
+@import "../../../../styles/responsive";
 @import "./variables";
 
 $tilePaddingTop: $spacing-xl;
@@ -112,13 +112,10 @@ $tilePaddingTop: $spacing-xl;
 }
 
 .information {
-  @include ca-padding(
-    $bottom: $spacing-md,
-    $start: $spacing-md,
-    $end: $spacing-md
-  );
-
   display: flex;
+  padding-bottom: $spacing-md;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -127,6 +124,12 @@ $tilePaddingTop: $spacing-xl;
   height: 100%;
   text-align: left;
   border-radius: 0 0 7px 7px;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    padding-right: $spacing-md;
+    padding-left: $spacing-md;
+  }
 }
 
 .footer {
