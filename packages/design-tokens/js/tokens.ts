@@ -1,12 +1,6 @@
-import { Theme } from "../types"
+import { TokenStructure } from "./types"
 
-/**
- * @deprecated
- * - Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
- * - If you require direct usage of these tokens in js you can `import { tokens } from "@kaizen/design-tokens/js"`
- */
-export const heartTheme: Theme = {
-  themeKey: "heart",
+export const tokens: TokenStructure = {
   animation: {
     easingFunction: {
       easeInOut: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",

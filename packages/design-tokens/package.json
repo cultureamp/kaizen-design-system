@@ -11,10 +11,10 @@
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
   "files": [
-    "tokens",
     "sass",
     "less",
     "css",
+    "js",
     "dist"
   ],
   "main": "dist/index.js",
