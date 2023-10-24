@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as MultiActionTileStories from "./MultiActionTile.stories"
+
+<Meta of={MultiActionTileStories} />
+
+# MultiActionTile
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/MultiActionTile"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { MultiActionTile } from "@kaizen/components"'
+/>
+
+## Overview
+
+A visually interesting item in a list consisting of a card, visual, title metadata, and call to action.
+
+<Canvas of={MultiActionTileStories.Playground} />
+<Controls of={MultiActionTileStories.Playground} />
+
+## API
+
+### Moods
+<Canvas of={MultiActionTileStories.Moods} />
+
+### Secondary Action
+<Canvas of={MultiActionTileStories.SecondaryAction} />
+
+### Information
+<Canvas of={MultiActionTileStories.Information} />
