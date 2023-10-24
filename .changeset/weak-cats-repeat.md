@@ -1,5 +1,7 @@
 ---
-"@kaizen/components": patch
+"@kaizen/components": minor
 ---
 
-Move `@kaizen/design-tokens` to devDep
+Remove "Theme-ing" related docs
+Move Design Tokens CSS Vars to KAIO style bundle
+Add docs for accessing tokens in JS + SCSS
