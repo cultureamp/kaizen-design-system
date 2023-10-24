@@ -45,6 +45,7 @@ export const useMediaQueries = (
     }
   }
 
+  // Ensure these match the tokens in @kaizen/design-tokens
   const breakpoints = { medium: "768px", large: "1080px" }
 
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
