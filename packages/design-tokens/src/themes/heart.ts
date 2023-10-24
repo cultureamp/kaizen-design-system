@@ -2,7 +2,7 @@ import { Theme } from "../types"
 
 /**
  * @deprecated
- * - Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
  * - If you require direct usage of these tokens in js you can `import { tokens } from "@kaizen/design-tokens/js"`
  */
 export const heartTheme: Theme = {

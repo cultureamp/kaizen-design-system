@@ -36,7 +36,7 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  * See {@link addExtraThemeEntries} for how these extra entries are added.
  */
 /**
- * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
  */
 export function makeCSSVariableTheme<
   ThemeType extends Record<string | number, unknown>,

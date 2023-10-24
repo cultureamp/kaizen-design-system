@@ -31,7 +31,7 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  * }
  */
 /**
- * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
  */
 export function makeCssVariableDefinitionsMap(
   theme: Record<string | number, unknown>

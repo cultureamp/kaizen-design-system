@@ -9,7 +9,9 @@ import { Theme as BaseTheme } from "./types"
  */
 
 /**
- * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ *
+ * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
  */
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>

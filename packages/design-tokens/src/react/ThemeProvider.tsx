@@ -8,7 +8,9 @@ export const ThemeContext = React.createContext<Theme>(defaultTheme)
  * This allows child react elements to more easily use theme variables, using the {@link useTheme} hook.
  */
 /**
- * @deprecated Remove if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` in next-services.
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ *
+ * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
  */
 export const ThemeProvider = ({
   themeManager,
