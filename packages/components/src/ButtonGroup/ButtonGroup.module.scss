@@ -45,8 +45,7 @@ $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
     &:not(.firstChild, .lastChild) {
       &:focus-visible {
         &::after {
-          inset-inline-start: $focus-ring-offset-inner;
-          inset-inline-end: $focus-ring-offset-inner;
+          inset-inline: $focus-ring-offset-inner $focus-ring-offset-inner;
         }
       }
     }

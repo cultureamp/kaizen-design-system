@@ -1,0 +1,102 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "../../../../../styles/button-reset";
+
+.removeButton {
+  @include button-reset;
+
+  position: relative;
+  display: inline-flex;
+  border-radius: 50%;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+
+    &::after {
+      $focus-ring-offset: -3px;
+
+      border-color: $color-blue-500;
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-radius: 50%;
+      inset: $focus-ring-offset;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    inset: -5px;
+    border-radius: 50%;
+  }
+
+  color: rgba($color-purple-800-rgb, 0.7);
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: rgba($color-gray-600-rgb, 0.2);
+    cursor: pointer;
+    color: $color-purple-800;
+  }
+}
+
+// .gray {
+// &:hover,
+// &:focus,
+// &:focus-visible {
+// background-color: rgba($color-gray-600-rgb, 0.2);
+// }
+// }
+
+// .blue {
+// &:hover,
+// &:focus,
+// &:focus-visible {
+// background-color: rgba($color-blue-500-rgb, 0.3);
+// }
+// }
+
+// .green {
+// &:hover,
+// &:focus,
+// &:focus-visible {
+// background-color: rgba($color-green-500-rgb, 0.3);
+// }
+// }
+
+// .yellow {
+// &:hover,
+// &:focus,
+// &:focus-visible {
+// background-color: rgba($color-yellow-500-rgb, 0.5);
+// }
+// }
+
+// .orange {
+// &:hover,
+// &:focus,
+// &:focus-visible {
+// background-color: rgba($color-orange-500-rgb, 0.3);
+// }
+// }
+
+// .red {
+// &:hover,
+// &:focus,
+// &:focus-visible {
+// background-color: rgba($color-red-500-rgb, 0.3);
+// }
+// }
+
+// .purple {
+// &:hover,
+// &:focus,
+// &:focus-visible {
+// background-color: rgba($color-purple-500-rgb, 0.3);
+// }
+// }

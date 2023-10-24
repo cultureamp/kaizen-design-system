@@ -1,0 +1,57 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as RemovableTagStories from "./RemovableTag.stories"
+
+<Meta of={RemovableTagStories} />
+
+# RemovableTag
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/__future__/Tag/RemovableTag.tsx"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement="import { RemovableTag } from `@kaizen/components/future`"
+/>
+
+## Overview
+
+Similar to the Tag component, but with a remove icon, that recieves a callback from props.
+The consumer should manage the state regarding whether or not the icon should be rendered,
+and pass a callback to remove the RemovableTag component via the `removeButtonProps` prop.
+
+## API
+
+<Canvas of={RemovableTagStories.Playground} />
+<Controls of={RemovableTagStories.Playground} />
+
+### `children`
+
+Takes a `ReactNode`. This should be the text that is displayed inside the Tag.
+
+<Canvas of={RemovableTagStories.Children} />
+
+### `classNameOverride`
+
+Allows classnames to be attached to the outermost element of Tag.
+
+<Canvas of={RemovableTagStories.ClassNameOverride} />
+
+### Controlling the remove button
+
+RemovableTag tags have a `removeButtonProps` prop that can be used to control the behaviour of the remove button.
+
+#### `aria-label`
+
+An aria label that is attached to the remove button. This is necessary for assistive technology, such as screen-readers.
+The string passed here will be read out by screen-readers when the remove button is focused.
+
+#### `onClick`
+
+A callback that gets invoked when clicking the remove button.
+For example, if the removal of a tag is controlled by a function, that function can
+be passed as a callback via this prop, and executed when clicking the remove button.
+
