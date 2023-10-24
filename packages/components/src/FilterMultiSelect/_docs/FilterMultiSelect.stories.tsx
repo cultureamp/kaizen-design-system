@@ -178,26 +178,22 @@ export const Async: Story = {
       isFetchingNextPage,
       hasNextPage,
       isRefetching,
-    } = useInfiniteQuery(
-      ["startrek-sg1", searchState],
-      ({ pageParam = 1 }) =>
+    } = useInfiniteQuery({
+      queryKey: ["startrek-sg1", searchState],
+      queryFn: ({ pageParam }) =>
         fetch(
           `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
-        ).then(res => res.json()) as Promise<{
-          results: Array<{ name: string; url: string }>
-          next: string
-        }>,
-      {
-        enabled: open,
-        keepPreviousData: true,
-        getNextPageParam: lastPage => {
-          if (!lastPage.next) return undefined
-          const url = new URL(lastPage.next)
-          const params = new URLSearchParams(url.searchParams)
-          return params.get("page")
-        },
-      }
-    )
+        ).then(res => res.json()),
+      initialPageParam: 1,
+      enabled: open,
+      keepPreviousData: true,
+      getNextPageParam: lastPage => {
+        if (!lastPage.next) return undefined
+        const url = new URL(lastPage.next)
+        const params = new URLSearchParams(url.searchParams)
+        return params.get("page")
+      },
+    })
 
     /**
      * We need access to the previously fetched people. If a user has selected a
@@ -207,7 +203,7 @@ export const Async: Story = {
     const cachedPeople = queryClient
       .getQueriesData<{
         pages: { results: Array<{ name: string; url: string }> }
-      }>(["startrek-sg1"])
+      }>({ queryKey: ["startrek-sg1"] })
       .flatMap(([, cachedData]) => cachedData?.pages ?? [])
       .flatMap(page => page.results)
       .map(item => ({ label: item.name, value: item.url }))
