@@ -4,7 +4,7 @@ import * as SpotIllustrationStories from "./Spot.stories"
 
 <Meta of={SpotIllustrationStories} />
 
-# Illustration
+# Spot Illustration
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Illustration"
@@ -22,11 +22,16 @@ import * as SpotIllustrationStories from "./Spot.stories"
 
 ## Overview
 
-Illustrations are generally presentational and use an empty alt="" tag or aria-hidden="true" as appropriate. They are broken into two visually destinct categories, Spot and Scene, that serve specific purposes.
+Spot illustrations gives visual context to tasks. Most illustrations on our platform are presentational and should use the default empty alt text (ie: `alt=""`) provided by the base component.
 
-## Spot
-
-Spot illustrations gives visual context to tasks.
-
+<Canvas of={SpotIllustrationStories.Playground} />
+<Controls of={SpotIllustrationStories.Playground} />
 
 ## API
+
+### Enabled Aspect Ratio
+
+When enabled this wraps the image in a `figure` tag and set the aspect ratio to 1/1.
+
+<Canvas of={SpotIllustrationStories.EnabledAspectRatio} />
+
