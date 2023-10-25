@@ -1,0 +1,41 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as LoadingGraphicStories from "./LoadingGraphic.stories"
+
+<Meta of={LoadingGraphicStories} />
+
+# LoadingGraphic
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/LoadingGraphic"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { LoadingGraphic } from "@kaizen/components"'
+/>
+
+## Overview
+
+Loading skeleton for graphics (Icon, Avatar, Spot Illustration, Scene Illustration).
+
+<Canvas of={LoadingGraphicStories.Playground} />
+<Controls of={LoadingGraphicStories.Playground} />
+
+## API
+
+<DocsStory of={LoadingGraphicStories.Animated} />
+
+<DocsStory of={LoadingGraphicStories.Reversed} />
+
+<DocsStory of={LoadingGraphicStories.Size} />
