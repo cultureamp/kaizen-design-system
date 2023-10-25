@@ -3,7 +3,6 @@
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../styles/button-reset";
 
 // Taken from design-tokens/sass/shadow
 // we need control of the x and y offset in this component
@@ -11,7 +10,7 @@ $box-shadow-color-sm: rgba(53, 55, 74, 0.09);
 $row-height: 60px;
 $row-height-data-variant: 48px;
 
-%anchorReset {
+@mixin anchorReset {
   text-decoration: none;
   color: $color-purple-800;
   display: block;
@@ -25,6 +24,17 @@ $row-height-data-variant: 48px;
   &.headerRowCellButtonReversed {
     color: $color-white;
   }
+}
+
+// Special Table-only button reset
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none; // override Murmur global styles :(
 }
 
 .container {
@@ -79,7 +89,7 @@ $row-height-data-variant: 48px;
 
 .headerRowCellButton {
   @include button-reset;
-  @extend %anchorReset;
+  @include anchorReset;
 }
 
 .headerRowCellButton,
@@ -129,7 +139,7 @@ $row-height-data-variant: 48px;
   box-shadow: 0 4px 6px rgba(53, 55, 74, 0.04);
 
   // These css properties are required for when the rows are anchor elements
-  @extend %anchorReset;
+  @include anchorReset;
 
   &:not(:first-child) {
     margin-top: -1px;
@@ -203,12 +213,12 @@ $row-height-data-variant: 48px;
 }
 
 .rowCell {
+  // These css properties are required for when the cells are anchor elements
+  @include anchorReset;
   min-height: $row-height;
   padding: 0 $spacing-md;
   display: flex;
   align-items: center;
-  // These css properties are required for when the cells are anchor elements
-  @extend %anchorReset;
 
   .defaultSpacing & {
     padding: $spacing-sm $spacing-md;
