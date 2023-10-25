@@ -1,5 +1,5 @@
 import React from "react"
-import { Base, BaseProps } from "./subcomponents/Base"
+import { Base, BaseProps } from "../subcomponents/Base"
 
 export type SpotProps = Pick<BaseProps, "alt" | "classNameOverride"> & {
   enableAspectRatio?: boolean

@@ -132,7 +132,7 @@ import {
   Templates,
   CalendarSync,
   SpotProps,
-} from "../Spot"
+} from "../"
 
 export default {
   title: "Components/Illustrations/Spot",
