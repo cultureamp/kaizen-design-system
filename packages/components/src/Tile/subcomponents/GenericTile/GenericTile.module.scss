@@ -125,12 +125,6 @@ $tilePaddingTop: $spacing-xl;
   height: 100%;
   text-align: left;
   border-radius: 0 0 7px 7px;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    padding-right: $spacing-md;
-    padding-left: $spacing-md;
-  }
 }
 
 .footer {
