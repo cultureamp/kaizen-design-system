@@ -337,7 +337,7 @@ const newAccountSpots = [
   },
   {
     Component: Gdpr,
-    name: "GDPR",
+    name: "Gdpr",
   },
   {
     Component: Timezone,
