@@ -135,7 +135,7 @@ import {
 } from "../Spot"
 
 export default {
-  title: "Components/Illustration/Spot",
+  title: "Components/Illustrations/Spot",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
