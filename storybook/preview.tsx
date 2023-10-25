@@ -31,15 +31,24 @@ const decorators = [
       <Story />
     </KaizenProvider>
   ),
-  (Story, props): JSX.Element => {
+  (Story, context): JSX.Element => {
     useEffect(() => {
-      const dir = props.parameters.textDirection ?? props.globals.textDirection
+      const dir =
+        context.parameters.textDirection ?? context.globals.textDirection
       if (document.body.getAttribute("dir") !== dir)
         document.body.setAttribute("dir", dir)
-    }, [props])
+    }, [context])
 
     return <Story />
   },
+  (Story, context) =>
+    context.args.isReversed ? (
+      <div className="bg-purple-700 p-16 m-[-1rem]">
+        <Story />
+      </div>
+    ) : (
+      <Story />
+    ),
 ] satisfies Preview["decorators"]
 
 const preview = {
