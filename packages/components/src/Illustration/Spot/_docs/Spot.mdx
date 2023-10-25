@@ -1,5 +1,6 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as StickerSheetStories from "./Spot.stickersheet.stories"
 import * as SpotIllustrationStories from "./Spot.stories"
 
 <Meta of={SpotIllustrationStories} />
@@ -36,3 +37,9 @@ When enabled this wraps the image in a `figure` tag and set the aspect ratio to 
 <Canvas of={SpotIllustrationStories.EnabledAspectRatio} />
 
 When not enabled, the `img` tag will attempt to fill a width of 100%.
+
+## All Spot illustrations
+
+A list of all Spot illustrations and their component names
+
+<Canvas of={StickerSheetStories.StickerSheetDefault} />

@@ -145,195 +145,195 @@ export default {
 const engagementSpots = [
   {
     Component: BenefitsSurvey,
-    name: "Benefits Survey",
+    name: "BenefitsSurvey",
   },
   {
     Component: CustomSurvey,
-    name: "Custom Survey",
+    name: "CustomSurvey",
   },
   {
     Component: CustomUnattributedSurvey,
-    name: "Custom Unattributed Survey",
+    name: "CustomUnattributedSurvey",
   },
   {
     Component: EngagementSurvey,
-    name: "Engagement Survey",
+    name: "EngagementSurvey",
   },
   {
     Component: InclusionSurvey,
-    name: "Inclusion Survey",
+    name: "InclusionSurvey",
   },
   {
     Component: QuickEngagementSurvey,
-    name: "Quick Engagement Survey",
+    name: "QuickEngagementSurvey",
   },
   {
     Component: ValuesSurvey1,
-    name: "Values Survey 1",
+    name: "ValuesSurvey1",
   },
   {
     Component: ValuesSurvey2,
-    name: "Values Survey 2",
+    name: "ValuesSurvey2",
   },
   {
     Component: WellbeingSurvey1,
-    name: "Wellbeing Survey 1",
+    name: "WellbeingSurvey1",
   },
   {
     Component: WellbeingSurvey2,
-    name: "Wellbeing Survey 2",
+    name: "WellbeingSurvey2",
   },
   {
     Component: WellbeingSurvey3,
-    name: "Wellbeing Survey 3",
+    name: "WellbeingSurvey3",
   },
   {
     Component: ChangeReadiness,
-    name: "Change Readiness",
+    name: "ChangeReadiness",
   },
   {
     Component: ChangeSuccess,
-    name: "Change Success",
+    name: "ChangeSuccess",
   },
   {
     Component: PerformanceDiagnostics,
-    name: "Performance Diagnostics",
+    name: "PerformanceDiagnostics",
   },
   {
     Component: LeadingThroughCrisis,
-    name: "Leading Through Crisis",
+    name: "LeadingThroughCrisis",
   },
   {
     Component: EmergencyResponse,
-    name: "Emergency Response",
+    name: "EmergencyResponse",
   },
 ]
 
 const experienceSpots = [
   {
     Component: PhasedWeek1OnboardSurvey,
-    name: "Phased Week 1 Onboard Survey",
+    name: "PhasedWeek1OnboardSurvey",
   },
   {
     Component: PhasedWeek5OnboardSurvey,
-    name: "Phased Week 5 Onboard Survey",
+    name: "PhasedWeek5OnboardSurvey",
   },
   {
     Component: RemoteOnboardSurvey,
-    name: "Remote Onboard Survey",
+    name: "RemoteOnboardSurvey",
   },
   {
     Component: GeneralOnboardSurvey,
-    name: "General Onboard Survey",
+    name: "GeneralOnboardSurvey",
   },
   {
     Component: CustomOnboardSurvey,
-    name: "Custom Onboard Survey",
+    name: "CustomOnboardSurvey",
   },
   {
     Component: CandidateSurvey,
-    name: "Candidate Survey",
+    name: "CandidateSurvey",
   },
   {
     Component: ExitSurvey,
-    name: "Exit Survey",
+    name: "ExitSurvey",
   },
   {
     Component: InternSurvey,
-    name: "Intern Survey",
+    name: "InternSurvey",
   },
   {
     Component: SinglePointOnboardSurvey,
-    name: "Single Point Onboard Survey",
+    name: "SinglePointOnboardSurvey",
   },
   {
     Component: HealthAndSafety,
-    name: "Health & Safety",
+    name: "HealthAndSafety",
   },
   {
     Component: EndOfProbation,
-    name: "End of Probation",
+    name: "EndOfProbation",
   },
   {
     Component: NewWaysOfWorking,
-    name: "New Ways of Working",
+    name: "NewWaysOfWorking",
   },
   {
     Component: ReOnboarding,
-    name: "Re-onboarding",
+    name: "ReOnboarding",
   },
 ]
 
 const performanceSpots = [
   {
     Component: Individual360,
-    name: "Individual 360",
+    name: "Individual360",
   },
   {
     Component: Leadership360,
-    name: "Leadership 360",
+    name: "Leadership360",
   },
   {
     Component: Manager360,
-    name: "Manager 360",
+    name: "Manager360",
   },
   {
     Component: Individual180,
-    name: "Individual 180",
+    name: "Individual180",
   },
   {
     Component: Leadership180,
-    name: "Leadership 180",
+    name: "Leadership180",
   },
   {
     Component: Manager180,
-    name: "Manager 180",
+    name: "Manager180",
   },
   {
     Component: TeamEffectiveness1,
-    name: "Team Effectiveness 1",
+    name: "TeamEffectiveness1",
   },
   {
     Component: TeamEffectiveness2,
-    name: "Team Effectiveness 2",
+    name: "TeamEffectiveness2",
   },
 ]
 
 const covidSpots = [
   {
     Component: Response,
-    name: "COVID-19 Response",
+    name: "Response",
   },
   {
     Component: WellbeingSurvey,
-    name: "Wellbeing Survey",
+    name: "WellbeingSurvey",
   },
   {
     Component: RemoteWorkQSet,
-    name: "Remote Work Q Set",
+    name: "RemoteWorkQSet",
   },
   {
     Component: ReturnToWorkplace,
-    name: "Return To Workplace",
+    name: "ReturnToWorkplace",
   },
   {
     Component: PulseSurvey,
-    name: "Pulse Survey",
+    name: "PulseSurvey",
   },
 ]
 
 const newAccountSpots = [
   {
     Component: AccountBasics,
-    name: "Account Basics",
+    name: "AccountBasics",
   },
   {
     Component: CompanyDetails,
-    name: "Company Details",
+    name: "CompanyDetails",
   },
   {
     Component: EmployeeData,
-    name: "Employee Data",
+    name: "EmployeeData",
   },
   {
     Component: Gdpr,
@@ -345,7 +345,7 @@ const newAccountSpots = [
   },
   {
     Component: AddUser,
-    name: "Add User",
+    name: "AddUser",
   },
 ]
 
@@ -360,11 +360,11 @@ const officeSpots = [
   },
   {
     Component: NewYork,
-    name: "New York",
+    name: "NewYork",
   },
   {
     Component: SanFrancisco,
-    name: "San Francisco",
+    name: "SanFrancisco",
   },
 ]
 
@@ -394,7 +394,7 @@ const moodSpots = [
 const managerLearningSpots = [
   {
     Component: OneOnOne,
-    name: "1 on 1",
+    name: "OneOnOne",
   },
   {
     Component: Productivity,
@@ -418,46 +418,46 @@ const managerLearningSpots = [
   },
   {
     Component: RemoteManager,
-    name: "Remote Manager",
+    name: "RemoteManager",
   },
   {
     Component: ManagerLearning,
-    name: "Manager Learning",
+    name: "ManagerLearning",
   },
   {
     Component: EssentialProductivity,
-    name: "Essential Productivity",
+    name: "EssentialProductivity",
   },
   {
     Component: EssentialResilience,
-    name: "Essential Resilience",
+    name: "EssentialResilience",
   },
   {
     Component: LeadingChange,
-    name: "Leading Change",
+    name: "LeadingChange",
   },
   {
     Component: InfluentialCommunication,
-    name: "Influential Communication",
+    name: "InfluentialCommunication",
   },
 ]
 
 const miscellaneousSpots = [
   {
     Component: ViewReports,
-    name: "View Reports",
+    name: "ViewReports",
   },
   {
     Component: ReadArticle,
-    name: "Read Article",
+    name: "ReadArticle",
   },
   {
     Component: FastAction,
-    name: "Fast Action",
+    name: "FastAction",
   },
   {
     Component: BaselineSurvey,
-    name: "Baseline Survey",
+    name: "BaselineSurvey",
   },
   {
     Component: Team1,
@@ -473,11 +473,11 @@ const miscellaneousSpots = [
   },
   {
     Component: AddImage,
-    name: "Add Image",
+    name: "AddImage",
   },
   {
     Component: MeetingVoices,
-    name: "Meeting Voices",
+    name: "MeetingVoices",
   },
   {
     Component: Workshop,
@@ -489,15 +489,15 @@ const miscellaneousSpots = [
   },
   {
     Component: ReportSharing,
-    name: "Report Sharing",
+    name: "ReportSharing",
   },
   {
     Component: BlankSurvey,
-    name: "Blank Survey",
+    name: "BlankSurvey",
   },
   {
     Component: TakeAim,
-    name: "Take Aim",
+    name: "TakeAim",
   },
   {
     Component: Action,
@@ -505,19 +505,19 @@ const miscellaneousSpots = [
   },
   {
     Component: Training1,
-    name: "Training 1",
+    name: "Training1",
   },
   {
     Component: Training2,
-    name: "Training 2",
+    name: "Training2",
   },
   {
     Component: Training3,
-    name: "Training 3",
+    name: "Training3",
   },
   {
     Component: ShareReport,
-    name: "Share Report",
+    name: "ShareReport",
   },
   {
     Component: ExecutiveReportSharing,
@@ -525,27 +525,27 @@ const miscellaneousSpots = [
   },
   {
     Component: ManagerReportSharing,
-    name: "Manager Report Sharing",
+    name: "ManagerReportSharing",
   },
   {
     Component: LeaderReportSharing,
-    name: "Leader Report Sharing",
+    name: "LeaderReportSharing",
   },
   {
     Component: SpreadsheetTemplate,
-    name: "Spreadsheet Template",
+    name: "SpreadsheetTemplate",
   },
   {
     Component: FullImport,
-    name: "Full Import",
+    name: "FullImport",
   },
   {
     Component: PartialImport,
-    name: "Partial Import",
+    name: "PartialImport",
   },
   {
     Component: HrisImport,
-    name: "Hris Import",
+    name: "HrisImport",
   },
   {
     Component: Alarm,
@@ -557,7 +557,7 @@ const miscellaneousSpots = [
   },
   {
     Component: UnderConstruction,
-    name: "Under Construction",
+    name: "UnderConstruction",
   },
   {
     Component: Stop,
@@ -569,11 +569,11 @@ const miscellaneousSpots = [
   },
   {
     Component: TrafficCone,
-    name: "Traffic Cone",
+    name: "TrafficCone",
   },
   {
     Component: ValueAdd,
-    name: "Value Add",
+    name: "ValueAdd",
   },
   {
     Component: Starburst,
@@ -593,7 +593,7 @@ const miscellaneousSpots = [
   },
   {
     Component: DataVisualization,
-    name: "Data Visualization",
+    name: "DataVisualization",
   },
   {
     Component: Community,
@@ -601,7 +601,7 @@ const miscellaneousSpots = [
   },
   {
     Component: BCorp,
-    name: "B Corp",
+    name: "BCorp",
   },
   {
     Component: Resources,
@@ -617,7 +617,7 @@ const miscellaneousSpots = [
   },
   {
     Component: ScienceBackedTools,
-    name: "Science Backed Tools",
+    name: "ScienceBackedTools",
   },
   {
     Component: Microphone,
@@ -645,11 +645,11 @@ const miscellaneousSpots = [
   },
   {
     Component: PowerfulInsights,
-    name: "Powerful Insights",
+    name: "PowerfulInsights",
   },
   {
     Component: ActionPlans,
-    name: "Action Plans",
+    name: "ActionPlans",
   },
   {
     Component: Conversations,
@@ -661,15 +661,15 @@ const miscellaneousSpots = [
   },
   {
     Component: SkillsDevelopment,
-    name: "Skills Development",
+    name: "SkillsDevelopment",
   },
   {
     Component: ChangeAgents,
-    name: "Change Agents",
+    name: "ChangeAgents",
   },
   {
     Component: CalendarSync,
-    name: "Calendar Sync",
+    name: "CalendarSync",
   },
 ]
 
@@ -682,7 +682,7 @@ const IllustrationExampleTile = ({
   Component: IllustrationSpot
   name: string
 }): JSX.Element => (
-  <div style={{ width: "150px", display: "inline-block", padding: "2rem" }}>
+  <div className="w-[150px] inline-flex flex-col p-32 items-center">
     <Component />
     <Text variant="small">{name}</Text>
   </div>
