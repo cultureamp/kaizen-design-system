@@ -105,7 +105,8 @@ $tilePaddingTop: $spacing-xl;
 }
 
 .informationBtn {
-  @include ca-position($top: 0, $end: 0);
+  inset-block-start: 0;
+  inset-inline-end: 0;
 
   position: absolute;
   color: rgba($color-purple-800-rgb, 0.5);
