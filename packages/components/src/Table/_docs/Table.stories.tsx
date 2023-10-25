@@ -140,7 +140,7 @@ const meta = {
     chromatic: { disable: false },
   },
   args: {
-    card: undefined,
+    card: { expanded: false },
   },
   decorators: [
     Story => (
