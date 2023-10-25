@@ -10,7 +10,7 @@ $box-shadow-color-sm: rgba(53, 55, 74, 0.09);
 $row-height: 60px;
 $row-height-data-variant: 48px;
 
-@mixin anchorReset {
+@mixin anchor-reset {
   text-decoration: none;
   color: $color-purple-800;
   display: block;
@@ -89,7 +89,7 @@ $row-height-data-variant: 48px;
 
 .headerRowCellButton {
   @include button-reset;
-  @include anchorReset;
+  @include anchor-reset;
 }
 
 .headerRowCellButton,
@@ -139,7 +139,7 @@ $row-height-data-variant: 48px;
   box-shadow: 0 4px 6px rgba(53, 55, 74, 0.04);
 
   // These css properties are required for when the rows are anchor elements
-  @include anchorReset;
+  @include anchor-reset;
 
   &:not(:first-child) {
     margin-top: -1px;
@@ -214,7 +214,8 @@ $row-height-data-variant: 48px;
 
 .rowCell {
   // These css properties are required for when the cells are anchor elements
-  @include anchorReset;
+  @include anchor-reset;
+
   min-height: $row-height;
   padding: 0 $spacing-md;
   display: flex;
