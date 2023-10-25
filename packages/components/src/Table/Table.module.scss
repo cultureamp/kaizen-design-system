@@ -1,0 +1,230 @@
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color";
+@import "../../styles/button-reset";
+
+// Taken from design-tokens/sass/shadow
+// we need control of the x and y offset in this component
+$box-shadow-color-sm: rgba(53, 55, 74, 0.09);
+$row-height: 60px;
+$row-height-data-variant: 48px;
+
+%anchorReset {
+  text-decoration: none;
+  color: $color-purple-800;
+  display: block;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &.headerRowCellButtonReversed {
+    color: $color-white;
+  }
+}
+
+.container {
+  width: 100%;
+  margin-bottom: $spacing-sm;
+}
+
+.headerRowCell {
+  display: flex;
+  align-items: stretch;
+  text-align: start;
+  justify-content: flex-start;
+  // The 8px usually makes the height of the header cell 40px
+  padding: 8px $spacing-md;
+  // This is required as so the tooltip will display directly above the header cell
+  position: relative;
+}
+
+.headerRowCellNoWrap {
+  .headerRowCellLabel {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.headerRowCellAlignCenter {
+  justify-content: center;
+  text-align: center;
+}
+
+.headerRowCellAlignEnd {
+  justify-content: flex-end;
+  text-align: end;
+}
+
+.headerRowCellCheckbox {
+  margin-inline-end: 10px;
+}
+
+// The .headerRowCell wrapper is required to increase the specificity, as so
+// we can override the `Tooltip` component's styling.
+.headerRowCell .headerRowCellTooltip {
+  display: flex;
+  align-items: stretch;
+}
+
+// overflow has to be set at this level as well as on the heading for some reason ¯\_(ツ)_/¯
+.headerRowCell.headerRowCellNoWrap .headerRowCellTooltip {
+  overflow: hidden;
+}
+
+.headerRowCellButton {
+  @include button-reset;
+  @extend %anchorReset;
+}
+
+.headerRowCellButton,
+.headerRowCellNoButton {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  // Ensures that the 100% doesn't go outside of the `headerRowCell` width
+  box-sizing: border-box;
+}
+
+.headerRowCellLabelAndIcons {
+  display: flex;
+  align-items: center;
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.headerRowCellTooltipIcon {
+  color: $color-blue-500;
+  margin-inline-end: $spacing-xs;
+}
+
+.headerRowCellIcon {
+  color: rgba($color-purple-800-rgb, 0.7);
+  height: 20px;
+
+  .headerRowCellActive & {
+    color: $color-purple-800;
+  }
+}
+
+.card {
+  @include button-reset;
+
+  background: $color-white;
+  border: solid 1px rgba($color-purple-700-rgb, 0.1);
+  transition:
+    box-shadow $animation-duration-rapid,
+    border-color $animation-duration-rapid,
+    margin $animation-duration-rapid,
+    padding $animation-duration-rapid,
+    width $animation-duration-rapid;
+
+  // This is an optical hack to stop the card shadow from overlapping over
+  // the proceeding cards
+  box-shadow: 0 4px 6px rgba(53, 55, 74, 0.04);
+
+  // These css properties are required for when the rows are anchor elements
+  @extend %anchorReset;
+
+  &:not(:first-child) {
+    margin-top: -1px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $border-solid-border-radius;
+    border-bottom-right-radius: $border-solid-border-radius;
+  }
+
+  &:hover {
+    will-change: box-shadow, border-color, margin, padding, width;
+  }
+
+  &.well {
+    margin-top: $spacing-sm;
+  }
+}
+
+// target the first child card when there is a heading present
+[role="rowgroup"] + .card {
+  border-top-left-radius: $border-solid-border-radius;
+  border-top-right-radius: $border-solid-border-radius;
+  box-shadow: $shadow-small-box-shadow;
+}
+
+.card:first-child {
+  border-top-left-radius: $border-solid-border-radius;
+  border-top-right-radius: $border-solid-border-radius;
+  box-shadow: $shadow-small-box-shadow;
+}
+
+.row {
+  display: flex;
+}
+
+.well {
+  border-color: $border-borderless-border-color;
+  box-shadow: none;
+  border-radius: $border-solid-border-radius;
+  background-color: $color-gray-300;
+  margin-bottom: $spacing-sm;
+}
+
+.popout {
+  box-shadow: $shadow-large-box-shadow;
+}
+
+.expanded {
+  position: relative;
+  z-index: 1;
+  margin-left: calc(#{$spacing-sm} * -1);
+  margin-right: calc(#{$spacing-sm} * -1);
+  padding-left: $spacing-sm;
+  padding-right: $spacing-sm;
+}
+
+.hasHoverState {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+
+  &.expanded {
+    width: calc(100% + #{$spacing-md});
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $color-gray-100;
+  }
+}
+
+.rowCell {
+  min-height: $row-height;
+  padding: 0 $spacing-md;
+  display: flex;
+  align-items: center;
+  // These css properties are required for when the cells are anchor elements
+  @extend %anchorReset;
+
+  .defaultSpacing & {
+    padding: $spacing-sm $spacing-md;
+  }
+
+  .dataVariant & {
+    min-height: $row-height-data-variant;
+  }
+}
+
+.rowCellAlignCenter {
+  justify-content: center;
+  text-align: center;
+}
+
+.rowCellAlignEnd {
+  justify-content: flex-end;
+  text-align: right;
+}
