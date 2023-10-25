@@ -1,4 +1,3 @@
-// import React from "react"
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
