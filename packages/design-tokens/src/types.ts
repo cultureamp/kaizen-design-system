@@ -14,14 +14,26 @@ import type { CSSProperties as ReactCSSProperties } from "react"
  *
  * ```
  * */
+/**
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If necessary, import from `@kaizen/design-tokens/js`
+ */
 type KaizenCSSProperties = ReactCSSProperties
 
+/**
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If necessary, import from `@kaizen/design-tokens/js`
+ */
 type Hex = string
 // Once TypeScript is upgraded in the repo, you can use Lowercase<>
 // type Hex = Lowercase<string>
 
 /**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If necessary, import from `@kaizen/design-tokens/js`
  */
 export type TypographyFont = {
   fontFamily: KaizenCSSProperties["fontFamily"]

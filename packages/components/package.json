@@ -97,7 +97,6 @@
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
-    "@types/color-string": "^1.5.4",
     "@types/react-dom": "^18.2.14",
     "@types/react-textfit": "^1.1.2",
     "agadoo": "^3.0.0",
