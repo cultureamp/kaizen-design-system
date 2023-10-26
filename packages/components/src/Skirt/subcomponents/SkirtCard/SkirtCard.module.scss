@@ -1,5 +1,5 @@
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../../../../Content/variables";
+@import "../../../Content/variables";
 
 .wrapper {
   @media (max-width: $layout-breakpoints-large) {

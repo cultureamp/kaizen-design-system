@@ -31,8 +31,8 @@ const meta = {
     ),
   },
   argTypes: {
-    children: { control: "disabled" }
-  }
+    children: { control: "disabled" },
+  },
 } satisfies Meta<typeof Skirt>
 
 export default meta
