@@ -1,0 +1,39 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as MenuStories from "./Menu.stories"
+
+<Meta of={MenuStories} />
+
+# Menu
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Menu"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Menu } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={MenuStories.Playground} />
+<Controls of={MenuStories.Playground} />
+
+## API
+
+{/* @todo: Describe props and provide example stories. */}
+<DocsStory of={MenuStories.Reversed} />
