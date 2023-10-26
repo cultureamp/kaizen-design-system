@@ -1,7 +1,6 @@
 import "./styles/tailwind.scss"
 import React, { useEffect } from "react"
 import { Preview } from "@storybook/react"
-import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
@@ -13,8 +12,6 @@ import "highlight.js/styles/a11y-light.css"
 import "normalize.css"
 import "@kaizen/component-library/styles/fonts.scss"
 import { globalA11yRules } from "./global-a11y-rules"
-
-const IS_CHROMATIC = isChromatic()
 
 const globalTypes = {
   textDirection: {
@@ -34,24 +31,15 @@ const decorators = [
       <Story />
     </KaizenProvider>
   ),
-  (Story, context): JSX.Element => {
+  (Story, props): JSX.Element => {
     useEffect(() => {
-      const dir =
-        context.parameters.textDirection ?? context.globals.textDirection
+      const dir = props.parameters.textDirection ?? props.globals.textDirection
       if (document.body.getAttribute("dir") !== dir)
         document.body.setAttribute("dir", dir)
-    }, [context])
+    }, [props])
 
     return <Story />
   },
-  (Story, context) =>
-    context.args.isReversed && !IS_CHROMATIC ? (
-      <div className="bg-purple-700 p-16 m-[-1rem]">
-        <Story />
-      </div>
-    ) : (
-      <Story />
-    ),
 ] satisfies Preview["decorators"]
 
 const preview = {

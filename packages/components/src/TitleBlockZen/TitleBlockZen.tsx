@@ -234,60 +234,8 @@ const renderNavigationTabs = (
 )
 
 /**
- * {@link https://cultureamp.design/components/title-block/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/story/components-title-block--default Storybook}
- *
- * ### primaryAction
- *
- * The primary action (the "main" button in the top right) can either be a Button,
- * or a Button that reveals a Menu (a menu button).
- *
- * If you want it to be a Button, you can't pass in a `<Button />`, because the Title Block needs to grab the Button's
- * props and use them to render the mobile actions drawer as well as the Button itself. Instead, you have to pass
- * in the Button's props as an object, and there must be a `primary` property set to `true`.
- *
- * ```typescript
- * type PrimaryActionProps =
- *  | MenuGroup
- *  | (TitleBlockButtonProps & { primary: true })
- * ```
- *
- * If you want it to be a Menu, pass in this object of type `MenuGroup`:
- * ```typescript
- * {
- *   label: string
- *   menuItems: MenuItemProps[]
- * }
- * ```
- * Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
- * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
- *
- * ### secondaryActions & secondaryOverflowMenuItems
- *
- * Secondary Actions sit below the Primary Actions, and consist of
- * - actions/links (just a button),
- * - menus (a menu button), and
- * - the overflow menu (a menu button with a "meatballs" icon).
- *
- * **IMPORTANT:** The visual order of these from left to right should always be:
- * ```text
- * buttons (far left) -> menu buttons -> overflow menu (far right)
- * ```
- *
- * The overflow menu has a separate prop that accepts an array of `MenuItemProps`:
- *
- * ```typescript
- * secondaryOverflowMenuItems?: MenuItemProps[]
- * ```
- *
- * The `secondaryActions` prop accepts an **array** of objects.
- * Each object can be a MenuGroup (see code snippet for `primaryAction` above) or an object containing Button props:
- *
- * ```typescript
- * type SecondaryActionsProps = Array<MenuGroup | TitleBlockButtonProps>
- * ```
- * The order of elements in the array will determine the visual order on the page, so
- * please be aware of the intended order mentioned above.
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075605782/Title+Block Guidance} |
+ * {@link https://cultureamp.design/?path=/story/components-titleblock--docs Storybook}
  */
 
 export const TitleBlockZen = ({

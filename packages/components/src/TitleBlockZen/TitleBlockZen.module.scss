@@ -2,11 +2,12 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../../styles/grid";
+@import "../..//styles/grid";
 @import "../../styles/layers";
 @import "../../styles/legacy/layout";
 @import "./mixins";
 @import "./variables";
+@import "../../styles/button-reset";
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
@@ -442,7 +443,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   height: 100%;
 }
 
-.navigationTabEdgeShadow {
+%navigationTabEdgeShadow {
   display: none;
   pointer-events: none;
 
@@ -482,7 +483,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .navigationTabEdgeShadowLeft {
-  composes: navigationTabEdgeShadow;
+  @extend %navigationTabEdgeShadow;
   transform: rotate(90deg);
   left: 0;
   top: calc(100% - #{$tab-container-height-default});
@@ -493,7 +494,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .navigationTabEdgeShadowRight {
-  composes: navigationTabEdgeShadow;
+  @extend %navigationTabEdgeShadow;
   transform: rotate(-90deg);
   right: 0;
   top: calc(100% - #{$tab-container-height-default});
@@ -526,20 +527,8 @@ $tab-container-height-medium-and-small-collapsed: 0;
   }
 }
 
-.buttonReset {
-  appearance: none;
-  display: inline;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
 .breadcrumb {
-  composes: buttonReset;
+  @include button-reset;
   cursor: pointer;
   display: flex;
   position: absolute;
@@ -666,9 +655,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {
