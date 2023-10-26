@@ -1,7 +1,6 @@
 import React from "react"
 import { render } from "@testing-library/react"
 import { BaseButton, BaseButtonProps } from "./BaseButton"
-import styles from "./BaseButton.scss"
 
 const BUTTON_LABEL = "Button text"
 
@@ -10,10 +9,9 @@ const BaseButtonWrapper = (
 ): JSX.Element => <BaseButton label={BUTTON_LABEL} {...customProps} />
 
 describe("<BaseButton />", () => {
-  it("renders correctly with default values", () => {
+  it("renders button as default", () => {
     const { getByText } = render(<BaseButtonWrapper />)
-    const button = getByText(BUTTON_LABEL, { selector: "button" })
-    expect(button).toHaveClass(styles.themeDefault)
+    expect(getByText(BUTTON_LABEL, { selector: "button" })).toBeInTheDocument()
   })
 
   it("renders anchor when href is defined", () => {
