@@ -19,7 +19,7 @@ type MainActionsProps = {
   showOverflowMenu?: boolean
 }
 
-const MainActions = ({
+export const MainActions = ({
   primaryAction,
   defaultAction,
   reversed = false,
@@ -190,4 +190,4 @@ const MainActions = ({
   )
 }
 
-export default MainActions
+MainActions.displayName = "MainActions"

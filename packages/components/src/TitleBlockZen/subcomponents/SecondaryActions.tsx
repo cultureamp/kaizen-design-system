@@ -42,7 +42,7 @@ const renderSecondaryOverflowMenu = (
 // against react best practices (https://reactjs.org/docs/lists-and-keys.html)
 // This is because the menu items have no unique identifier.
 
-const SecondaryActions = ({
+export const SecondaryActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   reversed = false,
@@ -127,4 +127,4 @@ const SecondaryActions = ({
   )
 }
 
-export default SecondaryActions
+SecondaryActions.displayName = "SecondaryActions"

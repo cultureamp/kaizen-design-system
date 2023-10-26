@@ -42,3 +42,5 @@ export const TitleBlockMenuItem = (
 
   return <MenuItem {...props} />
 }
+
+TitleBlockMenuItem.displayName = "TitleBlockMenuItem"
