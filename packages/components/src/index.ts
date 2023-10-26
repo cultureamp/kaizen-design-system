@@ -47,3 +47,5 @@ export * from "./TextAreaField"
 export * from "./Tile"
 export * from "./TimeField"
 export * from "./TitleBlockZen"
+export * from "./Tooltip"
+

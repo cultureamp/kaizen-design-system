@@ -1,0 +1,68 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TooltipStories from "./Tooltip.stories"
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tooltip"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A32006&mode=design&t=LwTCBZ5E1uRvOA1l-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075604978/Tooltip"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Tooltip } from "@kaizen/components"'
+/>
+
+## Overview
+
+Adds a popover that will show on hover or focus of the child element, with simple text content.
+
+<Canvas of={TooltipStories.Playground} />
+<Controls of={TooltipStories.Playground} />
+
+## Accessibility
+
+This component wasn't built with accessibility in mind, as a result it's quite easy to implement a tooltip in a non-accessible way. A rethink and rewrite is likely for the future.
+
+There's two major accessibility concerns here:
+- Keyboard only users
+- Screen reader (or similar assistive tech) users
+
+Failure to meet either of these requirements will result in a critical issue where some people are completely unable to access the information.
+
+### Keyboard accessibility
+
+For keyboard accessibility, you need to make sure the child you are passing is a focusable element. It's best to keep the contents of this component simple. E.g. just a button:
+
+```jsx
+<Tooltip text="Opens in a new tab">
+  <Button href="/path" label="Go somewhere" />
+</Tooltip>
+```
+
+### Screen reader accessibility
+
+Though it won't guarantee the best screen reader accessibility, a good start is to make sure your _direct_ children element is semantic (not a div or span).
+
+When your direct child element is semantic, this component will add an `aria-describedby` to that element. E.g. for the link example above, the resulting mark up will be:
+
+```html
+<a href="path" aria-describedby="tooltip">Go somewhere</a>
+<!-- (in a portal) -->
+<div id="tooltip-id">Opens in a new tab</div>
+```
+
+Resulting in a screen reader announcement like:
+`Go somewhere, link, Opens in a new tab`
+
+Again, try to keep the contents of your children as simple as possible, ideally only a single natively focusable element like the example above.
+
+When your direct child is not semantic, you will get a console warning like this:
+`<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info.`
