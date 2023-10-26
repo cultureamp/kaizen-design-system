@@ -44,11 +44,13 @@ const Table = ({
             labelText="Resource name"
             width={3 / 12}
             checkable={checkable}
+            sorting="descending"
             {...restHeaderRowCellProps}
           />
           <TableHeaderRowCell
             labelText="Supplementary information"
             width={3 / 12}
+            sorting="ascending"
             {...restHeaderRowCellProps}
           />
           <TableHeaderRowCell

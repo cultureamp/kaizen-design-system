@@ -3,7 +3,11 @@ import classnames from "classnames"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { Checkbox, CheckedStatus } from "~components/Checkbox"
 import { Heading } from "~components/Heading"
-import { ExclamationIcon, SortAscendingIcon } from "~components/Icon"
+import {
+  ExclamationIcon,
+  SortAscendingIcon,
+  SortDescendingIcon,
+} from "~components/Icon"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Table.module.scss"
 
@@ -173,7 +177,7 @@ export const TableHeaderRowCell = ({
           {sorting === "ascending" || sortingArrowsOnHover === "ascending" ? (
             <SortAscendingIcon role="presentation" />
           ) : (
-            <SortAscendingIcon role="presentation" />
+            <SortDescendingIcon role="presentation" />
           )}
         </div>
       )}
