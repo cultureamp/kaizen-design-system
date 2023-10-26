@@ -61,14 +61,14 @@
   );
 }
 
-.isReversed:not(.link) {
+.isReversed {
   background-color: rgba($color-white-rgb, 0.2);
 }
 
 .link {
   background-color: rgba($color-blue-500-rgb, 0.2);
-}
 
-.link.reversed {
-  background-color: rgba($color-white-rgb, 0.65);
+  &.isReversed {
+    background-color: rgba($color-white-rgb, 0.65);
+  }
 }

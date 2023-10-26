@@ -45,18 +45,12 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: {
-    backgrounds: { default: "Purple 700" },
-  },
+  parameters: { backgrounds: { default: "Purple 700" } },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
-    textDirection: "rtl",
-  },
+  parameters: { textDirection: "rtl" },
 }
