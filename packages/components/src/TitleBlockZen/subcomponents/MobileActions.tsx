@@ -4,9 +4,21 @@ import { FocusOn } from "react-focus-on"
 import { MenuItem, MenuList, MenuHeading } from "@kaizen/draft-menu"
 import { ButtonProps } from "~components/Button"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
-import { DefaultActionProps, PrimaryActionProps, SecondaryActionsProps, TitleBlockButtonProps, MenuGroup } from "../types"
-import { convertSecondaryActionsToMenuItems, isMenuGroupNotButton } from "../utils"
-import { TitleBlockMenuItem, TitleBlockMenuItemProps } from "./TitleBlockMenuItem"
+import {
+  DefaultActionProps,
+  PrimaryActionProps,
+  SecondaryActionsProps,
+  TitleBlockButtonProps,
+  MenuGroup,
+} from "../types"
+import {
+  convertSecondaryActionsToMenuItems,
+  isMenuGroupNotButton,
+} from "../utils"
+import {
+  TitleBlockMenuItem,
+  TitleBlockMenuItemProps,
+} from "./TitleBlockMenuItem"
 
 import styles from "./MobileActions.module.scss"
 
@@ -186,25 +198,13 @@ const renderDrawerHandleLabel = (
         >
           {label}
         </span>
-        <>
-          {icon && (
-            <span className={styles.drawerHandleIcon}>
-              {icon}
-            </span>
-          )}
-        </>
+        <>{icon && <span className={styles.drawerHandleIcon}>{icon}</span>}</>
       </>
     )
   } else {
     return (
       <>
-        <>
-          {icon && (
-            <span className={styles.drawerHandleIcon}>
-               {icon}
-            </span>
-          )}
-        </>
+        <>{icon && <span className={styles.drawerHandleIcon}>{icon}</span>}</>
         <span
           className={styles.drawerHandleLabelText}
           data-automation-id="drawer-handle-lable-text"
@@ -357,7 +357,11 @@ const DrawerHandle = ({
           >
             {primaryAction.label}
             <span className={styles.mobileActionsChevronSquare}>
-              {isOpen ? <ChevronDownIcon role="presentation" /> : <ChevronUpIcon role="presentation" />}
+              {isOpen ? (
+                <ChevronDownIcon role="presentation" />
+              ) : (
+                <ChevronUpIcon role="presentation" />
+              )}
             </span>
           </button>
         </div>
@@ -408,7 +412,11 @@ const DrawerHandle = ({
             aria-expanded={isOpen}
             aria-label="Other actions"
           >
-            {isOpen ? <ChevronDownIcon role="presentation" /> : <ChevronUpIcon role="presentation" />}
+            {isOpen ? (
+              <ChevronDownIcon role="presentation" />
+            ) : (
+              <ChevronUpIcon role="presentation" />
+            )}
           </button>
         )}
       </div>
@@ -437,7 +445,11 @@ const DrawerHandle = ({
         >
           {renderDrawerHandleLabel("Other actions")}
           <span className={styles.mobileActionsChevronSquare}>
-            {isOpen ? <ChevronDownIcon role="presentation" /> : <ChevronUpIcon role="presentation" />}
+            {isOpen ? (
+              <ChevronDownIcon role="presentation" />
+            ) : (
+              <ChevronUpIcon role="presentation" />
+            )}
           </span>
         </button>
       </div>

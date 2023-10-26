@@ -10,10 +10,16 @@ import { useMediaQueries } from "~utils/useMediaQueries"
 import MainActions from "./subcomponents/MainActions"
 import MobileActions from "./subcomponents/MobileActions"
 import SecondaryActions from "./subcomponents/SecondaryActions"
-import { BreadcrumbProps, NavigationTabs, SurveyStatus, TitleBlockAvatarProps, TitleBlockProps, TitleBlockVariant } from "./types"
+import {
+  BreadcrumbProps,
+  NavigationTabs,
+  SurveyStatus,
+  TitleBlockAvatarProps,
+  TitleBlockProps,
+  TitleBlockVariant,
+} from "./types"
 import { createTabletOverflowMenuItems, isReversed } from "./utils"
 import styles from "./TitleBlockZen.module.scss"
-
 
 const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
   let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
@@ -140,7 +146,6 @@ const defaultRenderSectionTitle = (
   </>
 )
 
-
 const Breadcrumb = ({
   breadcrumb,
   automationId,
@@ -148,12 +153,15 @@ const Breadcrumb = ({
   textDirection,
 }: BreadcrumbProps): JSX.Element => {
   const { path, handleClick, text, render } = breadcrumb
-  const icon = textDirection === "rtl" ? <ArrowRightIcon role="presentation" /> : <ArrowLeftIcon  role="presentation"/>
+  const icon =
+    textDirection === "rtl" ? (
+      <ArrowRightIcon role="presentation" />
+    ) : (
+      <ArrowLeftIcon role="presentation" />
+    )
   const InnerContents = (): JSX.Element => (
     <>
-      <div className={styles.circle}>
-       {icon}
-      </div>
+      <div className={styles.circle}>{icon}</div>
       <span
         className={styles.breadcrumbTextLink}
         data-automation-id={textAutomationId}
@@ -224,7 +232,6 @@ const renderNavigationTabs = (
     </div>
   </div>
 )
-
 
 /**
  * {@link https://cultureamp.design/components/title-block/ Guidance} |
