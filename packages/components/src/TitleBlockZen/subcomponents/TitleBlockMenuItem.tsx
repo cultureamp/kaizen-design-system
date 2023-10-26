@@ -13,7 +13,7 @@ export type TitleBlockMenuItemProps =
 
 export const TitleBlockMenuItem = (
   props: TitleBlockMenuItemProps
-): JSX.Element | null => {
+): JSX.Element => {
   const className = classnames(
     styles.menuItem,
     styles.destructive && styles["menuItem--destructive"],
