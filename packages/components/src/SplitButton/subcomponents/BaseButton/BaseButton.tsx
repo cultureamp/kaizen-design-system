@@ -26,7 +26,7 @@ export const BaseButton = ({
   const className = classnames(
     styles.baseButton,
     classNameOverride,
-    isReversed ? styles.themeReversed : styles.themeDefault
+    isReversed ? styles.isReversed : styles.default
   )
 
   const contentProps = icon

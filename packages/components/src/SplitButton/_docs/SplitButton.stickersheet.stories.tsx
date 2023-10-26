@@ -64,12 +64,6 @@ const ROWS_MAP = [
     dropdownContent: DROPDOWN_CONTENT__ENABLED,
   },
   {
-    rowTitle: "RTL",
-    actionButtonProps: ACTION_BUTTON_PROPS__BUTTON,
-    dropdownContent: DROPDOWN_CONTENT__ENABLED,
-    dir: "rtl",
-  },
-  {
     rowTitle: "Anchor Link",
     actionButtonProps: ACTION_BUTTON_PROPS__ANCHOR,
     dropdownContent: DROPDOWN_CONTENT__ENABLED,
@@ -112,7 +106,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={{
                 ...ACTION_BUTTON_PROPS__BUTTON,
-                classNameOverride: "__hover",
+                "data-sb-pseudo-styles": "hover",
               }}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
             />
@@ -120,7 +114,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={{
                 ...ACTION_BUTTON_PROPS__BUTTON,
-                classNameOverride: "__active",
+                "data-sb-pseudo-styles": "active",
               }}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
             />
@@ -128,7 +122,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={{
                 ...ACTION_BUTTON_PROPS__BUTTON,
-                classNameOverride: "__focus",
+                "data-sb-pseudo-styles": "focus",
               }}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
             />
@@ -138,19 +132,19 @@ const StickerSheetTemplate: StickerSheetStory = {
               isReversed={isReversed}
               actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              dropdownButtonProps={{ classNameOverride: "__hover" }}
+              dropdownButtonProps={{ "data-sb-pseudo-styles": "hover" }}
             />
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              dropdownButtonProps={{ classNameOverride: "__active" }}
+              dropdownButtonProps={{ "data-sb-pseudo-styles": "active" }}
             />
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
               dropdownContent={DROPDOWN_CONTENT__ENABLED}
-              dropdownButtonProps={{ classNameOverride: "__focus" }}
+              dropdownButtonProps={{ "data-sb-pseudo-styles": "focus" }}
             />
           </StickerSheet.Row>
         </StickerSheet.Body>
@@ -158,7 +152,6 @@ const StickerSheetTemplate: StickerSheetStory = {
     </>
   ),
   parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
     pseudo: {
       hover: '[data-sb-pseudo-styles="hover"]',
       active: '[data-sb-pseudo-styles="active"]',

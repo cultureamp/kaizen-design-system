@@ -1,43 +1,23 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../variables";
 
 .dropdownButton {
   display: inline-flex;
   position: relative;
-  left: calc(-1 * #{$border-solid-border-width});
-  margin-left: $border-solid-border-width;
-  padding: $spacing-sm;
-  border-radius: 0 $border-solid-border-radius $border-solid-border-radius 0;
-  border-left-width: 0;
+  inset-inline-start: calc(-1 * #{$border-solid-border-width});
+  margin-inline-start: $border-solid-border-width;
+  padding: $spacing-12;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-start-end-radius: $border-solid-border-radius;
+  border-end-end-radius: $border-solid-border-radius;
+  border-inline-start-width: 0;
 
-  [dir="rtl"] & {
-    left: unset;
-    right: calc(-1 * #{$border-solid-border-width});
-    margin-left: unset;
-    margin-right: $border-solid-border-width;
-    border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
-    border-left-width: $border-solid-border-width;
-    border-right-width: 0;
-  }
-
-  &:not(:disabled) {
-    &:hover,
-    &#{$story-className--hover},
-    &:active,
-    &#{$story-className--active},
-    &:focus-visible,
-    &#{$story-className__focus} {
-      left: calc(-1 * #{$border-solid-border-width});
-      margin-left: unset;
-      border-left-width: $border-solid-border-width;
-
-      [dir="rtl"] & {
-        left: unset;
-        right: calc(-1 * #{$border-solid-border-width});
-        margin-right: unset;
-        border-right-width: $border-solid-border-width;
-      }
-    }
+  &:hover,
+  &:active,
+  &:focus-visible {
+    inset-inline-start: calc(-1 * #{$border-solid-border-width});
+    margin-inline-start: unset;
+    border-inline-start-width: $border-solid-border-width;
   }
 }

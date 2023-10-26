@@ -2,7 +2,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "../variables";
 
 .baseButton {
   border-width: $border-solid-border-width;
@@ -18,82 +17,69 @@
   cursor: default;
   white-space: nowrap;
 
-  &:not(:disabled) {
-    &:hover,
-    &#{$story-className--hover},
-    &:active,
-    &#{$story-className--active} {
-      z-index: 2;
-      text-decoration: unset; // override Murmur global styles :(
-    }
+  &:hover,
+  &:active {
+    z-index: 2;
+    text-decoration: unset; // override Murmur global styles :(
+  }
 
-    &:active,
-    &#{$story-className--active} {
-      transform: translateY(1px);
-    }
+  &:active {
+    transform: translateY(1px);
+  }
 
-    &:focus-visible,
-    &#{$story-className__focus} {
-      z-index: 3;
-      outline-width: $border-solid-border-width;
-      outline-style: $border-solid-border-style;
-      outline-offset: 1px;
-    }
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    z-index: 3;
+    outline-width: $border-solid-border-width;
+    outline-style: $border-solid-border-style;
+    outline-offset: 1px;
   }
 
   &:disabled {
+    pointer-events: none;
     opacity: 30%;
   }
 }
 
-.themeDefault {
+.default {
   $default-text-color: $color-purple-800;
 
   background-color: $color-white;
   border-color: $color-gray-500;
   color: $default-text-color;
 
-  &:not(:disabled) {
-    &:hover,
-    &#{$story-className--hover},
-    &:active,
-    &#{$story-className--active},
-    &:focus-visible,
-    &#{$story-className__focus} {
-      background-color: $color-gray-200;
-      border-color: $color-gray-600;
-      color: $default-text-color; // override Murmur global styles :(
-    }
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background-color: $color-gray-200;
+    border-color: $color-gray-600;
+    color: $default-text-color; // override Murmur global styles :(
+  }
 
-    &:focus-visible,
-    &#{$story-className__focus} {
-      outline-color: $color-blue-500;
-    }
+  &:focus-visible {
+    outline-color: $color-blue-500;
   }
 }
 
-.themeReversed {
+.isReversed {
   $reversed-text-color: $color-white;
 
   background-color: transparent;
   border-color: rgba($color-white-rgb, 0.65);
   color: $reversed-text-color;
 
-  &:not(:disabled) {
-    &:hover,
-    &#{$story-className--hover},
-    &:active,
-    &#{$story-className--active},
-    &:focus-visible,
-    &#{$story-className__focus} {
-      background-color: rgba($color-white-rgb, 0.1);
-      border-color: $color-white;
-      color: $reversed-text-color; // override Murmur global styles :(
-    }
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background-color: rgba($color-white-rgb, 0.1);
+    border-color: $color-white;
+    color: $reversed-text-color; // override Murmur global styles :(
+  }
 
-    &:focus-visible,
-    &#{$story-className__focus} {
-      outline-color: $color-blue-300;
-    }
+  &:focus-visible {
+    outline-color: $color-blue-300;
   }
 }
