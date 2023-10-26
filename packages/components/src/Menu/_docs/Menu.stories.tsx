@@ -3,6 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { ChevronDownIcon, DuplicateIcon } from "~components/Icon"
 import { Menu } from "../index"
+import { MenuHeading } from "../subcomponents/MenuHeading"
 import { MenuItem } from "../subcomponents/MenuItem"
 import { MenuList } from "../subcomponents/MenuList"
 
@@ -20,9 +21,18 @@ const meta = {
     children: (
       <MenuList>
         <MenuItem
+          onClick={() => {
+            alert("Duplicated!")
+          }}
           icon={<DuplicateIcon role="presentation" />}
           label="Duplicate item"
         />
+        <MenuList heading={<MenuHeading>Extra links</MenuHeading>}>
+          <MenuItem
+            href="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082059782/Menu"
+            label="Learn more about Menu"
+          />
+        </MenuList>
       </MenuList>
     ),
   },
@@ -45,8 +55,3 @@ export const Playground: Story = {
     },
   },
 }
-
-// export const Reversed: Story = {
-//   parameters: { backgrounds: { default: "Purple 700" } },
-//   args: { isReversed: true },
-// }

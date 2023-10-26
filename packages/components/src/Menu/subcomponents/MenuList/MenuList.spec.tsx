@@ -1,6 +1,8 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { MenuList, MenuItem, MenuHeading } from "../../../"
+import { MenuHeading } from "../MenuHeading"
+import { MenuItem } from "../MenuItem"
+import { MenuList } from "./MenuList"
 
 describe("MenuList", () => {
   describe("With a heading", () => {
