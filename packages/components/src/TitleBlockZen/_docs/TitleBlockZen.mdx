@@ -1,0 +1,23 @@
+import { Canvas, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TitleBlockZenStories from "./TitleBlockZen.stories"
+
+<Meta of={TitleBlockZenStories} />
+
+# TitleBlockZen
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/TitleBlockZen"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { TitleBlockZen } from "@kaizen/components"'
+/>
+
+## Overview
+
+<Canvas of={TitleBlockZenStories.Playground} />
