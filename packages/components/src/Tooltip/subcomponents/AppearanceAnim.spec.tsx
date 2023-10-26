@@ -2,10 +2,10 @@ import React from "react"
 import { render } from "@testing-library/react"
 import useDebounce from "use-debounce"
 import { AnimationProvider } from "./AppearanceAnim"
-import "@testing-library/jest-dom"
-jest.mock("use-debounce")
-const useDebouncedCallback = useDebounce.useDebouncedCallback as jest.Mock
 
+jest.mock("use-debounce")
+
+const useDebouncedCallback = useDebounce.useDebouncedCallback as jest.Mock
 let mockReturnValue: Record<string, any>
 
 describe("<AnimationProvider />", () => {
