@@ -2,12 +2,12 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../..//styles/grid";
-@import "../../styles/layers";
+@import "../..//styles/legacy/grid";
 @import "../../styles/legacy/layout";
+@import "../../styles/button-reset";
+@import "../../styles/layers";
 @import "./mixins";
 @import "./variables";
-@import "../../styles/button-reset";
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
@@ -658,9 +658,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {

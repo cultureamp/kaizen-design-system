@@ -18,7 +18,7 @@ export type TitleBlockProps = {
   children?: React.ReactNode
   title: string
   variant?: TitleBlockVariant
-  breadcrumb?: BreadcrumbType
+  breadcrumb?: TitleBlockBreadcrumbType
   avatar?: JSX.Element | TitleBlockAvatarProps
   subtitle?: React.ReactNode
   sectionTitle?: string
@@ -64,7 +64,7 @@ export type TitleBlockProps = {
  */
 
 export type PrimaryActionProps =
-  | (MenuGroup & { badge?: TitleBlockBadgeProps })
+  | (TitleBlockMenuGroup & { badge?: TitleBlockBadgeProps })
   | ((TitleBlockButtonProps | TitleBlockCustomButtonProps) & {
       badge?: TitleBlockBadgeProps
     })
@@ -97,7 +97,7 @@ export type PrimaryActionProps =
 export type SecondaryActionsProps = SecondaryActionItemProps[]
 
 export type SecondaryActionItemProps =
-  | MenuGroup
+  | TitleBlockMenuGroup
   | (
       | ButtonWithHrefNotOnClick
       | ButtonWithOnClickNotHref
@@ -139,7 +139,7 @@ export type ButtonWithOnClickNotHref = TitleBlockDistributiveOmit<
   "href"
 >
 
-export type MenuGroup = {
+export type TitleBlockMenuGroup = {
   label: string
   menuItems: TitleBlockMenuItemProps[]
 }
@@ -184,7 +184,7 @@ export type SurveyStatus = {
   status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
-export type BreadcrumbType = {
+export type TitleBlockBreadcrumbType = {
   text: string
   path?: string
   handleClick?: (event: React.MouseEvent) => void
@@ -196,14 +196,14 @@ export type BreadcrumbType = {
   render?: (props: CustomBreadcrumbProps) => JSX.Element
 }
 
-export type BreadcrumbProps = {
-  breadcrumb: BreadcrumbType
+export type TitleBlockBreadcrumbProps = {
+  breadcrumb: TitleBlockBreadcrumbType
   automationId: string
   textAutomationId: string
   textDirection?: TextDirection
 }
 
-export type CustomBreadcrumbProps = BreadcrumbProps & {
+export type CustomBreadcrumbProps = TitleBlockBreadcrumbProps & {
   className: string
   children: React.ReactNode
 }

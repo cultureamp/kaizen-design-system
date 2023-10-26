@@ -2,7 +2,7 @@ import { MenuItemProps } from "@kaizen/draft-menu"
 import {
   TitleBlockButtonProps,
   TitleBlockCustomButtonProps,
-  MenuGroup,
+  TitleBlockMenuGroup,
   TitleBlockVariant,
   SecondaryActionsProps,
   TitleBlockMenuItemProps,
@@ -13,8 +13,10 @@ export const isMenuItemNotButton = (
 ): value is MenuItemProps => "action" in value
 
 export const isMenuGroupNotButton = (
-  value: (TitleBlockButtonProps | TitleBlockCustomButtonProps) | MenuGroup
-): value is MenuGroup => "menuItems" in value
+  value:
+    | (TitleBlockButtonProps | TitleBlockCustomButtonProps)
+    | TitleBlockMenuGroup
+): value is TitleBlockMenuGroup => "menuItems" in value
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
