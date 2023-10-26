@@ -171,7 +171,8 @@ export const TableHeaderRowCell = ({
         <div
           className={classnames(
             align === "center" && styles.headerRowCellIconAlignCenter,
-            align === "end" && styles.headerRowCellIconAlignEnd
+            align === "end" && styles.headerRowCellIconAlignEnd,
+            reversed && styles.whiteText
           )}
         >
           {sorting === "ascending" || sortingArrowsOnHover === "ascending" ? (

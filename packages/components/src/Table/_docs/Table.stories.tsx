@@ -205,6 +205,23 @@ export const Data: Story = {
   },
 }
 
+export const Reversed: Story = {
+  render: Table,
+  args: { headerRowCell: { reversed: true } },
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  decorators: [
+    Story => (
+      <div className="bg-purple-700 p-16">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
 export const Compact: Story = {
   render: Table,
   args: { container: { variant: "compact" } },
