@@ -2,7 +2,7 @@ import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
 // import { ClearButton } from "~components/ClearButton"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
-import { Tag } from "~components/__future__/Tag"
+import { RemovableTag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
 import styles from "./MultiSelectToggle.module.scss"
@@ -77,9 +77,14 @@ export const MultiSelectToggle = forwardRef<
                   // This stops the underlying toggle collapsing the popover when interactive with Tags
                   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
                   <li key={value} onClick={e => e.stopPropagation()}>
-                    <Tag classNameOverride={styles.selectedItemTag}>
+                    <RemovableTag
+                      removeButtonProps={{
+                        ariaLabel: "Remove option",
+                        onClick: () => console.log("Clicked"),
+                      }}
+                    >
                       {label}
-                    </Tag>
+                    </RemovableTag>
                   </li>
                 ))}
               </ul>
