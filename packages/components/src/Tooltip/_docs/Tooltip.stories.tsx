@@ -1,7 +1,9 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Tag } from "../../Tag"
-import { Button, InformationIcon, Text } from "../../index"
+import { Button } from "~components/Button"
+import { InformationIcon } from "~components/Icon"
+import { Tag } from "~components/Tag"
+import { Text } from "~components/Text"
 import { Tooltip } from "../index"
 
 const meta = {
