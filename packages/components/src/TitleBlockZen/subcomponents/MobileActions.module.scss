@@ -1,0 +1,206 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/border";
+@import "../../../styles/grid";
+@import "../../../styles/layers";
+@import "../../../styles/legacy/layout";
+@import "../mixins";
+
+$expand-button-width: 3.75rem;
+$focus-spacing: 2px;
+$focus-ring-border-width: 2px; // should be $border-focus-ring-border-width but CSS vars makes this hard
+$space-for-focus-ring: ($focus-ring-border-width * 2) + ($focus-spacing * 2);
+$slide-up-duration: 0.4s;
+
+/* stylelint-disable no-descending-specificity */
+.mobileActionsContainer {
+  display: none;
+  z-index: $ca-z-index-fixed;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-start-start-radius: $border-solid-border-radius;
+  border-start-end-radius: $border-solid-border-radius;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
+  transition: $slide-up-duration ease;
+  animation: slide-up 1s ease;
+
+  &.isOpen {
+    transform: translateY(0%);
+
+    .mobileActionsMenuContainer {
+      visibility: visible;
+    }
+  }
+
+  @include title-block-small {
+    display: flex;
+  }
+}
+
+.mobileActionsTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $layout-mobile-actions-drawer-height;
+}
+
+.mobileActionsTopRow.mobileActionsTopRowSingleButton {
+  justify-content: center;
+}
+
+.mobileActionsMenuContainer {
+  visibility: hidden;
+  width: 100%;
+  background: $color-white;
+  padding: $spacing-xs 0;
+  transition: visibility $slide-up-duration;
+}
+
+.drawerHandleIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include ca-margin($end: calc(#{$ca-grid} / 2));
+
+  .drawerHandleLabelText + & {
+    @include ca-margin($start: calc(#{$ca-grid} / 2));
+  }
+}
+
+.mobileActionsPrimaryLabel {
+  @include ca-padding($start: $ca-grid * 0.75);
+
+  text-align: left;
+  text-decoration: none;
+  color: $color-white;
+  font-family: $typography-button-primary-font-family;
+  font-weight: $typography-button-primary-font-weight;
+  font-size: $typography-button-primary-font-size;
+  line-height: $typography-button-primary-line-height;
+  letter-spacing: $typography-button-primary-letter-spacing;
+}
+
+.mobileActionsPrimaryButton,
+.mobileActionsExpandButton {
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  border: 0;
+  box-sizing: border-box;
+  color: $color-white;
+  background-color: $color-blue-500;
+
+  &:focus {
+    background-color: $color-blue-600;
+    outline: none;
+  }
+
+  &:focus-visible {
+    height: $layout-mobile-actions-drawer-height - $space-for-focus-ring;
+
+    &::after {
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2));
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-width: $focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
+      inset: calc(-1 * #{$focus-ring-offset});
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Full width versions
+.mobileActionsPrimaryButton:only-child,
+.mobileActionsExpandButton:only-child {
+  flex-basis: 100%;
+  border-start-start-radius: $border-solid-border-radius;
+  border-start-end-radius: $border-solid-border-radius;
+
+  &:focus-visible {
+    flex-basis: calc(100% - #{$space-for-focus-ring});
+
+    &::after {
+      border-start-start-radius: $border-focus-ring-border-radius;
+      border-start-end-radius: $border-focus-ring-border-radius;
+    }
+  }
+}
+
+// Non full width versions
+.mobileActionsPrimaryButton:not(:only-child) {
+  flex: 0 0 calc(100% - #{$expand-button-width});
+
+  &:focus-visible {
+    flex-basis: calc(100% - #{$expand-button-width} - #{$space-for-focus-ring});
+    margin-left: $focus-ring-border-width * 2;
+    border-start-start-radius: $border-solid-border-radius;
+
+    & + .mobileActionsExpandButton {
+      border-color: $color-white;
+    }
+
+    &::after {
+      border-start-start-radius: $border-focus-ring-border-radius;
+    }
+  }
+}
+
+.mobileActionsExpandButton:not(:only-child) {
+  flex: 0 0 $expand-button-width;
+  border-left: 2px solid $color-blue-200;
+  justify-content: center;
+
+  &:focus-visible {
+    border-color: $color-white;
+    flex-basis: calc(#{$expand-button-width} - #{$space-for-focus-ring});
+    margin-right: $focus-ring-border-width * 2;
+    border-start-end-radius: $border-solid-border-radius;
+
+    &::after {
+      border-start-end-radius: $border-focus-ring-border-radius;
+    }
+  }
+}
+
+.mobileActionsChevronSquare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+
+  @include ca-position($end: 20px);
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+
+  50% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
+  }
+}
+/* stylelint-enable no-descending-specificity */
