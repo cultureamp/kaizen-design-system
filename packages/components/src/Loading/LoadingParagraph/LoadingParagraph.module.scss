@@ -1,0 +1,50 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../mixins";
+
+.loadingParagraph {
+  @extend %loadingBase;
+
+  background-color: $color-gray-300;
+  height: calc(#{$spacing-md} * 0.625);
+  margin-bottom: calc(#{$spacing-md} * 0.5);
+}
+
+.isReversed {
+  background-color: rgba($color-white-rgb, 0.1);
+}
+
+.isLink {
+  background-color: rgba($color-blue-500-rgb, 0.2);
+}
+
+.isLink.isReversed {
+  background-color: rgba($color-white-rgb, 0.65);
+}
+
+.isAnimated {
+  @extend %loadingAnimated;
+}
+
+.isCentered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.isInline {
+  display: inline-block;
+  margin-bottom: calc(#{$spacing-md} * 0.35);
+}
+
+.isInline + .isInline {
+  margin-inline-start: $spacing-md;
+}
+
+.noBottomMargin {
+  margin-bottom: 0;
+}
+
+// We double the class selector to increase specificity above rules like `h1.default-style`
+.inheritBaseline.inheritBaseline {
+  position: static;
+}
