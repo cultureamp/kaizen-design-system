@@ -1,14 +1,8 @@
 import React from "react"
-import { Decorator, Meta, StoryFn, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic/isChromatic"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { Tag } from "../../Tag"
 import { Button, InformationIcon, Text } from "../../index"
 import { Tooltip } from "../index"
-
-const openTooltipInChromatic: Decorator = (Story, { args }) => {
-  if (isChromatic()) args.isInitiallyVisible = true
-  return <Story />
-}
 
 const meta = {
   title: "Components/Tooltip",
@@ -16,7 +10,6 @@ const meta = {
   args: {
     text: "Example tooltip text.",
   },
-  decorators: [openTooltipInChromatic],
 } satisfies Meta<typeof Tooltip>
 
 export default meta
