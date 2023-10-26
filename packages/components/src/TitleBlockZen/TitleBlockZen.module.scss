@@ -2,9 +2,10 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../../styles/grid";
-@import "../../styles/layers";
+@import "../../styles/legacy/grid";
 @import "../../styles/legacy/layout";
+@import "../../styles/button-reset";
+@import "../../styles/layers";
 @import "./mixins";
 @import "./variables";
 
@@ -528,18 +529,6 @@ $tab-container-height-medium-and-small-collapsed: 0;
   }
 }
 
-.buttonReset {
-  appearance: none;
-  display: inline;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
 .breadcrumb {
   @include button-reset;
 
@@ -669,9 +658,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {

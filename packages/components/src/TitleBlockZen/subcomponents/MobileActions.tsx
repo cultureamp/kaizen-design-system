@@ -9,7 +9,7 @@ import {
   PrimaryActionProps,
   SecondaryActionsProps,
   TitleBlockButtonProps,
-  MenuGroup,
+  TitleBlockMenuGroup,
 } from "../types"
 import {
   convertSecondaryActionsToMenuItems,
@@ -316,7 +316,7 @@ const getAction = (
 type DrawerHandleProps = {
   primaryAction: PrimaryActionProps | undefined
   secondaryActions: SecondaryActionsProps | undefined
-  defaultAction?: DefaultActionProps | MenuGroup
+  defaultAction?: DefaultActionProps | TitleBlockMenuGroup
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
   toggleDisplay: () => void

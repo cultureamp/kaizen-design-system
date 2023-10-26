@@ -11,7 +11,7 @@ import { MainActions } from "./subcomponents/MainActions"
 import { MobileActions } from "./subcomponents/MobileActions"
 import { SecondaryActions } from "./subcomponents/SecondaryActions"
 import {
-  BreadcrumbProps,
+  TitleBlockBreadcrumbProps,
   NavigationTabs,
   SurveyStatus,
   TitleBlockAvatarProps,
@@ -151,7 +151,7 @@ const Breadcrumb = ({
   automationId,
   textAutomationId,
   textDirection,
-}: BreadcrumbProps): JSX.Element => {
+}: TitleBlockBreadcrumbProps): JSX.Element => {
   const { path, handleClick, text, render } = breadcrumb
   const icon =
     textDirection === "rtl" ? (
