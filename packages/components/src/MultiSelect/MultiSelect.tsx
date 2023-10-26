@@ -57,7 +57,7 @@ export const MultiSelect = ({
     {} as Record<MultiSelectOption["value"], MultiSelectOption>
   )
 
-  const deselectOption = (optionValue: MultiSelectOption["value"]) => {
+  const deselectOption = (optionValue: MultiSelectOption["value"]): void => {
     const newValues = new Set(selectedValues.values())
     newValues.delete(optionValue)
     onSelectedValuesChange(newValues)
