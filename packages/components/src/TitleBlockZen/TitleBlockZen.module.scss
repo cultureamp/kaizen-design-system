@@ -482,7 +482,8 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .navigationTabEdgeShadowLeft {
-  composes: navigationTabEdgeShadow;
+  @extend %navigationTabEdgeShadow;
+
   transform: rotate(90deg);
   left: 0;
   top: calc(100% - #{$tab-container-height-default});
@@ -493,7 +494,8 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .navigationTabEdgeShadowRight {
-  composes: navigationTabEdgeShadow;
+  @extend %navigationTabEdgeShadow;
+
   transform: rotate(-90deg);
   right: 0;
   top: calc(100% - #{$tab-container-height-default});
@@ -539,7 +541,8 @@ $tab-container-height-medium-and-small-collapsed: 0;
 }
 
 .breadcrumb {
-  composes: buttonReset;
+  @include button-reset;
+
   cursor: pointer;
   display: flex;
   position: absolute;
