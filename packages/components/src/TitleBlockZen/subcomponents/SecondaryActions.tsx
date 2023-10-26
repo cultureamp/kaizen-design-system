@@ -5,7 +5,7 @@ import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import styles from "../TitleBlockZen.module.scss"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "../types"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
-import Toolbar from "./Toolbar"
+import { Toolbar } from "./Toolbar"
 
 type Props = {
   secondaryActions?: SecondaryActionsProps

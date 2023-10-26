@@ -8,7 +8,7 @@ import {
   TitleBlockMenuItem,
   TitleBlockMenuItemProps,
 } from "./TitleBlockMenuItem"
-import Toolbar from "./Toolbar"
+import { Toolbar } from "./Toolbar"
 import styles from "./MainActions.module.scss"
 
 type MainActionsProps = {

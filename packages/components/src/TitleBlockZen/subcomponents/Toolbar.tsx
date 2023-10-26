@@ -17,7 +17,7 @@ type ToolbarProps = {
   automationId?: string
 }
 
-const Toolbar = ({
+export const Toolbar = ({
   items,
   noGap = false,
   automationId,
@@ -42,5 +42,3 @@ const Toolbar = ({
     </div>
   )
 }
-
-export default Toolbar
