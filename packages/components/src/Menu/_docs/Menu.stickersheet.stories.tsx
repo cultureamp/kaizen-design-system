@@ -1,10 +1,13 @@
 import React from "react"
 import { Meta } from "@storybook/react"
+import { Button } from "~components/Button"
+import { ChevronDownIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { Menu } from "../index"
+import { MenuContentExample } from "./MenuContentExample"
 
 export default {
   title: "Components/Menu",
@@ -16,44 +19,51 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
+    <StickerSheet isReversed={isReversed} style={{ margin: "0 auto" }}>
+      <StickerSheet.Header headings={["Long list", "Short List"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          <Menu
-            isReversed={isReversed}
-            exampleRequiredString="Menu"
-          />
-          <Menu
-            isReversed={isReversed}
-            exampleRequiredString="Menu"
-            data-sb-pseudo-styles="hover"
-          />
-          <Menu
-            isReversed={isReversed}
-            exampleRequiredString="Menu"
-            data-sb-pseudo-styles="active"
-          />
-          <Menu
-            isReversed={isReversed}
-            exampleRequiredString="Menu"
-            data-sb-pseudo-styles="focus"
-          />
+          <StickerSheet.Cell width={250}>
+            <Menu
+              menuVisible
+              autoHide="off"
+              button={
+                <Button
+                  label="Menu"
+                  icon={<ChevronDownIcon role="presentation" />}
+                  iconPosition="end"
+                />
+              }
+            >
+              <MenuContentExample />
+            </Menu>
+          </StickerSheet.Cell>
+          <StickerSheet.Cell width={250}>
+            <Menu
+              menuVisible
+              autoHide="off"
+              button={
+                <Button
+                  label="Menu"
+                  icon={<ChevronDownIcon role="presentation" />}
+                  iconPosition="end"
+                />
+              }
+            >
+              <MenuContentExample isShortList />
+            </Menu>
+          </StickerSheet.Cell>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
-  /** @note: Only required if you have pseudo states, otherwise this can be removed */
-  parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
-    pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
-      active: '[data-sb-pseudo-styles="active"]',
-      focus: '[data-sb-pseudo-styles="focus"]',
-      focusVisible: '[data-sb-pseudo-styles="focus"]',
-    },
-  },
+  decorators: [
+    Story => (
+      <div style={{ minHeight: "500px" }}>
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -61,23 +71,10 @@ export const StickerSheetDefault: StickerSheetStory = {
   name: "Sticker Sheet (Default)",
 }
 
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
-  },
-  args: { isReversed: true },
-}
-
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
   },
 }

@@ -27,8 +27,8 @@ export type MenuProps = Omit<
 }
 
 /**
- * {@link https://cultureamp.design/components/menu/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-menu--auto-hide-behaviours Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082059782/Menu Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-menu--docs Storybook}
  */
 export const Menu = ({
   button,

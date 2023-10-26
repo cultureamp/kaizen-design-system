@@ -12,7 +12,7 @@ export type MenuItemProps = {
   destructive?: boolean
   disabled?: boolean
   /**
-   * @deprecated use data-test-id
+   * @deprecated use data-testid
    */
   automationId?: string
   /**

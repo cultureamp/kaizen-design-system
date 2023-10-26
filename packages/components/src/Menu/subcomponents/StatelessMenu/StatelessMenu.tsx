@@ -19,8 +19,11 @@ export type StatelessMenuProps = {
    * @default "default"
    */
   dropdownWidth?: "default" | "contain"
-
+  /**
+   * @deprecated use data-testid instead
+   */
   automationId?: string
+  "data-testid"?: string
   dropdownId?: string
   /**
    * Determines when the menu should automatically hide.
@@ -53,7 +56,7 @@ export const StatelessMenu = ({
   align = "left",
   dropdownWidth = "default",
   autoHide = "on",
-  automationId,
+  "data-testid": dataTestId,
   dropdownId,
   children,
   portalSelector,
@@ -109,7 +112,7 @@ export const StatelessMenu = ({
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <div data-automation-id={automationId} onClick={onClick}>
+    <div data-testid={dataTestId} onClick={onClick}>
       <div className={styles.buttonWrapper} ref={setReferenceElement}>
         {menuButton}
       </div>
