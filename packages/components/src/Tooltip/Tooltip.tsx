@@ -10,7 +10,7 @@ import ReactDOM from "react-dom"
 import { Placement } from "@popperjs/core"
 import classnames from "classnames"
 import { usePopper } from "react-popper"
-import { AnimationProvider, useAnimation } from "./AppearanceAnim"
+import { AnimationProvider, useAnimation } from "./subcomponents/AppearanceAnim"
 import { isSemanticElement } from "./utils/isSemanticElement"
 import styles from "./Tooltip.module.scss"
 
