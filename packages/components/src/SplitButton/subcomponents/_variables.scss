@@ -1,0 +1,4 @@
+// Classnames to simulate pseudo states in storybook
+$story-className--hover: ":global(.__hover)";
+$story-className--active: ":global(.__active)";
+$story-className--focus: ":global(.__focus)";
