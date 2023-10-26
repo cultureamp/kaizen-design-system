@@ -7,9 +7,9 @@ import { ArrowLeftIcon, ArrowRightIcon, HamburgerIcon } from "~components/Icon"
 import { Select } from "~components/Select"
 import { Tag } from "~components/Tag"
 import { useMediaQueries } from "~utils/useMediaQueries"
-import MainActions from "./subcomponents/MainActions"
-import MobileActions from "./subcomponents/MobileActions"
-import SecondaryActions from "./subcomponents/SecondaryActions"
+import { MainActions } from "./subcomponents/MainActions"
+import { MobileActions } from "./subcomponents/MobileActions"
+import { SecondaryActions } from "./subcomponents/SecondaryActions"
 import {
   BreadcrumbProps,
   NavigationTabs,
