@@ -127,9 +127,12 @@ $row-height-data-variant: 48px;
 
   background: $color-white;
   border: solid 1px rgba($color-purple-700-rgb, 0.1);
-  transition: box-shadow $animation-duration-rapid,
-    border-color $animation-duration-rapid, margin $animation-duration-rapid,
-    padding $animation-duration-rapid, width $animation-duration-rapid;
+  transition:
+    box-shadow $animation-duration-rapid,
+    border-color $animation-duration-rapid,
+    margin $animation-duration-rapid,
+    padding $animation-duration-rapid,
+    width $animation-duration-rapid;
 
   // This is an optical hack to stop the card shadow from overlapping over
   // the proceeding cards
