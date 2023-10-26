@@ -1,7 +1,5 @@
 import React from "react"
-import { Button, IconButton } from "@kaizen/button"
-import { Icon } from "@kaizen/component-library"
-import ArrowIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
+import { ArrowRightIcon, Button, IconButton } from "../../index"
 import { isSemanticElement } from "./isSemanticElement"
 
 describe("isSemanticElement", () => {
@@ -54,13 +52,13 @@ describe("isSemanticElement", () => {
   })
 
   it("returns false if provided an element using a role 'presentation' or 'none'", () => {
-    expect(
-      isSemanticElement(<Icon role="presentation" icon={ArrowIcon} />)
-    ).toBe(false)
+    expect(isSemanticElement(<ArrowRightIcon role="presentation" />)).toBe(
+      false
+    )
     expect(
       isSemanticElement(
         <span role="none">
-          <Icon icon={ArrowIcon} />
+          <ArrowRightIcon role="presentation" />
         </span>
       )
     ).toBe(false)
