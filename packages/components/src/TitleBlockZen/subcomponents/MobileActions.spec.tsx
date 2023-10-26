@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import MobileActions from "./MobileActions"
+import { MobileActions } from "./MobileActions"
 
 const user = userEvent.setup()
 
