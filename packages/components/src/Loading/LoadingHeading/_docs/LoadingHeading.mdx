@@ -1,0 +1,45 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
+import * as LoadingHeadingStories from "./LoadingHeading.stories"
+
+<Meta of={LoadingHeadingStories} />
+
+# LoadingHeading
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Loading/LoadingHeading"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=50670%3A115292&mode=design&t=bSqb3WpQ04594DsC-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060062/Loading+Skeleton"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { LoadingHeading } from "@kaizen/components"'
+/>
+
+## Overview
+
+Loading skeleton for <LinkTo pageId="components-heading">Headings</LinkTo>.
+
+<Canvas of={LoadingHeadingStories.Playground} />
+<Controls of={LoadingHeadingStories.Playground} />
+
+## API
+
+<DocsStory of={LoadingHeadingStories.Animated} />
+
+<DocsStory of={LoadingHeadingStories.Reversed} />
+
+<DocsStory of={LoadingHeadingStories.Variant} />
+
+<DocsStory of={LoadingHeadingStories.Link} />
+
+### Width
+
+Control the width percentage of LoadingHeading.
+Note that this depends on the parent's width, so if the parent has no width, it will not be visible.
+
+<Canvas of={LoadingHeadingStories.Width} />
