@@ -14,7 +14,7 @@ const SECONDARY_ACTIONS = [
       {
         onClick: (): void => alert("test"),
         label: "Secondary menu action 2",
-        icon: <StarOnIcon role="presentation"/>,
+        icon: <StarOnIcon role="presentation" />,
       },
     ],
   },
@@ -32,7 +32,7 @@ const meta = {
     surveyStatus: { text: "Live", status: "live" },
     primaryAction: {
       label: "Primary link",
-      icon: <AddIcon role="presentation"/>,
+      icon: <AddIcon role="presentation" />,
       disabled: true,
       href: "#",
     },
@@ -45,12 +45,12 @@ const meta = {
       {
         action: (): void => alert("test"),
         label: "Overflow action 1",
-        icon: <StarOnIcon role="presentation"/>,
+        icon: <StarOnIcon role="presentation" />,
       },
       {
         action: "#",
         label: "Overflow link 1",
-        icon: <StarOnIcon role="presentation"/>,
+        icon: <StarOnIcon role="presentation" />,
       },
     ],
     handleHamburgerClick: (): void => alert("Hamburger clicked"),
@@ -67,7 +67,7 @@ const meta = {
       <NavigationTab key="5" text="Label" href="#" />,
       <NavigationTab key="6" text="Label" href="#" />,
     ],
-  }
+  },
 } satisfies Meta<typeof TitleBlockZen>
 
 export default meta

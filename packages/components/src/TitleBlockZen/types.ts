@@ -130,7 +130,10 @@ export type TitleBlockMenuItemProps =
     })
   | TitleBlockCustomButtonProps
 
-export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<ButtonProps, "onClick">
+export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<
+  ButtonProps,
+  "onClick"
+>
 export type ButtonWithOnClickNotHref = TitleBlockDistributiveOmit<
   TitleBlockButtonProps,
   "href"
@@ -142,7 +145,6 @@ export type MenuGroup = {
 }
 
 export type TitleBlockSelectProps = React.ComponentProps<typeof Select>
-
 
 /*
   This type exists to support omitting keys from a union or intersection type in a distributive manner. `Omit` out of the box will cause you to lose any union or intersection information about the type,
@@ -158,7 +160,6 @@ export type TitleBlockDistributiveOmit<T, K extends keyof any> = T extends any
 export type TitleBlockAvatarProps =
   | Omit<GenericAvatarProps, "size">
   | Omit<CompanyAvatarProps, "size">
-
 
 export type DefaultActionProps =
   | TitleBlockButtonProps

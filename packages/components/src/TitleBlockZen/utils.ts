@@ -1,5 +1,12 @@
 import { MenuItemProps } from "@kaizen/draft-menu"
-import { TitleBlockButtonProps, TitleBlockCustomButtonProps, MenuGroup, TitleBlockVariant, SecondaryActionsProps, TitleBlockMenuItemProps } from "./types"
+import {
+  TitleBlockButtonProps,
+  TitleBlockCustomButtonProps,
+  MenuGroup,
+  TitleBlockVariant,
+  SecondaryActionsProps,
+  TitleBlockMenuItemProps,
+} from "./types"
 
 export const isMenuItemNotButton = (
   value: TitleBlockButtonProps | MenuItemProps
