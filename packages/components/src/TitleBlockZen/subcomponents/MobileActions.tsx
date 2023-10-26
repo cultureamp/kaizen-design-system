@@ -513,3 +513,5 @@ export const MobileActions = ({
     </div>
   )
 }
+
+MobileActions.displayName = "MobileActions"
