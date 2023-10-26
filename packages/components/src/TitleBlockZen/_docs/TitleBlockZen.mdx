@@ -1,4 +1,4 @@
-import { Canvas, Meta } from "@storybook/blocks"
+import { Canvas, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as TitleBlockZenStories from "./TitleBlockZen.stories"
 
@@ -21,3 +21,70 @@ import * as TitleBlockZenStories from "./TitleBlockZen.stories"
 ## Overview
 
 <Canvas of={TitleBlockZenStories.Playground} />
+
+## primaryAction
+
+The primary action (the "main" button in the top right) can either be a Button,
+or a Button that reveals a Menu (a menu button).
+
+If you want it to be a Button, you can't pass in a `<Button />`, because the Title Block needs to grab the Button's
+props and use them to render the mobile actions drawer as well as the Button itself. Instead, you have to pass
+in the Button's props as an object, and there must be a `primary` property set to `true`.
+
+```
+type PrimaryActionProps =
+ | MenuGroup
+ | (TitleBlockButtonProps & { primary: true });
+```
+
+If you want it to be a Menu, pass in this object of type `MenuGroup`:
+
+```
+{
+  label: string
+  menuItems: MenuItemProps[]
+}
+```
+
+Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
+in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
+
+## secondaryActions & secondaryOverflowMenuItems
+
+Secondary Actions sit below the Primary Actions, and consist of
+- actions/links (just a button),
+- menus (a menu button), and
+- the overflow menu (a menu button with a "meatballs" icon).
+
+**IMPORTANT:** The visual order of these from left to right should always be:
+
+```text
+buttons (far left) -> menu buttons -> overflow menu (far right)
+```
+
+The overflow menu has a separate prop that accepts an array of `MenuItemProps`:
+
+```
+secondaryOverflowMenuItems?: MenuItemProps[]
+```
+
+The `secondaryActions` prop accepts an **array** of objects.
+Each object can be a MenuGroup (see code snippet for `primaryAction` above) or an object containing Button props:
+
+```
+type SecondaryActionsProps = Array<MenuGroup | TitleBlockButtonProps>;
+```
+The order of elements in the array will determine the visual order on the page, so
+please be aware of the intended order mentioned above.
+
+## Examples
+
+<DocsStory of={TitleBlockZenStories.WithBadge} />
+
+<DocsStory of={TitleBlockZenStories.WithDefaultTag} />
+
+<DocsStory of={TitleBlockZenStories.WithAvatarProps} />
+
+<DocsStory of={TitleBlockZenStories.WithMenuButton} />
+
+<DocsStory of={TitleBlockZenStories.Subtitle} />
