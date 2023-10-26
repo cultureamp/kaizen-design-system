@@ -15,6 +15,10 @@ export type LoadingHeadingProps = {
   width?: number
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
+/**
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060062/Loading+Skeleton Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-loading-states-loadingheading--docs Storybook}
+ */
 export const LoadingHeading = ({
   isAnimated,
   isReversed,

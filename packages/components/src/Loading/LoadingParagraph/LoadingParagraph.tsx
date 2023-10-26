@@ -17,6 +17,10 @@ export type LoadingParagraphProps = {
   width?: number
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
+/**
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060062/Loading+Skeleton Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-loading-states-loadingparagraph--docs Storybook}
+ */
 export const LoadingParagraph = ({
   isAnimated,
   isCentred,
