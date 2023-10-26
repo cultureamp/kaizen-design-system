@@ -22,7 +22,7 @@ export type TableStoryProps = {
   container?: TableContainerProps
   row?: TableRowProps
   rowCell?: TableRowCellProps
-  headerRowCell?: Omit<TableHeaderRowCellProps, "labelText">
+  headerRowCell: Omit<TableHeaderRowCellProps, "labelText">
   card: TableCardProps
 }
 
@@ -34,6 +34,7 @@ const Table = ({
   card,
 }: TableStoryProps): JSX.Element => {
   const { expanded, ...restCardProps } = card
+  const { checkable, ...restHeaderRowCellProps } = headerRowCell
 
   return (
     <TableContainer {...container}>
@@ -42,22 +43,23 @@ const Table = ({
           <TableHeaderRowCell
             labelText="Resource name"
             width={3 / 12}
-            {...headerRowCell}
+            checkable={checkable}
+            {...restHeaderRowCellProps}
           />
           <TableHeaderRowCell
             labelText="Supplementary information"
             width={3 / 12}
-            {...headerRowCell}
+            {...restHeaderRowCellProps}
           />
           <TableHeaderRowCell
             labelText="Date"
             width={3 / 12}
-            {...headerRowCell}
+            {...restHeaderRowCellProps}
           />
           <TableHeaderRowCell
             labelText="Price"
             width={3 / 12}
-            {...headerRowCell}
+            {...restHeaderRowCellProps}
           />
         </TableRow>
       </TableHeader>
@@ -162,6 +164,7 @@ const meta = {
   },
   args: {
     card: { expanded: false },
+    headerRowCell: { checkable: false },
   },
   decorators: [
     Story => (
@@ -198,6 +201,16 @@ export const Data: Story = {
 export const Compact: Story = {
   render: Table,
   args: { container: { variant: "compact" } },
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+}
+
+export const CheckboxVariant: Story = {
+  render: Table,
+  args: { headerRowCell: { checkable: true } },
   parameters: {
     docs: {
       source: { type: "dynamic" },
