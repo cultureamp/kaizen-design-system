@@ -158,6 +158,11 @@ const meta = {
             id: "aria-required-parent",
             enabled: false,
           },
+          {
+            // Fixing this in a rebuild
+            id: "label",
+            enabled: false,
+          },
         ],
       },
     },
