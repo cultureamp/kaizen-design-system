@@ -13,6 +13,7 @@ export type MultiSelectToggleProps = {
   ["aria-controls"]: string
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
+  deselectOption: (optionValue: MultiSelectOption["value"]) => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelectToggle = forwardRef<
@@ -27,6 +28,7 @@ export const MultiSelectToggle = forwardRef<
       isOpen = false,
       classNameOverride,
       selectedOptions,
+      deselectOption,
       ...restProps
     },
     ref
@@ -80,7 +82,7 @@ export const MultiSelectToggle = forwardRef<
                     <RemovableTag
                       removeButtonProps={{
                         ariaLabel: "Remove option",
-                        onClick: () => console.log("Clicked"),
+                        onClick: () => deselectOption(value),
                       }}
                     >
                       {label}

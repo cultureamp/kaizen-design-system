@@ -57,6 +57,12 @@ export const MultiSelect = ({
     {} as Record<MultiSelectOption["value"], MultiSelectOption>
   )
 
+  const deselectOption = (optionValue: MultiSelectOption["value"]) => {
+    const newValues = new Set(selectedValues.values())
+    newValues.delete(optionValue)
+    onSelectedValuesChange(newValues)
+  }
+
   return (
     <div id={id} className={classnames(classNameOverride)} {...restProps}>
       <Heading tag="span" variant="heading-6" id={`${id}--label`}>
@@ -74,6 +80,7 @@ export const MultiSelect = ({
           selectedOptions={Array.from(selectedValues).map(
             value => itemsMap[value]
           )}
+          deselectOption={deselectOption}
         />
       </div>
 
