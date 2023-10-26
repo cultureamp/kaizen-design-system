@@ -42,7 +42,8 @@ const decorators = [
     return <Story />
   },
   (Story, context) =>
-    context.args.isReversed && context.parameters.backgrounds.default !== "Purple 700" ? (
+    context.args.isReversed &&
+    context.parameters.backgrounds.default !== "Purple 700" ? (
       <div className="bg-purple-700 p-16 m-[-1rem]">
         <Story />
       </div>
