@@ -1,6 +1,8 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { AddIcon, StarOnIcon } from "~components/Icon"
+import { assetUrl } from "@kaizen/hosted-assets/dist"
+import { AddIcon, ArrowForwardIcon, StarOnIcon } from "~components/Icon"
+import { Text } from "~components/Text"
 import { NavigationTab, TitleBlockZen } from "../index"
 
 const SECONDARY_ACTIONS = [
@@ -27,9 +29,11 @@ const SECONDARY_ACTIONS = [
 const meta = {
   title: "Components/TitleBlockZen",
   component: TitleBlockZen,
+  parameters: {
+    chromatic: { disable: false },
+  },
   args: {
     title: "Page title",
-    surveyStatus: { text: "Live", status: "live" },
     primaryAction: {
       label: "Primary link",
       icon: <AddIcon role="presentation" />,
@@ -68,6 +72,13 @@ const meta = {
       <NavigationTab key="6" text="Label" href="#" />,
     ],
   },
+  decorators: [
+    Story => (
+      <div style={{ margin: "-1rem" }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof TitleBlockZen>
 
 export default meta
@@ -81,5 +92,79 @@ export const Playground: Story = {
         sourceState: "shown",
       },
     },
+  },
+}
+
+export const WithBadge: Story = {
+  render: args => {
+    const [badgeCount, setBadgeCount] = React.useState(1)
+    return (
+      <TitleBlockZen
+        {...args}
+        primaryAction={{
+          label: "Click Me",
+          icon: <ArrowForwardIcon role="presentation" />,
+          iconPosition: "end",
+          href: "#",
+          onClick: () => setBadgeCount(b => b + 1),
+          badge: {
+            text: String(badgeCount),
+            animateChange: true,
+          },
+        }}
+        defaultAction={{
+          label: "Default link",
+          onClick: () => setBadgeCount(b => b + 1),
+          href: "#",
+        }}
+      />
+    )
+  },
+}
+
+export const WithAvatarProps: Story = {
+  args: {
+    avatar: {
+      avatarSrc: assetUrl("site/empty-state.png"),
+      fullName: "Blanca Wheeler",
+    },
+  },
+}
+
+export const WithDefaultTag: Story = {
+  args: {
+    surveyStatus: { text: "Due July 8, 2030", status: "default" },
+  },
+}
+
+export const WithMenuButton: Story = {
+  args: {
+    primaryAction: {
+      label: "Menu button",
+      menuItems: [
+        {
+          action: "#",
+          label: "Item 1",
+        },
+        {
+          action: () => alert("Item 2 clicked"),
+          label: "Item 2",
+        },
+        {
+          action: "#",
+          label: "Item 3",
+        },
+      ],
+    },
+  },
+}
+
+export const Subtitle: Story = {
+  args: {
+    subtitle: (
+      <Text variant="body">
+        This is a <a href="/">link</a>
+      </Text>
+    ),
   },
 }
