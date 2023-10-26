@@ -25,14 +25,23 @@ export const Playground: Story = {
     },
   },
   render: args => (
-    <div
-      style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
-    >
-      <Tooltip {...args}>
-        <Button label="Hover or focus me" />
-      </Tooltip>
-    </div>
+    <Tooltip {...args}>
+      <Button label="Hover or focus me" />
+    </Tooltip>
   ),
+  decorators: [
+    Story => (
+      <div
+        style={{
+          marginTop: "100px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const OverflowScroll: StoryFn<typeof Tooltip> = props => (
