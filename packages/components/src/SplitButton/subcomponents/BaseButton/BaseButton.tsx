@@ -10,11 +10,11 @@ type AnchorButtonAttributes = AnchorAttributes & ButtonAttributes
 const isAnchor = (attributes: AnchorButtonAttributes): boolean =>
   !attributes.disabled && attributes.href !== undefined
 
-export type BaseButtonProps = OverrideClassName<AnchorButtonAttributes> & {
+export type BaseButtonProps = {
   label: string
   icon?: React.SVGAttributes<SVGSymbolElement>
   isReversed?: boolean
-}
+} & OverrideClassName<AnchorButtonAttributes>
 
 export const BaseButton = ({
   label,

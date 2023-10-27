@@ -44,8 +44,8 @@ export type SplitButtonProps = {
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 /**
- * {@link https://cultureamp.design/components/split-button/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-split-button--default-kaizen-site-demo Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896196/Split+Button Guidance} |
+ * {@link https://cultureamp.design/storybook/?path=/docs/components-splitbutton--docs Storybook}
  */
 export const SplitButton = ({
   actionButtonProps,
