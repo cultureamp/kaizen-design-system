@@ -2,10 +2,10 @@ import React, { HTMLAttributes, cloneElement, useId } from "react"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./MenuList.module.scss"
 
-export type MenuListProps = { ... } & OverrideClassName<HTMLAttributes<HTMLUListElement>>
+export type MenuListProps = {
   heading?: JSX.Element
   children: React.ReactNode
-}
+} & OverrideClassName<HTMLAttributes<HTMLUListElement>>
 
 export const MenuList = (props: MenuListProps): JSX.Element => {
   const { heading, children, ...restProps } = props
