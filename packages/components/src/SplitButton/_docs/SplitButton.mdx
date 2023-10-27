@@ -1,0 +1,45 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
+import * as SplitButtonStories from "./SplitButton.stories"
+
+<Meta of={SplitButtonStories} />
+
+# SplitButton
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/SplitButton"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A27099&mode=design&t=RLNQBBYrMF21quZb-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896196/Split+Button"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { SplitButton } from "@kaizen/components"'
+/>
+
+## Overview
+
+A primary action button with a dropdown containing one or more secondary actions.
+
+<Canvas of={SplitButtonStories.Playground} />
+<Controls of={SplitButtonStories.Playground} />
+
+## API
+
+<DocsStory of={SplitButtonStories.Reversed} />
+
+### Disabled
+
+Disable both buttons with `disabled`.
+
+<Canvas of={SplitButtonStories.Disabled} />
+
+#### Disabled MenuItem
+
+If you only want to disable an option within the dropdown, add `disabled` to the
+<LinkTo pageId="components-menu">MenuItem</LinkTo> instead of SplitButton.
+
+<Canvas of={SplitButtonStories.DisabledMenuItem} />

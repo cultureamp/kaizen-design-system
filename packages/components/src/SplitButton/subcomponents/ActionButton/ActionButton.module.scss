@@ -1,0 +1,8 @@
+@import "~@kaizen/design-tokens/sass/border";
+
+.actionButton {
+  border-start-start-radius: $border-solid-border-radius;
+  border-end-start-radius: $border-solid-border-radius;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
