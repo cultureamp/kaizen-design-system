@@ -2,4 +2,4 @@
 "@kaizen/components": minor
 ---
 
-Migrate Menu to `kaizen-legacy`
+Migrate Menu from `kaizen-legacy`
