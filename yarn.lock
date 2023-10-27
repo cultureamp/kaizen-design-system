@@ -2733,7 +2733,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
   integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
 
-"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.0", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
+"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
   version "16.10.0"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.10.0.tgz#59511cae7c5d39390deb91ed9b3a832928bed461"
   integrity sha512-1vX6aQG6TpS34ETcu9L8qStgqWYhFrIw+ke6xvOn2jehW9A97mQLR5rGJbsE6kbTdZKP4zcBcrd21vQ0a9Lb2A==
@@ -2806,21 +2806,6 @@
     "@kaizen/hosted-assets" "^2.0.3"
     classnames "^2.3.2"
     jszip "^3.10.1"
-
-"@kaizen/draft-menu@^5.0.2":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-menu/-/draft-menu-5.1.0.tgz#fe4e0b73bfe85ce929382f8bfa7d62ee1c064ff6"
-  integrity sha512-2guXevd/v/V0G7MMn21FLsTyeEHivVHdZeD9E8oe9sogO8iT2m2i2G+J3U770Si9SQ2z778JDlWOh7AAaTup2A==
-  dependencies:
-    "@kaizen/button" "^3.0.5"
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.0"
-    "@kaizen/draft-divider" "^2.2.11"
-    "@kaizen/typography" "^2.3.11"
-    "@popperjs/core" "^2.11.8"
-    classnames "^2.3.2"
-    react-popper "^2.3.0"
-    uuid "^9.0.0"
 
 "@kaizen/draft-page-layout@^2.3.13":
   version "2.3.13"
