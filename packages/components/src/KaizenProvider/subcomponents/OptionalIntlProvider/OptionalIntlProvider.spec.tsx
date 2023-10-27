@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import { IntlProvider } from "react-intl"
-import { OptionalIntlProvider } from "../OptionalIntlProvider"
+import { OptionalIntlProvider } from "."
 
 jest.mock("@cultureamp/i18n-react-intl", () => ({
   StaticIntlProvider: ({ children }: { children: React.ReactElement }) => (
