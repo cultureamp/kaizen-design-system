@@ -34,7 +34,6 @@ describe("<ToastNotificationsListContainer />", () => {
           type: "informative",
           title: "Title goes here",
           message: <>Child content</>,
-          autohide: false,
           onHide: removeToastNotification,
         },
       ])
@@ -60,7 +59,6 @@ describe("<ToastNotificationsListContainer />", () => {
           type: "informative",
           title: "Title goes here",
           message: <>Child content</>,
-          autohide: false,
           onHide: removeToastNotification,
         },
       ])

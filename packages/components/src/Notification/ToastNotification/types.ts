@@ -8,15 +8,19 @@ export type ToastNotification = {
   title: string
   message: React.ReactNode
   onHide?: () => void
-  automationId?: string
+  /**
+   * If this is true you will need to manage a way to remove the notification
+   * @default: false
+   */
   persistent?: boolean
+  /** * This is here for convenience and testing purposes */
+  testId?: string
 }
 
 export type ToastNotificationWithOptionals = Modify<
   ToastNotification,
   {
     id?: string
-    autohide?: boolean
   }
 >
 

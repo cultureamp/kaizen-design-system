@@ -1,5 +1,6 @@
 import React, { useId } from "react"
 import { createRoot } from "react-dom/client"
+import { v4 } from "uuid"
 import {
   AddToastNotification,
   ClearToastNotifications,
@@ -7,6 +8,7 @@ import {
   ToastNotification,
   ToastNotificationWithOptionals,
 } from "../../types"
+
 import { ToastNotificationsListContainer } from "../ToastNotificationsListContainer"
 
 type ToastNotificationApi = {
@@ -28,10 +30,7 @@ const setDefaults = (
 ): ToastNotification => {
   const copy = { ...notificationMaybe }
   if (typeof copy.id === "undefined") {
-    copy.id = useId()
-  }
-  if (typeof copy.autohide === "undefined") {
-    copy.autohide = true
+    copy.id = v4()
   }
   return copy as ToastNotification
 }
@@ -39,13 +38,14 @@ const setDefaults = (
 /**
  * Create an instance of the toast notification manager
  * Renders ToastNotifications in an independent React tree
- * @returns {addToastNotification, removeToastNotification, clearToastNotifications}
+ * @returns { addToastNotification, removeToastNotification, clearToastNotifications }
  */
 const createToastNotificationManager = (): ToastNotificationApi => {
   let setNotifications:
     | React.Dispatch<React.SetStateAction<ToastNotification[]>>
     | undefined
   if (portal === undefined && typeof window !== "undefined") {
+    // automation and testid appear to be consume in other repos, we'll need to refactor before we remove so they can be added in
     portal = document.createElement("div")
     portal.setAttribute(
       "data-automation-id",

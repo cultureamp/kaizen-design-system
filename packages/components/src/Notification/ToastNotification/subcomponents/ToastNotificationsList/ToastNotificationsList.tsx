@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import { OverrideClassName } from "~types/OverrideClassName"
-import GenericNotification from "../../../GenericNotification"
+import { GenericNotification } from "../../../subcomponents/GenericNotification"
 import { RemoveToastNotification, ToastNotification } from "../../types"
 import styles from "./ToastNotificationsList.module.scss"
 
@@ -11,26 +11,29 @@ export type ToastNotificationsListProps = {
 
 export const ToastNotificationsList = ({
   notifications,
-  onHide,
+  onHide: defaultOnHide,
 }: ToastNotificationsListProps): JSX.Element => (
   <div className={styles.list}>
-    {notifications.map(notification => (
-      <GenericNotification
-        key={notification.id}
-        style="toast"
-        type={notification.type}
-        title={notification.title}
-        persistent={notification.persistent}
-        onHide={(): void => {
-          if (typeof notification.onHide !== "undefined") {
-            notification.onHide()
-          }
-          onHide(notification.id)
-        }}
-      >
-        {notification.message}
-      </GenericNotification>
-    ))}
+    {notifications.map(
+      ({ id, type, title, persistent, onHide, testId, message }) => (
+        <GenericNotification
+          key={id}
+          style="toast"
+          type={type}
+          title={title}
+          persistent={persistent}
+          onHide={(): void => {
+            if (typeof onHide !== "undefined") {
+              onHide()
+            }
+            defaultOnHide(id)
+          }}
+          data-testid={testId}
+        >
+          {message}
+        </GenericNotification>
+      )
+    )}
   </div>
 )
 
