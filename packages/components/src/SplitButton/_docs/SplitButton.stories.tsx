@@ -1,52 +1,14 @@
-import React from "react"
-import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { MenuItem, MenuList } from "~components/Menu"
+import {
+  exampleActionButtonPropsAnchor,
+  exampleActionButtonPropsButton,
+  exampleDropdownContentEnabled,
+  exampleDropdownContentOneDisabled,
+} from "~components/Menu/_docs/examples"
 import { SplitButton } from "../index"
 
-const ACTION_BUTTON_PROPS__BUTTON = {
-  label: "Edit Survey",
-  onClick: action("clicked"),
-}
-const ACTION_BUTTON_PROPS__ANCHOR = {
-  label: "Edit Survey",
-  href: "//example.com",
-}
-
-const DROPDOWN_CONTENT__ENABLED = (
-  <MenuList>
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={editIcon}
-      label="Menu Item 1"
-      onClick={action("clicked")}
-    />
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={duplicateIcon}
-      label="Menu Item 2"
-    />
-  </MenuList>
-)
-
-const DROPDOWN_CONTENT__ONE_DISABLED = (
-  <MenuList>
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={editIcon}
-      label="Menu Item 1"
-      disabled
-    />
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={duplicateIcon}
-      label="Menu Item 2"
-    />
-  </MenuList>
-)
-
 const meta = {
-  title: "Components/SplitButton",
+  title: "Components/Buttons/SplitButton",
   component: SplitButton,
   argTypes: {
     actionButtonProps: {
@@ -59,8 +21,8 @@ const meta = {
         },
       },
       mapping: {
-        Button: ACTION_BUTTON_PROPS__BUTTON,
-        Anchor: ACTION_BUTTON_PROPS__ANCHOR,
+        Button: exampleActionButtonPropsButton,
+        Anchor: exampleActionButtonPropsAnchor,
       },
     },
     dropdownContent: {
@@ -70,14 +32,14 @@ const meta = {
       ],
       control: { type: "select" },
       mapping: {
-        "MenuList - MenuItems enabled": DROPDOWN_CONTENT__ENABLED,
-        "MenuList - one MenuItem disabled": DROPDOWN_CONTENT__ONE_DISABLED,
+        "MenuList - MenuItems enabled": exampleDropdownContentEnabled,
+        "MenuList - one MenuItem disabled": exampleDropdownContentOneDisabled,
       },
     },
   },
   args: {
-    actionButtonProps: ACTION_BUTTON_PROPS__BUTTON,
-    dropdownContent: DROPDOWN_CONTENT__ENABLED,
+    actionButtonProps: exampleActionButtonPropsButton,
+    dropdownContent: exampleDropdownContentEnabled,
   },
 } satisfies Meta<typeof SplitButton>
 
@@ -98,4 +60,12 @@ export const Playground: Story = {
 export const Reversed: Story = {
   parameters: { backgrounds: { default: "Purple 700" } },
   args: { isReversed: true },
+}
+
+export const Disabled: Story = {
+  args: { disabled: true },
+}
+
+export const DisabledMenuItem: Story = {
+  args: { dropdownContent: "MenuList - one MenuItem disabled" },
 }

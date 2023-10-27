@@ -1,56 +1,18 @@
 import React from "react"
-import { action } from "@storybook/addon-actions"
 import { Meta } from "@storybook/react"
-import { MenuItem, MenuList } from "~components/Menu"
+import {
+  exampleActionButtonPropsAnchor,
+  exampleActionButtonPropsButton,
+  exampleDropdownContentEnabled,
+} from "~components/Menu/_docs/examples"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 import { SplitButton, SplitButtonProps } from "../index"
 
-const ACTION_BUTTON_PROPS__BUTTON = {
-  label: "Edit Survey",
-  onClick: action("clicked"),
-}
-const ACTION_BUTTON_PROPS__ANCHOR = {
-  label: "Edit Survey",
-  href: "//example.com",
-}
-
-const DROPDOWN_CONTENT__ENABLED = (
-  <MenuList>
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={editIcon}
-      label="Menu Item 1"
-      onClick={action("clicked")}
-    />
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={duplicateIcon}
-      label="Menu Item 2"
-    />
-  </MenuList>
-)
-
-const DROPDOWN_CONTENT__ONE_DISABLED = (
-  <MenuList>
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={editIcon}
-      label="Menu Item 1"
-      disabled
-    />
-    <MenuItem
-      // @todo: Add icon when Menu migrated
-      // icon={duplicateIcon}
-      label="Menu Item 2"
-    />
-  </MenuList>
-)
-
 export default {
-  title: "Components/SplitButton",
+  title: "Components/Buttons/SplitButton",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -60,18 +22,13 @@ export default {
 const ROWS_MAP = [
   {
     rowTitle: "Default",
-    actionButtonProps: ACTION_BUTTON_PROPS__BUTTON,
-    dropdownContent: DROPDOWN_CONTENT__ENABLED,
+    actionButtonProps: exampleActionButtonPropsButton,
+    dropdownContent: exampleDropdownContentEnabled,
   },
   {
     rowTitle: "Anchor Link",
-    actionButtonProps: ACTION_BUTTON_PROPS__ANCHOR,
-    dropdownContent: DROPDOWN_CONTENT__ENABLED,
-  },
-  {
-    rowTitle: "With Disabled Dropdown Option",
-    actionButtonProps: ACTION_BUTTON_PROPS__BUTTON,
-    dropdownContent: DROPDOWN_CONTENT__ONE_DISABLED,
+    actionButtonProps: exampleActionButtonPropsAnchor,
+    dropdownContent: exampleDropdownContentEnabled,
   },
 ] satisfies Array<{ rowTitle: string } & SplitButtonProps>
 
@@ -105,45 +62,45 @@ const StickerSheetTemplate: StickerSheetStory = {
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={{
-                ...ACTION_BUTTON_PROPS__BUTTON,
+                ...exampleActionButtonPropsButton,
                 "data-sb-pseudo-styles": "hover",
               }}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              dropdownContent={exampleDropdownContentEnabled}
             />
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={{
-                ...ACTION_BUTTON_PROPS__BUTTON,
+                ...exampleActionButtonPropsButton,
                 "data-sb-pseudo-styles": "active",
               }}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              dropdownContent={exampleDropdownContentEnabled}
             />
             <SplitButton
               isReversed={isReversed}
               actionButtonProps={{
-                ...ACTION_BUTTON_PROPS__BUTTON,
+                ...exampleActionButtonPropsButton,
                 "data-sb-pseudo-styles": "focus",
               }}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              dropdownContent={exampleDropdownContentEnabled}
             />
           </StickerSheet.Row>
           <StickerSheet.Row rowTitle="Dropdown button">
             <SplitButton
               isReversed={isReversed}
-              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              actionButtonProps={exampleActionButtonPropsButton}
+              dropdownContent={exampleDropdownContentEnabled}
               dropdownButtonProps={{ "data-sb-pseudo-styles": "hover" }}
             />
             <SplitButton
               isReversed={isReversed}
-              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              actionButtonProps={exampleActionButtonPropsButton}
+              dropdownContent={exampleDropdownContentEnabled}
               dropdownButtonProps={{ "data-sb-pseudo-styles": "active" }}
             />
             <SplitButton
               isReversed={isReversed}
-              actionButtonProps={ACTION_BUTTON_PROPS__BUTTON}
-              dropdownContent={DROPDOWN_CONTENT__ENABLED}
+              actionButtonProps={exampleActionButtonPropsButton}
+              dropdownContent={exampleDropdownContentEnabled}
               dropdownButtonProps={{ "data-sb-pseudo-styles": "focus" }}
             />
           </StickerSheet.Row>

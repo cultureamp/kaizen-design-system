@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
 import * as SplitButtonStories from "./SplitButton.stories"
 
 <Meta of={SplitButtonStories} />
@@ -30,3 +30,16 @@ A primary action button with a dropdown containing one or more secondary actions
 ## API
 
 <DocsStory of={SplitButtonStories.Reversed} />
+
+### Disabled
+
+Disable both buttons with `disabled`.
+
+<Canvas of={SplitButtonStories.Disabled} />
+
+#### Disabled MenuItem
+
+If you only want to disable an option within the dropdown, add `disabled` to the
+<LinkTo pageId="components-menu">MenuItem</LinkTo> instead of SplitButton.
+
+<Canvas of={SplitButtonStories.DisabledMenuItem} />
