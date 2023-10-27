@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
-import { MenuItem, MenuList, MenuHeading } from "@kaizen/draft-menu"
 import { ButtonProps } from "~components/Button"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
+import { MenuItem, MenuList, MenuHeading } from "~components/Menu"
 import {
   DefaultActionProps,
   PrimaryActionProps,
@@ -23,7 +23,7 @@ import {
 import styles from "./MobileActions.module.scss"
 
 const menuItemIsLink: (item: TitleBlockMenuItemProps) => boolean = item =>
-  "href" in item || (!("component" in item) && typeof item.action === "string")
+  "href" in item
 
 const defaultActionIsLink: (action: DefaultActionProps) => boolean = action =>
   "href" in action

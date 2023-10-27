@@ -4,7 +4,7 @@
 
 import React from "react"
 import classnames from "classnames"
-import { MenuProps } from "@kaizen/draft-menu"
+import { MenuProps } from "~components/Menu"
 import { ButtonProps } from "~components/Button"
 import styles from "./Toolbar.module.scss"
 

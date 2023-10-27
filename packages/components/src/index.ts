@@ -32,11 +32,7 @@ export * from "./Input"
 export * from "./KaizenProvider"
 export * from "./Label"
 export * from "./LabelledMessage"
-<<<<<<< HEAD
-=======
-export * from "./Loading"
 export * from "./Menu"
->>>>>>> 088d7acb0a43c3fdf723a23804c50d922a8ea147
 export * from "./Modal"
 export * from "./Notification"
 export * from "./Popover"

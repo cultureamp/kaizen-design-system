@@ -1,4 +1,4 @@
-import { MenuItemProps } from "@kaizen/draft-menu"
+import { MenuItemProps } from "~components/Menu"
 import {
   TitleBlockButtonProps,
   TitleBlockCustomButtonProps,

@@ -1,6 +1,6 @@
-import { MenuItemProps } from "@kaizen/draft-menu"
 import { CompanyAvatarProps, GenericAvatarProps } from "~components/Avatar"
 import { ButtonProps, CustomButtonProps } from "~components/Button"
+import { MenuItemProps } from "~components/Menu"
 import { Select } from "~components/Select"
 import { NavigationTabProps } from "./subcomponents/NavigationTabs"
 

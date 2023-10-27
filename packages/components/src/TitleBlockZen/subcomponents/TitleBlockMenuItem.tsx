@@ -1,8 +1,8 @@
 import React from "react"
 import classnames from "classnames"
-import { MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import { CustomButtonProps } from "~components/Button"
 import { MeatballsIcon } from "~components/Icon"
+import { MenuItem, MenuItemProps } from "~components/Menu"
 import styles from "./TitleBlockMenuItem.module.scss"
 
 export type TitleBlockMenuItemProps =

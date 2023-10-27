@@ -1,7 +1,7 @@
 import React from "react"
-import { Menu, MenuList } from "@kaizen/draft-menu"
 import { Button, IconButton } from "~components/Button"
 import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
+import { Menu, MenuList } from "~components/Menu"
 import { DefaultActionProps, PrimaryActionProps } from "../types"
 import { isMenuGroupNotButton } from "../utils"
 import {
