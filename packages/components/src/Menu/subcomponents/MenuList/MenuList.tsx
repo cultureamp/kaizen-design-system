@@ -2,8 +2,7 @@ import React, { HTMLAttributes, cloneElement, useId } from "react"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./MenuList.module.scss"
 
-export interface MenuListProps
-  extends OverrideClassName<HTMLAttributes<HTMLUListElement>> {
+export type MenuListProps = { ... } & OverrideClassName<HTMLAttributes<HTMLUListElement>>
   heading?: JSX.Element
   children: React.ReactNode
 }
