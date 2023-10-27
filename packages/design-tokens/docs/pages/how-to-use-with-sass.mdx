@@ -5,13 +5,27 @@ import exampleSass from "!!raw-loader!./examples/example.scss"
 
 <Meta title="Systems/Tokens/How to use design tokens in SASS" parameters={{ docsOnly: true }} />
 
-# How to use design tokens in SASS
+# Access tokens via SCSS
 
-## 1. Setup a ThemeManager
+## 1. Set up a KaizenProvider
 
-Ensure you have followed the steps in <LinkTo pageId="systems-tokens-getting-started">Getting started</LinkTo> to setup your application for using design tokens.
+Ensure you have followed the steps in <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> to set up your application for using themes.
 
 ## 2. Start using design tokens
+
+There are 2 different ways you can utilise the tokens:
+1. Via CSS vars directly (Recommended)
+2. Importing SCSS vars from `@kaizen/design-tokens`
+
+### Using CSS Vars
+
+```scss
+.myCustomClassName {
+  background-color: vars(--color-gray-100);
+}
+```
+
+### Importing SCSS vars
 
 * Import the CSS variable versions of the tokens
 * Use these tokens in your CSS. They will be compiled to CSS variables (e.g. `$color-purple-800` will become `var(--color-purple-800)`)

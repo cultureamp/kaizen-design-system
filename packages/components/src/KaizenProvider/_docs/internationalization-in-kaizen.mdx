@@ -26,7 +26,7 @@ For a full list of our supported languages and their tiers, see [here](https://g
 
 Setting up internationalization for Kaizen components involves:
 
-- Adding unified-home’s `react-intl` [webpack-plugin](https://github.com/cultureamp/unified-home/tree/master/packages/i18n-react-intl#integrating-with-webpack) to your webpack config
+- Adding unified-home's `react-intl` [webpack-plugin](https://github.com/cultureamp/unified-home/tree/master/packages/i18n-react-intl#integrating-with-webpack) to your webpack config
 
 - Wrapping your app in the <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo>
 
@@ -49,9 +49,9 @@ import { KaizenProvider } from "@kaizen/components"
 </DynamicIntlProvider>
 ```
 
-### When your app isn’t set up with a provider from `@cultureamp/i18n-react-intl`
+### When your app isn't set up with a provider from `@cultureamp/i18n-react-intl`
 
-In these cases, you’ll need to pass the current locale as a prop to the `KaizenProvider`, so it knows which language is currently active.
+In these cases, you'll need to pass the current locale as a prop to the `KaizenProvider`, so it knows which language is currently active.
 
 ```tsx
 import { KaizenProvider } from "@kaizen/components"
