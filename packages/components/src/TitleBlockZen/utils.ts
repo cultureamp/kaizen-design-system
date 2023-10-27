@@ -45,12 +45,12 @@ export const convertSecondaryActionsToMenuItems = (
       disabled: cur.disabled,
     }
 
-    if ("onClick" in cur || ("onClick" in cur && "href" in cur)) {
+    if ("onClick" in cur) {
       return [
         ...acc,
         {
           ...out,
-          action: cur.onClick,
+          onClick: cur.onClick,
         },
       ]
     }
@@ -59,7 +59,7 @@ export const convertSecondaryActionsToMenuItems = (
         ...acc,
         {
           ...out,
-          action: cur.href,
+          href: cur.href,
         },
       ]
     }

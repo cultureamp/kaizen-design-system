@@ -122,7 +122,6 @@ const renderSecondaryActions = (
     <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-secondary-action-${idx}`}
-      automationId="title-block-mobile-actions-secondary-action"
       data-testid="title-block-mobile-actions-secondary-action"
     />
   ))
@@ -135,7 +134,6 @@ const renderSecondaryOverflowMenuItems = (
     <TitleBlockMenuItem
       {...item}
       key={`title-block-mobile-actions-overflow-menu-item-${idx}`}
-      automationId="title-block-mobile-actions-overflow-menu-item"
       data-testid="title-block-mobile-actions-overflow-menu-item"
     />
   ))
@@ -193,7 +191,6 @@ const renderDrawerHandleLabel = (
       <>
         <span
           className={styles.drawerHandleLabelText}
-          data-automation-id="drawer-handle-lable-text"
           data-testid="drawer-handle-lable-text"
         >
           {label}
@@ -207,7 +204,6 @@ const renderDrawerHandleLabel = (
         <>{icon && <span className={styles.drawerHandleIcon}>{icon}</span>}</>
         <span
           className={styles.drawerHandleLabelText}
-          data-automation-id="drawer-handle-lable-text"
           data-testid="drawer-handle-lable-text"
         >
           {label}
@@ -237,7 +233,6 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryLabel,
           styles.mobileActionsPrimaryButton
         )}
-        data-automation-id="title-block-mobile-actions-primary-button"
         data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
@@ -253,7 +248,6 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryLabel,
           styles.mobileActionsPrimaryButton
         )}
-        data-automation-id="title-block-mobile-actions-primary-button"
         data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
@@ -268,7 +262,6 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
           styles.mobileActionsPrimaryLabel,
           styles.mobileActionsPrimaryButton
         )}
-        data-automation-id="title-block-mobile-actions-primary-button"
         data-testid="title-block-mobile-actions-primary-button"
       >
         {children}
@@ -284,7 +277,6 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps): JSX.Element => {
         styles.mobileActionsPrimaryLabel,
         styles.mobileActionsPrimaryButton
       )}
-      data-automation-id="title-block-mobile-actions-primary-button"
       data-testid="title-block-mobile-actions-primary-button"
     >
       {children}
@@ -343,7 +335,6 @@ const DrawerHandle = ({
             styles.mobileActionsTopRow,
             styles.mobileActionsTopRowSingleButton
           )}
-          data-automation-id="title-block-mobile-actions-drawer-handle"
           data-testid="title-block-mobile-actions-drawer-handle"
         >
           <button
@@ -375,7 +366,6 @@ const DrawerHandle = ({
           styles.mobileActionsTopRow,
           !showDrawer && styles.mobileActionsTopRowSingleButton
         )}
-        data-automation-id="title-block-mobile-actions-drawer-handle"
         data-testid="title-block-mobile-actions-drawer-handle"
       >
         {"component" in primaryAction ? (
@@ -431,7 +421,6 @@ const DrawerHandle = ({
           styles.mobileActionsTopRow,
           styles.mobileActionsTopRowSingleButton
         )}
-        data-automation-id="title-block-mobile-actions-drawer-handle"
         data-testid="title-block-mobile-actions-drawer-handle"
       >
         <button

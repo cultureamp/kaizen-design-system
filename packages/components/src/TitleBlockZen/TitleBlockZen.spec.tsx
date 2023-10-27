@@ -226,11 +226,11 @@ describe("<TitleBlockZen />", () => {
       menuItems: [
         {
           label: "Menu item 1",
-          action: "#",
+          href: "#",
         },
         {
           label: "Menu item 1",
-          action: "#",
+          href: "#",
         },
       ],
     }
@@ -311,6 +311,7 @@ describe("<TitleBlockZen />", () => {
     const defaultActionAsButton = {
       label: "defaultActionLabel",
       onClick: testOnClickFn,
+      "data-testid": "title-block-mobile-actions-default-action",
     }
 
     beforeEach(() => {
@@ -594,7 +595,7 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a secondary action is passed with only an href", () => {
-    const secondaryActionWithLinkAndOnClick = {
+    const secondaryActionWithLink = {
       label: "secondaryActionLabel",
       href: "#secondaryActionHref",
     }
@@ -603,16 +604,14 @@ describe("<TitleBlockZen />", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
           title="Test Title"
-          secondaryActions={[secondaryActionWithLinkAndOnClick]}
+          secondaryActions={[secondaryActionWithLink]}
         >
           Example
         </TitleBlockZen>
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
-      expect(btn[0].getAttribute("href")).toEqual(
-        secondaryActionWithLinkAndOnClick.href
-      )
+      expect(btn[0].getAttribute("href")).toEqual(secondaryActionWithLink.href)
     })
   })
 
@@ -907,8 +906,7 @@ describe("<TitleBlockZen />", () => {
       <a
         className={props.className}
         href={props.href}
-        data-automation-id={props.automationId}
-        data-testid={props.automationId}
+        data-testid={props["data-testid"]}
       >
         {props.children}
       </a>
@@ -918,8 +916,7 @@ describe("<TitleBlockZen />", () => {
         type="button"
         className={props.className}
         onClick={props.onClick}
-        data-automation-id={props.automationId}
-        data-testid={props.automationId}
+        data-testid={props["data-testid"]}
       >
         {props.children}
       </button>
