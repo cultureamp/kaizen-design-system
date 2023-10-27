@@ -2,7 +2,11 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
+<<<<<<< HEAD
 @import "../..//styles/legacy/grid";
+=======
+@import "../../styles/legacy/grid";
+>>>>>>> 088d7acb0a43c3fdf723a23804c50d922a8ea147
 @import "../../styles/legacy/layout";
 @import "../../styles/button-reset";
 @import "../../styles/layers";
@@ -443,7 +447,11 @@ $tab-container-height-medium-and-small-collapsed: 0;
   height: 100%;
 }
 
+<<<<<<< HEAD
 %navigationTabEdgeShadow {
+=======
+.navigationTabEdgeShadow {
+>>>>>>> 088d7acb0a43c3fdf723a23804c50d922a8ea147
   display: none;
   pointer-events: none;
 

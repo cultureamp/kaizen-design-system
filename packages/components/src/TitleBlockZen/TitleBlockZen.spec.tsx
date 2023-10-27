@@ -4,6 +4,10 @@ import userEvent from "@testing-library/user-event"
 import { mockMatchMedia } from "~utils/useMediaQueries.spec"
 import { CustomBreadcrumbProps, SectionTitleRenderProps } from "./types"
 import { TitleBlockZen } from "./index"
+<<<<<<< HEAD
+=======
+import "@testing-library/jest-dom"
+>>>>>>> 088d7acb0a43c3fdf723a23804c50d922a8ea147
 
 const user = userEvent.setup()
 

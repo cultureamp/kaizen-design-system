@@ -1,0 +1,11 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$gutter: calc(#{$spacing-md} * 1 / 6);
+
+.heading {
+  padding: 10px $spacing-sm 5px;
+  color: $color-purple-800;
+  margin: 0 $gutter;
+  display: block;
+}

@@ -33,11 +33,11 @@
     "clean": "rimraf dist node_modules",
     "build:components": "rollup -c",
     "compile": "tsc",
-    "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
-    "dist:combine-styles": "concat-cli -f ./dist/esm/*.css ./dist/*.css -o ./dist/raw-styles.css",
-    "dist:copy-tailwind": "cp styles/tailwind.css dist/tailwind.css",
+    "dist:clean": "rm ./dist/global.css ./dist/raw-styles.css",
+    "dist:combine-styles": "concat-cli -f ./dist/*.css ./dist/esm/*.css -o ./dist/raw-styles.css",
+    "dist:copy-global-css": "cp styles/global.css dist/global.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
-    "postBuild": "yarn dist:copy-tailwind && yarn dist:combine-styles && yarn dist:postcss",
+    "postBuild": "yarn dist:copy-global-css && yarn dist:combine-styles && yarn dist:postcss",
     "update-icons": "./src/Icon/bin/update-icons.sh"
   },
   "dependencies": {
@@ -45,7 +45,6 @@
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.0",
     "@kaizen/brand": "^1.5.8",
-    "@kaizen/design-tokens": "^10.3.13",
     "@kaizen/draft-badge": "^1.13.12",
     "@kaizen/draft-divider": "^2.2.11",
     "@kaizen/draft-form": "^10.5.0",
