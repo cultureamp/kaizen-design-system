@@ -45,7 +45,7 @@ const decorators = [
     return <Story />
   },
   (Story, context) =>
-    context.args.isReversed && !IS_CHROMATIC ? (
+    (context.args.isReversed || context.args.reversed) && !IS_CHROMATIC ? (
       <div className="bg-purple-700 p-16 m-[-1rem]">
         <Story />
       </div>
