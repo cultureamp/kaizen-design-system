@@ -1,4 +1,4 @@
-import { Canvas, DocsStory, Meta } from "@storybook/blocks"
+import { Canvas, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as TitleBlockZenStories from "./TitleBlockZen.stories"
 
@@ -77,16 +77,3 @@ type SecondaryActionsProps = Array<MenuGroup | TitleBlockButtonProps>;
 ```
 The order of elements in the array will determine the visual order on the page, so
 please be aware of the intended order mentioned above.
-
-## Examples
-
-<DocsStory of={TitleBlockZenStories.WithBadge} />
-
-<DocsStory of={TitleBlockZenStories.WithDefaultTag} />
-
-<DocsStory of={TitleBlockZenStories.WithAvatarProps} />
-
-<DocsStory of={TitleBlockZenStories.WithMenuButton} />
-
-<DocsStory of={TitleBlockZenStories.Subtitle} />
-

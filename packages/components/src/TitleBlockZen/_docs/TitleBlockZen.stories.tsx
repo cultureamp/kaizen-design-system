@@ -1,8 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { assetUrl } from "@kaizen/hosted-assets/dist"
-import { AddIcon, ArrowForwardIcon, StarOnIcon } from "~components/Icon"
-import { Text } from "~components/Text"
+import { assetUrl } from "@kaizen/hosted-assets"
+import { AddIcon, StarOnIcon } from "~components/Icon"
 import { NavigationTab, TitleBlockZen } from "../index"
 
 const SECONDARY_ACTIONS = [
@@ -34,6 +33,11 @@ const meta = {
   },
   args: {
     title: "Page title",
+    surveyStatus: { text: "Due July 8, 2030", status: "default" },
+    avatar: {
+      avatarSrc: assetUrl("site/empty-state.png"),
+      fullName: "Blanca Wheeler",
+    },
     primaryAction: {
       label: "Primary link",
       icon: <AddIcon role="presentation" />,
@@ -95,76 +99,76 @@ export const Playground: Story = {
   },
 }
 
-export const WithBadge: Story = {
-  render: args => {
-    const [badgeCount, setBadgeCount] = React.useState(1)
-    return (
-      <TitleBlockZen
-        {...args}
-        primaryAction={{
-          label: "Click Me",
-          icon: <ArrowForwardIcon role="presentation" />,
-          iconPosition: "end",
-          href: "#",
-          onClick: () => setBadgeCount(b => b + 1),
-          badge: {
-            text: String(badgeCount),
-            animateChange: true,
-          },
-        }}
-        defaultAction={{
-          label: "Default link",
-          onClick: () => setBadgeCount(b => b + 1),
-          href: "#",
-        }}
-      />
-    )
-  },
-}
+// export const WithBadge: Story = {
+//   render: args => {
+//     const [badgeCount, setBadgeCount] = React.useState(1)
+//     return (
+//       <TitleBlockZen
+//         {...args}
+//         primaryAction={{
+//           label: "Click Me",
+//           icon: <ArrowForwardIcon role="presentation" />,
+//           iconPosition: "end",
+//           href: "#",
+//           onClick: () => setBadgeCount(b => b + 1),
+//           badge: {
+//             text: String(badgeCount),
+//             animateChange: true,
+//           },
+//         }}
+//         defaultAction={{
+//           label: "Default link",
+//           onClick: () => setBadgeCount(b => b + 1),
+//           href: "#",
+//         }}
+//       />
+//     )
+//   },
+// }
 
-export const WithAvatarProps: Story = {
-  args: {
-    avatar: {
-      avatarSrc: assetUrl("site/empty-state.png"),
-      fullName: "Blanca Wheeler",
-    },
-  },
-}
+// export const WithAvatarProps: Story = {
+//   args: {
+//     avatar: {
+//       avatarSrc: assetUrl("site/empty-state.png"),
+//       fullName: "Blanca Wheeler",
+//     },
+//   },
+// }
 
-export const WithDefaultTag: Story = {
-  args: {
-    surveyStatus: { text: "Due July 8, 2030", status: "default" },
-  },
-}
+// export const WithDefaultTag: Story = {
+//   args: {
+//     surveyStatus: { text: "Due July 8, 2030", status: "default" },
+//   },
+// }
 
-export const WithMenuButton: Story = {
-  args: {
-    primaryAction: {
-      label: "Menu button",
-      menuItems: [
-        {
-          action: "#",
-          label: "Item 1",
-        },
-        {
-          action: () => alert("Item 2 clicked"),
-          label: "Item 2",
-        },
-        {
-          action: "#",
-          label: "Item 3",
-        },
-      ],
-    },
-  },
-}
+// export const WithMenuButton: Story = {
+//   args: {
+//     primaryAction: {
+//       label: "Menu button",
+//       menuItems: [
+//         {
+//           action: "#",
+//           label: "Item 1",
+//         },
+//         {
+//           action: () => alert("Item 2 clicked"),
+//           label: "Item 2",
+//         },
+//         {
+//           action: "#",
+//           label: "Item 3",
+//         },
+//       ],
+//     },
+//   },
+// }
 
-export const Subtitle: Story = {
-  args: {
-    subtitle: (
-      <Text variant="body">
-        This is a <a href="/">link</a>
-      </Text>
-    ),
-  },
-}
+// export const Subtitle: Story = {
+//   args: {
+//     subtitle: (
+//       <Text variant="body">
+//         This is a <a href="/">link</a>
+//       </Text>
+//     ),
+//   },
+// }
