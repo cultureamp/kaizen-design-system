@@ -4,7 +4,7 @@ import { MenuHeading } from "../subcomponents/MenuHeading"
 import { MenuItem } from "../subcomponents/MenuItem"
 import { MenuList } from "../subcomponents/MenuList"
 
-interface MenuContentExampleProps {
+type MenuContentExampleProps = {
   isShortList?: boolean
 }
 
