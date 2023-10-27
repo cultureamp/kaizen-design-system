@@ -1,7 +1,7 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta } from "@storybook/react"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { MenuItem, MenuList } from "~components/Menu"
 import {
   StickerSheet,
   StickerSheetStory,

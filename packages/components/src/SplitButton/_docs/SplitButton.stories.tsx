@@ -1,7 +1,7 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { MenuItem, MenuList } from "@kaizen/draft-menu"
+import { MenuItem, MenuList } from "~components/Menu"
 import { SplitButton } from "../index"
 
 const ACTION_BUTTON_PROPS__BUTTON = {

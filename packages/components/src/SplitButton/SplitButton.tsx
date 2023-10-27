@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import { Menu } from "@kaizen/draft-menu"
+import { Menu } from "~components/Menu"
 import { DataAttributes } from "~types/DataAttributes"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { ActionButton, ActionButtonProps } from "./subcomponents/ActionButton"
