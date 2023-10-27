@@ -1,7 +1,6 @@
-import { Theme } from "./types"
+import { TokenStructure } from "./types"
 
-export const heartTheme: Theme = {
-  themeKey: "heart",
+export const tokens: TokenStructure = {
   animation: {
     easingFunction: {
       easeInOut: "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
@@ -269,6 +268,7 @@ export const heartTheme: Theme = {
       fontSize: "1.25rem",
       lineHeight: "1.875rem",
       letterSpacing: "0",
+      maxWidth: "975px",
     },
     paragraphBody: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -276,6 +276,7 @@ export const heartTheme: Theme = {
       fontSize: "1rem",
       lineHeight: "1.5rem",
       letterSpacing: "normal",
+      maxWidth: "780px",
     },
     paragraphSmall: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -283,6 +284,7 @@ export const heartTheme: Theme = {
       fontSize: "0.875rem",
       lineHeight: "1.125rem",
       letterSpacing: "normal",
+      maxWidth: "680px",
     },
     paragraphExtraSmall: {
       fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
@@ -290,6 +292,7 @@ export const heartTheme: Theme = {
       fontSize: "0.75rem",
       lineHeight: "1.125rem",
       letterSpacing: "normal",
+      maxWidth: "600px",
     },
     paragraphBold: {
       fontWeight: 600,

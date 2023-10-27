@@ -1,5 +1,4 @@
 import React, { useEffect, useState, ReactNode, useMemo } from "react"
-import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
 type GenericChildrenType = { children?: ReactNode }
@@ -45,7 +44,9 @@ export const useMediaQueries = (
       },
     }
   }
-  const theme = useTheme()
+
+  // Ensure these match the tokens in @kaizen/design-tokens
+  const breakpoints = { medium: "768px", large: "1080px" }
 
   // The `addEventListener` calls blow up legacy Edge (<= v18/pre chromium),
   // so we disable the functionality of updating after page load.
@@ -58,24 +59,22 @@ export const useMediaQueries = (
   // ---------------------------------------
   const smallMatchMedia = useMemo(
     () =>
-      window.matchMedia(
-        `(max-width: ${subtractOnePixel(theme.layout.breakpoints.medium)})`
-      ),
-    [theme.layout.breakpoints.medium]
+      window.matchMedia(`(max-width: ${subtractOnePixel(breakpoints.medium)})`),
+    [breakpoints.medium]
   )
 
   const mediumMatchMedia = useMemo(
     () =>
       window.matchMedia(
-        `(min-width: ${
-          theme.layout.breakpoints.medium
-        }) and (max-width: ${subtractOnePixel(theme.layout.breakpoints.large)})`
+        `(min-width: ${breakpoints.medium}) and (max-width: ${subtractOnePixel(
+          breakpoints.large
+        )})`
       ),
-    [theme.layout.breakpoints.large]
+    [breakpoints.large]
   )
   const largeMatchMedia = useMemo(
-    () => window.matchMedia(`(min-width: ${theme.layout.breakpoints.large})`),
-    [theme.layout.breakpoints.large]
+    () => window.matchMedia(`(min-width: ${breakpoints.large})`),
+    [breakpoints.large]
   )
 
   const isSmall = smallMatchMedia.matches || false

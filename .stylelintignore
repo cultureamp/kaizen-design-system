@@ -1,3 +1,4 @@
 packages/design-tokens/**/*.scss
+packages/design-tokens/**/*.css
 packages/components/locales/*
 storybook/styles/*
