@@ -1,3 +1,4 @@
+import { HTMLAttributes } from "react"
 import { NotificationType } from "../types"
 
 type Modify<T, R> = Omit<T, keyof R> & R
@@ -10,11 +11,11 @@ export type ToastNotification = {
   onHide?: () => void
   /**
    * If this is true you will need to manage a way to remove the notification
-   * @default: false
+   * @default false
    */
   persistent?: boolean
-  /** * This is here for convenience and testing purposes */
-  testId?: string
+} & {
+  [key: `data-${string}`]: unknown
 }
 
 export type ToastNotificationWithOptionals = Modify<

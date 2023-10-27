@@ -2,9 +2,9 @@ import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as ToastNotificationStories from "./ToastNotification.stories"
 
-<Meta title="Components/Notifications/Toast Notification" />
+<Meta title="Components/Notifications/ToastNotification" />
 
-# ToastNotification
+# Toast Notification
 
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Notification/ToastNotification"
@@ -17,16 +17,50 @@ import * as ToastNotificationStories from "./ToastNotification.stories"
 
 <Installation
   installCommand="yarn add @kaizen/components"
-  importStatement='import { addToastNotification, removeToastNotification, clearToastNotifications } from "@kaizen/components"'
+  importStatement='import { addToastNotification, removeToastNotification, clearToastNotifications, ToastNotification } from "@kaizen/components"'
 />
 
 ## Overview
 
-{/* @todo: Update summary. */}
-Brief summary of the component here.
-{/*
+Toast notifications are used to notifying a user of an outcome for an action they have taken. They appended to the root of the document body and will render in the top corner of the window.
+
 <Canvas of={ToastNotificationStories.Playground} />
-<Controls of={ToastNotificationStories.Playground} /> */}
+<Controls of={ToastNotificationStories.Playground} />
 
 ## API
 
+In addition to the `ToastNotification` JSX element, there are three API methods exported from this package to create and manage Toast notifications.
+
+### addToastNotification
+Creates an instance of the the Toast Notification manager and appends new notifications to the list.
+
+<Canvas of={ToastNotificationStories.CreateNotification} />
+
+If `addToastNotification` is called with an `id` that matches an existing notification, then it will update the content of that component.
+
+<Canvas of={ToastNotificationStories.UpdateNotification} />
+
+
+### removeToastNotification
+
+Removes a single notification that matches the `id` passed to the function.
+
+<Canvas of={ToastNotificationStories.RemoveNotification} />
+
+
+### clearToastNotifications
+
+Clears all notifications.
+
+<Canvas of={ToastNotificationStories.ClearNotifications} />
+
+
+## Accessibility and autohide
+
+As `autohide` presents an [accessibility issue](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html), it is no longer a default feature of this component.
+
+The use of the `persistent` or `hideCloseIcon` props should be used with caution as they will need to be paired with a dismissable trigger or a means of removing the messages.
+
+The reasoning behind this is to provide ample time for users of assistive technologies to read the content of the notifications.
+
+If `autohide` functionality is required, there needs to be a way for a user to pause the removable of the notifications.

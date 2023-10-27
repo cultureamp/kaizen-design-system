@@ -1,5 +1,4 @@
 import React from "react"
-import { queryByTestId, getByTestId, waitFor } from "@testing-library/dom"
 import { act, screen } from "@testing-library/react"
 import {
   addToastNotification,
@@ -15,7 +14,7 @@ describe("ToastNotificationsManager", () => {
   })
 
   describe("addToastNotification", () => {
-    it('creates a "status" container for notifications', async () => {
+    it('creates a single "status" container for notifications', async () => {
       await act(async () => {
         addToastNotification({
           type: "informative",
@@ -25,9 +24,9 @@ describe("ToastNotificationsManager", () => {
         })
       })
 
-      const toastPortalManager = await screen.findByRole("status")
+      const toastPortalManager = await screen.getAllByRole("status")
 
-      expect(toastPortalManager).toBeInTheDocument()
+      expect(toastPortalManager).toHaveLength(1)
 
       // This is currently hard coded
       expect(
@@ -59,7 +58,7 @@ describe("ToastNotificationsManager", () => {
           title: "Test portal",
           message: <p>Message goes here</p>,
           persistent: false,
-          testId: "bbc-324",
+          "data-testid": "bbc-324",
         })
       })
 
@@ -74,7 +73,7 @@ describe("ToastNotificationsManager", () => {
           title: "Test portal",
           message: <p>Updated Message</p>,
           persistent: false,
-          testId: "bbc-324",
+          "data-testid": "bbc-324",
         })
       })
 
@@ -104,61 +103,43 @@ describe("ToastNotificationsManager", () => {
     })
   })
 
-  // describe("clearToastNotifications", () => {
-  //   it("clears all notifications", () => {})
-  // })
+  describe("clearToastNotifications", () => {
+    it("clears all notifications", async () => {
+      await act(async () => {
+        addToastNotification({
+          id: "abc-123",
+          type: "informative",
+          title: "Test portal",
+          message: <p>Message goes here</p>,
+          persistent: false,
+          "data-testid": "id--toast-1",
+        })
+      })
 
-  // it("removes individual notifications by ID", async () => {
-  //   const id = "remove-notifications"
-  //   await act(async () => {
-  //     addToastNotification({
-  //       id,
-  //       type: "informative",
-  //       title: "Remove me",
-  //       message: <p>Message goes here</p>,
-  //       automationId: "remove-me",
-  //       persistent: false,
-  //     })
-  //   })
+      await act(async () => {
+        addToastNotification({
+          id: "abc-456",
+          type: "informative",
+          title: "Test portal 2",
+          message: <p>Second message goes here</p>,
+          persistent: false,
+          "data-testid": "id--toast-2",
+        })
+      })
 
-  //   const element = screen.getByTestId("remove-me")
-  //   expect(element).toHaveTextContent("Remove me")
+      const toastItem1 = await screen.getByTestId("id--toast-1")
+      const toastItem2 = await screen.getByTestId("id--toast-2")
 
-  //   await act(async () => {
-  //     removeToastNotification(id)
-  //   })
+      // const toastItem = await screen.findByText("Message goes here")
+      expect(toastItem1).toBeInTheDocument()
+      expect(toastItem2).toBeInTheDocument()
 
-  //   expect(queryByTestId(document.body, "first")).toBe(null)
-  // })
+      await act(async () => {
+        clearToastNotifications()
+      })
 
-  // it("clears all notifications", async () => {
-  //   await act(async () => {
-  //     addToastNotification({
-  //       id: "clear-notifications-1",
-  //       type: "informative",
-  //       title: "Clear me",
-  //       message: <p>Message goes here</p>,
-  //       automationId: "clear-notifications-1",
-  //       persistent: false,
-  //     })
-  //     addToastNotification({
-  //       id: "clear-notifications-2",
-  //       type: "informative",
-  //       title: "Clear me too",
-  //       message: <p>Message goes here</p>,
-  //       automationId: "clear-notifications-2",
-  //       persistent: false,
-  //     })
-  //   })
-
-  //   const toastNotifications = document.querySelectorAll(".toast")
-  //   expect(toastNotifications.length).toBe(2)
-
-  //   await act(async () => {
-  //     clearToastNotifications()
-  //   })
-  //   await waitFor(() => {
-  //     expect(document.querySelectorAll(".toast").length).toBe(0)
-  //   })
-  // })
+      await expect(toastItem1).not.toBeInTheDocument()
+      await expect(toastItem2).not.toBeInTheDocument()
+    })
+  })
 })

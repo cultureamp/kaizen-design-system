@@ -17,6 +17,7 @@ export const ToastNotification = ({
   title,
   onHide,
   children,
+  ...restProps
 }: ToastNotificationProps): null => {
   const localID = id || useId()
   const persistent = hideCloseIcon
@@ -28,6 +29,7 @@ export const ToastNotification = ({
     message: children,
     persistent,
     onHide,
+    ...restProps,
   })
 
   return null

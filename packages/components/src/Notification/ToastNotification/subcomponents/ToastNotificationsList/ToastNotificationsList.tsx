@@ -15,7 +15,7 @@ export const ToastNotificationsList = ({
 }: ToastNotificationsListProps): JSX.Element => (
   <div className={styles.list}>
     {notifications.map(
-      ({ id, type, title, persistent, onHide, testId, message }) => (
+      ({ id, type, title, persistent, onHide, message, ...restProps }) => (
         <GenericNotification
           key={id}
           style="toast"
@@ -28,7 +28,7 @@ export const ToastNotificationsList = ({
             }
             defaultOnHide(id)
           }}
-          data-testid={testId}
+          {...restProps}
         >
           {message}
         </GenericNotification>
