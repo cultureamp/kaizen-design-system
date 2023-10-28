@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
 import * as IconButtonStories from "./IconButton.stories"
 
 <Meta of={IconButtonStories} />
@@ -22,7 +22,8 @@ import * as IconButtonStories from "./IconButton.stories"
 
 ## Overview
 
-Buttons perform actions.
+A button with an icon and no visible text (a label is required for accessibility).
+Use any <LinkTo pageId="components-icons">Icon</LinkTo> component in the `icon` prop.
 
 <Canvas of={IconButtonStories.Playground} />
 <Controls of={IconButtonStories.Playground} />

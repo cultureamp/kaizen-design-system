@@ -1,21 +1,21 @@
 import React from "react"
-import { Theme as BaseTheme } from "@kaizen/design-tokens"
-import { OptionalIntlProvider } from "./OptionalIntlProvider"
-import { ThemeProvider } from "./ThemeProvider"
+import { FontDefinitions } from "./subcomponents/FontDefinitions"
+import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
 
-export type KaizenProviderProps<Theme extends BaseTheme = BaseTheme> = {
+export type KaizenProviderProps = {
   children: React.ReactNode
-  theme?: Theme
   locale?: string
 }
 
 export const KaizenProvider = ({
   children,
-  theme,
   locale = "en",
 }: KaizenProviderProps): JSX.Element => (
   <OptionalIntlProvider locale={locale}>
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <>
+      {children}
+      <FontDefinitions />
+    </>
   </OptionalIntlProvider>
 )
 

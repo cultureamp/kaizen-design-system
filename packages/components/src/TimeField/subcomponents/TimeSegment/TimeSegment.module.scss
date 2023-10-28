@@ -1,0 +1,43 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+// Chrome has a bug where `contenteditable` elements receive focus from external clicks.
+// This (in combination with the invisible character &#8203;) creates boundaries
+// for the element.
+// https://stackoverflow.com/a/34445203
+.timeSegmentWrapper {
+  white-space: nowrap;
+}
+
+.timeSegment {
+  display: block;
+  padding: 0 4px;
+  text-align: end;
+  background-color: $color-gray-300;
+  border-radius: 3px;
+  color: $color-purple-800;
+
+  &:hover {
+    background-color: $color-white;
+  }
+
+  &:focus-visible {
+    color: white;
+    background: $color-blue-500;
+    outline: none;
+  }
+}
+
+.placeholder {
+  color: rgba($color-purple-800-rgb, 0.7);
+}
+
+.literal {
+  &,
+  &:hover {
+    background: none;
+  }
+}
+
+.dayPeriod {
+  margin-right: 4px;
+}

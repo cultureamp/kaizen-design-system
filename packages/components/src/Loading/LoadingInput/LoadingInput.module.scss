@@ -1,0 +1,16 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "../mixins";
+
+.loadingInput {
+  @extend %loadingBase;
+
+  background-color: rgba($color-gray-600-rgb, 0.1);
+}
+
+.isAnimated {
+  @extend %loadingAnimated;
+}
+
+.isReversed {
+  background-color: rgba($color-white-rgb, 0.1);
+}

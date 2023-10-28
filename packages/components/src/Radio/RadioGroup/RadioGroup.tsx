@@ -12,7 +12,7 @@ export type RadioGroupProps = OverrideClassName<
   labelId?: string
   noBottomMargin?: boolean
   reversed?: boolean
-  "data-testId"?: string
+  "data-testid"?: string
 }
 
 export const RadioGroup = ({
@@ -22,14 +22,14 @@ export const RadioGroup = ({
   noBottomMargin = false,
   reversed = false,
   classNameOverride,
-  "data-testId": dataTestId,
+  "data-testid": dataTestId,
   ...restProps
 }: RadioGroupProps): JSX.Element => {
   const labelId = propsLabelId ?? useId()
 
   return (
     <div
-      data-testId={dataTestId}
+      data-testid={dataTestId}
       className={classnames(
         styles.radioGroupContainer,
         classNameOverride,
@@ -43,7 +43,7 @@ export const RadioGroup = ({
       <div className={styles.radioGroupLabel}>
         <Label
           id={labelId}
-          data-testId={dataTestId && `${dataTestId}-field-label`}
+          data-testid={dataTestId && `${dataTestId}-field-label`}
           labelText={labelText}
           labelType="text"
           reversed={reversed}
