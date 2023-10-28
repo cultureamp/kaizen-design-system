@@ -5745,10 +5745,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-textfit@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@types/react-textfit/-/react-textfit-1.1.1.tgz#6b5e4eddac4816292fb61db5144a3a5576e3da28"
-  integrity sha512-6jbsmoVi1bluKCo0vo68QbKlviLZ28u791n4nOs6QkCSU67ZiVLKUb10I12Ugee/6D31urG4B/4/qrQRtIP0FQ==
+"@types/react-textfit@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/react-textfit/-/react-textfit-1.1.2.tgz#de1e4d2d5c46159c6b8e07e83441e7a0d4b294e4"
+  integrity sha512-cg/Cs3IajgHSctt7dPft4jloh70iyw9kVE/tDqe5lw3TKJRbR1biXVSFtesC5DAte9Xt9w0lydHkWA8C29REVw==
   dependencies:
     "@types/react" "*"
 

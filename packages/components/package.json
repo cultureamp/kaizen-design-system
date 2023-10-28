@@ -97,7 +97,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/react-dom": "^18.2.7",
-    "@types/react-textfit": "^1.1.1",
+    "@types/react-textfit": "^1.1.2",
     "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.16",
     "babel-plugin-pure-static-props": "^0.2.0",
