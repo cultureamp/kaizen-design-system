@@ -1,5 +1,3 @@
 export type { CustomButtonProps } from "./GenericButton"
 export * from "./Button"
 export * from "./IconButton"
-export * from "./PaginationLink"
-export * from "./DirectionalLink"

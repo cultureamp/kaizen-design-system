@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { ArrowBackwardIcon, ArrowForwardIcon } from ".."
-import { PageIndicator } from "./subcomponents/PageIndicator"
+import { PaginationLink } from ".."
+import { DirectionalLink } from "./subcomponents/DirectionalLink"
 import { TruncateIndicator } from "./subcomponents/TruncateIndicator"
 import { createRange } from "./utils/createRange"
 import styles from "./Pagination.module.scss"
@@ -49,12 +49,12 @@ export const Pagination = ({
   }
 
   const paginationIndicator = (page: number): JSX.Element => (
-    <PageIndicator
+    <PaginationLink
       key={page}
-      page={page}
-      selected={currentPage === page}
-      ariaLabelPage={ariaLabelPage}
-      onPageClick={handleButtonClick}
+      pageNumber={page}
+      isActive={currentPage === page}
+      aria-label={`${ariaLabelPage} ${page}`}
+      onClick={() => handleButtonClick(page)}
     />
   )
 
@@ -146,32 +146,21 @@ export const Pagination = ({
       className={classnames(styles.container, classNameOverride)}
       {...restProps}
     >
-      <button
-        type="button"
-        className={styles.arrowIconWrapper}
-        aria-label={ariaLabelPreviousPage}
+      <DirectionalLink
+        label={ariaLabelPreviousPage}
+        direction="prev"
         disabled={previousPageDisabled}
         onClick={(): void => handleButtonClick(PageAction.PREV)}
-      >
-        <ArrowBackwardIcon role="presentation" />
-        <div className={styles.pageIndicatorFocusRing} />
-      </button>
+      />
 
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
 
-      <button
-        type="button"
-        className={classnames(
-          styles.arrowIconWrapper,
-          nextPageDisabled && styles.arrowIconWrapperDisabled
-        )}
-        aria-label={ariaLabelNextPage}
+      <DirectionalLink
+        label={ariaLabelNextPage}
+        direction="next"
         disabled={nextPageDisabled}
         onClick={(): void => handleButtonClick(PageAction.NEXT)}
-      >
-        <ArrowForwardIcon role="presentation" />
-        <div className={styles.pageIndicatorFocusRing} />
-      </button>
+      />
     </nav>
   )
 }
