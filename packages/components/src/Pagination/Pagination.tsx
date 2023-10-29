@@ -16,10 +16,7 @@ export type PaginationProps = {
   onPageChange: (newPage: number) => void
 } & OverrideClassName<HTMLAttributes<HTMLElement>>
 
-export enum PageAction {
-  PREV = "prev",
-  NEXT = "next",
-}
+type PageAction = "prev" | "next"
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination Guidance} |
@@ -37,11 +34,11 @@ export const Pagination = ({
 }: PaginationProps): JSX.Element => {
   // Click event for all pagination buttons (next, prev, and the actual numbers)
   const handleButtonClick = (newPage: number | PageAction): void => {
-    if (newPage === PageAction.PREV) {
+    if (newPage === "prev") {
       onPageChange(currentPage - 1)
       return
     }
-    if (newPage === PageAction.NEXT) {
+    if (newPage === "next") {
       onPageChange(currentPage + 1)
       return
     }
@@ -150,7 +147,7 @@ export const Pagination = ({
         label={ariaLabelPreviousPage}
         direction="prev"
         disabled={previousPageDisabled}
-        onClick={(): void => handleButtonClick(PageAction.PREV)}
+        onClick={(): void => handleButtonClick("prev")}
       />
 
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
@@ -159,7 +156,7 @@ export const Pagination = ({
         label={ariaLabelNextPage}
         direction="next"
         disabled={nextPageDisabled}
-        onClick={(): void => handleButtonClick(PageAction.NEXT)}
+        onClick={(): void => handleButtonClick("next")}
       />
     </nav>
   )
