@@ -2,8 +2,8 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../utils/mixins";
-@import "../utils/variables";
+@import "../../../Button/utils/mixins";
+@import "../../../Button/utils/variables";
 
 %circle-button {
   width: 40px;
