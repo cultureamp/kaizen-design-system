@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@types/color-string": "^1.5.4",
-    "@types/lodash.kebabcase": "^4.1.7",
+    "@types/lodash.kebabcase": "^4.1.8",
     "color-string": "^1.9.1",
     "lodash.kebabcase": "^4.1.1"
   },
