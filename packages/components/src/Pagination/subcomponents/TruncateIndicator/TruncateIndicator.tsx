@@ -1,6 +1,6 @@
 import React from "react"
 import { EllipsisIcon } from "~components/Icon"
-import styles from "./Pagination.module.scss"
+import styles from "./TruncateIndicators.module.scss"
 
 export const TruncateIndicator = (): JSX.Element => (
   <div
