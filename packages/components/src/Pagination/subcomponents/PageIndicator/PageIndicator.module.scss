@@ -2,12 +2,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 
-.pagesIndicatorWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 .pageIndicator,
 .pageIndicatorSelected {
   display: flex;
