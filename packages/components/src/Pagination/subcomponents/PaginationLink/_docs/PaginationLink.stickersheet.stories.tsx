@@ -7,7 +7,7 @@ import {
 import { PaginationLink, PaginationLinkProps } from "../index"
 
 export default {
-  title: "Components/Buttons/PaginationLink",
+  title: "Components/Pagination/PaginationLink",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
