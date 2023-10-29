@@ -1,0 +1,39 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as PaginationStories from "./Pagination.stories"
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+{/*
+  * @todo:
+  * - Adjust Github link (if needed)
+  * - Add Figma and Design Guidelines (Confluence) link
+  */}
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Pagination"
+  figma=""
+  designGuidelines=""
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Pagination } from "@kaizen/components"'
+/>
+
+## Overview
+
+{/* @todo: Update summary. */}
+Brief summary of the component here.
+
+<Canvas of={PaginationStories.Playground} />
+<Controls of={PaginationStories.Playground} />
+
+## API
+
+{/* @todo: Describe props and provide example stories. */}
+<DocsStory of={PaginationStories.Reversed} />
