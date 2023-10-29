@@ -66,6 +66,30 @@ const StickerSheetTemplate: StickerSheetStory = {
             }}
           />
         </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Disabled prev direction">
+          <Pagination
+            currentPage={0}
+            pageCount={10}
+            ariaLabelNextPage="Next Page"
+            ariaLabelPreviousPage="Previous Page"
+            ariaLabelPage="Page"
+            onPageChange={() => {
+              alert("Page Change")
+            }}
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Disabled next direction">
+          <Pagination
+            currentPage={10}
+            pageCount={10}
+            ariaLabelNextPage="Next Page"
+            ariaLabelPreviousPage="Previous Page"
+            ariaLabelPage="Page"
+            onPageChange={() => {
+              alert("Page Change")
+            }}
+          />
+        </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
