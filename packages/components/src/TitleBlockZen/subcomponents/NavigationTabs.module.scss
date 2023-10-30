@@ -1,0 +1,109 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "../mixins";
+
+.container {
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.linkAnchor {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 $spacing-sm;
+  position: relative;
+  color: rgba($color-white-rgb, 0.7);
+  font-family: $typography-heading-4-font-family;
+  font-weight: $typography-heading-4-font-weight;
+  font-size: $typography-heading-4-font-size;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: $spacing-md;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    margin-left: $spacing-md;
+    margin-right: 0;
+  }
+
+  &:hover {
+    color: $color-white;
+    text-decoration: none;
+  }
+
+  @include title-block-under-1366 {
+    font-family: $typography-heading-5-font-family;
+    font-weight: $typography-heading-5-font-weight;
+    font-size: $typography-heading-5-font-size;
+    line-height: $typography-heading-5-line-height;
+    letter-spacing: $typography-heading-5-letter-spacing;
+  }
+
+  @include title-block-under-1440 {
+    margin-right: $spacing-xs;
+
+    &[dir="rtl"],
+    [dir="rtl"] & {
+      margin-left: $spacing-xs;
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 1189px) {
+    margin: 0;
+  }
+
+  &.active {
+    color: $color-white;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: $color-white;
+      transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
+      border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;
+
+      @include title-block-medium-and-small {
+        top: auto;
+        bottom: 0;
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0
+          0;
+      }
+    }
+  }
+}
+
+.linkAnchor.lightBackground {
+  color: rgba($color-purple-800-rgb, 0.75);
+
+  &:hover {
+    color: $color-blue-500;
+  }
+
+  &.active {
+    color: $color-blue-500;
+
+    &::before {
+      background-color: $color-blue-500;
+      top: 3px;
+
+      @include title-block-medium-and-small {
+        top: auto;
+        bottom: 0;
+        border-radius: $border-solid-border-radius $border-solid-border-radius 0
+          0;
+      }
+    }
+  }
+}
