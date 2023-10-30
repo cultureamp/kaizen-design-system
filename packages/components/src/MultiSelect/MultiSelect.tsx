@@ -80,7 +80,7 @@ export const MultiSelect = ({
           selectedOptions={Array.from(selectedValues).map(
             value => itemsMap[value]
           )}
-          deselectOption={deselectOption}
+          onRemoveOption={deselectOption}
         />
       </div>
 
