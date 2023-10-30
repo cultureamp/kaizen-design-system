@@ -81,7 +81,7 @@ export const MultiSelectToggle = forwardRef<
                   <li key={value} onClick={e => e.stopPropagation()}>
                     <RemovableTag
                       removeButtonProps={{
-                        ariaLabel: "Remove option",
+                        ariaLabel: `Remove option: ${label}`,
                         onClick: () => deselectOption(value),
                       }}
                     >
@@ -93,13 +93,13 @@ export const MultiSelectToggle = forwardRef<
 
               {/* @todo: Visuals prepared for implementation */}
               {/* <ClearButton
-                aria-label="Clear all waffles"
-                classNameOverride={styles.clearAllButton}
-                onClick={e => {
-                  e.stopPropagation()
-                  console.log("DELETE ALL >:]")
-                }}
-              /> */}
+aria-label="Clear all waffles"
+classNameOverride={styles.clearAllButton}
+onClick={e => {
+e.stopPropagation()
+console.log("DELETE ALL >:]")
+}}
+/> */}
             </>
           )}
         </div>
