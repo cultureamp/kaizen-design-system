@@ -1,4 +1,4 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as ToastNotificationStories from "./ToastNotification.stories"
 
@@ -38,6 +38,8 @@ Creates an instance of the the Toast Notification manager and appends new notifi
 
 If `addToastNotification` is called with an `id` that matches an existing notification, then it will update the content of that component.
 
+This will also be invoked if you use the `ToastNotification` component.
+
 <Canvas of={ToastNotificationStories.UpdateNotification} />
 
 
@@ -50,7 +52,7 @@ Removes a single notification that matches the `id` passed to the function.
 
 ### clearToastNotifications
 
-Clears all notifications.
+Clears all notifications currently held in state.
 
 <Canvas of={ToastNotificationStories.ClearNotifications} />
 
@@ -59,7 +61,7 @@ Clears all notifications.
 
 As `autohide` presents an [accessibility issue](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html), it is no longer a default feature of this component.
 
-The use of the `persistent` or `hideCloseIcon` props should be used with caution as they will need to be paired with a dismissable trigger or a means of removing the messages.
+The use of the `persistent` or `hideCloseIcon` props should be used with caution as they will need to be paired with a dismissable trigger or a means of removing the messages. You can leverage the `clearToastNotifications` function to add a clear all trigger.
 
 The reasoning behind this is to provide ample time for users of assistive technologies to read the content of the notifications.
 

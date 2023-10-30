@@ -1,17 +1,16 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
 
-const IS_CHROMATIC = isChromatic()
+import { ToastNotification } from "../ToastNotification"
 
 export default {
-  title: "Components/ToastNotification",
+  title: "Components/Notifications/ToastNotification",
   parameters: {
-    chromatic: { disable: false },
+    chromatic: { disable: false, delay: 600 },
     controls: { disable: true },
   },
 } satisfies Meta
@@ -20,58 +19,51 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          {/* <ToastNotification
-            isReversed={isReversed}
-            exampleRequiredString="ToastNotification"
-          />
+          <ToastNotification id="abc-123" title="Positive" type="positive">
+            <div>
+              New user data, imported by mackenzie@hooli.com has successfully
+              uploaded. <a href="/">Manage users is now available</a>
+            </div>
+          </ToastNotification>
           <ToastNotification
-            isReversed={isReversed}
-            exampleRequiredString="ToastNotification"
-            data-sb-pseudo-styles="hover"
-          />
-          <ToastNotification
-            isReversed={isReversed}
-            exampleRequiredString="ToastNotification"
-            data-sb-pseudo-styles="active"
-          />
-          <ToastNotification
-            isReversed={isReversed}
-            exampleRequiredString="ToastNotification"
-            data-sb-pseudo-styles="focus"
-          /> */}
+            id="abc-234"
+            title="Informative"
+            type="informative"
+          >
+            <div>
+              New user data, imported by mackenzie@hooli.com has successfully
+              uploaded. <a href="/">Manage users is now available</a>
+            </div>
+          </ToastNotification>
+          <ToastNotification id="abc-345" title="Cautionary" type="cautionary">
+            <div>
+              New user data, imported by mackenzie@hooli.com has successfully
+              uploaded. <a href="/">Manage users is now available</a>
+            </div>
+          </ToastNotification>
+          <ToastNotification id="abc-456" title="Negative" type="negative">
+            <div>
+              New user data, imported by mackenzie@hooli.com has successfully
+              uploaded. <a href="/">Manage users is now available</a>
+            </div>
+          </ToastNotification>
+          <ToastNotification id="abc-567" title="Security" type="security">
+            <div>
+              New user data, imported by mackenzie@hooli.com has successfully
+              uploaded. <a href="/">Manage users is now available</a>
+            </div>
+          </ToastNotification>
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
-  /** @note: Only required if you have pseudo states, otherwise this can be removed */
-  parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
-    pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
-      active: '[data-sb-pseudo-styles="active"]',
-      focus: '[data-sb-pseudo-styles="focus"]',
-      focusVisible: '[data-sb-pseudo-styles="focus"]',
-    },
-  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Default)",
-}
-
-export const StickerSheetReversed: StickerSheetStory = {
-  ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
-  parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: "Purple 700" },
-  },
-  args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

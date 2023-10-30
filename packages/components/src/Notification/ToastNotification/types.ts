@@ -1,4 +1,3 @@
-import { HTMLAttributes } from "react"
 import { NotificationType } from "../types"
 
 type Modify<T, R> = Omit<T, keyof R> & R
@@ -10,7 +9,7 @@ export type ToastNotification = {
   message: React.ReactNode
   onHide?: () => void
   /**
-   * If this is true you will need to manage a way to remove the notification
+   * Removes the dismiss trigger. If this is true you will need to manage the removal of notifications manually.
    * @default false
    */
   persistent?: boolean

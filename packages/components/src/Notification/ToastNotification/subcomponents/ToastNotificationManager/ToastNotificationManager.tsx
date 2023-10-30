@@ -1,4 +1,4 @@
-import React, { useId } from "react"
+import React from "react"
 import { createRoot } from "react-dom/client"
 import { v4 } from "uuid"
 import {
@@ -45,7 +45,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     | React.Dispatch<React.SetStateAction<ToastNotification[]>>
     | undefined
   if (portal === undefined && typeof window !== "undefined") {
-    // automation and testid appear to be consume in other repos, we'll need to refactor before we remove so they can be added in
+    // automation and testid appear to be consumed in other repos, we'll need to refactor before we remove so they can be added in
     portal = document.createElement("div")
     portal.setAttribute(
       "data-automation-id",
@@ -53,6 +53,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     )
     portal.setAttribute("data-testid", "toast-notification-manager-portal")
     portal.setAttribute("role", "status")
+
     document.body.appendChild(portal)
   }
 

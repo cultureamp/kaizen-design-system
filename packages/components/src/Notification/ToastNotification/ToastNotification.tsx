@@ -4,8 +4,12 @@ import { ToastNotificationWithOptionals } from "./types"
 
 export type ToastNotificationProps = Omit<
   ToastNotificationWithOptionals,
-  "message"
+  "message" | "persistent"
 > & {
+  /**
+   * Removes the dismiss trigger. functions the same as `persistent` in `addToastNotification`. If this is true you will need to manage the removal of notifications manually.
+   * @default false
+   */
   hideCloseIcon?: boolean
   children: React.ReactNode
 }

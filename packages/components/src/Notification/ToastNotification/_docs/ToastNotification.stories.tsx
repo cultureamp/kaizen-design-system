@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import {
   addToastNotification,
@@ -22,10 +22,6 @@ const meta = {
         uploaded. <a href="/">Manage users is now available</a>
       </div>
     ),
-    /**
-     * @note: Put consistent default values here.
-     * If your value differs between stories, add the arg to the story instead.
-     */
   },
 } satisfies Meta<typeof ToastNotification>
 
