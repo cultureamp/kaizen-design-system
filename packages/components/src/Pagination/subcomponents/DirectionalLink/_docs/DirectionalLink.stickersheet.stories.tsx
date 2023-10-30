@@ -4,33 +4,46 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { PaginationLink, PaginationLinkProps } from "../index"
+import { DirectionalLink, DirectionalLinkProps } from "../index"
 
 export default {
-  title: "Components/Buttons/PaginationLink",
+  title: "Components/Pagination/DirectionalLink",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
   },
 } satisfies Meta
 
-const PAGINATION_LINK_PROPS: Array<{
+const DIRECTIONAL_LINK_PROPS: Array<{
   title: string
-  props: PaginationLinkProps
+  props: DirectionalLinkProps
 }> = [
   {
-    title: "isActive={false}",
+    title: "Prev",
     props: {
-      pageNumber: 1,
-      "aria-label": "Page 1",
+      direction: "prev",
+      label: "Previous page",
     },
   },
   {
-    title: "isActive={true}",
+    title: "Next",
     props: {
-      pageNumber: 1,
-      "aria-label": "Page 1",
-      isActive: true,
+      direction: "next",
+      label: "Next page",
+    },
+  },
+  {
+    title: "Start",
+    props: {
+      direction: "start",
+      label: "First page",
+    },
+  },
+  {
+    title: "End",
+    props: {
+      direction: "end",
+      label: "Last page",
     },
   },
 ]
@@ -38,30 +51,26 @@ const PAGINATION_LINK_PROPS: Array<{
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header
-        headings={["Base", "Hover", "Active", "Focus"]}
-        hasVerticalHeadings
-        verticalHeadingsWidth="10rem"
-      />
       <StickerSheet.Body>
-        {PAGINATION_LINK_PROPS.map(({ title, props }) => (
+        {DIRECTIONAL_LINK_PROPS.map(({ title, props }) => (
           <StickerSheet.Row key={title} rowTitle={title}>
-            <PaginationLink {...props} reversed={isReversed} />
-            <PaginationLink
+            <DirectionalLink {...props} reversed={isReversed} />
+            <DirectionalLink
               {...props}
               reversed={isReversed}
               data-sb-pseudo-styles="hover"
             />
-            <PaginationLink
+            <DirectionalLink
               {...props}
               reversed={isReversed}
               data-sb-pseudo-styles="active"
             />
-            <PaginationLink
+            <DirectionalLink
               {...props}
               reversed={isReversed}
               data-sb-pseudo-styles="focus"
             />
+            <DirectionalLink {...props} reversed={isReversed} disabled />
           </StickerSheet.Row>
         ))}
       </StickerSheet.Body>
