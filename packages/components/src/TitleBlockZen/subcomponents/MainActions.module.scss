@@ -1,0 +1,16 @@
+@import "../../../styles/legacy/layout";
+@import "../mixins";
+
+.mainActionsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  flex-shrink: 0;
+
+  @include ca-margin($start: calc(#{$ca-grid} / 2));
+
+  @include title-block-small {
+    display: none;
+  }
+}
