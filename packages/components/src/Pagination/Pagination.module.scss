@@ -1,0 +1,65 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+// Pagination
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagesIndicatorWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.arrowIconWrapper {
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    $color-blue-300;
+  margin: 0 5px;
+  background-color: transparent;
+  color: $color-blue-500;
+  box-sizing: border-box;
+
+  &:disabled {
+    opacity: 35%;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background-color: $color-blue-100;
+  }
+
+  &:focus {
+    background-color: $color-blue-200;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    .pageIndicatorFocusRing {
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+    }
+  }
+}
+
+// Truncate indicator
+.truncateIndicatorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  background-color: transparent;
+  color: rgba($color-purple-800-rgb, 0.7);
+  margin: 0 5px;
+}

@@ -1,8 +1,8 @@
 @import "../utils/variables";
 @import "../Button/Button.module";
 @import "../IconButton/IconButton.module";
-@import "../PaginationLink/PaginationLink.module";
-@import "../DirectionalLink/DirectionalLink.module";
+@import "../../Pagination/subcomponents/PaginationLink/PaginationLink.module";
+@import "../../Pagination/subcomponents/DirectionalLink/DirectionalLink.module";
 
 .container {
   display: inline-block;

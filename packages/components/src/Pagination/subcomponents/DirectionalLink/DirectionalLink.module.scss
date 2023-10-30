@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../utils/mixins";
-@import "../utils/variables";
+@import "../../../Button/utils/mixins";
+@import "../../../Button/utils/variables";
 
 %directional-link {
   [dir="rtl"] & {

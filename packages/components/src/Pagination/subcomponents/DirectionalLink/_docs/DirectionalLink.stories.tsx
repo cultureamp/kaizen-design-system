@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react"
-import { PaginationLink } from "../index"
+import { DirectionalLink } from "../index"
 
 const meta = {
-  title: "Components/Buttons/PaginationLink",
-  component: PaginationLink,
+  title: "Components/Pagination/DirectionalLink",
+  component: DirectionalLink,
   args: {
-    pageNumber: 1,
-    "aria-label": "Page 1",
+    label: "Back",
+    direction: "prev",
   },
-} satisfies Meta<typeof PaginationLink>
+} satisfies Meta<typeof DirectionalLink>
 
 export default meta
 
