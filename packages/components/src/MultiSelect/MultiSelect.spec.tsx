@@ -212,7 +212,7 @@ describe("<MultiSelect />", () => {
 
       describe("When closed", () => {
         it("has expected focus order", async () => {
-          const { getByRole } = render(
+          const { getByRole, getByLabelText } = render(
             <MultiSelectWrapper selectedValues={new Set(["waffle"])} />
           )
           const toggleButton = getByRole("button", { name: "Jalapeno" })
@@ -222,18 +222,17 @@ describe("<MultiSelect />", () => {
             expect(toggleButton).toHaveFocus()
           })
 
-          // @todo: Enable when adding functionality for removing selected item
-          // await user.tab()
-          // await waitFor(() => {
-          //   expect(getByRole("button", { name: "Clear waffle" })).toHaveFocus()
-          // })
+          await user.tab()
+          await waitFor(() => {
+            expect(getByLabelText("Remove option: Waffle")).toHaveFocus()
+          })
 
           // @todo: Enable when adding functionality for removing all selected items
           // await user.tab()
           // await waitFor(() => {
-          //   expect(
-          //     getByRole("button", { name: "Clear all waffles" })
-          //   ).toHaveFocus()
+          // expect(
+          // getByRole("button", { name: "Clear all waffles" })
+          // ).toHaveFocus()
           // })
         })
       })
