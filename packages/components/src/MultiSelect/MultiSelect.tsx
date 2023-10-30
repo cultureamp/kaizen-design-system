@@ -57,7 +57,9 @@ export const MultiSelect = ({
     {} as Record<MultiSelectOption["value"], MultiSelectOption>
   )
 
-  const deselectOption = (optionValue: MultiSelectOption["value"]): void => {
+  const handleOnRemoveOption = (
+    optionValue: MultiSelectOption["value"]
+  ): void => {
     const newValues = new Set(selectedValues.values())
     newValues.delete(optionValue)
     onSelectedValuesChange(newValues)
@@ -80,7 +82,7 @@ export const MultiSelect = ({
           selectedOptions={Array.from(selectedValues).map(
             value => itemsMap[value]
           )}
-          onRemoveOption={deselectOption}
+          onRemoveOption={handleOnRemoveOption}
         />
       </div>
 
