@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.30.0
+
+### Minor Changes
+
+- [#4248](https://github.com/cultureamp/kaizen-design-system/pull/4248) [`827f0880d`](https://github.com/cultureamp/kaizen-design-system/commit/827f0880d6815827b9333b76884ec7208c302caf) - Migrate `Well` from `kaizen-legacy`
+
+### Patch Changes
+
+- [#4249](https://github.com/cultureamp/kaizen-design-system/pull/4249) [`647153413`](https://github.com/cultureamp/kaizen-design-system/commit/647153413b0c61c4bc3bfd20ab4c25d4424b4cf5) - fix: Add missing Tag export.
+
 ## 1.29.0
 
 ### Minor Changes
