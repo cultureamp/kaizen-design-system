@@ -42,3 +42,5 @@ export const Toolbar = ({
     </div>
   )
 }
+
+Toolbar.displayName = "Toolbar"
