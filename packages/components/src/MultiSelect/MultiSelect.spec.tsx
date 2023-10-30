@@ -258,3 +258,26 @@ describe("<MultiSelect />", () => {
     })
   })
 })
+
+describe("Removing an option", () => {
+  it("removes the option when the clear button is clicked", async () => {
+    const { getByRole, getByText, getByLabelText } = render(
+      <MultiSelectWrapper selectedValues={new Set(["waffle"])} />
+    )
+
+    const waffleOption = getByText("Waffle")
+    const toggleButton = getByRole("button", { name: "Jalapeno" })
+    await user.click(toggleButton)
+
+    const popover = getByRole("dialog")
+    await waitFor(() => {
+      expect(popover).toBeVisible()
+    })
+
+    const removeButton = getByLabelText("Remove option: Waffle")
+    await user.click(removeButton)
+    await waitFor(() => {
+      expect(waffleOption).not.toBeInTheDocument()
+    })
+  })
+})
