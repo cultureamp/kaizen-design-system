@@ -19,6 +19,7 @@ const MultiSelectToggleWrapper = (
       aria-labelledby="id--label"
       aria-controls="id--dialog"
       {...customProps}
+      onRemoveOption={() => undefined}
     />
     <div id="id--dialog">Dialog</div>
   </>
