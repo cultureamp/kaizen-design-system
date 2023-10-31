@@ -7,7 +7,6 @@ import {
   clearToastNotifications,
   ToastNotification,
 } from "../index"
-// import { ToastNotificationWithOptionals } from "../types"
 
 const meta = {
   title: "Components/Notifications/ToastNotification",
@@ -41,18 +40,16 @@ export const Playground: Story = {
 
 export const CreateNotification: Story = {
   render: () => (
-    <>
-      <Button
-        label="Create notification"
-        onClick={() =>
-          addToastNotification({
-            title: "Informative",
-            type: "informative",
-            message: "New notification!",
-          })
-        }
-      />
-    </>
+    <Button
+      label="Create notification"
+      onClick={() =>
+        addToastNotification({
+          title: "Informative",
+          type: "informative",
+          message: "New notification!",
+        })
+      }
+    />
   ),
 }
 

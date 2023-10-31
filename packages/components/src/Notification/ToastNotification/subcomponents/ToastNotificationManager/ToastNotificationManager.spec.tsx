@@ -130,7 +130,6 @@ describe("ToastNotificationsManager", () => {
       const toastItem1 = await screen.getByTestId("id--toast-1")
       const toastItem2 = await screen.getByTestId("id--toast-2")
 
-      // const toastItem = await screen.findByText("Message goes here")
       expect(toastItem1).toBeInTheDocument()
       expect(toastItem2).toBeInTheDocument()
 

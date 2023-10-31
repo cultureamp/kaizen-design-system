@@ -2,4 +2,4 @@
 "@kaizen/components": minor
 ---
 
-migrate Toast Notifications
+Migrate ToastNotification from kaizen-legacy.

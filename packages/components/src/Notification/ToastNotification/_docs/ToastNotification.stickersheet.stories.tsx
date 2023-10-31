@@ -1,11 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import {
-  StickerSheet,
-  StickerSheetStory,
-} from "~storybook/components/StickerSheet"
-
-import { ToastNotification } from "../ToastNotification"
+import { StickerSheetStory } from "~storybook/components/StickerSheet"
+import { addToastNotification } from "../subcomponents/ToastNotificationManager"
 
 export default {
   title: "Components/Notifications/ToastNotification",
@@ -16,49 +12,75 @@ export default {
 } satisfies Meta
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
-    <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Body>
-        <StickerSheet.Row>
-          <ToastNotification id="abc-123" title="Positive" type="positive">
-            <div>
-              New user data, imported by mackenzie@hooli.com has successfully
-              uploaded. <a href="/">Manage users is now available</a>
-            </div>
-          </ToastNotification>
-          <ToastNotification
-            id="abc-234"
-            title="Informative"
-            type="informative"
-          >
-            <div>
-              New user data, imported by mackenzie@hooli.com has successfully
-              uploaded. <a href="/">Manage users is now available</a>
-            </div>
-          </ToastNotification>
-          <ToastNotification id="abc-345" title="Cautionary" type="cautionary">
-            <div>
-              New user data, imported by mackenzie@hooli.com has successfully
-              uploaded. <a href="/">Manage users is now available</a>
-            </div>
-          </ToastNotification>
-          <ToastNotification id="abc-456" title="Negative" type="negative">
-            <div>
-              New user data, imported by mackenzie@hooli.com has successfully
-              uploaded. <a href="/">Manage users is now available</a>
-            </div>
-          </ToastNotification>
-          <ToastNotification id="abc-567" title="Security" type="security">
-            <div>
-              New user data, imported by mackenzie@hooli.com has successfully
-              uploaded. <a href="/">Manage users is now available</a>
-            </div>
-          </ToastNotification>
-        </StickerSheet.Row>
-      </StickerSheet.Body>
-    </StickerSheet>
-  ),
+  render: () => {
+    React.useEffect(() => {
+      addToastNotification({
+        type: "positive",
+        title: "Positive",
+        message: (
+          <>
+            New user data, imported by mackenzie@hooli.com has successfully
+            uploaded. <a href="/">Manage users is now available</a>
+          </>
+        ),
+      })
+      addToastNotification({
+        type: "informative",
+        title: "Informative",
+        message: (
+          <>
+            New user data is currently being processed. We’ll let you know when
+            the process is completed. <a href="/">Manage users</a>
+          </>
+        ),
+      })
+      addToastNotification({
+        type: "cautionary",
+        title: "Cautionary",
+        message: (
+          <>
+            New user data, imported by mackenzie@hooli.com has uploaded with
+            some minor issues. <a href="/">View issues</a>
+          </>
+        ),
+      })
+      addToastNotification({
+        type: "security",
+        title: "Security",
+        message: (
+          <>
+            Results hidden to protect confidentiality of individuals and small
+            groups. <a href="/">Learn more</a>
+          </>
+        ),
+      })
+      addToastNotification({
+        type: "negative",
+        title: "Negative",
+        message: (
+          <>
+            Check your connection and try again. <a href="/">Refresh</a>.
+          </>
+        ),
+      })
+      addToastNotification({
+        type: "positive",
+        title:
+          "Very long Title Example Very long title Example VerylongTitleExampleVerylongtitleExample ",
+        message: (
+          <>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            semper odio vitae sem gravida rutrum. Praesent vel sapien eget eros
+            dictum luctus scelerisque eu nibh. Etiam ullamcorper lobortis
+            gravida. Suspendisse massa tortor, ultricies et ipsum at, iaculis
+            bibendum est.
+          </>
+        ),
+      })
+    }, [])
+
+    return <></>
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -70,7 +92,6 @@ export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
   parameters: {
-    /** @note: Only required if template has parameters, otherwise this spread can be removed */
     ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
   },

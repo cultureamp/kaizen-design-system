@@ -15,7 +15,7 @@ export type ToastNotificationProps = Omit<
 }
 
 export const ToastNotification = ({
-  id,
+  id: propsId,
   hideCloseIcon = false,
   type,
   title,
@@ -23,11 +23,12 @@ export const ToastNotification = ({
   children,
   ...restProps
 }: ToastNotificationProps): null => {
-  const localID = id || useId()
+  const reactId = useId()
+  const id = propsId || reactId
   const persistent = hideCloseIcon
 
   addToastNotification({
-    id: localID,
+    id,
     type,
     title,
     message: children,
