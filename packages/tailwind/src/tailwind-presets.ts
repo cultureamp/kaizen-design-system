@@ -38,11 +38,13 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   },
 
   borderWidth: {
+    DEFAULT: "2px",
     none: "0px",
     default: "2px",
     "focus-ring": "2px",
   },
   borderColor: {
+    DEFAULT: `${defaultTheme.border.solid.borderColor}`,
     "default-color": `${defaultTheme.border.solid.borderColor}`,
     transparent: `${defaultTheme.border.borderless.borderColor}`,
     "focus-ring": defaultTheme.color.blue[600],
