@@ -35,13 +35,11 @@ $small: $spacing-md;
   align-items: center;
   display: flex;
   color: $color-white;
-  margin-inline-start: calc(#{$spacing-md} * -0.15);
-  margin-inline-end: $spacing-xs;
+  margin-inline: calc(#{$spacing-md} * -0.15) $spacing-xs;
 }
 
 .profile {
-  margin-inline-start: calc(#{$spacing-md} * -0.15);
-  margin-inline-end: $spacing-xs;
+  margin-inline: calc(#{$spacing-md} * -0.15) $spacing-xs;
   display: inline-flex;
   align-items: center;
 }
@@ -70,8 +68,7 @@ $small: $spacing-md;
   height: 100%;
   align-items: center;
   padding: 0 $spacing-xs;
-  margin-inline-end: -0.6625rem;
-  margin-inline-start: -0.225rem;
+  margin-inline: -0.225rem -0.6625rem;
   color: rgba($color-purple-800-rgb, 0.7);
   cursor: pointer;
 

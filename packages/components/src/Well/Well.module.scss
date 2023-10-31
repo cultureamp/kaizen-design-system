@@ -1,0 +1,71 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.container {
+  border-radius: $border-solid-border-radius;
+  margin-bottom: $spacing-md;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+// Background Style Variations
+.positive {
+  background: $color-green-100;
+  border-color: $color-green-300;
+  color: $color-purple-800;
+}
+
+.negative {
+  background: $color-red-100;
+  border-color: $color-red-300;
+  color: $color-purple-800;
+}
+
+.informative {
+  background: $color-blue-100;
+  border-color: $color-blue-300;
+  color: $color-purple-800;
+}
+
+.cautionary {
+  background: $color-yellow-100;
+  border-color: $color-yellow-400;
+  color: $color-purple-800;
+}
+
+.assertive {
+  background: $color-orange-100;
+  border-color: $color-orange-300;
+  color: $color-purple-800;
+}
+
+.prominent {
+  background: $color-purple-100;
+  border-color: $color-purple-300;
+  color: $color-purple-800;
+}
+
+.default {
+  background-color: $color-gray-300;
+  border-color: rgba($color-gray-600-rgb, 0.1);
+}
+
+// Border Style Variations
+.solid {
+  border-style: $border-solid-border-style;
+  border-width: $border-solid-border-width;
+}
+
+.dashed {
+  border-style: $border-dashed-border-style;
+  border-width: $border-dashed-border-width;
+}
+
+.none {
+  border-color: $border-borderless-border-color;
+  border-style: $border-borderless-border-style;
+  border-width: $border-borderless-border-width;
+}

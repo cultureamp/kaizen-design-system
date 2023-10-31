@@ -1,5 +1,23 @@
 # Change Log
 
+## 10.3.14
+
+### Patch Changes
+
+- [#4237](https://github.com/cultureamp/kaizen-design-system/pull/4237) [`e551cf8b4`](https://github.com/cultureamp/kaizen-design-system/commit/e551cf8b4d36f3ba0971e8194f8da78bf04f6cab) - Package updates:
+
+  @kaizen/components (peer deps):
+
+  - @cultureamp/i18n-react-intl from 2.0.0 to 2.1.1
+  - react from 18.0.0 to 18.2.0
+  - react-intl from 6.4.6 to 6.5.1
+
+  @kaizen/tailwind (peer deps):
+
+  - tailwindcss from ^3.3.3 to ^3.3.5"
+
+  (otherwise all dev dep updates)
+
 ## 10.3.13
 
 ### Patch Changes

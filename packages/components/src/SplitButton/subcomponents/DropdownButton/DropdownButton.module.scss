@@ -1,0 +1,23 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.dropdownButton {
+  display: inline-flex;
+  position: relative;
+  inset-inline-start: calc(-1 * #{$border-solid-border-width});
+  margin-inline-start: $border-solid-border-width;
+  padding: $spacing-12;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-start-end-radius: $border-solid-border-radius;
+  border-end-end-radius: $border-solid-border-radius;
+  border-inline-start-width: 0;
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    inset-inline-start: calc(-1 * #{$border-solid-border-width});
+    margin-inline-start: unset;
+    border-inline-start-width: $border-solid-border-width;
+  }
+}

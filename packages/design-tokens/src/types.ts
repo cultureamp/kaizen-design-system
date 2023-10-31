@@ -14,12 +14,27 @@ import type { CSSProperties as ReactCSSProperties } from "react"
  *
  * ```
  * */
+/**
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If necessary, import from `@kaizen/design-tokens/js`
+ */
 type KaizenCSSProperties = ReactCSSProperties
 
+/**
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If necessary, import from `@kaizen/design-tokens/js`
+ */
 type Hex = string
 // Once TypeScript is upgraded in the repo, you can use Lowercase<>
 // type Hex = Lowercase<string>
 
+/**
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If necessary, import from `@kaizen/design-tokens/js`
+ */
 export type TypographyFont = {
   fontFamily: KaizenCSSProperties["fontFamily"]
   fontWeight: KaizenCSSProperties["fontWeight"]
@@ -29,8 +44,16 @@ export type TypographyFont = {
   maxWidth?: KaizenCSSProperties["maxWidth"]
 }
 
+/**
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ */
 export type ThemeKey = "heart" | "custom"
 
+/**
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If you are looking to define a set of new tokens, you can access the `TokenStructure` type from `@kaizen/design-tokens/js`
+ */
 export type Theme = {
   themeKey: ThemeKey
   border: {
@@ -227,6 +250,9 @@ export type Theme = {
 }
 
 // Converts all leafs (values that aren't objects) of an object tree to LeafType.
+/**
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ */
 export type DeepMapObjectLeafs<T, LeafType> = T extends
   | string
   | number
@@ -247,5 +273,8 @@ export type DeepMapObjectLeafs<T, LeafType> = T extends
  * Apologies for the complex types.
  * This type represents the Theme type but with every leaf value in the tree mapped strictly to a string, rather than a number or a more complex type such as a string union.
  * The reason for this is to have a more accurate type for the generated hierarchy of design tokens which are represented as CSS custom properties, e.g. `var(--color-purple-800)`.
+ */
+/**
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
  */
 export type CSSVariableTheme = DeepMapObjectLeafs<Theme, string>

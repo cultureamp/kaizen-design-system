@@ -1,0 +1,70 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$input-height: 48px;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: $typography-paragraph-body-font-family;
+  font-weight: $typography-paragraph-body-font-weight;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
+  letter-spacing: $typography-paragraph-body-letter-spacing;
+  color: $color-purple-800;
+}
+
+.heading {
+  margin-bottom: $spacing-6;
+}
+
+.input {
+  display: inline-flex;
+  align-items: center;
+  background-color: $color-white;
+  background-clip: padding-box;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+  border-radius: $border-solid-border-radius;
+  font-size: $typography-paragraph-body-font-size;
+  line-height: $typography-paragraph-body-line-height;
+  padding: 0 $spacing-sm;
+  height: $input-height;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus-within {
+    border-color: $color-gray-600;
+    background-color: $color-gray-200;
+  }
+}
+
+.input:focus-within {
+  .focusRing {
+    $focus-ring-offset: 3px;
+
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    inset: -$focus-ring-offset;
+    pointer-events: none;
+  }
+}
+
+.isDisabled {
+  pointer-events: none;
+  background-color: transparent;
+  border-color: $color-gray-500;
+  opacity: 30%;
+}
+
+.error {
+  border: $border-solid-border-width $border-solid-border-style $color-red-500;
+}

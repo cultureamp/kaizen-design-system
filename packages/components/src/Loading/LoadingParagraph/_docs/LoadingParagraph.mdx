@@ -1,0 +1,42 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
+import * as LoadingParagraphStories from "./LoadingParagraph.stories"
+
+<Meta of={LoadingParagraphStories} />
+
+# LoadingParagraph
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Loading/LoadingParagraph"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=50670%3A115292&mode=design&t=bSqb3WpQ04594DsC-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082060062/Loading+Skeleton"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { LoadingParagraph } from "@kaizen/components"'
+/>
+
+## Overview
+
+Loading skeleton for <LinkTo pageId="components-text">Text</LinkTo>.
+
+<Canvas of={LoadingParagraphStories.Playground} />
+<Controls of={LoadingParagraphStories.Playground} />
+
+## API
+
+<DocsStory of={LoadingParagraphStories.Animated} />
+
+<DocsStory of={LoadingParagraphStories.Reversed} />
+
+<DocsStory of={LoadingParagraphStories.Link} />
+
+## Examples
+
+<DocsStory of={LoadingParagraphStories.MultiLineExample} />
+
+<DocsStory of={LoadingParagraphStories.MultiColumnExample} />

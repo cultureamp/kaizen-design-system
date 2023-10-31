@@ -31,8 +31,7 @@
   border-radius: $border-solid-border-radius;
   background-color: $color-white;
   padding-block: calc(#{$spacing-12} - #{$border-solid-border-width});
-  padding-inline-start: 0.875rem;
-  padding-inline-end: $spacing-12;
+  padding-inline: 0.875rem $spacing-12;
   font-family: $typography-paragraph-body-font-family;
   font-weight: $typography-paragraph-body-font-weight;
   font-size: $typography-paragraph-body-font-size;

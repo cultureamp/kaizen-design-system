@@ -167,26 +167,24 @@ describe("<MultiSelect />", () => {
       })
     })
 
-    // @todo: Enable when adding functionality for removing selected item
-    // eslint-disable-next-line jest/no-commented-out-tests
-    //   it("does not close the popover when clearing selected options", async () => {
-    //     const { getByRole } = render(
-    //       <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
-    //     )
+    it("does not close the popover when clearing selected options", async () => {
+      const { getByRole, getByLabelText } = render(
+        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+      )
 
-    //     const toggleButton = getByRole("button", { name: "Jalapeno" })
-    //     await user.click(toggleButton)
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
+      await user.click(toggleButton)
 
-    //     const popover = getByRole("dialog")
-    //     await waitFor(() => {
-    //       expect(popover).toBeVisible()
-    //     })
+      const popover = getByRole("dialog")
+      await waitFor(() => {
+        expect(popover).toBeVisible()
+      })
 
-    //     await user.click(getByRole("button", { name: "Clear waffle" }))
-    //     await waitFor(() => {
-    //       expect(popover).toBeVisible()
-    //     })
-    //   })
+      await user.click(getByLabelText("Remove option: Pancakes"))
+      await waitFor(() => {
+        expect(popover).toBeVisible()
+      })
+    })
   })
 
   describe("Focus lock", () => {
@@ -214,7 +212,7 @@ describe("<MultiSelect />", () => {
 
       describe("When closed", () => {
         it("has expected focus order", async () => {
-          const { getByRole } = render(
+          const { getByRole, getByLabelText } = render(
             <MultiSelectWrapper selectedValues={new Set(["waffle"])} />
           )
           const toggleButton = getByRole("button", { name: "Jalapeno" })
@@ -224,18 +222,17 @@ describe("<MultiSelect />", () => {
             expect(toggleButton).toHaveFocus()
           })
 
-          // @todo: Enable when adding functionality for removing selected item
-          // await user.tab()
-          // await waitFor(() => {
-          //   expect(getByRole("button", { name: "Clear waffle" })).toHaveFocus()
-          // })
+          await user.tab()
+          await waitFor(() => {
+            expect(getByLabelText("Remove option: Waffle")).toHaveFocus()
+          })
 
           // @todo: Enable when adding functionality for removing all selected items
           // await user.tab()
           // await waitFor(() => {
-          //   expect(
-          //     getByRole("button", { name: "Clear all waffles" })
-          //   ).toHaveFocus()
+          // expect(
+          // getByRole("button", { name: "Clear all waffles" })
+          // ).toHaveFocus()
           // })
         })
       })
@@ -258,6 +255,29 @@ describe("<MultiSelect />", () => {
       expect(selectedItemsTags.length).toBe(2)
       expect(selectedItemsTags[0]).toHaveTextContent("Toastie")
       expect(selectedItemsTags[1]).toHaveTextContent("Waffle")
+    })
+  })
+})
+
+describe("Removing an option", () => {
+  it("removes the option when the clear button is clicked", async () => {
+    const { getByRole, getByText, getByLabelText } = render(
+      <MultiSelectWrapper selectedValues={new Set(["waffle"])} />
+    )
+
+    const waffleOption = getByText("Waffle")
+    const toggleButton = getByRole("button", { name: "Jalapeno" })
+    await user.click(toggleButton)
+
+    const popover = getByRole("dialog")
+    await waitFor(() => {
+      expect(popover).toBeVisible()
+    })
+
+    const removeButton = getByLabelText("Remove option: Waffle")
+    await user.click(removeButton)
+    await waitFor(() => {
+      expect(waffleOption).not.toBeInTheDocument()
     })
   })
 })
