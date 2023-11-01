@@ -1,33 +1,25 @@
 import React from "react"
-import { render } from "@testing-library/react"
-import { ProgressBar, ProgressBarProps } from "./ProgressBar"
-
-const ProgressBarWrapper = (
-  customProps?: Partial<ProgressBarProps>
-): JSX.Element => (
-  <ProgressBar
-    value={60}
-    max={100}
-    label=""
-    isReversed={false}
-    isAnimating={false}
-    mood="positive"
-    {...customProps}
-  />
-)
+import { render, screen } from "@testing-library/react"
+import { ProgressBar } from "./ProgressBar"
 
 describe("<ProgressBar />", () => {
-  it("has an accessible progress value", () => {
+  it("has an accessible progress value expressed as a percentage", () => {
+    const expectedAccessiblePercent: string = "60"
+
     render(
       <ProgressBar
-        value={60}
-        max={100}
+        value={3}
+        max={5}
         label=""
         isReversed={false}
         isAnimating={false}
         mood="positive"
+        data-testid="id--progress-bar"
       />
     )
-    expect(true).toBe(false)
+    expect(screen.getByTestId("id--progress-bar")).toHaveAttribute(
+      "aria-valuenow",
+      expectedAccessiblePercent
+    )
   })
 })
