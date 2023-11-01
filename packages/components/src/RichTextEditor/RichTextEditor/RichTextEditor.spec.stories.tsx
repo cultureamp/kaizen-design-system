@@ -6,7 +6,7 @@ import { EditorContentArray } from "../types"
 import { RichTextEditor, RichTextEditorProps } from "./RichTextEditor"
 
 export default {
-  title: "Components/Rich Text Editor/Tests",
+  title: "Components/RichTextEditor/Tests",
   component: RichTextEditor,
 }
 

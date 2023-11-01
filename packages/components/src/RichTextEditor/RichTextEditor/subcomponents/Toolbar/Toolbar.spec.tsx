@@ -1,8 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
-import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
-import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
+import { BoldIcon } from "~components/Icon"
 import { ToggleIconButton } from "../ToggleIconButton"
 import { ToolbarSection } from "../ToolbarSection"
 import { Toolbar } from "."
@@ -12,9 +11,15 @@ const user = userEvent.setup()
 const ExampleToolbar = (): JSX.Element => (
   <Toolbar aria-label="Toolbar" aria-controls="editable-id">
     <ToolbarSection>
-      <ToggleIconButton label="Bold" icon={boldIcon} />
-      <ToggleIconButton label="Italic" icon={boldIcon} />
-      <ToggleIconButton label="Underline" icon={boldIcon} />
+      <ToggleIconButton label="Bold" icon={<BoldIcon role="presentation" />} />
+      <ToggleIconButton
+        label="Italic"
+        icon={<BoldIcon role="presentation" />}
+      />
+      <ToggleIconButton
+        label="Underline"
+        icon={<BoldIcon role="presentation" />}
+      />
     </ToolbarSection>
   </Toolbar>
 )

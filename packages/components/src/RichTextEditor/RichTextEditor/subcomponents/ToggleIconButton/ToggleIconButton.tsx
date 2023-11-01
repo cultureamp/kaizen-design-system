@@ -4,8 +4,7 @@ import { Tooltip } from "~components/Tooltip"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./ToggleIconButton.module.scss"
 
-export interface ToggleIconButtonProps
-  extends OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+export type ToggleIconButtonProps = {
   icon: JSX.Element
   label: string
   /*
@@ -18,7 +17,7 @@ export interface ToggleIconButtonProps
     | "primary"
     | "destructive"
     | "secondary-destructive"
-}
+} & OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const ToggleIconButton = React.forwardRef<
   HTMLButtonElement,

@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as ToggleIconButtonStories from "./ToggleIconButton.stories"
+
+<Meta of={ToggleIconButtonStories} />
+
+# ToggleIconButton
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/RichTextEditor/subcomponents/ToggleIconButton"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { ToggleIconButton } from "@kaizen/components"'
+/>
+
+## Overview
+
+Create your own custom ToggleIconButton arrangement.
+
+<Canvas of={ToggleIconButtonStories.Playground} />
+<Controls of={ToggleIconButtonStories.Playground} />

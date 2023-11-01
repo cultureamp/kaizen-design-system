@@ -4,8 +4,7 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import { ToolbarSectionProps } from "../ToolbarSection"
 import styles from "./Toolbar.module.scss"
 
-export interface ToolbarProps
-  extends OverrideClassName<React.HTMLAttributes<HTMLElement>> {
+export type ToolbarProps = {
   children: React.ReactNode
   /*
    * Connect the Toolbar with the editable content area through its ID
@@ -15,7 +14,7 @@ export interface ToolbarProps
    * Provide an accessible name for screen readers for the Toolbar
    */
   "aria-label": string
-}
+} & OverrideClassName<React.HTMLAttributes<HTMLElement>>
 
 const determineValidKeypress = (
   event: React.KeyboardEvent<HTMLElement>
