@@ -47,3 +47,10 @@ While `value` and `max` can be used to represent progress as either a percentage
 <Canvas of={ProgressBarStories.ValueAndMax} />
 
 <DocsStory of={ProgressBarStories.Reversed} />
+
+### Accessible context
+
+Due to the optional `label` prop, the progress bar does not have an accessible name. You can provide context for assistive technologies with aria attributes such as `aria-label` or `aria-labelledby`.
+
+
+<Canvas of={ProgressBarStories.AccessibleName} />

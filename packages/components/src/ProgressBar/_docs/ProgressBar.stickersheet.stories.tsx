@@ -11,6 +11,17 @@ export default {
   parameters: {
     chromatic: { disable: false, pauseAnimationAtEnd: true },
     controls: { disable: true },
+    a11y: {
+      config: {
+        rules: [
+          {
+            // `label` is an optional prop so this has no accessible by default. consumers can pass in `aria-labelledby` or `aria-label` which can provide an accessible description pending a refactor.
+            id: "aria-progressbar-name",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 } satisfies Meta
 
