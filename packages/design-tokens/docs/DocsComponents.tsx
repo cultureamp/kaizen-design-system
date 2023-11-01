@@ -3,10 +3,11 @@
 import React from "react"
 import { Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
+import { toCustomPropertiesString } from "object-to-css-variables"
 import Highlight from "react-highlight"
-import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
-import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
+import { Card } from "~components/Card"
+import { makeCssVariableDefinitionsMap } from "../src"
 import { defaultTheme } from "../src/themes"
 import animationSass from "!!raw-loader!../sass/animation.scss"
 import borderSass from "!!raw-loader!../sass/border.scss"
@@ -105,7 +106,9 @@ const themesBlocks: Array<
   {
     name: "CSS Variables",
     language: "json",
-    code: JSON.stringify(makeCSSVariableTheme(defaultTheme), null, 2),
+    code: toCustomPropertiesString(
+      makeCssVariableDefinitionsMap(defaultTheme)
+    ),
     caption: (
       <span>
         Generated using the default theme. Exported as JSON in

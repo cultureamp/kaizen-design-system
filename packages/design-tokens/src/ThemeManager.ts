@@ -8,11 +8,6 @@ import { Theme as BaseTheme } from "./types"
  * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
  */
 
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- *
- * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
- */
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>
   private theme: Theme

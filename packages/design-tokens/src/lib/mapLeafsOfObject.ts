@@ -20,9 +20,7 @@ import { DeepMapObjectLeafs } from "../types"
  * }
  * ```
  */
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- */
+
 export function mapLeafsOfObject<
   Obj extends Record<string | number, unknown>,
   Value,
