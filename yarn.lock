@@ -1752,10 +1752,10 @@
   resolved "https://npm.pkg.github.com/download/@cultureamp/redirect-to-login/2.0.3/26afa69493a04cb23a5333dccf5b922afd4a333c#26afa69493a04cb23a5333dccf5b922afd4a333c"
   integrity sha512-OFJffYRJbB3e0LO3daRZuP7dMhvpQbmiQNu/lnlWWqi5YCCdAgjoozC7feQFqwDBbtPcTHxt4qcJ8Do3RbRs5Q==
 
-"@cultureamp/rich-text-toolkit@^2.0.2":
-  version "2.0.2"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/2.0.2/e8de39a4915d1c36fb5ec71563f737ab866ca249#e8de39a4915d1c36fb5ec71563f737ab866ca249"
-  integrity sha512-668M+Wy7hd7bmtrGOjzfIf8Ir6L4uYffhhG+jPC3ZFk5mDTpzRsJoEOBGTzbqOYq6J5yv0kleqrzwIbnyG0fsQ==
+"@cultureamp/rich-text-toolkit@^2.0.3":
+  version "2.0.3"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/2.0.3/9e4bab286e8053c9d0c1c90c8e79b8dde99bd48c#9e4bab286e8053c9d0c1c90c8e79b8dde99bd48c"
+  integrity sha512-oEx6WFpV/uoQCTmaQ7KZQrpz3av5vKqUzEZsmVaAWR9MJB0YAm5orKqAvi5VL+EvK5xFA+NpMF2F065tSpgJzA==
   dependencies:
     "@kaizen/button" "^3.0.0"
     "@kaizen/component-library" "^16.7.3"
