@@ -1,1 +1,3 @@
-<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Icons/Actions/close</title><defs><path id="a" d="M14.654 4.167 10 8.82 5.346 4.167l-1.18 1.18L8.823 10l-4.655 4.655 1.179 1.178L10 11.18l4.654 4.654 1.18-1.178L11.18 10l4.655-4.653z"/></defs><use fill="#000" xlink:href="#a" fill-rule="evenodd"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6542 4.16669L10 8.82085L5.34584 4.16669L4.16667 5.34669L8.82167 10L4.16667 14.655L5.34584 15.8334L10 11.1792L14.6542 15.8334L15.8342 14.655L11.1792 10L15.8342 5.34669L14.6542 4.16669Z" fill="#2F2438"/>
+</svg>

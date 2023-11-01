@@ -44,13 +44,17 @@ const replaceAttrKeys = child => {
 // Figma/ Sketch don't allow us to set 'currentColor' when exporting SVGs.
 // We have a convention to export the color as #000 or #0000000, then change it here.
 const replaceColor = child => {
-  if (child.attributes.fill === "#000" || child.attributes.fill === "#000000") {
+  const hexCodesToReplace = [
+    "#000",
+    "#000000",
+    "#2F2438", // Purple-800 from Figma export
+  ]
+
+  if (hexCodesToReplace.includes(child.attributes.fill)) {
     child.attributes.fill = "currentColor"
   }
-  if (
-    child.attributes.stroke === "#000" ||
-    child.attributes.stroke === "#000000"
-  ) {
+
+  if (hexCodesToReplace.includes(child.attributes.stroke)) {
     child.attributes.stroke = "currentColor"
   }
 }
