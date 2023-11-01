@@ -115,6 +115,14 @@ $fifth: $color-red-500;
     background-color: transparent;
     border-color: rgba($color-white-rgb, 0.65);
   }
+
+  :where(.likertItem4, .likertItem5) .check {
+    color: white;
+  }
+
+  :is(.likertItem4.suggested, .likertItem5.suggested) .check {
+    color: white;
+  }
 }
 
 .likertItem:focus,
@@ -303,16 +311,8 @@ $fifth: $color-red-500;
   }
 }
 
-:where(.likertItem4, .likertItem5) .check {
-  color: white;
-}
-
 .hovered :where(.likertItem4, .likertItem5) .check {
   color: black;
-}
-
-:is(.likertItem4.suggested, .likertItem5.suggested) .check {
-  color: white;
 }
 
 .hovered.reversed .itemContainer > :not(.suggested.likertItem) .check {
