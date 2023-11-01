@@ -1,4 +1,10 @@
-import React, { useState, useEffect, HTMLAttributes, ReactNode } from "react"
+import React, {
+  useState,
+  useEffect,
+  HTMLAttributes,
+  ReactNode,
+  useId,
+} from "react"
 import {
   ProseMirrorCommands,
   ProseMirrorState,
@@ -9,19 +15,18 @@ import {
   createLinkManager,
 } from "@cultureamp/rich-text-toolkit"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import { FieldMessage } from "~components/FieldMessage"
 import { Label } from "~components/Label"
 import { InlineNotification } from "~components/Notification"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { ToolbarItems, EditorContentArray, EditorRows } from "../../types"
-import { buildControlMap } from "./controlmap"
-import { buildInputRules } from "./inputrules"
-import { buildKeymap } from "./keymap"
+import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
 import { createSchemaFromControls } from "./schema"
 import { ToggleIconButton } from "./subcomponents/ToggleIconButton"
 import { Toolbar } from "./subcomponents/Toolbar"
 import { ToolbarSection } from "./subcomponents/ToolbarSection"
+import { buildControlMap } from "./utils/controlmap"
+import { buildInputRules } from "./utils/inputrules"
+import { buildKeymap } from "./utils/keymap"
 
 import styles from "./RichTextEditor.module.scss"
 
@@ -62,30 +67,30 @@ interface RTEWithLabelledBy extends BaseRichTextEditorProps {
 
 export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy
 /**
- * {@link https://cultureamp.design/components/rich-text-editor/ Guidance} |
- * {@link https://cultureamp.design/storybook/?path=/docs/components-rich-text-editor--default Storybook}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896752/Rich+Text+Editor Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-richtexteditor--docs Storybook}
  */
-export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
-  const {
-    onChange,
-    defaultValue,
-    labelText,
-    "aria-labelledby": labelledBy,
-    classNameOverride,
-    controls,
-    rows = 3,
-    dataError = "Something went wrong",
-    onDataError,
-    validationMessage,
-    description,
-    status = "default",
-    ...restProps
-  } = props
+export const RichTextEditor = ({
+  onChange,
+  defaultValue,
+  labelText,
+  "aria-labelledby": labelledBy,
+  classNameOverride,
+  controls,
+  rows = 3,
+  dataError,
+  onDataError,
+  validationMessage,
+  description,
+  status = "default",
+  ...restProps
+}: RichTextEditorProps): JSX.Element => {
+  const reactId = useId()
   const [schema] = useState<ProseMirrorModel.Schema>(
     createSchemaFromControls(controls)
   )
-  const [labelId] = useState<string>(labelledBy || v4())
-  const [editorId] = useState<string>(v4())
+  const [labelId] = useState<string>(labelledBy || reactId)
+  const [editorId] = useState<string>(reactId)
 
   const useRichTextEditorResult = (():
     | ReturnType<typeof useRichTextEditor>
@@ -116,12 +121,12 @@ export const RichTextEditor = (props: RichTextEditorProps): JSX.Element => {
       <InlineNotification
         headingProps={{
           children: "Error",
-          variant: "heading-3",
+          variant: "heading-6",
         }}
         type="negative"
         persistent
       >
-        {dataError}
+        {dataError || "Something went wrong"}
       </InlineNotification>
     )
   }

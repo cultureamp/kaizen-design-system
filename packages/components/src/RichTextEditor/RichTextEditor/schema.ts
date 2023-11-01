@@ -4,8 +4,8 @@ import {
   marks as coreMarks,
 } from "@cultureamp/rich-text-toolkit"
 
-import { TOOLBAR_CONTROLS } from "../../constants"
-import { ToolbarItems, ToolbarControlTypes } from "../../types"
+import { TOOLBAR_CONTROLS } from "../constants"
+import { ToolbarItems, ToolbarControlTypes } from "../types"
 
 export const createSchemaFromControls = (
   controls?: ToolbarItems[]

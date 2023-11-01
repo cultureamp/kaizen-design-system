@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { StoryFn } from "@storybook/react"
-import { RichTextEditor, RichTextEditorProps } from "../src/RichTextEditor"
+import { RichTextEditor, RichTextEditorProps } from "../RichTextEditor"
 import { EditorContentArray } from "../types"
 import dummyContent from "./dummyContent.json"
 import dummyMalformedContent from "./dummyMalformedContent.json"

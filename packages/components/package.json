@@ -93,7 +93,7 @@
     "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
     "@cultureamp/frontend-apis": "^8.2.0",
     "@cultureamp/i18n-react-intl": "^2.1.1",
-    "@cultureamp/rich-text-toolkit": "^2.0.2",
+    "@cultureamp/rich-text-toolkit": "^2.0.3",
     "@kaizen/tailwind": "^1.1.1",
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-babel": "^6.0.4",
