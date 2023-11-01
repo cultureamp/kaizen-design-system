@@ -8,6 +8,9 @@ const meta = {
   args: {
     content: dummyContent,
   },
+  argTypes: {
+    content: { control: "disable" },
+  },
 } satisfies Meta<typeof RichTextContent>
 
 export default meta
