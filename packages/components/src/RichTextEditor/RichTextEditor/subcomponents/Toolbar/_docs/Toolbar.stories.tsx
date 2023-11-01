@@ -1,6 +1,12 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { BoldIcon, ItalicsIcon, UnderlineIcon } from "~components/Icon"
+import {
+  BoldIcon,
+  BullettedListIcon,
+  ItalicsIcon,
+  NumberedListIcon,
+  UnderlineIcon,
+} from "~components/Icon"
 import { ToggleIconButton } from "../../ToggleIconButton"
 import { ToolbarSection } from "../../ToolbarSection"
 import { Toolbar } from "../index"
@@ -12,20 +18,32 @@ const meta = {
     "aria-controls": "my-rich-text-editor-id",
     "aria-label": "Custom Super Toolbar",
     children: (
-      <ToolbarSection>
-        <ToggleIconButton
-          label="Bold"
-          icon={<BoldIcon role="presentation" />}
-        />
-        <ToggleIconButton
-          label="Italic"
-          icon={<ItalicsIcon role="presentation" />}
-        />
-        <ToggleIconButton
-          label="Underline"
-          icon={<UnderlineIcon role="presentation" />}
-        />
-      </ToolbarSection>
+      <>
+        <ToolbarSection>
+          <ToggleIconButton
+            label="Bold"
+            icon={<BoldIcon role="presentation" />}
+          />
+          <ToggleIconButton
+            label="Italic"
+            icon={<ItalicsIcon role="presentation" />}
+          />
+          <ToggleIconButton
+            label="Underline"
+            icon={<UnderlineIcon role="presentation" />}
+          />
+        </ToolbarSection>
+        <ToolbarSection>
+          <ToggleIconButton
+            label="Bullet list"
+            icon={<BullettedListIcon role="presentation" />}
+          />
+          <ToggleIconButton
+            label="Numbered list"
+            icon={<NumberedListIcon role="presentation" />}
+          />
+        </ToolbarSection>
+      </>
     ),
   },
   argTypes: {
