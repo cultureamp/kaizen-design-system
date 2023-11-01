@@ -15,7 +15,7 @@ const meta = {
   title: "Components/RichTextEditor/subcomponents/Toolbar",
   component: Toolbar,
   args: {
-    "aria-controls": "my-rich-text-editor-id",
+    "aria-controls": "#my-rich-text-editor-id",
     "aria-label": "Custom Super Toolbar",
     children: (
       <>
