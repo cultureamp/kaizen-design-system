@@ -7,7 +7,6 @@ import {
   ProseMirrorInputrules,
 } from "@cultureamp/rich-text-toolkit"
 
-
 type KeyBinding = {
   [key: string]: ProseMirrorState.Command
 }
