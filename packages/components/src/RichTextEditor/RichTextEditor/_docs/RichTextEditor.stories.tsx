@@ -92,3 +92,20 @@ export const Validation: Story = {
     status: "error",
   },
 }
+
+export const MalformedContent: Story = {
+  args: {
+    defaultValue: [
+      {
+        type: "plaragraph",
+        content: [
+          {
+            type: "text",
+            marks: [{ type: "strong" }],
+            text: "Some notes I'd like to share in bold text:",
+          },
+        ],
+      },
+    ],
+  },
+}
