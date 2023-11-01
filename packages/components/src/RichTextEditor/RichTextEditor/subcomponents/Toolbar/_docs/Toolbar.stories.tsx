@@ -15,7 +15,7 @@ const meta = {
   title: "Components/RichTextEditor/subcomponents/Toolbar",
   component: Toolbar,
   args: {
-    "aria-controls": "#my-rich-text-editor-id",
+    "aria-controls": "my-rich-text-editor-id",
     "aria-label": "Custom Super Toolbar",
     children: (
       <>
@@ -49,6 +49,15 @@ const meta = {
   argTypes: {
     children: { control: "disable" },
   },
+  decorators: [
+    Story => (
+      <>
+        {/* Must give the toolbar something to control */}
+        <Story />
+        <div id="my-rich-text-editor-id"></div>
+      </>
+    ),
+  ],
 } satisfies Meta<typeof Toolbar>
 
 export default meta
