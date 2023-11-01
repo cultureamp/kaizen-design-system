@@ -1,3 +1,4 @@
+import React from "react"
 import {
   ProseMirrorState,
   ProseMirrorModel,
@@ -6,20 +7,14 @@ import {
   markIsActive,
   listIsActive,
 } from "@cultureamp/rich-text-toolkit"
-import linkIcon from "@kaizen/component-library/icons/add-link.icon.svg"
-import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
-import bulletListIcon from "@kaizen/component-library/icons/bulletted-list.icon.svg"
-import decreaseIndentIcon from "@kaizen/component-library/icons/decrease-indent.icon.svg"
-import increaseIndentIcon from "@kaizen/component-library/icons/increase-indent.icon.svg"
-import italicIcon from "@kaizen/component-library/icons/italics.icon.svg"
-import numberedListIcon from "@kaizen/component-library/icons/numbered-list.icon.svg"
-import underlineIcon from "@kaizen/component-library/icons/underline.icon.svg"
+
+import { AddLinkIcon, BoldIcon, BullettedListIcon, DecreaseIndentIcon, IncreaseIndentIcon, ItalicsIcon, NumberedListIcon, UnderlineIcon } from "~components/Icon"
 
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
 /** Configuration for individual controls */
 type ToolbarControl = {
-  icon: React.SVGAttributes<SVGSymbolElement>
+  icon: JSX.Element
   label: string
   isActive: boolean
   disabled?: boolean
@@ -229,7 +224,7 @@ export function buildControlMap(
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
       label: "Bold",
-      icon: boldIcon,
+      icon: <BoldIcon role="presentation" />,
     })
   }
 
@@ -240,7 +235,7 @@ export function buildControlMap(
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
       label: "Italic",
-      icon: italicIcon,
+      icon: <ItalicsIcon role="presentation" />,
     })
   }
 
@@ -251,7 +246,7 @@ export function buildControlMap(
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
       label: "Underline",
-      icon: underlineIcon,
+      icon: <UnderlineIcon role="presentation"/>,
     })
   }
 
@@ -262,7 +257,7 @@ export function buildControlMap(
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
       label: "Bullet List",
-      icon: bulletListIcon,
+      icon: <BullettedListIcon role="presentation"/>,
     })
   }
 
@@ -273,7 +268,7 @@ export function buildControlMap(
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
       label: "Numbered List",
-      icon: numberedListIcon,
+      icon: <NumberedListIcon role="presentation" />,
     })
   }
 
@@ -289,14 +284,14 @@ export function buildControlMap(
         disabled: liftListIsDisabled(editorState),
         isActive: false,
         label: "Decrease indent",
-        icon: decreaseIndentIcon,
+        icon: <DecreaseIndentIcon role="presentation" />,
       },
       {
         action: createIndentListCommand(),
         disabled: indentListIsDisabled(editorState),
         isActive: false,
         label: "Increase indent",
-        icon: increaseIndentIcon,
+        icon: <IncreaseIndentIcon role="presentation" />,
       }
     )
   }
@@ -309,7 +304,7 @@ export function buildControlMap(
       disabled: editorState.selection.empty,
       isActive: false,
       label: "Link",
-      icon: linkIcon,
+      icon: <AddLinkIcon role="presentation" />,
     })
   }
 

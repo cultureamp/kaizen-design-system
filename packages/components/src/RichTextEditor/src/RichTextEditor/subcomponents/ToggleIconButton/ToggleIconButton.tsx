@@ -1,13 +1,12 @@
 import React from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import { Tooltip } from "@kaizen/draft-tooltip"
+import { Tooltip } from "~components/Tooltip"
+import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./ToggleIconButton.module.scss"
 
 export interface ToggleIconButtonProps
   extends OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>> {
-  icon: React.SVGAttributes<SVGSymbolElement>
+  icon: JSX.Element
   label: string
   /*
    * determines the active or inactive state along with the "aria-pressed" attribute
@@ -26,8 +25,8 @@ export const ToggleIconButton = React.forwardRef<
   ToggleIconButtonProps
 >((props, ref) => {
   const {
-    icon,
     label,
+    icon,
     isActive = false,
     mood = "default",
     disabled = false,
@@ -59,7 +58,7 @@ export const ToggleIconButton = React.forwardRef<
         )}
         {...nativeButtonProps}
       >
-        <Icon icon={icon} role="presentation" />
+        {icon}
       </button>
     </Tooltip>
   )

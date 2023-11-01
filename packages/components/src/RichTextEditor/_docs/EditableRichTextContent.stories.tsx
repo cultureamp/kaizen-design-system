@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { StoryFn } from "@storybook/react"
-import { Button } from "@kaizen/button"
-import { Box } from "@kaizen/component-library"
+import { Button } from "~components/Button"
 import { EditableRichTextContent } from "../src/EditableRichTextContent"
 import { RichTextEditorProps, RichTextEditor } from "../src/RichTextEditor"
 import { EditorContentArray } from "../src/types"
@@ -60,10 +59,10 @@ function InlineEditor(props: {
           defaultValue={rteData}
           onChange={handleOnChange}
         />
-        <Box mt={0.5} style={{ display: "flex", justifyContent: "end" }}>
+        <div className="flex justify-end mt-8">
           <Button label="Cancel" secondary onClick={handleCancel} />
           <Button label="Save" primary onClick={handleCancel} />
-        </Box>
+        </div>
       </>
     )
   }

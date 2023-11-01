@@ -1,7 +1,7 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
-import boldIcon from "@kaizen/component-library/icons/bold.icon.svg"
 // import { StoryWrapper } from "../../../storybook/components/StoryWrapper"
+import { BoldIcon } from "~components/Icon"
 import { ToggleIconButton } from ".."
 
 export default {
@@ -29,7 +29,7 @@ export const DefaultStory: StoryFn<typeof ToggleIconButton> = args => (
   <ToggleIconButton {...args} />
 )
 DefaultStory.storyName = "Default (Kaizen Demo)"
-DefaultStory.args = { isActive: false, label: "Bold", icon: boldIcon }
+DefaultStory.args = { isActive: false, label: "Bold", icon: <BoldIcon role="presentation" /> }
 
 // This is used to showcase the toggle icon button within a sticker sheet
 // Implementation wise it is not required in a ToolbarSection

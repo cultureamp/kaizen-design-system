@@ -7,13 +7,6 @@ import {
 import { TOOLBAR_CONTROLS } from "../constants"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 
-export const defaultNodes: ProseMirrorModel.NodeSpec = {
-  doc: coreNodes.doc,
-  paragraph: coreNodes.paragraph,
-  text: coreNodes.text,
-  hardBreak: coreNodes.hardBreak,
-}
-
 export const createSchemaFromControls = (
   controls?: ToolbarItems[]
 ): ProseMirrorModel.Schema<string> => {
@@ -34,6 +27,14 @@ export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> =>
 function createSchema(
   controls?: ToolbarControlTypes[]
 ): ProseMirrorModel.Schema<string> {
+
+  const defaultNodes: ProseMirrorModel.NodeSpec = {
+    doc: coreNodes.doc,
+    paragraph: coreNodes.paragraph,
+    text: coreNodes.text,
+    hardBreak: coreNodes.hardBreak,
+  }
+
   if (!controls) {
     return new ProseMirrorModel.Schema({
       nodes: defaultNodes,

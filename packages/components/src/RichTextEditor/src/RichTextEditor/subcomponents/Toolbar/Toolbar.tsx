@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
+import { OverrideClassName } from "~types/OverrideClassName"
 import { ToolbarSectionProps } from "../ToolbarSection"
 import styles from "./Toolbar.module.scss"
 
