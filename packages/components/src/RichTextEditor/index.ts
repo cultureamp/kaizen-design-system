@@ -1,6 +1,5 @@
 export * from "./EditableRichTextContent"
+export * from "./RichTextContent"
+export * from "./types"
 
-export * from "./src/RichTextEditor"
-export * from "./src/RichTextContent"
-export * from "./src/constants"
-export * from "./src/types"
+// export * from "./src/RichTextEditor"

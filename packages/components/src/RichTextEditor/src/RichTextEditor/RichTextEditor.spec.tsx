@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import { EditorContentArray } from "../types"
+import { EditorContentArray } from "../../types"
 import { RichTextEditor, RichTextEditorProps } from "."
 
 // This helper is needed to simulate selection of a component since we

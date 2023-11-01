@@ -4,8 +4,8 @@ import {
   marks as coreMarks,
 } from "@cultureamp/rich-text-toolkit"
 
-import { TOOLBAR_CONTROLS } from "../constants"
-import { ToolbarItems, ToolbarControlTypes } from "../types"
+import { TOOLBAR_CONTROLS } from "../../constants"
+import { ToolbarItems, ToolbarControlTypes } from "../../types"
 
 export const createSchemaFromControls = (
   controls?: ToolbarItems[]
@@ -27,7 +27,6 @@ export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> =>
 function createSchema(
   controls?: ToolbarControlTypes[]
 ): ProseMirrorModel.Schema<string> {
-
   const defaultNodes: ProseMirrorModel.NodeSpec = {
     doc: coreNodes.doc,
     paragraph: coreNodes.paragraph,

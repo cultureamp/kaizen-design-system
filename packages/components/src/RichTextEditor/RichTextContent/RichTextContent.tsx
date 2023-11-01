@@ -6,7 +6,7 @@ import {
 } from "@cultureamp/rich-text-toolkit"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { createSchemaWithAll } from "../RichTextEditor/schema"
+import { createSchemaWithAll } from "../src/RichTextEditor/schema"
 import { EditorContentArray } from "../types"
 import styles from "./RichTextContent.module.scss"
 

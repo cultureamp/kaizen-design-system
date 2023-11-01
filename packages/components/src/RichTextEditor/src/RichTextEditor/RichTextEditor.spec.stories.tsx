@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { expect } from "@storybook/jest"
 import { StoryObj } from "@storybook/react"
 import { userEvent, within } from "@storybook/testing-library"
-import { EditorContentArray } from "../types"
+import { EditorContentArray } from "../../types"
 import { RichTextEditor, RichTextEditorProps } from "./RichTextEditor"
 
 export default {

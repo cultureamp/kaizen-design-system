@@ -8,9 +8,18 @@ import {
   listIsActive,
 } from "@cultureamp/rich-text-toolkit"
 
-import { AddLinkIcon, BoldIcon, BullettedListIcon, DecreaseIndentIcon, IncreaseIndentIcon, ItalicsIcon, NumberedListIcon, UnderlineIcon } from "~components/Icon"
+import {
+  AddLinkIcon,
+  BoldIcon,
+  BullettedListIcon,
+  DecreaseIndentIcon,
+  IncreaseIndentIcon,
+  ItalicsIcon,
+  NumberedListIcon,
+  UnderlineIcon,
+} from "~components/Icon"
 
-import { ToolbarItems, ToolbarControlTypes } from "../types"
+import { ToolbarItems, ToolbarControlTypes } from "../../types"
 
 /** Configuration for individual controls */
 type ToolbarControl = {
@@ -246,7 +255,7 @@ export function buildControlMap(
       isActive: markIsActive(editorState, type),
       action: createToggleMarkCommand(type),
       label: "Underline",
-      icon: <UnderlineIcon role="presentation"/>,
+      icon: <UnderlineIcon role="presentation" />,
     })
   }
 
@@ -257,7 +266,7 @@ export function buildControlMap(
       action: createToggleListCommand(type),
       isActive: listIsActive(editorState, type, listNodes),
       label: "Bullet List",
-      icon: <BullettedListIcon role="presentation"/>,
+      icon: <BullettedListIcon role="presentation" />,
     })
   }
 
