@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
+import { GenericNotification } from "~components/Notification/subcomponents/GenericNotification"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { GenericNotification } from "../../../subcomponents/GenericNotification"
 import { RemoveToastNotification, ToastNotification } from "../../types"
 import styles from "./ToastNotificationsList.module.scss"
 

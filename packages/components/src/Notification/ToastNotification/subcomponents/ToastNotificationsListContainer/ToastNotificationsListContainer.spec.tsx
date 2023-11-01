@@ -2,7 +2,7 @@ import React from "react"
 import { fireEvent } from "@testing-library/dom"
 import { render, act, waitFor, screen } from "@testing-library/react"
 import { ToastNotification } from "../../types"
-import { ToastNotificationsListContainer } from "."
+import { ToastNotificationsListContainer } from "./ToastNotificationsListContainer"
 
 describe("<ToastNotificationsListContainer />", () => {
   it("passes the setNotifications callback", () => {
