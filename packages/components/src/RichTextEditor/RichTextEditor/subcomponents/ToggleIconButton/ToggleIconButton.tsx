@@ -2,6 +2,7 @@ import React from "react"
 import classnames from "classnames"
 import { Tooltip } from "~components/Tooltip"
 import { OverrideClassName } from "~types/OverrideClassName"
+import { ToggleIconButtonMoods } from "./types"
 import styles from "./ToggleIconButton.module.scss"
 
 export type ToggleIconButtonProps = {
@@ -11,12 +12,7 @@ export type ToggleIconButtonProps = {
    * determines the active or inactive state along with the "aria-pressed" attribute
    */
   isActive?: boolean
-  mood?:
-    | "default"
-    | "secondary"
-    | "primary"
-    | "destructive"
-    | "secondary-destructive"
+  mood?: ToggleIconButtonMoods
 } & OverrideClassName<React.ButtonHTMLAttributes<HTMLButtonElement>>
 
 export const ToggleIconButton = React.forwardRef<

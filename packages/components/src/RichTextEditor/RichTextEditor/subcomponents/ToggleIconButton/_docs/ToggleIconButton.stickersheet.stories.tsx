@@ -5,7 +5,8 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { ToggleIconButton } from "../index"
+import { ToggleIconButton, ToggleIconButtonProps } from "../index"
+import { moodsList } from "../types"
 
 export default {
   title: "Components/RichTextEditor/subcomponents/ToggleIconButton",
@@ -15,32 +16,56 @@ export default {
   },
 } satisfies Meta
 
+const ToggleIconButtonGroup = ({
+  rowTitle,
+  ...props
+}: Omit<ToggleIconButtonProps, "label" | "icon"> & {
+  rowTitle: string
+}): JSX.Element => (
+  <StickerSheet.Row rowTitle={rowTitle}>
+    <ToggleIconButton
+      label="bold"
+      icon={<BoldIcon role="presentation" />}
+      {...props}
+    />
+    <ToggleIconButton
+      label="bold"
+      icon={<BoldIcon role="presentation" />}
+      {...props}
+      data-sb-pseudo-styles="hover"
+    />
+    <ToggleIconButton
+      label="bold"
+      icon={<BoldIcon role="presentation" />}
+      {...props}
+      isActive
+    />
+    <ToggleIconButton
+      label="bold"
+      icon={<BoldIcon role="presentation" />}
+      {...props}
+      data-sb-pseudo-styles="focus"
+    />
+    <ToggleIconButton
+      label="bold"
+      icon={<BoldIcon role="presentation" />}
+      {...props}
+      disabled
+    />
+  </StickerSheet.Row>
+)
+
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <StickerSheet>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
+      <StickerSheet.Header
+        headings={["Default", "Hover", "Active", "Focus", "Disabled"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
-        <StickerSheet.Row>
-          <ToggleIconButton
-            label="bold"
-            icon={<BoldIcon role="presentation" />}
-          />
-          <ToggleIconButton
-            label="bold"
-            icon={<BoldIcon role="presentation" />}
-            data-sb-pseudo-styles="hover"
-          />
-          <ToggleIconButton
-            label="bold"
-            icon={<BoldIcon role="presentation" />}
-            isActive
-          />
-          <ToggleIconButton
-            label="bold"
-            icon={<BoldIcon role="presentation" />}
-            data-sb-pseudo-styles="focus"
-          />
-        </StickerSheet.Row>
+        {moodsList.map(mood => (
+          <ToggleIconButtonGroup key={mood} rowTitle={mood} mood={mood} />
+        ))}
       </StickerSheet.Body>
     </StickerSheet>
   ),
