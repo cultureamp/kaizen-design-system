@@ -1,7 +1,6 @@
 import React from "react"
 import { render } from "@testing-library/react"
-import "@testing-library/jest-dom"
-import { RichTextContentProps } from "../RichTextContent"
+import { RichTextContentProps } from "../src/RichTextContent"
 import { EditableRichTextContent } from "./EditableRichTextContent"
 
 const mockFn = jest.fn()

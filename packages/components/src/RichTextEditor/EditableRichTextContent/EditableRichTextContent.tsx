@@ -3,20 +3,19 @@ import classnames from "classnames"
 import { Label } from "~components/Label"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { RichTextContent, RichTextContentProps } from "../RichTextContent"
-import { EditorContentArray } from "../types"
+import { RichTextContent, RichTextContentProps } from "../src/RichTextContent"
+import { EditorContentArray } from "../src/types"
 import styles from "./EditableRichTextContent.module.scss"
 
-export interface EditableRichTextContentProps
-  extends OverrideClassName<
-    Omit<HTMLAttributes<HTMLDivElement>, "onClick" | "content">
-  > {
+export type EditableRichTextContentProps = {
   onClick: (event: MouseEvent<HTMLElement>) => void
   content: EditorContentArray
   labelText: string
   isLabelHidden?: boolean
   contentProps?: Omit<RichTextContentProps, "content">
-}
+} & OverrideClassName<
+  Omit<HTMLAttributes<HTMLDivElement>, "onClick" | "content">
+>
 
 const handleEditableClick = (
   e: MouseEvent<HTMLElement>,

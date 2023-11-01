@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { StoryFn } from "@storybook/react"
 import { Button } from "~components/Button"
-import { EditableRichTextContent } from "../src/EditableRichTextContent"
+import { EditableRichTextContent } from "../EditableRichTextContent"
 import { RichTextEditorProps, RichTextEditor } from "../src/RichTextEditor"
 import { EditorContentArray } from "../src/types"
 import dummyContent from "./dummyContent.json"
