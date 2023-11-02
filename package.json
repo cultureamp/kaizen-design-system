@@ -33,6 +33,7 @@
     "commit": "yarn changeset",
     "plop": "plop",
     "pkg:aio": "yarn workspace @kaizen/components",
+    "pkg:reset": "yarn workspace @kaizen/reset",
     "ci:version": "yarn turbo prepublishOnly && yarn changeset version",
     "ci:publish": "yarn turbo prepublishOnly && yarn changeset publish",
     "update-icons": "yarn pkg:aio update-icons"

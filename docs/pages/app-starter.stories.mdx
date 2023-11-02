@@ -38,13 +38,43 @@ For full installation instructions, see the <LinkTo pageId="systems-tailwind-get
 
 Whether or not you are already familiar with Tailwind, you'll want to take a look at our <LinkTo pageId="systems-tailwind-utility-class-references-overview">Utility Class References</LinkTo>, as we have made distinct modifications to vanilla Tailwind to suit our design system.
 
-## 4. Add the Kaizen global CSS
+## 4. Add Kaizen global CSS
+
+There are 2 CSS stylesheets to import:
+- reset: which handles any global styles that need to be applied
+- components: which has all the styles for Kaizen's component library
+
+### Important to note
+The order of these CSS stylesheets is **very important**:
+1. Normalize
+2. Kaizen Reset
+3. Kaizen Components
+4. Tailwind (ie. your product CSS)
+
+No matter how you choose to import the following, this order must be upheld.
+
+### Reset
+
+Kaizen's CSS reset aims to add any global default styles such as typography or base styles which enable Tailwind utilities (you can think of this as Kaizen's own Preflight).
+
+Note: this is different from a Normalize which aims to create uniformity in basic elements across the multiple browsers. (eg. Corrects bugs and common browser inconsistencies).
+
+You can either import this via JS or CSS, just make sure it is placed _after normalize_ but _before_ any custom CSS:
+```js
+import "normalize.css"
+import "@kaizen/reset.css" // <- Right here!
+import "../src/tailwind.css"
+```
+
+You can also import this into your CSS files if your project perfers, however you must preserve the above order.
+
+### Components
 
 For the convenience of your app, we've compiled all the necessary styles for our components into a single stylesheet to make it easy to set and forget.
 
-Add the following import to the top of your `tailwind.css` file:
-
+We've especially accounted for using Tailwind's de-duping process for any Tailwind within our components:
 ```css
+// tailwind.css
 @import "../node_modules/@kaizen/components/dist/styles.css";
 @tailwind base;
 @tailwind components;
@@ -52,17 +82,3 @@ Add the following import to the top of your `tailwind.css` file:
 ```
 
 Note: If for whatever reason you aren't adding Tailwind to your project, you can do this step in any global css file. Just ensure it's the only one, imported at the root of your app, after resets/normalises.
-
-## 5. Add the Kaizen css reset
-
-The `@kaizen/reset` package resets some css styles. We recommend adding it _after_ your normalize CSS, but _before_ your tailwind.css.
-
-1. Install the package:
-```
-yarn add @kaizen/reset
-```
-
-2. Import the css in your css file.
-```
-@import "@kaizen/reset/src/reset.css";
-```

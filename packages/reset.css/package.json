@@ -1,0 +1,24 @@
+{
+  "name": "@kaizen/reset.css",
+  "version": "1.0.0",
+  "description": "Kaizen CSS reset",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/reset.css"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "reset.css"
+  ],
+  "main": "reset.css",
+  "author": "",
+  "private": false,
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {}
+}
