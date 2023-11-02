@@ -140,34 +140,3 @@ export const ClearNotifications: Story = {
     </>
   ),
 }
-
-export const MultipleNotifications: Story = {
-  render: () => (
-    <>
-      <ToastNotification id="abc-123" title="Positive" type="positive">
-        <div>
-          New user data, imported by mackenzie@hooli.com has successfully
-          uploaded. <a href="/">Manage users is now available</a>
-        </div>
-      </ToastNotification>
-      <ToastNotification id="abc-234" title="Informative" type="informative">
-        <div>
-          New user data, imported by mackenzie@hooli.com has successfully
-          uploaded. <a href="/">Manage users is now available</a>
-        </div>
-      </ToastNotification>
-      <ToastNotification id="abc-345" title="Cautionary" type="cautionary">
-        <div>
-          New user data, imported by mackenzie@hooli.com has successfully
-          uploaded. <a href="/">Manage users is now available</a>
-        </div>
-      </ToastNotification>
-      <ToastNotification id="abc-456" title="Negative" type="negative">
-        <div>
-          New user data, imported by mackenzie@hooli.com has successfully
-          uploaded. <a href="/">Manage users is now available</a>
-        </div>
-      </ToastNotification>
-    </>
-  ),
-}
