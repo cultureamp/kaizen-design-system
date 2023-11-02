@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import colorString from "color-string"
-import { tokens } from "@kaizen/design-tokens/js"
 import { Heading } from "@kaizen/typography"
+import { tokens } from "~tokens/js"
 
 export default {
   title: "Systems/Tokens/Classname References/Color Tokens",
