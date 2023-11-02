@@ -1,0 +1,369 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+/* stylelint-disable no-descending-specificity */
+@mixin respond-to($media) {
+  @if $media == print {
+    @media only print {
+      @content;
+    }
+  } @else if $media == iphone {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $media == ipad {
+    @media only screen and (max-width: 959px) {
+      @content;
+    }
+  }
+}
+
+$block-height: 35px;
+$desktop-rater-width: 220px;
+$desktop-rater-height: 63px;
+
+$first: $color-yellow-300;
+$second: $color-yellow-400;
+$third: $color-orange-400;
+$fourth: $color-orange-500;
+$fifth: $color-red-500;
+
+@mixin pop {
+  -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
+}
+
+@mixin right-likert-item($height) {
+  border-top-right-radius: $height;
+  border-bottom-right-radius: $height;
+}
+
+@mixin left-likert-item($height) {
+  border-top-left-radius: $height;
+  border-bottom-left-radius: $height;
+}
+
+@mixin fill($height) {
+  &:first-child .likertItemFill {
+    @include left-likert-item($height);
+
+    [dir="rtl"] & {
+      border-radius: 0;
+
+      @include right-likert-item($height);
+    }
+
+    &::after {
+      @include left-likert-item($height);
+
+      [dir="rtl"] & {
+        border-radius: 0;
+
+        @include right-likert-item($height);
+      }
+    }
+  }
+
+  &:last-child .likertItemFill {
+    @include right-likert-item($height);
+
+    [dir="rtl"] & {
+      border-radius: 0;
+
+      @include left-likert-item($height);
+    }
+
+    &::after {
+      @include right-likert-item($height);
+
+      [dir="rtl"] & {
+        border-radius: 0;
+
+        @include left-likert-item($height);
+      }
+    }
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 50%;
+    -webkit-transform: scale(1);
+  }
+
+  100% {
+    opacity: 0%;
+    -webkit-transform: scale(1.78);
+  }
+}
+
+.container {
+  width: $desktop-rater-width;
+  position: relative;
+  box-sizing: border-box;
+
+  @include respond-to(iphone) {
+    width: 258px;
+    position: static;
+  }
+
+  &.rated .likertItem.unselected .likertItemFill {
+    transition: background 0.1s;
+  }
+
+  &.reversed.rated .likertItem.unselected .likertItemFill {
+    background-color: transparent;
+    border-color: rgba($color-white-rgb, 0.65);
+  }
+
+  :where(.likertItem4, .likertItem5) .check {
+    color: white;
+  }
+
+  :is(.likertItem4.suggested, .likertItem5.suggested) .check {
+    color: white;
+  }
+}
+
+.likertItem:focus,
+.likertItemFill:focus {
+  outline: none;
+}
+
+.likertItem:focus-visible .likertItemFill {
+  outline-offset: 1px;
+  outline: $color-blue-500 $border-focus-ring-border-style
+    $border-focus-ring-border-width;
+}
+
+.reversed .likertItem:focus-visible .likertItemFill {
+  outline-color: $color-blue-300;
+}
+
+.itemContainer {
+  width: 100%;
+  white-space: nowrap;
+  display: inline-block;
+  height: $block-height + 2px;
+  font-size: 0;
+}
+
+.legend {
+  text-align: center;
+  position: absolute;
+  top: calc(-1 * #{$spacing-md});
+  left: 0;
+  right: 0;
+
+  @include respond-to(iphone) {
+    position: initial;
+    top: 0;
+  }
+}
+
+.likertItem {
+  margin-right: 2px;
+  margin-left: 2px;
+
+  &[dir="rtl"],
+  [dir="rtl"] & {
+    &:first-child {
+      margin-left: 2px;
+    }
+
+    &:last-child {
+      margin-right: 2px;
+    }
+  }
+
+  @include fill($block-height);
+
+  font-size: 1px;
+  line-height: 1;
+  padding: 0;
+  overflow-x: visible;
+  display: inline-block;
+  width: 18.5%; // 5 columns
+  position: relative;
+
+  &:first-child {
+    margin-right: 2px;
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-left: 2px;
+    margin-right: 0;
+  }
+
+  // Hack to bridge the gaps between items so mouse always hovers on something
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 2px;
+    height: 100%;
+  }
+
+  &::after {
+    right: auto;
+    left: 100%;
+  }
+
+  &.suggested,
+  &.selected {
+    .field1 {
+      background-color: $first;
+
+      &::after {
+        background-color: $first;
+      }
+    }
+
+    .field2 {
+      background-color: $second;
+
+      &::after {
+        background-color: $second;
+      }
+    }
+
+    .field3 {
+      background-color: $third;
+
+      &::after {
+        background-color: $third;
+      }
+    }
+
+    .field4 {
+      background-color: $fourth;
+
+      &::after {
+        background-color: $fourth;
+      }
+    }
+
+    .field5 {
+      background-color: $fifth;
+
+      &::after {
+        background-color: $fifth;
+      }
+    }
+  }
+}
+
+.likertItemFill {
+  transition:
+    background 0.1s,
+    border-color 0.1s;
+  height: $block-height;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+
+  &:hover {
+    transition:
+      background 0s,
+      border-color 0s;
+  }
+
+  &::after {
+    content: " ";
+    display: block;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  &.pop::after {
+    @include pop;
+  }
+}
+
+.reversed .likertItemFill {
+  border-color: rgba($color-white-rgb, 0.65);
+}
+
+.check {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  color: black;
+
+  .likertItem1 & {
+    margin-left: -9px;
+
+    [dir="rtl"] & {
+      margin-left: -11px;
+    }
+  }
+
+  .likertItem5 & {
+    margin-left: -12px;
+
+    [dir="rtl"] & {
+      margin-left: -9px;
+    }
+  }
+}
+
+.hovered :where(.likertItem4, .likertItem5) .check {
+  color: black;
+}
+
+.hovered.reversed .itemContainer > :not(.suggested.likertItem) .check {
+  color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  $block-height: 48px;
+
+  .container {
+    min-width: 258px;
+  }
+
+  .itemContainer {
+    height: $block-height + 2px;
+  }
+
+  .likertItem {
+    @include fill($block-height);
+  }
+
+  .likertItemFill {
+    height: $block-height;
+  }
+}
+
+@media print {
+  .legend {
+    display: none;
+  }
+
+  .container {
+    top: 1em;
+    right: 2em;
+    width: 150px;
+
+    .likertItem {
+      .likertItemFill {
+        height: 25px;
+        background: white;
+        border: 1px solid #d7d8d8;
+      }
+
+      &:first-child,
+      &:last-child {
+        .likertItemFill {
+          background: white;
+          border-width: 2px;
+        }
+      }
+    }
+  }
+}
+/* stylelint-enable no-descending-specificity */
