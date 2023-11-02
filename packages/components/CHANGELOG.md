@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.31.0
+
+### Minor Changes
+
+- [#4246](https://github.com/cultureamp/kaizen-design-system/pull/4246) [`b01fc8a31`](https://github.com/cultureamp/kaizen-design-system/commit/b01fc8a318897fe3543af2e8d191f27d4fa1fadf) - Migrate ToastNotification from kaizen-legacy.
+
+- [#4214](https://github.com/cultureamp/kaizen-design-system/pull/4214) [`8f63917af`](https://github.com/cultureamp/kaizen-design-system/commit/8f63917af6594f14829be861b14abce2f1dd7dad) - Make Tags in MultiSelect removable on click.
+  Tags in MultiSelect now have a clear button, that can be used to remove them from the list of selected options.
+
+- [#4254](https://github.com/cultureamp/kaizen-design-system/pull/4254) [`53c59af92`](https://github.com/cultureamp/kaizen-design-system/commit/53c59af925de59263feb2417d132166a18aa779c) - Migrate ProgressBar from kaizen-legacy
+
+- [#4253](https://github.com/cultureamp/kaizen-design-system/pull/4253) [`880e668a5`](https://github.com/cultureamp/kaizen-design-system/commit/880e668a50662c79415b551b8b9ab6dbc5f99767) - Migrate LikertScaleLegacy from `kaizen-legacy`
+
+### Patch Changes
+
+- [#4252](https://github.com/cultureamp/kaizen-design-system/pull/4252) [`b2cc3123a`](https://github.com/cultureamp/kaizen-design-system/commit/b2cc3123a11fdfb7aed696b02a67ae42f70bdba6) - Fix colour inheritance for CloseIcon.
+
 ## 1.30.0
 
 ### Minor Changes
