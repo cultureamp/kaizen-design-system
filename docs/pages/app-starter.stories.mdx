@@ -52,3 +52,17 @@ Add the following import to the top of your `tailwind.css` file:
 ```
 
 Note: If for whatever reason you aren't adding Tailwind to your project, you can do this step in any global css file. Just ensure it's the only one, imported at the root of your app, after resets/normalises.
+
+## 5. Add the Kaizen css reset
+
+The `@kaizen/reset` package resets some css styles. We recommend adding it _after_ your normalize CSS, but _before_ your tailwind.css.
+
+1. Install the package:
+```
+yarn add @kaizen/reset
+```
+
+2. Import the css in your css file.
+```
+@import "@kaizen/reset/src/reset.css";
+```
