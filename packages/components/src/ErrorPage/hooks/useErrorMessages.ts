@@ -4,6 +4,7 @@ export const statusCodes = [
   "401",
   "403",
   "404",
+  "413",
   "422",
   "500",
   "502",
@@ -69,6 +70,19 @@ export const useErrorMessages = (
         id: "kzErrorPage.404.message",
         defaultMessage:
           "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home",
+        description: "Call to action instructions for the user",
+      }),
+    },
+    413: {
+      title: formatMessage({
+        id: "kzErrorPage.413.title",
+        defaultMessage: "Something's gone wrong on our side",
+        description: "Main title of page",
+      }),
+      message: formatMessage({
+        id: "kzErrorPage.413",
+        defaultMessage:
+          "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home",
         description: "Call to action instructions for the user",
       }),
     },
