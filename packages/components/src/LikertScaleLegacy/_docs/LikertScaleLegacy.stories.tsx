@@ -58,6 +58,30 @@ export const Playground: Story = {
   },
   parameters: {
     docs: {
+      source: {
+        language: "tsx",
+        code: `
+  const SatisfactionExample = () => {
+    const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
+  
+    return (
+      <LikertScaleLegacy
+        scale={[
+          { value: -1, label: "Not rated" },
+          { value: 1, label: "Strong Disagree" },
+          { value: 2, label: "Disagree" },
+          { value: 3, label: "Neither agree or disagree" },
+          { value: 4, label: "Agree" },
+          { value: 5, label: "Strongly agree" },
+        ]},
+        labelId: "labelId",
+        selectedItem={selectedItem}
+        onSelect={setSelectedItem}
+      />
+    )
+  }
+        `,
+      },
       canvas: {
         sourceState: "shown",
       },
