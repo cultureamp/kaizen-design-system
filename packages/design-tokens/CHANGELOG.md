@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.3.15
+
+### Patch Changes
+
+- [#4257](https://github.com/cultureamp/kaizen-design-system/pull/4257) [`30c5ad6c9`](https://github.com/cultureamp/kaizen-design-system/commit/30c5ad6c9f0f1a27369ca492ab7b40e1d934d5ee) - Fix export of JS tokens
+
 ## 10.3.14
 
 ### Patch Changes
