@@ -1,0 +1,26 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-bottom: 0;
+  padding-top: 160px + 12px;
+  position: fixed;
+  right: $spacing-md;
+  top: 0;
+  bottom: 0;
+  z-index: 1030;
+  max-width: 100%;
+  pointer-events: none;
+
+  @media (max-width: ($layout-breakpoints-large - 1px)) {
+    padding-top: 108px;
+  }
+
+  @media (max-width: ($layout-breakpoints-medium - 1px)) {
+    left: $spacing-md;
+  }
+}

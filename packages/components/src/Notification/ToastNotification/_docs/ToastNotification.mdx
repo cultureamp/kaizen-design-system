@@ -1,0 +1,67 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as ToastNotificationStories from "./ToastNotification.stories"
+
+<Meta title="Components/Notifications/ToastNotification" />
+
+# Toast Notification
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Notification/ToastNotification"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A21829&mode=design&t=QHnBiBn4stf5UxJ3-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075638310/Toast+Notification"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { addToastNotification, removeToastNotification, clearToastNotifications, ToastNotification } from "@kaizen/components"'
+/>
+
+## Overview
+
+Toast notifications are used to notifying a user of an outcome for an action they have taken. They appended to the root of the document body and will render in the top corner of the window.
+
+<Canvas of={ToastNotificationStories.Playground} />
+<Controls of={ToastNotificationStories.Playground} />
+
+## API
+
+In addition to the `ToastNotification` JSX element, there are three API methods exported from this package to create and manage Toast notifications.
+
+### addToastNotification
+Creates an instance of the the Toast Notification manager and appends new notifications to the list.
+
+<Canvas of={ToastNotificationStories.CreateNotification} />
+
+If `addToastNotification` is called with an `id` that matches an existing notification, then it will update the content of that component.
+
+This will also be invoked if you use the `ToastNotification` component.
+
+<Canvas of={ToastNotificationStories.UpdateNotification} />
+
+
+### removeToastNotification
+
+Removes a single notification that matches the `id` passed to the function.
+
+<Canvas of={ToastNotificationStories.RemoveNotification} />
+
+
+### clearToastNotifications
+
+Clears all notifications currently held in state.
+
+<Canvas of={ToastNotificationStories.ClearNotifications} />
+
+
+## Accessibility and removal of notifications
+
+Any notification that is temporarily rendered on screen should provide a user ample time to read its contents and provide a way to stop its removal ([WCAG guidline here](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html)
+)).
+
+By default, all Toast notifications will remain on screen until dismissed. This ensures the accessibility is met and does not require additional intervention.
+
+If you required to be automatically removed, you must provide a means of stopping and re-enabling its removal and ensures that a user can reasonably access this before it is removed.
