@@ -2696,7 +2696,7 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/button@^3.0.4", "@kaizen/button@^3.0.5":
+"@kaizen/button@^3.0.4":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.5.tgz#fdfc44b56331638801754a7646e53a3ed7e9a0ea"
   integrity sha512-TRmaU/fhWWfJXJ9/Yg8wplm1Ww7rNKvNVxjbMO/d0N4FyTbszfIwjMGn7Un1xl8m6Goau9Aa2DOk+5KEtSmu6Q==
@@ -2723,18 +2723,6 @@
     "@types/uuid" "^9.0.2"
     classnames "^2.3.2"
 
-"@kaizen/component-library@^16.9.0":
-  version "16.9.3"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.9.3.tgz#67212943dbe76f50e33679cae477c4709ac94bec"
-  integrity sha512-r4dpEQ5MxxntMXAoOPb6lBJjZAOKiFPPMIJmsTBFTuubOPUeLG52VMDSD2IhSxCqu2ON8LqwPU8VvlGZXRlSqQ==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@kaizen/hosted-assets" "^2.0.3"
-    "@types/lodash" "^4.14.195"
-    "@types/uuid" "^9.0.2"
-    classnames "^2.3.2"
-
 "@kaizen/deprecated-component-library-helpers@^2.5.8":
   version "2.5.8"
   resolved "https://registry.yarnpkg.com/@kaizen/deprecated-component-library-helpers/-/deprecated-component-library-helpers-2.5.8.tgz#914785d4623411a170e8c93c217cf830d35ca364"
@@ -2744,21 +2732,6 @@
   version "1.13.12"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-badge/-/draft-badge-1.13.12.tgz#feade901af352bd0c4c8b7ecac7eee8d47ec0a12"
   integrity sha512-Dyf+KLbpHgbKnMznj6vhRsgcpfcuLaIG6v6LMoKi5GJ9DL/IyMuckpjCFwmbIOPdpgsF8vVTuI4q796Q/k8h7w==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    classnames "^2.3.2"
-
-"@kaizen/draft-card@^3.2.11":
-  version "3.2.11"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-card/-/draft-card-3.2.11.tgz#f96d934f0e0a7b80cea3a8b2396f301287e57935"
-  integrity sha512-xZaZji46oneHqUJAZMpxXCRO+Gxl56Q7ZX/XerEIZPvTOfVTmTW1bgOj/P3Zg68xg0ClIMf4TiMXWsZr0w1VHQ==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-
-"@kaizen/draft-divider@^2.2.11":
-  version "2.2.11"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-divider/-/draft-divider-2.2.11.tgz#48620384673c899a26b8861d0799890c762a1d11"
-  integrity sha512-b2GKnLXouASTlzzcKubG1ELxSQx44F4KfvaP7emDZSxFC1gnVSX4rdudSRG/DifVNH6MrsO8+/g8xhFDQLrMQg==
   dependencies:
     "@kaizen/component-base" "^1.1.7"
     classnames "^2.3.2"
@@ -2774,31 +2747,6 @@
     classnames "^2.3.2"
     jszip "^3.10.1"
 
-"@kaizen/draft-menu@^5.0.2":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-menu/-/draft-menu-5.1.0.tgz#fe4e0b73bfe85ce929382f8bfa7d62ee1c064ff6"
-  integrity sha512-2guXevd/v/V0G7MMn21FLsTyeEHivVHdZeD9E8oe9sogO8iT2m2i2G+J3U770Si9SQ2z778JDlWOh7AAaTup2A==
-  dependencies:
-    "@kaizen/button" "^3.0.5"
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.0"
-    "@kaizen/draft-divider" "^2.2.11"
-    "@kaizen/typography" "^2.3.11"
-    "@popperjs/core" "^2.11.8"
-    classnames "^2.3.2"
-    react-popper "^2.3.0"
-    uuid "^9.0.0"
-
-"@kaizen/draft-page-layout@^2.3.13":
-  version "2.3.13"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-page-layout/-/draft-page-layout-2.3.13.tgz#319bb42d26ba9a166325d91f0fcd26adb2c221a7"
-  integrity sha512-h1lnFzHJ1eNvWKE99JK0qpoYdi3Ra2J7L6LBDaMIZTmYDI6nLCS6E35Jam/LgwqqA56pjsGteTGe15ahWCuyFw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/draft-card" "^3.2.11"
-    classnames "^2.3.2"
-    resize-observer-polyfill "^1.5.1"
-
 "@kaizen/draft-tabs@^5.2.43":
   version "5.2.43"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-tabs/-/draft-tabs-5.2.43.tgz#cf66521b876ac772effb37bd62e4c2dc2203e38b"
@@ -2808,40 +2756,10 @@
     "@kaizen/deprecated-component-library-helpers" "^2.5.8"
     classnames "^2.3.2"
 
-"@kaizen/draft-tooltip@^5.4.47":
-  version "5.4.47"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-tooltip/-/draft-tooltip-5.4.47.tgz#804ca965a58f1efc5fc702e46ca828f24561c44c"
-  integrity sha512-v/VKrFWbtcaElhVEIi6Kw4VkrqSP0kefJmpJ1g6+h4DZhGx3Oc/imCqgEUYKr7cKQqstwYpue2rOCB7C6PoliA==
-  dependencies:
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@popperjs/core" "^2.11.8"
-    classnames "^2.3.2"
-    react-popper "^2.3.0"
-    use-debounce "^9.0.4"
-    uuid "^9.0.0"
-
-"@kaizen/loading-skeleton@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@kaizen/loading-skeleton/-/loading-skeleton-2.0.7.tgz#541efcd0128b640340cf559d366ea520f13ad2db"
-  integrity sha512-CoALgqTRBiR3Iw1OHMg/SHCICKBmZyv3haIJPw0+AxNwa1kF5Q8U2j5aRENdPNbKRJ/yAzG68ViQ8jirPJ2rRw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-
 "@kaizen/loading-spinner@^2.3.11":
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/@kaizen/loading-spinner/-/loading-spinner-2.3.11.tgz#225128f3eaf67444153049fef3677b18fb9d6cc0"
   integrity sha512-BSN+KLPykEDLttvjdh8x4pwjb/Il/40FyINnrnk9S9AxYK8knwxvmtvQlqzGe2hK7caKWLjJ0CVbTpfZ+JdNWw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    classnames "^2.3.2"
-
-"@kaizen/typography@^2.3.11":
-  version "2.3.11"
-  resolved "https://registry.yarnpkg.com/@kaizen/typography/-/typography-2.3.11.tgz#d1b8883d077ceccd339ab884f68dcb4bba74b64f"
-  integrity sha512-TCVMXFB4fRja9dRVMYAR2KuN8BWwTIGACpNZZfXR+PrPBqPVwV8QLi4+pQX/aUMnAvtU3cVnEqLlAEI3o0CcOg==
   dependencies:
     "@kaizen/component-base" "^1.1.7"
     classnames "^2.3.2"

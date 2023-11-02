@@ -3,10 +3,11 @@
 import React from "react"
 import { Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
-import { toCustomPropertiesString } from "object-to-css-variables"
+import { toCustomMediaQueriesArray } from "object-to-css-variables"
 import Highlight from "react-highlight"
 import { Tabs } from "@kaizen/draft-tabs"
 import { Card } from "~components/Card"
+import { tokens } from "../js"
 import { makeCssVariableDefinitionsMap } from "../src"
 import { defaultTheme } from "../src/themes"
 import animationSass from "!!raw-loader!../sass/animation.scss"
@@ -17,7 +18,6 @@ import shadowSass from "!!raw-loader!../sass/shadow.scss"
 import spacingSass from "!!raw-loader!../sass/spacing.scss"
 import typographySass from "!!raw-loader!../sass/typography.scss"
 import styles from "./styles.scss"
-import heartThemeSrc from "!!raw-loader!../src/themes/heart"
 
 export const CodeBlock = (props: {
   language: string
@@ -94,25 +94,25 @@ const themesBlocks: Array<
   React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
 > = [
   {
-    name: "Heart",
+    name: "JS",
     language: "typescript",
-    code: heartThemeSrc,
+    code: JSON.stringify(tokens, null, 2),
     caption: (
       <code>
-        import {"{ heartTheme }"} from &quot;@kaizen/design-tokens&quot;
+        import {"{ tokens }"} from &quot;@kaizen/design-tokens/js&quot;
       </code>
     ),
   },
   {
     name: "CSS Variables",
-    language: "json",
-    code: toCustomPropertiesString(
+    language: "css",
+    code: toCustomMediaQueriesArray(
       makeCssVariableDefinitionsMap(defaultTheme)
-    ),
+    ).reduce((acc, item) => acc + `${item.key}: ${item.value}; \n`, ""),
     caption: (
       <span>
-        Generated using the default theme. Exported as JSON in
-        @kaizen/design-tokens/tokens/*.json
+        Generated using the default theme. Exported as CSS in
+        @kaizen/design-tokens/css/variables.css
       </span>
     ),
   },

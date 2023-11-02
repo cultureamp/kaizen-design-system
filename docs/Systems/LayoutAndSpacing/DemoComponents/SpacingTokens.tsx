@@ -1,8 +1,8 @@
 import React from "react"
-import { kzSpacing } from "@kaizen/tailwind/src/kz-spacing"
+import { tokens } from "@kaizen/design-tokens/js"
 
 export const SpacingTokens = (): JSX.Element => {
-  const keyValuePairs = Object.entries(kzSpacing)
+  const keyValuePairs = Object.entries(tokens.spacing)
 
   return (
     <div className="flex justify-center">

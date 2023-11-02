@@ -3,7 +3,7 @@
 import React from "react"
 import { addons } from "@storybook/addons"
 import { API_SidebarOptions as SidebarOptions } from "@storybook/types"
-import { defaultTheme } from "@kaizen/design-tokens"
+import { tokens } from "@kaizen/design-tokens/js"
 import KaizenTheme from "./theme"
 
 const CATEGORIES_ICON: Record<string, string> = {
@@ -18,7 +18,7 @@ const CATEGORIES_ICON: Record<string, string> = {
   AIO: "📦",
 }
 
-const colors = defaultTheme.color
+const colors = tokens.color
 
 addons.setConfig({
   theme: KaizenTheme,
@@ -34,7 +34,7 @@ addons.setConfig({
             fontWeight: 600,
           }}
         >
-          <span aria-hidden style={{ marginRight: defaultTheme.spacing[6] }}>
+          <span aria-hidden style={{ marginRight: tokens.spacing[6] }}>
             {CATEGORIES_ICON[item.name]}
           </span>
           {item.name}
