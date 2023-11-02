@@ -47,10 +47,6 @@ const createToastNotificationManager = (): ToastNotificationApi => {
   if (portal === undefined && typeof window !== "undefined") {
     // automation and testid appear to be consumed in other repos, we'll need to refactor before we remove so they can be added in
     portal = document.createElement("div")
-    portal.setAttribute(
-      "data-automation-id",
-      "toast-notification-manager-portal"
-    )
     portal.setAttribute("data-testid", "toast-notification-manager-portal")
     portal.setAttribute("role", "status")
 
