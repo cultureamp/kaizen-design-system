@@ -37,6 +37,24 @@ export const Playground: Story = {
   },
   parameters: {
     docs: {
+      source: {
+        code: `
+const MyEditor = () => {
+  const [rteData, setRTEData] = useState<EditorContentArray>([])
+  const handleOnChange: RichTextEditorProps["onChange"] = (
+    editorState
+  ): void => setRTEData(editorState.toJSON().doc.content)
+
+  return (
+    <RichTextEditor
+      labelText="Rich text"
+      defaultValue={rteData}
+      onChange={handleOnChange}
+    />
+  )
+}
+`,
+      },
       canvas: {
         sourceState: "shown",
       },
