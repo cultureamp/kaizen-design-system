@@ -68,7 +68,7 @@ export const useErrorMessages = (
       message: formatMessage({
         id: "kzErrorPage.404.message",
         defaultMessage:
-          "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home",
+          "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home",
         description: "Call to action instructions for the user",
       }),
     },
