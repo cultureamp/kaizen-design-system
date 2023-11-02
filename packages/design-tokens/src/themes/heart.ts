@@ -1,6 +1,5 @@
 import { Theme } from "../types"
 
-
 export const heartTheme: Theme = {
   themeKey: "heart",
   animation: {
