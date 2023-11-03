@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.32.0
+
+### Minor Changes
+
+- [#4260](https://github.com/cultureamp/kaizen-design-system/pull/4260) [`9a95d5f23`](https://github.com/cultureamp/kaizen-design-system/commit/9a95d5f23d1f832fc63a55886b8de839b27edc32) - Add 413 error page.
+
+### Patch Changes
+
+- [#4259](https://github.com/cultureamp/kaizen-design-system/pull/4259) [`8680132cb`](https://github.com/cultureamp/kaizen-design-system/commit/8680132cb6532538711d36d83a2d6cb660720b7e) - fix: fing typo
+
 ## 1.31.0
 
 ### Minor Changes
