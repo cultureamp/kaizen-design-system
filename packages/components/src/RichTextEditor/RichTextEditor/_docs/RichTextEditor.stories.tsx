@@ -13,6 +13,11 @@ const meta = {
     labelText: "Rich Text",
     defaultValue: [],
     onChange: () => undefined,
+    controls: [
+      { name: "bold", group: "inline" },
+      { name: "italic", group: "inline" },
+      { name: "underline", group: "inline" },
+    ],
   },
 } satisfies Meta<typeof RichTextEditor>
 
@@ -50,6 +55,11 @@ const MyEditor = () => {
       labelText="Rich text"
       defaultValue={rteData}
       onChange={handleOnChange}
+      controls: [
+        { name: "bold", group: "inline" },
+        { name: "italic", group: "inline" },
+        { name: "underline", group: "inline" },
+      ],
     />
   )
 }
