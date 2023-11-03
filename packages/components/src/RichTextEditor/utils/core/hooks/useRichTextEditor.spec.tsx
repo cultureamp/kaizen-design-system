@@ -1,10 +1,11 @@
 import React, { useEffect } from "react"
-import { act, configure, render, screen } from "@testing-library/react"
-import { EditorState, Transaction } from "prosemirror-state"
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { Command, EditorState } from "prosemirror-state"
 import { testEditorState } from "../fixtures/testState"
 import { useRichTextEditor } from "./useRichTextEditor"
 
-configure({ testIdAttribute: "data-automation-id" })
+const user = userEvent.setup()
 
 function Scenario({
   onChange = (_: EditorState) => undefined,
@@ -13,10 +14,7 @@ function Scenario({
   onChange?: (editorState: EditorState) => void
   editable?: boolean
 }): JSX.Element {
-  const command = (
-    state: EditorState,
-    dispatch?: (tx: Transaction) => void
-  ) => {
+  const command: Command = (state, dispatch) => {
     // Insert text at the current selection point, which is the start because
     // we don’t have a selection yet.
     if (!dispatch) return false
@@ -27,7 +25,7 @@ function Scenario({
   const [ref, editorState, dispatchTransaction, setEditableStatus] =
     useRichTextEditor(
       testEditorState,
-      { "aria-labelledby": "label-ref-id", "data-test-id": "12345678" },
+      { "aria-labelledby": "label-ref-id", "data-testid": "12345678" },
       { editable }
     )
 
@@ -47,76 +45,110 @@ function Scenario({
       <button type="button" onClick={() => setEditableStatus(true)}>
         Editable: true
       </button>
-      <div data-automation-id="editor" ref={ref} />
+      <div data-testid="testid--editor" ref={ref} />
     </div>
   )
 }
 
-describe("useRichTextEditor", () => {
+describe("useRichTextEditor()", () => {
   it("binds the editor to the DOM", async () => {
     render(<Scenario />)
 
-    await screen.findByText("Example content")
+    await waitFor(() => {
+      expect(screen.getByText("Example content")).toBeInTheDocument()
+    })
   })
 
   it("updates the DOM when commands are dispatched", async () => {
     render(<Scenario />)
 
-    await act(async () => {
-      await screen.findByText("Example content")
+    await waitFor(() => {
+      expect(screen.getByText("Example content")).toBeInTheDocument()
     })
 
-    const button = await screen.findByText("Prepend button")
-    button.click()
+    await user.click(screen.getByText("Prepend button"))
 
-    await screen.findByText("Prepended content. Example content")
+    await waitFor(() => {
+      expect(screen.getByText("Prepended content. Example content")).toBeInTheDocument()
+    })
   })
 
   it("updates the editorState when commands are dispatched", async () => {
     const onChange = jest.fn()
     render(<Scenario onChange={onChange} />)
 
-    await act(async () => {
-      await screen.findByText("Example content")
+    await waitFor(() => {
+      expect(screen.getByText("Example content")).toBeInTheDocument()
     })
 
-    await act(async () => {
-      const button = await screen.findByText("Prepend button")
-      button.click()
-    })
+    await user.click(screen.getByText("Prepend button"))
 
     const updatedEditorState = onChange.mock.calls[1][0] as EditorState
-    expect(updatedEditorState.toJSON()).toMatchSnapshot()
+
+    const expected = {
+      doc: {
+        content: [
+          {
+            content: [
+              {
+                text: "Prepended content. Example content",
+                type: "text",
+              },
+            ],
+            type: "paragraph",
+          },
+        ],
+        type: "doc",
+      },
+      selection: {
+        anchor: 20,
+        head: 20,
+        type: "text",
+      },
+    }
+
+    expect(updatedEditorState.toJSON()).toStrictEqual(expected)
   })
 
   it("defaults to editable", async () => {
     render(<Scenario />)
 
-    const editor = await screen.findByTestId("editor")
-    expect(editor.children[0]?.getAttribute("contenteditable")).toEqual("true")
+    await waitFor(() => {
+      const editor = screen.getByTestId("testid--editor")
+      expect(editor.children[0]).toHaveAttribute("contenteditable", "true")
+    })
   })
 
   it("respects initial editable status", async () => {
     render(<Scenario editable={false} />)
 
-    const editor = await screen.findByTestId("editor")
-    expect(editor.children[0]?.getAttribute("contenteditable")).toEqual("false")
+    await waitFor(() => {
+      const editor = screen.getByTestId("testid--editor")
+      expect(editor.children[0]).toHaveAttribute("contenteditable", "false")
+    })
   })
 
   it("updates editable status", async () => {
     render(<Scenario />)
 
-    const editor = await screen.findByTestId("editor")
-    expect(editor.children[0]?.getAttribute("contenteditable")).toEqual("true")
+    const editor = screen.getByTestId("testid--editor")
 
-    const disableEditButton = await screen.findByText("Editable: false")
-    disableEditButton.click()
+    await waitFor(() => {
+      expect(editor.children[0]).toHaveAttribute("contenteditable", "true")
+    })
 
-    expect(editor.children[0]?.getAttribute("contenteditable")).toBe("false")
+    const disableEditButton = screen.getByText("Editable: false")
+    await user.click(disableEditButton)
 
-    const enableEditButton = await screen.findByText("Editable: true")
-    enableEditButton.click()
+    await waitFor(() => {
+      expect(editor.children[0]).toHaveAttribute("contenteditable", "false")
+    })
 
-    expect(editor.children[0]?.getAttribute("contenteditable")).toBe("true")
+    const enableEditButton = screen.getByText("Editable: true")
+    await user.click(enableEditButton)
+
+    await waitFor(() => {
+      expect(editor.children[0]).toHaveAttribute("contenteditable", "true")
+    })
   })
 })
