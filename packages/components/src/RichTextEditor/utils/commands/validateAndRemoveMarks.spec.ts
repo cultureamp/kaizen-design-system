@@ -3,7 +3,7 @@ import { createRichTextEditor } from "../core/create"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { validateAndRemoveMarks } from "./validateAndRemoveMarks"
 
-describe("validateAndRemoveMarks", () => {
+describe("validateAndRemoveMarks()", () => {
   const onChange = jest.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 
