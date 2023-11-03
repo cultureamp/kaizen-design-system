@@ -3,14 +3,14 @@ import { EditorState } from "prosemirror-state"
 import { createRichTextEditor } from "../create"
 import { CommandOrTransaction } from "../types"
 
-type Options = {
+type RTEOptions = {
   editable: boolean
 }
 
 type SetEditableStatus = (status: boolean) => void
 
 type UseRichTextEditorReturnValue = [
-  any,
+  React.RefCallback<HTMLElement>,
   EditorState,
   (commandOrTransaction: CommandOrTransaction) => void,
   SetEditableStatus,
@@ -24,16 +24,14 @@ type UseRichTextEditorReturnValue = [
  * @param {initialEditorState} ProseMirror state
  * @returns {Array}
  */
-export function useRichTextEditor(
+export const useRichTextEditor = (
   initialEditorState: EditorState,
   /*
    * Pass in HTML attributes into the parent RTE node
    */
-  attributes?: {
-    [name: string]: string
-  },
-  options?: Options
-): UseRichTextEditorReturnValue {
+  attributes?: Record<string, string>,
+  options?: RTEOptions
+): UseRichTextEditorReturnValue => {
   options = {
     editable: true,
     ...options,

@@ -4,10 +4,10 @@ import { MarkRange } from "../core/types"
 // Note: this doesn't handle selections _across_ nodes.
 // At the time of writing the implication of this is on links: they cannot span across multiple nodes.
 // There's no impact on the other marks like bold, italics and underline.
-export function getMarkRange(
+export const getMarkRange = (
   $pos: ResolvedPos | null = null,
   type: MarkType | null = null
-): MarkRange | null {
+): MarkRange | null => {
   if (!$pos || !type) {
     return null
   }

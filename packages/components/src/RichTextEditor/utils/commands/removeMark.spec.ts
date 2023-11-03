@@ -4,7 +4,7 @@ import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { removeMark } from "./removeMark"
 
-describe("removeMark", () => {
+describe("removeMark()", () => {
   const onChange = jest.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 

@@ -4,10 +4,10 @@ import { getMarkRange } from "./getMarkRange"
 import { markIsActive } from "./markIsActive"
 
 /** Check the current PM Selection against the Mark Type provided */
-export function markContainsSelection(
+export const markContainsSelection = (
   state: EditorState,
   markType: MarkType
-): boolean {
+): boolean => {
   if (!markIsActive(state, markType)) {
     return false
   }

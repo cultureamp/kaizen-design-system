@@ -5,7 +5,7 @@ import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWitList, testSchema } from "./fixtures/test-state"
 import { listIsActive } from "./listIsActive"
 
-describe("listIsActive", () => {
+describe("listIsActive()", () => {
   const onChange = jest.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
   const listNodes = [testSchema.nodes.bulletList, testSchema.nodes.orderedList]

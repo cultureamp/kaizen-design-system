@@ -11,7 +11,7 @@ type KeyBinding = {
   [key: string]: ProseMirrorState.Command
 }
 
-export function buildKeymap(schema: ProseMirrorModel.Schema): KeyBinding {
+export const buildKeymap = (schema: ProseMirrorModel.Schema): KeyBinding => {
   const { redo, undo } = ProseMirrorHistory
   const { undoInputRule } = ProseMirrorInputrules
   const { wrapInList, splitListItem, liftListItem, sinkListItem } =

@@ -9,7 +9,7 @@ import {
 } from "./fixtures/helpers"
 import { testEditorState, testSchema } from "./fixtures/test-state"
 
-describe("addMark", () => {
+describe("addMark()", () => {
   const onChange = jest.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 

@@ -24,15 +24,15 @@ type EditorArgs = {
  * createRichTextEditor
  * Initialize a ProseMirror EditorView
  */
-export function createRichTextEditor({
+export const createRichTextEditor = ({
   initialEditorState,
   node,
   onChange = () => undefined,
   attributes,
   isEditable = () => true,
-}: EditorArgs): EditorAPI {
+}: EditorArgs): EditorAPI => {
   // Handle transactions eminating from the EditorView instance
-  function dispatch(tx: Transaction): void {
+  const dispatch = (tx: Transaction): void => {
     const newEditorState = editorView && editorView.state.apply(tx)
     if (newEditorState) {
       onChange(newEditorState)
@@ -42,9 +42,9 @@ export function createRichTextEditor({
 
   // Allow the dispatcher to handle either a Command or a Transaction so we can
   // change the state more ergonomically upstream
-  function dispatchCommandOrTransaction(
+  const dispatchCommandOrTransaction = (
     commandOrTransaction: CommandOrTransaction
-  ): void {
+  ): void => {
     if (commandOrTransaction instanceof Transaction) {
       dispatch(commandOrTransaction)
     } else if (editorView) {

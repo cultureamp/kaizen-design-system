@@ -3,7 +3,7 @@ export type ValidationResponse = {
   message?: React.ReactNode
 }
 
-export function validateLink(href: string): ValidationResponse {
+export const validateLink = (href: string): ValidationResponse => {
   const isValidLink = /^https?:\/\//.test(href)
 
   if (!isValidLink) {

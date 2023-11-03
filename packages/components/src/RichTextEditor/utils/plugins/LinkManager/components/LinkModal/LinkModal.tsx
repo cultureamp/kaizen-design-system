@@ -3,7 +3,7 @@ import { InputEditModal } from "~components/Modal"
 import { TextField } from "~components/TextField"
 import { ValidationResponse, validateLink } from "../../validation"
 
-interface LinkModalProps {
+type LinkModalProps = {
   onSubmit: (href: string) => void
   onDismiss: () => void
   onAfterLeave: () => void
@@ -11,8 +11,13 @@ interface LinkModalProps {
   defaultHref?: string
 }
 
-export const LinkModal: React.VFC<LinkModalProps> = props => {
-  const { onSubmit, onDismiss, onAfterLeave, isOpen, defaultHref } = props
+export const LinkModal = ({
+  onSubmit,
+  onDismiss,
+  onAfterLeave,
+  isOpen,
+  defaultHref,
+}: LinkModalProps): JSX.Element => {
   const [href, setHref] = useState<string>(defaultHref || "")
   const [validationStatus, setValidationStatus] = useState<ValidationResponse>({
     status: "default",

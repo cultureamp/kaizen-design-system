@@ -6,15 +6,19 @@ import { SelectionPosition } from "../../types"
 import { Positioner } from "./Positioner"
 import styles from "./LinkPopover.module.scss"
 
-export interface LinkPopoverProps {
+export type LinkPopoverProps = {
   href?: string
   onRemove: () => void
   onEdit: () => void
   selectionPosition: SelectionPosition
 }
 
-export const LinkPopover: React.VFC<LinkPopoverProps> = props => {
-  const { href, onRemove, onEdit, selectionPosition } = props
+export const LinkPopover = ({
+  href,
+  onRemove,
+  onEdit,
+  selectionPosition,
+}: LinkPopoverProps): JSX.Element => {
   const [ElementRef, Popover] = usePopover()
 
   return (

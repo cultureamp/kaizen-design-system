@@ -8,7 +8,7 @@ import {
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { markIsActive } from "./markIsActive"
 
-describe("markIsActive", () => {
+describe("markIsActive()", () => {
   const onChange = jest.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 

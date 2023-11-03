@@ -29,10 +29,7 @@ import { buildInputRules } from "./utils/inputrules"
 import { buildKeymap } from "./utils/keymap"
 import styles from "./RichTextEditor.module.scss"
 
-export interface BaseRichTextEditorProps
-  extends OverrideClassName<
-    Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue">
-  > {
+type BaseRichTextEditorProps = {
   onChange: (content: ProseMirrorState.EditorState) => void
   defaultValue: EditorContentArray
   controls?: ToolbarItems[]
@@ -52,19 +49,22 @@ export interface BaseRichTextEditorProps
    * A description that provides context
    */
   description?: React.ReactNode
-}
+} & OverrideClassName<
+  Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue">
+>
 
-interface RTEWithLabelText extends BaseRichTextEditorProps {
+type WithLabelText = {
   labelText: ReactNode
   "aria-labelledby"?: never
 }
 
-interface RTEWithLabelledBy extends BaseRichTextEditorProps {
+type WithLabelledBy = {
   labelText?: never
   "aria-labelledby": string
 }
 
-export type RichTextEditorProps = RTEWithLabelText | RTEWithLabelledBy
+export type RichTextEditorProps = BaseRichTextEditorProps &
+  (WithLabelText | WithLabelledBy)
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896752/Rich+Text+Editor Guidance} |
  * {@link https://cultureamp.design/?path=/docs/components-richtexteditor--docs Storybook}
@@ -204,6 +204,8 @@ export const RichTextEditor = ({
   )
 }
 
+RichTextEditor.displayName = "RichTextEditor"
+
 function getPlugins(
   controls: ToolbarItems[] | undefined,
   schema: ProseMirrorModel.Schema
@@ -236,5 +238,3 @@ function getPlugins(
 
   return plugins
 }
-
-RichTextEditor.displayName = "RichTextEditor"

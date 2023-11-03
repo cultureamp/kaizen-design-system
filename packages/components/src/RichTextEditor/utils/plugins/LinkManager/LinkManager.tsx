@@ -18,7 +18,7 @@ import {
   LinkEditorProps,
 } from "./components/LinkEditor"
 import { createReactTooltipWrapper } from "./createReactTooltipWrapper"
-import { CAEditorView, SelectionPosition } from "./types.d"
+import { CAEditorView, SelectionPosition } from "./types"
 
 class LinkManager {
   editorComponent: ComponentType<LinkEditorProps>
@@ -155,17 +155,19 @@ type CreateLinkManagerArgs = {
   editorComponent?: ComponentType<LinkEditorProps>
 }
 
-export function createLinkManager({
+const defaultLinkAttributeValidator: AttrsValidator = attrs => {
+  if (attrs == null) {
+    return false
+  }
+  return attrs.href && attrs.href !== ""
+}
+
+export const createLinkManager = ({
   markType,
   editorComponent = LinkEditor,
-  linkAttributeValidator = attrs => {
-    if (attrs == null) {
-      return false
-    }
-    return attrs.href && attrs.href !== ""
-  },
-}: CreateLinkManagerArgs): Plugin {
-  return new Plugin({
+  linkAttributeValidator = defaultLinkAttributeValidator,
+}: CreateLinkManagerArgs): Plugin =>
+  new Plugin({
     view(editorView) {
       return new LinkManager(
         editorView,
@@ -175,4 +177,3 @@ export function createLinkManager({
       )
     },
   })
-}

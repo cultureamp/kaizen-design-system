@@ -12,38 +12,33 @@ import {
   createEditorState,
 } from "./state"
 
-describe("createDoc", () => {
+describe("createDoc()", () => {
   it("creates a Node from a document definition", () => {
     const docNode = createDocNode(testSchema, testDocNodeJSON)
-
-    expect(docNode instanceof Node).toBe(true)
+    expect(docNode).toBeInstanceOf(Node)
   })
 
   it("generates a Node whose output matches the input", () => {
     const docNode = createDocNode(testSchema, testDocNodeJSON)
-
     expect(docNode.toJSON()).toMatchObject(testDocNodeJSON)
   })
 })
 
-describe("createDocNodeFromContent", () => {
+describe("createDocNodeFromContent()", () => {
   it("creates a Node from a content array", () => {
     const docNode = createDocNodeFromContent(testSchema, testDocNodeContentJSON)
-
-    expect(docNode instanceof Node).toBe(true)
+    expect(docNode).toBeInstanceOf(Node)
   })
 
   it("generates a Node whose output matches the input", () => {
     const docNode = createDocNodeFromContent(testSchema, testDocNodeContentJSON)
-
     expect(docNode.toJSON()).toMatchObject(testDocNodeJSON)
   })
 })
 
-describe("createEditorState", () => {
+describe("createEditorState()", () => {
   it("creates an EditorState instance", () => {
     const editorState = createEditorState(testSchema, testDocNode)
-
-    expect(editorState instanceof EditorState).toBe(true)
+    expect(editorState).toBeInstanceOf(EditorState)
   })
 })

@@ -11,18 +11,19 @@ export const createSchemaFromControls = (
   }
 
   const namesFromControls = controls.reduce(
-    (acc: string[], c: ToolbarItems) => [...acc, c.name],
+    (acc: ToolbarControlTypes[], c: ToolbarItems) => [...acc, c.name],
     []
-  ) as ToolbarControlTypes[]
+  )
+
   return createSchema(namesFromControls)
 }
 
 export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> =>
   createSchema(TOOLBAR_CONTROLS)
 
-function createSchema(
+const createSchema = (
   controls?: ToolbarControlTypes[]
-): ProseMirrorModel.Schema<string> {
+): ProseMirrorModel.Schema<string> => {
   const defaultNodes: ProseMirrorModel.NodeSpec = {
     doc: nodes.doc,
     paragraph: nodes.paragraph,

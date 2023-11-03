@@ -1,5 +1,5 @@
-import React, { ReactElement, useState } from "react"
-import { SelectionPosition } from "../../types.d"
+import React, { useState } from "react"
+import { SelectionPosition } from "../../types"
 import { LinkModal } from "../LinkModal"
 import { LinkPopover } from "../LinkPopover"
 
@@ -16,13 +16,13 @@ export type LinkEditorProps = {
   focusEditor: () => void
 }
 
-export function LinkEditor({
+export const LinkEditor = ({
   attrs,
   removeMark,
   updateAttrs,
   selectionPosition,
   focusEditor,
-}: LinkEditorProps): ReactElement {
+}: LinkEditorProps): JSX.Element => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(
     attrs.href != null
   )

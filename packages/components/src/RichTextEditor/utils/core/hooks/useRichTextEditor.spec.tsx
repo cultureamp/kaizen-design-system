@@ -7,13 +7,13 @@ import { useRichTextEditor } from "./useRichTextEditor"
 
 const user = userEvent.setup()
 
-function Scenario({
-  onChange = (_: EditorState) => undefined,
+const Scenario = ({
+  onChange = () => undefined,
   editable = true,
 }: {
   onChange?: (editorState: EditorState) => void
   editable?: boolean
-}): JSX.Element {
+}): JSX.Element => {
   const command: Command = (state, dispatch) => {
     // Insert text at the current selection point, which is the start because
     // we don’t have a selection yet.

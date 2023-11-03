@@ -5,7 +5,7 @@ import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks } from "./fixtures/test-state"
 import { getMarkRange } from "./getMarkRange"
 
-describe("getMarkRange", () => {
+describe("getMarkRange()", () => {
   const onChange = jest.fn()
   const attributes = { "aria-labelledby": "label-text-123" }
 

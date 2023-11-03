@@ -8,9 +8,7 @@ type KnownAttrs = {
 }
 
 export type AttrsValidator = (
-  attrs: KnownAttrs & {
-    [key: string]: unknown
-  }
+  attrs: KnownAttrs & { [key: string]: unknown }
 ) => boolean | unknown
 
 type MatchedMark = {
