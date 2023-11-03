@@ -5,7 +5,7 @@ export type MaybeCommand = Command | Transaction
 
 export type Dispatcher = (tx: Transaction) => void
 
-export class CAEditorView extends EditorView {
+export interface CAEditorView extends EditorView {
   dispatch(maybeCommand: MaybeCommand): void
 }
 
