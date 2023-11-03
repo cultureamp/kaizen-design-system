@@ -17,7 +17,8 @@ export const createEditorState = (
  * Create a ProseMirror doc node from the combination of a schema and the object
  * representation of a document
  */
-export const createDocNode = (schema: Schema, docObject: Doc): Node => Node.fromJSON(schema, docObject)
+export const createDocNode = (schema: Schema, docObject: Doc): Node =>
+  Node.fromJSON(schema, docObject)
 
 /**
  * Create a ProseMirror doc node from the combination of a schema and the doc’s

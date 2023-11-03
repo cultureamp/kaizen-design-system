@@ -80,8 +80,9 @@ describe("createRichTextEditor()", () => {
 
     dispatchTransaction(command)
 
-    expect(getByText(node, "Prepended content. Example content").outerHTML)
-      .toBe("<p>Prepended content. Example content</p>")
+    expect(
+      getByText(node, "Prepended content. Example content").outerHTML
+    ).toBe("<p>Prepended content. Example content</p>")
   })
 
   it("calls onChange when the editor state changes", async () => {

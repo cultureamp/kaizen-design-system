@@ -16,4 +16,5 @@ export const orderedListRule = (nodeType: NodeType): InputRule =>
 // (dash, plush, or asterisk) at the start of a textblock into a
 // bullet list.
 // Copied from https://github.com/ProseMirror/prosemirror-example-setup/blob/master/src/inputrules.js
-export const bulletListRule = (nodeType: NodeType): InputRule => wrappingInputRule(/^\s*([-+*])\s$/, nodeType)
+export const bulletListRule = (nodeType: NodeType): InputRule =>
+  wrappingInputRule(/^\s*([-+*])\s$/, nodeType)

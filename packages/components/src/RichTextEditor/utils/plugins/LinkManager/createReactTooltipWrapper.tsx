@@ -1,6 +1,6 @@
 import React, { ElementType, useEffect, useState } from "react"
 import Nanobus from "nanobus"
-import { createRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client"
 import { LinkEditorProps } from "./components"
 
 const Wrapper = ({
@@ -51,7 +51,7 @@ export const createReactTooltipWrapper = (
       componentProps={componentProps}
       Component={Component}
       emitter={emitter}
-    />,
+    />
   )
 
   function destroy(): void {

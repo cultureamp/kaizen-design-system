@@ -51,7 +51,7 @@ export const marks: MarkSpec = {
 
 const getAttributeWithDefault = (
   node: HTMLElement,
-  attributeName: string,
+  attributeName: string
 ): string | null => {
   const value = node.getAttribute(attributeName)
   return value && value !== "" ? value : null

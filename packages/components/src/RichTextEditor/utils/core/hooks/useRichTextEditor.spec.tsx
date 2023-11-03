@@ -69,7 +69,9 @@ describe("useRichTextEditor()", () => {
     await user.click(screen.getByText("Prepend button"))
 
     await waitFor(() => {
-      expect(screen.getByText("Prepended content. Example content")).toBeInTheDocument()
+      expect(
+        screen.getByText("Prepended content. Example content")
+      ).toBeInTheDocument()
     })
   })
 
