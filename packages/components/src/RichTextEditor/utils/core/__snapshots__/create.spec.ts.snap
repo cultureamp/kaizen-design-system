@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createRichTextEditor calls onChange with the updated state 1`] = `
+Object {
+  "doc": Object {
+    "content": Array [
+      Object {
+        "content": Array [
+          Object {
+            "text": "Prepended content. Example content",
+            "type": "text",
+          },
+        ],
+        "type": "paragraph",
+      },
+    ],
+    "type": "doc",
+  },
+  "selection": Object {
+    "anchor": 20,
+    "head": 20,
+    "type": "text",
+  },
+}
+`;

@@ -1,14 +1,5 @@
 import React from "react"
 import {
-  ProseMirrorState,
-  ProseMirrorModel,
-  ProseMirrorCommands,
-  ProseMirrorSchemaList,
-  markIsActive,
-  listIsActive,
-} from "@cultureamp/rich-text-toolkit"
-
-import {
   AddLinkIcon,
   BoldIcon,
   BullettedListIcon,
@@ -18,8 +9,14 @@ import {
   NumberedListIcon,
   UnderlineIcon,
 } from "~components/Icon"
-
 import { ToolbarItems, ToolbarControlTypes } from "../../types"
+import { listIsActive, markIsActive } from "../../utils/commands"
+import {
+  ProseMirrorCommands,
+  ProseMirrorModel,
+  ProseMirrorSchemaList,
+  ProseMirrorState,
+} from "../../utils/prosemirror"
 
 /** Configuration for individual controls */
 type ToolbarControl = {

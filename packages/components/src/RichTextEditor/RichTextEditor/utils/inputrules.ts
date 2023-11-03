@@ -1,9 +1,8 @@
+import { bulletListRule, orderedListRule } from "../../utils/core"
 import {
   ProseMirrorInputrules,
   ProseMirrorModel,
-  orderedListRule,
-  bulletListRule,
-} from "@cultureamp/rich-text-toolkit"
+} from "../../utils/prosemirror"
 
 export function buildInputRules(
   schema: ProseMirrorModel.Schema

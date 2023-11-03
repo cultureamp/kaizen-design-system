@@ -5,21 +5,21 @@ import React, {
   ReactNode,
   useId,
 } from "react"
-import {
-  ProseMirrorCommands,
-  ProseMirrorState,
-  ProseMirrorModel,
-  ProseMirrorKeymap,
-  ProseMirrorHistory,
-  useRichTextEditor,
-  createLinkManager,
-} from "@cultureamp/rich-text-toolkit"
 import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
 import { Label } from "~components/Label"
 import { InlineNotification } from "~components/Notification"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { ToolbarItems, EditorContentArray, EditorRows } from "../types"
+import { useRichTextEditor } from "../utils/core"
+import { createLinkManager } from "../utils/plugins"
+import {
+  ProseMirrorCommands,
+  ProseMirrorHistory,
+  ProseMirrorKeymap,
+  ProseMirrorModel,
+  ProseMirrorState,
+} from "../utils/prosemirror"
 import { createSchemaFromControls } from "./schema"
 import { ToggleIconButton } from "./subcomponents/ToggleIconButton"
 import { Toolbar } from "./subcomponents/Toolbar"
@@ -27,7 +27,6 @@ import { ToolbarSection } from "./subcomponents/ToolbarSection"
 import { buildControlMap } from "./utils/controlmap"
 import { buildInputRules } from "./utils/inputrules"
 import { buildKeymap } from "./utils/keymap"
-
 import styles from "./RichTextEditor.module.scss"
 
 export interface BaseRichTextEditorProps

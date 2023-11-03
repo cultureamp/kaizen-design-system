@@ -1,11 +1,11 @@
 import {
   ProseMirrorCommands,
-  ProseMirrorState,
-  ProseMirrorModel,
-  ProseMirrorSchemaList,
   ProseMirrorHistory,
   ProseMirrorInputrules,
-} from "@cultureamp/rich-text-toolkit"
+  ProseMirrorModel,
+  ProseMirrorSchemaList,
+  ProseMirrorState,
+} from "../../utils/prosemirror"
 
 type KeyBinding = {
   [key: string]: ProseMirrorState.Command
