@@ -33,7 +33,6 @@ export const UtilityClassTemplate = ({
         <StickerSheet.Body>
           {classKeyValues.map((presetData, _index) => {
             const { utilityClassName, cssProperty } = presetData
-
             return (
               <StickerSheet.Row
                 key={_index}
@@ -42,7 +41,7 @@ export const UtilityClassTemplate = ({
               >
                 <div className="mr-32 min-w-max max-w-[300px]">
                   <CodeSnippet
-                    text={utilityClassName}
+                    text={utilityClassName.replace("-DEFAULT", "")}
                     onCopy={(text: string): void => setCopiedText(text)}
                   />
                 </div>

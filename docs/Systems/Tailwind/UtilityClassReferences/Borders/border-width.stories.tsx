@@ -22,7 +22,7 @@ export default {
     docsLayout: "fullPage",
     docs: {
       description: {
-        component: utilityDescription(prefix, classEntries[0].utilityClassName),
+        component: utilityDescription(prefix, classEntries[1].utilityClassName),
       },
     },
   },
@@ -37,7 +37,7 @@ export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "w-[100px] h-[100px] border-solid border-[black] border-default",
+          "w-[100px] h-[100px] border-[black] border",
           utilityClass
         )}
       />

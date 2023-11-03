@@ -1,10 +1,11 @@
 ---
-"@kaizen/tailwind": minor
+"@kaizen/tailwind": major
 ---
 
 Fix long utility strings for borders in Tailwind (in combination with the introduction of `@kaizen/reset.css`)
 
 - Adds DEFAULT values to `borderWidth` and `borderColor` in the Tailwind preset, so these don't need to be written with utility classes.
+- Removes `-default` utility classes
 
 These changes mean that border styles require much less utility classes to be written.
 For example, to add a border-bottom to an element, we would previously need to write:

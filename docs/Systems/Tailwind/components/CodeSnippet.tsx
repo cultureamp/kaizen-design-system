@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
-  const [_, setCopyIconIsChecked] = useState(false)
+  const [copyIconIsChecked, setCopyIconIsChecked] = useState(false)
   const handleCopy = (utilityClassNameName: string): void => {
     navigator.clipboard.writeText(text)
     setCopyIconIsChecked(true)
@@ -16,16 +16,15 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
   return (
     <button
       type="button"
-      className="bg-[#00182e] h-min rounded-default px-12 border-none cursor-pointer w-full"
+      className="bg-[#00182e] h-min rounded px-12 border-none cursor-pointer w-full"
       onClick={(): void => handleCopy(text)}
       onBlur={(): void => setCopyIconIsChecked(false)}
     >
       <p className="font-family-paragraph text-white flex justify-between items-center">
         <span>{text}</span>
-        {/* Replace with Icons */}
-        {/* <span className="text-underline">
+        <span className="text-underline text-white">
           {copyIconIsChecked ? "copied" : "copy"}
-        </span> */}
+        </span>
       </p>
     </button>
   )

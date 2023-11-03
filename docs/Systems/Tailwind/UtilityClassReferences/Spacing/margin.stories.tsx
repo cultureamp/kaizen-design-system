@@ -33,10 +33,10 @@ export const Margin: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
     compiledCssPropertyName="margin"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div className="w-min border-solid rounded-default">
+      <div className="w-min border-solid rounded">
         <p
           className={classnames(
-            "p-4 border-dashed w-min rounded-default bg-blue-100",
+            "p-4 border-dashed w-min rounded bg-blue-100",
             utilityClass
           )}
         >

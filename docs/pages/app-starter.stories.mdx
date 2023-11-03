@@ -38,7 +38,7 @@ For full installation instructions, see the <LinkTo pageId="systems-tailwind-get
 
 Whether or not you are already familiar with Tailwind, you'll want to take a look at our <LinkTo pageId="systems-tailwind-utility-class-references-overview">Utility Class References</LinkTo>, as we have made distinct modifications to vanilla Tailwind to suit our design system.
 
-## 4. Add Kaizen global CSS
+## 3. Add Kaizen's global CSS stylesheets
 
 There are 2 CSS stylesheets to import:
 - reset: which handles any global styles that need to be applied
@@ -75,7 +75,7 @@ For the convenience of your app, we've compiled all the necessary styles for our
 We've especially accounted for using Tailwind's de-duping process for any Tailwind within our components:
 ```css
 // tailwind.css
-@import "../node_modules/@kaizen/components/dist/styles.css";
+@import "@kaizen/components/dist/styles.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

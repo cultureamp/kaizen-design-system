@@ -115,7 +115,7 @@ const PopoverWithPortal = ({
       // overflow-hidden is added so we can ensure the last row autoplaces above
       // padding added to allow buffer for box-shadow which gets cut off by overflow-hidden
       className={classnames(
-        "relative border-solid border-default overflow-hidden",
+        "relative border-solid border overflow-hidden",
         portalClassName
       )}
     >

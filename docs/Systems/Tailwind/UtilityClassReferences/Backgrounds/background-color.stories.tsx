@@ -34,7 +34,7 @@ export const BackgroundColor: StoryFn<{ isReversed: boolean }> = ({
       <div
         className={classnames(
           "w-[100px] h-[100px] border-solid",
-          "rounded-default",
+          "rounded",
           utilityClass
         )}
       />

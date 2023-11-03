@@ -11,7 +11,7 @@ const MockContent = (): JSX.Element => (
       <h2>Name and schedule the self-reflection cycle</h2>
       <form
         id="workflow-form-id"
-        className="bg-white rounded-default shadow-sm my-32 p-64"
+        className="bg-white rounded shadow-sm my-32 p-64"
       >
         <h3>Name the cycle</h3>
         <label

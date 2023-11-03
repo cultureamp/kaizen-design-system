@@ -31,7 +31,7 @@ export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
       <div className="flex items-center h-100">
         <p
           className={classnames(
-            "font-family-paragraph p-8 rounded-default font-weight-display text-heading-3 m-0 mr-16",
+            "font-family-paragraph p-8 rounded font-weight-display text-heading-3 m-0 mr-16",
             utilityClass
           )}
         >
@@ -39,7 +39,7 @@ export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
         </p>
         <p
           className={classnames(
-            "font-family-paragraph p-8 bg-[black] rounded-default font-weight-display text-heading-3 m-0",
+            "font-family-paragraph p-8 bg-[black] rounded font-weight-display text-heading-3 m-0",
             utilityClass
           )}
         >

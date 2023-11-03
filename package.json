@@ -40,7 +40,9 @@
   },
   "dependencies": {
     "@kaizen/design-tokens": "*",
+    "@kaizen/reset.css": "*",
     "@kaizen/tailwind": "*",
+    "@kaizen/components": "*",
     "@storybook/addons": "^7.5.1",
     "@storybook/api": "^7.5.1",
     "@storybook/blocks": "^7.5.1",
