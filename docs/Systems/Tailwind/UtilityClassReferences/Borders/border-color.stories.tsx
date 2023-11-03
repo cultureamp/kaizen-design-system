@@ -20,7 +20,7 @@ export default {
     docsLayout: "fullPage",
     docs: {
       description: {
-        component: utilityDescription(prefix, classEntries[3].utilityClassName),
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
