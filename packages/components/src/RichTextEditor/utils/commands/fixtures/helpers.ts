@@ -5,34 +5,37 @@ import {
   Transaction,
 } from "prosemirror-state"
 import { findChildrenByType } from "prosemirror-utils"
+import { ProseMirrorModel } from "../../prosemirror"
 
 /*
  ** This is used handle the JSDom type error issue you may encounter in testing
  ** See https://github.com/jsdom/jsdom/issues/3002
  */
-export const mockRangeForBoundingRect = (document.createRange = () => {
-  const range = new Range()
+export const mockRangeForBoundingRect = (): void => {
+  jest.spyOn(document, "createRange").mockImplementation(() => {
+    const range = new Range()
 
-  range.getBoundingClientRect = () => ({
-    x: 0,
-    y: 0,
-    bottom: 0,
-    height: 0,
-    left: 0,
-    right: 0,
-    top: 0,
-    width: 0,
-    toJSON: () => {},
+    range.getBoundingClientRect = () => ({
+      x: 0,
+      y: 0,
+      bottom: 0,
+      height: 0,
+      left: 0,
+      right: 0,
+      top: 0,
+      width: 0,
+      toJSON: () => undefined,
+    })
+
+    range.getClientRects = () => ({
+      item: () => null,
+      length: 0,
+      [Symbol.iterator]: jest.fn(),
+    })
+
+    return range
   })
-
-  range.getClientRects = () => ({
-    item: index => null,
-    length: 0,
-    *[Symbol.iterator]() {},
-  })
-
-  return range
-})
+}
 
 /*
  ** Prosemirror cannot intuit a real `Selection` of content injected into the base test.
@@ -56,7 +59,9 @@ export const simulateRangeSelection =
     return true
   }
 
-export const getStartNode = (state: EditorState) => {
+export const getStartNode = (
+  state: EditorState
+): ReturnType<ProseMirrorModel.Node["childAfter"]> => {
   const currentSelection: Selection = state.tr.selection
   const startNode = currentSelection.$from.parent.childAfter(
     currentSelection.$from.parentOffset
@@ -89,7 +94,13 @@ export const simulateSelectionOfCurrentElement =
     return true
   }
 
-const getNodeByText = (state: EditorState, selectedText: string) => {
+const getNodeByText = (
+  state: EditorState,
+  selectedText: string
+): {
+  node: ProseMirrorModel.Node
+  pos: number
+} => {
   let filteredNodes = findChildrenByType(
     state.doc,
     state.schema.nodes.text,
