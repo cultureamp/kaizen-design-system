@@ -1,9 +1,9 @@
 import React, { ElementType, useEffect, useState } from "react"
-import ReactDOM from "react-dom"
 import Nanobus from "nanobus"
+import { createRoot } from "react-dom/client";
 import { LinkEditorProps } from "./components"
 
-function Wrapper({
+const Wrapper = ({
   emitter,
   componentProps,
   Component,
@@ -11,12 +11,12 @@ function Wrapper({
   emitter: Nanobus
   componentProps: LinkEditorProps
   Component: ElementType
-}) {
+}): JSX.Element => {
   const [localComponentProps, setLocalComponentProps] =
     useState<LinkEditorProps>(componentProps)
 
   useEffect(() => {
-    function onUpdate(newComponentProps: LinkEditorProps) {
+    const onUpdate = (newComponentProps: LinkEditorProps): void => {
       setLocalComponentProps(newComponentProps)
     }
     emitter.addListener("update", onUpdate)
@@ -33,31 +33,33 @@ function Wrapper({
  * Create a wrapping connector for rendering a React element into a separate
  * part of the DOM while being able to update it without remounting.
  */
-export function createReactTooltipWrapper(
+export const createReactTooltipWrapper = (
   parentNode: HTMLElement,
   Component: ElementType,
   componentProps: LinkEditorProps
-) {
+): {
+  destroy: () => void
+  update: (props: LinkEditorProps) => void
+} => {
   const emitter = new Nanobus()
-  const node = document.createElement("div")
-  parentNode.appendChild(node)
+  const container = document.createElement("div")
+  parentNode.appendChild(container)
+  const root = createRoot(container)
 
-  ReactDOM.render(
+  root.render(
     <Wrapper
       componentProps={componentProps}
       Component={Component}
       emitter={emitter}
     />,
-    node
   )
 
-  function destroy() {
-    ReactDOM.unmountComponentAtNode(node)
+  function destroy(): void {
+    root.unmount()
     emitter.removeAllListeners("*")
-    node.remove()
   }
 
-  function update(props: LinkEditorProps) {
+  function update(props: LinkEditorProps): void {
     emitter.emit("update", props)
   }
 
