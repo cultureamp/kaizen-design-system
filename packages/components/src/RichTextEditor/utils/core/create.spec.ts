@@ -1,9 +1,9 @@
-import { findByText, queryByText } from "@testing-library/dom"
-import { EditorState, Transaction } from "prosemirror-state"
+import { findByText, queryByText, getByText } from "@testing-library/dom"
+import { Command, EditorState } from "prosemirror-state"
 import { createRichTextEditor } from "./create"
 import { testEditorState } from "./fixtures/testState"
 
-describe("createRichTextEditor", () => {
+describe("createRichTextEditor()", () => {
   const attributes = { "aria-labelledby": "label-text-123" }
 
   it("initializes an editor with the correct content", async () => {
@@ -17,7 +17,8 @@ describe("createRichTextEditor", () => {
       initialEditorState: testEditorState,
     })
 
-    await findByText(node, "Example content")
+    const content = await findByText(node, "Example content")
+    expect(content.outerHTML).toBe("<p>Example content</p>")
   })
 
   it("returns the expected API shape", async () => {
@@ -47,21 +48,19 @@ describe("createRichTextEditor", () => {
       initialEditorState: testEditorState,
     })
 
-    await findByText(node, "Example content")
+    const content = await findByText(node, "Example content")
+    expect(content.outerHTML).toBe("<p>Example content</p>")
 
     destroy()
 
-    expect(await queryByText(node, "Example content")).toBeNull()
+    expect(queryByText(node, "Example content")).toBe(null)
   })
 
   it("updates the DOM when commands are dispatched", async () => {
     const node = document.createElement("div")
     const onChange = jest.fn()
 
-    const command = (
-      state: EditorState,
-      dispatch?: (tx: Transaction) => void
-    ) => {
+    const command: Command = (state, dispatch) => {
       // Insert text at the current selection point, which is the start because
       // we don’t have a selection yet.
       if (!dispatch) return false
@@ -76,20 +75,19 @@ describe("createRichTextEditor", () => {
       initialEditorState: testEditorState,
     })
 
-    await findByText(node, "Example content")
+    const content = await findByText(node, "Example content")
+    expect(content.outerHTML).toBe("<p>Example content</p>")
 
     dispatchTransaction(command)
 
-    await findByText(node, "Prepended content. Example content")
+    expect(getByText(node, "Prepended content. Example content").outerHTML)
+      .toBe("<p>Prepended content. Example content</p>")
   })
 
   it("calls onChange when the editor state changes", async () => {
     const node = document.createElement("div")
     const onChange = jest.fn()
-    const command = (
-      state: EditorState,
-      dispatch?: (tx: Transaction) => void
-    ) => {
+    const command: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr.insertText("Prepended content. "))
       return true
@@ -112,10 +110,7 @@ describe("createRichTextEditor", () => {
   it("calls onChange with the updated state", async () => {
     const node = document.createElement("div")
     const onChange = jest.fn()
-    const command = (
-      state: EditorState,
-      dispatch?: (tx: Transaction) => void
-    ) => {
+    const command: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr.insertText("Prepended content. "))
       return true
@@ -168,10 +163,7 @@ describe("createRichTextEditor", () => {
     let editable = true
     const node = document.createElement("div")
     const onChange = jest.fn()
-    const noopCommand = (
-      state: EditorState,
-      dispatch?: (tx: Transaction) => void
-    ) => {
+    const noopCommand: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr)
       return true
@@ -197,10 +189,7 @@ describe("createRichTextEditor", () => {
     const editable = true
     const node = document.createElement("div")
     const onChange = jest.fn()
-    const noopCommand = (
-      state: EditorState,
-      dispatch?: (tx: Transaction) => void
-    ) => {
+    const noopCommand: Command = (state, dispatch) => {
       if (!dispatch) return false
       dispatch(state.tr)
       return true

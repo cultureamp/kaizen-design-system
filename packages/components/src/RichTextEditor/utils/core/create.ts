@@ -1,6 +1,6 @@
 import { EditorState, Transaction } from "prosemirror-state"
 import { EditorView as ProseMirrorEditorView } from "prosemirror-view"
-import { CommandOrTransaction, EditorView } from "./types"
+import { CommandOrTransaction } from "./types"
 
 type EditorAPI = {
   destroy: () => void
@@ -31,8 +31,6 @@ export function createRichTextEditor({
   attributes,
   isEditable = () => true,
 }: EditorArgs): EditorAPI {
-  let editorView: EditorView | undefined
-
   // Handle transactions eminating from the EditorView instance
   function dispatch(tx: Transaction): void {
     const newEditorState = editorView && editorView.state.apply(tx)
@@ -46,7 +44,7 @@ export function createRichTextEditor({
   // change the state more ergonomically upstream
   function dispatchCommandOrTransaction(
     commandOrTransaction: CommandOrTransaction
-  ) {
+  ): void {
     if (commandOrTransaction instanceof Transaction) {
       dispatch(commandOrTransaction)
     } else if (editorView) {
@@ -54,7 +52,7 @@ export function createRichTextEditor({
     }
   }
 
-  editorView = new ProseMirrorEditorView(node, {
+  const editorView = new ProseMirrorEditorView(node, {
     state: initialEditorState,
     dispatchTransaction: dispatchCommandOrTransaction,
     attributes,

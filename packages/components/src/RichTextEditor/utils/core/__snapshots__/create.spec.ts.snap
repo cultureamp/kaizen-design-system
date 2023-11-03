@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createRichTextEditor calls onChange with the updated state 1`] = `
+exports[`createRichTextEditor() calls onChange with the updated state 1`] = `
 Object {
   "doc": Object {
     "content": Array [
