@@ -49,11 +49,10 @@ export const marks: MarkSpec = {
   },
 }
 
-function getAttributeWithDefault(
+const getAttributeWithDefault = (
   node: HTMLElement,
   attributeName: string,
-  defaultValue: unknown = null
-) {
+): string | null => {
   const value = node.getAttribute(attributeName)
-  return value && value !== "" ? value : defaultValue
+  return value && value !== "" ? value : null
 }
