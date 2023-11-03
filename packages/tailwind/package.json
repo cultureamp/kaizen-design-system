@@ -24,10 +24,11 @@
   "author": "",
   "private": false,
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "@kaizen/design-tokens": "^10.3.15"
   },
   "peerDependencies": {
+    "@kaizen/design-tokens": ">=10.3.15",
     "tailwindcss": "^3.3.5"
   }
 }

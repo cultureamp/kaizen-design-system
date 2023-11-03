@@ -1,4 +1,4 @@
-import { heartTheme } from "@kaizen/design-tokens"
+import { tokens } from "@kaizen/design-tokens/js"
 
 const tokenDenyList: string[] = [
   "xs",
@@ -36,4 +36,4 @@ export const filterDenyListValues = (
   return Object.fromEntries(keyValuePairs.filter(([key]) => isValidToken(key)))
 }
 
-export const kzSpacing = filterDenyListValues(heartTheme.spacing)
+export const kzSpacing = filterDenyListValues(tokens.spacing)
