@@ -10,6 +10,10 @@
     ],
     "variants_enabled": true
   },
+  "dateInputDescription.inputFormat": {
+    "description": "Label for the 'Input format' field",
+    "message": "Input format"
+  },
   "filterDateRangePicker.dateFrom": {
     "description": "Label for the 'Date from' field",
     "message": "Date from"
@@ -17,10 +21,6 @@
   "filterDateRangePicker.dateTo": {
     "description": "Label for the 'date to' field",
     "message": "Date to"
-  },
-  "dateInputDescription.inputFormat": {
-    "description": "Label for the 'Input format' field",
-    "message": "Input format"
   },
   "kzErrorPage": {
     "description": "Label for contact button",
@@ -52,11 +52,19 @@
   },
   "kzErrorPage.404.message": {
     "description": "Call to action instructions for the user",
-    "message": "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message": "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
   },
   "kzErrorPage.404.title": {
     "description": "Main title of page",
     "message": "Missing pages are one of life's mysteries"
+  },
+  "kzErrorPage.413": {
+    "description": "Call to action instructions for the user",
+    "message": "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.413.title": {
+    "description": "Main title of page",
+    "message": "Something's gone wrong on our side"
   },
   "kzErrorPage.422.message": {
     "description": "Call to action instructions for the user",
