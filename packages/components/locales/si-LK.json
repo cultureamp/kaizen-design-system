@@ -49,6 +49,10 @@
     "description" : "Main title for page",
     "message" : "ඔබට මෙම පිටුව නැරඹිය නොහැකිය"
   },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "කණගාටුයි, නමුත් අපි ඔබ සොයන පිටුව find නොහැක.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් නිවසට යන්න"
+  },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "නැතිවූ පිටු ජීවිතයේ අභිරහස් වලින් එකකි"
