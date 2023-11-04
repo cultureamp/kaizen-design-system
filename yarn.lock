@@ -18314,10 +18314,10 @@ tocbot@^4.20.1:
   resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.21.2.tgz#7ae513d73dddb80f126724160bd6f72bf8638edb"
   integrity sha512-R5Muhi/TUu4i4snWVrMgNoXyJm2f8sJfdgIkQvqb+cuIXQEIMAiWGWgCgYXHqX4+XiS/Bnm7IYZ9Zy6NVe6lhw==
 
-tocbot@^4.21.3:
-  version "4.21.3"
-  resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.21.3.tgz#8172136dd0fc5233a74d32811c2efb2133542e26"
-  integrity sha512-UKFkjz0nRB4s5WAeVnQJ3iIKmaKBbWDxzHYlRzJPZO7Doyp6v12nkJMN6T3HiMoQFHldvO1MZLAKRJqDMzkv2A==
+tocbot@^4.21.6:
+  version "4.21.6"
+  resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.21.6.tgz#64e3685a3cb41e23841a06eedba9ad807270190f"
+  integrity sha512-bAnyV6SU2n1AvuBvEgi8t7KiIn5rRiEmwFp4+elx/1ueuncAUyubITfXDMwOqStgUwh8pDzLdWgDKLicsJPikw==
 
 toidentifier@1.0.1:
   version "1.0.1"
