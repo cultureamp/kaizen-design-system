@@ -1,0 +1,57 @@
+import { Canvas, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TableStories from "./Table.stories"
+
+<Meta of={TableStories} />
+
+# Table
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Table"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=9%3A37841&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081929256/Table"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/components"'
+/>
+
+## Overview
+
+A table displays rows of data, including all data in a set, making it efficient to look up values.
+
+<Canvas of={TableStories.Playground} />
+
+## API
+
+### Data
+<Canvas of={TableStories.Data} />
+
+### Compact
+<Canvas of={TableStories.Compact} />
+
+### LinkVariant
+<Canvas of={TableStories.LinkVariant} />
+
+### CheckboxVariant
+<Canvas of={TableStories.CheckboxVariant} />
+
+### IconVariant
+<Canvas of={TableStories.IconVariant} />
+
+### Expandable
+<Canvas of={TableStories.Expandable} />
+
+### HeaderAlignmentAndWrapping
+<Canvas of={TableStories.HeaderAlignmentAndWrapping} />
+
+### Tooltip
+<Canvas of={TableStories.Tooltip} />
+
+### Reversed
+<Canvas of={TableStories.Reversed} />
+

@@ -2,7 +2,7 @@ import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
 // import { ClearButton } from "~components/ClearButton"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
-import { Tag } from "~components/__future__/Tag"
+import { RemovableTag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
 import styles from "./MultiSelectToggle.module.scss"
@@ -13,6 +13,7 @@ export type MultiSelectToggleProps = {
   ["aria-controls"]: string
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
+  onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelectToggle = forwardRef<
@@ -27,6 +28,7 @@ export const MultiSelectToggle = forwardRef<
       isOpen = false,
       classNameOverride,
       selectedOptions,
+      onRemoveOption,
       ...restProps
     },
     ref
@@ -77,22 +79,27 @@ export const MultiSelectToggle = forwardRef<
                   // This stops the underlying toggle collapsing the popover when interactive with Tags
                   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
                   <li key={value} onClick={e => e.stopPropagation()}>
-                    <Tag classNameOverride={styles.selectedItemTag}>
+                    <RemovableTag
+                      removeButtonProps={{
+                        ariaLabel: `Remove option: ${label}`,
+                        onClick: () => onRemoveOption(value),
+                      }}
+                    >
                       {label}
-                    </Tag>
+                    </RemovableTag>
                   </li>
                 ))}
               </ul>
 
               {/* @todo: Visuals prepared for implementation */}
               {/* <ClearButton
-                aria-label="Clear all waffles"
-                classNameOverride={styles.clearAllButton}
-                onClick={e => {
-                  e.stopPropagation()
-                  console.log("DELETE ALL >:]")
-                }}
-              /> */}
+aria-label="Clear all waffles"
+classNameOverride={styles.clearAllButton}
+onClick={e => {
+e.stopPropagation()
+console.log("DELETE ALL >:]")
+}}
+/> */}
             </>
           )}
         </div>

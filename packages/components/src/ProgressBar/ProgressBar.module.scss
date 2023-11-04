@@ -1,0 +1,88 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$height: 10px;
+
+@mixin animation-background($color) {
+  background: linear-gradient(90deg, transparent, #{$color} 75%, transparent);
+}
+
+.subtext {
+  color: $color-purple-800;
+  padding-top: $spacing-6;
+  text-align: center;
+  opacity: 80%;
+}
+
+.progressBackground {
+  width: 100%;
+  background: $color-gray-300;
+  border-radius: $height;
+  height: $height;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.progress {
+  position: absolute;
+  inset: 0;
+  border-radius: $height;
+  overflow: hidden;
+  transition: transform 200ms ease;
+}
+
+.positive {
+  composes: progress;
+  background: $color-green-400;
+
+  &::after {
+    @include animation-background($color-green-300);
+  }
+}
+
+.informative {
+  composes: progress;
+  background: $color-blue-400;
+
+  &::after {
+    @include animation-background($color-blue-300);
+  }
+}
+
+.cautionary {
+  composes: progress;
+  background: $color-yellow-400;
+
+  &::after {
+    @include animation-background($color-yellow-300);
+  }
+}
+
+.negative {
+  composes: progress;
+  background: $color-red-400;
+}
+
+.isAnimating {
+  &::after {
+    opacity: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    animation: pulse 2s infinite;
+    transition: opacity 0.2s;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.28.0",
+  "version": "1.32.0",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -12,18 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
   },
-  "files": [
-    "future",
-    "dist",
-    "icons",
-    "locales"
-  ],
+  "files": ["future", "dist", "icons", "locales"],
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/index.d.ts",
-  "sideEffects": [
-    "styles.css"
-  ],
+  "sideEffects": ["styles.css"],
   "scripts": {
     "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublishOnly",
@@ -93,7 +86,7 @@
     "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
     "@cultureamp/frontend-apis": "^8.2.0",
     "@cultureamp/i18n-react-intl": "^2.1.1",
-    "@kaizen/tailwind": "^1.1.0",
+    "@kaizen/tailwind": "^1.1.1",
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -109,7 +102,7 @@
     "concat-cli": "^4.0.0",
     "query-string": "^8.1.0",
     "react-intl": "^6.5.1",
-    "rollup": "^4.1.4",
+    "rollup": "^4.1.5",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-node-externals": "^6.1.2",
@@ -123,7 +116,7 @@
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.1.1",
-    "react": "^18.0.0",
+    "react": "^18.2.0",
     "react-intl": "^6.5.1"
   }
 }

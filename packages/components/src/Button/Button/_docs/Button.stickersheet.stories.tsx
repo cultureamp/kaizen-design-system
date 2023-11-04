@@ -281,7 +281,7 @@ export const StickerSheetRTL: StickerSheetStory = {
   name: "Sticker Sheet (RTL)",
   parameters: {
     chromatic: {
-      delay: 1200,
+      delay: 800,
     },
     ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
