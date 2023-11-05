@@ -3,7 +3,7 @@ import { useListBox } from "@react-aria/listbox"
 import { Item } from "@react-stately/collections"
 import { ListState, useListState } from "@react-stately/list"
 import { SelectionMode, Selection } from "@react-types/shared"
-import { VisuallyHidden } from "@kaizen/a11y"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { ItemType, MultiSelectItem } from "../../types"
 import { useMenuTriggerContext } from "../MenuTriggerProvider"
 
@@ -101,6 +101,8 @@ export const SelectionProvider = (
 export const useSelectionContext = (): SelectionProviderContextType =>
   useContext(SelectionContext)
 
-export const SelectionConsumer = SelectionContext.Consumer
-
-SelectionProvider.displayName = "SelectionProvider"
+export const SelectionConsumer = ({
+  children,
+}: React.ConsumerProps<SelectionProviderContextType>): JSX.Element => (
+  <SelectionContext.Consumer>{children}</SelectionContext.Consumer>
+)

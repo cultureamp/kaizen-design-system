@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Text } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Text",
+  title: "Components/Text",
   component: Text,
   args: {
     variant: "body",
@@ -24,12 +24,5 @@ export const Playground: Story = {
         sourceState: "shown",
       },
     },
-  },
-}
-
-export const Reversed: Story = {
-  args: { color: "white" },
-  parameters: {
-    backgrounds: { default: "Purple 700" },
   },
 }

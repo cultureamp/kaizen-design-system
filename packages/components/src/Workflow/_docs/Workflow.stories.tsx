@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
-import { CloseIcon, VisibleIcon } from "~components/Icons"
+import { CloseIcon, VisibleIcon } from "~components/Icon"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
@@ -34,7 +34,7 @@ const MockContent = (): JSX.Element => (
 )
 
 const meta = {
-  title: "Pages/Workflow/Legacy/Components/Workflow",
+  title: "Pages/Workflow/Components/Workflow",
   component: Workflow,
   argTypes: WorkflowControls,
   args: {

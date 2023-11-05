@@ -1,0 +1,41 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CollapsibleGroupStories from "./CollapsibleGroup.stories"
+
+<Meta of={CollapsibleGroupStories} />
+
+# CollapsibleGroup
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/CollapsibleGroup"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=6%3A5001&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible"
+  className="!mb-8"
+/>
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { CollapsibleGroup } from "@kaizen/components"'
+/>
+
+## Overview
+
+Collapsibles are used to collapse and expand content inline on a page. This lets users progressively disclose information as desired.
+
+<Canvas of={CollapsibleGroupStories.Playground} />
+<Controls of={CollapsibleGroupStories.Playground} />
+
+## API
+
+### Re-use of Collapsible API
+
+The `CollapsibleGroup` exposes some of the top level `Collapsible` props so you can apply them to all Collapsibles within the Group.
+
+  - `sticky`
+  - `noSectionPadding`
+  - `lazyLoad`
+  - `onToggle`
+
+### Separated
+<Canvas of={CollapsibleGroupStories.Separated} />

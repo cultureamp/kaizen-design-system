@@ -1,7 +1,7 @@
 import React from "react"
 import { Meta } from "@storybook/react"
 import { ButtonProps } from "~components/Button"
-import { FilterIcon, MeatballsIcon, TrashIcon } from "~components/Icons"
+import { FilterIcon, MeatballsIcon, TrashIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -9,21 +9,10 @@ import {
 import { IconButton, IconButtonProps } from "../index"
 
 export default {
-  title: "KAIO-staging/Buttons/IconButton",
+  title: "Components/Buttons/IconButton",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Looks like axe is having issues with the overlapping elements in stickersheets causing false positives.
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
   },
 } satisfies Meta
 
@@ -93,6 +82,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet isReversed={isReversed}>
         <StickerSheet.Header
           headings={["Base", "Hover", "Active", "Focus", "Disabled", "Working"]}
+          hasVerticalHeadings
         />
         <StickerSheet.Body>
           {VARIANTS_PROPS.map(({ title, props }) => (
@@ -100,17 +90,17 @@ const StickerSheetTemplate: StickerSheetStory = {
               <IconButton reversed={isReversed} {...props} />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__button-hover"
+                data-sb-pseudo-styles="hover"
                 {...props}
               />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__button-active"
+                data-sb-pseudo-styles="active"
                 {...props}
               />
               <IconButton
                 reversed={isReversed}
-                classNameOverride="story__button-focus"
+                data-sb-pseudo-styles="focus"
                 {...props}
               />
               <IconButton reversed={isReversed} {...props} disabled />
@@ -120,6 +110,14 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
     )
+  },
+  parameters: {
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      active: '[data-sb-pseudo-styles="active"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
+    },
   },
 }
 
@@ -131,12 +129,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    ...StickerSheetTemplate.parameters,
+    textDirection: "rtl",
+  },
 }

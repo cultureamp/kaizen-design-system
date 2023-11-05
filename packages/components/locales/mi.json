@@ -17,7 +17,7 @@
     "description" : "Label for the 'date to' field",
     "message" : "Date to"
   },
-  "filterDateRangePicker.inputFormat" : {
+  "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "Input format"
   },
@@ -51,7 +51,7 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't fing the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",

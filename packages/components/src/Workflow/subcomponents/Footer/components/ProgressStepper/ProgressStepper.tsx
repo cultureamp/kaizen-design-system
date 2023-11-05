@@ -5,7 +5,7 @@ import {
   IndicatorActiveIcon,
   IndicatorInactiveIcon,
   SuccessIcon,
-} from "~components/Icons"
+} from "~components/Icon"
 import styles from "./ProgressStepper.module.scss"
 
 export type ProgressStepperProps = {

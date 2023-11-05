@@ -1,0 +1,28 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+$menu-container-width: 248px;
+$dropdown-index: 1000;
+
+.menuContainer {
+  z-index: $dropdown-index;
+  box-sizing: border-box;
+  background: $color-white;
+  color: $color-purple-800;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-large-box-shadow;
+  max-height: 22rem;
+  overflow: auto;
+  padding: $spacing-xs 0;
+  text-align: left;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
+}
+
+.defaultWidth {
+  width: $menu-container-width;
+}

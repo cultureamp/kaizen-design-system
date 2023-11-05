@@ -1,0 +1,32 @@
+$ca-icon-width: 20px;
+$ca-icon-height: 20px;
+
+.icon {
+  width: $ca-icon-width;
+  height: $ca-icon-height;
+  display: inline-block;
+
+  // jQuery has an IE11 bug where delegated events aren't registered if the click was on an icon.
+  // A workaround is to disable `point-events` on the use element. See https://github.com/jquery/jquery/issues/3877
+  > use {
+    pointer-events: none;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    color: black;
+  }
+
+  @media screen and (-ms-high-contrast: white-on-black) {
+    color: white;
+  }
+
+  @media screen and (-ms-high-contrast: black-on-white) {
+    color: black;
+  }
+}
+
+.inheritSize {
+  width: inherit;
+  height: inherit;
+  display: block;
+}

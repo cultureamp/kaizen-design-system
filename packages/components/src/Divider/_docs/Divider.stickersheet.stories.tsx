@@ -7,7 +7,7 @@ import {
 import { Divider } from "../index"
 
 export default {
-  title: "KAIO-staging/Divider",
+  title: "Components/Divider",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

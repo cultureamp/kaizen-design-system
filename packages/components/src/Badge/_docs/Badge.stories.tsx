@@ -4,7 +4,7 @@ import { BadgeAnimated } from "@kaizen/draft-badge"
 import { Badge } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Badge",
+  title: "Components/Badge",
   component: Badge,
   args: {
     children: "3",

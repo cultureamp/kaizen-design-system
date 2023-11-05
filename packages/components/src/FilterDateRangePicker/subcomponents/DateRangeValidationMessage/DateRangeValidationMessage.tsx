@@ -1,5 +1,5 @@
 import React from "react"
-import { FieldMessage } from "@kaizen/draft-form"
+import { FieldMessage } from "~components/FieldMessage"
 import { DateRangeFieldValidationMessage } from "../FilterDateRangePickerField/types"
 import styles from "./DateRangeValidationMessage.module.scss"
 

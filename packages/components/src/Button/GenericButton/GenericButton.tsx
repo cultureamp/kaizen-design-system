@@ -21,6 +21,7 @@ export type CustomButtonProps = {
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   children?: React.ReactNode
+  "data-testid"?: string
 }
 
 export type ButtonFormAttributes = Pick<
@@ -380,5 +381,3 @@ const generateAriaLabel = (props: RenderProps): string | undefined => {
 
   return undefined
 }
-
-export default GenericButton

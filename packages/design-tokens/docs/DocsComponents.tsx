@@ -70,7 +70,6 @@ const TabbedCodeBlocks = ({
               // eslint-disable-next-line jsx-a11y/anchor-is-valid
               <a
                 style={{ flexShrink: 0 }}
-                data-automation-id={tab.automationId}
                 key={tab.label}
                 onClick={tab.onClick}
                 href={!tab.disabled ? tab.href : undefined}

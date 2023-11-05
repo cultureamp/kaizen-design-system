@@ -1,0 +1,28 @@
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
+
+%loadingBase {
+  border-radius: $border-solid-border-radius;
+  top: calc(#{$spacing-md} * 0.175);
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 60%;
+  }
+
+  50% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 60%;
+  }
+}
+
+%loadingAnimated {
+  animation-name: fade-in-out;
+  animation-duration: calc(#{$animation-duration-deliberate} * 2);
+  animation-iteration-count: infinite;
+}

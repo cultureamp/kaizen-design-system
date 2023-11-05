@@ -9,7 +9,7 @@ $input-disabled-opacity: 0.3;
   border: none;
 }
 
-.inputStartDate {
+.inputStartDate input {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 
@@ -23,7 +23,7 @@ $input-disabled-opacity: 0.3;
   }
 }
 
-.inputEndDate {
+.inputEndDate input {
   position: relative;
   inset-inline-start: calc(-1 * #{$border-solid-border-width});
   border-start-start-radius: 0;
@@ -35,10 +35,7 @@ $input-disabled-opacity: 0.3;
     /* stylelint-disable declaration-no-important */
     border-start-start-radius: 0 !important;
     border-end-start-radius: 0 !important;
-    inset-inline-start: calc(
-      -1 * calc(2 * #{$border-solid-border-width} + 1px)
-    ) !important;
-    inset-inline-end: -1px !important;
+    inset-inline: calc(-1 * calc(2 * #{$border-solid-border-width} + 1px)) -1px !important;
     /* stylelint-enable declaration-no-important */
   }
 }

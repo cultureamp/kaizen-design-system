@@ -7,7 +7,7 @@ import {
 import { {{pascalCase componentName}} } from "../index"
 
 export default {
-  title: "Components/{{pascalCase componentName}}",
+  title: "{{storyTitle}}",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,18 +18,42 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      {/* @note: Header is optional */}
-      <StickerSheet.Header headings={["COLUMN 1", "COLUMN 2"]} />
+      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
       <StickerSheet.Body>
         <StickerSheet.Row>
-          {/** @todo: Add column 1 + row 1 props */}
-          <{{pascalCase componentName}} exampleRequiredString="One" isReversed={isReversed} />
-          {/** @todo: Add column 2 + row 1 props */}
-          <{{pascalCase componentName}} exampleRequiredString="Two" isReversed={isReversed} />
+          <{{pascalCase componentName}}
+            isReversed={isReversed}
+            exampleRequiredString="{{pascalCase componentName}}"
+          />
+          <{{pascalCase componentName}}
+            isReversed={isReversed}
+            exampleRequiredString="{{pascalCase componentName}}"
+            data-sb-pseudo-styles="hover"
+          />
+          <{{pascalCase componentName}}
+            isReversed={isReversed}
+            exampleRequiredString="{{pascalCase componentName}}"
+            data-sb-pseudo-styles="active"
+          />
+          <{{pascalCase componentName}}
+            isReversed={isReversed}
+            exampleRequiredString="{{pascalCase componentName}}"
+            data-sb-pseudo-styles="focus"
+          />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
-  )
+  ),
+  /** @note: Only required if you have pseudo states, otherwise this can be removed */
+  parameters: {
+    /** @todo: Remove any inapplicable pseudo states */
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      active: '[data-sb-pseudo-styles="active"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
+    },
+  },
 }
 
 export const StickerSheetDefault: StickerSheetStory = {
@@ -40,12 +64,20 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Reversed)",
-  parameters: { backgrounds: { default: "Purple 700" } },
+  parameters: {
+    /** @note: Only required if template has parameters, otherwise this spread can be removed */
+    ...StickerSheetTemplate.parameters,
+    backgrounds: { default: "Purple 700" },
+  },
   args: { isReversed: true },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (RTL)",
-  parameters: { textDirection: "rtl" },
+  parameters: {
+    /** @note: Only required if template has parameters, otherwise this spread can be removed */
+    ...StickerSheetTemplate.parameters,
+    textDirection: "rtl",
+  },
 }

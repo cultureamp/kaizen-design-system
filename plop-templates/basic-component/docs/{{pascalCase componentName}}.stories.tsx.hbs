@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { {{pascalCase componentName}} } from "../index"
 
 const meta = {
-  title: "Components/{{pascalCase componentName}}",
+  title: "{{storyTitle}}",
   component: {{pascalCase componentName}},
   args: {
     /**
@@ -28,10 +28,7 @@ export const Playground: Story = {
   },
 }
 
-/**
- * @todo: Add your description here and use <Description /> in the MDX,
- * or write directly in the MDX.
- */
 export const Reversed: Story = {
+  parameters: { backgrounds: { default: "Purple 700" } },
   args: { isReversed: true }
 }

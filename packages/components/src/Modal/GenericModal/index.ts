@@ -1,0 +1,7 @@
+export * from "./GenericModal"
+export * from "./context/ModalContext"
+export * from "./subcomponents/ModalAccessibleDescription"
+export * from "./subcomponents/ModalFooter"
+export * from "./subcomponents/ModalHeader"
+export * from "./subcomponents/ModalAccessibleLabel"
+export * from "./subcomponents/ModalBody"

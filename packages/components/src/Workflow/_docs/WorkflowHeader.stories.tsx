@@ -1,14 +1,14 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "@kaizen/button"
-import { CloseIcon, VisibleIcon } from "~components/Icons"
+import { CloseIcon, VisibleIcon } from "~components/Icon"
 import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const meta = {
   tags: ["autodocs"],
-  title: "Pages/Workflow/Legacy/Components/Header",
+  title: "Pages/Workflow/Components/Header",
   component: Workflow.Header,
   parameters: {
     docs: {

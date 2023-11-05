@@ -17,7 +17,7 @@
     "description" : "Label for the 'date to' field",
     "message" : "දිනය දක්වා"
   },
-  "filterDateRangePicker.inputFormat" : {
+  "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
     "message" : "ආදාන ආකෘතිය"
   },
@@ -48,10 +48,6 @@
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
     "message" : "ඔබට මෙම පිටුව නැරඹිය නොහැකිය"
-  },
-  "kzErrorPage.404.message" : {
-    "description" : "Call to action instructions for the user",
-    "message" : "කණගාටුයි, නමුත් අපි ඔබ සොයන පිටුව fing නොහැක.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් නිවසට යන්න"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",

@@ -15,7 +15,7 @@ import {
   EmailIcon,
   FeedbackClassifyIcon,
   SecurityTipIcon,
-} from "~components/Icons"
+} from "~components/Icon"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,
@@ -30,7 +30,7 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  title: "KAIO-staging/Brand Moment",
+  title: "Components/Brand Moment",
   component: BrandMoment,
   parameters: {
     chromatic: { disable: false },

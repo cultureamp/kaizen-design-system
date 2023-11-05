@@ -1,0 +1,125 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "./mixins";
+
+.notification {
+  @extend %ca-notification;
+}
+
+// Structure
+.icon {
+  @extend %ca-notification__icon;
+}
+
+.textContainer {
+  @extend %ca-notification__text-container;
+}
+
+.title {
+  @extend %ca-notification__title;
+}
+
+.text {
+  @extend %ca-notification__text;
+}
+
+.cancel {
+  @extend %ca-notification__cancel;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible::after {
+    content: "";
+
+    $focus-ring-offset: 6px;
+
+    pointer-events: none;
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    inset: $focus-ring-offset;
+  }
+}
+
+.cancelLabel {
+  @extend %ca-notification__cancel__label;
+}
+
+.notificationTitle {
+  top: 0.42em;
+  position: relative;
+  margin-inline-end: $spacing-6;
+  line-height: $typography-heading-6-line-height;
+}
+
+@container (max-width: 25rem) {
+  .notificationTitle {
+    width: 100%;
+  }
+}
+
+// Animation
+.hidden {
+  @extend %ca-notification---hidden;
+}
+
+// Variant
+.inline {
+  @extend %ca-notification---inline;
+}
+
+.toast {
+  @extend %ca-notification---toast;
+}
+
+.global {
+  @extend %ca-notification---global;
+}
+
+// Type
+.positive {
+  @extend %ca-notification---positive;
+}
+
+.informative {
+  @extend %ca-notification---informative;
+}
+
+.cautionary,
+.security {
+  @extend %ca-notification---cautionary;
+}
+
+.negative {
+  @extend %ca-notification---negative;
+}
+
+// Modifiers
+.noBottomMargin {
+  @extend %ca-notification---noBottomMargin;
+}
+
+.forceMultiline {
+  @extend %ca-notification---forceMultiline;
+}
+
+.persistent {
+  @extend %ca-notification---persistent;
+}
+
+// this is only for inline notifications, but is here due to specificity issues in the _styles.scss file
+.subtle {
+  @extend %ca-notification---subtle;
+}

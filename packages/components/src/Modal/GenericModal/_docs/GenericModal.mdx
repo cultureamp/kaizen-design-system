@@ -1,0 +1,30 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { LinkTo } from "~storybook/components/LinkTo"
+import * as GenericModal from "./GenericModal.stories"
+
+<Meta of={GenericModal} />
+
+# GenericModal
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Modal/GenericModal"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { GenericModal } from "@kaizen/components"'
+/>
+
+## Overview
+
+Usually part of compositions such as
+<LinkTo pageId="components-modals-confirmationmodal">Confirmation Modal</LinkTo>,
+<LinkTo pageId="components-modals-roadblockmodal">Road block Modal</LinkTo>,
+<LinkTo pageId="components-modals-context-modal">Context Modal</LinkTo>
+
+<Canvas of={GenericModal.Playground} />
+<Controls of={GenericModal.Playground} />

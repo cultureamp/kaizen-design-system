@@ -1,0 +1,17 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "../mixins";
+
+.loadingGraphic {
+  @extend %loadingBase;
+
+  background-color: rgba($color-gray-600-rgb, 0.1);
+  border-radius: 50%;
+}
+
+.isReversed {
+  background-color: rgba($color-white-rgb, 0.1);
+}
+
+.isAnimated {
+  @extend %loadingAnimated;
+}

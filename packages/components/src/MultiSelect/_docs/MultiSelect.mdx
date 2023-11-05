@@ -1,0 +1,60 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as MultiSelectStories from "./MultiSelect.stories"
+
+<Meta of={MultiSelectStories} />
+
+# MultiSelect
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/MultiSelect"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { MultiSelect } from "@kaizen/components"'
+/>
+
+## Overview
+
+A field for selecting multiple options.
+
+<Canvas of={MultiSelectStories.Playground} />
+<Controls of={MultiSelectStories.Playground} />
+
+## API
+
+### Items
+
+An array of `MultiSelectOption`s which will be rendered into the dropdown.
+
+```ts
+export type MultiSelectOption = {
+  label: string
+  // Used for "value" attribute in option - must be unique
+  value: string | number
+}
+
+```
+
+<Canvas of={MultiSelectStories.Items} />
+
+### Selected values
+
+Selected values are in the shape of `Set<MultiSelectOption["value"]>`.
+Each value should be a unique `string | number`.
+
+These values are controlled by the consumer through the props `selectedValues` and
+the `onSelectedValuesChange` callback (which will provide the new Set of selected values).
+
+<Canvas of={MultiSelectStories.SelectedValues} />
+
+### Open state
+
+The open state is controlled by the consumer through the `isOpen` and `onOpenChange` props.
+
+<Canvas of={MultiSelectStories.OpenState} />

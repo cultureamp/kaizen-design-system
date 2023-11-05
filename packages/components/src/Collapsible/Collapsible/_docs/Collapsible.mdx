@@ -1,0 +1,45 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CollapsibleStories from "./Collapsible.stories"
+
+<Meta of={CollapsibleStories} />
+
+# Collapsible
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Collapsible"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=6%3A5001&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Collapsible } from "@kaizen/components"'
+/>
+
+## Overview
+
+Collapsibles are used to collapse and expand content inline on a page. This lets users progressively disclose information as desired.
+
+<Canvas of={CollapsibleStories.Playground} />
+<Controls of={CollapsibleStories.Playground} />
+
+## API
+
+<DocsStory of={CollapsibleStories.NoPadding} />
+
+<DocsStory of={CollapsibleStories.Clear} />
+
+<DocsStory of={CollapsibleStories.CustomHeader} />
+
+<DocsStory of={CollapsibleStories.Sticky} sourceState="shown" />
+
+### Controlled
+
+Control the open state using a `useState` (or similar) by setting the `controlled` prop to `true`
+and defining the `open` and `onToggle` props.
+
+<Canvas of={CollapsibleStories.Controlled} />

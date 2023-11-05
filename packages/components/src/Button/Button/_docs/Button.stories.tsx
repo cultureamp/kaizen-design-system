@@ -1,12 +1,12 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import { StoryObj, Meta } from "@storybook/react"
 import { TextField } from "@kaizen/draft-form"
-import { LoadingInput } from "@kaizen/loading-skeleton"
-import { AddIcon, ArrowRightIcon } from "~components/Icons"
+import { AddIcon, ArrowRightIcon } from "~components/Icon"
+import { LoadingInput } from "~components/Loading"
 import { Button } from "../index"
 
 const meta = {
-  title: "KAIO-staging/Buttons/Button",
+  title: "Components/Buttons/Button",
   component: Button,
   args: {
     label: "Label",
@@ -17,9 +17,6 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-/**
- * Buttons perform actions. If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
- */
 export const Playground: Story = {
   parameters: {
     docs: {
@@ -30,13 +27,9 @@ export const Playground: Story = {
   },
 }
 
-/**
- * <p>`Default`, `Primary`, `Destructive`, `Secondary`</p>
- * <p>If no `variant` is specified, a `Default` button will be rendered.</p>
- */
 export const Variants: Story = {
   render: ({ reversed }) => (
-    <div style={{ display: "flex", gap: "1rem" }}>
+    <>
       <Button label="Default" reversed={reversed} />
       <Button label="Primary" primary reversed={reversed} />
       <Button label="Destructive" destructive reversed={reversed} />
@@ -44,8 +37,15 @@ export const Variants: Story = {
       {!reversed && (
         <Button label="Secondary Destructive" secondary destructive />
       )}
-    </div>
+    </>
   ),
+  decorators: [
+    Story => (
+      <div style={{ display: "flex", gap: "1rem" }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: { controls: { disable: true } },
 }
 
@@ -58,37 +58,32 @@ export const Reversed: Story = {
   },
 }
 
-/**
- * A disabled Button prevents user interaction. It doesn’t appear in the tab order, can’t receive focus, and may not read aloud by a screenreader.
- */
 export const Disabled: Story = {
   args: { disabled: true },
 }
 
-/**
- * <p>When a Button is supplied to the `icon` prop, it displays an icon.</p>
- * <p>`import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"`</p>
- * <p>Once the icons are imported, you can pass them directly into the Button component.</p>
- * <h3>IconPosition</h3>
- * <p>The consumer can specify the icon placement with the iconPosition prop, default position is start.</p>
- */
+const sourceCodeIcon = `
+import { Button, AddIcon } from "@kaizen/components"
+
+<Button label="Label" icon={<AddIcon role="presentation" />} />
+`
+
 export const Icon: Story = {
-  render: () => (
-    <div style={{ display: "flex", gap: "1rem" }}>
-      <Button label="Label" icon={<AddIcon role="presentation" />} />
-      <Button
-        label="Label"
-        icon={<ArrowRightIcon role="presentation" />}
-        iconPosition="end"
-      />
-    </div>
-  ),
-  parameters: { controls: { disable: true } },
+  args: {
+    icon: <AddIcon role="presentation" />,
+  },
+  parameters: {
+    docs: { source: { code: sourceCodeIcon } },
+  },
 }
 
-/**
- * You can display a `Badge` component within the button using the `badge` prop.
- */
+export const IconPosition: Story = {
+  args: {
+    icon: <ArrowRightIcon role="presentation" />,
+    iconPosition: "end",
+  },
+}
+
 export const Badge: Story = {
   args: {
     badge: { text: "3", variant: "active" },
@@ -96,25 +91,13 @@ export const Badge: Story = {
   },
 }
 
-/**
- * Buttons can be stretched to fill the full width of their container.
- */
 export const FullWidth: Story = {
   args: { fullWidth: true },
 }
 
-const WorkingWrapper = ({ children }: { children: ReactNode }): JSX.Element => (
-  <div style={{ display: "flex", gap: "1rem" }}>{children}</div>
-)
-
-/**
- * <p>The `working` prop should be used in situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form</p>
- * <p>In conjuction use the `workingLabel` prop to update the label of the button when the working state is triggered.</p>
- * <p>Alternatively use the `workingLabelHidden` prop to hide the button label all together.</p>
- */
 export const Working: Story = {
   render: () => (
-    <WorkingWrapper>
+    <>
       <Button label="Label" working workingLabel="Submitting" />
       <Button
         label="Label"
@@ -122,24 +105,23 @@ export const Working: Story = {
         workingLabel="Submitting"
         workingLabelHidden
       />
-    </WorkingWrapper>
+    </>
   ),
+  decorators: [
+    Story => (
+      <div style={{ display: "flex", gap: "1rem" }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: { controls: { disable: true } },
 }
 
-/**
- * <p>Use the LoadingInput component from the loading-skeleton package. Please refer to the LoadingInput Component guidelines.</p>
- * `import { LoadingInput } from "@kaizen/loading-skeleton"`
- */
 export const Loading: Story = {
   render: () => <LoadingInput isAnimated width={13} />,
   parameters: { controls: { disable: true } },
 }
 
-/**
- * <p>Button extends native HTML "form" attributes for `button`.</p>
- * <p>You can use this to submit a `form` using `Button` with a matching form id.</p>
- */
 export const NativeFormButton: Story = {
   render: () => (
     <>

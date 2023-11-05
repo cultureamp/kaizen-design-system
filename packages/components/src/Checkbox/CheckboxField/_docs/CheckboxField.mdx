@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as CheckboxFieldStories from "./CheckboxField.stories"
+
+<Meta of={CheckboxFieldStories} />
+
+# CheckboxField
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/CheckboxField"
+  figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=5%3A4170&t=P1w10jr2cpPuaayw-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094661/Checkbox+Field"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { CheckboxField } from "@kaizen/components"'
+/>
+
+## Overview
+
+A checkbox field includes a checkable input and its label. Checkbox fields are used in checkbox groups that let people select zero or more options from a set.
+
+<Canvas of={CheckboxFieldStories.Playground} />
+<Controls of={CheckboxFieldStories.Playground} />
+
+## API
+
+### No Bottom Margin
+Removes the margin from below the Checkbox Field.
+
+**Note** This is a bit of an antiquated pattern, we advise you to keep this on by default and use flex containers to apply spacing
+<Canvas of={CheckboxFieldStories.NoBottomMargin} />

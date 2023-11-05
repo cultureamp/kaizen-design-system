@@ -1,5 +1,248 @@
 # Change Log
 
+## 1.32.0
+
+### Minor Changes
+
+- [#4260](https://github.com/cultureamp/kaizen-design-system/pull/4260) [`9a95d5f23`](https://github.com/cultureamp/kaizen-design-system/commit/9a95d5f23d1f832fc63a55886b8de839b27edc32) - Add 413 error page.
+
+### Patch Changes
+
+- [#4259](https://github.com/cultureamp/kaizen-design-system/pull/4259) [`8680132cb`](https://github.com/cultureamp/kaizen-design-system/commit/8680132cb6532538711d36d83a2d6cb660720b7e) - fix: fing typo
+
+## 1.31.0
+
+### Minor Changes
+
+- [#4246](https://github.com/cultureamp/kaizen-design-system/pull/4246) [`b01fc8a31`](https://github.com/cultureamp/kaizen-design-system/commit/b01fc8a318897fe3543af2e8d191f27d4fa1fadf) - Migrate ToastNotification from kaizen-legacy.
+
+- [#4214](https://github.com/cultureamp/kaizen-design-system/pull/4214) [`8f63917af`](https://github.com/cultureamp/kaizen-design-system/commit/8f63917af6594f14829be861b14abce2f1dd7dad) - Make Tags in MultiSelect removable on click.
+  Tags in MultiSelect now have a clear button, that can be used to remove them from the list of selected options.
+
+- [#4254](https://github.com/cultureamp/kaizen-design-system/pull/4254) [`53c59af92`](https://github.com/cultureamp/kaizen-design-system/commit/53c59af925de59263feb2417d132166a18aa779c) - Migrate ProgressBar from kaizen-legacy
+
+- [#4253](https://github.com/cultureamp/kaizen-design-system/pull/4253) [`880e668a5`](https://github.com/cultureamp/kaizen-design-system/commit/880e668a50662c79415b551b8b9ab6dbc5f99767) - Migrate LikertScaleLegacy from `kaizen-legacy`
+
+### Patch Changes
+
+- [#4252](https://github.com/cultureamp/kaizen-design-system/pull/4252) [`b2cc3123a`](https://github.com/cultureamp/kaizen-design-system/commit/b2cc3123a11fdfb7aed696b02a67ae42f70bdba6) - Fix colour inheritance for CloseIcon.
+
+## 1.30.0
+
+### Minor Changes
+
+- [#4248](https://github.com/cultureamp/kaizen-design-system/pull/4248) [`827f0880d`](https://github.com/cultureamp/kaizen-design-system/commit/827f0880d6815827b9333b76884ec7208c302caf) - Migrate `Well` from `kaizen-legacy`
+
+### Patch Changes
+
+- [#4249](https://github.com/cultureamp/kaizen-design-system/pull/4249) [`647153413`](https://github.com/cultureamp/kaizen-design-system/commit/647153413b0c61c4bc3bfd20ab4c25d4424b4cf5) - fix: Add missing Tag export.
+
+## 1.29.0
+
+### Minor Changes
+
+- [#4215](https://github.com/cultureamp/kaizen-design-system/pull/4215) [`6ca1993f8`](https://github.com/cultureamp/kaizen-design-system/commit/6ca1993f8ab06b88ba21c1e3a9127016b85d4895) - Migrate `LoadingSpinner` from `kaizen-legacy`.
+
+- [#4244](https://github.com/cultureamp/kaizen-design-system/pull/4244) [`bc94e27a4`](https://github.com/cultureamp/kaizen-design-system/commit/bc94e27a4af23faf8ffa2b5f64e80d37f488b757) - Migrate Pagination from `kaizen-legacy`
+
+- [#4216](https://github.com/cultureamp/kaizen-design-system/pull/4216) [`3f9022301`](https://github.com/cultureamp/kaizen-design-system/commit/3f9022301aef07adc181d12011cab92cd600b131) - Migrate `SplitButton` from `kaizen-legacy`.
+
+  Replace usages of `@kaizen/draft-menu` with KAIO `Menu`.
+
+- [#4131](https://github.com/cultureamp/kaizen-design-system/pull/4131) [`24e497d4f`](https://github.com/cultureamp/kaizen-design-system/commit/24e497d4fb60173d89855ba6aa351ed11d87e579) - Add Future RemovableTag and RemovableButton components
+
+- [#4208](https://github.com/cultureamp/kaizen-design-system/pull/4208) [`55b4b6cc0`](https://github.com/cultureamp/kaizen-design-system/commit/55b4b6cc09965bff514b98c9901b55a419f47c99) - Migrate Spot Illustrations
+
+- [#4186](https://github.com/cultureamp/kaizen-design-system/pull/4186) [`f44539f2e`](https://github.com/cultureamp/kaizen-design-system/commit/f44539f2e2c8d9318988f0e38b788fbba21f365e) - Migrate Legacy Select and Popover
+
+- [#4217](https://github.com/cultureamp/kaizen-design-system/pull/4217) [`e0bd4a310`](https://github.com/cultureamp/kaizen-design-system/commit/e0bd4a310ebfbcb0f302aec24c46fa036e203336) - Migrate Menu from `kaizen-legacy`
+
+- [#4212](https://github.com/cultureamp/kaizen-design-system/pull/4212) [`87070dc7b`](https://github.com/cultureamp/kaizen-design-system/commit/87070dc7bb75309095111ac81c7064d155a7d03e) - Migrate `LoadingGraphic`, `LoadingHeading`, `LoadingInput`, `LoadingParagraph` from `kaizen-legacy`.
+
+- [#4209](https://github.com/cultureamp/kaizen-design-system/pull/4209) [`7b17d8470`](https://github.com/cultureamp/kaizen-design-system/commit/7b17d8470f5e7232b68a7d3b612f434ecb7ee4de) - Migrate Table component from kaizen-legacy
+
+- [#4219](https://github.com/cultureamp/kaizen-design-system/pull/4219) [`da82c6ef4`](https://github.com/cultureamp/kaizen-design-system/commit/da82c6ef4ff7488d47ead7eedd6cf1bc326cca7e) - Migrate `TitleBlockZen` from `kaizen-legacy`
+
+- [#4207](https://github.com/cultureamp/kaizen-design-system/pull/4207) [`64b2f6bac`](https://github.com/cultureamp/kaizen-design-system/commit/64b2f6bac80059aaefce8a2ad93eedd6f2cbe58d) - Migrate InformationTile, MultiActionTile, TileGrid from kaizen-legacy
+
+- [#4206](https://github.com/cultureamp/kaizen-design-system/pull/4206) [`abfea3c0b`](https://github.com/cultureamp/kaizen-design-system/commit/abfea3c0baf9bfc2ed6ec4b3dcf34ad16568c516) - Migrate <TimeField/> from kaizen-legacy.
+
+- [#4211](https://github.com/cultureamp/kaizen-design-system/pull/4211) [`0bc493661`](https://github.com/cultureamp/kaizen-design-system/commit/0bc4936619c398f92ff1cec57cae172b37aa4d11) - Migrate Skirt, Content, Container from `kaizen-legacy`
+
+- [#4198](https://github.com/cultureamp/kaizen-design-system/pull/4198) [`8aab5236a`](https://github.com/cultureamp/kaizen-design-system/commit/8aab5236a8ff4c28db3acbd06011cb097715e3ae) - Remove "Theme-ing" related docs
+  Move Design Tokens CSS Vars to KAIO style bundle
+  Add docs for accessing tokens in JS + SCSS
+
+- [#4210](https://github.com/cultureamp/kaizen-design-system/pull/4210) [`dbfffd9d5`](https://github.com/cultureamp/kaizen-design-system/commit/dbfffd9d5419af51aa0df9929983186b14748d88) - Migrate Tooltip component from kaizen-legacy
+
+### Patch Changes
+
+- [#4195](https://github.com/cultureamp/kaizen-design-system/pull/4195) [`affcb4841`](https://github.com/cultureamp/kaizen-design-system/commit/affcb48411809793038c3c94511e85c98e35daa5) - Fix stylelint issues
+
+- [#4185](https://github.com/cultureamp/kaizen-design-system/pull/4185) [`f4f600554`](https://github.com/cultureamp/kaizen-design-system/commit/f4f600554e8c235ce20c62b7c1fca90446cd308e) - fixed camel case on RadioGroup `data-testId`
+
+- [#4201](https://github.com/cultureamp/kaizen-design-system/pull/4201) [`fe9d56ab3`](https://github.com/cultureamp/kaizen-design-system/commit/fe9d56ab33fd72018a4788d6246a3eadb7153bda) - Update rollup deps
+
+- [#4237](https://github.com/cultureamp/kaizen-design-system/pull/4237) [`e551cf8b4`](https://github.com/cultureamp/kaizen-design-system/commit/e551cf8b4d36f3ba0971e8194f8da78bf04f6cab) - Package updates:
+
+  @kaizen/components (peer deps):
+
+  - @cultureamp/i18n-react-intl from 2.0.0 to 2.1.1
+  - react from 18.0.0 to 18.2.0
+  - react-intl from 6.4.6 to 6.5.1
+
+  @kaizen/tailwind (peer deps):
+
+  - tailwindcss from ^3.3.3 to ^3.3.5"
+
+  (otherwise all dev dep updates)
+
+- [#4200](https://github.com/cultureamp/kaizen-design-system/pull/4200) [`9a00bde97`](https://github.com/cultureamp/kaizen-design-system/commit/9a00bde978c7ebf3eca65d8e460b692f2eb95768) - Update react-aria and react-stately deps
+
+- [#4203](https://github.com/cultureamp/kaizen-design-system/pull/4203) [`ec791cca9`](https://github.com/cultureamp/kaizen-design-system/commit/ec791cca996f8f58e2ab6d85d31354c801ea7889) - Dep updates:
+  - @cultureamp/frontend-apis to 8.2.0
+  - @types/react-dom to 18.2.14
+  - @types/react-textfit to 1.1.2
+  - react-intl to 6.5.0
+  - sass to 1.69.4
+
+## 1.28.0
+
+### Minor Changes
+
+- [#4178](https://github.com/cultureamp/kaizen-design-system/pull/4178) [`3e0ce69bb`](https://github.com/cultureamp/kaizen-design-system/commit/3e0ce69bb6c012c4b18d43c784cf40267234a2a8) - Migrate ContextModal from kaizen-legacy
+
+- [#4176](https://github.com/cultureamp/kaizen-design-system/pull/4176) [`3436dc296`](https://github.com/cultureamp/kaizen-design-system/commit/3436dc29670ae1bb0bc97b647be75c6a94cd700a) - Migrate DatePicker and DateRangePicker
+
+- [#4179](https://github.com/cultureamp/kaizen-design-system/pull/4179) [`3f35b9051`](https://github.com/cultureamp/kaizen-design-system/commit/3f35b9051453a807620146347acaa8aeaa068cff) - Migrate InputEditModal from kaizen-legacy
+
+- [#4177](https://github.com/cultureamp/kaizen-design-system/pull/4177) [`526d2fa2b`](https://github.com/cultureamp/kaizen-design-system/commit/526d2fa2bca09be9752b24ee3fa9f7f0396ebe12) - Migrate ConfirmationModal from kaizen-legacy
+
+- [#4174](https://github.com/cultureamp/kaizen-design-system/pull/4174) [`da3701bf1`](https://github.com/cultureamp/kaizen-design-system/commit/da3701bf1da3056aa0029fccec9d9125c55afc04) - Migrate GenericModal from kaizen-legacy
+
+### Patch Changes
+
+- [#4159](https://github.com/cultureamp/kaizen-design-system/pull/4159) [`b9700c9fb`](https://github.com/cultureamp/kaizen-design-system/commit/b9700c9fba0542fe67cb7954d5831e97fd84bb78) - Add TypeScript JSDocs to Radio id, name and value props
+
+## 1.27.0
+
+### Minor Changes
+
+- [#4157](https://github.com/cultureamp/kaizen-design-system/pull/4157) [`19c6fdc19`](https://github.com/cultureamp/kaizen-design-system/commit/19c6fdc191a1e58b2fefad61e78ed8adf123aeb2) - - Migrate kaizen-legacy TextField, TextArea, TextAreaField to KAIO
+
+- [#4158](https://github.com/cultureamp/kaizen-design-system/pull/4158) [`5093f486e`](https://github.com/cultureamp/kaizen-design-system/commit/5093f486e9eaf09e510300ffe2bdaf3a0e0bd95d) - Migrate VisuallyHidden component to KAIO
+
+### Patch Changes
+
+- [#4180](https://github.com/cultureamp/kaizen-design-system/pull/4180) [`afe86b01e`](https://github.com/cultureamp/kaizen-design-system/commit/afe86b01e81493c35a0b26dd9b7b7ab19123b5ec) - Fixes issue where styles.css was being tree-shaken by Webpack
+
+- [#4155](https://github.com/cultureamp/kaizen-design-system/pull/4155) [`9b29d7c3e`](https://github.com/cultureamp/kaizen-design-system/commit/9b29d7c3e4359dbf1b90e886b2fd359c1b7678fd) - Change `@kaizen/design-tokens` from peerDep to devDep.
+
+  No longer required by consumers as we distribute compiled css.
+
+## 1.26.0
+
+### Minor Changes
+
+- [#4111](https://github.com/cultureamp/kaizen-design-system/pull/4111) [`8e5c10a19`](https://github.com/cultureamp/kaizen-design-system/commit/8e5c10a1997c58652c5a42b51e6acdfc6c2dacf9) - - Migrate kaizen-legacy Tag component
+
+### Patch Changes
+
+- [#4133](https://github.com/cultureamp/kaizen-design-system/pull/4133) [`d9d060f73`](https://github.com/cultureamp/kaizen-design-system/commit/d9d060f738a5f5513b378ec349df5993f1b7c7f0) - - Add an icon for AI (Artificial Intelligence)
+
+- [#4154](https://github.com/cultureamp/kaizen-design-system/pull/4154) [`5f2afd593`](https://github.com/cultureamp/kaizen-design-system/commit/5f2afd5933f18dfd3c99ff68adcf546d39e30ce3) - Fix support for tree shaking by:
+
+  - Adding `babel-plugin-pure-static-props` plugin to Rollup config
+  - Adding `@babel/pugin-transform-react-pure-annotations` plugin to Rollup config
+  - Updating components to be tree-shakeable, more detail on [Confluence](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3320647009/Tree+Shaking)
+
+  Addtionally:
+
+  - Replaced `esbuild` with `babel` to streamline tooling
+  - Added a ci check for tree shaking via [Agadoo](https://github.com/Rich-Harris/agadoo)
+  - Moved `react-intl` to peerDep
+  - Added `tslib` to dependencies
+  - Removed `ThemeManager` in favour of `theme` prop on `KaizenProvider` (simplified to remove unused code)
+
+## 1.25.0
+
+### Minor Changes
+
+- [#4130](https://github.com/cultureamp/kaizen-design-system/pull/4130) [`ebc1f8d59`](https://github.com/cultureamp/kaizen-design-system/commit/ebc1f8d590ac778583b8da1825acfe3ddba7b24f) - Migrate some kaizen-legacy components to Kaizen All-in-One
+
+  - Avatar
+  - AvatarGroup
+  - Badge
+  - Brand
+  - BrandMoment
+  - Button/Button
+  - Button/DirectionalLink
+  - Button/IconButton
+  - Button/PaginationLink
+  - ButtonGroup
+  - Card
+  - Checkbox/Checkbox
+  - Checkbox/CheckboxField
+  - Checkbox/CheckboxGroup
+  - Collapsible/Collapsible
+  - Collapsible/CollapsibleGroup
+  - Collapsible/ExpertAdviceCollapsible
+  - Divider
+  - EmptyState
+  - FieldGroup
+  - FieldMessage
+  - Heading
+  - Input/Input
+  - Input/InputRange
+  - Input/InputSearch
+  - Label
+  - LabelledMessage
+  - Notification/GlobalNotification
+  - Notification/InlineNotification
+  - Radio/Radio
+  - Radio/RadioField
+  - Radio/RadioGroup
+  - SearchField
+  - Slider
+  - Text
+
+  Future components:
+
+  - Future/Select
+  - Future/Tag
+
+- [#3851](https://github.com/cultureamp/kaizen-design-system/pull/3851) [`00f0d53f1`](https://github.com/cultureamp/kaizen-design-system/commit/00f0d53f17e99551ed285ac85d86b1e4e5cb104d) - - Added `Tag` component and stories to KAIO
+
+### Patch Changes
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-aria/button to ^3.8.2
+
+- [#4088](https://github.com/cultureamp/kaizen-design-system/pull/4088) [`410d26fb4`](https://github.com/cultureamp/kaizen-design-system/commit/410d26fb42a88238ca8aaba8613b7c08825c3bb3) - Update docs for Tag and convert TW to SCSS
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-aria/menu to ^3.10.2
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-aria/select to ^3.12.1
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/menu to ^3.5.5
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/collections to ^3.10.1
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency uuid to ^9.0.1
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - Update Kaizen dependencies
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency react-intl to ^6.4.6
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/select to ^3.5.4
+
+- [#4068](https://github.com/cultureamp/kaizen-design-system/pull/4068) [`cfb493f7f`](https://github.com/cultureamp/kaizen-design-system/commit/cfb493f7f2a5cf5a1e0b0d444cbb170eac48f5c7) - update dependency @react-stately/list to ^3.9.2
+
+## 1.24.2
+
+### Patch Changes
+
+- [#4063](https://github.com/cultureamp/kaizen-design-system/pull/4063) [`53ea8bc6c`](https://github.com/cultureamp/kaizen-design-system/commit/53ea8bc6c25ba22013855a98695510878a8da889) - Use @cultureamp/i18n-react-intl as a peer dependency
+
 ## 1.24.1
 
 ### Patch Changes
@@ -586,7 +829,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.5.1...@kaizen/components@1.6.0) (2023-03-22)
 
-### Features
+## Features
 
 - css processing ([#3362](https://github.com/cultureamp/kaizen-design-system/issues/3362)) ([38c0fa3](https://github.com/cultureamp/kaizen-design-system/commit/38c0fa3475a5f78cd4f2c9836815b53d65f2d039))
 
@@ -596,7 +839,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.4.26...@kaizen/components@1.5.0) (2023-03-16)
 
-### Features
+## Features
 
 - **filter:** Add Filter component into the AIO ([#3341](https://github.com/cultureamp/kaizen-design-system/issues/3341)) ([1806853](https://github.com/cultureamp/kaizen-design-system/commit/180685395ee53094f618af7f7292b16d72eb348b))
 
@@ -716,7 +959,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.3.7...@kaizen/components@1.4.0) (2023-02-20)
 
-### Features
+## Features
 
 - re-export-all-existing-components-from-the-new-aio ([#3285](https://github.com/cultureamp/kaizen-design-system/issues/3285)) ([c9a483d](https://github.com/cultureamp/kaizen-design-system/commit/c9a483db2fe6b21f0b75552dc7b6735df6ae68df))
 
@@ -756,18 +999,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.2.0...@kaizen/components@1.3.0) (2023-02-15)
 
-### Features
+## Features
 
 - 44-processing-tailwind-css ([#3273](https://github.com/cultureamp/kaizen-design-system/issues/3273)) ([4f2ace5](https://github.com/cultureamp/kaizen-design-system/commit/4f2ace55edb1d3b5fc0005b65165fd584357a0d2))
 
 # [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/components@1.1.0...@kaizen/components@1.2.0) (2023-02-13)
 
-### Features
+## Features
 
 - **KaizenProvider:** add KaizenProvider to @kaizen/components ([#3239](https://github.com/cultureamp/kaizen-design-system/issues/3239)) ([16819f0](https://github.com/cultureamp/kaizen-design-system/commit/16819f0717dfebd6a938b2784dc84751650f8be4))
 
 # 1.1.0 (2023-01-24)
 
-### Features
+## Features
 
 - add components AIO ([#3229](https://github.com/cultureamp/kaizen-design-system/issues/3229)) ([2b63a37](https://github.com/cultureamp/kaizen-design-system/commit/2b63a3726fafa02c977ba84eedaab4119e40cf51))
