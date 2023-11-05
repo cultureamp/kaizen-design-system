@@ -1,4 +1,4 @@
-import { heartTheme } from "@kaizen/design-tokens/"
+import { heartTheme } from "@kaizen/design-tokens"
 
 const tokenDenyList: string[] = [
   "xs",
