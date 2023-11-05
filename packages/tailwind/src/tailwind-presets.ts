@@ -1,5 +1,5 @@
 import { ThemeConfig } from "tailwindcss/types/config"
-import { heartTheme } from "@kaizen/design-tokens/"
+import { defaultTheme } from "@kaizen/design-tokens/"
 import { kzSpacing } from "./kz-spacing"
 
 export type KaizenTailwindTheme = Partial<ThemeConfig>
@@ -7,70 +7,72 @@ export type KaizenTailwindPreset = {
   theme: KaizenTailwindTheme
 }
 
-// Note: changing any token will require to to run build:ts from the root `design-heartTheme`
+// Note: changing any token will require to to run `yarn build` from the root
 export const kaizenTailwindTheme: KaizenTailwindTheme = {
   extend: {
     maxWidth: {
-      paragraph: `${heartTheme.typography.paragraphBody.maxWidth}`,
-      "paragraph-lede": `${heartTheme.typography.paragraphIntroLede.maxWidth}`,
-      "paragraph-sm": `${heartTheme.typography.paragraphSmall.maxWidth}`,
-      "paragraph-xs": `${heartTheme.typography.paragraphExtraSmall.maxWidth}`,
+      paragraph: `${defaultTheme.typography.paragraphBody.maxWidth}`,
+      "paragraph-lede": `${defaultTheme.typography.paragraphIntroLede.maxWidth}`,
+      "paragraph-sm": `${defaultTheme.typography.paragraphSmall.maxWidth}`,
+      "paragraph-xs": `${defaultTheme.typography.paragraphExtraSmall.maxWidth}`,
     },
   },
   colors: {
     transparent: "transparent",
     current: "currentColor",
     inherit: "inherit",
-    ...heartTheme.color,
-    ...heartTheme.dataViz,
+    ...defaultTheme.color,
+    ...defaultTheme.dataViz,
   },
   spacing: kzSpacing,
   boxShadow: {
     none: "none",
-    sm: heartTheme.shadow.small.boxShadow,
-    lg: heartTheme.shadow.large.boxShadow,
+    sm: defaultTheme.shadow.small.boxShadow,
+    lg: defaultTheme.shadow.large.boxShadow,
   },
   borderRadius: {
     DEFAULT: "7px",
+    default: "7px",
     none: "0px",
     "focus-ring": "10px",
     full: "100%",
   },
   borderWidth: {
     DEFAULT: "2px",
+    default: "2px",
     none: "0px",
     "focus-ring": "2px",
   },
   borderColor: {
-    "default-color": `${heartTheme.border.solid.borderColor}`,
-    transparent: `${heartTheme.border.borderless.borderColor}`,
-    "focus-ring": heartTheme.color.blue[600],
-    ...heartTheme.color,
+    "default-color": `${defaultTheme.border.solid.borderColor}`,
+    transparent: `${defaultTheme.border.borderless.borderColor}`,
+    "focus-ring": defaultTheme.color.blue[600],
+    ...defaultTheme.color,
   },
   fontFamily: {
-    "family-paragraph": [`${heartTheme.typography.paragraphBody.fontFamily}`],
-    "family-heading": [`${heartTheme.typography.heading1.fontFamily}`],
-    "family-data": [`${heartTheme.typography.dataLarge.fontFamily}`],
-    "family-display": [`${heartTheme.typography.display0.fontFamily}`],
+    "family-paragraph": [`${defaultTheme.typography.paragraphBody.fontFamily}`],
+    "family-heading": [`${defaultTheme.typography.heading1.fontFamily}`],
+    "family-data": [`${defaultTheme.typography.dataLarge.fontFamily}`],
+    "family-display": [`${defaultTheme.typography.display0.fontFamily}`],
   },
   fontSize: {
-    display: `${heartTheme.typography.display0.fontSize}`,
-    "heading-1": `${heartTheme.typography.heading1.fontSize}`,
-    "heading-2": `${heartTheme.typography.heading2.fontSize}`,
-    "heading-3": `${heartTheme.typography.heading3.fontSize}`,
-    "heading-4": `${heartTheme.typography.heading4.fontSize}`,
-    "heading-5": `${heartTheme.typography.heading5.fontSize}`,
-    "heading-6": `${heartTheme.typography.heading6.fontSize}`,
-    paragraph: `${heartTheme.typography.paragraphBody.fontSize}`,
-    "paragraph-lede": `${heartTheme.typography.paragraphIntroLede.fontSize}`,
-    "paragraph-sm": `${heartTheme.typography.paragraphSmall.fontSize}`,
-    "paragraph-xs": `${heartTheme.typography.paragraphExtraSmall.fontSize}`,
-    "data-lg": `${heartTheme.typography.dataLarge.fontSize}`,
-    "data-md": `${heartTheme.typography.dataMedium.fontSize}`,
-    "data-sm": `${heartTheme.typography.dataSmall.fontSize}`,
-    "data-units-lg": `${heartTheme.typography.dataLargeUnits.fontSize}`,
-    "data-units-md": `${heartTheme.typography.dataMediumUnits.fontSize}`,
-    "data-units-sm": `${heartTheme.typography.dataSmallUnits.fontSize}`,
+    display: `${defaultTheme.typography.display0.fontSize}`,
+    "heading-1": `${defaultTheme.typography.heading1.fontSize}`,
+    "heading-2": `${defaultTheme.typography.heading2.fontSize}`,
+    "heading-3": `${defaultTheme.typography.heading3.fontSize}`,
+    "heading-4": `${defaultTheme.typography.heading4.fontSize}`,
+    "heading-5": `${defaultTheme.typography.heading5.fontSize}`,
+    "heading-6": `${defaultTheme.typography.heading6.fontSize}`,
+    paragraph: `${defaultTheme.typography.paragraphBody.fontSize}`,
+    "paragraph-lede": `${defaultTheme.typography.paragraphIntroLede.fontSize}`,
+    "paragraph-sm": `${defaultTheme.typography.paragraphSmall.fontSize}`,
+    "paragraph-xs": `${defaultTheme.typography.paragraphExtraSmall.fontSize}`,
+    "data-lg": `${defaultTheme.typography.dataLarge.fontSize}`,
+    "data-md": `${defaultTheme.typography.dataMedium.fontSize}`,
+    "data-sm": `${defaultTheme.typography.dataSmall.fontSize}`,
+    "data-units-lg": `${defaultTheme.typography.dataLargeUnits.fontSize}`,
+    "data-units-md": `${defaultTheme.typography.dataMediumUnits.fontSize}`,
+    "data-units-sm": `${defaultTheme.typography.dataSmallUnits.fontSize}`,
   },
   fontWeight: {
     "weight-paragraph": "400",
@@ -80,31 +82,31 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     "weight-display": "800",
   },
   lineHeight: {
-    display: `${heartTheme.typography.display0.lineHeight}`,
-    "heading-1": `${heartTheme.typography.heading1.lineHeight}`,
-    "heading-2": `${heartTheme.typography.heading2.lineHeight}`,
-    "heading-3": `${heartTheme.typography.heading3.lineHeight}`,
-    "heading-4": `${heartTheme.typography.heading4.lineHeight}`,
-    "heading-5": `${heartTheme.typography.heading5.lineHeight}`,
-    "heading-6": `${heartTheme.typography.heading6.lineHeight}`,
-    paragraph: `${heartTheme.typography.paragraphBody.lineHeight}`,
-    "paragraph-lede": `${heartTheme.typography.paragraphIntroLede.lineHeight}`,
-    "paragraph-sm": `${heartTheme.typography.paragraphSmall.lineHeight}`,
-    "paragraph-xs": `${heartTheme.typography.paragraphExtraSmall.lineHeight}`,
-    "data-lg": `${heartTheme.typography.dataLarge.lineHeight}`,
-    "data-md": `${heartTheme.typography.dataMedium.lineHeight}`,
-    "data-sm": `${heartTheme.typography.dataSmall.lineHeight}`,
-    "data-units-lg": `${heartTheme.typography.dataLargeUnits.lineHeight}`,
-    "data-units-md": `${heartTheme.typography.dataMediumUnits.lineHeight}`,
-    "data-units-sm": `${heartTheme.typography.dataSmallUnits.lineHeight}`,
+    display: `${defaultTheme.typography.display0.lineHeight}`,
+    "heading-1": `${defaultTheme.typography.heading1.lineHeight}`,
+    "heading-2": `${defaultTheme.typography.heading2.lineHeight}`,
+    "heading-3": `${defaultTheme.typography.heading3.lineHeight}`,
+    "heading-4": `${defaultTheme.typography.heading4.lineHeight}`,
+    "heading-5": `${defaultTheme.typography.heading5.lineHeight}`,
+    "heading-6": `${defaultTheme.typography.heading6.lineHeight}`,
+    paragraph: `${defaultTheme.typography.paragraphBody.lineHeight}`,
+    "paragraph-lede": `${defaultTheme.typography.paragraphIntroLede.lineHeight}`,
+    "paragraph-sm": `${defaultTheme.typography.paragraphSmall.lineHeight}`,
+    "paragraph-xs": `${defaultTheme.typography.paragraphExtraSmall.lineHeight}`,
+    "data-lg": `${defaultTheme.typography.dataLarge.lineHeight}`,
+    "data-md": `${defaultTheme.typography.dataMedium.lineHeight}`,
+    "data-sm": `${defaultTheme.typography.dataSmall.lineHeight}`,
+    "data-units-lg": `${defaultTheme.typography.dataLargeUnits.lineHeight}`,
+    "data-units-md": `${defaultTheme.typography.dataMediumUnits.lineHeight}`,
+    "data-units-sm": `${defaultTheme.typography.dataSmallUnits.lineHeight}`,
   },
   letterSpacing: {
     "letter-spacing-normal": "normal",
   },
   // A mix of layout styles
   screens: {
-    md: heartTheme.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
-    lg: heartTheme.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
+    md: defaultTheme.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
+    lg: defaultTheme.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
   },
 }
 
