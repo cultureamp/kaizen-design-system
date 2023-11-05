@@ -2793,7 +2793,7 @@
     "@kaizen/component-base" "^1.1.7"
     classnames "^2.3.2"
 
-"@kaizen/draft-form@^10.4.8", "@kaizen/draft-form@^10.5.0":
+"@kaizen/draft-form@^10.4.8", "@kaizen/draft-form@^10.5.1":
   version "10.5.1"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-10.5.1.tgz#3dbf542d9e902ee7d8b58e05ddd5dfd10c8b6369"
   integrity sha512-avuCrQLLathqdez0kw9lp+qvGNrRx1PgGtqkYgeJtdcn3pdTHzHmXghYApdEfKK5G6nGIBc21uu58//zuHlUZA==
