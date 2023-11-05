@@ -1,4 +1,7 @@
-* {
-  border-style: solid;
+*,
+::before,
+::after {
   border-width: 0;
+  border-style: solid;
+  border-color: var(--border-solid-border-color, "currentColor");
 }
