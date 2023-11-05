@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Formato de entrada"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Fecha inicial"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Fecha final"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Formato de entrada"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Lo sentimos, pero no hemos podido encontrar la página que busca. Vuelva a intentarlo o diríjase a Inicio"
+    "message" : "Lo sentimos, pero no podemos encontrar la página que busca. Regrese y vuelva a intentarlo o vaya a la página de inicio"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Las páginas que faltan son uno de los misterios de la vida."
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Lo sentimos, hay un problema con nuestro sistema y esta página no se puede mostrar. Vuelva a intentarlo o diríjase a Inicio"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Algo ha salido mal por nuestra parte"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Ievades formāts"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Datums no"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Datums līdz"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Ievades formāts"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Atvainojiet, bet mēs nevaram atrast jūsu meklēto lapu. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Trūkstošas lapas ir viena neizskaidrojama lieta"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Atvainojiet, mūsu sistēmā ir radusies problēma, un šo lapu nevaram parādīt. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Mūsu sistēmā ir radusies kaut kāda kļūda"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "입력 형식"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "시작 날짜"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "종료 날짜"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "입력 형식"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "죄송합니다. 원하시는 페이지를 찾을 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+    "message" : "죄송합니다. 원하시는 페이지를 찾을 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요. "
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "페이지가 존재하지 않습니다."
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "죄송합니다. 시스템 장애로 인해 이 페이지를 표시할 수 없습니다. 돌아가서 다시 시도하거나 홈으로 이동하세요."
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "문제가 발생했습니다."
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
