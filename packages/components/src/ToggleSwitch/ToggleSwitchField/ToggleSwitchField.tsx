@@ -11,7 +11,7 @@ import {
 import styles from "./ToggleSwitchField.module.scss"
 
 export type ToggleSwitchFieldProps = {
-  labelText: string | React.ReactNode
+  labelText: React.ReactNode
   labelPosition?: "start" | "end"
   toggledStatus?: ToggledStatus
   disabled?: boolean
