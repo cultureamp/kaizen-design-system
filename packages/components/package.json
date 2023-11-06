@@ -57,6 +57,7 @@
     "@kaizen/responsive": "^1.8.10",
     "@kaizen/typography": "^2.3.11",
     "@popperjs/core": "^2.11.8",
+    "@reach/tabs": "^0.18.0",
     "@react-aria/button": "^3.8.4",
     "@react-aria/datepicker": "^3.8.1",
     "@react-aria/focus": "^3.14.3",
