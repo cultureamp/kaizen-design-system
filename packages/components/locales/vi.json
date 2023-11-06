@@ -51,7 +51,7 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Rất tiếc chúng tôi không thể tìm thấy trang bạn đang tìm kiếm. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
