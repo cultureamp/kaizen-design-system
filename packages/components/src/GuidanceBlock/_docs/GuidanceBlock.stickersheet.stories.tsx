@@ -29,6 +29,12 @@ const GENERIC_PROPS = {
         alert("tada: 🎉")
       },
     },
+    secondary: {
+      label: "Pass",
+      onClick: () => {
+        alert("tada: 🎉")
+      },
+    },
   },
 }
 
