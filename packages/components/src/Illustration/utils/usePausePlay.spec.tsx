@@ -1,7 +1,7 @@
-import { RefObject } from "react"
+import React, { RefObject } from "react"
+import { render } from "@testing-library/react"
 import { renderHook, act } from "@testing-library/react-hooks"
-import playIcon from "@kaizen/component-library/icons/launch.icon.svg"
-import pauseIcon from "@kaizen/component-library/icons/pause.icon.svg"
+import { LaunchIcon, PauseIcon } from "~components/Icon"
 import { usePausePlay, usePausePlayHook } from "./usePausePlay"
 
 describe("usePausePlay()", () => {
@@ -37,7 +37,11 @@ describe("usePausePlay()", () => {
     })
 
     it("returns the play icon", () => {
-      expect(hookResult.icon).toEqual(playIcon)
+      const { baseElement: original } = render(hookResult.icon)
+      const { baseElement: comparison } = render(
+        <LaunchIcon role="presentation" />
+      )
+      expect(original).toEqual(comparison)
     })
 
     it("returns the 'Play animation' label", () => {
@@ -68,7 +72,11 @@ describe("usePausePlay()", () => {
     })
 
     it("returns the pause icon", () => {
-      expect(hookResult.icon).toEqual(pauseIcon)
+      const { baseElement: original } = render(hookResult.icon)
+      const { baseElement: comparison } = render(
+        <PauseIcon role="presentation" />
+      )
+      expect(original).toEqual(comparison)
     })
 
     it("returns the 'Pause animation' label", () => {
