@@ -21,7 +21,7 @@ $illustration-size: 155px;
 $scene-illustration-size: 300px;
 
 .rightMargin {
-  margin-right: $spacing-8
+  margin-right: $spacing-8;
 }
 
 .noRightMargin {
@@ -176,6 +176,7 @@ $scene-illustration-size: 300px;
 
 .cancel {
   @include button-reset;
+
   cursor: pointer;
 
   .icon {
@@ -206,6 +207,7 @@ $scene-illustration-size: 300px;
       }
     }
   }
+
   position: absolute;
   top: $spacing-sm;
   right: $spacing-sm;

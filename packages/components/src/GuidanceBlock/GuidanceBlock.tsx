@@ -3,7 +3,7 @@ import classNames from "classnames"
 import Media from "react-media"
 import { Button, ButtonProps } from "~components/Button"
 import { Heading, HeadingProps } from "~components/Heading"
-import { CloseIcon, ConfigureIcon } from "~components/Icon"
+import { ArrowForwardIcon, CloseIcon } from "~components/Icon"
 import { SceneProps, SpotProps } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { Tooltip, TooltipProps } from "~components/Tooltip"
@@ -238,7 +238,7 @@ export const GuidanceBlock = ({
                     <Button
                       icon={
                         withActionButtonArrow ? (
-                          <ConfigureIcon role="presentation" />
+                          <ArrowForwardIcon role="presentation" />
                         ) : undefined
                       }
                       iconPosition="end"
