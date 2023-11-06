@@ -26,19 +26,11 @@ const FieldGroupTemplate = ({
   <div>
     <FieldGroup inline={inline} classNameOverride="mr-6">
       <Label htmlFor={`id--field-${id}`}>Email</Label>
-      <Input
-        placeholder="Native text input..."
-        type="text"
-        id="id--field-2"
-      />
+      <Input placeholder="Native text input..." type="text" id="id--field-2" />
     </FieldGroup>
     <FieldGroup inline={inline}>
       <Label htmlFor={`id--field-${id}`}>Username</Label>
-      <Input
-        placeholder="Native text input..."
-        type="text"
-        id="id--field-2"
-      />
+      <Input placeholder="Native text input..." type="text" id="id--field-2" />
     </FieldGroup>
   </div>
 )
