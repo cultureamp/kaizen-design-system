@@ -1,16 +1,16 @@
 import React, { useState } from "react"
 import classnames from "classnames"
 import { v4 } from "uuid"
+import { FieldGroup } from "~components/FieldGroup"
+import { Label } from "~components/Label"
 import {
-  FieldGroup,
-  Label,
   ToggledStatus,
   ToggleSwitch,
   ToggleSwitchProps,
-} from "./Primitives"
+} from "../ToggleSwitch/ToggleSwitch"
 import styles from "./ToggleSwitchField.module.scss"
 
-export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
+export type ToggleSwitchFieldProps = {
   labelText: string | React.ReactNode
   labelPosition?: "start" | "end"
   toggledStatus?: ToggledStatus
@@ -18,12 +18,12 @@ export interface ToggleSwitchFieldProps extends ToggleSwitchProps {
   reversed?: boolean
   inline?: boolean
   fullWidth?: boolean
-}
+} & ToggleSwitchProps
 
 /**
- * {@link https://cultureamp.design/?path=/docs/components-toggle-field-switch--docs}
+ * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3075638160/Toggle+Switch Guidance} |
+ * {@link https://cultureamp.design/?path=/docs/components-toggleswitch-ield--docs Storybook}
  */
-
 export const ToggleSwitchField = ({
   id: propsId,
   labelText,
@@ -40,18 +40,16 @@ export const ToggleSwitchField = ({
     <FieldGroup
       id={`${id}-field-group`}
       inline={inline}
-      automationId={`${id}-field-group`}
       classNameOverride={classnames(
         styles.container,
         fullWidth && styles.fullWidth,
-        toggledStatus === ToggledStatus.ON && styles.on
+        toggledStatus === "on" && styles.on
       )}
     >
       <div className={styles.inner}>
         <Label
           id={`${id}-field-label`}
           htmlFor={`${id}-field-toggle`}
-          automationId={`${id}-field-label`}
           labelText={labelText}
           labelType="toggle"
           labelPosition={labelPosition}
@@ -60,7 +58,6 @@ export const ToggleSwitchField = ({
         >
           <ToggleSwitch
             id={`${id}-field-toggle`}
-            automationId={`${id}-field-toggle`}
             disabled={disabled}
             reversed={reversed}
             toggledStatus={toggledStatus}

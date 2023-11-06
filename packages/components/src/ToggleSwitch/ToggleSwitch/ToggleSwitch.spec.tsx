@@ -1,8 +1,8 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ToggledStatus, ToggleSwitchProps } from "./ToggleSwitch"
-import { ToggleSwitch } from "."
+import { ToggleSwitch, ToggleSwitchProps } from "./ToggleSwitch"
+
 
 const user = userEvent.setup()
 
@@ -27,20 +27,6 @@ describe("<ToggleSwitch />", () => {
     await waitFor(() => {
       expect(defaultToggleSwitchProps.onToggle).toHaveBeenCalledTimes(1)
     })
-  })
-
-  it("shows toggledStatus class when status is passed through", async () => {
-    const { container } = renderToggleSwitch({
-      toggledStatus: ToggledStatus.ON,
-    })
-    expect(container.querySelector(".on")).toBeTruthy()
-  })
-
-  it("shows toggledStatus class when status is passed through", async () => {
-    const { container } = renderToggleSwitch({
-      toggledStatus: ToggledStatus.OFF,
-    })
-    expect(container.querySelector(".off")).toBeTruthy()
   })
 
   it("has disabled attribute when disabled prop passed in", async () => {

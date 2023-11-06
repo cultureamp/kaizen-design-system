@@ -14,7 +14,7 @@ const meta = {
       config: {
         rules: [
           {
-            // Built with no label on purpose, to be used within `RadioField` where label is present
+            // Built with no label on purpose, to be used within `CheckboxField` where label is present
             id: "label",
             enabled: false,
           },

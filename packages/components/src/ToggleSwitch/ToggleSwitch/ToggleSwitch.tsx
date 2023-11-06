@@ -1,26 +1,19 @@
 import React, { InputHTMLAttributes } from "react"
 import classnames from "classnames"
-import { OverrideClassName } from "@kaizen/component-base"
-import { Icon } from "@kaizen/component-library"
-import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
+import { CheckIcon } from "~components/Icon"
+import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./ToggleSwitch.module.scss"
 
-export enum ToggledStatus {
-  ON = "on",
-  OFF = "off",
-}
+export type ToggledStatus = "on" | "off"
 
-export interface ToggleSwitchProps
-  extends OverrideClassName<
-    Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">
-  > {
+export type ToggleSwitchProps = {
   toggledStatus?: ToggledStatus
   /**
    * Alias for `onChange`
    */
   onToggle?: React.ChangeEventHandler<HTMLInputElement>
   reversed?: boolean
-}
+} & OverrideClassName<Omit<InputHTMLAttributes<HTMLInputElement>, "onChange">>
 
 export const ToggleSwitch = ({
   toggledStatus,
@@ -28,7 +21,7 @@ export const ToggleSwitch = ({
   reversed,
   ...restProps
 }: ToggleSwitchProps): JSX.Element => {
-  const isOn = toggledStatus === ToggledStatus.ON
+  const isOn = toggledStatus === "on"
 
   return (
     <span
@@ -46,11 +39,7 @@ export const ToggleSwitch = ({
       />
       <span className={styles.track}>
         <span className={styles.thumb}>
-          <Icon
-            icon={checkIcon}
-            classNameOverride={styles.checkIcon}
-            role="presentation"
-          />
+          <CheckIcon role="presentation" />
         </span>
       </span>
     </span>

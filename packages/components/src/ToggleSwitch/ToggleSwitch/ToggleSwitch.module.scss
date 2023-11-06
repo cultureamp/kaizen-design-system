@@ -2,8 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/component-library/styles/mixins/forms";
-@import "../../variables";
+@import "../../../styles/forms";
 
 $animation-timing: $animation-duration-immediate
   $animation-easing-function-linear;
@@ -35,15 +34,12 @@ $focus-ring-offset: 1px;
     background-color: $color-gray-600;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    .checkbox:not([disabled]) + &:hover,
-    label:hover .checkbox:not([disabled]) + & {
+  .checkbox:not([disabled]) + &:hover, label:hover .checkbox:not([disabled]) + & {
       // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
       // (the non-css variable token)
       background-color: $color-purple-500;
       background-color: $color-gray-600;
     }
-  }
 }
 
 .thumb {
