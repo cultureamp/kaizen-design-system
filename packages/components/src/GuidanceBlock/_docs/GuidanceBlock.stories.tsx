@@ -14,6 +14,7 @@ const meta = {
   title: "Components/GuidanceBlock",
   component: GuidanceBlock,
   args: {
+    persistent: true,
     illustration: <Informative alt="" />,
     text: {
       description:
