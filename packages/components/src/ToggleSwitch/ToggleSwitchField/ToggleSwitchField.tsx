@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React, { useId } from "react"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import { FieldGroup } from "~components/FieldGroup"
 import { Label } from "~components/Label"
 import {
@@ -35,7 +34,9 @@ export const ToggleSwitchField = ({
   fullWidth,
   ...restProps
 }: ToggleSwitchFieldProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+  const reactId = useId();
+  const id = propsId || reactId
+
   return (
     <FieldGroup
       id={`${id}-field-group`}
