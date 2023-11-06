@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import classnames from "classnames"
-import { assetUrl } from "@kaizen/hosted-assets/dist"
+import { assetUrl } from "@kaizen/hosted-assets"
 import { IconButton } from "~components/Button"
 import { canPlayWebm } from "../../utils/canPlayWebm"
 import { usePausePlay } from "../../utils/usePausePlay"
