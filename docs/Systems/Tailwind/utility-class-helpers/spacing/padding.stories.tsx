@@ -35,7 +35,7 @@ export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <p
         className={classnames(
-          "border border-purple-500 w-min rounded bg-blue-100",
+          "border border-purple-100 w-min rounded bg-blue-100",
           utilityClass
         )}
       >
