@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Μορφή εισαγωγής"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Ημερομηνία από"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Ημερομηνία έως"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Μορφή εισαγωγής"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -56,6 +56,14 @@
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Οι σελίδες που λείπουν είναι ένα από τα μυστήρια της ζωής"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Δυστυχώς, υπάρχει πρόβλημα με το σύστημά μας και δεν είναι δυνατή η προβολή αυτής της σελίδας. Επιστρέψτε και δοκιμάστε ξανά ή κατευθυνθείτε στην αρχική σελίδα."
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Κάτι πήγε στραβά από την πλευρά μας"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
