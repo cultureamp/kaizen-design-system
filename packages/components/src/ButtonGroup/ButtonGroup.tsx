@@ -5,7 +5,7 @@ import { OverrideClassName } from "~types/OverrideClassName"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
-} from "../FilterButton/subcomponents/FilterButtonBase"
+} from "../Filter/FilterButton/subcomponents/FilterButtonBase"
 import styles from "./ButtonGroup.module.scss"
 
 const isFilterButton = (

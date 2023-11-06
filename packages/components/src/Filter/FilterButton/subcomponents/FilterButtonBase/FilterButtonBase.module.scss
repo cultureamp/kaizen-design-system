@@ -1,0 +1,57 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "../../../../../styles/button-reset";
+@import "./variables";
+
+.filterButtonBase {
+  @include button-reset;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 3rem; // 48px
+  padding: $spacing-sm;
+  border-width: 0;
+  border-radius: $border-solid-border-radius;
+  background-color: $color-blue-100;
+  font-family: $typography-button-secondary-font-family;
+  font-weight: $typography-button-secondary-font-weight;
+  font-size: $typography-button-secondary-font-size;
+  line-height: $typography-button-secondary-line-height;
+  letter-spacing: $typography-button-secondary-letter-spacing;
+  color: $color-blue-500;
+  white-space: nowrap;
+
+  &:hover,
+  &:active {
+    z-index: 2;
+  }
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    background-color: $color-blue-200;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::after {
+      content: "";
+      z-index: 3;
+      position: absolute;
+      inset: $focus-ring-offset-outer;
+      border-radius: $border-focus-ring-border-radius;
+      border: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
+    }
+  }
+}
