@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Format input"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Tarikh dari"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Tarikh hingga"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Format input"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Maaf tetapi kami tidak dapat menemukan halaman yang anda cari. Kembali dan cuba lagi atau pergi kepada Laman Utama"
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Halaman yang hilang adalah salah satu misteri kehidupan"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Maaf terdapat masalah dengan sistem kami dan halaman ini tidak dapat dipaparkan. Kembali dan cuba lagi atau pergi kepada Laman Utama"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Ada sesuatu yang tidak kena di pihak kami"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

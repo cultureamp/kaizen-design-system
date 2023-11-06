@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "ទ្រង់ទ្រាយបញ្ចូល"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "កាលបរិច្ឆេទពី"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "កាលបរិច្ឆេទទៅ"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "ទ្រង់ទ្រាយបញ្ចូល"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "សូមអភ័យទោស ប៉ុន្តែយើងមិនអាចរកឃើញទំព័រដែលអ្នកកំពុងស្វែងរកបានទេ។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "ទំព័រដែលបាត់គឺជាអាថ៌កំបាំងមួយនៃជីវិត"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "សូមអភ័យទោស មានបញ្ហាជាមួយប្រព័ន្ធរបស់យើង ហើយទំព័រនេះមិនអាចបង្ហាញបានទេ។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "មានអ្វីមួយខុសនៅខាងយើង"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

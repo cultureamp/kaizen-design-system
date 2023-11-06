@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Vstupný formát"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Dátum od"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Dátum do"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Vstupný formát"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Ľutujeme, ale nemôžeme načítať stránku, ktorú hľadáte. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Chýbajúce stránky sú jednou zo záhad života."
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Je nám ľúto, že v našom systéme došlo k problému a táto stránka sa nemôže zobraziť. Vráťte sa a skúste to znova, prípadne prejdite na úvodnú stránku."
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Niečo sa pokazilo na našej strane."
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
