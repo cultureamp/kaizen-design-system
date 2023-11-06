@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "תבנית לקלט"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "החל מ-"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "עד"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "תבנית לקלט"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "מצטערים אבל אנחנו לא יכולים למצוא את הדף המבוקש. נא לחזור אחורה ולנסות שוב, או לעבור לדף הבית"
+    "message" : "מצטערים אבל לא מצאנו את הדף המבוקש. כדאי לחזור אחורה ולנסות שוב, או לעבור לדף הבית"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "דפים חסרים זו אחת מתעלומות החיים"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "מצטערים, ארעה בעיה במערכת שלנו ולא ניתן להציג את הדף הזה. נא לחזור אחורה ולנסות שוב, או לעבור לדף הבית"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "משהו השתבש אצלנו"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
