@@ -8,7 +8,7 @@ import { moodsList } from "../../subcomponents/GenericTile/types"
 import { InformationTile } from "../index"
 
 export default {
-  title: "Components/InformationTile",
+  title: "Components/Tile/InformationTile",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
