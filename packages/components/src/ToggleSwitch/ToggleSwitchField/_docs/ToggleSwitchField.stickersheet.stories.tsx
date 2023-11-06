@@ -16,7 +16,6 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
-    /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
         headings={["Default", "Hover", "Focus", "Disabled"]}
