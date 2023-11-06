@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { ToggleSwitchField } from "../ToggleSwitchField"
 
 const meta = {
-  title: "Components/ToggleSwitch/ToggleSwitchField",
+  title: "Components/Toggle Switch controls/ToggleSwitchField",
   component: ToggleSwitchField,
   args: {
     labelText: "Toggle me"

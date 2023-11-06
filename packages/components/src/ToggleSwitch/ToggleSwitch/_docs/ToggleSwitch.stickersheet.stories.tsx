@@ -7,7 +7,7 @@ import {
 import { ToggleSwitch } from "../index"
 
 export default {
-  title: "Components/ToggleSwitch/ToggleSwitch",
+  title: "Components/Toggle Switch controls/ToggleSwitch",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

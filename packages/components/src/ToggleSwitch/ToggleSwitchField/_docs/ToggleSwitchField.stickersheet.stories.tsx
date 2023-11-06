@@ -7,7 +7,7 @@ import {
 import { ToggleSwitchField } from "../ToggleSwitchField"
 
 export default {
-  title: "Components/ToggleSwitch/ToggleSwitchField",
+  title: "Components/Toggle Switch controls/ToggleSwitchField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -18,9 +18,9 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Active", "Focus"]} />
+      <StickerSheet.Header headings={["Default", "Hover", "Focus", "Disabled"]} hasVerticalHeadings />
       <StickerSheet.Body>
-        <StickerSheet.Row>
+        <StickerSheet.Row rowTitle="off">
           <ToggleSwitchField
             labelText="Toggle me"
             reversed={isReversed}
@@ -33,22 +33,45 @@ const StickerSheetTemplate: StickerSheetStory = {
           <ToggleSwitchField
             labelText="Toggle me"
             reversed={isReversed}
-            data-sb-pseudo-styles="active"
+            data-sb-pseudo-styles="focus"
           />
           <ToggleSwitchField
             labelText="Toggle me"
             reversed={isReversed}
+            disabled
+          />
+        </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="on">
+          <ToggleSwitchField
+            labelText="Toggle me"
+            toggledStatus="on"
+            reversed={isReversed}
+          />
+          <ToggleSwitchField
+            labelText="Toggle me"
+            toggledStatus="on"
+            reversed={isReversed}
+            data-sb-pseudo-styles="hover"
+          />
+          <ToggleSwitchField
+            labelText="Toggle me"
+            toggledStatus="on"
+            reversed={isReversed}
             data-sb-pseudo-styles="focus"
+          />
+          <ToggleSwitchField
+            labelText="Toggle me"
+            toggledStatus="on"
+            reversed={isReversed}
+            disabled
           />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
   ),
-  /** @note: Only required if you have pseudo states, otherwise this can be removed */
   parameters: {
-    /** @todo: Remove any inapplicable pseudo states */
     pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
+      hover: '[data-sb-pseudo-styles="hover"] + span',
       active: '[data-sb-pseudo-styles="active"]',
       focus: '[data-sb-pseudo-styles="focus"]',
       focusVisible: '[data-sb-pseudo-styles="focus"]',
