@@ -1,8 +1,10 @@
 ---
-"@kaizen/tailwind": minor
+"@kaizen/tailwind": major
 ---
 
 Fix long utility strings for borders in Tailwind (in combination with the introduction of `@kaizen/reset.css`)
+
+**note: these utilities will not work without installing `@kaizen/reset.css`**
 
 - Adds DEFAULT values to `borderWidth` and `borderColor` in the Tailwind preset, so these don't need to be written with utility classes.
 
