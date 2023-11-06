@@ -5,8 +5,8 @@ const meta = {
   title: "Components/Toggle Switch controls/ToggleSwitchField",
   component: ToggleSwitchField,
   args: {
-    labelText: "Toggle me"
-  }
+    labelText: "Toggle me",
+  },
 } satisfies Meta<typeof ToggleSwitchField>
 
 export default meta
@@ -25,5 +25,5 @@ export const Playground: Story = {
 
 export const Reversed: Story = {
   parameters: { backgrounds: { default: "Purple 700" } },
-  args: { reversed: true }
+  args: { reversed: true },
 }

@@ -3,7 +3,6 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { ToggleSwitch, ToggleSwitchProps } from "./ToggleSwitch"
 
-
 const user = userEvent.setup()
 
 const defaultToggleSwitchProps = {

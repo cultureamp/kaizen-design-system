@@ -18,13 +18,13 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     /** @note: If you have multiple StickerSheets to display, you can add a `heading` */
     <StickerSheet isReversed={isReversed}>
-      <StickerSheet.Header headings={["Default", "Hover", "Focus", "Disabled"]} hasVerticalHeadings />
+      <StickerSheet.Header
+        headings={["Default", "Hover", "Focus", "Disabled"]}
+        hasVerticalHeadings
+      />
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="off">
-          <ToggleSwitchField
-            labelText="Toggle me"
-            reversed={isReversed}
-          />
+          <ToggleSwitchField labelText="Toggle me" reversed={isReversed} />
           <ToggleSwitchField
             labelText="Toggle me"
             reversed={isReversed}

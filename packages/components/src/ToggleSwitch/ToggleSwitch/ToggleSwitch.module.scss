@@ -26,6 +26,8 @@ $focus-ring-offset: 1px;
   align-items: center;
   transition: background-color $animation-timing;
 
+  /* TODO: Fix */
+  /* stylelint-disable no-descending-specificity */
   .checkbox:focus + &,
   .checkbox:hover:focus + & {
     border-color: transparent;
@@ -39,6 +41,7 @@ $focus-ring-offset: 1px;
     background-color: $color-purple-500;
     background-color: $color-gray-600;
   }
+  /* stylelint-enable no-descending-specificity */
 }
 
 .thumb {
@@ -70,7 +73,7 @@ $focus-ring-offset: 1px;
     background-color: $color-green-500;
   }
 
-  .checkbox:focus:not([disabled]) + .track {
+  .checkbox:focus + .track {
     border-color: transparent;
     background-color: $color-green-500;
   }
@@ -114,8 +117,8 @@ $focus-ring-offset: 1px;
 }
 
 .reversed {
-  .checkbox:focus:not([disabled]) + .track,
-  .checkbox:hover:focus:not([disabled]) + .track {
+  .checkbox:focus + .track,
+  .checkbox:hover:focus + .track {
     outline-color: $color-blue-300;
   }
 
@@ -124,16 +127,14 @@ $focus-ring-offset: 1px;
       background-color: rgba($color-white-rgb, 0.2);
     }
 
-    .checkbox:focus:not([disabled]) + .track,
-    .checkbox:hover:focus:not([disabled]) + .track {
+    .checkbox:focus + .track,
+    .checkbox:hover:focus + .track {
       background-color: rgba($color-white-rgb, 0.65);
     }
 
-    @media (hover: hover) and (pointer: fine) {
-      .checkbox:not([disabled]) + .track:hover,
-      label:hover & .checkbox:not([disabled]) + .track {
-        background-color: rgba($color-white-rgb, 0.65);
-      }
+    .checkbox + .track:hover,
+    label:hover & .checkbox + .track {
+      background-color: rgba($color-white-rgb, 0.65);
     }
   }
 }
