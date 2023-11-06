@@ -2,6 +2,7 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { CloseIcon, VisibleIcon } from "~components/Icon"
+import { TextField } from "~components/TextField"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
@@ -14,20 +15,12 @@ const MockContent = (): JSX.Element => (
         className="bg-white rounded shadow-sm my-32 p-64"
       >
         <h3>Name the cycle</h3>
-        <label
-          className="block font-weight-paragraph-bold"
-          htmlFor="input-workflow"
-        >
-          Cycle name
-        </label>
-        <input
+        <TextField
+          labelText="Cycle name"
           type="text"
           id="input-workflow"
-          aria-describedby="input-workflow-desc"
+          description="This is the name that will be displayed across the cycle for everyone"
         />
-        <p id="input-workflow-desc">
-          This is the name that will be displayed across the cycle for everyone
-        </p>
       </form>
     </div>
   </div>

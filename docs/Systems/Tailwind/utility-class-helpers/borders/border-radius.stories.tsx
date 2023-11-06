@@ -37,7 +37,7 @@ export const BorderRadius: StoryFn<{ isReversed: boolean }> = ({
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "w-[100px] h-[100px] border border-purple-100",
+          "w-[100px] h-[100px] border border-purple-500",
           utilityClass.replace("-DEFAULT", "")
         )}
       />

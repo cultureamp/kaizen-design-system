@@ -11,7 +11,7 @@ const meta = {
       <>
         <Label htmlFor="id--field-1">Email</Label>
         <input
-          className="ms-6 border"
+          className="ms-6 border border-gray-500"
           placeholder="Native text input..."
           type="text"
           id="id--field-1"
@@ -41,7 +41,7 @@ export const Inline: Story = {
       <FieldGroup classNameOverride="mr-6" inline>
         <Label htmlFor="id--field-1">Email</Label>
         <input
-          className="ms-6 border"
+          className="ms-6 border border-gray-500"
           placeholder="Native text input..."
           type="text"
           id="id--field-2"
@@ -50,7 +50,7 @@ export const Inline: Story = {
       <FieldGroup inline>
         <Label htmlFor="id--field-1">Username</Label>
         <input
-          className="ms-6 border"
+          className="ms-6 border border-gray-500"
           placeholder="Native text input..."
           type="text"
           id="id--field-2"
@@ -66,7 +66,7 @@ export const Default: Story = {
       <FieldGroup>
         <Label htmlFor="id--field-1">Email</Label>
         <input
-          className="ms-6 border"
+          className="ms-6 border border-gray-500"
           placeholder="Native text input..."
           type="text"
           id="id--field-2"
@@ -75,7 +75,7 @@ export const Default: Story = {
       <FieldGroup>
         <Label htmlFor="id--field-1">Username</Label>
         <input
-          className="ms-6 border"
+          className="ms-6 border border-gray-500"
           placeholder="Native text input..."
           type="text"
           id="id--field-2"
