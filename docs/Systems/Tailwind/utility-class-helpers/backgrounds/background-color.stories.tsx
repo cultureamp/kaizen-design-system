@@ -33,8 +33,7 @@ export const BackgroundColor: StoryFn<{ isReversed: boolean }> = ({
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "w-[100px] h-[100px] border-solid",
-          "rounded",
+          "w-[100px] h-[100px] border border-purple-500 rounded",
           utilityClass
         )}
       />

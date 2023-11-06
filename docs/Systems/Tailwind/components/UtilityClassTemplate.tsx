@@ -27,7 +27,7 @@ export const UtilityClassTemplate = ({
         rules="rows"
       >
         <StickerSheet.Header
-          className="text-left border-transparent border-solid border-b-gray-400"
+          className="text-left border-b border-gray-400"
           headings={["Utility Class", "Compiled CSS", "Example"]}
         />
         <StickerSheet.Body>
@@ -37,7 +37,7 @@ export const UtilityClassTemplate = ({
               <StickerSheet.Row
                 key={_index}
                 rowTitle=""
-                className="border-gray-400"
+                className="border-b-1 border-gray-400"
               >
                 <div className="mr-32 min-w-max max-w-[300px]">
                   <CodeSnippet
