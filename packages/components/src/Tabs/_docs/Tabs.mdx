@@ -1,0 +1,43 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as TabsStories from "./Tabs.stories"
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Tabs"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=1929%3A28886&mode=design&t=AGMmnoJia9RscurE-1"
+  designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081929117/Tabs"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@kaizen/components"'
+/>
+
+## Overview
+
+
+<Canvas of={TabsStories.Playground} />
+<Controls of={TabsStories.Playground} />
+
+# Uncontrolled vs controlled
+
+This component is uncontrolled by default. You can specify a default active tab on load with `defaultIndex`.
+
+If you need to control the state of the active tabs on the consuming side, use the `selectedIndex` prop instead of `defaultIndex`.
+
+## `tablist|tab` role vs `nav|link`
+
+This component implements the `tablist` role and WAI ARIA guidelines for tabs:
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tablist_role
+https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
+
+It's not intended to be used for a navigation bar where you need links wrapped in a `<nav>` instead.
+
+If you really need to, you can add a URL history change here (using onChange), but that's probably a sign that this component is being misused.

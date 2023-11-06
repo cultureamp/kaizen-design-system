@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as Stickersheets from "./Scene.stickersheet.stories"
+import * as SceneStories from "./Scene.stories"
+
+<Meta of={SceneStories} />
+
+# Scene
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Illustration/Scene"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+/>
+
+## Overview
+
+<Canvas of={SceneStories.Playground} />
+<Controls of={SceneStories.Playground} />
+
+<Canvas of={Stickersheets.StickerSheetDefault} />
