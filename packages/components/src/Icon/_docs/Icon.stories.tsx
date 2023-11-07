@@ -40,7 +40,7 @@ export const ApplyColour: Story = {
     <div className="text-blue-500">
       <AddIcon {...args} />
     </div>
-  )
+  ),
 }
 
 const ReferenceButton = ({
