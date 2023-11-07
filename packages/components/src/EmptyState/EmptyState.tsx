@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
+import { HeadingProps, Heading } from "~components/Heading"
 import {
   AnimatedSceneProps,
   EmptyStatesAction,
@@ -7,8 +8,7 @@ import {
   EmptyStatesNegative,
   EmptyStatesNeutral,
   EmptyStatesPositive,
-} from "@kaizen/draft-illustration"
-import { HeadingProps, Heading } from "~components/Heading"
+} from "~components/Illustration"
 import { Text } from "~components/Text"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./EmptyState.module.scss"

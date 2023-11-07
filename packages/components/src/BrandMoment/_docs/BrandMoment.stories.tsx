@@ -4,9 +4,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import {
   BrandMomentCaptureIntro,
-  BrandMomentPositiveOutro,
-  BrandMomentError,
-  AnimatedSceneProps,
 } from "@kaizen/draft-illustration"
 import {
   ArrowLeftIcon,
@@ -15,6 +12,11 @@ import {
   FeedbackClassifyIcon,
   SecurityTipIcon,
 } from "~components/Icon"
+import {
+  BrandMomentPositiveOutro,
+  BrandMomentError,
+  AnimatedSceneProps,
+} from "~components/Illustration"
 import { Text } from "~components/Text"
 import { BrandMoment } from "../index"
 import {
