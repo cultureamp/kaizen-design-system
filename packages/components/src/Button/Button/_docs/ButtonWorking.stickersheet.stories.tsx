@@ -1,6 +1,5 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { AddIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
@@ -67,37 +66,18 @@ const StickerSheetTemplate: StickerSheetStory = {
           },
         ]
 
-    const ICON_LEFT_PROPS: ButtonProps = {
+    const WORKING_PROPS: ButtonProps = {
       label: "Label",
-      icon: <AddIcon role="presentation" />,
-    }
-
-    const ICON_RIGHT_PROPS: ButtonProps = {
-      label: "Label",
-      icon: <AddIcon role="presentation" />,
-      iconPosition: "end",
-    }
-
-    const BADGE_PROPS: ButtonProps = {
-      label: "Label",
-      badge: { text: "4" },
-    }
-    const BADGE_LEFT_PROPS: ButtonProps = {
-      ...BADGE_PROPS,
-      icon: <AddIcon role="presentation" />,
-    }
-
-    const BADGE_RIGHT_PROPS: ButtonProps = {
-      ...BADGE_PROPS,
-      icon: <AddIcon role="presentation" />,
-      iconPosition: "end",
+      working: true,
+      workingLabel: "Submitting",
+      workingLabelHidden: true,
     }
 
     return (
       <>
         <StickerSheet heading="Button" isReversed={isReversed}>
           <StickerSheet.Header
-            headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
+            headings={["Working", "Working (Focus)"]}
             headingsWidth="10rem"
             hasVerticalHeadings
             verticalHeadingsWidth="12rem"
@@ -105,23 +85,13 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Body>
             {VARIANTS_PROPS.map(({ title, props }) => (
               <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="hover"
-                  {...props}
-                />
-                <Button
-                  reversed={isReversed}
-                  data-sb-pseudo-styles="active"
-                  {...props}
-                />
+                <Button reversed={isReversed} {...props} {...WORKING_PROPS} />
                 <Button
                   reversed={isReversed}
                   data-sb-pseudo-styles="focus"
                   {...props}
+                  {...WORKING_PROPS}
                 />
-                <Button reversed={isReversed} {...props} disabled />
               </StickerSheet.Row>
             ))}
           </StickerSheet.Body>
@@ -132,75 +102,25 @@ const StickerSheetTemplate: StickerSheetStory = {
           heading="Size small (formerly form)"
         >
           <StickerSheet.Header
-            headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
+            headings={["Working", "Working Focus"]}
             hasVerticalHeadings
           />
           <StickerSheet.Body>
             {VARIANTS_PROPS.map(({ title, props }) => (
               <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} size="small" />
                 <Button
                   reversed={isReversed}
-                  data-sb-pseudo-styles="hover"
                   {...props}
                   size="small"
+                  {...WORKING_PROPS}
                 />
                 <Button
                   reversed={isReversed}
-                  data-sb-pseudo-styles="active"
                   {...props}
                   size="small"
-                />
-                <Button
-                  reversed={isReversed}
                   data-sb-pseudo-styles="focus"
-                  {...props}
-                  size="small"
+                  {...WORKING_PROPS}
                 />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  disabled
-                  size="small"
-                />
-              </StickerSheet.Row>
-            ))}
-          </StickerSheet.Body>
-        </StickerSheet>
-
-        <StickerSheet isReversed={isReversed} heading="With Icon / Badge">
-          <StickerSheet.Header
-            headings={[
-              "Icon Left",
-              "Icon Right",
-              "Icon Left with Badge",
-              "Icon Right with Badge",
-              "Badge Only",
-            ]}
-            headingsWidth="10rem"
-            hasVerticalHeadings
-            verticalHeadingsWidth="12rem"
-          />
-          <StickerSheet.Body>
-            {VARIANTS_PROPS.map(({ title, props }) => (
-              <StickerSheet.Row key={title} rowTitle={title}>
-                <Button reversed={isReversed} {...props} {...ICON_LEFT_PROPS} />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  {...ICON_RIGHT_PROPS}
-                />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  {...BADGE_LEFT_PROPS}
-                />
-                <Button
-                  reversed={isReversed}
-                  {...props}
-                  {...BADGE_RIGHT_PROPS}
-                />
-                <Button reversed={isReversed} {...props} {...BADGE_PROPS} />
               </StickerSheet.Row>
             ))}
           </StickerSheet.Body>
@@ -218,14 +138,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   },
 }
 
-export const StickerSheetDefault: StickerSheetStory = {
+export const StickerSheetWorkingDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: "Sticker Sheet Working (Default)",
 }
 
-export const StickerSheetReversed: StickerSheetStory = {
+export const StickerSheetWorkingReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: "Sticker Sheet Working (Reversed)",
   parameters: {
     ...StickerSheetTemplate.parameters,
     backgrounds: { default: "Purple 700" },
@@ -233,9 +153,9 @@ export const StickerSheetReversed: StickerSheetStory = {
   args: { isReversed: true },
 }
 
-export const StickerSheetRTL: StickerSheetStory = {
+export const StickerSheetWorkingRTL: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (RTL)",
+  name: "Sticker Sheet Working (RTL)",
   parameters: {
     chromatic: {
       delay: 1200,
