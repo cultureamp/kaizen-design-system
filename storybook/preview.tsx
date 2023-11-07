@@ -1,4 +1,5 @@
-import "./styles/tailwind.scss"
+import "./styles/styles.scss"
+
 import React, { useEffect } from "react"
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"

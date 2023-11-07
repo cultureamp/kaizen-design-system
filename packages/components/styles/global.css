@@ -1,3 +1,4 @@
+@layer kzBase, kzComponents;
 @import "@kaizen/design-tokens/css/variables.css";
 
 @tailwind base;
