@@ -27,6 +27,7 @@ asset-url("some/blob.png") // -> "https://<origin>/some/blob.png"
 
 ```js
 // TS/JS
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { assetUrl } from "@kaizen/hosted-assets";
 
 <SomeComponent

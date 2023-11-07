@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@kaizen/design-tokens": "*",
-    "@kaizen/hosted-assets": "^2.0.3",
+    "@kaizen/hosted-assets": "*",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.5.2",
     "@storybook/api": "^7.5.2",
