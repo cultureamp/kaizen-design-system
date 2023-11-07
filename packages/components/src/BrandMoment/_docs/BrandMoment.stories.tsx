@@ -2,9 +2,7 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
-import {
-  BrandMomentCaptureIntro,
-} from "@kaizen/draft-illustration"
+import { BrandMomentCaptureIntro } from "@kaizen/draft-illustration"
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
