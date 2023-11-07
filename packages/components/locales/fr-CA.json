@@ -51,7 +51,7 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Désolé, nous ne trouvons pas la page que vous recherchez. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
