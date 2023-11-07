@@ -54,7 +54,7 @@ const TabbedCodeBlocks = ({
       ))}
     </TabList>
     <TabPanels>
-      {blocks.map(({ name, ...props}) => (
+      {blocks.map(({ name, ...props }) => (
         <TabPanel key={name} classNameOverride="p-24">
           <CodeBlock {...props} />
         </TabPanel>
