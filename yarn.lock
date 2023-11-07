@@ -2757,15 +2757,6 @@
     classnames "^2.3.2"
     jszip "^3.10.1"
 
-"@kaizen/draft-tabs@^5.2.43":
-  version "5.2.43"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-tabs/-/draft-tabs-5.2.43.tgz#cf66521b876ac772effb37bd62e4c2dc2203e38b"
-  integrity sha512-RiNCVYXkD7MyP4+uUi4Om4egonX712jzHgekoCUK61Wak8/TwD+Oy5n3vjGgFW1mdaET8cJBWNgpJfIQpBlG7w==
-  dependencies:
-    "@kaizen/component-library" "^16.8.2"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    classnames "^2.3.2"
-
 "@kaizen/loading-spinner@^2.3.11":
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/@kaizen/loading-spinner/-/loading-spinner-2.3.11.tgz#225128f3eaf67444153049fef3677b18fb9d6cc0"
