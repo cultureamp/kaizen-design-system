@@ -169,9 +169,24 @@ const StickerSheetTemplate: StickerSheetStory = {
             {VARIANTS_PROPS.map(({ title, props }) => (
               <StickerSheet.Row key={title} rowTitle={title}>
                 <Button reversed={isReversed} {...props} size="small" />
-                <Button reversed={isReversed} {...props} size="small" />
-                <Button reversed={isReversed} {...props} size="small" />
-                <Button reversed={isReversed} {...props} size="small" />
+                <Button
+                  reversed={isReversed}
+                  data-sb-pseudo-styles="hover"
+                  {...props}
+                  size="small"
+                />
+                <Button
+                  reversed={isReversed}
+                  data-sb-pseudo-styles="active"
+                  {...props}
+                  size="small"
+                />
+                <Button
+                  reversed={isReversed}
+                  data-sb-pseudo-styles="focus"
+                  {...props}
+                  size="small"
+                />
                 <Button
                   reversed={isReversed}
                   {...props}
@@ -188,6 +203,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   reversed={isReversed}
                   {...props}
                   size="small"
+                  data-sb-pseudo-styles="focus"
                   {...WORKING_PROPS}
                 />
               </StickerSheet.Row>
@@ -265,7 +281,7 @@ export const StickerSheetRTL: StickerSheetStory = {
   name: "Sticker Sheet (RTL)",
   parameters: {
     chromatic: {
-      delay: 400,
+      delay: 1200,
     },
     ...StickerSheetTemplate.parameters,
     textDirection: "rtl",
