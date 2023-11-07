@@ -2,11 +2,10 @@
 
 import React from "react"
 import { Unstyled } from "@storybook/blocks"
-import classnames from "classnames"
 import { toCustomMediaQueriesArray } from "object-to-css-variables"
 import Highlight from "react-highlight"
-import { Tabs } from "@kaizen/draft-tabs"
 import { Card } from "~components/Card"
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
 import { makeCssVariableDefinitionsMap } from "../src"
 import { tokens } from "../src/js"
 import { defaultTheme } from "../src/themes"
@@ -47,48 +46,22 @@ const TabbedCodeBlocks = ({
   blocks: Array<
     React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
   >
-}): JSX.Element => {
-  const [currentTab, setCurrentTab] = React.useState(blocks[0])
-  const { name: _name, ...codeBlockProps } = currentTab
-
-  return (
-    <div style={{ minHeight: "32rem" }}>
-      <div style={{ overflowX: "auto" }}>
-        <div className="pl-4">
-          <Tabs
-            renderTab={({
-              tab,
-              activeTabClassName,
-              tabClassName,
-              disabledTabClassName,
-            }): JSX.Element => (
-              // eslint-disable-next-line jsx-a11y/anchor-is-valid
-              <a
-                style={{ flexShrink: 0 }}
-                key={tab.label}
-                onClick={tab.onClick}
-                href={!tab.disabled ? tab.href : undefined}
-                className={classnames(
-                  !tab.active && !tab.disabled && tabClassName,
-                  tab.active && activeTabClassName,
-                  tab.disabled && disabledTabClassName
-                )}
-              >
-                {tab.label}
-              </a>
-            )}
-            tabs={blocks.map(block => ({
-              label: block.name,
-              active: currentTab.name === block.name,
-              onClick: () => setCurrentTab(block),
-            }))}
-          />
-        </div>
-      </div>
-      <CodeBlock {...codeBlockProps} />
-    </div>
-  )
-}
+}): JSX.Element => (
+  <Tabs>
+    <TabList aria-label="Tabs">
+      {blocks.map(({ name }) => (
+        <Tab key={name}>{name}</Tab>
+      ))}
+    </TabList>
+    <TabPanels>
+      {blocks.map(({ name, ...props}) => (
+        <TabPanel key={name} classNameOverride="p-24">
+          <CodeBlock {...props} />
+        </TabPanel>
+      ))}
+    </TabPanels>
+  </Tabs>
+)
 
 const themesBlocks: Array<
   React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
