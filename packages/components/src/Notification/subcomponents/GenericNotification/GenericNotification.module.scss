@@ -5,7 +5,6 @@
 @import "./mixins";
 
 @layer kzComponents {
-
   .notification {
     @extend %ca-notification;
   }
