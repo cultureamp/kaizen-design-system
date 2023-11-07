@@ -51,7 +51,7 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Omlouváme se, ale požadovanou stránku nemůžeme najít. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
