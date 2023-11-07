@@ -1,8 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 
-.heading {
-  margin: 0;
+@layer kzBase {
+  .heading {
+    margin: 0;
+  }
 }
 
 .display-0 {
