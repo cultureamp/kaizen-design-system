@@ -86,7 +86,6 @@ export const Playground: Story = {
 export const Actions: Story = {
   args: {
     content: <ContentComponent />,
-    text: undefined,
     actions: {
       primary: {
         label: "Learn more",
@@ -103,7 +102,6 @@ export const Actions: Story = {
 export const Tooltip: Story = {
   args: {
     content: <ContentComponent />,
-    text: undefined,
     actions: {
       primary: {
         label: "Hover me for a tooltip",
