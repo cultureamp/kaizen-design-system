@@ -1,5 +1,5 @@
 import React from "react"
-import { tokens } from "@kaizen/design-tokens/js"
+import { tokens } from "~design-tokens/js"
 
 export const SpacingTokens = (): JSX.Element => {
   const keyValuePairs = Object.entries(tokens.spacing)
