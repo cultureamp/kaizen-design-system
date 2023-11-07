@@ -97,13 +97,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet heading="Button" isReversed={isReversed}>
           <StickerSheet.Header
-            headings={[
-              "Base",
-              "Hover",
-              "Active",
-              "Focus",
-              "Disabled",
-            ]}
+            headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
             headingsWidth="10rem"
             hasVerticalHeadings
             verticalHeadingsWidth="12rem"
@@ -138,13 +132,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           heading="Size small (formerly form)"
         >
           <StickerSheet.Header
-            headings={[
-              "Base",
-              "Hover",
-              "Active",
-              "Focus",
-              "Disabled",
-            ]}
+            headings={["Base", "Hover", "Active", "Focus", "Disabled"]}
             hasVerticalHeadings
           />
           <StickerSheet.Body>
