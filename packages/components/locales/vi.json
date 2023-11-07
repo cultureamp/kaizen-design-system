@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Định dạng đầu vào"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Ngày từ"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Ngày đến"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Định dạng đầu vào"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -56,6 +56,14 @@
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Những trang bị thiếu là một trong những bí ẩn của cuộc sống"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Rất tiếc, đã xảy ra sự cố với hệ thống của chúng tôi và trang này không thể hiển thị. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Đã xảy ra lỗi ở phía chúng tôi"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

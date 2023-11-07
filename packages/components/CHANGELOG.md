@@ -1,5 +1,50 @@
 # Change Log
 
+## 1.33.0
+
+### Minor Changes
+
+- [#4247](https://github.com/cultureamp/kaizen-design-system/pull/4247) [`f87c851a7`](https://github.com/cultureamp/kaizen-design-system/commit/f87c851a75cd1d6e8799f212a0aec66ebdf72a8e) - Migrate Tabs component from kaizen-legacy
+
+- [#4269](https://github.com/cultureamp/kaizen-design-system/pull/4269) [`7e528adf3`](https://github.com/cultureamp/kaizen-design-system/commit/7e528adf3e99ef34e9fa8f91d8468dcf11e12e28) - Migrate ToggleSwitchField from kaizen-legacy
+
+- [#4270](https://github.com/cultureamp/kaizen-design-system/pull/4270) [`0b7b9bcec`](https://github.com/cultureamp/kaizen-design-system/commit/0b7b9bcec89664b9626639b9c431d91c990694ab) - Migrate Scene from kaizen-legacy
+
+### Patch Changes
+
+- [#4271](https://github.com/cultureamp/kaizen-design-system/pull/4271) [`fd842227e`](https://github.com/cultureamp/kaizen-design-system/commit/fd842227e827fcc8bb955e89745b88150a141b40) - Update translations
+
+- [#4262](https://github.com/cultureamp/kaizen-design-system/pull/4262) [`9bb89607b`](https://github.com/cultureamp/kaizen-design-system/commit/9bb89607b633623d42a414da09edadd95bd48dde) - Update dependency rollup to ^4.3.0
+
+- [#4267](https://github.com/cultureamp/kaizen-design-system/pull/4267) [`88cc2ab45`](https://github.com/cultureamp/kaizen-design-system/commit/88cc2ab458977d2e47652f5ae3d891c40afc10d7) - Update translations for 413 Error page
+
+## 1.32.0
+
+### Minor Changes
+
+- [#4260](https://github.com/cultureamp/kaizen-design-system/pull/4260) [`9a95d5f23`](https://github.com/cultureamp/kaizen-design-system/commit/9a95d5f23d1f832fc63a55886b8de839b27edc32) - Add 413 error page.
+
+### Patch Changes
+
+- [#4259](https://github.com/cultureamp/kaizen-design-system/pull/4259) [`8680132cb`](https://github.com/cultureamp/kaizen-design-system/commit/8680132cb6532538711d36d83a2d6cb660720b7e) - fix: fing typo
+
+## 1.31.0
+
+### Minor Changes
+
+- [#4246](https://github.com/cultureamp/kaizen-design-system/pull/4246) [`b01fc8a31`](https://github.com/cultureamp/kaizen-design-system/commit/b01fc8a318897fe3543af2e8d191f27d4fa1fadf) - Migrate ToastNotification from kaizen-legacy.
+
+- [#4214](https://github.com/cultureamp/kaizen-design-system/pull/4214) [`8f63917af`](https://github.com/cultureamp/kaizen-design-system/commit/8f63917af6594f14829be861b14abce2f1dd7dad) - Make Tags in MultiSelect removable on click.
+  Tags in MultiSelect now have a clear button, that can be used to remove them from the list of selected options.
+
+- [#4254](https://github.com/cultureamp/kaizen-design-system/pull/4254) [`53c59af92`](https://github.com/cultureamp/kaizen-design-system/commit/53c59af925de59263feb2417d132166a18aa779c) - Migrate ProgressBar from kaizen-legacy
+
+- [#4253](https://github.com/cultureamp/kaizen-design-system/pull/4253) [`880e668a5`](https://github.com/cultureamp/kaizen-design-system/commit/880e668a50662c79415b551b8b9ab6dbc5f99767) - Migrate LikertScaleLegacy from `kaizen-legacy`
+
+### Patch Changes
+
+- [#4252](https://github.com/cultureamp/kaizen-design-system/pull/4252) [`b2cc3123a`](https://github.com/cultureamp/kaizen-design-system/commit/b2cc3123a11fdfb7aed696b02a67ae42f70bdba6) - Fix colour inheritance for CloseIcon.
+
 ## 1.30.0
 
 ### Minor Changes

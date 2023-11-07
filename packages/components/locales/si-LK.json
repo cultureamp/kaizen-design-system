@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "ආදාන ආකෘතිය"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "දින සිට"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "දිනය දක්වා"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "ආදාන ආකෘතිය"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "කණගාටුයි, නමුත් අපි ඔබ සොයන පිටුව fing නොහැක.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් නිවසට යන්න"
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "නැතිවූ පිටු ජීවිතයේ අභිරහස් වලින් එකකි"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "සමාවන්න අපගේ පද්ධතියේ ගැටලුවක් ඇති අතර මෙම පිටුව සංදර්ශනය කළ නොහැක.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "අපේ පැත්තෙන් මොකක් හරි වැරදීමක් වෙලා"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

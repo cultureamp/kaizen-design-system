@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "इनपुट प्रारूप"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "तारीख से"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "तारीख तक"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "इनपुट प्रारूप"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -56,6 +56,14 @@
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "जो पेज नहीं मिल रहे हैं वे जिंदगी के किसी राज़ की तरह है"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "माफ़ करें, हमारे सिस्टम में कोई दिक्कत हुई है और यह पेज नहीं डिस्प्ले किया जा सकता. पिछले पेज पर वापस जाएं और फिर से कोशिश करें, या होम पेज पर जाएं"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "हमारी तरफ से कुछ गड़बड़ी हुई है"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
