@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import * as ICONS from "~components/Icon"
+import { SearchField } from "~components/SearchField"
 import { Tag } from "~components/__future__/Tag"
 import { AddIcon } from "../index"
 import styles from "./icon.stories.scss"
@@ -34,43 +35,72 @@ export const Playground: Story = {
   },
 }
 
+const ReferenceButton = ({
+  icon,
+  iconName,
+}: {
+  icon: JSX.Element
+  iconName: string
+}): JSX.Element => {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = (): void => {
+    navigator.clipboard.writeText(`<${iconName} role="presentation" />`)
+
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1000)
+  }
+
+  return (
+    <li key={iconName}>
+      <button type="button" className={styles.button} onClick={handleCopy}>
+        {copied ? (
+          <Tag color="green" classNameOverride={styles.tag}>
+            Copied!
+          </Tag>
+        ) : (
+          <>
+            {icon} {iconName}
+          </>
+        )}
+      </button>
+    </li>
+  )
+}
+
 export const Reference: Story = {
-  render: () => (
-    <ul className={styles.grid}>
-      {Object.keys(ICONS).map(iconName => {
-        const icon = ICONS[iconName as keyof typeof ICONS]({
-          role: "presentation",
-        })
+  render: () => {
+    const [searchTerm, setSearchTerm] = useState<string>("")
 
-        const [copied, setCopied] = useState(false)
+    return (
+      <div className="flex flex-col gap-16">
+        <SearchField
+          labelText="Find icon by name"
+          onChange={event => {
+            setSearchTerm(event.target.value)
+          }}
+        />
+        <ul className={styles.grid}>
+          {Object.keys(ICONS)
+            .filter(iconName => {
+              const term = new RegExp(searchTerm, "i")
+              return iconName.match(term)
+            })
+            .map(iconName => {
+              const icon = ICONS[iconName as keyof typeof ICONS]({
+                role: "presentation",
+              })
 
-        const handleCopy = (): void => {
-          navigator.clipboard.writeText(`<${iconName} role="presentation" />`)
-
-          setCopied(true)
-          setTimeout(() => setCopied(false), 1000)
-        }
-
-        return (
-          <li key={iconName}>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={handleCopy}
-            >
-              {copied ? (
-                <Tag color="green" classNameOverride={styles.tag}>
-                  Copied!
-                </Tag>
-              ) : (
-                <>
-                  {icon} {iconName}
-                </>
-              )}
-            </button>
-          </li>
-        )
-      })}
-    </ul>
-  ),
+              return (
+                <ReferenceButton
+                  key={iconName}
+                  icon={icon}
+                  iconName={iconName}
+                />
+              )
+            })}
+        </ul>
+      </div>
+    )
+  },
 }
