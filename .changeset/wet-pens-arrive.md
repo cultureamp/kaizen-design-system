@@ -5,9 +5,18 @@
 - Replace all usages of `Heading` from `@kaizen/typography` with the same from KAIO
 - Replace all usages of `Paragraph` from `@kaizen/typography` with `Text` from KAIO
 - Remove `@kaizen/brand` and its usages
+- Remove `@kaizen/brand-moment` and its usages
+- Remove `@kaizen/button` and its usages
 - Remove `@kaizen/draft-badge` and its usages
+- Remove `@kaizen/draft-card` and its usages
 - Remove `@kaizen/draft-divider` and its usages
 - Remove `@kaizen/draft-form` and its usages
+- Remove `@kaizen/draft-page-layout` and its usages
+- Remove `@kaizen/draft-select` and its usages
+- Remove `@kaizen/draft-tabs` and its usages
 - Remove `@kaizen/draft-tag` and its usages
+- Remove `@kaizen/draft-tooltip` and its usages
 - Remove `@kaizen/responsive` and its usages
-- Add `@layer` to Heading style that resets margin to zero
+- Remove `@kaizen/notification` and its usages
+- Remove `@kaizen/loading-skeleton` and its usages
+- Remove `@kaizen/loading-spinner` and its usages
