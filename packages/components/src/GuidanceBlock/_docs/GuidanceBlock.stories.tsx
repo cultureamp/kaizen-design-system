@@ -35,7 +35,6 @@ const meta = {
     layout: "default",
     persistent: true,
     illustration: <Informative alt="" />,
-    text: defaultText,
   },
   argTypes: {
     actions: {
