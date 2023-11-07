@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.33.0
+
+### Minor Changes
+
+- [#4247](https://github.com/cultureamp/kaizen-design-system/pull/4247) [`f87c851a7`](https://github.com/cultureamp/kaizen-design-system/commit/f87c851a75cd1d6e8799f212a0aec66ebdf72a8e) - Migrate Tabs component from kaizen-legacy
+
+- [#4269](https://github.com/cultureamp/kaizen-design-system/pull/4269) [`7e528adf3`](https://github.com/cultureamp/kaizen-design-system/commit/7e528adf3e99ef34e9fa8f91d8468dcf11e12e28) - Migrate ToggleSwitchField from kaizen-legacy
+
+- [#4270](https://github.com/cultureamp/kaizen-design-system/pull/4270) [`0b7b9bcec`](https://github.com/cultureamp/kaizen-design-system/commit/0b7b9bcec89664b9626639b9c431d91c990694ab) - Migrate Scene from kaizen-legacy
+
+### Patch Changes
+
+- [#4271](https://github.com/cultureamp/kaizen-design-system/pull/4271) [`fd842227e`](https://github.com/cultureamp/kaizen-design-system/commit/fd842227e827fcc8bb955e89745b88150a141b40) - Update translations
+
+- [#4262](https://github.com/cultureamp/kaizen-design-system/pull/4262) [`9bb89607b`](https://github.com/cultureamp/kaizen-design-system/commit/9bb89607b633623d42a414da09edadd95bd48dde) - Update dependency rollup to ^4.3.0
+
+- [#4267](https://github.com/cultureamp/kaizen-design-system/pull/4267) [`88cc2ab45`](https://github.com/cultureamp/kaizen-design-system/commit/88cc2ab458977d2e47652f5ae3d891c40afc10d7) - Update translations for 413 Error page
+
 ## 1.32.0
 
 ### Minor Changes
