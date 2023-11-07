@@ -35,6 +35,14 @@ export const Playground: Story = {
   },
 }
 
+export const ApplyColour: Story = {
+  render: args => (
+    <div className="text-blue-500">
+      <AddIcon {...args} />
+    </div>
+  )
+}
+
 const ReferenceButton = ({
   icon,
   iconName,
