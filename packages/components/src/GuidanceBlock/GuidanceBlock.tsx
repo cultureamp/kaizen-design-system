@@ -220,7 +220,7 @@ export const GuidanceBlock = ({
         </div>
         {actions?.primary && (
           <Media query="(max-width: 767px)">
-            {(isMobile): JSX.Element => (
+            {(isMobile: boolean): JSX.Element => (
               <div
                 className={classNames({
                   noRightMargin: isMobile || componentIsMobile,

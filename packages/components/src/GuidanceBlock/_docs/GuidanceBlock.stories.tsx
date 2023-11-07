@@ -10,17 +10,32 @@ import { Text } from "~components/Text"
 import { GuidanceBlock } from "../index"
 import { variantsMap } from "../types"
 
+const ContentComponent = (): JSX.Element => (
+  <>
+    <Heading tag="h3" variant="heading-3">
+      This is the Guidance block title
+    </Heading>
+    <Text variant="body">
+      Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite
+      divinis,
+    </Text>
+  </>
+)
+
+const defaultText = {
+  description:
+    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
+  title: "This is the Guidance block title",
+}
+
 const meta = {
   title: "Components/GuidanceBlock",
   component: GuidanceBlock,
   args: {
+    layout: "default",
     persistent: true,
     illustration: <Informative alt="" />,
-    text: {
-      description:
-        "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
-      title: "This is the Guidance block title",
-    },
+    text: defaultText,
   },
   argTypes: {
     actions: {
@@ -57,6 +72,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
+  args: {
+    text: defaultText,
+  },
   parameters: {
     docs: {
       canvas: {
@@ -66,21 +84,9 @@ export const Playground: Story = {
   },
 }
 
-const Content = (): JSX.Element => (
-  <>
-    <Heading tag="h3" variant="heading-3">
-      This is the Guidance block title
-    </Heading>
-    <Text variant="body">
-      Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite
-      divinis,
-    </Text>
-  </>
-)
-
 export const Actions: Story = {
   args: {
-    content: <Content />,
+    content: <ContentComponent />,
     text: undefined,
     actions: {
       primary: {
@@ -97,7 +103,7 @@ export const Actions: Story = {
 
 export const Tooltip: Story = {
   args: {
-    content: <Content />,
+    content: <ContentComponent />,
     text: undefined,
     actions: {
       primary: {
@@ -118,8 +124,7 @@ export const Tooltip: Story = {
 
 export const CustomContent: Story = {
   args: {
-    content: <Content />,
-    text: undefined,
+    content: <ContentComponent />,
   },
 }
 
@@ -132,6 +137,7 @@ export const Stacked: Story = {
   ),
   args: {
     layout: "stacked",
+    content: <ContentComponent />,
   },
 }
 
@@ -139,6 +145,7 @@ export const SceneExample: Story = {
   args: {
     illustration: <SkillsCoachEssentialFeedback alt="" />,
     illustrationType: "scene",
+    text: defaultText,
   },
 }
 
@@ -150,4 +157,7 @@ export const Variants: Story = {
       ))}
     </div>
   ),
+  args: {
+    text: defaultText,
+  },
 }
