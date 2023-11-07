@@ -1,4 +1,4 @@
-@layer kzBase, kzComponents;
+@layer normalize, kzBase, kzComponents;
 @import "@kaizen/design-tokens/css/variables.css";
 
 @tailwind base;
