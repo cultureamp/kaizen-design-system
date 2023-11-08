@@ -22,7 +22,7 @@ export default {
     docsLayout: "fullPage",
     docs: {
       description: {
-        component: utilityDescription(prefix, classEntries[0].utilityClassName),
+        component: utilityDescription(prefix, classEntries[3].utilityClassName),
       },
     },
   },
@@ -36,7 +36,10 @@ export const BorderRadius: StoryFn<{ isReversed: boolean }> = ({
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
-        className={classnames("w-[100px] h-[100px] border-solid", utilityClass)}
+        className={classnames(
+          "w-[100px] h-[100px] border border-purple-500",
+          utilityClass.replace("-DEFAULT", "")
+        )}
       />
     )}
     isReversed={isReversed}

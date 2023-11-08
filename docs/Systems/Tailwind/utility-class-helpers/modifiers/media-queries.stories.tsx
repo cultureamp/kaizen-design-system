@@ -44,10 +44,10 @@ export const MediaQueries: StoryFn = () => (
       that bg-blue-400 will be applied when the screen gets <em>wider</em>.
     </Heading>
     <QueryInfo selector="md" selectorValue="768px">
-      <div className="border-solid md:bg-blue-400 h-[50px] w-full rounded-default" />
+      <div className="border-solid md:bg-blue-400 h-[50px] w-full rounded" />
     </QueryInfo>
     <QueryInfo selector="lg" selectorValue="1080px">
-      <div className="border-solid lg:bg-blue-400 h-[50px] w-full rounded-default" />
+      <div className="border-solid lg:bg-blue-400 h-[50px] w-full rounded" />
     </QueryInfo>
   </div>
 )
@@ -71,7 +71,7 @@ export const ArbitraryMediaQueries: StoryFn = () => (
       <Paragraph variant="body">
         In this example: min-[500px]:bg-blue-400
       </Paragraph>
-      <div className="border-solid min-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
+      <div className="border-solid min-[500px]:bg-blue-400 h-[50px] w-full rounded" />
     </div>
 
     <Paragraph variant="body">
@@ -81,6 +81,6 @@ export const ArbitraryMediaQueries: StoryFn = () => (
     <Paragraph variant="body">
       In this example: max-[500px]:bg-blue-400
     </Paragraph>
-    <div className="border-solid max-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
+    <div className="border-solid max-[500px]:bg-blue-400 h-[50px] w-full rounded" />
   </div>
 )
