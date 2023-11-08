@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Formato de entrada"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Data inicial"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Data final"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Formato de entrada"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -56,6 +56,14 @@
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Páginas que desaparecem estão entre os mistérios da vida"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Desculpe, há um problema no nosso sistema e não é possível exibir esta página. Volte e tente novamente, ou acesse a página inicial"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Ocorreu algum erro aqui"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
