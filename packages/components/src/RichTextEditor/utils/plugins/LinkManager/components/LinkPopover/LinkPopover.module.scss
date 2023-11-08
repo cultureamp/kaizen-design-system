@@ -1,0 +1,28 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.popoverContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popoverLinkContainer {
+  padding-inline: $spacing-8 $spacing-12;
+}
+
+.popoverLink {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.paragraphFlex {
+  display: inline-flex;
+}
+
+.popoverActions {
+  padding-inline: $spacing-4 $spacing-4;
+  border-left: 1px solid rgba($color-gray-600-rgb, 0.1);
+}

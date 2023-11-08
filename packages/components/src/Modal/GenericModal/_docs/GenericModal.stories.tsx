@@ -22,7 +22,11 @@ export const Playground: Story = {
 
     return (
       <>
-        <button type="button" onClick={() => setIsOpen(true)}>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={() => setIsOpen(true)}
+        >
           Open Modal
         </button>
         <GenericModal

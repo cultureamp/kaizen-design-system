@@ -1,0 +1,51 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
+import * as EditableRichTextContentStories from "./EditableRichTextContent.stories"
+
+<Meta of={EditableRichTextContentStories} />
+
+# EditableRichTextContent
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/RichTextEditor/EditableRichTextContent"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { EditableRichTextContent } from "@kaizen/components"'
+/>
+
+## Overview
+
+To render the contents of your <LinkTo pageId="components-richtexteditor">RichTextEditor</LinkTo> using the same structure for both components.
+
+<Canvas of={EditableRichTextContentStories.Playground} />
+<Controls of={EditableRichTextContentStories.Playground} />
+
+## Usage
+
+The general idea is to use this component in combination with the <LinkTo pageId="components-richtexteditor">RichTextEditor</LinkTo> to toggle between a read only state
+and an editable state.
+
+```tsx
+const [editMode, setEditMode] = useState<boolean>(false);
+const [rteData, setRTEData] = useState<EditorContentArray>([]);
+
+if (editMode) {
+  return (
+    <>
+      <RichTextEditor defaultValue={rteData} />
+      <Button label="Save" primary onClick={handleCancel} />
+    </>
+  )
+}
+
+return (
+  <EditableRichTextContent content={rteData} onClick={() => setEditMode(true)} />
+)
+```
+
+<Canvas of={EditableRichTextContentStories.UsageExample} />

@@ -2,9 +2,9 @@ import React, { useId } from "react"
 import classnames from "classnames"
 import { FieldGroup } from "~components/FieldGroup"
 import { FieldMessage } from "~components/FieldMessage"
+import { SuccessIcon } from "~components/Icon"
 import { Input, InputProps } from "~components/Input"
 import { Label } from "~components/Label"
-import { SuccessIcon } from ".."
 import styles from "./TextField.module.scss"
 
 type OmittedInputProps =
@@ -13,7 +13,7 @@ type OmittedInputProps =
   | "ariaDescribedBy"
   | "ariaLabel"
 
-export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
+export type TextFieldProps = {
   /**
    * A short example of input text. For context or additional information use the `description` prop
    */
@@ -28,7 +28,7 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
    * A description that provides context for the text field
    */
   description?: string | React.ReactNode
-}
+} & Omit<InputProps, OmittedInputProps>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928705/Text+Field Guidance} |
