@@ -4,7 +4,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import {
   FilterButton,
   FilterButtonRemovable,
-} from "~components/Filter/FilterButton"
+} from "~components/Filter"
 import { Filter, FilterContents } from ".."
 
 const meta = {
