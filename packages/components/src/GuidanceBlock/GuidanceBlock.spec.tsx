@@ -1,7 +1,6 @@
 import React from "react"
-import { act, cleanup, render, waitFor } from "@testing-library/react"
+import { cleanup, render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import ReactTestUtils from "react-dom/test-utils"
 import { Informative } from "~components/Illustration"
 import { GuidanceBlock } from "./GuidanceBlock"
 
