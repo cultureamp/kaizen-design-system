@@ -1,5 +1,5 @@
 import { ThemeConfig } from "tailwindcss/types/config"
-import { defaultTheme } from "@kaizen/design-tokens"
+import { defaultTheme } from "@kaizen/design-tokens/"
 import { kzSpacing } from "./kz-spacing"
 
 export type KaizenTailwindTheme = Partial<ThemeConfig>
@@ -7,7 +7,7 @@ export type KaizenTailwindPreset = {
   theme: KaizenTailwindTheme
 }
 
-// Note: changing any token will require to to run build:ts from the root `design-tokens`
+// Note: changing any token will require to to run `yarn build` from the root
 export const kaizenTailwindTheme: KaizenTailwindTheme = {
   extend: {
     maxWidth: {
@@ -31,15 +31,17 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     lg: defaultTheme.shadow.large.boxShadow,
   },
   borderRadius: {
+    DEFAULT: "7px",
     default: "7px",
     none: "0px",
     "focus-ring": "10px",
     full: "100%",
   },
-
   borderWidth: {
-    none: "0px",
+    DEFAULT: "2px",
     default: "2px",
+    none: "0px",
+    1: "1px",
     "focus-ring": "2px",
   },
   borderColor: {

@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@kaizen/design-tokens": "*",
+    "@kaizen/reset.css": "*",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.5.2",
     "@storybook/api": "^7.5.2",

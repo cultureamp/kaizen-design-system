@@ -44,7 +44,11 @@ const InputModalTemplate: Story = {
 
     return (
       <>
-        <button type="button" onClick={handleOpen}>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={handleOpen}
+        >
           Open Modal
         </button>
         <InputEditModal

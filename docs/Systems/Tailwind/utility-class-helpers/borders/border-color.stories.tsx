@@ -35,8 +35,8 @@ export const BorderColor: StoryFn<{ isReversed: boolean }> = ({
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "rounded-default w-[100px] h-[100px] border-solid",
-          utilityClass
+          "rounded w-[100px] h-[100px] border",
+          utilityClass.replace("-DEFAULT", "")
         )}
       />
     )}
