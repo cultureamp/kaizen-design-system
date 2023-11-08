@@ -5,9 +5,9 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "p-"
+const prefix = "border-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.spacing || []).map(
+  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,32 +15,32 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Spacing/Padding",
+  title: "Systems/Tailwind/Utility Class References/Borders/Border Width",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
     docsLayout: "fullPage",
     docs: {
       description: {
-        component: utilityDescription(prefix, classEntries[0].utilityClassName),
+        component: utilityDescription(prefix, classEntries[1].utilityClassName),
       },
     },
   },
 } satisfies Meta
 
-export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
+export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
+  isReversed,
+}) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="padding"
+    compiledCssPropertyName="border-width"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <p
+      <div
         className={classnames(
-          "border-solid w-min rounded-default bg-blue-100",
-          utilityClass
+          "w-[100px] h-[100px] border rounded",
+          !utilityClass.includes("-DEFAULT") && utilityClass
         )}
-      >
-        Padding
-      </p>
+      />
     )}
     isReversed={isReversed}
   />

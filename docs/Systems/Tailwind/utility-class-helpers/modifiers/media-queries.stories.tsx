@@ -43,10 +43,10 @@ export const MediaQueries: StoryFn = () => (
       that bg-blue-400 will be applied when the screen gets <em>wider</em>.
     </Heading>
     <QueryInfo selector="md" selectorValue="768px">
-      <div className="border-solid md:bg-blue-400 h-[50px] w-full rounded-default" />
+      <div className="border-solid md:bg-blue-400 h-[50px] w-full rounded" />
     </QueryInfo>
     <QueryInfo selector="lg" selectorValue="1080px">
-      <div className="border-solid lg:bg-blue-400 h-[50px] w-full rounded-default" />
+      <div className="border-solid lg:bg-blue-400 h-[50px] w-full rounded" />
     </QueryInfo>
   </div>
 )

@@ -29,7 +29,7 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
       <p className="font-family-paragraph">background-color: #bde2f5</p>
       <button
         type="button"
-        className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded-default hover:bg-blue-200 py-16 px-12 text-center"
+        className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded hover:bg-blue-200 py-16 px-12 text-center"
       >
         Hover me
       </button>
@@ -40,7 +40,7 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
       <button
         type="button"
         tabIndex={0}
-        className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded-default focus:bg-blue-200 py-16 px-12 text-center"
+        className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded focus:bg-blue-200 py-16 px-12 text-center"
       >
         Focus me
       </button>

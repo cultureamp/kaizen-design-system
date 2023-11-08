@@ -3,19 +3,15 @@ import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "border-"
-const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
-    ([suffix, cssProperty]) => ({
-      utilityClassName: `${prefix}${suffix}`,
-      cssProperty,
-    })
-  )
+const prefix = "bg-"
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Borders/Border Width",
+  title:
+    "Systems/Tailwind/Utility Class References/Backgrounds/Background Color",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
@@ -28,16 +24,16 @@ export default {
   },
 } satisfies Meta
 
-export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
+export const BackgroundColor: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="border-width"
+    compiledCssPropertyName="background-color"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "w-[100px] h-[100px] border-solid border-[black] border-default",
+          "w-[100px] h-[100px] border border-purple-100 rounded",
           utilityClass
         )}
       />

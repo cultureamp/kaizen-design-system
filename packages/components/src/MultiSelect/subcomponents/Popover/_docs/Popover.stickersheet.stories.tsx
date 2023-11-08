@@ -24,6 +24,7 @@ const PopoverTemplate = (
       <button
         ref={refs.setReference}
         type="button"
+        className="border border-gray-500"
         onClick={() => setIsOpen(!isOpen)}
       >
         Pancakes!
@@ -115,7 +116,7 @@ const PopoverWithPortal = ({
       // overflow-hidden is added so we can ensure the last row autoplaces above
       // padding added to allow buffer for box-shadow which gets cut off by overflow-hidden
       className={classnames(
-        "relative border-solid border-default overflow-hidden",
+        "relative border border-purple-500 overflow-hidden",
         portalClassName
       )}
     >
