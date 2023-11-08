@@ -1,6 +1,6 @@
 import React from "react"
 import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
-import { getNodeText } from "../../../../../utils/getNodeText"
+import { getNodeText } from "~utils/getNodeText"
 import { isValidRange } from "./isValidRange"
 
 export type ValidateEndDateBeforeStartDateArgs = {
