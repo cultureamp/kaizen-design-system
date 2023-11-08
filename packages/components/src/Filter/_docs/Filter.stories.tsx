@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
 import { FilterButton, FilterButtonRemovable } from "~components/FilterButton"
-import { Filter, FilterContents } from ".."
+import { Filter, FilterContents } from "../index"
 
 const meta = {
   title: "Components/Filter Base",

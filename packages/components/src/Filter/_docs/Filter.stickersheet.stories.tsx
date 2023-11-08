@@ -6,7 +6,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
-import { Filter, FilterContents } from ".."
+import { Filter, FilterContents } from "../index"
 
 const IS_CHROMATIC = isChromatic()
 
