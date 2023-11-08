@@ -29,14 +29,23 @@ type Story = StoryObj<typeof meta>
 const EditableRichTextContentTemplate: Story = {
   render: props => {
     const [editMode, setEditMode] = useState<boolean>(false)
-    const [rteData, setRTEData] = useState<EditorContentArray>(
+    const [readRteData, setReadRTEData] = useState<EditorContentArray>(
       props.content || dummyContent
     )
-    const handleOnChange: RichTextEditorProps["onChange"] = (
-      editorState
-    ): void => setRTEData(editorState.toJSON().doc.content)
-    const handleContentClick = (): void => setEditMode(true)
+    const [editRteData, setEditRTEData] = useState<EditorContentArray>([])
+
+    const handleOnChange: RichTextEditorProps["onChange"] = editorState =>
+      setEditRTEData(editorState.toJSON().doc.content)
+
+    const handleContentClick = (): void => {
+      setEditRTEData(readRteData)
+      setEditMode(true)
+    }
     const handleCancel = (): void => setEditMode(false)
+    const handleSave = (): void => {
+      setReadRTEData(editRteData)
+      setEditMode(false)
+    }
 
     if (editMode) {
       return (
@@ -51,12 +60,12 @@ const EditableRichTextContentTemplate: Story = {
               { name: "bulletList", group: "list" },
               { name: "link", group: "link" },
             ]}
-            defaultValue={rteData}
+            defaultValue={editRteData}
             onChange={handleOnChange}
           />
           <div className="flex justify-end mt-8">
             <Button label="Cancel" secondary onClick={handleCancel} />
-            <Button label="Save" primary onClick={handleCancel} />
+            <Button label="Save" primary onClick={handleSave} />
           </div>
         </>
       )
@@ -65,7 +74,7 @@ const EditableRichTextContentTemplate: Story = {
     return (
       <EditableRichTextContent
         onClick={handleContentClick}
-        content={rteData}
+        content={readRteData}
         labelText={props.labelText}
       />
     )
