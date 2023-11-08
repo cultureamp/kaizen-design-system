@@ -3,7 +3,7 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import { ClearIcon } from "~components/Icon"
 import { DataAttributes } from "~types/DataAttributes"
 import { isRefObject } from "~utils/isRefObject"
-import { ButtonGroup, ButtonGroupProps } from "../../../ButtonGroup"
+import { ButtonGroup, ButtonGroupProps } from "~components/ButtonGroup"
 import { FilterTriggerRef } from "../../Filter"
 import { FilterButton, FilterButtonProps } from "../FilterButton"
 import {
