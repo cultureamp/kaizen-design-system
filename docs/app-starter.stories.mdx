@@ -53,6 +53,8 @@ The order of these CSS stylesheets is **very important**:
 
 No matter how you choose to import the following, this order must be upheld.
 
+**We recommend you use your `tailwind.css` file to ensure this order (JS files will order them differently)**
+
 ### Reset
 
 Kaizen's CSS reset aims to add any global default styles such as typography or base styles which enable Tailwind utilities (you can think of this as Kaizen's own Preflight).
@@ -60,10 +62,10 @@ Kaizen's CSS reset aims to add any global default styles such as typography or b
 Note: this is different from a Normalize which aims to create uniformity in basic elements across the multiple browsers. (eg. Corrects bugs and common browser inconsistencies).
 
 You can either import this via JS or CSS, just make sure it is placed _after normalize_ but _before_ any custom CSS:
-```js
-import "normalize.css"
-import "@kaizen/reset.css" // <- Right here!
-import "../src/tailwind.css"
+
+```css
+@import "normalize.css";
+@import "@kaizen/reset.css"; // <- Right here!
 ```
 
 You can also import this into your CSS files if your project perfers, however you must preserve the above order.
@@ -72,13 +74,23 @@ You can also import this into your CSS files if your project perfers, however yo
 
 For the convenience of your app, we've compiled all the necessary styles for our components into a single stylesheet to make it easy to set and forget.
 
-We've especially accounted for using Tailwind's de-duping process for any Tailwind within our components:
+```css
+@import "@kaizen/components/dist/styles.css";
+```
+
+Note: If for whatever reason you aren't adding Tailwind to your project, you can do this step in any global css file. Just ensure it's the only one, imported at the root of your app, after resets/normalises.
+
+### Final CSS
+
+Your final CSS should look something like this:
+
 ```css
 // tailwind.css
+@import "normalize.css";
+@import "@kaizen/reset.css";
 @import "@kaizen/components/dist/styles.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
-
-Note: If for whatever reason you aren't adding Tailwind to your project, you can do this step in any global css file. Just ensure it's the only one, imported at the root of your app, after resets/normalises.

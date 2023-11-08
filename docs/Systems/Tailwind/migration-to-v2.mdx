@@ -1,0 +1,25 @@
+import { Meta } from "@storybook/blocks"
+
+<Meta title="Systems/Tailwind/Migration to v2" />
+
+# Migration to v2
+
+Overall version 2 **does not change** any existing Tailwind API, however it now has a pre-requisite on an external resource for the features to work.
+
+## Pre-requisites
+- `@kaizen/reset.css` ([installation instructions](https://cultureamp.design/?path=/docs/guides-app-starter--docs#3-add-kaizens-global-css-stylesheets))
+
+## Key change
+
+v2 Adds DEFAULT values to `borderWidth` and `borderColor` in the Tailwind preset, so these don't need to be written with utility classes.
+These changes mean that border styles require much less utility classes to be written.
+
+For example, to add a border-bottom to an element, v1 would previously need to write:
+```html
+<div className="border-b-default border-l-none border-r-none border-t-none border-solid border-purple-800"></div>
+```
+
+We can now achieve the same css in v2 by simply writing:
+```html
+<div className="border-b"></div>
+```
