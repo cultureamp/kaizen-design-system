@@ -30,13 +30,22 @@ To render the contents of your <LinkTo pageId="components-richtexteditor">RichTe
 The general idea is to use this component in combination with the <LinkTo pageId="components-richtexteditor">RichTextEditor</LinkTo> to toggle between a read only state
 and an editable state.
 
-```jsx
-  const [editMode, setEditMode] = useState(false);
-  const [rteData, setRTEData] = useState();
+```tsx
+const [editMode, setEditMode] = useState<boolean>(false);
+const [rteData, setRTEData] = useState<EditorContentArray>([]);
 
-  if (editMode) return <RichTextEditor defaultValue={rteData} />
-
+if (editMode) {
   return (
-    <EditableRichTextContent content={rteData} />
+    <>
+      <RichTextEditor defaultValue={rteData} />
+      <Button label="Save" primary onClick={handleCancel} />
+    </>
   )
+}
+
+return (
+  <EditableRichTextContent content={rteData} onClick={() => setEditMode(true)} />
+)
 ```
+
+<Canvas of={EditableRichTextContentStories.UsageExample} />

@@ -1,19 +1,15 @@
 import React, { useState, HTMLAttributes } from "react"
-import {
-  ProseMirrorState,
-  ProseMirrorModel,
-  useRichTextEditor,
-} from "@cultureamp/rich-text-toolkit"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { createSchemaWithAll } from "../RichTextEditor/schema"
 import { EditorContentArray } from "../types"
+import { useRichTextEditor } from "../utils/core"
+import { ProseMirrorModel, ProseMirrorState } from "../utils/prosemirror"
 import styles from "./RichTextContent.module.scss"
 
-export interface RichTextContentProps
-  extends OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "content">> {
+export type RichTextContentProps = {
   content: EditorContentArray
-}
+} & OverrideClassName<Omit<HTMLAttributes<HTMLDivElement>, "content">>
 
 export const RichTextContent = (props: RichTextContentProps): JSX.Element => {
   const { content, classNameOverride, ...restProps } = props
