@@ -33,16 +33,10 @@ const meta = {
   component: GuidanceBlock,
   args: {
     layout: "default",
-    persistent: true,
     illustration: <Informative alt="" />,
   },
   argTypes: {
     actions: {
-      control: false,
-    },
-    persistent: {
-      description:
-        "This should always return true ()`persistent` will soon be deprecated). The X close icon has been superseded with the pattern 'dismiss' or 'cancel' using the secondary action.",
       control: false,
     },
     illustrationType: {

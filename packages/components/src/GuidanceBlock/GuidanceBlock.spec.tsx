@@ -122,26 +122,6 @@ describe("GuidanceBlock", () => {
     await waitFor(() => expect(bannerAfter).not.toBeInTheDocument())
   })
 
-  it("has no cancel button when guidance block is persistent", () => {
-    const { container } = render(
-      <GuidanceBlock
-        illustration={<Informative alt="" />}
-        text={{
-          title: "This is the call to action title",
-          description:
-            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
-        }}
-        actions={{
-          primary: { label: "Action!", onClick: (): void => undefined },
-        }}
-        persistent
-      />
-    )
-
-    const cancelButton = container.querySelector(".cancel")
-    expect(cancelButton).not.toBeInTheDocument()
-  })
-
   it("has a default title tag of h3", () => {
     const { getByRole } = render(
       <GuidanceBlock
