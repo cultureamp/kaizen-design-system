@@ -1,14 +1,5 @@
 import React from "react"
 import {
-  ProseMirrorState,
-  ProseMirrorModel,
-  ProseMirrorCommands,
-  ProseMirrorSchemaList,
-  markIsActive,
-  listIsActive,
-} from "@cultureamp/rich-text-toolkit"
-
-import {
   AddLinkIcon,
   BoldIcon,
   BullettedListIcon,
@@ -18,8 +9,14 @@ import {
   NumberedListIcon,
   UnderlineIcon,
 } from "~components/Icon"
-
 import { ToolbarItems, ToolbarControlTypes } from "../../types"
+import { listIsActive, markIsActive } from "../../utils/commands"
+import {
+  ProseMirrorCommands,
+  ProseMirrorModel,
+  ProseMirrorSchemaList,
+  ProseMirrorState,
+} from "../../utils/prosemirror"
 
 /** Configuration for individual controls */
 type ToolbarControl = {
@@ -31,7 +28,7 @@ type ToolbarControl = {
 }
 
 /** Toolbar controls mapped to a group */
-interface GroupedToolbarControls {
+type GroupedToolbarControls = {
   [group: string]: ToolbarControl[]
 }
 
@@ -41,10 +38,9 @@ type ControlGroupTypes = {
 }
 
 /** Chains multiple commands to dispatch each transitions in sequential order */
-function chainTransactions(
-  ...commands: ProseMirrorState.Command[]
-): ProseMirrorState.Command {
-  return (state, dispatch): boolean => {
+const chainTransactions =
+  (...commands: ProseMirrorState.Command[]): ProseMirrorState.Command =>
+  (state, dispatch): boolean => {
     const updateStateAndDispatch = (tr: ProseMirrorState.Transaction): void => {
       state = state.apply(tr)
       dispatch && dispatch(tr)
@@ -57,13 +53,12 @@ function chainTransactions(
 
     return lastCommand !== undefined && lastCommand(state, dispatch)
   }
-}
 
 /** Dispatches a transaction to create initial p tag required for pm commands */
-function createInitialParagraph(
+const createInitialParagraph = (
   state: ProseMirrorState.EditorState,
   dispatch?: (tr: ProseMirrorState.Transaction) => void
-): boolean {
+): boolean => {
   if (dispatch) {
     const { tr, schema } = state
 
@@ -74,13 +69,9 @@ function createInitialParagraph(
 }
 
 /** Create command for toggling Marks */
-function createToggleMarkCommand(
-  mark: ProseMirrorModel.MarkType
-): ProseMirrorState.Command {
-  return (
-    state: ProseMirrorState.EditorState,
-    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
-  ) => {
+const createToggleMarkCommand =
+  (mark: ProseMirrorModel.MarkType): ProseMirrorState.Command =>
+  (state, dispatch) => {
     const docIsEmpty = state.doc.content.size === 0
 
     if (docIsEmpty) {
@@ -91,16 +82,11 @@ function createToggleMarkCommand(
     }
     return ProseMirrorCommands.toggleMark(mark)(state, dispatch)
   }
-}
 
 /** Create command for toggling Lists */
-function createToggleListCommand(
-  node: ProseMirrorModel.NodeType
-): ProseMirrorState.Command {
-  return (
-    state: ProseMirrorState.EditorState,
-    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
-  ) => {
+const createToggleListCommand =
+  (node: ProseMirrorModel.NodeType): ProseMirrorState.Command =>
+  (state, dispatch) => {
     const docIsEmpty = state.doc.content.size === 0
 
     if (docIsEmpty) {
@@ -111,36 +97,27 @@ function createToggleListCommand(
     }
     return ProseMirrorSchemaList.wrapInList(node)(state, dispatch)
   }
-}
 
 /** Create command for reducing indents in a List */
-function createLiftListCommand(): ProseMirrorState.Command {
-  return (
-    state: ProseMirrorState.EditorState,
-    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
-  ) => {
+const createLiftListCommand =
+  (): ProseMirrorState.Command => (state, dispatch) => {
     const { $from } = state.selection
     // calculate the parent node from the current tag selected
     const listItemNode = $from.node($from.depth - 1)?.type
     return ProseMirrorSchemaList.liftListItem(listItemNode)(state, dispatch)
   }
-}
 
 /** Create command for indenting in a List */
-function createIndentListCommand(): ProseMirrorState.Command {
-  return (
-    state: ProseMirrorState.EditorState,
-    dispatch: ((tr: ProseMirrorState.Transaction) => void) | undefined
-  ) => {
+const createIndentListCommand =
+  (): ProseMirrorState.Command => (state, dispatch) => {
     const { $from } = state.selection
     const listItemNode = $from.node($from.depth - 1)?.type
 
     return ProseMirrorSchemaList.sinkListItem(listItemNode)(state, dispatch)
   }
-}
 
 /** handler lift list disabled state */
-function liftListIsDisabled(state: ProseMirrorState.EditorState): boolean {
+const liftListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
   const { $from } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
   const isValidListItem = listItemNode?.name === "listItem" || false
@@ -149,7 +126,7 @@ function liftListIsDisabled(state: ProseMirrorState.EditorState): boolean {
 }
 
 /** handler indent list disabled state */
-function indentListIsDisabled(state: ProseMirrorState.EditorState): boolean {
+const indentListIsDisabled = (state: ProseMirrorState.EditorState): boolean => {
   const { $from, $to } = state.selection
   const listItemNode = $from.node($from.depth - 1)?.type
   const isValidListItem = listItemNode?.name === "listItem" || false
@@ -215,11 +192,11 @@ const filterToolbarControls = (
   Object.values(groupedControls).filter(controls => controls.length > 0)
 
 /** Builds an array of object used to map control configuration to rte toolbar buttons */
-export function buildControlMap(
+export const buildControlMap = (
   schema: ProseMirrorModel.Schema,
   editorState: ProseMirrorState.EditorState,
   controls?: ToolbarItems[]
-): ToolbarControl[][] {
+): ToolbarControl[][] => {
   if (!controls) return []
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
   const toolbarControls: GroupedToolbarControls =

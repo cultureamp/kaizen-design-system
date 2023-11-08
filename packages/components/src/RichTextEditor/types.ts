@@ -6,7 +6,7 @@ export type ToolbarControlTypes =
   | "bulletList"
   | "link"
 
-export interface ToolbarItems {
+export type ToolbarItems = {
   name: ToolbarControlTypes
   /**
    * A group is used to wrap items in the same section wrapper

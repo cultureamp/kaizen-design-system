@@ -1,11 +1,8 @@
-import {
-  ProseMirrorModel,
-  nodes as coreNodes,
-  marks as coreMarks,
-} from "@cultureamp/rich-text-toolkit"
-
+import { MarkSpec } from "prosemirror-model"
 import { TOOLBAR_CONTROLS } from "../constants"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
+import { ProseMirrorModel } from "../utils/prosemirror"
+import { getMarks, getNodes } from "../utils/schema"
 
 export const createSchemaFromControls = (
   controls?: ToolbarItems[]
@@ -15,23 +12,27 @@ export const createSchemaFromControls = (
   }
 
   const namesFromControls = controls.reduce(
-    (acc: string[], c: ToolbarItems) => [...acc, c.name],
+    (acc: ToolbarControlTypes[], c: ToolbarItems) => [...acc, c.name],
     []
-  ) as ToolbarControlTypes[]
+  )
+
   return createSchema(namesFromControls)
 }
 
 export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> =>
   createSchema(TOOLBAR_CONTROLS)
 
-function createSchema(
+const createSchema = (
   controls?: ToolbarControlTypes[]
-): ProseMirrorModel.Schema<string> {
+): ProseMirrorModel.Schema<string> => {
+  const nodes = getNodes()
+  const marks = getMarks()
+
   const defaultNodes: ProseMirrorModel.NodeSpec = {
-    doc: coreNodes.doc,
-    paragraph: coreNodes.paragraph,
-    text: coreNodes.text,
-    hardBreak: coreNodes.hardBreak,
+    doc: nodes.doc,
+    paragraph: nodes.paragraph,
+    text: nodes.text,
+    hardBreak: nodes.hardBreak,
   }
 
   if (!controls) {
@@ -40,33 +41,33 @@ function createSchema(
     })
   }
 
-  const newNodes: typeof coreNodes = { ...defaultNodes }
-  const newMarks: typeof coreMarks = {}
+  const newNodes: typeof nodes = { ...defaultNodes }
+  const newMarks: MarkSpec = {}
 
   if (controls.includes("bold")) {
-    newMarks["strong"] = coreMarks.strong
+    newMarks["strong"] = marks.strong
   }
 
   if (controls.includes("italic")) {
-    newMarks["em"] = coreMarks.em
+    newMarks["em"] = marks.em
   }
 
   if (controls.includes("underline")) {
-    newMarks["underline"] = coreMarks.underline
+    newMarks["underline"] = marks.underline
   }
 
   if (controls.includes("bulletList")) {
-    newNodes["bulletList"] = coreNodes.bulletList
-    newNodes["listItem"] = coreNodes.listItem
+    newNodes["bulletList"] = nodes.bulletList
+    newNodes["listItem"] = nodes.listItem
   }
 
   if (controls.includes("orderedList")) {
-    newNodes["orderedList"] = coreNodes.orderedList
-    newNodes["listItem"] = coreNodes.listItem
+    newNodes["orderedList"] = nodes.orderedList
+    newNodes["listItem"] = nodes.listItem
   }
 
   if (controls.includes("link")) {
-    newMarks["link"] = coreMarks.link
+    newMarks["link"] = marks.link
   }
 
   return new ProseMirrorModel.Schema({
