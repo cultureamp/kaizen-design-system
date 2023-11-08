@@ -1762,29 +1762,6 @@
   resolved "https://npm.pkg.github.com/download/@cultureamp/redirect-to-login/2.0.3/26afa69493a04cb23a5333dccf5b922afd4a333c#26afa69493a04cb23a5333dccf5b922afd4a333c"
   integrity sha512-OFJffYRJbB3e0LO3daRZuP7dMhvpQbmiQNu/lnlWWqi5YCCdAgjoozC7feQFqwDBbtPcTHxt4qcJ8Do3RbRs5Q==
 
-"@cultureamp/rich-text-toolkit@^2.0.3":
-  version "2.0.3"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/rich-text-toolkit/2.0.3/9e4bab286e8053c9d0c1c90c8e79b8dde99bd48c#9e4bab286e8053c9d0c1c90c8e79b8dde99bd48c"
-  integrity sha512-oEx6WFpV/uoQCTmaQ7KZQrpz3av5vKqUzEZsmVaAWR9MJB0YAm5orKqAvi5VL+EvK5xFA+NpMF2F065tSpgJzA==
-  dependencies:
-    "@kaizen/button" "^3.0.0"
-    "@kaizen/component-library" "^16.7.3"
-    "@kaizen/draft-modal" "^10.6.16"
-    "@kaizen/draft-popover" "^5.3.13"
-    "@kaizen/typography" "^2.3.8"
-    lodash.debounce "^4.0.8"
-    nanobus "^4.5.0"
-    prosemirror-commands "^1.3.0"
-    prosemirror-history "^1.3.0"
-    prosemirror-inputrules "^1.2.0"
-    prosemirror-keymap "^1.2.0"
-    prosemirror-model "^1.18.1"
-    prosemirror-schema-basic "^1.2.0"
-    prosemirror-schema-list "^1.2.1"
-    prosemirror-state "^1.4.1"
-    prosemirror-utils "^1.0.0-0"
-    prosemirror-view "^1.27.2"
-
 "@discoveryjs/json-ext@^0.5.3":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
@@ -2751,7 +2728,7 @@
     "@kaizen/component-base" "^1.1.7"
     "@kaizen/hosted-assets" "^2.0.3"
 
-"@kaizen/button@^3.0.0", "@kaizen/button@^3.0.4", "@kaizen/button@^3.0.5":
+"@kaizen/button@^3.0.4", "@kaizen/button@^3.0.5":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.5.tgz#fdfc44b56331638801754a7646e53a3ed7e9a0ea"
   integrity sha512-TRmaU/fhWWfJXJ9/Yg8wplm1Ww7rNKvNVxjbMO/d0N4FyTbszfIwjMGn7Un1xl8m6Goau9Aa2DOk+5KEtSmu6Q==
@@ -2766,7 +2743,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
   integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
 
-"@kaizen/component-library@^16.7.3", "@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
+"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
   version "16.10.0"
   resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.10.0.tgz#59511cae7c5d39390deb91ed9b3a832928bed461"
   integrity sha512-1vX6aQG6TpS34ETcu9L8qStgqWYhFrIw+ke6xvOn2jehW9A97mQLR5rGJbsE6kbTdZKP4zcBcrd21vQ0a9Lb2A==
@@ -2840,24 +2817,6 @@
     classnames "^2.3.2"
     jszip "^3.10.1"
 
-"@kaizen/draft-modal@^10.6.16":
-  version "10.6.23"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-modal/-/draft-modal-10.6.23.tgz#c538fe922b95315f1dd266c37c03f353af409ebb"
-  integrity sha512-IXJb9ICKyKIFTEsn+7CDtjfP4d+2jepiAwGKd7jnIGODlM7m38tv0waWQG0OOyNWuhS7Ncvjc+Kx6uXIhIwv0w==
-  dependencies:
-    "@headlessui/react" "<=1.5.0"
-    "@kaizen/button" "^3.0.4"
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@kaizen/draft-divider" "^2.2.11"
-    "@kaizen/draft-form" "^10.4.8"
-    "@kaizen/draft-illustration" "^7.0.1"
-    "@kaizen/responsive" "^1.8.10"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-    react-focus-lock "^2.9.5"
-    uuid "^9.0.0"
-
 "@kaizen/draft-page-layout@^2.3.13":
   version "2.3.13"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-page-layout/-/draft-page-layout-2.3.13.tgz#319bb42d26ba9a166325d91f0fcd26adb2c221a7"
@@ -2867,20 +2826,6 @@
     "@kaizen/draft-card" "^3.2.11"
     classnames "^2.3.2"
     resize-observer-polyfill "^1.5.1"
-
-"@kaizen/draft-popover@^5.3.13":
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-popover/-/draft-popover-5.4.3.tgz#1248b2fa127358b0309c58a83ea2cf19e48193de"
-  integrity sha512-9i9WGfKgBdSkZ8FvEDo8OCtQpW1Idop+/GRHW/mXE6in9POm9u+AXB1L0FftE/wJ6hoVTFs88+oOgxO7IpIpNQ==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@kaizen/typography" "^2.3.11"
-    "@popperjs/core" "^2.11.8"
-    classnames "^2.3.2"
-    react-popper "^2.3.0"
-    use-debounce "^9.0.4"
 
 "@kaizen/draft-select@^2.10.42":
   version "2.10.42"
@@ -2958,7 +2903,7 @@
   resolved "https://registry.yarnpkg.com/@kaizen/responsive/-/responsive-1.8.10.tgz#ce42f0b3d0c8b96196aa0459927f0538917495d7"
   integrity sha512-buwE/sVl1etZm9BpdM+iGn8oUA3CPgLsspCNbkbxGqksXB+nwpT4idKm4+boz3SWK1eqV3At+GgaPvPYwt+YjQ==
 
-"@kaizen/typography@^2.3.11", "@kaizen/typography@^2.3.8":
+"@kaizen/typography@^2.3.11":
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/@kaizen/typography/-/typography-2.3.11.tgz#d1b8883d077ceccd339ab884f68dcb4bba74b64f"
   integrity sha512-TCVMXFB4fRja9dRVMYAR2KuN8BWwTIGACpNZZfXR+PrPBqPVwV8QLi4+pQX/aUMnAvtU3cVnEqLlAEI3o0CcOg==
@@ -5497,6 +5442,13 @@
   dependencies:
     "@types/fined" "*"
     "@types/node" "*"
+
+"@types/lodash.debounce@^4.0.8":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/lodash.debounce/-/lodash.debounce-4.0.8.tgz#d5fe36a35aa57773e05d960b3e3c703fd9ffb8b3"
+  integrity sha512-REumepIJjQFSOaBUoj81U5ZzF9YIhovzE2Lm6ejUbycmwx597k2ivG1cVfPtAj4eVuSbGoZDkJR0sRIahsE6/Q==
+  dependencies:
+    "@types/lodash" "*"
 
 "@types/lodash.flatmap@^4.5.8":
   version "4.5.8"
@@ -15979,7 +15931,7 @@ prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2,
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
-prosemirror-commands@^1.3.0:
+prosemirror-commands@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/prosemirror-commands/-/prosemirror-commands-1.5.2.tgz#e94aeea52286f658cd984270de9b4c3fff580852"
   integrity sha512-hgLcPaakxH8tu6YvVAaILV2tXYsW3rAdDR8WNkeKGcgeMVQg3/TMhPdVoh7iAmfgVjZGtcOSjKiQaoeKjzd2mQ==
@@ -15988,7 +15940,7 @@ prosemirror-commands@^1.3.0:
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.0.0"
 
-prosemirror-history@^1.3.0:
+prosemirror-history@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/prosemirror-history/-/prosemirror-history-1.3.2.tgz#ce6ad7ab9db83e761aee716f3040d74738311b15"
   integrity sha512-/zm0XoU/N/+u7i5zepjmZAEnpvjDtzoPWW6VmKptcAnPadN/SStsBjMImdCEbb3seiNTpveziPTIrXQbHLtU1g==
@@ -15998,7 +15950,7 @@ prosemirror-history@^1.3.0:
     prosemirror-view "^1.31.0"
     rope-sequence "^1.3.0"
 
-prosemirror-inputrules@^1.2.0:
+prosemirror-inputrules@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prosemirror-inputrules/-/prosemirror-inputrules-1.2.1.tgz#8faf3d78c16150aedac71d326a3e3947417ce557"
   integrity sha512-3LrWJX1+ULRh5SZvbIQlwZafOXqp1XuV21MGBu/i5xsztd+9VD15x6OtN6mdqSFI7/8Y77gYUbQ6vwwJ4mr6QQ==
@@ -16006,7 +15958,7 @@ prosemirror-inputrules@^1.2.0:
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.0.0"
 
-prosemirror-keymap@^1.2.0:
+prosemirror-keymap@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/prosemirror-keymap/-/prosemirror-keymap-1.2.2.tgz#14a54763a29c7b2704f561088ccf3384d14eb77e"
   integrity sha512-EAlXoksqC6Vbocqc0GtzCruZEzYgrn+iiGnNjsJsH4mrnIGex4qbLdWWNza3AW5W36ZRrlBID0eM6bdKH4OStQ==
@@ -16014,21 +15966,21 @@ prosemirror-keymap@^1.2.0:
     prosemirror-state "^1.0.0"
     w3c-keyname "^2.2.0"
 
-prosemirror-model@^1.0.0, prosemirror-model@^1.16.0, prosemirror-model@^1.18.1, prosemirror-model@^1.19.0:
+prosemirror-model@^1.0.0, prosemirror-model@^1.16.0, prosemirror-model@^1.19.0, prosemirror-model@^1.19.3:
   version "1.19.3"
   resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.19.3.tgz#f0d55285487fefd962d0ac695f716f4ec6705006"
   integrity sha512-tgSnwN7BS7/UM0sSARcW+IQryx2vODKX4MI7xpqY2X+iaepJdKBPc7I4aACIsDV/LTaTjt12Z56MhDr9LsyuZQ==
   dependencies:
     orderedmap "^2.0.0"
 
-prosemirror-schema-basic@^1.2.0:
+prosemirror-schema-basic@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/prosemirror-schema-basic/-/prosemirror-schema-basic-1.2.2.tgz#6695f5175e4628aab179bf62e5568628b9cfe6c7"
   integrity sha512-/dT4JFEGyO7QnNTe9UaKUhjDXbTNkiWTq/N4VpKaF79bBjSExVV2NXmJpcM7z/gD7mbqNjxbmWW5nf1iNSSGnw==
   dependencies:
     prosemirror-model "^1.19.0"
 
-prosemirror-schema-list@^1.2.1:
+prosemirror-schema-list@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/prosemirror-schema-list/-/prosemirror-schema-list-1.3.0.tgz#05374702cf35a3ba5e7ec31079e355a488d52519"
   integrity sha512-Hz/7gM4skaaYfRPNgr421CU4GSwotmEwBVvJh5ltGiffUJwm7C8GfN/Bc6DR1EKEp5pDKhODmdXXyi9uIsZl5A==
@@ -16037,7 +15989,7 @@ prosemirror-schema-list@^1.2.1:
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.7.3"
 
-prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, prosemirror-state@^1.4.1:
+prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, prosemirror-state@^1.4.3:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/prosemirror-state/-/prosemirror-state-1.4.3.tgz#94aecf3ffd54ec37e87aa7179d13508da181a080"
   integrity sha512-goFKORVbvPuAQaXhpbemJFRKJ2aixr+AZMGiquiqKxaucC6hlpHNZHWgz5R7dS4roHiwq9vDctE//CZ++o0W1Q==
@@ -16046,22 +15998,22 @@ prosemirror-state@^1.0.0, prosemirror-state@^1.2.2, prosemirror-state@^1.4.1:
     prosemirror-transform "^1.0.0"
     prosemirror-view "^1.27.0"
 
-prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0, prosemirror-transform@^1.7.3:
+prosemirror-transform@^1.0.0, prosemirror-transform@^1.1.0, prosemirror-transform@^1.7.3, prosemirror-transform@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/prosemirror-transform/-/prosemirror-transform-1.8.0.tgz#a47c64a3c373c1bd0ff46e95be3210c8dda0cd11"
   integrity sha512-BaSBsIMv52F1BVVMvOmp1yzD3u65uC3HTzCBQV1WDPqJRQ2LuHKcyfn0jwqodo8sR9vVzMzZyI+Dal5W9E6a9A==
   dependencies:
     prosemirror-model "^1.0.0"
 
-prosemirror-utils@^1.0.0-0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/prosemirror-utils/-/prosemirror-utils-1.2.0.tgz#fc94f9f984c869acbe9539d9515d1e52194ede6c"
-  integrity sha512-O2HAjTOxdut3fgFi98ue4Xvw1GMeSSS1cnbcsSbYCjxULCJVUsfMa6DdS2sGGgXQDytTKUxbdQIMQ21Ejst8qA==
+prosemirror-utils@^1.2.1-0:
+  version "1.2.1-0"
+  resolved "https://registry.yarnpkg.com/prosemirror-utils/-/prosemirror-utils-1.2.1-0.tgz#3cd77505d4a22d5d5268c248b3bdcf9f924687fc"
+  integrity sha512-YJNjxSAFhV+w7/nKfLU4SJ0sYEHDJuaIvIxp6V1DgrVFSBBksnvHZTGPVmKGYEnbTqr0kG8HXqopNKPoQtT+3A==
 
-prosemirror-view@^1.27.0, prosemirror-view@^1.27.2, prosemirror-view@^1.31.0:
-  version "1.32.2"
-  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.32.2.tgz#e55fcf5b55847e3b9d9b7982c9a129ef237e60e1"
-  integrity sha512-l2RQUGaiDI8SG8ZjWIkjT8yjGmNwdzMFMzQmxv/Kh8Vx+ICnz5R+K0mrOS16rhfjX7n2t4emU0goh7TerQC3mw==
+prosemirror-view@^1.27.0, prosemirror-view@^1.31.0, prosemirror-view@^1.32.3:
+  version "1.32.3"
+  resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.32.3.tgz#9019151211f685e553f681837435cae4885beece"
+  integrity sha512-tP7AUTxisM0m3PDxs6vDWgTjgcbFo4fnwg2M/5NHlgMqUJgBNOqSUZETBZKmLD7AxGN3GZ5yqEzQv9r9VCZKrg==
   dependencies:
     prosemirror-model "^1.16.0"
     prosemirror-state "^1.0.0"
@@ -16309,7 +16261,7 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
 
-react-focus-lock@^2.9.4, react-focus-lock@^2.9.5, react-focus-lock@^2.9.6:
+react-focus-lock@^2.9.4, react-focus-lock@^2.9.6:
   version "2.9.6"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.9.6.tgz#cad168a150fdd72d5ab2419ba8e62780788011b1"
   integrity sha512-B7gYnCjHNrNYwY2juS71dHbf0+UpXXojt02svxybj8N5bxceAkzPChKEncHuratjUHkIFNCn06k2qj1DRlzTug==
