@@ -126,9 +126,31 @@ describe("createRichTextEditor()", () => {
 
     dispatchTransaction(command)
 
+    const expectedResult = {
+      doc: {
+        content: [
+          {
+            content: [
+              {
+                text: "Prepended content. Example content",
+                type: "text",
+              },
+            ],
+            type: "paragraph",
+          },
+        ],
+        type: "doc",
+      },
+      selection: {
+        anchor: 20,
+        head: 20,
+        type: "text",
+      },
+    }
+
     const updatedEditorState = onChange.mock.calls[0][0] as EditorState
 
-    expect(updatedEditorState.toJSON()).toMatchSnapshot()
+    expect(updatedEditorState.toJSON()).toStrictEqual(expectedResult)
   })
 
   it("defaults to editable", async () => {
