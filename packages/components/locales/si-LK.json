@@ -51,7 +51,7 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "කණගාටුයි, නමුත් අපට ඔබ සොයන පිටුව සොයාගත නොහැකිය. ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",

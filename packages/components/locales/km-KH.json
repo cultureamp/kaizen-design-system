@@ -51,7 +51,7 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "សូមអភ័យទោស ប៉ុន្តែយើងមិនអាចរកឃើញទំព័រដែលអ្នកកំពុងស្វែងរកបានទេ។ ត្រឡប់ក្រោយ ហើយព្យាយាមម្តងទៀត ឬទៅកាន់ទំព័រដើម"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
