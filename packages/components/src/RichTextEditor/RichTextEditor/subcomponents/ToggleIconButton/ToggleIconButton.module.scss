@@ -1,0 +1,128 @@
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+
+.button {
+  border: none;
+  background-color: $color-white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: $border-solid-border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color $animation-duration-immediate;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible::after {
+    $focus-ring-offset: 3px;
+
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    inset: calc(-1 * #{$focus-ring-offset});
+  }
+
+  &.disabled {
+    opacity: 30%;
+
+    &:focus-visible::after {
+      color: rgba($color-purple-800-rgb, 0.3);
+      outline-offset: -2px;
+      background-color: transparent;
+      border-color: transparent;
+      opacity: 100%;
+      outline: $color-purple-800 $border-dashed-border-style
+        $border-focus-ring-border-width;
+    }
+  }
+}
+
+.default {
+  background-color: $color-white;
+  color: $color-purple-800;
+
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:focus-visible:not(.active) {
+      background-color: $color-gray-200;
+    }
+
+    &.active {
+      background-color: $color-gray-300;
+      color: $color-purple-800;
+    }
+  }
+}
+
+.secondary {
+  background-color: $color-white;
+  color: $color-blue-500;
+
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:focus-visible:not(.active) {
+      background-color: $color-blue-100;
+    }
+
+    &.active {
+      background-color: $color-blue-200;
+    }
+  }
+}
+
+.primary {
+  background-color: $color-blue-500;
+  color: $color-white;
+
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:focus-visible:not(.active) {
+      background-color: $color-blue-600;
+    }
+
+    &.active {
+      background-color: $color-blue-700;
+    }
+  }
+}
+
+.destructive {
+  background-color: $color-red-500;
+  color: $color-white;
+
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:focus-visible:not(.active) {
+      background-color: $color-red-600;
+    }
+
+    &.active {
+      background-color: $color-red-700;
+    }
+  }
+}
+
+.secondary-destructive {
+  background-color: $color-white;
+  color: $color-red-600;
+
+  &:not(.disabled) {
+    &:hover:not(.active),
+    &:focus-visible:not(.active) {
+      background-color: $color-red-100;
+    }
+
+    &.active {
+      background-color: $color-red-200;
+    }
+  }
+}

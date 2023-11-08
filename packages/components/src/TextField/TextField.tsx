@@ -13,7 +13,7 @@ type OmittedInputProps =
   | "ariaDescribedBy"
   | "ariaLabel"
 
-export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
+export type TextFieldProps = {
   /**
    * A short example of input text. For context or additional information use the `description` prop
    */
@@ -28,7 +28,7 @@ export interface TextFieldProps extends Omit<InputProps, OmittedInputProps> {
    * A description that provides context for the text field
    */
   description?: string | React.ReactNode
-}
+} & Omit<InputProps, OmittedInputProps>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928705/Text+Field Guidance} |
