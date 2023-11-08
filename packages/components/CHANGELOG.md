@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.34.0
+
+### Minor Changes
+
+- [#4255](https://github.com/cultureamp/kaizen-design-system/pull/4255) [`6500eb908`](https://github.com/cultureamp/kaizen-design-system/commit/6500eb9084d8c247e6f816d1bb7c81f314241029) - Migrate RichTextEditor, RichTextContent, EditableRichTextContent from `kaizen-legacy`.
+
+  Migrate `rich-text-toolkit`.
+
+### Patch Changes
+
+- [#4275](https://github.com/cultureamp/kaizen-design-system/pull/4275) [`0adc6e4c2`](https://github.com/cultureamp/kaizen-design-system/commit/0adc6e4c293328d036df19ee594fe125c9a25c7a) - Additional translations
+
 ## 1.33.0
 
 ### Minor Changes
