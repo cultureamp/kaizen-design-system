@@ -12,7 +12,7 @@ import { ToolbarSection } from "../../ToolbarSection"
 import { Toolbar } from "../index"
 
 const meta = {
-  title: "Components/RichTextEditor/subcomponents/Toolbar",
+  title: "Components/RichTextEditor/Subcomponents/Toolbar",
   component: Toolbar,
   args: {
     "aria-controls": "my-rich-text-editor-id",
