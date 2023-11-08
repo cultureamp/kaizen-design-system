@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as RichTextContentStories from "./RichTextContent.stories"
+
+<Meta of={RichTextContentStories} />
+
+# RichTextContent
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/RichTextEditor/RichTextContent"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { RichTextContent } from "@kaizen/components"'
+/>
+
+## Overview
+
+To render your rich text content data structure as read-only text.
+
+<Canvas of={RichTextContentStories.Playground} />
+<Controls of={RichTextContentStories.Playground} />
