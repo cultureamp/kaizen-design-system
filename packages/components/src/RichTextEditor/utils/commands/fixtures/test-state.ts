@@ -1,17 +1,13 @@
 import { Schema } from "prosemirror-model"
 import { createDocNode, createEditorState } from "../../core/state"
-import { marks } from "../../schema/marks"
-import { nodes } from "../../schema/nodes"
+import { getMarks } from "../../schema/marks"
+import { getNodes } from "../../schema/nodes"
 
 const data = require("./data.json")
 
 export const testSchema = new Schema({
-  nodes: {
-    ...nodes,
-  },
-  marks: {
-    ...marks,
-  },
+  nodes: getNodes(),
+  marks: getMarks(),
 })
 
 export const testDocNodeBasic = {

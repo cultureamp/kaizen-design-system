@@ -1,7 +1,8 @@
+import { MarkSpec } from "prosemirror-model"
 import { TOOLBAR_CONTROLS } from "../constants"
 import { ToolbarItems, ToolbarControlTypes } from "../types"
 import { ProseMirrorModel } from "../utils/prosemirror"
-import { marks, nodes } from "../utils/schema"
+import { getMarks, getNodes } from "../utils/schema"
 
 export const createSchemaFromControls = (
   controls?: ToolbarItems[]
@@ -24,6 +25,9 @@ export const createSchemaWithAll = (): ProseMirrorModel.Schema<string> =>
 const createSchema = (
   controls?: ToolbarControlTypes[]
 ): ProseMirrorModel.Schema<string> => {
+  const nodes = getNodes()
+  const marks = getMarks()
+
   const defaultNodes: ProseMirrorModel.NodeSpec = {
     doc: nodes.doc,
     paragraph: nodes.paragraph,
@@ -38,7 +42,7 @@ const createSchema = (
   }
 
   const newNodes: typeof nodes = { ...defaultNodes }
-  const newMarks: typeof marks = {}
+  const newMarks: MarkSpec = {}
 
   if (controls.includes("bold")) {
     newMarks["strong"] = marks.strong

@@ -2,7 +2,7 @@ import { MarkSpec, Node } from "prosemirror-model"
 import { marks as proseMarks } from "prosemirror-schema-basic"
 import { validateLink } from "../plugins/LinkManager/validation"
 
-export const marks: MarkSpec = {
+export const getMarks = (): MarkSpec => ({
   ...proseMarks,
 
   // An underline mark. Rendered as a `<u>` element. Has parse rules that also
@@ -47,7 +47,7 @@ export const marks: MarkSpec = {
       return ["a", { href, target, rel }, 0]
     },
   },
-}
+})
 
 const getAttributeWithDefault = (
   node: HTMLElement,
