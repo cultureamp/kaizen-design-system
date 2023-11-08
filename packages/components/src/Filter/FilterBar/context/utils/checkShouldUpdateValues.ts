@@ -1,4 +1,4 @@
-import { FiltersValues } from "~components/Filter/FilterBar/types"
+import { FiltersValues } from "../../types"
 import { FilterBarState } from "../types"
 
 const checkArraysMatch = (a1: any[], a2: any[]): boolean => {
