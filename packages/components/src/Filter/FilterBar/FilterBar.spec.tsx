@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { render, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { FilterMultiSelect } from "../.."
+import { FilterMultiSelect } from "../index"
 import { FilterBar, FilterBarProps } from "./FilterBar"
 import { useFilterBarContext } from "./context/FilterBarContext"
 import { Filters, FiltersValues } from "./types"
