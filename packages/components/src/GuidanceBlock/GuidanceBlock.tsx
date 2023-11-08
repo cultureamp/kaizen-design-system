@@ -3,7 +3,7 @@ import classNames from "classnames"
 import Media from "react-media"
 import { Button, ButtonProps } from "~components/Button"
 import { Heading, HeadingProps } from "~components/Heading"
-import { ArrowForwardIcon, CloseIcon } from "~components/Icon"
+import { ArrowForwardIcon } from "~components/Icon"
 import { SceneProps, SpotProps } from "~components/Illustration"
 import { Text } from "~components/Text"
 import { Tooltip, TooltipProps } from "~components/Tooltip"
@@ -42,11 +42,6 @@ type BaseGuidanceBlockProps = {
    * This will still require the secondary object to be passed into the actions ie: {secondary: { label: "Dismiss action" }}`
    */
   secondaryDismiss?: boolean
-  /*
-   * `persistent` should always return true and will soon be deprecated.
-   * The X close icon has been superseded with the pattern "dismiss" or "cancel" using the secondary action.
-   */
-  persistent?: boolean
   variant?: VariantType
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
@@ -79,18 +74,6 @@ type WithTooltipProps = {
   tooltipProps?: TooltipProps
 }
 
-type CancelButtonProps = {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const CancelButton = ({ onClick }: CancelButtonProps): JSX.Element => (
-  <button className={styles.cancel} type="button" onClick={onClick}>
-    <span>
-      <CloseIcon role="img" aria-label="close notification" />
-    </span>
-  </button>
-)
-
 const WithTooltip = ({
   tooltipProps,
   children,
@@ -114,7 +97,6 @@ export const GuidanceBlock = ({
   smallScreenTextAlignment = "center",
   actions,
   illustration,
-  persistent,
   secondaryDismiss,
   ...restProps
 }: GuidanceBlockProps): JSX.Element => {
@@ -269,7 +251,6 @@ export const GuidanceBlock = ({
           </Media>
         )}
       </div>
-      {!persistent && <CancelButton onClick={handleDismissBanner} />}
     </div>
   )
 }
