@@ -1,6 +1,6 @@
 import { waitFor } from "@testing-library/dom"
 import { EditorState } from "prosemirror-state"
-import { createRichTextEditor } from "../core/create"
+import { createRichTextEditor } from "../core"
 import { simulateSelectionByText } from "./fixtures/helpers"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { markContainsSelection } from "./markContainsSelection"

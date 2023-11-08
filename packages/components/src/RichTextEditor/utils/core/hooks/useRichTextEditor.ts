@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { EditorState } from "prosemirror-state"
-import { createRichTextEditor } from "../create"
+import { createRichTextEditor } from "../createRichTextEditor"
 import { CommandOrTransaction } from "../types"
 
 type RTEOptions = {

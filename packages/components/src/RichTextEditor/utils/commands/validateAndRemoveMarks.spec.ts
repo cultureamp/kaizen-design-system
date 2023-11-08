@@ -1,5 +1,5 @@
 import { findByText, waitFor } from "@testing-library/dom"
-import { createRichTextEditor } from "../core/create"
+import { createRichTextEditor } from "../core"
 import { testEditorStateWithMarks, testSchema } from "./fixtures/test-state"
 import { validateAndRemoveMarks } from "./validateAndRemoveMarks"
 

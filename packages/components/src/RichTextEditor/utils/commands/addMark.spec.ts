@@ -1,6 +1,6 @@
 import { describe, expect, it, jest } from "@jest/globals"
 import { findByText, waitFor } from "@testing-library/dom"
-import { createRichTextEditor } from "../core/create"
+import { createRichTextEditor } from "../core"
 import { addMark } from "./addMark"
 import {
   mockRangeForBoundingRect,

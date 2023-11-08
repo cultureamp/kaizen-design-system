@@ -1,4 +1,4 @@
-export * from "./create"
+export * from "./createRichTextEditor"
 export * from "./hooks/useRichTextEditor"
 export * from "./state"
 export * from "./types"

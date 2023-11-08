@@ -1,6 +1,6 @@
 import { findByText, queryByText, getByText } from "@testing-library/dom"
 import { Command, EditorState } from "prosemirror-state"
-import { createRichTextEditor } from "./create"
+import { createRichTextEditor } from "./createRichTextEditor"
 import { testEditorState } from "./fixtures/testState"
 
 describe("createRichTextEditor()", () => {
