@@ -33,7 +33,14 @@ All Icon components can be meaningful or presentational icons.
 
 ## Applying Colour
 
-Icon's inherit the text colour of the parent element, so updating its colour is as simple as adding a wrapper with a new text colour.
+Icon's inherit the text colour through `currentColor`.
+
+There are two ways you can apply the colour:
+1. Add a `classNameOverride` to the icon element
+  ```jsx
+    <AddIcon classNameOverride="text-blue-500" />
+  ```
+2. Change the text colour of the wrapping element
 
 <Canvas of={IconStories.ApplyColour} sourceState="shown" />
 
