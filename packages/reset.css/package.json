@@ -1,0 +1,21 @@
+{
+  "name": "@kaizen/reset.css",
+  "version": "0.0.0",
+  "description": "Kaizen CSS reset",
+  "author": "Jake Pitman <jake.pitman@cultureamp.com>",
+  "homepage": "https://cultureamp.design",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-discourse/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/reset.css"
+  },
+  "files": [
+    "reset.css"
+  ],
+  "private": false,
+  "main": "reset.css"
+}

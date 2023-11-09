@@ -3,15 +3,19 @@ import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
-import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "bg-"
-const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
+const prefix = "m-"
+const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
+  Object.entries(kaizenTailwindTheme?.spacing || []).map(
+    ([suffix, cssProperty]) => ({
+      utilityClassName: `${prefix}${suffix}`,
+      cssProperty,
+    })
+  )
 
 export default {
-  title:
-    "Systems/Tailwind/Utility Class References/Backgrounds/Background Color",
+  title: "Systems/Tailwind/Utility Class References/Spacing/Margin",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
@@ -24,20 +28,21 @@ export default {
   },
 } satisfies Meta
 
-export const BackgroundColor: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const Margin: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="background-color"
+    compiledCssPropertyName="margin"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div
-        className={classnames(
-          "w-[100px] h-[100px] border-solid",
-          "rounded-default",
-          utilityClass
-        )}
-      />
+      <div className="w-min border rounded">
+        <p
+          className={classnames(
+            "p-4 border border-dashed w-min rounded bg-blue-100",
+            utilityClass
+          )}
+        >
+          Margin
+        </p>
+      </div>
     )}
     isReversed={isReversed}
   />
