@@ -9,8 +9,6 @@ on:
       - opened
       - synchronize
       - ready_for_review
-    branches-ignore: # on following branches we don't want to run chromatic automatically, but only on manual check
-      - "renovate/**"
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
