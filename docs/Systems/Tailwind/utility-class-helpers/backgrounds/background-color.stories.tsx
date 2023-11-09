@@ -11,7 +11,7 @@ const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
 
 export default {
   title:
-    "Systems/Tailwind/Utility Class References/Backgrounds/Background Color",
+    "Systems/Tailwind Preset/Utility Class References/Backgrounds/Background Color",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },

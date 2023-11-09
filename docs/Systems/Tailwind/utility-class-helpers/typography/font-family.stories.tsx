@@ -14,7 +14,8 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Typography/Font Family",
+  title:
+    "Systems/Tailwind Preset/Utility Class References/Typography/Font Family",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },

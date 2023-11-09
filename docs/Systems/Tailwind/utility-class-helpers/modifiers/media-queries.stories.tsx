@@ -3,7 +3,8 @@ import { Meta, StoryFn } from "@storybook/react"
 import { Heading, Paragraph } from "@kaizen/typography"
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Modifiers/Media Queries",
+  title:
+    "Systems/Tailwind Preset/Utility Class References/Modifiers/Media Queries",
   parameters: {
     docsLayout: "fullPage",
     docs: {

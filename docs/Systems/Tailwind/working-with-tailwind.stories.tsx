@@ -11,7 +11,7 @@ import { Heading } from "@kaizen/typography"
 import { CardContent } from "./components/CardContent"
 
 export default {
-  title: "Systems/Tailwind/Working with Tailwind",
+  title: "Systems/Tailwind Preset/Working with Tailwind",
 }
 
 export const TailwindExampleSpacingAndLayouts: StoryFn = () => (

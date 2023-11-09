@@ -15,7 +15,8 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Borders/Border Radius",
+  title:
+    "Systems/Tailwind Preset/Utility Class References/Borders/Border Radius",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },

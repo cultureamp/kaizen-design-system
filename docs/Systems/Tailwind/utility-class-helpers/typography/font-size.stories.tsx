@@ -13,7 +13,8 @@ const classEntries = Object.entries(kaizenTailwindTheme?.fontSize || []).map(
 )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Typography/Font Size",
+  title:
+    "Systems/Tailwind Preset/Utility Class References/Typography/Font Size",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },

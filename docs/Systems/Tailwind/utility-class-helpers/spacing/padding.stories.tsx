@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Systems/Tailwind/Utility Class References/Spacing/Padding",
+  title: "Systems/Tailwind Preset/Utility Class References/Spacing/Padding",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },

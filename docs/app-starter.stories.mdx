@@ -53,15 +53,15 @@ The order of these CSS stylesheets is **very important**:
 
 No matter how you choose to import the following, this order must be upheld.
 
-**We recommend you use your `tailwind.css` file to ensure this order (JS files will order them differently)**
+**We recommend you use your `tailwind.css` file to ensure this order (JS files might order them differently)**
 
 ### Reset
 
-Kaizen's CSS reset aims to add any global default styles such as typography or base styles which enable Tailwind utilities (you can think of this as Kaizen's own Preflight).
+Kaizen's CSS reset aims to add any global default styles such as typography or base styles which enable Tailwind utilities.
 
 Note: this is different from a Normalize which aims to create uniformity in basic elements across the multiple browsers. (eg. Corrects bugs and common browser inconsistencies).
 
-You can either import this via JS or CSS, just make sure it is placed _after normalize_ but _before_ any custom CSS:
+You can import these into any global css file you'd like, just make sure it is placed _after normalize_ but _before_ any custom CSS:
 
 ```css
 @import "normalize.css";
@@ -82,10 +82,9 @@ Note: If for whatever reason you aren't adding Tailwind to your project, you can
 
 ### Final CSS
 
-Your final CSS should look something like this:
+Your final CSS should look something like this if you're in a tailwind project:
 
 ```css
-// tailwind.css
 @import "normalize.css";
 @import "@kaizen/reset.css";
 @import "@kaizen/components/dist/styles.css";
