@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "updatePinnedDependencies": false,
-   "draftPR": true,
+  "draftPR": true,
   "ignoreDeps": [
     // We can't always stick to latest due to infra and compatibility with other plugins
     "node",
