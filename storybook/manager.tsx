@@ -3,7 +3,7 @@
 import React from "react"
 import { addons } from "@storybook/addons"
 import { API_SidebarOptions as SidebarOptions } from "@storybook/types"
-import { tokens } from "../packages/design-tokens/src/js"
+import { tokens } from "@kaizen/design-tokens/js"
 import KaizenTheme from "./theme"
 
 const CATEGORIES_ICON: Record<string, string> = {
