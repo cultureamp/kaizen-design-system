@@ -1,0 +1,31 @@
+{
+  "name": "@kaizen/foundation-styles",
+  "version": "0.0.0",
+  "description": "Kaizen CSS foundational styles",
+  "author": "Geoffrey Chong<goeff.chong@cultureamp.com>",
+  "homepage": "https://cultureamp.design",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-discourse/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/global.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "main": "dist/global.css",
+  "scripts": {
+    "build": "postcss src/global.css --output dist/global.css"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0"
+  },
+  "dependencies": {
+    "@kaizen/design-tokens": "^10.3.15"
+  }
+}

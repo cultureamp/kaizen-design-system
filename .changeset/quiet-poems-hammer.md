@@ -1,9 +1,10 @@
 ---
-"@kaizen/reset.css": major
+"@kaizen/foundation-styles": major
 ---
 
-Initialising this package with a reset to the border properties to support Tailwind's border default settings.
+Initialising this package to combine the CSS for:
 
-- Allows for simpler use of border util classes, ie: border-l
-- This will also remove all non-explicit borders, ie: inheritance from native browser styles
-- Check your chromatic snapshots and add sensible defaults where required
+- Reset: initially to provide the border properties that support Tailwind's border default settings.
+- Fonts: with font-face definitions for Inter, Tiempos and IBM Mono
+- Normalize: A standard Normalize already present across CultureAmp
+- Layers: A set of CSS layers to help control the specificity of these 3 CSS stylesheets and our component's CSS.

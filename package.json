@@ -40,7 +40,7 @@
   "dependencies": {
     "@kaizen/design-tokens": "*",
     "@kaizen/hosted-assets": "*",
-    "@kaizen/reset.css": "*",
+    "@kaizen/foundation-styles": "*",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.5.2",
     "@storybook/api": "^7.5.2",
