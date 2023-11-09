@@ -34,11 +34,14 @@ and an editable state.
 const [editMode, setEditMode] = useState<boolean>(false);
 const [rteData, setRTEData] = useState<EditorContentArray>([]);
 
+const handleOnChange: RichTextEditorProps["onChange"] = editorState =>
+  setRTEData(editorState.toJSON().doc.content)
+
 if (editMode) {
   return (
     <>
-      <RichTextEditor defaultValue={rteData} />
-      <Button label="Save" primary onClick={handleCancel} />
+      <RichTextEditor defaultValue={rteData} onChange={handleOnChange} />
+      <Button label="Save" primary onClick={() => setEditMode(false)} />
     </>
   )
 }

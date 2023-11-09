@@ -4,7 +4,7 @@ import { EditorContentArray } from "../../index"
 import { RichTextEditor, RichTextEditorProps } from "../index"
 
 const meta = {
-  title: "Components/RichTextEditor",
+  title: "Components/RichTextEditor/RichTextEditor",
   component: RichTextEditor,
   parameters: {
     chromatic: { disable: false },
@@ -28,9 +28,8 @@ type Story = StoryObj<typeof meta>
 export const Playground: Story = {
   render: args => {
     const [rteData, setRTEData] = useState<EditorContentArray>([])
-    const handleOnChange: RichTextEditorProps["onChange"] = (
-      editorState
-    ): void => setRTEData(editorState.toJSON().doc.content)
+    const handleOnChange: RichTextEditorProps["onChange"] = editorState =>
+      setRTEData(editorState.toJSON().doc.content)
 
     return (
       <RichTextEditor
@@ -41,14 +40,14 @@ export const Playground: Story = {
     )
   },
   parameters: {
+    chromatic: { disable: true },
     docs: {
       source: {
         code: `
 const MyEditor = () => {
   const [rteData, setRTEData] = useState<EditorContentArray>([])
-  const handleOnChange: RichTextEditorProps["onChange"] = (
-    editorState
-  ): void => setRTEData(editorState.toJSON().doc.content)
+  const handleOnChange: RichTextEditorProps["onChange"] = editorState =>
+    setRTEData(editorState.toJSON().doc.content)
 
   return (
     <RichTextEditor
