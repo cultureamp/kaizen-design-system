@@ -1,7 +1,7 @@
-import React, { HTMLAttributes, useRef, useId, ReactNode } from "react"
+import React, { HTMLAttributes, useRef, useId } from "react"
 import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
-import { FieldMessage } from "~components/FieldMessage"
+import { FieldMessage, FieldMessageProps } from "~components/FieldMessage"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
@@ -20,7 +20,7 @@ export type MultiSelectProps = {
   /**
    * A description that provides context for the field
    */
-  description?: ReactNode
+  description?: FieldMessageProps["message"]
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
