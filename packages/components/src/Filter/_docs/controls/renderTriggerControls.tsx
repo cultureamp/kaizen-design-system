@@ -4,7 +4,7 @@ import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
-} from "~components/FilterButton"
+} from "~components/Filter/FilterButton"
 
 /*
  * This helper is for consumers of Filter, not for Filter itself

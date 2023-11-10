@@ -1,0 +1,84 @@
+import { Meta } from "@storybook/blocks"
+import { InlineNotification } from "@kaizen/notification"
+import { LinkTo } from "~storybook/components/LinkTo"
+
+<Meta title="Guides/App starter" />
+
+# App starter
+
+This guide is all about how to introduce the Kaizen Design System to your app.
+
+Whilst the Kaizen Design System mainly focuses on the more atomic components in your app, some of the components have a high level of complexity requiring various global components to be present in order for them to function.
+
+<InlineNotification persistent type="informative">You won't need to apply this if you started your app with the <a href="https://github.com/cultureamp/frontend-template" target="_blank" rel="noreferrer">Frontend template</a> or are using <a href="https://github.com/cultureamp/frontend-services/tree/main/packages/next-services">next-services</a>.</InlineNotification>
+
+## 1. Add the KaizenProvider
+
+The <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> feeds your entire app with Kaizen defaults so it's important that it goes at the very root of your application.
+```tsx
+import { KaizenProvider } from "@kaizen/components";
+<KaizenProvider>
+  <App />
+</KaizenProvider>
+```
+Be sure to read the <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> documentation for migration tips and in case your app requires any further config, but generally this should be it!
+
+## 2. Add unified-home's @culturamp/i18n-react-intl webpack plugin to your webpack config
+
+This plugin is necessary for KaizenProvider to run properly, and for ensuring that Kaizen's internal translated message strings are
+available to the Kaizen components that consume them.
+
+For installation instructions, see their docs [here](https://github.com/cultureamp/unified-home/tree/master/packages/i18n-react-intl#integrating-with-webpack).
+
+## 3. Setup Tailwind CSS
+
+It is recommended that you use Tailwind for any custom CSS you may need to write outside of using Kaizen components.
+
+For full installation instructions, see the <LinkTo pageId="systems-tailwind-getting-started">Tailwind Getting Started</LinkTo> page.
+
+Whether or not you are already familiar with Tailwind, you'll want to take a look at our <LinkTo pageId="systems-tailwind-utility-class-references-overview">Utility Class References</LinkTo>, as we have made distinct modifications to vanilla Tailwind to suit our design system.
+
+## 3. Add Kaizen's global CSS stylesheets
+
+There are 2 CSS stylesheets to import:
+- reset: which handles any global styles that need to be applied
+- components: which has all the styles for Kaizen's component library
+
+### Important to note
+The order of these CSS stylesheets is **very important**:
+1. Normalize
+2. Kaizen Reset
+3. Kaizen Components
+4. Tailwind (ie. your product CSS)
+
+No matter how you choose to import the following, this order must be upheld.
+
+### Reset
+
+Kaizen's CSS reset aims to add any global default styles such as typography or base styles which enable Tailwind utilities (you can think of this as Kaizen's own Preflight).
+
+Note: this is different from a Normalize which aims to create uniformity in basic elements across the multiple browsers. (eg. Corrects bugs and common browser inconsistencies).
+
+You can either import this via JS or CSS, just make sure it is placed _after normalize_ but _before_ any custom CSS:
+```js
+import "normalize.css"
+import "@kaizen/reset.css" // <- Right here!
+import "../src/tailwind.css"
+```
+
+You can also import this into your CSS files if your project perfers, however you must preserve the above order.
+
+### Components
+
+For the convenience of your app, we've compiled all the necessary styles for our components into a single stylesheet to make it easy to set and forget.
+
+We've especially accounted for using Tailwind's de-duping process for any Tailwind within our components:
+```css
+// tailwind.css
+@import "@kaizen/components/dist/styles.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Note: If for whatever reason you aren't adding Tailwind to your project, you can do this step in any global css file. Just ensure it's the only one, imported at the root of your app, after resets/normalises.
