@@ -25,6 +25,8 @@ const meta = {
   },
   args: {
     label: "Breakfast order",
+    description:
+      "Breakfast will be delivered to your house as soon as possible",
     selectedValues: new Set(),
     isOpen: false,
     items: [

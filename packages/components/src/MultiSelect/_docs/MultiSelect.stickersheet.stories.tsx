@@ -64,6 +64,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <MultiSelect
               id="id--multi-select-options--closed"
               label="Label"
+              description="A short description"
               isOpen={isOpenClosed}
               onOpenChange={setIsOpenClosed}
               onSelectedValuesChange={setSelectedValuesClosed}
@@ -73,6 +74,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <MultiSelect
               id="id--multi-select-options--open"
               label="Label"
+              description="A short description"
               isOpen={isOpenOpen}
               onOpenChange={setIsOpenOpen}
               onSelectedValuesChange={setSelectedValuesOpen}
@@ -82,6 +84,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <MultiSelect
               id="id--multi-select-options--no-items"
               label="Label"
+              description="A short description"
               isOpen={isOpenNoItems}
               onOpenChange={setIsOpenNoItems}
               selectedValues={selectedValuesNoItems}

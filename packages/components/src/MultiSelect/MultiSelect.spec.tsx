@@ -30,6 +30,7 @@ const MultiSelectWrapper = ({
     <MultiSelect
       items={defaultOptions}
       label="Jalapeno"
+      description="A short description"
       {...otherProps}
       isOpen={isOpen}
       onOpenChange={setIsOpen}
@@ -42,6 +43,20 @@ const MultiSelectWrapper = ({
 const user = userEvent.setup()
 
 describe("<MultiSelect />", () => {
+  describe("accessible name and description", () => {
+    it("has an accessible name and description when provided a description", async () => {
+      const { getByRole } = render(
+        <MultiSelectWrapper id="jalapeno" description="A short description" />
+      )
+      const toggleButton = getByRole("button", {
+        name: "Jalapeno",
+        description: "A short description",
+      })
+
+      expect(toggleButton).toBeInTheDocument()
+    })
+  })
+
   describe("id", () => {
     it("uses the consumer-provided id", async () => {
       const { getByTestId, getByRole } = render(
