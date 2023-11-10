@@ -1,0 +1,45 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as BrandMomentCaptureIntroStories from "./BrandMomentCaptureIntro.stories"
+
+<Meta of={BrandMomentCaptureIntroStories} />
+
+# BrandMomentCaptureIntro
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/BrandMomentCaptureIntro"
+  figma="https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=50195%3A251126&mode=design&t=AWARn1Fp8ago39Br-1"
+  designGuidelines="https://cultureamp.atlassian.net/l/cp/58wsFtBe"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { BrandMomentCaptureIntro } from "@kaizen/components"'
+/>
+
+## Overview
+
+Functionally similar to an animation Scene illustration but has 3 different states based on the properties passed in:
+- An initial animation that is only ever played once, never looping.
+- An ambient animation that can be looped.
+- A static image that is not animated.
+
+<Canvas of={BrandMomentCaptureIntroStories.Playground} />
+<Controls of={BrandMomentCaptureIntroStories.Playground} />
+
+## API
+
+### Single animation
+Will trigger the animate once.
+<Canvas of={BrandMomentCaptureIntroStories.Animated} />
+
+### Looped animation
+Will render the a looped animation. Should be used with `isAnimated` to render the "initial" intro animation.
+<Canvas of={BrandMomentCaptureIntroStories.Looped} />
+
+### Autoplay disabled
+If false will render the animation paused. This can be re-enabled clicking the pause sign on hover.
+<Canvas of={BrandMomentCaptureIntroStories.Autoplay} />
