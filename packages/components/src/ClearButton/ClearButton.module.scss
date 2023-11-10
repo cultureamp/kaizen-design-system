@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../styles/button-reset";
+@import "../../styles/utils/button-reset";
 
 .clearButton {
   @include button-reset;

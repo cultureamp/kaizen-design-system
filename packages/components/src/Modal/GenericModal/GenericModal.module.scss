@@ -2,11 +2,11 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../../../styles/legacy/layout";
-@import "../../../styles/responsive";
-@import "../../../styles/layers";
-@import "../../../styles/border";
-@import "../../../styles/animation";
+@import "../../../styles/utils/legacy/layout";
+@import "../../../styles/utils/responsive";
+@import "../../../styles/utils/layers";
+@import "../../../styles/utils/border";
+@import "../../../styles/utils/animation";
 
 .defaultModalWidth {
   min-width: 300px;

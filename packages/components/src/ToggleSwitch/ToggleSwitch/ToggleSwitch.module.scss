@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/animation";
-@import "../../../styles/forms";
+@import "../../../styles/utils/forms";
 
 $animation-timing: $animation-duration-immediate
   $animation-easing-function-linear;

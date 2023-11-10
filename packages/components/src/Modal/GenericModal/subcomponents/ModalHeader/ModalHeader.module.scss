@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../../../../../styles/legacy/layout";
-@import "../../../../../styles/layers";
+@import "../../../../../styles/utils/legacy/layout";
+@import "../../../../../styles/utils/layers";
 
 .dismissButton {
   @include ca-position($end: 0, $top: 0);
