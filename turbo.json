@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "storybook:build": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build", "@kaizen/foundation-styles#build"]
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"]
     },
     "build": {
       "dependsOn": ["^build"],
@@ -22,7 +22,7 @@
       "cache": false
     },
     "@kaizen/components#build": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build", "@kaizen/foundation-styles#build"],
+      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },

@@ -1,6 +1,0 @@
-@layer tokens, normalize, reset, atoms, molecules;
-
-@import "@kaizen/design-tokens/css/variables.css" layer(tokens);
-@import "./_normalize.css" layer(normalize);
-@import "./_fonts.css" layer(reset);
-@import "./_reset.css" layer(reset);
