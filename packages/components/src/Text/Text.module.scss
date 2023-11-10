@@ -1,13 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 
-@layer reset {
-  .text {
-    margin: 0;
+.text {
+  margin: 0;
 
-    strong {
-      font-weight: $typography-paragraph-bold-font-weight;
-    }
+  strong {
+    font-weight: $typography-paragraph-bold-font-weight;
   }
 }
 
