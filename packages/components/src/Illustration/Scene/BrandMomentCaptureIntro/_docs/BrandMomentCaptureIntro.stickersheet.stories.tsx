@@ -7,7 +7,7 @@ import {
 import { BrandMomentCaptureIntro } from "../index"
 
 export default {
-  title: "Components/Illustrations/BrandMomentCaptureIntro",
+  title: "Components/Illustrations/Scene/BrandMomentCaptureIntro",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
@@ -21,6 +21,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         <StickerSheet.Row>
           <BrandMomentCaptureIntro />
+          <BrandMomentCaptureIntro isAnimated autoplay={false} />
         </StickerSheet.Row>
       </StickerSheet.Body>
     </StickerSheet>
