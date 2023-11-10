@@ -3,12 +3,12 @@ import { Meta, StoryObj } from "@storybook/react"
 import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
-import { renderTriggerControls } from "~components/Filter/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/Filter/FilterButton"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   DateValidationResponse,
   FilterDatePicker,

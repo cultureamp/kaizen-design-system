@@ -4,13 +4,13 @@ import Highlight from "react-highlight"
 import { Paragraph } from "@kaizen/typography"
 import { DateRange } from "~components/Calendar"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
-import { renderTriggerControls } from "~components/Filter/Filter/_docs/controls/renderTriggerControls"
 import {
   FilterButton,
   FilterButtonProps,
   FilterButtonRemovable,
 } from "~components/Filter/FilterButton"
 import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
+import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import {
   DateRangeFieldValidationMessage,
   FilterDateRangePicker,
