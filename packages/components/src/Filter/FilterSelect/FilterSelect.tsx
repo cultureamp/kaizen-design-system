@@ -5,6 +5,7 @@ import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
+import { Filter, FilterContents } from "~components/Filter"
 import { FilterButtonProps } from "~components/Filter/FilterButton"
 import { SelectProvider } from "~components/__future__/Select/context"
 import {
@@ -18,7 +19,6 @@ import {
 import { getDisabledKeysFromItems } from "~components/__future__/Select/utils/getDisabledKeysFromItems"
 import { transformSelectItemToCollectionElement } from "~components/__future__/Select/utils/transformSelectItemToCollectionElement"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { Filter, FilterContents } from "../Filter"
 import { SelectItem, SelectOption } from "./types"
 import styles from "./FilterSelect.module.scss"
 
