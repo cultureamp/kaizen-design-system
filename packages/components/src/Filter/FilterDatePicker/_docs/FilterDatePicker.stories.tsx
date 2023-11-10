@@ -8,6 +8,7 @@ import {
   FilterButtonRemovable,
 } from "~components/Filter/FilterButton"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
+import { Text } from "~components/Text"
 import {
   DateValidationResponse,
   FilterDatePicker,
