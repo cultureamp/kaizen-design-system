@@ -25,19 +25,19 @@
     "styles.css"
   ],
   "scripts": {
-    "prepublishOnly": "yarn build:components && yarn postBuild && yarn dist:clean",
+    "prepublishOnly": "yarn build:components && yarn build:styles && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublishOnly",
     "test": "jest",
     "test:ci": "yarn test --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist node_modules",
     "build:components": "rollup -c",
+    "build:styles": "postcss styles/global.css --output dist/global.css",
     "compile": "tsc",
-    "dist:clean": "rm ./dist/tailwind.css ./dist/raw-styles.css",
+    "dist:clean": "rm ./dist/global.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/*.css ./dist/esm/*.css -o ./dist/raw-styles.css",
-    "dist:copy-tailwind-css": "cp styles/tailwind.css dist/tailwind.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
-    "postBuild": "yarn dist:copy-tailwind-css && yarn dist:combine-styles && yarn dist:postcss",
+    "postBuild": "yarn dist:combine-styles && yarn dist:postcss",
     "update-icons": "./src/Icon/bin/update-icons.sh"
   },
   "dependencies": {
