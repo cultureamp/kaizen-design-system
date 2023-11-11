@@ -96,7 +96,7 @@
     "@types/classnames": "^2.3.1",
     "@types/color-string": "^1.5.4",
     "@types/jest": "^29.5.8",
-    "@types/jest-axe": "^3.5.7",
+    "@types/jest-axe": "^3.5.8",
     "@types/node": "^20.8.8",
     "@types/postcss-flexbugs-fixes": "^5.0.2",
     "@types/postcss-import": "^14.0.2",
