@@ -5475,10 +5475,10 @@
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash.flatmap@^4.5.8":
-  version "4.5.8"
-  resolved "https://registry.yarnpkg.com/@types/lodash.flatmap/-/lodash.flatmap-4.5.8.tgz#b36dba0ea56b36cae808448d605e5c341b385672"
-  integrity sha512-P9lunRwFzv1CXSIo8RAl570GuIcfbyB2R7iJrHUBBfUUM1GfnRCc1ud4FRyEKaD1z1ywFaoaVAXUIHjtmk+ugA==
+"@types/lodash.flatmap@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@types/lodash.flatmap/-/lodash.flatmap-4.5.9.tgz#85e5e9074b85fe541dd937f16dd851a80be8c1fd"
+  integrity sha512-rACVyVCkf+YRthjL7wKb2e96nnZw+bRIEo2nl2ewP0GZLOuRP9QcB7FnyOj7aXI5Vrs6qONnc1lg66FdHVqCmQ==
   dependencies:
     "@types/lodash" "*"
 
