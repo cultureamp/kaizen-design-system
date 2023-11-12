@@ -3462,6 +3462,14 @@
     "@react-types/shared" "^3.21.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/collections@^3.10.3":
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.10.3.tgz#c80bd30df3bf5d2a9c6fdf25f6313c5187d0154d"
+  integrity sha512-fA28HIApAIz9sNGeOVXZJPgV5Kig6M72KI1t9sUbnRUr9Xq9OMJTR6ElDMXNe0iTeZffRFDOPYyqnX9zkxof6Q==
+  dependencies:
+    "@react-types/shared" "^3.22.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/datepicker@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.8.0.tgz#f87eefb4c5dec937b9d5eb101dd4407457ecd0e7"
@@ -3638,6 +3646,11 @@
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.21.0.tgz#1af41fdf7dfbdbd33bbc1210617c43ed0d4ef20c"
   integrity sha512-wJA2cUF8dP4LkuNUt9Vh2kkfiQb2NLnV2pPXxVnKJZ7d4x2/7VPccN+LYPnH8m0X3+rt50cxWuPKQmjxSsCFOg==
+
+"@react-types/shared@^3.22.0":
+  version "3.22.0"
+  resolved "https://registry.yarnpkg.com/@react-types/shared/-/shared-3.22.0.tgz#70f85aad46cd225f7fcb29f1c2b5213163605074"
+  integrity sha512-yVOekZWbtSmmiThGEIARbBpnmUIuePFlLyctjvCbgJgGhz8JnEJOipLQ/a4anaWfzAgzSceQP8j/K+VOOePleA==
 
 "@readme/better-ajv-errors@^1.6.0":
   version "1.6.0"
