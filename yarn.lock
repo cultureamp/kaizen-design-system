@@ -15764,10 +15764,10 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-react-animate-height@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.2.2.tgz#ae15d3ef6396f45140c60af4081d43d7dd093cda"
-  integrity sha512-uUOS+RhYVgyJEWcuAJgelVwhcJ2chsMk7HZCpu+wtjSlFAGSFsHU0r4lMTt47HQ1RdQfI5MmFRt43yHTP9lfmQ==
+react-animate-height@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.2.3.tgz#90929aadac1bd1851cb6a685acc105b50ccfda8c"
+  integrity sha512-R6DSvr7ud07oeCixScyvXWEMJY/Mt2+GyOWC1KMaRc69gOBw+SsCg4TJmrp4rKUM1hyd6p+YKw90brjPH93Y2A==
 
 react-clientside-effect@^1.2.6:
   version "1.2.6"
