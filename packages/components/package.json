@@ -123,7 +123,7 @@
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
     "query-string": "^8.1.0",
-    "react-intl": "^6.5.1",
+    "react-intl": "^6.5.4",
     "rollup": "^4.3.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-ignore": "^1.0.10",
@@ -139,6 +139,6 @@
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.1.1",
     "react": "^18.2.0",
-    "react-intl": "^6.5.1"
+    "react-intl": "^6.5.4"
   }
 }
