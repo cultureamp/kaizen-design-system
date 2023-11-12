@@ -41,7 +41,7 @@
     "update-icons": "./src/Icon/bin/update-icons.sh"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.0.2",
+    "@floating-ui/react-dom": "^2.0.4",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.0",
     "@kaizen/brand": "^1.5.8",
