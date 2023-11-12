@@ -5561,10 +5561,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-highlight@^0.12.7":
-  version "0.12.7"
-  resolved "https://registry.yarnpkg.com/@types/react-highlight/-/react-highlight-0.12.7.tgz#0504ed5d452cdba00b55b5a9538417a731ed0a8a"
-  integrity sha512-szwwyD8LpTtsk4/NjHwyTofYDoazo3rmGOMkgDYy/V3zD4VNh6yS8tk70Qvj5czdBCnOV/AtaLf4VxBfaelwEQ==
+"@types/react-highlight@^0.12.8":
+  version "0.12.8"
+  resolved "https://registry.yarnpkg.com/@types/react-highlight/-/react-highlight-0.12.8.tgz#46476e6ae60f21a60f5b1fd1954944c63f4b23d9"
+  integrity sha512-V7O7zwXUw8WSPd//YUO8sz489J/EeobJljASGhP0rClrvq+1Y1qWEpToGu+Pp7YuChxhAXSgkLkrOYpZX5A62g==
   dependencies:
     "@types/react" "*"
 
