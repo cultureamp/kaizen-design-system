@@ -116,7 +116,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/lodash.debounce": "^4.0.8",
-    "@types/react-dom": "^18.2.14",
+    "@types/react-dom": "^18.2.15",
     "@types/react-textfit": "^1.1.2",
     "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.16",
