@@ -18,6 +18,20 @@
     "icons",
     "locales"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs"
+    },
+    "./future": {
+      "import": "./dist/esm/future.mjs",
+      "require": "./build/cjs/future.cjs"
+    },
+    "./styles.css": {
+      "import": "./dist/styles.css",
+      "require": "./dist/styles.css"
+    }
+  },
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/index.d.ts",
@@ -98,6 +112,7 @@
     "@babel/plugin-transform-react-pure-annotations": "^7.22.5",
     "@cultureamp/frontend-apis": "^8.2.0",
     "@cultureamp/i18n-react-intl": "^2.1.1",
+    "@kaizen/design-tokens": "^10.3.15",
     "@kaizen/tailwind": "^1.1.1",
     "@rollup/plugin-alias": "^5.0.1",
     "@rollup/plugin-babel": "^6.0.4",
