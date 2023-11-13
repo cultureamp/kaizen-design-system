@@ -43,7 +43,7 @@ const user = userEvent.setup()
 
 describe("<MultiSelect />", () => {
   describe("accessible name and description", () => {
-    it("has an accessible name and description when provided a description", async () => {
+    it("has an accessible name and description when provided a description", () => {
       const { getByRole } = render(
         <MultiSelectWrapper description="A short description" />
       )
