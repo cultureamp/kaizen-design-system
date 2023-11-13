@@ -38,6 +38,7 @@
     "update-icons": "yarn pkg:aio update-icons"
   },
   "dependencies": {
+    "@kaizen/design-tokens": "*",
     "@kaizen/hosted-assets": "*",
     "@kaizen/tailwind": "*",
     "@storybook/addons": "^7.5.3",
