@@ -1,6 +1,8 @@
 import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
+// import { ClearButton } from "~components/ClearButton"
+import { FieldMessageProps } from "~components/FieldMessage"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { RemovableTag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -13,6 +15,7 @@ export type MultiSelectToggleProps = {
   ["aria-controls"]: string
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
+  status?: FieldMessageProps["status"]
   onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
   onRemoveAllOptions: () => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
@@ -32,6 +35,7 @@ export const MultiSelectToggle = forwardRef<
       selectedOptions,
       onRemoveOption,
       onRemoveAllOptions,
+      status,
       ...restProps
     },
     ref
@@ -43,7 +47,9 @@ export const MultiSelectToggle = forwardRef<
        */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={classnames(styles.multiSelectToggle, classNameOverride)}
+        className={classnames(styles.multiSelectToggle, classNameOverride, [
+          status && styles[status],
+        ])}
         onClick={onClick}
         {...restProps}
       >
