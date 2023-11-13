@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Key } from "@react-types/shared"
 import { render, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import {
@@ -142,7 +143,7 @@ describe("<FilterBarSelect />", () => {
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn<void, [React.Key]>()
+    const onChange = jest.fn<void, [Key]>()
     const { getByRole } = render(
       <FilterBarSelectWrapper onSelectionChange={onChange} />
     )
