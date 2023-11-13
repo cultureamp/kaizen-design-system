@@ -6,6 +6,7 @@ import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
+import { Key } from "@react-types/shared"
 import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
 import {
@@ -65,7 +66,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
   /**
    * @deprecated: Either define `disabled` in your `Option` (in `items`), or use `disabledKeys`
    */
-  disabledValues?: React.Key[]
+  disabledValues?: Key[]
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
