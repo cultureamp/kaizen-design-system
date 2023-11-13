@@ -1,10 +1,8 @@
-import { Node } from "@react-types/shared"
-
-export type ValueType = React.Key
+import { Key, Node } from "@react-types/shared"
 
 export type ItemType = {
   label: string
-  value: ValueType
+  value: Key
   count?: string
   isDisabled?: boolean
 }
