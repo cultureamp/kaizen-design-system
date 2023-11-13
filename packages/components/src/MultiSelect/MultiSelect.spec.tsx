@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MultiSelect, MultiSelectProps } from "./MultiSelect"
 
@@ -330,4 +330,20 @@ describe("Removing all options", () => {
       expect(waffleOption).not.toBeInTheDocument()
     })
   })
+})
+
+describe("Has validation status", () => {
+  it("has a validation message with an accessible name", () => {
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        status="error"
+        validationMessage="No waffles are available"
+      />
+    )
+    expect(screen.getByText("No waffles are available")).toBeInTheDocument()
+  })
+  // it("describes the input", () => {
+  //   expect(true).toBe(!true)
+  // })
 })

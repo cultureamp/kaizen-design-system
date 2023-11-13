@@ -150,3 +150,11 @@ export const Description: Story = {
     description: "Breakfast will be delivered directly to your house",
   },
 }
+
+export const ValidationMessage: Story = {
+  ...MultiSelectTemplate,
+  args: {
+    status: "error",
+    validationMessage: "Error: There are no more waffles",
+  },
+}

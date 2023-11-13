@@ -24,6 +24,8 @@ export type MultiSelectProps = {
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
+  status?: FieldMessageProps["status"]
+  validationMessage?: FieldMessageProps["message"]
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelect = ({
@@ -36,6 +38,8 @@ export const MultiSelect = ({
   isOpen,
   onOpenChange,
   classNameOverride,
+  status,
+  validationMessage,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
@@ -95,6 +99,7 @@ export const MultiSelect = ({
           selectedOptions={Array.from(selectedValues).map(
             value => itemsMap[value]
           )}
+          status={status}
           onRemoveOption={handleOnRemoveOption}
           onRemoveAllOptions={handleRemoveAllOptions}
         />
@@ -102,6 +107,13 @@ export const MultiSelect = ({
 
       {description && <FieldMessage id={descriptionId} message={description} />}
       {/* ValidationMessage */}
+      {validationMessage && (
+        <FieldMessage
+          id={`${id}--validation-message`}
+          message={validationMessage}
+          status={status}
+        />
+      )}
 
       {isOpen && (
         <Popover

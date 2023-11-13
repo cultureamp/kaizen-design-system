@@ -51,50 +51,92 @@ const StickerSheetTemplate: StickerSheetStory = {
     >(new Set())
 
     return (
-      <StickerSheet
-        heading="MultiSelect"
-        className={classnames("w-full", IS_CHROMATIC && "pb-160")}
-      >
-        <StickerSheet.Header
-          headings={["Closed", "Open", "No items"]}
-          headingsWidth="30%"
-        />
-        <StickerSheet.Body>
-          <StickerSheet.Row>
-            <MultiSelect
-              id="id--multi-select-options--closed"
-              label="Label"
-              description="A short description"
-              isOpen={isOpenClosed}
-              onOpenChange={setIsOpenClosed}
-              onSelectedValuesChange={setSelectedValuesClosed}
-              selectedValues={selectedValuesClosed}
-              items={options}
-            />
-            <MultiSelect
-              id="id--multi-select-options--open"
-              label="Label"
-              description="A short description"
-              isOpen={isOpenOpen}
-              onOpenChange={setIsOpenOpen}
-              onSelectedValuesChange={setSelectedValuesOpen}
-              selectedValues={selectedValuesOpen}
-              items={options}
-            />
-            <MultiSelect
-              id="id--multi-select-options--no-items"
-              label="Label"
-              description="A short description"
-              isOpen={isOpenNoItems}
-              onOpenChange={setIsOpenNoItems}
-              selectedValues={selectedValuesNoItems}
-              onSelectedValuesChange={setSelectedValuesNoItems}
-              items={[]}
-            />
-          </StickerSheet.Row>
-        </StickerSheet.Body>
-      </StickerSheet>
+      <>
+        <StickerSheet
+          heading="MultiSelect"
+          className={classnames("w-full", IS_CHROMATIC && "pb-160")}
+        >
+          <StickerSheet.Header
+            headings={["Closed", "Open", "No items"]}
+            headingsWidth="30%"
+          />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <MultiSelect
+                id="id--multi-select-options--closed"
+                label="Label"
+                description="A short description"
+                isOpen={isOpenClosed}
+                onOpenChange={setIsOpenClosed}
+                onSelectedValuesChange={setSelectedValuesClosed}
+                selectedValues={selectedValuesClosed}
+                items={options}
+              />
+              <MultiSelect
+                id="id--multi-select-options--open"
+                label="Label"
+                description="A short description"
+                isOpen={isOpenOpen}
+                onOpenChange={setIsOpenOpen}
+                onSelectedValuesChange={setSelectedValuesOpen}
+                selectedValues={selectedValuesOpen}
+                items={options}
+              />
+              <MultiSelect
+                id="id--multi-select-options--no-items"
+                label="Label"
+                description="A short description"
+                isOpen={isOpenNoItems}
+                onOpenChange={setIsOpenNoItems}
+                selectedValues={selectedValuesNoItems}
+                onSelectedValuesChange={setSelectedValuesNoItems}
+                items={[]}
+              />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+        <StickerSheet
+          heading="Validation"
+          className={classnames("w-full", IS_CHROMATIC && "pb-160")}
+        >
+          <StickerSheet.Header headings={["Error", "Caution"]} />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <MultiSelect
+                id="id--multi-select-error"
+                label="Label"
+                isOpen={false}
+                onOpenChange={() => undefined}
+                onSelectedValuesChange={() => undefined}
+                selectedValues={selectedValuesOpen}
+                items={options}
+                status="error"
+                validationMessage="Error: there are no waffles left"
+              />
+              <MultiSelect
+                id="id--multi-select-error-hover"
+                label="Label"
+                isOpen={false}
+                onOpenChange={() => undefined}
+                onSelectedValuesChange={() => undefined}
+                selectedValues={selectedValuesNoItems}
+                items={options}
+                status="caution"
+                validationMessage="Caution: there are only four pancakes left"
+              />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+      </>
     )
+  },
+  parameters: {
+    pseudo: {
+      hover: '[data-sb-pseudo-styles="hover"]',
+      active: '[data-sb-pseudo-styles="active"]',
+      focus: '[data-sb-pseudo-styles="focus"]',
+      focusVisible: '[data-sb-pseudo-styles="focus"]',
+    },
   },
 }
 
