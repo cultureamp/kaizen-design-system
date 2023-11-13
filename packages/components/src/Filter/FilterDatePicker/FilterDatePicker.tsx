@@ -1,7 +1,7 @@
 import React from "react"
 import { formatDateAsText } from "~components/Calendar"
 import { getLocale } from "~components/DatePicker/utils/getLocale"
-import { Filter, FilterContents, FilterProps } from "~components/Filter"
+import { Filter, FilterContents, FilterProps } from "../Filter"
 import { FilterButtonProps } from "../FilterButton"
 import {
   FilterDatePickerField,
