@@ -143,3 +143,10 @@ export const OpenState: Story = {
   ...MultiSelectTemplate,
   parameters: { docs: { source: { code: sourceCodeOpenState } } },
 }
+
+export const Description: Story = {
+  ...MultiSelectTemplate,
+  args: {
+    description: "Breakfast will be delivered directly to your house",
+  },
+}

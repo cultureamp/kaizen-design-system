@@ -33,7 +33,7 @@ Provide options in `items` in the `SelectOption` format to populate the options.
 ```ts
 export type SelectOption = {
   label: string
-  value: React.Key
+  value: string | number
   disabled?: boolean
   options?: never
 }

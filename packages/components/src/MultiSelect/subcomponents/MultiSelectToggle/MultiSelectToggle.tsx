@@ -24,6 +24,7 @@ export const MultiSelectToggle = forwardRef<
     {
       onClick,
       "aria-labelledby": ariaLabelledBy,
+      "aria-describedby": ariaDescribedBy,
       "aria-controls": ariaControls,
       isOpen = false,
       classNameOverride,
@@ -48,6 +49,7 @@ export const MultiSelectToggle = forwardRef<
           ref={ref}
           className={styles.toggleButton}
           aria-labelledby={ariaLabelledBy}
+          aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
           aria-expanded={isOpen}
           aria-haspopup="dialog"
