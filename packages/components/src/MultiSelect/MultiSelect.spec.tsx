@@ -46,7 +46,7 @@ describe("<MultiSelect />", () => {
   describe("accessible name and description", () => {
     it("has an accessible name and description when provided a description", async () => {
       const { getByRole } = render(
-        <MultiSelectWrapper id="jalapeno" description="A short description" />
+        <MultiSelectWrapper description="A short description" />
       )
       const toggleButton = getByRole("button", {
         name: "Jalapeno",
