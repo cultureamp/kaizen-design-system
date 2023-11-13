@@ -24,7 +24,9 @@ export type MultiSelectProps = {
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
+  /** A status to convey `error` or `caution` states for the input  */
   status?: FieldMessageProps["status"]
+  /** A message to provide context for the change in `status`, most commonly validation.  */
   validationMessage?: FieldMessageProps["message"]
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
@@ -44,6 +46,7 @@ export const MultiSelect = ({
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
   const descriptionId = `${id}-description`
+  const validationId = `${id}-description`
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
@@ -92,7 +95,7 @@ export const MultiSelect = ({
           ref={toggleButtonRef}
           id={`${id}--toggle`}
           aria-labelledby={`${id}--label`}
-          aria-describedby={descriptionId}
+          aria-describedby={`${descriptionId}, ${validationId}`}
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
@@ -109,7 +112,7 @@ export const MultiSelect = ({
       {/* ValidationMessage */}
       {validationMessage && (
         <FieldMessage
-          id={`${id}--validation-message`}
+          id={validationId}
           message={validationMessage}
           status={status}
         />

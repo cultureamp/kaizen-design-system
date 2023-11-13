@@ -343,7 +343,20 @@ describe("Has validation status", () => {
     )
     expect(screen.getByText("No waffles are available")).toBeInTheDocument()
   })
-  // it("describes the input", () => {
-  //   expect(true).toBe(!true)
-  // })
+  it("describes the toggle", () => {
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        label="Breakfast menu"
+        status="caution"
+        validationMessage="Only four waffles remain"
+      />
+    )
+    expect(
+      screen.getByRole("button", {
+        name: "Breakfast menu",
+        description: "Only four waffles remain",
+      })
+    ).toBeInTheDocument()
+  })
 })
