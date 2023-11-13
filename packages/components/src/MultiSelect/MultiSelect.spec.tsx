@@ -30,7 +30,6 @@ const MultiSelectWrapper = ({
     <MultiSelect
       items={defaultOptions}
       label="Jalapeno"
-      description="A short description"
       {...otherProps}
       isOpen={isOpen}
       onOpenChange={setIsOpen}
