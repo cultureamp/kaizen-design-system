@@ -39,7 +39,7 @@ export const MultiSelect = ({
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
-  const descriptionId = useId()
+  const descriptionId = `${id}-description`
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
