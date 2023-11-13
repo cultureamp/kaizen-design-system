@@ -25,8 +25,6 @@ const meta = {
   },
   args: {
     label: "Breakfast order",
-    description:
-      "Breakfast will be delivered to your house as soon as possible",
     selectedValues: new Set(),
     isOpen: false,
     items: [
@@ -144,4 +142,11 @@ return (
 export const OpenState: Story = {
   ...MultiSelectTemplate,
   parameters: { docs: { source: { code: sourceCodeOpenState } } },
+}
+
+export const Description: Story = {
+  ...MultiSelectTemplate,
+  args: {
+    description: "Breakfast will be delivered directly to your house",
+  },
 }
