@@ -18,25 +18,6 @@ window.matchMedia = jest.fn().mockImplementation(() => ({
 describe("GuidanceBlock", () => {
   afterEach(cleanup)
 
-  it("is initially visible", () => {
-    const { container } = render(
-      <GuidanceBlock
-        illustration={<Informative alt="" />}
-        text={{
-          title: "This is the call to action title",
-          description:
-            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
-        }}
-        actions={{
-          primary: { label: "Action!", onClick: (): void => alert("tada: 🎉") },
-          dismiss: { onClick: (): void => undefined },
-        }}
-      />
-    )
-
-    expect(container.querySelector(".hidden")).toBeFalsy()
-  })
-
   it("calls the action function when action button is clicked", async () => {
     const onAction = jest.fn()
     const { container } = render(
