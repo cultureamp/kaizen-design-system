@@ -11,6 +11,7 @@
 - Remove `@kaizen/draft-card` and its usages
 - Remove `@kaizen/draft-divider` and its usages
 - Remove `@kaizen/draft-form` and its usages
+- Remove `@kaizen/draft-illustration` and its usages
 - Remove `@kaizen/draft-page-layout` and its usages
 - Remove `@kaizen/draft-select` and its usages
 - Remove `@kaizen/draft-tabs` and its usages
