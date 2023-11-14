@@ -47,9 +47,11 @@ export const MultiSelectToggle = forwardRef<
        */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={classnames(styles.multiSelectToggle, classNameOverride, [
-          status && styles[status],
-        ])}
+        className={classnames(
+          styles.multiSelectToggle,
+          classNameOverride,
+          status && styles[status]
+        )}
         onClick={onClick}
         {...restProps}
       >

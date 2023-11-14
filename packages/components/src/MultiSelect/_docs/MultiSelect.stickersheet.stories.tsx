@@ -103,7 +103,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <StickerSheet.Body>
             <StickerSheet.Row>
               <MultiSelect
-                id="id--multi-select-error"
+                id="id--multi-select--error"
                 label="Label"
                 isOpen={false}
                 onOpenChange={() => undefined}
@@ -114,7 +114,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                 validationMessage="Error: there are no waffles left"
               />
               <MultiSelect
-                id="id--multi-select-error-hover"
+                id="id--multi-select--caution"
                 label="Label"
                 isOpen={false}
                 onOpenChange={() => undefined}
@@ -129,14 +129,6 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
       </>
     )
-  },
-  parameters: {
-    pseudo: {
-      hover: '[data-sb-pseudo-styles="hover"]',
-      active: '[data-sb-pseudo-styles="active"]',
-      focus: '[data-sb-pseudo-styles="focus"]',
-      focusVisible: '[data-sb-pseudo-styles="focus"]',
-    },
   },
 }
 

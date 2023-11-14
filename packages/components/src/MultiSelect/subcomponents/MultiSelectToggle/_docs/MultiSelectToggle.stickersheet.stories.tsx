@@ -98,36 +98,13 @@ const StickerSheetTemplate: StickerSheetStory = {
           className="w-full"
         >
           <StickerSheet.Header
-            headings={["default", "Hover", "Focus"]}
-            hasVerticalHeadings
+            headings={["Error", "Caution"]}
             verticalHeadingsWidth="10rem"
           />
           <StickerSheet.Body>
-            <StickerSheet.Row rowTitle="Error">
+            <StickerSheet.Row>
               <MultiSelectToggle status="error" {...defaultProps} />
-              <MultiSelectToggle
-                status="error"
-                {...defaultProps}
-                data-sb-pseudo-styles="hover"
-              />
-              <MultiSelectToggle
-                status="error"
-                {...defaultProps}
-                data-sb-pseudo-styles="focus"
-              />
-            </StickerSheet.Row>
-            <StickerSheet.Row rowTitle="Caution">
               <MultiSelectToggle status="caution" {...defaultProps} />
-              <MultiSelectToggle
-                status="caution"
-                {...defaultProps}
-                data-sb-pseudo-styles="hover--button"
-              />
-              <MultiSelectToggle
-                status="caution"
-                {...defaultProps}
-                data-sb-pseudo-styles="focus--button"
-              />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>

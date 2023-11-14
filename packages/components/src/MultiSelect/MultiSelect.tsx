@@ -50,7 +50,7 @@ export const MultiSelect = ({
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
   const descriptionId = `${id}-description`
-  const validationId = `${id}-validation`
+  const validationId = `${id}-validation-message`
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
@@ -113,7 +113,6 @@ export const MultiSelect = ({
       </div>
 
       {description && <FieldMessage id={descriptionId} message={description} />}
-      {/* ValidationMessage */}
       {validationMessage && (
         <FieldMessage
           id={validationId}
