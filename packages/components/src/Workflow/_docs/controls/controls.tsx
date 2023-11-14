@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "@kaizen/button"
+import { Button } from "~components/Button"
 import { CloseIcon, VisibleIcon } from "~components/Icon"
 
 export const WorkflowControls = {
