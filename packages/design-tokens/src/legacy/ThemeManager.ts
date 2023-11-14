@@ -1,5 +1,5 @@
 import { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsMap"
-import { Theme as BaseTheme } from "./types"
+import { Theme as BaseTheme } from "./legacy/types"
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
  * This class fulfills the idea of theming and runtime theme switching by relying on CSS variables,
@@ -7,7 +7,11 @@ import { Theme as BaseTheme } from "./types"
  *
  * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
  */
-
+/**
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ *
+ * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
+ */
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>
   private theme: Theme

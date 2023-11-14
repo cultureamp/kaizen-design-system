@@ -6,9 +6,8 @@ import { toCustomMediaQueriesArray } from "object-to-css-variables"
 import Highlight from "react-highlight"
 import { Card } from "~components/Card"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
-import { makeCssVariableDefinitionsMap } from "../src"
 import { tokens } from "../src/js"
-import { defaultTheme } from "../src/themes"
+import { makeCssVariableDefinitionsMap } from "../src/lib/makeCssVariableDefinitionsMap"
 import animationSass from "!!raw-loader!../sass/animation.scss"
 import borderSass from "!!raw-loader!../sass/border.scss"
 import colorsSass from "!!raw-loader!../sass/color.scss"
@@ -80,7 +79,7 @@ const themesBlocks: Array<
     name: "CSS Variables",
     language: "css",
     code: toCustomMediaQueriesArray(
-      makeCssVariableDefinitionsMap(defaultTheme)
+      makeCssVariableDefinitionsMap(tokens)
     ).reduce((acc, item) => acc + `${item.key}: ${item.value}; \n`, ""),
     caption: (
       <span>

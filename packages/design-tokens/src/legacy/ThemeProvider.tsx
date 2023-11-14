@@ -7,7 +7,11 @@ export const ThemeContext = React.createContext<Theme>(defaultTheme)
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
  * This allows child react elements to more easily use theme variables, using the {@link useTheme} hook.
  */
-
+/**
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ *
+ * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
+ */
 export const ThemeProvider = ({
   themeManager,
   ...props

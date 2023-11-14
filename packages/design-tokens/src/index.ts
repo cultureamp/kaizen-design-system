@@ -1,44 +1,12 @@
-// These are exposed at the top level because it seems like they are the most useful and relevent to usage of design tokens.
+// These are all deprecated, consumers should not be interacting directly with our
+// design token primitives, rather through our compiled tokens js/scss/less.
+// Remove these on next major
 
-/**
- * @deprecated
- * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- * - If you require direct usage of these tokens in js you can `import { tokens } from "@kaizen/design-tokens/js"`
- */
-export * from "./themes"
+export * from "./legacy/themes"
+export * from "./legacy/types"
+export * from "./legacy/ThemeManager"
+export * from "./legacy/ThemeProvider"
 
-/**
- * @deprecated
- * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- * - If necessary, import from `@kaizen/design-tokens/js`
- */
-export * from "./types"
-
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- *
- * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
- */
-export * from "./ThemeManager"
-
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- *
- * {@link https://cultureamp.design/?path=/docs/guides-app-starter--docs Check App Starter guidance}
- */
-export * from "./react"
-
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- */
-export { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsMap"
-
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- */
-export { makeCSSVariableTheme } from "./lib/makeCssVariableTheme"
-
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- */
-export { mapLeafsOfObject } from "./lib/mapLeafsOfObject"
+export { makeCssVariableDefinitionsMap } from "./legacy/makeCssVariableDefinitionsMap"
+export { makeCSSVariableTheme } from "./legacy/makeCssVariableTheme"
+export { mapLeafsOfObject } from "./legacy/mapLeafsOfObject"
