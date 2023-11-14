@@ -19,7 +19,7 @@
     "storybook:preview": "NODE_ENV=production yarn storybook --docs",
     "storybook:clean": "rm -rf storybook/public",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
-    "test:storybook": "STORIES=ignoreBrandMoment test-storybook --config-dir storybook",
+    "test:storybook": "test-storybook --config-dir storybook",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "lint": "yarn lint:ts && yarn lint:md && yarn lint:format && yarn lint:styles",
     "eslint-config": "yarn eslint -c .eslintrc.js --max-warnings=0",
