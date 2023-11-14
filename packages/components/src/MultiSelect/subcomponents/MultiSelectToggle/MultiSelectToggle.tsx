@@ -11,6 +11,7 @@ export type MultiSelectToggleProps = {
   onClick: React.MouseEventHandler
   ["aria-labelledby"]: string
   ["aria-controls"]: string
+  isDisabled?: boolean
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
   onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
@@ -27,6 +28,7 @@ export const MultiSelectToggle = forwardRef<
       "aria-labelledby": ariaLabelledBy,
       "aria-describedby": ariaDescribedBy,
       "aria-controls": ariaControls,
+      isDisabled = false,
       isOpen = false,
       classNameOverride,
       selectedOptions,
@@ -43,8 +45,12 @@ export const MultiSelectToggle = forwardRef<
        */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={classnames(styles.multiSelectToggle, classNameOverride)}
-        onClick={onClick}
+        className={classnames(
+          styles.multiSelectToggle,
+          classNameOverride,
+          isDisabled && styles.isDisabled
+        )}
+        onClick={isDisabled ? undefined : onClick}
         {...restProps}
       >
         <button
@@ -55,11 +61,16 @@ export const MultiSelectToggle = forwardRef<
           aria-controls={ariaControls}
           aria-expanded={isOpen}
           aria-haspopup="dialog"
+          aria-disabled={isDisabled}
           type="button"
-          onClick={e => {
-            e.stopPropagation()
-            onClick(e)
-          }}
+          onClick={
+            isDisabled
+              ? undefined
+              : e => {
+                  e.stopPropagation()
+                  onClick(e)
+                }
+          }
         >
           {isOpen ? (
             <ChevronUpIcon role="presentation" />

@@ -1,5 +1,5 @@
 import React from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MultiSelectToggle, MultiSelectToggleProps } from "./MultiSelectToggle"
 
@@ -69,6 +69,40 @@ describe("<MultiSelectToggle />", () => {
     })
   })
 
+  describe("is disabled", () => {
+    it("has an accessible disabled label but is still focusable", async () => {
+      render(
+        <MultiSelectToggleWrapper isDisabled data-testId="id--toggle-wrapper" />
+      )
+      const toggleButton = screen.getByRole("button", { name: "Waffle" })
+
+      expect(toggleButton).toHaveAttribute("aria-disabled", "true")
+
+      toggleButton.focus()
+
+      expect(document.activeElement).toHaveAccessibleName("Waffle")
+    })
+
+    it("does not trigger actions", async () => {
+      const disabledJestFunction = jest.fn()
+      render(
+        <MultiSelectToggleWrapper isDisabled onClick={disabledJestFunction} />
+      )
+      const toggleButton = screen.getByRole("button", { name: "Waffle" })
+
+      if (toggleButton) await user.click(toggleButton)
+      expect(disabledJestFunction).toHaveBeenCalledTimes(0)
+    })
+  })
+
+  // @todo: re-enable test when Clear All functionality implemented
+  // eslint-disable-next-line jest/no-commented-out-tests
+  //   it("does not show the clear all button", () => {
+  //     const { queryByRole } = render(<MultiSelectToggleWrapper />)
+  //     expect(
+  //       queryByRole("button", { name: "Clear all waffles" })
+  //     ).not.toBeInTheDocument()
+  //   })
   describe("Has no selected options", () => {
     // @todo: re-enable test when Clear All functionality implemented
     // eslint-disable-next-line jest/no-commented-out-tests

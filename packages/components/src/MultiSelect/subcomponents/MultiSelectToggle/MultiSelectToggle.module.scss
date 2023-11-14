@@ -18,6 +18,11 @@
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 30%;
+  }
 }
 
 .toggleButton {
