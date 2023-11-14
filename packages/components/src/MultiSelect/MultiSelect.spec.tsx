@@ -333,7 +333,7 @@ describe("Removing all options", () => {
 })
 
 describe("Has validation status", () => {
-  it("has a validation message with an accessible name", () => {
+  it("renders a validation message", () => {
     render(
       <MultiSelectWrapper
         selectedValues={new Set(["waffle"])}
@@ -343,7 +343,7 @@ describe("Has validation status", () => {
     )
     expect(screen.getByText("No waffles are available")).toBeInTheDocument()
   })
-  it("describes the toggle", () => {
+  it("describes the Toggle", () => {
     render(
       <MultiSelectWrapper
         selectedValues={new Set(["waffle"])}
@@ -356,6 +356,25 @@ describe("Has validation status", () => {
       screen.getByRole("button", {
         name: "Breakfast menu",
         description: "Only four waffles remain",
+      })
+    ).toBeInTheDocument()
+  })
+  it("appends the validation message to the Toggle's description", () => {
+    const description = "Choose you breakfast."
+    const validationMessage = "Only four waffles remain."
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        label="Breakfast menu"
+        status="caution"
+        description={description}
+        validationMessage={validationMessage}
+      />
+    )
+    expect(
+      screen.getByRole("button", {
+        name: "Breakfast menu",
+        description: `${description} ${validationMessage}`,
       })
     ).toBeInTheDocument()
   })
