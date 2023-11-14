@@ -242,12 +242,12 @@ describe("<MultiSelect />", () => {
           })
 
           // @todo: Enable when adding functionality for removing all selected items
-          // await user.tab()
-          // await waitFor(() => {
-          // expect(
-          // getByRole("button", { name: "Clear all waffles" })
-          // ).toHaveFocus()
-          // })
+          await user.tab()
+          await waitFor(() => {
+            expect(
+              getByRole("button", { name: "Clear all waffles" })
+            ).toHaveFocus()
+          })
         })
       })
     })
