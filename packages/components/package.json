@@ -58,7 +58,6 @@
     "@floating-ui/react-dom": "^2.0.4",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.0",
-    "@kaizen/design-tokens": "^10.3.13",
     "@kaizen/hosted-assets": "^2.0.3",
     "@popperjs/core": "^2.11.8",
     "@reach/tabs": "^0.18.0",
