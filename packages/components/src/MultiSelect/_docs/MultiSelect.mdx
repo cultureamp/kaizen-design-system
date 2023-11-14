@@ -70,3 +70,7 @@ You can add a description which will be linked to the trigger button with aria-d
 Error and cautionary states for the MultiSelect are controlled via the `status` and `validationMessage` props.
 
 <Canvas of={MultiSelectStories.ValidationMessage} />
+
+A validation message will render below the MultiSelect's description and will be read to assistive technologies after the `description` content.
+
+<Canvas of={MultiSelectStories.ValidationMessageWithDescription} />

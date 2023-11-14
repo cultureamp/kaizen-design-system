@@ -155,6 +155,15 @@ export const ValidationMessage: Story = {
   ...MultiSelectTemplate,
   args: {
     status: "error",
-    validationMessage: "Error: There are no more waffles",
+    validationMessage: "There are no more waffles",
+  },
+}
+
+export const ValidationMessageWithDescription: Story = {
+  ...MultiSelectTemplate,
+  args: {
+    description: "Breakfast will be delivered directly to your house.",
+    status: "caution",
+    validationMessage: "Screen readers will read this after the description.",
   },
 }
