@@ -1,7 +1,11 @@
 import React, { HTMLAttributes, useRef, useId } from "react"
 import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
-import { FieldMessage, FieldMessageProps } from "~components/FieldMessage"
+import {
+  FieldMessage,
+  FieldMessageProps,
+  FieldMessageStatus,
+} from "~components/FieldMessage"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
@@ -24,8 +28,8 @@ export type MultiSelectProps = {
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
-  /** A status to convey `error` or `caution` states for the input  */
-  status?: FieldMessageProps["status"]
+  /** A status to convey `error` or `caution` states for the field  */
+  status?: Extract<FieldMessageStatus, "error" | "caution">
   /** A message to provide context for the change in `status`, most commonly validation.  */
   validationMessage?: FieldMessageProps["message"]
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
@@ -46,7 +50,7 @@ export const MultiSelect = ({
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
   const descriptionId = `${id}-description`
-  const validationId = `${id}-description`
+  const validationId = `${id}-validation`
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
@@ -95,7 +99,7 @@ export const MultiSelect = ({
           ref={toggleButtonRef}
           id={`${id}--toggle`}
           aria-labelledby={`${id}--label`}
-          aria-describedby={`${descriptionId}, ${validationId}`}
+          aria-describedby={`${descriptionId} ${validationId}`}
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
