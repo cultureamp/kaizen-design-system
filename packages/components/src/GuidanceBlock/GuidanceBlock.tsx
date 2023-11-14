@@ -255,4 +255,4 @@ export const GuidanceBlock = ({
   )
 }
 
-export default GuidanceBlock
+GuidanceBlock.displayName = "GuidanceBlock"
