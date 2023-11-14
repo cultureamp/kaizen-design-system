@@ -1,7 +1,7 @@
-import { DeepMapObjectLeafs } from "./types"
-import { addExtraThemeEntries } from "./addExtraThemeEntries"
-import { objectPathToCssVarFunction } from "./cssVariables"
-import { mapLeafsOfObject } from "./mapLeafsOfObject"
+import { addExtraThemeEntries } from "../lib/addExtraThemeEntries"
+import { objectPathToCssVarFunction } from "../lib/cssVariables"
+import { mapLeafsOfObject } from "../lib/mapLeafsOfObject"
+import { DeepMapObjectLeafs } from "../types"
 
 /**
  * This function could use a new name during a breaking change

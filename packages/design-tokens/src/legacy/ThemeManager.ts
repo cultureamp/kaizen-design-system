@@ -1,5 +1,5 @@
-import { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsMap"
-import { Theme as BaseTheme } from "./legacy/types"
+import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitionsMap"
+import { Theme as BaseTheme } from "./types"
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
  * This class fulfills the idea of theming and runtime theme switching by relying on CSS variables,
