@@ -21,3 +21,4 @@
 - Remove `@kaizen/notification` and its usages
 - Remove `@kaizen/loading-skeleton` and its usages
 - Remove `@kaizen/loading-spinner` and its usages
+- Update usages of `uuid` to `useId` within components

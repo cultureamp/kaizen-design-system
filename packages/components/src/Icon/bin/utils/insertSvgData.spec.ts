@@ -11,7 +11,6 @@ describe("insertSvgData", () => {
     const svgContent = "<use></use>"
     const result = insertSvgData(reactTemplate, componentTitle, svgContent)
     const expected = `import React from "react"
-
 import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
 
 export const MyIcon = (props: IconProps): JSX.Element => {
