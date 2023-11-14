@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Decorator, Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
-import { AddImage } from "@kaizen/draft-illustration"
+import { AddImage } from "~components/Illustration"
 import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
 import { Text } from "~components/Text"
 import { ContextModal, ContextModalProps } from "../index"

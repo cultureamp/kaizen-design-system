@@ -13,7 +13,6 @@ import * as IconStories from "./Icon.stories"
 
 <KaioNotification />
 
-
 ## Installation
 
 Each icon is imported separately, for example if you'd like the `AddIcon` you will use the following import.
@@ -36,10 +35,13 @@ All Icon components can be meaningful or presentational icons.
 Icon's inherit the text colour through `currentColor`.
 
 There are two ways you can apply the colour:
+
 1. Add a `classNameOverride` to the icon element
-  ```jsx
-    <AddIcon classNameOverride="text-blue-500" />
-  ```
+
+```jsx
+<AddIcon classNameOverride="text-blue-500" />
+```
+
 2. Change the text colour of the wrapping element
 
 <Canvas of={IconStories.ApplyColour} sourceState="shown" />

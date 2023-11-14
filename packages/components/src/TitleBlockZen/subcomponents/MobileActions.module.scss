@@ -3,9 +3,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/design-tokens/sass/border";
-@import "../../../styles/legacy/layout";
-@import "../../../styles/legacy/grid";
-@import "../../../styles/layers";
+@import "../../../styles/utils/legacy/layout";
+@import "../../../styles/utils/legacy/grid";
+@import "../../../styles/utils/layers";
 @import "../mixins";
 
 $expand-button-width: 3.75rem;

@@ -2,10 +2,10 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "../../styles/legacy/grid";
-@import "../../styles/legacy/layout";
-@import "../../styles/button-reset";
-@import "../../styles/layers";
+@import "../../styles/utils/legacy/grid";
+@import "../../styles/utils/legacy/layout";
+@import "../../styles/utils/button-reset";
+@import "../../styles/utils/layers";
 @import "./mixins";
 @import "./variables";
 

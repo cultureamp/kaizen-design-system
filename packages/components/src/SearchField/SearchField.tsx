@@ -1,6 +1,4 @@
-import React, { useState } from "react"
-import { v4 } from "uuid"
-
+import React, { useId } from "react"
 import { InputSearch, InputSearchProps } from "~components/Input/InputSearch"
 import { Label } from "~components/Label"
 import styles from "./SearchField.module.scss"
@@ -27,7 +25,8 @@ export const SearchField = ({
   ...restProps
 }: SearchFieldProps): JSX.Element => {
   const showVisibleLabel = !secondary
-  const [id] = useState<string>(propsId || v4())
+  const reactId = useId()
+  const id = propsId ?? reactId
   // @todo: Move restProps to container div?
   return (
     <div className={classNameOverride}>

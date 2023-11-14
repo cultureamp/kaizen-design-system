@@ -1,10 +1,9 @@
-import React, { useMemo } from "react"
+import React, { useId } from "react"
 import { useFocusRing } from "@react-aria/focus"
 import { useOption } from "@react-aria/listbox"
 import { mergeProps } from "@react-aria/utils"
 import classnames from "classnames"
-import { v4 } from "uuid"
-import { Badge } from "@kaizen/draft-badge"
+import { Badge } from "~components/Badge"
 import { CheckIcon } from "~components/Icon"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { useSelectionContext } from "../../context"
@@ -32,7 +31,7 @@ export const MultiSelectOption = ({
   // Determine whether we should show a keyboard
   // focus ring for accessibility
   const { isFocusVisible, focusProps } = useFocusRing()
-  const countElementId = useMemo(() => v4(), [])
+  const countElementId = useId()
 
   return (
     <li

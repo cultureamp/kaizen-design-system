@@ -1,5 +1,7 @@
+@import "../../packages/components/styles/foundation/styles.css";
 @import "~@kaizen/design-tokens/css/variables";
 @import "~@kaizen/design-tokens/sass/color";
+@import "highlight.js/styles/a11y-light.css";
 
 pre code {
   font-family: ui-monospace, "Menlo", "Monaco", "Roboto Mono", "Oxygen Mono",

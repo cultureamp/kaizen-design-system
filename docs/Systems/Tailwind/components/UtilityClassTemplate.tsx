@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { InlineNotification } from "@kaizen/notification"
+import { InlineNotification } from "~components/Notification"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { CodeSnippet } from "./CodeSnippet"
 
@@ -61,9 +61,11 @@ export const UtilityClassTemplate = ({
           <InlineNotification
             type="positive"
             hideCloseIcon
-            autohide
             onHide={(): void => setCopiedText(null)}
-            title="Copied to clipboard: "
+            headingProps={{
+              children: "Copied to clipboard: ",
+              variant: "heading-6",
+            }}
           >
             {copiedText}
           </InlineNotification>

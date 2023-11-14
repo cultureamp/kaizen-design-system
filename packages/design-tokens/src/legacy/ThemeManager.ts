@@ -1,4 +1,4 @@
-import { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsMap"
+import { makeCssVariableDefinitionsMap } from "../lib/makeCssVariableDefinitionsMap"
 import { Theme as BaseTheme } from "./types"
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
@@ -7,7 +7,6 @@ import { Theme as BaseTheme } from "./types"
  *
  * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
  */
-
 /**
  * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
  *

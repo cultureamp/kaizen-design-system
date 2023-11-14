@@ -3233,211 +3233,6 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kaizen/brand-moment@^1.13.8":
-  version "1.13.8"
-  resolved "https://registry.yarnpkg.com/@kaizen/brand-moment/-/brand-moment-1.13.8.tgz#662a68f17d9237cbf35dbfddf4c49227aada72a4"
-  integrity sha512-+LCh6BiDnAOpu4Q5cJ5t+pUl4wlDz6otmrhdNdmmzYg064UuCWFAKmZqD7HhTHXTHEjgR66yhoQefu2bu9YotQ==
-  dependencies:
-    "@kaizen/button" "^3.0.4"
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.1"
-    "@kaizen/draft-illustration" "^7.0.0"
-    "@kaizen/hosted-assets" "^2.0.3"
-    "@kaizen/responsive" "^1.8.10"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-
-"@kaizen/brand@^1.5.8":
-  version "1.5.8"
-  resolved "https://registry.yarnpkg.com/@kaizen/brand/-/brand-1.5.8.tgz#934d90e710c3f82b173e06c58111215c3bca40d6"
-  integrity sha512-XGbgwhyBUNjF7/GONBHKpEmVar6TfiTYu7sU/tLzcjQroasa9bf0NBf4Lp0MhUHSXXHShRX1tdRW038zfDtCFQ==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/hosted-assets" "^2.0.3"
-
-"@kaizen/button@^3.0.4", "@kaizen/button@^3.0.5":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/button/-/button-3.0.5.tgz#fdfc44b56331638801754a7646e53a3ed7e9a0ea"
-  integrity sha512-TRmaU/fhWWfJXJ9/Yg8wplm1Ww7rNKvNVxjbMO/d0N4FyTbszfIwjMGn7Un1xl8m6Goau9Aa2DOk+5KEtSmu6Q==
-  dependencies:
-    "@kaizen/component-library" "^16.8.2"
-    "@kaizen/draft-badge" "^1.13.11"
-    "@kaizen/loading-spinner" "^2.3.11"
-    classnames "^2.3.2"
-
-"@kaizen/component-base@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-base/-/component-base-1.1.7.tgz#eb8cd3176fc7d73bcb785128887d48f3a9db2666"
-  integrity sha512-rjb5ZF0X7Ougdy4gAiLfbj5uAXPChPU5y+rm/vCOy2eFzB5vpgsuemxcA8BXL/PLczeh6Nqmpu8VtFJHuKRUMQ==
-
-"@kaizen/component-library@^16.8.2", "@kaizen/component-library@^16.9.1", "@kaizen/component-library@^16.9.2", "@kaizen/component-library@^16.9.3":
-  version "16.10.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-16.10.0.tgz#59511cae7c5d39390deb91ed9b3a832928bed461"
-  integrity sha512-1vX6aQG6TpS34ETcu9L8qStgqWYhFrIw+ke6xvOn2jehW9A97mQLR5rGJbsE6kbTdZKP4zcBcrd21vQ0a9Lb2A==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@kaizen/hosted-assets" "^2.0.3"
-    "@types/lodash" "^4.14.195"
-    "@types/uuid" "^9.0.2"
-    classnames "^2.3.2"
-
-"@kaizen/deprecated-component-library-helpers@^2.5.8":
-  version "2.5.8"
-  resolved "https://registry.yarnpkg.com/@kaizen/deprecated-component-library-helpers/-/deprecated-component-library-helpers-2.5.8.tgz#914785d4623411a170e8c93c217cf830d35ca364"
-  integrity sha512-13Wp85K8gxLM2wxISWnaQhOoaFmlk6swaZhCcgGvxposFQHlaM6vThQjvzH1+gRoSwYnz9hjPlQNFgl8VIqo8Q==
-
-"@kaizen/draft-avatar@^2.8.40":
-  version "2.8.40"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-avatar/-/draft-avatar-2.8.40.tgz#cb0ea602b7cd47ec189251d34134f128067042cf"
-  integrity sha512-N7QimJchV6E1Wuj4aCYmv+x8QzDWLEMdeYQzb/aO+BJtycfyqaYTZ8BPOsp/G/EAL1Zo/t0XptYbwoo/3kzcvw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.8.2"
-    classnames "^2.3.2"
-    react-textfit "^1.1.1"
-
-"@kaizen/draft-badge@^1.13.11", "@kaizen/draft-badge@^1.13.12":
-  version "1.13.12"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-badge/-/draft-badge-1.13.12.tgz#feade901af352bd0c4c8b7ecac7eee8d47ec0a12"
-  integrity sha512-Dyf+KLbpHgbKnMznj6vhRsgcpfcuLaIG6v6LMoKi5GJ9DL/IyMuckpjCFwmbIOPdpgsF8vVTuI4q796Q/k8h7w==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    classnames "^2.3.2"
-
-"@kaizen/draft-card@^3.2.11":
-  version "3.2.11"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-card/-/draft-card-3.2.11.tgz#f96d934f0e0a7b80cea3a8b2396f301287e57935"
-  integrity sha512-xZaZji46oneHqUJAZMpxXCRO+Gxl56Q7ZX/XerEIZPvTOfVTmTW1bgOj/P3Zg68xg0ClIMf4TiMXWsZr0w1VHQ==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-
-"@kaizen/draft-divider@^2.2.11":
-  version "2.2.11"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-divider/-/draft-divider-2.2.11.tgz#48620384673c899a26b8861d0799890c762a1d11"
-  integrity sha512-b2GKnLXouASTlzzcKubG1ELxSQx44F4KfvaP7emDZSxFC1gnVSX4rdudSRG/DifVNH6MrsO8+/g8xhFDQLrMQg==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    classnames "^2.3.2"
-
-"@kaizen/draft-form@^10.4.8", "@kaizen/draft-form@^10.5.1":
-  version "10.5.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-10.5.1.tgz#3dbf542d9e902ee7d8b58e05ddd5dfd10c8b6369"
-  integrity sha512-avuCrQLLathqdez0kw9lp+qvGNrRx1PgGtqkYgeJtdcn3pdTHzHmXghYApdEfKK5G6nGIBc21uu58//zuHlUZA==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@kaizen/loading-spinner" "^2.3.11"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-    uuid "^9.0.0"
-
-"@kaizen/draft-illustration@^7.0.0", "@kaizen/draft-illustration@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-illustration/-/draft-illustration-7.0.1.tgz#b86dc598edb49ca59cb51102361b105fd0c3ebb2"
-  integrity sha512-Ug4is9ygKWI/BitcB4W9NI98Q2+GL9+umZ3P4/orXGt6n28Fl1P8QHUhg5VVOh3chD2ciQGutgfeFc7Xx1VBng==
-  dependencies:
-    "@kaizen/button" "^3.0.4"
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/hosted-assets" "^2.0.3"
-    classnames "^2.3.2"
-    jszip "^3.10.1"
-
-"@kaizen/draft-page-layout@^2.3.13":
-  version "2.3.13"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-page-layout/-/draft-page-layout-2.3.13.tgz#319bb42d26ba9a166325d91f0fcd26adb2c221a7"
-  integrity sha512-h1lnFzHJ1eNvWKE99JK0qpoYdi3Ra2J7L6LBDaMIZTmYDI6nLCS6E35Jam/LgwqqA56pjsGteTGe15ahWCuyFw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/draft-card" "^3.2.11"
-    classnames "^2.3.2"
-    resize-observer-polyfill "^1.5.1"
-
-"@kaizen/draft-select@^2.10.42":
-  version "2.10.42"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-select/-/draft-select-2.10.42.tgz#b4066ac81f2c8cfcadb8a46b932974d62d077e33"
-  integrity sha512-uOe5PWoyv+IdDHy/mj7cBgFX/0FBGj9n8IvOZRRMY/AAfwpCmMG3wm3QanjuTNgZz3TVIhOl+62Oo2gDgogDug==
-  dependencies:
-    "@kaizen/button" "^3.0.4"
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/draft-form" "^10.4.8"
-    "@kaizen/draft-tag" "^3.4.17"
-    classnames "^2.3.2"
-    react-select "^5.7.4"
-    uuid "^9.0.0"
-
-"@kaizen/draft-tabs@^5.2.43":
-  version "5.2.43"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-tabs/-/draft-tabs-5.2.43.tgz#cf66521b876ac772effb37bd62e4c2dc2203e38b"
-  integrity sha512-RiNCVYXkD7MyP4+uUi4Om4egonX712jzHgekoCUK61Wak8/TwD+Oy5n3vjGgFW1mdaET8cJBWNgpJfIQpBlG7w==
-  dependencies:
-    "@kaizen/component-library" "^16.8.2"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    classnames "^2.3.2"
-
-"@kaizen/draft-tag@^3.4.17", "@kaizen/draft-tag@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-tag/-/draft-tag-3.5.0.tgz#81261e6a64e5cdda2db6637f114c32982a4d0404"
-  integrity sha512-DhXICSS5olSuK+D4FQ4K5nQP2vXSQizhkyzo5K04kd/lG7lhawNA2q3+SGTIV1NvtUTWV75bWaU5NYX4FCFIkQ==
-  dependencies:
-    "@kaizen/component-library" "^16.9.2"
-    "@kaizen/draft-avatar" "^2.8.40"
-    classnames "^2.3.2"
-
-"@kaizen/draft-tooltip@^5.4.47":
-  version "5.4.47"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-tooltip/-/draft-tooltip-5.4.47.tgz#804ca965a58f1efc5fc702e46ca828f24561c44c"
-  integrity sha512-v/VKrFWbtcaElhVEIi6Kw4VkrqSP0kefJmpJ1g6+h4DZhGx3Oc/imCqgEUYKr7cKQqstwYpue2rOCB7C6PoliA==
-  dependencies:
-    "@kaizen/component-library" "^16.9.3"
-    "@kaizen/deprecated-component-library-helpers" "^2.5.8"
-    "@popperjs/core" "^2.11.8"
-    classnames "^2.3.2"
-    react-popper "^2.3.0"
-    use-debounce "^9.0.4"
-    uuid "^9.0.0"
-
-"@kaizen/loading-skeleton@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@kaizen/loading-skeleton/-/loading-skeleton-2.0.7.tgz#541efcd0128b640340cf559d366ea520f13ad2db"
-  integrity sha512-CoALgqTRBiR3Iw1OHMg/SHCICKBmZyv3haIJPw0+AxNwa1kF5Q8U2j5aRENdPNbKRJ/yAzG68ViQ8jirPJ2rRw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/typography" "^2.3.11"
-    classnames "^2.3.2"
-
-"@kaizen/loading-spinner@^2.3.11":
-  version "2.3.11"
-  resolved "https://registry.yarnpkg.com/@kaizen/loading-spinner/-/loading-spinner-2.3.11.tgz#225128f3eaf67444153049fef3677b18fb9d6cc0"
-  integrity sha512-BSN+KLPykEDLttvjdh8x4pwjb/Il/40FyINnrnk9S9AxYK8knwxvmtvQlqzGe2hK7caKWLjJ0CVbTpfZ+JdNWw==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    classnames "^2.3.2"
-
-"@kaizen/notification@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/notification/-/notification-1.7.0.tgz#d442b49f824099802ce7f70cde4dcba7474dd868"
-  integrity sha512-d/q2ROewMACPalYANnM49eAtOxAmQKept4SMxztGk6BfRlUWexPD+8mrD9m1DFc6Qp/yUn/DiGbq4D/dyNY6Yg==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    "@kaizen/component-library" "^16.9.3"
-    classnames "^2.3.2"
-    uuid "^9.0.0"
-
-"@kaizen/responsive@^1.8.10":
-  version "1.8.10"
-  resolved "https://registry.yarnpkg.com/@kaizen/responsive/-/responsive-1.8.10.tgz#ce42f0b3d0c8b96196aa0459927f0538917495d7"
-  integrity sha512-buwE/sVl1etZm9BpdM+iGn8oUA3CPgLsspCNbkbxGqksXB+nwpT4idKm4+boz3SWK1eqV3At+GgaPvPYwt+YjQ==
-
-"@kaizen/typography@^2.3.11":
-  version "2.3.11"
-  resolved "https://registry.yarnpkg.com/@kaizen/typography/-/typography-2.3.11.tgz#d1b8883d077ceccd339ab884f68dcb4bba74b64f"
-  integrity sha512-TCVMXFB4fRja9dRVMYAR2KuN8BWwTIGACpNZZfXR+PrPBqPVwV8QLi4+pQX/aUMnAvtU3cVnEqLlAEI3o0CcOg==
-  dependencies:
-    "@kaizen/component-base" "^1.1.7"
-    classnames "^2.3.2"
-
 "@ljharb/through@^2.3.9":
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/@ljharb/through/-/through-2.3.11.tgz#783600ff12c06f21a76cc26e33abd0b1595092f9"
@@ -6147,7 +5942,7 @@
   dependencies:
     "@types/lodash" "*"
 
-"@types/lodash@*", "@types/lodash@^4.14.167", "@types/lodash@^4.14.195":
+"@types/lodash@*", "@types/lodash@^4.14.167":
   version "4.14.200"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.200.tgz#435b6035c7eba9cdf1e039af8212c9e9281e7149"
   integrity sha512-YI/M/4HRImtNf3pJgbF+W6FrXovqj+T+/HpENLTooK9PnkacBsDpeP3IpHab40CClUfhNmdM2WTNP2sa2dni5Q==
@@ -6394,10 +6189,10 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.9.tgz#72e164381659a49557b0a078b28308f2c6a3e1ce"
   integrity sha512-zC0iXxAv1C1ERURduJueYzkzZ2zaGyc+P2c95hgkikHPr3z8EdUZOlgEQ5X0DRmwDZn+hekycQnoeiiRVrmilQ==
 
-"@types/uuid@^9.0.2":
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.6.tgz#c91ae743d8344a54b2b0c691195f5ff5265f6dfb"
-  integrity sha512-BT2Krtx4xaO6iwzwMFUYvWBWkV2pr37zD68Vmp1CDV196MzczBRxuEpD6Pr395HAgebC/co7hOphs53r8V7jew==
+"@types/uuid@^9.0.7":
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.7.tgz#b14cebc75455eeeb160d5fe23c2fcc0c64f724d8"
+  integrity sha512-WUtIVRUZ9i5dYXefDEAI7sh9/O7jGvHg7Df/5O/gtH3Yabe5odI3UWopVR1qbPXQtvOxWu3mM4XxlYeZtMWF4g==
 
 "@types/wait-on@^5.2.0":
   version "5.3.3"
@@ -11440,11 +11235,6 @@ image-size@^0.5.1:
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
   integrity sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==
 
-immediate@~3.0.5:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/immediate/-/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
-  integrity sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==
-
 immutable@^4.0.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.4.tgz#2e07b33837b4bb7662f288c244d1ced1ef65a78f"
@@ -13042,16 +12832,6 @@ jsrsasign@^10.8.6:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
-jszip@^3.10.1:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.10.1.tgz#34aee70eb18ea1faec2f589208a157d1feb091c2"
-  integrity sha512-xXDvecyTpGLrqFrvkrUSoxxfJI5AH7U8zxxtVclpsUtMCq4JQ290LY8AW5c7Ggnr/Y/oK+bQMbqK2qmtk3pN4g==
-  dependencies:
-    lie "~3.3.0"
-    pako "~1.0.2"
-    readable-stream "~2.3.6"
-    setimmediate "^1.0.5"
-
 just-performance-es6-compat@4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/just-performance-es6-compat/-/just-performance-es6-compat-4.3.2.tgz#7877f34cbe25fd994bc2265d0c919bf728dcc42e"
@@ -13165,13 +12945,6 @@ levn@^0.4.1:
   dependencies:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
-
-lie@~3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/lie/-/lie-3.3.0.tgz#dcf82dee545f46074daf200c7c1c5a08e0f40f6a"
-  integrity sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ==
-  dependencies:
-    immediate "~3.0.5"
 
 liftoff@^4.0.0:
   version "4.0.0"
@@ -15167,11 +14940,6 @@ pako@~0.2.0:
   resolved "https://registry.yarnpkg.com/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
   integrity sha512-NUcwaKxUxWrZLpDG+z/xZaCgQITkA/Dv4V/T6bw7VON6l1Xz/VnrBqrYjZQ12TamKHzITTfOEIYUj48y2KXImA==
 
-pako@~1.0.2:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
-  integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
-
 param-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
@@ -16751,7 +16519,7 @@ react-resize-detector@^7.1.2:
   dependencies:
     lodash "^4.17.21"
 
-react-select@^5.7.4, react-select@^5.7.7:
+react-select@^5.7.7:
   version "5.7.7"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.7.7.tgz#dbade9dbf711ef2a181970c10f8ab319ac37fbd0"
   integrity sha512-HhashZZJDRlfF/AKj0a0Lnfs3sRdw/46VJIRd8IbB9/Ovr74+ZIwkAdSBjSPXsFMG+u72c5xShqwLSKIJllzqw==
@@ -17608,11 +17376,6 @@ set-value@^2.0.0, set-value@^2.0.1:
     is-extendable "^0.1.1"
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
-
-setimmediate@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
-  integrity sha512-MATJdZp8sLqDl/68LfQmbP8zKPLQNV6BIZoIgrscFDQ+RsvK/BxeDQOgyxKKoh0y/8h3BqVFnCqQ/gd+reiIXA==
 
 setprototypeof@1.2.0:
   version "1.2.0"

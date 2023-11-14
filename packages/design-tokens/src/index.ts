@@ -1,9 +1,12 @@
-// These are exposed at the top level because it seems like they are the most useful and relevent to usage of design tokens.
-export * from "./themes"
-export * from "./types"
-export * from "./ThemeManager"
-export * from "./react"
+// These are all deprecated, consumers should not be interacting directly with our
+// design token primitives, rather through our compiled tokens js/scss/less.
+// Remove these on next major
 
-export { makeCssVariableDefinitionsMap } from "./lib/makeCssVariableDefinitionsMap"
-export { makeCSSVariableTheme } from "./lib/makeCssVariableTheme"
-export { mapLeafsOfObject } from "./lib/mapLeafsOfObject"
+export * from "./legacy/themes"
+export * from "./legacy/types"
+export * from "./legacy/ThemeManager"
+export * from "./legacy/ThemeProvider"
+
+export { makeCssVariableDefinitionsMap } from "./legacy/makeCssVariableDefinitionsMap"
+export { makeCSSVariableTheme } from "./legacy/makeCssVariableTheme"
+export { mapLeafsOfObject } from "./legacy/mapLeafsOfObject"
