@@ -1,14 +1,11 @@
 import React, { forwardRef } from "react"
 import { ButtonGroup, ButtonGroupProps } from "~components/ButtonGroup"
-import { FilterTriggerRef } from "~components/Filter"
-import {
-  FilterButton,
-  FilterButtonProps,
-} from "~components/Filter/FilterButton"
+import { FilterTriggerRef } from "~components/Filter/Filter"
 import { ClearIcon } from "~components/Icon"
 import { Tooltip } from "~components/Tooltip"
 import { DataAttributes } from "~types/DataAttributes"
 import { isRefObject } from "~utils/isRefObject"
+import { FilterButton, FilterButtonProps } from "../FilterButton"
 import {
   FilterButtonBase,
   FilterButtonBaseProps,
