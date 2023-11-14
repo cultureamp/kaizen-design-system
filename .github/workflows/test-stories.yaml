@@ -116,8 +116,7 @@ jobs:
           externals: |
             [
               "**/!(*.module).scss",
-              "packages/button/src/Button/*.scss",
-              "packages/component-library/components/Spacing/Base.module.scss"
+              "packages/components/**/*.css",
             ]
 
   update-branch-preview:

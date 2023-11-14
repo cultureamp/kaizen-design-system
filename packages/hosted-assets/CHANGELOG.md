@@ -19,7 +19,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/hosted-assets
 
-# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.2.0...@kaizen/hosted-assets@2.0.0) (2022-04-13)
+## [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.2.0...@kaizen/hosted-assets@2.0.0) (2022-04-13)
 
 ### Features
 
@@ -34,7 +34,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   - remove Elm specific classes and declarations from modal stylesheets
   - update documentation on Elm
 
-# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.1.1...@kaizen/hosted-assets@1.2.0) (2021-06-11)
+## [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.1.1...@kaizen/hosted-assets@1.2.0) (2021-06-11)
 
 ### Features
 
@@ -46,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - elm Kaizen.HostedAssets code was not being published ([#1583](https://github.com/cultureamp/kaizen-design-system/issues/1583)) ([7d26e8f](https://github.com/cultureamp/kaizen-design-system/commit/7d26e8f1435e76ebd5af94a31c03f75973700ddf))
 
-# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.0.3...@kaizen/hosted-assets@1.1.0) (2021-01-14)
+## [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.0.3...@kaizen/hosted-assets@1.1.0) (2021-01-14)
 
 ### Features
 
@@ -66,7 +66,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/hosted-assets
 
-# 1.0.0 (2020-01-22)
+## 1.0.0 (2020-01-22)
 
 ### chore
 
@@ -80,6 +80,7 @@ Updates the package API to export the asset URL functions from the root of the m
 
 ```js
 // TS/JS
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { assetUrl } from "@kaizen/hosted-assets"
 ;<SomeComponent
   image={assetUrl("illustrations/plant-based-ham-substitute.png")}
@@ -101,13 +102,13 @@ import { assetUrl } from "@kaizen/hosted-assets"
 
 **Note:** Version bump only for package @cultureamp/kaizen-binary-assets
 
-# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-binary-assets@1.1.0...@cultureamp/kaizen-binary-assets@1.2.0) (2019-11-07)
+## [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-binary-assets@1.1.0...@cultureamp/kaizen-binary-assets@1.2.0) (2019-11-07)
 
 ### Features
 
 - Add HTTP2 support to the binary assets service ([#94](https://github.com/cultureamp/kaizen-design-system/issues/94)) ([b35f4d7](https://github.com/cultureamp/kaizen-design-system/commit/b35f4d7))
 
-# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-binary-assets@1.0.1...@cultureamp/kaizen-binary-assets@1.1.0) (2019-10-29)
+## [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-binary-assets@1.0.1...@cultureamp/kaizen-binary-assets@1.1.0) (2019-10-29)
 
 ### Features
 
@@ -117,7 +118,7 @@ import { assetUrl } from "@kaizen/hosted-assets"
 
 **Note:** Version bump only for package @cultureamp/kaizen-binary-assets
 
-# 1.0.0 (2019-10-21)
+## 1.0.0 (2019-10-21)
 
 ### chore
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useId } from "react"
 import { Time } from "@internationalized/date"
 import { useTimeField } from "@react-aria/datepicker"
 import { I18nProvider } from "@react-aria/i18n"
@@ -7,7 +7,6 @@ import {
   TimeFieldStateOptions,
 } from "@react-stately/datepicker"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import { FieldMessage } from "~components/FieldMessage"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -61,7 +60,8 @@ const TimeFieldComponent = ({
   classNameOverride,
   ...restProps
 }: TimeFieldProps): JSX.Element => {
-  const [id] = useState<string>(propsId || v4())
+  const reactId = useId()
+  const id = propsId ?? reactId
 
   const handleOnChange = (timeValue: TimeValue | null): void => {
     if (timeValue === null) {

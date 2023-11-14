@@ -1,5 +1,4 @@
-import React, { ReactNode, useState } from "react"
-import { v4 } from "uuid"
+import React, { ReactNode, useId } from "react"
 import { VisuallyHidden } from "~components/VisuallyHidden"
 import { MultiSelectItem } from "../../types"
 import styles from "./ListBoxSection.module.scss"
@@ -36,7 +35,7 @@ export const ListBoxSection = ({
   sectionName,
   ...restProps
 }: ListBoxSectionProps): JSX.Element => {
-  const [listSectionId] = useState<string>(v4())
+  const listSectionId = useId()
   const hasSectionHeader = "sectionHeader" in restProps
   return (
     <li role="presentation">

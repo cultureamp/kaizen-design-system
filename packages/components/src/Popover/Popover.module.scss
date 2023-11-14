@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../../styles/button-reset";
+@import "../../styles/utils/button-reset";
 
 // Sync with PopoverModern.tsx
 $arrow-width: 14px;
@@ -18,8 +18,8 @@ $large-width: 450px;
   &::after {
     content: "";
     position: absolute;
-    border-left: ($arrow-width / 2) solid transparent;
-    border-right: ($arrow-width / 2) solid transparent;
+    border-left: calc(#{$arrow-width} / 2) solid transparent;
+    border-right: calc(#{$arrow-width} / 2) solid transparent;
     top: 0;
     left: 0;
   }

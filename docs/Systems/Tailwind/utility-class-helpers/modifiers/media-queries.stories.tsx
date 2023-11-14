@@ -1,6 +1,7 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
-import { Heading, Paragraph } from "@kaizen/typography"
+import { Heading } from "~components/Heading"
+import { Text } from "~components/Text"
 
 export default {
   title: "Systems/Tailwind/Utility Class References/Modifiers/Media Queries",
@@ -27,11 +28,9 @@ const QueryInfo = ({
   children,
 }: QueryInfoProps): React.ReactElement => (
   <div className="my-12">
-    <Paragraph variant="intro-lede">Pseudo selector: {selector}</Paragraph>
-    <Paragraph variant="body">Breakpoint: {selectorValue}</Paragraph>
-    <Paragraph variant="body">
-      In this example: {selector}:bg-blue-400
-    </Paragraph>
+    <Text variant="intro-lede">Pseudo selector: {selector}</Text>
+    <Text variant="body">Breakpoint: {selectorValue}</Text>
+    <Text variant="body">In this example: {selector}:bg-blue-400</Text>
     {/* Passing in as children, as dynamically creating the media query with interpolation fails */}
     {children}
   </div>
@@ -64,23 +63,19 @@ export const ArbitraryMediaQueries: StoryFn = () => (
     </Heading>
 
     <div className="py-32">
-      <Paragraph variant="body">
+      <Text variant="body">
         <strong>Min-width breakpoint</strong> (applied when the screen gets{" "}
         <em>wider</em>)
-      </Paragraph>
-      <Paragraph variant="body">
-        In this example: min-[500px]:bg-blue-400
-      </Paragraph>
-      <div className="border-solid min-[500px]:bg-blue-400 h-[50px] w-full rounded" />
+      </Text>
+      <Text variant="body">In this example: min-[500px]:bg-blue-400</Text>
+      <div className="border-solid min-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
     </div>
 
-    <Paragraph variant="body">
+    <Text variant="body">
       <strong>Max-width breakpoint</strong> (applied when the screen gets{" "}
       <em>slimmer</em>)
-    </Paragraph>
-    <Paragraph variant="body">
-      In this example: max-[500px]:bg-blue-400
-    </Paragraph>
-    <div className="border-solid max-[500px]:bg-blue-400 h-[50px] w-full rounded" />
+    </Text>
+    <Text variant="body">In this example: max-[500px]:bg-blue-400</Text>
+    <div className="border-solid max-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
   </div>
 )

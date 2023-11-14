@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Paragraph } from "@kaizen/typography"
+import { Text } from "~components/Text"
 import { ExpertAdviceCollapsible } from "../index"
 
 const meta = {
@@ -10,9 +10,9 @@ const meta = {
   args: {
     title: "Expert advice collapsible",
     children: (
-      <Paragraph variant="body">
+      <Text variant="body">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Paragraph>
+      </Text>
     ),
   },
 } satisfies Meta<typeof ExpertAdviceCollapsible>

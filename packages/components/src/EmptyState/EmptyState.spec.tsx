@@ -2,7 +2,7 @@ import React from "react"
 import { cleanup, render } from "@testing-library/react"
 import { EmptyState, EmptyStateProps } from "./EmptyState"
 
-jest.mock("@kaizen/draft-illustration", () => ({
+jest.mock("~components/Illustration", () => ({
   EmptyStatesPositive: (): JSX.Element => (
     <div>EmptyStatesPositive_Component</div>
   ),

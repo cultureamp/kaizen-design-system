@@ -1,12 +1,5 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
-import {
-  Assertive,
-  Cautionary,
-  Informative,
-  Negative,
-  Positive,
-} from "@kaizen/draft-illustration"
 import { ButtonProps } from "~components/Button"
 import { Heading } from "~components/Heading"
 import {
@@ -15,6 +8,13 @@ import {
   InformationWhiteIcon,
   SuccessWhiteIcon,
 } from "~components/Icon"
+import {
+  Assertive,
+  Cautionary,
+  Informative,
+  Negative,
+  Positive,
+} from "~components/Illustration"
 import {
   GenericModal,
   ModalAccessibleDescription,

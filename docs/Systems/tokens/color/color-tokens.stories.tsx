@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import colorString from "color-string"
-import { Heading } from "@kaizen/typography"
+import { Heading } from "~components/Heading"
 import { tokens } from "~design-tokens/js"
 
 export default {
