@@ -200,7 +200,7 @@ describe("<MultiSelect />", () => {
       })
     })
     it("does not close the popover when clearing all selected options", async () => {
-      const { getByRole, getByLabelText } = render(
+      const { getByRole } = render(
         <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
       )
 
