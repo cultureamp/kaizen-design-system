@@ -1,5 +1,28 @@
 # Change Log
 
+## 10.3.16
+
+### Patch Changes
+
+- [#4285](https://github.com/cultureamp/kaizen-design-system/pull/4285) [`374d5bcca`](https://github.com/cultureamp/kaizen-design-system/commit/374d5bccad63b08916f84944b207a10802693218) - Dep updates (dev updates not listed)
+
+  @kaizen/components
+
+  - @floating-ui/react-dom from 2.0.2 to 2.0.4
+  - @react-stately/collections from 3.10.2 to 3.10.3
+  - @react-stately/menu from 3.5.6 to 3.5.7
+  - react-animate-height from 3.2.2 to 3.2.3
+  - (peer dep) react-intl from 6.5.1 to 6.5.4
+
+  @kaizen/design-tokens
+
+  - @types/color-string from 1.5.4 to 1.5.5
+  - @types/lodash.kebabcase from 4.1.8 to 4.1.9
+
+- [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - Move CSS vars to :root
+
+- [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - Remove use of `@kaizen/typography`
+
 ## 10.3.15
 
 ### Patch Changes

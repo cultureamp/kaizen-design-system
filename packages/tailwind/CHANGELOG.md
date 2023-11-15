@@ -1,5 +1,33 @@
 # Change Log
 
+## 1.2.0
+
+### Minor Changes
+
+- [#4256](https://github.com/cultureamp/kaizen-design-system/pull/4256) [`6e22e0a21`](https://github.com/cultureamp/kaizen-design-system/commit/6e22e0a21cc11751c754eb02862c52ad1b8a30b2) - Fix long utility strings for borders in Tailwind (in combination with the introduction of `@kaizen/reset.css`)
+
+  **Important: these utilities will not work without upgrading to `@kaizen/components@1.35.0`**
+
+  - Adds DEFAULT values to `borderWidth` and `borderColor` in the Tailwind preset, so these don't need to be written with utility classes.
+
+  These changes mean that border styles require much less utility classes to be written.
+  For example, to add a border-bottom to an element, we would previously need to write:
+
+  ```
+  className="border-b-default border-l-none border-r-none border-t-none border-solid border-purple-800"
+  ```
+
+  We can now achieve the same css by simply writing:
+
+  ```
+  className="border-b"
+  ```
+
+### Patch Changes
+
+- Updated dependencies [[`374d5bcca`](https://github.com/cultureamp/kaizen-design-system/commit/374d5bccad63b08916f84944b207a10802693218), [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65), [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65)]:
+  - @kaizen/design-tokens@10.3.16
+
 ## 1.1.1
 
 ### Patch Changes
