@@ -6,7 +6,7 @@
 
 - [#4272](https://github.com/cultureamp/kaizen-design-system/pull/4272) [`f09c3964e`](https://github.com/cultureamp/kaizen-design-system/commit/f09c3964e348fdd651ec32722e0b42515c014099) - Migrate GuidanceBlock from kaizen-legacy
 
-- [#4308](https://github.com/cultureamp/kaizen-design-system/pull/4308) [`07ae2692f`](https://github.com/cultureamp/kaizen-design-system/commit/07ae2692fd2ff1118fe2c9f4a3d3c4ee2f0d33bd) - Add `TitleBlockZen` component export
+- [#4308](https://github.com/cultureamp/kaizen-design-system/pull/4308) [`07ae2692f`](https://github.com/cultureamp/kaizen-design-system/commit/07ae2692fd2ff1118fe2c9f4a3d3c4ee2f0d33bd) - Add `TitleBlockZen`, `SkirtCard` components export
 
 - [#4282](https://github.com/cultureamp/kaizen-design-system/pull/4282) [`982cbc006`](https://github.com/cultureamp/kaizen-design-system/commit/982cbc00635daae77496d06bf66aa3ba2bcdf6f3) - Migrate BrandMomentCaptureIntro from kaizen-legacy
 
