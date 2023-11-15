@@ -2,4 +2,5 @@
 "@kaizen/components": minor
 ---
 
-Add `ToastNotification` component
+- Add `ToastNotification` component export
+- Add `TitleBlockZen` component export
