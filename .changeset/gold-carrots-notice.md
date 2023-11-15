@@ -2,7 +2,7 @@
 "@kaizen/tailwind": minor
 ---
 
-Fix long utility strings for borders in Tailwind (in combination with the introduction of `@kaizen/reset.css`)
+Fix long utility strings for borders in Tailwind (in combination with `@kaizen/components/dist/styles.css`)
 
 **Important: these utilities will not work without upgrading to `@kaizen/components@1.35.0`**
 

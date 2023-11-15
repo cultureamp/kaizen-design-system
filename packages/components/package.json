@@ -16,7 +16,8 @@
     "future",
     "dist",
     "icons",
-    "locales"
+    "locales",
+    "src"
   ],
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
