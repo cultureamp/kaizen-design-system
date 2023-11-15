@@ -6,6 +6,8 @@
 
 - [#4272](https://github.com/cultureamp/kaizen-design-system/pull/4272) [`f09c3964e`](https://github.com/cultureamp/kaizen-design-system/commit/f09c3964e348fdd651ec32722e0b42515c014099) - Migrate GuidanceBlock from kaizen-legacy
 
+- [#4308](https://github.com/cultureamp/kaizen-design-system/pull/4308) [`07ae2692f`](https://github.com/cultureamp/kaizen-design-system/commit/07ae2692fd2ff1118fe2c9f4a3d3c4ee2f0d33bd) - Add `TitleBlockZen` component export
+
 - [#4282](https://github.com/cultureamp/kaizen-design-system/pull/4282) [`982cbc006`](https://github.com/cultureamp/kaizen-design-system/commit/982cbc00635daae77496d06bf66aa3ba2bcdf6f3) - Migrate BrandMomentCaptureIntro from kaizen-legacy
 
   - Migrate BrandMomentCaptureIntro as nested Scene component
@@ -25,18 +27,11 @@
 
 - [#4285](https://github.com/cultureamp/kaizen-design-system/pull/4285) [`374d5bcca`](https://github.com/cultureamp/kaizen-design-system/commit/374d5bccad63b08916f84944b207a10802693218) - Dep updates (dev updates not listed)
 
-  @kaizen/components
-
   - @floating-ui/react-dom from 2.0.2 to 2.0.4
   - @react-stately/collections from 3.10.2 to 3.10.3
   - @react-stately/menu from 3.5.6 to 3.5.7
   - react-animate-height from 3.2.2 to 3.2.3
   - (peer dep) react-intl from 6.5.1 to 6.5.4
-
-  @kaizen/design-tokens
-
-  - @types/color-string from 1.5.4 to 1.5.5
-  - @types/lodash.kebabcase from 4.1.8 to 4.1.9
 
 - [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - - Replace all usages of `Heading` from `@kaizen/typography` with the same from KAIO
 
