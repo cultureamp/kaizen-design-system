@@ -181,7 +181,7 @@ describe("<MultiSelect />", () => {
       })
     })
 
-    it("does not close the popover when clearing selected options", async () => {
+    it("does not close the popover when clearing a selected option", async () => {
       const { getByRole, getByLabelText } = render(
         <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
       )
@@ -195,6 +195,25 @@ describe("<MultiSelect />", () => {
       })
 
       await user.click(getByLabelText("Remove option: Pancakes"))
+      await waitFor(() => {
+        expect(popover).toBeVisible()
+      })
+    })
+    it("does not close the popover when clearing all selected options", async () => {
+      const { getByRole } = render(
+        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+      )
+
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
+      await user.click(toggleButton)
+
+      const popover = getByRole("dialog")
+      await waitFor(() => {
+        expect(popover).toBeVisible()
+      })
+
+      await user.click(getByRole("button", { name: "Clear all waffles" }))
+
       await waitFor(() => {
         expect(popover).toBeVisible()
       })
@@ -241,13 +260,12 @@ describe("<MultiSelect />", () => {
             expect(getByLabelText("Remove option: Waffle")).toHaveFocus()
           })
 
-          // @todo: Enable when adding functionality for removing all selected items
-          // await user.tab()
-          // await waitFor(() => {
-          // expect(
-          // getByRole("button", { name: "Clear all waffles" })
-          // ).toHaveFocus()
-          // })
+          await user.tab()
+          await waitFor(() => {
+            expect(
+              getByRole("button", { name: "Clear all waffles" })
+            ).toHaveFocus()
+          })
         })
       })
     })
@@ -291,6 +309,24 @@ describe("Removing an option", () => {
     const removeButton = getByLabelText("Remove option: Waffle")
     await user.click(removeButton)
     await waitFor(() => {
+      expect(waffleOption).not.toBeInTheDocument()
+    })
+  })
+})
+
+describe("Removing all options", () => {
+  it("removes all selected options when the 'clear all' button is clicked", async () => {
+    const { getByRole, getByText } = render(
+      <MultiSelectWrapper selectedValues={new Set(["pancakes", "waffle"])} />
+    )
+
+    const pancakesOption = getByText("Pancakes")
+    const waffleOption = getByText("Waffle")
+
+    const clearAllButton = getByRole("button", { name: "Clear all waffles" })
+    await user.click(clearAllButton)
+    await waitFor(() => {
+      expect(pancakesOption).not.toBeInTheDocument()
       expect(waffleOption).not.toBeInTheDocument()
     })
   })
