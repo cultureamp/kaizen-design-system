@@ -154,16 +154,20 @@ export const Description: Story = {
 export const ValidationMessage: Story = {
   ...MultiSelectTemplate,
   args: {
-    status: "error",
-    validationMessage: "There are no more waffles",
+    validationMessage: {
+      status: "error",
+      message: "There are no more waffles",
+    },
   },
 }
 
 export const ValidationMessageWithDescription: Story = {
   ...MultiSelectTemplate,
   args: {
-    description: "Breakfast will be delivered directly to your house.",
-    status: "caution",
-    validationMessage: "Screen readers will read this after the description.",
+    description: "Breakfast will be delivered to your house.",
+    validationMessage: {
+      status: "caution",
+      message: "Only five more waffles remain.",
+    },
   },
 }

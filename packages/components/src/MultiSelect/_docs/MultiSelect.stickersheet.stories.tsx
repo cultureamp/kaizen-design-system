@@ -110,8 +110,10 @@ const StickerSheetTemplate: StickerSheetStory = {
                 onSelectedValuesChange={() => undefined}
                 selectedValues={selectedValuesOpen}
                 items={options}
-                status="error"
-                validationMessage="Error: there are no waffles left"
+                validationMessage={{
+                  status: "error",
+                  message: "There are no waffles left.",
+                }}
               />
               <MultiSelect
                 id="id--multi-select--caution"
@@ -121,8 +123,10 @@ const StickerSheetTemplate: StickerSheetStory = {
                 onSelectedValuesChange={() => undefined}
                 selectedValues={selectedValuesNoItems}
                 items={options}
-                status="caution"
-                validationMessage="Caution: there are only four pancakes left"
+                validationMessage={{
+                  status: "error",
+                  message: "There are only four pancakes left.",
+                }}
               />
             </StickerSheet.Row>
           </StickerSheet.Body>

@@ -337,8 +337,10 @@ describe("Has validation status", () => {
     render(
       <MultiSelectWrapper
         selectedValues={new Set(["waffle"])}
-        status="error"
-        validationMessage="No waffles are available"
+        validationMessage={{
+          status: "error",
+          message: "No waffles are available",
+        }}
       />
     )
     expect(screen.getByText("No waffles are available")).toBeInTheDocument()
@@ -348,8 +350,10 @@ describe("Has validation status", () => {
       <MultiSelectWrapper
         selectedValues={new Set(["waffle"])}
         label="Breakfast menu"
-        status="caution"
-        validationMessage="Only four waffles remain"
+        validationMessage={{
+          status: "caution",
+          message: "Only four waffles remain",
+        }}
       />
     )
     expect(
@@ -359,22 +363,25 @@ describe("Has validation status", () => {
       })
     ).toBeInTheDocument()
   })
-  it("appends the validation message to the Toggle's description", () => {
+  it("announces the validation message before the Toggle's description", () => {
     const description = "Choose you breakfast."
     const validationMessage = "Only four waffles remain."
+
     render(
       <MultiSelectWrapper
         selectedValues={new Set(["waffle"])}
         label="Breakfast menu"
-        status="caution"
         description={description}
-        validationMessage={validationMessage}
+        validationMessage={{
+          status: "caution",
+          message: "Only four waffles remain.",
+        }}
       />
     )
     expect(
       screen.getByRole("button", {
         name: "Breakfast menu",
-        description: `${description} ${validationMessage}`,
+        description: `${validationMessage} ${description}`,
       })
     ).toBeInTheDocument()
   })
