@@ -4,6 +4,10 @@
   margin-top: $spacing-6;
 }
 
+.disabled {
+  opacity: 0.3;
+}
+
 .popover {
   padding: $spacing-12;
 }

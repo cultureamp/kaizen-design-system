@@ -94,6 +94,27 @@ const StickerSheetTemplate: StickerSheetStory = {
 
         <StickerSheet
           isReversed={isReversed}
+          heading="Disabled"
+          className="w-full"
+        >
+          <StickerSheet.Header
+            headings={["Default", "Focus"]}
+            verticalHeadingsWidth="10rem"
+          />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <MultiSelectToggle {...defaultProps} isDisabled />
+              <MultiSelectToggle
+                {...defaultProps}
+                isDisabled
+                data-sb-pseudo-styles="focus"
+              />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet
+          isReversed={isReversed}
           heading="Has selected values"
           className="w-full"
         >

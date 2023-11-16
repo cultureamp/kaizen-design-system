@@ -2,6 +2,7 @@ import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
+import { Tag } from "~components/Tag"
 import { RemovableTag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
@@ -48,14 +49,17 @@ export const MultiSelectToggle = forwardRef<
         className={classnames(
           styles.multiSelectToggle,
           classNameOverride,
-          isDisabled && styles.isDisabled
+          isDisabled && styles.disabled
         )}
         onClick={isDisabled ? undefined : onClick}
         {...restProps}
       >
         <button
           ref={ref}
-          className={styles.toggleButton}
+          className={classnames(
+            styles.toggleButton,
+            isDisabled && styles.disabled
+          )}
           aria-labelledby={ariaLabelledBy}
           aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
@@ -94,26 +98,32 @@ export const MultiSelectToggle = forwardRef<
                   // This stops the underlying toggle collapsing the popover when interactive with Tags
                   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
                   <li key={value} onClick={e => e.stopPropagation()}>
-                    <RemovableTag
-                      removeButtonProps={{
-                        ariaLabel: `Remove option: ${label}`,
-                        onClick: () => onRemoveOption(value),
-                      }}
-                    >
-                      {label}
-                    </RemovableTag>
+                    {isDisabled ? (
+                      <Tag>{label}</Tag>
+                    ) : (
+                      <RemovableTag
+                        removeButtonProps={{
+                          ariaLabel: `Remove option: ${label}`,
+                          onClick: () => !isDisabled && onRemoveOption(value),
+                        }}
+                      >
+                        {label}
+                      </RemovableTag>
+                    )}
                   </li>
                 ))}
               </ul>
 
-              <ClearButton
-                aria-label="Clear all waffles"
-                classNameOverride={styles.clearAllButton}
-                onClick={e => {
-                  e.stopPropagation()
-                  onRemoveAllOptions()
-                }}
-              />
+              {!isDisabled && (
+                <ClearButton
+                  aria-label="Clear all waffles"
+                  classNameOverride={styles.clearAllButton}
+                  onClick={e => {
+                    e.stopPropagation()
+                    onRemoveAllOptions()
+                  }}
+                />
+              )}
             </>
           )}
         </div>

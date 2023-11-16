@@ -64,3 +64,13 @@ The open state is controlled by the consumer through the `isOpen` and `onOpenCha
 You can add a description which will be linked to the trigger button with aria-describedby.
 
 <Canvas of={MultiSelectStories.Description} />
+
+### Disabled
+
+The `isDisabled` prop will apply `aria-disabled` to the toggle element. While and click functionality will be disabled, this will allow the field to retain focus so it can be announced to screen readers. This is not a read only state, so disabled MultiSelects should not have SelectedItems
+
+<Canvas of={MultiSelectStories.Disabled} />
+
+<Canvas of={MultiSelectStories.DisabledWithTags} />
+
+

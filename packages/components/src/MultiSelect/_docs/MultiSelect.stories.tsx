@@ -150,3 +150,18 @@ export const Description: Story = {
     description: "Breakfast will be delivered directly to your house",
   },
 }
+
+export const Disabled: Story = {
+  ...MultiSelectTemplate,
+  args: {
+    isDisabled: true,
+  },
+}
+
+export const DisabledWithTag: Story = {
+  ...MultiSelectTemplate,
+  args: {
+    isDisabled: true,
+    selectedValues: new Set(["waffle"]),
+  },
+}

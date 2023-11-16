@@ -16,6 +16,7 @@ import styles from "./MultiSelect.module.scss"
 export type MultiSelectProps = {
   label: string
   items: MultiSelectOptionsProps["options"]
+  isDisabled?: boolean
   selectedValues: Set<MultiSelectOption["value"]>
   /**
    * A description that provides context for the field
@@ -36,6 +37,7 @@ export const MultiSelect = ({
   isOpen,
   onOpenChange,
   classNameOverride,
+  isDisabled = false,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
@@ -78,8 +80,18 @@ export const MultiSelect = ({
   }
 
   return (
-    <div id={id} className={classnames(classNameOverride)} {...restProps}>
-      <Heading tag="span" variant="heading-6" id={`${id}--label`}>
+    <div
+      id={id}
+      className={classnames(classNameOverride)}
+      {...restProps}
+      aria-disabled={isDisabled}
+    >
+      <Heading
+        tag="span"
+        variant="heading-6"
+        id={`${id}--label`}
+        classNameOverride={classnames(isDisabled && styles.disabled)}
+      >
         {label}
       </Heading>
 
@@ -97,6 +109,7 @@ export const MultiSelect = ({
           )}
           onRemoveOption={handleOnRemoveOption}
           onRemoveAllOptions={handleRemoveAllOptions}
+          isDisabled={isDisabled}
         />
       </div>
 
