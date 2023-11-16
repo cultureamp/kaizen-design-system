@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { v4 } from "uuid"
+import { v4 as uuidv4 } from "uuid"
 import { ToastNotificationOptions } from "../types"
 
 type ToastNotificationOptionsOptionalId = Omit<
@@ -46,8 +46,8 @@ export const ToastNotificationProvider = ({
 
   const addToastNotification: ToastNotificationContextValue["addToastNotification"] =
     notification => {
-      const reactId = v4()
-      const notificationWithId = { id: reactId, ...notification }
+      const uuid = uuidv4()
+      const notificationWithId = { id: uuid, ...notification }
 
       const notificationExists = notifications.find(
         ({ id }) => id === notification.id
