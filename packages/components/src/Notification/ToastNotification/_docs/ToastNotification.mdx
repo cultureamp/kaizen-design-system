@@ -32,16 +32,16 @@ Toast notifications are used to notifying a user of an outcome for an action the
 In addition to the `ToastNotification` JSX element, there are three API methods exported from this package to create and manage Toast notifications.
 
 ### addToastNotification
-Creates an instance of the the Toast Notification manager and appends new notifications to the list.
+
+Adds and appends a new notification to the list.
 
 <Canvas of={ToastNotificationStories.CreateNotification} />
 
-If `addToastNotification` is called with an `id` that matches an existing notification, then it will update the content of that component.
+### updateToastNotification
 
-This will also be invoked if you use the `ToastNotification` component.
+Updates a single notification that matches the `id` passed to the function.
 
 <Canvas of={ToastNotificationStories.UpdateNotification} />
-
 
 ### removeToastNotification
 

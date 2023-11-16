@@ -1,5 +1,5 @@
-import React, { useId } from "react"
-import { addToastNotification } from "./subcomponents/ToastNotificationManager"
+import React, { useEffect, useId } from "react"
+import { useToastNotificationContext } from "./context/ToastNotificationContext"
 import { ToastNotificationWithOptionals } from "./types"
 
 export type ToastNotificationProps = Omit<
@@ -25,17 +25,20 @@ export const ToastNotification = ({
 }: ToastNotificationProps): null => {
   const reactId = useId()
   const id = propsId || reactId
+  const { addToastNotification } = useToastNotificationContext()
   const persistent = hideCloseIcon
 
-  addToastNotification({
-    id,
-    type,
-    title,
-    message: children,
-    persistent,
-    onHide,
-    ...restProps,
-  })
+  useEffect(() => {
+    addToastNotification({
+      id,
+      type,
+      title,
+      message: children,
+      persistent,
+      onHide,
+      ...restProps,
+    })
+  }, [])
 
   return null
 }

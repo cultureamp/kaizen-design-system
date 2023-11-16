@@ -1,4 +1,8 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
+import {
+  ToastNotificationProvider,
+  ToastNotificationsPortal,
+} from "~components/Notification"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
 import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
 
@@ -10,13 +14,28 @@ export type KaizenProviderProps = {
 export const KaizenProvider = ({
   children,
   locale = "en",
-}: KaizenProviderProps): JSX.Element => (
-  <OptionalIntlProvider locale={locale}>
-    <>
-      {children}
-      <FontDefinitions />
-    </>
-  </OptionalIntlProvider>
-)
+}: KaizenProviderProps): JSX.Element => {
+  const notificationsPortalRef = useRef<HTMLDivElement>(null)
+  const [notificationsPortal, setNotificationsPortal] =
+    useState<HTMLDivElement>()
+
+  useEffect(() => {
+    if (!notificationsPortal && notificationsPortalRef.current) {
+      setNotificationsPortal(notificationsPortalRef.current)
+    }
+  }, [notificationsPortalRef.current])
+
+  return (
+    <OptionalIntlProvider locale={locale}>
+      <>
+        <ToastNotificationProvider>
+          <ToastNotificationsPortal />
+          {children}
+        </ToastNotificationProvider>
+        <FontDefinitions />
+      </>
+    </OptionalIntlProvider>
+  )
+}
 
 KaizenProvider.displayName = "KaizenProvider"
