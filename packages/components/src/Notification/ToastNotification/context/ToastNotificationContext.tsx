@@ -92,11 +92,9 @@ export const ToastNotificationProvider = ({
   } satisfies ToastNotificationContextValue
 
   return (
-    <>
-      <ToastNotificationContext.Provider value={value}>
-        {children}
-      </ToastNotificationContext.Provider>
-    </>
+    <ToastNotificationContext.Provider value={value}>
+      {children}
+    </ToastNotificationContext.Provider>
   )
 }
 
