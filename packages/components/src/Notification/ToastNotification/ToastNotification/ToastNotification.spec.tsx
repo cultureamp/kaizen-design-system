@@ -1,8 +1,8 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { ToastNotification, ToastNotificationProps } from "./ToastNotification"
-import { ToastNotificationsPortal } from "./ToastNotificationsPortal"
-import { ToastNotificationProvider } from "./context/ToastNotificationContext"
+import { ToastNotification, ToastNotificationProps } from "../ToastNotification/ToastNotification"
+import { ToastNotificationsPortal } from "../ToastNotificationsPortal"
+import { ToastNotificationProvider } from "../context/ToastNotificationContext"
 
 const ToastNotificationWrapper = ({
   children,

@@ -1,6 +1,6 @@
 import React, { useEffect, useId } from "react"
-import { useToastNotificationContext } from "./context/ToastNotificationContext"
-import { ToastNotificationWithOptionals } from "./types"
+import { useToastNotificationContext } from "../context/ToastNotificationContext"
+import { ToastNotificationWithOptionals } from "../types"
 
 export type ToastNotificationProps = Omit<
   ToastNotificationWithOptionals,
