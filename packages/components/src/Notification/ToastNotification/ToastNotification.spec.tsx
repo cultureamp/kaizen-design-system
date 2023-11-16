@@ -1,29 +1,31 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { ToastNotification } from "./ToastNotification"
-import { clearToastNotifications } from "./subcomponents/ToastNotificationManager"
+import { ToastNotification, ToastNotificationProps } from "./ToastNotification"
+import { ToastNotificationsPortal } from "./ToastNotificationsPortal"
+import { ToastNotificationProvider } from "./context/ToastNotificationContext"
+
+const ToastNotificationWrapper = ({
+  children,
+  ...props
+}: Partial<ToastNotificationProps>): JSX.Element => (
+  <ToastNotificationProvider>
+    <ToastNotificationsPortal />
+    <ToastNotification type="positive" title="Success" {...props}>
+      {children ?? "It worked!"}
+    </ToastNotification>
+  </ToastNotificationProvider>
+)
 
 describe("<ToastNotification />", () => {
-  beforeEach(() => {
-    clearToastNotifications()
-  })
   it('creates a single "status" container for notifications', async () => {
-    render(
-      <ToastNotification type="positive" title="Success">
-        It worked!
-      </ToastNotification>
-    )
+    render(<ToastNotificationWrapper />)
 
-    const toastPortalManager = await screen.getAllByRole("status")
-
+    const toastPortalManager = screen.getAllByRole("status")
     expect(toastPortalManager).toHaveLength(1)
   })
+
   it("renders a basic notification correctly", async () => {
-    render(
-      <ToastNotification type="positive" title="Success">
-        It worked!
-      </ToastNotification>
-    )
+    render(<ToastNotificationWrapper />)
 
     const notification = await screen.findByText("Success")
     expect(notification).toBeInTheDocument()
