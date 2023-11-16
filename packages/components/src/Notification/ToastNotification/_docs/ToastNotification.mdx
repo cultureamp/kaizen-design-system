@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
 import * as ToastNotificationStories from "./ToastNotification.stories"
 
 <Meta title="Components/Notifications/ToastNotification" />
@@ -17,12 +17,14 @@ import * as ToastNotificationStories from "./ToastNotification.stories"
 
 <Installation
   installCommand="yarn add @kaizen/components"
-  importStatement='import { addToastNotification, removeToastNotification, clearToastNotifications, ToastNotification } from "@kaizen/components"'
+  importStatement='import { addToastNotification, updateToastNotification, removeToastNotification, clearToastNotifications, ToastNotification } from "@kaizen/components"'
 />
 
 ## Overview
 
 Toast notifications are used to notifying a user of an outcome for an action they have taken. They appended to the root of the document body and will render in the top corner of the window.
+
+**Note:** Toast notifications must be used within <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo>.
 
 <Canvas of={ToastNotificationStories.Playground} />
 <Controls of={ToastNotificationStories.Playground} />
