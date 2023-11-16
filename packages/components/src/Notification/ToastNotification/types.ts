@@ -1,7 +1,7 @@
 import { DataAttributes } from "~types/DataAttributes"
 import { NotificationType } from "../types"
 
-export type ToastNotificationOptions = {
+export type ToastNotificationObj = {
   id: string
   type: NotificationType
   title: string

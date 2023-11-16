@@ -1,18 +1,15 @@
 import React, { useContext, useState } from "react"
 import { v4 as uuidv4 } from "uuid"
-import { ToastNotificationOptions } from "../types"
+import { ToastNotificationObj } from "../types"
 
-type ToastNotificationOptionsOptionalId = Omit<
-  ToastNotificationOptions,
-  "id"
-> & { id?: string }
+type ToastNotificationObjOptionalId = Omit<ToastNotificationObj, "id"> & {
+  id?: string
+}
 
 export type ToastNotificationContextValue = {
-  notifications: ToastNotificationOptions[]
-  addToastNotification: (
-    notification: ToastNotificationOptionsOptionalId
-  ) => void
-  updateToastNotification: (notification: ToastNotificationOptions) => void
+  notifications: ToastNotificationObj[]
+  addToastNotification: (notification: ToastNotificationObjOptionalId) => void
+  updateToastNotification: (notification: ToastNotificationObj) => void
   removeToastNotification: (notificationId: string) => void
   clearToastNotifications: () => void
 }
@@ -40,9 +37,7 @@ type ToastNotificationProviderProps = {
 export const ToastNotificationProvider = ({
   children,
 }: ToastNotificationProviderProps): JSX.Element | null => {
-  const [notifications, setNotifications] = useState<
-    ToastNotificationOptions[]
-  >([])
+  const [notifications, setNotifications] = useState<ToastNotificationObj[]>([])
 
   const addToastNotification: ToastNotificationContextValue["addToastNotification"] =
     notification => {
@@ -59,7 +54,7 @@ export const ToastNotificationProvider = ({
     }
 
   const updateToastNotification = (
-    notification: ToastNotificationOptions
+    notification: ToastNotificationObj
   ): void => {
     const notificationIndex = notifications.findIndex(
       ({ id }) => id === notification.id

@@ -2,10 +2,10 @@ import React, { HTMLAttributes } from "react"
 import { createPortal } from "react-dom"
 import { GenericNotification } from "~components/Notification/subcomponents/GenericNotification"
 import { OverrideClassName } from "~types/OverrideClassName"
-import { ToastNotificationOptions } from "../../../types"
+import { ToastNotificationObj } from "../../../types"
 
 export type ToastNotificationsMapProps = {
-  notifications: ToastNotificationOptions[]
+  notifications: ToastNotificationObj[]
   onHide: (notificationId: string) => void
   container: Element | null
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>

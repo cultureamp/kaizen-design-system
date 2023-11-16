@@ -1,9 +1,9 @@
 import React, { useEffect, useId } from "react"
 import { useToastNotificationContext } from "../context/ToastNotificationContext"
-import { ToastNotificationOptions } from "../types"
+import { ToastNotificationObj } from "../types"
 
 export type ToastNotificationProps = Omit<
-  ToastNotificationOptions,
+  ToastNotificationObj,
   "id" | "message" | "persistent"
 > & {
   children: React.ReactNode
