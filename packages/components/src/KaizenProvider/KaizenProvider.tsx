@@ -1,7 +1,7 @@
 import React from "react"
 import {
   ToastNotificationProvider,
-  ToastNotificationsPortal,
+  ToastNotificationsList,
 } from "~components/Notification"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
 import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
@@ -18,7 +18,7 @@ export const KaizenProvider = ({
   <OptionalIntlProvider locale={locale}>
     <>
       <ToastNotificationProvider>
-        <ToastNotificationsPortal />
+        <ToastNotificationsList />
         {children}
       </ToastNotificationProvider>
       <FontDefinitions />

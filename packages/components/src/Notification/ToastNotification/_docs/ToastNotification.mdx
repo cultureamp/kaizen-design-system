@@ -50,19 +50,21 @@ Removes a single notification that matches the `id` passed to the function.
 
 <Canvas of={ToastNotificationStories.RemoveNotification} />
 
-
 ### clearToastNotifications
 
 Clears all notifications currently held in state.
 
-<Canvas of={ToastNotificationStories.ClearNotifications} />
+Note that since each story has an individual context, this example will only clear the ones it adds.
 
+<Canvas of={ToastNotificationStories.ClearNotifications} />
 
 ## Accessibility and removal of notifications
 
-Any notification that is temporarily rendered on screen should provide a user ample time to read its contents and provide a way to stop its removal ([WCAG guidline here](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html)
-)).
+Any notification that is temporarily rendered on screen should provide a user ample time to read its contents and
+provide a way to stop its removal ([WCAG guidline here](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html)).
 
-By default, all Toast notifications will remain on screen until dismissed. This ensures the accessibility is met and does not require additional intervention.
+By default, all Toast notifications will remain on screen until dismissed.
+This ensures the accessibility is met and does not require additional intervention.
 
-If you required to be automatically removed, you must provide a means of stopping and re-enabling its removal and ensures that a user can reasonably access this before it is removed.
+If you required to be automatically removed, you must provide a means of stopping and re-enabling its
+removal and ensures that a user can reasonably access this before it is removed.

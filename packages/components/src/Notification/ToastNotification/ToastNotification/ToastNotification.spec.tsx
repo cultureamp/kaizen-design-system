@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import { ToastNotification, ToastNotificationProps } from "../ToastNotification"
-import { ToastNotificationsPortal } from "../ToastNotificationsPortal"
+import { ToastNotificationsList } from "../ToastNotificationsList"
 import { ToastNotificationProvider } from "../context/ToastNotificationContext"
 
 const ToastNotificationWrapper = ({
@@ -9,7 +9,7 @@ const ToastNotificationWrapper = ({
   ...props
 }: Partial<ToastNotificationProps>): JSX.Element => (
   <ToastNotificationProvider>
-    <ToastNotificationsPortal />
+    <ToastNotificationsList />
     <ToastNotification type="positive" title="Success" {...props}>
       {children ?? "It worked!"}
     </ToastNotification>

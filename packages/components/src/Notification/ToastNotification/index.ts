@@ -1,4 +1,4 @@
 export * from "./ToastNotification"
-export * from "./ToastNotificationsPortal"
+export * from "./ToastNotificationsList"
 export * from "./context/ToastNotificationContext"
 export * from "./types"
