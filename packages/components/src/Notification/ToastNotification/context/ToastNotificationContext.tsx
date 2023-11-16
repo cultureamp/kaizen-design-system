@@ -7,7 +7,7 @@ type ToastNotificationOptionsOptionalId = Omit<
   "id"
 > & { id?: string }
 
-type ToastNotificationContextValue = {
+export type ToastNotificationContextValue = {
   notifications: ToastNotificationOptions[]
   addToastNotification: (
     notification: ToastNotificationOptionsOptionalId

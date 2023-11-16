@@ -1,8 +1,7 @@
 import React, { useEffect, useId } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
-import { useToastNotificationContext } from "../context/ToastNotificationContext"
-import { ToastNotification } from "../index"
+import { ToastNotification, useToastNotification } from "../index"
 
 const meta = {
   title: "Components/Notifications/ToastNotification",
@@ -27,7 +26,7 @@ type Story = StoryObj<typeof meta>
 const ToastNotificationTemplate: Story = {
   render: args => {
     const reactId = useId()
-    const { updateToastNotification } = useToastNotificationContext()
+    const { updateToastNotification } = useToastNotification()
 
     useEffect(() => {
       updateToastNotification({
@@ -55,7 +54,7 @@ export const Playground: Story = {
 
 export const CreateNotification: Story = {
   render: () => {
-    const { addToastNotification } = useToastNotificationContext()
+    const { addToastNotification } = useToastNotification()
 
     return (
       <Button
@@ -75,7 +74,7 @@ export const CreateNotification: Story = {
 export const UpdateNotification: Story = {
   render: () => {
     const { addToastNotification, updateToastNotification } =
-      useToastNotificationContext()
+      useToastNotification()
     return (
       <>
         <Button
@@ -109,7 +108,7 @@ export const UpdateNotification: Story = {
 export const RemoveNotification: Story = {
   render: () => {
     const { addToastNotification, removeToastNotification } =
-      useToastNotificationContext()
+      useToastNotification()
     return (
       <>
         <Button
@@ -136,7 +135,7 @@ export const RemoveNotification: Story = {
 export const ClearNotifications: Story = {
   render: () => {
     const { addToastNotification, clearToastNotifications } =
-      useToastNotificationContext()
+      useToastNotification()
     return (
       <>
         <Button

@@ -1,8 +1,6 @@
 import React from "react"
-import {
-  ToastNotificationProvider,
-  ToastNotificationsList,
-} from "~components/Notification"
+import { ToastNotificationsList } from "~components/Notification"
+import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
 import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
 
