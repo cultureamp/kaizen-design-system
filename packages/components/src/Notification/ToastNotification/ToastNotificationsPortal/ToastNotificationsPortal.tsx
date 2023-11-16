@@ -1,7 +1,7 @@
 import React from "react"
 import { createPortal } from "react-dom"
 import { useToastNotificationContext } from "../context/ToastNotificationContext"
-import { ToastNotificationsList } from "../subcomponents/ToastNotificationsList"
+import { ToastNotificationsList } from "./subcomponents/ToastNotificationsList"
 
 export const ToastNotificationsPortal = (): JSX.Element => {
   const { notifications, removeToastNotification } =
