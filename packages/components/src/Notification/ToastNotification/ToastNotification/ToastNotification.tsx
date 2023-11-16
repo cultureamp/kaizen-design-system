@@ -1,17 +1,19 @@
 import React, { useEffect, useId } from "react"
 import { useToastNotificationContext } from "../context/ToastNotificationContext"
-import { ToastNotificationWithOptionals } from "../types"
+import { ToastNotificationOptions } from "../types"
 
 export type ToastNotificationProps = Omit<
-  ToastNotificationWithOptionals,
-  "message" | "persistent"
+  ToastNotificationOptions,
+  "id" | "message" | "persistent"
 > & {
+  children: React.ReactNode
+  id?: string
   /**
-   * Removes the dismiss trigger. functions the same as `persistent` in `addToastNotification`. If this is true you will need to manage the removal of notifications manually.
+   * Removes the dismiss trigger. Functions the same as `persistent` in `addToastNotification`.
+   * If this is true you will need to manage the removal of notifications manually.
    * @default false
    */
   hideCloseIcon?: boolean
-  children: React.ReactNode
 }
 
 export const ToastNotification = ({

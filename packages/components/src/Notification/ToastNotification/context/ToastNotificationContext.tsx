@@ -1,11 +1,18 @@
 import React, { useContext, useState } from "react"
 import { v4 } from "uuid"
-import { ToastNotification, ToastNotificationWithOptionals } from "../types"
+import { ToastNotificationOptions } from "../types"
+
+type ToastNotificationOptionsOptionalId = Omit<
+  ToastNotificationOptions,
+  "id"
+> & { id?: string }
 
 type ToastNotificationContextValue = {
-  notifications: ToastNotification[]
-  addToastNotification: (notification: ToastNotificationWithOptionals) => void
-  updateToastNotification: (notification: ToastNotification) => void
+  notifications: ToastNotificationOptions[]
+  addToastNotification: (
+    notification: ToastNotificationOptionsOptionalId
+  ) => void
+  updateToastNotification: (notification: ToastNotificationOptions) => void
   removeToastNotification: (notificationId: string) => void
   clearToastNotifications: () => void
 }
@@ -33,24 +40,27 @@ type ToastNotificationProviderProps = {
 export const ToastNotificationProvider = ({
   children,
 }: ToastNotificationProviderProps): JSX.Element | null => {
-  const [notifications, setNotifications] = useState<ToastNotification[]>([])
+  const [notifications, setNotifications] = useState<
+    ToastNotificationOptions[]
+  >([])
 
-  const addToastNotification = (
-    notification: ToastNotificationWithOptionals
-  ): void => {
-    const reactId = v4()
-    const notificationWithId = { id: reactId, ...notification }
+  const addToastNotification: ToastNotificationContextValue["addToastNotification"] =
+    notification => {
+      const reactId = v4()
+      const notificationWithId = { id: reactId, ...notification }
 
-    const notificationExists = notifications.find(
-      ({ id }) => id === notification.id
-    )
+      const notificationExists = notifications.find(
+        ({ id }) => id === notification.id
+      )
 
-    if (!notificationExists) {
-      setNotifications(existing => [...existing, notificationWithId])
+      if (!notificationExists) {
+        setNotifications(existing => [...existing, notificationWithId])
+      }
     }
-  }
 
-  const updateToastNotification = (notification: ToastNotification): void => {
+  const updateToastNotification = (
+    notification: ToastNotificationOptions
+  ): void => {
     const notificationIndex = notifications.findIndex(
       ({ id }) => id === notification.id
     )

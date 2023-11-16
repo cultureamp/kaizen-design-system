@@ -1,9 +1,7 @@
 import { DataAttributes } from "~types/DataAttributes"
 import { NotificationType } from "../types"
 
-type Modify<T, R> = Omit<T, keyof R> & R
-
-export type ToastNotification = {
+export type ToastNotificationOptions = {
   id: string
   type: NotificationType
   title: string
@@ -15,18 +13,3 @@ export type ToastNotification = {
    */
   persistent?: boolean
 } & DataAttributes
-
-export type ToastNotificationWithOptionals = Modify<
-  ToastNotification,
-  {
-    id?: string
-  }
->
-
-export type AddToastNotification = (
-  notification: ToastNotificationWithOptionals
-) => void
-
-export type RemoveToastNotification = (notificationId: string) => void
-
-export type ClearToastNotifications = () => void

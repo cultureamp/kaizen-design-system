@@ -1,6 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { ToastNotification, ToastNotificationProps } from "../ToastNotification/ToastNotification"
+import { ToastNotification, ToastNotificationProps } from "../ToastNotification"
 import { ToastNotificationsPortal } from "../ToastNotificationsPortal"
 import { ToastNotificationProvider } from "../context/ToastNotificationContext"
 
