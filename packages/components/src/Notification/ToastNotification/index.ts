@@ -1,5 +1,3 @@
 export * from "./ToastNotification"
 export * from "./ToastNotificationsPortal"
 export * from "./context/ToastNotificationContext"
-export * from "./subcomponents/ToastNotificationManager"
-export * from "./subcomponents/ToastNotificationsList"
