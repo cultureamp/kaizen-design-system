@@ -72,6 +72,11 @@ export const MultiSelect = ({
     onSelectedValuesChange(newValues)
   }
 
+  const handleRemoveAllOptions = (): void => {
+    const newValues = new Set([])
+    onSelectedValuesChange(newValues)
+  }
+
   return (
     <div id={id} className={classnames(classNameOverride)} {...restProps}>
       <Heading tag="span" variant="heading-6" id={`${id}--label`}>
@@ -91,6 +96,7 @@ export const MultiSelect = ({
             value => itemsMap[value]
           )}
           onRemoveOption={handleOnRemoveOption}
+          onRemoveAllOptions={handleRemoveAllOptions}
         />
       </div>
 
