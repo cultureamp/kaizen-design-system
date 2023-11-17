@@ -18,6 +18,11 @@
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 30%;
+  }
 }
 
 .toggleButton {
@@ -47,6 +52,13 @@
       border-radius: $border-focus-ring-border-radius;
       border: $border-focus-ring-border-style $border-focus-ring-border-width
         $color-blue-500;
+    }
+  }
+
+  &.disabled {
+    &:focus::after {
+      border: $border-dashed-border-style $border-focus-ring-border-width
+        $color-gray-500;
     }
   }
 }

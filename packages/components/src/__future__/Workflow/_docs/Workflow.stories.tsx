@@ -75,6 +75,14 @@ export const Playground: Story = {
   },
 }
 
+export const Test: Story = {
+  render: args => (
+    <Workflow {...args}>
+      <div>Blahc</div>
+    </Workflow>
+  ),
+}
+
 export const MultipleActions: Story = {
   args: {
     headerActions: [

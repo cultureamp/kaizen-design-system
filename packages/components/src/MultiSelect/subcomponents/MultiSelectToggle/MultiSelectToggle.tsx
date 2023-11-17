@@ -2,6 +2,7 @@ import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
 import { ClearButton } from "~components/ClearButton"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
+import { Tag } from "~components/Tag"
 import { RemovableTag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { MultiSelectOption } from "../../types"
@@ -11,6 +12,7 @@ export type MultiSelectToggleProps = {
   onClick: React.MouseEventHandler
   ["aria-labelledby"]: string
   ["aria-controls"]: string
+  isDisabled?: boolean
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
   onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
@@ -27,6 +29,7 @@ export const MultiSelectToggle = forwardRef<
       "aria-labelledby": ariaLabelledBy,
       "aria-describedby": ariaDescribedBy,
       "aria-controls": ariaControls,
+      isDisabled = false,
       isOpen = false,
       classNameOverride,
       selectedOptions,
@@ -43,23 +46,35 @@ export const MultiSelectToggle = forwardRef<
        */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={classnames(styles.multiSelectToggle, classNameOverride)}
-        onClick={onClick}
+        className={classnames(
+          styles.multiSelectToggle,
+          classNameOverride,
+          isDisabled && styles.disabled
+        )}
+        onClick={isDisabled ? undefined : onClick}
         {...restProps}
       >
         <button
           ref={ref}
-          className={styles.toggleButton}
+          className={classnames(
+            styles.toggleButton,
+            isDisabled && styles.disabled
+          )}
           aria-labelledby={ariaLabelledBy}
           aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
           aria-expanded={isOpen}
           aria-haspopup="dialog"
+          aria-disabled={isDisabled}
           type="button"
-          onClick={e => {
-            e.stopPropagation()
-            onClick(e)
-          }}
+          onClick={
+            isDisabled
+              ? undefined
+              : e => {
+                  e.stopPropagation()
+                  onClick(e)
+                }
+          }
         >
           {isOpen ? (
             <ChevronUpIcon role="presentation" />
@@ -83,26 +98,32 @@ export const MultiSelectToggle = forwardRef<
                   // This stops the underlying toggle collapsing the popover when interactive with Tags
                   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
                   <li key={value} onClick={e => e.stopPropagation()}>
-                    <RemovableTag
-                      removeButtonProps={{
-                        ariaLabel: `Remove option: ${label}`,
-                        onClick: () => onRemoveOption(value),
-                      }}
-                    >
-                      {label}
-                    </RemovableTag>
+                    {isDisabled ? (
+                      <Tag>{label}</Tag>
+                    ) : (
+                      <RemovableTag
+                        removeButtonProps={{
+                          ariaLabel: `Remove option: ${label}`,
+                          onClick: () => !isDisabled && onRemoveOption(value),
+                        }}
+                      >
+                        {label}
+                      </RemovableTag>
+                    )}
                   </li>
                 ))}
               </ul>
 
-              <ClearButton
-                aria-label="Clear all waffles"
-                classNameOverride={styles.clearAllButton}
-                onClick={e => {
-                  e.stopPropagation()
-                  onRemoveAllOptions()
-                }}
-              />
+              {!isDisabled && (
+                <ClearButton
+                  aria-label="Clear all waffles"
+                  classNameOverride={styles.clearAllButton}
+                  onClick={e => {
+                    e.stopPropagation()
+                    onRemoveAllOptions()
+                  }}
+                />
+              )}
             </>
           )}
         </div>
