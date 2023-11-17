@@ -1,0 +1,22 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.linkStyle {
+  cursor: pointer;
+  background: none;
+  font-family: $typography-paragraph-small-font-family;
+  font-weight: $typography-paragraph-small-font-weight;
+  font-size: $typography-paragraph-small-font-size;
+  line-height: $typography-paragraph-small-line-height;
+  letter-spacing: $typography-paragraph-small-letter-spacing;
+  color: $color-blue-500;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.isReversed {
+  color: $color-white;
+}
