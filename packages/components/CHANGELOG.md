@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.35.1
+
+### Patch Changes
+
+- [#4311](https://github.com/cultureamp/kaizen-design-system/pull/4311) [`20a7492e1`](https://github.com/cultureamp/kaizen-design-system/commit/20a7492e1902912504424bd9887e0495291c4283) - Add the TitleBlock types file to index
+
 ## 1.35.0
 
 ### Minor Changes
