@@ -1,3 +1,42 @@
+@import "../../packages/components/styles/foundation/styles.css";
+@import "highlight.js/styles/a11y-light.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+pre code {
+  font-family: ui-monospace, "Menlo", "Monaco", "Roboto Mono", "Oxygen Mono",
+    "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New",
+    monospace !important;
+  font-size: 14px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 20px !important;
+  font-weight: 300 !important;
+  -webkit-font-smoothing: antialiased;
+  line-height: 19px;
+}
+
+#storybook-docs {
+  .sbdocs-wrapper {
+    padding: 2.5rem;
+  }
+
+  .sbdocs-content {
+    max-width: unset;
+  }
+
+  .sbdocs-a {
+    color: var(--color-blue-400);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    & code {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
