@@ -38,6 +38,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       "aria-controls": "id--popover",
       onClick: () => undefined,
       onRemoveOption: () => undefined,
+      onRemoveAllOptions: () => undefined,
     } satisfies MultiSelectToggleProps
 
     return (

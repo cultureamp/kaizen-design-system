@@ -1,6 +1,7 @@
 import React, { HTMLAttributes, useRef, useId } from "react"
 import classnames from "classnames"
 import { ReactFocusOnProps } from "react-focus-on/dist/es5/types"
+import { FieldMessage, FieldMessageProps } from "~components/FieldMessage"
 import { Heading } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
 import {
@@ -16,6 +17,10 @@ export type MultiSelectProps = {
   label: string
   items: MultiSelectOptionsProps["options"]
   selectedValues: Set<MultiSelectOption["value"]>
+  /**
+   * A description that provides context for the field
+   */
+  description?: FieldMessageProps["message"]
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
@@ -26,6 +31,7 @@ export const MultiSelect = ({
   label,
   items,
   selectedValues,
+  description,
   onSelectedValuesChange,
   isOpen,
   onOpenChange,
@@ -33,6 +39,7 @@ export const MultiSelect = ({
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
+  const descriptionId = `${id}-description`
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
@@ -65,6 +72,11 @@ export const MultiSelect = ({
     onSelectedValuesChange(newValues)
   }
 
+  const handleRemoveAllOptions = (): void => {
+    const newValues = new Set([])
+    onSelectedValuesChange(newValues)
+  }
+
   return (
     <div id={id} className={classnames(classNameOverride)} {...restProps}>
       <Heading tag="span" variant="heading-6" id={`${id}--label`}>
@@ -76,6 +88,7 @@ export const MultiSelect = ({
           ref={toggleButtonRef}
           id={`${id}--toggle`}
           aria-labelledby={`${id}--label`}
+          aria-describedby={descriptionId}
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
@@ -83,10 +96,11 @@ export const MultiSelect = ({
             value => itemsMap[value]
           )}
           onRemoveOption={handleOnRemoveOption}
+          onRemoveAllOptions={handleRemoveAllOptions}
         />
       </div>
 
-      {/* Description */}
+      {description && <FieldMessage id={descriptionId} message={description} />}
       {/* ValidationMessage */}
 
       {isOpen && (

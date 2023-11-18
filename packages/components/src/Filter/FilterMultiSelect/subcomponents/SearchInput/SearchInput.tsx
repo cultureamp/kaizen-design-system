@@ -1,5 +1,4 @@
-import React, { useMemo } from "react"
-import { v4 } from "uuid"
+import React, { useId } from "react"
 import { InputSearch } from "~components/Input/InputSearch"
 import { useSelectionContext } from "../../context"
 import styles from "./SearchInput.module.scss"
@@ -23,7 +22,8 @@ export const SearchInput = ({
 
   const handleClear = (): void => setSearchQuery("")
 
-  const inputId = useMemo(() => id ?? v4(), [id])
+  const reactId = useId()
+  const inputId = id ?? reactId
 
   return (
     <div className={styles.inputSearchContainer}>

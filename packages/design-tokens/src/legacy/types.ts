@@ -14,6 +14,7 @@ import type { CSSProperties as ReactCSSProperties } from "react"
  *
  * ```
  * */
+
 type KaizenCSSProperties = ReactCSSProperties
 
 type Hex = string
@@ -29,7 +30,15 @@ export type TypographyFont = {
   maxWidth?: KaizenCSSProperties["maxWidth"]
 }
 
-export type TokenStructure = {
+export type ThemeKey = "heart" | "custom"
+
+/**
+ * @deprecated
+ * - Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ * - If necessary, import from `@kaizen/design-tokens/js`
+ */
+export type Theme = {
+  themeKey: ThemeKey
   border: {
     solid: {
       borderWidth: KaizenCSSProperties["borderWidth"]
@@ -224,6 +233,9 @@ export type TokenStructure = {
 }
 
 // Converts all leafs (values that aren't objects) of an object tree to LeafType.
+/**
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ */
 export type DeepMapObjectLeafs<T, LeafType> = T extends
   | string
   | number
@@ -245,5 +257,7 @@ export type DeepMapObjectLeafs<T, LeafType> = T extends
  * This type represents the Theme type but with every leaf value in the tree mapped strictly to a string, rather than a number or a more complex type such as a string union.
  * The reason for this is to have a more accurate type for the generated hierarchy of design tokens which are represented as CSS custom properties, e.g. `var(--color-purple-800)`.
  */
-
-export type CSSVariableTheme = DeepMapObjectLeafs<TokenStructure, string>
+/**
+ * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
+ */
+export type CSSVariableTheme = DeepMapObjectLeafs<Theme, string>

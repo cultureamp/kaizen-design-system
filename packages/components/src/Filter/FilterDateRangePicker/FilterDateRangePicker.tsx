@@ -1,6 +1,6 @@
 import React, { useId } from "react"
 import { getLocale } from "~components/DatePicker/utils/getLocale"
-import { Filter, FilterContents, FilterProps } from "../Filter"
+import { Filter, FilterContents, FilterProps } from "~components/Filter/Filter"
 import { FilterButtonProps } from "../FilterButton"
 import { DateRangeDisplayLabel } from "./subcomponents/DateRangeDisplayLabel"
 import {

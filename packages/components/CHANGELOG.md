@@ -1,5 +1,68 @@
 # Change Log
 
+## 1.35.1
+
+### Patch Changes
+
+- [#4311](https://github.com/cultureamp/kaizen-design-system/pull/4311) [`20a7492e1`](https://github.com/cultureamp/kaizen-design-system/commit/20a7492e1902912504424bd9887e0495291c4283) - Add the TitleBlock types file to index
+
+## 1.35.0
+
+### Minor Changes
+
+- [#4272](https://github.com/cultureamp/kaizen-design-system/pull/4272) [`f09c3964e`](https://github.com/cultureamp/kaizen-design-system/commit/f09c3964e348fdd651ec32722e0b42515c014099) - Migrate GuidanceBlock from kaizen-legacy
+
+- [#4308](https://github.com/cultureamp/kaizen-design-system/pull/4308) [`07ae2692f`](https://github.com/cultureamp/kaizen-design-system/commit/07ae2692fd2ff1118fe2c9f4a3d3c4ee2f0d33bd) - Add `TitleBlockZen`, `SkirtCard` components export
+
+- [#4282](https://github.com/cultureamp/kaizen-design-system/pull/4282) [`982cbc006`](https://github.com/cultureamp/kaizen-design-system/commit/982cbc00635daae77496d06bf66aa3ba2bcdf6f3) - Migrate BrandMomentCaptureIntro from kaizen-legacy
+
+  - Migrate BrandMomentCaptureIntro as nested Scene component
+  - Replace setting of inline styles and display non with conditional render
+  - Adds stories and documentation to illustrate specific use case and animation
+
+- [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - Added the following foundational styles to dist/styles.css:
+
+  - Reset: initially to provide the border properties that support Tailwind's border default settings.
+  - Fonts: with font-face definitions for Inter, Tiempos and IBM Mono
+  - Normalize: A standard Normalize already present across CultureAmp
+  - Layers: A set of CSS layers to help control the specificity of these 3 CSS stylesheets and our component's CSS.
+
+  **Important: Remove any other normalize or reset stylesheets in your application repo**
+
+### Patch Changes
+
+- [#4285](https://github.com/cultureamp/kaizen-design-system/pull/4285) [`374d5bcca`](https://github.com/cultureamp/kaizen-design-system/commit/374d5bccad63b08916f84944b207a10802693218) - Dep updates (dev updates not listed)
+
+  - @floating-ui/react-dom from 2.0.2 to 2.0.4
+  - @react-stately/collections from 3.10.2 to 3.10.3
+  - @react-stately/menu from 3.5.6 to 3.5.7
+  - react-animate-height from 3.2.2 to 3.2.3
+  - (peer dep) react-intl from 6.5.1 to 6.5.4
+
+- [#4205](https://github.com/cultureamp/kaizen-design-system/pull/4205) [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65) - - Replace all usages of `Heading` from `@kaizen/typography` with the same from KAIO
+
+  - Replace all usages of `Paragraph` from `@kaizen/typography` with `Text` from KAIO
+  - Remove `@kaizen/brand` and its usages
+  - Remove `@kaizen/brand-moment` and its usages
+  - Remove `@kaizen/button` and its usages
+  - Remove `@kaizen/draft-badge` and its usages
+  - Remove `@kaizen/draft-card` and its usages
+  - Remove `@kaizen/draft-divider` and its usages
+  - Remove `@kaizen/draft-form` and its usages
+  - Remove `@kaizen/draft-illustration` and its usages
+  - Remove `@kaizen/draft-page-layout` and its usages
+  - Remove `@kaizen/draft-select` and its usages
+  - Remove `@kaizen/draft-tabs` and its usages
+  - Remove `@kaizen/draft-tag` and its usages
+  - Remove `@kaizen/draft-tooltip` and its usages
+  - Remove `@kaizen/responsive` and its usages
+  - Remove `@kaizen/notification` and its usages
+  - Remove `@kaizen/loading-skeleton` and its usages
+  - Remove `@kaizen/loading-spinner` and its usages
+  - Update usages of `uuid` to `useId` within components
+
+- [#4296](https://github.com/cultureamp/kaizen-design-system/pull/4296) [`b745e3f75`](https://github.com/cultureamp/kaizen-design-system/commit/b745e3f75569e4c478e8ace891ca8737f483f0aa) - Bump adobe (react-aria/stately) packages
+
 ## 1.34.0
 
 ### Minor Changes

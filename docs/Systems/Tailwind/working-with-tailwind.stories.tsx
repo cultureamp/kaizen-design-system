@@ -1,13 +1,13 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
-import { Button } from "@kaizen/button"
-import { Card } from "@kaizen/draft-card"
+import { Button } from "~components/Button"
+import { Card } from "~components/Card"
+import { Heading } from "~components/Heading"
 import {
   CustomSurvey,
   CustomUnattributedSurvey,
-} from "@kaizen/draft-illustration"
-import { Skirt } from "@kaizen/draft-page-layout"
-import { Heading } from "@kaizen/typography"
+} from "~components/Illustration"
+import { Skirt } from "~components/Skirt"
 import { CardContent } from "./components/CardContent"
 
 export default {

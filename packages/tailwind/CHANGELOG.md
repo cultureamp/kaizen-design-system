@@ -1,5 +1,33 @@
 # Change Log
 
+## 1.2.0
+
+### Minor Changes
+
+- [#4256](https://github.com/cultureamp/kaizen-design-system/pull/4256) [`6e22e0a21`](https://github.com/cultureamp/kaizen-design-system/commit/6e22e0a21cc11751c754eb02862c52ad1b8a30b2) - Fix long utility strings for borders in Tailwind (in combination with `@kaizen/components/dist/styles.css`)
+
+  **Important: these utilities will not work without upgrading to `@kaizen/components@1.35.0`**
+
+  - Adds DEFAULT values to `borderWidth` and `borderColor` in the Tailwind preset, so these don't need to be written with utility classes.
+
+  These changes mean that border styles require much less utility classes to be written.
+  For example, to add a border-bottom to an element, we would previously need to write:
+
+  ```
+  className="border-b-default border-l-none border-r-none border-t-none border-solid border-purple-800"
+  ```
+
+  We can now achieve the same css by simply writing:
+
+  ```
+  className="border-b"
+  ```
+
+### Patch Changes
+
+- Updated dependencies [[`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65), [`07ae2692f`](https://github.com/cultureamp/kaizen-design-system/commit/07ae2692fd2ff1118fe2c9f4a3d3c4ee2f0d33bd), [`dee798fdb`](https://github.com/cultureamp/kaizen-design-system/commit/dee798fdb2d5091650e9350d0f7c575288e59c65)]:
+  - @kaizen/design-tokens@10.3.16
+
 ## 1.1.1
 
 ### Patch Changes
@@ -139,7 +167,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/tailwind
 
-# [0.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.5.2...@kaizen/tailwind@0.6.0) (2023-03-21)
+## [0.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.5.2...@kaizen/tailwind@0.6.0) (2023-03-21)
 
 ### Bug Fixes
 
@@ -160,7 +188,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/tailwind
 
-# [0.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.4.2...@kaizen/tailwind@0.5.0) (2023-02-20)
+## [0.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.4.2...@kaizen/tailwind@0.5.0) (2023-02-20)
 
 ### Features
 
@@ -174,7 +202,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/tailwind
 
-# [0.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.3.4...@kaizen/tailwind@0.4.0) (2023-02-14)
+## [0.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.3.4...@kaizen/tailwind@0.4.0) (2023-02-14)
 
 ### Features
 
@@ -196,7 +224,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/tailwind
 
-# [0.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.2.7...@kaizen/tailwind@0.3.0) (2023-01-30)
+## [0.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.2.7...@kaizen/tailwind@0.3.0) (2023-01-30)
 
 ### Features
 
@@ -230,7 +258,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/tailwind
 
-# [0.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.1.3...@kaizen/tailwind@0.2.0) (2022-12-15)
+## [0.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/tailwind@0.1.3...@kaizen/tailwind@0.2.0) (2022-12-15)
 
 ### Features
 
@@ -248,7 +276,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @kaizen/tailwind
 
-# 0.1.0 (2022-12-06)
+## 0.1.0 (2022-12-06)
 
 ### Features
 

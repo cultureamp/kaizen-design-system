@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "../../../styles/forms";
-@import "../../../styles/form-variables";
+@import "../../../styles/utils/forms";
+@import "../../../styles/utils/form-variables";
 
 $checkbox-size: 24px;
 $icon-size: 24px;
@@ -85,8 +85,8 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
     border-width: $border-focus-ring-border-width;
     border-style: $border-focus-ring-border-style;
     border-color: $dt-color-form-border-color-focus;
-    top: -$focus-ring-offset - ($checkbox-size / 8);
-    left: -$focus-ring-offset - ($checkbox-size / 8);
+    top: calc(-#{$focus-ring-offset} - calc(#{$checkbox-size} / 8));
+    left: calc(-#{$focus-ring-offset} - calc(#{$checkbox-size} / 8));
     width: calc(
       #{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} *
         2

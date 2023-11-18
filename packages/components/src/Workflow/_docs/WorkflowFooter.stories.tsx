@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "@kaizen/button"
+import { Button } from "~components/Button"
 import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"

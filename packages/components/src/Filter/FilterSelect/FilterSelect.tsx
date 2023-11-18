@@ -5,7 +5,7 @@ import {
   useSelectState,
   SelectProps as AriaSelectProps,
 } from "@react-stately/select"
-import { Filter, FilterContents } from "~components/Filter"
+import { Filter, FilterContents } from "~components/Filter/Filter"
 import { FilterButtonProps } from "~components/Filter/FilterButton"
 import { SelectProvider } from "~components/__future__/Select/context"
 import {

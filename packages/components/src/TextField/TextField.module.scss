@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../styles/animation";
-@import "../../styles/legacy/layout";
-@import "../../styles/legacy/type";
+@import "../../styles/utils/animation";
+@import "../../styles/utils/legacy/layout";
+@import "../../styles/utils/legacy/type";
 
 @mixin input-icon($color, $reversed) {
   color: $color;

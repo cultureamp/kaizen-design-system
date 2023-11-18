@@ -30,9 +30,6 @@ import { mapLeafsOfObject } from "./mapLeafsOfObject"
  *  "--color-whatever-100": "#ff0022"
  * }
  */
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
- */
 export function makeCssVariableDefinitionsMap(
   theme: Record<string | number, unknown>
 ): Record<string, string> {

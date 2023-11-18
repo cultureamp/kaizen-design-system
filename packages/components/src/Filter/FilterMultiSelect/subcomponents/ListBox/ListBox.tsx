@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Collection } from "@react-types/shared"
+import { Collection, Key } from "@react-types/shared"
 import classnames from "classnames"
 import { useSelectionContext } from "../../context/SelectionProvider"
 import { MultiSelectItem } from "../../types"
@@ -19,7 +19,7 @@ export type ListBoxProps = {
 
 const getItemsFromKeys = (
   items: Collection<MultiSelectItem>,
-  keys: Set<React.Key>
+  keys: Set<Key>
 ): MultiSelectItem[] => {
   const itemKeys = Array.from(keys)
   return itemKeys.reduce<MultiSelectItem[]>((acc, itemKey) => {

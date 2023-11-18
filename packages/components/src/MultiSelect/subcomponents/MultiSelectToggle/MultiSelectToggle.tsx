@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
-// import { ClearButton } from "~components/ClearButton"
+import { ClearButton } from "~components/ClearButton"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { RemovableTag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -14,6 +14,7 @@ export type MultiSelectToggleProps = {
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
   onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
+  onRemoveAllOptions: () => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelectToggle = forwardRef<
@@ -24,11 +25,13 @@ export const MultiSelectToggle = forwardRef<
     {
       onClick,
       "aria-labelledby": ariaLabelledBy,
+      "aria-describedby": ariaDescribedBy,
       "aria-controls": ariaControls,
       isOpen = false,
       classNameOverride,
       selectedOptions,
       onRemoveOption,
+      onRemoveAllOptions,
       ...restProps
     },
     ref
@@ -48,6 +51,7 @@ export const MultiSelectToggle = forwardRef<
           ref={ref}
           className={styles.toggleButton}
           aria-labelledby={ariaLabelledBy}
+          aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
           aria-expanded={isOpen}
           aria-haspopup="dialog"
@@ -91,15 +95,14 @@ export const MultiSelectToggle = forwardRef<
                 ))}
               </ul>
 
-              {/* @todo: Visuals prepared for implementation */}
-              {/* <ClearButton
-aria-label="Clear all waffles"
-classNameOverride={styles.clearAllButton}
-onClick={e => {
-e.stopPropagation()
-console.log("DELETE ALL >:]")
-}}
-/> */}
+              <ClearButton
+                aria-label="Clear all waffles"
+                classNameOverride={styles.clearAllButton}
+                onClick={e => {
+                  e.stopPropagation()
+                  onRemoveAllOptions()
+                }}
+              />
             </>
           )}
         </div>
