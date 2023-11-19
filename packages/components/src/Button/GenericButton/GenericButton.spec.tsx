@@ -111,3 +111,72 @@ describe("<GenericButton /> with native HTML `form` attributes", () => {
     ).toHaveAttribute("form", buttonFormAttributes.form)
   })
 })
+
+describe("<GenericButton /> `working` accessible states", () => {
+  it("renders a button without aria-live by default", () => {
+    const { getByTestId } = render(
+      <GenericButton
+        data-testid="id--generic-test"
+        id="id--button"
+        label="button label"
+      />
+    )
+
+    const button = getByTestId("id--generic-test")
+    // The id is passed to the element not the container so we have to get its parent
+    const buttonContainer = button.parentElement
+
+    expect(buttonContainer).not.toHaveAttribute("aria-live", "")
+  })
+
+  it("renders a button with aria-live if working label if provided", () => {
+    const { getByTestId } = render(
+      <GenericButton
+        data-testid="id--generic-test"
+        id="id--button"
+        label="button label"
+        workingLabel="Loading"
+      />
+    )
+    const button = getByTestId("id--generic-test")
+    const buttonContainer = button.parentElement
+
+    expect(buttonContainer).toHaveAttribute("aria-live", "polite")
+  })
+
+  it("renders a link button with aria-live if working label if provided", () => {
+    const { getByTestId } = render(
+      <GenericButton
+        data-testid="id--generic-test"
+        id="id--button"
+        label="button label"
+        workingLabel="Loading"
+        href="/"
+      />
+    )
+    const button = getByTestId("id--generic-test")
+    const buttonContainer = button.parentElement
+
+    expect(buttonContainer).toHaveAttribute("aria-live", "polite")
+  })
+
+  it("renders a custom button with aria-live if working label if provided", () => {
+    const { getByTestId } = render(
+      <GenericButton
+        data-testid="id--generic-test"
+        id="id--button"
+        label="button label"
+        workingLabel="Loading"
+        component={props => (
+          <button type="button" {...props}>
+            Custom button
+          </button>
+        )}
+      />
+    )
+    const button = getByTestId("id--generic-test")
+    const buttonContainer = button.parentElement
+
+    expect(buttonContainer).toHaveAttribute("aria-live", "polite")
+  })
+})
