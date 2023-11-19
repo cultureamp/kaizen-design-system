@@ -3,14 +3,8 @@ import { createPortal } from "react-dom"
 import debounce from "lodash.debounce"
 import { SelectionPosition } from "../../types"
 
-/* You shouldn't need to render this popover on the server */
-/* eslint-disable ssr-friendly/no-dom-globals-in-react-fc */
-
-export const Positioner = forwardRef(
-  (
-    { top, left, height, width }: SelectionPosition,
-    ref: React.Ref<HTMLElement>
-  ) => {
+export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
+  ({ top, left, height, width }, ref) => {
     const [windowScroll, setWindowScroll] = useState<[number, number]>([
       window.scrollX,
       window.scrollY,
@@ -48,5 +42,3 @@ export const Positioner = forwardRef(
 )
 
 Positioner.displayName = "Positioner"
-
-/* eslint-enable ssr-friendly/no-dom-globals-in-react-fc */
