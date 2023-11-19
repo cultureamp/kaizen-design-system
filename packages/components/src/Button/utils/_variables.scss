@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
-@import "../../../styles/legacy/color";
-@import "../../../styles/legacy/layout";
+@import "../../../styles/utils/legacy/color";
+@import "../../../styles/utils/legacy/layout";
 
 $button-height: $spacing-xl;
 $button-small-height: calc(#{$spacing-md} * 5 / 3);

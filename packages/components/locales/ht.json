@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Fòma done"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Soti nan dat"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Rive nan dat"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Fòma done"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Dezole, nou pa kapab jwenn paj w ap chèche a. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+    "message" : "Dezole, men nou pa kapab jwenn paj w ap chèche a. Tounen epi eseye ankò, oswa ale nan paj akèy la"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Paj ki manke yo se youn nan mistè lavi a"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Nou regrèt, nou gen yon pwoblèm nan sistèm nan sa ki fè paj sa a pa kapab parèt. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Gen yon bagay ki mal pase bò kote pa nou"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

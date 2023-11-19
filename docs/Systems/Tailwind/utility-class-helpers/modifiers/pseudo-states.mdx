@@ -1,0 +1,26 @@
+import { Description, Meta, Story, Unstyled } from "@storybook/blocks"
+import { Card } from "~components/Card"
+import * as Examples from "./pseudo-states.stories"
+
+<Meta of={Examples} />
+
+# Pseudo Selectors
+
+<Description />
+
+<Unstyled>
+  <Card variant="informative" classNameOverride="w-fit mb-24">
+    <div className="font-family-paragraph p-24">
+      <p>
+        Pseudo selectors can be used to apply standard Tailwind utility
+        classes under certain pseudo states, such as on hover or focus.
+      </p>
+      <p>
+        Read more on Tailwind's pseudo selectors
+        <a href="https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-classes">here</a>.
+      </p>
+    </div>
+  </Card>
+</Unstyled>
+
+<Story of={Examples.PseudoSelectors} />

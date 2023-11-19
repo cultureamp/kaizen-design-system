@@ -1,8 +1,8 @@
-import { Node } from "@react-types/shared"
+import { Node, Key } from "@react-types/shared"
 
 export type SelectOption = {
   label: string
-  value: React.Key
+  value: Key
   disabled?: boolean
   options?: never
 }

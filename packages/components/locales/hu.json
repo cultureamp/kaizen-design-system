@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Beviteli formátum"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Dátum ettől:"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Dátum eddig:"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Beviteli formátum"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sajnáljuk, de nem találjuk a keresett oldalt.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+    "message" : "Sajnáljuk, de nem találjuk a keresett oldalt. Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "A hiányzó oldalak az élet egyik rejtélye"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sajnáljuk, de probléma van a rendszerünkkel, és ez az oldal nem jelenik meg.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Valami a mi oldalunkon romlott el"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

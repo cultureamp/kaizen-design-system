@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import * as ToolbarStories from "./Toolbar.stories"
+
+<Meta of={ToolbarStories} />
+
+# Toolbar
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/RichTextEditor/subcomponents/Toolbar"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { Toolbar } from "@kaizen/components"'
+/>
+
+## Overview
+
+Create your own custom toolbar arrangement.
+
+<Canvas of={ToolbarStories.Playground} />
+<Controls of={ToolbarStories.Playground} />

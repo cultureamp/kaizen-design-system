@@ -1,6 +1,5 @@
 import React, { cloneElement, HTMLAttributes, ReactElement } from "react"
 import classnames from "classnames"
-import { Tooltip } from "@kaizen/draft-tooltip"
 import { Checkbox, CheckedStatus } from "~components/Checkbox"
 import { Heading } from "~components/Heading"
 import {
@@ -8,6 +7,7 @@ import {
   SortAscendingIcon,
   SortDescendingIcon,
 } from "~components/Icon"
+import { Tooltip } from "~components/Tooltip"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Table.module.scss"
 

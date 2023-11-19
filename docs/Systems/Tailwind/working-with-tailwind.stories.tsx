@@ -1,13 +1,13 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
-import { Button } from "@kaizen/button"
-import { Card } from "@kaizen/draft-card"
+import { Button } from "~components/Button"
+import { Card } from "~components/Card"
+import { Heading } from "~components/Heading"
 import {
   CustomSurvey,
   CustomUnattributedSurvey,
-} from "@kaizen/draft-illustration"
-import { Skirt } from "@kaizen/draft-page-layout"
-import { Heading } from "@kaizen/typography"
+} from "~components/Illustration"
+import { Skirt } from "~components/Skirt"
 import { CardContent } from "./components/CardContent"
 
 export default {
@@ -91,7 +91,7 @@ export const TailwindExampleClassNameOverrideHeading: StoryFn = () => (
 
 export const TailwindExampleSnowflake: StoryFn = () => (
   <div className="flex justify-center">
-    <div className="w-[250px] rounded-default border-dashed border-red-500 bg-blue-100">
+    <div className="w-[250px] rounded border-dashed border-red-500 bg-blue-100">
       <p className="m-0 p-12 pl-16 font-family-paragraph text-blue-500 text-center">
         Not a Kaizen Component
       </p>

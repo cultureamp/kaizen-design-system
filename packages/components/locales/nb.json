@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Inndataformat"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Dato fra"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Dato til"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Inndataformat"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -51,11 +51,19 @@
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Beklager, men vi kan ikke finne siden du leter etter. Gå tilbake og prøv igjen, eller gå til Hjem"
+    "message" : "Beklager, men vi finner ikke siden du leter etter. Gå tilbake og prøv igjen, eller gå til startsiden"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Manglende sider er et av livets mysterier"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Beklager, det er et problem med systemet vårt, og denne siden kan ikke vises. Gå tilbake og prøv igjen, eller gå til Hjem"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Noe har gått galt på vår side"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

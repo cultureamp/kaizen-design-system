@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "输入格式"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "起始日期"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "结束日期"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "输入格式"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -56,6 +56,14 @@
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "页面缺失是人生的谜团之一"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "很抱歉，我们的系统出现问题，无法显示此页面。请返回并重试，或前往主页"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "我们这边出了点问题"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

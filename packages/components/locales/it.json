@@ -9,6 +9,10 @@
     }],
     "variants_enabled" : true
   },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Formato di input"
+  },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
     "message" : "Data di inizio"
@@ -16,10 +20,6 @@
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
     "message" : "Data di fine"
-  },
-  "dateInputDescription.inputFormat" : {
-    "description" : "Label for the 'Input format' field",
-    "message" : "Formato di input"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -56,6 +56,14 @@
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
     "message" : "Le pagine mancanti sono uno dei misteri della vita"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Siamo spiacenti, si è verificato un problema con il nostro sistema e questa pagina non è visualizzabile. Torna indietro e riprova o vai alla Home"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Si è verificato un errore da parte nostra"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",

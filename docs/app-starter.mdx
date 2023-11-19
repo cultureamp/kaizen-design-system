@@ -1,0 +1,66 @@
+import { Meta } from "@storybook/blocks"
+import { InlineNotification } from "~components/Notification"
+import { LinkTo } from "~storybook/components/LinkTo"
+
+<Meta title="Guides/App starter" />
+
+# App starter
+
+This guide is all about how to introduce the Kaizen Design System to your app.
+
+Whilst the Kaizen Design System mainly focuses on the more atomic components in your app, some of the components have a high level of complexity requiring various global components to be present in order for them to function.
+
+<InlineNotification persistent type="informative">You won't need to apply any of the below if you have the latest <a href="https://github.com/cultureamp/frontend-template" target="_blank" rel="noreferrer">Frontend template</a> or <a href="https://github.com/cultureamp/next-template">next-template</a>.</InlineNotification>
+## 1. Add the KaizenProvider
+
+The <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> feeds your entire app with Kaizen defaults so it's important that it goes at the very root of your application.
+```tsx
+import { KaizenProvider } from "@kaizen/components";
+<KaizenProvider>
+  <App />
+</KaizenProvider>
+```
+Be sure to read the <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> documentation for migration tips and in case your app requires any further config, but generally this should be it!
+
+## 2. Add unified-home's @culturamp/i18n-react-intl webpack plugin to your webpack config
+
+This plugin is necessary for KaizenProvider to run properly, and for ensuring that Kaizen's internal translated message strings are
+available to the Kaizen components that consume them.
+
+For installation instructions, see their docs [here](https://github.com/cultureamp/unified-home/tree/master/packages/i18n-react-intl#integrating-with-webpack).
+
+## 3. Setup Tailwind CSS
+
+It is recommended that you use Tailwind for any custom CSS you may need to write outside of using Kaizen components.
+
+For full installation instructions, see the <LinkTo pageId="systems-tailwind-getting-started">Tailwind Getting Started</LinkTo> page.
+
+Whether or not you are already familiar with Tailwind, you'll want to take a look at our <LinkTo pageId="systems-tailwind-utility-class-references-overview">Utility Class References</LinkTo>, as we have made distinct modifications to vanilla Tailwind to suit our design system.
+
+## 4. Add Kaizen's global CSS stylesheet
+
+For the convenience of your app, we've compiled all the necessary styles for our components into a single stylesheet to make it easy to set and forget.
+
+This includes:
+- [Normalize.css](https://github.com/necolas/normalize.css)
+- reset.css
+- Component styles
+
+You can import this stylesheet in either CSS or JS as long as it sits as the first and only of its kind.
+
+### CSS
+We've especially accounted for Tailwind, so if you opt for CSS, it is recommended you include it at the top of your `tailwind.css`
+```css
+// tailwind.css
+@import "@kaizen/components/dist/styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### JS
+```js
+import "@kaizen/components/dist/styles.css"
+import "tailwind.css"
+```

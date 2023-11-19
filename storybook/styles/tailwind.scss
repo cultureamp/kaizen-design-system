@@ -1,12 +1,3 @@
-@layer normalize;
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "./fonts.scss";
-@import "./docs.scss";
-
-// Standard base stylesheet used across Culture Amp products
-// See: https://github.com/necolas/normalize.css/
-@import "normalize.css" layer(normalize);

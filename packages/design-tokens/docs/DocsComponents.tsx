@@ -2,14 +2,12 @@
 
 import React from "react"
 import { Unstyled } from "@storybook/blocks"
-import classnames from "classnames"
+import { toCustomMediaQueriesArray } from "object-to-css-variables"
 import Highlight from "react-highlight"
-import { Box } from "@kaizen/component-library"
-import { Card } from "@kaizen/draft-card"
-import { Tabs } from "@kaizen/draft-tabs"
-import { Paragraph } from "@kaizen/typography"
-import { makeCSSVariableTheme } from "../src/lib/makeCssVariableTheme"
-import { defaultTheme } from "../src/themes"
+import { Card } from "~components/Card"
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
+import { tokens } from "../src/js"
+import { makeCssVariableDefinitionsMap } from "../src/lib/makeCssVariableDefinitionsMap"
 import animationSass from "!!raw-loader!../sass/animation.scss"
 import borderSass from "!!raw-loader!../sass/border.scss"
 import colorsSass from "!!raw-loader!../sass/color.scss"
@@ -18,7 +16,6 @@ import shadowSass from "!!raw-loader!../sass/shadow.scss"
 import spacingSass from "!!raw-loader!../sass/spacing.scss"
 import typographySass from "!!raw-loader!../sass/typography.scss"
 import styles from "./styles.scss"
-import heartThemeSrc from "!!raw-loader!../src/themes/heart"
 
 export const CodeBlock = (props: {
   language: string
@@ -26,7 +23,7 @@ export const CodeBlock = (props: {
   code: string
 }): JSX.Element => (
   <Unstyled>
-    <Box py={0.5}>
+    <div className="py-8">
       <Card>
         <div className={styles.codeWrapper}>
           <Highlight className={props.language}>{props.code}</Highlight>
@@ -35,14 +32,10 @@ export const CodeBlock = (props: {
 
       {props.caption && (
         <div className={styles.codeWrapperCaption}>
-          <Paragraph variant="small">
-            <span className={styles.codeWrapperCaptionText}>
-              {props.caption}
-            </span>
-          </Paragraph>
+          <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
         </div>
       )}
-    </Box>
+    </div>
   </Unstyled>
 )
 
@@ -52,70 +45,46 @@ const TabbedCodeBlocks = ({
   blocks: Array<
     React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
   >
-}): JSX.Element => {
-  const [currentTab, setCurrentTab] = React.useState(blocks[0])
-  const { name: _name, ...codeBlockProps } = currentTab
-
-  return (
-    <div style={{ minHeight: "32rem" }}>
-      <div style={{ overflowX: "auto" }}>
-        <Box pl={0.25}>
-          <Tabs
-            renderTab={({
-              tab,
-              activeTabClassName,
-              tabClassName,
-              disabledTabClassName,
-            }): JSX.Element => (
-              // eslint-disable-next-line jsx-a11y/anchor-is-valid
-              <a
-                style={{ flexShrink: 0 }}
-                key={tab.label}
-                onClick={tab.onClick}
-                href={!tab.disabled ? tab.href : undefined}
-                className={classnames(
-                  !tab.active && !tab.disabled && tabClassName,
-                  tab.active && activeTabClassName,
-                  tab.disabled && disabledTabClassName
-                )}
-              >
-                {tab.label}
-              </a>
-            )}
-            tabs={blocks.map(block => ({
-              label: block.name,
-              active: currentTab.name === block.name,
-              onClick: () => setCurrentTab(block),
-            }))}
-          />
-        </Box>
-      </div>
-      <CodeBlock {...codeBlockProps} />
-    </div>
-  )
-}
+}): JSX.Element => (
+  <Tabs>
+    <TabList aria-label="Tabs">
+      {blocks.map(({ name }) => (
+        <Tab key={name}>{name}</Tab>
+      ))}
+    </TabList>
+    <TabPanels>
+      {blocks.map(({ name, ...props }) => (
+        <TabPanel key={name} classNameOverride="p-24">
+          <CodeBlock {...props} />
+        </TabPanel>
+      ))}
+    </TabPanels>
+  </Tabs>
+)
 
 const themesBlocks: Array<
   React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
 > = [
   {
-    name: "Heart",
+    name: "JS",
     language: "typescript",
-    code: heartThemeSrc,
+    code: JSON.stringify(tokens, null, 2),
     caption: (
       <code>
-        import {"{ heartTheme }"} from &quot;@kaizen/design-tokens&quot;
+        import {"{ tokens }"} from &quot;@kaizen/design-tokens/js&quot;
       </code>
     ),
   },
   {
     name: "CSS Variables",
-    language: "json",
-    code: JSON.stringify(makeCSSVariableTheme(defaultTheme), null, 2),
+    language: "css",
+    code: toCustomMediaQueriesArray(
+      makeCssVariableDefinitionsMap(tokens)
+    ).reduce((acc, item) => acc + `${item.key}: ${item.value}; \n`, ""),
     caption: (
       <span>
-        Generated using the default theme. Exported as JSON in
-        @kaizen/design-tokens/tokens/*.json
+        Generated using the default theme. Exported as CSS in
+        @kaizen/design-tokens/css/variables.css
       </span>
     ),
   },

@@ -1,4 +1,4 @@
-import { DeepMapObjectLeafs } from "../types"
+import { DeepMapObjectLeafs } from "../legacy/types"
 
 /**
  * This allows you to map the leaf nodes of an object, and you're provided the path to that leaf as well as the value as parameters to your mapper function.
@@ -19,9 +19,6 @@ import { DeepMapObjectLeafs } from "../types"
  *    }
  * }
  * ```
- */
-/**
- * @deprecated Not needed if you are using `KaizenProvider` from `@kaizen/components` or `defaultPreset` from next-services.
  */
 export function mapLeafsOfObject<
   Obj extends Record<string | number, unknown>,
