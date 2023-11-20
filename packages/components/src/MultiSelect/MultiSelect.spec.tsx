@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MultiSelect, MultiSelectProps } from "./MultiSelect"
 
@@ -329,5 +329,60 @@ describe("Removing all options", () => {
       expect(pancakesOption).not.toBeInTheDocument()
       expect(waffleOption).not.toBeInTheDocument()
     })
+  })
+})
+
+describe("Has validation status", () => {
+  it("renders a validation message", () => {
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        validationMessage={{
+          status: "error",
+          message: "No waffles are available",
+        }}
+      />
+    )
+    expect(screen.getByText("No waffles are available")).toBeInTheDocument()
+  })
+  it("describes the Toggle", () => {
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        label="Breakfast menu"
+        validationMessage={{
+          status: "caution",
+          message: "Only four waffles remain",
+        }}
+      />
+    )
+    expect(
+      screen.getByRole("button", {
+        name: "Breakfast menu",
+        description: "Only four waffles remain",
+      })
+    ).toBeInTheDocument()
+  })
+  it("announces the validation message before the Toggle's description", () => {
+    const description = "Choose you breakfast."
+    const validationMessage = "Only four waffles remain."
+
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        label="Breakfast menu"
+        description={description}
+        validationMessage={{
+          status: "caution",
+          message: "Only four waffles remain.",
+        }}
+      />
+    )
+    expect(
+      screen.getByRole("button", {
+        name: "Breakfast menu",
+        description: `${validationMessage} ${description}`,
+      })
+    ).toBeInTheDocument()
   })
 })
