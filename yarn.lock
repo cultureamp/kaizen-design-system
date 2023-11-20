@@ -5288,10 +5288,10 @@
     fs-extra "^11.1.0"
     read-pkg-up "^7.0.1"
 
-"@storybook/test-runner@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.14.0.tgz#85248f0ddb1e3e725f92504ea818279b7ebff6e6"
-  integrity sha512-gqh1q2ac84VE5tU/6Iz5HkvLcfaC91DnhtfeRDoacMlFYJhGs+xu/zjQYyzCr3MPQykm09X3Dol0BjAJtCGmDg==
+"@storybook/test-runner@^0.15.1":
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.15.1.tgz#50473081cc855f837a2c1cbb3ee16ca72fcc692d"
+  integrity sha512-VHm9E6DM4ibs132EVJnavhX8Y15WARRHaZcLMkdb1R9Wmh1X6pdojl77AERQzIOCzhfBg291G3MZzCcE9enh8A==
   dependencies:
     "@babel/core" "^7.22.5"
     "@babel/generator" "^7.22.5"
@@ -5525,10 +5525,10 @@
     "@babel/runtime" "^7.12.5"
     react-error-boundary "^3.1.0"
 
-"@testing-library/react@^14.0.0":
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-14.0.0.tgz#59030392a6792450b9ab8e67aea5f3cc18d6347c"
-  integrity sha512-S04gSNJbYE30TlIMLTzv6QCTzt9AqIF5y6s6SzVFILNcNvbV/jU96GeiTPillGQo+Ny64M/5PV7klNYYgv5Dfg==
+"@testing-library/react@^14.1.2":
+  version "14.1.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-14.1.2.tgz#a2b9e9ee87721ec9ed2d7cfc51cc04e474537c32"
+  integrity sha512-z4p7DVBTPjKM5qDZ0t5ZjzkpSNb+fZy1u6bzO7kk8oeGagpPCAtgh4cx1syrfp7a+QWkM021jGqjJaxJJnXAZg==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^9.0.0"
@@ -7861,10 +7861,15 @@ chromatic@^6.24.1:
   resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-6.24.1.tgz#848209706b423a78fe4876505a5dca3deb8e8b4c"
   integrity sha512-XbpdWWHvFpEHtcq1Km71UcuQ07effB+8q8L47E1Y7HJmJ4ZCoKCuPd8liNrbnvwEAxqfBZvTcONYU/3BPz2i5w==
 
-chromatic@^7.2.0, chromatic@^7.6.0:
+chromatic@^7.2.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-7.6.0.tgz#b05cad35d47f6410efa5bca6b35af6fae6e540bc"
   integrity sha512-4MwlX8EDMyfQKf1NXTdUhJ2b0EYueByaVrF75pdFaOzHH7n3OhzknmQYbUSegLiFhKvHuvM8nZvf9SCajO+Cow==
+
+chromatic@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-9.1.0.tgz#dfc23ca3b602f7bba29defdf1aeddf8ae8516523"
+  integrity sha512-9ib8k4LIfg/88kKufxz1N8vgCB7nlLhJqmx+Vx55cM/6DCB/M6oqroirVRXfdeC7qaZuhyUemPF2QHxBh7GXtQ==
 
 chrome-trace-event@^1.0.2:
   version "1.0.3"
@@ -18605,10 +18610,15 @@ to-vfile@^7.0.0:
     is-buffer "^2.0.0"
     vfile "^5.1.0"
 
-tocbot@^4.20.1, tocbot@^4.21.6:
+tocbot@^4.20.1:
   version "4.21.6"
   resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.21.6.tgz#64e3685a3cb41e23841a06eedba9ad807270190f"
   integrity sha512-bAnyV6SU2n1AvuBvEgi8t7KiIn5rRiEmwFp4+elx/1ueuncAUyubITfXDMwOqStgUwh8pDzLdWgDKLicsJPikw==
+
+tocbot@^4.22.0:
+  version "4.22.0"
+  resolved "https://registry.yarnpkg.com/tocbot/-/tocbot-4.22.0.tgz#10bb34c011c1baa93d2a0e91d25d820856ba4103"
+  integrity sha512-YHCs00HCNiHxUhksloa36fTfMEXEWV+vdPn3ARQfmj2u3PcUYIjJkfc+ABUfCF9Eb+LSy/QzuLl256fbsRnpHQ==
 
 toidentifier@1.0.1:
   version "1.0.1"
