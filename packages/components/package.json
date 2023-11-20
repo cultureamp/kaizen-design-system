@@ -22,7 +22,9 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/index.d.ts",
-  "sideEffects": ["styles.css"],
+  "sideEffects": [
+    "styles.css"
+  ],
   "scripts": {
     "prepublishOnly": "yarn build:components && yarn build:styles && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublishOnly",
