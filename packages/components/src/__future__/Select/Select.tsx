@@ -116,12 +116,22 @@ export const Select = <Option extends SelectOption = SelectOption>({
 
   const {
     labelProps,
-    triggerProps,
+    triggerProps: reactAriaTriggerProps,
     valueProps,
     menuProps,
     errorMessageProps,
     descriptionProps,
   } = useSelect(ariaSelectProps, state, triggerRef)
+
+  // Hack incoming:
+  // react-aria/useSelect wants to prefix the combobox's accessible name with the value of the select.
+  // We use role=combobox, meaning screen readers will read the value.
+  // So we're modifying the `aria-labelledby` property to remove the value element id.
+  // Issue: https://github.com/adobe/react-spectrum/issues/4091
+  const triggerProps = {
+    ...reactAriaTriggerProps,
+    "aria-labelledby": reactAriaTriggerProps["aria-labelledby"]?.split(" ")[1],
+  }
 
   const { buttonProps } = useButton(triggerProps, triggerRef)
   const selectToggleProps = {
