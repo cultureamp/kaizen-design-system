@@ -67,6 +67,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
    * @deprecated: Either define `disabled` in your `Option` (in `items`), or use `disabledKeys`
    */
   disabledValues?: Key[]
+  portalContainer?: Element | DocumentFragment
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
@@ -89,6 +90,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   description,
   placeholder,
   isDisabled,
+  portalContainer,
   ...restProps
 }: SelectProps<Option>): JSX.Element => {
   const { refs } = useFloating<HTMLButtonElement>()
@@ -96,6 +98,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
 
   const id = propsId ?? useId()
   const descriptionId = `${id}--description`
+  const popoverId = `${id}--popover`
 
   const disabledKeys = getDisabledKeysFromItems(items)
 
@@ -136,6 +139,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
     isDisabled: triggerProps.isDisabled,
     isReversed,
     ref: refs.setReference,
+    "aria-controls": popoverId,
   }
 
   return (
@@ -160,6 +164,8 @@ export const Select = <Option extends SelectOption = SelectOption>({
         )}
         {state.isOpen && (
           <Popover
+            id={popoverId}
+            portalContainer={portalContainer}
             refs={refs}
             focusOnProps={{
               onEscapeKey: state.close,
