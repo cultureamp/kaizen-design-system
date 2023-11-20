@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { InputStatus, InputTypes } from "~components/Input/Input/types"
+import { InputStatus, InputTypes } from "~components/Input"
 import {
   StickerSheet,
   StickerSheetStory,

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { InlineNotification } from "@kaizen/notification"
+import { InlineNotification } from "~components/Notification"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { CodeSnippet } from "./CodeSnippet"
 
@@ -27,22 +27,21 @@ export const UtilityClassTemplate = ({
         rules="rows"
       >
         <StickerSheet.Header
-          className="text-left border-transparent border-solid border-b-gray-400"
+          className="text-left border-b border-gray-400"
           headings={["Utility Class", "Compiled CSS", "Example"]}
         />
         <StickerSheet.Body>
           {classKeyValues.map((presetData, _index) => {
             const { utilityClassName, cssProperty } = presetData
-
             return (
               <StickerSheet.Row
                 key={_index}
                 rowTitle=""
-                className="border-gray-400"
+                className="border-b-1 border-gray-400"
               >
                 <div className="mr-32 min-w-max max-w-[300px]">
                   <CodeSnippet
-                    text={utilityClassName}
+                    text={utilityClassName.replace("-DEFAULT", "")}
                     onCopy={(text: string): void => setCopiedText(text)}
                   />
                 </div>
@@ -62,9 +61,11 @@ export const UtilityClassTemplate = ({
           <InlineNotification
             type="positive"
             hideCloseIcon
-            autohide
             onHide={(): void => setCopiedText(null)}
-            title="Copied to clipboard: "
+            headingProps={{
+              children: "Copied to clipboard: ",
+              variant: "heading-6",
+            }}
           >
             {copiedText}
           </InlineNotification>

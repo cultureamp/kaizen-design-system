@@ -1,0 +1,36 @@
+@import "../../../styles/utils/button-reset";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: var(--spacing-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button {
+  @include button-reset;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-8);
+  width: 150px;
+  height: 100px;
+  background-color: var(--color-gray-100);
+  border-radius: var(--border-solid-border-radius);
+  word-break: break-all;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-gray-200);
+  }
+}
+
+.tag {
+  border: 1px solid var(--color-green-500);
+}

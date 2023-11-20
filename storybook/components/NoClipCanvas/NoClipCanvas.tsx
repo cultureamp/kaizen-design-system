@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React, { useId, useState } from "react"
 import { Source, SourceProps, Story, Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
-import { v4 } from "uuid"
 import styles from "./NoClipCanvas.module.scss"
 
 export type NoClipCanvasProps = {
@@ -19,7 +18,7 @@ export const NoClipCanvas = ({
   initialIsOpen = false,
   className,
 }: NoClipCanvasProps): JSX.Element => {
-  const [sourceId] = useState<string>(v4())
+  const sourceId = useId()
   const [isOpen, setIsOpen] = useState<boolean>(initialIsOpen)
 
   return (

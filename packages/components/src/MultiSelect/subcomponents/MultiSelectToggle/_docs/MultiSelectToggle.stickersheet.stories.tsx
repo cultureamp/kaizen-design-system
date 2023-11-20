@@ -38,6 +38,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       "aria-controls": "id--popover",
       onClick: () => undefined,
       onRemoveOption: () => undefined,
+      onRemoveAllOptions: () => undefined,
     } satisfies MultiSelectToggleProps
 
     return (
@@ -87,6 +88,23 @@ const StickerSheetTemplate: StickerSheetStory = {
                 {...defaultProps}
                 data-sb-pseudo-styles="focus--button"
               />
+            </StickerSheet.Row>
+          </StickerSheet.Body>
+        </StickerSheet>
+
+        <StickerSheet
+          isReversed={isReversed}
+          heading="Validation states"
+          className="w-full"
+        >
+          <StickerSheet.Header
+            headings={["Error", "Caution"]}
+            verticalHeadingsWidth="10rem"
+          />
+          <StickerSheet.Body>
+            <StickerSheet.Row>
+              <MultiSelectToggle status="error" {...defaultProps} />
+              <MultiSelectToggle status="caution" {...defaultProps} />
             </StickerSheet.Row>
           </StickerSheet.Body>
         </StickerSheet>

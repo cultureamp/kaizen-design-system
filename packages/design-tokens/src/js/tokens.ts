@@ -1,4 +1,4 @@
-import { TokenStructure } from "./types"
+import { TokenStructure } from "../types"
 
 export const tokens: TokenStructure = {
   animation: {

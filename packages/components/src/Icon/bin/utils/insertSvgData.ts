@@ -18,6 +18,9 @@ export const insertSvgData = (
   // Some raw svgs do not use the use + href pattern.
   // This removes unused uuids from the template to prevent lint errors.
   return completedTemplate
-    .replace("  const uniqueId = uuidv4()", "")
-    .replace('import { v4 as uuidv4 } from "uuid"', "")
+    .replace("  const uniqueId = useId()", "")
+    .replace(
+      'import React, { useId } from "react"',
+      'import React from "react"'
+    )
 }

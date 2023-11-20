@@ -1,5 +1,5 @@
 import React from "react"
-import { InlineNotification } from "@kaizen/notification"
+import { InlineNotification } from "~components/Notification"
 import { LinkTo } from "../../../../LinkTo"
 
 export const KaioNotification = (): JSX.Element => (

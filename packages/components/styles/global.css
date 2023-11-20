@@ -1,4 +1,4 @@
-@import "@kaizen/design-tokens/css/variables.css";
+@import "./foundation/styles.css";
 
 @tailwind base;
 @tailwind components;

@@ -2,7 +2,6 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-
 import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
 
 export const EndIcon = (props: IconProps): JSX.Element => {

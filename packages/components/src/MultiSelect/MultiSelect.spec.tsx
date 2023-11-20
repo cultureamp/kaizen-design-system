@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, waitFor, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { MultiSelect, MultiSelectProps } from "./MultiSelect"
 
@@ -42,6 +42,20 @@ const MultiSelectWrapper = ({
 const user = userEvent.setup()
 
 describe("<MultiSelect />", () => {
+  describe("accessible name and description", () => {
+    it("has an accessible name and description when provided a description", () => {
+      const { getByRole } = render(
+        <MultiSelectWrapper description="A short description" />
+      )
+      const toggleButton = getByRole("button", {
+        name: "Jalapeno",
+        description: "A short description",
+      })
+
+      expect(toggleButton).toBeInTheDocument()
+    })
+  })
+
   describe("id", () => {
     it("uses the consumer-provided id", async () => {
       const { getByTestId, getByRole } = render(
@@ -167,7 +181,7 @@ describe("<MultiSelect />", () => {
       })
     })
 
-    it("does not close the popover when clearing selected options", async () => {
+    it("does not close the popover when clearing a selected option", async () => {
       const { getByRole, getByLabelText } = render(
         <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
       )
@@ -181,6 +195,25 @@ describe("<MultiSelect />", () => {
       })
 
       await user.click(getByLabelText("Remove option: Pancakes"))
+      await waitFor(() => {
+        expect(popover).toBeVisible()
+      })
+    })
+    it("does not close the popover when clearing all selected options", async () => {
+      const { getByRole } = render(
+        <MultiSelectWrapper selectedValues={new Set(["pancakes"])} />
+      )
+
+      const toggleButton = getByRole("button", { name: "Jalapeno" })
+      await user.click(toggleButton)
+
+      const popover = getByRole("dialog")
+      await waitFor(() => {
+        expect(popover).toBeVisible()
+      })
+
+      await user.click(getByRole("button", { name: "Clear all waffles" }))
+
       await waitFor(() => {
         expect(popover).toBeVisible()
       })
@@ -227,13 +260,12 @@ describe("<MultiSelect />", () => {
             expect(getByLabelText("Remove option: Waffle")).toHaveFocus()
           })
 
-          // @todo: Enable when adding functionality for removing all selected items
-          // await user.tab()
-          // await waitFor(() => {
-          // expect(
-          // getByRole("button", { name: "Clear all waffles" })
-          // ).toHaveFocus()
-          // })
+          await user.tab()
+          await waitFor(() => {
+            expect(
+              getByRole("button", { name: "Clear all waffles" })
+            ).toHaveFocus()
+          })
         })
       })
     })
@@ -279,5 +311,78 @@ describe("Removing an option", () => {
     await waitFor(() => {
       expect(waffleOption).not.toBeInTheDocument()
     })
+  })
+})
+
+describe("Removing all options", () => {
+  it("removes all selected options when the 'clear all' button is clicked", async () => {
+    const { getByRole, getByText } = render(
+      <MultiSelectWrapper selectedValues={new Set(["pancakes", "waffle"])} />
+    )
+
+    const pancakesOption = getByText("Pancakes")
+    const waffleOption = getByText("Waffle")
+
+    const clearAllButton = getByRole("button", { name: "Clear all waffles" })
+    await user.click(clearAllButton)
+    await waitFor(() => {
+      expect(pancakesOption).not.toBeInTheDocument()
+      expect(waffleOption).not.toBeInTheDocument()
+    })
+  })
+})
+
+describe("Has validation status", () => {
+  it("renders a validation message", () => {
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        validationMessage={{
+          status: "error",
+          message: "No waffles are available",
+        }}
+      />
+    )
+    expect(screen.getByText("No waffles are available")).toBeInTheDocument()
+  })
+  it("describes the Toggle", () => {
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        label="Breakfast menu"
+        validationMessage={{
+          status: "caution",
+          message: "Only four waffles remain",
+        }}
+      />
+    )
+    expect(
+      screen.getByRole("button", {
+        name: "Breakfast menu",
+        description: "Only four waffles remain",
+      })
+    ).toBeInTheDocument()
+  })
+  it("announces the validation message before the Toggle's description", () => {
+    const description = "Choose you breakfast."
+    const validationMessage = "Only four waffles remain."
+
+    render(
+      <MultiSelectWrapper
+        selectedValues={new Set(["waffle"])}
+        label="Breakfast menu"
+        description={description}
+        validationMessage={{
+          status: "caution",
+          message: "Only four waffles remain.",
+        }}
+      />
+    )
+    expect(
+      screen.getByRole("button", {
+        name: "Breakfast menu",
+        description: `${validationMessage} ${description}`,
+      })
+    ).toBeInTheDocument()
   })
 })

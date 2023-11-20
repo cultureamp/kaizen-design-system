@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { Meta } from "@storybook/react"
 import classnames from "classnames"
-import { Heading } from "@kaizen/typography"
+import { Heading } from "~components/Heading"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { Popover, PopoverProps, useFloating } from "../index"
 
@@ -24,6 +24,7 @@ const PopoverTemplate = (
       <button
         ref={refs.setReference}
         type="button"
+        className="border border-gray-500"
         onClick={() => setIsOpen(!isOpen)}
       >
         Pancakes!
@@ -115,7 +116,7 @@ const PopoverWithPortal = ({
       // overflow-hidden is added so we can ensure the last row autoplaces above
       // padding added to allow buffer for box-shadow which gets cut off by overflow-hidden
       className={classnames(
-        "relative border-solid border-default overflow-hidden",
+        "relative border border-purple-500 overflow-hidden",
         portalClassName
       )}
     >

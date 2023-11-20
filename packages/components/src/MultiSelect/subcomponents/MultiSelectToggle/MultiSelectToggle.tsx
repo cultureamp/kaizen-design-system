@@ -1,6 +1,7 @@
 import React, { HTMLAttributes, forwardRef } from "react"
 import classnames from "classnames"
-// import { ClearButton } from "~components/ClearButton"
+import { ClearButton } from "~components/ClearButton"
+import { FieldMessageProps } from "~components/FieldMessage"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { RemovableTag } from "~components/__future__/Tag"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -13,7 +14,9 @@ export type MultiSelectToggleProps = {
   ["aria-controls"]: string
   selectedOptions: MultiSelectOption[]
   isOpen?: boolean
+  status?: FieldMessageProps["status"]
   onRemoveOption: (optionValue: MultiSelectOption["value"]) => void
+  onRemoveAllOptions: () => void
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelectToggle = forwardRef<
@@ -24,11 +27,14 @@ export const MultiSelectToggle = forwardRef<
     {
       onClick,
       "aria-labelledby": ariaLabelledBy,
+      "aria-describedby": ariaDescribedBy,
       "aria-controls": ariaControls,
       isOpen = false,
       classNameOverride,
       selectedOptions,
       onRemoveOption,
+      onRemoveAllOptions,
+      status,
       ...restProps
     },
     ref
@@ -40,7 +46,11 @@ export const MultiSelectToggle = forwardRef<
        */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
-        className={classnames(styles.multiSelectToggle, classNameOverride)}
+        className={classnames(
+          styles.multiSelectToggle,
+          classNameOverride,
+          status && styles[status]
+        )}
         onClick={onClick}
         {...restProps}
       >
@@ -48,6 +58,7 @@ export const MultiSelectToggle = forwardRef<
           ref={ref}
           className={styles.toggleButton}
           aria-labelledby={ariaLabelledBy}
+          aria-describedby={ariaDescribedBy}
           aria-controls={ariaControls}
           aria-expanded={isOpen}
           aria-haspopup="dialog"
@@ -91,15 +102,14 @@ export const MultiSelectToggle = forwardRef<
                 ))}
               </ul>
 
-              {/* @todo: Visuals prepared for implementation */}
-              {/* <ClearButton
-aria-label="Clear all waffles"
-classNameOverride={styles.clearAllButton}
-onClick={e => {
-e.stopPropagation()
-console.log("DELETE ALL >:]")
-}}
-/> */}
+              <ClearButton
+                aria-label="Clear all waffles"
+                classNameOverride={styles.clearAllButton}
+                onClick={e => {
+                  e.stopPropagation()
+                  onRemoveAllOptions()
+                }}
+              />
             </>
           )}
         </div>

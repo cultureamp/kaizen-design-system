@@ -1,6 +1,6 @@
 import React from "react"
 import classnames from "classnames"
-import { HeadingProps } from "@kaizen/typography"
+import { HeadingProps } from "~components/Heading"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { GenericNotification } from "../subcomponents/GenericNotification"
 import styles from "../subcomponents/GenericNotification/GenericNotification.module.scss"

@@ -1,8 +1,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/border";
-@import "../../../styles/animation";
-@import "../../../styles/button-reset";
+@import "../../../styles/utils/animation";
+@import "../../../styles/utils/button-reset";
 
 $input-disabled-opacity: 0.3;
 

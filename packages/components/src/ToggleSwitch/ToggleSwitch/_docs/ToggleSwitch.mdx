@@ -1,0 +1,30 @@
+import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification, Installation, LinkTo } from "~storybook/components"
+import * as ToggleSwitchStories from "./ToggleSwitch.stories"
+
+<Meta of={ToggleSwitchStories} />
+
+# ToggleSwitch
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/ToggleSwitch/ToggleSwitch"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+<Installation
+  installCommand="yarn add @kaizen/components"
+  importStatement='import { ToggleSwitch } from "@kaizen/components"'
+/>
+
+## Overview
+
+Either on or off. Usually part of compositions such as <LinkTo pageId="components-toggleswitchfield">ToggleSwitchField</LinkTo>
+
+<Canvas of={ToggleSwitchStories.Playground} />
+<Controls of={ToggleSwitchStories.Playground} />
+
+## API
+
+<DocsStory of={ToggleSwitchStories.Reversed} />

@@ -58,3 +58,19 @@ the `onSelectedValuesChange` callback (which will provide the new Set of selecte
 The open state is controlled by the consumer through the `isOpen` and `onOpenChange` props.
 
 <Canvas of={MultiSelectStories.OpenState} />
+
+### Description
+
+You can add a description which will be linked to the trigger button with aria-describedby.
+
+<Canvas of={MultiSelectStories.Description} />
+
+### Validation
+
+Validation states are defined in the `validationMessage` object, containing a `status` and `message`.
+
+<Canvas of={MultiSelectStories.ValidationMessage} />
+
+A validation message will render below the MultiSelect and will be read to assistive technologies before the `description` content.
+
+<Canvas of={MultiSelectStories.ValidationMessageWithDescription} />

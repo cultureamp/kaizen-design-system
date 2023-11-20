@@ -1,0 +1,53 @@
+import { Canvas, Controls, Meta, Story } from "@storybook/blocks"
+import { ResourceLinks, KaioNotification } from "~storybook/components"
+import * as IconStories from "./Icon.stories"
+
+<Meta of={IconStories} />
+
+# Icon
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Icons"
+  className="!mb-8"
+/>
+
+<KaioNotification />
+
+## Installation
+
+Each icon is imported separately, for example if you'd like the `AddIcon` you will use the following import.
+
+```js
+import { AddIcon } from "@kaizen/components"
+```
+
+See: Reference for all icons available to import.
+
+## Overview
+
+All Icon components can be meaningful or presentational icons.
+
+<Canvas of={IconStories.Playground} />
+<Controls of={IconStories.Playground} />
+
+## Applying Colour
+
+Icon's inherit the text colour through `currentColor`.
+
+There are two ways you can apply the colour:
+
+1. Add a `classNameOverride` to the icon element
+
+```jsx
+<AddIcon classNameOverride="text-blue-500" />
+```
+
+2. Change the text colour of the wrapping element
+
+<Canvas of={IconStories.ApplyColour} sourceState="shown" />
+
+## Reference
+
+Tip: click on the icon you want for a quick copy!
+
+<Story of={IconStories.Reference} />

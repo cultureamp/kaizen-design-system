@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../../../../styles/button-reset";
+@import "../../../../styles/utils/button-reset";
 
 .multiSelectToggle {
   position: relative;
@@ -17,6 +17,15 @@
   &:focus-within {
     border-color: $color-gray-600;
     background-color: $color-gray-200;
+  }
+
+  &.error {
+    border: $border-solid-border-style $border-solid-border-width $color-red-500;
+  }
+
+  &.caution {
+    border: $border-solid-border-style $border-solid-border-width
+      $color-yellow-600;
   }
 }
 
