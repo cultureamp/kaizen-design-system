@@ -45,12 +45,6 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  refs: {
-    legacy: {
-      title: "Legacy",
-      url: "https://main--64bde0b812df1bbcb02a4937.chromatic.com/",
-    },
-  },
   typescript: {
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
