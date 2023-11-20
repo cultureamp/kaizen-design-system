@@ -129,7 +129,7 @@ export const GenericButton = forwardRef(
           styles.container,
           props.fullWidth && styles.fullWidth
         )}
-        aria-live="polite"
+        aria-live={props.hasOwnProperty("workingLabel") ? "polite" : undefined}
       >
         {determineButtonRenderer()}
       </span>
