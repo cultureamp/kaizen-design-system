@@ -43,7 +43,7 @@ export const Popover = <RT extends ReferenceType>({
     },
     placement: "bottom-start",
     middleware: [
-      offset(15),
+      offset(6),
       flip(),
       size({
         apply({ availableWidth, availableHeight, elements }) {

@@ -18,6 +18,15 @@
     border-color: $color-gray-600;
     background-color: $color-gray-200;
   }
+
+  &.error {
+    border: $border-solid-border-style $border-solid-border-width $color-red-500;
+  }
+
+  &.caution {
+    border: $border-solid-border-style $border-solid-border-width
+      $color-yellow-600;
+  }
 }
 
 .toggleButton {
