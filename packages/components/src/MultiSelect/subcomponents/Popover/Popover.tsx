@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode } from "react"
+import React, { HTMLAttributes } from "react"
 import { createPortal } from "react-dom"
 import {
   autoUpdate,

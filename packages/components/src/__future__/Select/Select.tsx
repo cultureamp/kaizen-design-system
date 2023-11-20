@@ -139,7 +139,6 @@ export const Select = <Option extends SelectOption = SelectOption>({
     isDisabled: triggerProps.isDisabled,
     isReversed,
     ref: refs.setReference,
-    "aria-controls": popoverId,
   }
 
   return (
