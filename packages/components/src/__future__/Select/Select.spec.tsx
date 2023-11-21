@@ -362,7 +362,7 @@ describe("<Select />", () => {
       render(<SelectWrapper id="id--select" isOpen />)
 
       const trigger = screen.getByRole("combobox", {
-        name: "Select Mock Label",
+        name: "Mock Label",
       })
 
       await waitFor(() => {
