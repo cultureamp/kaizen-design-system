@@ -2,4 +2,4 @@
 "@kaizen/components": patch
 ---
 
-expose the portalContainer prop the Select's popover
+Add portalContainerId prop the future Select to allow portals to other DOM elements.
