@@ -33,7 +33,15 @@ const SelectWrapper = ({
 
 describe("<Select />", () => {
   describe("Trigger", () => {
-    it("makes sure the menu to be labelled by trigger", () => {
+    it("has the label as the accessible name", () => {
+      const { getByRole } = render(<SelectWrapper />)
+      const menu = getByRole("combobox", {
+        name: "Mock Label",
+      })
+      expect(menu).toBeInTheDocument()
+    })
+
+    it("has the value when an item is selected", () => {
       const { getByRole } = render(<SelectWrapper selectedKey="batch-brew" />)
       const menu = getByRole("combobox", {
         name: "Mock Label",
