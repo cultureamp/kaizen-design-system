@@ -10,7 +10,7 @@ import {
 } from "./subcomponents/MultiSelectOptions"
 import { MultiSelectToggle } from "./subcomponents/MultiSelectToggle"
 import { Popover, useFloating } from "./subcomponents/Popover"
-import { MultiSelectOption } from "./types"
+import { MultiSelectOption, ValidationMessage } from "./types"
 import styles from "./MultiSelect.module.scss"
 
 export type MultiSelectProps = {
@@ -24,6 +24,8 @@ export type MultiSelectProps = {
   onSelectedValuesChange: MultiSelectOptionsProps["onChange"]
   isOpen: boolean
   onOpenChange: (isOpen: boolean) => void
+  /** A status and message to provide context to the validation issue  */
+  validationMessage?: ValidationMessage
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const MultiSelect = ({
@@ -36,10 +38,12 @@ export const MultiSelect = ({
   isOpen,
   onOpenChange,
   classNameOverride,
+  validationMessage,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const id = propsId ?? useId()
   const descriptionId = `${id}-description`
+  const validationId = `${id}-validation-message`
 
   const toggleButtonRef = useRef<HTMLButtonElement>(null)
   const { refs } = useFloating()
@@ -88,20 +92,23 @@ export const MultiSelect = ({
           ref={toggleButtonRef}
           id={`${id}--toggle`}
           aria-labelledby={`${id}--label`}
-          aria-describedby={descriptionId}
+          aria-describedby={`${validationId} ${descriptionId}`}
           aria-controls={`${id}--popover`}
           onClick={handleToggleClick}
           isOpen={isOpen}
           selectedOptions={Array.from(selectedValues).map(
             value => itemsMap[value]
           )}
+          status={validationMessage?.status}
           onRemoveOption={handleOnRemoveOption}
           onRemoveAllOptions={handleRemoveAllOptions}
         />
       </div>
 
+      {validationMessage && (
+        <FieldMessage id={validationId} {...validationMessage} />
+      )}
       {description && <FieldMessage id={descriptionId} message={description} />}
-      {/* ValidationMessage */}
 
       {isOpen && (
         <Popover
