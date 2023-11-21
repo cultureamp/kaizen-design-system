@@ -49,6 +49,19 @@ describe("<Select />", () => {
       expect(menu).toHaveTextContent("Batch brew")
     })
 
+    it("allows more aria-labelledby references to be sent in", () => {
+      const { getByRole } = render(
+        <>
+          <div id="extra-label">extra label stuff</div>
+          <SelectWrapper aria-labelledby="extra-label" />
+        </>
+      )
+      const menu = getByRole("combobox", {
+        name: "Mock Label extra label stuff",
+      })
+      expect(menu).toBeInTheDocument()
+    })
+
     describe("when uncontrolled", () => {
       it("does not show the menu initially", () => {
         const { queryByRole } = render(<SelectWrapper />)
