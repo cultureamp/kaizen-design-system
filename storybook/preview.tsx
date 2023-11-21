@@ -1,4 +1,3 @@
-import "./styles/styles.scss"
 import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
