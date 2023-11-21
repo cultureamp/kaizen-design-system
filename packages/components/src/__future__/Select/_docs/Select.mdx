@@ -103,16 +103,18 @@ Set `isFullWidth` to `true` to have the Select span the full width of its contai
 
 By default, the Select's popover will attach itself to the `body` of the document using React's `createPortal`.
 
-You can also provide the `portalContainer` prop with an `Element` or `DocumentFragment` if you need the popover to render in a different location. This can circumvent issues that may arise with `z-index`.
+You can change the default behaviour by providing a `portalContainerId` to attach this to different element in the DOM. This can help to resolve issues that may arise with `z-index` or having a Select in a modal.
 
 <Canvas of={SelectStories.PortalContainer} />
 
-It is important to note that a `relative` position should be applied to element that contains the portal, ie:
+It is important to note that a `relative` position should be applied to container element that contains the portal, ie:
 
-```JSX
+```js
 <div
-  ref={portalRef}
+  id="id--portal-container"
   className="relative"
-/>
+>
+  {/* portal will render here */}
+</div>
 
 ```
