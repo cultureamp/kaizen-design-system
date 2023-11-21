@@ -342,8 +342,6 @@ describe("<Select />", () => {
     it("has accessible trigger controls", async () => {
       render(<SelectWrapper id="id--select" isOpen />)
 
-      const expectedPopoverId = "id--select--popover"
-
       const trigger = screen.getByRole("combobox", {
         name: "Select Mock Label",
       })
