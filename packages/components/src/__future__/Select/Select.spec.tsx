@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react"
-import { render, waitFor, screen } from "@testing-library/react"
+import React from "react"
+import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Select, SelectProps } from "./Select"
 import { singleMockItems } from "./_docs/mockData"
@@ -364,40 +364,55 @@ describe("<Select />", () => {
       })
     })
 
-    it("will render as a descendant of a given element", async () => {
+    it("will render as a descendant of the element matching the id", async () => {
       const SelectWithPortal = (): JSX.Element => {
-        const portalRef = useRef<HTMLDivElement>(null)
-        const [portalContainer, setPortalContainer] = useState<HTMLDivElement>()
-
-        useEffect(() => {
-          if (portalRef.current !== null) {
-            setPortalContainer(portalRef.current)
-          }
-        }, [])
-
+        const portalContainerId = "id--portal-container"
         return (
           <>
-            <div ref={portalRef} data-testid="id--new-portal-region"></div>
+            <div
+              id={portalContainerId}
+              data-testid="id--portal-container-test"
+            ></div>
             <SelectWrapper
               selectedKey="batch-brew"
               id="id--select"
               isOpen
-              portalContainer={portalContainer}
+              portalContainerId={portalContainerId}
             />
           </>
         )
       }
-
       render(<SelectWithPortal />)
 
       await waitFor(() => {
-        const newPortalRegion = screen.getByTestId("id--new-portal-region")
+        const newPortalRegion = screen.getByTestId("id--portal-container-test")
+        const popover = within(newPortalRegion).getByRole("dialog")
 
-        const popoverAsDescendant = newPortalRegion.querySelector(
-          "#id--select--popover"
+        expect(popover).toBeInTheDocument()
+      })
+    })
+
+    it("will portal to the document body if the id does not match", async () => {
+      const SelectWithPortal = (): JSX.Element => {
+        const expectedContainerId = "id--portal-container"
+        return (
+          <>
+            <div id="id--wrong-id"></div>
+            <SelectWrapper
+              selectedKey="batch-brew"
+              id="id--select"
+              isOpen
+              portalContainerId={expectedContainerId}
+            />
+          </>
         )
+      }
+      render(<SelectWithPortal />)
 
-        expect(popoverAsDescendant).toBeInTheDocument()
+      await waitFor(() => {
+        const popover = within(document.body).getByRole("dialog")
+
+        expect(popover).toBeInTheDocument()
       })
     })
   })

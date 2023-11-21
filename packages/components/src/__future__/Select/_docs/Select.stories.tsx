@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Select } from "../Select"
 import { SelectOption } from "../types"
@@ -164,19 +164,11 @@ export const FullWidth: Story = {
 
 export const PortalContainer: Story = {
   render: args => {
-    const portalRef = useRef<HTMLDivElement>(null)
-    const [portalContainer, setPortalContainer] = useState<HTMLDivElement>()
-
-    useEffect(() => {
-      if (portalRef.current !== null) {
-        setPortalContainer(portalRef.current)
-      }
-    }, [])
-
+    const portalContainerId = "id--portal-container"
     return (
       <>
         <div
-          ref={portalRef}
+          id={portalContainerId}
           className="flex gap-24 bg-gray-200 p-12 overflow-hidden h-[200px] relative"
         >
           <Select
@@ -190,7 +182,7 @@ export const PortalContainer: Story = {
             label="Inner portal"
             selectedKey="batch-brew"
             id="id--select-inner"
-            portalContainer={portalContainer}
+            portalContainerId={portalContainerId}
           />
         </div>
       </>
