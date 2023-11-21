@@ -33,12 +33,33 @@ const SelectWrapper = ({
 
 describe("<Select />", () => {
   describe("Trigger", () => {
-    it("makes sure the menu to be labelled by trigger", () => {
+    it("has the label as the accessible name", () => {
+      const { getByRole } = render(<SelectWrapper />)
+      const menu = getByRole("combobox", {
+        name: "Mock Label",
+      })
+      expect(menu).toBeInTheDocument()
+    })
+
+    it("has the value when an item is selected", () => {
       const { getByRole } = render(<SelectWrapper selectedKey="batch-brew" />)
       const menu = getByRole("combobox", {
-        name: "Batch brew Mock Label",
+        name: "Mock Label",
       })
       expect(menu).toHaveTextContent("Batch brew")
+    })
+
+    it("allows more aria-labelledby references to be sent in", () => {
+      const { getByRole } = render(
+        <>
+          <div id="extra-label">extra label stuff</div>
+          <SelectWrapper aria-labelledby="extra-label" />
+        </>
+      )
+      const menu = getByRole("combobox", {
+        name: "Mock Label extra label stuff",
+      })
+      expect(menu).toBeInTheDocument()
     })
 
     describe("when uncontrolled", () => {
@@ -76,7 +97,7 @@ describe("<Select />", () => {
           />
         )
         const trigger = getByRole("combobox", {
-          name: "Batch brew Mock Label",
+          name: "Mock Label",
         })
         await user.click(trigger)
         await waitFor(() => {
@@ -93,7 +114,7 @@ describe("<Select />", () => {
             <SelectWrapper selectedKey="batch-brew" />
           )
           const trigger = getByRole("combobox", {
-            name: "Batch brew Mock Label",
+            name: "Mock Label",
           })
           await user.click(trigger)
           await waitFor(() => {
@@ -108,7 +129,7 @@ describe("<Select />", () => {
             <SelectWrapper selectedKey="batch-brew" defaultOpen />
           )
           const trigger = getByRole("combobox", {
-            name: "Batch brew Mock Label",
+            name: "Mock Label",
           })
 
           await user.click(trigger)
@@ -147,7 +168,7 @@ describe("<Select />", () => {
             <SelectWrapper selectedKey="batch-brew" />
           )
           const trigger = getByRole("combobox", {
-            name: "Batch brew Mock Label",
+            name: "Mock Label",
           })
           await user.tab()
           await waitFor(() => {
@@ -160,7 +181,7 @@ describe("<Select />", () => {
             <SelectWrapper selectedKey="batch-brew" />
           )
           const trigger = getByRole("combobox", {
-            name: "Batch brew Mock Label",
+            name: "Mock Label",
           })
           await user.tab()
           await waitFor(() => {
@@ -305,9 +326,7 @@ describe("<Select />", () => {
         })
         await user.keyboard("{Enter}")
 
-        await user.click(
-          getByRole("combobox", { name: "Short black Mock Label" })
-        )
+        await user.click(getByRole("combobox", { name: "Mock Label" }))
         await waitFor(() => {
           expect(
             getByRole("option", { name: "Short black", selected: true })
@@ -320,7 +339,7 @@ describe("<Select />", () => {
         const { getByRole } = render(
           <SelectWrapper onSelectionChange={spy} defaultOpen />
         )
-        const trigger = getByRole("combobox", { name: "Select Mock Label" })
+        const trigger = getByRole("combobox", { name: "Mock Label" })
 
         await user.tab()
         await waitFor(() => {
@@ -332,7 +351,7 @@ describe("<Select />", () => {
         await user.keyboard("{Enter}")
         await waitFor(() => {
           expect(spy).toHaveBeenCalledTimes(1)
-          expect(trigger).toHaveAccessibleName("Short black Mock Label")
+          expect(trigger).toHaveAccessibleName("Mock Label")
         })
       })
     })
