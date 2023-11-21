@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.35.2
+
+### Patch Changes
+
+- [#4329](https://github.com/cultureamp/kaizen-design-system/pull/4329) [`3b77a410d`](https://github.com/cultureamp/kaizen-design-system/commit/3b77a410ddabb26911b59535e527035e7377cf30) - Remove value prefix on Select combobox accessible name
+
+- [#4327](https://github.com/cultureamp/kaizen-design-system/pull/4327) [`41ff86658`](https://github.com/cultureamp/kaizen-design-system/commit/41ff86658d00a1ace401ecdd5b6ed39df0a2b865) - Fix issue in Button, where screen readers would announce the Button's contents on page-load.
+
 ## 1.35.1
 
 ### Patch Changes
