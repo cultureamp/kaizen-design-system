@@ -2,10 +2,13 @@
 # because its token does not have permission to. This is a hack
 # to allow one of us to trigger GitHub actions for a changesets PR
 # by enabling automerge on the PR.
-name: "release - skip ci"
+name: "Release - skip ci"
 
 on:
-  workflow_call:
+  workflow_run:
+    workflows: [Release]
+    types: [requested]
+    branches: ["heartsquared/ci--release-skip-ui-tests"]
 
 jobs:
   skip--ui-tests:

@@ -2,7 +2,7 @@
 # because its token does not have permission to. This is a hack
 # to allow one of us to trigger GitHub actions for a changesets PR
 # by enabling automerge on the PR.
-name: "release"
+name: "Release"
 
 on:
   pull_request:
@@ -12,17 +12,8 @@ on:
       - auto_merge_enabled
 
 jobs:
-  call-workflow--skip-ci:
-    uses: ./.github/workflows/release-skip-ci.yaml
-
-  jest:
-    if: github.head_ref == 'changeset-release/main'
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Release - Skipping jest"
-
-  prettier:
+  run-workflow-skip-ci:
     if: github.head_ref == 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Release - Skipping prettier"
+      - run: echo "Triggering CI skip for release"
