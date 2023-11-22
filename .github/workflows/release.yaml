@@ -16,6 +16,13 @@ jobs:
     uses: ./.github/workflows/release-skip-ci.yaml
 
   jest:
+    if: github.head_ref == 'changeset-release/main'
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release - Skipping jest"
+
+  prettier:
+    if: github.head_ref == 'heartsquared/ci--release-skip-ui-tests'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Release - Skipping prettier"
