@@ -28,8 +28,6 @@
   "scripts": {
     "prepublishOnly": "pnpm build:components && pnpm build:styles && pnpm postBuild && pnpm dist:clean",
     "build": "pnpm clean && pnpm prepublishOnly",
-    "test": "jest",
-    "test:ci": "pnpm test --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist node_modules",
     "build:components": "rollup -c",

@@ -8,7 +8,7 @@
     "build": "pnpm turbo build",
     "clean": "pnpm turbo clean && pnpm storybook:clean && rimraf node_modules",
     "test": "jest",
-    "test:pkg:aio": "pnpm pkg:aio test && pnpm pkg:aio build",
+    "test:pkg:aio": "pnpm pkg:aio build",
     "test:ci": "jest --ci",
     "test:treeshake": "pnpm turbo test:treeshake",
     "compile": "tsc && pnpm pkg:aio compile",
