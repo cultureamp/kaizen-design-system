@@ -1,0 +1,31 @@
+# When Changesets opens a PR it does not trigger GitHub actions,
+# because its token does not have permission to. This is a hack
+# to allow one of us to trigger GitHub actions for a changesets PR
+# by enabling automerge on the PR.
+name: release
+
+on:
+  pull_request:
+    types:
+      - auto_merge_enabled
+    branches:
+      - "changeset-release/main"
+
+jobs:
+  skip--ui-tests:
+    name: "UI Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Release - Skipping UI Tests"
+
+  skip--changesets-exists:
+    name: "changesets-exists"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Release - Skipping changesets-exists"
+
+  skip--test:
+    name: "Test workflow"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Release - Skipping test"
