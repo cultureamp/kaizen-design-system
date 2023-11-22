@@ -9,8 +9,7 @@ on:
     types:
       - auto_merge_enabled
     branches:
-      - "changeset-release/main"
-      - "heartsquared/ci--release-skip-ui-tests"
+      - "heartsquared/**"
 
 jobs:
   skip--ui-tests:
