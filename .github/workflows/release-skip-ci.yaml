@@ -10,7 +10,7 @@ on:
       - opened
       - synchronize
     branches:
-      - "heartsquared/**"
+      - "heartsquared/ci--release-skip-ui-tests"
 
 jobs:
   skip--ui-tests:
