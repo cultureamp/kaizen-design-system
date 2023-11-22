@@ -14,14 +14,12 @@ jobs:
     steps:
       - run: echo "Release - Skipping UI Tests"
 
-  skip--changesets-exists:
-    name: "changesets-exists"
+  changesets-exists:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Release - Skipping changesets-exists"
 
-  skip--test:
-    name: "Test workflow"
+  eslint:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Release - Skipping test"
+      - run: echo "Release - Skipping eslint"
