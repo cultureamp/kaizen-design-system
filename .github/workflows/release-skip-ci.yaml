@@ -2,7 +2,7 @@
 # because its token does not have permission to. This is a hack
 # to allow one of us to trigger GitHub actions for a changesets PR
 # by enabling automerge on the PR.
-name: release
+name: "release - skip ci"
 
 on:
   pull_request:
