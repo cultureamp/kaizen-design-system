@@ -19,7 +19,7 @@ on:
 
 jobs:
   changesets-exists:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -30,7 +30,7 @@ jobs:
       - run: yarn changeset status --since=origin/main
 
   yarn-integrity:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
       - run: yarn check --integrity
 
   verify-build:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

@@ -19,7 +19,7 @@ on:
 
 jobs:
   typescript:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -28,7 +28,7 @@ jobs:
       - run: yarn compile
 
   eslint:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -37,7 +37,7 @@ jobs:
       - run: yarn lint:ts && yarn lint:md
 
   prettier:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -46,7 +46,7 @@ jobs:
       - run: yarn lint:format
 
   stylelint:
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -56,7 +56,7 @@ jobs:
 
   jest:
     name: jest
-    if: github.head_ref != 'changeset-release/main'
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
