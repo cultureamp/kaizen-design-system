@@ -17,7 +17,6 @@ const SelectWrapper = ({
   )
   return (
     <Select
-      id="id--select"
       label="Mock Label"
       items={items}
       description="This is a description"
@@ -359,7 +358,7 @@ describe("<Select />", () => {
 
   describe("Popover portal", () => {
     it("has accessible trigger controls", async () => {
-      render(<SelectWrapper id="id--select" isOpen />)
+      render(<SelectWrapper isOpen />)
 
       const trigger = screen.getByRole("combobox", {
         name: "Mock Label",
@@ -371,7 +370,7 @@ describe("<Select />", () => {
     })
 
     it("will portal to the document body by default", async () => {
-      render(<SelectWrapper selectedKey="batch-brew" id="id--select" isOpen />)
+      render(<SelectWrapper selectedKey="batch-brew" isOpen />)
 
       const popover = screen.getByRole("dialog")
       // expected div that FocusOn adds to the popover
@@ -394,7 +393,6 @@ describe("<Select />", () => {
             ></div>
             <SelectWrapper
               selectedKey="batch-brew"
-              id="id--select"
               isOpen
               portalContainerId={portalContainerId}
             />
@@ -419,7 +417,6 @@ describe("<Select />", () => {
             <div id="id--wrong-id"></div>
             <SelectWrapper
               selectedKey="batch-brew"
-              id="id--select"
               isOpen
               portalContainerId={expectedContainerId}
             />
