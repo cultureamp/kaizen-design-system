@@ -9,6 +9,8 @@ on:
       - opened
       - synchronize
       - ready_for_review
+    branches-ignore:
+      - "heartsquared/**"
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
