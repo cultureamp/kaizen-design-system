@@ -9,8 +9,6 @@ on:
       - opened
       - synchronize
       - ready_for_review
-    branches:
-      - "heartsquared/ci--release-skip-ui-tests"
 
 jobs:
   skip--ui-tests:
