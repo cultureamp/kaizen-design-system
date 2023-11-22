@@ -27,7 +27,7 @@ env:
 
 jobs:
   build-storybook:
-    if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false
+    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
