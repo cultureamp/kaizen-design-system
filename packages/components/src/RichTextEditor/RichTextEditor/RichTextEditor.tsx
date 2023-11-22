@@ -74,6 +74,7 @@ export const RichTextEditor = ({
   defaultValue,
   labelText,
   "aria-labelledby": labelledBy,
+  "aria-describedby": describedBy,
   classNameOverride,
   controls,
   rows = 3,
@@ -144,7 +145,11 @@ export const RichTextEditor = ({
     : ""
   const descriptionAria = description ? `${editorId}-rte-description` : ""
 
-  const ariaDescribedBy = `${validationMessageAria} ${descriptionAria}`
+  const ariaDescribedBy = classnames(
+    validationMessageAria,
+    descriptionAria,
+    describedBy
+  )
 
   return (
     <>
