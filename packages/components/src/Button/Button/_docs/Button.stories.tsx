@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { StoryObj, Meta } from "@storybook/react"
 import { AddIcon, ArrowRightIcon } from "~components/Icon"
 import { LoadingInput } from "~components/Loading"
@@ -141,4 +141,30 @@ export const NativeFormButton: Story = {
     </>
   ),
   parameters: { controls: { disable: true } },
+}
+
+export const ResolveWorking: Story = {
+  render: () => {
+    const [state, setState] = useState<"Ready" | "Working" | "Completed">(
+      "Ready"
+    )
+    const handleClick = (): void => {
+      if (state === "Ready") {
+        setState("Working")
+        setTimeout(() => setState("Completed"), 3000)
+      } else {
+        setState("Ready")
+      }
+    }
+
+    return (
+      <Button
+        label={state}
+        working={state === "Working"}
+        workingLabel="Button is doing some work"
+        workingLabelHidden
+        onClick={handleClick}
+      />
+    )
+  },
 }
