@@ -5,12 +5,7 @@
 name: "release - skip ci"
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-    branches:
-      - "heartsquared/ci--release-skip-ui-tests"
+  workflow_call:
 
 jobs:
   skip--ui-tests:
