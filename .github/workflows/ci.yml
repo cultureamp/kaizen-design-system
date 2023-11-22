@@ -4,6 +4,7 @@ on:
   push:
     branches-ignore:
       - main
+      - "heartsquared/ci--release-skip-ui-tests"
 
   # When Changesets opens a PR it does not trigger GitHub actions,
   # because its token does not have permission to. This is a hack
@@ -19,7 +20,7 @@ on:
 
 jobs:
   typescript:
-    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -28,7 +29,7 @@ jobs:
       - run: yarn compile
 
   eslint:
-    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -37,7 +38,7 @@ jobs:
       - run: yarn lint:ts && yarn lint:md
 
   prettier:
-    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -46,7 +47,7 @@ jobs:
       - run: yarn lint:format
 
   stylelint:
-    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -56,7 +57,7 @@ jobs:
 
   jest:
     name: jest
-    if: github.head_ref != 'changeset-release/main' && github.head_ref != 'heartsquared/ci--release-skip-ui-tests'
+    if: github.head_ref != 'changeset-release/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
