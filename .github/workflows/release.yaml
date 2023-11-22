@@ -14,3 +14,8 @@ on:
 jobs:
   call-workflow--skip-ci:
     uses: ./.github/workflows/release-skip-ci.yaml
+
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Release - Skipping jest"
