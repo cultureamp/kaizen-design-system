@@ -1,5 +1,5 @@
 import React from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, waitFor, screen, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Select, SelectProps } from "./Select"
 import { singleMockItems } from "./_docs/mockData"
@@ -17,7 +17,6 @@ const SelectWrapper = ({
   )
   return (
     <Select
-      id="id--select"
       label="Mock Label"
       items={items}
       description="This is a description"
@@ -353,6 +352,83 @@ describe("<Select />", () => {
           expect(spy).toHaveBeenCalledTimes(1)
           expect(trigger).toHaveAccessibleName("Mock Label")
         })
+      })
+    })
+  })
+
+  describe("Popover portal", () => {
+    it("has accessible trigger controls", async () => {
+      render(<SelectWrapper isOpen />)
+
+      const trigger = screen.getByRole("combobox", {
+        name: "Mock Label",
+      })
+
+      await waitFor(() => {
+        expect(trigger).toHaveAttribute("aria-controls")
+      })
+    })
+
+    it("will portal to the document body by default", async () => {
+      render(<SelectWrapper selectedKey="batch-brew" isOpen />)
+
+      const popover = screen.getByRole("dialog")
+      // expected div that FocusOn adds to the popover
+      const popoverFocusWrapper = popover.parentNode
+
+      await waitFor(() => {
+        const expectedBodyTag = popoverFocusWrapper?.parentNode
+        expect(expectedBodyTag?.nodeName).toEqual("BODY")
+      })
+    })
+
+    it("will render as a descendant of the element matching the id", async () => {
+      const SelectWithPortal = (): JSX.Element => {
+        const portalContainerId = "id--portal-container"
+        return (
+          <>
+            <div
+              id={portalContainerId}
+              data-testid="id--portal-container-test"
+            ></div>
+            <SelectWrapper
+              selectedKey="batch-brew"
+              isOpen
+              portalContainerId={portalContainerId}
+            />
+          </>
+        )
+      }
+      render(<SelectWithPortal />)
+
+      await waitFor(() => {
+        const newPortalRegion = screen.getByTestId("id--portal-container-test")
+        const popover = within(newPortalRegion).getByRole("dialog")
+
+        expect(popover).toBeInTheDocument()
+      })
+    })
+
+    it("will portal to the document body if the id does not match", async () => {
+      const SelectWithPortal = (): JSX.Element => {
+        const expectedContainerId = "id--portal-container"
+        return (
+          <>
+            <div id="id--wrong-id"></div>
+            <SelectWrapper
+              selectedKey="batch-brew"
+              isOpen
+              portalContainerId={expectedContainerId}
+            />
+          </>
+        )
+      }
+      render(<SelectWithPortal />)
+
+      await waitFor(() => {
+        const popover = within(document.body).getByRole("dialog")
+
+        expect(popover).toBeInTheDocument()
       })
     })
   })

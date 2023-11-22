@@ -1,4 +1,4 @@
-import React, { useId } from "react"
+import React, { useEffect, useId, useState } from "react"
 import { UseFloatingReturn } from "@floating-ui/react-dom"
 import { useButton } from "@react-aria/button"
 import { HiddenSelect, useSelect } from "@react-aria/select"
@@ -67,6 +67,10 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
    * @deprecated: Either define `disabled` in your `Option` (in `items`), or use `disabledKeys`
    */
   disabledValues?: Key[]
+  /**
+   * Creates a portal for the Popover to the matching element id
+   */
+  portalContainerId?: string
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
@@ -89,13 +93,14 @@ export const Select = <Option extends SelectOption = SelectOption>({
   description,
   placeholder,
   isDisabled,
+  portalContainerId,
   ...restProps
 }: SelectProps<Option>): JSX.Element => {
   const { refs } = useFloating<HTMLButtonElement>()
   const triggerRef = refs.reference
-
   const id = propsId ?? useId()
   const descriptionId = `${id}--description`
+  const popoverId = `${id}--popover`
 
   const disabledKeys = getDisabledKeysFromItems(items)
 
@@ -151,6 +156,15 @@ export const Select = <Option extends SelectOption = SelectOption>({
     ref: refs.setReference,
   }
 
+  const [portalContainer, setPortalContainer] = useState<HTMLElement>()
+
+  useEffect(() => {
+    if (portalContainerId) {
+      const portalElement = document.getElementById(portalContainerId)
+      portalElement && setPortalContainer(portalElement)
+    }
+  }, [])
+
   return (
     <div
       className={classnames(
@@ -173,6 +187,8 @@ export const Select = <Option extends SelectOption = SelectOption>({
         )}
         {state.isOpen && (
           <Popover
+            id={popoverId}
+            portalContainer={portalContainer}
             refs={refs}
             focusOnProps={{
               onEscapeKey: state.close,
