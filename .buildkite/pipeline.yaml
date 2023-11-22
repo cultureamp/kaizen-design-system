@@ -15,7 +15,7 @@ steps:
     key: "is_released"
     branches: "main"
     # we assume that all releases with have a tag and that tag with have a @ version format
-    if: build.tag =~ /@(\d+\.\d+\.\d+)/
+    if: build.tag =~ /@(\d+\.\d+\.\d+)/ && build.tag =~ /^(?:(?!canary).)*$/
 
   - wait
 
