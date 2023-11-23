@@ -29,6 +29,11 @@ services:
     build:
       context: .
       dockerfile: .buildkite/dockerfiles/publish.Dockerfile
+  prepublish:
+    <<: *defaults
+    build:
+      context: .
+      dockerfile: .buildkite/dockerfiles/prepublish.Dockerfile
   changeset:
     <<: *defaults
     build:
