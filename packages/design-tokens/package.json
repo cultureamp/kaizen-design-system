@@ -23,6 +23,7 @@
   "sideEffects": false,
   "scripts": {
     "test": "FORCE_COLOR=1 jest",
+    "test:ci": "yarn test --ci",
     "build": "yarn clean && yarn prepublishOnly",
     "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
