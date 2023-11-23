@@ -11,17 +11,8 @@ x-defaults: &defaults
         run: build
 
 steps:
-  - name: ":sleuth_or_spy: Checking for release tag"
-    key: "is_released"
-    branches: "main"
-    # we assume that all releases with have a tag and that tag with have a @ version format
-    if: ((build.tag =~ /@(\d+\.\d+\.\d+)/) && (build.tag =~ /^(?:(?!canary).)*$/))
-
-  - wait
-
   - name: ":package: Build (storybook)"
     branches: "main"
-    depends_on: "is_released"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
     artifact_paths: "./storybook.tar.gz"
