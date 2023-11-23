@@ -22,7 +22,7 @@
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "test": "cd ../../ && pnpm jest ./packages/design-tokens",
+    "test": "jest",
     "build": "pnpm clean && pnpm prepublishOnly",
     "build:json": "pnpm ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",

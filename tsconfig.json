@@ -24,7 +24,7 @@
   "include": [
     "packages/**/*",
     "storybook/**/*",
-    "docs/**/*.tsx"
+    "docs/**/*.tsx",
   ],
   "exclude": ["**/node_modules"]
 }

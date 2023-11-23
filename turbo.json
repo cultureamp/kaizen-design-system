@@ -9,6 +9,7 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "test": {},
     "test:treeshake": {
       "dependsOn": ["^build"],
       "inputs": ["dist/**"]
