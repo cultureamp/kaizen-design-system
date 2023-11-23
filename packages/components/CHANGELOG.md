@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.36.0
+
+### Minor Changes
+
+- [#4309](https://github.com/cultureamp/kaizen-design-system/pull/4309) [`7e08cad4a`](https://github.com/cultureamp/kaizen-design-system/commit/7e08cad4a5358be5cec2380fd78506dca3b838e9) - Refactor `ToastNotification` to be tree-shakeable.
+
+- [#4328](https://github.com/cultureamp/kaizen-design-system/pull/4328) [`a374c076d`](https://github.com/cultureamp/kaizen-design-system/commit/a374c076d23d0275642619b8de8204b481774722) - Add portalContainerId prop the future Select to allow portals to other DOM elements.
+
+### Patch Changes
+
+- [#4330](https://github.com/cultureamp/kaizen-design-system/pull/4330) [`06cb4276a`](https://github.com/cultureamp/kaizen-design-system/commit/06cb4276a24d1fb4bde0ea27d7c8aeb8ce8ebd0a) - Pass aria-describedby into RTE when sent via props
+
+- [#4339](https://github.com/cultureamp/kaizen-design-system/pull/4339) [`f1b6b7d34`](https://github.com/cultureamp/kaizen-design-system/commit/f1b6b7d346b6126817344fb6047af433336f3172) - Fix ContextModal spread prop console errors.
+
 ## 1.35.2
 
 ### Patch Changes
