@@ -2,7 +2,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "draft-packages/*"
+    "draft-packages/*",
+    "storybook/"
   ],
   "engines": {
     "node": ">=v18.16.0"
@@ -15,7 +16,7 @@
     "test:ci": "jest --ci",
     "test:treeshake": "yarn turbo test:treeshake",
     "compile": "tsc && yarn pkg:aio compile",
-    "storybook": "storybook dev -p 6006 -c storybook",
+    "storybook": "yarn pkg:storybook storybook",
     "storybook:preview": "NODE_ENV=production yarn storybook --docs",
     "storybook:clean": "rm -rf storybook/public",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
@@ -32,6 +33,7 @@
     "chromatic": "chromatic",
     "commit": "yarn changeset",
     "plop": "plop",
+    "pkg:storybook": "yarn workspace @kaizen/myStorybookWorkspace",
     "pkg:aio": "yarn workspace @kaizen/components",
     "ci:version": "yarn turbo prepublishOnly && yarn changeset version",
     "ci:publish": "yarn turbo prepublishOnly && yarn changeset publish",
