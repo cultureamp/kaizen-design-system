@@ -8,7 +8,7 @@
     "node": ">=v18.16.0"
   },
   "scripts": {
-    "storybook": "storybook dev -p 6006 -c ./main.ts",
+    "storybook": "storybook dev -p 6006 -c ./",
     "storybook:preview": "NODE_ENV=production yarn storybook --docs",
     "storybook:clean": "rm -rf storybook/public",
     "storybook:build": "storybook build -c storybook -o storybook/public --docs",
@@ -120,5 +120,6 @@
     "turbo": "^1.10.16",
     "typescript": "^4.9.5",
     "webpack": "^5.89.0"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }
