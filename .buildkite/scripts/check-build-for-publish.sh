@@ -13,7 +13,8 @@ LABELS=$(curl --request GET \
 echo "Latest commit labels: $LABELS"
 
 if [ -n "$LABELS" ]; then
-    echo "I have labels, let's see it they match!"
+    echo "I have labels, let's see it they match!!!"
+
     # Does something when labels exist
     exit 0  # Return true
 else
