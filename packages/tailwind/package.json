@@ -25,10 +25,10 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "^10.3.16"
+    "@kaizen/design-tokens": "workspace:*"
   },
   "peerDependencies": {
-    "@kaizen/components": "^1.35.0",
+    "@kaizen/components": "workspace:*",
     "tailwindcss": "^3.3.5"
   }
 }
