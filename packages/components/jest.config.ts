@@ -1,12 +1,9 @@
-/* eslint-disable no-console */
 import { JestConfigWithTsJest } from "ts-jest"
-// @ts-ignore
-import sharedConfig from "../../jest.config.js"
+import sharedConfig from "../../jest.config"
 
 const jestConfig: JestConfigWithTsJest = {
   ...sharedConfig,
   roots: ["<rootDir>"],
-  modulePathIgnorePatterns: [],
   moduleNameMapper: {
     ...sharedConfig.moduleNameMapper,
     "~types/(.*)$": "<rootDir>/src/types/$1",
@@ -17,5 +14,3 @@ const jestConfig: JestConfigWithTsJest = {
 }
 
 export default jestConfig
-
-process.env.TZ = "UTC"

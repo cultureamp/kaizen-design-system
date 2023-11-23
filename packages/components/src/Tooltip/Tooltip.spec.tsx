@@ -48,6 +48,8 @@ describe("<Tooltip />", () => {
     // Non-semantic elements without roles should not have aria-description on them.
     // They won't read to all screen readers as expected and may be reported in Storybook's accessibility tab (which uses Axe under the hood)
     it("doesn't add an accessible description when wrapping a non-semantic element", async () => {
+      const warn = jest.spyOn(console, "warn").mockImplementation()
+
       render(
         <Tooltip
           text="Tooltip popup description for div"
@@ -62,6 +64,9 @@ describe("<Tooltip />", () => {
         expect(screen.getByText("Non semantic element")).not.toHaveAttribute(
           "aria-describedby"
         )
+        expect(warn).toHaveBeenCalledWith(
+          "<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info. To ensure accessibility, Tooltip should be wrapping a semantic and focusable element directly."
+        )
       })
     })
   })
@@ -74,7 +79,7 @@ describe("<Tooltip />", () => {
         isInitiallyVisible
         position="below"
       >
-        <div role="textbox" contentEditable="true" aria-multiline="true"></div>
+        <div role="textbox" contentEditable="true" aria-multiline="true" />
       </Tooltip>
     )
     await waitFor(() => {

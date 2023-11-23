@@ -13,10 +13,10 @@ const ContextModalWrapper = ({
   <ContextModal
     isOpen={true}
     title="Example modal title"
-    onConfirm={(): void => undefined}
-    onDismiss={(): void => undefined}
+    onConfirm={() => undefined}
+    onDismiss={() => undefined}
     secondaryLabel="Example secondary"
-    onSecondaryAction={(): void => undefined}
+    onSecondaryAction={() => undefined}
     {...props}
   >
     {children}

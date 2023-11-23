@@ -9,6 +9,8 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "test": {},
+    "test:ci": {},
     "test:treeshake": {
       "dependsOn": ["^build"],
       "inputs": ["dist/**"]

@@ -10,9 +10,8 @@
   "scripts": {
     "build": "yarn turbo build",
     "clean": "yarn turbo clean && yarn storybook:clean && rimraf node_modules",
-    "test": "jest && yarn test:pkg:aio",
-    "test:pkg:aio": "yarn pkg:aio test && yarn pkg:aio build",
-    "test:ci": "jest --ci",
+    "test": "yarn turbo test",
+    "test:ci": "yarn turbo test:ci",
     "test:treeshake": "yarn turbo test:treeshake",
     "compile": "tsc && yarn pkg:aio compile",
     "storybook": "storybook dev -p 6006 -c storybook",
