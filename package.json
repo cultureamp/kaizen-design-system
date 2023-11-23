@@ -10,7 +10,7 @@
   "scripts": {
     "build": "yarn turbo build",
     "clean": "yarn turbo clean && yarn storybook:clean && rimraf node_modules",
-    "test": "jest && yarn test:pkg:aio",
+    "test": "yarn turbo test",
     "test:pkg:aio": "yarn pkg:aio test && yarn pkg:aio build",
     "test:ci": "jest --ci",
     "test:treeshake": "yarn turbo test:treeshake",

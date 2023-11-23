@@ -1,9 +1,10 @@
-/* eslint-disable no-console */
-module.exports = {
+import { JestConfigWithTsJest } from "ts-jest"
+
+const jestConfig: JestConfigWithTsJest = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   testMatch: ["**/*.spec.ts?(x)"],
-  setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/setupTests.ts"],
+  setupFilesAfterEnv: ["jest-canvas-mock", "<rootDir>/jest.setup.ts"],
   moduleNameMapper: {
     "\\.(jpe?g|png|webm|mp4)$": "jest-static-stubs/$1",
     "\\.s?css$": "identity-obj-proxy",
@@ -12,7 +13,8 @@ module.exports = {
     uuid: require.resolve("uuid"),
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
-  modulePathIgnorePatterns: ["<rootDir>/packages/components"],
 }
+
+export default jestConfig
 
 process.env.TZ = "UTC"

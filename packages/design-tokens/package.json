@@ -22,7 +22,7 @@
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "test": "cd ../../ && yarn jest ./packages/design-tokens",
+    "test": "FORCE_COLOR=1 jest",
     "build": "yarn clean && yarn prepublishOnly",
     "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
