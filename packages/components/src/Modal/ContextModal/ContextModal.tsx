@@ -18,6 +18,7 @@ export type ContextModalSecondaryActionProps =
     }
   | {
       secondaryLabel?: undefined
+      onSecondaryAction?: never
     }
 
 export type ContextModalProps = Readonly<
@@ -56,6 +57,7 @@ export const ContextModal = ({
   layout = "portrait",
   title,
   onConfirm,
+  onDismiss: propsOnDismiss,
   onAfterLeave,
   confirmLabel = "Confirm",
   confirmWorking,
@@ -63,9 +65,11 @@ export const ContextModal = ({
   children,
   contentHeader,
   image,
+  secondaryLabel,
+  onSecondaryAction,
   ...props
 }: ContextModalProps): JSX.Element => {
-  const onDismiss = confirmWorking ? undefined : props.onDismiss
+  const onDismiss = confirmWorking ? undefined : propsOnDismiss
 
   const footerActions: ButtonProps[] = []
 
@@ -82,10 +86,10 @@ export const ContextModal = ({
     footerActions.push({ ...confirmAction, ...workingProps })
   }
 
-  if (props.secondaryLabel) {
+  if (secondaryLabel) {
     footerActions.push({
-      label: props.secondaryLabel,
-      onClick: props.onSecondaryAction,
+      label: secondaryLabel,
+      onClick: onSecondaryAction,
       disabled: !!confirmWorking,
     })
   }
@@ -126,7 +130,7 @@ export const ContextModal = ({
               {onConfirm != null && (
                 <div
                   className={
-                    props.secondaryLabel
+                    secondaryLabel
                       ? styles.footerWithSecondaryAction
                       : styles.footer
                   }
