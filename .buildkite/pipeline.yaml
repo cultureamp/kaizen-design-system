@@ -3,6 +3,7 @@ env:
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
+  # assuming that build.commit is the commit hash
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -16,7 +17,7 @@ steps:
     branches: "test-buildkite-pipeline"
     command: ".buildkite/scripts/check-build-for-publish.sh"
     env:
-      GITHUB_CURRENT_BUILD: build.commit
+      CURRENT_COMMIT: ${BUILDKITE_COMMIT}
       # assuming that build.commit is the commit hash
     <<: *defaults
     plugins:
