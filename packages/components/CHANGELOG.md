@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.37.0
+
+### Minor Changes
+
+- [#4350](https://github.com/cultureamp/kaizen-design-system/pull/4350) [`ffd96aca3`](https://github.com/cultureamp/kaizen-design-system/commit/ffd96aca3494884e87ac1c5e587b2343cff2c563) - export VisuallyHidden component
+
 ## 1.36.0
 
 ### Minor Changes
