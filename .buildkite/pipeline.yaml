@@ -16,7 +16,12 @@ steps:
   - name: ":sleuth_or_spy: Checking for release label"
     key: "should_publish"
     branches: "test-buildkite-pipeline"
-    command: ".buildkite/scripts/check-build-for-publish.sh"
+    command: |
+      if ".buildkite/scripts/check-build-for-publish.sh"; then
+        SHOULD_PUBLISH=false
+      else
+        SHOULD_PUBLISH=true
+      fi
     soft_fail: true
     <<: *defaults
     plugins:
@@ -27,9 +32,10 @@ steps:
 
   - name: ":seedling: Mock publishing if release label found"
     key: "mock_publish"
-    skip: ${SHOULD_PUBLISH}
+    skip: SHOULD_PUBLISH
     branches: "test-buildkite-pipeline"
-    command: echo("hello should I be here ${SHOULD_PUBLISH}")
+    command: |
+      echo "Should I be publishing? The answer is ${SHOULD_PUBLISH}"
 
   - wait
 
