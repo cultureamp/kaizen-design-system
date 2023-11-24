@@ -4,6 +4,7 @@ env:
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
   CURRENT_COMMIT: ${BUILDKITE_COMMIT}
+  SHOULD_PUBLISH: false
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -16,10 +17,21 @@ steps:
     key: "should_publish"
     branches: "test-buildkite-pipeline"
     command: ".buildkite/scripts/check-build-for-publish.sh"
+    soft_fail: true
     <<: *defaults
     plugins:
       - docker-compose#v3.9.0:
           run: prepublish
+
+  - wait
+
+  - name: ":seedling: Mock publishing if release label found"
+    key: "mock_publish"
+    skip: ${SHOULD_PUBLISH}
+    branches: "test-buildkite-pipeline"
+    command: echo("hello should I be here ${SHOULD_PUBLISH}")
+
+  - wait
 
   - name: ":package: Build (storybook)"
     branches: "main"
