@@ -1,59 +1,60 @@
 import React from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { GenericModal } from "./GenericModal"
+import { GenericModal, GenericModalProps } from "./GenericModal"
+import { ModalAccessibleLabel } from "./subcomponents/ModalAccessibleLabel"
+import { ModalBody } from "./subcomponents/ModalBody"
+import { ModalHeader } from "./subcomponents/ModalHeader"
 
 const user = userEvent.setup()
 
-const ExampleModalWithState = (props: {
-  onAfterLeave?: () => void
-  onEscapeKeyup?: () => void
-  children: React.ReactNode
-}): JSX.Element => {
-  const [isOpen, setIsOpen] = React.useState<boolean>(true)
-  const handleDismiss = (): void => {
-    setIsOpen(false)
-    props.onEscapeKeyup?.()
-  }
+const GenericModalWrapper = ({
+  isOpen: propsIsOpen,
+  onOutsideModalClick,
+  onEscapeKeyup,
+  ...props
+}: Partial<GenericModalProps>): JSX.Element => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(propsIsOpen ?? true)
 
   return (
     <GenericModal
       isOpen={isOpen}
-      onOutsideModalClick={handleDismiss}
-      onEscapeKeyup={handleDismiss}
+      onOutsideModalClick={e => {
+        setIsOpen(false)
+        onOutsideModalClick?.(e)
+      }}
+      onEscapeKeyup={e => {
+        setIsOpen(false)
+        onEscapeKeyup?.(e)
+      }}
       onAfterLeave={props.onAfterLeave}
       id="GenericModalTestId"
     >
-      {props.children}
+      <ModalHeader>
+        <ModalAccessibleLabel>Example</ModalAccessibleLabel>
+      </ModalHeader>
+      <ModalBody>Body contents here</ModalBody>
     </GenericModal>
   )
 }
 
 describe("<GenericModal />", () => {
   it("renders an open modal with the provided content", () => {
-    const { getByText } = render(
-      <GenericModal isOpen={true}>Example</GenericModal>
-    )
-    expect(getByText("Example")).toBeTruthy()
+    render(<GenericModalWrapper />)
+    expect(screen.getByText("Example")).toBeVisible()
   })
 
   it("does not render a closed modal with the provided content", () => {
-    const { getByText } = render(
-      <GenericModal isOpen={false}>Example</GenericModal>
-    )
-    expect(() => getByText("Example")).toThrow()
+    render(<GenericModalWrapper isOpen={false} />)
+    expect(screen.queryByText("Example")).not.toBeInTheDocument()
   })
 
   it("closes the modal when escape key is pressed", async () => {
     const handleDismiss = jest.fn()
 
-    const { getByTestId } = render(
-      <ExampleModalWithState onEscapeKeyup={handleDismiss}>
-        Example
-      </ExampleModalWithState>
-    )
+    render(<GenericModalWrapper onEscapeKeyup={handleDismiss} />)
 
-    const modal = getByTestId("GenericModalTestId")
+    const modal = screen.getByTestId("GenericModalTestId")
 
     await waitFor(() => {
       expect(modal).toBeVisible()
@@ -70,17 +71,9 @@ describe("<GenericModal />", () => {
 
   it("closes the modal when a click is outside of the modal content", async () => {
     const handleDismiss = jest.fn()
-    const { getByTestId } = render(
-      <GenericModal
-        isOpen={true}
-        onOutsideModalClick={handleDismiss}
-        id="GenericModalTestId"
-      >
-        Example
-      </GenericModal>
-    )
+    render(<GenericModalWrapper onOutsideModalClick={handleDismiss} />)
 
-    await user.click(getByTestId("GenericModalTestId-scrollLayer"))
+    await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
     await waitFor(() => {
       expect(handleDismiss).toHaveBeenCalledTimes(1)
     })
@@ -88,13 +81,9 @@ describe("<GenericModal />", () => {
 
   it("calls onAfterLeave after it closes", async () => {
     const mockOnAfterLeave = jest.fn()
+    render(<GenericModalWrapper onAfterLeave={mockOnAfterLeave} />)
 
-    const { getByTestId } = render(
-      <ExampleModalWithState onAfterLeave={mockOnAfterLeave}>
-        Catch me if you can
-      </ExampleModalWithState>
-    )
-    await user.click(getByTestId("GenericModalTestId-scrollLayer"))
+    await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
     await waitFor(() => expect(mockOnAfterLeave).toHaveBeenCalledTimes(1))
   })
 })
