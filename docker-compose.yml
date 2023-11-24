@@ -15,6 +15,7 @@ x-defaults: &defaults
     - KAIZEN_BASE_PATH
     - GITHUB_STATUS_TOKEN
     - BUILDKITE_BRANCH
+    - BUILDKITE_COMMIT
     - GITHUB_REGISTRY_TOKEN
 
 services:
