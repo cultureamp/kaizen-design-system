@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.37.1
+
+### Patch Changes
+
+- [#4354](https://github.com/cultureamp/kaizen-design-system/pull/4354) [`9eb7deeba`](https://github.com/cultureamp/kaizen-design-system/commit/9eb7deeba3b477f71fa288d65f9471cf6363515b) - Update KaizenProvider to await document before rendering ToastNotificationsList
+
 ## 1.37.0
 
 ### Minor Changes
