@@ -53,7 +53,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "svgo": "~3.0.4",
-    "tocbot": "^4.22.0"
+    "tocbot": "^4.23.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
