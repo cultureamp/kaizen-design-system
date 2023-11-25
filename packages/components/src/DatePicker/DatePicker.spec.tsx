@@ -103,7 +103,7 @@ describe("<DatePicker />", () => {
       })
       expect(arrowButton).toHaveFocus()
     })
-  })
+  }, 6000)
 
   it("should validate and close the calendar when the user presses the Enter key while focus is in the input", async () => {
     render(<DatePickerWrapper disabledDates={[new Date("2022-05-01")]} />)

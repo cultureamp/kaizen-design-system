@@ -98,3 +98,11 @@ Add validation messages using `status` and `validationMessage`.
 
 Set `isFullWidth` to `true` to have the Select span the full width of its container.
 <Canvas of={SelectStories.FullWidth} />
+
+### Portals
+
+By default, the Select's popover will attach itself to the `body` of the document using React's `createPortal`.
+
+You can change the default behaviour by providing a `portalContainerId` to attach this to different element in the DOM. This can help to resolve issues that may arise with `z-index` or having a Select in a modal.
+
+<Canvas of={SelectStories.PortalContainer} />

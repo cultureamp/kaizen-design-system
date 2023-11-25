@@ -1,3 +1,4 @@
 export * from "./ToastNotification"
-export * from "./subcomponents/ToastNotificationManager"
-export * from "./subcomponents/ToastNotificationsList"
+export * from "./ToastNotificationsList"
+export * from "./hooks/useToastNotification"
+export * from "./types"

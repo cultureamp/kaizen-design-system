@@ -1,23 +1,15 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es2019", "dom"],
     "module": "esnext",
-    "jsx": "react",
-    "esModuleInterop": true,
     "moduleResolution": "node",
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "strict": true,
-    "allowJs": false,
     "declaration": true,
-    "resolveJsonModule": true,
-    "noEmit": true,
     "paths": {
       "~storybook/*": ["../../storybook/*"],
-      "~types/*": ["src/types/*"],
-      "~utils/*": ["src/utils/*"],
-      "~components/*": ["src/*"]
+      "~types/*": ["./src/types/*"],
+      "~utils/*": ["./src/utils/*"],
+      "~components/*": ["./src/*"]
     },
     // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
     "plugins": [
@@ -28,7 +20,7 @@
     ]
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*", "icons/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "ts-node": {
     "moduleTypes": {

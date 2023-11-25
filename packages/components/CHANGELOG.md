@@ -1,5 +1,39 @@
 # Change Log
 
+## 1.37.1
+
+### Patch Changes
+
+- [#4354](https://github.com/cultureamp/kaizen-design-system/pull/4354) [`9eb7deeba`](https://github.com/cultureamp/kaizen-design-system/commit/9eb7deeba3b477f71fa288d65f9471cf6363515b) - Update KaizenProvider to await document before rendering ToastNotificationsList
+
+## 1.37.0
+
+### Minor Changes
+
+- [#4350](https://github.com/cultureamp/kaizen-design-system/pull/4350) [`ffd96aca3`](https://github.com/cultureamp/kaizen-design-system/commit/ffd96aca3494884e87ac1c5e587b2343cff2c563) - export VisuallyHidden component
+
+## 1.36.0
+
+### Minor Changes
+
+- [#4309](https://github.com/cultureamp/kaizen-design-system/pull/4309) [`7e08cad4a`](https://github.com/cultureamp/kaizen-design-system/commit/7e08cad4a5358be5cec2380fd78506dca3b838e9) - Refactor `ToastNotification` to be tree-shakeable.
+
+- [#4328](https://github.com/cultureamp/kaizen-design-system/pull/4328) [`a374c076d`](https://github.com/cultureamp/kaizen-design-system/commit/a374c076d23d0275642619b8de8204b481774722) - Add portalContainerId prop the future Select to allow portals to other DOM elements.
+
+### Patch Changes
+
+- [#4330](https://github.com/cultureamp/kaizen-design-system/pull/4330) [`06cb4276a`](https://github.com/cultureamp/kaizen-design-system/commit/06cb4276a24d1fb4bde0ea27d7c8aeb8ce8ebd0a) - Pass aria-describedby into RTE when sent via props
+
+- [#4339](https://github.com/cultureamp/kaizen-design-system/pull/4339) [`f1b6b7d34`](https://github.com/cultureamp/kaizen-design-system/commit/f1b6b7d346b6126817344fb6047af433336f3172) - Fix ContextModal spread prop console errors.
+
+## 1.35.2
+
+### Patch Changes
+
+- [#4329](https://github.com/cultureamp/kaizen-design-system/pull/4329) [`3b77a410d`](https://github.com/cultureamp/kaizen-design-system/commit/3b77a410ddabb26911b59535e527035e7377cf30) - Remove value prefix on Select combobox accessible name
+
+- [#4327](https://github.com/cultureamp/kaizen-design-system/pull/4327) [`41ff86658`](https://github.com/cultureamp/kaizen-design-system/commit/41ff86658d00a1ace401ecdd5b6ed39df0a2b865) - Fix issue in Button, where screen readers would announce the Button's contents on page-load.
+
 ## 1.35.1
 
 ### Patch Changes

@@ -1,15 +1,11 @@
-declare module "*.module.css" {
-  const classes: { [key: string]: string }
+declare module "*.css" {
+  const classes: Record<string, string>
   export default classes
-}
-declare module "*.module.scss" {
-  const styles: { [className: string]: string }
-  export default styles
 }
 
 declare module "*.scss" {
-  const content: Record<string, string>
-  export default content
+  const classes: Record<string, string>
+  export default classes
 }
 
 declare module "*.icon.svg" {

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.35.1",
+  "version": "1.37.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -28,7 +28,7 @@
   "scripts": {
     "prepublishOnly": "yarn build:components && yarn build:styles && yarn postBuild && yarn dist:clean",
     "build": "yarn clean && yarn prepublishOnly",
-    "test": "jest",
+    "test": "FORCE_COLOR=1 jest",
     "test:ci": "yarn test --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist node_modules",
