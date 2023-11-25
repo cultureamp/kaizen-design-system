@@ -2364,10 +2364,10 @@
     cross-fetch "^4.0.0"
     node-fetch "^2.6.7"
 
-"@cultureamp/frontend-apis@^9.0.1":
-  version "9.0.1"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.0.1/2e6ed45ac5478e562a2fa7cf96c27ea67c9b86e4#2e6ed45ac5478e562a2fa7cf96c27ea67c9b86e4"
-  integrity sha512-/OAjk3rV79So7WDQBSu/pVg95ASydyEyEMvEgkxqWufIE3PLhRGhHo4EFyAcVZxqiVS6qkRLO3gXJSuc3LocAA==
+"@cultureamp/frontend-apis@^9.0.2":
+  version "9.0.2"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.0.2/11d5a17fe0ad0a5fef2ba137ea1b14a0b5057b07#11d5a17fe0ad0a5fef2ba137ea1b14a0b5057b07"
+  integrity sha512-kW+f1UlJl7G4OmQO6gp/Yipxr863q1ndqaBGPWAUrUrBhnJjhCfeiv4LPrKmJAzQBbKvkb8E67ZsXW9vqqBRuw==
   dependencies:
     "@cultureamp/fetch-sgw" "^2.0.1"
     "@cultureamp/frontend-env" "^2.0.12"
@@ -2377,6 +2377,7 @@
     chromatic "^7.5.4"
     deepmerge "^4.3.1"
     fast-glob "^3.3.0"
+    headers-utils "^3.0.2"
     http-errors "^2.0.0"
     is-plain-object "^5.0.0"
     js-yaml "^4.1.0"
@@ -10969,6 +10970,11 @@ headers-polyfill@^4.0.1:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/headers-polyfill/-/headers-polyfill-4.0.2.tgz#9115a76eee3ce8fbf95b6e3c6bf82d936785b44a"
   integrity sha512-EWGTfnTqAO2L/j5HZgoM/3z82L7necsJ0pO9Tp0X1wil3PDLrkypTBRgVO2ExehEEvUycejZD3FuRaXpZZc3kw==
+
+headers-utils@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/headers-utils/-/headers-utils-3.0.2.tgz#dfc65feae4b0e34357308aefbcafa99c895e59ef"
+  integrity sha512-xAxZkM1dRyGV2Ou5bzMxBPNLoRCjcX+ya7KSWybQD2KwLphxsapUVK6x/02o7f4VU6GPSXch9vNY2+gkU8tYWQ==
 
 highlight.js@^10.5.0:
   version "10.7.3"
