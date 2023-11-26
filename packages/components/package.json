@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.4",
-    "@headlessui/react": "<=1.5.0",
+    "@headlessui/react": "^1.7.17",
     "@internationalized/date": "^3.5.0",
     "@kaizen/hosted-assets": "^2.0.3",
     "@popperjs/core": "^2.11.8",

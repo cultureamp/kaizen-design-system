@@ -60,7 +60,7 @@ export const Popover = <RT extends ReferenceType>({
   })
 
   return createPortal(
-    <FocusOn scrollLock={false} {...focusOnProps}>
+    <FocusOn enabled={false} scrollLock={false} {...focusOnProps}>
       <div
         ref={refs.setFloating}
         style={floatingStyles}
