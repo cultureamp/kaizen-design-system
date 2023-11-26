@@ -15,13 +15,13 @@ if [ -n "${LABELS}" ]; then
     echo "🔍 Labels were found! Checking for \"${VALID_LABEL}\" label"
     if [[ $LABELS =~ "${VALID_LABEL}" ]]; then
         echo "🔮 \"${VALID_LABEL}\" was found! Commencing build..."
-        SHOULD_PUBLISH=true
+        export SHOULD_PUBLISH=true
       exit 0
     else
       echo "🤷‍♀️ \"${VALID_LABEL}\" label was not found. Exiting build"
-      exit 1  
     fi
 else
     echo "⛔️ No labels were found in this commit. Exiting build"
-    exit 1  
 fi
+
+exit 1  
