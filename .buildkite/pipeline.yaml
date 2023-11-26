@@ -3,7 +3,7 @@ env:
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
-  CURRENT_COMMIT: ${BUILDKITE_COMMIT}
+  SHOULD_PUBLISH: false
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -13,7 +13,7 @@ x-defaults: &defaults
 
 steps:
   - name: ":sleuth_or_spy: Checking for release label"
-    key: "should_publish"
+    key: "prepublish"
     branches: "test-buildkite-pipeline"
     command: ".buildkite/scripts/check-build-for-publish.sh"
     soft_fail: true
@@ -21,15 +21,13 @@ steps:
     plugins:
       - docker-compose#v3.9.0:
           run: prepublish
-    env:
-      SHOULD_PUBLISH: false
 
   - wait
 
   - name: ":seedling: Mock publishing if release label found"
     key: "mock_publish"
-    depends_on: "should_publish"
-    skip: $SHOULD_PUBLISH
+    depends_on: "prepublish"
+    skip: "${SHOULD_PUBLISH}"
     branches: "test-buildkite-pipeline"
     command: |
       echo "Should I be publishing? The answer is ${SHOULD_PUBLISH}"
