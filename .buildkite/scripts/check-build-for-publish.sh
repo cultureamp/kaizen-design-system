@@ -12,9 +12,9 @@ LABELS=$(curl --request GET \
 
 
 if [ -n "${LABELS}" ]; then
-    echo "🔍 Labels were found! Checking for \"${VALID_LABEL}\" label"
+    echo "🔍 Labels found in commit. Checking for \"${VALID_LABEL}\" label"
     if [[ $LABELS =~ "${VALID_LABEL}" ]]; then
-        echo "🔮 \"${VALID_LABEL}\" was found! Commencing build..."
+        echo "✅ \"${VALID_LABEL}\" label was found. Commencing build"
         export SHOULD_PUBLISH="true"
       exit 0
     else
