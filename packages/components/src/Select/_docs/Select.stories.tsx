@@ -41,19 +41,6 @@ const meta = {
     options: OPTIONS,
     label: "Select",
   },
-  parameters: {
-    a11y: {
-      config: {
-        rules: [
-          {
-            // Placeholders do not pass color contrast
-            id: "color-contrast",
-            enabled: false,
-          },
-        ],
-      },
-    },
-  },
 } satisfies Meta<typeof Select>
 
 export default meta
