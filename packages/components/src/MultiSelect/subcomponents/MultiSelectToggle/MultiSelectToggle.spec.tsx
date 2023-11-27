@@ -70,42 +70,39 @@ describe("<MultiSelectToggle />", () => {
   })
 
   describe("Has no selected options", () => {
-    // @todo: re-enable test when Clear All functionality implemented
-    // eslint-disable-next-line jest/no-commented-out-tests
-    //   it("does not show the clear all button", () => {
-    //     const { queryByRole } = render(<MultiSelectToggleWrapper />)
-    //     expect(
-    //       queryByRole("button", { name: "Clear all waffles" })
-    //     ).not.toBeInTheDocument()
-    //   })
+    it("does not show the clear all button", () => {
+      const { queryByRole } = render(<MultiSelectToggleWrapper />)
+      expect(
+        queryByRole("button", { name: "Clear all options from Waffle" })
+      ).not.toBeInTheDocument()
+    })
   })
 
   describe("Has selected options", () => {
-    // @todo: re-enable test when Clear option functionality implemented
-    // eslint-disable-next-line jest/no-commented-out-tests
-    // it("does not call onClick when clearing a single selected item", async () => {
-    //   const { getByRole } = render(
-    //     <MultiSelectToggleWrapper
-    //       selectedOptions={[{ value: "waffle", label: "Waffle" }]}
-    //     />
-    //   )
-    //   await user.click(getByRole("button", { name: "Clear waffle" }))
-    //   await waitFor(() => {
-    //     expect(onClick).not.toHaveBeenCalled()
-    //   })
-    // })
-    // @todo: re-enable test when Clear All functionality implemented
-    // eslint-disable-next-line jest/no-commented-out-tests
-    // it("does not call onClick when clearing all selected items", async () => {
-    //   const { getByRole } = render(
-    //     <MultiSelectToggleWrapper
-    //       selectedOptions={[{ value: "waffle", label: "Waffle" }]}
-    //     />
-    //   )
-    //   await user.click(getByRole("button", { name: "Clear all waffles" }))
-    //   await waitFor(() => {
-    //     expect(onClick).not.toHaveBeenCalled()
-    //   })
-    // })
+    it("does not call onClick when clearing a single selected item", async () => {
+      const { getByRole } = render(
+        <MultiSelectToggleWrapper
+          selectedOptions={[{ value: "waffle", label: "Waffle" }]}
+        />
+      )
+      await user.click(getByRole("button", { name: "Clear waffle" }))
+      await waitFor(() => {
+        expect(onClick).not.toHaveBeenCalled()
+      })
+    })
+
+    it("does not call onClick when clearing all selected items", async () => {
+      const { getByRole } = render(
+        <MultiSelectToggleWrapper
+          selectedOptions={[{ value: "waffle", label: "Waffle" }]}
+        />
+      )
+      await user.click(
+        getByRole("button", { name: "Clear all options from Waffle" })
+      )
+      await waitFor(() => {
+        expect(onClick).not.toHaveBeenCalled()
+      })
+    })
   })
 })
