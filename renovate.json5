@@ -5,7 +5,6 @@
   "ignoreDeps": [
     // We can't always stick to latest due to infra and compatibility with other plugins
     "node",
-    "typescript",
     // 0.19.x breaks the import of rollup-plugin-esbuild
     "esbuild",
     // the 8.4.19 -> 8.4.21 patch causes typescript issues
@@ -13,7 +12,7 @@
   ],
   "packageRules": [
     {
-      // Any peerDep or dep within the publishable packages triggers a 
+      // Any peerDep or dep within the publishable packages triggers a
       // patch release as a _sensible default_. Merger should use their
       // discretion to determine whether a major change is more appropriate
       "matchPaths": ["packages/**", "draft-packages/**"],
