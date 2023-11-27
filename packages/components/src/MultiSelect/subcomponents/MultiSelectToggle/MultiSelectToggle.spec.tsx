@@ -85,7 +85,7 @@ describe("<MultiSelectToggle />", () => {
           selectedOptions={[{ value: "waffle", label: "Waffle" }]}
         />
       )
-      await user.click(getByRole("button", { name: "Clear waffle" }))
+      await user.click(getByRole("button", { name: "Remove option: Waffle" }))
       await waitFor(() => {
         expect(onClick).not.toHaveBeenCalled()
       })
