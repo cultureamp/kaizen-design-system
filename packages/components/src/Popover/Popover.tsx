@@ -144,6 +144,7 @@ export const Popover = ({
           </div>
         )}
         <Text
+          tag="div"
           variant="small"
           classNameOverride={classnames(
             styles.container,

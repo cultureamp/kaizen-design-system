@@ -3,15 +3,15 @@ import { createPortal } from "react-dom"
 import debounce from "lodash.debounce"
 import { SelectionPosition } from "../../types"
 
-export const Positioner = forwardRef(
-  (
-    { top, left, height, width }: SelectionPosition,
-    ref: React.Ref<HTMLElement>
-  ) => {
-    const [windowScroll, setWindowScroll] = useState<[number, number]>([
-      window.scrollX,
-      window.scrollY,
-    ])
+export const Positioner = forwardRef<HTMLElement, SelectionPosition>(
+  ({ top, left, height, width }, ref) => {
+    const [portalContainer, setPortalContainer] = useState<HTMLElement>()
+    const [windowScroll, setWindowScroll] = useState<[number, number]>()
+
+    useEffect(() => {
+      setWindowScroll([window.scrollX, window.scrollY])
+      setPortalContainer(document.body)
+    }, [])
 
     const onResize = useRef(
       debounce(() => setWindowScroll([window.scrollX, window.scrollY]), 15)
@@ -24,6 +24,8 @@ export const Positioner = forwardRef(
         window.removeEventListener("resize", resizeCurrent)
       }
     }, [setWindowScroll, onResize])
+
+    if (windowScroll === undefined || portalContainer === undefined) return null
 
     const [x, y] = windowScroll
 
@@ -39,7 +41,7 @@ export const Positioner = forwardRef(
           width: `${width}px`,
         }}
       />,
-      document.body
+      portalContainer
     )
   }
 )
