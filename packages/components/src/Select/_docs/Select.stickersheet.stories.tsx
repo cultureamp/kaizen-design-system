@@ -15,11 +15,6 @@ export default {
       config: {
         rules: [
           {
-            // Placeholders do not pass color contrast
-            id: "color-contrast",
-            enabled: false,
-          },
-          {
             // React-select's list structure missing when there are no options (third-party a11y issue)
             id: "aria-required-children",
             enabled: false,
