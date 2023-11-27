@@ -106,7 +106,7 @@ export const MultiSelectToggle = forwardRef<
 
                 <ClearButton
                   id={clearAllId}
-                  aria-label="Clear all options from "
+                  aria-label="Remove all options from "
                   aria-labelledby={`${clearAllId} ${ariaLabelledBy}`}
                   classNameOverride={styles.clearAllButton}
                   onClick={e => {

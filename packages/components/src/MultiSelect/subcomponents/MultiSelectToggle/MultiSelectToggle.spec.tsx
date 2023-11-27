@@ -73,7 +73,7 @@ describe("<MultiSelectToggle />", () => {
     it("does not show the clear all button", () => {
       const { queryByRole } = render(<MultiSelectToggleWrapper />)
       expect(
-        queryByRole("button", { name: "Clear all options from Waffle" })
+        queryByRole("button", { name: "Remove all options from Waffle" })
       ).not.toBeInTheDocument()
     })
   })
@@ -98,7 +98,7 @@ describe("<MultiSelectToggle />", () => {
         />
       )
       await user.click(
-        getByRole("button", { name: "Clear all options from Waffle" })
+        getByRole("button", { name: "Remove all options from Waffle" })
       )
       await waitFor(() => {
         expect(onClick).not.toHaveBeenCalled()

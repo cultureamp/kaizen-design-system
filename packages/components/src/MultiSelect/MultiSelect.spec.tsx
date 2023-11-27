@@ -213,7 +213,7 @@ describe("<MultiSelect />", () => {
       })
 
       await user.click(
-        getByRole("button", { name: "Clear all options from Jalapeno" })
+        getByRole("button", { name: "Remove all options from Jalapeno" })
       )
 
       await waitFor(() => {
@@ -265,7 +265,7 @@ describe("<MultiSelect />", () => {
           await user.tab()
           await waitFor(() => {
             expect(
-              getByRole("button", { name: "Clear all options from Jalapeno" })
+              getByRole("button", { name: "Remove all options from Jalapeno" })
             ).toHaveFocus()
           })
         })
@@ -326,7 +326,7 @@ describe("Removing all options", () => {
     const waffleOption = getByText("Waffle")
 
     const clearAllButton = getByRole("button", {
-      name: "Clear all options from Jalapeno",
+      name: "Remove all options from Jalapeno",
     })
     await user.click(clearAllButton)
     await waitFor(() => {
