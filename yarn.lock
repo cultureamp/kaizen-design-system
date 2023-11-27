@@ -1763,7 +1763,7 @@
   dependencies:
     chromatic "^6.24.1"
 
-"@cultureamp/i18n-react-intl@^2.1.1":
+"@cultureamp/i18n-react-intl@^2.1.3":
   version "2.1.3"
   resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.1.3/a1ea1ab3ada197e38a763263969d85c4e68089e3#a1ea1ab3ada197e38a763263969d85c4e68089e3"
   integrity sha512-9E8Fp4YO2+InHvXkIupNvfRtwERi6Acqg7NLJBvW6M8G1BucGk8mLxUrEH61It3QzGd14PcIG7xaCHt6IOKYaQ==
@@ -15168,7 +15168,7 @@ prosemirror-history@^1.3.2:
     prosemirror-view "^1.31.0"
     rope-sequence "^1.3.0"
 
-prosemirror-inputrules@^1.2.1:
+prosemirror-inputrules@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/prosemirror-inputrules/-/prosemirror-inputrules-1.3.0.tgz#d43ce469ffe09a1b4cbac3f0ad367b0e4b504875"
   integrity sha512-z1GRP2vhh5CihYMQYsJSa1cOwXb3SYxALXOIfAkX8nZserARtl9LiL+CEl+T+OFIsXc3mJIHKhbsmRzC0HDAXA==
@@ -15228,7 +15228,7 @@ prosemirror-utils@^1.2.1-0:
   resolved "https://registry.yarnpkg.com/prosemirror-utils/-/prosemirror-utils-1.2.1-0.tgz#3cd77505d4a22d5d5268c248b3bdcf9f924687fc"
   integrity sha512-YJNjxSAFhV+w7/nKfLU4SJ0sYEHDJuaIvIxp6V1DgrVFSBBksnvHZTGPVmKGYEnbTqr0kG8HXqopNKPoQtT+3A==
 
-prosemirror-view@^1.27.0, prosemirror-view@^1.31.0, prosemirror-view@^1.32.3:
+prosemirror-view@^1.27.0, prosemirror-view@^1.31.0, prosemirror-view@^1.32.4:
   version "1.32.4"
   resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.32.4.tgz#c8f24bab3bcc8b57bcfb62490fc468180559f51b"
   integrity sha512-WoT+ZYePp0WQvp5coABAysheZg9WttW3TSEUNgsfDQXmVOJlnjkbFbXicKPvWFLiC0ZjKt1ykbyoVKqhVnCiSQ==
@@ -15516,7 +15516,7 @@ react-inspector@^6.0.0:
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-6.0.2.tgz#aa3028803550cb6dbd7344816d5c80bf39d07e9d"
   integrity sha512-x+b7LxhmHXjHoU/VrFAzw5iutsILRoYyDq97EDYdFpPLcvqtEzk4ZSZSQjnFPbr5T57tLXnHcqFYoN1pI6u8uQ==
 
-react-intl@^6.4.7, react-intl@^6.5.4:
+react-intl@^6.4.7, react-intl@^6.5.5:
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.5.5.tgz#d2de7bfd79718a7e3d8031e2599e94e0c8638377"
   integrity sha512-cI5UKvBh4tc1zxLIziHBYGMX3dhYWDEFlvUDVN6NfT2i96zTXz/zH2AmM8+2waqgOhwkFUzd+7kK1G9q7fiC2g==
@@ -15617,7 +15617,7 @@ react-resize-detector@^7.1.2:
   dependencies:
     lodash "^4.17.21"
 
-react-select@^5.7.7:
+react-select@^5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.8.0.tgz#bd5c467a4df223f079dd720be9498076a3f085b5"
   integrity sha512-TfjLDo58XrhP6VG5M/Mi56Us0Yt8X7xD6cDybC7yoRMUNm7BGO7qk8J0TLQOua/prb8vUOtsfnXZwfm30HGsAA==
@@ -16187,7 +16187,7 @@ rollup@^3.5.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-rollup@^4.3.1:
+rollup@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-4.6.0.tgz#4f966f6dd3f6bafd01b864d68ba078d308b864fa"
   integrity sha512-R8i5Her4oO1LiMQ3jKf7MUglYV/mhQ5g5OKeld5CnkmPdIGo79FDDQYqPhq/PCVuTQVuxsWgIbDy9F+zdHn80w==
