@@ -6,6 +6,7 @@ import {
   QueryClient,
   useInfiniteQuery,
   useQueryClient,
+  keepPreviousData,
 } from "@tanstack/react-query"
 import isChromatic from "chromatic"
 import { InlineNotification } from "~components/Notification"
@@ -171,6 +172,22 @@ export const Async: Story = {
     const [selectedPeople, setSelectedPeople] = useState<string[]>([])
     const [searchState, setSearchState] = useState("")
     const queryClient = useQueryClient()
+
+    const fetchSWAPI = async ({
+      pageParam,
+    }: {
+      pageParam: string
+    }): Promise<{
+      results: Array<{ name: string; url: string }>
+      next: string
+    }> => {
+      const res = await fetch(
+        `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
+      )
+
+      return res.json()
+    }
+
     const {
       data,
       isLoading,
@@ -178,26 +195,23 @@ export const Async: Story = {
       isFetchingNextPage,
       hasNextPage,
       isRefetching,
-    } = useInfiniteQuery(
-      ["startrek-sg1", searchState],
-      ({ pageParam = 1 }) =>
-        fetch(
-          `https://swapi.dev/api/people/?page=${pageParam}&search=${searchState}`
-        ).then(res => res.json()) as Promise<{
-          results: Array<{ name: string; url: string }>
-          next: string
-        }>,
-      {
-        enabled: open,
-        keepPreviousData: true,
-        getNextPageParam: lastPage => {
-          if (!lastPage.next) return undefined
-          const url = new URL(lastPage.next)
-          const params = new URLSearchParams(url.searchParams)
-          return params.get("page")
-        },
-      }
-    )
+    } = useInfiniteQuery({
+      enabled: true,
+      initialPageParam: "1",
+      queryKey: ["startrek-sg1", searchState],
+      queryFn: fetchSWAPI,
+      placeholderData: keepPreviousData,
+      getNextPageParam: lastPage => {
+        if (!lastPage.next) return undefined
+        const url = new URL(lastPage.next)
+        const params = new URLSearchParams(url.searchParams)
+        return params.get("page")
+      },
+    })
+
+    type QueriesData = {
+      pages: { results: Array<{ name: string; url: string }> }
+    }
 
     /**
      * We need access to the previously fetched people. If a user has selected a
@@ -205,9 +219,7 @@ export const Async: Story = {
      * only the selected keys to work with, no renderable values.
      */
     const cachedPeople = queryClient
-      .getQueriesData<{
-        pages: { results: Array<{ name: string; url: string }> }
-      }>(["startrek-sg1"])
+      .getQueriesData<QueriesData>({ queryKey: ["startrek-sg1"] })
       .flatMap(([, cachedData]) => cachedData?.pages ?? [])
       .flatMap(page => page.results)
       .map(item => ({ label: item.name, value: item.url }))
