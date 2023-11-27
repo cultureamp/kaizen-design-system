@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { MultiSelect, MultiSelectProps } from "../index"
 
 const meta = {
-  title: "Components/Multi Select",
+  title: "Components/MultiSelect",
   component: MultiSelect,
   argTypes: {
     selectedValues: {

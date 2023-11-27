@@ -11,7 +11,7 @@ import { MultiSelect, MultiSelectProps } from "../index"
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Components/Multi Select",
+  title: "Components/MultiSelect",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
