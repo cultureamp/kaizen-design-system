@@ -11,6 +11,8 @@ import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
 
+// ts-patch needs to be in CJS, but rollup uses EMS
+// https://github.com/nonara/ts-patch/issues/106
 const require = createRequire(import.meta.url);
 const tspCompiler = require("ts-patch/compiler");
 
