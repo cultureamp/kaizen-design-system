@@ -2,32 +2,18 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
     "paths": {
       "~storybook/*": ["../../storybook/*"],
       "~types/*": ["./src/types/*"],
       "~utils/*": ["./src/utils/*"],
       "~components/*": ["./src/*"]
-    },
-    "module": "esnext",
-    "moduleResolution": "node",
-    "declaration": true,
-    // Note: To transform paths for both the output .js and .d.ts files, you need both of the below entries
-    "plugins": [
-      // Transform paths in output .js files
-      { "transform": "typescript-transform-paths" },
-      // Transform paths in output .d.ts files (Include this line if you output declarations files)
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ]
+    }
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*"],
-  // "exclude": ["node_modules"],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
-    "**/*.stories.tsx",
-  ],
+  "exclude": ["node_modules"],
   "ts-node": {
     "moduleTypes": {
       "src/Icon/bin/**/*": "cjs"

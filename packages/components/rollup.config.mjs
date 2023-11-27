@@ -10,14 +10,10 @@ import dts from "rollup-plugin-dts"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
-// import tspCompiler from "ts-patch/compiler"
-// import ttypescript from "ttypescript"
 
 const require = createRequire(import.meta.url);
 const tspCompiler = require("ts-patch/compiler");
 
-
-const TYPES_TEMP_DIR = "dts"
 const OUTPUT_DIR = "dist"
 
 const getCompiledConfigByModuleType = format => ({
@@ -50,17 +46,7 @@ const getCompiledConfigByModuleType = format => ({
       extensions: [".scss", ".css"],
     }),
     typescript({
-      // tsconfig: "./tsconfig.dist.json",
-      // declaration: true,
-      declarationDir: `${OUTPUT_DIR}/${format}/${TYPES_TEMP_DIR}`,
-      // exclude: [
-      //   "node_modules",
-      //   "**/*.spec.ts",
-      //   "**/*.spec.tsx",
-      //   "**/*.stories.tsx",
-      // ],
-      // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
-      // typescript: ttypescript,
+      tsconfig: `./tsconfig.${format}.json`,
       typescript: tspCompiler,
     }),
     commonjs(),
