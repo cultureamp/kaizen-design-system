@@ -3,7 +3,7 @@ env:
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
-  SHOULD_PUBLISH: false
+  SHOULD_PUBLISH: "false"
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -27,7 +27,7 @@ steps:
   - name: ":seedling: Mock publishing if release label found"
     key: "mock_publish"
     depends_on: "prepublish"
-    skip: "${SHOULD_PUBLISH}"
+    skip: $SHOULD_PUBLISH == "true"
     branches: "test-buildkite-pipeline"
     command: |
       echo "Should I be publishing? The answer is ${SHOULD_PUBLISH}"
