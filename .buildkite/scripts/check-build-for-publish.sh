@@ -1,28 +1,34 @@
 #!/bin/sh
 set -e
 
-VALID_LABEL="pipeline test label"
+# Update to real one once this has been sorted
+valid_label="pipeline test label"
 
-echo "⏩ Querying Github for current commit: ${BUILDKITE_COMMIT} and retriving labels"
+echo "\n📦  Querying Github and retrieving labels for: ${BUILDKITE_COMMIT}"
 
-# Stores the labels object in a variable
-LABELS=$(curl --request GET \
+# Retrieves ascociated PR from Github and filters out all labels
+labels=$(curl --request GET \
   --url "https://api.github.com/repos/cultureamp/kaizen-design-system/commits/${BUILDKITE_COMMIT}/pulls?=" \
-  --header "Authorization: Bearer ${GITHUB_REGISTRY_TOKEN}" | jq 'try .[0] .labels [] .name catch .')
+  --header "Authorization: Bearer ${GITHUB_REGISTRY_TOKEN}" \
+  --header "Content-Type: multipart/form-data" \
+  | jq "try .[] .labels [] .name catch .")
 
+if [ -n "${labels}" ]; then
+    echo "\n🗂️  Labels found in commit:"
+    echo "${labels}"
+    echo "\n🔍 Checking for match with: \"${valid_label}\""
 
-if [ -n "${LABELS}" ]; then
-    echo "🔍 Labels found in commit. Checking for \"${VALID_LABEL}\" label"
-    if [[ $LABELS =~ "${VALID_LABEL}" ]]; then
-        echo "✅ \"${VALID_LABEL}\" label was found."
-        echo "🔨 Commencing build!"
+    if [[ $labels =~ $valid_label ]]; then
+        echo "\n✅ \"${valid_label}\" label was found."
+        echo "\n🔨 Commencing build!"
+
         export SHOULD_PUBLISH="true"
       exit 0
     else
-      echo "🤷‍♀️ \"${VALID_LABEL}\" label was not found. Exiting build"
+      echo "\n🤷‍♀️ \"${valid_label}\" label was not found. Exiting build"
     fi
 else
-    echo "⛔️ No labels were found in this commit. Exiting build"
+    echo "\n⛔️ No labels were found in this commit. Exiting build"
 fi
 
 exit 1  
