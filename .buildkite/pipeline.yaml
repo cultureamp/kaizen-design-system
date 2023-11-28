@@ -30,7 +30,7 @@ steps:
     skip: $SHOULD_PUBLISH == "false"
     branches: "test-buildkite-pipeline"
     command: |
-      echo "Should I be publishing? The answer is ${SHOULD_PUBLISH}"
+      echo "Is publishing: ${SHOULD_PUBLISH}"
 
   - wait
 
