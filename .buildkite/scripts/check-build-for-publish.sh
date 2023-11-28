@@ -19,7 +19,7 @@ if [ -n "${labels}" ]; then
     echo "🔍 Checking for match with: \"${valid_label}\""
     if expr "$labels" : ".*$valid_label" > /dev/null; then
         echo "✅ \"${valid_label}\" label was found."
-        echo "🔨 Commencing build!"
+        echo "🔨 Commencing build..."
 
         export SHOULD_PUBLISH="true"
       exit 0
@@ -30,4 +30,4 @@ else
     echo "⛔️ No labels were found in this commit. Exiting build"
 fi
 
-exit 1  
+exit 1
