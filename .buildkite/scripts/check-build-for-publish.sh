@@ -4,7 +4,7 @@ set -e
 # Update to real one once this has been sorted
 valid_label="pipeline test label"
 
-echo "\n📦  Querying Github and retrieving labels for: ${BUILDKITE_COMMIT}"
+echo "📦  Querying Github and retrieving labels for: ${BUILDKITE_COMMIT}"
 
 # Retrieves ascociated PR from Github and filters out all labels
 labels=$(curl --request GET \
@@ -14,21 +14,20 @@ labels=$(curl --request GET \
   | jq "try .[] .labels [] .name catch .")
 
 if [ -n "${labels}" ]; then
-    echo "\n🗂️  Labels found in commit:"
+    echo "🗂️  Labels found in commit:"
     echo "${labels}"
-    echo "\n🔍 Checking for match with: \"${valid_label}\""
-
-    if [[ $labels =~ $valid_label ]]; then
-        echo "\n✅ \"${valid_label}\" label was found."
-        echo "\n🔨 Commencing build!"
+    echo "🔍 Checking for match with: \"${valid_label}\""
+    if expr "$labels" : ".*$valid_label" > /dev/null; then
+        echo "✅ \"${valid_label}\" label was found."
+        echo "🔨 Commencing build!"
 
         export SHOULD_PUBLISH="true"
       exit 0
     else
-      echo "\n🤷‍♀️ \"${valid_label}\" label was not found. Exiting build"
+      echo "🤷‍♀️ \"${valid_label}\" label was not found. Exiting build"
     fi
 else
-    echo "\n⛔️ No labels were found in this commit. Exiting build"
+    echo "⛔️ No labels were found in this commit. Exiting build"
 fi
 
 exit 1  
