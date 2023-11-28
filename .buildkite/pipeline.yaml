@@ -27,7 +27,7 @@ steps:
   - name: ":seedling: Mock publishing if release label found"
     key: "mock_publish"
     depends_on: "prepublish"
-    skip: $SHOULD_PUBLISH == "true"
+    skip: $SHOULD_PUBLISH == "false"
     branches: "test-buildkite-pipeline"
     command: |
       echo "Should I be publishing? The answer is ${SHOULD_PUBLISH}"
