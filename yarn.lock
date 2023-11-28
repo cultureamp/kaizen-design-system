@@ -16058,7 +16058,7 @@ resolve.exports@^2.0.0:
   resolved "https://registry.yarnpkg.com/resolve.exports/-/resolve.exports-2.0.2.tgz#f8c934b8e6a13f539e38b7098e2e36134f01e800"
   integrity sha512-X2UW6Nw3n/aMgDVy+0rSqgHlv39WZAlZrXCdnbyEiKm17DSqHX4MmQMaST3FbeWR5FTuRcUwYAziZajji0Y7mg==
 
-resolve@>=1.9.0, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.14.2, resolve@^1.19.0, resolve@^1.20.0, resolve@^1.22.1, resolve@^1.22.2, resolve@^1.22.4:
+resolve@^1.1.7, resolve@^1.10.0, resolve@^1.14.2, resolve@^1.19.0, resolve@^1.20.0, resolve@^1.22.1, resolve@^1.22.2, resolve@^1.22.4:
   version "1.22.8"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.8.tgz#b6c87a9f2aa06dfab52e3d70ac8cde321fa5a48d"
   integrity sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==
@@ -17778,6 +17778,18 @@ ts-node@^10.9.1:
     v8-compile-cache-lib "^3.0.1"
     yn "3.1.1"
 
+ts-patch@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ts-patch/-/ts-patch-3.0.2.tgz#cbdf88e4dfb596e4dab8f2c8269361d33270a0ba"
+  integrity sha512-iTg8euqiNsNM1VDfOsVIsP0bM4kAVXU38n7TGQSkky7YQX/syh6sDPIRkvSS0HjT8ZOr0pq1h+5Le6jdB3hiJQ==
+  dependencies:
+    chalk "^4.1.2"
+    global-prefix "^3.0.0"
+    minimist "^1.2.8"
+    resolve "^1.22.2"
+    semver "^7.3.8"
+    strip-ansi "^6.0.1"
+
 tsconfig-paths@^3.14.2:
   version "3.14.2"
   resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.14.2.tgz#6e32f1f79412decd261f92d633a9dc1cfa99f088"
@@ -17817,13 +17829,6 @@ tty-table@^4.1.5:
     strip-ansi "^6.0.1"
     wcwidth "^1.0.1"
     yargs "^17.7.1"
-
-ttypescript@^1.5.15:
-  version "1.5.15"
-  resolved "https://registry.yarnpkg.com/ttypescript/-/ttypescript-1.5.15.tgz#e45550ad69289d06d3bc3fd4a3c87e7c1ef3eba7"
-  integrity sha512-48ykDNHzFnPMnv4hYX1P8Q84TvCZyL1QlFxeuxsuZ48X2+ameBgPenvmCkHJtoOSxpoWTWi8NcgNrRnVDOmfSg==
-  dependencies:
-    resolve ">=1.9.0"
 
 turbo-darwin-64@1.10.16:
   version "1.10.16"
@@ -17995,12 +18000,12 @@ typescript-transform-paths@^3.4.6:
   dependencies:
     minimatch "^3.0.4"
 
-typescript@5:
+typescript@5, typescript@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.2.tgz#00d1c7c1c46928c5845c1ee8d0cc2791031d4c43"
   integrity sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==
 
-typescript@^4.3.5, typescript@^4.9.5:
+typescript@^4.3.5:
   version "4.9.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==

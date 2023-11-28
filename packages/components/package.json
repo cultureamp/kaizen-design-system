@@ -126,7 +126,7 @@
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.0.4",
     "ts-jest": "^29.1.1",
-    "ttypescript": "^1.5.15",
+    "ts-patch": "^3.0.2",
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {

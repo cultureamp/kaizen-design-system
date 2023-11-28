@@ -22,7 +22,7 @@ export type TableStoryProps = {
   container?: TableContainerProps
   row?: TableRowProps
   rowCell?: TableRowCellProps
-  headerRowCell: Omit<TableHeaderRowCellProps, "labelText">
+  headerRowCell: Partial<TableHeaderRowCellProps>
   card: TableCardProps
 }
 

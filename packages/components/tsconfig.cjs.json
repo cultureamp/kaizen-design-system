@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.dist.json",
+  "compilerOptions": {
+    "declarationDir": "dist/cjs/dts"
+  }
+}
