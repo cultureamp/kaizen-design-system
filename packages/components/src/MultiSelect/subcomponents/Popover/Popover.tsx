@@ -60,13 +60,18 @@ export const Popover = <RT extends ReferenceType>({
   })
 
   return createPortal(
-    <FocusOn scrollLock={false} {...focusOnProps}>
+    <FocusOn
+      scrollLock={false}
+      onActivation={(): void => refs.floating?.current?.focus()}
+      {...focusOnProps}
+    >
       <div
         ref={refs.setFloating}
         style={floatingStyles}
         className={classnames(styles.popover, classNameOverride)}
         role="dialog"
         aria-modal="true"
+        tabIndex={-1}
         {...restProps}
       >
         {children}
