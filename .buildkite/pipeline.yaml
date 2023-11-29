@@ -24,14 +24,19 @@ steps:
 
   - wait
 
-  - name: ":seedling: Mock publishing if release label found"
-    key: "mock_publish"
+  - name: ":gandalf: You shall publish!"
     depends_on: "prepublish"
-    skip: $SHOULD_PUBLISH == "false"
+    if: SHOULD_PUBLISH != "false"
     branches: "test-buildkite-pipeline"
-    command: |
-      echo "Is publishing: ${SHOULD_PUBLISH}"
+    command: "echo 'Is publishing: ${SHOULD_PUBLISH}'"
 
+  - wait
+
+  - name: ":one-does-not-simply: One does not simply publish without a label!"
+    depends_on: "prepublish"
+    if: SHOULD_PUBLISH == "false"
+    branches: "test-buildkite-pipeline"
+    command: "echo 'Is publishing: ${SHOULD_PUBLISH}'"
   - wait
 
   - name: ":package: Build (storybook)"
