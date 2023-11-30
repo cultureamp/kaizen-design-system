@@ -22,7 +22,8 @@
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
-    "test": "jest",
+    "test": "FORCE_COLOR=1 jest",
+    "test:ci": "pnpm test --ci",
     "build": "pnpm clean && pnpm prepublishOnly",
     "build:json": "pnpm ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
@@ -34,7 +35,7 @@
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.9",
     "@types/react-highlight": "^0.12.8",
-    "@types/yargs": "^17.0.31",
+    "@types/yargs": "^17.0.32",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",

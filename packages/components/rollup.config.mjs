@@ -1,3 +1,4 @@
+import { createRequire } from "node:module";
 import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs"
@@ -9,9 +10,12 @@ import dts from "rollup-plugin-dts"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
-import ttypescript from "ttypescript"
 
-const TYPES_TEMP_DIR = "dts"
+// ts-patch needs to be in CJS, but rollup uses EMS
+// https://github.com/nonara/ts-patch/issues/106
+const require = createRequire(import.meta.url);
+const tspCompiler = require("ts-patch/compiler");
+
 const OUTPUT_DIR = "dist"
 
 const getCompiledConfigByModuleType = format => ({
@@ -44,16 +48,8 @@ const getCompiledConfigByModuleType = format => ({
       extensions: [".scss", ".css"],
     }),
     typescript({
-      declaration: true,
-      declarationDir: `${OUTPUT_DIR}/${format}/${TYPES_TEMP_DIR}`,
-      exclude: [
-        "node_modules",
-        "**/*.spec.ts",
-        "**/*.spec.tsx",
-        "**/*.stories.tsx",
-      ],
-      // We use ttypescript instead of typescript to allow transformer to convert alias into actual paths/dependencies
-      typescript: ttypescript,
+      tsconfig: `./tsconfig.${format}.json`,
+      typescript: tspCompiler,
     }),
     commonjs(),
     image(),

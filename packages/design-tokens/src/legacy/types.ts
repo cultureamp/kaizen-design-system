@@ -247,10 +247,10 @@ export type DeepMapObjectLeafs<T, LeafType> = T extends
   | ((...params: any[]) => any)
   ? LeafType
   : T extends Record<any, any>
-  ? {
-      [Key in keyof T]: DeepMapObjectLeafs<T[Key], LeafType>
-    }
-  : T
+    ? {
+        [Key in keyof T]: DeepMapObjectLeafs<T[Key], LeafType>
+      }
+    : T
 
 /**
  * Apologies for the complex types.
