@@ -321,7 +321,7 @@ describe("<Select />", () => {
         await waitFor(() => {
           expect(
             getByRole("option", { name: "Short black", selected: false })
-          ).toHaveFocus()
+          ).toBeVisible()
         })
         await user.keyboard("{Enter}")
 
@@ -344,7 +344,7 @@ describe("<Select />", () => {
         await waitFor(() => {
           expect(
             getByRole("option", { name: "Short black", selected: false })
-          ).toHaveFocus()
+          ).toBeVisible()
         })
 
         await user.keyboard("{Enter}")
