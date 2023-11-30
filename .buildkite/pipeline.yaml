@@ -26,7 +26,7 @@ steps:
 
   - name: ":gandalf: You shall publish!"
     depends_on: "prepublish"
-    if: SHOULD_PUBLISH != "false"
+    if: "${SHOULD_PUBLISH}" != "false"
     branches: "test-buildkite-pipeline"
     command: "echo 'Is publishing: ${SHOULD_PUBLISH}'"
 
@@ -34,9 +34,10 @@ steps:
 
   - name: ":one-does-not-simply: One does not simply publish without a label!"
     depends_on: "prepublish"
-    if: SHOULD_PUBLISH == "false"
+    if: "${SHOULD_PUBLISH}" == "false"
     branches: "test-buildkite-pipeline"
     command: "echo 'Is publishing: ${SHOULD_PUBLISH}'"
+
   - wait
 
   - name: ":package: Build (storybook)"
@@ -60,7 +61,7 @@ steps:
     plugins:
       - cultureamp/aws-assume-role#v0.2.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker-compose#v3.9.0:
+      - docker-compose#v3.9.0:x
           run: publish
 
   - name: "LinearB: Record deployment time"
