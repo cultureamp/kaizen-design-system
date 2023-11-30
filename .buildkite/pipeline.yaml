@@ -3,7 +3,6 @@ env:
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
-  SHOULD_PUBLISH: "false"
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -15,7 +14,9 @@ steps:
   - name: ":sleuth_or_spy: Checking for release label"
     key: "prepublish"
     branches: "test-buildkite-pipeline"
-    command: ".buildkite/scripts/check-build-for-publish.sh"
+    command: |
+      "buildkite-agent meta-data set should_publish false"
+      ".buildkite/scripts/check-build-for-publish.sh"
     soft_fail: true
     <<: *defaults
     plugins:
@@ -24,22 +25,14 @@ steps:
 
   - wait
 
-  - name: ":gandalf: You shall publish!"
+  - name: ":thinking_face: Evaluating next step!"
     depends_on: "prepublish"
     branches: "test-buildkite-pipeline"
     command: |
-      if [[ $$SHOULD_PUBLISH == "true"]]; then
-        "echo 'Is publishing: ${SHOULD_PUBLISH}'"
-      fi
-
-  - wait
-
-  - name: ":one-does-not-simply: One does not simply publish without a label!"
-    depends_on: "prepublish"
-    branches: "test-buildkite-pipeline"
-    command: |
-      if [[ $$SHOULD_PUBLISH == "false"]]; then
-        "echo 'Is publishing: ${SHOULD_PUBLISH}'"
+      if [ "$(buildkite-agent meta-data get should_publish)" == "true" ]; then
+        echo ":gandalf: You shall publish! should_publish is true"
+      else
+        echo ":one-does-not-simply: One does not simply publish without a label! should_publish is false"
       fi
 
   - wait
