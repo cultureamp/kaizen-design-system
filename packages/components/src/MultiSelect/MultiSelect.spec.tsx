@@ -232,7 +232,8 @@ describe("<MultiSelect />", () => {
           />
         )
         const toggleButton = getByRole("button", { name: "Jalapeno" })
-        expect(toggleButton).toHaveFocus()
+        const dialog = getByRole("dialog")
+        expect(dialog).toHaveFocus()
 
         await user.tab()
         await waitFor(() => {
