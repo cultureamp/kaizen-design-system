@@ -28,7 +28,7 @@
     "chromatic": "chromatic",
     "commit": "pnpm changeset",
     "plop": "plop",
-    "pkg:aio": "pnpm --filter @kaizen/components",
+    "pkg:aio": "pnpm -F @kaizen/components",
     "ci:version": "pnpm turbo prepublishOnly && pnpm changeset version",
     "ci:publish": "pnpm turbo prepublishOnly && pnpm changeset publish",
     "update-icons": "pnpm pkg:aio update-icons"
