@@ -19,9 +19,9 @@ if [ -n "${labels}" ]; then
     echo "🔍 Checking for match with: \"${valid_label}\""
     if expr "$labels" : ".*$valid_label" > /dev/null; then
         echo "✅ \"${valid_label}\" label was found."
-        echo "🔨 Commencing build..."
+        echo "🖨️ Will publish build..."
 
-        export SHOULD_PUBLISH="true"
+        buildkite-agent meta-data set should_publish "true"
       exit 0
     else
       echo "🤷‍♀️ \"${valid_label}\" label was not found. Exiting build"
@@ -30,4 +30,5 @@ else
     echo "⛔️ No labels were found in this commit. Exiting build"
 fi
 
+buildkite-agent meta-data set should_publish "false"
 exit 1
