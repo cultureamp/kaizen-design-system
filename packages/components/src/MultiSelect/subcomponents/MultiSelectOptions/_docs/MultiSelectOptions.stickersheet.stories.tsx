@@ -7,7 +7,7 @@ import {
 import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 export default {
-  title: "Staging/Multi Select/MultiSelectOptions",
+  title: "Components/MultiSelect/MultiSelectOptions",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
