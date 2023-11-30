@@ -28,7 +28,7 @@ steps:
     depends_on: "prepublish"
     branches: "test-buildkite-pipeline"
     command: |
-      if [ SHOULD_PUBLISH == "true"]; then
+      if [[ $$SHOULD_PUBLISH == "true"]]; then
         "echo 'Is publishing: ${SHOULD_PUBLISH}'"
       fi
 
@@ -38,7 +38,7 @@ steps:
     depends_on: "prepublish"
     branches: "test-buildkite-pipeline"
     command: |
-      if [ SHOULD_PUBLISH == "false"]; then
+      if [[ $$SHOULD_PUBLISH == "false"]]; then
         "echo 'Is publishing: ${SHOULD_PUBLISH}'"
       fi
 
