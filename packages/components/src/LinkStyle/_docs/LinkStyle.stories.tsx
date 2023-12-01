@@ -20,14 +20,14 @@ const meta = {
   component: LinkStyle,
   argTypes: {
     children: {
-      control: { type: "radio" },
+      control: { type: "select" },
       options: {
         "<a>": exampleAnchor,
         "<button>": <button type="button">Button</button>,
         "Component with className": <ComponentWithClassName />,
         "Component with classNameOverride": (
           <Text tag="span" variant="body">
-            Text
+            Kaizen Text component
           </Text>
         ),
       },
@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>
 const LinkStyleTemplate: Story = {
   render: args => (
     <Text tag="div" variant="body" color={args.isReversed ? "white" : "dark"}>
-      Using <LinkStyle {...args} /> element
+      Using <LinkStyle {...args} /> as child
     </Text>
   ),
 }
@@ -69,6 +69,24 @@ export const Playground: Story = {
   },
 }
 
+export const Children: Story = {
+  render: ({ children }) => {
+    const classNamePropName =
+      children?.props?.children === "Kaizen Text component"
+        ? "classNameOverride"
+        : "className"
+
+    return (
+      <Text tag="div" variant="body">
+        Using{" "}
+        <LinkStyle classNamePropName={classNamePropName}>{children}</LinkStyle>{" "}
+        as child
+      </Text>
+    )
+  },
+  parameters: { controls: { include: "children" } },
+}
+
 export const Reversed: Story = {
   ...LinkStyleTemplate,
   parameters: { backgrounds: { default: "Purple 700" } },
@@ -77,10 +95,11 @@ export const Reversed: Story = {
 
 export const ClassNamePropName: Story = {
   ...LinkStyleTemplate,
+  name: "Child with different className prop",
   args: {
     children: (
       <Text tag="span" variant="body" classNameOverride="border">
-        Coffee
+        Kaizen Text component
       </Text>
     ),
     classNamePropName: "classNameOverride",

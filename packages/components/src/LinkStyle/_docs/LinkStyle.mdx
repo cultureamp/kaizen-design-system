@@ -6,11 +6,6 @@ import * as LinkStyleStories from "./LinkStyle.stories"
 
 # LinkStyle
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/LinkStyle"
   figma=""
@@ -37,7 +32,15 @@ define the values (eg. wrap it in `<Text>`).
 
 ## API
 
+### Children
+
+<Canvas of={LinkStyleStories.Children} />
+<Controls of={LinkStyleStories.Children} />
+
 ### Reversed
+
+Add reversed styles using `isReversed` when sitting on a dark background.
+
 <Canvas of={LinkStyleStories.Reversed} />
 
 ### Child with different className prop
