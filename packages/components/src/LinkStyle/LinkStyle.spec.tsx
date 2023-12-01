@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { HTMLAttributes } from "react"
 import { render, screen } from "@testing-library/react"
-import classNames from "classnames"
+import classnames from "classnames"
 import { Text } from "~components/Text"
 import textStyles from "~components/Text/Text.module.scss"
 import { LinkStyle } from "./LinkStyle"
@@ -22,7 +22,7 @@ describe("<LinkStyle />", () => {
 
   it("combines with styles of child", () => {
     const Coffee = (props: HTMLAttributes<HTMLDivElement>): JSX.Element => (
-      <div {...props} className={classNames("coffee", props.className)}>
+      <div {...props} className={classnames("coffee", props.className)}>
         Coffee
       </div>
     )
