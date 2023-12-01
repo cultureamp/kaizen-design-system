@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 
 const LinkStyleTemplate: Story = {
   render: args => (
-    <Text variant="body" color={args.isReversed ? "white" : "dark"}>
+    <Text tag="div" variant="body" color={args.isReversed ? "white" : "dark"}>
       Using <LinkStyle {...args} /> element
     </Text>
   ),
@@ -39,4 +39,16 @@ export const Reversed: Story = {
   ...LinkStyleTemplate,
   parameters: { backgrounds: { default: "Purple 700" } },
   args: { isReversed: true },
+}
+
+export const ClassNamePropName: Story = {
+  ...LinkStyleTemplate,
+  args: {
+    children: (
+      <Text tag="span" variant="body" classNameOverride="border">
+        Coffee
+      </Text>
+    ),
+    classNamePropName: "classNameOverride",
+  },
 }

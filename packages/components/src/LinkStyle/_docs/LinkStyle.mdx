@@ -1,4 +1,4 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta } from "@storybook/blocks"
 import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
 import * as LinkStyleStories from "./LinkStyle.stories"
 
@@ -37,4 +37,12 @@ define the values (eg. wrap it in `<Text>`).
 
 ## API
 
-<DocsStory of={LinkStyleStories.Reversed} />
+### Reversed
+<Canvas of={LinkStyleStories.Reversed} />
+
+### Child with different className prop
+
+If the component you use in `children` uses a different prop for `className` (eg. `classNameOverride`),
+use the `classNamePropName` prop to re-assign where the LinkStyle classes should be assigned.
+
+<Canvas of={LinkStyleStories.ClassNamePropName} />
