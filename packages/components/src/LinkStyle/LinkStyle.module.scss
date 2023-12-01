@@ -1,22 +1,43 @@
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 
 .linkStyle {
+  position: relative;
   cursor: pointer;
+  padding: unset;
   background: none;
-  font-family: $typography-paragraph-small-font-family;
-  font-weight: $typography-paragraph-small-font-weight;
-  font-size: $typography-paragraph-small-font-size;
-  line-height: $typography-paragraph-small-line-height;
-  letter-spacing: $typography-paragraph-small-letter-spacing;
   color: $color-blue-500;
   text-decoration: underline;
 
-  &:hover {
-    text-decoration: none;
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: $color-blue-600;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: 4px;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    inset: -5px;
   }
 }
 
 .isReversed {
   color: $color-white;
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: rgba($color-white-rgb, 0.8);
+  }
 }

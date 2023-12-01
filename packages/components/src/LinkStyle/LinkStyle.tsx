@@ -9,7 +9,7 @@ export type LinkStyleProps = {
 
 export const LinkStyle = ({
   children,
-  isReversed = false
+  isReversed = false,
 }: LinkStyleProps): JSX.Element => {
   const className = classnames(
     styles.linkStyle,
