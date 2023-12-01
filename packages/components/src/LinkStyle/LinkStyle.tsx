@@ -4,8 +4,15 @@ import { StringSuggestions } from "~types/StringSuggestions"
 import styles from "./LinkStyle.module.scss"
 
 export type LinkStyleProps = {
+  /**
+   * A single ReactElement (dom element or component) you want to add link styles to.
+   */
   children: React.ReactElement
   isReversed?: boolean
+  /**
+   * The name of the className prop for your element in `children`
+   * (eg. `classNameOverride` for Kaizen components).
+   */
   classNamePropName?: StringSuggestions<"className" | "classNameOverride">
 }
 
