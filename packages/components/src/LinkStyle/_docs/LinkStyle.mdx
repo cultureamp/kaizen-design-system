@@ -34,6 +34,11 @@ define the values (eg. wrap it in `<Text>`).
 
 ### Children
 
+The `children` prop accepts a **single** ReactElement (dom element or component).
+
+If the element you are passing in uses a different prop name to apply classNames, remember
+to also use the `classNamePropName` prop (see [Child with different className prop](#child-with-different-classname-prop)).
+
 <Canvas of={LinkStyleStories.Children} />
 <Controls of={LinkStyleStories.Children} />
 
