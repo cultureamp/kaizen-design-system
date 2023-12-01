@@ -40,4 +40,10 @@
   &:focus-visible {
     color: rgba($color-white-rgb, 0.8);
   }
+
+  &:focus-visible {
+    &::after {
+      border-color: $color-blue-300;
+    }
+  }
 }
