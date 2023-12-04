@@ -5,7 +5,14 @@
 .popover {
   box-sizing: border-box;
   box-shadow: $shadow-large-box-shadow;
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
+    transparent;
   border-radius: $border-solid-border-radius;
   background: $color-white;
   overflow: auto;
+
+  &:focus {
+    outline: none;
+    border-color: $color-blue-500;
+  }
 }

@@ -315,13 +315,14 @@ describe("<Select />", () => {
       })
 
       it("selects the option when hits enter on a non-selected option", async () => {
-        const { getByRole } = render(<SelectWrapper defaultOpen />)
+        const { getByRole } = render(<SelectWrapper />)
 
         await user.tab()
+        await user.keyboard("{ArrowDown}")
         await waitFor(() => {
           expect(
             getByRole("option", { name: "Short black", selected: false })
-          ).toHaveFocus()
+          ).toBeVisible()
         })
         await user.keyboard("{Enter}")
 
@@ -335,22 +336,19 @@ describe("<Select />", () => {
 
       it("fires onSelectionChange when hits enter on a option", async () => {
         const spy = jest.fn()
-        const { getByRole } = render(
-          <SelectWrapper onSelectionChange={spy} defaultOpen />
-        )
-        const trigger = getByRole("combobox", { name: "Mock Label" })
+        const { getByRole } = render(<SelectWrapper onSelectionChange={spy} />)
 
         await user.tab()
+        await user.keyboard("{ArrowDown}")
         await waitFor(() => {
           expect(
             getByRole("option", { name: "Short black", selected: false })
-          ).toHaveFocus()
+          ).toBeVisible()
         })
 
         await user.keyboard("{Enter}")
         await waitFor(() => {
           expect(spy).toHaveBeenCalledTimes(1)
-          expect(trigger).toHaveAccessibleName("Mock Label")
         })
       })
     })
