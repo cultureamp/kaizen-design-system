@@ -5,6 +5,7 @@ set -e
 valid_label="pipeline test label"
 
 echo "📦  Querying Github and retrieving labels for: ${BUILDKITE_COMMIT}"
+buildkite-agent meta-data set should_publish "false"
 
 # Retrieves ascociated PR from Github and filters out all labels
 labels=$(curl --request GET \
@@ -20,7 +21,6 @@ if [ -n "${labels}" ]; then
     if expr "$labels" : ".*$valid_label" > /dev/null; then
         echo "✅ \"${valid_label}\" label was found."
         echo "🖨️ Will publish build..."
-
         buildkite-agent meta-data set should_publish "true"
       exit 0
     else
@@ -30,5 +30,4 @@ else
     echo "⛔️ No labels were found in this commit. Exiting build"
 fi
 
-buildkite-agent meta-data set should_publish "false"
 exit 1
