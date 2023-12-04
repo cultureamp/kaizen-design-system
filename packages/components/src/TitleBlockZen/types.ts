@@ -181,7 +181,13 @@ export type TextDirection = "ltr" | "rtl"
 
 export type SurveyStatus = {
   text: string
-  status: "draft" | "live" | "scheduled" | "closed" | "default"
+  status:
+    | "draft"
+    | "live"
+    | "scheduled"
+    | "closed"
+    | "sentimentPositive"
+    | "default"
 }
 
 export type TitleBlockBreadcrumbType = {
