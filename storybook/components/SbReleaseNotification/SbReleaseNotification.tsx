@@ -4,19 +4,19 @@ import {
   InlineNotificationProps,
 } from "~components/Notification"
 
-export type SbNotificationProps = {
+export type SbReleaseNotificationProps = {
   content: ReactNode
 } & InlineNotificationProps
 
-export const SbNotification = ({
+export const SbReleaseNotification = ({
   content,
   type = "cautionary",
   persistent = true,
   ...otherProps
-}: SbNotificationProps): JSX.Element => (
+}: SbReleaseNotificationProps): JSX.Element => (
   <InlineNotification persistent={persistent} type={type} {...otherProps}>
     {content}
   </InlineNotification>
 )
 
-SbNotification.displayName = "SbNotification"
+SbReleaseNotification.displayName = "SbReleaseNotification"
