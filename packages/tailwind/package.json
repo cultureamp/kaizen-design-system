@@ -30,5 +30,13 @@
   "peerDependencies": {
     "@kaizen/components": "workspace:*",
     "tailwindcss": "^3.3.5"
+  },
+  "dependenciesMeta": {
+    "@kaizen/components": {
+      "injected": true
+    },
+    "@kaizen/design-tokens": {
+      "injected": true
+    }
   }
 }

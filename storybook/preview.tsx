@@ -3,7 +3,7 @@ import "./styles/tailwind.scss"
 import React, { useEffect } from "react"
 import { Preview } from "@storybook/react"
 import isChromatic from "chromatic"
-import { KaizenProvider } from "../packages/components"
+// import { KaizenProvider } from "@kaizen/components"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"
 import { globalA11yRules } from "./global-a11y-rules"
@@ -23,11 +23,11 @@ const globalTypes = {
 } satisfies Preview["globalTypes"]
 
 const decorators = [
-  (Story): JSX.Element => (
-    <KaizenProvider>
-      <Story />
-    </KaizenProvider>
-  ),
+  // (Story): JSX.Element => (
+  //   <KaizenProvider>
+  //     <Story />
+  //   </KaizenProvider>
+  // ),
   (Story, context): JSX.Element => {
     useEffect(() => {
       const dir =

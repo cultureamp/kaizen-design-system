@@ -1,5 +1,5 @@
 import React from "react"
-import { InlineNotification } from "~components/Notification"
+// import { InlineNotification } from "~components/Notification"
 
 type KaioLegacyDocsNotificationProps = {
   version: string
@@ -8,10 +8,11 @@ type KaioLegacyDocsNotificationProps = {
 export const KaioLegacyDocsNotification = ({
   version,
 }: KaioLegacyDocsNotificationProps): JSX.Element => (
-  <InlineNotification type="informative" persistent>
-    If you are using <code>@kaizen/components</code> at {version} or lower,
-    please refer to our legacy documentation.
-  </InlineNotification>
+  // <InlineNotification type="informative" persistent>
+  //   If you are using <code>@kaizen/components</code> at {version} or lower,
+  //   please refer to our legacy documentation.
+  // </InlineNotification>
+  <div>Kaio Legacy notif</div>
 )
 
 KaioLegacyDocsNotification.title = "KaioLegacyDocsNotification"

@@ -12,8 +12,8 @@
     "test:storybook": "test-storybook"
   },
   "dependencies": {
-    "@kaizen/hosted-assets": "workspace:*",
     "@kaizen/components": "workspace:*",
+    "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
     "@storybook/addons": "^7.5.3",
     "@storybook/api": "^7.5.3",
@@ -23,6 +23,7 @@
     "@storybook/react": "^7.5.3",
     "@storybook/theming": "^7.5.3",
     "classnames": "^2.3.2",
+    "highlight.js": "^11.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tocbot": "^4.23.0"
@@ -46,6 +47,7 @@
     "@storybook/react-webpack5": "^7.5.3",
     "@storybook/test-runner": "^0.15.2",
     "@storybook/testing-library": "^0.2.2",
+    "@storybook/types": "^7.6.3",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
@@ -72,5 +74,16 @@
     "svgo-loader": "~4.0.0",
     "tailwindcss": "^3.3.5",
     "webpack": "^5.89.0"
+  },
+  "dependenciesMeta": {
+    "@kaizen/components": {
+      "injected": true
+    },
+    "@kaizen/design-tokens": {
+      "injected": true
+    },
+    "@kaizen/tailwind": {
+      "injected": true
+    }
   }
 }

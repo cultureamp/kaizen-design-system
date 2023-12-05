@@ -1,6 +1,6 @@
 import React, { TableHTMLAttributes } from "react"
 import classnames from "classnames"
-import { Heading } from "~components/Heading"
+// import { Heading } from "~components/Heading"
 import {
   StickerSheetBody,
   StickerSheetBodyProps,
@@ -35,7 +35,7 @@ export const StickerSheet = ({
   ...restProps
 }: StickerSheetProps): JSX.Element => (
   <div className={styles.stickerSheet}>
-    {heading && (
+    {/* {heading && (
       <Heading
         variant="heading-3"
         tag="h1"
@@ -44,7 +44,7 @@ export const StickerSheet = ({
       >
         {heading}
       </Heading>
-    )}
+    )} */}
 
     <table
       className={classnames(styles.stickerSheetTable, className)}

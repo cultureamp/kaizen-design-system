@@ -4,10 +4,8 @@
 const { Preset } = require("@kaizen/tailwind")
 
 module.exports = {
-  content: ["./**/*.{ts,tsx,mdx}"],
+  content: ["../**/*.{ts,tsx,mdx}"],
   presets: [Preset],
-  // important to add to the #root and #docs-root (for storybook) to ensure that tailwind classes supersede component styles
-  important: ["#root", "#docs-root"],
   theme: {
     extend: {},
   },
