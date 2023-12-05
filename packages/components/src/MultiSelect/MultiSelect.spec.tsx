@@ -212,7 +212,9 @@ describe("<MultiSelect />", () => {
         expect(popover).toBeVisible()
       })
 
-      await user.click(getByRole("button", { name: "Clear all waffles" }))
+      await user.click(
+        getByRole("button", { name: "Remove all options from Jalapeno" })
+      )
 
       await waitFor(() => {
         expect(popover).toBeVisible()
@@ -230,7 +232,8 @@ describe("<MultiSelect />", () => {
           />
         )
         const toggleButton = getByRole("button", { name: "Jalapeno" })
-        expect(toggleButton).toHaveFocus()
+        const dialog = getByRole("dialog")
+        expect(dialog).toHaveFocus()
 
         await user.tab()
         await waitFor(() => {
@@ -263,7 +266,7 @@ describe("<MultiSelect />", () => {
           await user.tab()
           await waitFor(() => {
             expect(
-              getByRole("button", { name: "Clear all waffles" })
+              getByRole("button", { name: "Remove all options from Jalapeno" })
             ).toHaveFocus()
           })
         })
@@ -323,7 +326,9 @@ describe("Removing all options", () => {
     const pancakesOption = getByText("Pancakes")
     const waffleOption = getByText("Waffle")
 
-    const clearAllButton = getByRole("button", { name: "Clear all waffles" })
+    const clearAllButton = getByRole("button", {
+      name: "Remove all options from Jalapeno",
+    })
     await user.click(clearAllButton)
     await waitFor(() => {
       expect(pancakesOption).not.toBeInTheDocument()

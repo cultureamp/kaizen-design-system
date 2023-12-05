@@ -51,6 +51,10 @@ const renderTag = (surveyStatus: SurveyStatus): JSX.Element | void => {
     tagVariant = "statusClosed"
   }
 
+  if (surveyStatus.status === "sentimentPositive") {
+    tagVariant = "sentimentPositive"
+  }
+
   if (surveyStatus.status === "default") {
     tagVariant = "default"
   }

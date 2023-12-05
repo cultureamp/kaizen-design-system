@@ -91,6 +91,16 @@ export const RichTextEditor = ({
   )
   const [labelId] = useState<string>(labelledBy || reactId)
   const [editorId] = useState<string>(reactId)
+  const validationMessageAria = validationMessage
+    ? `${editorId}-rte-validation-message`
+    : ""
+  const descriptionAria = description ? `${editorId}-rte-description` : ""
+
+  const ariaDescribedBy = classnames(
+    validationMessageAria,
+    descriptionAria,
+    describedBy
+  )
 
   const useRichTextEditorResult = (():
     | ReturnType<typeof useRichTextEditor>
@@ -108,7 +118,11 @@ export const RichTextEditor = ({
           schema,
           plugins: getPlugins(controls, schema),
         }),
-        { "aria-labelledby": labelId, role: "textbox" }
+        {
+          "aria-labelledby": labelId,
+          role: "textbox",
+          "aria-describedby": ariaDescribedBy,
+        }
       )
     } catch {
       return new Error("Bad data error")
@@ -139,17 +153,6 @@ export const RichTextEditor = ({
     onChange(editorState)
     // Including `onContentChange` in the dependencies here will cause a 'Maximum update depth exceeded' issue
   }, [editorState])
-
-  const validationMessageAria = validationMessage
-    ? `${editorId}-rte-validation-message`
-    : ""
-  const descriptionAria = description ? `${editorId}-rte-description` : ""
-
-  const ariaDescribedBy = classnames(
-    validationMessageAria,
-    descriptionAria,
-    describedBy
-  )
 
   return (
     <>
@@ -189,7 +192,6 @@ export const RichTextEditor = ({
             classNameOverride,
             controls != null && controls.length > 0 && styles.hasToolbar
           )}
-          aria-describedby={ariaDescribedBy}
           {...restProps}
         />
       </div>

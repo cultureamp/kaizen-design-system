@@ -1,5 +1,35 @@
 # Change Log
 
+## 1.38.0
+
+### Minor Changes
+
+- [#4367](https://github.com/cultureamp/kaizen-design-system/pull/4367) [`02a6069b8`](https://github.com/cultureamp/kaizen-design-system/commit/02a6069b8bcd5b5b46b12b476b049f894144115e) - Release Multi Select component
+
+### Patch Changes
+
+- [#4393](https://github.com/cultureamp/kaizen-design-system/pull/4393) [`f6f791813`](https://github.com/cultureamp/kaizen-design-system/commit/f6f791813afa8e36063c4a53f3f524cd951e17e1) - Add sentimentPositive TitleBlockZen fix from kaizen-legacy
+
+- [#4382](https://github.com/cultureamp/kaizen-design-system/pull/4382) [`574647e97`](https://github.com/cultureamp/kaizen-design-system/commit/574647e97f8b0c6e5b9345e1c4b620ab4e40c65f) - RichTextEditor: aria-describedby put on textbox element instead of container div
+
+- [#4369](https://github.com/cultureamp/kaizen-design-system/pull/4369) [`379d30189`](https://github.com/cultureamp/kaizen-design-system/commit/379d3018999705facb61cee7f7767ad926dfd441) - Change placeholder opacity on Select
+
+- [#4316](https://github.com/cultureamp/kaizen-design-system/pull/4316) [`00d30e6f6`](https://github.com/cultureamp/kaizen-design-system/commit/00d30e6f688b52b18ece992c2a380100b9904b5f) - Update `use-debounce` to `v10`
+
+- [#4322](https://github.com/cultureamp/kaizen-design-system/pull/4322) [`860a9f7fd`](https://github.com/cultureamp/kaizen-design-system/commit/860a9f7fd2d0b0d9c0389267ee3e044689588d86) - Update dependencies
+
+  - `prosemirror-inputrules` to `^1.3.0`
+  - `prosemirror-view` to `^1.32.4`
+  - `react-select` to `5.8.0`
+  - `@cultureamp/i18n-react-intl` to `^2.1.3`
+  - `react-intl` to `^6.5.5`
+  - `rollup` to `^4.6.0`
+
+- [#4326](https://github.com/cultureamp/kaizen-design-system/pull/4326) [`5baff641e`](https://github.com/cultureamp/kaizen-design-system/commit/5baff641e399c1478a3371a29f27d7ccd4b147f6) - Fix `RTE <Positioner>` to be SSR friendly.
+
+  Also fix `Popover` semantic structure where `<Text>` was used as a container but
+  defaulted to a `p`; changed to a `div`.
+
 ## 1.37.1
 
 ### Patch Changes

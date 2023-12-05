@@ -44,6 +44,54 @@ const TestRTE = (
   )
 }
 
+describe("accessible name and description", () => {
+  it("has the correct accessible name", () => {
+    render(<TestRTE labelText="Some label" />)
+    expect(
+      screen.getByRole("textbox", { name: "Some label" })
+    ).toBeInTheDocument()
+  })
+
+  it("has the correct name and description when added with aria-labelledby and aria-describedby", () => {
+    render(
+      <>
+        <div id="external-label">External label</div>
+        <div id="external-description">External description</div>
+        <TestRTE
+          aria-labelledby="external-label"
+          aria-describedby="external-description"
+        />
+      </>
+    )
+    expect(
+      screen.getByRole("textbox", {
+        name: "External label",
+        description: "External description",
+      })
+    ).toBeInTheDocument()
+  })
+
+  it("has the correct description with a description passed in, validation error, and aria-describedby", () => {
+    render(
+      <>
+        <div id="external-description">External description</div>
+        <TestRTE
+          labelText="Some label"
+          description="Some help text"
+          validationMessage="Some error"
+          aria-describedby="external-description"
+        />
+      </>
+    )
+    expect(
+      screen.getByRole("textbox", {
+        name: "Some label",
+        description: "Some error Some help text External description",
+      })
+    ).toBeInTheDocument()
+  })
+})
+
 describe("RTE receives list controls", () => {
   it("renders list buttons when receiving a list controls", () => {
     render(<TestRTE />)
