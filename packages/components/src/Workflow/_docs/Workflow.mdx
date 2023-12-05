@@ -1,6 +1,6 @@
 import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
 import { InlineNotification } from "~components/Notification"
-import { Installation, KaioNotification, ResourceLinks } from "~storybook/components"
+import { Installation, ResourceLinks } from "~storybook/components"
 import * as Workflow from "./Workflow.stories"
 import * as WorkflowFooter from "./WorkflowFooter.stories"
 import * as WorkflowHeader from "./WorkflowHeader.stories"
@@ -14,7 +14,6 @@ import * as WorkflowHeader from "./WorkflowHeader.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
 
 <InlineNotification type="negative" persistent>
   {`This version of the Workflow is deprecated and will be removed in the next major release.
