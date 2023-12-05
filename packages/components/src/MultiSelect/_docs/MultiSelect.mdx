@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, StoryInlineNotification} from "~storybook/components"
+import { ResourceLinks, Installation, SbNotification} from "~storybook/components"
 import * as MultiSelectStories from "./MultiSelect.stories"
 
 <Meta of={MultiSelectStories} />
@@ -12,10 +12,9 @@ import * as MultiSelectStories from "./MultiSelect.stories"
   className="!mb-8"
 />
 
-<StoryInlineNotification
+<SbNotification
   type="negative"
-  persistent
-  content={<span>This component  has not been officially released. Please wait for the an announcement in <code>#update_design_system</code> and for the design guidance to be published to Figma and Confluence before consuming.</span>}
+  content={<span>This component has not been officially released. Please wait for the an announcement in <code>#update_design_system</code> and for the design guidance to be published to Figma and Confluence before consuming.</span>}
 />
 
 <Installation
