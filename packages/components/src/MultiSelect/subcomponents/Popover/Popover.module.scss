@@ -11,7 +11,7 @@
   background: $color-white;
   overflow: auto;
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     border-color: $color-blue-500;
   }
