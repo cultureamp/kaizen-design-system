@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.38.1
+
+### Patch Changes
+
+- [#4396](https://github.com/cultureamp/kaizen-design-system/pull/4396) [`fd678f49d`](https://github.com/cultureamp/kaizen-design-system/commit/fd678f49dbd06435e6e5e001455072503d266c78) - Use :focus-visible instead of :focus for popover focus ring
+
 ## 1.38.0
 
 ### Minor Changes
