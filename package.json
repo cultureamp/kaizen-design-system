@@ -34,8 +34,8 @@
     "update-icons": "pnpm pkg:aio update-icons"
   },
   "dependencies": {
-    "@kaizen/hosted-assets": "*",
-    "@kaizen/tailwind": "*",
+    "@kaizen/hosted-assets": "workspace:*",
+    "@kaizen/tailwind": "workspace:*",
     "@storybook/addons": "^7.5.3",
     "@storybook/api": "^7.5.3",
     "@storybook/blocks": "^7.5.3",
