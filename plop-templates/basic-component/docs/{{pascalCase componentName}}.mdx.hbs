@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, Installation } from "~storybook/components"
 import * as {{pascalCase componentName}}Stories from "./{{pascalCase componentName}}.stories"
 
 <Meta of={{preCurly (pascalCase componentName)}}Stories} />
@@ -18,7 +18,7 @@ import * as {{pascalCase componentName}}Stories from "./{{pascalCase componentNa
   className="!mb-8"
 />
 
-<KaioNotification />
+
 
 <Installation
   installCommand="yarn add @kaizen/components"

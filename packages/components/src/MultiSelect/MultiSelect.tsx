@@ -115,10 +115,12 @@ export const MultiSelect = ({
           refs={refs}
           id={`${id}--popover`}
           focusOnProps={{
+            enabled: true,
             onClickOutside,
             onEscapeKey: handleClose,
             shards: [toggleButtonRef],
             noIsolation: true,
+            onActivation: (): void => refs.floating?.current?.focus(),
           }}
           classNameOverride={styles.popover}
         >
