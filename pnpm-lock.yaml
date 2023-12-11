@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@kaizen/design-tokens':
+        specifier: workspace:*
+        version: link:packages/design-tokens
       '@kaizen/hosted-assets':
         specifier: workspace:*
         version: link:packages/hosted-assets
