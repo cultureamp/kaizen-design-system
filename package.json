@@ -34,7 +34,6 @@
     "update-icons": "pnpm pkg:aio update-icons"
   },
   "dependencies": {
-    "@cultureamp/i18n-react-intl": "^2.1.3",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
     "@storybook/addons": "^7.5.3",
