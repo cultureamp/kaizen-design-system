@@ -28,7 +28,6 @@
     "@kaizen/design-tokens": "workspace:*"
   },
   "peerDependencies": {
-    "@kaizen/components": "workspace:^",
     "tailwindcss": "^3.3.5"
   }
 }
