@@ -22,6 +22,17 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.cjs",
+      "import": "./dist/esm/index.mjs",
+      "default": "./"
+    },
+    "./future": {
+      "require": "./dist/cjs/future.cjs",
+      "import": "./dist/esm/future.mjs"
+    }
+  },
   "sideEffects": [
     "styles.css"
   ],
@@ -31,7 +42,7 @@
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
-    "clean": "rimraf dist node_modules",
+    "clean": "rimraf dist",
     "build:components": "rollup -c",
     "build:styles": "postcss styles/global.css --output dist/global.css",
     "compile": "tsc",

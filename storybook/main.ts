@@ -1,6 +1,8 @@
 import fs from "fs"
 import path from "path"
-import { StorybookConfig } from "@storybook/react-webpack5"
+import type { StorybookConfig } from "@storybook/react-vite"
+import { mergeConfig } from "vite"
+// import tsconfigPaths from "vite-tsconfig-paths"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -27,7 +29,12 @@ const defaultStoryPaths = [
   "../(docs|draft-packages|packages)/**/*.stories.tsx",
 ]
 
-const config = {
+export default {
+  core: { builder: "@storybook/builder-vite" },
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
     "@storybook/addon-essentials",
@@ -41,10 +48,6 @@ const config = {
       to: "/static/media",
     },
   ],
-  framework: {
-    name: "@storybook/react-webpack5",
-    options: {},
-  },
   typescript: {
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
@@ -58,5 +61,57 @@ const config = {
       },
     },
   },
+  viteFinal: async config => mergeConfig(config, {
+    // plugins: [
+      // tsconfigPaths({
+      //   root: path.resolve(__dirname)
+      // })
+    // ],
+    resolve: {
+      alias: [
+        // { find: "@kaizen", replacement: path.resolve(__dirname, "../packages") },
+        // {
+        //   // this is required for the SCSS modules
+        //   find: /^~@kaizen\/design-tokens\/(.*)$/,
+        //   replacement: path.resolve(__dirname, "../packages/design-tokens/$1"),
+        // },
+        // { find: "~components", replacement: path.resolve(__dirname, "../packages/components/src") },
+        { find: "~storybook", replacement: path.resolve(__dirname, "../storybook") },
+        { find: "~types", replacement: path.resolve(__dirname, "../packages/components/src/types") },
+        { find: "~utils", replacement: path.resolve(__dirname, "../packages/components/src/utils") },
+        { find: "~components", replacement: path.resolve(__dirname, "../packages/components/src") },
+        { find: "~design-tokens", replacement: path.resolve(__dirname, "../packages/design-tokens/src") },
+        // i18n-react-intl package attempts to import locales from this path.
+        // When rollup attempts to import from the 'find' path, it will be
+        // redirected to import from the replacement path (Same as KAIO rollup config).
+        {
+          find: "__@cultureamp/i18n-react-intl/locales",
+          replacement: path.resolve(__dirname, "../packages/components/locales")
+        },
+        {
+          // this is required for the SCSS modules
+          find: /^~(.*)$/,
+          replacement: "$1",
+        },
+      ]
+    }
+    // resolve: {
+    //   alias: {
+        // "~storybook": path.resolve(__dirname, "../storybook"),
+        // "~types": path.resolve(__dirname, "../packages/components/src/types"),
+        // "~utils": path.resolve(__dirname, "../packages/components/src/utils"),
+        // "~components": path.resolve(__dirname, "../packages/components/src"),
+        // "~design-tokens": path.resolve(__dirname, "../packages/design-tokens/src"),
+        // // i18n-react-intl package attempts to import locales from this path.
+        // // When rollup attempts to import from the 'find' path, it will be
+        // // redirected to import from the replacement path (Same as KAIO rollup config).
+        // "__@cultureamp/i18n-react-intl/locales": path.resolve(
+        //   __dirname,
+        //   "../packages/components/locales"
+        // ),
+      // },
+    // },
+  }),
 } satisfies StorybookConfig
-export default config
+
+// export default config

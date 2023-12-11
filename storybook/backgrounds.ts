@@ -1,7 +1,9 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
-import { defaultTheme } from "@kaizen/design-tokens"
-import colors from "@kaizen/design-tokens/tokens/color.json"
+// import { defaultTheme } from "@kaizen/design-tokens"
+import { defaultTheme } from "../packages/design-tokens"
+import colors from "../packages/design-tokens/tokens/color.json"
+// import { tokens as defaultTheme } from "@kaizen/design-tokens/js"
 
 export const backgrounds = [
   { name: "White", value: defaultTheme.color.white },

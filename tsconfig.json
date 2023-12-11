@@ -21,6 +21,6 @@
     }
   },
   "files": ["./types.d.ts"],
-  "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx"],
+  "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx", "vite.config.ts"],
   "exclude": ["**/node_modules"]
 }

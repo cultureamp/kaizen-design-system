@@ -18,6 +18,14 @@
     "dist"
   ],
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./"
+    },
+    "./js": "./dist/js/index.js"
+  },
   "private": false,
   "license": "MIT",
   "sideEffects": false,
