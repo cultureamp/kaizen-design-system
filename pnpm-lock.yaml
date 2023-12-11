@@ -222,6 +222,9 @@ importers:
       eslint-plugin-storybook:
         specifier: ^0.6.15
         version: 0.6.15(eslint@8.55.0)(typescript@5.3.3)
+      highlight.js:
+        specifier: ^11.9.0
+        version: 11.9.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.10.4)
@@ -11774,6 +11777,11 @@ packages:
 
   /highlight.js@10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
+    dev: true
+
+  /highlight.js@11.9.0:
+    resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
+    engines: {node: '>=12.0.0'}
     dev: true
 
   /hoist-non-react-statics@3.3.2:
