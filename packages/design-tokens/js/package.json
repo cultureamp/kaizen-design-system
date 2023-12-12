@@ -1,6 +1,4 @@
 {
-  "name": "@kaizen/design-tokens",
-  "private": true,
   "main": "../dist/js/index.js",
   "types": "../dist/js/index.d.ts"
 }
