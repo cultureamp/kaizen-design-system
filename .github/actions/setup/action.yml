@@ -7,15 +7,19 @@ description: Sets this repository up to allow efficient run of various github ac
 runs:
   using: composite
   steps:
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
     # setup node
     - uses: actions/setup-node@v3
       with:
         node-version-file: .nvmrc
-        cache: "yarn"
+        cache: "pnpm"
         registry-url: https://npm.pkg.github.com/
 
-    # yarn install with use of cache
-    # this is bit duplicate to cache: "yarn" above, but from testing the best performance is when both are used.
+    # pnpm install with use of cache
+    # this is bit duplicate to cache: "pnpm" above, but from testing the best performance is when both are used.
     - name: Cache node modules
       id: cache-node-modules
       uses: actions/cache@v3
@@ -23,14 +27,15 @@ runs:
         cache-name: cache-node-modules
       with:
         path: ./node_modules
-        key: kaizen-${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('./yarn.lock') }}
-    - name: yarn install
+        key: kaizen-${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('./pnpm-lock.yaml') }}
+
+    - name: pnpm install
       shell: bash
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
         npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
-        yarn install --frozen-lockfile
+        pnpm install --frozen-lockfile
 
     # setup turborepo cache
     - uses: dtinth/setup-github-actions-caching-for-turbo@v1
