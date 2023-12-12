@@ -29,7 +29,7 @@
     "prepublishOnly": "pnpm build:components && pnpm build:styles && pnpm postBuild && pnpm dist:clean",
     "build": "pnpm clean && pnpm prepublishOnly",
     "test": "FORCE_COLOR=1 jest",
-    "test:ci": "pnpm test --ci",
+    "test:ci": "pnpm test -- --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist",
     "build:components": "rollup -c",

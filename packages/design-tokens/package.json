@@ -23,7 +23,7 @@
   "sideEffects": false,
   "scripts": {
     "test": "FORCE_COLOR=1 jest",
-    "test:ci": "pnpm test --ci",
+    "test:ci": "pnpm test -- --ci",
     "build": "pnpm clean && pnpm prepublishOnly",
     "build:json": "pnpm ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
