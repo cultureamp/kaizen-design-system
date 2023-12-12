@@ -7,7 +7,7 @@ export type KaizenTailwindPreset = {
   theme: KaizenTailwindTheme
 }
 
-// Note: changing any token will require to to run `yarn build` from the root
+// Note: changing any token will require to to run `pnpm build` from the root
 export const kaizenTailwindTheme: KaizenTailwindTheme = {
   extend: {
     maxWidth: {

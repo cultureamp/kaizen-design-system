@@ -25,10 +25,10 @@ jobs:
         id: changesets
         run: |
           echo "🥚 Building canary-$LABEL"
-          yarn build
+          pnpm build
           echo "🐣 Releasing canary-$LABEL"
-          yarn changeset version --snapshot "canary-$LABEL"
-          yarn changeset publish --tag "canary-$LABEL"
+          pnpm changeset version --snapshot "canary-$LABEL"
+          pnpm changeset publish --tag "canary-$LABEL"
       - name: Push tags
         run: |
           git push --follow-tags

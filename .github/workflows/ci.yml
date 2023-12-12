@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn compile
+      - run: pnpm compile
 
   eslint:
     if: github.head_ref != 'changeset-release/main'
@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint:ts && yarn lint:md
+      - run: pnpm lint:ts && pnpm lint:md
 
   prettier:
     if: github.head_ref != 'changeset-release/main'
@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint:format
+      - run: pnpm lint:format
 
   stylelint:
     if: github.head_ref != 'changeset-release/main'
@@ -52,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn lint:styles
+      - run: pnpm lint:styles
 
   jest:
     if: github.head_ref != 'changeset-release/main'
@@ -61,4 +61,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
-      - run: yarn test:ci
+      - run: pnpm test:ci

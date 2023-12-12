@@ -26,8 +26,8 @@ jobs:
         with:
           title: "Changeset: Version packages"
           commit: "version packages"
-          version: yarn ci:version
-          publish: yarn ci:publish
+          version: pnpm ci:version
+          publish: pnpm ci:publish
   # deployment:
   #   runs-on: ubuntu-latest
   #   needs: version

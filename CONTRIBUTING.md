@@ -140,9 +140,9 @@ This will run a build and publish a snapshot and its tag with a name that is con
 
 ## Using new package releases
 
-To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/components`).
+To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `pnpm update --latest <scoped package name>` (e.g. `pnpm update --latest @kaizen/components`).
 
-Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANGELOG.md`](./packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
+Remember to always check the CHANGELOG (e.g. [`/packages/components/CHANGELOG.md`](./packages/components/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
 
 ## Contributing components
 
@@ -157,14 +157,14 @@ Refer to the [docs folder](docs) for code guidelines and patterns.
 To generate a new component and package, new component within an existing package, or a subcomponent,
 run the following command and follow the prompts:
 ```
-yarn plop
+pnpm plop
 ```
 
 ## Adding icons
 
 1. Find the new svg in our [figma file](https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%F0%9F%92%9C-UI-Kit%3A-Heart?type=design&node-id=35882-93662&mode=design&t=X18YN2TWqlxEIFc3-0)
 2. Export the svg in kebab-case with `.icon` suffix (eg. `zoom-out.icon.svg`), and save it in `/packages/components/assets/svgs/icons`
-3. In the root of Kaizen, run `yarn update-icons`
+3. In the root of Kaizen, run `pnpm update-icons`
 
 This process will:
 
