@@ -6,7 +6,7 @@ import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "font-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.fontFamily || []).map(
+  Object.entries(kaizenTailwindTheme.fontFamily || []).map(
     ([suffix, cssPropertyArr]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty: cssPropertyArr[0],
