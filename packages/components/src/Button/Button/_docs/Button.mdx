@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as ButtonStories from "./Button.stories"
 
 <Meta of={ButtonStories} />
@@ -14,10 +14,7 @@ import * as ButtonStories from "./Button.stories"
 />
 
 
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { Button } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Button" />
 
 ## Overview
 

@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { Installation, ResourceLinks } from "~storybook/components"
+import { KAIOInstallation, ResourceLinks } from "~storybook/components"
 import * as FilterButtonExamples from "./FilterButton.stories"
 import * as FilterButtonRemovableExamples from "./FilterButtonRemovable.stories"
 
@@ -12,13 +12,9 @@ import * as FilterButtonRemovableExamples from "./FilterButtonRemovable.stories"
   className="!mb-8"
 />
 
-
 Trigger buttons for use by components using the `<Filter>` abstraction.
 
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { FilterButton, FilterButtonRemovable } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames={["FilterButton", "FilterButtonRemovable"]} />
 
 ## Filter Button
 

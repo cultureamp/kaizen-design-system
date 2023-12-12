@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as LoadingParagraphStories from "./LoadingParagraph.stories"
 
 <Meta of={LoadingParagraphStories} />
@@ -13,11 +13,7 @@ import * as LoadingParagraphStories from "./LoadingParagraph.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { LoadingParagraph } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="LoadingParagraph" />
 
 ## Overview
 

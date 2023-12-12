@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as ExpertAdviceCollapsibleStories from "./ExpertAdviceCollapsible.stories"
 
 <Meta of={ExpertAdviceCollapsibleStories} />
@@ -13,11 +13,7 @@ import * as ExpertAdviceCollapsibleStories from "./ExpertAdviceCollapsible.stori
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { ExpertAdviceCollapsible } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="ExpertAdviceCollapsible" />
 
 ## Overview
 

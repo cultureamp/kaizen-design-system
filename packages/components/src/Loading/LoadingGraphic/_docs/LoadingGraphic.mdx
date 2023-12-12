@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as LoadingGraphicStories from "./LoadingGraphic.stories"
 
 <Meta of={LoadingGraphicStories} />
@@ -13,11 +13,7 @@ import * as LoadingGraphicStories from "./LoadingGraphic.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { LoadingGraphic } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="LoadingGraphic" />
 
 ## Overview
 

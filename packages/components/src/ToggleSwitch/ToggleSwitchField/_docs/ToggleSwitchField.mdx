@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as ToggleSwitchFieldStories from "./ToggleSwitchField.stories"
 
 <Meta of={ToggleSwitchFieldStories} />
@@ -12,11 +12,7 @@ import * as ToggleSwitchFieldStories from "./ToggleSwitchField.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { ToggleSwitchField } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="ToggleSwitchField" />
 
 ## Overview
 

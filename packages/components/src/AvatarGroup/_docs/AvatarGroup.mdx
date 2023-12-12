@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as AvatarGroupStories from "./AvatarGroup.stories"
 
 <Meta of={AvatarGroupStories} />
@@ -13,11 +13,7 @@ import * as AvatarGroupStories from "./AvatarGroup.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { AvatarGroup } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="AvatarGroup" />
 
 ## Overview
 

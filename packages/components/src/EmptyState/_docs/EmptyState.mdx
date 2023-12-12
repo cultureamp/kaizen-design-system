@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as EmptyStateStories from "./EmptyState.stories"
 
 <Meta of={EmptyStateStories} />
@@ -13,11 +13,7 @@ import * as EmptyStateStories from "./EmptyState.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { EmptyState } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="EmptyState" />
 
 ## Overview
 

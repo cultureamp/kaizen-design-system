@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as ProgressBarStickersheetStories from "./ProgressBar.stickersheet.stories"
 import * as ProgressBarStories from "./ProgressBar.stories"
 
@@ -14,11 +14,7 @@ import * as ProgressBarStories from "./ProgressBar.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { ProgressBar } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="ProgressBar" />
 
 ## Overview
 

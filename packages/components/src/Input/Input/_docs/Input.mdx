@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as InputStories from "./Input.stories"
 
@@ -12,11 +12,7 @@ import * as InputStories from "./Input.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { Input } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Input" />
 
 ## Overview
 

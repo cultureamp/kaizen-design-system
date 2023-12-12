@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as RichTextEditorStories from "./RichTextEditor.stories"
 
 <Meta of={RichTextEditorStories} />
@@ -13,11 +13,7 @@ import * as RichTextEditorStories from "./RichTextEditor.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { RichTextEditor } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="RichTextEditor" />
 
 ## Overview
 

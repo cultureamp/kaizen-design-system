@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as LabelStories from "./Label.stories"
 
 <Meta of={LabelStories} />
@@ -11,11 +11,7 @@ import * as LabelStories from "./Label.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { Label } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Label" />
 
 ## Overview
 

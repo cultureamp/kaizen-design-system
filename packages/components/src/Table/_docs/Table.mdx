@@ -1,5 +1,5 @@
 import { Canvas, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as TableStories from "./Table.stories"
 
 <Meta of={TableStories} />
@@ -13,10 +13,8 @@ import * as TableStories from "./Table.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="pnpm add @kaizen/components"
-  importStatement='import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/components"'
+<KAIOInstallation
+  exportNames={["TableCard", "TableContainer", "TableHeader", "TableHeaderRow", "TableHeaderRowCell", "TableRow", "TableRowCell"]}
 />
 
 ## Overview
