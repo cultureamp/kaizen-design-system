@@ -27,7 +27,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/setup
-      - run: pnpm changeset status --since=origin/main
+      - run: pnpm changeset status --since origin/main
 
   verify-build:
     if: github.head_ref != 'changeset-release/main'
