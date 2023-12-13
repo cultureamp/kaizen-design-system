@@ -28,8 +28,8 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
       - run: |
-          git fetch origin main:main
-          pnpm changeset status --since origin/main
+          git pull --force --no-tags origin main:main
+          pnpm changeset status --since main
 
   verify-build:
     if: github.head_ref != 'changeset-release/main'
