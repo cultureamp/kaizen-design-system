@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
       - run: |
-          git fetch origin main:main
+          git fetch origin main
           pnpm changeset status --since origin/main
 
   verify-build:
