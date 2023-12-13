@@ -29,7 +29,7 @@ jobs:
       - uses: ./.github/actions/setup
       - run: |
           git pull --force --no-tags origin main:main
-          pnpm changeset status --since main
+          npx changeset status --since main
 
   verify-build:
     if: github.head_ref != 'changeset-release/main'
