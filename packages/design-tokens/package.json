@@ -43,7 +43,7 @@
     "prettier": "*",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "yargs": "^17.7.2"
   },
   "dependencies": {
