@@ -33,7 +33,7 @@ export const MainActions = ({
       <TitleBlockMenuItem
         {...item}
         key={`main-action-primary-menu-item-${idx}`}
-        automationId={`main-action-primary-menu-item-${idx}`}
+        data-automation-id={`main-action-primary-menu-item-${idx}`}
         data-testid={`main-action-primary-menu-item-${idx}`}
       />
     ))
