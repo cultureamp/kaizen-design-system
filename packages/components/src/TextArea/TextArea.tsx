@@ -12,6 +12,7 @@ export type TextAreaProps = {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   status?: "default" | "error" | "caution"
   autogrow?: boolean
+  readOnly?: boolean
   reversed?: boolean
 } & OverrideClassName<TextareaHTMLAttributes<HTMLTextAreaElement>>
 
@@ -24,6 +25,7 @@ export const TextArea = ({
   defaultValue,
   value,
   disabled,
+  readOnly,
   onChange: propsOnChange,
   ...restProps
 }: TextAreaProps): JSX.Element => {
@@ -78,6 +80,7 @@ export const TextArea = ({
           styles.textarea,
           styles[status],
           reversed ? styles.reversed : styles.default,
+          readOnly && styles.readOnly,
           disabled && styles.disabled
         )}
         rows={rows}
@@ -87,6 +90,7 @@ export const TextArea = ({
         // ^ React throws a warning if you specify both a value and a defaultValue
         ref={textAreaRef}
         style={getTextAreaStyle()}
+        readOnly={readOnly}
         disabled={disabled}
         {...restProps}
       />

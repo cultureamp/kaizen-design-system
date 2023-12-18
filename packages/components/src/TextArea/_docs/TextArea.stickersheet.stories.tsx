@@ -39,6 +39,24 @@ const StickerSheetTemplate: StickerSheetStory = {
           <TextArea reversed={isReversed} data-sb-pseudo-styles="active" />
           <TextArea reversed={isReversed} data-sb-pseudo-styles="focus" />
         </StickerSheet.Row>
+        <StickerSheet.Row rowTitle="Read only">
+          <TextArea readOnly reversed={isReversed} />
+          <TextArea
+            readOnly
+            reversed={isReversed}
+            data-sb-pseudo-styles="hover"
+          />
+          <TextArea
+            readOnly
+            reversed={isReversed}
+            data-sb-pseudo-styles="active"
+          />
+          <TextArea
+            readOnly
+            reversed={isReversed}
+            data-sb-pseudo-styles="focus"
+          />
+        </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Disabled">
           <TextArea reversed={isReversed} disabled />
           <TextArea

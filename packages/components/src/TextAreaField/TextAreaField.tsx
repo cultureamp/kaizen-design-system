@@ -9,6 +9,7 @@ import styles from "./TextAreaField.module.scss"
 export type TextAreaFieldProps = {
   labelText: string | React.ReactNode
   inline?: boolean
+  readOnly?: boolean
   validationMessage?: string | React.ReactNode
   description?: string | React.ReactNode
   variant?: "default" | "prominent"
@@ -27,6 +28,7 @@ export const TextAreaField = ({
   id: propsId,
   reversed = false,
   status = "default",
+  readOnly,
   disabled,
   ...restProps
 }: TextAreaFieldProps): JSX.Element => {
@@ -88,6 +90,7 @@ export const TextAreaField = ({
         data-testid={`${id}-field-textarea`}
         reversed={reversed}
         status={status}
+        readOnly={readOnly}
         disabled={disabled}
         aria-describedby={ariaDescribedBy}
         {...restProps}

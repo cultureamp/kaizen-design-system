@@ -83,6 +83,27 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Body>
       </StickerSheet>
       <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
+        Read only
+      </Heading>
+      <StickerSheet isReversed={isReversed}>
+        <StickerSheet.Header
+          headings={["Default", "Hover", "Active", "Focus"]}
+          hasVerticalHeadings
+        />
+        <StickerSheet.Body>
+          <TAFieldStatusGroup
+            readOnly
+            isReversed={isReversed}
+            variant="default"
+          />
+          <TAFieldStatusGroup
+            readOnly
+            isReversed={isReversed}
+            variant="prominent"
+          />
+        </StickerSheet.Body>
+      </StickerSheet>
+      <Heading variant="heading-2" color={isReversed ? "white" : "dark"}>
         Disabled
       </Heading>
       <StickerSheet isReversed={isReversed}>

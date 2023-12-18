@@ -87,6 +87,11 @@ $input-disabled-border-alpha: 50%;
       opacity: $input-disabled-opacity;
     }
   }
+
+  &.readOnly {
+    background-color: $color-gray-200;
+    border: none;
+  }
 }
 
 // Reversed (Dark Backgrounds)
@@ -133,5 +138,10 @@ $input-disabled-border-alpha: 50%;
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
     }
+  }
+
+  &.readOnly {
+    background: rgba($color-white-rgb, 0.1);
+    border: none;
   }
 }
