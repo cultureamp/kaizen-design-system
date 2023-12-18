@@ -13,6 +13,7 @@ export type InputProps = {
   startIconAdornment?: React.ReactNode
   endIconAdornment?: React.ReactNode
   reversed?: boolean
+  readOnly?: boolean
   type?: InputType
 } & OverrideClassName<InputHTMLAttributes<HTMLInputElement>>
 

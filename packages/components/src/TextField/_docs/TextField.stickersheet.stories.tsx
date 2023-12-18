@@ -34,7 +34,7 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default", "Hover", "Active", "Focus"]}
+        headings={["Default", "Hover", "Active", "Focus", "Read only"]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -70,6 +70,14 @@ const StickerSheetTemplate: StickerSheetStory = {
               status={status}
               validationMessage="A valid question"
               data-sb-pseudo-styles="focus"
+            />
+            <TextFieldExampleGroup
+              reversed={isReversed}
+              readOnly
+              labelText="TextField"
+              description="A short description"
+              status={status}
+              validationMessage="A valid question"
             />
           </StickerSheet.Row>
         ))}

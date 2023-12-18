@@ -19,6 +19,7 @@ export type TextFieldProps = {
    */
   labelText: React.ReactNode
   inline?: boolean
+  readOnly?: boolean
   icon?: JSX.Element
   /**
    * A descriptive message for `error` or `caution` states
@@ -43,6 +44,7 @@ export const TextField = ({
   description,
   status,
   reversed = false,
+  readOnly,
   disabled,
   ...restProps
 }: TextFieldProps): JSX.Element => {
@@ -80,6 +82,7 @@ export const TextField = ({
         data-testid={`${id}-field-input`}
         aria-describedby={ariaDescribedBy}
         classNameOverride={styles.input}
+        readOnly={readOnly}
         disabled={disabled}
         reversed={reversed}
         status={status}
