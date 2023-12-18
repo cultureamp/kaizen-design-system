@@ -65,7 +65,7 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchInlineSnapshot(`
+      expect(videoPlayer).toMatchSnapshot(`
         <video
           aria-hidden="true"
           class="wrapper"
@@ -98,7 +98,7 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchInlineSnapshot(`
+      expect(videoPlayer).toMatchSnapshot(`
         <video
           aria-hidden="true"
           autoplay=""
