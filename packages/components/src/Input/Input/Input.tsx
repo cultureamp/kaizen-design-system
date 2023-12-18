@@ -27,6 +27,7 @@ export const Input = ({
   defaultValue,
   classNameOverride,
   disabled,
+  readOnly,
   ...restProps
 }: InputProps): JSX.Element => (
   <div
@@ -48,12 +49,14 @@ export const Input = ({
       type={type}
       value={value}
       defaultValue={defaultValue}
+      readOnly={readOnly}
       disabled={disabled}
       className={classnames(
         styles.input,
         styles[status],
         classNameOverride,
         reversed ? styles.reversed : styles.default,
+        readOnly && styles.readOnly,
         disabled && styles.disabled
       )}
       {...restProps}

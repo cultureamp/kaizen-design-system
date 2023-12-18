@@ -61,7 +61,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Header
-        headings={["Default", "Hover", "Active", "Focus", "Disabled"]}
+        headings={[
+          "Default",
+          "Hover",
+          "Active",
+          "Focus",
+          "Read only",
+          "Disabled",
+        ]}
         hasVerticalHeadings
       />
       <StickerSheet.Body>
@@ -83,6 +90,7 @@ const StickerSheetTemplate: StickerSheetStory = {
               reversed={isReversed}
               data-sb-pseudo-styles="focus"
             />
+            <InputExampleGroup status={status} reversed={isReversed} readOnly />
             <InputExampleGroup
               status={status}
               reversed={isReversed}

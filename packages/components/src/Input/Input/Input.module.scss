@@ -300,6 +300,11 @@ $input-with-icon-padding: calc(
       border-color: rgba($color-yellow-600-rgb, $input-disabled-opacity);
     }
   }
+
+  &.readOnly {
+    background: $color-gray-200;
+    border: none;
+  }
 }
 
 // Reversed (Dark Backgrounds)
@@ -355,5 +360,10 @@ $input-with-icon-padding: calc(
     &.disabled {
       border-color: rgba($color-yellow-400-rgb, $input-disabled-opacity);
     }
+  }
+
+  &.readOnly {
+    background: rgba($color-white-rgb, 0.1);
+    border: none;
   }
 }
