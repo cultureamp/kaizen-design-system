@@ -1,14 +1,8 @@
 import React from "react"
 import classnames from "classnames"
-import { CustomButtonProps } from "~components/Button"
-import { MenuItem, MenuItemProps } from "~components/Menu"
+import { MenuItem } from "~components/Menu"
+import { TitleBlockMenuItemProps } from "../types"
 import styles from "./TitleBlockMenuItem.module.scss"
-
-export type TitleBlockMenuItemProps =
-  | ({
-      component: (props: CustomButtonProps) => JSX.Element
-    } & MenuItemProps)
-  | MenuItemProps
 
 export const TitleBlockMenuItem = (
   props: TitleBlockMenuItemProps

@@ -10,15 +10,13 @@ import {
   SecondaryActionsProps,
   TitleBlockButtonProps,
   TitleBlockMenuGroup,
+  TitleBlockMenuItemProps,
 } from "../types"
 import {
   convertSecondaryActionsToMenuItems,
   isMenuGroupNotButton,
 } from "../utils"
-import {
-  TitleBlockMenuItem,
-  TitleBlockMenuItemProps,
-} from "./TitleBlockMenuItem"
+import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 
 import styles from "./MobileActions.module.scss"
 

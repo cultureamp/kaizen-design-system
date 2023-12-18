@@ -8,11 +8,11 @@ const user = userEvent.setup()
 const MENU_LINKS = [
   {
     label: "Primary menu link 1",
-    action: "#",
+    href: "#",
   },
   {
     label: "Primary menu action 2",
-    action: (): void => alert("test"),
+    onClick: (): void => alert("test"),
   },
 ]
 
