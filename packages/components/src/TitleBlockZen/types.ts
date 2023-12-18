@@ -124,7 +124,9 @@ export type TitleBlockCustomButtonProps = TitleBlockDistributiveOmit<
   component: (props: CustomButtonProps) => JSX.Element
 }
 
-export type TitleBlockMenuItemProps = MenuItemProps | TitleBlockCustomButtonProps
+export type TitleBlockMenuItemProps =
+  | MenuItemProps
+  | TitleBlockCustomButtonProps
 
 export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<
   ButtonProps,
