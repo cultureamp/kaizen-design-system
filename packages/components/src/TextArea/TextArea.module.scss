@@ -90,7 +90,11 @@ $input-disabled-border-alpha: 50%;
 
   &.readOnly {
     background-color: $color-gray-200;
-    border: none;
+    border-color: $color-gray-200;
+
+    @include form-input-focus-state {
+      border-color: $color-gray-200;
+    }
   }
 }
 
@@ -142,6 +146,10 @@ $input-disabled-border-alpha: 50%;
 
   &.readOnly {
     background: rgba($color-white-rgb, 0.1);
-    border: none;
+    border-color: rgba($color-white-rgb, 0);
+
+    @include form-input-focus-state {
+      border-color: rgba($color-white-rgb, 0);
+    }
   }
 }
