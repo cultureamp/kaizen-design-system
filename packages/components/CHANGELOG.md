@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.38.2
+
+### Patch Changes
+
+- [#4414](https://github.com/cultureamp/kaizen-design-system/pull/4414) [`9a18c2c81`](https://github.com/cultureamp/kaizen-design-system/commit/9a18c2c8191cbf25c5525e61b1d55bcdaec76f68) - TabList now uses classNameOverride correctly
+
+- [#4415](https://github.com/cultureamp/kaizen-design-system/pull/4415) [`423c46919`](https://github.com/cultureamp/kaizen-design-system/commit/423c469199b28c1567825fecb31d1d33f8fa520d) - Fix SSR support for video player
+
 ## 1.38.1
 
 ### Patch Changes
