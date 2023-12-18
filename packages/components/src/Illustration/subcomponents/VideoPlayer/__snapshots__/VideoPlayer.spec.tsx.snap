@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VideoPlayer /> use-reduced-motion defaults to autoplay when user does not set use-reduced-motion preferences 1`] = `
+<video
+  aria-hidden="true"
+  autoplay=""
+  class="wrapper"
+  data-testid="kz-video-player"
+  muted=""
+  playsinline=""
+  poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
+  preload="metadata"
+  tabindex="-1"
+  width="100%"
+/>
+`;
+
+exports[`<VideoPlayer /> use-reduced-motion respects the use-reduced-motion preferences of the user 1`] = `
+<video
+  aria-hidden="true"
+  class="wrapper"
+  data-testid="kz-video-player"
+  muted=""
+  playsinline=""
+  poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
+  preload="metadata"
+  tabindex="-1"
+  width="100%"
+/>
+`;
