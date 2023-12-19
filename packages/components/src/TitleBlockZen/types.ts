@@ -125,9 +125,7 @@ export type TitleBlockCustomButtonProps = TitleBlockDistributiveOmit<
 }
 
 export type TitleBlockMenuItemProps =
-  | (Omit<MenuItemProps, "action"> & {
-      action: ((e: any) => void) | string
-    })
+  | MenuItemProps
   | TitleBlockCustomButtonProps
 
 export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<

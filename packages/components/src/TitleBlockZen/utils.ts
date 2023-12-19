@@ -1,4 +1,3 @@
-import { MenuItemProps } from "~components/Menu"
 import {
   TitleBlockButtonProps,
   TitleBlockCustomButtonProps,
@@ -7,10 +6,6 @@ import {
   SecondaryActionsProps,
   TitleBlockMenuItemProps,
 } from "./types"
-
-export const isMenuItemNotButton = (
-  value: TitleBlockButtonProps | MenuItemProps
-): value is MenuItemProps => "action" in value
 
 export const isMenuGroupNotButton = (
   value:

@@ -2,12 +2,13 @@ import React from "react"
 import { Button, IconButton } from "~components/Button"
 import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Menu, MenuList } from "~components/Menu"
-import { DefaultActionProps, PrimaryActionProps } from "../types"
-import { isMenuGroupNotButton } from "../utils"
 import {
-  TitleBlockMenuItem,
+  DefaultActionProps,
+  PrimaryActionProps,
   TitleBlockMenuItemProps,
-} from "./TitleBlockMenuItem"
+} from "../types"
+import { isMenuGroupNotButton } from "../utils"
+import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 import { Toolbar } from "./Toolbar"
 import styles from "./MainActions.module.scss"
 
@@ -32,7 +33,7 @@ export const MainActions = ({
       <TitleBlockMenuItem
         {...item}
         key={`main-action-primary-menu-item-${idx}`}
-        automationId={`main-action-primary-menu-item-${idx}`}
+        data-automation-id={`main-action-primary-menu-item-${idx}`}
         data-testid={`main-action-primary-menu-item-${idx}`}
       />
     ))

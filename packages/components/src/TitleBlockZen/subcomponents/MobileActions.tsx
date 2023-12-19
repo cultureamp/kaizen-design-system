@@ -10,15 +10,13 @@ import {
   SecondaryActionsProps,
   TitleBlockButtonProps,
   TitleBlockMenuGroup,
+  TitleBlockMenuItemProps,
 } from "../types"
 import {
   convertSecondaryActionsToMenuItems,
   isMenuGroupNotButton,
 } from "../utils"
-import {
-  TitleBlockMenuItem,
-  TitleBlockMenuItemProps,
-} from "./TitleBlockMenuItem"
+import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
 
 import styles from "./MobileActions.module.scss"
 
@@ -57,7 +55,7 @@ const renderPrimaryActionDrawerContent = (
         <TitleBlockMenuItem
           {...item}
           key={`title-block-mobile-actions-primary-${itemType}-${idx}`}
-          automationId={`title-block-mobile-actions-primary-${itemType}-${idx}`}
+          data-automation-id={`title-block-mobile-actions-primary-${itemType}-${idx}`}
           data-testid={`title-block-mobile-actions-primary-${itemType}-${idx}`}
         />
       )
@@ -76,7 +74,7 @@ const renderDefaultLink = (
       <TitleBlockMenuItem
         {...defaultAction}
         key="title-block-mobile-actions-default-link"
-        automationId="title-block-mobile-actions-default-link"
+        data-automation-id="title-block-mobile-actions-default-link"
         data-testid="title-block-mobile-actions-default-link"
       />
     )
@@ -88,7 +86,7 @@ const renderDefaultLink = (
       icon={defaultAction.icon}
       disabled={defaultAction.disabled}
       key="title-block-mobile-actions-default-link"
-      automationId="title-block-mobile-actions-default-link"
+      data-automation-id="title-block-mobile-actions-default-link"
       data-testid="title-block-mobile-actions-default-link"
     />
   )
@@ -102,7 +100,7 @@ const renderDefaultAction = (
       <TitleBlockMenuItem
         {...defaultAction}
         key="title-block-mobile-actions-default-action"
-        automationId="title-block-mobile-actions-default-action"
+        data-automation-id="title-block-mobile-actions-default-action"
         data-testid="title-block-mobile-actions-default-action"
       />
     )
