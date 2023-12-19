@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.38.3
+
+### Patch Changes
+
+- [#4418](https://github.com/cultureamp/kaizen-design-system/pull/4418) [`2c77ddbeb`](https://github.com/cultureamp/kaizen-design-system/commit/2c77ddbebbfb67635955e1d320ac490f4480454e) - Remove required action prop on TitleBlockZen menu items that does nothing
+
 ## 1.38.2
 
 ### Patch Changes
