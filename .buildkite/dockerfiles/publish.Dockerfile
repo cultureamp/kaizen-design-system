@@ -11,6 +11,4 @@ RUN apk update && apk add --no-cache \
   python3-dev
 
 RUN pip install \
-  wheel \
-  "Cython<3.0" "pyyaml<6" --no-build-isolation \
   awscli
