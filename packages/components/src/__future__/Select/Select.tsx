@@ -12,7 +12,7 @@ import { FieldMessage } from "~components/FieldMessage"
 import {
   Popover,
   useFloating,
-} from "~components/MultiSelect/subcomponents/Popover"
+} from "~components/__future__/MultiSelect/subcomponents/Popover"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { SelectProvider } from "./context"
 import {
