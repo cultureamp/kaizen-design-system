@@ -2,7 +2,9 @@ import { ThemeConfig } from "tailwindcss/types/config"
 import { defaultTheme } from "@kaizen/design-tokens/"
 import { kzSpacing } from "./kz-spacing"
 
-export type KaizenTailwindTheme = Partial<ThemeConfig>
+export type KaizenTailwindTheme = Partial<ThemeConfig> & {
+  extend: Partial<ThemeConfig>
+}
 export type KaizenTailwindPreset = {
   theme: KaizenTailwindTheme
 }
