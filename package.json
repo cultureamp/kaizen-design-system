@@ -116,7 +116,7 @@
     "jest-static-stubs": "^0.0.1",
     "node-fetch": "^3.3.2",
     "node-sass": "^9.0.0",
-    "plop": "^4.0.0",
+    "plop": "^4.0.1",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "postcss-flexbugs-fixes": "^5.0.2",
