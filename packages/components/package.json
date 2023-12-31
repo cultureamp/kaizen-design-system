@@ -52,7 +52,7 @@
     "@react-aria/datepicker": "^3.9.0",
     "@react-aria/focus": "^3.15.0",
     "@react-aria/i18n": "^3.9.0",
-    "@react-aria/listbox": "^3.11.2",
+    "@react-aria/listbox": "^3.11.3",
     "@react-aria/menu": "^3.11.2",
     "@react-aria/overlays": "^3.19.0",
     "@react-aria/select": "^3.14.0",
