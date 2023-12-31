@@ -3544,6 +3544,14 @@
     "@react-types/shared" "^3.22.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/collections@^3.10.4":
+  version "3.10.4"
+  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.10.4.tgz#aa81328a0996ba39ee39d469e65135812ebecef1"
+  integrity sha512-OHhCrItGt4zB2bSrgObRo0H2SC7QlkH8ReGxo+NVIWchXRLRoiWBP7S+IwleewEo5gOqDVPY3hqA9n4iiI8twg==
+  dependencies:
+    "@react-types/shared" "^3.22.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/datepicker@^3.9.0":
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.9.0.tgz#0771c66df937806f812392f8a512a2e72bebbaf0"
@@ -3573,6 +3581,17 @@
   dependencies:
     "@react-stately/collections" "^3.10.3"
     "@react-stately/selection" "^3.14.1"
+    "@react-stately/utils" "^3.9.0"
+    "@react-types/shared" "^3.22.0"
+    "@swc/helpers" "^0.5.0"
+
+"@react-stately/list@^3.10.2":
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/@react-stately/list/-/list-3.10.2.tgz#5c93f33dbe8d3cc0d063fc2d59d4d4b788be379a"
+  integrity sha512-INt+zofkIg2KN8B95xPi9pJG7ZFWAm30oIm/lCPBqM3K1Nm03/QaAbiQj2QeJcOsG3lb7oqI6D6iwTolwJkjIQ==
+  dependencies:
+    "@react-stately/collections" "^3.10.4"
+    "@react-stately/selection" "^3.14.2"
     "@react-stately/utils" "^3.9.0"
     "@react-types/shared" "^3.22.0"
     "@swc/helpers" "^0.5.0"
@@ -3614,6 +3633,16 @@
   integrity sha512-96/CerrB6yH4Ad9FkzBzyVerSPjcIj1NBTWTFHo1N+oHECvyGsDxZl7Y4LQR++teFK66FhX5KjCJQGae4IZd6A==
   dependencies:
     "@react-stately/collections" "^3.10.3"
+    "@react-stately/utils" "^3.9.0"
+    "@react-types/shared" "^3.22.0"
+    "@swc/helpers" "^0.5.0"
+
+"@react-stately/selection@^3.14.2":
+  version "3.14.2"
+  resolved "https://registry.yarnpkg.com/@react-stately/selection/-/selection-3.14.2.tgz#6a3d5b59db951c34d04494b28373f4fe8ce6f581"
+  integrity sha512-mL7OoiUgVWaaF7ks5XSxgbXeShijYmD4G3bkBHhqkpugU600QH6BM2hloCq8KOUupk1y8oTljPtF9EmCv375DA==
+  dependencies:
+    "@react-stately/collections" "^3.10.4"
     "@react-stately/utils" "^3.9.0"
     "@react-types/shared" "^3.22.0"
     "@swc/helpers" "^0.5.0"
