@@ -57,7 +57,7 @@
     "@react-aria/overlays": "^3.19.0",
     "@react-aria/select": "^3.14.0",
     "@react-aria/utils": "^3.22.0",
-    "@react-stately/collections": "^3.10.3",
+    "@react-stately/collections": "^3.10.4",
     "@react-stately/datepicker": "^3.9.0",
     "@react-stately/list": "^3.10.1",
     "@react-stately/menu": "^3.5.7",

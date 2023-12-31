@@ -3544,6 +3544,14 @@
     "@react-types/shared" "^3.22.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/collections@^3.10.4":
+  version "3.10.4"
+  resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.10.4.tgz#aa81328a0996ba39ee39d469e65135812ebecef1"
+  integrity sha512-OHhCrItGt4zB2bSrgObRo0H2SC7QlkH8ReGxo+NVIWchXRLRoiWBP7S+IwleewEo5gOqDVPY3hqA9n4iiI8twg==
+  dependencies:
+    "@react-types/shared" "^3.22.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/datepicker@^3.9.0":
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.9.0.tgz#0771c66df937806f812392f8a512a2e72bebbaf0"
