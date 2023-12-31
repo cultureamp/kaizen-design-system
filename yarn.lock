@@ -2464,6 +2464,13 @@
   dependencies:
     "@swc/helpers" "^0.5.0"
 
+"@internationalized/date@^3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@internationalized/date/-/date-3.5.1.tgz#14401139f70c1ef14b845d3cac8912e82e82adcc"
+  integrity sha512-LUQIfwU9e+Fmutc/DpRTGXSdgYZLBegi4wygCWDSVmUdLTaMHsQyASDiJtREwanwKuQLq0hY76fCJ9J/9I2xOQ==
+  dependencies:
+    "@swc/helpers" "^0.5.0"
+
 "@internationalized/message@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@internationalized/message/-/message-3.1.1.tgz#0f29c5a239b5dcd457b55f21dcd38d1a44a1236a"
@@ -2483,6 +2490,13 @@
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@internationalized/string/-/string-3.1.1.tgz#2ab7372d58bbb7ffd3de62fc2a311e4690186981"
   integrity sha512-fvSr6YRoVPgONiVIUhgCmIAlifMVCeej/snPZVzbzRPxGpHl3o1GRe+d/qh92D8KhgOciruDUH8I5mjdfdjzfA==
+  dependencies:
+    "@swc/helpers" "^0.5.0"
+
+"@internationalized/string@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@internationalized/string/-/string-3.2.0.tgz#cb7d2229919ccbfb9f3312710477f28986d217d6"
+  integrity sha512-Xx3Sy3f2c9ctT+vh8c7euEaEHQZltp0euZ3Hy4UfT3E13r6lxpUS3kgKyumEjboJZSnaZv7JhqWz3D75v+IxQg==
   dependencies:
     "@swc/helpers" "^0.5.0"
 
@@ -3558,6 +3572,20 @@
     "@react-types/shared" "^3.22.0"
     "@swc/helpers" "^0.5.0"
 
+"@react-stately/datepicker@^3.9.1":
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/@react-stately/datepicker/-/datepicker-3.9.1.tgz#1567d3035f03eed8e54ebb9b189001fad1932448"
+  integrity sha512-o5xLvlZGJyAbTev2yruGlV2fzQyIDuYTgL19TTt0W0WCfjGGr/AAA9GjGXXmyoRA7sZMxqIPnnv7lNrdA38ofA==
+  dependencies:
+    "@internationalized/date" "^3.5.1"
+    "@internationalized/string" "^3.2.0"
+    "@react-stately/form" "^3.0.0"
+    "@react-stately/overlays" "^3.6.4"
+    "@react-stately/utils" "^3.9.0"
+    "@react-types/datepicker" "^3.7.1"
+    "@react-types/shared" "^3.22.0"
+    "@swc/helpers" "^0.5.0"
+
 "@react-stately/form@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@react-stately/form/-/form-3.0.0.tgz#584af339a128045c357c1b8ca440c87460a41b0f"
@@ -3660,6 +3688,14 @@
     "@internationalized/date" "^3.5.0"
     "@react-types/shared" "^3.22.0"
 
+"@react-types/calendar@^3.4.3":
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/@react-types/calendar/-/calendar-3.4.3.tgz#475c970b263a18bff87c4cbba2379aba87d1dd8a"
+  integrity sha512-96x57ctX5wNEl+8et3sc2NQm8neOJayEeqOQQpyPtI7jyvst/xBrKCwysf9W/dhgPlUC+KeBAYFWfjd5hFVHYA==
+  dependencies:
+    "@internationalized/date" "^3.5.1"
+    "@react-types/shared" "^3.22.0"
+
 "@react-types/checkbox@^3.6.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@react-types/checkbox/-/checkbox-3.6.0.tgz#ba702be25555c1520f78be39c8260354638792b6"
@@ -3674,6 +3710,16 @@
   dependencies:
     "@internationalized/date" "^3.5.0"
     "@react-types/calendar" "^3.4.2"
+    "@react-types/overlays" "^3.8.4"
+    "@react-types/shared" "^3.22.0"
+
+"@react-types/datepicker@^3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@react-types/datepicker/-/datepicker-3.7.1.tgz#a9a7e8f192a49232f919b921d7b6f8bb7667eb01"
+  integrity sha512-5juVDULOytNzkotqX8j5mYKJckeIpkgbHqVSGkPgLw0++FceIaSZ6RH56cqLup0pO45paqIt9zHh+QXBYX+syg==
+  dependencies:
+    "@internationalized/date" "^3.5.1"
+    "@react-types/calendar" "^3.4.3"
     "@react-types/overlays" "^3.8.4"
     "@react-types/shared" "^3.22.0"
 
