@@ -63,7 +63,7 @@
     "@react-stately/menu": "^3.5.7",
     "@react-stately/select": "^3.6.0",
     "@react-types/shared": "^3.22.0",
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
     "date-fns": "^2.30.0",
     "lodash.debounce": "^4.0.8",
     "nanobus": "^4.5.0",
