@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.2.1
+
+### Patch Changes
+
+- [#4425](https://github.com/cultureamp/kaizen-design-system/pull/4425) [`aeb9ecb52c3c8429bf032ec4264fb058b1247bb1`](https://github.com/cultureamp/kaizen-design-system/commit/aeb9ecb52c3c8429bf032ec4264fb058b1247bb1) - Bump tailwindcss to 3.4.0
+
+- Updated dependencies [[`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0)]:
+  - @kaizen/design-tokens@10.3.17
+
 ## 1.2.0
 
 ### Minor Changes
