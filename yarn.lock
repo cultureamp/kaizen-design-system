@@ -1970,10 +1970,10 @@
     cross-fetch "^4.0.0"
     node-fetch "^2.6.7"
 
-"@cultureamp/frontend-apis@^9.0.2":
-  version "9.0.2"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.0.2/11d5a17fe0ad0a5fef2ba137ea1b14a0b5057b07#11d5a17fe0ad0a5fef2ba137ea1b14a0b5057b07"
-  integrity sha512-kW+f1UlJl7G4OmQO6gp/Yipxr863q1ndqaBGPWAUrUrBhnJjhCfeiv4LPrKmJAzQBbKvkb8E67ZsXW9vqqBRuw==
+"@cultureamp/frontend-apis@^9.1.3":
+  version "9.1.3"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.1.3/27b1c481046d54dbb08c05bb6ca71c2e72d4bba9#27b1c481046d54dbb08c05bb6ca71c2e72d4bba9"
+  integrity sha512-5hQ/eHkfG6L9xDjuDajr6tWEc2m/xlipUJeZHXfV1kQr+JWnMuugoDU991aUlNN2Ho+/HG4O86ZVZUtMZu4O4Q==
   dependencies:
     "@cultureamp/fetch-sgw" "^2.0.1"
     "@cultureamp/frontend-env" "^2.0.12"
@@ -1988,7 +1988,7 @@
     is-plain-object "^5.0.0"
     js-yaml "^4.1.0"
     jsrsasign "^10.8.6"
-    msw "^2.0.5"
+    msw "^2.0.11"
     openapi-types "^12.1.3"
     openapi-typescript "^6.7.0"
     swagger-combine "^1.4.0"
@@ -2831,10 +2831,10 @@
   resolved "https://registry.yarnpkg.com/@mswjs/cookies/-/cookies-1.1.0.tgz#1528eb43630caf83a1d75d5332b30e75e9bb1b5b"
   integrity sha512-0ZcCVQxifZmhwNBoQIrystCb+2sWBY2Zw8lpfJBPCHGCA/HWqehITeCRVIv4VMy8MPlaHo2w2pTHFV2pFfqKPw==
 
-"@mswjs/interceptors@^0.25.11":
-  version "0.25.12"
-  resolved "https://registry.yarnpkg.com/@mswjs/interceptors/-/interceptors-0.25.12.tgz#f54d9e432aa5d3b149aa6c6356e611ac12eba5d4"
-  integrity sha512-a+zyoR01cPQeukSmaDEkE6aMwSjjfcT5ILzsyxmctEeCePnc2DMOd0X8Fn9bytq1IsAfMxJf/lu2aTfdivDbRg==
+"@mswjs/interceptors@^0.25.13":
+  version "0.25.13"
+  resolved "https://registry.yarnpkg.com/@mswjs/interceptors/-/interceptors-0.25.13.tgz#c7f8b845b5fdbd8f0f71fbbde06d8a40a9e81b35"
+  integrity sha512-xfjR81WwXPHwhDbqJRHlxYmboJuiSaIKpP4I5TJVFl/EmByOU13jOBT9hmEnxcjR3jvFYoqoNKt7MM9uqerj9A==
   dependencies:
     "@open-draft/deferred-promise" "^2.2.0"
     "@open-draft/logger" "^0.3.0"
@@ -13664,16 +13664,16 @@ ms@2.1.3, ms@^2.0.0, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-msw@^2.0.5:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/msw/-/msw-2.0.9.tgz#ac42b8382ed8178b9b0fe6087a1efcc2ee8209a8"
-  integrity sha512-rl3kuGS+wuB4EKyL5nJ5WIoteCIzIgySp5b2hmIQ7fuXFfDfn/yD+E0k/3lDNFnC79tM3cuws6XmJEdPr7y+Zg==
+msw@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/msw/-/msw-2.0.11.tgz#f0a5878952a79bb5c0ef489bd01755170ed01adf"
+  integrity sha512-dAXFS2DxZX0uFqMPhS3oUAu8S/5IQ5qKKSwtXl3/dMTeML0C8JfSvbeWtowYg6pu4Iehgp5L/pHLrlIcG++y/A==
   dependencies:
     "@bundled-es-modules/cookie" "^2.0.0"
     "@bundled-es-modules/js-levenshtein" "^2.0.1"
     "@bundled-es-modules/statuses" "^1.0.1"
     "@mswjs/cookies" "^1.1.0"
-    "@mswjs/interceptors" "^0.25.11"
+    "@mswjs/interceptors" "^0.25.13"
     "@open-draft/until" "^2.1.0"
     "@types/cookie" "^0.4.1"
     "@types/js-levenshtein" "^1.1.1"
