@@ -9,6 +9,7 @@ import {
 import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
 import { Heading } from "~components/Heading"
+import { Label } from "~components/Label"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { TimeSegment } from "./subcomponents/TimeSegment"
 import { StatusType, TimeValue, ValueType } from "./types"
@@ -79,7 +80,9 @@ const TimeFieldComponent = ({
     locale,
     validationState: status === "default" ? "valid" : "invalid",
   })
-  const descriptionId = `${id}-field-message`
+
+  const hasError = !!validationMessage && status === "error"
+  const descriptionId = hasError ? `${id}-field-message` : undefined
 
   const inputRef = React.useRef(null)
   const { fieldProps, labelProps } = useTimeField(
@@ -94,17 +97,15 @@ const TimeFieldComponent = ({
   )
   return (
     <div className={classNameOverride}>
-      <Heading
-        tag="div"
-        variant="heading-6"
+      <Label
         {...labelProps}
         classNameOverride={classnames(
-          styles.heading,
+          styles.label,
           state.isDisabled && styles.isDisabled
         )}
       >
         {label}
-      </Heading>
+      </Label>
       <div className={styles.wrapper}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */}
         <div
@@ -123,7 +124,7 @@ const TimeFieldComponent = ({
           <div className={styles.focusRing} />
         </div>
       </div>
-      {validationMessage && status === "error" && (
+      {hasError && (
         <FieldMessage
           id={descriptionId}
           message={validationMessage}
