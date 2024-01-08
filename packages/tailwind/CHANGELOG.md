@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.2.2
+
+### Patch Changes
+
+- [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
+
+  - classnames to 2.5.1
+
+  Peer dep updates:
+
+  - @cultureamp/i18n-react-intl to 2.1.8
+  - tailwindcss to 3.4.0 (@kaizen/tailwind package)
+
 ## 1.2.1
 
 ### Patch Changes
