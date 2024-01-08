@@ -8,7 +8,6 @@ import {
 } from "@react-stately/datepicker"
 import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
-import { Heading } from "~components/Heading"
 import { Label } from "~components/Label"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { TimeSegment } from "./subcomponents/TimeSegment"
