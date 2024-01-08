@@ -98,11 +98,9 @@ const TimeFieldComponent = ({
   return (
     <div className={classNameOverride}>
       <Label
+        disabled={state.isDisabled}
         {...labelProps}
-        classNameOverride={classnames(
-          styles.label,
-          state.isDisabled && styles.isDisabled
-        )}
+        classNameOverride={styles.label}
       >
         {label}
       </Label>
