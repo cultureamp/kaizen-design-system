@@ -2,6 +2,7 @@ import React from "react"
 import { Button, IconButton } from "~components/Button"
 import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Menu, MenuList } from "~components/Menu"
+import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "~components/Menu/constants"
 import styles from "../TitleBlockZen.module.scss"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "../types"
 import { TitleBlockMenuItem } from "./TitleBlockMenuItem"
@@ -26,6 +27,7 @@ const renderSecondaryOverflowMenu = (
           label="Open secondary menu"
           reversed={reversed}
           icon={<MeatballsIcon role="presentation" />}
+          id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
         />
       }
     >
