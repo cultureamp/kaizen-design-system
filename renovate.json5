@@ -18,6 +18,20 @@
       "matchPaths": ["packages/**", "draft-packages/**"],
       "semanticCommitType": "fix",
       "matchDepTypes": ["peerDependencies", "dependencies"]
+    },
+    {
+      "groupName": "adobe/react-spectrum",
+      "matchPackagePrefixes": [
+        "@react-aria/",
+        "@react-stately/",
+        "@internationalized"
+      ]
+    },
+    {
+      "groupName": "prosemirror",
+      "matchPackagePrefixes": [
+        "prosemirror"
+      ]
     }
   ]
 }
