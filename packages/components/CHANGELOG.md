@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.38.5
+
+### Patch Changes
+
+- [#4468](https://github.com/cultureamp/kaizen-design-system/pull/4468) [`2051d584a4d5b3aaa174c47b45100d2087860c79`](https://github.com/cultureamp/kaizen-design-system/commit/2051d584a4d5b3aaa174c47b45100d2087860c79) - TimeField: added conditional aria-describeby to fix accessibility
+
+- [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
+
+  - classnames to 2.5.1
+
+  Peer dep updates:
+
+  - @cultureamp/i18n-react-intl to 2.1.8
+  - tailwindcss to 3.4.0 (@kaizen/tailwind package)
+
+- [#4447](https://github.com/cultureamp/kaizen-design-system/pull/4447) [`6acfa8758f1c850895bbf3b05ba2569030772b01`](https://github.com/cultureamp/kaizen-design-system/commit/6acfa8758f1c850895bbf3b05ba2569030772b01) - Bump react-spectrum packages
+
 ## 1.38.4
 
 ### Patch Changes
