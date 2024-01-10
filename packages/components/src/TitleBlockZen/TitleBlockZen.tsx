@@ -260,6 +260,7 @@ export const TitleBlockZen = ({
   collapseNavigationAreaWhenPossible = false,
   textDirection,
   surveyStatus,
+  id,
   titleAutomationId = "TitleBlock__Title",
   avatarAutomationId = "TitleBlock__Avatar",
   subtitleAutomationId = "TitleBlock__Subtitle",
@@ -281,6 +282,7 @@ export const TitleBlockZen = ({
   return (
     <>
       <div
+        id={id}
         className={classnames(
           styles.titleBlock,
           styles[`${variant}Variant`],
