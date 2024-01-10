@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.38.6
+
+### Patch Changes
+
+- [#4471](https://github.com/cultureamp/kaizen-design-system/pull/4471) [`af8329e55eb27763d042608c0f353ea622a1ade8`](https://github.com/cultureamp/kaizen-design-system/commit/af8329e55eb27763d042608c0f353ea622a1ade8) - <TitleBlockZen /> - Allow mobile actions menu to auto hide when user clicks a menu item
+
+- [#4469](https://github.com/cultureamp/kaizen-design-system/pull/4469) [`aebd4d30a1d8aa96d9377eedc4952152b2777d70`](https://github.com/cultureamp/kaizen-design-system/commit/aebd4d30a1d8aa96d9377eedc4952152b2777d70) - `<MenuItem>`: accept id in props and pass it to child button/link
+  `<TitleBlockZen>`
+  - Add constant ids for TitleBlockZen's secondary menu and other actions menu in mobile view
+  - accept id in props to be assigned to the root div
+
 ## 1.38.5
 
 ### Patch Changes
