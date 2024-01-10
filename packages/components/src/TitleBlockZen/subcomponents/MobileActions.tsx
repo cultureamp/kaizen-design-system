@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { ButtonProps } from "~components/Button"
@@ -451,6 +451,7 @@ export type MobileActionsProps = {
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
+  autoHideOtherActionsMenu?: boolean
 }
 
 export const MobileActions = ({
@@ -459,12 +460,43 @@ export const MobileActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   drawerHandleLabelIconPosition,
+  autoHideOtherActionsMenu = false,
 }: MobileActionsProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-
+  const menuContent = React.createRef<HTMLDivElement>()
   const toggleDisplay = (): void => {
     setIsOpen(!isOpen)
   }
+
+  // This callback handler will not run when autoHide === "off"
+  const handleDocumentClickForAutoHide = useCallback(
+    (e: MouseEvent) => {
+      if (
+        isOpen &&
+        e.target instanceof Node &&
+        menuContent.current?.contains(e.target)
+      ) {
+        setIsOpen(false)
+      }
+    },
+    [menuContent]
+  )
+
+  useEffect(() => {
+    if (autoHideOtherActionsMenu) {
+      document.addEventListener("click", handleDocumentClickForAutoHide, true)
+    }
+
+    return () => {
+      if (autoHideOtherActionsMenu) {
+        document.removeEventListener(
+          "click",
+          handleDocumentClickForAutoHide,
+          true
+        )
+      }
+    }
+  }, [autoHideOtherActionsMenu, handleDocumentClickForAutoHide])
 
   return (
     <div
@@ -487,7 +519,7 @@ export const MobileActions = ({
           secondaryActions ||
           secondaryOverflowMenuItems ||
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
-          <div className={styles.mobileActionsMenuContainer}>
+          <div ref={menuContent} className={styles.mobileActionsMenuContainer}>
             <DrawerMenuContent
               primaryAction={primaryAction}
               defaultAction={defaultAction}

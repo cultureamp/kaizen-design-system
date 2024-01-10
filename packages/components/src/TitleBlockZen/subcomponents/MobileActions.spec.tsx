@@ -36,6 +36,13 @@ const SECONDARY_ACTIONS = [
   },
 ]
 
+const SECONDARY_OVERFLOW_ACTIONS = [
+  {
+    onClick: (): void => alert("test"),
+    label: "Secondary overflow action",
+  },
+]
+
 describe("<MobileActions />", () => {
   describe("Case 1: Primary Action is a menu", () => {
     it("makes aria-expanded toggles between true and false when user toggles the menu", async () => {
@@ -134,6 +141,86 @@ describe("<MobileActions />", () => {
           "false"
         )
       })
+    })
+  })
+})
+
+describe("when autoHideOtherActionsMenu is true", () => {
+  beforeEach(() => {
+    window.alert = jest.fn()
+    render(
+      <MobileActions
+        primaryAction={{
+          label: "Primary menu",
+        }}
+        defaultAction={{
+          label: "Default link",
+          href: "#",
+        }}
+        secondaryActions={SECONDARY_ACTIONS}
+        secondaryOverflowMenuItems={SECONDARY_OVERFLOW_ACTIONS}
+        autoHideOtherActionsMenu
+      />
+    )
+  })
+  it("hides the menu when user clicks a default action item", async () => {
+    const mobileActionsButton = screen.getByRole("button", {
+      name: "Other actions",
+    })
+    expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
+
+    await user.click(mobileActionsButton)
+    await waitFor(() => {
+      expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("true")
+    })
+    const btn = screen.getAllByTestId(/title-block-mobile-actions-default-/)
+    expect(btn.length).toEqual(1)
+    await user.click(btn[0])
+
+    await waitFor(() => {
+      expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
+    })
+  })
+
+  it("hides the menu when user clicks a secondary action item", async () => {
+    const mobileActionsButton = screen.getByRole("button", {
+      name: "Other actions",
+    })
+    expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
+
+    await user.click(mobileActionsButton)
+    await waitFor(() => {
+      expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("true")
+    })
+    const btn = screen.getAllByTestId(
+      "title-block-mobile-actions-secondary-action"
+    )
+    expect(btn.length).toEqual(3)
+    await user.click(btn[0])
+
+    await waitFor(() => {
+      expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
+    })
+  })
+
+  it("hides the menu when user clicks a secondary overflow item", async () => {
+    const mobileActionsButton = screen.getByRole("button", {
+      name: "Other actions",
+    })
+    expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
+
+    await user.click(mobileActionsButton)
+    await waitFor(() => {
+      expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("true")
+    })
+    const btn = screen.getAllByTestId(
+      "title-block-mobile-actions-overflow-menu-item"
+    )
+    expect(btn.length).toEqual(1)
+    await user.click(btn[0])
+
+    await waitFor(() => {
+      expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
     })
   })
 })

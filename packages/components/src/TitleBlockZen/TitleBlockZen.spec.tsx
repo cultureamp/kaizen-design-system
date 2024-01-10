@@ -615,6 +615,47 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
+  describe("when autoHideOtherActionsMenu is true", () => {
+    const secondaryActionWithLink = {
+      label: "secondaryActionLabel",
+      href: "#secondaryActionHref",
+    }
+
+    it("hides the other actions menu when user clicks a menu item", async () => {
+      const { getAllByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          secondaryActions={[secondaryActionWithLink]}
+          autoHideOtherActionsMenu
+        >
+          Example
+        </TitleBlockZen>
+      )
+
+      const mobileActionsButton = screen.getByRole("button", {
+        name: "Other actions",
+      })
+
+      expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual("false")
+      await user.click(mobileActionsButton)
+      await waitFor(() => {
+        expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
+          "true"
+        )
+      })
+
+      const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
+      expect(btn.length).toEqual(1)
+      await user.click(btn[0])
+
+      await waitFor(() => {
+        expect(mobileActionsButton.getAttribute("aria-expanded")).toEqual(
+          "false"
+        )
+      })
+    })
+  })
+
   describe("when a disabled secondary action is passed with only an href", () => {
     const secondaryActionWithLink = {
       label: "secondaryActionLabel",
@@ -622,7 +663,7 @@ describe("<TitleBlockZen />", () => {
       disabled: true,
     }
 
-    it("renders the action as a single disabled mobile actions drawer item with no href", () => {
+    it("renders the action as a single disabled mobile actions drawer item with no href", async () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
           title="Test Title"
