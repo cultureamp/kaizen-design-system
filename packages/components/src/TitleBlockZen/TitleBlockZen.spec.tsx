@@ -663,7 +663,7 @@ describe("<TitleBlockZen />", () => {
       disabled: true,
     }
 
-    it("renders the action as a single disabled mobile actions drawer item with no href", async () => {
+    it("renders the action as a single disabled mobile actions drawer item with no href", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
           title="Test Title"
