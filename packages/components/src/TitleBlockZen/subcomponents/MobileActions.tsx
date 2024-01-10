@@ -4,7 +4,7 @@ import { FocusOn } from "react-focus-on"
 import { ButtonProps } from "~components/Button"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { MenuItem, MenuList, MenuHeading } from "~components/Menu"
-import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "~components/Menu/constants"
+import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "../constants"
 import {
   DefaultActionProps,
   PrimaryActionProps,
