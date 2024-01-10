@@ -4,6 +4,7 @@ import { FocusOn } from "react-focus-on"
 import { ButtonProps } from "~components/Button"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { MenuItem, MenuList, MenuHeading } from "~components/Menu"
+import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "../constants"
 import {
   DefaultActionProps,
   PrimaryActionProps,
@@ -88,6 +89,7 @@ const renderDefaultLink = (
       key="title-block-mobile-actions-default-link"
       data-automation-id="title-block-mobile-actions-default-link"
       data-testid="title-block-mobile-actions-default-link"
+      id={defaultAction.id}
     />
   )
 }
@@ -398,6 +400,7 @@ const DrawerHandle = ({
             className={styles.mobileActionsExpandButton}
             onClick={toggleDisplay}
             aria-expanded={isOpen}
+            id={TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID}
             aria-label="Other actions"
           >
             {isOpen ? (
@@ -429,6 +432,7 @@ const DrawerHandle = ({
           )}
           onClick={toggleDisplay}
           aria-expanded={isOpen}
+          id={TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID}
         >
           {renderDrawerHandleLabel("Other actions")}
           <span className={styles.mobileActionsChevronSquare}>
