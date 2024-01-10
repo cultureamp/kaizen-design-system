@@ -34,6 +34,7 @@ export type TitleBlockProps = {
   collapseNavigationAreaWhenPossible?: boolean
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
+  id?: string
   titleAutomationId?: string
   breadcrumbAutomationId?: string
   breadcrumbTextAutomationId?: string
