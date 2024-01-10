@@ -268,7 +268,7 @@ export const TitleBlockZen = ({
   sectionTitleDescriptionAutomationId = "TitleBlock__SectionTitleDescription",
   breadcrumbAutomationId = "TitleBlock__Breadcrumb",
   breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
-  autoHideOtherActionsMenu = false,
+  autoHideMobileActionsMenu = false,
 }: TitleBlockProps): JSX.Element => {
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
@@ -435,7 +435,7 @@ export const TitleBlockZen = ({
               ? primaryAction.iconPosition
               : undefined
           }
-          autoHideOtherActionsMenu={autoHideOtherActionsMenu}
+          autoHide={autoHideMobileActionsMenu}
         />
       </div>
     </>

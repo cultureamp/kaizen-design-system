@@ -615,7 +615,7 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
-  describe("when autoHideOtherActionsMenu is true", () => {
+  describe("when autoHideMobileActionsMenu is true", () => {
     const secondaryActionWithLink = {
       label: "secondaryActionLabel",
       href: "#secondaryActionHref",
@@ -626,7 +626,7 @@ describe("<TitleBlockZen />", () => {
         <TitleBlockZen
           title="Test Title"
           secondaryActions={[secondaryActionWithLink]}
-          autoHideOtherActionsMenu
+          autoHideMobileActionsMenu
         >
           Example
         </TitleBlockZen>

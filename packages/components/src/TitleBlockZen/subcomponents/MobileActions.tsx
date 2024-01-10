@@ -455,7 +455,7 @@ export type MobileActionsProps = {
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
-  autoHideOtherActionsMenu?: boolean
+  autoHide?: boolean
 }
 
 export const MobileActions = ({
@@ -464,7 +464,7 @@ export const MobileActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   drawerHandleLabelIconPosition,
-  autoHideOtherActionsMenu = false,
+  autoHide = false,
 }: MobileActionsProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const menuContent = React.createRef<HTMLDivElement>()
@@ -487,12 +487,12 @@ export const MobileActions = ({
   )
 
   useEffect(() => {
-    if (autoHideOtherActionsMenu) {
+    if (autoHide) {
       document.addEventListener("click", handleDocumentClickForAutoHide, true)
     }
 
     return () => {
-      if (autoHideOtherActionsMenu) {
+      if (autoHide) {
         document.removeEventListener(
           "click",
           handleDocumentClickForAutoHide,
@@ -500,7 +500,7 @@ export const MobileActions = ({
         )
       }
     }
-  }, [autoHideOtherActionsMenu, handleDocumentClickForAutoHide])
+  }, [autoHide, handleDocumentClickForAutoHide])
 
   return (
     <div

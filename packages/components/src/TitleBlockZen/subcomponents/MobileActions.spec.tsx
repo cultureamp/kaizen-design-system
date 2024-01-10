@@ -145,7 +145,7 @@ describe("<MobileActions />", () => {
   })
 })
 
-describe("when autoHideOtherActionsMenu is true", () => {
+describe("when autoHide is true", () => {
   beforeEach(() => {
     window.alert = jest.fn()
     render(
@@ -159,7 +159,7 @@ describe("when autoHideOtherActionsMenu is true", () => {
         }}
         secondaryActions={SECONDARY_ACTIONS}
         secondaryOverflowMenuItems={SECONDARY_OVERFLOW_ACTIONS}
-        autoHideOtherActionsMenu
+        autoHide
       />
     )
   })

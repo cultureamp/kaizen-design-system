@@ -42,7 +42,7 @@ export type TitleBlockProps = {
   subtitleAutomationId?: string
   sectionTitleAutomationId?: string
   sectionTitleDescriptionAutomationId?: string
-  autoHideOtherActionsMenu?: boolean
+  autoHideMobileActionsMenu?: boolean
 }
 
 /**
