@@ -2,6 +2,7 @@ import React from "react"
 import { Button, IconButton } from "~components/Button"
 import { ChevronDownIcon, MeatballsIcon } from "~components/Icon"
 import { Menu, MenuList } from "~components/Menu"
+import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from "../constants"
 import {
   DefaultActionProps,
   PrimaryActionProps,
@@ -159,6 +160,7 @@ export const MainActions = ({
             align="right"
             button={
               <IconButton
+                id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
                 label="Open secondary menu"
                 reversed={reversed}
                 icon={<MeatballsIcon role="presentation" />}

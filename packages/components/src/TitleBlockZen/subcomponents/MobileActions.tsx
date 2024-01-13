@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import classnames from "classnames"
 import { FocusOn } from "react-focus-on"
 import { ButtonProps } from "~components/Button"
 import { ChevronDownIcon, ChevronUpIcon } from "~components/Icon"
 import { MenuItem, MenuList, MenuHeading } from "~components/Menu"
+import { TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID } from "../constants"
 import {
   DefaultActionProps,
   PrimaryActionProps,
@@ -88,6 +89,7 @@ const renderDefaultLink = (
       key="title-block-mobile-actions-default-link"
       data-automation-id="title-block-mobile-actions-default-link"
       data-testid="title-block-mobile-actions-default-link"
+      id={defaultAction.id}
     />
   )
 }
@@ -398,6 +400,7 @@ const DrawerHandle = ({
             className={styles.mobileActionsExpandButton}
             onClick={toggleDisplay}
             aria-expanded={isOpen}
+            id={TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID}
             aria-label="Other actions"
           >
             {isOpen ? (
@@ -429,6 +432,7 @@ const DrawerHandle = ({
           )}
           onClick={toggleDisplay}
           aria-expanded={isOpen}
+          id={TITLE_BLOCK_ZEN_OTHER_ACTIONS_HTML_ID}
         >
           {renderDrawerHandleLabel("Other actions")}
           <span className={styles.mobileActionsChevronSquare}>
@@ -451,6 +455,7 @@ export type MobileActionsProps = {
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   drawerHandleLabelIconPosition?: ButtonProps["iconPosition"]
+  autoHide?: boolean
 }
 
 export const MobileActions = ({
@@ -459,12 +464,43 @@ export const MobileActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   drawerHandleLabelIconPosition,
+  autoHide = false,
 }: MobileActionsProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-
+  const menuContent = React.createRef<HTMLDivElement>()
   const toggleDisplay = (): void => {
     setIsOpen(!isOpen)
   }
+
+  // This callback handler will not run when autoHide === "off"
+  const handleDocumentClickForAutoHide = useCallback(
+    (e: MouseEvent) => {
+      if (
+        isOpen &&
+        e.target instanceof Node &&
+        menuContent.current?.contains(e.target)
+      ) {
+        setIsOpen(false)
+      }
+    },
+    [menuContent]
+  )
+
+  useEffect(() => {
+    if (autoHide) {
+      document.addEventListener("click", handleDocumentClickForAutoHide, true)
+    }
+
+    return () => {
+      if (autoHide) {
+        document.removeEventListener(
+          "click",
+          handleDocumentClickForAutoHide,
+          true
+        )
+      }
+    }
+  }, [autoHide, handleDocumentClickForAutoHide])
 
   return (
     <div
@@ -487,7 +523,7 @@ export const MobileActions = ({
           secondaryActions ||
           secondaryOverflowMenuItems ||
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
-          <div className={styles.mobileActionsMenuContainer}>
+          <div ref={menuContent} className={styles.mobileActionsMenuContainer}>
             <DrawerMenuContent
               primaryAction={primaryAction}
               defaultAction={defaultAction}

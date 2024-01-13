@@ -1,5 +1,33 @@
 # Change Log
 
+## 1.38.6
+
+### Patch Changes
+
+- [#4471](https://github.com/cultureamp/kaizen-design-system/pull/4471) [`af8329e55eb27763d042608c0f353ea622a1ade8`](https://github.com/cultureamp/kaizen-design-system/commit/af8329e55eb27763d042608c0f353ea622a1ade8) - <TitleBlockZen /> - Allow mobile actions menu to auto hide when user clicks a menu item
+
+- [#4469](https://github.com/cultureamp/kaizen-design-system/pull/4469) [`aebd4d30a1d8aa96d9377eedc4952152b2777d70`](https://github.com/cultureamp/kaizen-design-system/commit/aebd4d30a1d8aa96d9377eedc4952152b2777d70) - `<MenuItem>`: accept id in props and pass it to child button/link
+  `<TitleBlockZen>`
+  - Add constant ids for TitleBlockZen's secondary menu and other actions menu in mobile view
+  - accept id in props to be assigned to the root div
+
+## 1.38.5
+
+### Patch Changes
+
+- [#4468](https://github.com/cultureamp/kaizen-design-system/pull/4468) [`2051d584a4d5b3aaa174c47b45100d2087860c79`](https://github.com/cultureamp/kaizen-design-system/commit/2051d584a4d5b3aaa174c47b45100d2087860c79) - TimeField: added conditional aria-describeby to fix accessibility
+
+- [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
+
+  - classnames to 2.5.1
+
+  Peer dep updates:
+
+  - @cultureamp/i18n-react-intl to 2.1.8
+  - tailwindcss to 3.4.0 (@kaizen/tailwind package)
+
+- [#4447](https://github.com/cultureamp/kaizen-design-system/pull/4447) [`6acfa8758f1c850895bbf3b05ba2569030772b01`](https://github.com/cultureamp/kaizen-design-system/commit/6acfa8758f1c850895bbf3b05ba2569030772b01) - Bump react-spectrum packages
+
 ## 1.38.4
 
 ### Patch Changes
