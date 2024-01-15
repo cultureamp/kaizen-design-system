@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const FeedbackCompletedIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const FeedbackCompletedIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Zm4 12.8H6v-1.6h8v1.6Zm-5.36-3.2L6 8.96l1.12-1.12 1.52 1.52 4.24-4.24L14 6.24 8.64 11.6Z"
+          d="M10 2c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8m4 12.8H6v-1.6h8zm-5.36-3.2L6 8.96l1.12-1.12 1.52 1.52 4.24-4.24L14 6.24z"
         />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
