@@ -18,7 +18,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
   }
 
   config.module.rules.push(
-    ...[babel, styles, tailwind].map(excludeExternalModules),
+    ...[babel, styles, tailwind].map(excludeExternalModules)
   )
 
   config.resolve.extensions.push(".ts", ".tsx")
