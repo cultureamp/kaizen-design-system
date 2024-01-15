@@ -3,8 +3,6 @@ import type { Configuration } from "webpack"
 import {
   excludeExternalModules,
   babel,
-  svgs,
-  svgIcons,
   removeSvgFromTest,
   tailwind,
   styles,
@@ -25,8 +23,6 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
   config.module.rules.push(
     ...[babel, styles, tailwind].map(excludeExternalModules),
-    svgs,
-    svgIcons
   )
 
   config.resolve.extensions.push(".ts", ".tsx")

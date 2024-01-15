@@ -78,39 +78,6 @@ export const tailwind: RuleSetRule = {
   ],
 }
 
-export const svgs: RuleSetRule = {
-  test: /\.svg$/,
-  use: [
-    {
-      loader: "svg-sprite-loader",
-      options: {
-        symbolId: "ca-icon-[name]",
-      },
-    },
-  ],
-}
-
-export const svgIcons: RuleSetRule = {
-  test: /\.icon\.svg$/,
-  use: {
-    loader: "svgo-loader",
-    options: {
-      plugins: [
-        {
-          name: "removeTitle",
-          active: true,
-        },
-        {
-          name: "convertColors",
-          params: {
-            currentColor: /black|#000|#000000/,
-          },
-        },
-      ],
-    },
-  },
-}
-
 export const removeSvgFromTest = (
   rule: undefined | null | false | "" | 0 | RuleSetRule | "..."
 ): undefined | null | false | "" | 0 | RuleSetRule | "..." => {
