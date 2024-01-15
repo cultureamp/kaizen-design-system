@@ -78,21 +78,6 @@ export const tailwind: RuleSetRule = {
   ],
 }
 
-export const removeSvgFromTest = (
-  rule: undefined | null | false | "" | 0 | RuleSetRule | "..."
-): undefined | null | false | "" | 0 | RuleSetRule | "..." => {
-  if (
-    rule &&
-    rule !== "..." &&
-    rule.test &&
-    rule.test?.toString().includes("svg")
-  ) {
-    const test = rule.test.toString().replace("svg|", "").replace(/\//g, "")
-    return { ...rule, test: new RegExp(test) } as RuleSetRule
-  }
-  return rule
-}
-
 export const excludeExternalModules = (rule: RuleSetRule): RuleSetRule => ({
   exclude: /node_modules\/(?!(\@kaizen|\@cultureamp)).*/,
   ...rule,
