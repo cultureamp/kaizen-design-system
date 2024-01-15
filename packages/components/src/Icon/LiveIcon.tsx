@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const LiveIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
@@ -14,7 +15,7 @@ export const LiveIcon = (props: IconProps): JSX.Element => {
         strokeLinejoin="round"
         strokeLinecap="round"
       />
-      <path fill="currentColor" d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+      <path fill="currentColor" d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
       <path
         stroke="currentColor"
         d="M10.8 5.2c1.533 1.533 1.533 4.067 0 5.667M12.733 3.267c2.6 2.6 2.6 6.8 0 9.4"

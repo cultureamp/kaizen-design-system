@@ -1,5 +1,6 @@
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const COMPONENT_TITLE = (props: IconProps): JSX.Element => {
   const uniqueId = useId()

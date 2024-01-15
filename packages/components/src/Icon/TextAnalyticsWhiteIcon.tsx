@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const TextAnalyticsWhiteIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const TextAnalyticsWhiteIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M1.57 0C.698 0 0 .698 0 1.613V17l3.183-3.226h11.204c.872 0 1.613-.698 1.613-1.613V1.57C15.957.698 15.26 0 14.387 0H1.57Z"
+          d="M1.57 0C.698 0 0 .698 0 1.613V17l3.183-3.226h11.204c.872 0 1.613-.698 1.613-1.613V1.57C15.957.698 15.26 0 14.387 0z"
         />
       </defs>
       <g fill="none" transform="translate(2 2)" fillRule="evenodd">
