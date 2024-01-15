@@ -12,11 +12,7 @@ import isChromatic from "chromatic"
 import { InlineNotification } from "~components/Notification"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
-import {
-  FilterMultiSelect,
-  getSelectedOptionLabels,
-  FilterMultiSelectProps,
-} from ".."
+import { FilterMultiSelect, getSelectedOptionLabels } from ".."
 import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"
 
@@ -24,7 +20,7 @@ const IS_CHROMATIC = isChromatic()
 
 const client = new QueryClient()
 
-const withQueryProvider: Decorator<FilterMultiSelectProps> = Story => (
+const withQueryProvider: Decorator = Story => (
   <QueryClientProvider client={client}>
     <Story />
   </QueryClientProvider>
