@@ -4,7 +4,7 @@ import isChromatic from "chromatic"
 import { AddImage } from "~components/Illustration"
 import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
 import { Text } from "~components/Text"
-import { chromaticModalSettings } from "../../_docs/decorators"
+import { chromaticModalSettings } from "../../_docs/controls"
 import { ContextModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()

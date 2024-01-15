@@ -4,7 +4,7 @@ import isChromatic from "chromatic"
 import { ModalAccessibleDescription } from "~components/Modal"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
-import { chromaticModalSettings } from "../../_docs/decorators"
+import { chromaticModalSettings } from "../../_docs/controls"
 import { InputEditModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()

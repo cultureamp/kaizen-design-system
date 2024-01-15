@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Text } from "~components/Text"
-import { chromaticModalSettings } from "../../_docs/decorators"
+import { chromaticModalSettings } from "../../_docs/controls"
 import { ConfirmationModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()
