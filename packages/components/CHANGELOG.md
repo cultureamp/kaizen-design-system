@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.39.0
+
+### Minor Changes
+
+- [#4478](https://github.com/cultureamp/kaizen-design-system/pull/4478) [`bb1045fd89fc0426c434ae6487547294d8a64593`](https://github.com/cultureamp/kaizen-design-system/commit/bb1045fd89fc0426c434ae6487547294d8a64593) - Expose IconProps
+
 ## 1.38.6
 
 ### Patch Changes

@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const ReportSharingIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const ReportSharingIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M8.223 6.89V3.335l-6.221 6.22 6.22 6.221v-3.643c4.444 0 7.554 1.422 9.776 4.532-.889-4.443-3.555-8.887-9.775-9.775Z"
+          d="M8.223 6.89V3.335l-6.221 6.22 6.22 6.221v-3.643c4.444 0 7.554 1.422 9.776 4.532-.889-4.443-3.555-8.887-9.775-9.775"
         />
       </defs>
       <use
