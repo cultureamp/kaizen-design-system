@@ -1,37 +1,11 @@
 import React, { useState } from "react"
-import { Decorator, Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Text } from "~components/Text"
-import { ConfirmationModal, ConfirmationModalProps } from "../index"
+import { chromaticModalSettings } from "../../_docs/decorators"
+import { ConfirmationModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()
-
-// Add additional height to the stories when running in Chromatic only.
-// Modals have fixed position and would be cropped from snapshot tests.
-// Setting height to 100vh ensures we capture as much content of the
-// modal, as it's height responds to the content within it.
-const HeightDecorator: Decorator<ConfirmationModalProps> = Story => {
-  if (IS_CHROMATIC) {
-    return (
-      <div style={{ minHeight: "100vh" }}>
-        <Story />
-      </div>
-    )
-  }
-
-  return <Story />
-}
-
-const chromaticModalSettings = {
-  parameters: {
-    chromatic: {
-      disable: false,
-      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
-      pauseAnimationAtEnd: true,
-    },
-  },
-  decorators: [HeightDecorator],
-}
 
 const ConfirmationModalTemplate: Story = {
   render: args => {
