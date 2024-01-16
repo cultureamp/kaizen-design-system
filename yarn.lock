@@ -1862,13 +1862,6 @@
     uuid "^9.0.1"
     yargs "^17.7.2"
 
-"@cultureamp/frontend-env@^2.0.11":
-  version "2.0.12"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.0.12/8cc62702c2ec12398f0f30baa171cb6235b1d6b1#8cc62702c2ec12398f0f30baa171cb6235b1d6b1"
-  integrity sha512-+O9MYc7BTyFAOtqZgdIMlxka11ZtT5Xqxys6YvZXodHdesRuKTL2umFd1QIfyuy9g9rtzVfm92qs0JWNT8jRBA==
-  dependencies:
-    chromatic "^6.24.1"
-
 "@cultureamp/frontend-env@^2.1.0":
   version "2.1.0"
   resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.0/6d9005d142f9d6931eba4ff3eac1f9b6ab7840b0#6d9005d142f9d6931eba4ff3eac1f9b6ab7840b0"
@@ -1876,18 +1869,18 @@
   dependencies:
     chromatic "^9.1.0"
 
-"@cultureamp/i18n-react-intl@^2.1.8":
-  version "2.1.8"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.1.8/a508dd629bccdf7f2b33446071a813aec6da191c#a508dd629bccdf7f2b33446071a813aec6da191c"
-  integrity sha512-Wmwph0DPZme/AOStu5LS/nqu80cbaOFsXWh2sHlFMd/nqZ8LheWtkU64B1onz60BKjjjY9ejcj3M8mWiULcx1Q==
+"@cultureamp/i18n-react-intl@^2.1.10":
+  version "2.1.10"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.1.10/98cc942ef3ec509b6077f8f54721c6e1733ba2f5#98cc942ef3ec509b6077f8f54721c6e1733ba2f5"
+  integrity sha512-q1DyUJcIyJ85kXKX4gJrZUeRmPa7Xw+59htXrrDth2XXbYJxFagU3fMX7EEpV9y9dpgRvWM0bilTwf7vsEYEgw==
   dependencies:
     "@calm/eslint-plugin-react-intl" "^1.4.1"
-    "@cultureamp/frontend-env" "^2.0.11"
+    "@cultureamp/frontend-env" "^2.1.0"
     "@formatjs/cli" "^6.2.4"
     "@formatjs/cli-lib" "^6.3.3"
     babel-plugin-formatjs "^10.5.10"
-    date-fns "^2.30.0"
-    eslint-plugin-formatjs "^4.10.5"
+    date-fns "^3.0.6"
+    eslint-plugin-formatjs "^4.11.3"
     fast-glob "^3.3.0"
     form-data "^4.0.0"
     intl-messageformat "^10.5.8"
@@ -1895,7 +1888,7 @@
     json-stable-stringify "^1.1.0"
     limiter-es6-compat "^2.1.2"
     react-intl "^6.5.5"
-    smartling-api-sdk-nodejs "^1.5.6"
+    smartling-api-sdk-nodejs "^2.8.0"
     yargs "^17.7.2"
 
 "@cultureamp/redirect-to-login@^2.0.3":
@@ -7114,11 +7107,6 @@ chromatic@^10.2.0, chromatic@^10.2.2:
   resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-10.2.2.tgz#557a731cea3bd0f23a0ede2b93d9a7355de627bf"
   integrity sha512-F0GQnrx5hyT9MbNvA27Ul6UBqX5+XhlU8HUAFgXa7+iKYisNMkroRXWXzvFF0StH9Y0I5hqSdH+A5aKHzmi1Zg==
 
-chromatic@^6.24.1:
-  version "6.24.1"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-6.24.1.tgz#848209706b423a78fe4876505a5dca3deb8e8b4c"
-  integrity sha512-XbpdWWHvFpEHtcq1Km71UcuQ07effB+8q8L47E1Y7HJmJ4ZCoKCuPd8liNrbnvwEAxqfBZvTcONYU/3BPz2i5w==
-
 chromatic@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-9.1.0.tgz#dfc23ca3b602f7bba29defdf1aeddf8ae8516523"
@@ -7904,6 +7892,11 @@ date-fns@^2.30.0:
   integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
   dependencies:
     "@babel/runtime" "^7.21.0"
+
+date-fns@^3.0.6:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-3.2.0.tgz#c97cf685b62c829aa4ecba554e4a51768cf0bffc"
+  integrity sha512-E4KWKavANzeuusPi0jUjpuI22SURAznGkx7eZV+4i6x2A+IZxAMcajgkvuDAU1bg40+xuhW1zRdVIIM/4khuIg==
 
 debug@2.6.9, debug@^2.6.9:
   version "2.6.9"
@@ -8761,7 +8754,7 @@ eslint-module-utils@^2.7.4, eslint-module-utils@^2.8.0:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-formatjs@^4.10.5:
+eslint-plugin-formatjs@^4.11.3:
   version "4.11.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-formatjs/-/eslint-plugin-formatjs-4.11.3.tgz#c1258420b8aaf21fc01ed1f2315d1bd18f55d9f0"
   integrity sha512-VGmDGbRZexN+rpweaXBoXkZ40mu96zk1fi1A+iVDAhxIyQr4QLZyhHWwMM1JXgGxgGCB90/buxkRl95nzSn10w==
@@ -16289,10 +16282,10 @@ smart-buffer@^4.2.0:
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
-smartling-api-sdk-nodejs@^1.5.6:
-  version "1.5.9"
-  resolved "https://registry.yarnpkg.com/smartling-api-sdk-nodejs/-/smartling-api-sdk-nodejs-1.5.9.tgz#79ce4935a8e25c8318a9ae862a7cfeb7e90eea85"
-  integrity sha512-XhyMapixKr+ENB70Bz/7P1FMfyVoeEY8X08b0EdxFhthuW3WSrH/8FFxu7Ty9czLdbGDP3Yh5rDtqWazkW0sOw==
+smartling-api-sdk-nodejs@^2.8.0:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/smartling-api-sdk-nodejs/-/smartling-api-sdk-nodejs-2.8.1.tgz#e870c0000fcfc5e3dc3e69384c6fd147c14afe91"
+  integrity sha512-aiBBQx8OzBzBiwZrWWAYjdMM/Y8dxVff5xN1Ya66nZxWVTsDFmDcA8TZD7p6/CzSh0dNTfEYseB4nd6qIJwcOw==
   dependencies:
     "@types/node" "^16.4.7"
     cross-fetch "^3.1.4"
@@ -16300,7 +16293,7 @@ smartling-api-sdk-nodejs@^1.5.6:
     form-data "^4.0.0"
     merge-deep "^3.0.3"
     querystring "^0.2.1"
-    string-to-file-stream "^1.3.0"
+    string-to-file-stream "^2.0.0"
     typescript "^4.3.5"
 
 smartwrap@^2.0.2:
@@ -16571,10 +16564,10 @@ string-length@^5.0.1:
     char-regex "^2.0.0"
     strip-ansi "^7.0.1"
 
-string-to-file-stream@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/string-to-file-stream/-/string-to-file-stream-1.3.0.tgz#11eeca5ba6a2ccd907a876095e0c794e3ff2b146"
-  integrity sha512-Vc5kWTjo2YWwZdY//bfy8yO47L4s06a16X76RKRW4YbrbBfG+8nl/sJcRyzP/gi8i8EYdtMlFSgUaMRqofRWig==
+string-to-file-stream@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/string-to-file-stream/-/string-to-file-stream-2.0.0.tgz#fe51c72bee15aebc1206fd751ac57138f61c6fcf"
+  integrity sha512-Ka1pk7bh6V0m2RDS1tmkei4h9NOFvK/YGxYSJctvRbNNd0g5MC3JWEg503R2mf0vUmRd2GEKVdLsTKm15OouvA==
 
 "string-width-cjs@npm:string-width@^4.2.0", "string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"
