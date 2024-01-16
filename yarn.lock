@@ -14584,7 +14584,7 @@ prosemirror-keymap@^1.2.2:
     prosemirror-state "^1.0.0"
     w3c-keyname "^2.2.0"
 
-prosemirror-model@^1.0.0, prosemirror-model@^1.16.0, prosemirror-model@^1.19.0, prosemirror-model@^1.19.3:
+prosemirror-model@^1.0.0, prosemirror-model@^1.16.0, prosemirror-model@^1.19.0, prosemirror-model@^1.19.4:
   version "1.19.4"
   resolved "https://registry.yarnpkg.com/prosemirror-model/-/prosemirror-model-1.19.4.tgz#e45e84480c97dd3922095dbe579e1c98c86c0704"
   integrity sha512-RPmVXxUfOhyFdayHawjuZCxiROsm9L4FCUA6pWI+l7n2yCBsWy9VpdE1hpDHUS8Vad661YLY9AzqfjLhAKQ4iQ==
@@ -14628,7 +14628,7 @@ prosemirror-utils@^1.2.1-0:
   resolved "https://registry.yarnpkg.com/prosemirror-utils/-/prosemirror-utils-1.2.1-0.tgz#3cd77505d4a22d5d5268c248b3bdcf9f924687fc"
   integrity sha512-YJNjxSAFhV+w7/nKfLU4SJ0sYEHDJuaIvIxp6V1DgrVFSBBksnvHZTGPVmKGYEnbTqr0kG8HXqopNKPoQtT+3A==
 
-prosemirror-view@^1.27.0, prosemirror-view@^1.31.0, prosemirror-view@^1.32.4:
+prosemirror-view@^1.27.0, prosemirror-view@^1.31.0, prosemirror-view@^1.32.7:
   version "1.32.7"
   resolved "https://registry.yarnpkg.com/prosemirror-view/-/prosemirror-view-1.32.7.tgz#b9c4e8471daeba79489befa59eaeaeb4cd2e2653"
   integrity sha512-pvxiOoD4shW41X5bYDjRQk3DSG4fMqxh36yPMt7VYgU3dWRmqFzWJM/R6zeo1KtC8nyk717ZbQND3CC9VNeptw==
@@ -14898,7 +14898,7 @@ react-highlight@^0.15.0:
   dependencies:
     highlight.js "^10.5.0"
 
-react-intl@^6.5.5:
+react-intl@^6.5.5, react-intl@^6.6.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-6.6.0.tgz#8db7b04d147a470e96a9f6f57cca94a3ac155399"
   integrity sha512-BOt3ULoa28Z2ppQVilkgXSqIpNaCQsA+t4DAaQnOYwj0wGJoOaiNC+nWaPTM0SNj2TBfKD5JwsUIp/Bzzlli5g==
