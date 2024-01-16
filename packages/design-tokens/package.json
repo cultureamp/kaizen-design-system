@@ -39,7 +39,7 @@
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.33",
     "prettier": "*",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
