@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.3
+
+### Patch Changes
+
+- [#4463](https://github.com/cultureamp/kaizen-design-system/pull/4463) [`dd2bbe5594bc1ad678fd3e8290451626dd0ae192`](https://github.com/cultureamp/kaizen-design-system/commit/dd2bbe5594bc1ad678fd3e8290451626dd0ae192) - Update peerdep tailwindcss to ^3.4.1
+
 ## 1.2.2
 
 ### Patch Changes
