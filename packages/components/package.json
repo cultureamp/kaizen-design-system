@@ -42,7 +42,7 @@
     "update-icons": "./src/Icon/bin/update-icons.sh"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.0.4",
+    "@floating-ui/react-dom": "^2.0.5",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.1",
     "@kaizen/hosted-assets": "^2.0.3",
@@ -97,7 +97,7 @@
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.23.3",
     "@cultureamp/frontend-apis": "^9.2.0",
-    "@cultureamp/i18n-react-intl": "^2.1.8",
+    "@cultureamp/i18n-react-intl": "^2.1.10",
     "@kaizen/design-tokens": "^10.3.17",
     "@kaizen/tailwind": "^1.2.2",
     "@rollup/plugin-alias": "^5.1.0",
@@ -130,7 +130,7 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "@cultureamp/i18n-react-intl": "^2.1.8",
+    "@cultureamp/i18n-react-intl": "^2.1.10",
     "react": "^18.2.0",
     "react-intl": "^6.5.5"
   }
