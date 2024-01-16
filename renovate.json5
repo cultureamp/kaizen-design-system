@@ -4,11 +4,7 @@
   "draftPR": true,
   "ignoreDeps": [
     // We can't always stick to latest due to infra and compatibility with other plugins
-    "node",
-    // 0.19.x breaks the import of rollup-plugin-esbuild
-    "esbuild",
-    // the 8.4.19 -> 8.4.21 patch causes typescript issues
-    "postcss"
+    "node"
   ],
   "packageRules": [
     {
@@ -31,6 +27,13 @@
       "groupName": "prosemirror",
       "matchPackagePrefixes": [
         "prosemirror"
+      ]
+    },
+    {
+      "groupName": "rollup",
+      "matchPackagePatterns": [
+        "@rollup",
+        "rollup"
       ]
     }
   ]
