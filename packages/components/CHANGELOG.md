@@ -1,5 +1,24 @@
 # Change Log
 
+## 1.39.1
+
+### Patch Changes
+
+- [#4461](https://github.com/cultureamp/kaizen-design-system/pull/4461) [`513e2a1572894c064cb82b5e046024ffaa30e85e`](https://github.com/cultureamp/kaizen-design-system/commit/513e2a1572894c064cb82b5e046024ffaa30e85e) - Update dependency @floating-ui/react-dom to ^2.0.5
+
+- [#4460](https://github.com/cultureamp/kaizen-design-system/pull/4460) [`47b451a8079aa7393b33aa9049052764b9c0030d`](https://github.com/cultureamp/kaizen-design-system/commit/47b451a8079aa7393b33aa9049052764b9c0030d) - Update peerDep @cultureamp/i18n-react-intl to ^2.1.10
+
+- [#4467](https://github.com/cultureamp/kaizen-design-system/pull/4467) [`4504646e1935bc913030c8783f97ea4c3c4bb0de`](https://github.com/cultureamp/kaizen-design-system/commit/4504646e1935bc913030c8783f97ea4c3c4bb0de) - Update dependencies
+
+  Dependencies:
+
+  - "prosemirror-model": "^1.19.4"
+  - "prosemirror-view": "^1.32.7"
+
+  Peer dependencies:
+
+  - "react-intl": "^6.6.0"
+
 ## 1.39.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.39.0",
+  "version": "1.39.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -99,7 +99,7 @@
     "@cultureamp/frontend-apis": "^9.2.0",
     "@cultureamp/i18n-react-intl": "^2.1.10",
     "@kaizen/design-tokens": "^10.3.17",
-    "@kaizen/tailwind": "^1.2.2",
+    "@kaizen/tailwind": "^1.2.3",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
