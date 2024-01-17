@@ -96,29 +96,40 @@ const StickerSheetTemplate: StickerSheetStory = {
 const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const canvas = within(canvasElement)
 
-  const getElementWithinCalendar = (id: string, name: string): HTMLElement => {
+  const getElementWithinCalendar = (
+    id: string,
+    monthName: string,
+    dayName: string
+  ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
-    return within(calendar).getByRole("button", { name })
+    const month = within(calendar).getByRole("grid", { name: monthName })
+    return within(month).getByRole("gridcell", { name: dayName })
   }
 
   const calendarsPseudoStates = [
     {
       id: "id__calendar-range__start",
-      buttonDescription: "19th February (Saturday)",
+      monthName: "February 2022",
+      dayName: "19",
     },
     {
       id: "id__calendar-range__middle",
-      buttonDescription: "26th February (Saturday)",
+      monthName: "February 2022",
+      dayName: "26",
     },
-    { id: "id__calendar-range__end", buttonDescription: "4th March (Friday)" },
+    {
+      id: "id__calendar-range__end",
+      monthName: "March 2022",
+      dayName: "4",
+    },
   ]
 
-  calendarsPseudoStates.forEach(({ id, buttonDescription }) => {
-    getElementWithinCalendar(`${id}--hover`, buttonDescription).setAttribute(
+  calendarsPseudoStates.forEach(({ id, monthName, dayName }) => {
+    getElementWithinCalendar(`${id}--hover`, monthName, dayName).setAttribute(
       "data-sb-pseudo-styles",
       "hover"
     )
-    getElementWithinCalendar(`${id}--focus`, buttonDescription).setAttribute(
+    getElementWithinCalendar(`${id}--focus`, monthName, dayName).setAttribute(
       "data-sb-pseudo-styles",
       "focus"
     )

@@ -61,7 +61,7 @@ export const SubmitInputViaEnterKey: Story = {
     })
 
     await step("Type value and press Enter key", async () => {
-      const inputDate = getByLabelText("Date")
+      const inputDate = getByLabelText("Date", { selector: "input" })
       await userEvent.click(inputDate)
       await userEvent.type(inputDate, "03/05/2022")
       await userEvent.keyboard("{Enter}")
