@@ -79,7 +79,7 @@
     "prosemirror-utils": "^1.2.1-0",
     "prosemirror-view": "^1.32.7",
     "react-animate-height": "^3.2.3",
-    "react-day-picker": "8.4.1",
+    "react-day-picker": "^8.10.0",
     "react-focus-lock": "^2.9.6",
     "react-focus-on": "^3.9.1",
     "react-media": "^1.10.0",
