@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.39.2
+
+### Patch Changes
+
+- [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Add accessible name to dialog for Filter components
+
+- [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Update dependencies
+
+  - "date-fns": "^3.0.6"
+  - "react-day-picker": "^8.10.0"
+    - Note: We are aware that the update includes broken a11y behaviour from the library (https://github.com/gpbl/react-day-picker/issues/1688), but we have opted to prevent lagging behind version updates instead
+
 ## 1.39.1
 
 ### Patch Changes
