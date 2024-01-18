@@ -1,4 +1,5 @@
 import React from "react"
+import type { Locale } from "date-fns"
 import { formatDateAsText } from "~components/Calendar"
 import styles from "./DateRangeDisplayLabel.module.scss"
 

@@ -1,5 +1,5 @@
 import React, { useState, FocusEvent } from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DateRange } from "~components/Calendar"
 import { FilterDateRangePickerField, FilterDateRangePickerFieldProps } from "."
@@ -92,10 +92,11 @@ describe("<FilterDateRangePickerField />", () => {
         expect(inputStartDate).toHaveValue("2 May 2022")
         expect(inputEndDate).toHaveValue("22 May 2022")
 
-        const targetDay = screen.getByRole("button", {
-          name: "1st May (Sunday)",
+        const targetMonth = screen.getByRole("grid", { name: "May 2022" })
+        const targetDay = within(targetMonth).getByRole("gridcell", {
+          name: "1",
         })
-        expect(targetDay).not.toHaveAttribute("aria-pressed")
+        expect(targetDay).not.toHaveAttribute("aria-selected")
 
         await user.click(inputStartDate)
         await user.clear(inputStartDate)
@@ -108,7 +109,7 @@ describe("<FilterDateRangePickerField />", () => {
           expect(startDateOnBlur).toHaveBeenCalled()
           expect(inputEndDate).toHaveValue("22 May 2022")
           expect(endDateOnBlur).not.toHaveBeenCalled()
-          expect(targetDay).toHaveAttribute("aria-pressed", "true")
+          expect(targetDay).toHaveAttribute("aria-selected", "true")
         })
       })
 
@@ -132,10 +133,11 @@ describe("<FilterDateRangePickerField />", () => {
         expect(inputStartDate).toHaveValue("1 May 2022")
         expect(inputEndDate).toHaveValue("22 May 2022")
 
-        const targetDay = screen.getByRole("button", {
-          name: "31st May (Tuesday)",
+        const targetMonth = screen.getByRole("grid", { name: "May 2022" })
+        const targetDay = within(targetMonth).getByRole("gridcell", {
+          name: "31",
         })
-        expect(targetDay).not.toHaveAttribute("aria-pressed")
+        expect(targetDay).not.toHaveAttribute("aria-selected")
 
         await user.click(inputEndDate)
         await user.clear(inputEndDate)
@@ -148,7 +150,7 @@ describe("<FilterDateRangePickerField />", () => {
           expect(startDateOnBlur).not.toHaveBeenCalled()
           expect(inputEndDate).toHaveValue("31 May 2022")
           expect(endDateOnBlur).toHaveBeenCalled()
-          expect(targetDay).toHaveAttribute("aria-pressed", "true")
+          expect(targetDay).toHaveAttribute("aria-selected", "true")
         })
       })
     })
@@ -236,14 +238,15 @@ describe("<FilterDateRangePickerField />", () => {
       const inputStartDate = screen.getByLabelText("Date from")
       expect(inputStartDate).toHaveValue("15 May 2022")
 
-      const targetDay = screen.getByRole("button", {
-        name: "12th May (Thursday)",
+      const targetMonth = screen.getByRole("grid", { name: "May 2022" })
+      const targetDay = within(targetMonth).getByRole("gridcell", {
+        name: "12",
       })
-      expect(targetDay).not.toHaveAttribute("aria-pressed")
+      expect(targetDay).not.toHaveAttribute("aria-selected")
       await user.click(targetDay)
 
       await waitFor(() => {
-        expect(targetDay).toHaveAttribute("aria-pressed", "true")
+        expect(targetDay).toHaveAttribute("aria-selected", "true")
         expect(inputStartDate).toHaveValue("12 May 2022")
       })
     })
@@ -261,14 +264,15 @@ describe("<FilterDateRangePickerField />", () => {
       const inputEndDate = screen.getByLabelText("Date to")
       expect(inputEndDate).toHaveValue("15 Jun 2022")
 
-      const targetDay = screen.getByRole("button", {
-        name: "23rd June (Thursday)",
+      const targetMonth = screen.getByRole("grid", { name: "June 2022" })
+      const targetDay = within(targetMonth).getByRole("gridcell", {
+        name: "23",
       })
-      expect(targetDay).not.toHaveAttribute("aria-pressed")
+      expect(targetDay).not.toHaveAttribute("aria-selected")
       await user.click(targetDay)
 
       await waitFor(() => {
-        expect(targetDay).toHaveAttribute("aria-pressed", "true")
+        expect(targetDay).toHaveAttribute("aria-selected", "true")
         expect(inputEndDate).toHaveValue("23 Jun 2022")
       })
     })
@@ -288,8 +292,9 @@ describe("<FilterDateRangePickerField />", () => {
       expect(inputStartDate).toHaveValue("15 May 2022")
       expect(inputEndDate).toHaveValue("22 May 2022")
 
-      const firstSelectedDay = screen.getByRole("button", {
-        name: "15th May (Sunday)",
+      const targetMonth = screen.getByRole("grid", { name: "May 2022" })
+      const firstSelectedDay = within(targetMonth).getByRole("gridcell", {
+        name: "15",
       })
       await user.click(firstSelectedDay)
 
@@ -455,7 +460,7 @@ describe("<FilterDateRangePickerField />", () => {
             )
             // End date in Calendar is deselected
             expect(
-              screen.getAllByRole("button", { pressed: true }).length
+              screen.getAllByRole("gridcell", { selected: true }).length
             ).toEqual(1)
           })
 
@@ -470,7 +475,7 @@ describe("<FilterDateRangePickerField />", () => {
             expect(dateEndErrorContainer).not.toBeInTheDocument()
             // End date in Calendar is re-selected
             expect(
-              screen.getAllByRole("button", { pressed: true }).length
+              screen.getAllByRole("gridcell", { selected: true }).length
             ).toEqual(3)
           })
         })
@@ -499,7 +504,7 @@ describe("<FilterDateRangePickerField />", () => {
             )
             // End date in Calendar is deselected
             expect(
-              screen.getAllByRole("button", { pressed: true }).length
+              screen.getAllByRole("gridcell", { selected: true }).length
             ).toEqual(1)
           })
         })
@@ -636,8 +641,9 @@ describe("<FilterDateRangePickerField />", () => {
         )
       })
 
-      const targetDay = screen.getByRole("button", {
-        name: "12th May (Thursday)",
+      const targetMonth = screen.getByRole("grid", { name: "May 2022" })
+      const targetDay = within(targetMonth).getByRole("gridcell", {
+        name: "12",
       })
       await user.click(targetDay)
 

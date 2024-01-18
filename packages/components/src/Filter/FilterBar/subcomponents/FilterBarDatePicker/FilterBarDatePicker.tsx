@@ -45,7 +45,7 @@ export const FilterBarDatePicker = ({
       renderTrigger={(triggerProps): JSX.Element => (
         <FilterBarButton
           {...triggerProps}
-          id={id}
+          filterId={id}
           isRemovable={filterState.isRemovable}
         />
       )}

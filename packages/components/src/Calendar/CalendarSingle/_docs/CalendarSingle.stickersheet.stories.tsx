@@ -109,9 +109,13 @@ const StickerSheetTemplate: StickerSheetStory = {
 const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   const canvas = within(canvasElement)
 
-  const getElementWithinCalendar = (id: string, name: string): HTMLElement => {
+  const getElementWithinCalendar = (
+    id: string,
+    role: string,
+    name: string
+  ): HTMLElement => {
     const calendar = canvas.getByTestId(id)
-    return within(calendar).getByRole("button", { name })
+    return within(calendar).getByRole(role, { name })
   }
 
   const todayCalendarIds = [
@@ -121,44 +125,33 @@ const applyStickerSheetStyles = (canvasElement: HTMLElement): void => {
   ]
 
   todayCalendarIds.forEach(id => {
-    getElementWithinCalendar(id, "1st May (Sunday)").classList.add(
-      styles.dayToday
-    )
+    getElementWithinCalendar(id, "gridcell", "1").classList.add(styles.dayToday)
   })
 
-  const calendarsHover = [
-    { id: "id--calendar--hover", buttonDescription: "5th September (Sunday)" },
+  const calendarsPseudoStates = [
     {
-      id: "id--calendar-selected--hover",
-      buttonDescription: "5th September (Sunday)",
+      id: "id--calendar",
+      role: "gridcell",
+      name: "5",
     },
     {
-      id: "id--calendar-navigation--hover",
-      buttonDescription: "Go to previous month",
+      id: "id--calendar-selected",
+      role: "gridcell",
+      name: "5",
+    },
+    {
+      id: "id--calendar-navigation",
+      role: "button",
+      name: "Go to previous month",
     },
   ]
 
-  calendarsHover.forEach(({ id, buttonDescription }) => {
-    getElementWithinCalendar(id, buttonDescription).setAttribute(
+  calendarsPseudoStates.forEach(({ id, role, name }) => {
+    getElementWithinCalendar(`${id}--hover`, role, name).setAttribute(
       "data-sb-pseudo-styles",
       "hover"
     )
-  })
-
-  const calendarsFocus = [
-    { id: "id--calendar--focus", buttonDescription: "5th September (Sunday)" },
-    {
-      id: "id--calendar-selected--focus",
-      buttonDescription: "5th September (Sunday)",
-    },
-    {
-      id: "id--calendar-navigation--focus",
-      buttonDescription: "Go to previous month",
-    },
-  ]
-
-  calendarsFocus.forEach(({ id, buttonDescription }) => {
-    getElementWithinCalendar(id, buttonDescription).setAttribute(
+    getElementWithinCalendar(`${id}--focus`, role, name).setAttribute(
       "data-sb-pseudo-styles",
       "focus"
     )
