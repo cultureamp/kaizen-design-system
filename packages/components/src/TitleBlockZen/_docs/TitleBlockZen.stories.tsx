@@ -51,12 +51,10 @@ const meta = {
     secondaryActions: SECONDARY_ACTIONS,
     secondaryOverflowMenuItems: [
       {
-        action: (): void => alert("test"),
         label: "Overflow action 1",
         icon: <StarOnIcon role="presentation" />,
       },
       {
-        action: "#",
         label: "Overflow link 1",
         icon: <StarOnIcon role="presentation" />,
       },

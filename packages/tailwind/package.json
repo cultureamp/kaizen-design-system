@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.2.0",
+  "version": "1.2.3",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm clean && pnpm prepublishOnly",
@@ -28,6 +28,6 @@
     "@kaizen/design-tokens": "workspace:*"
   },
   "peerDependencies": {
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.4.1"
   }
 }

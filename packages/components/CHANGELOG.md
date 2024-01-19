@@ -1,5 +1,98 @@
 # Change Log
 
+## 1.39.2
+
+### Patch Changes
+
+- [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Add accessible name to dialog for Filter components
+
+- [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Update dependencies
+
+  - "date-fns": "^3.0.6"
+  - "react-day-picker": "^8.10.0"
+    - Note: We are aware that the update includes broken a11y behaviour from the library (https://github.com/gpbl/react-day-picker/issues/1688), but we have opted to prevent lagging behind version updates instead
+
+## 1.39.1
+
+### Patch Changes
+
+- [#4461](https://github.com/cultureamp/kaizen-design-system/pull/4461) [`513e2a1572894c064cb82b5e046024ffaa30e85e`](https://github.com/cultureamp/kaizen-design-system/commit/513e2a1572894c064cb82b5e046024ffaa30e85e) - Update dependency @floating-ui/react-dom to ^2.0.5
+
+- [#4460](https://github.com/cultureamp/kaizen-design-system/pull/4460) [`47b451a8079aa7393b33aa9049052764b9c0030d`](https://github.com/cultureamp/kaizen-design-system/commit/47b451a8079aa7393b33aa9049052764b9c0030d) - Update peerDep @cultureamp/i18n-react-intl to ^2.1.10
+
+- [#4467](https://github.com/cultureamp/kaizen-design-system/pull/4467) [`4504646e1935bc913030c8783f97ea4c3c4bb0de`](https://github.com/cultureamp/kaizen-design-system/commit/4504646e1935bc913030c8783f97ea4c3c4bb0de) - Update dependencies
+
+  Dependencies:
+
+  - "prosemirror-model": "^1.19.4"
+  - "prosemirror-view": "^1.32.7"
+
+  Peer dependencies:
+
+  - "react-intl": "^6.6.0"
+
+## 1.39.0
+
+### Minor Changes
+
+- [#4478](https://github.com/cultureamp/kaizen-design-system/pull/4478) [`bb1045fd89fc0426c434ae6487547294d8a64593`](https://github.com/cultureamp/kaizen-design-system/commit/bb1045fd89fc0426c434ae6487547294d8a64593) - Expose IconProps
+
+## 1.38.6
+
+### Patch Changes
+
+- [#4471](https://github.com/cultureamp/kaizen-design-system/pull/4471) [`af8329e55eb27763d042608c0f353ea622a1ade8`](https://github.com/cultureamp/kaizen-design-system/commit/af8329e55eb27763d042608c0f353ea622a1ade8) - <TitleBlockZen /> - Allow mobile actions menu to auto hide when user clicks a menu item
+
+- [#4469](https://github.com/cultureamp/kaizen-design-system/pull/4469) [`aebd4d30a1d8aa96d9377eedc4952152b2777d70`](https://github.com/cultureamp/kaizen-design-system/commit/aebd4d30a1d8aa96d9377eedc4952152b2777d70) - `<MenuItem>`: accept id in props and pass it to child button/link
+  `<TitleBlockZen>`
+  - Add constant ids for TitleBlockZen's secondary menu and other actions menu in mobile view
+  - accept id in props to be assigned to the root div
+
+## 1.38.5
+
+### Patch Changes
+
+- [#4468](https://github.com/cultureamp/kaizen-design-system/pull/4468) [`2051d584a4d5b3aaa174c47b45100d2087860c79`](https://github.com/cultureamp/kaizen-design-system/commit/2051d584a4d5b3aaa174c47b45100d2087860c79) - TimeField: added conditional aria-describeby to fix accessibility
+
+- [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
+
+  - classnames to 2.5.1
+
+  Peer dep updates:
+
+  - @cultureamp/i18n-react-intl to 2.1.8
+  - tailwindcss to 3.4.0 (@kaizen/tailwind package)
+
+- [#4447](https://github.com/cultureamp/kaizen-design-system/pull/4447) [`6acfa8758f1c850895bbf3b05ba2569030772b01`](https://github.com/cultureamp/kaizen-design-system/commit/6acfa8758f1c850895bbf3b05ba2569030772b01) - Bump react-spectrum packages
+
+## 1.38.4
+
+### Patch Changes
+
+- [#4384](https://github.com/cultureamp/kaizen-design-system/pull/4384) [`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0) - Dep updates:
+
+  - @cultureamp/i18n-react-intl from 2.1.3 to 2.1.5
+  - svgo from 3.0.4 to 3.1.0
+  - ts-patch from 3.0.2 to 3.1.1
+
+  * a bunch of dev deps
+
+- [#4426](https://github.com/cultureamp/kaizen-design-system/pull/4426) [`e3a6b029b7b70a356cb383db615968d8a73ecaf9`](https://github.com/cultureamp/kaizen-design-system/commit/e3a6b029b7b70a356cb383db615968d8a73ecaf9) - Address ToggleSwitch bug - CheckIcon now hidden when toggle set to false.
+
+## 1.38.3
+
+### Patch Changes
+
+- [#4418](https://github.com/cultureamp/kaizen-design-system/pull/4418) [`2c77ddbeb`](https://github.com/cultureamp/kaizen-design-system/commit/2c77ddbebbfb67635955e1d320ac490f4480454e) - Remove required action prop on TitleBlockZen menu items that does nothing
+
+## 1.38.2
+
+### Patch Changes
+
+- [#4414](https://github.com/cultureamp/kaizen-design-system/pull/4414) [`9a18c2c81`](https://github.com/cultureamp/kaizen-design-system/commit/9a18c2c8191cbf25c5525e61b1d55bcdaec76f68) - TabList now uses classNameOverride correctly
+
+- [#4415](https://github.com/cultureamp/kaizen-design-system/pull/4415) [`423c46919`](https://github.com/cultureamp/kaizen-design-system/commit/423c469199b28c1567825fecb31d1d33f8fa520d) - Fix SSR support for video player
+
 ## 1.38.1
 
 ### Patch Changes

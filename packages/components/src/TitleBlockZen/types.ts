@@ -34,6 +34,7 @@ export type TitleBlockProps = {
   collapseNavigationAreaWhenPossible?: boolean
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
+  id?: string
   titleAutomationId?: string
   breadcrumbAutomationId?: string
   breadcrumbTextAutomationId?: string
@@ -41,6 +42,7 @@ export type TitleBlockProps = {
   subtitleAutomationId?: string
   sectionTitleAutomationId?: string
   sectionTitleDescriptionAutomationId?: string
+  autoHideMobileActionsMenu?: boolean
 }
 
 /**
@@ -125,9 +127,7 @@ export type TitleBlockCustomButtonProps = TitleBlockDistributiveOmit<
 }
 
 export type TitleBlockMenuItemProps =
-  | (Omit<MenuItemProps, "action"> & {
-      action: ((e: any) => void) | string
-    })
+  | MenuItemProps
   | TitleBlockCustomButtonProps
 
 export type ButtonWithHrefNotOnClick = TitleBlockDistributiveOmit<

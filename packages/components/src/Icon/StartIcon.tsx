@@ -2,14 +2,15 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const StartIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path
         fill="currentColor"
-        d="M6 4H4v12h2V4Zm3.7 5.17H18v1.66H9.7l2.98 3L11.5 15l-5-5 5-5 1.18 1.18-2.99 2.99Z"
+        d="M6 4H4v12h2zm3.7 5.17H18v1.66H9.7l2.98 3L11.5 15l-5-5 5-5 1.18 1.18-2.99 2.99Z"
       />
     </>
   )

@@ -1,5 +1,17 @@
 # Change Log
 
+## 10.3.17
+
+### Patch Changes
+
+- [#4384](https://github.com/cultureamp/kaizen-design-system/pull/4384) [`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0) - Dep updates:
+
+  - @cultureamp/i18n-react-intl from 2.1.3 to 2.1.5
+  - svgo from 3.0.4 to 3.1.0
+  - ts-patch from 3.0.2 to 3.1.1
+
+  * a bunch of dev deps
+
 ## 10.3.16
 
 ### Patch Changes

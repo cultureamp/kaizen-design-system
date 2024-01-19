@@ -65,24 +65,7 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchInlineSnapshot(`
-        <video
-          aria-hidden="true"
-          class="wrapper"
-          data-testid="kz-video-player"
-          muted=""
-          playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
-          preload="metadata"
-          tabindex="-1"
-          width="100%"
-        >
-          <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
-            type="video/mp4"
-          />
-        </video>
-      `)
+      expect(videoPlayer).toMatchSnapshot()
       expect(mockPause).toBeCalled()
     })
 
@@ -98,25 +81,7 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchInlineSnapshot(`
-        <video
-          aria-hidden="true"
-          autoplay=""
-          class="wrapper"
-          data-testid="kz-video-player"
-          muted=""
-          playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
-          preload="metadata"
-          tabindex="-1"
-          width="100%"
-        >
-          <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
-            type="video/mp4"
-          />
-        </video>
-      `)
+      expect(videoPlayer).toMatchSnapshot()
       expect(mockPlay).toBeCalled()
     })
   })

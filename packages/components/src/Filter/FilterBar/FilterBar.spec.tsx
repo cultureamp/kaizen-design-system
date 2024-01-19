@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { render, waitFor, within } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterMultiSelect } from "../index"
 import { FilterBar, FilterBarProps } from "./FilterBar"
@@ -147,6 +147,17 @@ describe("<FilterBar />", () => {
     expect(filters[0]).toHaveTextContent("Flavour")
     expect(filters[1]).toHaveTextContent("Sugar Level")
     expect(filters[2]).toHaveTextContent("Ice Level")
+  })
+
+  it("retains Filter accessibility", async () => {
+    render(<FilterBarWrapper filters={simpleFilters} />)
+
+    const filterButton = screen.getByRole("button", { name: "Flavour" })
+    await user.click(filterButton)
+
+    await waitFor(() => {
+      expect(screen.getByRole("dialog", { name: "Flavour" })).toBeVisible()
+    })
   })
 
   describe("Removable filters", () => {

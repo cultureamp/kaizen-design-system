@@ -1,4 +1,10 @@
-import React, { HTMLAttributes, useEffect, useRef, useState } from "react"
+import React, {
+  HTMLAttributes,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react"
 import { FocusOn } from "react-focus-on"
 import { OverrideClassName } from "~types/OverrideClassName"
 import { FilterPopover } from "./subcomponents/FilterPopover"
@@ -9,6 +15,7 @@ export type FilterProps = {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
   renderTrigger: (triggerProps: {
+    id: string
     onClick: () => void
     isOpen: boolean
   }) => JSX.Element & { ref?: React.RefObject<FilterTriggerRef> }
@@ -24,9 +31,11 @@ export const Filter = ({
   onMount,
   ...restProps
 }: FilterProps): JSX.Element => {
+  const triggerId = useId()
   const [isRefLoaded, setIsRefLoaded] = useState<boolean>(false)
 
   const trigger = renderTrigger({
+    id: triggerId,
     onClick: (): void => setIsOpen(!isOpen),
     isOpen,
   })
@@ -59,6 +68,7 @@ export const Filter = ({
             referenceElement={
               filterButtonRef.current?.triggerRef?.current || null
             }
+            aria-labelledby={trigger.props.id}
           >
             {children}
           </FilterPopover>

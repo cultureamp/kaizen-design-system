@@ -2,14 +2,15 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const AiIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path
         fill="currentColor"
-        d="m12 0 1.754 6.246L20 8l-6.246 1.754L12 16l-1.754-6.246L4 8l6.246-1.754L12 0ZM5 11.467l.877 3.123L9 15.467l-3.123.876L5 19.467l-.877-3.124L1 15.467l3.123-.877L5 11.467ZM3 1l.495 1.505L5 3l-1.505.495L3 5l-.495-1.505L1 3l1.505-.495L3 1ZM17 15l.495 1.505L19 17l-1.505.495L17 19l-.495-1.505L15 17l1.505-.495L17 15Z"
+        d="m12 0 1.754 6.246L20 8l-6.246 1.754L12 16l-1.754-6.246L4 8l6.246-1.754zM5 11.467l.877 3.123L9 15.467l-3.123.876L5 19.467l-.877-3.124L1 15.467l3.123-.877zM3 1l.495 1.505L5 3l-1.505.495L3 5l-.495-1.505L1 3l1.505-.495zM17 15l.495 1.505L19 17l-1.505.495L17 19l-.495-1.505L15 17l1.505-.495z"
       />
     </>
   )

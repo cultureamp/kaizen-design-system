@@ -1,5 +1,33 @@
 # Change Log
 
+## 1.2.3
+
+### Patch Changes
+
+- [#4463](https://github.com/cultureamp/kaizen-design-system/pull/4463) [`dd2bbe5594bc1ad678fd3e8290451626dd0ae192`](https://github.com/cultureamp/kaizen-design-system/commit/dd2bbe5594bc1ad678fd3e8290451626dd0ae192) - Update peerdep tailwindcss to ^3.4.1
+
+## 1.2.2
+
+### Patch Changes
+
+- [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
+
+  - classnames to 2.5.1
+
+  Peer dep updates:
+
+  - @cultureamp/i18n-react-intl to 2.1.8
+  - tailwindcss to 3.4.0 (@kaizen/tailwind package)
+
+## 1.2.1
+
+### Patch Changes
+
+- [#4425](https://github.com/cultureamp/kaizen-design-system/pull/4425) [`aeb9ecb52c3c8429bf032ec4264fb058b1247bb1`](https://github.com/cultureamp/kaizen-design-system/commit/aeb9ecb52c3c8429bf032ec4264fb058b1247bb1) - Bump tailwindcss to 3.4.0
+
+- Updated dependencies [[`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0)]:
+  - @kaizen/design-tokens@10.3.17
+
 ## 1.2.0
 
 ### Minor Changes

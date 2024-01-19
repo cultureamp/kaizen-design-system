@@ -1,3 +1,4 @@
+import type { Locale } from "date-fns"
 import { enAU, enUS } from "date-fns/locale"
 import { StringSuggestions } from "~types/StringSuggestions"
 

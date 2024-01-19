@@ -55,7 +55,7 @@ export const FilterBarSelect = <Option extends SelectOption = SelectOption>({
       renderTrigger={(triggerProps): JSX.Element => (
         <FilterBarButton
           {...triggerProps}
-          id={id}
+          filterId={id}
           isRemovable={filterState.isRemovable}
         />
       )}
