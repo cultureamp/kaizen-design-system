@@ -7,9 +7,6 @@ description: Sets this repository up to allow efficient run of various github ac
 runs:
   using: composite
   steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
