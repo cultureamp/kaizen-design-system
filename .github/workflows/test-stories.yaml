@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - run: pnpm storybook:build --webpack-stats-json
       - name: Upload Storybook build as artifact
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
         run: pnpm dlx playwright install --with-deps
@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
         run: pnpm dlx playwright install --with-deps
@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
         run: pnpm dlx playwright install --with-deps
@@ -96,7 +96,7 @@ jobs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Download Storybook build artifact
@@ -126,7 +126,7 @@ jobs:
     env:
       COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ env.COMMIT_SHA }}
       - name: Get commit message
