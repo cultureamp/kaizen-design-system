@@ -39,7 +39,8 @@
     "dist:combine-styles": "concat-cli -f ./dist/*.css ./dist/esm/*.css -o ./dist/raw-styles.css",
     "dist:postcss": "postcss dist/raw-styles.css --output dist/styles.css",
     "postBuild": "yarn dist:combine-styles && yarn dist:postcss",
-    "update-icons": "./src/Icon/bin/update-icons.sh"
+    "update-icons": "./src/Icon/bin/update-icons.sh",
+    "i18n:extract": "yarn i18n-extract"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.5",
