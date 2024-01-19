@@ -24,13 +24,13 @@ export const useErrorMessages = (
     400: {
       title: formatMessage({
         id: "kzErrorPage.400.title",
-        defaultMessage: "Your request has slipped into the void",
+        defaultMessage: "Error with request",
         description: "Heading for page",
       }),
       message: formatMessage({
         id: "kzErrorPage.400.message",
         defaultMessage:
-          "Sorry but your request couldn’t be completed. Go back and try again, or head to Home",
+          "Sorry but your request couldn't be completed. Go back and try again, or head to Home",
         description: "Call to action instructions for the user",
       }),
     },
@@ -63,7 +63,7 @@ export const useErrorMessages = (
     404: {
       title: formatMessage({
         id: "kzErrorPage.404.title",
-        defaultMessage: "Missing pages are one of life's mysteries",
+        defaultMessage: "Page not found",
         description: "Main title of page",
       }),
       message: formatMessage({
@@ -89,7 +89,7 @@ export const useErrorMessages = (
     422: {
       title: formatMessage({
         id: "kzErrorPage.422.title",
-        defaultMessage: "Change never comes easy",
+        defaultMessage: "Change could not be processed",
         description: "Main title of page",
       }),
       message: formatMessage({
