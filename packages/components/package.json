@@ -112,7 +112,7 @@
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^9.0.7",
     "agadoo": "^3.0.0",
-    "autoprefixer": "^10.4.16",
+    "autoprefixer": "^10.4.17",
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
     "query-string": "^8.1.0",
