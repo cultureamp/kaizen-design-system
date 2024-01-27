@@ -6847,10 +6847,15 @@ chownr@^2.0.0:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromatic@^10.2.0, chromatic@^10.2.2:
+chromatic@^10.2.0:
   version "10.2.2"
   resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-10.2.2.tgz#557a731cea3bd0f23a0ede2b93d9a7355de627bf"
   integrity sha512-F0GQnrx5hyT9MbNvA27Ul6UBqX5+XhlU8HUAFgXa7+iKYisNMkroRXWXzvFF0StH9Y0I5hqSdH+A5aKHzmi1Zg==
+
+chromatic@^10.6.1:
+  version "10.6.1"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-10.6.1.tgz#26dcc49420c676f227bfced8c0e5d49ed7abf06c"
+  integrity sha512-bd4C5sEEtN83uUmbc4Fu+x7+lJIPdMUdu4D6HRDQEIDl/Tatc8+By4bZluH1pzg/MbP9vllkL6Ua9vF4EEA7VA==
 
 chromatic@^9.1.0:
   version "9.1.0"
