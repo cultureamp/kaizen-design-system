@@ -1702,21 +1702,21 @@
     "@changesets/types" "^4.0.1"
     dotenv "^8.1.0"
 
-"@cultureamp/fetch-sgw@^2.0.1":
-  version "2.0.2"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/fetch-sgw/2.0.2/9644264d4e3b1528be75b93b859ccb9d718f43dc#9644264d4e3b1528be75b93b859ccb9d718f43dc"
-  integrity sha512-83iq82PsjVjZ4zOvGbnY6JvpcbKxyiFc+4MhxD3PzFjDa0ZCPCR85eE63X52r0cerCuAnheKlPQvdauScWtLjg==
+"@cultureamp/fetch-sgw@^2.0.3":
+  version "2.0.3"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/fetch-sgw/2.0.3/10a201a1773e9788aeeea197134bc7430ba23d12#10a201a1773e9788aeeea197134bc7430ba23d12"
+  integrity sha512-DGnU75/sTeTiuXAw6ffzBwtqpd+I109a5q+hSBpfGnXFFV2Iae48NyMlUNK7xhhYf6HkFGeyt0fz0mZUYN0JQw==
   dependencies:
     aws4 "^1.12.0"
     cross-fetch "^4.0.0"
     node-fetch "^2.6.7"
 
-"@cultureamp/frontend-apis@^9.2.0":
-  version "9.2.0"
-  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.2.0/e531c8ec420b0de1d6f25efb57d5e77dd4dbe3b5#e531c8ec420b0de1d6f25efb57d5e77dd4dbe3b5"
-  integrity sha512-zo1MwNOxKTr+ApIO3umBFT3g3AsPVbt/NULKpTc9AB/yQyiqDz/jVAQWpFgMegt/G2DAoNUNxYSRXBdAJ/HaPg==
+"@cultureamp/frontend-apis@^9.3.2":
+  version "9.3.2"
+  resolved "https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.3.2/d67e112674c843e24e88def2f0da5032599a79ad#d67e112674c843e24e88def2f0da5032599a79ad"
+  integrity sha512-w0cmUscSjnYjNaIQCEnw9XX7DiHYvMcQV870BwY1S1TmA7DqZO7JXeIIak3JLCCYVO8MIX+xXOS1ZhOgo42ljw==
   dependencies:
-    "@cultureamp/fetch-sgw" "^2.0.1"
+    "@cultureamp/fetch-sgw" "^2.0.3"
     "@cultureamp/frontend-env" "^2.1.0"
     "@cultureamp/redirect-to-login" "^2.0.3"
     "@readme/openapi-parser" "^2.5.0"
