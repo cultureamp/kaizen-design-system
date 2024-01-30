@@ -24,13 +24,13 @@ export const useErrorMessages = (
     400: {
       title: formatMessage({
         id: "kzErrorPage.400.title",
-        defaultMessage: "Error with request",
+        defaultMessage: "Problem loading page",
         description: "Heading for page",
       }),
       message: formatMessage({
         id: "kzErrorPage.400.message",
         defaultMessage:
-          "Sorry but your request couldn't be completed. Go back and try again, or head to Home",
+          "Problem loading page right now. Try again or head home.",
         description: "Call to action instructions for the user",
       }),
     },
@@ -89,7 +89,7 @@ export const useErrorMessages = (
     422: {
       title: formatMessage({
         id: "kzErrorPage.422.title",
-        defaultMessage: "Change could not be processed",
+        defaultMessage: "Change couldn't be made",
         description: "Main title of page",
       }),
       message: formatMessage({

@@ -28,11 +28,11 @@
   },
   "kzErrorPage.400.message": {
     "description": "Call to action instructions for the user",
-    "message": "Sorry but your request couldn't be completed. Go back and try again, or head to Home"
+    "message": "Problem loading page right now. Try again or head home."
   },
   "kzErrorPage.400.title": {
     "description": "Heading for page",
-    "message": "Error with request"
+    "message": "Problem loading page"
   },
   "kzErrorPage.401.message": {
     "description": "Call to action instructions for the user",
@@ -72,7 +72,7 @@
   },
   "kzErrorPage.422.title": {
     "description": "Main title of page",
-    "message": "Change could not be processed"
+    "message": "Change couldn't be made"
   },
   "kzErrorPage.500": {
     "description": "Call to action instructions for the user",
