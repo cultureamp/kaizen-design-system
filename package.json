@@ -34,7 +34,9 @@
     "pkg:aio": "yarn workspace @kaizen/components",
     "ci:version": "yarn turbo prepublishOnly && yarn changeset version",
     "ci:publish": "yarn turbo prepublishOnly && yarn changeset publish",
-    "update-icons": "yarn pkg:aio update-icons"
+    "update-icons": "yarn pkg:aio update-icons",
+    "i18n:extract": "yarn pkg:aio i18n:extract",
+    "i18n:extract:remove-obsolete": "yarn pkg:aio i18n:extract --deleteObsoleteTranslations"
   },
   "dependencies": {
     "@kaizen/hosted-assets": "*",
