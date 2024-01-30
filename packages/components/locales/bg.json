@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Съжаляваме, но вашата заявка не можа да бъде изпълнена. Върнете се и опитайте отново или се насочете към началната страница"
+    "message" : "Проблем при зареждане на страницата в момента. Опитайте отново или се приберете."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Молбата ви се е изплъзнала в празнотата"
+    "message" : "Проблем при зареждането на страницата"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Липсващите страници са една от мистериите на живота"
+    "message" : "Страницата не е намерена"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Промяната никога не идва лесно"
+    "message" : "Промяната не можа да бъде направена"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

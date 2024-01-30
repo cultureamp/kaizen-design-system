@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "क्षमा करें लेकिन आपका अनुरोध पूरा नहीं हो सका। पिछले पेज पर जाएं और फिर से कोशिश करे। इसके अलावा, आपके पास होम पेज पर जाने का विकल्प भी है"
+    "message" : "अभी पेज लोड होने में समस्या आ रही है. दोबारा कोशिश करें या इसे बंद करें."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "आपके अनुरोध को नहीं देखा जा सका"
+    "message" : "पेज लोड होने में समस्या आ रही है"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "जो पेज नहीं मिल रहे हैं वे जिंदगी के किसी राज़ की तरह है"
+    "message" : "पेज नहीं मिला"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "बदलाव कभी भी आसानी से नहीं आता"
+    "message" : "बदलाव नहीं किया जा सका"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

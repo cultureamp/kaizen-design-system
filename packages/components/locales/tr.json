@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Üzgünüz, isteğiniz tamamlanamadı. Geri dönün ve yeniden deneyin ya da Ana Sayfa'ya gidin"
+    "message" : "Problem loading page right now. Try again or head home."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "İsteğiniz boşluğa düştü"
+    "message" : "Problem loading page"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Kayıp sayfalar hayatın gizemlerinden biridir"
+    "message" : "Page not found"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Değişim asla kolay değildir"
+    "message" : "Change couldn't be made"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
