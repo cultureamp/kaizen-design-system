@@ -12,7 +12,6 @@ import * as HeadingStories from "./Heading.stories"
   className="!mb-8"
 />
 
-
 <Installation
   installCommand="yarn add @kaizen/components"
   importStatement='import { Heading } from "@kaizen/components"'
@@ -35,3 +34,10 @@ In most cases, you will need to use the `tag` prop to adjust the heading level t
 
 There will the odd case where you want heading styling, but the text isn't actually acting as a heading. In those cases, use `tag="div"` or `tag="span"`.
 
+## Variant - Composable Header Title
+
+Use this variant only for the title within the composable header.
+
+Defaults to `h1` element.
+
+<Canvas of={HeadingStories.ComposableHeaderTitle} />
