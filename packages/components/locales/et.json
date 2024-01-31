@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Kahjuks ei saanud me teie päringut täita. Minge tagasi ja proovige uuesti või siirduge avalehele"
+    "message" : "Lehe laadimisega on praegu probleem. Proovige uuesti või minge avalehele."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Teie taotlus on kaotsi läinud"
+    "message" : "Probleem lehe laadimisega"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Puuduvad lehed on üks elu mõistatustest"
+    "message" : "Lehte ei leitud"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Muutused ei tule kunagi kergelt"
+    "message" : "Muudatuse tegemine nurjus"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

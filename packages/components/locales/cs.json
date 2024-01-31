@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Omlouváme se, ale váš požadavek nebylo možné uskutečnit. Vraťte se a zkuste to znovu, nebo přejděte na domovskou stránku."
+    "message" : "Nastal problém s načítáním stránky. Zkuste to znovu nebo se vraťte na domovskou stránku."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Váš požadavek nebyl realizován."
+    "message" : "Problém s načítáním stránky"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Chybějící stránky jsou jednou ze záhad života."
+    "message" : "Stránka nebyla nalezena"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Změna není nikdy snadná."
+    "message" : "Změna nemohla být provedena"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

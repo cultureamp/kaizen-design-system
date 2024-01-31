@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Nou regrèt, nou pa rive konplete demann ou an. Tounen epi eseye ankò, oswa ale nan paj akèy la"
+    "message" : "Gen pwoblèm pou telechaje paj la kounye a. Eseye ankò oswa ale nan paj akèy la ."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Demann ou an pa rive fèt"
+    "message" : "Gen pwoblèm pou paj la telechaje"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Paj ki manke yo se youn nan mistè lavi a"
+    "message" : "Yo pa jwenn paj la"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Fè chanjman pa janm fasil"
+    "message" : "Yo pa t kapab fè chanjman"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

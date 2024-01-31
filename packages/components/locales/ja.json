@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "恐れ入りますが、リクエストを完了できませんでした。戻ってもう一度やり直すか、ホームに移動してください"
+    "message" : "ページの読み込みエラーが発生しています。もう一度お試しいただくか、ホームに移動してください。"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "リクエストが無効になりました"
+    "message" : "ページの読み込みエラー"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "ページが見つからないのは人生の謎の1つです"
+    "message" : "ページが見つかりません"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "変化は簡単ではありません"
+    "message" : "変更できませんでした"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

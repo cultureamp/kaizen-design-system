@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Din begäran kunde tyvärr inte slutföras. Gå tillbaka och försök igen, eller gå till startsidan."
+    "message" : "Sidan kan inte läsas in just nu. Försök igen eller gå tillbaka till startsidan."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Din begäran svävar i rymden"
+    "message" : "Sidan kan inte läsas in"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Saknade sidor är ett av livets mysterier"
+    "message" : "Sidan hittades inte"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Förändring är aldrig lätt"
+    "message" : "Ändringen kunde inte utföras"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

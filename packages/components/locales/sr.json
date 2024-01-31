@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Žao nam je, ali vaš zahtev nije mogao biti kompletiran. Vratite se i pokušajte ponovo ili idite na Početnu stranicu."
+    "message" : "Trenutni problem sa učitavanjem stranice. Pokušajte ponovo ili idite na početnu."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Vaš zahtev je nestao"
+    "message" : "Problem sa učitavanje stranice"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Nedostajuće stranice jedna su od životnih misterija"
+    "message" : "Stranica nije pronađena"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Promena nikad ne dolazi lako"
+    "message" : "Nije moguće napraviti promenu"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

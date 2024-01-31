@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Rất tiếc, không thể hoàn thành yêu cầu của bạn. Hãy quay lại và thử lại hoặc đi tới Trang chủ"
+    "message" : "Sự cố tải trang ngay bây giờ. Hãy thử lại hoặc đi tới trang chủ."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Yêu cầu của bạn không còn hiệu lực"
+    "message" : "Sự cố khi tải trang"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Những trang bị thiếu là một trong những bí ẩn của cuộc sống"
+    "message" : "Không tìm thấy trang"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Thay đổi không bao giờ dễ dàng"
+    "message" : "Không thể thực hiện thay đổi"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
