@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Problem loading page right now. Try again or head home."
+    "message" : "지금 페이지를 로드하는 데 문제가 있습니다. 다시 시도하거나 홈으로 이동하세요."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Problem loading page"
+    "message" : "페이지를 로드하는 중 문제가 발생했습니다"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Page not found"
+    "message" : "페이지를 찾을 수 없습니다"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change couldn't be made"
+    "message" : "변경할 수 없습니다"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

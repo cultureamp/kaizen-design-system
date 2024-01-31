@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Problem loading page right now. Try again or head home."
+    "message" : "Nastal problém s načítáním stránky. Zkuste to znovu nebo se vraťte na domovskou stránku."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Problem loading page"
+    "message" : "Problém s načítáním stránky"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Page not found"
+    "message" : "Stránka nebyla nalezena"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change couldn't be made"
+    "message" : "Změna nemohla být provedena"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

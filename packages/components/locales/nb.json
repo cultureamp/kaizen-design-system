@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Problem loading page right now. Try again or head home."
+    "message" : "Problemer med å laste siden akkurat nå. Prøv igjen eller dra hjem."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Problem loading page"
+    "message" : "Problemer med å laste siden"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Page not found"
+    "message" : "Finner ikke siden"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change couldn't be made"
+    "message" : "Det var ikke mulig å gjøre endringer"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
