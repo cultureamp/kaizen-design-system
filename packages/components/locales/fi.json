@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Valitettavasti pyyntöäsi ei voitu suorittaa loppuun. Palaa takaisin ja yritä uudelleen tai siirry Etusivulle"
+    "message" : "Ongelma ladattaessa sivua juuri nyt. Yritä uudelleen tai suuntaa kotiin."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Pyyntösi on lipunut tyhjyyteen"
+    "message" : "Ongelma sivun lataamisessa"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Puuttuvat sivut ovat yksi elämän mysteereistä"
+    "message" : "Sivua ei löydy"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Muutos ei ole koskaan helppoa"
+    "message" : "Muutosta ei voitu tehdä"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

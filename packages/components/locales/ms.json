@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Maaf tetapi permintaan anda tidak dapat diselesaikan. Kembali dan cuba lagi atau pergi kepada Laman Utama"
+    "message" : "Terdapat masalah untuk memuatkan halaman sekarang. Cuba lagi atau pergi kepada laman utama."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Permintaan anda telah tergelincir masuk ke dalam gaung"
+    "message" : "Terdapat masalah untuk memuatkan halaman"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Halaman yang hilang adalah salah satu misteri kehidupan"
+    "message" : "Halaman tidak dijumpai"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Membuat perubahan bukanlah sesuatu yang mudah"
+    "message" : "Perubahan tidak dapat dibuat"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

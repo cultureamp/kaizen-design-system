@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Uw verzoek kon niet worden voltooid. Ga terug en probeer het opnieuw of ga naar Home"
+    "message" : "Er is momenteel een probleem met het laden van de pagina. Probeer het opnieuw of ga naar de homepage."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Uw verzoek is verdwenen"
+    "message" : "Probleem met het laden van de pagina"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Pagina ontbreekt"
+    "message" : "Pagina niet gevonden"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Veranderen is lastig"
+    "message" : "Verandering kon niet worden aangebracht"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

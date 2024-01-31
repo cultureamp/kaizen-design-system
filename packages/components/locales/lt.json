@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Atsiprašome, bet jūsų užklausos įvykdyti nepavyko. Grįžkite ir bandykite dar kartą arba eikite į pagrindinį puslapį."
+    "message" : "Problema įkeliant puslapį. Bandykite dar kartą arba eikite į pagrindinį puslapį."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Jūsų užklausa prapuolė"
+    "message" : "Puslapio įkėlimo problema"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Trūkstami puslapiai yra viena iš gyvenimo paslapčių"
+    "message" : "Puslapis nerastas"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Pokyčiai niekada nebūna lengvi"
+    "message" : "Pakeitimo padaryti nepavyko"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
