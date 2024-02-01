@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as EditableRichTextContentStories from "./EditableRichTextContent.stories"
 
 <Meta of={EditableRichTextContentStories} />
@@ -11,11 +11,7 @@ import * as EditableRichTextContentStories from "./EditableRichTextContent.stori
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { EditableRichTextContent } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="EditableRichTextContent" />
 
 ## Overview
 

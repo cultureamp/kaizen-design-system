@@ -1,16 +1,11 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as CheckboxGroupStories from "./CheckboxGroup.stories"
 
 <Meta of={CheckboxGroupStories} />
 
 # CheckboxGroup
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/CheckboxGroup"
   figma="https://www.figma.com/file/ZRfnoNUXbGZv4eVWLbF4Az/%EF%B8%8F%F0%9F%96%BC%EF%B8%8F-Component-Gallery?node-id=6%3A4586&t=P1w10jr2cpPuaayw-1"
@@ -18,11 +13,7 @@ import * as CheckboxGroupStories from "./CheckboxGroup.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { CheckboxGroup } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="CheckboxGroup" />
 
 ## Overview
 

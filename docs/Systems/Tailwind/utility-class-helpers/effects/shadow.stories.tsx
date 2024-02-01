@@ -7,7 +7,7 @@ import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "shadow-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.boxShadow || []).map(
+  Object.entries(kaizenTailwindTheme.boxShadow || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,

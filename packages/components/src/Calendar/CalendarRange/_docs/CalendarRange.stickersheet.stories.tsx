@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import { within } from "@storybook/testing-library"
+import { within } from "@storybook/test"
 import {
   StickerSheet,
   StickerSheetStory,

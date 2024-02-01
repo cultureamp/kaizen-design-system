@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as CardStories from "./Card.stories"
 
 <Meta of={CardStories} />
@@ -11,11 +11,7 @@ import * as CardStories from "./Card.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Card } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Card" />
 
 ## Overview
 

@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as InputSearchStories from "./InputSearch.stories"
 
 <Meta of={InputSearchStories} />
@@ -11,11 +11,7 @@ import * as InputSearchStories from "./InputSearch.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { InputSearch } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="InputSearch" />
 
 ## Overview
 
@@ -46,4 +42,3 @@ Adding text will automatically show the clear button.
 ## Reversed
 
 <Canvas of={InputSearchStories.Reversed} />
-

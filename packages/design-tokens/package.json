@@ -23,25 +23,23 @@
   "sideEffects": false,
   "scripts": {
     "test": "FORCE_COLOR=1 jest",
-    "test:ci": "yarn test --ci",
-    "build": "yarn clean && yarn prepublishOnly",
-    "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
+    "test:ci": "pnpm test -- --ci",
+    "build": "pnpm clean && pnpm prepublishOnly",
+    "build:json": "pnpm ts-node --files ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
     "clean": "rimraf dist",
-    "prepublishOnly": "yarn build:json && yarn build:less && yarn build:sass && yarn build:ts"
+    "prepublishOnly": "pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts"
   },
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.9",
-    "@types/react-highlight": "^0.12.8",
     "@types/yargs": "^17.0.32",
     "json-to-flat-sass": "^1.0.0",
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",
     "postcss": "^8.4.33",
     "prettier": "*",
-    "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
     "ts-node": "^10.9.2",
     "yargs": "^17.7.2"

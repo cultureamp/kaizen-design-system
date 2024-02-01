@@ -7,7 +7,7 @@ import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "p-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.spacing || []).map(
+  Object.entries(kaizenTailwindTheme.spacing || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
