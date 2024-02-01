@@ -1,5 +1,5 @@
 import { Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, NoClipCanvas } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as FilterStories from "./Filter.stories"
 
@@ -14,11 +14,7 @@ import * as FilterStories from "./Filter.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Filter, FilterContents } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames={["Filter", "FilterContents"]} />
 
 ## Overview
 

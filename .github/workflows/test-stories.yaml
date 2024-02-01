@@ -31,9 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: yarn storybook:build --webpack-stats-json
+      - run: pnpm storybook:build --webpack-stats-json
       - name: Upload Storybook build as artifact
         uses: actions/upload-artifact@v3
         with:
@@ -47,15 +47,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm dlx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
       - name: Storybook tests (1/3)
-        run: yarn test:storybook --shard 1/3
+        run: pnpm test:storybook --shard 1/3
 
   storybook-tests-2:
     name: "test-storybook"
@@ -63,15 +63,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm dlx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
       - name: Storybook tests (2/3)
-        run: yarn test:storybook --shard 2/3
+        run: pnpm test:storybook --shard 2/3
 
   storybook-tests-3:
     name: "test-storybook"
@@ -79,15 +79,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm dlx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
       - name: Storybook tests (3/3)
-        run: yarn test:storybook --shard 3/3
+        run: pnpm test:storybook --shard 3/3
 
   chromatic:
     needs: build-storybook
@@ -96,7 +96,7 @@ jobs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Download Storybook build artifact
@@ -126,7 +126,7 @@ jobs:
     env:
       COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ env.COMMIT_SHA }}
       - name: Get commit message

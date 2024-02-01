@@ -7,7 +7,7 @@ import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "rounded-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderRadius || []).map(
+  Object.entries(kaizenTailwindTheme.borderRadius || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,

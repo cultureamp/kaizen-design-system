@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as HeadingStories from "./Heading.stories"
 
 <Meta of={HeadingStories} />
@@ -12,11 +12,7 @@ import * as HeadingStories from "./Heading.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Heading } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Heading" />
 
 ## Overview
 Renders a heading element `h1-h6` and applies styling for headings.
@@ -34,4 +30,3 @@ People using a screen reader rely on heading elements to get an understanding of
 In most cases, you will need to use the `tag` prop to adjust the heading level to suit your page.
 
 There will the odd case where you want heading styling, but the text isn't actually acting as a heading. In those cases, use `tag="div"` or `tag="span"`.
-

@@ -8,15 +8,15 @@
       "~storybook/*": ["../../storybook/*"],
       "~types/*": ["./src/types/*"],
       "~utils/*": ["./src/utils/*"],
-      "~components/*": ["./src/*"]
-    }
+      "~components/*": ["./src/*"],
+    },
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "ts-node": {
     "moduleTypes": {
-      "src/Icon/bin/**/*": "cjs"
-    }
-  }
+      "src/Icon/bin/**/*": "cjs",
+    },
+  },
 }

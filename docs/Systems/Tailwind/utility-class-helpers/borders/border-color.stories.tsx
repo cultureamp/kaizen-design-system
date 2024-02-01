@@ -9,7 +9,7 @@ import { utilityDescription } from "../../helpers/utilityDescription"
 const prefix = "border-"
 const classEntries = flattenEntries(
   prefix,
-  kaizenTailwindTheme?.borderColor || {}
+  kaizenTailwindTheme.borderColor || {}
 )
 
 export default {

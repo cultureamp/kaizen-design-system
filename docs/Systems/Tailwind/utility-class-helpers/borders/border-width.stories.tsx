@@ -7,7 +7,7 @@ import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "border-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
+  Object.entries(kaizenTailwindTheme.borderWidth || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,

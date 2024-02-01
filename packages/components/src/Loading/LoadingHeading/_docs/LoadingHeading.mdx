@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as LoadingHeadingStories from "./LoadingHeading.stories"
 
 <Meta of={LoadingHeadingStories} />
@@ -13,11 +13,7 @@ import * as LoadingHeadingStories from "./LoadingHeading.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { LoadingHeading } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="LoadingHeading" />
 
 ## Overview
 
