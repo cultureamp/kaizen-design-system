@@ -33,7 +33,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm storybook:build --webpack-stats-json
+      - run: pnpm storybook:build:test
       - name: Upload Storybook build as artifact
         uses: actions/upload-artifact@v3
         with:
