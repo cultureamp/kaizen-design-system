@@ -1,10 +1,6 @@
 import path from "path"
 import type { Configuration } from "webpack"
-import {
-  excludeExternalModules,
-  tailwind,
-  styles,
-} from "./webpack/rules"
+import { excludeExternalModules, tailwind, styles } from "./webpack/rules"
 
 export default ({ config }: { config: Configuration }): Configuration => {
   if (
@@ -16,9 +12,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
     throw new Error(`Storybook started with unexpected config:\n${config}`)
   }
 
-  config.module.rules.push(
-    ...[styles, tailwind].map(excludeExternalModules)
-  )
+  config.module.rules.push(...[styles, tailwind].map(excludeExternalModules))
 
   config.resolve.extensions.push(".ts", ".tsx")
 
