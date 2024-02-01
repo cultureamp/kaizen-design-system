@@ -31,7 +31,9 @@
     "pkg:aio": "pnpm -F @kaizen/components",
     "ci:version": "pnpm turbo prepublishOnly && pnpm changeset version",
     "ci:publish": "pnpm turbo prepublishOnly && pnpm changeset publish",
-    "update-icons": "pnpm pkg:aio update-icons"
+    "update-icons": "pnpm pkg:aio update-icons",
+    "i18n:extract": "pnpm pkg:aio i18n:extract",
+    "i18n:extract:remove-obsolete": "pnpm pkg:aio i18n:extract --deleteObsoleteTranslations"
   },
   "dependencies": {
     "@kaizen/design-tokens": "workspace:*",
@@ -140,5 +142,9 @@
     "turbo": "^1.11.3",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0"
+  },
+  "volta": {
+    "node": "18.19.0",
+    "yarn": "1.22.21"
   }
 }

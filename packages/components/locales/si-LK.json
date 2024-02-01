@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "කණගාටුයි, නමුත් ඔබගේ ඉල්ලීම සම්පූර්ණ කළ නොහැකි විය.  ආපසු ගොස් නැවත උත්සාහ කරන්න, නැතහොත් මුල් පිටුවට යන්න"
+    "message" : "මේ අවස්ථාවේ පිටුව ප්‍රවේශනය කිරීම ගැටලුවකි. නැවත උත්සාහ කරන්න, නැත්නම් මුල්පිටුව කරා යන්න."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "ඔබගේ ඉල්ලීම රික්තකයට ලිස්සා ගොස් ඇත"
+    "message" : "පිටුව ප්‍රවේශනයෙහි ගැටලුවකි"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "නැතිවූ පිටු ජීවිතයේ අභිරහස් වලින් එකකි"
+    "message" : "පිටුව හමුනොවිනි"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "වෙනස් වීම කවදාවත් පහසු වෙන්නේ නෑ"
+    "message" : "වෙනසක් කළ නොහැකි විය"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

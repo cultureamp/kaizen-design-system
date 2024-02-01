@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Pasensya na pero hindi nakumpleto ang kahilingan mo.  Bumalik at subukan ulit, o pumunta sa Home"
+    "message" : "Nagkakaproblema sa pag-load ng page sa ngayon. Subukan ulit o bumalik sa home."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Nawala ang iyong kahilingan"
+    "message" : "Nagkakaproblema sa pag-load ng page"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Isa sa mga misteryo ng buhay ang mga nawawalang page"
+    "message" : "Hindi nahanap ang page"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Hindi talaga madali ang pagbabago"
+    "message" : "Hindi nagawa ang pagbabago"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
