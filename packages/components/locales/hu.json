@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sajnáljuk, de a kérését nem sikerült teljesíteni.  Menjen vissza, és próbálja újra, vagy irány a Kezdőlap"
+    "message" : "Jelenleg problémás az oldal betöltése. Próbálja újra, vagy lépjen a kezdőlapra."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "A kérése a semmibe csúszott"
+    "message" : "Probléma lépett fel az oldal betöltésekor"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "A hiányzó oldalak az élet egyik rejtélye"
+    "message" : "Az oldal nem található"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "A változás soha nem könnyű"
+    "message" : "Nem sikerült a módosítás"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

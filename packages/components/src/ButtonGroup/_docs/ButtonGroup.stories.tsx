@@ -17,7 +17,7 @@ const meta = {
     },
     isInKaio: true,
     installation: [
-      "yarn add @kaizen/components",
+      "pnpm add @kaizen/components",
       "import { ButtonGroup } from `@kaizen/components`",
     ],
     resourceLinks: {

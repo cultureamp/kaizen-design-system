@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Désolé, nous ne pouvons pas traiter votre demande. Revenez en arrière et essayez à nouveau, ou retournez à la page d'accueil."
+    "message" : "Problème de chargement de la page. Réessayez ou retournez à l'accueil."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Votre demande s'est perdue."
+    "message" : "Problème de chargement de la page"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Les pages manquantes, ce sont des choses qui arrivent."
+    "message" : "Page non trouvée"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Le changement n'est jamais une chose facile."
+    "message" : "Aucune modification n'a pu être apportée"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

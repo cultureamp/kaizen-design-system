@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Lo sentimos, pero su solicitud no ha podido completarse.Vuelva a intentarlo o diríjase a Inicio"
+    "message" : "Hay un problema al cargar la página en estos momentos. Vuelva a intentarlo o vaya al inicio."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Su solicitud ha caído en el vacío"
+    "message" : "Problema al cargar la página"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Las páginas que faltan son uno de los misterios de la vida."
+    "message" : "Página no encontrada"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "El cambio nunca es fácil"
+    "message" : "No se ha podido llevar a cabo el cambio"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

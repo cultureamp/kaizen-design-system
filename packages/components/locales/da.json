@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Vi beklager, men din anmodning kunne ikke gennemføres. Gå tilbage og prøv igen, eller gå til Startside"
+    "message" : "Problemer med at indlæse siden lige nu. Prøv igen, eller gå til startsiden."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Din anmodning er smuttet ud i tomrummet"
+    "message" : "Problemer med at indlæse siden"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Manglende sider er et af livets mysterier"
+    "message" : "Siden blev ikke fundet"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Forandring er aldrig nem"
+    "message" : "Ændringen kunne ikke foretages"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

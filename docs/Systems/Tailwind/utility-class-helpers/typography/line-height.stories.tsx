@@ -7,7 +7,7 @@ import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "leading-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.lineHeight || []).map(
+  Object.entries(kaizenTailwindTheme.lineHeight || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,

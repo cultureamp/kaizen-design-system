@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Atvainojiet, jūsu pieprasījumu nevar izpildīt. Atgriezieties un mēģiniet vēlreiz vai dodieties uz sākumlapu"
+    "message" : "Šobrīd ir radusies problēma ar lapas ielādi. Mēģiniet vēlreiz vai dodieties uz sākumlapu."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Jūsu pieprasījums nav izpildīts"
+    "message" : "Lapas ielādes laikā ir radusies probēma"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Trūkstošas lapas ir viena neizskaidrojama lieta"
+    "message" : "Lapa nav atrasta"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Pārmaiņas nekad nav vieglas"
+    "message" : "Izmaiņas nav iespējams veikt"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

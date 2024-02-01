@@ -5,7 +5,7 @@
     { "repo": "cultureamp/kaizen-design-system" }
   ],
   "access": "public",
-  "baseBranch": "main",
+  "baseBranch": "origin/main",
   "updateInternalDependencies": "patch",
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true

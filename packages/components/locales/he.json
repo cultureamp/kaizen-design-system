@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "מצטערים, אך לא ניתן היה להשלים את בקשתך. נא לחזור אחורה ולנסות שוב, או לעבור לדף הבית"
+    "message" : "יש בעיה בטעינת העמוד כרגע. כדאי לנסות שוב או לחזור לדף הבית."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "בקשתך נשאבה לחור שחור"
+    "message" : "בעיה בטעינת העמוד"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "דפים חסרים זו אחת מתעלומות החיים"
+    "message" : "הדף לא נמצא"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "שינוי אף פעם לא בא בקלות"
+    "message" : "לא ניתן היה לבצע שינוי"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Mae&#39;n ddrwg gennym ond doedd dimodd i'ch cais gael ei gwblhau. Ewch yn ôl a rhowch gynnig arall arni, neu ewch i Hafan"
+    "message" : "Problem wrth lwytho&#39;r dudalen ar hyn o bryd. Ceisiwch eto neu ewch adref."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Mae eich cais wedi llithro i&#39;r gwagle"
+    "message" : "Problem wrth lwytho&#39;r dudalen"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Mae tudalennau coll yn un o ddirgelion bywyd"
+    "message" : "Tudalen heb ei chanfod"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Nid yw newid byth yn dod yn hawdd"
+    "message" : "Nid oedd modd gwneud newid"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

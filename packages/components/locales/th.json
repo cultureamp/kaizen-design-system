@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "ขออภัย ไม่สามารถดำเนินการตามคำขอของคุณ กลับไปลองอีกครั้งหรือไปที่หน้าแรก"
+    "message" : "เกิดปัญหาในการโหลดหน้าเว็บในขณะนี้ ลองอีกครั้งหรือไปที่หน้าแรก"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "คำขอของคุณหลุดเข้าไปในโมฆะ"
+    "message" : "เกิดปัญหาในการโหลดหน้าเว็บ"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "หน้าหายไปเป็นหนึ่งในความลึกลับของชีวิต"
+    "message" : "ไม่พบหน้าเว็บ"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "การเปลี่ยนแปลงไม่ได้เกิดขึ้นง่ายๆ"
+    "message" : "ไม่สามารถทำการเปลี่ยนแปลงได้"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

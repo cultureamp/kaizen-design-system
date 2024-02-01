@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as BrandMomentCaptureIntroStories from "./BrandMomentCaptureIntro.stories"
 
 <Meta of={BrandMomentCaptureIntroStories} />
@@ -13,11 +13,7 @@ import * as BrandMomentCaptureIntroStories from "./BrandMomentCaptureIntro.stori
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { BrandMomentCaptureIntro } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="BrandMomentCaptureIntro" />
 
 ## Overview
 

@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Leider konnte Ihre Anfrage nicht abgeschlossen werden. Gehen Sie zurück und versuchen Sie es erneut oder gehen Sie zur Startseite"
+    "message" : "Problem beim Laden der Seite. Versuchen Sie es noch einmal oder gehen Sie zur Startseite."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Ihre Anfrage ist in die Leere gegangen"
+    "message" : "Problem beim Laden der Seite"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Fehlende Seiten sind eines der Geheimnisse des Lebens"
+    "message" : "Seite nicht gefunden"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Veränderung ist nie einfach"
+    "message" : "Änderung konnte nicht vorgenommen werden"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
