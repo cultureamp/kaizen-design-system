@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as BrandStories from "./Brand.stories"
 
 <Meta of={BrandStories} />
@@ -14,10 +14,7 @@ import * as BrandStories from "./Brand.stories"
 />
 
 
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Brand } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Brand" />
 
 ## Overview
 

@@ -5,7 +5,7 @@ import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "text-"
-const classEntries = Object.entries(kaizenTailwindTheme?.fontSize || []).map(
+const classEntries = Object.entries(kaizenTailwindTheme.fontSize || []).map(
   ([suffix, cssProperty]) => ({
     utilityClassName: `${prefix}${suffix}`,
     cssProperty,

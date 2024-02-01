@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "К сожалению, не удалось выполнить ваш запрос. Повторите попытку или перейдите на Главную"
+    "message" : "Не удалось сейчас загрузить страницу. Попробуйте еще раз или перейдите на Главную."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Ваш запрос исчез"
+    "message" : "Не удалось загрузить страницу"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Пропавшие страницы — одна из загадок жизни"
+    "message" : "Страница не найдена"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Перемены никогда не даются легко"
+    "message" : "Не удалось внести изменения"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

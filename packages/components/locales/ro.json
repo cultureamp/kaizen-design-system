@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Ne pare rău, dar solicitarea dvs. nu a putut fi finalizată. Reveniți și încercați din nou sau mergeți la pagina principală"
+    "message" : "Probleme la încărcarea paginii în acest moment. Încercați din nou sau mergeți la pagina principală."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Cererea dvs. a dispărut"
+    "message" : "Problemă la încărcarea paginii"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Paginile lipsă reprezintă unul dintre misterele vieții"
+    "message" : "Pagina nu a fost găsită"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Schimbarea nu este niciodată ușoară"
+    "message" : "Modificarea nu a putut fi efectuată"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

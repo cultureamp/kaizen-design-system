@@ -1,37 +1,39 @@
-import { getStoryContext, TestHook } from "@storybook/test-runner"
+import { getStoryContext, TestRunnerConfig } from "@storybook/test-runner"
 import { configureAxe, getAxeResults, injectAxe } from "axe-playwright"
 import { toHaveNoViolations } from "jest-axe"
 import { globalA11yRules } from "./global-a11y-rules"
 
-export const setup: () => void = () => {
-  expect.extend(toHaveNoViolations)
-}
+const config = {
+  setup: () => {
+    expect.extend(toHaveNoViolations)
+  },
+  preVisit: async page => {
+    await injectAxe(page)
+  },
+  postVisit: async (page, context) => {
+    const { parameters } = await getStoryContext(page, context)
 
-export const preRender: TestHook = async page => {
-  await injectAxe(page)
-}
+    if (parameters?.a11y?.disable) {
+      return
+    }
 
-export const postRender: TestHook = async (page, context) => {
-  const { parameters } = await getStoryContext(page, context)
+    // setting story level rules overrides global rules by default. Instead we're making sure globals are always included
+    const storyRules = parameters?.a11y?.config?.rules || []
+    const rules = [...globalA11yRules, ...storyRules]
 
-  if (parameters?.a11y?.disable) {
-    return
-  }
+    await configureAxe(page, { ...parameters.a11y?.config, rules })
 
-  // setting story level rules overrides global rules by default. Instead we're making sure globals are always included
-  const storyRules = parameters?.a11y?.config?.rules || []
-  const rules = [...globalA11yRules, ...storyRules]
+    if (parameters?.a11y?.timeout) {
+      await page.waitForTimeout(parameters.a11y.timeout)
+    }
 
-  await configureAxe(page, { ...parameters.a11y?.config, rules })
+    const a11yResults = await getAxeResults(
+      page,
+      parameters?.a11y?.element ?? "#storybook-root",
+      parameters?.a11y?.options
+    )
+    expect(a11yResults).toHaveNoViolations()
+  },
+} satisfies TestRunnerConfig
 
-  if (parameters?.a11y?.timeout) {
-    await page.waitForTimeout(parameters.a11y.timeout)
-  }
-
-  const a11yResults = await getAxeResults(
-    page,
-    parameters?.a11y?.element ?? "#storybook-root",
-    parameters?.a11y?.options
-  )
-  expect(a11yResults).toHaveNoViolations()
-}
+export default config

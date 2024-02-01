@@ -1,8 +1,7 @@
 // This file is used by storybook to register installed addons.
 // See: https://storybook.js.org/docs/addons/using-addons/
 import React from "react"
-import { addons } from "@storybook/addons"
-import { API_SidebarOptions as SidebarOptions } from "@storybook/types"
+import { addons } from "@storybook/manager-api"
 import { tokens } from "../packages/design-tokens/src/js"
 import KaizenTheme from "./theme"
 
@@ -42,5 +41,5 @@ addons.setConfig({
       ) : (
         <span style={{ margin: "1px 0" }}>{item.name}</span>
       ),
-  } satisfies SidebarOptions,
+  },
 })

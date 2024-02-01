@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "抱歉，無法完成您的請求。返回重試，或前往首頁"
+    "message" : "現在載入頁面時出現問題。重試或前往首頁。"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "您的請求無效"
+    "message" : "載入頁面時出現問題"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "頁面總是無緣無故不知所蹤"
+    "message" : "未找到頁面"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "改變從來都不是一件容易的事"
+    "message" : "無法更改"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",

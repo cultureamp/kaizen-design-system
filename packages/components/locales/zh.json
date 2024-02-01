@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "很抱歉，您的请求无法完成。请返回并重试，或前往主页"
+    "message" : "现在加载页面时出现问题。请重试，或前往主页。"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "您的请求已失效"
+    "message" : "加载页面时出现问题"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "页面缺失是人生的谜团之一"
+    "message" : "未找到页面"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "改变从来都不是一件容易的事"
+    "message" : "无法进行更改"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
