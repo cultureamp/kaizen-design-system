@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path"
-import { StorybookConfig } from "@storybook/react-webpack5"
+import { StorybookConfig } from "@storybook/react-vite"
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -29,6 +29,10 @@ const defaultStoryPaths = [
 
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
+  core: {
+    builder: "@storybook/builder-vite",
+  },
+  framework: "@storybook/react-vite",
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
@@ -41,10 +45,6 @@ const config = {
       to: "/static/media",
     },
   ],
-  framework: {
-    name: "@storybook/react-webpack5",
-    options: { builder: { useSWC: true } },
-  },
   typescript: {
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
@@ -59,4 +59,5 @@ const config = {
     },
   },
 } satisfies StorybookConfig
+
 export default config
