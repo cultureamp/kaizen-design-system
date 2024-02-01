@@ -10,7 +10,7 @@ runs:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version-file: .nvmrc
+        node-version-file: package.json
         registry-url: https://npm.pkg.github.com/
 
     - name: Install pnpm
