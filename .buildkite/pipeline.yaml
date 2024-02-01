@@ -12,7 +12,7 @@ x-defaults: &defaults
 
 steps:
   - name: ":package: Build (storybook)"
-    branches: "main"
+    branches: "main heartsquared/*"
     command: ".buildkite/scripts/build-storybook.sh"
     timeout_in_minutes: 15
     artifact_paths: "./storybook.tar.gz"
