@@ -2,7 +2,6 @@ import path from "path"
 import type { Configuration } from "webpack"
 import {
   excludeExternalModules,
-  babel,
   tailwind,
   styles,
 } from "./webpack/rules"
@@ -18,7 +17,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
   }
 
   config.module.rules.push(
-    ...[babel, styles, tailwind].map(excludeExternalModules)
+    ...[styles, tailwind].map(excludeExternalModules)
   )
 
   config.resolve.extensions.push(".ts", ".tsx")
