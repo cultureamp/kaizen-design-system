@@ -1,0 +1,49 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+
+.linkStyle {
+  position: relative;
+  cursor: pointer;
+  padding: unset;
+  background: none;
+  color: $color-blue-500;
+  text-decoration: underline;
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: $color-blue-600;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: 4px;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
+    border-color: $color-blue-500;
+    inset: -5px;
+  }
+}
+
+.isReversed {
+  color: $color-white;
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    color: rgba($color-white-rgb, 0.8);
+  }
+
+  &:focus-visible {
+    &::after {
+      border-color: $color-blue-300;
+    }
+  }
+}
