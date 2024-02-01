@@ -66,6 +66,7 @@
     "@storybook/builder-vite": "^7.6.12",
     "@storybook/manager-api": "^7.6.8",
     "@storybook/node-logger": "^7.6.8",
+    "@storybook/react-vite": "^7.6.12",
     "@storybook/react-webpack5": "^7.6.8",
     "@storybook/test": "^7.6.12",
     "@storybook/test-runner": "^0.16.0",
