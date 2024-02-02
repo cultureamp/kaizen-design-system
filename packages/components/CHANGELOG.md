@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.40.0
+
+### Minor Changes
+
+- [#4482](https://github.com/cultureamp/kaizen-design-system/pull/4482) [`166a0e370c3ae0ab647afb034a23cecb8f7c6ca9`](https://github.com/cultureamp/kaizen-design-system/commit/166a0e370c3ae0ab647afb034a23cecb8f7c6ca9) - Simplify error page messages for internationalisation.
+
+### Patch Changes
+
+- [#4506](https://github.com/cultureamp/kaizen-design-system/pull/4506) [`f84bc4c4bed82d60400a5faac18ea846c0bf47e0`](https://github.com/cultureamp/kaizen-design-system/commit/f84bc4c4bed82d60400a5faac18ea846c0bf47e0) - Updated translations
+
+- [#4512](https://github.com/cultureamp/kaizen-design-system/pull/4512) [`4c3d7f3c8b6a562e752ffd0fbe819fd8d66154b5`](https://github.com/cultureamp/kaizen-design-system/commit/4c3d7f3c8b6a562e752ffd0fbe819fd8d66154b5) - Updated translations
+
 ## 1.39.2
 
 ### Patch Changes
