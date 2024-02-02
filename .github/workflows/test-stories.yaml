@@ -108,7 +108,8 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
       - name: Build Storybook for Chromatic
-        run: pnpm storybook:build:prod --webpack-stats-json
+        # We want both stories and docs for the branch preview
+        run: pnpm storybook:build --webpack-stats-json
       - id: publishChromatic
         name: Publish to Chromatic
         uses: chromaui/action@v1
