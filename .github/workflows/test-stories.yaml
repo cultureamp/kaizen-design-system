@@ -106,7 +106,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: pnpm storybook:build:prod --webpack-stats-json
+      - uses: ./.github/actions/setup
+      - name: Build Storybook for Chromatic
+        run: pnpm storybook:build:prod --webpack-stats-json
       - id: publishChromatic
         name: Publish to Chromatic
         uses: chromaui/action@v1
