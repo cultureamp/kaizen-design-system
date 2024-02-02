@@ -26,8 +26,15 @@ env:
   ARTIFACT_NAME: artifact--storybook-build
 
 jobs:
-  build-storybook:
+  run-check:
+    name: Check if we should run Storybook tests
     if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Run the Storybook tests"
+
+  build-storybook:
+    needs: run-check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -90,7 +97,7 @@ jobs:
         run: pnpm test:storybook --shard 3/3
 
   chromatic:
-    needs: build-storybook
+    needs: run-check
     runs-on: ubuntu-latest
     outputs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
@@ -99,12 +106,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Download Storybook build artifact
-        id: download
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ env.ARTIFACT_NAME }}
-          path: "./storybook/public"
+      - uses: ./.github/actions/setup
+      - name: Build Storybook for Chromatic
+        # We want both stories and docs for the branch preview
+        run: pnpm storybook:build --webpack-stats-json
       - id: publishChromatic
         name: Publish to Chromatic
         uses: chromaui/action@v1
