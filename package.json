@@ -133,7 +133,7 @@
     "ts-jest": "^29.1.2",
     "turbo": "^1.12.2",
     "typescript": "^5.3.3",
-    "webpack": "^5.89.0"
+    "webpack": "^5.90.1"
   },
   "volta": {
     "node": "18.19.0",
