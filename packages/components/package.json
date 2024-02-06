@@ -98,7 +98,7 @@
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.23.3",
     "@cultureamp/frontend-apis": "^9.3.4",
-    "@cultureamp/i18n-react-intl": "^2.1.10",
+    "@cultureamp/i18n-react-intl": "^2.4.0",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
     "@rollup/plugin-alias": "^5.1.0",
@@ -117,7 +117,7 @@
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
     "query-string": "^8.2.0",
-    "react-intl": "^6.6.0",
+    "react-intl": "^6.6.2",
     "rollup": "^4.9.6",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-ignore": "^1.0.10",
@@ -131,8 +131,8 @@
     "typescript-transform-paths": "^3.4.6"
   },
   "peerDependencies": {
-    "@cultureamp/i18n-react-intl": "^2.1.10",
+    "@cultureamp/i18n-react-intl": "^2.4.0",
     "react": "^18.2.0",
-    "react-intl": "^6.6.0"
+    "react-intl": "^6.6.2"
   }
 }
