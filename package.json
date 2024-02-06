@@ -3,6 +3,10 @@
   "engines": {
     "node": ">=v18.19.0"
   },
+  "volta": {
+    "node": "18.19.0"
+  },
+  "packageManager": "pnpm@8.14.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm turbo build",
@@ -133,9 +137,5 @@
     "turbo": "^1.12.2",
     "typescript": "^5.3.3",
     "webpack": "^5.90.1"
-  },
-  "volta": {
-    "node": "18.19.0",
-    "yarn": "1.22.21"
   }
 }
