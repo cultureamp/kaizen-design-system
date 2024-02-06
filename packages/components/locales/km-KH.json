@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Problem loading page right now. Try again or head home."
+    "message" : "មានបញ្ហាក្នុងការផ្ទុកទំព័រឥឡូវនេះ។ ព្យាយាមម្តងទៀត ឬត្រឡប់ទៅទំព័រដើម។"
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Problem loading page"
+    "message" : "មានបញ្ហាក្នុងការផ្ទុកទំព័រ"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -55,7 +55,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Page not found"
+    "message" : "ទំព័រដែលរកមិនឃើញ"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -71,7 +71,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change couldn't be made"
+    "message" : "ការផ្លាស់ប្តូរមិនអាចធ្វើបានទេ"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
