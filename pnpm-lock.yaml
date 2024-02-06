@@ -295,8 +295,8 @@ importers:
   packages/components:
     dependencies:
       '@floating-ui/react-dom':
-        specifier: ^2.0.5
-        version: 2.0.6(react-dom@16.14.0)(react@18.2.0)
+        specifier: ^2.0.8
+        version: 2.0.8(react-dom@16.14.0)(react@18.2.0)
       '@headlessui/react':
         specifier: <=1.5.0
         version: 1.5.0(react-dom@16.14.0)(react@18.2.0)
@@ -361,8 +361,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       date-fns:
-        specifier: ^3.0.6
-        version: 3.2.0
+        specifier: ^3.3.1
+        version: 3.3.1
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -376,8 +376,8 @@ importers:
         specifier: ^1.3.2
         version: 1.3.2
       prosemirror-inputrules:
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^1.4.0
+        version: 1.4.0
       prosemirror-keymap:
         specifier: ^1.2.2
         version: 1.2.2
@@ -410,10 +410,10 @@ importers:
         version: 3.2.3(react-dom@16.14.0)(react@18.2.0)
       react-day-picker:
         specifier: ^8.10.0
-        version: 8.10.0(date-fns@3.2.0)(react@18.2.0)
+        version: 8.10.0(date-fns@3.3.1)(react@18.2.0)
       react-focus-lock:
-        specifier: ^2.9.6
-        version: 2.9.6(@types/react@18.2.54)(react@18.2.0)
+        specifier: ^2.9.7
+        version: 2.9.7(@types/react@18.2.54)(react@18.2.0)
       react-focus-on:
         specifier: ^3.9.1
         version: 3.9.1(@types/react@18.2.54)(react@18.2.0)
@@ -2810,7 +2810,7 @@ packages:
       '@formatjs/cli': 6.2.6
       '@formatjs/cli-lib': 6.3.5(ts-jest@29.1.1)
       babel-plugin-formatjs: 10.5.12(ts-jest@29.1.1)
-      date-fns: 3.2.0
+      date-fns: 3.3.1
       eslint-plugin-formatjs: 4.12.1(eslint@8.56.0)(ts-jest@29.1.1)
       fast-glob: 3.3.2
       form-data: 4.0.0
@@ -3157,8 +3157,8 @@ packages:
       '@floating-ui/utils': 0.1.6
     dev: false
 
-  /@floating-ui/core@1.5.3:
-    resolution: {integrity: sha512-O0WKDOo0yhJuugCx6trZQj5jVJ9yR0ystG2JaNAemYUWce+pmM6WUEFIibnWyEJKdrDxhm75NoSRME35FNaM/Q==}
+  /@floating-ui/core@1.6.0:
+    resolution: {integrity: sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==}
     dependencies:
       '@floating-ui/utils': 0.2.1
 
@@ -3169,30 +3169,30 @@ packages:
       '@floating-ui/utils': 0.1.6
     dev: false
 
-  /@floating-ui/dom@1.5.4:
-    resolution: {integrity: sha512-jByEsHIY+eEdCjnTVu+E3ephzTOzkQ8hgUfGwos+bg7NlH33Zc5uO+QHz1mrQUOgIKKDD1RtS201P9NvAfq3XQ==}
+  /@floating-ui/dom@1.6.1:
+    resolution: {integrity: sha512-iA8qE43/H5iGozC3W0YSnVSW42Vh522yyM1gj+BqRwVsTNOyr231PsXDaV04yT39PsO0QL2QpbI/M0ZaLUQgRQ==}
     dependencies:
-      '@floating-ui/core': 1.5.3
+      '@floating-ui/core': 1.6.0
       '@floating-ui/utils': 0.2.1
 
-  /@floating-ui/react-dom@2.0.6(react-dom@16.14.0)(react@18.2.0):
-    resolution: {integrity: sha512-IB8aCRFxr8nFkdYZgH+Otd9EVQPJoynxeFRGTB8voPoZMRWo8XjYuCRgpI1btvuKY69XMiLnW+ym7zoBHM90Rw==}
+  /@floating-ui/react-dom@2.0.8(react-dom@16.14.0)(react@18.2.0):
+    resolution: {integrity: sha512-HOdqOt3R3OGeTKidaLvJKcgg75S6tibQ3Tif4eyd91QnIJWr0NLvoXFpJA/j8HqkFSL68GDca9AuyWEHlhyClw==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/dom': 1.5.4
+      '@floating-ui/dom': 1.6.1
       react: 18.2.0
       react-dom: 16.14.0(react@18.2.0)
     dev: false
 
-  /@floating-ui/react-dom@2.0.6(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-IB8aCRFxr8nFkdYZgH+Otd9EVQPJoynxeFRGTB8voPoZMRWo8XjYuCRgpI1btvuKY69XMiLnW+ym7zoBHM90Rw==}
+  /@floating-ui/react-dom@2.0.8(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-HOdqOt3R3OGeTKidaLvJKcgg75S6tibQ3Tif4eyd91QnIJWr0NLvoXFpJA/j8HqkFSL68GDca9AuyWEHlhyClw==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/dom': 1.5.4
+      '@floating-ui/dom': 1.6.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -4125,7 +4125,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.23.5
-      '@floating-ui/react-dom': 2.0.6(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react-dom': 2.0.8(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-arrow': 1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.54)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.54)(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.54)(react@18.2.0)
@@ -9551,8 +9551,8 @@ packages:
     resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
     dev: true
 
-  /date-fns@3.2.0:
-    resolution: {integrity: sha512-E4KWKavANzeuusPi0jUjpuI22SURAznGkx7eZV+4i6x2A+IZxAMcajgkvuDAU1bg40+xuhW1zRdVIIM/4khuIg==}
+  /date-fns@3.3.1:
+    resolution: {integrity: sha512-y8e109LYGgoQDveiEBD3DYXKba1jWf5BA8YU1FL5Tvm0BTdEfy54WLCwnuYWZNnzzvALy/QQ4Hov+Q9RVRv+Zw==}
 
   /date-format@4.0.3:
     resolution: {integrity: sha512-7P3FyqDcfeznLZp2b+OMitV9Sz2lUnsT87WaTat9nVwqsBkTzPG3lPLNwW3en6F4pHUiWzr6vb8CLhjdK9bcxQ==}
@@ -16748,8 +16748,8 @@ packages:
       rope-sequence: 1.3.4
     dev: false
 
-  /prosemirror-inputrules@1.3.0:
-    resolution: {integrity: sha512-z1GRP2vhh5CihYMQYsJSa1cOwXb3SYxALXOIfAkX8nZserARtl9LiL+CEl+T+OFIsXc3mJIHKhbsmRzC0HDAXA==}
+  /prosemirror-inputrules@1.4.0:
+    resolution: {integrity: sha512-6ygpPRuTJ2lcOXs9JkefieMst63wVJBgHZGl5QOytN7oSZs3Co/BYbc3Yx9zm9H37Bxw8kVzCnDsihsVsL4yEg==}
     dependencies:
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.8.0
@@ -16993,13 +16993,13 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  /react-day-picker@8.10.0(date-fns@3.2.0)(react@18.2.0):
+  /react-day-picker@8.10.0(date-fns@3.3.1)(react@18.2.0):
     resolution: {integrity: sha512-mz+qeyrOM7++1NCb1ARXmkjMkzWVh2GL9YiPbRjKe0zHccvekk4HE+0MPOZOrosn8r8zTHIIeOUXTmXRqmkRmg==}
     peerDependencies:
       date-fns: ^2.28.0 || ^3.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      date-fns: 3.2.0
+      date-fns: 3.3.1
       react: 18.2.0
     dev: false
 
@@ -17076,8 +17076,8 @@ packages:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
     dev: false
 
-  /react-focus-lock@2.9.6(@types/react@18.2.54)(react@18.2.0):
-    resolution: {integrity: sha512-B7gYnCjHNrNYwY2juS71dHbf0+UpXXojt02svxybj8N5bxceAkzPChKEncHuratjUHkIFNCn06k2qj1DRlzTug==}
+  /react-focus-lock@2.9.7(@types/react@18.2.54)(react@18.2.0):
+    resolution: {integrity: sha512-EfhX040SELLqnQ9JftqsmQCG49iByg8F5X5m19Er+n371OaETZ35dlNPZrLOOTlnnwD4c2Zv0KDgabDTc7dPHw==}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -17108,7 +17108,7 @@ packages:
       '@types/react': 18.2.54
       aria-hidden: 1.2.3
       react: 18.2.0
-      react-focus-lock: 2.9.6(@types/react@18.2.54)(react@18.2.0)
+      react-focus-lock: 2.9.7(@types/react@18.2.54)(react@18.2.0)
       react-remove-scroll: 2.5.7(@types/react@18.2.54)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.54)(react@18.2.0)
       tslib: 2.6.2
