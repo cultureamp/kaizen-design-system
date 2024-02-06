@@ -114,9 +114,6 @@ importers:
       '@testing-library/user-event':
         specifier: ^14.5.2
         version: 14.5.2(@testing-library/dom@9.3.4)
-      '@types/classnames':
-        specifier: ^2.3.1
-        version: 2.3.1
       '@types/color-string':
         specifier: ^1.5.5
         version: 1.5.5
@@ -6707,12 +6704,6 @@ packages:
       chalk: 5.3.0
     dev: true
 
-  /@types/classnames@2.3.1:
-    resolution: {integrity: sha512-zeOWb0JGBoVmlQoznvqXbE0tEC/HONsnoUNH19Hc96NFsTAwTXbTqb8FMYkru1F/iqp7a18Ws3nWJvtA1sHD1A==}
-    dependencies:
-      classnames: 2.5.1
-    dev: true
-
   /@types/color-string@1.5.5:
     resolution: {integrity: sha512-p9+C1ssJsjnHV8nn96rkimm2h90LclLIwgBfiMCHW0oUr6jLmB+wzZUEGJPduB/D2RzI2Ahoe69xKNOawX6jgw==}
 
@@ -8778,6 +8769,7 @@ packages:
 
   /classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: false
 
   /clean-css@5.3.3:
     resolution: {integrity: sha512-D5J+kHaVb/wKSFcyyV75uCn8fiY4sV38XJoe4CUyGQ+mOU/fMVYUdH1hJC+CJQ5uY3EnW27SbJYS4X8BiLrAFg==}
