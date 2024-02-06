@@ -271,11 +271,11 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4(webpack@5.89.0)
       stylelint:
-        specifier: ^16.1.0
-        version: 16.1.0(typescript@5.3.3)
+        specifier: ^16.2.1
+        version: 16.2.1(typescript@5.3.3)
       stylelint-config-standard-scss:
         specifier: ^13.0.0
-        version: 13.0.0(postcss@8.4.34)(stylelint@16.1.0)
+        version: 13.0.0(postcss@8.4.34)(stylelint@16.2.1)
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.1
@@ -2698,13 +2698,13 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /@csstools/selector-specificity@3.0.1(postcss-selector-parser@6.0.13):
+  /@csstools/selector-specificity@3.0.1(postcss-selector-parser@6.0.15):
     resolution: {integrity: sha512-NPljRHkq4a14YzZ3YD406uaxh7s0g6eAq3L9aLOWywoqe8PkYamAvtsh7KNX6c++ihDrJ0RiU+/z7rGnhlZ5ww==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss-selector-parser: ^6.0.13
     dependencies:
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
     dev: true
 
   /@cultureamp/changelog-github@0.1.0:
@@ -16555,6 +16555,14 @@ packages:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
+  /postcss-selector-parser@6.0.15:
+    resolution: {integrity: sha512-rEYkQOMUCEMhsKbK66tbEU9QVIxbhN18YiniAwA7XQYTVBqrBy+P2p5JcdqsHgKM2zWylp8d7J6eszocfds5Sw==}
+    engines: {node: '>=4'}
+    dependencies:
+      cssesc: 3.0.0
+      util-deprecate: 1.0.2
+    dev: true
+
   /postcss-svgo@5.1.0(postcss@8.4.34):
     resolution: {integrity: sha512-D75KsH1zm5ZrHyxPakAxJWtkyXew5qwS70v56exwvw542d9CRtTo78K0WeFxZB4G7JXKKMbEZtZayTGdIky/eA==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -18600,7 +18608,7 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: true
 
-  /stylelint-config-recommended-scss@14.0.0(postcss@8.4.34)(stylelint@16.1.0):
+  /stylelint-config-recommended-scss@14.0.0(postcss@8.4.34)(stylelint@16.2.1):
     resolution: {integrity: sha512-HDvpoOAQ1RpF+sPbDOT2Q2/YrBDEJDnUymmVmZ7mMCeNiFSdhRdyGEimBkz06wsN+HaFwUh249gDR+I9JR7Onw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -18612,21 +18620,21 @@ packages:
     dependencies:
       postcss: 8.4.34
       postcss-scss: 4.0.9(postcss@8.4.34)
-      stylelint: 16.1.0(typescript@5.3.3)
-      stylelint-config-recommended: 14.0.0(stylelint@16.1.0)
-      stylelint-scss: 6.0.0(stylelint@16.1.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-config-recommended: 14.0.0(stylelint@16.2.1)
+      stylelint-scss: 6.0.0(stylelint@16.2.1)
     dev: true
 
-  /stylelint-config-recommended@14.0.0(stylelint@16.1.0):
+  /stylelint-config-recommended@14.0.0(stylelint@16.2.1):
     resolution: {integrity: sha512-jSkx290CglS8StmrLp2TxAppIajzIBZKYm3IxT89Kg6fGlxbPiTiyH9PS5YUuVAFwaJLl1ikiXX0QWjI0jmgZQ==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.0.0
     dependencies:
-      stylelint: 16.1.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint-config-standard-scss@13.0.0(postcss@8.4.34)(stylelint@16.1.0):
+  /stylelint-config-standard-scss@13.0.0(postcss@8.4.34)(stylelint@16.2.1):
     resolution: {integrity: sha512-WaLvkP689qSYUpJQPCo30TFJSSc3VzvvoWnrgp+7PpVby5o8fRUY1cZcP0sePZfjrFl9T8caGhcKg0GO34VDiQ==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -18637,22 +18645,22 @@ packages:
         optional: true
     dependencies:
       postcss: 8.4.34
-      stylelint: 16.1.0(typescript@5.3.3)
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.34)(stylelint@16.1.0)
-      stylelint-config-standard: 36.0.0(stylelint@16.1.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.34)(stylelint@16.2.1)
+      stylelint-config-standard: 36.0.0(stylelint@16.2.1)
     dev: true
 
-  /stylelint-config-standard@36.0.0(stylelint@16.1.0):
+  /stylelint-config-standard@36.0.0(stylelint@16.2.1):
     resolution: {integrity: sha512-3Kjyq4d62bYFp/Aq8PMKDwlgUyPU4nacXsjDLWJdNPRUgpuxALu1KnlAHIj36cdtxViVhXexZij65yM0uNIHug==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.1.0
     dependencies:
-      stylelint: 16.1.0(typescript@5.3.3)
-      stylelint-config-recommended: 14.0.0(stylelint@16.1.0)
+      stylelint: 16.2.1(typescript@5.3.3)
+      stylelint-config-recommended: 14.0.0(stylelint@16.2.1)
     dev: true
 
-  /stylelint-scss@6.0.0(stylelint@16.1.0):
+  /stylelint-scss@6.0.0(stylelint@16.2.1):
     resolution: {integrity: sha512-N1xV/Ef5PNRQQt9E45unzGvBUN1KZxCI8B4FgN/pMfmyRYbZGVN4y9qWlvOMdScU17c8VVCnjIHTVn38Bb6qSA==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -18663,18 +18671,18 @@ packages:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
-      stylelint: 16.1.0(typescript@5.3.3)
+      stylelint: 16.2.1(typescript@5.3.3)
     dev: true
 
-  /stylelint@16.1.0(typescript@5.3.3):
-    resolution: {integrity: sha512-Sh1rRV0lN1qxz/QsuuooLWsIZ/ona7NKw/fRZd6y6PyXYdD2W0EAzJ8yJcwSx4Iw/muz0CF09VZ+z4EiTAcKmg==}
+  /stylelint@16.2.1(typescript@5.3.3):
+    resolution: {integrity: sha512-SfIMGFK+4n7XVAyv50CpVfcGYWG4v41y6xG7PqOgQSY8M/PgdK0SQbjWFblxjJZlN9jNq879mB4BCZHJRIJ1hA==}
     engines: {node: '>=18.12.0'}
     hasBin: true
     dependencies:
       '@csstools/css-parser-algorithms': 2.5.0(@csstools/css-tokenizer@2.2.3)
       '@csstools/css-tokenizer': 2.2.3
       '@csstools/media-query-list-parser': 2.1.7(@csstools/css-parser-algorithms@2.5.0)(@csstools/css-tokenizer@2.2.3)
-      '@csstools/selector-specificity': 3.0.1(postcss-selector-parser@6.0.13)
+      '@csstools/selector-specificity': 3.0.1(postcss-selector-parser@6.0.15)
       balanced-match: 2.0.0
       colord: 2.9.3
       cosmiconfig: 9.0.0(typescript@5.3.3)
@@ -18700,7 +18708,7 @@ packages:
       postcss: 8.4.34
       postcss-resolve-nested-selector: 0.1.1
       postcss-safe-parser: 7.0.0(postcss@8.4.34)
-      postcss-selector-parser: 6.0.13
+      postcss-selector-parser: 6.0.15
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
       string-width: 4.2.3
