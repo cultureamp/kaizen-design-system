@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.40.2
+
+### Patch Changes
+
+- [#4518](https://github.com/cultureamp/kaizen-design-system/pull/4518) [`7577a6a8aefb4a41a1197d09e0f947950ec117df`](https://github.com/cultureamp/kaizen-design-system/commit/7577a6a8aefb4a41a1197d09e0f947950ec117df) - Upgrade rollup-plugin-node-externals to v7
+
 ## 1.40.1
 
 ### Patch Changes
