@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 import { InlineNotification } from "~components/Notification"
 import { LinkTo } from "~storybook/components/LinkTo"
 
@@ -16,12 +16,15 @@ Whilst the Kaizen Design System mainly focuses on the more atomic components in 
 
 The <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> feeds your entire app with Kaizen defaults so it's important that it goes at the very root of your application.
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 import { KaizenProvider } from "@kaizen/components";
 <KaizenProvider>
   <App />
 </KaizenProvider>
-```
+  `}
+/>
 
 Be sure to read the <LinkTo pageId="components-kaizen-provider-installation">KaizenProvider</LinkTo> documentation for migration tips and in case your app requires any further config, but generally this should be it!
 
@@ -53,17 +56,24 @@ You can import this stylesheet in either CSS or JS as long as it sits as the fir
 
 ### CSS
 We've especially accounted for Tailwind, so if you opt for CSS, it is recommended you include it at the top of your `tailwind.css`
-```css
+
+<Source
+  language="css"
+  code={`
 // tailwind.css
 @import "@kaizen/components/dist/styles.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-```
+  `}
+/>
 
 ### JS
-```js
+<Source
+  language="js"
+  code={`
 import "@kaizen/components/dist/styles.css"
 import "tailwind.css"
-```
+  `}
+/>

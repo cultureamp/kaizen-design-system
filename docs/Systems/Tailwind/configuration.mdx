@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 import { InlineNotification } from "~components/Notification"
 
 <Meta title="Systems/Tailwind/Configuration" />
@@ -19,7 +19,9 @@ This page provides guidance on potential configuration options and how they work
 
 To extend upon the preset with values specific to your project, we recommend passing a theme object to `theme.extend`.
 
-```js
+<Source
+  language="js"
+  code={`
 const { Preset } = require("@kaizen/tailwind")
 
 module.exports = {
@@ -33,7 +35,8 @@ module.exports = {
     }
   }
 }
-```
+  `}
+/>
 
 Here, the Kaizen preset overwrites the default Tailwind preset, and the `extend` field adds in some new values.
 Be careful though! While adding in a _new_ field to `colors` won't overwrite any existing ones, passing in an existing field _will_. In this example, `purple-100` has unfortunately been overwritten.
@@ -54,11 +57,14 @@ If the `"#root"` id selector is incompatible with your application wrapper or yo
 
 If this is changed or you are not using the [Frontend Template](https://github.com/cultureamp/frontend-template), be sure that the `important` selector matches to an `id`, `class`, or `HTML Element` within your application, ie:
 
-``` tsx
+<Source
+  language="tsx"
+  code={`
 <div id="#root">
  {/* Application code */}
 </div>
-```
+  `}
+/>
 
 <InlineNotification
   persistent

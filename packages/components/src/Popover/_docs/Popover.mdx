@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as PopoverStories from "./Popover.stories"
 
@@ -27,7 +27,9 @@ User can interact with popover content, including selecting text or clicking lin
 
 ## How to use
 
-```jsx
+<Source
+  language="tsx"
+  code={`
 const [referenceElementRef, Popover] = usePopover()
 
 return (<>
@@ -36,7 +38,8 @@ return (<>
   </button>
   <Popover>Hello world</Popover>
 </>)
-```
+  `}
+/>
 
 The purpose of this hook is to abstract away some of the awkwardness with the
 requirement of passing in refs with popper. We need to use `useState` instead

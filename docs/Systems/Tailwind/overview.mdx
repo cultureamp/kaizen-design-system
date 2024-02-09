@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 import AnatomyDiagram from "./assets/tw-anatomy.png"
 
 <Meta title="Systems/Tailwind/Overview" />
@@ -18,9 +18,12 @@ The following diagram shows the construction of a utility class that adds a back
 
 <img src={AnatomyDiagram} alt="Tailwind utility class anatomy" />
 
-```css
+<Source
+  language="css"
+  code={`
 .hover\:bg-blue-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 139 214 / var(--tw-bg-opacity))
 }
-```
+  `}
+/>

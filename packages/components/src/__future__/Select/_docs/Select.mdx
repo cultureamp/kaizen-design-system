@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as SelectStories from "./Select.stories"
 
@@ -25,27 +25,34 @@ import * as SelectStories from "./Select.stories"
 ### Options
 
 Provide options in `items` in the `SelectOption` format to populate the options.
-```ts
+
+<Source
+  language="ts"
+  code={`
 export type SelectOption = {
   label: string
   value: string | number
   disabled?: boolean
   options?: never
 }
+  `}
+/>
 
-```
 <Canvas of={SelectStories.SingleItems} />
 
 ### Grouped options
 
 Group options by providing your `items` in the `SelectOptionGroup` format.
-```ts
+<Source
+  language="ts"
+  code={`
 export type SelectOptionGroup<Option extends SelectOption> = {
   label: string
   options: Iterable<Option>
 }
+  `}
+/>
 
-```
 <Canvas of={SelectStories.GroupedItems} />
 
 ### Disabled options

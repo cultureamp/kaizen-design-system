@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta, Story } from "@storybook/blocks"
+import { Canvas, Controls, Meta, Source, Story } from "@storybook/blocks"
 import { ResourceLinks } from "~storybook/components"
 import * as IconStories from "./Icon.stories"
 
@@ -15,9 +15,10 @@ import * as IconStories from "./Icon.stories"
 
 Each icon is imported separately, for example if you'd like the `AddIcon` you will use the following import.
 
-```js
-import { AddIcon } from "@kaizen/components"
-```
+<Source
+  language="js"
+  code='import { AddIcon } from "@kaizen/components"'
+/>
 
 See: Reference for all icons available to import.
 
@@ -36,9 +37,10 @@ There are two ways you can apply the colour:
 
 1. Add a `classNameOverride` to the icon element
 
-```jsx
-<AddIcon classNameOverride="text-blue-500" />
-```
+<Source
+  language="tsx"
+  code='<AddIcon classNameOverride="text-blue-500" />'
+/>
 
 2. Change the text colour of the wrapping element
 

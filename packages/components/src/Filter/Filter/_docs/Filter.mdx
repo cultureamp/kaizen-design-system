@@ -1,4 +1,4 @@
-import { Controls, Meta } from "@storybook/blocks"
+import { Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as FilterStories from "./Filter.stories"
@@ -46,39 +46,48 @@ This is called by the `onClick` prop passed through to the trigger button props.
 
 A callback that provides trigger button props to the provided <LinkTo pageId="components-filter-filter-buttons">FilterButton</LinkTo>.
 
-```ts
+<Source
+  language="ts"
+  code={`
 type TriggerButtonProps = {
-  onClick: () => void // Calls `setIsOpen(!isOpen)`
-  isOpen: boolean // The value from the `isOpen` prop
+  onClick: () => void // Calls \`setIsOpen(!isOpen)\`
+  isOpen: boolean // The value from the \`isOpen\` prop
 }
-
-```
+  `}
+/>
 
 If a `ref` is provided to the FilterButton it will be used, otherwise a fallback `ref`
 will be created (this is required to tie the trigger to the popover).
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 type FilterTriggerRef = {
   ref: { triggerRef?: React.RefObject<HTMLButtonElement> }
 }
-
-```
+  `}
+/>
 
 #### Simple Filter
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 <Filter {...props}
   renderTrigger={(triggerProps): JSX.Element => (
     <FilterButton label="Label" {...triggerProps} />
   )}
 />
-```
+  `}
+/>
 
 <NoClipCanvas of={FilterStories.SimpleFilter} />
 
 #### Removable Filter
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 <Filter {...props}
   renderTrigger={(triggerProps): JSX.Element => (
     <FilterButtonRemovable
@@ -87,7 +96,8 @@ type FilterTriggerRef = {
     />
   )}
 />
-```
+  `}
+/>
 
 <NoClipCanvas of={FilterStories.RemovableFilter} />
 

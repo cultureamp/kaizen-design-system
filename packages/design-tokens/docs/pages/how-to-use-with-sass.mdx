@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 import { LinkTo } from "~storybook/components/LinkTo"
 import { CodeBlock } from "../DocsComponents"
 import exampleSass from "!!raw-loader!./examples/example.scss"
@@ -19,11 +19,14 @@ There are 2 different ways you can utilise the tokens:
 
 ### Using CSS Vars
 
-```scss
+<Source
+  language="scss"
+  code={`
 .myCustomClassName {
   background-color: vars(--color-gray-100);
 }
-```
+  `}
+/>
 
 ### Importing SCSS vars
 

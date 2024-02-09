@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as TooltipStories from "./Tooltip.stories"
 
@@ -36,11 +36,14 @@ Failure to meet either of these requirements will result in a critical issue whe
 
 For keyboard accessibility, you need to make sure the child you are passing is a focusable element. It's best to keep the contents of this component simple. E.g. just a button:
 
-```jsx
+<Source
+  language="tsx"
+  code={`
 <Tooltip text="Opens in a new tab">
   <Button href="/path" label="Go somewhere" />
 </Tooltip>
-```
+  `}
+/>
 
 ### Screen reader accessibility
 
@@ -48,11 +51,14 @@ Though it won't guarantee the best screen reader accessibility, a good start is 
 
 When your direct child element is semantic, this component will add an `aria-describedby` to that element. E.g. for the link example above, the resulting mark up will be:
 
-```html
+<Source
+  language="html"
+  code={`
 <a href="path" aria-describedby="tooltip">Go somewhere</a>
 <!-- (in a portal) -->
 <div id="tooltip-id">Opens in a new tab</div>
-```
+  `}
+/>
 
 Resulting in a screen reader announcement like:
 `Go somewhere, link, Opens in a new tab`

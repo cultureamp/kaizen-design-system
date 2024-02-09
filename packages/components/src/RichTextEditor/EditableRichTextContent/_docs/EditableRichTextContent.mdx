@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as EditableRichTextContentStories from "./EditableRichTextContent.stories"
 
@@ -25,7 +25,9 @@ To render the contents of your <LinkTo pageId="components-richtexteditor">RichTe
 The general idea is to use this component in combination with the <LinkTo pageId="components-richtexteditor">RichTextEditor</LinkTo> to toggle between a read only state
 and an editable state.
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 const [editMode, setEditMode] = useState<boolean>(false);
 const [rteData, setRTEData] = useState<EditorContentArray>([]);
 
@@ -44,6 +46,7 @@ if (editMode) {
 return (
   <EditableRichTextContent content={rteData} onClick={() => setEditMode(true)} />
 )
-```
+  `}
+/>
 
 <Canvas of={EditableRichTextContentStories.UsageExample} />

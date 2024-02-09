@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 import Highlight from "react-highlight"
 import migrationBonus from "!!raw-loader!./code-diffs/migration-bonus.diff"
 import migrationFETBonus from "!!raw-loader!./code-diffs/migration-fe-template-bonus.diff"
@@ -16,12 +16,15 @@ Provides the necessary global contexts for all Kaizen components, as well as any
 
 Ideally, there should only be one `KaizenProvider` that should wrap your entire application.
 
-```jsx
+<Source
+  language="tsx"
+  code={`
 import { KaizenProvider } from "@kaizen/components";
 <KaizenProvider>
   <App />
 </KaizenProvider>
-```
+  `}
+/>
 
 ### Internationalization support
 - [Internationalization in Kaizen](/story/components-kaizen-provider-internationalization-in-kaizen--docs)

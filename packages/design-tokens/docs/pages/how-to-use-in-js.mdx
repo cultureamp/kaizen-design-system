@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 import { LinkTo } from "~storybook/components/LinkTo"
 
 <Meta title="Systems/Tokens/Access tokens via JS" parameters={{ docsOnly: true }} />
@@ -17,8 +17,9 @@ Because we use CSS vars, you can utilise them in your JSX as you would in CSS.
 
 For example:
 
-```jsx
-
+<Source
+  language="tsx"
+  code={`
 const Component = () => (
   <div style={{
     backgroundColor: vars(--color-purple-500) // #844587
@@ -26,13 +27,16 @@ const Component = () => (
     Custom Kaizen theme component
   </div>
 )
-```
+  `}
+/>
 
 ### In JS functions
 
 You can access the tokens directly:
 
-```jsx
+<Source
+  language="tsx"
+  code={`
 import { tokens } from "@kaizen/design-tokens/js"
 
 const myAmazingFunction = () => {
@@ -40,4 +44,5 @@ const myAmazingFunction = () => {
 
   return mainColor;
 }
-```
+  `}
+/>

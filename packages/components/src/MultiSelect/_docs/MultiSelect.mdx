@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation, SbReleaseNotification} from "~storybook/components"
 import * as MultiSelectStories from "./MultiSelect.stories"
 
@@ -29,14 +29,16 @@ A field for selecting multiple options.
 
 An array of `MultiSelectOption`s which will be rendered into the dropdown.
 
-```ts
+<Source
+  language="ts"
+  code={`
 export type MultiSelectOption = {
   label: string
   // Used for "value" attribute in option - must be unique
   value: string | number
 }
-
-```
+  `}
+/>
 
 <Canvas of={MultiSelectStories.Items} />
 

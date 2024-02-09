@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { Canvas, Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as TextAreaStories from "./TextArea.stories"
@@ -31,15 +31,21 @@ This component uses the native `<textarea>` element under the hood, so normal me
 
 You can use our <LinkTo pageId="components-label">Label</LinkTo> component
 
-```
+<Source
+  language="tsx"
+  code={`
 <Label htmlFor="exampleTextArea">This is my Label</Label>
 <TextArea id="exampleTextArea" />
-```
+  `}
+/>
 
 ### Connecting a custom element
 For linking text that isn't in a `Label` you can use `aria-labelledBy`
 
-```
+<Source
+  language="tsx"
+  code={`
 <Text id="exampleTextArea">My free form text label<Text>
 <TextArea aria-labelledby="exampleTextArea" />
-```
+  `}
+/>

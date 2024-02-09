@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 
 <Meta title="Systems/Tailwind/Contributing to this package" />
 
@@ -23,11 +23,13 @@ Check the output in your terminal output for TailwindCSS IntelliSense.
 
 If you see the following:
 
-```
+<Source
+  code={`
 Tailwind CSS: Can't resolve "@kaizen/design-tokens" in... '/Users/.../kaizen-design-system'
 // OR
 Tailwind CSS: Can't resolve '@kaizen/tailwind' in '/Users/.../kaizen-design-system'
-```
+  `}
+/>
 
 **Solution**
 

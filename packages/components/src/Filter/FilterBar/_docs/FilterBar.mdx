@@ -1,4 +1,4 @@
-import { Controls, Meta } from "@storybook/blocks"
+import { Controls, Meta, Source } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as FilterBarStories from "./FilterBar.stories"
@@ -36,7 +36,9 @@ We also provide a `Filters` type which can accept the same generic to provide im
 
 `ValuesMap` should be in the shape of `{ [filterId]: filterValueType }`.
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 import { FilterBar, Filters } from "@kaizen/components"
 
 type ValuesMap = {
@@ -60,7 +62,8 @@ return (
     onValuesChange={setValues}
   />
 )
-```
+  `}
+/>
 
 ### `filters`
 
@@ -70,7 +73,9 @@ The `filters` prop is an array of attributes used to create the list of filters.
 
 We provide a `Filters<ValuesMap>` type you can use for improved type safety.
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 import { FilterBar, Filters, DateRange, FilterMultiSelect } from "@kaizen/components"
 
 type ValuesMap = {
@@ -103,7 +108,8 @@ const filters = [
     isUsableWhen: state => state.filterId1.value !== undefined
   },
 ] satisfies Filters<ValuesMap>
-```
+  `}
+/>
 
 #### Filter attributes
 
@@ -168,7 +174,9 @@ Use this attribute to apply a condition to a filter based on the state of anothe
 
 For example, if you want `Milk` to only be _Usable_ when `Coffee` is `"latte"`:
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 type ValuesMap = {
   coffee: string
   milk: string
@@ -190,15 +198,18 @@ const filters = [
     isUsableWhen: state => state.coffee.value === "latte",
   },
 ] satisfies Filters<ValuesMap>
-```
+  `}
+/>
 
 The `state` arg will provide you with the following attributes for all the filters (mapped to the keys of the `ValuesMap`):
-```
+<Source
+  code={`
 id: keyof ValuesMap
 name: string
 value?: ValueMap[keyof ValuesMap]
 isActive: boolean
-```
+  `}
+/>
 
 When a dependent filter has not met its condition (not _Usable_):
 - it will be removed from the FilterBar
@@ -214,7 +225,9 @@ The `values` prop should be in the shape of `{ [filterId]: filterValueType }` (m
 
 This is instantiated by the consumer to allow for updates from external events (eg. using url params).
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 type ValuesMap = {
   filterId1: string
   filterId2: number
@@ -229,7 +242,8 @@ const [values, setValues] = useState<Partial<ValuesMap>>({
 return (
   <FilterBar<ValuesMap> values={values} {...rest} />
 )
-```
+  `}
+/>
 
 ### `onValuesChange`
 
@@ -271,7 +285,9 @@ which calls `getFilterState` or `getActiveFilterValues` from `useFilterBarContex
 It must also either have an optional `id` prop (`id?: string`) (filled in by `<FilterBar>`),
 or a matching `id` from the filter config must be provided to the rendered component.
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 type Values = {
   source: string
   dependent: string
@@ -280,7 +296,7 @@ type Values = {
 /**
  * Explicit id
  * No props required as you put the string directly into the Filter component
- * Using `getFilterState` as dependency source is known
+ * Using \`getFilterState\` as dependency source is known
  */
 const ExampleDependentFilter = () => {
   const { getFilterState } = useFilterBarContext<Values["dependent"], Values>()
@@ -292,7 +308,7 @@ const ExampleDependentFilter = () => {
 /**
  * Optional id prop
  * A simple example if you want to make a more reusable filter
- * Using `getActiveFilterValues` as dependency source is unknown
+ * Using \`getActiveFilterValues\` as dependency source is unknown
  */
 const ExampleDependentFilter = (props: {
   id?: keyof Values
@@ -312,7 +328,8 @@ const CustomFilterBar = () => {
 
   return <FilterBar<Values> filters={filters} {...rest} />
 }
-```
+  `}
+/>
 
 Values of dependent filters will be cleared if the option no longer exists.
 
@@ -350,7 +367,9 @@ If you have a similar situation to below where _Custom Range_ appears later in t
 `isUsableWhen`, as the positioning calculation for _Custom Range_'s popover happens before the
 re-render of the Filter Buttons and _Cycle_'s button width will increase from having a selected value.
 
-```tsx
+<Source
+  language="tsx"
+  code={`
 type Values = {
   cycle: string
   customRange: DateRange
@@ -378,6 +397,7 @@ const CustomFilterBar = () => {
 
   return <FilterBar<Values> filters={filters} {...rest} />
 }
-```
+  `}
+/>
 
 <NoClipCanvas of={FilterBarStories.ExternalEventOpenFilter} />

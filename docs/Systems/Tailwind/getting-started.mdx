@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/blocks"
+import { Meta, Source } from "@storybook/blocks"
 import CssGeneration from "./assets/css-generation.png"
 import InlineFold from "./assets/inline-fold.gif"
 import TailwindPlay from "./assets/tailwind-play.gif"
@@ -22,16 +22,19 @@ If your project was created from this template, you should only need to do [Step
 
 ## 1. Install the preset
 
-```bash
-yarn add -D @kaizen/tailwind
-```
+<Source
+  language="bash"
+  code="yarn add -D @kaizen/tailwind"
+/>
 
 ## 2. Implement the Preset
 
 In your tailwind config file, import the preset and add it to your `presets` array.
 This will override the default Tailwind preset, and make ours available for use.
 
-```js
+<Source
+  language="js"
+  code={`
 // tailwind.config.js
 
 const { Preset } = require("@kaizen/tailwind")
@@ -48,7 +51,8 @@ module.exports = {
     preflight: false,
   },
 }
-```
+  `}
+/>
 
 For preset configuration options, see our [configuration docs](/story/systems-tailwind-configuration--page)
 
@@ -56,11 +60,14 @@ For preset configuration options, see our [configuration docs](/story/systems-ta
 
 The following directives need to be included in your project's main css file.
 
-```css
+<Source
+  language="css"
+  code={`
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-```
+  `}
+/>
 
 These directives inject classes that are needed for certain Tailwind features.
 For more information, see [here](https://tailwindcss.com/docs/functions-and-directives).
@@ -88,7 +95,8 @@ Basic config for the [VSCode plugin](https://marketplace.visualstudio.com/items?
 You can customise which keywords trigger IntelliSense using basic strings, or even regex expressions.
 Here are some examples you may wish to include in your own project:
 
-```
+<Source
+  code={`
 "tailwindCSS.classAttributes": [
   "class",
   "className",
@@ -101,7 +109,8 @@ Here are some examples you may wish to include in your own project:
   "clsx\\(([^)]*)\\)",
   "csx\\(([^)]*)\\)"
 ]
-```
+  `}
+/>
 
 `tailwindCSS.experimental.classRegex` is used to provide intelliSense within your `classnames` functions in your codebase.
 Ideally you only add the pattern that is used in your repo.
