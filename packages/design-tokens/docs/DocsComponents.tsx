@@ -6,22 +6,24 @@ import { toCustomMediaQueriesArray } from "object-to-css-variables"
 import Highlight from "react-highlight"
 import { Card } from "~components/Card"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
+import animationSass from "../sass/animation.scss?raw"
+import borderSass from "../sass/border.scss?raw"
+import colorsSass from "../sass/color.scss?raw"
+import layoutSass from "../sass/layout.scss?raw"
+import shadowSass from "../sass/shadow.scss?raw"
+import spacingSass from "../sass/spacing.scss?raw"
+import typographySass from "../sass/typography.scss?raw"
 import { tokens } from "../src/js"
 import { makeCssVariableDefinitionsMap } from "../src/lib/makeCssVariableDefinitionsMap"
-import animationSass from "!!raw-loader!../sass/animation.scss"
-import borderSass from "!!raw-loader!../sass/border.scss"
-import colorsSass from "!!raw-loader!../sass/color.scss"
-import layoutSass from "!!raw-loader!../sass/layout.scss"
-import shadowSass from "!!raw-loader!../sass/shadow.scss"
-import spacingSass from "!!raw-loader!../sass/spacing.scss"
-import typographySass from "!!raw-loader!../sass/typography.scss"
-import styles from "./styles.scss"
+import styles from "./DocsComponents.module.scss"
 
-export const CodeBlock = (props: {
+type CodeBlockProps = {
   language: string
   caption?: React.ReactNode
   code: string
-}): JSX.Element => (
+}
+
+export const CodeBlock = (props: CodeBlockProps): JSX.Element => (
   <Unstyled>
     <div className="py-8">
       <Card>
@@ -39,13 +41,10 @@ export const CodeBlock = (props: {
   </Unstyled>
 )
 
-const TabbedCodeBlocks = ({
-  blocks,
-}: {
-  blocks: Array<
-    React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
-  >
-}): JSX.Element => (
+type CodeBlocks = Array<CodeBlockProps & { name: string }>
+type TabbedCodeBlocksProps = { blocks: CodeBlocks }
+
+const TabbedCodeBlocks = ({ blocks }: TabbedCodeBlocksProps): JSX.Element => (
   <Tabs>
     <TabList aria-label="Tabs">
       {blocks.map(({ name }) => (
@@ -62,9 +61,7 @@ const TabbedCodeBlocks = ({
   </Tabs>
 )
 
-const themesBlocks: Array<
-  React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
-> = [
+const themesBlocks = [
   {
     name: "JS",
     language: "typescript",
@@ -88,14 +85,13 @@ const themesBlocks: Array<
       </span>
     ),
   },
-]
+] satisfies CodeBlocks
 
 export const ThemesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={themesBlocks} />
 )
-const sassBlocks: Array<
-  React.ComponentPropsWithoutRef<typeof CodeBlock> & { name: string }
-> = [
+
+const sassBlocks = [
   {
     name: "Color",
     language: "scss",
@@ -156,10 +152,8 @@ const sassBlocks: Array<
       </code>
     ),
   },
-]
+] satisfies CodeBlocks
 
 export const SassVariablesCodeBlocks = (): JSX.Element => (
   <TabbedCodeBlocks blocks={sassBlocks} />
 )
-
-export default {}

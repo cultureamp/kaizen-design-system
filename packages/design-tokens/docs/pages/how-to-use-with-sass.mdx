@@ -1,7 +1,6 @@
 import { Meta, Source } from "@storybook/blocks"
 import { LinkTo } from "~storybook/components/LinkTo"
-import { CodeBlock } from "../DocsComponents"
-import exampleSass from "!!raw-loader!./examples/example.scss"
+import exampleSass from "./examples/example.scss?raw"
 
 <Meta title="Systems/Tokens/How to use design tokens in SASS" parameters={{ docsOnly: true }} />
 
@@ -20,7 +19,7 @@ There are 2 different ways you can utilise the tokens:
 ### Using CSS Vars
 
 <Source
-  language="scss"
+  language="css"
   code={`
 .myCustomClassName {
   background-color: vars(--color-gray-100);
@@ -34,7 +33,7 @@ There are 2 different ways you can utilise the tokens:
 * Use these tokens in your CSS. They will be compiled to CSS variables (e.g. `$color-purple-800` will become `var(--color-purple-800)`)
 
 Example:
-<CodeBlock language="scss" code={exampleSass} />
+<Source language="css" code={exampleSass} />
 
 See <LinkTo pageId="systems-tokens-api">API</LinkTo> for all available tokens.
 
@@ -43,9 +42,12 @@ See <LinkTo pageId="systems-tokens-api">API</LinkTo> for all available tokens.
 ### Compile-time functions like `mix()` or `darken()` won't work
 
 **It won't be possible to do things like:**
-<CodeBlock language="scss" code={`.myClass {
+<Source language="css" code={`
+.myClass {
   color: mix(white, $color-purple-800, 90%);
-}`} />
+}
+  `}
+/>
 
 Because the exposed SASS variables contain values such as `var(--color-purple-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
 
@@ -57,11 +59,14 @@ Usually when we've used functions like `mix` or `shade` it has been to lighten o
 
 We have exposed extra sibling variables for every color, as seen in <LinkTo pageId="systems-tokens-api" section="sass-variables">SASS Variables</LinkTo>, which allow you to manipulate opacity of CSS variable colors:
 
-<CodeBlock language="scss" code={`@import '~@kaizen/design-tokens/sass/color.scss';
+<Source language="css" code={`
+@import '~@kaizen/design-tokens/sass/color.scss';
 
 .myClass {
   background-color: rgba($color-gray-200-rgb, 0.5);
-}`} />
+}
+  `}
+/>
 
 For similar reasons to the previous section, a statement like `rgba($color-gray-200, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--color-gray-200), 0.5)`.
 

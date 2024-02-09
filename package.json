@@ -125,7 +125,6 @@
     "postcss-preset-env": "^9.3.0",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.2.2",
-    "raw-loader": "^4.0.2",
     "react-test-renderer": "^18.2.0",
     "rimraf": "^5.0.5",
     "sass-loader": "^13.3.3",

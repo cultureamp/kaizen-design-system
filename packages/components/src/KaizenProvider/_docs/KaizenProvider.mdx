@@ -1,9 +1,9 @@
 import { Meta, Source } from "@storybook/blocks"
 import Highlight from "react-highlight"
-import migrationBonus from "!!raw-loader!./code-diffs/migration-bonus.diff"
-import migrationFETBonus from "!!raw-loader!./code-diffs/migration-fe-template-bonus.diff"
-import migrationFETToV1 from "!!raw-loader!./code-diffs/migration-fe-template-to-v1.diff"
-import migrationToV1 from "!!raw-loader!./code-diffs/migration-to-v1.diff"
+import migrationBonus from "./code-diffs/migration-bonus.diff?raw"
+import migrationFETBonus from "./code-diffs/migration-fe-template-bonus.diff?raw"
+import migrationFETToV1 from "./code-diffs/migration-fe-template-to-v1.diff?raw"
+import migrationToV1 from "./code-diffs/migration-to-v1.diff?raw"
 
 <Meta title="Components/Kaizen Provider/Installation" />
 
@@ -19,7 +19,8 @@ Ideally, there should only be one `KaizenProvider` that should wrap your entire 
 <Source
   language="tsx"
   code={`
-import { KaizenProvider } from "@kaizen/components";
+import { KaizenProvider } from "@kaizen/components"
+
 <KaizenProvider>
   <App />
 </KaizenProvider>
@@ -33,9 +34,7 @@ import { KaizenProvider } from "@kaizen/components";
 
 `KaizenProvider` our new root level wrapping component.
 
-
 <Highlight className="diff shadow-sm">{migrationToV1}</Highlight>
-
 
 If you're using the [frontend-template](https://github.com/cultureamp/frontend-template), you can replace it like this:
 
