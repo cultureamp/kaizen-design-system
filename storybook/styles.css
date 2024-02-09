@@ -1,4 +1,4 @@
-@import "../../packages/components/styles/foundation/styles.css";
+@import "../packages/components/styles/foundation/styles.css";
 @import "highlight.js/styles/a11y-light.css";
 
 @tailwind base;
