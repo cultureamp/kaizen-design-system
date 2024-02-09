@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm clean && pnpm prepublishOnly",

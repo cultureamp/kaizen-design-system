@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.40.1
+
+### Patch Changes
+
+- [#4515](https://github.com/cultureamp/kaizen-design-system/pull/4515) [`346e0648357221b08e4989bfd808b285bacfd4d0`](https://github.com/cultureamp/kaizen-design-system/commit/346e0648357221b08e4989bfd808b285bacfd4d0) - Update dependencies
+
+- [#4516](https://github.com/cultureamp/kaizen-design-system/pull/4516) [`f963e0a877ae846cc61e9a972a399ec2d22bc5c0`](https://github.com/cultureamp/kaizen-design-system/commit/f963e0a877ae846cc61e9a972a399ec2d22bc5c0) - Updated translations
+
 ## 1.40.0
 
 ### Minor Changes
