@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.2.4
+
+### Patch Changes
+
+- Updated dependencies [[`346e0648357221b08e4989bfd808b285bacfd4d0`](https://github.com/cultureamp/kaizen-design-system/commit/346e0648357221b08e4989bfd808b285bacfd4d0)]:
+  - @kaizen/design-tokens@10.3.18
+
 ## 1.2.3
 
 ### Patch Changes
