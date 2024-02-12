@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: kaizen-design-system
-  description: >
+  description: |
     Culture Amp's design system and component library.
   links:
     - title: GitHub
@@ -16,9 +16,9 @@ metadata:
     - title: Confluence Documentation
       url: https://cultureamp.atlassian.net/l/cp/H1pXXpEa
   tags:
-    - users-internal
-    - camp-foundations
+    - camp-core-experiences
     - data-none
+    - users-internal
   annotations:
     github.com/project-slug: cultureamp/kaizen-design-system
     github.com/team-slug: cultureamp/kaizen-design-system
