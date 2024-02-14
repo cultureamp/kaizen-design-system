@@ -576,7 +576,7 @@ importers:
         specifier: ^8.4.35
         version: 8.4.35
       prettier:
-        specifier: ^3.2.5
+        specifier: '*'
         version: 3.2.5
       react-map-interaction:
         specifier: ^2.1.0

@@ -39,7 +39,7 @@
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",
     "postcss": "^8.4.35",
-    "prettier": "^3.2.5",
+    "prettier": "*",
     "react-map-interaction": "^2.1.0",
     "ts-node": "^10.9.2",
     "yargs": "^17.7.2"
