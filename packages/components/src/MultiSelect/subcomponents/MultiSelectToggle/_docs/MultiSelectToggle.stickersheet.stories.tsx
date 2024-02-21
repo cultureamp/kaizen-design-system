@@ -61,7 +61,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet
           isReversed={isReversed}
           heading="Pseudo states"
-          className="w-full"
+          className="kz-w-full"
         >
           <StickerSheet.Header
             headings={["Hover", "Focus"]}
@@ -95,7 +95,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet
           isReversed={isReversed}
           heading="Validation states"
-          className="w-full"
+          className="kz-w-full"
         >
           <StickerSheet.Header
             headings={["Error", "Caution"]}
@@ -112,7 +112,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet
           isReversed={isReversed}
           heading="Has selected values"
-          className="w-full"
+          className="kz-w-full"
         >
           <StickerSheet.Header
             headings={["Default", "Hover", "Multi-line"]}
