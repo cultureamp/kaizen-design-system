@@ -24,14 +24,14 @@ const PopoverTemplate = (
       <button
         ref={refs.setReference}
         type="button"
-        className="border border-gray-500"
+        className="kz-border kz-border-gray-500"
         onClick={() => setIsOpen(!isOpen)}
       >
         Pancakes!
       </button>
       {isOpen && (
         <Popover refs={refs} aria-label="Pancakes!" {...args}>
-          <div className="p-16">{args.children || "Content here!"}</div>
+          <div className="kz-p-16">{args.children || "Content here!"}</div>
         </Popover>
       )}
     </div>
@@ -54,15 +54,15 @@ const StickerSheetTemplate: StickerSheetStory = {
         ref={portalRef}
         // overflow-hidden is added so we can ensure the last row autoplaces above
         // padding added to allow buffer for box-shadow which gets cut off by overflow-hidden
-        className="relative flex flex-col justify-between gap-160 h-[400px] px-16 overflow-hidden"
+        className="kz-relative kz-flex kz-flex-col kz-justify-between kz-gap-160 kz-h-[400px] kz-px-16 kz-overflow-hidden"
       >
         <div>
-          <Heading variant="heading-3" tag="div" classNameOverride="!mb-16">
+          <Heading variant="heading-3" tag="div" classNameOverride="!kz-mb-16">
             {parameters.textDirection === "rtl"
               ? "Default alignment to bottom-right; align to left when no space on left"
               : "Default alignment to bottom-left; align to right when no space on right"}
           </Heading>
-          <div className="flex justify-between w-[100%]">
+          <div className="kz-flex kz-justify-between kz-w-[100%]">
             <PopoverTemplate />
             <PopoverTemplate />
             <PopoverTemplate />
@@ -70,11 +70,11 @@ const StickerSheetTemplate: StickerSheetStory = {
         </div>
 
         <div>
-          <Heading variant="heading-3" tag="div" classNameOverride="!mb-64">
+          <Heading variant="heading-3" tag="div" classNameOverride="!kz-mb-64">
             Flips to top when no space below
           </Heading>
           <div>Content below popover</div>
-          <div className="flex justify-between w-[100%]">
+          <div className="kz-flex kz-justify-between kz-w-[100%]">
             <PopoverTemplate portalContainer={portalContainer} />
             <PopoverTemplate portalContainer={portalContainer} />
           </div>
@@ -116,7 +116,7 @@ const PopoverWithPortal = ({
       // overflow-hidden is added so we can ensure the last row autoplaces above
       // padding added to allow buffer for box-shadow which gets cut off by overflow-hidden
       className={classnames(
-        "relative border border-purple-500 overflow-hidden",
+        "kz-relative kz-border kz-border-purple-500 kz-overflow-hidden",
         portalClassName
       )}
     >
@@ -140,18 +140,18 @@ const List = ({ items }: { items: string[] }): JSX.Element => (
 export const StickerSheetWidth: StickerSheetStory = {
   name: "Sticker Sheet (Width)",
   render: () => (
-    <div className="flex flex-col gap-16">
+    <div className="kz-flex kz-flex-col kz-gap-16">
       <Heading variant="heading-3" tag="div">
         Content short (min-width)
       </Heading>
-      <PopoverWithPortal portalClassName="h-[250px]">
+      <PopoverWithPortal portalClassName="kz-h-[250px]">
         <List items={["A"]} />
       </PopoverWithPortal>
 
       <Heading variant="heading-3" tag="div">
         Content long (max-width)
       </Heading>
-      <PopoverWithPortal portalClassName="h-[250px]">
+      <PopoverWithPortal portalClassName="kz-h-[250px]">
         <List
           items={[
             "Super long string where the container is fixed width and the selected string goes multiline",
@@ -162,7 +162,7 @@ export const StickerSheetWidth: StickerSheetStory = {
       <Heading variant="heading-3" tag="div">
         Window max-width 250px
       </Heading>
-      <PopoverWithPortal portalClassName="w-[250px] h-[250px]">
+      <PopoverWithPortal portalClassName="kz-w-[250px] kz-h-[250px]">
         <List
           items={[
             "Super long string where the container is fixed width and the selected string goes multiline",
@@ -196,18 +196,18 @@ const itemsLong = [
 export const StickerSheetHeight: StickerSheetStory = {
   name: "Sticker Sheet (Height)",
   render: () => (
-    <div className="flex flex-col gap-16">
+    <div className="kz-flex kz-flex-col kz-gap-16">
       <Heading variant="heading-3" tag="div">
         Content overflow (max-height)
       </Heading>
-      <PopoverWithPortal portalClassName="h-[500px]">
+      <PopoverWithPortal portalClassName="kz-h-[500px]">
         <List items={itemsLong} />
       </PopoverWithPortal>
 
       <Heading variant="heading-3" tag="div">
         Window max-height 250px
       </Heading>
-      <PopoverWithPortal portalClassName="h-[250px]">
+      <PopoverWithPortal portalClassName="kz-h-[250px]">
         <List items={itemsLong} />
       </PopoverWithPortal>
     </div>

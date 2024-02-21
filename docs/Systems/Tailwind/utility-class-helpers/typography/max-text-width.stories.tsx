@@ -4,7 +4,7 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "max-w-"
+const prefix = "kz-max-w-"
 const classEntries = Object.entries(
   kaizenTailwindTheme.extend.maxWidth || []
 ).map(([suffix, cssPropertyArr]) => ({
@@ -27,10 +27,10 @@ export default {
 } satisfies Meta
 
 const fontClasses = {
-  "max-w-paragraph-lede": "text-paragraph-lede leading-paragraph-lede",
-  "max-w-paragraph": "text-paragraph leading-paragraph",
-  "max-w-paragraph-sm": "text-paragraph-sm leading-paragraph-sm",
-  "max-w-paragraph-xs": "text-paragraph-xs leading-paragraph-xs",
+  "kz-max-w-paragraph-lede": "kz-text-paragraph-lede kz-leading-paragraph-lede",
+  "kz-max-w-paragraph": "kz-text-paragraph kz-leading-paragraph",
+  "kz-max-w-paragraph-sm": "kz-text-paragraph-sm kz-leading-paragraph-sm",
+  "kz-max-w-paragraph-xs": "kz-text-paragraph-xs kz-leading-paragraph-xs",
 }
 
 const getFontClass = (utilityClass: string): string =>
@@ -50,7 +50,7 @@ export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({
           deserunt quo molestiae expedita dolor? Alias iusto ad maiores odit! (
           {[utilityClass, getFontClass(utilityClass)].join(" ")})
         </p>
-        <code className="text-paragraph-sm bg-gray-300 py-4 px-8">
+        <code className="kz-text-paragraph-sm kz-bg-gray-300 kz-py-4 kz-px-8">
           {[utilityClass, getFontClass(utilityClass)].join(" ")}
         </code>
       </>

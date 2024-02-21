@@ -63,7 +63,7 @@ const EditableRichTextContentTemplate: Story = {
             defaultValue={editRteData}
             onChange={handleOnChange}
           />
-          <div className="flex justify-end mt-8">
+          <div className="kz-flex kz-justify-end kz-mt-8">
             <Button label="Cancel" secondary onClick={handleCancel} />
             <Button label="Save" primary onClick={handleSave} />
           </div>

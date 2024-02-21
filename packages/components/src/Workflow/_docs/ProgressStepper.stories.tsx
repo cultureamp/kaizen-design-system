@@ -33,7 +33,7 @@ const meta = {
   },
   decorators: [
     Story => (
-      <div className="bg-blue-500 p-8">
+      <div className="kz-bg-blue-500 kz-p-8">
         <Story />
       </div>
     ),

@@ -25,7 +25,7 @@ export const Playground: Story = {
 }
 
 export const ClassNameOverride: Story = {
-  args: { classNameOverride: "text-green-400" },
+  args: { classNameOverride: "kz-text-green-400" },
 }
 
 export const Size: Story = {
@@ -37,7 +37,7 @@ export const Size: Story = {
   ),
   decorators: [
     Story => (
-      <div className="flex gap-24">
+      <div className="kz-flex kz-gap-24">
         <Story />
       </div>
     ),

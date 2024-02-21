@@ -60,7 +60,7 @@ const InlineControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
       </span>
     }
   >
-    <span className="inline-block w-16 h-16 bg-gray-500"></span>
+    <span className="kz-inline-block kz-w-16 kz-h-16 kz-bg-gray-500"></span>
   </Label>
 )
 
@@ -86,7 +86,7 @@ const BlockControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
         </span>
       }
     />
-    <span className="block w-200 h-16 bg-gray-500"></span>
+    <span className="kz-block kz-w-200 kz-h-16 kz-bg-gray-500"></span>
   </>
 )
 

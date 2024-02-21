@@ -27,7 +27,7 @@ const QueryInfo = ({
   selectorValue,
   children,
 }: QueryInfoProps): React.ReactElement => (
-  <div className="my-12">
+  <div className="kz-my-12">
     <Text variant="intro-lede">Pseudo selector: {selector}</Text>
     <Text variant="body">Breakpoint: {selectorValue}</Text>
     <Text variant="body">In this example: {selector}:bg-blue-400</Text>
@@ -37,23 +37,23 @@ const QueryInfo = ({
 )
 
 export const MediaQueries: StoryFn = () => (
-  <div className="py-32">
-    <Heading tag="p" variant="heading-4" classNameOverride="text-center">
+  <div className="kz-py-32">
+    <Heading tag="p" variant="heading-4" classNameOverride="kz-text-center">
       These breakpoints activate <em>over</em> a certain screen width. Meaning
       that bg-blue-400 will be applied when the screen gets <em>wider</em>.
     </Heading>
     <QueryInfo selector="md" selectorValue="768px">
-      <div className="border-solid md:bg-blue-400 h-[50px] w-full rounded" />
+      <div className="kz-border-solid md:kz-bg-blue-400 kz-h-[50px] kz-w-full kz-rounded" />
     </QueryInfo>
     <QueryInfo selector="lg" selectorValue="1080px">
-      <div className="border-solid lg:bg-blue-400 h-[50px] w-full rounded" />
+      <div className="kz-border-solid lg:kz-bg-blue-400 kz-h-[50px] kz-w-full kz-rounded" />
     </QueryInfo>
   </div>
 )
 
 export const ArbitraryMediaQueries: StoryFn = () => (
-  <div className="py-32">
-    <Heading tag="p" variant="heading-4" classNameOverride="text-center">
+  <div className="kz-py-32">
+    <Heading tag="p" variant="heading-4" classNameOverride="kz-text-center">
       Bespoke, one-off media queries can be created with arbitrary values. See
       the{" "}
       <a href="https://tailwindcss.com/docs/responsive-design#arbitrary-values">
@@ -62,13 +62,13 @@ export const ArbitraryMediaQueries: StoryFn = () => (
       for more info.
     </Heading>
 
-    <div className="py-32">
+    <div className="kz-py-32">
       <Text variant="body">
         <strong>Min-width breakpoint</strong> (applied when the screen gets{" "}
         <em>wider</em>)
       </Text>
       <Text variant="body">In this example: min-[500px]:bg-blue-400</Text>
-      <div className="border-solid min-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
+      <div className="kz-border-solid min-[500px]:kz-bg-blue-400 kz-h-[50px] kz-w-full kz-rounded-default" />
     </div>
 
     <Text variant="body">
@@ -76,6 +76,6 @@ export const ArbitraryMediaQueries: StoryFn = () => (
       <em>slimmer</em>)
     </Text>
     <Text variant="body">In this example: max-[500px]:bg-blue-400</Text>
-    <div className="border-solid max-[500px]:bg-blue-400 h-[50px] w-full rounded-default" />
+    <div className="kz-border-solid max-[500px]:kz-bg-blue-400 kz-h-[50px] kz-w-full kz-rounded-default" />
   </div>
 )

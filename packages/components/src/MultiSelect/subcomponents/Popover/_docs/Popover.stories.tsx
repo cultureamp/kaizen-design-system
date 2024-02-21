@@ -8,7 +8,7 @@ const meta = {
   args: {
     refs: undefined,
     children: (
-      <div className="p-16">
+      <div className="kz-p-16">
         <button type="button">Waffles</button>
         <button type="button">Pikelets</button>
         <button type="button">Crumpets</button>
@@ -17,10 +17,10 @@ const meta = {
   },
   decorators: [
     Story => (
-      <div className="overflow-scroll max-w-[200px] max-h-[200px] border-solid">
+      <div className="kz-overflow-scroll kz-max-w-[200px] kz-max-h-[200px] kz-border-solid">
         <div
           id="testing-ground"
-          className="relative flex justify-center items-center h-[500px] w-[500px]"
+          className="kz-relative kz-flex kz-justify-center kz-items-center kz-h-[500px] kz-w-[500px]"
         >
           <Story />
         </div>

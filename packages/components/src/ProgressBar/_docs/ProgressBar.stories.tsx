@@ -53,7 +53,7 @@ export const IsAnimating: Story = {
 
 export const ValueAndMax: Story = {
   render: () => (
-    <div className="flex flex-col gap-16">
+    <div className="kz-flex kz-flex-col kz-gap-16">
       <ProgressBar
         mood="positive"
         value={3}

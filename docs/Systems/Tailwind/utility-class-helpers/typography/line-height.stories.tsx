@@ -5,7 +5,7 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "leading-"
+const prefix = "kz-leading-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   Object.entries(kaizenTailwindTheme.lineHeight || []).map(
     ([suffix, cssProperty]) => ({
@@ -35,7 +35,7 @@ export const LineHeight: StoryFn<{ isReversed: boolean }> = ({
     compiledCssPropertyName="line-height"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <p className={classnames("w-0", utilityClass)}>
+      <p className={classnames("kz-w-0", utilityClass)}>
         Tutant Meenage Neetle Teetles
       </p>
     )}

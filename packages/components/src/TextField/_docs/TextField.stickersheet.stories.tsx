@@ -16,7 +16,7 @@ export default {
 } satisfies Meta
 
 const TextFieldExampleGroup = (props: TextFieldProps): JSX.Element => (
-  <ul className="grid gap-16 list-none p-0 m-0">
+  <ul className="kz-grid kz-gap-16 kz-list-none kz-p-0 kz-m-0">
     {InputTypes.map(type => (
       <li key={type}>
         <TextField

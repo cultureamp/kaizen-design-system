@@ -25,7 +25,7 @@ export const Playground: Story = {
 export const EnabledAspectRatio: Story = {
   render: () => (
     <>
-      <div className="flex items-center gap-16">
+      <div className="kz-flex kz-items-center kz-gap-16">
         <CompanyDetails enableAspectRatio={true} />
         <Text variant="body">
           With <code>enableAspectRatio</code>... lorem ipsum dolor sit amet
@@ -34,7 +34,7 @@ export const EnabledAspectRatio: Story = {
           at ea iure id enim ipsam voluptatum!
         </Text>
       </div>
-      <div className="flex items-center gap-16">
+      <div className="kz-flex kz-items-center kz-gap-16">
         <CompanyDetails />
         <Text variant="body">
           Without <code>enableAspectRatio</code>... lorem ipsum dolor sit amet

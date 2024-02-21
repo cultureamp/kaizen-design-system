@@ -200,7 +200,7 @@ export const Error: Story = {
     },
     body: (
       <>
-        <div className="mb-16">
+        <div className="kz-mb-16">
           <Text variant="intro-lede">
             Sorry but we can&apos;t find the page you&apos;re looking for. Go
             back and try again, or head to <a href="#">Home</a>.

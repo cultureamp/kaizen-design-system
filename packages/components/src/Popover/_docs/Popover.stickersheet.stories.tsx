@@ -21,8 +21,12 @@ const PopoverWrapper = (
   const [referenceElementRef, Popover] = usePopover()
 
   return (
-    <div className="text-center">
-      <button type="button" className="inline-block" ref={referenceElementRef}>
+    <div className="kz-text-center">
+      <button
+        type="button"
+        className="kz-inline-block"
+        ref={referenceElementRef}
+      >
         Pop
       </button>
       <Popover {...props}>Hello world</Popover>

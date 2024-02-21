@@ -4,7 +4,7 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "border-spacing-"
+const prefix = "kz-border-spacing-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   Object.entries(kaizenTailwindTheme.spacing || []).map(
     ([suffix, cssProperty]) => ({
@@ -31,18 +31,26 @@ export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="border-spacing"
+    compiledCssPropertyName="kz-border-spacing"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <table className={utilityClass}>
         <tbody>
           <tr>
-            <td className="outline-[black] outline-1 outline">Tutant</td>
-            <td className="outline-[black] outline-1 outline">Meenage</td>
+            <td className="kz-outline-[black] kz-outline-1 kz-outline">
+              Tutant
+            </td>
+            <td className="kz-outline-[black] kz-outline-1 kz-outline">
+              Meenage
+            </td>
           </tr>
           <tr>
-            <td className="outline-[black] outline-1 outline">Neetle</td>
-            <td className="outline-[black] outline-1 outline">Teetles</td>
+            <td className="kz-outline-[black] kz-outline-1 kz-outline">
+              Neetle
+            </td>
+            <td className="kz-outline-[black] kz-outline-1 kz-outline">
+              Teetles
+            </td>
           </tr>
         </tbody>
       </table>

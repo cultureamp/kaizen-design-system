@@ -26,10 +26,10 @@ export const Playground: Story = {
 }
 
 const InlineFormControl = (): JSX.Element => (
-  <span className="inline-block w-16 h-16 bg-gray-500"></span>
+  <span className="kz-inline-block kz-w-16 kz-h-16 kz-bg-gray-500"></span>
 )
 const BlockFormControl = (): JSX.Element => (
-  <span className="block w-200 h-16 bg-gray-500"></span>
+  <span className="kz-block kz-w-200 kz-h-16 kz-bg-gray-500"></span>
 )
 
 export const InlineControls: Story = {
@@ -42,7 +42,7 @@ export const InlineControls: Story = {
 
 export const Position: Story = {
   render: () => (
-    <span className="flex flex-col gap-16">
+    <span className="kz-flex kz-flex-col kz-gap-16">
       <Label labelText="Checkbox (default position: end)" labelType="checkbox">
         <InlineFormControl />
       </Label>
@@ -78,7 +78,7 @@ export const BlockControls: Story = {
 
 export const Types: Story = {
   render: () => (
-    <ul className="flex gap-16 list-none m-0 p-0">
+    <ul className="kz-flex kz-gap-16 kz-list-none kz-m-0 kz-p-0">
       {LabelTypes.map(type => (
         <li key={type}>
           <Label labelType={type}>{type}</Label>
@@ -103,7 +103,7 @@ export const LabelText: Story = {
 
 export const Variant: Story = {
   render: () => (
-    <div className="flex flex-col gap-16">
+    <div className="kz-flex kz-flex-col kz-gap-16">
       <Label variant="default">Label default</Label>
       <Label variant="prominent">Label prominent</Label>
     </div>

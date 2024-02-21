@@ -46,7 +46,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet
           isReversed={isReversed}
           heading="MultiSelectToggle"
-          className="w-full"
+          className="kz-w-full"
         >
           <StickerSheet.Body>
             <StickerSheet.Row rowTitle="Default" rowTitleWidth="10rem">
@@ -120,7 +120,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           />
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <StickerSheet.Cell className="align-top">
+              <StickerSheet.Cell className="kz-align-top">
                 <MultiSelectToggle
                   {...defaultProps}
                   selectedOptions={[
@@ -129,7 +129,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   ]}
                 />
               </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
+              <StickerSheet.Cell className="kz-align-top">
                 <MultiSelectToggle
                   {...defaultProps}
                   selectedOptions={[
@@ -139,7 +139,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   data-sb-pseudo-styles="hover"
                 />
               </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
+              <StickerSheet.Cell className="kz-align-top">
                 <MultiSelectToggle
                   {...defaultProps}
                   selectedOptions={[

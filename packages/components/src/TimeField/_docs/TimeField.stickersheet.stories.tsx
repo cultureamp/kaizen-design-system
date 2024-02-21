@@ -28,14 +28,14 @@ const StickerSheetTemplate: StickerSheetStory = {
 
     return (
       <>
-        <StickerSheet heading="TimeField" className="w-full">
+        <StickerSheet heading="TimeField" className="kz-w-full">
           <StickerSheet.Header
             headings={["Default", "Disabled", "Error"]}
             headingsWidth="30%"
           />
           <StickerSheet.Body>
             <StickerSheet.Row>
-              <StickerSheet.Cell className="align-top">
+              <StickerSheet.Cell className="kz-align-top">
                 <TimeField
                   label="Label (en-AU)"
                   locale="en-AU"
@@ -43,7 +43,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   onChange={setValueDefault}
                 />
               </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
+              <StickerSheet.Cell className="kz-align-top">
                 <TimeField
                   label="Label (en-AU)"
                   locale="en-AU"
@@ -52,7 +52,7 @@ const StickerSheetTemplate: StickerSheetStory = {
                   isDisabled
                 />
               </StickerSheet.Cell>
-              <StickerSheet.Cell className="align-top">
+              <StickerSheet.Cell className="kz-align-top">
                 <TimeField
                   label="Label (en-AU)"
                   locale="en-AU"
@@ -66,7 +66,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet heading="Pseudo states" className="w-full">
+        <StickerSheet heading="Pseudo states" className="kz-w-full">
           <StickerSheet.Header headings={["Hover", "Focus"]} />
           <StickerSheet.Body>
             <StickerSheet.Row>
@@ -88,7 +88,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           </StickerSheet.Body>
         </StickerSheet>
 
-        <StickerSheet heading="Localisation" className="w-full">
+        <StickerSheet heading="Localisation" className="kz-w-full">
           <StickerSheet.Header
             headings={["en-US", "en-GB", "zh-HANS-SG"]}
             headingsWidth="30%"

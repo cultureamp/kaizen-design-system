@@ -15,7 +15,7 @@ export default {
 } satisfies Meta
 
 const CheckboxFieldGroupWrapper = (props: CheckboxFieldProps): JSX.Element => (
-  <div className="grid gap-8">
+  <div className="kz-grid kz-gap-8">
     <CheckboxField {...props} />
     <CheckboxField {...props} checkedStatus="on" />
     <CheckboxField {...props} checkedStatus="mixed" />

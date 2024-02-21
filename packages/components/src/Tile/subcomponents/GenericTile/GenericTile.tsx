@@ -57,7 +57,7 @@ export const GenericTile = ({
         {title}
       </Heading>
       {metadata && (
-        <div className="pt-4">
+        <div className="kz-pt-4">
           <Text variant="small" color="dark-reduced-opacity">
             {metadata}
           </Text>

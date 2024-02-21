@@ -32,10 +32,10 @@ const PopoverTemplate: Story = {
     const [referenceElementRef, Popover] = usePopover()
 
     return (
-      <div className="text-center relative">
+      <div className="kz-text-center kz-relative">
         <button
           type="button"
-          className="inline-block mt-112"
+          className="kz-inline-block kz-mt-112"
           ref={referenceElementRef}
         >
           Pop
@@ -53,7 +53,7 @@ export const Playground: Story = {
   ...PopoverTemplate,
   decorators: [
     Story => (
-      <div className="h-[300px]">
+      <div className="kz-h-[300px]">
         <Story />
       </div>
     ),
@@ -65,20 +65,20 @@ export const Variants: Story = {
     const Popover = (props: PopoverProps): JSX.Element =>
       PopoverTemplate.render!({ ...args, ...props }, context)
     return (
-      <div className="flex pl-32">
-        <div className="w-[150px]">
+      <div className="kz-flex kz-pl-32">
+        <div className="kz-w-[150px]">
           <Popover {...args} heading="Default" />
         </div>
-        <div className="w-[150px]">
+        <div className="kz-w-[150px]">
           <Popover {...args} variant="positive" heading="Positive" />
         </div>
-        <div className="w-[150px]">
+        <div className="kz-w-[150px]">
           <Popover {...args} variant="informative" heading="Informative" />
         </div>
-        <div className="w-[150px]">
+        <div className="kz-w-[150px]">
           <Popover {...args} variant="negative" heading="Negative" />
         </div>
-        <div className="w-[150px]">
+        <div className="kz-w-[150px]">
           <Popover {...args} variant="cautionary" heading="Cautionary" />
         </div>
       </div>

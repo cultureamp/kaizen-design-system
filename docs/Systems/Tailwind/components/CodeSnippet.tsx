@@ -17,13 +17,13 @@ export const CodeSnippet = ({ text, onCopy }: Props): React.ReactElement => {
   return (
     <button
       type="button"
-      className="bg-[#00182e] h-min rounded px-12 border-none cursor-pointer w-full"
+      className="kz-bg-[#00182e] kz-h-min kz-rounded kz-px-12 kz-border-none kz-cursor-pointer kz-w-full"
       onClick={(): void => handleCopy(text)}
       onBlur={(): void => setCopyIconIsChecked(false)}
     >
-      <p className="font-family-paragraph text-white flex justify-between items-center">
+      <p className="kz-font-family-paragraph kz-text-white kz-flex kz-justify-between kz-items-center">
         <span>{text}</span>
-        <span className="text-underline text-white">
+        <span className="kz-text-underline kz-text-white">
           {copyIconIsChecked ? (
             <ClosedIcon role="img" aria-label="copied" />
           ) : (

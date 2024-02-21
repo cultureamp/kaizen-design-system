@@ -6,7 +6,7 @@ import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "bg-"
+const prefix = "kz-bg-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors || {})
 
 export default {
@@ -33,7 +33,7 @@ export const BackgroundColor: StoryFn<{ isReversed: boolean }> = ({
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "w-[100px] h-[100px] border border-purple-100 rounded",
+          "kz-w-[100px] kz-h-[100px] kz-border kz-border-purple-100 kz-rounded",
           utilityClass
         )}
       />

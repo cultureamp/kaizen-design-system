@@ -314,7 +314,7 @@ export const DependentFilter: Story = {
           values={values}
           onValuesChange={setValues}
         />
-        <div className="flex gap-8 my-16">
+        <div className="kz-flex kz-gap-8 kz-my-16">
           <button
             type="button"
             onClick={() => setValues({ ...values, coffee: undefined })}
@@ -657,7 +657,7 @@ export const ExternalEventValuesUpdate: Story = {
           onValuesChange={setValues}
         />
 
-        <div className="flex gap-8 my-16">
+        <div className="kz-flex kz-gap-8 kz-my-16">
           <button
             type="button"
             onClick={() => setValues({ ...values, flavour: "honey-milk-tea" })}
@@ -675,7 +675,7 @@ export const ExternalEventValuesUpdate: Story = {
           </button>
         </div>
 
-        <code className="mt-16">Values:</code>
+        <code className="kz-mt-16">Values:</code>
         <Highlight className="json">
           {JSON.stringify(values, null, 4)}
         </Highlight>
@@ -747,7 +747,7 @@ export const ExternalEventOpenFilter: Story = {
           values={values}
           onValuesChange={setValues}
         />
-        <div className="mt-16">
+        <div className="kz-mt-16">
           <code>Values:</code>
           <Highlight className="json">
             {JSON.stringify(values, null, 4)}

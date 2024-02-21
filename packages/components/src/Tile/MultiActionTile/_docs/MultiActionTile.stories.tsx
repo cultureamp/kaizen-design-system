@@ -31,7 +31,7 @@ export const Playground: Story = {
 
 export const Moods: Story = {
   render: args => (
-    <div className="flex gap-16 flex-wrap">
+    <div className="kz-flex kz-gap-16 kz-flex-wrap">
       {moodsList.map(mood => (
         <MultiActionTile key={mood} mood={mood} {...args} />
       ))}

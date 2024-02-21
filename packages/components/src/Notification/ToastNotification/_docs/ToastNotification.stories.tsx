@@ -79,7 +79,7 @@ export const UpdateNotification: Story = {
       <>
         <Button
           label="Create notification"
-          classNameOverride="!mr-12"
+          classNameOverride="!kz-mr-12"
           onClick={() =>
             addToastNotification({
               id: "id--update-example",
@@ -113,7 +113,7 @@ export const RemoveNotification: Story = {
       <>
         <Button
           label="Create notification"
-          classNameOverride="!mr-12"
+          classNameOverride="!kz-mr-12"
           onClick={() =>
             addToastNotification({
               id: "id--remove-example",
@@ -140,7 +140,7 @@ export const ClearNotifications: Story = {
       <>
         <Button
           label="Create notifications"
-          classNameOverride="!mr-12"
+          classNameOverride="!kz-mr-12"
           onClick={() => {
             addToastNotification({
               id: "id--clear-example-1",

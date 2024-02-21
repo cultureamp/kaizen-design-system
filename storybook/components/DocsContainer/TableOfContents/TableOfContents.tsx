@@ -37,8 +37,8 @@ export const TableOfContents = (): JSX.Element | null => {
   if (headings.length < 1) return null
 
   return (
-    <div className="tocbot-container pl-12 pb-1 border-gray-300 border-solid border-y-w-none border-r-w-none border-l-[1px]">
-      <h2 className="font-family-paragraph text-paragraph-xs text-gray-600 leading-heading-5 font-weight-paragraph-bold mt-0 mb-8">
+    <div className="tocbot-container kz-pl-12 kz-pb-1 kz-border-gray-300 kz-border-solid kz-border-y-w-none kz-border-r-w-none kz-border-l-[1px]">
+      <h2 className="kz-font-family-paragraph kz-text-paragraph-xs kz-text-gray-600 kz-leading-heading-5 kz-font-weight-paragraph-bold kz-mt-0 kz-mb-8">
         On this page
       </h2>
       <div className="tocbot-list"></div>

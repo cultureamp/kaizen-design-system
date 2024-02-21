@@ -11,13 +11,13 @@ export const CardContent = ({
   title,
   illustration,
 }: CardContentProps): React.ReactElement => (
-  <div className="flex w-[400px] flex-col items-center p-24 pt-48">
+  <div className="kz-flex kz-w-[400px] kz-flex-col kz-items-center kz-p-24 kz-pt-48">
     <Heading variant="heading-3">{title}</Heading>
-    <p className="pt-12 pb-24 text-center font-family-paragraph text-heading-6 font-weight-paragraph text-purple-800">
+    <p className="kz-pt-12 kz-pb-24 kz-text-center kz-font-family-paragraph kz-text-heading-6 kz-font-weight-paragraph kz-text-purple-800">
       Lorem ipsum oogum boogum. Tutant meenage neetle teetles.
     </p>
-    <div className="w-[200px]">{illustration}</div>
-    <div className="pt-24">
+    <div className="kz-w-[200px]">{illustration}</div>
+    <div className="kz-pt-24">
       <Button label="Button" />
     </div>
   </div>

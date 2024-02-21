@@ -49,13 +49,13 @@
   For example, to add a border-bottom to an element, we would previously need to write:
 
   ```
-  className="border-b-default border-l-none border-r-none border-t-none border-solid border-purple-800"
+  className="kz-border-b-default kz-border-l-none kz-border-r-none kz-border-t-none kz-border-solid kz-border-purple-800"
   ```
 
   We can now achieve the same css by simply writing:
 
   ```
-  className="border-b"
+  className="kz-border-b"
   ```
 
 ### Patch Changes

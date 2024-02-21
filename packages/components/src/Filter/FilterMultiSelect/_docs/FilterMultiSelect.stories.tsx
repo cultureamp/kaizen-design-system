@@ -133,7 +133,7 @@ export const TruncatedLabels: Story = {
           labelText="Character limit"
           onChange={handleCharacterLimitChange}
           value={characterLimit}
-          classNameOverride="mb-24"
+          classNameOverride="kz-mb-24"
         />
         <FilterMultiSelect
           {...args}
@@ -542,7 +542,7 @@ export const WithSectionNotification: Story = {
                       items={disabledItems}
                       sectionHeader={
                         <>
-                          <span className="mb-6">Disabled items</span>
+                          <span className="kz-mb-6">Disabled items</span>
                           <InlineNotification
                             type="cautionary"
                             persistent

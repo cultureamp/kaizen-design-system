@@ -19,7 +19,7 @@ const StickerSheetTemplate: StickerSheetStory = {
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Default">
-          <StickerSheet.Cell className="w-320">
+          <StickerSheet.Cell className="kz-w-320">
             <LoadingParagraph isReversed={isReversed} />
           </StickerSheet.Cell>
         </StickerSheet.Row>

@@ -682,7 +682,7 @@ const IllustrationExampleTile = ({
   Component: IllustrationSpot
   name: string
 }): JSX.Element => (
-  <div className="w-[150px] inline-flex flex-col p-32 items-center">
+  <div className="kz-w-[150px] kz-inline-flex kz-flex-col kz-p-32 kz-items-center">
     <Component />
     <Text variant="small">{name}</Text>
   </div>
@@ -690,10 +690,10 @@ const IllustrationExampleTile = ({
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
-    <div className="grid gap-24">
+    <div className="kz-grid kz-gap-24">
       <div>
         <Heading variant="heading-3">Engagement</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {engagementSpots.map((props, i) => (
             <IllustrationExampleTile key={`engagement-${i}`} {...props} />
           ))}
@@ -702,7 +702,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">Experience</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {experienceSpots.map((props, i) => (
             <IllustrationExampleTile key={`experience-${i}`} {...props} />
           ))}
@@ -711,7 +711,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">Performance</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {performanceSpots.map((props, i) => (
             <IllustrationExampleTile key={`performance-${i}`} {...props} />
           ))}
@@ -720,7 +720,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">COVID-19</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {covidSpots.map((props, i) => (
             <IllustrationExampleTile key={`covid-${i}`} {...props} />
           ))}
@@ -729,7 +729,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">New Account</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {newAccountSpots.map((props, i) => (
             <IllustrationExampleTile key={`new-account-${i}`} {...props} />
           ))}
@@ -738,7 +738,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">Moods</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {moodSpots.map((props, i) => (
             <IllustrationExampleTile key={`moods-${i}`} {...props} />
           ))}
@@ -747,7 +747,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">Skills Coach</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {managerLearningSpots.map((props, i) => (
             <IllustrationExampleTile key={`skills-coach-${i}`} {...props} />
           ))}
@@ -756,7 +756,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">Offices</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {officeSpots.map((props, i) => (
             <IllustrationExampleTile key={`offices-${i}`} {...props} />
           ))}
@@ -765,7 +765,7 @@ const StickerSheetTemplate: StickerSheetStory = {
 
       <div>
         <Heading variant="heading-3">Miscellaneous</Heading>
-        <div className="flex flex-wrap ">
+        <div className="kz-flex kz-flex-wrap">
           {miscellaneousSpots.map((props, i) => (
             <IllustrationExampleTile key={`misc-${i}`} {...props} />
           ))}

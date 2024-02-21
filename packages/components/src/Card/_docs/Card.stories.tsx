@@ -26,7 +26,7 @@ export const Playground: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <ul className="flex list-none gap-16">
+    <ul className="kz-flex kz-list-none kz-gap-16">
       <li>
         <Card variant="default">Default</Card>
       </li>
@@ -54,7 +54,7 @@ export const Variants: Story = {
 
 export const Elevation: Story = {
   render: () => (
-    <ul className="flex list-none gap-16">
+    <ul className="kz-flex kz-list-none kz-gap-16">
       <li>
         <Card>Default</Card>
       </li>

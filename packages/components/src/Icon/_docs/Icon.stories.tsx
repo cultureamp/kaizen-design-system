@@ -37,7 +37,7 @@ export const Playground: Story = {
 
 export const ApplyColour: Story = {
   render: args => (
-    <div className="text-blue-500">
+    <div className="kz-text-blue-500">
       <AddIcon {...args} />
     </div>
   ),
@@ -81,7 +81,7 @@ export const Reference: Story = {
     const [searchTerm, setSearchTerm] = useState<string>("")
 
     return (
-      <div className="flex flex-col gap-16">
+      <div className="kz-flex kz-flex-col kz-gap-16">
         <SearchField
           labelText="Find icon by name"
           onChange={event => {

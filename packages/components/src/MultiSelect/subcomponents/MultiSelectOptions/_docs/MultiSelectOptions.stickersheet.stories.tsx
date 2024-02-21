@@ -49,7 +49,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedValues={new Set(["pancakes"])}
             onChange={() => undefined}
           />
-          <StickerSheet.Cell className="align-top">
+          <StickerSheet.Cell className="kz-align-top">
             <MultiSelectOptions
               id="id--multi-select-options--empty-state"
               options={[]}

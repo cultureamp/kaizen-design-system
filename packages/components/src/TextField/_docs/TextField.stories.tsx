@@ -27,7 +27,7 @@ export const Playground: Story = {
 
 export const Types: Story = {
   render: () => (
-    <div className="flex gap-16">
+    <div className="kz-flex kz-gap-16">
       <TextField labelText="Label" type="text" value="Text" />
       <TextField labelText="Label" type="email" value="email@email.com" />
       <TextField labelText="Label" type="password" value="password" />
@@ -50,7 +50,7 @@ export const Description: Story = {
 
 export const Validation: Story = {
   render: () => (
-    <div className="flex gap-16">
+    <div className="kz-flex kz-gap-16">
       <TextField
         labelText="Label"
         type="text"
@@ -91,7 +91,7 @@ export const Reversed: Story = {
   args: { reversed: true },
   decorators: [
     Story => (
-      <div className="bg-purple-700 p-16">
+      <div className="kz-bg-purple-700 kz-p-16">
         <Story />
       </div>
     ),

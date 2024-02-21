@@ -6,7 +6,7 @@ import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "text-"
+const prefix = "kz-text-"
 const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors || {})
 
 export default {
@@ -28,10 +28,10 @@ export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
     compiledCssPropertyName="color"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div className="flex items-center h-100">
+      <div className="kz-flex kz-items-center kz-h-100">
         <p
           className={classnames(
-            "font-family-paragraph p-8 rounded font-weight-display text-heading-3 m-0 mr-16",
+            "kz-font-family-paragraph kz-p-8 kz-rounded kz-font-weight-display kz-text-heading-3 kz-m-0 kz-mr-16",
             utilityClass
           )}
         >
@@ -39,7 +39,7 @@ export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
         </p>
         <p
           className={classnames(
-            "font-family-paragraph p-8 bg-[black] rounded font-weight-display text-heading-3 m-0",
+            "kz-font-family-paragraph kz-p-8 kz-bg-[black] kz-rounded kz-font-weight-display kz-text-heading-3 kz-m-0",
             utilityClass
           )}
         >

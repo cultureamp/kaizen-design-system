@@ -29,7 +29,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           return (
             <StickerSheet.Row key={iconName} rowTitle={iconName}>
               {icon}
-              <StickerSheet.Cell className="text-green-400">
+              <StickerSheet.Cell className="kz-text-green-400">
                 {icon}
               </StickerSheet.Cell>
             </StickerSheet.Row>

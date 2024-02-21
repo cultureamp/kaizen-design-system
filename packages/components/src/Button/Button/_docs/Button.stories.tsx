@@ -125,7 +125,7 @@ export const Loading: Story = {
 export const NativeFormButton: Story = {
   render: () => (
     <>
-      <form className="mb-6" id="unique-form-id">
+      <form className="kz-mb-6" id="unique-form-id">
         <TextField labelText="Sample text field" defaultValue="content" />
       </form>
       <Button

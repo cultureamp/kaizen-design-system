@@ -50,7 +50,7 @@ export const Playground: Story = {
 
 export const NoBottomMargin: Story = {
   render: args => (
-    <div className="flex gap-16">
+    <div className="kz-flex kz-gap-16">
       <div>
         <CheckboxField {...args} labelText="Default" />
         <CheckboxField {...args} labelText="Default" />

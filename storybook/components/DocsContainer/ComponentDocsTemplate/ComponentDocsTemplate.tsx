@@ -31,7 +31,7 @@ export const ComponentDocsTemplate = ({
   <DocsContainer context={context}>
     <Main>
       <Sidebar>
-        <div className="sticky right-0 top-12">
+        <div className="kz-sticky kz-right-0 kz-top-12">
           <Unstyled>
             <TableOfContents />
           </Unstyled>

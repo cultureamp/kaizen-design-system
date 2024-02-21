@@ -143,7 +143,7 @@ export const CustomiseTrigger: Story = {
 
 export const Validation: Story = {
   render: args => (
-    <div className="flex gap-16">
+    <div className="kz-flex kz-gap-16">
       <Select
         {...args}
         status="error"
@@ -169,7 +169,7 @@ export const PortalContainer: Story = {
       <>
         <div
           id={portalContainerId}
-          className="flex gap-24 bg-gray-200 p-12 overflow-hidden h-[200px] relative"
+          className="kz-flex kz-gap-24 kz-bg-gray-200 kz-p-12 kz-overflow-hidden kz-h-[200px] kz-relative"
         >
           <Select
             {...args}

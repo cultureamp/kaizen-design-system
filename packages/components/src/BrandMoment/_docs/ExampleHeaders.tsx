@@ -15,7 +15,7 @@ export const MinimalBasic = (): JSX.Element => (
       </a>
     </div>
     <div className={styles.headerRight}>
-      <div className="mr-8">
+      <div className="kz-mr-8">
         <Button
           href="#"
           label="Exit"

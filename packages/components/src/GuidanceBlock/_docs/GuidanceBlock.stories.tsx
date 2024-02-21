@@ -142,7 +142,7 @@ export const SceneExample: Story = {
 
 export const Variants: Story = {
   render: args => (
-    <div className="flex flex-col gap-16">
+    <div className="kz-flex kz-flex-col kz-gap-16">
       {variantsMap.map(variant => (
         <GuidanceBlock key={variant} {...args} variant={variant} />
       ))}

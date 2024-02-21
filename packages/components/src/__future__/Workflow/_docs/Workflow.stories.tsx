@@ -7,12 +7,12 @@ import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const MockContent = (): JSX.Element => (
-  <div className="flex flex-col flex-1 m-24 items-center">
-    <div className="max-w-[1392px] w-full">
+  <div className="kz-flex kz-flex-col kz-flex-1 kz-m-24 kz-items-center">
+    <div className="kz-max-w-[1392px] kz-w-full">
       <h2>Name and schedule the self-reflection cycle</h2>
       <form
         id="workflow-form-id"
-        className="bg-white rounded shadow-sm my-32 p-64"
+        className="kz-bg-white kz-rounded kz-shadow-sm kz-my-32 kz-p-64"
       >
         <h3>Name the cycle</h3>
         <TextField

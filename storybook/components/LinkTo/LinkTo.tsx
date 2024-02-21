@@ -18,7 +18,7 @@ export const LinkTo = ({
     type="button"
     onClick={linkTo(pageId, sectionName)}
     className={classnames(
-      "bg-transparent border-none text-blue-400 hover:underline cursor-pointer p-0",
+      "kz-bg-transparent kz-border-none kz-text-blue-400 hover:kz-underline kz-cursor-pointer kz-p-0",
       className
     )}
     {...restButtonAttributes}

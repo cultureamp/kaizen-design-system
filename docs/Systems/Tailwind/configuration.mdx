@@ -38,13 +38,13 @@ module.exports = {
 Here, the Kaizen preset overwrites the default Tailwind preset, and the `extend` field adds in some new values.
 Be careful though! While adding in a _new_ field to `colors` won't overwrite any existing ones, passing in an existing field _will_. In this example, `purple-100` has unfortunately been overwritten.
 
-`<p className="text-sky">...` ❌ Default TW config overwritten by `Preset`
+`<p className="kz-text-sky">...` ❌ Default TW config overwritten by `Preset`
 
-`<p className="text-myCoolNewColor">` ✅ New color added
+`<p className="kz-text-myCoolNewColor">` ✅ New color added
 
-`<p className="text-purple-100">` ️❗️ Value from `Preset` overwritten to "Lime"
+`<p className="kz-text-purple-100">` ️❗️ Value from `Preset` overwritten to "Lime"
 
-`<p className="text-purple-200">` ✅ Value from `Preset` not overwritten
+`<p className="kz-text-purple-200">` ✅ Value from `Preset` not overwritten
 
 <br/>
 
@@ -72,7 +72,7 @@ If this is changed or you are not using the [Frontend Template](https://github.c
       Utility classes not superseding Kaizen defaults when using <code>classNameOverride</code>
     </li>
     <li>
-      Duplication of utillity classes in your CSS bundle caused by consuming components with different <code>important</code> selectors
+      Duplication of utility classes in your CSS bundle caused by consuming components with different <code>important</code> selectors
     </li>
   </ul>
 </InlineNotification>

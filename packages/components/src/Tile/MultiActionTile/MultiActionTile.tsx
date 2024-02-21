@@ -18,7 +18,7 @@ const renderActions = (
 ): JSX.Element => (
   <div className={styles.actions}>
     {secondaryAction && (
-      <div className="mr-8">
+      <div className="kz-mr-8">
         <Action action={secondaryAction} secondary />
       </div>
     )}

@@ -20,7 +20,7 @@ const ContextModalTemplate: Story = {
       <>
         <button
           type="button"
-          className="border border-gray-500"
+          className="kz-border kz-border-gray-500"
           onClick={handleOpen}
         >
           Open Modal
@@ -33,7 +33,7 @@ const ContextModalTemplate: Story = {
           image={
             <AddImage
               classNameOverride={
-                args.layout === "landscape" ? "!w-auto h-200" : undefined
+                args.layout === "landscape" ? "!kz-w-auto kz-h-200" : undefined
               }
               alt="placeholder"
             />

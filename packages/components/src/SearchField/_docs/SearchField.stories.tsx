@@ -50,14 +50,14 @@ export const Disabled: Story = {
 
 export const Reversed: Story = {
   render: () => (
-    <div className="flex gap-16 items-end">
+    <div className="kz-flex kz-gap-16 kz-items-end">
       <SearchField labelText="Search (default)" reversed />
       <SearchField labelText="Search (secondary)" reversed secondary />
     </div>
   ),
   decorators: [
     Story => (
-      <div className="bg-purple-700 p-16">
+      <div className="kz-bg-purple-700 kz-p-16">
         <Story />
       </div>
     ),

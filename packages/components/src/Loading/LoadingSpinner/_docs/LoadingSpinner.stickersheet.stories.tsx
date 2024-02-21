@@ -26,7 +26,7 @@ const StickerSheetTemplate: StickerSheetStory = {
           <LoadingSpinner accessibilityLabel="Loading" size="md" />
           <LoadingSpinner
             accessibilityLabel="Loading"
-            classNameOverride="text-purple-400"
+            classNameOverride="kz-text-purple-400"
           />
         </StickerSheet.Row>
       </StickerSheet.Body>

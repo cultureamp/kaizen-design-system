@@ -18,13 +18,13 @@ const meta = {
           <Tab disabled>Disabled Tab</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel classNameOverride="p-24">
+          <TabPanel classNameOverride="kz-p-24">
             <Text variant="body">Content 1</Text>
           </TabPanel>
-          <TabPanel classNameOverride="p-24">
+          <TabPanel classNameOverride="kz-p-24">
             <Text variant="body">Content 2</Text>
           </TabPanel>
-          <TabPanel classNameOverride="p-24">
+          <TabPanel classNameOverride="kz-p-24">
             <Text variant="body">Content 3</Text>
           </TabPanel>
         </TabPanels>

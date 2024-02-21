@@ -70,7 +70,7 @@ export const Reversed: Story = {
   args: { reversed: true },
   decorators: [
     Story => (
-      <div className="bg-purple-700 p-16">
+      <div className="kz-bg-purple-700 kz-p-16">
         <Story />
       </div>
     ),

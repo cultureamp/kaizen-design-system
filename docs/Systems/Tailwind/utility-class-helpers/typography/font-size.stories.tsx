@@ -4,7 +4,7 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "text-"
+const prefix = "kz-text-"
 const classEntries = Object.entries(kaizenTailwindTheme.fontSize || []).map(
   ([suffix, cssProperty]) => ({
     utilityClassName: `${prefix}${suffix}`,

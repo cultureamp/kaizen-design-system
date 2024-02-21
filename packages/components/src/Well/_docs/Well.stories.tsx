@@ -70,7 +70,7 @@ export const BorderStyles: Story = {
 export const NoMargin: Story = {
   render: args => (
     <>
-      <div className="flex gap-16">
+      <div className="kz-flex kz-gap-16">
         <div>
           <Heading tag="h3" variant="heading-6">
             Margin (default)

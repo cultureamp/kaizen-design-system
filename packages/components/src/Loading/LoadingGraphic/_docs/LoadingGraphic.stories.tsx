@@ -82,14 +82,14 @@ export const Size: Story = {
           <LoadingGraphic size="xxlarge" />
           <Informative
             alt="informative-spot-image"
-            classNameOverride="!w-[150px]"
+            classNameOverride="!kz-w-[150px]"
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Scene (scene)">
           <LoadingGraphic size="scene" />
           <BrandMomentPositiveOutro
             alt="positive-outro"
-            classNameOverride="!w-[400px]"
+            classNameOverride="!kz-w-[400px]"
           />
         </StickerSheet.Row>
       </StickerSheet.Body>

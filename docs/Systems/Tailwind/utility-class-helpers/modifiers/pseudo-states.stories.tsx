@@ -25,22 +25,22 @@ export const PseudoSelectors: StoryFn<{ isReversed: boolean }> = ({
       headings={["Utility Class", "Compiled CSS", "Example"]}
     />
     <StickerSheet.Row rowTitle="hover">
-      <p className="font-family-paragraph">hover:bg-blue-200</p>
-      <p className="font-family-paragraph">background-color: #bde2f5</p>
+      <p className="kz-font-family-paragraph">hover:bg-blue-200</p>
+      <p className="kz-font-family-paragraph">background-color: #bde2f5</p>
       <button
         type="button"
-        className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded hover:bg-blue-200 py-16 px-12 text-center"
+        className="kz-border-solid kz-bg-white kz-border-[black] kz-font-family-paragraph kz-w-[150px] kz-rounded hover:kz-bg-blue-200 kz-py-16 kz-px-12 kz-text-center"
       >
         Hover me
       </button>
     </StickerSheet.Row>
     <StickerSheet.Row rowTitle="focus">
-      <p className="font-family-paragraph">focus:bg-blue-200</p>
-      <p className="font-family-paragraph">background-color: #bde2f5</p>
+      <p className="kz-font-family-paragraph">focus:bg-blue-200</p>
+      <p className="kz-font-family-paragraph">background-color: #bde2f5</p>
       <button
         type="button"
         tabIndex={0}
-        className="border-solid bg-white border-[black] font-family-paragraph w-[150px] rounded focus:bg-blue-200 py-16 px-12 text-center"
+        className="kz-border-solid kz-bg-white kz-border-[black] kz-font-family-paragraph kz-w-[150px] kz-rounded focus:kz-bg-blue-200 kz-py-16 kz-px-12 kz-text-center"
       >
         Focus me
       </button>

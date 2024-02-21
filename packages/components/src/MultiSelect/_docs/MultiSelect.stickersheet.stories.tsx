@@ -54,7 +54,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <>
         <StickerSheet
           heading="MultiSelect"
-          className={classnames("w-full", IS_CHROMATIC && "pb-160")}
+          className={classnames("kz-w-full", IS_CHROMATIC && "kz-pb-160")}
         >
           <StickerSheet.Header
             headings={["Closed", "Open", "No items"]}
@@ -97,7 +97,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet>
         <StickerSheet
           heading="Validation"
-          className={classnames("w-full", IS_CHROMATIC && "pb-160")}
+          className={classnames("kz-w-full", IS_CHROMATIC && "kz-pb-160")}
         >
           <StickerSheet.Header headings={["Error", "Caution"]} />
           <StickerSheet.Body>

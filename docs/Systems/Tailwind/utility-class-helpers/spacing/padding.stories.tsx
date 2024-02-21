@@ -5,7 +5,7 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "p-"
+const prefix = "kz-p-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   Object.entries(kaizenTailwindTheme.spacing || []).map(
     ([suffix, cssProperty]) => ({
@@ -35,7 +35,7 @@ export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <p
         className={classnames(
-          "border border-purple-100 w-min rounded bg-blue-100",
+          "kz-border kz-border-purple-100 kz-w-min kz-rounded kz-bg-blue-100",
           utilityClass
         )}
       >

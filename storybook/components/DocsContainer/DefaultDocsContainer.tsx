@@ -14,14 +14,14 @@ type LayoutProps = { children: React.ReactNode }
 const FullPage = ({ children }: LayoutProps): JSX.Element => (
   <main>
     {children}
-    <BackToTop className="mt-24" />
+    <BackToTop className="kz-mt-24" />
   </main>
 )
 
 const DefaultLayout = ({ children }: LayoutProps): JSX.Element => (
   <Main>
     <Sidebar>
-      <div className="sticky right-0 top-12">
+      <div className="kz-sticky kz-right-0 kz-top-12">
         <Unstyled>
           <TableOfContents />
         </Unstyled>
@@ -29,7 +29,7 @@ const DefaultLayout = ({ children }: LayoutProps): JSX.Element => (
     </Sidebar>
     <Content>
       {children}
-      <BackToTop className="mt-24" />
+      <BackToTop className="kz-mt-24" />
     </Content>
   </Main>
 )

@@ -37,7 +37,7 @@ export const Playground: Story = {
 
 export const Types: Story = {
   render: () => (
-    <ul className="flex gap-16 list-none p-0 m-0">
+    <ul className="kz-flex kz-gap-16 kz-list-none kz-p-0 kz-m-0">
       <li>
         <Input type="text" value="Text" />
       </li>
@@ -58,7 +58,7 @@ export const Types: Story = {
 
 export const Status: Story = {
   render: () => (
-    <ul className="flex gap-16 list-none p-0 m-0">
+    <ul className="kz-flex kz-gap-16 kz-list-none kz-p-0 kz-m-0">
       <li>
         <Input type="text" value="Default" status="default" />
       </li>
@@ -82,7 +82,7 @@ export const Status: Story = {
 
 export const Icons: Story = {
   render: () => (
-    <ul className="flex gap-16 list-none p-0 m-0">
+    <ul className="kz-flex kz-gap-16 kz-list-none kz-p-0 kz-m-0">
       <li>
         <Input
           type="text"
@@ -110,7 +110,7 @@ export const Reversed: Story = {
   args: { reversed: true },
   decorators: [
     Story => (
-      <div className="bg-purple-700 p-16">
+      <div className="kz-bg-purple-700 kz-p-16">
         <Story />
       </div>
     ),

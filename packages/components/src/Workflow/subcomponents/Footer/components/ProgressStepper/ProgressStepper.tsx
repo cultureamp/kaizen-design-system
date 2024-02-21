@@ -93,7 +93,7 @@ export const ProgressStepper = ({
               aria-current={isCurrentStep}
             >
               <div className={styles.stepContent}>
-                <span className="sr-only">
+                <span className="kz-sr-only">
                   {/* will need to be translated */}
                   {accessibleName}
                 </span>

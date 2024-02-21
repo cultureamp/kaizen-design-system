@@ -32,7 +32,7 @@ export const Children: StoryObj = {
 
 export const Color: StoryObj = {
   render: () => (
-    <div className="flex gap-16">
+    <div className="kz-flex kz-gap-16">
       {TagColorKeys.map(color => (
         <Tag color={color} icon={<TagIcon role="presentation" />} key={color}>
           {color}
@@ -49,7 +49,7 @@ export const Color: StoryObj = {
 
 export const Icon: StoryObj = {
   render: () => (
-    <div className="flex gap-16">
+    <div className="kz-flex kz-gap-16">
       <Tag icon={<AcademyIcon role="presentation" />}>AcademyIcon</Tag>
       <Tag color="yellow" icon={<ActionOffIcon role="presentation" />}>
         ActionOffIcon

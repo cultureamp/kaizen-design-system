@@ -27,7 +27,7 @@ export default {
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed = false }) => (
-    <StickerSheet className="w-full" isReversed={isReversed}>
+    <StickerSheet className="kz-w-full" isReversed={isReversed}>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Positive" rowTitleWidth="100px">
           <ProgressBar

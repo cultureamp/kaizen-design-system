@@ -15,6 +15,7 @@ module.exports = {
     preflight: false,
   },
   plugins: [],
+  prefix: "kz-",
   safelist: [
     {
       pattern:

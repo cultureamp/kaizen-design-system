@@ -23,7 +23,7 @@ export const CodeBlock = (props: {
   code: string
 }): JSX.Element => (
   <Unstyled>
-    <div className="py-8">
+    <div className="kz-py-8">
       <Card>
         <div className={styles.codeWrapper}>
           <Highlight className={props.language}>{props.code}</Highlight>
@@ -54,7 +54,7 @@ const TabbedCodeBlocks = ({
     </TabList>
     <TabPanels>
       {blocks.map(({ name, ...props }) => (
-        <TabPanel key={name} classNameOverride="p-24">
+        <TabPanel key={name} classNameOverride="kz-p-24">
           <CodeBlock {...props} />
         </TabPanel>
       ))}

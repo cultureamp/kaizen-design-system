@@ -20,7 +20,7 @@ const InputModalTemplate: Story = {
       <>
         <button
           type="button"
-          className="border border-gray-500"
+          className="kz-border kz-border-gray-500"
           onClick={handleOpen}
         >
           Open Modal

@@ -27,7 +27,7 @@ export default {
 } satisfies Meta
 
 const CheckboxExampleGroup = (props: CheckboxProps): JSX.Element => (
-  <div className="grid gap-8">
+  <div className="kz-grid kz-gap-8">
     <Checkbox {...props} />
     <Checkbox {...props} checkedStatus="on" />
     <Checkbox {...props} checkedStatus="mixed" />

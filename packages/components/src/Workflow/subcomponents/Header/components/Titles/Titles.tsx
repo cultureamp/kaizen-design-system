@@ -36,7 +36,7 @@ export const Titles = ({
         color="dark-reduced-opacity"
       >
         {workflowName}
-        <span className="sr-only">:</span>
+        <span className="kz-sr-only">:</span>
       </Heading>
       <span>{stepName}</span>
     </Heading>

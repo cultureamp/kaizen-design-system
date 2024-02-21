@@ -75,7 +75,7 @@ export const CustomHeader: Story = {
       title={standardTitle}
       renderHeader={title => (
         <Heading variant="heading-4" tag="span">
-          <span className="flex gap-8 items-center">
+          <span className="kz-flex kz-gap-8 kz-items-center">
             <AddIcon role="presentation" /> {title}
           </span>
         </Heading>

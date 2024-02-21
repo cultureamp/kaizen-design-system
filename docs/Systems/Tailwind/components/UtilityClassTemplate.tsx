@@ -19,15 +19,15 @@ export const UtilityClassTemplate = ({
   const [copiedText, setCopiedText] = useState<null | string>(null)
 
   return (
-    <div className="w-full">
+    <div className="kz-w-full">
       <StickerSheet
-        className="border-none w-full"
+        className="kz-border-none kz-w-full"
         isReversed={isReversed}
         border={1}
         rules="rows"
       >
         <StickerSheet.Header
-          className="text-left border-b border-gray-400"
+          className="kz-text-left kz-border-b kz-border-gray-400"
           headings={["Utility Class", "Compiled CSS", "Example"]}
         />
         <StickerSheet.Body>
@@ -37,18 +37,18 @@ export const UtilityClassTemplate = ({
               <StickerSheet.Row
                 key={_index}
                 rowTitle=""
-                className="border-b-1 border-gray-400"
+                className="kz-border-b-1 kz-border-gray-400"
               >
-                <div className="mr-32 min-w-max max-w-[300px]">
+                <div className="kz-mr-32 kz-min-w-max kz-max-w-[300px]">
                   <CodeSnippet
                     text={utilityClassName.replace("-DEFAULT", "")}
                     onCopy={(text: string): void => setCopiedText(text)}
                   />
                 </div>
-                <p className="mr-32 w-max font-family-paragraph">
+                <p className="kz-mr-32 kz-w-max kz-font-family-paragraph">
                   {compiledCssPropertyName}: {cssProperty}
                 </p>
-                <div className="font-family-paragraph">
+                <div className="kz-font-family-paragraph">
                   {renderExampleComponent(utilityClassName)}
                 </div>
               </StickerSheet.Row>
@@ -56,7 +56,7 @@ export const UtilityClassTemplate = ({
           })}
         </StickerSheet.Body>
       </StickerSheet>
-      <div className="fixed top-[10px] left-[10px]">
+      <div className="kz-fixed kz-top-[10px] kz-left-[10px]">
         {copiedText && (
           <InlineNotification
             type="positive"

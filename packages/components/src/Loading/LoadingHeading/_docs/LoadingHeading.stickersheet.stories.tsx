@@ -30,7 +30,7 @@ const StickerSheetTemplate: StickerSheetStory = {
       <StickerSheet.Body>
         {headingVariants.map(variant => (
           <StickerSheet.Row key={variant} rowTitle={variant}>
-            <StickerSheet.Cell className="w-320">
+            <StickerSheet.Cell className="kz-w-320">
               <LoadingHeading variant={variant} />
             </StickerSheet.Cell>
           </StickerSheet.Row>

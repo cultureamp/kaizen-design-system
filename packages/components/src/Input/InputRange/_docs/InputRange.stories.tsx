@@ -46,7 +46,7 @@ export const Playground: Story = {
 
 export const Labels: Story = {
   render: () => (
-    <div className="flex flex-col gap-16">
+    <div className="kz-flex kz-flex-col kz-gap-16">
       <InputRange id="inputRange" minLabel="Minimum" maxLabel="Maximum" />
     </div>
   ),
@@ -54,7 +54,7 @@ export const Labels: Story = {
 
 export const Range: Story = {
   render: () => (
-    <div className="flex flex-col gap-16">
+    <div className="kz-flex kz-flex-col kz-gap-16">
       <InputRange
         id="inputRangeRange"
         minLabel="Minimum"

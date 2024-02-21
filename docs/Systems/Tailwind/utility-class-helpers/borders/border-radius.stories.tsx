@@ -5,7 +5,7 @@ import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
-const prefix = "rounded-"
+const prefix = "kz-rounded-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   Object.entries(kaizenTailwindTheme.borderRadius || []).map(
     ([suffix, cssProperty]) => ({
@@ -37,7 +37,7 @@ export const BorderRadius: StoryFn<{ isReversed: boolean }> = ({
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <div
         className={classnames(
-          "w-[100px] h-[100px] border border-purple-500",
+          "kz-w-[100px] kz-h-[100px] kz-border kz-border-purple-500",
           utilityClass.replace("-DEFAULT", "")
         )}
       />

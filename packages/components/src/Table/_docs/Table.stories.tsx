@@ -87,7 +87,7 @@ const Table = ({
             </Text>
           </TableRowCell>
           <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body" classNameOverride="mr-24">
+            <Text tag="div" variant="body" classNameOverride="kz-mr-24">
               100
             </Text>
             {expanded && (
@@ -103,7 +103,7 @@ const Table = ({
         {expanded && (
           <>
             <Divider variant="content" />
-            <Text tag="div" variant="body" classNameOverride="p-16">
+            <Text tag="div" variant="body" classNameOverride="kz-p-16">
               Overall progress
             </Text>
           </>
@@ -215,7 +215,7 @@ export const Reversed: Story = {
   },
   decorators: [
     Story => (
-      <div className="bg-purple-700 p-16">
+      <div className="kz-bg-purple-700 kz-p-16">
         <Story />
       </div>
     ),
