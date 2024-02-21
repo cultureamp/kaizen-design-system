@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.40.3
+
+### Patch Changes
+
+- [#4525](https://github.com/cultureamp/kaizen-design-system/pull/4525) [`9c586b4275db828a4597f66a9f584e6878a8ebc6`](https://github.com/cultureamp/kaizen-design-system/commit/9c586b4275db828a4597f66a9f584e6878a8ebc6) - Bug fix for modals: ensure clean up runs when the modal is unmounted.
+
+  This bug created unscrollable pages if the modal was removed from the DOM before its `onAfterLeave` callback was able to run.
+
+- [#4522](https://github.com/cultureamp/kaizen-design-system/pull/4522) [`bf22ff21983a0f05e495271431ba4fe76e15b631`](https://github.com/cultureamp/kaizen-design-system/commit/bf22ff21983a0f05e495271431ba4fe76e15b631) - Update @react-aria package dependencies
+
 ## 1.40.2
 
 ### Patch Changes
