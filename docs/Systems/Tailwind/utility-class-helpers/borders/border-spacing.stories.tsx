@@ -31,7 +31,7 @@ export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
   <UtilityClassTemplate
-    compiledCssPropertyName="kz-border-spacing"
+    compiledCssPropertyName="border-spacing"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
       <table className={utilityClass}>
