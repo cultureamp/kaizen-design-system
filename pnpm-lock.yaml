@@ -97,8 +97,8 @@ importers:
         specifier: ^0.16.0
         version: 0.16.0(@types/node@20.11.17)
       '@tanstack/react-query':
-        specifier: ^5.20.5
-        version: 5.20.5(react@18.2.0)
+        specifier: ^5.22.2
+        version: 5.22.2(react@18.2.0)
       '@testing-library/dom':
         specifier: ^9.3.4
         version: 9.3.4
@@ -263,7 +263,7 @@ importers:
         version: 7.6.17
       storybook-addon-pseudo-states:
         specifier: ^2.1.2
-        version: 2.1.2(@storybook/components@7.6.17)(@storybook/core-events@7.6.17)(@storybook/manager-api@7.6.17)(@storybook/preview-api@7.6.15)(@storybook/theming@7.6.17)(react-dom@18.2.0)(react@18.2.0)
+        version: 2.1.2(@storybook/components@7.6.17)(@storybook/core-events@7.6.17)(@storybook/manager-api@7.6.17)(@storybook/preview-api@7.6.17)(@storybook/theming@7.6.17)(react-dom@18.2.0)(react@18.2.0)
       style-loader:
         specifier: ^3.3.4
         version: 3.3.4(webpack@5.90.1)
@@ -3984,7 +3984,7 @@ packages:
       '@types/react': '*'
       '@types/react-dom': '*'
       react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^18.0.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -4103,7 +4103,7 @@ packages:
       '@types/react': '*'
       '@types/react-dom': '*'
       react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^18.0.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -4139,7 +4139,7 @@ packages:
       '@types/react': '*'
       '@types/react-dom': '*'
       react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^18.0.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -4479,7 +4479,7 @@ packages:
       '@types/react': '*'
       '@types/react-dom': '*'
       react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^18.0.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -6522,12 +6522,25 @@ packages:
     resolution: {integrity: sha512-T1W28gGgWn0A++tH3lxj3ZuUVZZorsiKcv+R50RwmPYz62YoDEkG4/aXHZELGkRp4DfrW07dyq2K5dvJ4Wl1aA==}
     dev: true
 
+  /@tanstack/query-core@5.22.2:
+    resolution: {integrity: sha512-z3PwKFUFACMUqe1eyesCIKg3Jv1mysSrYfrEW5ww5DCDUD4zlpTKBvUDaEjsfZzL3ULrFLDM9yVUxI/fega1Qg==}
+    dev: true
+
   /@tanstack/react-query@5.20.5(react@18.2.0):
     resolution: {integrity: sha512-6MHwJ8G9cnOC/XKrwt56QMc91vN7hLlAQNUA0ubP7h9Jj3a/CmkUwT6ALdFbnVP+PsYdhW3WONa8WQ4VcTaSLQ==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
       '@tanstack/query-core': 5.20.5
+      react: 18.2.0
+    dev: true
+
+  /@tanstack/react-query@5.22.2(react@18.2.0):
+    resolution: {integrity: sha512-TaxJDRzJ8/NWRT4lY2jguKCrNI6MRN+67dELzPjNUlvqzTxGANlMp68l7aC7hG8Bd1uHNxHl7ihv7MT50i/43A==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.22.2
       react: 18.2.0
     dev: true
 
@@ -18525,7 +18538,7 @@ packages:
   /store2@2.14.2:
     resolution: {integrity: sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==}
 
-  /storybook-addon-pseudo-states@2.1.2(@storybook/components@7.6.17)(@storybook/core-events@7.6.17)(@storybook/manager-api@7.6.17)(@storybook/preview-api@7.6.15)(@storybook/theming@7.6.17)(react-dom@18.2.0)(react@18.2.0):
+  /storybook-addon-pseudo-states@2.1.2(@storybook/components@7.6.17)(@storybook/core-events@7.6.17)(@storybook/manager-api@7.6.17)(@storybook/preview-api@7.6.17)(@storybook/theming@7.6.17)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-AHv6q1JiQEUnMyZE3729iV6cNmBW7bueeytc4Lga4+8W1En8YNea5VjqAdrDNJhXVU0QEEIGtxkD3EoC9aVWLw==}
     peerDependencies:
       '@storybook/components': ^7.4.6
@@ -18544,7 +18557,7 @@ packages:
       '@storybook/components': 7.6.17(@types/react-dom@18.2.19)(@types/react@18.2.55)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/core-events': 7.6.17
       '@storybook/manager-api': 7.6.17(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/preview-api': 7.6.15
+      '@storybook/preview-api': 7.6.17
       '@storybook/theming': 7.6.17(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
