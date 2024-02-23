@@ -151,8 +151,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(playwright@1.41.2)
       chromatic:
-        specifier: ^10.9.4
-        version: 10.9.4
+        specifier: ^11.0.0
+        version: 11.0.0
       color-string:
         specifier: ^1.9.1
         version: 1.9.1
@@ -8885,6 +8885,19 @@ packages:
 
   /chromatic@10.9.4:
     resolution: {integrity: sha512-etDUGE0vN2T/q5oNqXnsve9LtDCVl+7zHXKIuVtK+BT3k4XbAo8qaD/tnIozZHfrKGtepd8f9AjBq02CjfCYFQ==}
+    hasBin: true
+    peerDependencies:
+      '@chromatic-com/cypress': ^0.5.2 || ^1.0.0
+      '@chromatic-com/playwright': ^0.5.2 || ^1.0.0
+    peerDependenciesMeta:
+      '@chromatic-com/cypress':
+        optional: true
+      '@chromatic-com/playwright':
+        optional: true
+    dev: true
+
+  /chromatic@11.0.0:
+    resolution: {integrity: sha512-utzRVqdMrpzYwZNf7dHWU0z0/rx6SH/FUVNozQxYHDtQfYUdEj+Ro4OSch5+Wsk2FoUmznJyLkaC2J839z1N7A==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.5.2 || ^1.0.0
