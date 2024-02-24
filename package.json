@@ -126,7 +126,7 @@
     "raw-loader": "^4.0.2",
     "react-test-renderer": "^18.2.0",
     "rimraf": "^5.0.5",
-    "sass-loader": "^14.1.0",
+    "sass-loader": "^14.1.1",
     "storybook": "^7.6.15",
     "storybook-addon-pseudo-states": "^2.1.2",
     "style-loader": "^3.3.4",
