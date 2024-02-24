@@ -536,8 +536,8 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2
       typescript-transform-paths:
-        specifier: ^3.4.6
-        version: 3.4.6(typescript@5.3.3)
+        specifier: ^3.4.7
+        version: 3.4.7(typescript@5.3.3)
 
   packages/design-tokens:
     dependencies:
@@ -19633,8 +19633,8 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
 
-  /typescript-transform-paths@3.4.6(typescript@5.3.3):
-    resolution: {integrity: sha512-qdgpCk9oRHkIBhznxaHAapCFapJt5e4FbFik7Y4qdqtp6VyC3smAIPoDEIkjZ2eiF7x5+QxUPYNwJAtw0thsTw==}
+  /typescript-transform-paths@3.4.7(typescript@5.3.3):
+    resolution: {integrity: sha512-1Us1kdkdfKd2unbkBAOV2HHRmbRBYpSuk9nJ7cLD2hP4QmfToiM/VpxNlhJc1eezVwVqSKSBjNSzZsK/fWR/9A==}
     peerDependencies:
       typescript: '>=3.6.5'
     dependencies:
