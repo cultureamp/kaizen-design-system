@@ -151,8 +151,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(playwright@1.41.2)
       chromatic:
-        specifier: ^10.9.4
-        version: 10.9.4
+        specifier: ^10.9.6
+        version: 10.9.6
       color-string:
         specifier: ^1.9.1
         version: 1.9.1
@@ -2792,7 +2792,7 @@ packages:
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.5.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.20.5(react@18.2.0)
-      chromatic: 10.9.4
+      chromatic: 10.9.6
       deepmerge: 4.3.1
       fast-glob: 3.3.2
       headers-utils: 3.0.2
@@ -8698,8 +8698,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /chromatic@10.9.4:
-    resolution: {integrity: sha512-etDUGE0vN2T/q5oNqXnsve9LtDCVl+7zHXKIuVtK+BT3k4XbAo8qaD/tnIozZHfrKGtepd8f9AjBq02CjfCYFQ==}
+  /chromatic@10.9.6:
+    resolution: {integrity: sha512-1MoT+/U+vQwEiq2GuehPyStbqhxqHmM1B9pdpVU1dKh26userQg1FyOFYifkTgy+9reo2w2p7sAbc0JRd2kzlA==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.5.2 || ^1.0.0
