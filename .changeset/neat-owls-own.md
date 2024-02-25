@@ -2,4 +2,4 @@
 "@kaizen/components": patch
 ---
 
-Update react-aria dependencies.
+Update react-spectrum dependencies.
