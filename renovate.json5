@@ -20,7 +20,8 @@
       "matchPackagePrefixes": [
         "@react-aria/",
         "@react-stately/",
-        "@internationalized"
+        "@internationalized/",
+        "@react-types/shared"
       ]
     },
     {
