@@ -352,8 +352,8 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2(react@18.2.0)
       '@react-types/shared':
-        specifier: ^3.22.0
-        version: 3.22.0(react@18.2.0)
+        specifier: ^3.22.1
+        version: 3.22.1(react@18.2.0)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -5030,14 +5030,6 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
       '@react-types/shared': 3.22.1(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@react-types/shared@3.22.0(react@18.2.0):
-    resolution: {integrity: sha512-yVOekZWbtSmmiThGEIARbBpnmUIuePFlLyctjvCbgJgGhz8JnEJOipLQ/a4anaWfzAgzSceQP8j/K+VOOePleA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-    dependencies:
       react: 18.2.0
     dev: false
 
