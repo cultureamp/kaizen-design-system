@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.40.4
+
+### Patch Changes
+
+- [#4529](https://github.com/cultureamp/kaizen-design-system/pull/4529) [`a701b14050051c325218b21177d54311e3a2fd87`](https://github.com/cultureamp/kaizen-design-system/commit/a701b14050051c325218b21177d54311e3a2fd87) - Update peer dependency @cultureamp/i18n-react-intl to ^2.5.1
+
+- [#4529](https://github.com/cultureamp/kaizen-design-system/pull/4529) [`a701b14050051c325218b21177d54311e3a2fd87`](https://github.com/cultureamp/kaizen-design-system/commit/a701b14050051c325218b21177d54311e3a2fd87) - Update react-spectrum dependencies.
+
+- [#4529](https://github.com/cultureamp/kaizen-design-system/pull/4529) [`a701b14050051c325218b21177d54311e3a2fd87`](https://github.com/cultureamp/kaizen-design-system/commit/a701b14050051c325218b21177d54311e3a2fd87) - Update prosemirror dependencies.
+
 ## 1.40.3
 
 ### Patch Changes
