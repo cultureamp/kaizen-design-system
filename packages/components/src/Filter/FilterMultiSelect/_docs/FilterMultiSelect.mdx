@@ -1,0 +1,35 @@
+import { Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
+import * as FilterMultiSelectStories from "./FilterMultiSelect.stories"
+
+<Meta of={FilterMultiSelectStories} />
+
+# Filter Bar
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/FilterMultiSelect"
+  className="!mb-8"
+/>
+
+<KAIOInstallation exportNames="FilterMultiSelect" />
+
+## API
+
+<NoClipCanvas of={FilterMultiSelectStories.Playground} />
+<Controls of={FilterMultiSelectStories.Playground} />
+
+## Examples
+
+The FilterMultiSelect is a component relies heavily on consumer implemntation. It is recommended that you use the below as a starting point, and ensure you follow best a11y practices.
+
+### With sections
+
+<NoClipCanvas of={FilterMultiSelectStories.WithSections} />
+
+### With section headers
+
+<NoClipCanvas of={FilterMultiSelectStories.WithSectionHeaders} />
+
+### Async
+
+<NoClipCanvas of={FilterMultiSelectStories.Async} />
