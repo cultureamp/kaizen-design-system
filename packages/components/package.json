@@ -98,7 +98,7 @@
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.23.3",
     "@cultureamp/frontend-apis": "^9.4.0",
-    "@cultureamp/i18n-react-intl": "^2.4.0",
+    "@cultureamp/i18n-react-intl": "^2.5.1",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
     "@rollup/plugin-alias": "^5.1.0",
@@ -131,7 +131,7 @@
     "typescript-transform-paths": "^3.4.7"
   },
   "peerDependencies": {
-    "@cultureamp/i18n-react-intl": "^2.4.0",
+    "@cultureamp/i18n-react-intl": "^2.5.1",
     "react": "^18.2.0",
     "react-intl": "^6.6.2"
   }
