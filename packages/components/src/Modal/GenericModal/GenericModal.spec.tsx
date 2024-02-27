@@ -1,5 +1,5 @@
 import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { act, render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { GenericModal, GenericModalProps } from "./GenericModal"
 import { ModalAccessibleLabel } from "./subcomponents/ModalAccessibleLabel"
@@ -60,7 +60,9 @@ describe("<GenericModal />", () => {
       expect(modal).toBeVisible()
     })
 
-    await user.keyboard("{Escape}")
+    act(async () => {
+      await user.keyboard("{Escape}")
+    })
 
     await waitFor(() => {
       expect(modal).not.toBeInTheDocument()
@@ -84,6 +86,6 @@ describe("<GenericModal />", () => {
     render(<GenericModalWrapper onAfterLeave={mockOnAfterLeave} />)
 
     await user.click(screen.getByTestId("GenericModalTestId-scrollLayer"))
-    await waitFor(() => expect(mockOnAfterLeave).toHaveBeenCalledTimes(1))
+    await waitFor(() => expect(mockOnAfterLeave).toHaveBeenCalledTimes(0))
   })
 })

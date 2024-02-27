@@ -2,8 +2,6 @@ import React, {
   ComponentType,
   forwardRef,
   Ref,
-  useImperativeHandle,
-  useRef,
   MouseEvent,
   FocusEvent,
 } from "react"
@@ -103,13 +101,16 @@ const getCustomProps = (props: Record<string, any>): Record<string, string> => {
 }
 
 export const GenericButton = forwardRef(
-  (props: RenderProps, ref: Ref<ButtonRef | undefined>) => {
-    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
-    useImperativeHandle(ref, () => ({
-      focus: (): void => {
-        buttonRef.current?.focus()
-      },
-    }))
+  (
+    props: RenderProps,
+    ref: Ref<HTMLButtonElement | HTMLAnchorElement | undefined>
+  ) => {
+    // const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
+    // useImperativeHandle(ref, () => ({
+    //   focus: (): void => {
+    //     buttonRef.current?.focus()
+    //   },
+    // }))
 
     const determineButtonRenderer = (): JSX.Element => {
       if (props.component) {
@@ -117,10 +118,10 @@ export const GenericButton = forwardRef(
       }
 
       if (props.href && !props.disabled && !props.working) {
-        return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+        return renderLink(props, ref as Ref<HTMLAnchorElement>)
       }
 
-      return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
+      return renderButton(props, ref as Ref<HTMLButtonElement>)
     }
 
     return (
