@@ -43,6 +43,7 @@
     "i18n:extract": "pnpm i18n-extract"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.9",
     "@floating-ui/react-dom": "^2.0.8",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.1",
