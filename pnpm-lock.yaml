@@ -412,8 +412,8 @@ importers:
         specifier: ^2.9.7
         version: 2.9.7(@types/react@18.2.61)(react@18.2.0)
       react-focus-on:
-        specifier: ^3.9.1
-        version: 3.9.1(@types/react@18.2.61)(react@18.2.0)
+        specifier: ^3.9.2
+        version: 3.9.2(@types/react@18.2.61)(react@18.2.0)
       react-media:
         specifier: ^1.10.0
         version: 1.10.0(react@18.2.0)
@@ -11079,6 +11079,13 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /focus-lock@1.3.3:
+    resolution: {integrity: sha512-hfXkZha7Xt4RQtrL1HBfspAuIj89Y0fb6GX0dfJilb8S2G/lvL4akPAcHq6xoD2NuZnDMCnZL/zQesMyeu6Psg==}
+    engines: {node: '>=10'}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
   /follow-redirects@1.15.5:
     resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
     engines: {node: '>=4.0'}
@@ -17070,6 +17077,25 @@ packages:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
     dev: false
 
+  /react-focus-lock@2.11.2(@types/react@18.2.61)(react@18.2.0):
+    resolution: {integrity: sha512-DDTbEiov0+RthESPVSTIdAWPPKic+op3sCcP+icbMRobvQNt7LuAlJ3KoarqQv5sCgKArru3kXmlmFTa27/CdQ==}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.9
+      '@types/react': 18.2.61
+      focus-lock: 1.3.3
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-clientside-effect: 1.2.6(react@18.2.0)
+      use-callback-ref: 1.3.1(@types/react@18.2.61)(react@18.2.0)
+      use-sidecar: 1.1.2(@types/react@18.2.61)(react@18.2.0)
+    dev: false
+
   /react-focus-lock@2.9.7(@types/react@18.2.61)(react@18.2.0):
     resolution: {integrity: sha512-EfhX040SELLqnQ9JftqsmQCG49iByg8F5X5m19Er+n371OaETZ35dlNPZrLOOTlnnwD4c2Zv0KDgabDTc7dPHw==}
     peerDependencies:
@@ -17089,8 +17115,8 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.61)(react@18.2.0)
     dev: false
 
-  /react-focus-on@3.9.1(@types/react@18.2.61)(react@18.2.0):
-    resolution: {integrity: sha512-IYo2j4mgNpZEJNv+/XzZs3S3xhJbR+AFop092h4OMW7sbFpIMVWxp/Z61V/gfpsgOi7VnoSFXP2bfOWWkjjtOw==}
+  /react-focus-on@3.9.2(@types/react@18.2.61)(react@18.2.0):
+    resolution: {integrity: sha512-3UZ9PjA+pe8ZK3B+rz7zcgJUIRJVzJEddYe6R5WVUAsSXW8awHw9nXJqK0UU5MenGEUh/tMUBWMqN633+d2eCA==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -17102,11 +17128,11 @@ packages:
       '@types/react': 18.2.61
       aria-hidden: 1.2.3
       react: 18.2.0
-      react-focus-lock: 2.9.7(@types/react@18.2.61)(react@18.2.0)
+      react-focus-lock: 2.11.2(@types/react@18.2.61)(react@18.2.0)
       react-remove-scroll: 2.5.7(@types/react@18.2.61)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.61)(react@18.2.0)
       tslib: 2.6.2
-      use-callback-ref: 1.3.0(@types/react@18.2.61)(react@18.2.0)
+      use-callback-ref: 1.3.1(@types/react@18.2.61)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.61)(react@18.2.0)
     dev: false
 
