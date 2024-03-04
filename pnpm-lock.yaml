@@ -444,10 +444,10 @@ importers:
         version: 7.23.3(@babel/core@7.23.9)
       '@cultureamp/frontend-apis':
         specifier: ^9.4.1
-        version: 9.4.1(@cultureamp/fetch@4.0.2)(@cultureamp/next-head-hook@1.1.9)(next@14.1.1)(react@18.2.0)(typescript@5.3.3)
+        version: 9.4.1(@cultureamp/fetch@4.0.2)(next@14.1.1)(react@18.2.0)(typescript@5.3.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^2.5.1
-        version: 2.5.1(@cultureamp/frontend-apis@9.4.1)(eslint@8.57.0)(next@14.1.1)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.3.3)
+        specifier: ^2.5.2
+        version: 2.5.2(@cultureamp/frontend-apis@9.4.1)(eslint@8.57.0)(next@14.1.1)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.3.3)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -2666,7 +2666,7 @@ packages:
       - encoding
     dev: true
 
-  /@cultureamp/frontend-apis@9.4.1(@cultureamp/fetch@4.0.2)(@cultureamp/next-head-hook@1.1.9)(next@14.1.1)(react@18.2.0)(typescript@5.3.3):
+  /@cultureamp/frontend-apis@9.4.1(@cultureamp/fetch@4.0.2)(next@14.1.1)(react@18.2.0)(typescript@5.3.3):
     resolution: {integrity: sha512-OeudLUBtm8UxT08tsKypgxLZktRUyFKM8oaB+96bsmUI2zQz/615tT1fcXRLukKVrGwwUXSkJAkOe6+Z6xEIEw==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.4.1/a32ed33bef5993d6897478235f48c41dc6fb2aff}
     engines: {node: '>=18.0.0'}
     hasBin: true
@@ -2674,10 +2674,14 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.8.0'
+    peerDependenciesMeta:
+      '@cultureamp/next-head-hook':
+        optional: true
+      next:
+        optional: true
     dependencies:
       '@cultureamp/fetch-sgw': 2.0.3(@cultureamp/fetch@4.0.2)
       '@cultureamp/frontend-env': 2.1.2
-      '@cultureamp/next-head-hook': 1.1.9(next@14.1.1)
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.5.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.24.6(react@18.2.0)
@@ -2707,32 +2711,23 @@ packages:
       - typescript
     dev: true
 
-  /@cultureamp/frontend-env@2.1.0:
-    resolution: {integrity: sha512-b/JeJqQnOjufK1wTTsCMCSOWIMFfViVqdCUOLZ1kAAxkYkLxO/HUKZ7QIzXQCgN+iPqHSN0xpSiDvEhsZh6FUw==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.0/6d9005d142f9d6931eba4ff3eac1f9b6ab7840b0}
-    dependencies:
-      chromatic: 9.1.0
-    dev: true
-
   /@cultureamp/frontend-env@2.1.2:
     resolution: {integrity: sha512-0GBVGeJDeQL+XmUMvIbUjSsJiRxb46RRTuDhfbB0aViwZ3tG7t88GbnPznolCrp7d+xj0TaknbGS80kzgXL/1w==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.2/3478449ef282fcb929efc4f3955531ad3f0cdaca}
     dependencies:
       chromatic: 9.1.0
     dev: true
 
-  /@cultureamp/i18n-react-intl@2.5.1(@cultureamp/frontend-apis@9.4.1)(eslint@8.57.0)(next@14.1.1)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-s+5yWrIG44HmZEDCIO6647zLQCdxYSQT1tWOrgojoF9GuuZ0QWR+gYRLpA48t0UatT7w0v+ntvHzmKayWn423w==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.5.1/65b673df4c875e6ed743de74fe6cdc37d524fd16}
+  /@cultureamp/i18n-react-intl@2.5.2(@cultureamp/frontend-apis@9.4.1)(eslint@8.57.0)(next@14.1.1)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-Pp/QP8EF5RQCtthuygiIgmcNT1Z25eucwQpZR3+ejDhApl1qutPuDS50XTbxEb1IkojEJhMoX7Q/7R22SsefUA==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.5.2/e608d83383873d9f8268e35d936b939c6a2af643}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=9 || ~0.0.0'
       next: '>=13.5.0'
       react: ^18.2.0
-    peerDependenciesMeta:
-      next:
-        optional: true
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
-      '@cultureamp/frontend-apis': 9.4.1(@cultureamp/fetch@4.0.2)(@cultureamp/next-head-hook@1.1.9)(next@14.1.1)(react@18.2.0)(typescript@5.3.3)
-      '@cultureamp/frontend-env': 2.1.0
+      '@cultureamp/frontend-apis': 9.4.1(@cultureamp/fetch@4.0.2)(next@14.1.1)(react@18.2.0)(typescript@5.3.3)
+      '@cultureamp/frontend-env': 2.1.2
       '@formatjs/cli': 6.2.7
       '@formatjs/cli-lib': 6.3.6(ts-jest@29.1.2)
       babel-plugin-formatjs: 10.5.13(ts-jest@29.1.2)
@@ -2757,15 +2752,6 @@ packages:
       - ts-jest
       - typescript
       - vue
-    dev: true
-
-  /@cultureamp/next-head-hook@1.1.9(next@14.1.1):
-    resolution: {integrity: sha512-L8020JOaucqrI9wlOCa37Kxjz38uAwV8Bet/RkJffDfEpdoR8CzHXlUIETQLLNdWN3UnxeE5ztizJz8Mor9LNA==, tarball: https://npm.pkg.github.com/download/@cultureamp/next-head-hook/1.1.9/86cef6af4bfdd456d0b0ac34870ef2474345eb6a}
-    peerDependencies:
-      next: '>=13.5.0'
-    dependencies:
-      next: 14.1.1(@babel/core@7.23.9)(react-dom@16.14.0)(react@18.2.0)(sass@1.71.1)
-      react: 18.2.0
     dev: true
 
   /@cultureamp/redirect-to-login@2.0.3:
