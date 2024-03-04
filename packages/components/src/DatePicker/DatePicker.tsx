@@ -268,6 +268,7 @@ export const DatePicker = ({
   return (
     <FocusOn
       scrollLock={false}
+      returnFocus={false}
       onDeactivation={handleReturnFocus}
       onClickOutside={(): void => setIsOpen(false)}
       onEscapeKey={(): void => setIsOpen(false)}
