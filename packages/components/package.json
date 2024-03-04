@@ -97,7 +97,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.23.3",
-    "@cultureamp/frontend-apis": "^9.4.0",
+    "@cultureamp/frontend-apis": "^9.4.1",
     "@cultureamp/i18n-react-intl": "^2.5.1",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
