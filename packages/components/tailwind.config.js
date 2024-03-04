@@ -3,7 +3,7 @@
 const { Preset } = require("@kaizen/tailwind")
 
 module.exports = {
-  content: ["./src/**/*.tsx"],
+  content: ["./src/**/*.{stories.tsx,mdx}"],
   corePlugins: {
     preflight: false,
   },
