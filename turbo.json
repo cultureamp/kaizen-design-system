@@ -24,7 +24,7 @@
       "cache": false
     },
     "@kaizen/components#build": {
-      "dependsOn": ["@kaizen/tailwind#build", "@kaizen/design-tokens#build"],
+      "dependsOn": ["@kaizen/design-tokens#build"],
       "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
