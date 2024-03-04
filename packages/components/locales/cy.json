@@ -27,11 +27,11 @@
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Problem wrth lwytho&#39;r dudalen ar hyn o bryd. Ceisiwch eto neu ewch adref."
+    "message" : "Problem wrth lwytho'r dudalen ar hyn o bryd. Ceisiwch eto neu ewch adref."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Problem wrth lwytho&#39;r dudalen"
+    "message" : "Problem wrth lwytho'r dudalen"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
