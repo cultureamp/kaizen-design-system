@@ -412,8 +412,8 @@ importers:
         specifier: ^2.11.2
         version: 2.11.2(@types/react@18.2.61)(react@18.2.0)
       react-focus-on:
-        specifier: ^3.9.1
-        version: 3.9.1(@types/react@18.2.61)(react@18.2.0)
+        specifier: ^3.9.2
+        version: 3.9.2(@types/react@18.2.61)(react@18.2.0)
       react-media:
         specifier: ^1.10.0
         version: 1.10.0(react@18.2.0)
@@ -17089,8 +17089,8 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.61)(react@18.2.0)
     dev: false
 
-  /react-focus-on@3.9.1(@types/react@18.2.61)(react@18.2.0):
-    resolution: {integrity: sha512-IYo2j4mgNpZEJNv+/XzZs3S3xhJbR+AFop092h4OMW7sbFpIMVWxp/Z61V/gfpsgOi7VnoSFXP2bfOWWkjjtOw==}
+  /react-focus-on@3.9.2(@types/react@18.2.61)(react@18.2.0):
+    resolution: {integrity: sha512-3UZ9PjA+pe8ZK3B+rz7zcgJUIRJVzJEddYe6R5WVUAsSXW8awHw9nXJqK0UU5MenGEUh/tMUBWMqN633+d2eCA==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -17106,7 +17106,7 @@ packages:
       react-remove-scroll: 2.5.7(@types/react@18.2.61)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.61)(react@18.2.0)
       tslib: 2.6.2
-      use-callback-ref: 1.3.0(@types/react@18.2.61)(react@18.2.0)
+      use-callback-ref: 1.3.1(@types/react@18.2.61)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.61)(react@18.2.0)
     dev: false
 
@@ -19816,21 +19816,6 @@ packages:
       punycode: 1.4.1
       qs: 6.11.2
     dev: true
-
-  /use-callback-ref@1.3.0(@types/react@18.2.61)(react@18.2.0):
-    resolution: {integrity: sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-    dependencies:
-      '@types/react': 18.2.61
-      react: 18.2.0
-      tslib: 2.6.2
-    dev: false
 
   /use-callback-ref@1.3.1(@types/react@18.2.61)(react@18.2.0):
     resolution: {integrity: sha512-Lg4Vx1XZQauB42Hw3kK7JM6yjVjgFmFC5/Ab797s79aARomD2nEErc4mCgM8EZrARLmmbWpi5DGCadmK50DcAQ==}
