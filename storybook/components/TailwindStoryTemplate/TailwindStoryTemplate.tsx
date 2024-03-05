@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { InlineNotification } from "~components/Notification"
 import { StickerSheet } from "~storybook/components/StickerSheet"
-import { CodeSnippet } from "./CodeSnippet"
+import { CardContent } from "./components/CardContent"
+import { CodeSnippet } from "./components/CodeSnippet"
+import { DemoBox } from "./components/DemoBox"
 
 type Props = {
   compiledCssPropertyName: string
@@ -10,7 +12,7 @@ type Props = {
   isReversed?: boolean
 }
 
-export const UtilityClassTemplate = ({
+export const TailwindStoryTemplate = ({
   compiledCssPropertyName,
   classKeyValues,
   renderExampleComponent,
@@ -74,3 +76,8 @@ export const UtilityClassTemplate = ({
     </div>
   )
 }
+
+TailwindStoryTemplate.CodeSnippet = CodeSnippet
+TailwindStoryTemplate.DemoBox = DemoBox
+TailwindStoryTemplate.CardContent = CardContent
+TailwindStoryTemplate.displayName = "TailwindStoryTemplate"

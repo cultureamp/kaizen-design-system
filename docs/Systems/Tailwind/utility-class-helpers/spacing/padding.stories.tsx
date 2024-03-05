@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "p-"
@@ -29,7 +29,7 @@ export default {
 } satisfies Meta
 
 export const Padding: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="padding"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
