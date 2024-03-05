@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.40.5
+
+### Patch Changes
+
+- [#4549](https://github.com/cultureamp/kaizen-design-system/pull/4549) [`f6cfb6ad27da23cc35d99eae0a44321d853316f3`](https://github.com/cultureamp/kaizen-design-system/commit/f6cfb6ad27da23cc35d99eae0a44321d853316f3) - Update cultureamp i18n dependencies
+
+- [#4555](https://github.com/cultureamp/kaizen-design-system/pull/4555) [`1d81ac7ce9b4228beb6d4e40b0a86673607f5146`](https://github.com/cultureamp/kaizen-design-system/commit/1d81ac7ce9b4228beb6d4e40b0a86673607f5146) - Update error page Greek translations
+
 ## 1.40.4
 
 ### Patch Changes
