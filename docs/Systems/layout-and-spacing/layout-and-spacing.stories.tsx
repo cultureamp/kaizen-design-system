@@ -1,7 +1,13 @@
 import React from "react"
+import { StoryFn } from "@storybook/react"
+import { Button } from "~components/Button"
 import { tokens } from "~design-tokens/js"
 
-export const SpacingTokens = (): JSX.Element => {
+export default {
+  title: "Systems/Tailwind/Layout and spacing",
+}
+
+export const SpacingTokens: StoryFn = () => {
   const keyValuePairs = Object.entries(tokens.spacing)
 
   return (
@@ -33,4 +39,11 @@ export const SpacingTokens = (): JSX.Element => {
   )
 }
 
-SpacingTokens.displayName = "SpacingTokens"
+export const MarginExample: StoryFn = (): JSX.Element => (
+  <div className="flex">
+    <div className="mr-12">
+      <Button label="Button 1" />
+    </div>
+    <Button label="Button 2" />
+  </div>
+)
