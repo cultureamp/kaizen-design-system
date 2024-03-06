@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.40.6
+
+### Patch Changes
+
+- [#4543](https://github.com/cultureamp/kaizen-design-system/pull/4543) [`5434d009325c6588b9be968144fdeb27c37b08f9`](https://github.com/cultureamp/kaizen-design-system/commit/5434d009325c6588b9be968144fdeb27c37b08f9) - Update react-focus-on and react-focus-lock dependencies
+
+- [#4557](https://github.com/cultureamp/kaizen-design-system/pull/4557) [`28f6611df11902522df2068de1b89afcf6763bcb`](https://github.com/cultureamp/kaizen-design-system/commit/28f6611df11902522df2068de1b89afcf6763bcb) - Remove tailwind from kaizen CSS bundle
+
+  - Replaced Tailwind CSS in Kaizen components
+    - This includes: Slider, Workflow's subcomponents, GenericTile, MultiActionTile
+  - Remove tailwind directives from kaizen global.css and compile CSS
+
 ## 1.40.5
 
 ### Patch Changes
