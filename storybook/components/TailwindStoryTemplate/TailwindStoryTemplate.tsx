@@ -3,7 +3,6 @@ import { InlineNotification } from "~components/Notification"
 import { StickerSheet } from "~storybook/components/StickerSheet"
 import { CardContent } from "./components/CardContent"
 import { CodeSnippet } from "./components/CodeSnippet"
-import { DemoBox } from "./components/DemoBox"
 
 type Props = {
   compiledCssPropertyName: string
@@ -77,7 +76,6 @@ export const TailwindStoryTemplate = ({
   )
 }
 
-TailwindStoryTemplate.CodeSnippet = CodeSnippet
-TailwindStoryTemplate.DemoBox = DemoBox
 TailwindStoryTemplate.CardContent = CardContent
+
 TailwindStoryTemplate.displayName = "TailwindStoryTemplate"
