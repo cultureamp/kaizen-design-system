@@ -1,8 +1,8 @@
 import { Meta, Canvas, Unstyled } from "@storybook/blocks"
 import { LinkTo } from "~storybook/components/LinkTo"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import CopyUtilityClass from "../assets/copy-utility-class.gif"
 import UtilitySearchResult from "../assets/utility-search-result.png"
-import { UtilityClassTemplate } from "../components/UtilityClassTemplate"
 
 <Meta title="Systems/Tailwind/Utility Class References/Overview" />
 
@@ -26,7 +26,7 @@ The references provide the following structure for each utility class:
 
 <Unstyled>
 <div className="w-100">
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="width"
     classKeyValues={[{utilityClassName: "text-heading-1", cssProperty: "2.125rem"}]}
     renderExampleComponent={cssProperty => (

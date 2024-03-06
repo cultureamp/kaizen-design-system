@@ -42,7 +42,7 @@ export const Slider = ({
         )}
       >
         <div className={styles.labelWrapper}>
-          <div className="mb-4">
+          <div className={styles.label}>
             <Label
               htmlFor={id}
               labelText={labelText}

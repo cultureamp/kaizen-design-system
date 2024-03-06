@@ -15,14 +15,12 @@ export const MinimalBasic = (): JSX.Element => (
       </a>
     </div>
     <div className={styles.headerRight}>
-      <div className="mr-8">
-        <Button
-          href="#"
-          label="Exit"
-          icon={<CloseIcon role="presentation" />}
-          secondary
-        />
-      </div>
+      <Button
+        href="#"
+        label="Exit"
+        icon={<CloseIcon role="presentation" />}
+        secondary
+      />
       <div className={styles.logoContainer}>
         <img src={assetUrl("brand/enso-default.svg")} alt="Culture Amp" />
       </div>

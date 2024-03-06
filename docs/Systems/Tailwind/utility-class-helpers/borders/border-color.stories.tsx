@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
@@ -29,7 +29,7 @@ export default {
 export const BorderColor: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="border-color"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (

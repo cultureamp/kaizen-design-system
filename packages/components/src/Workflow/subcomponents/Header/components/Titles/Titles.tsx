@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from "react"
 import { Heading } from "~components/Heading"
 import { Tag, DefaultTagProps } from "~components/Tag"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./Titles.module.scss"
 
@@ -36,7 +37,7 @@ export const Titles = ({
         color="dark-reduced-opacity"
       >
         {workflowName}
-        <span className="sr-only">:</span>
+        <VisuallyHidden>:</VisuallyHidden>
       </Heading>
       <span>{stepName}</span>
     </Heading>
