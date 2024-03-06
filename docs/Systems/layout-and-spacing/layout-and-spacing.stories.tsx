@@ -1,11 +1,15 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
+import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { tokens } from "~design-tokens/js"
 
-export default {
+const meta = {
   title: "Systems/Tailwind/Layout and spacing",
-}
+} satisfies Meta
+
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 export const SpacingTokens: StoryFn = () => {
   const keyValuePairs = Object.entries(tokens.spacing)
@@ -39,11 +43,30 @@ export const SpacingTokens: StoryFn = () => {
   )
 }
 
-export const MarginExample: StoryFn = (): JSX.Element => (
-  <div className="flex">
-    <div className="mr-12">
-      <Button label="Button 1" />
-    </div>
-    <Button label="Button 2" />
+const marginExampleSource = `
+<div className="flex">
+  <div className="mr-12">   // This will become margin-right: 0.75rem
+    <Button label="Button 1" />
   </div>
-)
+  <Button label="Button 2" />
+</div>
+`
+
+export const MarginExample: Story = {
+  render: () => (
+    <div className="flex">
+      <div className="mr-12">
+        <Button label="Button 1" />
+      </div>
+      <Button label="Button 2" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      source: { code: marginExampleSource },
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+  },
+}
