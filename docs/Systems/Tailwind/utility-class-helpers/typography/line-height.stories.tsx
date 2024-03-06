@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "leading-"
@@ -31,7 +31,7 @@ export default {
 export const LineHeight: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="line-height"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (

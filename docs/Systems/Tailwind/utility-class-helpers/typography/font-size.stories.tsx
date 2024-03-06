@@ -1,7 +1,7 @@
 import React from "react"
 import { StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "text-"
@@ -27,7 +27,7 @@ export default {
 }
 
 export const FontSize: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="font-size"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (

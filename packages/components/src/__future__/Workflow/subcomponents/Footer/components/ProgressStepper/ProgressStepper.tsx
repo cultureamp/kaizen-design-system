@@ -6,6 +6,7 @@ import {
   SuccessIcon,
 } from "~components/Icon"
 import { Text } from "~components/Text"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import styles from "./ProgressStepper.module.scss"
 
 export type Step = {
@@ -104,10 +105,10 @@ export const ProgressStepper = ({
               aria-current={isCurrentStep}
             >
               <div className={styles.stepContent}>
-                <span className="sr-only">
+                <VisuallyHidden>
                   {/* will need to be translated */}
                   {accessibleName}
-                </span>
+                </VisuallyHidden>
                 <Text
                   classNameOverride={styles.stepName}
                   variant="small"
