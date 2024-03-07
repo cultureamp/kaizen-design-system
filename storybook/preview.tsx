@@ -2,7 +2,7 @@ import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
 import { Preview } from "@storybook/react"
-import isChromatic from "chromatic"
+import isChromatic from "chromatic/isChromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"
 import { DefaultDocsContainer } from "./components/DocsContainer"

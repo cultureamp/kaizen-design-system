@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
+import isChromatic from "chromatic/isChromatic"
 import { AddImage } from "~components/Illustration"
 import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
 import { Text } from "~components/Text"

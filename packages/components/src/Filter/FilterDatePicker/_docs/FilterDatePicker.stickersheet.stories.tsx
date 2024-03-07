@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
 import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
+import isChromatic from "chromatic/isChromatic"
 import {
   StickerSheet,
   StickerSheetStory,
