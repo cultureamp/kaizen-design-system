@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
-import { ToastNotificationsList } from "~components/Notification"
-import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
+import React from "react"
+// import { ToastNotificationsList } from "~components/Notification"
+// import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
 import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
 
@@ -12,20 +12,20 @@ export type KaizenProviderProps = {
 export const KaizenProvider = ({
   children,
   locale = "en",
-}: KaizenProviderProps): JSX.Element => {
-  const [documentIsAvailable, setDocumentIsAvailable] = useState<boolean>(false)
-  const [notificationsList, setNotificationsList] = useState<JSX.Element>()
+}: KaizenProviderProps): JSX.Element =>
+  // const [documentIsAvailable, setDocumentIsAvailable] = useState<boolean>(false)
+  // const [notificationsList, setNotificationsList] = useState<JSX.Element>()
 
-  useEffect(() => {
-    // SSR does not have a document, which is required for ToastNotificationsList.
-    // Await document render before rendering the component.
-    if (document !== undefined) {
-      setNotificationsList(<ToastNotificationsList />)
-      setDocumentIsAvailable(true)
-    }
-  }, [documentIsAvailable])
+  // useEffect(() => {
+  //   // SSR does not have a document, which is required for ToastNotificationsList.
+  //   // Await document render before rendering the component.
+  //   if (document !== undefined) {
+  //     setNotificationsList(<ToastNotificationsList />)
+  //     setDocumentIsAvailable(true)
+  //   }
+  // }, [documentIsAvailable])
 
-  return (
+   (
     <OptionalIntlProvider locale={locale}>
       <>
         {/* <ToastNotificationProvider> */}
@@ -36,6 +36,6 @@ export const KaizenProvider = ({
       </>
     </OptionalIntlProvider>
   )
-}
+
 
 KaizenProvider.displayName = "KaizenProvider"
