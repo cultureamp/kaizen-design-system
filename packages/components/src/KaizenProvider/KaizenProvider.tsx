@@ -26,15 +26,15 @@ export const KaizenProvider = ({
   }, [documentIsAvailable])
 
   return (
-    // <OptionalIntlProvider locale={locale}>
+    <OptionalIntlProvider locale={locale}>
       <>
-        <ToastNotificationProvider>
+        {/* <ToastNotificationProvider> */}
           {notificationsList}
           {children}
-        </ToastNotificationProvider>
+        {/* </ToastNotificationProvider> */}
         <FontDefinitions />
       </>
-    // </OptionalIntlProvider>
+    </OptionalIntlProvider>
   )
 }
 
