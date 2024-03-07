@@ -29,7 +29,7 @@ export const KaizenProvider = ({
     <OptionalIntlProvider locale={locale}>
       <>
         {/* <ToastNotificationProvider> */}
-          {notificationsList}
+          {/* {notificationsList} */}
           {children}
         {/* </ToastNotificationProvider> */}
         <FontDefinitions />
