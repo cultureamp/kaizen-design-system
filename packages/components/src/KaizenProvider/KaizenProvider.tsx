@@ -26,7 +26,7 @@ export const KaizenProvider = ({
   }, [documentIsAvailable])
 
   return (
-    <OptionalIntlProvider locale={locale}>
+    // <OptionalIntlProvider locale={locale}>
       <>
         <ToastNotificationProvider>
           {notificationsList}
@@ -34,7 +34,7 @@ export const KaizenProvider = ({
         </ToastNotificationProvider>
         <FontDefinitions />
       </>
-    </OptionalIntlProvider>
+    // </OptionalIntlProvider>
   )
 }
 
