@@ -451,9 +451,6 @@ importers:
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
-      '@kaizen/tailwind':
-        specifier: workspace:*
-        version: link:../tailwind
       '@rollup/plugin-alias':
         specifier: ^5.1.0
         version: 5.1.0(rollup@4.12.0)

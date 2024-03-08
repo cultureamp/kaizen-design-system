@@ -100,7 +100,6 @@
     "@cultureamp/frontend-apis": "^9.4.1",
     "@cultureamp/i18n-react-intl": "^2.5.2",
     "@kaizen/design-tokens": "workspace:*",
-    "@kaizen/tailwind": "workspace:*",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
