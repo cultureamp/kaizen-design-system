@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import * as ICONS from "~components/Icon"
 import { SearchField } from "~components/SearchField"
+import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
 import { AddIcon } from "../index"
 import styles from "./icon.stories.scss"
@@ -63,12 +64,17 @@ const ReferenceButton = ({
     <li key={iconName}>
       <button type="button" className={styles.button} onClick={handleCopy}>
         {copied ? (
-          <Tag color="green" classNameOverride={styles.tag}>
-            Copied!
-          </Tag>
+          <span className={styles.copiedTag}>
+            <Tag color="green" classNameOverride={styles.tag}>
+              Copied!
+            </Tag>
+          </span>
         ) : (
           <>
-            {icon} {iconName}
+            <span className={styles.icon}>{icon}</span>
+            <Text variant="small" tag="span">
+              {iconName}
+            </Text>
           </>
         )}
       </button>
@@ -76,39 +82,31 @@ const ReferenceButton = ({
   )
 }
 
+const deprecatedList: string[] = ["ThumbsUpIcon"]
+
 export const Reference: Story = {
-  render: () => {
-    const [searchTerm, setSearchTerm] = useState<string>("")
-
-    return (
-      <div className="flex flex-col gap-16">
-        <SearchField
-          labelText="Find icon by name"
-          onChange={event => {
-            setSearchTerm(event.target.value)
-          }}
-        />
-        <ul className={styles.grid}>
-          {Object.keys(ICONS)
-            .filter(iconName => {
-              const term = new RegExp(searchTerm, "i")
-              return iconName.match(term)
+  render: () => (
+    <div className="flex flex-col gap-16">
+      <ul className={styles.grid}>
+        {Object.keys(ICONS)
+          .filter(iconName => {
+            if (
+              deprecatedList.find(deprecatedIcon => deprecatedIcon === iconName)
+            ) {
+              return
+            }
+            return iconName
+          })
+          .map(iconName => {
+            const icon = ICONS[iconName as keyof typeof ICONS]({
+              role: "presentation",
             })
-            .map(iconName => {
-              const icon = ICONS[iconName as keyof typeof ICONS]({
-                role: "presentation",
-              })
 
-              return (
-                <ReferenceButton
-                  key={iconName}
-                  icon={icon}
-                  iconName={iconName}
-                />
-              )
-            })}
-        </ul>
-      </div>
-    )
-  },
+            return (
+              <ReferenceButton key={iconName} icon={icon} iconName={iconName} />
+            )
+          })}
+      </ul>
+    </div>
+  ),
 }
