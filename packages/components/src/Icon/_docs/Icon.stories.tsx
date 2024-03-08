@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import * as ICONS from "~components/Icon"
-import { SearchField } from "~components/SearchField"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
 import { AddIcon } from "../index"

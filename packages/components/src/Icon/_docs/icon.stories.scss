@@ -12,6 +12,7 @@
 
 .button {
   @include button-reset;
+
   display: flex;
   flex-direction: column;
   align-items: center;
