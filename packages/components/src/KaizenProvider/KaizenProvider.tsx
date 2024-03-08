@@ -2,7 +2,7 @@ import React from "react"
 // import { ToastNotificationsList } from "~components/Notification"
 // import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
-import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
+// import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
 
 export type KaizenProviderProps = {
   children: React.ReactNode
@@ -26,7 +26,7 @@ export const KaizenProvider = ({
   // }, [documentIsAvailable])
 
    (
-    <OptionalIntlProvider locale={locale}>
+    // <OptionalIntlProvider locale={locale}>
       <>
         {/* <ToastNotificationProvider> */}
           {/* {notificationsList} */}
@@ -34,7 +34,7 @@ export const KaizenProvider = ({
         {/* </ToastNotificationProvider> */}
         <FontDefinitions />
       </>
-    </OptionalIntlProvider>
+    // </OptionalIntlProvider>
   )
 
 
