@@ -91,7 +91,7 @@
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "axe-playwright": "^2.0.1",
-    "chromatic": "^11.0.0",
+    "chromatic": "^11.0.7",
     "color-string": "^1.9.1",
     "css-loader": "^6.10.0",
     "eslint": "^8.57.0",
