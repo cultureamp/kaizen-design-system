@@ -81,7 +81,11 @@ const ReferenceButton = ({
   )
 }
 
-const deprecatedList: string[] = ["ThumbsUpIcon"]
+/**
+ * Deprecated icons will still exist in as a React component but have been removed from the assets folder
+ * This will remove them from the documentation but give us time to remove them in the next major
+ */
+const deprecatedList: string[] = ["ThumbsUpIcon", "ThumbsDownIcon"]
 
 export const Reference: Story = {
   render: () => (
