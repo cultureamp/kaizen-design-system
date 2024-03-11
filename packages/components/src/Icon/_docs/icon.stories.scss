@@ -2,8 +2,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 150px);
+  grid-template-rows: min-content;
   grid-gap: var(--spacing-8);
   margin: 0;
   padding: 0;
@@ -13,14 +13,12 @@
 .button {
   @include button-reset;
 
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   gap: var(--spacing-8);
   padding: var(--spacing-16);
-  width: 150px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   background-color: var(--color-gray-100);
   border-radius: var(--border-solid-border-radius);
   word-break: break-all;
