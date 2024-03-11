@@ -134,7 +134,6 @@
     "stylelint-config-standard-scss": "^13.0.0",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2",
     "turbo": "^1.12.4",
     "typescript": "^5.3.3",
     "webpack": "^5.90.3"
