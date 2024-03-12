@@ -92,14 +92,7 @@ export const Reference: Story = {
     <div className="flex flex-col gap-16">
       <ul className={styles.grid}>
         {Object.keys(ICONS)
-          .filter(iconName => {
-            if (
-              deprecatedList.find(deprecatedIcon => deprecatedIcon === iconName)
-            ) {
-              return
-            }
-            return iconName
-          })
+          .filter(iconName => !deprecatedList.includes(iconName))
           .map(iconName => {
             const icon = ICONS[iconName as keyof typeof ICONS]({
               role: "presentation",
