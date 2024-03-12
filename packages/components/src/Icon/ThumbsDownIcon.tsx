@@ -5,6 +5,7 @@ import React, { useId } from "react"
 import { SVG } from "~components/Icon/subcomponents/SVG"
 import type { IconProps } from "~components/Icon/types"
 
+/** @deprecated Use `<ThumbsDownIconOn/>` or `<ThumbsDownIconOff/>` */
 export const ThumbsDownIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
   const svgContent = (
@@ -12,7 +13,7 @@ export const ThumbsDownIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M5.91 3.183c-.566 0-1.05.341-1.254.832L2.597 8.821c-.061.156-.095.32-.095.497v1.364c0 .75.613 1.363 1.363 1.363h4.301L7.52 15.16l-.02.218c0 .28.115.539.3.723l.722.716 4.492-4.493c.245-.245.395-.586.395-.96V4.546c0-.75-.613-1.364-1.363-1.364zm8.862 8.18h2.726v-8.18h-2.726z"
+          d="M5.91 3.183c-.566 0-1.05.341-1.254.832L2.597 8.821q-.093.233-.095.497v1.364c0 .75.613 1.363 1.363 1.363h4.301L7.52 15.16l-.02.218c0 .28.115.539.3.723l.722.716 4.492-4.493c.245-.245.395-.586.395-.96V4.546c0-.75-.613-1.364-1.363-1.364zm8.862 8.18h2.726v-8.18h-2.726z"
         />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />
