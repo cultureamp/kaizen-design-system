@@ -128,11 +128,11 @@ export const tokens: TokenStructure = {
   shadow: {
     small: {
       boxShadow:
-        "0px 3px 16px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1)",
+        "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 3px 16px 0 rgba(0, 0, 0, 0.06)",
     },
     large: {
       boxShadow:
-        "0px 8px 40px rgba(0, 0, 0, 0.08), 0px 3px 9px rgba(0, 0, 0, 0.1)",
+        "0 3px 9px 0 rgba(0, 0, 0, 0.1), 0 8px 40px 0 rgba(0, 0, 0, 0.08)",
     },
   },
   spacing: {
