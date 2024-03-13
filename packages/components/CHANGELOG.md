@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.41.0
+
+### Minor Changes
+
+- [#4561](https://github.com/cultureamp/kaizen-design-system/pull/4561) [`0b85a5e5a9d4d609179274df12cdd0fdd52b3965`](https://github.com/cultureamp/kaizen-design-system/commit/0b85a5e5a9d4d609179274df12cdd0fdd52b3965) - Add new ThumbsUp and ThumbsDown icon set
+  - adds new icon set with on and off state
+  - adds deprecated doc block on old icon set
+
+### Patch Changes
+
+- [#4570](https://github.com/cultureamp/kaizen-design-system/pull/4570) [`c6718306b97f5408d7d2e4ac05320addc3d14909`](https://github.com/cultureamp/kaizen-design-system/commit/c6718306b97f5408d7d2e4ac05320addc3d14909) - Export useMediaQueries hook
+
+- [#4551](https://github.com/cultureamp/kaizen-design-system/pull/4551) [`4a140c6d9e704f3587cdeb392c492b1d936e4b5f`](https://github.com/cultureamp/kaizen-design-system/commit/4a140c6d9e704f3587cdeb392c492b1d936e4b5f) - Update dependency autoprefixer to ^10.4.18
+
 ## 1.40.6
 
 ### Patch Changes

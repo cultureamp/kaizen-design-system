@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.3.19
+
+### Patch Changes
+
+- [#4571](https://github.com/cultureamp/kaizen-design-system/pull/4571) [`f653e18f48ec81663a67261aee215ded8e003fc4`](https://github.com/cultureamp/kaizen-design-system/commit/f653e18f48ec81663a67261aee215ded8e003fc4) - Update token values to align with Figma tokens.
+
 ## 10.3.18
 
 ### Patch Changes
