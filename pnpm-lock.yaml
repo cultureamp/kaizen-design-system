@@ -563,9 +563,6 @@ importers:
       '@types/lodash.flatmap':
         specifier: ^4.5.9
         version: 4.5.9
-      '@types/yargs':
-        specifier: ^17.0.32
-        version: 17.0.32
       json-to-flat-sass:
         specifier: ^1.0.0
         version: 1.0.0
@@ -587,9 +584,6 @@ importers:
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@swc/core@1.4.1)(@types/node@20.11.17)(typescript@5.3.3)
-      yargs:
-        specifier: ^17.7.2
-        version: 17.7.2
 
   packages/hosted-assets: {}
 
