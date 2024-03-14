@@ -1,4 +1,6 @@
 import React, { HTMLAttributes } from "react"
+
+import classnames from "classnames"
 import { tokens } from "@kaizen/design-tokens/js"
 import { OverrideClassName } from "~types/OverrideClassName"
 
@@ -32,6 +34,7 @@ export type CardProps = OverrideClassName<HTMLAttributes<HTMLElement>> & {
  * {@link https://cultureamp.design/?path=/story/components-card--docs Storybook}
  */
 
+// This would be a good reason to have semantic tokens
 const variantColors = {
   default: tokens.color.white,
   informative: tokens.color.blue[100],
@@ -52,23 +55,71 @@ export const Card = ({
 }: CardProps): JSX.Element => {
   const Tag = tag
 
-  const inlineScopeTestClass = `
-    @scope {
-      :scope {
-        color: ${tokens.color.purple[800]};
-        background-color: ${variantColors[variant]};
-        padding: ${tokens.spacing[12]};
-        border-radius: ${tokens.border.solid.borderRadius};
-        box-shadow: ${isElevated ? tokens.shadow.large.boxShadow : tokens.shadow.small.boxShadow};
-      }
-    }
-  `
   return (
-    <Tag className={classNameOverride} {...props}>
-      <style>{inlineScopeTestClass}</style>
+    <Tag className={classnames(classNameOverride)} {...props}>
+      {/*
+       * This is called inline scope and will apply the scope it to the parent of the style tag
+       * The only (major) issue here is that ClassNameOverride won't supersede the style tag */}
+      <style>
+        {`
+        @scope {
+          :scope {
+            color: ${tokens.color.purple[800]};
+            background-color: ${variantColors[variant]};
+            padding: ${tokens.spacing[12]};
+            border-radius: ${tokens.border.solid.borderRadius};
+            box-shadow: ${isElevated ? tokens.shadow.large.boxShadow : tokens.shadow.small.boxShadow};
+
+          }
+
+          {/* unlike regular inline styles, :scope has access to pseudo selectors */}
+          :scope:hover {
+            background: ${tokens.color.gray[300]}
+          }
+
+        }
+      `}
+      </style>
       {children}
     </Tag>
   )
 }
 
 Card.displayName = "Card"
+
+export const CardWithUnstyledChildren = ({
+  children,
+  tag = "div",
+  variant = "default",
+  isElevated = false,
+  classNameOverride,
+  ...props
+}: CardProps): JSX.Element => {
+  const Tag = tag
+
+  return (
+    <Tag className={classnames("card", classNameOverride)} {...props}>
+      {/*
+       * This is called inline scope and will apply the scope it to the parent of the style tag
+       * The only (major) issue here is that ClassNameOverride won't supersede the style tag */}
+      <style>{`
+      @scope (.card) to (.unstyledChildren) {
+        h2 {
+          color: ${tokens.color.red[600]}
+        }
+        :scope {
+          color: ${tokens.color.purple[800]};
+          background-color: ${variantColors[variant]};
+          padding: ${tokens.spacing[12]};
+          border-radius: ${tokens.border.solid.borderRadius};
+          box-shadow: ${isElevated ? tokens.shadow.large.boxShadow : tokens.shadow.small.boxShadow};
+        }
+      }
+    `}</style>
+      <h2>This h2 should be red</h2>
+      <div className="unstyledChildren">{children}</div>
+    </Tag>
+  )
+}
+
+CardWithUnstyledChildren.displayName = "CardWithUnstyledChildren"

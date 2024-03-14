@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Card } from "../index"
+import { Card, CardWithUnstyledChildren } from "../index"
 
 const meta = {
   title: "Components/CardRedo",
@@ -60,6 +60,52 @@ export const Elevation: Story = {
       </li>
       <li>
         <Card isElevated>isElevated</Card>
+      </li>
+    </ul>
+  ),
+}
+
+export const WithClassnameOverride: Story = {
+  render: () => (
+    <ul className="flex list-none gap-16">
+      <li>
+        <Card>Default</Card>
+      </li>
+      <li>
+        <Card classNameOverride=" bg-red-500">
+          Should have override of `bg-red-500`
+        </Card>
+      </li>
+      <li>
+        <Card classNameOverride=" !bg-red-500">
+          Uses important to have override of `!bg-red-500`
+        </Card>
+      </li>
+    </ul>
+  ),
+}
+
+export const TestingNarrowScope: Story = {
+  render: () => (
+    <ul className="flex list-none gap-16">
+      <li>
+        <CardWithUnstyledChildren>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
+            perspiciatis accusantium natus ratione dolor sapiente quis nesciunt
+            alias quaerat sequi!
+          </p>
+        </CardWithUnstyledChildren>
+      </li>
+      <li>
+        <CardWithUnstyledChildren>
+          <h2>Child h2 should be default colour</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
+            perspiciatis accusantium natus ratione dolor sapiente quis nesciunt
+            alias quaerat sequi!
+          </p>
+        </CardWithUnstyledChildren>
       </li>
     </ul>
   ),
