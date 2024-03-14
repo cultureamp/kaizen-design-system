@@ -1,3 +1,4 @@
+export * from "./CanvasReversed"
 export * from "./NoClipCanvas"
 export * from "./Installation"
 export * from "./KaioLegacyDocsNotification"

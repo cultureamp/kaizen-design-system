@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
+import { CanvasReversed, ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as ButtonStories from "./Button.stories"
 
 <Meta of={ButtonStories} />
@@ -12,7 +12,6 @@ import * as ButtonStories from "./Button.stories"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3062890984/Button"
   className="!mb-8"
 />
-
 
 <KAIOInstallation exportNames="Button" />
 
@@ -35,7 +34,7 @@ If no `variant` is specified, a `Default` button will be rendered.
 
 #### Reversed
 
-<Canvas of={ButtonStories.Reversed} />
+<CanvasReversed of={ButtonStories.Reversed} />
 
 ### Disabled
 

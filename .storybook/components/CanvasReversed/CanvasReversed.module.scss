@@ -1,0 +1,11 @@
+@import "@kaizen/design-tokens/sass/color";
+
+.canvasReversed {
+  background-color: $color-purple-700;
+
+  :global(.docs-story) {
+    & > div:last-child {
+      background-color: transparent;
+    }
+  }
+}

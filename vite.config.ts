@@ -20,7 +20,7 @@ export default defineConfig({
         },
       ],
       {
-        "~storybook": resolveAbsolutePath("storybook"),
+        "~storybook": resolveAbsolutePath(".storybook"),
         "~types": resolveAbsolutePath("packages/components/src/types"),
         "~utils": resolveAbsolutePath("packages/components/src/utils"),
         "~components": resolveAbsolutePath("packages/components/src"),

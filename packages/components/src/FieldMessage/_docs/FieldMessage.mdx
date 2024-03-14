@@ -1,5 +1,5 @@
-import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { CanvasReversed, ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as FieldMessageStories from "./FieldMessage.stories"
 
 <Meta of={FieldMessageStories} />
@@ -55,4 +55,6 @@ Gives the correct spacing between the form element and the description based on 
 
 <Canvas of={FieldMessageStories.Position} />
 
-<DocsStory of={FieldMessageStories.Reversed} />
+### Reversed
+
+<CanvasReversed of={FieldMessageStories.Reversed} />
