@@ -21,6 +21,11 @@
     }
   },
   "files": ["./types.d.ts"],
-  "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx"],
+  "include": [
+    "packages/**/*",
+    ".storybook/**/*",
+    "storybook/**/*",
+    "docs/**/*.tsx"
+  ],
   "exclude": ["**/node_modules"]
 }

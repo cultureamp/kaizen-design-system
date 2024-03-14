@@ -16,7 +16,7 @@ export default defineConfig({
         {
           // monorepo workspace aliases
           find: /^\@kaizen(.*)$/,
-          replacement: path.resolve(__dirname, "packages$1"),
+          replacement: resolveAbsolutePath("packages$1"),
         },
       ],
       {
