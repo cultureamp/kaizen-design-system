@@ -48,6 +48,9 @@ importers:
       '@cultureamp/changelog-github':
         specifier: ^0.1.0
         version: 0.1.0
+      '@storybook/addon-actions':
+        specifier: ^8.0.0
+        version: 8.0.0
       '@storybook/addon-essentials':
         specifier: ^8.0.0
         version: 8.0.0(@types/react@18.2.61)(react-dom@18.2.0)(react@18.2.0)
