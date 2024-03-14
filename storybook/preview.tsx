@@ -1,4 +1,4 @@
-import "./styles/tailwind.scss"
+// import "./styles/tailwind.scss"
 
 import React, { useEffect } from "react"
 import { Preview } from "@storybook/react"

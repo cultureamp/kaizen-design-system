@@ -1,6 +1,6 @@
 <!--Styles to target and override storybook theme defaults-->
 <style>
-  body .sidebar-item:hover{background:#dfc9ea}
+  /* body .sidebar-item:hover{background:#dfc9ea}
   body .search-result-item:hover{background:#dfc9ea}
   body .search-result-recentlyOpened{
     text-transform: capitalize;
@@ -14,7 +14,7 @@
 
   #storybook-explorer-searchfield {
     background-color: white;
-  }
+  } */
 </style>
 
 <script>
@@ -22,7 +22,7 @@
   const production = new RegExp("^https://cultureamp\.design");
 
   const shouldHideKAIOStories = production.test(window.location.href);
-  
+
   if(shouldHideKAIOStories) {
     const style = document.createElement('style');
     style.textContent = `
