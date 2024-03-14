@@ -7,18 +7,18 @@ const resolveAbsolutePath = (relativePath: string): string =>
 export default defineConfig({
   resolve: {
     alias: mergeAlias(
-      // [
-      //   {
-      //     // this is required for the SCSS modules
-      //     find: /^~(.*)$/,
-      //     replacement: "$1",
-      //   },
-      //   {
-      //     // monorepo workspace aliases
-      //     find: /^\@kaizen(.*)$/,
-      //     replacement: path.resolve(__dirname, "packages$1"),
-      //   },
-      // ],
+      [
+        //   {
+        //     // this is required for the SCSS modules
+        //     find: /^~(.*)$/,
+        //     replacement: "$1",
+        //   },
+        {
+          // monorepo workspace aliases
+          find: /^\@kaizen(.*)$/,
+          replacement: path.resolve(__dirname, "packages$1"),
+        },
+      ],
       {
         "~storybook": resolveAbsolutePath("storybook"),
         "~types": resolveAbsolutePath("packages/components/src/types"),
