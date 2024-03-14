@@ -1,9 +1,9 @@
 // Copied from @kaizen/deprecated-component-library-helpers/styles/utils/type
 // Avoiding making `deprecated-component-library-helpers` a dep
 
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "@kaizen/design-tokens/sass/spacing";
+@import "@kaizen/design-tokens/sass/color";
+@import "@kaizen/design-tokens/sass/typography";
 @import "./color";
 
 $ca-grid: 1.5rem; // 24px @ default root font-size of 16px

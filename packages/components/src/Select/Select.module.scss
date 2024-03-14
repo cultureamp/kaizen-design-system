@@ -1,7 +1,7 @@
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
+@import "@kaizen/design-tokens/sass/typography";
+@import "@kaizen/design-tokens/sass/shadow";
+@import "@kaizen/design-tokens/sass/border";
+@import "@kaizen/design-tokens/sass/color";
 
 // Should match the values for the Input component
 $input-height: 48px;
