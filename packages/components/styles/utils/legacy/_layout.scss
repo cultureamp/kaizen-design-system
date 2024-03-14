@@ -5,10 +5,10 @@ $ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 $ca-layout-max-width: 1416px;
 $ca-layout-side-padding: 24px;
 $ca-layout-content-width: 1080px;
-$ca-layout-title-block-height: 5 * $ca-grid;
-$ca-layout-title-block-tablet-height: 3.5 * $ca-grid;
-$ca-layout-title-block-mobile-height: 2.5 * $ca-grid;
-$ca-layout-sidebar-width: 10 * $ca-grid;
+$ca-layout-title-block-height: calc(#{$ca-grid} * 5);
+$ca-layout-title-block-tablet-height: calc(#{$ca-grid} * 3.5);
+$ca-layout-title-block-mobile-height: calc(#{$ca-grid} * 2.5);
+$ca-layout-sidebar-width: calc(#{$ca-grid} * 10);
 
 @mixin ca-margin($start: 0, $end: 0, $top: null, $bottom: null) {
   margin-top: $top;

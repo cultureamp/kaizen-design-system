@@ -69,8 +69,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $font-size: $base-size * $size-ratio; // in rem
 
   // Migrating the following two lines to use CSS vars causes Gatsby to fail with a very ambiguous error, around trying to divide by a "rem".
-  $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
-  $line-height-ratio: $absolute-line-height / $font-size; // unitless number
+  $absolute-line-height: calc(
+    #{$ca-grid} * #{$line-height-in-grid-units}
+  ); // in rem
+  $line-height-ratio: calc(
+    #{$absolute-line-height} / #{$font-size}
+  ); // unitless number
   $line-spacing: $line-height-ratio - 1;
 
   font-size: $font-size;
@@ -410,7 +414,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @function to-grid-units($value-in-rems) {
-  @return $value-in-rems / $ca-grid;
+  @return calc(#{$value-in-rems} / #{$ca-grid});
 }
 
 /*
