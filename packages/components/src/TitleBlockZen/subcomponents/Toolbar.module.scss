@@ -7,10 +7,10 @@
   align-items: center;
 
   .toolbarItem {
-    margin: 0 ($ca-grid / 4);
+    margin: 0 calc(#{$ca-grid} / 4);
 
     @include title-block-under-1024 {
-      margin: 0 ($ca-grid / 8);
+      margin: 0 calc(#{$ca-grid} / 8);
     }
 
     &.noGap {
@@ -19,10 +19,10 @@
   }
 
   .toolbarItem:first-of-type {
-    @include ca-margin($start: 0, $end: $ca-grid / 4);
+    @include ca-margin($start: 0, $end: calc(#{$ca-grid} / 4));
 
     @include title-block-under-1024 {
-      @include ca-margin($start: 0, $end: $ca-grid / 8);
+      @include ca-margin($start: 0, $end: calc(#{$ca-grid} / 8));
     }
 
     &.noGap {
@@ -31,10 +31,10 @@
   }
 
   .toolbarItem:last-of-type {
-    @include ca-margin($start: $ca-grid / 4, $end: 0);
+    @include ca-margin($start: calc(#{$ca-grid} / 4), $end: 0);
 
     @include title-block-under-1024 {
-      @include ca-margin($start: $ca-grid / 8, $end: 0);
+      @include ca-margin($start: calc(#{$ca-grid} / 8), $end: 0);
     }
 
     &.noGap {
