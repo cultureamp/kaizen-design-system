@@ -7,8 +7,13 @@ import { ListItems } from "../ListItems"
 import { Overlay } from "../Overlay"
 import styles from "./SelectPopoverContents.module.scss"
 
-export type SelectPopoverContentsProps<Option extends SelectOption> = {
-  children?: (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
+export type SelectPopoverContentsChildren<Option extends SelectOption> =
+  (args: { items: Array<SelectItemNode<Option>> }) => React.ReactNode
+
+export type SelectPopoverContentsProps<
+  Option extends SelectOption = SelectOption,
+> = {
+  children?: SelectPopoverContentsChildren<Option>
   menuProps: AriaListBoxOptions<SelectItem<Option>>
 }
 

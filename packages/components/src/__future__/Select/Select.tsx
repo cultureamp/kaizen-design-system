@@ -22,7 +22,7 @@ import {
   Option,
   SectionDivider,
   SelectPopoverContents,
-  SelectPopoverContentsProps,
+  SelectPopoverContentsChildren,
   SelectToggle,
   SelectToggleProps,
 } from "./subcomponents"
@@ -46,7 +46,7 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
     // @deprecated: This arg is unnecessary now, but provided for legacy usages
     ref: UseFloatingReturn<HTMLButtonElement>["refs"]["setReference"]
   ) => JSX.Element
-  children?: SelectPopoverContentsProps<Option>["children"]
+  children?: SelectPopoverContentsChildren<Option>
   /**
    * Updates the styling of the validation FieldMessage.
    */
