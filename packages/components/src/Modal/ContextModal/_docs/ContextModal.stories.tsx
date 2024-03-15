@@ -78,7 +78,8 @@ const meta = {
   args: {
     isOpen: false,
     title: "Context modal title",
-    children: undefined,
+    children: undefined, // defined in the template
+    onDismiss: undefined, // defined in the template
   },
   argTypes: {
     children: {
