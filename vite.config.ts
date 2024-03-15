@@ -6,6 +6,9 @@ const resolveAbsolutePath = (relativePath: string): string =>
 
 export default defineConfig({
   resolve: {
+    // @todo: Check if this is still needed once everything else is fixed
+    // https://github.com/storybookjs/storybook/issues/21610#issuecomment-1882417258
+    extensions: [".mjs", ".js", ".mts", ".ts", ".jsx", ".tsx", ".json", ".mdx"],
     alias: mergeAlias(
       [
         //   {
