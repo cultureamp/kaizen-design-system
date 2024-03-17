@@ -128,7 +128,7 @@
     "rimraf": "^5.0.5",
     "sass-loader": "^14.1.1",
     "storybook": "^7.6.17",
-    "storybook-addon-pseudo-states": "^2.1.2",
+    "storybook-addon-pseudo-states": "^2.2.1",
     "style-loader": "^3.3.4",
     "stylelint": "^16.2.1",
     "stylelint-config-standard-scss": "^13.0.0",
