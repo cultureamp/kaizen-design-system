@@ -72,7 +72,7 @@
     "@storybook/node-logger": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
     "@storybook/test": "^7.6.17",
-    "@storybook/test-runner": "^0.16.0",
+    "@storybook/test-runner": "^0.17.0",
     "@tanstack/react-query": "^5.28.4",
     "@testing-library/dom": "^9.3.4",
     "@testing-library/jest-dom": "^6.4.2",
@@ -91,7 +91,7 @@
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "axe-playwright": "^2.0.1",
-    "chromatic": "^11.0.7",
+    "chromatic": "^11.0.8",
     "color-string": "^1.9.1",
     "css-loader": "^6.10.0",
     "eslint": "^8.57.0",
@@ -135,7 +135,7 @@
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.2",
     "turbo": "^1.12.4",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "webpack": "^5.90.3"
   }
 }
