@@ -65,7 +65,7 @@
     "@react-stately/select": "^3.6.2",
     "@react-types/shared": "^3.22.1",
     "classnames": "^2.5.1",
-    "date-fns": "^3.3.1",
+    "date-fns": "^3.5.0",
     "lodash.debounce": "^4.0.8",
     "nanobus": "^4.5.0",
     "prosemirror-commands": "^1.5.2",
@@ -97,8 +97,8 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-react-pure-annotations": "^7.23.3",
-    "@cultureamp/frontend-apis": "^9.4.1",
-    "@cultureamp/i18n-react-intl": "^2.5.2",
+    "@cultureamp/frontend-apis": "^9.4.2",
+    "@cultureamp/i18n-react-intl": "^2.5.3",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/tailwind": "workspace:*",
     "@rollup/plugin-alias": "^5.1.0",
@@ -109,7 +109,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/lodash.debounce": "^4.0.9",
-    "@types/react-dom": "^18.2.19",
+    "@types/react-dom": "^18.2.22",
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^9.0.8",
     "agadoo": "^3.0.0",
@@ -118,12 +118,12 @@
     "concat-cli": "^4.0.0",
     "query-string": "^9.0.0",
     "react-intl": "^6.6.2",
-    "rollup": "^4.12.0",
+    "rollup": "^4.12.1",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-node-externals": "^7.0.1",
     "rollup-plugin-postcss": "^4.0.2",
-    "sass": "^1.71.1",
+    "sass": "^1.72.0",
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.2.0",
     "ts-jest": "^29.1.2",
@@ -132,7 +132,7 @@
     "typescript-transform-paths": "^3.4.7"
   },
   "peerDependencies": {
-    "@cultureamp/i18n-react-intl": "^2.5.1",
+    "@cultureamp/i18n-react-intl": "^2.5.3",
     "react": "^18.2.0",
     "react-intl": "^6.6.2"
   }
