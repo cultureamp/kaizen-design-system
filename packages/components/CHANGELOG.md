@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.41.1
+
+### Patch Changes
+
+- [#4563](https://github.com/cultureamp/kaizen-design-system/pull/4563) [`9b2935c1be4c2d569ed439bab194472bb8ee0b21`](https://github.com/cultureamp/kaizen-design-system/commit/9b2935c1be4c2d569ed439bab194472bb8ee0b21) - Update cultureamp/i18n
+
+- [#4580](https://github.com/cultureamp/kaizen-design-system/pull/4580) [`5797f7bc7d1ac146eb295d4e5f4402e935d57c76`](https://github.com/cultureamp/kaizen-design-system/commit/5797f7bc7d1ac146eb295d4e5f4402e935d57c76) - Improve the SplitButton dropdown accessible label (from "Open menu" to "Additional actions")
+
+  Also adds internationalisation to the label
+
+- [#4563](https://github.com/cultureamp/kaizen-design-system/pull/4563) [`9b2935c1be4c2d569ed439bab194472bb8ee0b21`](https://github.com/cultureamp/kaizen-design-system/commit/9b2935c1be4c2d569ed439bab194472bb8ee0b21) - Update date-fns to 3.5
+
+- [#4579](https://github.com/cultureamp/kaizen-design-system/pull/4579) [`d9e6eaa00be7b19e8c093149fcbaebe7937ddaf3`](https://github.com/cultureamp/kaizen-design-system/commit/d9e6eaa00be7b19e8c093149fcbaebe7937ddaf3) - Fix workflow logo a11y
+
+- [#4563](https://github.com/cultureamp/kaizen-design-system/pull/4563) [`9b2935c1be4c2d569ed439bab194472bb8ee0b21`](https://github.com/cultureamp/kaizen-design-system/commit/9b2935c1be4c2d569ed439bab194472bb8ee0b21) - Update sass dependency to 1.72.x
+
 ## 1.41.0
 
 ### Minor Changes
