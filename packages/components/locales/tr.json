@@ -111,5 +111,9 @@
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
     "message" : "Ana Sayfaya Git"
+  },
+  "splitButton.dropdownButton.label" : {
+    "description" : "Label for a dropdown menu holding additional actions",
+    "message" : "Ek eylemler"
   }
 }
