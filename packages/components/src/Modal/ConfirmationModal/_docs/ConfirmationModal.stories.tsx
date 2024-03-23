@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import isChromatic from "chromatic"
+import isChromatic from "chromatic/isChromatic"
 import { Text } from "~components/Text"
 import { chromaticModalSettings } from "../../_docs/controls"
 import { ConfirmationModal } from "../index"

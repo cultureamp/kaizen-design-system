@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
+import isChromatic from "chromatic/isChromatic"
 import {
   StickerSheet,
   StickerSheetStory,

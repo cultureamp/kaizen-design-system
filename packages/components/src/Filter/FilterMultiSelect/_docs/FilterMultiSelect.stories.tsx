@@ -8,7 +8,7 @@ import {
   useQueryClient,
   keepPreviousData,
 } from "@tanstack/react-query"
-import isChromatic from "chromatic"
+import isChromatic from "chromatic/isChromatic"
 import { InlineNotification } from "~components/Notification"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"

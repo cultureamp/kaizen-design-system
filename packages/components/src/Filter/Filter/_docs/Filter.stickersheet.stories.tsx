@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta } from "@storybook/react"
-import isChromatic from "chromatic"
+import isChromatic from "chromatic/isChromatic"
 import { FilterButton } from "~components/Filter/FilterButton"
 import {
   StickerSheet,
