@@ -16,7 +16,7 @@ const meta = {
       "import { ErrorPage } from `@kaizen/components`",
     ],
     resourceLinks: {
-      /** @todo: Add Github link (adjust as needed) */
+      /** @todo: Add GitHub link (adjust as needed) */
       sourceCode:
         "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/components/src/ErrorPage",
     },
