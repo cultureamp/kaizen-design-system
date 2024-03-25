@@ -30,7 +30,7 @@ export type InputEditModalProps = {
   automationId?: string
   children: React.ReactNode
   submitWorking?: { label: string; labelHidden?: boolean }
-} & HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, "onSubmit">
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal#Input-Edit-Modal Guidance} |
