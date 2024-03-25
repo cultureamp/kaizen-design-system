@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { FilterButton, FilterButtonRemovable } from "~components/Filter"
 import { Filter, FilterContents } from "../index"
 
@@ -20,6 +21,7 @@ const meta = {
       <FilterButton label="Label" {...triggerProps} />
     ),
     isOpen: false,
+    setIsOpen: fn(),
   },
 } satisfies Meta<typeof Filter>
 

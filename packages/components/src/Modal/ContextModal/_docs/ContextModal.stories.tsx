@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { AddImage } from "~components/Illustration"
 import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
@@ -8,6 +9,26 @@ import { chromaticModalSettings } from "../../_docs/controls"
 import { ContextModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()
+
+const meta = {
+  title: "Components/Modals/Context Modal",
+  component: ContextModal,
+  args: {
+    isOpen: false,
+    title: "Context modal title",
+    children: undefined,
+    onDismiss: fn(),
+  },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+} satisfies Meta<typeof ContextModal>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 const ContextModalTemplate: Story = {
   render: args => {
@@ -71,25 +92,6 @@ const ContextModalTemplate: Story = {
     )
   },
 }
-
-const meta = {
-  title: "Components/Modals/Context Modal",
-  component: ContextModal,
-  args: {
-    isOpen: false,
-    title: "Context modal title",
-    children: undefined,
-  },
-  argTypes: {
-    children: {
-      control: false,
-    },
-  },
-} satisfies Meta<typeof ContextModal>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   ...ContextModalTemplate,

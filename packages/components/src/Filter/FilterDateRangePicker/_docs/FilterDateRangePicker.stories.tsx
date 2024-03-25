@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import Highlight from "react-highlight"
 import { DateRange } from "~components/Calendar"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
@@ -75,6 +76,8 @@ const meta = {
     renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
       <FilterButton {...triggerButtonProps} />
     ),
+    setIsOpen: fn(),
+    onRangeChange: fn(),
   },
 } satisfies Meta<typeof FilterDateRangePicker>
 

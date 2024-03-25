@@ -1,11 +1,39 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { Text } from "~components/Text"
 import { chromaticModalSettings } from "../../_docs/controls"
 import { ConfirmationModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()
+
+const meta = {
+  title: "Components/Modals/Confirmation Modal",
+  component: ConfirmationModal,
+  args: {
+    isOpen: false,
+    title: "Confirmation modal title",
+    mood: "cautionary",
+    children: (
+      <Text variant="body">
+        Confirmation modals contain smaller pieces of content and can provide
+        additional information to aide the user.
+      </Text>
+    ),
+    onConfirm: fn(),
+    onDismiss: fn(),
+  },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+} satisfies Meta<typeof ConfirmationModal>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 const ConfirmationModalTemplate: Story = {
   render: args => {
@@ -34,31 +62,6 @@ const ConfirmationModalTemplate: Story = {
   },
   ...chromaticModalSettings,
 }
-
-const meta = {
-  title: "Components/Modals/Confirmation Modal",
-  component: ConfirmationModal,
-  args: {
-    isOpen: false,
-    title: "Confirmation modal title",
-    mood: "cautionary",
-    children: (
-      <Text variant="body">
-        Confirmation modals contain smaller pieces of content and can provide
-        additional information to aide the user.
-      </Text>
-    ),
-  },
-  argTypes: {
-    children: {
-      control: false,
-    },
-  },
-} satisfies Meta<typeof ConfirmationModal>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   ...ConfirmationModalTemplate,

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import Highlight from "react-highlight"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import {
@@ -56,6 +57,8 @@ const meta = {
     ),
     isOpen: false,
     selectedDate: undefined,
+    setIsOpen: fn(),
+    onDateChange: fn(),
   },
 } satisfies Meta<typeof FilterDatePicker>
 
