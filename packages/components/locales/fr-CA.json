@@ -23,7 +23,7 @@
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
-    "message" : "contactez l'assistance"
+    "message" : "Contactez l'assistance"
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
@@ -111,5 +111,9 @@
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
     "message" : "Retour à la page d'accueil"
+  },
+  "splitButton.dropdownButton.label" : {
+    "description" : "Label for a dropdown menu holding additional actions",
+    "message" : "Actions supplémentaires"
   }
 }

@@ -111,5 +111,9 @@
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
     "message" : "Prejsť na Úvod"
+  },
+  "splitButton.dropdownButton.label" : {
+    "description" : "Label for a dropdown menu holding additional actions",
+    "message" : "Ďalšie činnosti"
   }
 }
