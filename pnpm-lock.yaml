@@ -358,8 +358,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       date-fns:
-        specifier: ^3.5.0
-        version: 3.5.0
+        specifier: ^3.6.0
+        version: 3.6.0
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -407,7 +407,7 @@ importers:
         version: 3.2.3(react-dom@16.14.0)(react@18.2.0)
       react-day-picker:
         specifier: ^8.10.0
-        version: 8.10.0(date-fns@3.5.0)(react@18.2.0)
+        version: 8.10.0(date-fns@3.6.0)(react@18.2.0)
       react-focus-lock:
         specifier: ^2.11.2
         version: 2.11.2(@types/react@18.2.69)(react@18.2.0)
@@ -2730,7 +2730,7 @@ packages:
       '@formatjs/cli': 6.2.7
       '@formatjs/cli-lib': 6.3.6(ts-jest@29.1.2)
       babel-plugin-formatjs: 10.5.13(ts-jest@29.1.2)
-      date-fns: 3.5.0
+      date-fns: 3.6.0
       eslint-plugin-formatjs: 4.12.2(eslint@8.57.0)(ts-jest@29.1.2)
       fast-glob: 3.3.2
       form-data: 4.0.0
@@ -9489,8 +9489,8 @@ packages:
     resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
     dev: true
 
-  /date-fns@3.5.0:
-    resolution: {integrity: sha512-a+DwyXn7NOfdJireCzAA0B9p7jIXEu/Q9JKCyMYvH6+0vPUNbQceA0neXrdfJ/xzl3mhOh5vibQQ3936Tssm6A==}
+  /date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
 
   /date-format@4.0.3:
     resolution: {integrity: sha512-7P3FyqDcfeznLZp2b+OMitV9Sz2lUnsT87WaTat9nVwqsBkTzPG3lPLNwW3en6F4pHUiWzr6vb8CLhjdK9bcxQ==}
@@ -17001,13 +17001,13 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  /react-day-picker@8.10.0(date-fns@3.5.0)(react@18.2.0):
+  /react-day-picker@8.10.0(date-fns@3.6.0)(react@18.2.0):
     resolution: {integrity: sha512-mz+qeyrOM7++1NCb1ARXmkjMkzWVh2GL9YiPbRjKe0zHccvekk4HE+0MPOZOrosn8r8zTHIIeOUXTmXRqmkRmg==}
     peerDependencies:
       date-fns: ^2.28.0 || ^3.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      date-fns: 3.5.0
+      date-fns: 3.6.0
       react: 18.2.0
     dev: false
 
