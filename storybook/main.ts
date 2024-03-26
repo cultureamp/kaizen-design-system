@@ -33,11 +33,12 @@ const defaultStoryPaths = [
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
+    getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@storybook/addon-a11y"),
     getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("storybook-addon-pseudo-states"),
     getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
+    getAbsolutePath("storybook-addon-pseudo-states"),
   ],
   staticDirs: [
     {
@@ -66,7 +67,6 @@ const config = {
   docs: {
     autodocs: "tag",
   },
-  // @ts-expect-error Bug in the Storybook type https://github.com/storybookjs/storybook/issues/25736
 } satisfies StorybookConfig
 
 export default config
