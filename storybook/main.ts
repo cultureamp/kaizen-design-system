@@ -1,6 +1,9 @@
 import fs from "fs"
-import path from "path"
-import { StorybookConfig } from "@storybook/react-webpack5"
+import path, { dirname, join } from "path"
+import type { StorybookConfig } from "@storybook/react-webpack5"
+
+const getAbsolutePath = (value: string): string =>
+  dirname(require.resolve(join(value, "package.json")))
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -30,10 +33,11 @@ const defaultStoryPaths = [
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "@storybook/addon-interactions",
-    "storybook-addon-pseudo-states",
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-interactions"),
+    getAbsolutePath("storybook-addon-pseudo-states"),
+    getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
   ],
   staticDirs: [
     {
@@ -43,9 +47,10 @@ const config = {
   ],
   framework: {
     name: "@storybook/react-webpack5",
-    options: { builder: { useSWC: true } },
+    options: {},
   },
   typescript: {
+    // reactDocgen: "react-docgen",
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       skipChildrenPropWithoutDoc: false,
@@ -58,5 +63,10 @@ const config = {
       },
     },
   },
+  docs: {
+    autodocs: "tag",
+  },
+  // @ts-expect-error Bug in the Storybook type https://github.com/storybookjs/storybook/issues/25736
 } satisfies StorybookConfig
+
 export default config
