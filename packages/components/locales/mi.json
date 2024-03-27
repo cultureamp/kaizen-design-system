@@ -39,7 +39,7 @@
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Kaore e taea e koe te tiro i tenei wharangi"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
@@ -47,7 +47,7 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Kaore e taea e koe te tiro i tenei wharangi"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
@@ -63,7 +63,7 @@
   },
   "kzErrorPage.413.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Kua he tetahi mea"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
@@ -79,37 +79,41 @@
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Kua he tetahi mea"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Aroha mai mō tēnei. Ko te mea pai ko te hoki ki te ngana ano."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Kaore e taea e koe te tiro i tenei wharangi"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Aroha mai mō tēnei. Ko te mea pai ko te hoki ki te ngana ano."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Kaore e taea e koe te tiro i tenei wharangi"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Aroha mai mō tēnei. Ko te mea pai ko te hoki ki te ngana ano."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Kaore e taea e koe te tiro i tenei wharangi"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Waehere hapa 403 {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
     "message" : "Go to Home"
+  },
+  "splitButton.dropdownButton.label" : {
+    "description" : "Label for a dropdown menu holding additional actions",
+    "message" : "Ngā mahi tāpiri"
   }
 }

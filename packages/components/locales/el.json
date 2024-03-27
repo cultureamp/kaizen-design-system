@@ -111,5 +111,9 @@
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
     "message" : "Επιστροφή στην αρχή σελίδα"
+  },
+  "splitButton.dropdownButton.label" : {
+    "description" : "Label for a dropdown menu holding additional actions",
+    "message" : "Περαιτέρω ενέργειες"
   }
 }
