@@ -51,7 +51,7 @@ const config = {
     options: {},
   },
   typescript: {
-    // reactDocgen: "react-docgen",
+    check: false,
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       skipChildrenPropWithoutDoc: false,
