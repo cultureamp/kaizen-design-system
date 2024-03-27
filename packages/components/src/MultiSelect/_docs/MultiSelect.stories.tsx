@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { MultiSelect, MultiSelectProps } from "../index"
 
 const meta = {
@@ -41,6 +42,8 @@ const meta = {
         value: "toastie",
       },
     ],
+    onSelectedValuesChange: fn(),
+    onOpenChange: fn(),
   },
 } satisfies Meta<typeof MultiSelect>
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import queryString from "query-string"
 import Highlight from "react-highlight"
 import {
@@ -30,6 +31,7 @@ const meta = {
   args: {
     filters: [], // Defined in stories
     values: {}, // Defined in stories
+    onValuesChange: fn(),
   },
 } satisfies Meta<typeof FilterBar>
 
