@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import * as LabelledMessageStories from "./LabelledMessage.stories"
+
+<Meta of={LabelledMessageStories} />
+
+# Labelled Message
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/LabelledMessage"
+  className="!mb-8"
+/>
+
+<KAIOInstallation exportNames="LabelledMessage" />
+
+## Overview
+
+A label and message with a separator in between. This component supports `dir="ltr"`.
+
+<Canvas of={LabelledMessageStories.Playground} />
+<Controls of={LabelledMessageStories.Playground} />

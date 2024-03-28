@@ -1,0 +1,21 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import * as ErrorPageStories from "./ErrorPage.stories"
+
+<Meta of={ErrorPageStories} />
+
+# Error Page
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/master/packages/components/src/ErrorPage"
+  className="!mb-8"
+/>
+
+<KAIOInstallation exportNames="ErrorPage" />
+
+## Overview
+
+Error pages for when things go wrong.
+
+<Canvas of={ErrorPageStories.Playground} />
+<Controls of={ErrorPageStories.Playground} />
