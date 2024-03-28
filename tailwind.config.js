@@ -8,7 +8,7 @@ module.exports = {
     "./docs/**/*.{tsx,mdx}",
     "./packages/components/**/_docs/**/*.{tsx,mdx}",
     "./packages/design-tokens/docs/**/*.{tsx,mdx}",
-    "./storybook/components/**/*.tsx",
+    "./.storybook/components/**/*.tsx",
   ],
   presets: [Preset],
   corePlugins: {

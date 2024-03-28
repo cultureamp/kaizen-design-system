@@ -8,4 +8,4 @@ pnpm install --frozen-lockfile
 pnpm -F @kaizen/design-tokens prepublishOnly
 pnpm -F @kaizen/tailwind prepublishOnly
 pnpm storybook:build:prod
-tar -czf ./storybook.tar.gz ./storybook/public
+tar -czf ./storybook.tar.gz ./.storybook/public

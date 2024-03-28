@@ -5,7 +5,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "~storybook/*": ["../../storybook/*"],
+      "~storybook/*": ["../../.storybook/*"],
       "~types/*": ["./src/types/*"],
       "~utils/*": ["./src/utils/*"],
       "~components/*": ["./src/*"]
