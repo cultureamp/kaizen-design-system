@@ -4,7 +4,7 @@ import { defaultTheme } from "@kaizen/design-tokens"
 const colors = defaultTheme.color
 
 // For styles that cannot be achieved through the folowing config, see
-// storybook/manager-head.html or storybook/manager.tsx
+// .storybook/manager-head.html or .storybook/manager.tsx
 const theme: ThemeVars = create({
   base: "light",
   colorSecondary: colors.purple["600"],
