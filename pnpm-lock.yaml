@@ -503,8 +503,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0
       react-intl:
-        specifier: ^6.6.3
-        version: 6.6.3(react@18.2.0)(typescript@5.4.3)
+        specifier: ^6.6.4
+        version: 6.6.4(react@18.2.0)(typescript@5.4.3)
       rollup:
         specifier: ^4.13.2
         version: 4.13.2
@@ -2744,7 +2744,7 @@ packages:
       json-stable-stringify: 1.1.1
       limiter-es6-compat: 2.1.2
       react: 18.2.0
-      react-intl: 6.6.3(react@18.2.0)(typescript@5.4.3)
+      react-intl: 6.6.4(react@18.2.0)(typescript@5.4.3)
       smartling-api-sdk-nodejs: 2.8.1
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -17148,8 +17148,8 @@ packages:
       highlight.js: 10.7.3
     dev: false
 
-  /react-intl@6.6.3(react@18.2.0)(typescript@5.4.3):
-    resolution: {integrity: sha512-vLKI0f+Q3pXD5szmCUPikTY7CJDPtxCBMG5YABQZ3IGEKzNB47zlvXyasUFfT25zpgQXeOfhRCdx4q6ubuR6bA==}
+  /react-intl@6.6.4(react@18.2.0)(typescript@5.4.3):
+    resolution: {integrity: sha512-bD+7hVTX3zBFI3z/ffIVZrNkCVK0/sQguQ/DqW5uZ6JFWsuiwOieVcLnmtFiUgMQZLdmwNl2Ur5c10RaO7NWBQ==}
     peerDependencies:
       react: ^16.6.0 || 17 || 18
       typescript: ^4.7 || 5
