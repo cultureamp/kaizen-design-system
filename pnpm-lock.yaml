@@ -151,8 +151,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(playwright@1.42.1)
       chromatic:
-        specifier: ^11.2.0
-        version: 11.2.0
+        specifier: ^11.3.0
+        version: 11.3.0
       color-string:
         specifier: ^1.9.1
         version: 1.9.1
@@ -8729,8 +8729,8 @@ packages:
         optional: true
     dev: true
 
-  /chromatic@11.2.0:
-    resolution: {integrity: sha512-b7vzlMuy/68WnH0N6nXpo8FiFK5pEF0ClIyVVK9YfYYSbGLo5/6Lh/VEbjWMoRaShCUk59YSXA43Npa2NrXIsg==}
+  /chromatic@11.3.0:
+    resolution: {integrity: sha512-q1ZtJDJrjLGnz60ivpC16gmd7KFzcaA4eTb7gcytCqbaKqlHhCFr1xQmcUDsm14CK7JsqdkFU6S+JQdOd2ZNJg==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
