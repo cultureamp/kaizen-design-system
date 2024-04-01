@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { ModalAccessibleDescription } from "~components/Modal"
 import { Text } from "~components/Text"
@@ -8,6 +9,42 @@ import { chromaticModalSettings } from "../../_docs/controls"
 import { InputEditModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()
+
+const ExampleForm = (): JSX.Element => (
+  <>
+    <ModalAccessibleDescription>
+      <Text variant="body">
+        Instructive text to drive user selection goes here.
+      </Text>
+    </ModalAccessibleDescription>
+    <form>
+      <TextField labelText="Opinion" />
+    </form>
+  </>
+)
+
+const meta = {
+  title: "Components/Modals/Input Edit Modal",
+  component: InputEditModal,
+  args: {
+    isOpen: false,
+    title: "Your input is valuable",
+    mood: "positive",
+    children: <ExampleForm />,
+    submitLabel: "Submit label",
+    onSubmit: fn(),
+    onDismiss: fn(),
+  },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
+} satisfies Meta<typeof InputEditModal>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 const InputModalTemplate: Story = {
   render: args => {
@@ -35,40 +72,6 @@ const InputModalTemplate: Story = {
     )
   },
 }
-
-const ExampleForm = (): JSX.Element => (
-  <>
-    <ModalAccessibleDescription>
-      <Text variant="body">
-        Instructive text to drive user selection goes here.
-      </Text>
-    </ModalAccessibleDescription>
-    <form>
-      <TextField labelText="Opinion" />
-    </form>
-  </>
-)
-
-const meta = {
-  title: "Components/Modals/Input Edit Modal",
-  component: InputEditModal,
-  args: {
-    isOpen: false,
-    title: "Your input is valuable",
-    mood: "positive",
-    children: <ExampleForm />,
-    submitLabel: "Submit label",
-  },
-  argTypes: {
-    children: {
-      control: false,
-    },
-  },
-} satisfies Meta<typeof InputEditModal>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   ...InputModalTemplate,

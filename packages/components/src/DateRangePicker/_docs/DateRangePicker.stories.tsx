@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { DateRange } from "react-day-picker"
 import { DateRangePicker, formatDateRangeValue } from "../index"
 
@@ -8,6 +9,7 @@ const meta = {
   component: DateRangePicker,
   args: {
     labelText: "Label",
+    onChange: fn(),
   },
 } satisfies Meta<typeof DateRangePicker>
 
