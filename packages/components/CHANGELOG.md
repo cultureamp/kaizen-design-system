@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.42.0
+
+### Minor Changes
+
+- [#4504](https://github.com/cultureamp/kaizen-design-system/pull/4504) [`3c5773061c2b2f66e599a2ff7ba7ab116dac1b1b`](https://github.com/cultureamp/kaizen-design-system/commit/3c5773061c2b2f66e599a2ff7ba7ab116dac1b1b) - Add new Heading variant `composable-header-title`
+
+### Patch Changes
+
+- [#4581](https://github.com/cultureamp/kaizen-design-system/pull/4581) [`2c5966e280f34d0ff6346ecd9f89d4b3624608a1`](https://github.com/cultureamp/kaizen-design-system/commit/2c5966e280f34d0ff6346ecd9f89d4b3624608a1) - chore: Update translations
+
+- [#4592](https://github.com/cultureamp/kaizen-design-system/pull/4592) [`783271e4a3ba3d4c535f9c7dd2f726d90d3efbd5`](https://github.com/cultureamp/kaizen-design-system/commit/783271e4a3ba3d4c535f9c7dd2f726d90d3efbd5) - Fix type for `onSubmit` in `InputEditModalProps`
+
 ## 1.41.1
 
 ### Patch Changes
