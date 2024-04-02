@@ -437,11 +437,11 @@ importers:
         specifier: ^7.24.1
         version: 7.24.1(@babel/core@7.23.9)
       '@cultureamp/frontend-apis':
-        specifier: ^9.4.2
-        version: 9.4.2(@cultureamp/fetch@4.0.2)(react@18.2.0)(typescript@5.4.3)
+        specifier: ^9.4.3
+        version: 9.4.5(@cultureamp/fetch@4.0.2)(react@18.2.0)(typescript@5.4.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^2.5.3
-        version: 2.5.3(@cultureamp/frontend-apis@9.4.2)(eslint@8.57.0)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.4.3)
+        specifier: ^2.5.5
+        version: 2.5.5(@cultureamp/frontend-apis@9.4.5)(eslint@8.57.0)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.4.3)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -2587,8 +2587,8 @@ packages:
       - encoding
     dev: true
 
-  /@cultureamp/fetch-sgw@2.0.3(@cultureamp/fetch@4.0.2):
-    resolution: {integrity: sha512-DGnU75/sTeTiuXAw6ffzBwtqpd+I109a5q+hSBpfGnXFFV2Iae48NyMlUNK7xhhYf6HkFGeyt0fz0mZUYN0JQw==, tarball: https://npm.pkg.github.com/download/@cultureamp/fetch-sgw/2.0.3/10a201a1773e9788aeeea197134bc7430ba23d12}
+  /@cultureamp/fetch-sgw@2.0.4(@cultureamp/fetch@4.0.2):
+    resolution: {integrity: sha512-zij2eKxGc63FPylssFuVYfyQDkA7VPEOhVMQD2aSxB3AnsIpLTiJDBL3QmX0vXYGgmXczA12x4fZYTH4VopVkw==, tarball: https://npm.pkg.github.com/download/@cultureamp/fetch-sgw/2.0.4/b090a86a069730e51a5a8dfc940c990c9a28c636}
     peerDependencies:
       '@cultureamp/fetch': ^4.0.0
     dependencies:
@@ -2615,8 +2615,8 @@ packages:
       - encoding
     dev: true
 
-  /@cultureamp/frontend-apis@9.4.2(@cultureamp/fetch@4.0.2)(react@18.2.0)(typescript@5.4.3):
-    resolution: {integrity: sha512-bFcx8h+unV+1ifZ9KPAjPskXfl1Q/65qcQxxUgGnQyJYlbxYRiFLtbsqk4cc9scN2VT1bNSBcwkdAmiJkCO2WA==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.4.2/a32f69286fd423f29819b154ec9ae501da7f0cbd}
+  /@cultureamp/frontend-apis@9.4.5(@cultureamp/fetch@4.0.2)(react@18.2.0)(typescript@5.4.3):
+    resolution: {integrity: sha512-VrgKSon/9QEosjJKff1UUIDeQURWYA4rVxt7hZEDTclSZh/XyKOsiIVbzWCQBgx4rGpB3XbBkyXEuqyVlvFQZQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-apis/9.4.5/15a7ca91543016737293f9cb28f14f0cc7ce53e9}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -2629,7 +2629,7 @@ packages:
       next:
         optional: true
     dependencies:
-      '@cultureamp/fetch-sgw': 2.0.3(@cultureamp/fetch@4.0.2)
+      '@cultureamp/fetch-sgw': 2.0.4(@cultureamp/fetch@4.0.2)
       '@cultureamp/frontend-env': 2.1.2
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.5.0(openapi-types@12.1.3)
@@ -2665,8 +2665,8 @@ packages:
       chromatic: 9.1.0
     dev: true
 
-  /@cultureamp/i18n-react-intl@2.5.3(@cultureamp/frontend-apis@9.4.2)(eslint@8.57.0)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.4.3):
-    resolution: {integrity: sha512-X/xbw+rqr0zzV56z82xs3EohaDYgmKRFYZ+eNLKtjCbznx2VP3Xo0/iHr7cyHlJkr7M0xkgkRXxaQdqFps6W8w==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.5.3/6755227b3e3ea89badb0d7b38b97c07e18f68556}
+  /@cultureamp/i18n-react-intl@2.5.5(@cultureamp/frontend-apis@9.4.5)(eslint@8.57.0)(react@18.2.0)(ts-jest@29.1.2)(typescript@5.4.3):
+    resolution: {integrity: sha512-83CTqgDUKqwJhY1Iu9wqqV7uaAD7aTgNOU8uYhyaZeSwdPeZ9TxwQTj0GOw9z0clc7u3BUQzt0L6t5nH7AUzxw==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/2.5.5/eb69337f682bf59158e2142a599170692478b363}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=9 || ~0.0.0'
@@ -2677,7 +2677,7 @@ packages:
         optional: true
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
-      '@cultureamp/frontend-apis': 9.4.2(@cultureamp/fetch@4.0.2)(react@18.2.0)(typescript@5.4.3)
+      '@cultureamp/frontend-apis': 9.4.5(@cultureamp/fetch@4.0.2)(react@18.2.0)(typescript@5.4.3)
       '@cultureamp/frontend-env': 2.1.2
       '@formatjs/cli': 6.2.7
       '@formatjs/cli-lib': 6.3.6(ts-jest@29.1.2)
@@ -7558,7 +7558,7 @@ packages:
     resolution: {integrity: sha512-0dtMhoa6q0P5lUHBphLd8/y+CRlh5IG3Rq+Wk64kOEDwUVZF8xq1qMSjC3iw1wH4tmP2qTzBL+Bz1xEjyBd/ew==}
     dependencies:
       '@babel/core': 7.23.9
-      '@babel/helper-plugin-utils': 7.22.5
+      '@babel/helper-plugin-utils': 7.24.0
       '@babel/plugin-syntax-jsx': 7.23.3(@babel/core@7.23.9)
       '@babel/traverse': 7.23.9
       '@babel/types': 7.23.9
