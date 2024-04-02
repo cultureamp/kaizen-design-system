@@ -15,6 +15,14 @@
   letter-spacing: $typography-display-0-letter-spacing;
 }
 
+.composable-header-title {
+  font-family: $typography-display-0-font-family; // Tiempos
+  font-weight: 500; // Medium
+  font-size: $typography-heading-1-font-size;
+  line-height: $typography-heading-1-line-height;
+  letter-spacing: $typography-heading-1-letter-spacing;
+}
+
 .heading-1 {
   font-family: $typography-heading-1-font-family;
   font-weight: $typography-heading-1-font-weight;

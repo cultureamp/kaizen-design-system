@@ -28,6 +28,13 @@ export const Playground: Story = {
   },
 }
 
+export const ComposableHeaderTitle: Story = {
+  args: {
+    variant: "composable-header-title",
+    children: "Page title within composable header",
+  },
+}
+
 export const Reversed: Story = {
   args: { color: "white" },
   parameters: {
