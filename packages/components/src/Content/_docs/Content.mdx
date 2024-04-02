@@ -1,5 +1,5 @@
 import { Canvas, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as ContentStories from "./Content.stories"
 
@@ -13,11 +13,7 @@ import * as ContentStories from "./Content.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Content } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Content" />
 
 ## Overview
 

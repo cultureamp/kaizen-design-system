@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as PaginationLinkStories from "./PaginationLink.stories"
 
 <Meta of={PaginationLinkStories} />
@@ -13,11 +13,7 @@ import * as PaginationLinkStories from "./PaginationLink.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { PaginationLink } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="PaginationLink" />
 
 ## Overview
 
@@ -25,4 +21,3 @@ A link that represents pages. Usually part of <LinkTo pageId="components-paginat
 
 <Canvas of={PaginationLinkStories.Playground} />
 <Controls of={PaginationLinkStories.Playground} />
-

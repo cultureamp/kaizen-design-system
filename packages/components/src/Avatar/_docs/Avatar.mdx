@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as AvatarStories from "./Avatar.stories"
 
 <Meta of={AvatarStories} />
@@ -14,10 +14,7 @@ import * as AvatarStories from "./Avatar.stories"
 />
 
 
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Avatar } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Avatar" />
 
 ## Overview
 

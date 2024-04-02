@@ -8,11 +8,14 @@ import { Meta } from "@storybook/blocks"
 
 ## Local Development within Kaizen
 
+Note: While Taiwlind utilities can be used within `.stories.tsx` and `.mdx` files for documentation and layout purposes, Kaizen components will not render or compile Tailwind styles in the final bundle, i.e: `mr-8` will not apply `margin-right: $spacing-8` if added to a classname in `Button.tsx`.
+
 ### Gotchas
 
 **New preset created but not available / rendering in DOM**
 
-Any time you update the Tailwind presets, make sure you run `yarn build` in the root @kaizen/tailwind folder. You may also need to reload the window for these to be picked up with TW IntelliSense.
+Any time you update the Tailwind presets, make sure you run `pnpm build` in the root `@kaizen/tailwind` folder.
+You may also need to reload the window for these to be picked up with TW IntelliSense.
 
 **Intellisense not working within the class attributes**
 

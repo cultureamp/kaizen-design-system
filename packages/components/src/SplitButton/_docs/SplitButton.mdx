@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, LinkTo } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, LinkTo } from "~storybook/components"
 import * as SplitButtonStories from "./SplitButton.stories"
 
 <Meta of={SplitButtonStories} />
@@ -13,11 +13,7 @@ import * as SplitButtonStories from "./SplitButton.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { SplitButton } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="SplitButton" />
 
 ## Overview
 

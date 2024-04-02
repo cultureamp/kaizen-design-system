@@ -1,15 +1,13 @@
-import { ThemeConfig } from "tailwindcss/types/config"
+import { CustomThemeConfig } from "tailwindcss/types/config"
 import { defaultTheme } from "@kaizen/design-tokens/"
 import { kzSpacing } from "./kz-spacing"
 
-export type KaizenTailwindTheme = Partial<ThemeConfig> & {
-  extend: Partial<ThemeConfig>
-}
+export type KaizenTailwindTheme = Partial<CustomThemeConfig>
 export type KaizenTailwindPreset = {
   theme: KaizenTailwindTheme
 }
 
-// Note: changing any token will require to to run `yarn build` from the root
+// Note: changing any token will require to to run `pnpm build` from the root
 export const kaizenTailwindTheme: KaizenTailwindTheme = {
   extend: {
     maxWidth: {
@@ -111,7 +109,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     md: defaultTheme.layout.breakpoints.medium, // => @media (min-width: 768px) { ... }
     lg: defaultTheme.layout.breakpoints.large, // => @media (min-width: 1080px) { ... }
   },
-}
+} as const
 
 export const Preset: KaizenTailwindPreset = {
   theme: kaizenTailwindTheme,

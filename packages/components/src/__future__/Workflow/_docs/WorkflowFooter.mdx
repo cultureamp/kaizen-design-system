@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { Installation, KaioLegacyDocsNotification, ResourceLinks } from "~storybook/components"
+import { KAIOInstallation, KaioLegacyDocsNotification, ResourceLinks } from "~storybook/components"
 import * as WorkflowFooterStories from "./WorkflowFooter.stories"
 
 <Meta of={WorkflowFooterStories} />
@@ -16,10 +16,7 @@ import * as WorkflowFooterStories from "./WorkflowFooter.stories"
 
 <KaioLegacyDocsNotification version="1.16.0" />
 
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement="import { WorkflowFooter } from `@kaizen/components/future`"
-/>
+<KAIOInstallation exportNames="WorkflowFooter" isFuture />
 
 ## Overview
 

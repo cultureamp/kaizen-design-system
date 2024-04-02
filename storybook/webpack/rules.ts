@@ -3,14 +3,7 @@ import postcssImport from "postcss-import"
 import postcssPresetEnv from "postcss-preset-env"
 import tailwindcss from "tailwindcss"
 import { RuleSetUseItem, RuleSetRule } from "webpack"
-import babelConfig from "../../.babelrc.json"
 import { browsersList } from "./browserslist"
-
-export const babel: RuleSetRule = {
-  test: /\.(j|t)sx?$/,
-  loader: require.resolve("babel-loader"),
-  options: babelConfig,
-}
 
 export const stylePreprocessors: RuleSetUseItem[] = [
   {

@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react"
+import React, { useEffect, useId, useState } from "react"
 import { createPortal } from "react-dom"
 import { Transition } from "@headlessui/react"
 import FocusLock from "react-focus-lock"
@@ -102,7 +102,7 @@ export const GenericModal = ({
     }
   }
 
-  const onAfterLeaveHandler = (): void => {
+  const cleanUpAfterClose = (): void => {
     document.documentElement.classList.remove(
       styles.unscrollable,
       styles.pseudoScrollbar
@@ -111,7 +111,13 @@ export const GenericModal = ({
     if (onEscapeKeyup) {
       document.removeEventListener("keyup", onEscapeKeyup)
     }
+  }
 
+  /* Ensure sure add-on styles (e.g. unscrollable) and key event is cleaned up when the modal is unmounted*/
+  useEffect(() => () => cleanUpAfterClose(), [])
+
+  const onAfterLeaveHandler = (): void => {
+    cleanUpAfterClose()
     propsOnAfterLeave?.()
   }
 

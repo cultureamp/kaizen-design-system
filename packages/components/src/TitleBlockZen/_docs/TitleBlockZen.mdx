@@ -1,5 +1,5 @@
 import { Canvas, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as TitleBlockZenStories from "./TitleBlockZen.stories"
 
 <Meta of={TitleBlockZenStories} />
@@ -12,11 +12,7 @@ import * as TitleBlockZenStories from "./TitleBlockZen.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { TitleBlockZen } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="TitleBlockZen" />
 
 ## Overview
 

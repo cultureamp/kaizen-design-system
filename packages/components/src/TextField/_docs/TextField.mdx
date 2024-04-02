@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as TextFieldStories from "./TextField.stories"
 
@@ -14,11 +14,7 @@ import * as TextFieldStories from "./TextField.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { TextField } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="TextField" />
 
 ## Overview
 

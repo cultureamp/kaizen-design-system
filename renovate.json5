@@ -20,7 +20,8 @@
       "matchPackagePrefixes": [
         "@react-aria/",
         "@react-stately/",
-        "@internationalized"
+        "@internationalized/",
+        "@react-types/shared"
       ]
     },
     {
@@ -34,6 +35,14 @@
       "matchPackagePatterns": [
         "@rollup",
         "rollup"
+      ]
+    },
+    {
+      "groupName": "cultureamp/i18n",
+      "matchPackageNames": [
+        "@cultureamp/i18n-react-intl",
+        // Peer dependency of i18n-react-intl
+        "@cultureamp/frontend-apis"
       ]
     }
   ]

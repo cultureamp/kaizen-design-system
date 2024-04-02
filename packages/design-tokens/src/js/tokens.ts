@@ -68,7 +68,7 @@ export const tokens: TokenStructure = {
       100: "#e8f8f4",
       200: "#c4ede2",
       300: "#8fdbc7",
-      400: "#5dcbad",
+      400: "#5dcaad",
       500: "#44a289",
       600: "#2c7d67",
       700: "#22594a",
@@ -105,7 +105,7 @@ export const tokens: TokenStructure = {
       200: "#f4f4f5",
       300: "#eaeaec",
       400: "#cdcdd0",
-      500: "#8c8c97",
+      500: "#878792",
       600: "#524e56",
     },
     white: "#ffffff",
@@ -128,11 +128,11 @@ export const tokens: TokenStructure = {
   shadow: {
     small: {
       boxShadow:
-        "0px 3px 16px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1)",
+        "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 3px 16px 0 rgba(0, 0, 0, 0.06)",
     },
     large: {
       boxShadow:
-        "0px 8px 40px rgba(0, 0, 0, 0.08), 0px 3px 9px rgba(0, 0, 0, 0.1)",
+        "0 3px 9px 0 rgba(0, 0, 0, 0.1), 0 8px 40px 0 rgba(0, 0, 0, 0.08)",
     },
   },
   spacing: {

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 const meta = {
@@ -22,6 +23,7 @@ const meta = {
         value: "toastie",
       },
     ],
+    onChange: fn(),
   },
 } satisfies Meta<typeof MultiSelectOptions>
 

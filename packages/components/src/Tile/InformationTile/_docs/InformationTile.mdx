@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as InformationTileStories from "./InformationTile.stories"
 
 <Meta of={InformationTileStories} />
@@ -13,11 +13,7 @@ import * as InformationTileStories from "./InformationTile.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { InformationTile } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="InformationTile" />
 
 ## Overview
 

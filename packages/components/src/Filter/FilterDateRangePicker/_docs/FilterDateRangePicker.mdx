@@ -1,5 +1,5 @@
 import { Controls, Description, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, NoClipCanvas } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
 import * as FilterDRPStories from "./FilterDateRangePicker.stories"
 
 <Meta of={FilterDRPStories} />
@@ -13,13 +13,9 @@ import * as FilterDRPStories from "./FilterDateRangePicker.stories"
   className="!mb-8"
 />
 
-
 Date Range Picker to use for Filtering.
 
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { FilterDateRangePicker } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="FilterDateRangePicker" />
 
 ## Playground
 <NoClipCanvas of={FilterDRPStories.Playground} />

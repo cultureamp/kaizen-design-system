@@ -16,7 +16,7 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       LABEL: ${{ github.event.inputs.label }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Set npm token
         run: |
@@ -25,10 +25,10 @@ jobs:
         id: changesets
         run: |
           echo "🥚 Building canary-$LABEL"
-          yarn build
+          pnpm build
           echo "🐣 Releasing canary-$LABEL"
-          yarn changeset version --snapshot "canary-$LABEL"
-          yarn changeset publish --tag "canary-$LABEL"
+          pnpm changeset version --snapshot "canary-$LABEL"
+          pnpm changeset publish --tag "canary-$LABEL"
       - name: Push tags
         run: |
           git push --follow-tags

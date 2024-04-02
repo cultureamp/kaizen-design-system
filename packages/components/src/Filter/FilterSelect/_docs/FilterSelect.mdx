@@ -1,5 +1,5 @@
 import { Canvas, Controls, Description, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation, NoClipCanvas } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation, NoClipCanvas } from "~storybook/components"
 import * as FilterSelectStickerSheet from "./FilterSelect.stickersheet.stories"
 import * as FilterSelectStories from "./FilterSelect.stories"
 
@@ -14,11 +14,7 @@ import * as FilterSelectStories from "./FilterSelect.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { FilterSelect } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="FilterSelect" />
 
 ## Playground
 

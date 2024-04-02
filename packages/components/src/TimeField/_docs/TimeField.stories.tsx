@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { TimeField } from "../index"
 import { ValueType } from "../types"
 
@@ -18,6 +19,7 @@ const meta = {
     label: "Time",
     locale: "en-US",
     value: null,
+    onChange: fn(),
   },
 } satisfies Meta<typeof TimeField>
 

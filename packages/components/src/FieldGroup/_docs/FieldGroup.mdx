@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import { LinkTo } from "~storybook/components/LinkTo"
 import * as FieldGroupStories from "./FieldGroup.stories"
 
@@ -12,11 +12,7 @@ import * as FieldGroupStories from "./FieldGroup.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { FieldGroup } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="FieldGroup" />
 
 ## Overview
 
@@ -36,5 +32,3 @@ Changes the FieldGroup to an inline element with no bottom margin. This can be s
 #### Default (block)
 
 <Canvas of={FieldGroupStories.Default} />
-
-

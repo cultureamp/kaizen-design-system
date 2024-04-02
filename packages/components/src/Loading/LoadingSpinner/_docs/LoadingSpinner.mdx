@@ -1,16 +1,11 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as LoadingSpinnerStories from "./LoadingSpinner.stories"
 
 <Meta of={LoadingSpinnerStories} />
 
 # LoadingSpinner
 
-{/*
-  * @todo:
-  * - Adjust Github link (if needed)
-  * - Add Figma and Design Guidelines (Confluence) link
-  */}
 <ResourceLinks
   sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/LoadingSpinner"
   figma=""
@@ -18,11 +13,7 @@ import * as LoadingSpinnerStories from "./LoadingSpinner.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { LoadingSpinner } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="LoadingSpinner" />
 
 ## Overview
 

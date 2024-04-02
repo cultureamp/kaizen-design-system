@@ -2,12 +2,12 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "bg-"
-const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors || {})
 
 export default {
   title:
@@ -27,7 +27,7 @@ export default {
 export const BackgroundColor: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="background-color"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (

@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as CheckboxFieldStories from "./CheckboxField.stories"
 
 <Meta of={CheckboxFieldStories} />
@@ -13,11 +13,7 @@ import * as CheckboxFieldStories from "./CheckboxField.stories"
   className="!mb-8"
 />
 
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { CheckboxField } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="CheckboxField" />
 
 ## Overview
 

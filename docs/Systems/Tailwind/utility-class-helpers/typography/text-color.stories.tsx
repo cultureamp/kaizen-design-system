@@ -2,12 +2,12 @@ import React from "react"
 import { StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "text-"
-const classEntries = flattenEntries(prefix, kaizenTailwindTheme?.colors || {})
+const classEntries = flattenEntries(prefix, kaizenTailwindTheme.colors || {})
 
 export default {
   title: "Systems/Tailwind/Utility Class References/Typography/Text Color",
@@ -24,7 +24,7 @@ export default {
 }
 
 export const TextColor: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="color"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
