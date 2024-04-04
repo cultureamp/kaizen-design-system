@@ -153,10 +153,11 @@ export const VideoPlayer = ({
 
   return (
     <figure
-      className={classnames(styles.figure, {
-        [`${styles[aspectRatio!]} ${styles.aspectRatioWrapper}`]:
-          Boolean(aspectRatio),
-      })}
+      className={classnames(
+        styles.figure,
+        aspectRatio && styles[aspectRatio],
+        aspectRatio && styles.aspectRatioWrapper
+      )}
     >
       <video
         muted={true}
