@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { VideoPlayer } from "./VideoPlayer"
@@ -25,7 +25,6 @@ const mockPause = jest.fn()
 
 describe("<VideoPlayer />", () => {
   beforeEach(() => {
-    jest.clearAllMocks()
     window.HTMLMediaElement.prototype.load = mockLoad
     window.HTMLMediaElement.prototype.play = mockPlay
     window.HTMLMediaElement.prototype.pause = mockPause
@@ -39,6 +38,10 @@ describe("<VideoPlayer />", () => {
     })
   })
 
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it("renders a video player in the document and autoplay", async () => {
     render(
       <VideoPlayer
@@ -49,7 +52,7 @@ describe("<VideoPlayer />", () => {
     )
     const videoPlayer = screen.getByTestId("kz-video-player")
     expect(videoPlayer).toBeInTheDocument()
-    expect(mockPlay).toBeCalled()
+    expect(mockPlay).toHaveBeenCalled()
   })
 
   describe("use-reduced-motion", () => {
@@ -65,8 +68,8 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchSnapshot()
-      expect(mockPause).toBeCalled()
+      expect(videoPlayer).not.toHaveAttribute("autoplay")
+      expect(mockPause).toHaveBeenCalled()
     })
 
     it("defaults to autoplay when user does not set use-reduced-motion preferences", () => {
@@ -81,8 +84,8 @@ describe("<VideoPlayer />", () => {
         />
       )
       const videoPlayer = screen.getByTestId("kz-video-player")
-      expect(videoPlayer).toMatchSnapshot()
-      expect(mockPlay).toBeCalled()
+      expect(videoPlayer).toHaveAttribute("autoplay")
+      expect(mockPlay).toHaveBeenCalled()
     })
   })
 

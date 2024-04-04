@@ -51,7 +51,6 @@ export const VideoPlayer = ({
   const videoRef = useRef<HTMLVideoElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] =
     React.useState<boolean>(true)
-  const [sourceEl, setSourceEl] = React.useState<React.ReactNode>()
 
   useEffect(() => {
     /**
@@ -150,32 +149,15 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
-  useEffect(() => {
-    /**
-     * This seems counter-intuitive, but webm support is codec specific.
-     * Only offer webm if we are positive the browser supports it.
-     * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
-     */
-    canPlayWebm() ? (
-      setSourceEl(
-        <>
-          <source src={assetUrl(`${source}.webm`)} type="video/webm" />
-          <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
-        </>
-      )
-    ) : (
-      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
-    )
-  }, [setSourceEl])
-
   const pausePlay = usePausePlay(videoRef)
 
   return (
     <figure
-      className={classnames(styles.figure, {
-        [`${styles[aspectRatio!]} ${styles.aspectRatioWrapper}`]:
-          Boolean(aspectRatio),
-      })}
+      className={classnames(
+        styles.figure,
+        aspectRatio && styles[aspectRatio],
+        aspectRatio && styles.aspectRatioWrapper
+      )}
     >
       <video
         muted={true}
@@ -191,7 +173,10 @@ export const VideoPlayer = ({
         playsInline={true}
         tabIndex={-1}
       >
-        {sourceEl}
+        {canPlayWebm() && (
+          <source src={assetUrl(`${source}.webm`)} type="video/webm" />
+        )}
+        <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
       </video>
       <IconButton
         onClick={(): void => pausePlay.toggle()}
