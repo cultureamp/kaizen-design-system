@@ -156,17 +156,17 @@ export const VideoPlayer = ({
      * Only offer webm if we are positive the browser supports it.
      * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
      */
-    canPlayWebm() ? (
-      setSourceEl(
+    setSourceEl(
+      canPlayWebm() ? (
         <>
           <source src={assetUrl(`${source}.webm`)} type="video/webm" />
           <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
         </>
+      ) : (
+        <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
       )
-    ) : (
-      <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
     )
-  }, [setSourceEl])
+  }, [])
 
   const pausePlay = usePausePlay(videoRef)
 
