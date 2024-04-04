@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.42.1
+
+### Patch Changes
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update Prosemirror deps
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - update devDep for @babel/plugin-transform-react-pure-annotations
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update date-fns dep
+
+- [#4603](https://github.com/cultureamp/kaizen-design-system/pull/4603) [`254075b590c3b9ae6a367ca116cd261fc4f697d4`](https://github.com/cultureamp/kaizen-design-system/commit/254075b590c3b9ae6a367ca116cd261fc4f697d4) - Fix VideoPlayer video source for browsers without webm support.
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - update i18n-react-intl and frontend-apis deps to latest patch release
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - Update autoprefixer patch release
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update postcss dep
+
 ## 1.42.0
 
 ### Minor Changes

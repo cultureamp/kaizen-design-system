@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.3.20
+
+### Patch Changes
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update postcss dep
+
 ## 10.3.19
 
 ### Patch Changes
