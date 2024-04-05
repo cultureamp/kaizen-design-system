@@ -26,10 +26,7 @@ export const LinkEditor = ({
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(
     attrs.href != null
   )
-  const [modalOpen, setModalOpen] = useState<boolean>(
-    // eslint-disable-next-line no-underscore-dangle
-    attrs._metadata?.added === true
-  )
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
 
   const [href, setHref] = useState<string | undefined>(
     attrs.href ? attrs.href : undefined
