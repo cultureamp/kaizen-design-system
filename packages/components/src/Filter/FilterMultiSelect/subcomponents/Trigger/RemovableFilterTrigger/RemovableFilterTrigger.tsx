@@ -7,6 +7,7 @@ import { FilterTriggerButtonProps } from "../FilterTriggerButton"
 
 export type RemovableFilterTriggerProps = FilterTriggerButtonProps & {
   onRemove: () => void
+  removeButtonTooltipText: string
 }
 
 export const RemovableFilterTrigger = ({
@@ -14,6 +15,7 @@ export const RemovableFilterTrigger = ({
   selectedOptionLabels,
   labelCharacterLimitBeforeTruncate = 50,
   classNameOverride,
+  removeButtonTooltipText,
   onRemove,
 }: RemovableFilterTriggerProps): JSX.Element => {
   const { buttonProps, buttonRef, menuTriggerState } = useMenuTriggerContext()
@@ -33,6 +35,7 @@ export const RemovableFilterTrigger = ({
         isOpen: menuTriggerState.isOpen,
       }}
       removeButtonProps={{
+        tooltipText: removeButtonTooltipText,
         onClick: onRemove,
       }}
     />

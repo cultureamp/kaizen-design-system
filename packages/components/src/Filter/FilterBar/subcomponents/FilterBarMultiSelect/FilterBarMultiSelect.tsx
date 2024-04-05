@@ -4,6 +4,7 @@ import {
   FilterMultiSelect,
   FilterMultiSelectProps,
   ItemType,
+  MenuTriggerProviderContextType,
   getSelectedOptionLabels,
 } from "~components/Filter/FilterMultiSelect"
 import { useFilterBarContext } from "../../context/FilterBarContext"
@@ -11,14 +12,11 @@ import { checkArraysMatch } from "../../utils/checkArraysMatch"
 
 export type FilterBarMultiSelectProps = Omit<
   FilterMultiSelectProps,
-  | "isOpen"
-  | "setIsOpen"
-  | "renderTrigger"
-  | "label"
-  | "selectedKeys"
-  | "trigger"
+  "isOpen" | "selectedKeys" | "label" | "trigger"
 > & {
   id?: string
+  label?: string
+  trigger?: (value?: MenuTriggerProviderContextType) => React.ReactNode
 }
 
 // This should technically be handled within the FilterMultiSelect
@@ -44,6 +42,7 @@ export const FilterBarMultiSelect = ({
   items: propsItems,
   children,
   onSelectionChange,
+  label,
   ...props
 }: FilterBarMultiSelectProps): JSX.Element | null => {
   const { getFilterState, setFilterOpenState, updateValue, hideFilter } =
@@ -94,12 +93,13 @@ export const FilterBarMultiSelect = ({
                 items
               )
             : [],
-          label: filterState.name,
+          label: label || filterState.name,
         }
 
         return filterState.isRemovable ? (
           <FilterMultiSelect.RemovableTrigger
             {...triggerProps}
+            removeButtonTooltipText={filterState.name}
             onRemove={() => hideFilter(id)}
           />
         ) : (
