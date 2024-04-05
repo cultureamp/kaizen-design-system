@@ -148,7 +148,6 @@ const filters = [
     name: "Toppings",
     Component: (
       <FilterBar.MultiSelect
-        label="Group by Toppings"
         items={[
           { value: "none", label: "None" },
           { value: "pearls", label: "Pearls" },
