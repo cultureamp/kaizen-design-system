@@ -7,7 +7,7 @@ import {
 const linkRule = (
   markType: ProseMirrorModel.MarkType
 ): ProseMirrorInputrules.InputRule => {
-  const urlRegEx = /^https:\/\/\S+(?<!\.)$/
+  const urlRegEx = /https:\/\/\S+(?<!\.)$/
   return new ProseMirrorInputrules.InputRule(
     urlRegEx,
     (state, match, start, _) => {
