@@ -213,6 +213,65 @@ export const RichTextEditor = ({
 
 RichTextEditor.displayName = "RichTextEditor"
 
+const HTTPS_LINK_REGEX = /https:\/\/\S+(?<!\.)$/g
+
+const linkify = (
+  fragment: ProseMirrorModel.Fragment
+): ProseMirrorModel.Fragment => {
+  const linkified: Node[] = []
+  fragment.forEach((node, _offset, _index) => {
+    if (node.isText) {
+      const text = node.text as string
+      let pos = 0
+      let match
+
+      while ((match = HTTPS_LINK_REGEX.exec(text))) {
+        const start = match.index
+        const end = start + match[0].length
+        const link = node.type.schema.marks["link"]
+
+        // simply copy across the text from before the match
+        if (start > 0) {
+          // @ts-ignore
+          linkified.push(node.cut(pos, start))
+        }
+
+        const urlText = text.slice(start, end)
+        linkified.push(
+          // @ts-ignore
+          node
+            .cut(start, end)
+            .mark(link.create({ href: urlText }).addToSet(node.marks))
+        )
+        pos = end
+      }
+
+      // copy over whatever is left
+      if (pos < text.length) {
+        // @ts-ignore
+        linkified.push(node.cut(pos))
+      }
+    } else {
+      // @ts-ignore
+      linkified.push(node.copy(linkify(node.content)))
+    }
+  })
+
+  // @ts-ignore
+  return ProseMirrorModel.Fragment.fromArray(linkified)
+}
+
+const linkPlugin = new ProseMirrorState.Plugin({
+  props: {
+    transformPasted: (slice: ProseMirrorModel.Slice) =>
+      new ProseMirrorModel.Slice(
+        linkify(slice.content),
+        slice.openStart,
+        slice.openEnd
+      ),
+  },
+})
+
 function getPlugins(
   controls: ToolbarItems[] | undefined,
   schema: ProseMirrorModel.Schema
@@ -233,6 +292,7 @@ function getPlugins(
     ProseMirrorKeymap.keymap(buildKeymap(schema)),
     ProseMirrorKeymap.keymap(ProseMirrorCommands.baseKeymap),
     buildInputRules(schema),
+    linkPlugin,
   ]
 
   if (allControlNames.includes("link")) {
