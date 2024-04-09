@@ -156,7 +156,7 @@ export const VideoPlayer = ({
 
   useEffect(() => {
     // SSR does not have a window, which is required for for the canPlayWebm helper.
-    // Await document render before rendering the component.
+    // Await window render before rendering the component.
     if (windowIsAvailable !== undefined) {
       setIsWebmCompatible(canPlayWebm())
       setWindowIsAvailable(true)
