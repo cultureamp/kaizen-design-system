@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.42.2",
+  "version": "1.42.3",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -21,7 +21,7 @@
   ],
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "sideEffects": [
     "styles.css"
   ],
@@ -32,8 +32,9 @@
     "test:ci": "pnpm test -- --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist",
-    "build:components": "rollup -c",
+    "build:components": "rollup -c && pnpm build:types",
     "build:styles": "postcss styles/global.css --output dist/global.css && pnpm dist:combine-styles",
+    "build:types": "tspc --project tsconfig.types.json",
     "compile": "tsc",
     "dist:combine-styles": "concat-cli -f dist/global.css dist/esm/index.css -o dist/styles.css && rm dist/global.css",
     "update-icons": "./src/Icon/bin/update-icons.sh",
