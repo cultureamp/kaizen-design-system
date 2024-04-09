@@ -1,24 +1,12 @@
-import { createRequire } from "node:module";
 import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs"
-import image from "@rollup/plugin-image"
-import jsonPlugin from "@rollup/plugin-json"
-import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
-import dts from "rollup-plugin-dts"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
 
-// ts-patch needs to be in CJS, but rollup uses EMS
-// https://github.com/nonara/ts-patch/issues/106
-const require = createRequire(import.meta.url);
-const tspCompiler = require("ts-patch/compiler");
-
-const OUTPUT_DIR = "dist"
-
-const getCompiledConfigByModuleType = format => ({
+const sharedConfig = {
   input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
   plugins: [
     nodeExternals({
@@ -39,21 +27,6 @@ const getCompiledConfigByModuleType = format => ({
         },
       ],
     }),
-    resolve({
-      preferBuiltins: true,
-      extensions: [".js", ".jsx", ".ts", ".tsx"],
-    }),
-    postcss({
-      extract: true,
-      extensions: [".scss", ".css"],
-    }),
-    typescript({
-      tsconfig: `./tsconfig.${format}.json`,
-      typescript: tspCompiler,
-    }),
-    commonjs(),
-    image(),
-    jsonPlugin(),
     // These libraries aren't used in KAIO, and require polyfills to be set up
     // in consuming repos. Ignoring them here removes the need for extra setup in
     // consuming repos.
@@ -65,26 +38,44 @@ const getCompiledConfigByModuleType = format => ({
         "babel-plugin-pure-static-props"
       ]
     }),
+    postcss({
+      modules: true,
+      extract: true,
+      extensions: [".scss", ".css"],
+    }),
+  ]
+}
+
+const cjsConfig = {
+  ...sharedConfig,
+  plugins: [
+    ...sharedConfig.plugins,
+    typescript({ tsconfig: "./tsconfig.cjs.json" }),
+    commonjs(),
   ],
-  output: [
-    {
-      dir: `${OUTPUT_DIR}/${format}`,
-      format,
-      sourcemap: true,
-      preserveModules: true,
-      entryFileNames: format === "esm" ? "[name].mjs" : "[name].cjs",
-    },
+  output: {
+    dir: "dist/cjs",
+    format: "cjs",
+    preserveModules: true,
+    entryFileNames: "[name].cjs",
+  }
+}
+
+const esmConfig = {
+  ...sharedConfig,
+  plugins: [
+    ...sharedConfig.plugins,
+    typescript({ tsconfig: "./tsconfig.esm.json" })
   ],
-})
+  output: {
+    dir: "dist/esm",
+    format: "esm",
+    preserveModules: true,
+    entryFileNames: "[name].mjs",
+  }
+}
 
 export default [
-  getCompiledConfigByModuleType("cjs"),
-  getCompiledConfigByModuleType("esm"),
-  // This step doesn't matter if it's cjs or esm, the output will be the same (esm is faster)
-  {
-    input: `./${OUTPUT_DIR}/esm/dts/index.d.ts`,
-    output: [{ file: `${OUTPUT_DIR}/index.d.ts`, format: "esm" }],
-    external: [/\.scss$/],
-    plugins: [dts()],
-  },
+  cjsConfig,
+  esmConfig,
 ]

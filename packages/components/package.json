@@ -32,7 +32,7 @@
     "test:ci": "pnpm test -- --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "clean": "rimraf dist",
-    "build:components": "rollup -c",
+    "build:components": "rollup -c && pnpm build:types",
     "build:styles": "postcss styles/global.css --output dist/global.css",
     "build:types": "tspc --project tsconfig.types.json",
     "compile": "tsc",
