@@ -50,7 +50,13 @@ const cjsConfig = {
   ...sharedConfig,
   plugins: [
     ...sharedConfig.plugins,
-    typescript({ tsconfig: "./tsconfig.cjs.json" }),
+    typescript({
+      tsconfig: "./tsconfig.dist.json",
+      compilerOptions: {
+        esModuleInterop: false,
+        allowSyntheticDefaultImports: true
+      }
+    }),
     commonjs(),
   ],
   output: {
@@ -66,7 +72,7 @@ const esmConfig = {
   ...sharedConfig,
   plugins: [
     ...sharedConfig.plugins,
-    typescript({ tsconfig: "./tsconfig.esm.json" })
+    typescript({ tsconfig: "./tsconfig.dist.json" })
   ],
   output: {
     dir: "dist/esm",
