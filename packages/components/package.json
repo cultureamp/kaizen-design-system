@@ -21,7 +21,7 @@
   ],
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "sideEffects": [
     "styles.css"
   ],
@@ -34,6 +34,7 @@
     "clean": "rimraf dist",
     "build:components": "rollup -c",
     "build:styles": "postcss styles/global.css --output dist/global.css",
+    "build:types": "tspc --project tsconfig.types.json",
     "compile": "tsc",
     "dist:clean": "rm ./dist/global.css ./dist/raw-styles.css",
     "dist:combine-styles": "concat-cli -f ./dist/*.css ./dist/esm/*.css -o ./dist/raw-styles.css",
