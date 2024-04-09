@@ -269,7 +269,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: none;
-    margin: ($ca-grid / 5) 0;
+    margin: calc(#{$ca-grid} / 5) 0;
   }
 }
 
@@ -289,7 +289,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .sectionTitleContainer {
   display: flex;
   align-items: center;
-  padding: ($ca-grid * 3/4) 0;
+  padding: calc(#{$ca-grid} * 3 / 4) 0;
 }
 
 .sectionTitleInner {
@@ -331,7 +331,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .sectionTitleDescription {
   .sectionTitle + & {
-    margin-top: $ca-grid / 4;
+    margin-top: calc(#{$ca-grid} / 4);
   }
 
   color: $color-white;
