@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.42.2
+
+### Patch Changes
+
+- [#4615](https://github.com/cultureamp/kaizen-design-system/pull/4615) [`5251108870170850e3988ecd903425734befc74f`](https://github.com/cultureamp/kaizen-design-system/commit/5251108870170850e3988ecd903425734befc74f) - Update the VideoPlayer render to wrap the window logic in a useEffect
+
 ## 1.42.1
 
 ### Patch Changes
