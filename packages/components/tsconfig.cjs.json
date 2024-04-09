@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.dist.json",
   "compilerOptions": {
-    "declarationDir": "dist/cjs/dts"
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true
   }
 }

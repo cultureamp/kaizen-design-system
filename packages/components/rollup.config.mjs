@@ -58,6 +58,7 @@ const cjsConfig = {
     format: "cjs",
     preserveModules: true,
     entryFileNames: "[name].cjs",
+    interop: "auto",
   }
 }
 
