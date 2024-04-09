@@ -40,7 +40,8 @@ const sharedConfig = {
     }),
     postcss({
       modules: true,
-      extract: true,
+      extract: false,
+      inject: cssVariableName => `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`,
       extensions: [".scss", ".css"],
     }),
   ]
