@@ -31,13 +31,6 @@ const sharedConfig = {
     // in consuming repos. Ignoring them here removes the need for extra setup in
     // consuming repos.
     ignore(["stream", "http", "https", "zlib"]),
-    babel({ babelHelpers: "bundled" }),
-    getBabelOutputPlugin({
-      plugins: [
-        "@babel/plugin-transform-react-pure-annotations",
-        "babel-plugin-pure-static-props"
-      ]
-    }),
     postcss({
       modules: true,
       extract: true,
@@ -72,7 +65,14 @@ const esmConfig = {
   ...sharedConfig,
   plugins: [
     ...sharedConfig.plugins,
-    typescript({ tsconfig: "./tsconfig.dist.json" })
+    typescript({ tsconfig: "./tsconfig.dist.json" }),
+    babel({ babelHelpers: "bundled" }),
+    getBabelOutputPlugin({
+      plugins: [
+        "@babel/plugin-transform-react-pure-annotations",
+        "babel-plugin-pure-static-props"
+      ]
+    })
   ],
   output: {
     dir: "dist/esm",

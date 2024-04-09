@@ -36,7 +36,7 @@
     "build:styles": "postcss styles/global.css --output dist/global.css && pnpm dist:combine-styles",
     "build:types": "tspc --project tsconfig.types.json",
     "compile": "tsc",
-    "dist:combine-styles": "concat-cli -f dist/global.css dist/esm/index.css -o dist/styles.css && rm dist/global.css",
+    "dist:combine-styles": "concat-cli -f dist/global.css dist/esm/future.css -o dist/styles.css && rm dist/global.css",
     "update-icons": "./src/Icon/bin/update-icons.sh",
     "i18n:extract": "pnpm i18n-extract"
   },
