@@ -1,6 +1,0 @@
-{
-  "extends": "./tsconfig.dist.json",
-  "compilerOptions": {
-    "declarationDir": "dist/esm/dts"
-  }
-}
