@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.42.3
+
+### Patch Changes
+
+- [#4618](https://github.com/cultureamp/kaizen-design-system/pull/4618) [`4f45c95934bb0040179b4ff21f0775c0ffa452a2`](https://github.com/cultureamp/kaizen-design-system/commit/4f45c95934bb0040179b4ff21f0775c0ffa452a2) - Fix CJS bundling and moved type declarations into dist/types.
+
 ## 1.42.2
 
 ### Patch Changes
