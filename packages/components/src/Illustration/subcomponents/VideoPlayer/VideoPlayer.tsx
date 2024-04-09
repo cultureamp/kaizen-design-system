@@ -152,16 +152,16 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
-  const pausePlay = usePausePlay(videoRef)
+  useEffect(() => {
+    // SSR does not have a window, which is required for canPlayWebm.
+    if (window !== undefined) setWindowIsAvailable(true)
+  }, [])
 
   useEffect(() => {
-    // SSR does not have a window, which is required for for the canPlayWebm helper.
-    // Await window render before rendering the component.
-    if (windowIsAvailable !== undefined) {
-      setIsWebmCompatible(canPlayWebm())
-      setWindowIsAvailable(true)
-    }
+    if (windowIsAvailable) setIsWebmCompatible(canPlayWebm())
   }, [windowIsAvailable])
+
+  const pausePlay = usePausePlay(videoRef)
 
   return (
     <figure
