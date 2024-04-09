@@ -51,6 +51,9 @@ export const VideoPlayer = ({
   const videoRef = useRef<HTMLVideoElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] =
     React.useState<boolean>(true)
+  const [isWebmCompatible, setIsWebmCompatible] = React.useState<boolean>(false)
+  const [windowIsAvailable, setWindowIsAvailable] =
+    React.useState<boolean>(false)
 
   useEffect(() => {
     /**
@@ -151,6 +154,15 @@ export const VideoPlayer = ({
 
   const pausePlay = usePausePlay(videoRef)
 
+  useEffect(() => {
+    // SSR does not have a window, which is required for for the canPlayWebm helper.
+    // Await document render before rendering the component.
+    if (windowIsAvailable !== undefined) {
+      setIsWebmCompatible(canPlayWebm())
+      setWindowIsAvailable(true)
+    }
+  }, [windowIsAvailable])
+
   return (
     <figure
       className={classnames(
@@ -173,7 +185,7 @@ export const VideoPlayer = ({
         playsInline={true}
         tabIndex={-1}
       >
-        {canPlayWebm() && (
+        {isWebmCompatible && (
           <source src={assetUrl(`${source}.webm`)} type="video/webm" />
         )}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />
