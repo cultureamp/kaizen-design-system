@@ -502,6 +502,9 @@ importers:
       react-intl:
         specifier: ^6.6.4
         version: 6.6.4(react@18.2.0)(typescript@5.4.3)
+      replace-in-file:
+        specifier: ^7.1.0
+        version: 7.1.0
       rollup:
         specifier: ^4.13.2
         version: 4.13.2
@@ -16948,6 +16951,16 @@ packages:
       htmlparser2: 6.1.0
       lodash: 4.17.21
       strip-ansi: 6.0.1
+    dev: true
+
+  /replace-in-file@7.1.0:
+    resolution: {integrity: sha512-1uZmJ78WtqNYCSuPC9IWbweXkGxPOtk2rKuar8diTw7naVIQZiE3Tm8ACx2PCMXDtVH6N+XxwaRY2qZ2xHPqXw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.2
+      glob: 8.1.0
+      yargs: 17.7.2
     dev: true
 
   /require-directory@2.1.1:
