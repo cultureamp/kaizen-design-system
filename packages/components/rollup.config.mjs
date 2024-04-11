@@ -1,3 +1,5 @@
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs"
@@ -5,6 +7,22 @@ import typescript from "@rollup/plugin-typescript"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
+
+const DIRNAME = dirname(fileURLToPath(import.meta.url));
+const styleInjectPath = path.resolve(DIRNAME, "./dist/tools/index.js")
+
+const toolsConfig = {
+  input: "./tools/index.ts",
+  plugins: [
+    typescript({
+      tsconfig: "./tsconfig.tools.json",
+    }),
+  ],
+  output: {
+    file: "dist/tools/index.js",
+    format: "esm"
+  }
+}
 
 const sharedConfig = {
   input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
@@ -41,10 +59,11 @@ const sharedConfig = {
     postcss({
       modules: true,
       extract: false,
-      inject: cssVariableName => `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`,
+      inject: cssVariableName => `import { styleInject } from '${styleInjectPath}';\nstyleInject(${cssVariableName});`,
+      // inject: cssVariableName => `import styleInject from "style-inject";\nstyleInject(${cssVariableName});`,
       extensions: [".scss", ".css"],
     }),
-  ]
+  ],
 }
 
 const cjsConfig = {
@@ -84,6 +103,7 @@ const esmConfig = {
 }
 
 export default [
+  toolsConfig,
   cjsConfig,
   esmConfig,
 ]
