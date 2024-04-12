@@ -34,7 +34,7 @@ export const Label = ({
       reversed && styles.reversed,
       variant === "prominent" && styles.prominent,
       disabled && styles.disabled,
-      "!text-blue-400 bg-yellow-400"
+      "!kz-text-blue-400 kz-bg-yellow-400"
     )}
     {...restProps}
   >

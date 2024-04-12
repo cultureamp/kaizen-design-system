@@ -25,7 +25,7 @@
     },
     "@kaizen/components#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
-      "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
+      "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json", "tailwind.config.js"],
       "outputs": ["dist/**"]
     },
     "@kaizen/components#test:treeshake": {
