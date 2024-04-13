@@ -259,8 +259,8 @@ importers:
         specifier: ^2.2.1
         version: 2.2.1(@storybook/components@8.0.6)(@storybook/core-events@8.0.6)(@storybook/manager-api@8.0.6)(@storybook/preview-api@7.6.17)(@storybook/theming@8.0.6)(react-dom@18.2.0)(react@18.2.0)
       style-loader:
-        specifier: ^3.3.4
-        version: 3.3.4(webpack@5.91.0)
+        specifier: ^4.0.0
+        version: 4.0.0(webpack@5.91.0)
       stylelint:
         specifier: ^16.3.1
         version: 16.3.1(typescript@5.4.4)
@@ -18004,6 +18004,15 @@ packages:
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
+    dependencies:
+      webpack: 5.91.0(@swc/core@1.4.1)(esbuild@0.18.20)
+    dev: true
+
+  /style-loader@4.0.0(webpack@5.91.0):
+    resolution: {integrity: sha512-1V4WqhhZZgjVAVJyt7TdDPZoPBPNHbekX4fWnCJL1yQukhCeZhJySUL+gL9y6sNdN95uEOS83Y55SqHcP7MzLA==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      webpack: ^5.27.0
     dependencies:
       webpack: 5.91.0(@swc/core@1.4.1)(esbuild@0.18.20)
     dev: true
