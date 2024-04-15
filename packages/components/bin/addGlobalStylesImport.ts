@@ -24,7 +24,8 @@ const addGlobalStylesImport = async (dirOrFile: string): Promise<void> => {
       return
     }
 
-    const stylesPath = path.relative(path.dirname(filePath), DIST_STYLES_PATH)
+    // const stylesPath = path.relative(path.dirname(filePath), DIST_STYLES_PATH)
+    const stylesPath = "@kaizen/components/dist/styles.css"
     const fileContent = fs.readFileSync(filePath).toString()
 
     fs.writeFile(filePath, `import "${stylesPath}"\n${fileContent}`, err => err)
