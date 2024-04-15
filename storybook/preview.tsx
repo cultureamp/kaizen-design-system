@@ -66,6 +66,7 @@ const preview = {
         method: "alphabetical",
         order: [
           "Introduction",
+          ["Welcome", "*"],
           "Tier 1",
           ["Tokens", "*"],
           "Tier 2",

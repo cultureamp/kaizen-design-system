@@ -4,4 +4,55 @@ import { Meta } from "@storybook/blocks"
 
 # Tokens
 
-TBC
+Design tokens are named and stored visual design traits, including colors, typography, and animation timings. Design Tokens are the heart of every Design System.
+
+## Usage
+
+### Design
+
+You can access these tokens via Figma's UI where applicable, such as spacing variables when using Auto Layout.
+
+### Engineering
+
+There are many ways to access the tokens:
+
+#### Tailwind
+
+Colours are accessible via normal tailwind prefixes ([example: text](https://tailwindcss.com/docs/text-color)) eg. `bg-*`, `text-*`, `border-*`
+
+```html
+<div class="bg-blue-500">
+  ...
+</div>
+```
+
+#### SCSS
+```scss
+  @import "~@kaizen/design-tokens/sass/color"
+
+  .mySCSSClassName {
+    background: $color-blue-500;
+  }
+```
+
+#### CSS
+
+Note: CSS Vars are only available if you install (Kaizen's global CSS file)[http://localhost:6006/?path=/docs/introduction-getting-started--docs#4-add-kaizens-global-css-stylesheet]
+
+```css
+  .myCSSClassName {
+    background: vars(--color-blue-500);
+  }
+```
+
+#### JS
+
+```javascript
+import { tokens } from "@kaizen/design-tokens/js"
+
+const myAmazingFunction = () => {
+  const mainColor = data ? tokens.colors.purple[500]: tokens.colors.purple[300];
+
+  return mainColor;
+}
+```
