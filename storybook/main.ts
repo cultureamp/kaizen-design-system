@@ -63,6 +63,23 @@ const config = {
       },
     },
   },
+  // refs: {
+  //   perform: {
+  //     title: "Perform: Review Cycles",
+  //     url: "https://main--65710c69608ff9fb01e5ee1d.chromatic.com",
+  //     expanded: false,
+  //   },
+  //   engage: {
+  //     title: "Engage: Reports Components",
+  //     url: "https://main--63b51914c3f2b7c5370b8579.chromatic.com",
+  //     expanded: false,
+  //   },
+  //   goals: {
+  //     title: "Goals: Shared UI",
+  //     url: "https://main--6577eaf02e6388b60d9a1930.chromatic.com",
+  //     expanded: false,
+  //   },
+  // },
 } satisfies StorybookConfig
 
 export default config
