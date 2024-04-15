@@ -3,7 +3,6 @@ import { ToastNotificationsList } from "~components/Notification"
 import { ToastNotificationProvider } from "~components/Notification/ToastNotification/context/ToastNotificationContext"
 import { FontDefinitions } from "./subcomponents/FontDefinitions"
 import { OptionalIntlProvider } from "./subcomponents/OptionalIntlProvider"
-import "../../styles/global.css"
 
 export type KaizenProviderProps = {
   children: React.ReactNode

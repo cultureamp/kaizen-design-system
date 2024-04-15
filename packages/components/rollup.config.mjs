@@ -39,9 +39,7 @@ const sharedConfig = {
       ]
     }),
     postcss({
-      modules: {
-        globalModulePaths: ["global.css"],
-      },
+      modules: true,
       extract: false,
       inject: cssVariableName => `import styleInject from "style-inject";\nstyleInject(${cssVariableName});`,
       extensions: [".scss", ".css"],
@@ -58,7 +56,7 @@ const cjsConfig = {
       compilerOptions: {
         esModuleInterop: false,
         allowSyntheticDefaultImports: true
-      }
+      },
     }),
     commonjs(),
   ],
@@ -75,7 +73,7 @@ const esmConfig = {
   ...sharedConfig,
   plugins: [
     ...sharedConfig.plugins,
-    typescript({ tsconfig: "./tsconfig.dist.json" })
+    typescript({ tsconfig: "./tsconfig.dist.json" }),
   ],
   output: {
     dir: "dist/esm",
