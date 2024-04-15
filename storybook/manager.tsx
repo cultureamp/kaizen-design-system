@@ -7,11 +7,10 @@ import KaizenTheme from "./theme"
 
 const CATEGORIES_ICON: Record<string, string> = {
   Introduction: "👋",
-  Components: "⚙️",
-  Pages: "📖",
-  Helpers: "🤝",
+  "Tier 1": "🎡",
+  "Tier 2": "🎡",
+  Utilities: "🧰",
   Deprecated: "💣",
-  Systems: "🤖",
 }
 
 const colors = tokens.color

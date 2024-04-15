@@ -5,8 +5,6 @@ import * as ColourTokensStories from "./colour-tokens.stories"
 
 # Colour Tokens
 
-Import the color tokens into your SCSS with `@import "~@kaizen/design-tokens/sass/color`.
-
 ## Usage
 
 ### Tailwind
@@ -29,14 +27,25 @@ Colours are accessible via normal tailwind prefixes ([example: text](https://tai
 ```
 
 ### CSS
-Note: With PostCSS imports plugin installed
+
+Note: CSS Vars are only available if you install (Kaizen's global CSS file)[http://localhost:6006/?path=/docs/introduction-getting-started--docs#4-add-kaizens-global-css-stylesheet]
 
 ```css
-  @import "@kaizen/design-tokens/sass/color"
-
   .myCSSClassName {
-    background: $color-blue-500;
+    background: vars(--color-blue-500);
   }
+```
+
+### JS
+
+```javascript
+import { tokens } from "@kaizen/design-tokens/js"
+
+const myAmazingFunction = () => {
+  const mainColor = data ? tokens.colors.purple[500]: tokens.colors.purple[300];
+
+  return mainColor;
+}
 ```
 
 ## Colours
