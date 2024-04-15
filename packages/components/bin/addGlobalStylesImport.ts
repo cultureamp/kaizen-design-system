@@ -16,7 +16,6 @@ const addGlobalStylesImport = async (dirOrFile: string): Promise<void> => {
 
   const filePath = path.resolve(dirOrFile)
   if (fs.statSync(filePath).isFile()) {
-    // Only prepend the import to to .tsx files
     const sourceFile = dirOrFile
       .replace(/dist\/(esm|cjs)/, "src")
       .replace(/(c|m)js$/, "tsx")
@@ -24,11 +23,27 @@ const addGlobalStylesImport = async (dirOrFile: string): Promise<void> => {
       return
     }
 
-    // const stylesPath = path.relative(path.dirname(filePath), DIST_STYLES_PATH)
-    const stylesPath = "@kaizen/components/dist/styles.css"
+    const stylesPath = path.relative(path.dirname(filePath), DIST_STYLES_PATH)
     const fileContent = fs.readFileSync(filePath).toString()
 
-    fs.writeFile(filePath, `import "${stylesPath}"\n${fileContent}`, err => err)
+    const isESM = dirOrFile.includes("dist/esm")
+    if (isESM) {
+      fs.writeFile(
+        filePath,
+        `import "${stylesPath}"\n${fileContent}`,
+        err => err
+      )
+      return
+    }
+
+    const isCJS = dirOrFile.includes("dist/cjs")
+    if (isCJS) {
+      const fileSplit = fileContent.split("\n")
+      fileSplit.splice(1, 0, `require("${stylesPath}")`)
+      const newContent = fileSplit.join("\n")
+      fs.writeFile(filePath, newContent, err => err)
+      return
+    }
   }
 }
 
