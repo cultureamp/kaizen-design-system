@@ -3,7 +3,7 @@ import { statusCodes } from "../hooks"
 import { ErrorPage } from "../index"
 
 const meta = {
-  title: "Pages/Error Page",
+  title: "Components/Error Page",
   component: ErrorPage,
 } satisfies Meta<typeof ErrorPage>
 

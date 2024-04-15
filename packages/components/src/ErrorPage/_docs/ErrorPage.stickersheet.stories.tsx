@@ -7,7 +7,7 @@ import {
 import { ErrorPage, ErrorPageProps } from "../ErrorPage"
 
 export default {
-  title: "Pages/Error Page",
+  title: "Components/Error Page",
   parameters: {
     a11y: {
       config: {

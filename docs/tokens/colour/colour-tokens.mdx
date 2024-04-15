@@ -1,0 +1,44 @@
+import { Meta, Story } from "@storybook/blocks"
+import * as ColourTokensStories from "./colour-tokens.stories"
+
+<Meta of={ColourTokensStories} />
+
+# Colour Tokens
+
+Import the color tokens into your SCSS with `@import "~@kaizen/design-tokens/sass/color`.
+
+## Usage
+
+### Tailwind
+
+Colours are accessible via normal tailwind prefixes ([example: text](https://tailwindcss.com/docs/text-color)) eg. `bg-*`, `text-*`, `border-*`
+
+```html
+<div class="bg-blue-500">
+  ...
+</div>
+```
+
+### SCSS
+```scss
+  @import "~@kaizen/design-tokens/sass/color"
+
+  .mySCSSClassName {
+    background: $color-blue-500;
+  }
+```
+
+### CSS
+Note: With PostCSS imports plugin installed
+
+```css
+  @import "@kaizen/design-tokens/sass/color"
+
+  .myCSSClassName {
+    background: $color-blue-500;
+  }
+```
+
+## Colours
+
+<Story of={ColourTokensStories.ColorTokens} />
