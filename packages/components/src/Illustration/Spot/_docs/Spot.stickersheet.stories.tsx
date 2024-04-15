@@ -135,7 +135,7 @@ import {
 } from "../"
 
 export default {
-  title: "Tier 1/Illustrations/Spot",
+  title: "Tier 1/Spot",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

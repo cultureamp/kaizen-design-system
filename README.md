@@ -4,33 +4,15 @@
 
 Kaizen is Culture Amp's public design system. It accelerates Culture Amp's designers and engineers as they collaborate on creating world-class products. Visit [cultureamp.design](https://cultureamp.design) to learn more.
 
-This repository is the source of truth for Culture Amp's design system documentation and hosts packages such as [Kaizen Component Library](./packages/component-library), which are used across Culture Amp's products. It is structured as a multi-package repository, with a number of independently versioned projects sharing common tools, workflows and vision.
+This repository is the source of truth for Culture Amp's Tier 1 and Tier 2 design systems and hosts packages such as [Kaizen Components](./packages/components), affectionately known as KAIO (Kaizen All In One), which are used across Culture Amp's products. For a more detailed overview of the system, see our [internal overview](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3565290003/Introducing+Kaizen+Design+System).
 
 This document serves to orient you within the repository — to get you set up and acquainted, and then send you off in the right direction. For more information on any specific package, please refer to its README.
 
 ## Quick links
 
-- [Kaizen Issues](https://github.com/cultureamp/kaizen-discourse/issues)
-- [Kaizen Design Tokens README](./packages/design-tokens/README.md)
-- [Kaizen Component Library README](./packages/component-library/README.md)
-- [Contributing guidelines](./CONTRIBUTING.md)
-
-## Designers
-
-### Issues
-
-You can explore or create [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) to track ideas, enhancements, or bugs. Use issues to track:
-
-- Changes to design documentation
-- Missing documentation
-
-To learn more, see the designer section of the [Contributing guidelines](./CONTRIBUTING.md).
-
-### Editing design documentation
-
-You can edit Kaizen Site documentation using GitHub's interface.
-
-To learn more, see the designer section of the [Contributing guidelines](./CONTRIBUTING.md).
+- [Components README](./packages/components/README.md)
+- [Design Tokens README](./packages/design-tokens/README.md)
+- [Tailwind Preset README](./packages/design-tokens/README.md)
 
 ## Getting started
 

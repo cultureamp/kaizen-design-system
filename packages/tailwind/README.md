@@ -1,33 +1,32 @@
-import { Meta } from "@storybook/blocks"
-import { InlineNotification } from "~components/Notification"
-import CssGeneration from "./assets/css-generation.png"
-import InlineFold from "./assets/inline-fold.gif"
-import TailwindPlay from "./assets/tailwind-play.gif"
-
-<Meta title="Introduction/Tailwind Preset" />
-
 # Tailwind Preset
 
-This page describes the steps needed to use our [Kaizen Tailwind preset](https://github.com/cultureamp/kaizen-design-system/tree/main/packages/tailwind), not Tailwind itself.
+This page describes the steps needed to use our Kaizen Tailwind preset, not Tailwind itself.
 To learn more about Tailwind and how to install it in your project, check out there docs [here](https://tailwindcss.com/docs/installation).
 
-Note: Projects created from [frontend-template](https://github.com/cultureamp/frontend-template) should have steps 1 - 3 completed out of the box.
-If your project was created from this template, you should only need to do [Step 4: Useful tools](#4-useful-tools).
+## Installation via templates
+
+At CultureAmp we have a template system, using any of the latest versions (as of 5 months ago) will include the Kaizen Tailwind Preset (and by extension Kaizen's primary components) out of the box.
+
+- [next-template](https://github.com/cultureamp/next-template)
+- [frontend-template](https://github.com/cultureamp/frontend-template)
+
+If you've used an older than 5 months version of either of these templates, then its likely that you'll require manual installation.
+
+If your project was created from this template, you should only need to do [Useful tools](#useful-tools).
 
 - [1. Install the preset](#1-install-the-preset)
 - [2. Implement the preset](#2-implement-the-preset)
 - [3. Add the Tailwind directives](#3-add-the-tailwind-directives)
-- [4. Useful tools](#4-useful-tools)
 
-<br/>
+## Manual installation
 
-## 1. Install the preset
+### 1. Install the preset
 
 ```bash
 yarn add -D @kaizen/tailwind
 ```
 
-## 2. Implement the Preset
+### 2. Implement the Preset
 
 In your tailwind config file, import the preset and add it to your `presets` array.
 This will override the default Tailwind preset, and make ours available for use.
@@ -53,7 +52,7 @@ module.exports = {
 
 For preset configuration options, see our [configuration docs](/story/systems-tailwind-configuration--page)
 
-## 3. Add the Tailwind Directives
+### 3. Add the Tailwind Directives
 
 The following directives need to be included in your project's main css file.
 
@@ -66,7 +65,7 @@ The following directives need to be included in your project's main css file.
 These directives inject classes that are needed for certain Tailwind features.
 For more information, see [here](https://tailwindcss.com/docs/functions-and-directives).
 
-## 4. Useful tools
+## Useful tools
 
 ### Tailwind Play
 

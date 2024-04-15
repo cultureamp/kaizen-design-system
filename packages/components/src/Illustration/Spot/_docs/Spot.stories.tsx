@@ -4,7 +4,7 @@ import { Text } from "~components/Text"
 import { CompanyDetails } from "../index"
 
 const meta = {
-  title: "Tier 1/Illustrations/Spot",
+  title: "Tier 1/Spot",
   component: CompanyDetails,
 } satisfies Meta<typeof CompanyDetails>
 
