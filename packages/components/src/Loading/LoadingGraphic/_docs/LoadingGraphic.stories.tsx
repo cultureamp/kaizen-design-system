@@ -7,7 +7,7 @@ import { StickerSheet } from "~storybook/components/StickerSheet"
 import { LoadingGraphic } from "../index"
 
 const meta = {
-  title: "Components/Loading states/LoadingGraphic",
+  title: "Tier 2/LoadingGraphic",
   component: LoadingGraphic,
   args: {
     size: "xlarge",

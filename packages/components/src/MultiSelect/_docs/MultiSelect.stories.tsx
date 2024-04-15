@@ -4,7 +4,7 @@ import { fn } from "@storybook/test"
 import { MultiSelect, MultiSelectProps } from "../index"
 
 const meta = {
-  title: "Components/MultiSelect",
+  title: "Tier 2/MultiSelect",
   component: MultiSelect,
   argTypes: {
     selectedValues: {

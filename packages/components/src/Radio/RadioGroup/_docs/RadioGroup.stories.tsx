@@ -4,7 +4,7 @@ import { RadioField } from "~components/Radio/RadioField"
 import { RadioGroup } from "../index"
 
 const meta = {
-  title: "Components/Radio controls/RadioGroup",
+  title: "Tier 2/RadioGroup",
   component: RadioGroup,
   args: {
     labelText: "Radio group",

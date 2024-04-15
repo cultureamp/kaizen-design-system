@@ -8,7 +8,7 @@ import {
 import { FieldGroup } from "../index"
 
 export default {
-  title: "Components/FieldGroup",
+  title: "Tier 2/FieldGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -3,7 +3,7 @@ import { RichTextContent } from "../index"
 import dummyContent from "./dummyContent.json"
 
 const meta = {
-  title: "Components/RichTextEditor/RichTextContent",
+  title: "Tier 2/RichTextContent",
   component: RichTextContent,
   args: {
     content: dummyContent,

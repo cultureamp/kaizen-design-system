@@ -8,7 +8,7 @@ import { LikertScaleLegacy } from "../index"
 import { Scale } from "../types"
 
 export default {
-  title: "Components/LikertScaleLegacy",
+  title: "Tier 2/LikertScaleLegacy",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

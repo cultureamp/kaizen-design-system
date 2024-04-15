@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Text } from "../index"
 
 const meta = {
-  title: "Components/Text",
+  title: "Utilities/Text",
   component: Text,
   args: {
     variant: "body",

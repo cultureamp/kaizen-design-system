@@ -7,7 +7,7 @@ import {
 import { ClearButton } from "../index"
 
 export default {
-  title: "Components/ClearButton",
+  title: "Tier 2/ClearButton",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

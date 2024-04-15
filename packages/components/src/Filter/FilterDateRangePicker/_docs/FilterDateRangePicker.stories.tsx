@@ -21,7 +21,7 @@ import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 
 const meta = {
-  title: "Components/Filter Date Range Picker",
+  title: "Tier 2/Filter Date Range Picker",
   component: FilterDateRangePicker,
   argTypes: {
     classNameOverride: {

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { LoadingSpinner } from "../index"
 
 const meta = {
-  title: "Components/Loading states/LoadingSpinner",
+  title: "Tier 2/LoadingSpinner",
   component: LoadingSpinner,
   args: {
     accessibilityLabel: "Loading",

@@ -9,7 +9,7 @@ import {
 } from "./mockData"
 
 const meta = {
-  title: "Components/Select/Future",
+  title: "Tier 2/Select",
   component: Select,
   argTypes: {
     items: {

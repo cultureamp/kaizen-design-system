@@ -7,7 +7,7 @@ import {
 import { Select } from "../index"
 
 export default {
-  title: "Components/Select",
+  title: "Deprecated/Select",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

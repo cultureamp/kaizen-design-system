@@ -4,7 +4,7 @@ import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
 import { InformationTile } from "../index"
 
 const meta = {
-  title: "Components/Tiles/InformationTile",
+  title: "Tier 2/InformationTile",
   component: InformationTile,
   args: {
     title: "Title",

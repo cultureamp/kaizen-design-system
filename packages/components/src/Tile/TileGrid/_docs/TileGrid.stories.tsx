@@ -4,7 +4,7 @@ import { InformationTile } from "~components/Tile"
 import { TileGrid } from "../index"
 
 const meta = {
-  title: "Components/Tiles/TileGrid",
+  title: "Tier 2/TileGrid",
   component: TileGrid,
   args: {
     children: (

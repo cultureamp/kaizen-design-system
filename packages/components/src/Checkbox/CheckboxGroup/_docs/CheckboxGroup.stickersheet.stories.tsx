@@ -9,7 +9,7 @@ import {
 import { CheckboxGroup, CheckboxGroupProps } from "../index"
 
 export default {
-  title: "Components/Checkbox controls/CheckboxGroup",
+  title: "Tier 2/CheckboxGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

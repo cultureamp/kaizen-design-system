@@ -9,7 +9,7 @@ import {
 import { ButtonGroup } from "../index"
 
 export default {
-  title: "Components/Button Group",
+  title: "Tier 2/Button Group",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -7,7 +7,7 @@ import {
 import { LoadingHeading } from "../index"
 
 export default {
-  title: "Components/Loading states/LoadingHeading",
+  title: "Tier 2/LoadingHeading",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

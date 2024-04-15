@@ -4,7 +4,7 @@ import { Text } from "~components/Text"
 import { ExpertAdviceCollapsible } from "../index"
 
 const meta = {
-  title: "Components/Collapsibles/ExpertAdviceCollapsible",
+  title: "Tier 2/ExpertAdviceCollapsible",
   component: ExpertAdviceCollapsible,
   parameters: { chromatic: { disable: false } },
   args: {

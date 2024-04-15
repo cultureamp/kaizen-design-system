@@ -4,7 +4,7 @@ import { Text } from "~components/Text"
 import { LoadingParagraph } from "../index"
 
 const meta = {
-  title: "Components/Loading states/LoadingParagraph",
+  title: "Tier 2/LoadingParagraph",
   component: LoadingParagraph,
 } satisfies Meta<typeof LoadingParagraph>
 

@@ -5,7 +5,7 @@ import { StickerSheet } from "~storybook/components/StickerSheet"
 import { LoadingHeading } from "../index"
 
 const meta = {
-  title: "Components/Loading states/LoadingHeading",
+  title: "Tier 2/LoadingHeading",
   component: LoadingHeading,
   args: {
     variant: "heading-1",

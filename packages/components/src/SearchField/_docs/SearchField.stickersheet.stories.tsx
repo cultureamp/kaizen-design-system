@@ -7,7 +7,7 @@ import {
 import { SearchField, SearchFieldProps } from "../index"
 
 export default {
-  title: "Components/SearchField",
+  title: "Tier 2/SearchField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

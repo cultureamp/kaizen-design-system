@@ -5,7 +5,7 @@ import { TimeField } from "../index"
 import { ValueType } from "../types"
 
 const meta = {
-  title: "Components/TimeField",
+  title: "Tier 2/TimeField",
   component: TimeField,
   argTypes: {
     locale: {

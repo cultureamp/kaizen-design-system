@@ -31,7 +31,7 @@ const scale: Scale = [
 ]
 
 const meta = {
-  title: "Components/LikertScaleLegacy",
+  title: "Tier 2/LikertScaleLegacy",
   component: LikertScaleLegacy,
   args: {
     scale,

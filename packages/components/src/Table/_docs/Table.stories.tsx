@@ -138,7 +138,7 @@ const Table = ({
 }
 
 const meta = {
-  title: "Components/Table",
+  title: "Tier 2/Table",
   component: Table,
   parameters: {
     chromatic: { disable: false },

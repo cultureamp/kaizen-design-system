@@ -31,7 +31,7 @@ const CollapsibleGroupWrapped = (
 )
 
 const meta = {
-  title: "Components/Collapsibles/CollapsibleGroup",
+  title: "Tier 2/CollapsibleGroup",
   component: CollapsibleGroup,
   parameters: { backgrounds: { default: "Gray 100" } },
   args: {

@@ -9,7 +9,7 @@ import { CalendarSingle } from "../../CalendarSingle"
 import { CalendarPopover, CalendarPopoverProps } from "../index"
 
 export default {
-  title: "Components/Date controls/Calendars/CalendarPopover",
+  title: "Utilities/CalendarPopover",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

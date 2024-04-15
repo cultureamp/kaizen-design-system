@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { BrandMomentCaptureIntro } from "../index"
 
 const meta = {
-  title: "Components/Illustrations/Scene/BrandMomentCaptureIntro",
+  title: "Tier 2/BrandMomentCaptureIntro",
   component: BrandMomentCaptureIntro,
 } satisfies Meta<typeof BrandMomentCaptureIntro>
 

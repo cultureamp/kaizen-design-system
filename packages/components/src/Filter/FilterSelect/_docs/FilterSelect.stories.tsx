@@ -8,7 +8,7 @@ import { SelectOption } from "../types"
 import { groupedMockItems, singleMockItems } from "./mockData"
 
 const meta = {
-  title: "Components/Filter Select",
+  title: "Tier 2/Filter Select",
   component: FilterSelect,
   argTypes: {
     isOpen: { control: "disabled" },

@@ -7,7 +7,7 @@ import {
 import { BrandMomentCaptureIntro } from "../index"
 
 export default {
-  title: "Components/Illustrations/Scene/BrandMomentCaptureIntro",
+  title: "Tier 2/BrandMomentCaptureIntro",
   parameters: {
     chromatic: { disable: false, delay: 400 },
     controls: { disable: true },

@@ -7,7 +7,7 @@ import {
 import { LoadingGraphic } from "../index"
 
 export default {
-  title: "Components/Loading states/LoadingGraphic",
+  title: "Tier 2/LoadingGraphic",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -9,7 +9,7 @@ import {
 import { RadioGroup } from "../index"
 
 export default {
-  title: "Components/Radio controls/RadioGroup",
+  title: "Tier 2/RadioGroup",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

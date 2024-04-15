@@ -4,7 +4,7 @@ import { LoadingHeading } from "~components/Loading"
 import { LoadingInput } from "../index"
 
 const meta = {
-  title: "Components/Loading states/LoadingInput",
+  title: "Tier 2/LoadingInput",
   component: LoadingInput,
 } satisfies Meta<typeof LoadingInput>
 

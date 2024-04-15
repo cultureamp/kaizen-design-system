@@ -4,7 +4,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Slider } from "../index"
 
 const meta = {
-  title: "Components/Slider",
+  title: "Tier 2/Slider",
   component: Slider,
   args: {
     labelText: <>Slider</>,

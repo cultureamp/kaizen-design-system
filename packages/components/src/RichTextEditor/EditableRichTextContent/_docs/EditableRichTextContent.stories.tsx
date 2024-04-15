@@ -11,7 +11,7 @@ import { EditableRichTextContent } from "../index"
 import dummyContent from "./dummyContent.json"
 
 const meta = {
-  title: "Components/RichTextEditor/EditableRichTextContent",
+  title: "Tier 2/EditableRichTextContent",
   component: EditableRichTextContent,
   args: {
     content: dummyContent,

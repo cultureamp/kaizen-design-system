@@ -20,7 +20,7 @@ import { disabledDaysControls } from "./controls/disabledDaysControls"
 import { validationControls } from "./controls/validationControls"
 
 const meta = {
-  title: "Components/Filter Date Picker",
+  title: "Tier 2/Filter Date Picker",
   component: FilterDatePicker,
   argTypes: {
     ...defaultMonthControls,

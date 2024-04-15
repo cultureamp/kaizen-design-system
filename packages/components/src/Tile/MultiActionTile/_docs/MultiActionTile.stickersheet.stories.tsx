@@ -8,7 +8,7 @@ import {
 import { MultiActionTile } from "../index"
 
 export default {
-  title: "Components/Tiles/MultiActionTile",
+  title: "Tier 2/MultiActionTile",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

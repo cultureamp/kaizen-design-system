@@ -4,7 +4,7 @@ import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: "Components/Workflow/Future/Components/Progress Stepper",
+  title: "Utilities/Workflow/Progress Stepper",
   component: Workflow.ProgressStepper,
   argTypes: {
     currentStepId: WorkflowControls.currentStepId,

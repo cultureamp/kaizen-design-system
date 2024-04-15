@@ -7,7 +7,7 @@ import {
 import { ExpertAdviceCollapsible, ExpertAdviceCollapsibleProps } from "../index"
 
 export default {
-  title: "Components/Collapsibles/ExpertAdviceCollapsible",
+  title: "Tier 2/ExpertAdviceCollapsible",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

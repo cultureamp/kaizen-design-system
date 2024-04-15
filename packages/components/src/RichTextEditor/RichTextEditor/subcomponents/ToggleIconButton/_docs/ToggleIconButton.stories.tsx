@@ -4,7 +4,7 @@ import { BoldIcon } from "~components/Icon"
 import { ToggleIconButton } from "../ToggleIconButton"
 
 const meta = {
-  title: "Components/RichTextEditor/Subcomponents/ToggleIconButton",
+  title: "Utilities/RichTextEditor/ToggleIconButton",
   component: ToggleIconButton,
   args: {
     icon: <BoldIcon role="presentation" />,

@@ -17,7 +17,7 @@ import {
 } from "../index"
 
 export default {
-  title: "Components/Date controls/DateRangePicker",
+  title: "Tier 2/DateRangePicker",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

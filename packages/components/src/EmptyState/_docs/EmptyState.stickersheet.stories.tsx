@@ -11,7 +11,7 @@ import { EmptyState, EmptyStateProps } from "../index"
 import styles from "./EmptyState.stories.module.scss"
 
 export default {
-  title: "Components/EmptyState",
+  title: "Tier 2/EmptyState",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

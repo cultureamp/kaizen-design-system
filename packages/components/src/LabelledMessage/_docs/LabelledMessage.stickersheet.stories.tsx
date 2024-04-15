@@ -7,7 +7,7 @@ import {
 import { LabelledMessage } from "../index"
 
 export default {
-  title: "Components/Utilities/Labelled Message",
+  title: "Utilities/Labelled Message",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

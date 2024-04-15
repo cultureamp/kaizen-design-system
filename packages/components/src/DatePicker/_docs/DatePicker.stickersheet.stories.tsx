@@ -8,7 +8,7 @@ import {
 import { DatePicker } from "../index"
 
 export default {
-  title: "Components/Date controls/DatePicker",
+  title: "Tier 2/DatePicker",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -5,7 +5,7 @@ import { Skirt } from "../index"
 import { SkirtCard } from "../subcomponents/SkirtCard"
 
 const meta = {
-  title: "Components/Skirt",
+  title: "Tier 2/Skirt",
   component: Skirt,
   args: {
     children: (

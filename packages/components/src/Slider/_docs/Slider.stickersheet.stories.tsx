@@ -7,7 +7,7 @@ import {
 import { Slider } from "../index"
 
 export default {
-  title: "Components/Slider",
+  title: "Tier 2/Slider",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

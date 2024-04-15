@@ -12,7 +12,7 @@ import { GuidanceBlock, GuidanceBlockProps } from "../index"
 import { variantsMap } from "../types"
 
 export default {
-  title: "Components/GuidanceBlock",
+  title: "Tier 2/GuidanceBlock",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

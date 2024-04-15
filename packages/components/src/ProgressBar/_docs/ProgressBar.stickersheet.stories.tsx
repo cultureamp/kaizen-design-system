@@ -7,7 +7,7 @@ import {
 import { ProgressBar } from "../index"
 
 export default {
-  title: "Components/ProgressBar",
+  title: "Tier 2/ProgressBar",
   parameters: {
     chromatic: { disable: false, pauseAnimationAtEnd: true },
     controls: { disable: true },

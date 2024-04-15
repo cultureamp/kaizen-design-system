@@ -4,7 +4,7 @@ import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
 import { MultiActionTile } from "../index"
 
 const meta = {
-  title: "Components/Tiles/MultiActionTile",
+  title: "Tier 2/MultiActionTile",
   component: MultiActionTile,
   args: {
     title: "Title",
