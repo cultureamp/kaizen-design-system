@@ -6,7 +6,7 @@ import { TextField } from "~components/TextField"
 import { Button } from "../index"
 
 const meta = {
-  title: "Components/Buttons/Button",
+  title: "Tier 1/Button",
   component: Button,
   args: {
     label: "Label",

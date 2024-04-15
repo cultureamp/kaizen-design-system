@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { FieldMessage } from "../index"
 
 const meta = {
-  title: "Components/FieldMessage",
+  title: "Tier 1/FieldMessage",
   component: FieldMessage,
   args: {
     message:

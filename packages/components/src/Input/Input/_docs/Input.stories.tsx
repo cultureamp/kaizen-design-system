@@ -4,7 +4,7 @@ import { UserAddIcon, WritingIcon } from "~components/Icon"
 import { Input } from "../index"
 
 const meta = {
-  title: "Components/Inputs/Input",
+  title: "Tier 1/Input",
   component: Input,
   parameters: {
     a11y: {

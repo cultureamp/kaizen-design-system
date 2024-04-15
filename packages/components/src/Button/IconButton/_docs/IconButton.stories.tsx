@@ -4,7 +4,7 @@ import { AddIcon, MeatballsIcon } from "~components/Icon"
 import { IconButton } from "../index"
 
 const meta = {
-  title: "Components/Buttons/IconButton",
+  title: "Tier 1/IconButton",
   component: IconButton,
   argTypes: {
     icon: {

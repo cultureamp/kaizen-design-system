@@ -7,7 +7,7 @@ import {
 import { FieldMessage } from "../index"
 
 export default {
-  title: "Components/FieldMessage",
+  title: "Tier 1/FieldMessage",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

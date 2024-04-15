@@ -4,7 +4,7 @@ import { BadgeAnimated } from "~components/Badge"
 import { Badge } from "../index"
 
 const meta = {
-  title: "Components/Badge",
+  title: "Tier 1/Badge",
   component: Badge,
   args: {
     children: "3",

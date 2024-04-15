@@ -10,7 +10,7 @@ import {
 } from "../InlineNotification"
 
 export default {
-  title: "Components/Notifications/Inline Notification",
+  title: "Tier 1/Inline Notification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

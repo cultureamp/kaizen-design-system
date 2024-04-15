@@ -7,7 +7,7 @@ import { AddIcon } from "../index"
 import styles from "./icon.stories.scss"
 
 const meta = {
-  title: "Components/Icons",
+  title: "Tier 1/Icons",
   component: AddIcon,
   args: {
     role: "presentation",

@@ -8,7 +8,7 @@ import {
 import { SplitButton } from "../index"
 
 const meta = {
-  title: "Components/Buttons/SplitButton",
+  title: "Tier 1/SplitButton",
   component: SplitButton,
   argTypes: {
     actionButtonProps: {

@@ -7,7 +7,7 @@ import {
 import { Card, CardProps } from "../index"
 
 export default {
-  title: "Components/Card",
+  title: "Tier 1/Card",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

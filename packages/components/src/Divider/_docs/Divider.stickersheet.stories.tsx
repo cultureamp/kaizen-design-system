@@ -7,7 +7,7 @@ import {
 import { Divider } from "../index"
 
 export default {
-  title: "Components/Divider",
+  title: "Tier 1/Divider",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

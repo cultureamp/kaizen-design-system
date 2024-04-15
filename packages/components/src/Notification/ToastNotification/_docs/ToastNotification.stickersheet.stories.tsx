@@ -4,7 +4,7 @@ import { StickerSheetStory } from "~storybook/components/StickerSheet"
 import { ToastNotification } from "../ToastNotification"
 
 export default {
-  title: "Components/Notifications/ToastNotification",
+  title: "Tier 1/ToastNotification",
   parameters: {
     chromatic: { disable: false, delay: 600 },
     controls: { disable: true },

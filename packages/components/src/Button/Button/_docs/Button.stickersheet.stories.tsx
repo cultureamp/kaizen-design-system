@@ -8,7 +8,7 @@ import {
 import { Button, ButtonProps } from "../index"
 
 export default {
-  title: "Components/Buttons/Button",
+  title: "Tier 1/Button",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

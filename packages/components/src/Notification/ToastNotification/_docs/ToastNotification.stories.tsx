@@ -4,7 +4,7 @@ import { Button } from "~components/Button"
 import { ToastNotification, useToastNotification } from "../index"
 
 const meta = {
-  title: "Components/Notifications/ToastNotification",
+  title: "Tier 1/ToastNotification",
   component: ToastNotification,
   args: {
     id: "abc-123",

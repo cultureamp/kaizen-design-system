@@ -9,7 +9,7 @@ import { Input, InputProps } from "../index"
 import { InputStatus, InputTypes } from "../types"
 
 export default {
-  title: "Components/Inputs/Input",
+  title: "Tier 1/Input",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

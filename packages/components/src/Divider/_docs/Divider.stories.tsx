@@ -6,7 +6,7 @@ import { Text } from "~components/Text"
 import { Divider } from "../index"
 
 const meta = {
-  title: "Components/Divider",
+  title: "Tier 1/Divider",
   component: Divider,
   args: {
     variant: "content",

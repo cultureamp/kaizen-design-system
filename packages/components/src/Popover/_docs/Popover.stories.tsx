@@ -4,7 +4,7 @@ import { AddIcon, MeatballsIcon } from "~components/Icon"
 import { Popover as PopoverComponent, PopoverProps, usePopover } from "../index"
 
 const meta = {
-  title: "Components/Popover",
+  title: "Tier 1/Popover",
   component: PopoverComponent,
   args: {
     children: undefined,

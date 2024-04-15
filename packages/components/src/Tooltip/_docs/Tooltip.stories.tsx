@@ -7,7 +7,7 @@ import { Text } from "~components/Text"
 import { Tooltip } from "../index"
 
 const meta = {
-  title: "Components/Tooltip",
+  title: "Tier 1/Tooltip",
   component: Tooltip,
   args: {
     text: "Example tooltip text.",

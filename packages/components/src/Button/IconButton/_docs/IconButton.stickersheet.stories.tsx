@@ -9,7 +9,7 @@ import {
 import { IconButton, IconButtonProps } from "../index"
 
 export default {
-  title: "Components/Buttons/IconButton",
+  title: "Tier 1/IconButton",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

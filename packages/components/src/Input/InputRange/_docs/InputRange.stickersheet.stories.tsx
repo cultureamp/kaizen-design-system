@@ -7,7 +7,7 @@ import {
 import { InputRange } from "../index"
 
 export default {
-  title: "Components/Inputs/InputRange",
+  title: "Tier 1/InputRange",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

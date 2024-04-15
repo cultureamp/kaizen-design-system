@@ -8,7 +8,7 @@ import {
 import { Collapsible, CollapsibleProps } from "../index"
 
 export default {
-  title: "Components/Collapsibles/Collapsible",
+  title: "Tier 1/Collapsible",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

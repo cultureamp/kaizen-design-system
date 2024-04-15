@@ -15,7 +15,7 @@ const openTooltipInChromatic: Decorator = (Story, { args }) => {
 }
 
 export default {
-  title: "Components/Tooltip",
+  title: "Tier 1/Tooltip",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -7,7 +7,7 @@ import {
 } from "~storybook/components/StickerSheet"
 
 export default {
-  title: "Components/Icons",
+  title: "Tier 1/Icons",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

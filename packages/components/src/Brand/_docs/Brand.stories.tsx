@@ -4,7 +4,7 @@ import { Brand } from "../index"
 import { StickerSheetDefault } from "./Brand.stickersheet.stories"
 
 const meta = {
-  title: "Components/Brand",
+  title: "Tier 1/Brand",
   component: Brand,
   args: {
     variant: "logo-horizontal",
