@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.8",
+    "@floating-ui/react": "^0.26.12",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.2",
     "@kaizen/hosted-assets": "workspace:*",
