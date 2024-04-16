@@ -2,7 +2,7 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
-import { utilityDescription } from "../../helpers/utilityDescription"
+import { utilityDescription } from "../../../helpers/utilityDescription"
 
 const prefix = "border-spacing-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
@@ -14,7 +14,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Tier 1/Tokens/Borders/Border Spacing",
+  title: "Tier 1/Tokens/Borders/Tailwind/Border Spacing",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },

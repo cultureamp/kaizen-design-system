@@ -3,11 +3,11 @@ import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
-import { utilityDescription } from "../../helpers/utilityDescription"
+import { utilityDescription } from "../../../helpers/utilityDescription"
 
-const prefix = "rounded-"
+const prefix = "shadow-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme.borderRadius || []).map(
+  Object.entries(kaizenTailwindTheme.boxShadow || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -15,32 +15,25 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Tier 1/Tokens/Borders/Border Radius",
+  title: "Tier 1/Tokens/Shadow/Tailwind/Box Shadow",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
     docsLayout: "fullPage",
     docs: {
       description: {
-        component: utilityDescription(prefix, classEntries[3].utilityClassName),
+        component: utilityDescription(prefix, classEntries[0].utilityClassName),
       },
     },
   },
 } satisfies Meta
 
-export const BorderRadius: StoryFn<{ isReversed: boolean }> = ({
-  isReversed,
-}) => (
+export const BoxShadow: StoryFn<{ isReversed: boolean }> = ({ isReversed }) => (
   <TailwindStoryTemplate
-    compiledCssPropertyName="border-radius"
+    compiledCssPropertyName="box-shadow"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (
-      <div
-        className={classnames(
-          "w-[100px] h-[100px] border border-purple-500",
-          utilityClass.replace("-DEFAULT", "")
-        )}
-      />
+      <div className={classnames("w-[100px] h-[100px]", utilityClass)} />
     )}
     isReversed={isReversed}
   />

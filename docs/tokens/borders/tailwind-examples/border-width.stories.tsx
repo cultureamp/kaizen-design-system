@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
-import { utilityDescription } from "../../helpers/utilityDescription"
+import { utilityDescription } from "../../../helpers/utilityDescription"
 
 const prefix = "border-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
@@ -15,7 +15,7 @@ const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
   )
 
 export default {
-  title: "Tier 1/Tokens/Borders/Border Width",
+  title: "Tier 1/Tokens/Borders/Tailwind/Border Width",
   parameters: {
     a11y: { disable: true },
     chromatic: { disable: false },
