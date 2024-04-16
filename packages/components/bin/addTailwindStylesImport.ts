@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
 
-const DIST_STYLES_PATH = path.resolve(__dirname, "../dist/styles.css")
+const DIST_STYLES_PATH = path.resolve(__dirname, "../dist/tailwind.css")
 
 const addGlobalStylesImport = async (dirOrFile: string): Promise<void> => {
   if (fs.statSync(dirOrFile).isDirectory()) {
