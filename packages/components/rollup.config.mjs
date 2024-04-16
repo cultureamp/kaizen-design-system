@@ -1,10 +1,12 @@
 import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs"
+import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 import postcss from "rollup-plugin-postcss"
+
 
 const sharedConfig = {
   input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
@@ -26,6 +28,15 @@ const sharedConfig = {
           replacement: "locales",
         },
       ],
+    }),
+    resolve({
+      preferBuiltins: true,
+      extensions: [".js", ".jsx", ".ts", ".tsx"
+     // This is needed to ensure that css is compiled correctly.
+     // Without this there is an alphabetised order in the dist CSS for subcomponents.
+     // This can cause styles being overwritten by primitives, ie: BaseButton overwriting DropdownButton
+     // https://cultureamp.slack.com/archives/C02NUQ27G56/p1713157055178419
+    ],
     }),
     // These libraries aren't used in KAIO, and require polyfills to be set up
     // in consuming repos. Ignoring them here removes the need for extra setup in
