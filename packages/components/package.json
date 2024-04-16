@@ -23,6 +23,7 @@
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
   "sideEffects": [
+    "tailwind.css",
     "styles.css"
   ],
   "scripts": {
