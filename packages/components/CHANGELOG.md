@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.42.5
+
+### Patch Changes
+
+- [#4639](https://github.com/cultureamp/kaizen-design-system/pull/4639) [`b62ece94654b54a8216fb6d61875ccb782f57bf8`](https://github.com/cultureamp/kaizen-design-system/commit/b62ece94654b54a8216fb6d61875ccb782f57bf8) - Update rollup config to re-add node resolver
+
 ## 1.42.4
 
 ### Patch Changes
