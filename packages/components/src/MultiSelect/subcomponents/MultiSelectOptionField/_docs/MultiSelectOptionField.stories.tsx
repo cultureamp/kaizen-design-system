@@ -5,7 +5,7 @@ import { CheckboxProps } from "../../Checkbox"
 import { MultiSelectOptionField } from "../index"
 
 const meta = {
-  title: "Utilities/MultiSelect/MultiSelectOptionField",
+  title: "Tier 2/MultiSelect/MultiSelectOptionField",
   component: MultiSelectOptionField,
   args: {
     id: "id--multi-select-option-field",

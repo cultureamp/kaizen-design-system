@@ -27,7 +27,7 @@ const withQueryProvider: Decorator = Story => (
 )
 
 const meta = {
-  title: "Tier 2/Filter Multi-Select",
+  title: "Tier 2/FilterMultiSelect",
   component: FilterMultiSelect,
   parameters: {
     docs: {

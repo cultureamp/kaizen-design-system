@@ -7,7 +7,7 @@ import {
 import { FilterBar, Filters } from "../index"
 
 export default {
-  title: "Tier 2/Filter Bar",
+  title: "Tier 2/FilterBar",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

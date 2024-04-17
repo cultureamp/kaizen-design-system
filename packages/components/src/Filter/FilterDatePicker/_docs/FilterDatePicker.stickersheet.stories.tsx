@@ -14,7 +14,7 @@ import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"
 const IS_CHROMATIC = isChromatic()
 
 export default {
-  title: "Tier 2/Filter Date Picker",
+  title: "Tier 2/FilterDatePicker",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

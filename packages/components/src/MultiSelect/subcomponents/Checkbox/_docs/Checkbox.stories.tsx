@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { Checkbox, CheckedStatus } from "../index"
 
 const meta = {
-  title: "Utilities/MultiSelect/Checkbox",
+  title: "Tier 2/MultiSelect/Checkbox",
   component: Checkbox,
   args: {
     checkedStatus: "unchecked",

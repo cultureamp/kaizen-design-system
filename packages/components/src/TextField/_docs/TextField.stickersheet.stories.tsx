@@ -8,7 +8,7 @@ import {
 import { TextField, TextFieldProps } from "../index"
 
 export default {
-  title: "Tier 2/Text Field",
+  title: "Tier 2/TextField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

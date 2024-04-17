@@ -7,7 +7,7 @@ import {
 import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 export default {
-  title: "Utilities/MultiSelect/MultiSelectOptions",
+  title: "Tier 2/MultiSelect/MultiSelectOptions",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

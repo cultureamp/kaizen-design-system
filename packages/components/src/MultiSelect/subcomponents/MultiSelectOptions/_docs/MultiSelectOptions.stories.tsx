@@ -4,7 +4,7 @@ import { fn } from "@storybook/test"
 import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 const meta = {
-  title: "Utilities/MultiSelect/MultiSelectOptions",
+  title: "Tier 2/MultiSelect/MultiSelectOptions",
   component: MultiSelectOptions,
   args: {
     id: "id--multi-select-options",

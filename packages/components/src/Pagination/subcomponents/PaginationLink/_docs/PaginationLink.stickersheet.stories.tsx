@@ -7,7 +7,7 @@ import {
 import { PaginationLink, PaginationLinkProps } from "../index"
 
 export default {
-  title: "Utilities/Pagination/PaginationLink",
+  title: "Tier 2/Pagination/PaginationLink",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

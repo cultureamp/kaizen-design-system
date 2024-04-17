@@ -7,7 +7,7 @@ import {
 import { DirectionalLink, DirectionalLinkProps } from "../index"
 
 export default {
-  title: "Utilities/Pagination/DirectionalLink",
+  title: "Tier 2/Pagination/DirectionalLink",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

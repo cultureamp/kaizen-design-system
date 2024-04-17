@@ -6,7 +6,7 @@ import { FilterButton, FilterButtonRemovable } from "~components/Filter"
 import { Filter, FilterContents } from "../index"
 
 const meta = {
-  title: "Utilities/Filter Base",
+  title: "Utilities/Filter",
   component: Filter,
   argTypes: {
     children: { control: "disabled" },

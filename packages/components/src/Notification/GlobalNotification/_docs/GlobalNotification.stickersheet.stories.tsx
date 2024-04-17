@@ -10,7 +10,7 @@ import {
 } from "../GlobalNotification"
 
 export default {
-  title: "Tier 1/Global Notification",
+  title: "Tier 1/GlobalNotification",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

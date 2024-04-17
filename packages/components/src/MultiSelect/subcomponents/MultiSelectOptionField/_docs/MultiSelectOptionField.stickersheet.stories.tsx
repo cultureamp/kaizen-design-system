@@ -5,7 +5,7 @@ import { StickerSheet } from "~storybook/components/StickerSheet"
 import { MultiSelectOptionField, MultiSelectOptionFieldProps } from "../index"
 
 const meta = {
-  title: "Utilities/MultiSelect/MultiSelectOptionField",
+  title: "Tier 2/MultiSelect/MultiSelectOptionField",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },

@@ -21,7 +21,7 @@ import { FilterBar, Filters, useFilterBarContext } from "../index"
 import { FilterBarMultiSelectProps } from "../subcomponents"
 
 const meta = {
-  title: "Tier 2/Filter Bar",
+  title: "Tier 2/FilterBar",
   component: FilterBar,
   argTypes: {
     filters: { control: "disabled" },

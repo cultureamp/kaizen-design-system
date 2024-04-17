@@ -30,7 +30,7 @@ const illustrationProps = (
 ) satisfies AnimatedSceneProps
 
 const meta = {
-  title: "Tier 2/Brand Moment",
+  title: "Tier 2/BrandMoment",
   component: BrandMoment,
   parameters: {
     chromatic: { disable: false },

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { TextAreaField } from "../index"
 
 const meta = {
-  title: "Tier 2/Text Area Field",
+  title: "Tier 2/TextAreaField",
   component: TextAreaField,
   args: {
     labelText: "Label",

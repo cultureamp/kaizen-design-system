@@ -4,7 +4,7 @@ import { WritingIcon } from "~components/Icon"
 import { TextField } from "../index"
 
 const meta = {
-  title: "Tier 2/Text Field",
+  title: "Tier 2/TextField",
   component: TextField,
   args: {
     labelText: "Label",

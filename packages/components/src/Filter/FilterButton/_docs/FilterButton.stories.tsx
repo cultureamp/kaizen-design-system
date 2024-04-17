@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react"
 import { FilterButton } from "../FilterButton"
 
 const meta = {
-  title: "Tier 2/Filter Button",
+  title: "Tier 2/FilterButton",
   component: FilterButton,
   argTypes: {
     selectedValue: { type: "string" },

@@ -5,7 +5,7 @@ import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const meta = {
-  title: "Utilities/Workflow/Footer",
+  title: "Tier 2/Workflow/Footer",
   component: Workflow.Footer,
   argTypes: {
     nextAction: WorkflowControls.nextAction,

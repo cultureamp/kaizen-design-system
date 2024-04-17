@@ -4,9 +4,7 @@ import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/
 import { ButtonGroup } from ".."
 
 const meta = {
-  // Not to be nested until full KAIO migration
-  // title: "Tier 2/Button/Button Group",
-  title: "Tier 2/Button Group",
+  title: "Tier 2/ButtonGroup",
   component: ButtonGroup,
   args: { children: undefined },
 } satisfies Meta<typeof ButtonGroup>

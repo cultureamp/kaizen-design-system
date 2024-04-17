@@ -7,7 +7,7 @@ import {
 import { MultiSelectToggle, MultiSelectToggleProps } from "../index"
 
 export default {
-  title: "Utilities/MultiSelect/MultiSelectToggle",
+  title: "Tier 2/MultiSelect/MultiSelectToggle",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
