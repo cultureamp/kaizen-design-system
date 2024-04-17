@@ -21,9 +21,7 @@ const meta = {
 
 export default meta
 
-type Story = StoryObj<typeof meta>
-
-const LiveIconComponent = () => (
+const LiveIconComponent = (): JSX.Element => (
   <span className={LegacyStyles.liveIcon}>
     <LiveIcon
       role="presentation"
@@ -60,18 +58,59 @@ const LiveIconComponent = () => (
   </span>
 )
 
-export const Playground: Story = {
+export const LiveIconComponentStory: StoryObj = {
+  render: () => <LiveIconComponent />,
   parameters: {
     docs: {
-      canvas: {
-        sourceState: "shown",
+      source: {
+        type: "hidden",
+        code: `
+  // component with styled with CSS modules
+  const LiveIconComponent = (): JSX.Element => (
+    <span className={LegacyStyles.liveIcon}>
+      <LiveIcon
+        role="presentation"
+        classNameOverride={LegacyStyles.liveIcon_base}
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+      />
+      <LiveIcon
+        role="presentation"
+        classNameOverride={LegacyStyles.liveIcon_1}
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+      />
+      <LiveIcon
+        role="presentation"
+        classNameOverride={LegacyStyles.liveIcon_2}
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+      />
+      <LiveIcon
+        role="presentation"
+        classNameOverride={LegacyStyles.liveIcon_3}
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+      />
+    </span>
+  )
+
+  // Minified SCSS from the stylesheet
+  <style>
+    .liveIcon_2,.liveIcon_3{animation-duration:3s;animation-iteration-count:3;animation-delay:1s}.liveIcon{display:inline-block;position:relative;width:20px;height:20px;color:$color-green-500}.liveIcon_1,.liveIcon_2,.liveIcon_3{display:block;position:absolute;top:0;left:$0;width:100%;height:100%;overflow:hidden}.liveIcon_base{opacity:30%;display:block}.liveIcon_1{clip-path:circle(16%)}.liveIcon_2{clip-path:circle(32%);animation-name:pulse-inner}.liveIcon_3{clip-path:circle(50%);animation-name:pulse-outer}@keyframes pulse-inner{0%,25%{opacity:0%}100%,50%,75%{opacity:100%}}@keyframes pulse-outer{0%,25%,50%{opacity:0%}100%,75%{opacity:100%}}
+  </style>
+        `,
       },
     },
   },
-}
-
-export const Children: StoryObj = {
-  args: { children: "This text is the children" },
 }
 
 export const StatusMigration: StoryObj = {

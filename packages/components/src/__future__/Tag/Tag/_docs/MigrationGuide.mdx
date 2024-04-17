@@ -57,16 +57,13 @@ For the most part these can all be replaced easily with the use of the `color` p
 
 <Canvas of={TagMigrationStories.StatusMigration} sourceState="shown"/>
 
-While the `LiveIcon` is exported from `@kaizen/components` the animated implementation as a components, not its styles are avaiable available from kaio. As a temporary solution a `LiveIconComponent` can be created and added as a child of `Tag`.
+While the `LiveIcon` is exported from `@kaizen/components` the legacy `Tag` used an animated implementation, which is not currently available. As an interim solution you can use the following story's code snippet to create a `LiveIconComponent`. This can then be passed into as `Children` of the `Tag`.
 
-#### LiveIconComponent
 
-```
-
-```
-
+<Canvas of={TagMigrationStories.LiveIconComponentStory} sourceState="hidden"/>
 
 ### Validation
+
 
 ### Sentiment
 
