@@ -1,4 +1,5 @@
 import { Canvas, Controls , Meta } from "@storybook/blocks"
+import { InlineNotification } from "~components/Notification"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as TagStories from "./Tag.stories"
 
@@ -12,6 +13,12 @@ import * as TagStories from "./Tag.stories"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081928978/Tags"
   className="!mb-8"
 />
+
+
+<InlineNotification type="cautionary" persistent>
+  {`This version of the Tag will soon be deprecated and will be removed in the next major release.
+  Import Tag from "@kaizen/components/future" for the latest version and veiw our migration guide in the Future folder` }
+</InlineNotification>
 
 <KAIOInstallation exportNames="Tag" />
 

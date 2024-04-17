@@ -1,0 +1,75 @@
+import { Canvas, Controls, Meta } from "@storybook/blocks"
+import * as LegacyTagStories from "../../../../Tag/_docs/Tag.stories"
+import * as TagMigrationStories from "./TagMigration.stories"
+
+<Meta of={TagMigrationStories} />
+
+# Tag migration guide
+
+A breif guide on how and why to migrate from Kaizen's legacy `Tag` to the `Future` release.
+
+## Why the change?
+
+Tag was rebuilt to allow for greater composability as the number of cases where  `variant` could not solve was on the rise.
+
+## Component and API changes
+
+There were a number key changes between legacy and the current `Tag` to achieve the flexbility we were aiming to provide.
+
+### Repacement of `variant`
+
+One of the biggest difference between versions is the removal of `variant` prop. This acted as a catch all method of supplying context to the `Tag`.
+
+This has now been replaced with the `color` and `icon`, which can be used to provide meaning to a user.
+
+### Removal of `inline` and default margin
+
+Orginally the `Tag` was built with the assumption that it would always required spacing at the end. This necessitated the need for the `inline` prop to remove the margin from end when it was not required.
+
+In favour of simplifying the component, `inline` and the default `margin-inline-end` has been removed. It is recommended now to control spacing between tags to use a `gap` of 12 pixels on the container of the tags, ie: `gap-12`. In instances where more specific margins are require, opt for `margin-inline-end` to ensure RTL support is baked in.
+
+
+### Tag size
+
+### Removal of `truncationWidth`
+
+
+### Avatars in tags must now be composed
+
+
+## Migration example
+
+
+`variant` has been dropped as a catch all way to supply context and mean to `Tag`. Instead, `color` and `icon` should be used to capture sentiment, validation and status.
+
+### Status
+
+With the `variant` prop there are four value ascoiated with statuses in the legacy tag:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
+
+For the most part these can all be replaced easily with the use of the `color` prop, with exception to the `live` status.
+
+#### Before
+
+<Canvas of={LegacyTagStories.Status} />
+
+
+#### After
+
+<Canvas of={TagMigrationStories.StatusMigration} sourceState="shown"/>
+
+While the `LiveIcon` is exported from `@kaizen/components` the animated implementation as a components, not its styles are avaiable available from kaio. As a temporary solution a `LiveIconComponent` can be created and added as a child of `Tag`.
+
+#### LiveIconComponent
+
+```
+
+```
+
+
+### Validation
+
+### Sentiment
+
+### Size
+
+
