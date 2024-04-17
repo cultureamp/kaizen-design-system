@@ -54,7 +54,7 @@ import {
 } from "../index"
 
 export default {
-  title: "Tier 2/Illustrations",
+  title: "Tier 1/Illustrations/Scene",
   parameters: {
     chromatic: { disable: false },
     controls: { disable: true },
