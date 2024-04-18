@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { LikertScaleLegacy } from "../index"
 import { Scale, ScaleItem } from "../types"
 
@@ -63,7 +63,7 @@ export const Playground: Story = {
         code: `
   const SatisfactionExample = () => {
     const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
-  
+
     return (
       <LikertScaleLegacy
         scale={[

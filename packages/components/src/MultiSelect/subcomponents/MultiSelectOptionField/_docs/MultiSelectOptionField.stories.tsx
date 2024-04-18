@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { CheckboxProps } from "../../Checkbox"
 import { MultiSelectOptionField } from "../index"
 

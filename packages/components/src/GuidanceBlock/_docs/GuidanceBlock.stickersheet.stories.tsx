@@ -1,5 +1,4 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { EmptyStatesPositive, Informative } from "~components/Illustration"
 import { Tag } from "~components/Tag"
@@ -8,6 +7,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { GuidanceBlock, GuidanceBlockProps } from "../index"
 import { variantsMap } from "../types"
 

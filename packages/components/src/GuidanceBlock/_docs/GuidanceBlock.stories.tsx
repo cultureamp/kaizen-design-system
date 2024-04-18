@@ -1,5 +1,4 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import {
   BrandMomentPositiveOutro,
@@ -7,6 +6,7 @@ import {
   SkillsCoachEssentialFeedback,
 } from "~components/Illustration"
 import { Text } from "~components/Text"
+import { Meta, StoryObj } from "~storybook/index"
 import { GuidanceBlock } from "../index"
 import { variantsMap } from "../types"
 

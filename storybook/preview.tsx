@@ -1,7 +1,8 @@
-import "./styles/tailwind.scss"
+import "./styles.css"
+import "./tailwind.css"
 
 import React, { useEffect } from "react"
-import { Preview } from "@storybook/react"
+import { Preview } from "@cultureamp/next-storybook"
 import isChromatic from "chromatic"
 import { KaizenProvider } from "~components/KaizenProvider"
 import { backgrounds } from "./backgrounds"

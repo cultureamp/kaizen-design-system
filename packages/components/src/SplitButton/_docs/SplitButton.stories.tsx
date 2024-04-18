@@ -1,10 +1,10 @@
-import { Meta, StoryObj } from "@storybook/react"
 import {
   exampleActionButtonPropsAnchor,
   exampleActionButtonPropsButton,
   exampleDropdownContentEnabled,
   exampleDropdownContentOneDisabled,
 } from "~components/Menu/_docs/examples"
+import { Meta, StoryObj } from "~storybook/index"
 import { SplitButton } from "../index"
 
 const meta = {

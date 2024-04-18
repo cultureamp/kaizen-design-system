@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { Meta } from "@storybook/react"
 import { enAU } from "date-fns/locale"
 import { DateRange } from "react-day-picker"
 import {
@@ -10,6 +9,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import {
   DateRangePicker,
   DateRangePickerProps,

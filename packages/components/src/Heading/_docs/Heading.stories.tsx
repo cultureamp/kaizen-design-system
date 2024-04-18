@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { Heading } from "../index"
 
 const meta = {

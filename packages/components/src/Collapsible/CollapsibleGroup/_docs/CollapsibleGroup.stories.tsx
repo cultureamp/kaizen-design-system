@@ -1,9 +1,9 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import {
   Collapsible,
   CollapsibleProps,
 } from "~components/Collapsible/Collapsible"
+import { Meta, StoryObj } from "~storybook/index"
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 const CollapsibleWrapped = (

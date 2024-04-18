@@ -1,8 +1,8 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
+import { StoryFn } from "~storybook/index"
 import { flattenEntries } from "../../helpers/flattenEntries"
 import { utilityDescription } from "../../helpers/utilityDescription"
 

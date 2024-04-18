@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import Highlight from "react-highlight"
 import { DateRange } from "~components/Calendar"
@@ -12,6 +11,7 @@ import {
 import { DateValidationResponse } from "~components/Filter/FilterDatePicker"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { Text } from "~components/Text"
+import { Meta, StoryObj } from "~storybook/index"
 import {
   DateRangeFieldValidationMessage,
   FilterDateRangePicker,

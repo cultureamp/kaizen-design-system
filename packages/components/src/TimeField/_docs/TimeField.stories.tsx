@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
+import { Meta, StoryObj } from "~storybook/index"
 import { TimeField } from "../index"
 import { ValueType } from "../types"
 

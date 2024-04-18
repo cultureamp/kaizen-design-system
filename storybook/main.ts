@@ -1,6 +1,6 @@
 import fs from "fs"
 import path, { dirname, join } from "path"
-import type { StorybookConfig } from "@storybook/react-webpack5"
+import type { StorybookConfig } from "@cultureamp/next-storybook"
 
 const getAbsolutePath = (value: string): string =>
   dirname(require.resolve(join(value, "package.json")))
@@ -30,15 +30,69 @@ const defaultStoryPaths = [
   "../{docs,packages}/**/*.stories.tsx",
 ]
 
+const addons = [
+  getAbsolutePath("@storybook/addon-a11y"),
+  getAbsolutePath("@storybook/addon-essentials"),
+  getAbsolutePath("@storybook/addon-interactions"),
+  getAbsolutePath("@storybook/addon-links"),
+  getAbsolutePath("@storybook/addon-storysource"),
+  getAbsolutePath("@storybook/addon-designs"),
+  getAbsolutePath("storybook-addon-pseudo-states"),
+  require.resolve(
+    join(
+      getAbsolutePath("@cultureamp/next-storybook"),
+      "/dist/addons/sensibleDefaults/preset"
+    )
+  ),
+  // require.resolve(join(getAbsolutePath("@cultureamp/next-storybook"), "/dist/addons/frontend-apis/preset")),
+  require.resolve(
+    join(
+      getAbsolutePath("@cultureamp/next-storybook"),
+      "/dist/addons/react-intl/preset"
+    )
+  ),
+  require.resolve(
+    join(
+      getAbsolutePath("@cultureamp/next-storybook"),
+      "/dist/addons/chromatic/preset"
+    )
+  ),
+  // require.resolve(join(getAbsolutePath("@cultureamp/next-storybook"), "/dist/addons/date/preset")),
+  // require.resolve(join(getAbsolutePath("@cultureamp/next-storybook"), "/dist/addons/localStorage/preset")),
+  // require.resolve(join(getAbsolutePath("@cultureamp/next-storybook"), "/dist/addons/cookie/preset")),
+  // require.resolve(join(getAbsolutePath("@cultureamp/next-storybook"), "/dist/addons/amplitude/preset")),
+  // require.resolve(join(getAbsolutePath("@cultureamp/next-storybook"), "/dist/addons/kaizen/preset")),
+  require.resolve(
+    join(
+      getAbsolutePath("@cultureamp/next-storybook"),
+      "/dist/addons/svg/preset"
+    )
+  ),
+  require.resolve(
+    join(
+      getAbsolutePath("@cultureamp/next-storybook"),
+      "/dist/addons/withoutImageOptimization/preset"
+    )
+  ),
+  require.resolve(
+    join(
+      getAbsolutePath("@cultureamp/next-storybook"),
+      "/dist/addons/tailwind/preset"
+    )
+  ),
+] satisfies StorybookConfig["addons"]
+
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
-  addons: [
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
-    getAbsolutePath("storybook-addon-pseudo-states"),
-  ],
+  addons,
+  // addons: [
+  //   // getAbsolutePath("@storybook/addon-essentials"),
+  //   // getAbsolutePath("@storybook/addon-a11y"),
+  //   // getAbsolutePath("@storybook/addon-interactions"),
+  //   // getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
+  //   // getAbsolutePath("storybook-addon-pseudo-states"),
+  //   "@cultureamp/next-storybook/default-preset"
+  // ],
   staticDirs: [
     {
       from: "./assets",
@@ -46,7 +100,7 @@ const config = {
     },
   ],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: "@cultureamp/next-storybook",
     options: {},
   },
   typescript: {

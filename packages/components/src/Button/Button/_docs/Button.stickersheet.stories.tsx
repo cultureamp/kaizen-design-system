@@ -1,10 +1,10 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { AddIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { Button, ButtonProps } from "../index"
 
 export default {

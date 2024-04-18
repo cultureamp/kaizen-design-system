@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { InformationTile } from "~components/Tile"
+import { Meta, StoryObj } from "~storybook/index"
 import { TileGrid } from "../index"
 
 const meta = {

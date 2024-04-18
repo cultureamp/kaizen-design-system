@@ -1,10 +1,10 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { within } from "@storybook/test"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import styles from "../../baseCalendarClassNames.module.scss"
 import { CalendarSingle, CalendarSingleProps } from "../index"
 

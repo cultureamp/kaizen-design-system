@@ -1,9 +1,9 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { Avatar } from "~components/Avatar"
 import { ConfigureIcon } from "~components/Icon"
 import { BrandMomentPositiveOutro, Informative } from "~components/Illustration"
 import { StickerSheet } from "~storybook/components/StickerSheet"
+import { Meta, StoryObj } from "~storybook/index"
 import { LoadingGraphic } from "../index"
 
 const meta = {

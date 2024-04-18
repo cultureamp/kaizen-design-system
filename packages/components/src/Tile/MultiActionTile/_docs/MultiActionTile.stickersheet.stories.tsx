@@ -1,10 +1,10 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { MultiActionTile } from "../index"
 
 export default {

@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { LoadingHeading } from "~components/Loading"
+import { Meta, StoryObj } from "~storybook/index"
 import { LoadingInput } from "../index"
 
 const meta = {

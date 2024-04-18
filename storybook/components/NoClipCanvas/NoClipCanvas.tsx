@@ -1,6 +1,6 @@
 import React, { useId, useState } from "react"
-import { Source, SourceProps, Story, Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
+import { Source, SourceProps, Story, Unstyled } from "~storybook/docs"
 import styles from "./NoClipCanvas.module.scss"
 
 export type NoClipCanvasProps = {

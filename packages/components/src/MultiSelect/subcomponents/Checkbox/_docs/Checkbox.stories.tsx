@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { Checkbox, CheckedStatus } from "../index"
 
 const meta = {

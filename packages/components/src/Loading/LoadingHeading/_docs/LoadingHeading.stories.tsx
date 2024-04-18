@@ -1,7 +1,7 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { StickerSheet } from "~storybook/components/StickerSheet"
+import { Meta, StoryObj } from "~storybook/index"
 import { LoadingHeading } from "../index"
 
 const meta = {

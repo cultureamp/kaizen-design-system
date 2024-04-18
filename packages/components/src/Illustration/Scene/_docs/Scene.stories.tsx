@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 
 import { BrandMomentPositiveOutro } from "../index"
 

@@ -1,5 +1,4 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
 import isChromatic from "chromatic"
 import { Button } from "~components/Button"
 import { ChevronRightIcon } from "~components/Icon"
@@ -7,6 +6,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta, StoryFn } from "~storybook/index"
 import { EmptyState, EmptyStateProps } from "../index"
 import styles from "./EmptyState.stories.module.scss"
 

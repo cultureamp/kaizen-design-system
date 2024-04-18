@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { AddIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Meta, StoryObj } from "~storybook/index"
 import { Collapsible } from "../index"
 
 const meta = {

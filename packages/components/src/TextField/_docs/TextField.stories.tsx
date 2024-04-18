@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { WritingIcon } from "~components/Icon"
+import { Meta, StoryObj } from "~storybook/index"
 import { TextField } from "../index"
 
 const meta = {

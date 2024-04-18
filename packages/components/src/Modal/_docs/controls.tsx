@@ -1,6 +1,6 @@
 import React from "react"
-import { Decorator } from "@storybook/react"
 import isChromatic from "chromatic"
+import { Decorator } from "~storybook/index"
 
 const IS_CHROMATIC = isChromatic()
 

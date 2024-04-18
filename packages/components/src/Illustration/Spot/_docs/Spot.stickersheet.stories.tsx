@@ -1,8 +1,8 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { Heading } from "~components/Heading"
 import { Text } from "~components/Text"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 
 import {
   AccountBasics,

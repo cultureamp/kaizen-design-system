@@ -1,10 +1,10 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import * as ICONS from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 
 export default {
   title: "Components/Icons",

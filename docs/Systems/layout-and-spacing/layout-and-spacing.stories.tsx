@@ -1,7 +1,7 @@
 import React from "react"
-import { Meta, StoryFn, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
 import { tokens } from "~design-tokens/js"
+import { Meta, StoryFn, StoryObj } from "~storybook/index"
 
 const meta = {
   title: "Systems/Tailwind/Layout and spacing",

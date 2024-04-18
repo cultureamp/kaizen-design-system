@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import React from "react"
-import { Unstyled } from "@storybook/blocks"
 import { toCustomMediaQueriesArray } from "object-to-css-variables"
 import Highlight from "react-highlight"
 import { Card } from "~components/Card"
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "~components/Tabs"
+import { Unstyled } from "~storybook/docs"
 import { tokens } from "../src/js"
 import { makeCssVariableDefinitionsMap } from "../src/lib/makeCssVariableDefinitionsMap"
 import animationSass from "!!raw-loader!../sass/animation.scss"

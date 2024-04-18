@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { defaultMonthControls } from "../../_docs/controls/defaultMonthControls"
 import { weekStartsOnControls } from "../../_docs/controls/weekStartsOnControls"
 import { DateRange } from "../../types"

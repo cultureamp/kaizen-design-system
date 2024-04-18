@@ -4,7 +4,7 @@ import {
   DocsContainerProps,
   Unstyled,
   DocsContext,
-} from "@storybook/blocks"
+} from "~storybook/docs"
 import { BackToTop } from "./BackToTop"
 import { Content, Main, Sidebar } from "./Layout"
 import { TableOfContents } from "./TableOfContents"

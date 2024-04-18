@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
+import { Meta, StoryObj } from "~storybook/index"
 import { MultiSelect, MultiSelectProps } from "../index"
 
 const meta = {

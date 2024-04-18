@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { VisuallyHidden } from "../index"
 
 const meta = {

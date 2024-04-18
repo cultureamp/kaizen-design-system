@@ -1,11 +1,11 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { Button } from "~components/Button"
 import { ChevronDownIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { Menu } from "../index"
 import { MenuContentExample } from "./MenuContentExample"
 

@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { Label } from "~components/Label"
+import { Meta, StoryObj } from "~storybook/index"
 import { AsyncSelect, Select } from "../index"
 
 const OPTIONS = [

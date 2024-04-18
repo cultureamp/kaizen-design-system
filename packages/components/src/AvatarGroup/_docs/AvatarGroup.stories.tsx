@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { AvatarGroup } from "../index"
 import { AVATARS } from "./example-data"
 

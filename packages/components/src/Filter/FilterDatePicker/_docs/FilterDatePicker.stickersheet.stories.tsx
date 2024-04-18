@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
-import { Meta } from "@storybook/react"
 import isChromatic from "chromatic"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { FilterButton } from "../../FilterButton"
 import { FilterDatePicker } from "../index"
 import { FilterDatePickerField } from "../subcomponents/FilterDatePickerField"

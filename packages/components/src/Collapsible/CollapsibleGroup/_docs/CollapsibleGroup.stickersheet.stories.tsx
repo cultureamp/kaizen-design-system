@@ -1,5 +1,4 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import {
   Collapsible,
   CollapsibleProps,
@@ -8,6 +7,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { CollapsibleGroup, CollapsibleGroupProps } from "../index"
 
 export default {

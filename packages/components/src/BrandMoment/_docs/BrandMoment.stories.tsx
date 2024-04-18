@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import isChromatic from "chromatic"
 import {
   ArrowLeftIcon,
@@ -16,6 +15,7 @@ import {
   AnimatedSceneProps,
 } from "~components/Illustration"
 import { Text } from "~components/Text"
+import { Meta, StoryObj } from "~storybook/index"
 import { BrandMoment } from "../index"
 import {
   MinimalBasic,

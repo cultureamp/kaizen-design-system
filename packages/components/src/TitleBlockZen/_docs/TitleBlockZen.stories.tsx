@@ -1,7 +1,7 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { AddIcon, StarOnIcon } from "~components/Icon"
+import { Meta, StoryObj } from "~storybook/index"
 import { NavigationTab, TitleBlockZen } from "../index"
 
 const SECONDARY_ACTIONS = [

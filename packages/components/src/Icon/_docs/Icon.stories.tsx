@@ -1,8 +1,8 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import * as ICONS from "~components/Icon"
 import { Text } from "~components/Text"
 import { Tag } from "~components/__future__/Tag"
+import { Meta, StoryObj } from "~storybook/index"
 import { AddIcon } from "../index"
 import styles from "./icon.stories.scss"
 

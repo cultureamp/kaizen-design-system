@@ -1,7 +1,7 @@
 import React from "react"
-import { Meta, StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
+import { Meta, StoryFn } from "~storybook/index"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "border-spacing-"

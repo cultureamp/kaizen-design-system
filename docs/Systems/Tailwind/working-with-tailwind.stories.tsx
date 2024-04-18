@@ -1,5 +1,4 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
 import { Button } from "~components/Button"
 import { Card } from "~components/Card"
 import { Heading } from "~components/Heading"
@@ -9,6 +8,7 @@ import {
 } from "~components/Illustration"
 import { Skirt } from "~components/Skirt"
 import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
+import { StoryFn } from "~storybook/index"
 
 export default {
   title: "Systems/Tailwind/Working with Tailwind",

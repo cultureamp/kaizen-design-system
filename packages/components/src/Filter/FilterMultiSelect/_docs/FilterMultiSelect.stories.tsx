@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Selection } from "@react-types/shared"
-import { Decorator, Meta, StoryObj } from "@storybook/react"
 import {
   QueryClientProvider,
   QueryClient,
@@ -12,6 +11,7 @@ import isChromatic from "chromatic"
 import { InlineNotification } from "~components/Notification"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
+import { Decorator, Meta, StoryObj } from "~storybook/index"
 import { FilterMultiSelect, getSelectedOptionLabels } from ".."
 import { mockItems } from "./MockData"
 import styles from "./FilterMultiSelect.stories.scss"

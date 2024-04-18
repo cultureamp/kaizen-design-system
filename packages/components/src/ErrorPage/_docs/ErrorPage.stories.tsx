@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { statusCodes } from "../hooks"
 import { ErrorPage } from "../index"
 

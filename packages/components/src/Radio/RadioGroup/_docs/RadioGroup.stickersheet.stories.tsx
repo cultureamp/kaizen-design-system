@@ -1,11 +1,11 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { RadioField } from "~components/Radio/RadioField"
 import { Text } from "~components/Text"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { RadioGroup } from "../index"
 
 export default {

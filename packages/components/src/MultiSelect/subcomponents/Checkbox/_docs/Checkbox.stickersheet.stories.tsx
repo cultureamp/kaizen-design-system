@@ -1,9 +1,9 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { Checkbox, CheckedStatus } from "../index"
 
 export default {

@@ -21,6 +21,6 @@
     }
   },
   "files": ["./types.d.ts"],
-  "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx"],
+  "include": ["packages/**/*", "storybook/**/*", "docs/**/*.{tsx,mdx}"],
   "exclude": ["**/node_modules"]
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { RadioField } from "~components/Radio/RadioField"
+import { Meta, StoryObj } from "~storybook/index"
 import { RadioGroup } from "../index"
 
 const meta = {

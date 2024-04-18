@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { BoldIcon } from "~components/Icon"
+import { Meta, StoryObj } from "~storybook/index"
 import { ToggleIconButton } from "../ToggleIconButton"
 
 const meta = {

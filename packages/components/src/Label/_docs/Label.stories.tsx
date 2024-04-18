@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { Label } from "../index"
 import { LabelTypes } from "../types"
 

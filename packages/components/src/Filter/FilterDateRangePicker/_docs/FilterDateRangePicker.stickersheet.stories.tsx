@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { StaticIntlProvider } from "@cultureamp/i18n-react-intl"
 import { action } from "@storybook/addon-actions"
-import { Meta } from "@storybook/react"
 import { within, userEvent } from "@storybook/test"
 import isChromatic from "chromatic"
 import { DateRange } from "~components/Calendar"
@@ -9,6 +8,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { FilterButton } from "../../FilterButton"
 import { FilterDateRangePicker } from "../index"
 import { FilterDateRangePickerField } from "../subcomponents/FilterDateRangePickerField"

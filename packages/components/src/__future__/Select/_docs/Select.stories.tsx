@@ -1,5 +1,5 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { Select } from "../Select"
 import { SelectOption } from "../types"
 import {

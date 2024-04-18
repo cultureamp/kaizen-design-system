@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { moodsList } from "~components/Tile/subcomponents/GenericTile/types"
+import { Meta, StoryObj } from "~storybook/index"
 import { MultiActionTile } from "../index"
 
 const meta = {

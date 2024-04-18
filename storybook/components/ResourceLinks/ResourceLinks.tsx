@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
-import { Unstyled } from "@storybook/blocks"
 import classnames from "classnames"
+import { Unstyled } from "~storybook/docs"
 import styles from "./ResourceLinks.module.scss"
 
 type ResourceLinkProps = {

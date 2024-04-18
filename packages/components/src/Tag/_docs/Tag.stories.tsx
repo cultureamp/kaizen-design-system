@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { Avatar } from "~components/Avatar"
+import { Meta, StoryObj } from "~storybook/index"
 import { Tag } from "../index"
 import {
   SentimentTagVariants,

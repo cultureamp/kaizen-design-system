@@ -1,6 +1,6 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { StickerSheetStory } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { ToastNotification } from "../ToastNotification"
 
 export default {

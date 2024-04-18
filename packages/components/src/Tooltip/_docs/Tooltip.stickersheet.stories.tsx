@@ -1,5 +1,4 @@
 import React from "react"
-import { Decorator, Meta } from "@storybook/react"
 import isChromatic from "chromatic/isChromatic"
 import { IconButton } from "~components/Button"
 import { MeatballsIcon } from "~components/Icon"
@@ -7,6 +6,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Decorator, Meta } from "~storybook/index"
 import { Tooltip } from "../index"
 
 const openTooltipInChromatic: Decorator = (Story, { args }) => {

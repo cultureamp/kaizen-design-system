@@ -1,5 +1,5 @@
 import React from "react"
-import { Source } from "@storybook/blocks"
+import { Source } from "~storybook/docs"
 
 export type InstallationProps = {
   installCommand: string

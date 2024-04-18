@@ -1,11 +1,11 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import { ButtonProps } from "~components/Button"
 import { FilterIcon, MeatballsIcon, TrashIcon } from "~components/Icon"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { IconButton, IconButtonProps } from "../index"
 
 export default {

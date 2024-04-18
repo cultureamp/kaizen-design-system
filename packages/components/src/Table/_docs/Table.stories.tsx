@@ -1,9 +1,9 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { IconButton } from "~components/Button"
 import { Divider } from "~components/Divider"
 import { ChevronUpIcon, EffectivenessIcon } from "~components/Icon"
 import { Text } from "~components/Text"
+import { Meta, StoryObj } from "~storybook/index"
 import {
   TableCard,
   TableCardProps,

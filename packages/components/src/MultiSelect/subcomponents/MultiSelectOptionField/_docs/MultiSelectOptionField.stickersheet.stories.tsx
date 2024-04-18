@@ -1,7 +1,7 @@
 import React from "react"
 import { action } from "@storybook/addon-actions"
-import { Meta, StoryObj } from "@storybook/react"
 import { StickerSheet } from "~storybook/components/StickerSheet"
+import { Meta, StoryObj } from "~storybook/index"
 import { MultiSelectOptionField, MultiSelectOptionFieldProps } from "../index"
 
 const meta = {

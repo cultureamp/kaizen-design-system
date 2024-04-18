@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import { DateRange } from "react-day-picker"
+import { Meta, StoryObj } from "~storybook/index"
 import { DateRangePicker, formatDateRangeValue } from "../index"
 
 const meta = {

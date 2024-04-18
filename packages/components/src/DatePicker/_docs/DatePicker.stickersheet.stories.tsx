@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { Meta } from "@storybook/react"
 import { Text } from "~components/Text"
 import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { DatePicker } from "../index"
 
 export default {

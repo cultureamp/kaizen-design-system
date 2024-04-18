@@ -1,7 +1,7 @@
 import React from "react"
-import { StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
 import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
+import { StoryFn } from "~storybook/index"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "text-"

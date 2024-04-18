@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 // import { AcademyIcon, ActionOffIcon, AddIcon, TagIcon } from "~components/Icon"
 // import { TagColorKeys } from "../../Tag/types"
 import { RemovableTag } from "../RemovableTag"

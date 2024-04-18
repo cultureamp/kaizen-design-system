@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "~storybook/index"
 import { EditorContentArray } from "../../index"
 import { RichTextEditor, RichTextEditorProps } from "../index"
 

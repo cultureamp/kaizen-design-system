@@ -1,5 +1,4 @@
 import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
 import {
   BoldIcon,
   BullettedListIcon,
@@ -7,6 +6,7 @@ import {
   NumberedListIcon,
   UnderlineIcon,
 } from "~components/Icon"
+import { Meta, StoryObj } from "~storybook/index"
 import { ToggleIconButton } from "../../ToggleIconButton"
 import { ToolbarSection } from "../../ToolbarSection"
 import { Toolbar } from "../index"

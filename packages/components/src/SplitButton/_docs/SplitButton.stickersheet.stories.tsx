@@ -1,5 +1,4 @@
 import React from "react"
-import { Meta } from "@storybook/react"
 import {
   exampleActionButtonPropsAnchor,
   exampleActionButtonPropsButton,
@@ -9,6 +8,7 @@ import {
   StickerSheet,
   StickerSheetStory,
 } from "~storybook/components/StickerSheet"
+import { Meta } from "~storybook/index"
 import { SplitButton, SplitButtonProps } from "../index"
 
 export default {
