@@ -11,6 +11,7 @@ module.exports = {
     "./storybook/components/**/*.tsx",
   ],
   presets: [Preset],
+  important: "body",
   corePlugins: {
     preflight: false,
   },
