@@ -6,15 +6,15 @@ import * as TagMigrationStories from "./TagMigration.stories"
 
 # Tag migration guide
 
-A breif guide on how and why to migrate from Kaizen's legacy `Tag` to the `future` release.
+A brief guide on how and why to migrate from Kaizen's legacy `Tag` to the `future` release.
 
 ## Why the change?
 
-Tag was rebuilt to allow for greater composability as the number of cases for a destinct Tags could not be solved through the use of `variant` with impacting the developer experience for existing user. The flexibility of tag content as `children` also addresses several accessibility issues that the orginal could not solve intuatively.
+Tag was rebuilt to allow for greater composability as the number of cases for a distinct Tags could not be solved through the use of `variant` with impacting the developer experience for existing user. The flexibility of tag content as `children` also addresses several accessibility issues that the original could not solve intuitively.
 
 ## Component and API changes at a glance
 
-There were a number key changes between legacy and the current `Tag` to achieve the flexbility we were aiming to provide, we've listed these below but also go into futre detail in the [migration examples](/docs/components-tag-future-migration-guide--migrationguide#migration-examples).
+There were a number key changes between legacy and the current `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into future detail in the [migration examples](/docs/components-tag-future-migration-guide--migrationguide#migration-examples).
 
 - `variant` prop has been removed
   - This has been superseded by a combination of the `color` and `icon` prop
@@ -34,7 +34,7 @@ The following are example of migrating from previously available props to the co
 
 ### Status
 
-With the `variant` prop there are four value ascoiated with statuses in the legacy tag:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
+With the `variant` prop there are four value associated with statuses in the legacy tag:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
 
 For the most part these can all be replaced easily with the use of the `color` prop, with exception to the `live` status.
 
@@ -72,7 +72,7 @@ Any Icons added as a child of the `Tag` will need to be manually set to ensure t
 
 ### Sentiment
 
-While migration of any `Tag` using, `sentimentPositive`, `sentimentNeutral` or `sentimentNegative` is relatively straight forward using the `color` prop, `sentimentNone` does not align to any Kaizen's [sementic colors](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857902/Color).
+While migration of any `Tag` using, `sentimentPositive`, `sentimentNeutral` or `sentimentNegative` is relatively straight forward using the `color` prop, `sentimentNone` does not align to any Kaizen's [semantic colors](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857902/Color).
 
 #### Before
 
@@ -87,21 +87,21 @@ If required, you could use `classNameOverride` to implement the same UI. It is i
 <Canvas of={TagMigrationStories.SentimentNone} />
 
 
-### Dismissable
+### Dismissible
 
-The `dismissable` prop is no longer available in the base `Tag` component. We have split the dismissable functionality into the [RemovableTag](/docs/components-tag-future-removabletag--docs).
+The `dismissible` prop is no longer available in the base `Tag` component. We have split the dismissible functionality into the [RemovableTag](/docs/components-tag-future-removabletag--docs).
 
 This increases the hit box for the dismiss button and makes the `ariaLabel` in the `removeButtonProps` a required prop. This offers a more accessible experience for user and address one of the standing [accessibility issues](https://github.com/cultureamp/kaizen-discourse/issues/101) with the legacy `Tag`.
 
 #### Before
 
-<Canvas of={LegacyTagStories.Dismissable} />
+<Canvas of={LegacyTagStories.Dismissible} />
 
 #### After
 
-<Canvas of={TagMigrationStories.DismissableMigration} sourceState="shown"/>
+<Canvas of={TagMigrationStories.DismissibleMigration} sourceState="shown"/>
 
-Remeber that when handling dismiss (or any destructive action), a users focus should not be lost on the page.
+Remember that when handling dismiss (or any destructive action), a users focus should not be lost on the page.
 
 
 ### Avatars
@@ -117,17 +117,17 @@ Avatars are no longer provided directly to the `Tag` as a prop. Instead they wil
 <Canvas of={TagMigrationStories.AvatarMigration} sourceState="shown"/>
 
 
-Note: The use of `ps-4` (or `padding-inline-start`) in the `classNameOverride` is to override the default spacing at start of the `Tag`. This will ensure thethe Avatar can contour the border radius of the `Tag`.
+Note: The use of `ps-4` (or `padding-inline-start`) in the `classNameOverride` is to override the default spacing at start of the `Tag`. This will ensure the Avatar can contour the border radius of the `Tag`.
 
-#### Dismissable Avatars
+#### Dismissible Avatars
 
-Following a similar pattern to the above, you can use the `RemovableTag` with an `Avatar` and plain text as its children to achieve a dismissable version.
+Following a similar pattern to the above, you can use the `RemovableTag` with an `Avatar` and plain text as its children to achieve a dismissible version.
 
 <Canvas of={TagMigrationStories.AvatarRemovableMigration} />
 
 ### Inline
 
-Orginally the `Tag` was built with the assumption that it would always required spacing at the end. This necessitated the need for the `inline` prop to remove the margin from end when it was not required.
+Originally the `Tag` was built with the assumption that it would always required spacing at the end. This necessitated the need for the `inline` prop to remove the margin from end when it was not required.
 
 In favour of simplifying the component, `inline` and the default `margin-inline-end` has been removed. It is recommended now to control spacing between tags to use a `gap` of 12 pixels on the container of the tags, ie: `gap-12`. In instances where more specific margins are require, opt for `margin-inline-end` and `classNameOverride` on the tag to ensure RTL support is baked in.
 
@@ -154,7 +154,7 @@ This was original controlled by the component and set the `max-width` of a compo
 
 ### Size
 
-The two sizes for tag have been remove in favour of a default size in between `medium` and `small`. The `small` specifically was removed due to the reduced hit radius for the dismissable button and poor compatability with avatars and icon.
+The two sizes for tag have been remove in favour of a default size in between `medium` and `small`. The `small` specifically was removed due to the reduced hit radius for the dismissible button and poor compatibility with avatars and icon.
 
 `classNameOverride` can be leveraged to add padding and modify properties but should be done with caution to reduce inconsistencies in the platform and reduce the risk of accessibility violations/
 

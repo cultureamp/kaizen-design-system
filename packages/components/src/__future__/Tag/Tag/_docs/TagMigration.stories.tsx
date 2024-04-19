@@ -191,7 +191,7 @@ export const SentimentNone: StoryObj = {
   ),
 }
 
-export const DismissableMigration: StoryObj = {
+export const DismissibleMigration: StoryObj = {
   render: () => (
     <RemovableTag
       removeButtonProps={{
