@@ -57,7 +57,7 @@
     "@changesets/cli": "^2.27.1",
     "@cultureamp/changelog-github": "^0.1.0",
     "@cultureamp/next-storybook": "0.0.0-next-sb-docs-20240418055240",
-    "@storybook/addon-actions": "^7.6.9",
+    "@storybook/addon-actions": "^7.6.17",
     "@storybook/manager-api": "^7.6.17",
     "@storybook/test": "^7.6.9",
     "@storybook/theming": "^7.6.17",

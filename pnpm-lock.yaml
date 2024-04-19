@@ -49,7 +49,7 @@ importers:
         specifier: 0.0.0-next-sb-docs-20240418055240
         version: 0.0.0-next-sb-docs-20240418055240(@cultureamp/amplitude@3.5.20)(@cultureamp/frontend-apis@9.4.5)(@cultureamp/i18n-react-intl@2.5.5)(@cultureamp/next-config@3.0.0)(@cultureamp/next-testing@5.0.11)(@kaizen/components@packages+components)(@kaizen/design-tokens@packages+design-tokens)(@storybook/addon-docs@7.6.17)(@storybook/client-logger@7.6.17)(@storybook/components@7.6.17)(@storybook/core-events@7.6.17)(@storybook/manager-api@7.6.17)(@storybook/preview-api@7.6.17)(@storybook/types@7.6.17)(@swc/core@1.4.1)(@types/node@20.11.17)(@types/react-dom@18.2.23)(@types/react@18.2.73)(esbuild@0.18.20)(glob@8.1.0)(next@14.2.1)(node-sass@9.0.0)(playwright@1.43.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.3)(webpack@5.91.0)
       '@storybook/addon-actions':
-        specifier: ^7.6.9
+        specifier: ^7.6.17
         version: 7.6.17
       '@storybook/manager-api':
         specifier: ^7.6.17
