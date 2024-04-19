@@ -1,10 +1,9 @@
 import React, { useState } from "react"
-import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { ModalAccessibleDescription } from "~components/Modal"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
-import { Meta, StoryObj } from "~storybook/index"
+import { Meta, StoryObj, fn } from "~storybook/index"
 import { chromaticModalSettings } from "../../_docs/controls"
 import { InputEditModal } from "../index"
 

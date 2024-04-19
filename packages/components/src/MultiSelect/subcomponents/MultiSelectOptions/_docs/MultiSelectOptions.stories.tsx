@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { fn } from "@storybook/test"
-import { Meta, StoryObj } from "~storybook/index"
+import { Meta, StoryObj, fn } from "~storybook/index"
 import { MultiSelectOptions, MultiSelectOptionsProps } from "../index"
 
 const meta = {

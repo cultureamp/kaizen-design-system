@@ -1,10 +1,9 @@
 import React, { useState } from "react"
-import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { AddImage } from "~components/Illustration"
 import { ModalAccessibleDescription } from "~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription"
 import { Text } from "~components/Text"
-import { Meta, StoryObj } from "~storybook/index"
+import { Meta, StoryObj, fn } from "~storybook/index"
 import { chromaticModalSettings } from "../../_docs/controls"
 import { ContextModal } from "../index"
 

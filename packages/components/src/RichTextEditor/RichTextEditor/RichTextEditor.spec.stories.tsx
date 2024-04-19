@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { expect, userEvent, within } from "@storybook/test"
-import { StoryObj } from "~storybook/index"
+import { expect, userEvent, within, StoryObj } from "~storybook/index"
 import { EditorContentArray } from "../types"
 import { RichTextEditor, RichTextEditorProps } from "./RichTextEditor"
 

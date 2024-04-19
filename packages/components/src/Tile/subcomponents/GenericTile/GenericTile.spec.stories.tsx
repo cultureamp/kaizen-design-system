@@ -1,6 +1,5 @@
 import React from "react"
-import { expect, within, userEvent } from "@storybook/test"
-import type { Meta, StoryObj } from "~storybook/index"
+import { expect, within, userEvent, Meta, StoryObj } from "~storybook/index"
 
 import { GenericTile } from "./GenericTile"
 

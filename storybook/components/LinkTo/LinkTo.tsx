@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react"
-import { linkTo } from "@storybook/addon-links"
 import classnames from "classnames"
+import { linkTo } from "~storybook/docs"
 
 export type LinkToProps = {
   pageId: string

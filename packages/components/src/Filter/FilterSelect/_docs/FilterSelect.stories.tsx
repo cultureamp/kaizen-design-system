@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import { fn } from "@storybook/test"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
-import { Meta, StoryObj } from "~storybook/index"
+import { Meta, StoryObj, fn } from "~storybook/index"
 import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
 import { SelectOption } from "../types"

@@ -290,6 +290,7 @@ module.exports = {
         markers: ["/"],
       },
     ],
+    "storybook/use-storybook-expect": "off",
     "use-isnan": "error",
     "valid-typeof": "off",
   },
