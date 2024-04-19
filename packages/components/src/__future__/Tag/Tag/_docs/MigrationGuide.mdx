@@ -6,7 +6,7 @@ import * as TagMigrationStories from "./TagMigration.stories"
 
 # Tag migration guide
 
-A brief guide on how and why to migrate from Kaizen's legacy `Tag` to the `future` release.
+A brief guide on how and why to migrate from Kaizen's current `Tag` to the `future` release.
 
 ## Why the change?
 
@@ -14,7 +14,7 @@ Tag was rebuilt to allow for greater composability as the number of cases for a 
 
 ## Component and API changes at a glance
 
-There were a number key changes between legacy and the current `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into further detail in the [migration examples](/docs/components-tag-future-migration-guide--migrationguide#migration-examples).
+There were a number key changes between current and future `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into further detail in the [migration examples](/docs/components-tag-future-migration-guide--migrationguide#migration-examples).
 
 - `variant` prop has been removed
   - This has been superseded by a combination of the `color` and `icon` prop
@@ -22,8 +22,8 @@ There were a number key changes between legacy and the current `Tag` to achieve 
   - This can be directly controlled through `classNameOverride` or a `flex-gap` on the container.
 - `size` has been removed and all tags are the same size.
 - `truncationWidth` has been removed as child content should be controlled by the consumer.
-- `dismissable` prop has been removed.
-  - A `DismissableTag` component is now available in its place.
+- `dismissible` prop has been removed.
+  - A `DismissibleTag` component is now available in its place.
 - `Avatar` and all child content must now be composed by the consumer.
   - This offers a greater degree of flexibility to ensure that the right accessible context can be provided to the end user.
 
@@ -34,9 +34,9 @@ The following are example of migrating from previously available props to the co
 
 ### Status
 
-With the `variant` prop there are four values associated with statuses in the legacy tag:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
+With the `variant` prop there are four values associated with statuses:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
 
-For the most part these can all be replaced easily with the use of the `color` prop, with exception to the `live` status.
+For the most part these can all be replaced with the use of the `color` prop, with exception to the `live` status.
 
 #### Before
 
@@ -47,7 +47,7 @@ For the most part these can all be replaced easily with the use of the `color` p
 
 <Canvas of={TagMigrationStories.StatusMigration} sourceState="shown"/>
 
-While the `LiveIcon` is exported from `@kaizen/components` the legacy `Tag` used an animated implementation, which is not currently available. As an interim solution you can use the following story's code snippet to create a `LiveIconComponent`. This can then be passed into as `Children` of the `Tag`.
+While the `LiveIcon` is exported from `@kaizen/components` the current `Tag` uses an animated implementation, which is not exported directly from Kaizen. As an interim solution, you can use the following Story's code snippet to create a `LiveIconComponent`. This can then be passed into the future `Tag` as `Children`.
 
 <Canvas of={TagMigrationStories.LiveIconComponentStory} sourceState="hidden"/>
 
@@ -55,7 +55,7 @@ While the `LiveIcon` is exported from `@kaizen/components` the legacy `Tag` used
 
 Following the same pattern as status, `validationPositive`, `validationInformative`, `validationNegative`, `validationCautionary` can all be replace with the `color` and `icon` prop.
 
-Note: because the icons convey meaning, they should have an accessible label that provides context to the tag. A contextual `aria-label`and role of `img` addresses one of the [accessibility issues](https://github.com/cultureamp/kaizen-discourse/issues/102) with the legacy Tag.
+Note: because the icons convey meaning, they should have an accessible label that provides context to the `Tag`. A contextual `aria-label` and role of `img` addresses one of the [accessibility issues](https://github.com/cultureamp/kaizen-discourse/issues/102) with the current `Tag`.
 
 #### Before
 
@@ -66,9 +66,9 @@ Note: because the icons convey meaning, they should have an accessible label tha
 <Canvas of={TagMigrationStories.ValidationMigration} sourceState="shown"/>
 
 
-Note: When using the `icon` prop, the icon's color will be determined by `color` value that has been set. This is to ensure that and accessible contrast ratio is achieved.
+Note: When using the `icon` prop, the icon's color will be determined by the `color` value that has been set. This is to ensure that an accessible contrast ratio is achieved.
 
-Any Icons added as a child of the `Tag` will need to be manually set to ensure the right contrast ratio.
+Any Icons added as a child of future `Tag` will need to set their own colors and ensure the right contrast ratio is achieved.
 
 ### Sentiment
 
@@ -86,10 +86,12 @@ If required, you could use `classNameOverride` to implement the same UI. It is i
 
 <Canvas of={TagMigrationStories.SentimentNone} />
 
+This is also a good time to stop and check if this change is necessary. If there is an opportunity remove older styles that are no longer available, this can help to reduce inconsistencies across the platform. As always, check in with your designer to see if any new option can be used in its place.
+
 
 ### Dismissible
 
-The `dismissible` prop is no longer available in the base `Tag` component. We have split the dismissible functionality into the [RemovableTag](/docs/components-tag-future-removabletag--docs).
+The `dismissible` prop is no longer available in the future `Tag` component. We have split the dismissible functionality into the [RemovableTag](/docs/components-tag-future-removabletag--docs).
 
 This increases the hit box for the dismiss button and makes the `ariaLabel` in the `removeButtonProps` a required prop. This offers a more accessible experience for user and address one of the standing [accessibility issues](https://github.com/cultureamp/kaizen-discourse/issues/101) with the legacy `Tag`.
 
@@ -101,12 +103,12 @@ This increases the hit box for the dismiss button and makes the `ariaLabel` in t
 
 <Canvas of={TagMigrationStories.DismissibleMigration} sourceState="shown"/>
 
-Remember that when handling dismiss (or any destructive action), a users focus should not be lost on the page.
+Remember that when handling dismiss (or any destructive action), a user's focus should not be lost on the page.
 
 
 ### Avatars
 
-Avatars are no longer provided directly to the `Tag` as a prop. Instead they will now me passed in as children.
+Avatars are no longer provided directly to the `Tag` as a prop. Instead they will be passed in as children.
 
 #### Before
 
@@ -142,7 +144,9 @@ In favour of simplifying the component, `inline` and the default `margin-inline-
 
 ### Truncation
 
-This was original controlled by the component and set the `max-width` of a component via inline styles. This can now be easily controlled with Tailwind and was not needed in the new API.
+Originally controlled through `truncationWidth`, which set a `max-width` of inner text via inline styles, we have chosen not to adopt this in the future `Tag` as it presents a large risk of violating accessibility standards. While truncation can still be achieved in the `Tag` inner text via Tailwind or DOM manipulation, it is important to call out out this as a accessibility concern.
+
+While the current Tag controls truncation via the `truncationWidth` prop, which set a `max-width` of inner text via inline styles, we have chosen not to adopt this in the future `Tag` as it presents a risk of violating accessibility standards. While truncation can still be achieved in future `Tag` via Tailwind or DOM manipulation, it is important to call out out this as a accessibility concern.
 
 #### Before
 
@@ -151,6 +155,9 @@ This was original controlled by the component and set the `max-width` of a compo
 #### After
 
 <Canvas of={TagMigrationStories.TruncateMigration} sourceState="shown"/>
+
+As seen above, this replicable using the future `Tag`. Where the violation may occur is in [criteria 1.4.4](https://www.w3.org/WAI/WCAG21/Techniques/failures/F69), where by truncated text needs revealed / accessible via focus or some form of activation. If possible, avoid truncation when migrating.
+
 
 ### Size
 
