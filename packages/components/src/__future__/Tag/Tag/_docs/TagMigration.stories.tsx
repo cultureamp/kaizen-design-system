@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import { Avatar } from "~components/Avatar"
@@ -9,7 +9,6 @@ import {
   SuccessIcon,
   LiveIcon,
 } from "~components/Icon"
-
 import { Tag, RemovableTag } from "../../"
 import LegacyStyles from "./TagLegacy.module.scss"
 
@@ -174,6 +173,9 @@ export const SentimentsMigration: StoryObj = {
       <Tag color="green">Tag</Tag>
       <Tag color="gray">Tag</Tag>
       <Tag color="red">Tag</Tag>
+      <Tag color="blue">Tag</Tag>
+      <Tag color="yellow">Tag</Tag>
+      <Tag color="orange">Tag</Tag>
     </div>
   ),
 }
@@ -312,4 +314,8 @@ export const TruncateMigration: StoryObj = {
       </div>
     </>
   ),
+}
+
+export const SizesMigration: StoryObj = {
+  render: () => <Tag>Tag</Tag>,
 }
