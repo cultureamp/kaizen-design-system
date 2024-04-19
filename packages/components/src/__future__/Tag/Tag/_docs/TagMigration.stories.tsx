@@ -299,3 +299,17 @@ export const InlineMigration: StoryObj = {
     </>
   ),
 }
+
+export const TruncateMigration: StoryObj = {
+  render: () => (
+    <>
+      <div className="mb-6">
+        <Tag>
+          <span className="max-w-[200px] overflow-ellipsis overflow-x-hidden whitespace-nowrap">
+            I am a really long tag that needs to be shortened
+          </span>
+        </Tag>
+      </div>
+    </>
+  ),
+}

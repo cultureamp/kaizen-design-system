@@ -24,7 +24,7 @@ There were a number key changes between legacy and the current `Tag` to achieve 
 - `truncationWidth` has been removed as child content should be controlled by the consumer.
 - `dismissable` prop has been removed.
   - A `DismissableTag` component is now available in its place.
-- With exception to icons, all tag content must now be composed by the consumer.
+- With exception to icons, all tag content must now be composed by the consumer - this includes `Avatar`.
   - This should allow for more flexibility and more accessible context to be provided to the end user.
 
 
@@ -135,7 +135,19 @@ In favour of simplifying the component, `inline` and the default `margin-inline-
 
 <Canvas of={TagMigrationStories.InlineMigration} sourceState="shown"/>
 
-{/*
+
+### Truncation
+
+This was original controlled by the component and set the `max-width` of a component via inline styles. This can now be easily controlled with Tailwind and was not needed in the new API.
+
+### Before
+
+<Canvas of={LegacyTagStories.Truncate} />
+
+### After
+
+<Canvas of={TagMigrationStories.TruncateMigration} sourceState="shown"/>
+
 ### Size
 
 While the new tag does not offer props for sizes, you can leverage `classNameOverride` and the height of the children to alter the visual size.
@@ -146,4 +158,4 @@ While the new tag does not offer props for sizes, you can leverage `classNameOve
 
 #### After
 
-<Canvas of={TagMigrationStories.SizesMigration} sourceState="shown"/> */}
+{/* <Canvas of={TagMigrationStories.SizesMigration} sourceState="shown"/> */} */}
