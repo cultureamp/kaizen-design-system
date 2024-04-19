@@ -137,7 +137,7 @@ export const ProfileWithAvatarProps: Story = {
   },
 }
 
-export const Dismissable: Story = {
+export const Dismissible: Story = {
   args: {
     dismissible: true,
     onDismiss: () => alert("Dismissed"),

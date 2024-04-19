@@ -124,7 +124,7 @@ export const LiveIconComponentStory: StoryObj = {
 
 export const StatusMigration: StoryObj = {
   render: () => (
-    <div className="flex gap-12">
+    <>
       <Tag classNameOverride="gap-4" color="green">
         <span>Tag</span>
         <LiveIconComponent />
@@ -132,13 +132,20 @@ export const StatusMigration: StoryObj = {
       <Tag color="blue">Tag</Tag>
       <Tag color="red">Tag</Tag>
       <Tag color="orange">Tag</Tag>
-    </div>
+    </>
   ),
+  decorators: [
+    Story => (
+      <div className="flex gap-12">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const ValidationMigration: StoryObj = {
   render: () => (
-    <div className="flex gap-12">
+    <>
       <Tag
         color="green"
         icon={<SuccessIcon role="img" aria-label="Success," />}
@@ -163,21 +170,35 @@ export const ValidationMigration: StoryObj = {
       >
         Tag
       </Tag>
-    </div>
+    </>
   ),
+  decorators: [
+    Story => (
+      <div className="flex gap-12">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const SentimentsMigration: StoryObj = {
   render: () => (
-    <div className="flex gap-12">
+    <>
       <Tag color="green">Tag</Tag>
       <Tag color="gray">Tag</Tag>
       <Tag color="red">Tag</Tag>
       <Tag color="blue">Tag</Tag>
       <Tag color="yellow">Tag</Tag>
       <Tag color="orange">Tag</Tag>
-    </div>
+    </>
   ),
+  decorators: [
+    Story => (
+      <div className="flex gap-12">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const SentimentNone: StoryObj = {
@@ -206,7 +227,7 @@ export const DismissibleMigration: StoryObj = {
 
 export const AvatarMigration: StoryObj = {
   render: () => (
-    <div className="flex gap-12">
+    <>
       <Tag classNameOverride="ps-4">
         <span className="flex gap-6 items-center">
           <Avatar size="small" />
@@ -229,13 +250,20 @@ export const AvatarMigration: StoryObj = {
           Susan Storm
         </span>
       </Tag>
-    </div>
+    </>
   ),
+  decorators: [
+    Story => (
+      <div className="flex gap-12">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const AvatarRemovableMigration: StoryObj = {
   render: () => (
-    <div className="flex gap-12">
+    <>
       <RemovableTag
         removeButtonProps={{
           ariaLabel: "Remove user from *this context*",
@@ -276,46 +304,43 @@ export const AvatarRemovableMigration: StoryObj = {
           Tag
         </span>
       </RemovableTag>
-    </div>
+    </>
   ),
+  decorators: [
+    Story => (
+      <div className="flex gap-12">
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export const InlineMigration: StoryObj = {
   render: () => (
     <>
-      <div className="mb-6">
-        <Tag>Tag</Tag>
-        <Tag>Tag</Tag>
-        <Tag>Tag</Tag>
-      </div>
-      <div className="flex gap-12 mb-6">
-        <Tag>Tag</Tag>
-        <Tag>Tag</Tag>
-        <Tag>Tag</Tag>
-      </div>
-      <div>
-        <Tag classNameOverride=" me-12">Tag</Tag>
-        <Tag classNameOverride=" me-12">Tag</Tag>
-        <Tag>Tag</Tag>
-      </div>
+      <ul className="flex m-0 p-0 gap-12 list-none">
+        <li>
+          <Tag>Tag</Tag>
+        </li>
+        <li>
+          <Tag>Tag</Tag>
+        </li>
+        <li>
+          <Tag>Tag</Tag>
+        </li>
+      </ul>
     </>
   ),
 }
 
 export const TruncateMigration: StoryObj = {
   render: () => (
-    <>
-      <div className="mb-6">
-        <Tag>
-          <span className="max-w-[200px] overflow-ellipsis overflow-x-hidden whitespace-nowrap">
-            I am a really long tag that needs to be shortened
-          </span>
-        </Tag>
-      </div>
-    </>
+    <Tag>
+      <span className="max-w-[200px] overflow-ellipsis overflow-x-hidden whitespace-nowrap">
+        I am a really long tag that needs to be shortened
+      </span>
+    </Tag>
   ),
 }
 
-export const SizesMigration: StoryObj = {
-  render: () => <Tag>Tag</Tag>,
-}
+export const SizesMigration: StoryObj = {}

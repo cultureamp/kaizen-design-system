@@ -10,11 +10,11 @@ A brief guide on how and why to migrate from Kaizen's legacy `Tag` to the `futur
 
 ## Why the change?
 
-Tag was rebuilt to allow for greater composability as the number of cases for a distinct Tags could not be solved through the use of `variant` with impacting the developer experience for existing user. The flexibility of tag content as `children` also addresses several accessibility issues that the original could not solve intuitively.
+Tag was rebuilt to allow for greater composability as the number of cases for a distinct Tags could not be solved through the use of `variant` without impacting the developer experience for existing users. The flexibility of `Tag` content as `children` also addresses several accessibility issues that the original could not solve intuitively.
 
 ## Component and API changes at a glance
 
-There were a number key changes between legacy and the current `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into future detail in the [migration examples](/docs/components-tag-future-migration-guide--migrationguide#migration-examples).
+There were a number key changes between legacy and the current `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into further detail in the [migration examples](/docs/components-tag-future-migration-guide--migrationguide#migration-examples).
 
 - `variant` prop has been removed
   - This has been superseded by a combination of the `color` and `icon` prop
@@ -34,7 +34,7 @@ The following are example of migrating from previously available props to the co
 
 ### Status
 
-With the `variant` prop there are four value associated with statuses in the legacy tag:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
+With the `variant` prop there are four values associated with statuses in the legacy tag:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
 
 For the most part these can all be replaced easily with the use of the `color` prop, with exception to the `live` status.
 
