@@ -21,7 +21,7 @@
     "storybook:build": "storybook build -c storybook -o storybook/public",
     "storybook:build:test": "pnpm storybook:build --test",
     "storybook:build:prod": "pnpm storybook:build --docs",
-    "test:storybook": "test-storybook",
+    "test:storybook": "test-storybook -c storybook",
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "lint": "pnpm lint:ts && pnpm lint:md && pnpm lint:format && pnpm lint:styles",
     "eslint-config": "pnpm eslint -c .eslintrc.js --max-warnings=0",
@@ -56,7 +56,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@cultureamp/changelog-github": "^0.1.0",
-    "@cultureamp/next-storybook": "0.0.0-kds-next-20240419062105",
+    "@cultureamp/next-storybook": "0.0.0-next-sb-20240419065641",
     "@storybook/addon-actions": "^7.6.17",
     "@storybook/manager-api": "^7.6.17",
     "@storybook/theming": "^7.6.17",
