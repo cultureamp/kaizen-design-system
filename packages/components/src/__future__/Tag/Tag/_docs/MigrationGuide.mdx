@@ -144,8 +144,6 @@ In favour of simplifying the component, `inline` and the default `margin-inline-
 
 ### Truncation
 
-Originally controlled through `truncationWidth`, which set a `max-width` of inner text via inline styles, we have chosen not to adopt this in the future `Tag` as it presents a large risk of violating accessibility standards. While truncation can still be achieved in the `Tag` inner text via Tailwind or DOM manipulation, it is important to call out out this as a accessibility concern.
-
 While the current Tag controls truncation via the `truncationWidth` prop, which set a `max-width` of inner text via inline styles, we have chosen not to adopt this in the future `Tag` as it presents a risk of violating accessibility standards. While truncation can still be achieved in future `Tag` via Tailwind or DOM manipulation, it is important to call out out this as a accessibility concern.
 
 #### Before
@@ -156,8 +154,9 @@ While the current Tag controls truncation via the `truncationWidth` prop, which 
 
 <Canvas of={TagMigrationStories.TruncateMigration} sourceState="shown"/>
 
-As seen above, this replicable using the future `Tag`. Where the violation may occur is in [criteria 1.4.4](https://www.w3.org/WAI/WCAG21/Techniques/failures/F69), where by truncated text needs revealed / accessible via focus or some form of activation. If possible, avoid truncation when migrating.
+As seen above, this replicable using the future `Tag`. Where the violation may occur is in [criteria 1.4.4](https://www.w3.org/WAI/WCAG21/Techniques/failures/F69), where by truncated text needs revealed / accessible via focus or some form of activation. Unless absolutely necessary, avoid truncation when migrating.
 
+Note: the above example should be considered only as a starting point. We do no have guidance on this other than to follow the specifications outline in the WCAG guidelines.
 
 ### Size
 
