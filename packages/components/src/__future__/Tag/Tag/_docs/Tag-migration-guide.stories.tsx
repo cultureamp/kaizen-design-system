@@ -9,11 +9,11 @@ import {
   SuccessIcon,
   LiveIcon,
 } from "~components/Icon"
-import { Tag, RemovableTag } from "../../"
-import LegacyStyles from "./TagLegacy.module.scss"
+import styles from "~components/Tag/Tag.module.scss"
+import { Tag, RemovableTag } from "../.."
 
 const meta = {
-  title: "Components/Tag/Future/Migration Guide",
+  title: "Components/Tag/Future Tag Migration Guide",
   component: Tag,
   args: {
     children: "My tag",
@@ -31,10 +31,10 @@ export default meta
 
 /** * This is a stand-in component for the legacy Tag's bake in LiveIcon - we should consider adding this as an actual component or replacing it */
 const LiveIconComponent = (): JSX.Element => (
-  <span className={LegacyStyles.liveIcon}>
+  <span className={styles.liveIcon}>
     <LiveIcon
       role="presentation"
-      classNameOverride={LegacyStyles.liveIcon_base}
+      classNameOverride={styles.liveIcon_base}
       width="16"
       height="16"
       viewBox="0 0 16 16"
@@ -42,7 +42,7 @@ const LiveIconComponent = (): JSX.Element => (
     />
     <LiveIcon
       role="presentation"
-      classNameOverride={LegacyStyles.liveIcon_1}
+      classNameOverride={styles.liveIcon_1}
       width="16"
       height="16"
       viewBox="0 0 16 16"
@@ -50,7 +50,7 @@ const LiveIconComponent = (): JSX.Element => (
     />
     <LiveIcon
       role="presentation"
-      classNameOverride={LegacyStyles.liveIcon_2}
+      classNameOverride={styles.liveIcon_2}
       width="16"
       height="16"
       viewBox="0 0 16 16"
@@ -58,7 +58,7 @@ const LiveIconComponent = (): JSX.Element => (
     />
     <LiveIcon
       role="presentation"
-      classNameOverride={LegacyStyles.liveIcon_3}
+      classNameOverride={styles.liveIcon_3}
       width="16"
       height="16"
       viewBox="0 0 16 16"
@@ -76,10 +76,10 @@ export const LiveIconComponentStory: StoryObj = {
         code: `
   // component with styled with CSS modules
   const LiveIconComponent = (): JSX.Element => (
-    <span className={LegacyStyles.liveIcon}>
+    <span className={styles.liveIcon}>
       <LiveIcon
         role="presentation"
-        classNameOverride={LegacyStyles.liveIcon_base}
+        classNameOverride={styles.liveIcon_base}
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -87,7 +87,7 @@ export const LiveIconComponentStory: StoryObj = {
       />
       <LiveIcon
         role="presentation"
-        classNameOverride={LegacyStyles.liveIcon_1}
+        classNameOverride={styles.liveIcon_1}
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -95,7 +95,7 @@ export const LiveIconComponentStory: StoryObj = {
       />
       <LiveIcon
         role="presentation"
-        classNameOverride={LegacyStyles.liveIcon_2}
+        classNameOverride={styles.liveIcon_2}
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -103,7 +103,7 @@ export const LiveIconComponentStory: StoryObj = {
       />
       <LiveIcon
         role="presentation"
-        classNameOverride={LegacyStyles.liveIcon_3}
+        classNameOverride={styles.liveIcon_3}
         width="16"
         height="16"
         viewBox="0 0 16 16"
@@ -332,3 +332,5 @@ export const InlineMigration: StoryObj = {
     </>
   ),
 }
+
+export const SizesMigration: StoryObj = {}
