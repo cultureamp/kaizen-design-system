@@ -1,7 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
-import classNames from "classnames"
 import { Avatar } from "~components/Avatar"
 import {
   CautionIcon,
@@ -333,31 +332,3 @@ export const InlineMigration: StoryObj = {
     </>
   ),
 }
-
-export const TruncateMigration: StoryObj = {
-  render: () => {
-    const [isRevealed, setIsRevealed] = React.useState<boolean>(false)
-    const overflowClassName = classNames(
-      isRevealed
-        ? "max-w-[auto]"
-        : "max-w-[200px] overflow-ellipsis overflow-x-hidden whitespace-nowrap"
-    )
-    return (
-      <Tag>
-        <span className={overflowClassName}>
-          I am a really long tag that needs to be shortened
-        </span>
-        <button
-          type="button"
-          onClick={() => setIsRevealed(!isRevealed)}
-          aria-label="Reveal full text for I am a really long tag that needs to be shortened"
-        >
-          Reveal
-          {/* <VisibleIcon role="presentation" /> */}
-        </button>
-      </Tag>
-    )
-  },
-}
-
-export const SizesMigration: StoryObj = {}

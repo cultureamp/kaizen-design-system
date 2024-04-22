@@ -150,13 +150,11 @@ While the current Tag controls truncation via the `truncationWidth` prop, which 
 
 <Canvas of={LegacyTagStories.Truncate} />
 
-#### After
+Where truncation often fails WCAG's success criteria is in [1.4.4](https://www.w3.org/WAI/WCAG21/Techniques/failures/F69) or [1.3.1](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html). The crux of the issue is that by removing content with an ellipsis, context may be lost for visual users. While `aria` labels can support those that use assistive technologies, they are not enough to resolve this issue for sighted users.
 
-<Canvas of={TagMigrationStories.TruncateMigration} sourceState="shown"/>
+The recommendation from WCAG is that any truncated content comes with the functionality to visually revealing its full content. This can be accessible either via focus or some form of activation - like an `onClick` to reveal.
 
-As seen above, this replicable using the future `Tag`. Where the violation may occur is in [criteria 1.4.4](https://www.w3.org/WAI/WCAG21/Techniques/failures/F69), where by truncated text needs revealed / accessible via focus or some form of activation. Unless absolutely necessary, avoid truncation when migrating.
-
-Note: the above example should be considered only as a starting point. We do no have guidance on this other than to follow the specifications outline in the WCAG guidelines.
+Based on this, our recommendation is to avoid truncation unless absolutely necessary.
 
 ### Size
 
