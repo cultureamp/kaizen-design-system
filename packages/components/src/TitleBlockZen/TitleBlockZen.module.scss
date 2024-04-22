@@ -550,6 +550,27 @@ $tab-container-height-medium-and-small-collapsed: 0;
     text-decoration: underline;
   }
 
+  &:focus {
+    outline: none;
+
+    &::after {
+      $focus-ring-offset: calc(
+        (-2 * #{$border-focus-ring-border-width}) - #{$border-focus-ring-border-width}
+      );
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-200;
+      border-radius: 50%;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      // 0 to sit flush with the base
+      // inset: $focus-ring-offset $focus-ring-offset 0 $focus-ring-offset;
+      inset: $focus-ring-offset;
+    }
+  }
+
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     position: relative;
 
