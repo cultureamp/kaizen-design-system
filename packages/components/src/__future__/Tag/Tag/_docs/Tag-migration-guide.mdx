@@ -131,7 +131,7 @@ Following a similar pattern to the above, you can use the `RemovableTag` with an
 
 Originally the `Tag` was built with the assumption that it would always required spacing at the end. This necessitated the need for the `inline` prop to remove the margin from end when it was not required.
 
-In future `Tag` this has been remove so consumers can now control spacing with CSS properties like `gap` or `margin-inline`.
+In future `Tag` this has been removed so consumers can now control spacing with CSS properties like `gap` or `margin-inline`.
 
 #### Before
 
@@ -140,6 +140,8 @@ In future `Tag` this has been remove so consumers can now control spacing with C
 #### After
 
 <Canvas of={TagMigrationStories.InlineMigration} sourceState="shown"/>
+
+To simplify this example we have avoided DOM elements such as `ul` and `li`. In production, lists should be used if you are rendering a group of `Tag`s.
 
 
 ### truncationWidth

@@ -317,19 +317,11 @@ export const AvatarRemovableMigration: StoryObj = {
 
 export const InlineMigration: StoryObj = {
   render: () => (
-    <>
-      <ul className="flex m-0 p-0 gap-12 list-none">
-        <li>
-          <Tag>Tag</Tag>
-        </li>
-        <li>
-          <Tag>Tag</Tag>
-        </li>
-        <li>
-          <Tag>Tag</Tag>
-        </li>
-      </ul>
-    </>
+    <div className="flex gap-12">
+      <Tag>Tag</Tag>
+      <Tag>Tag</Tag>
+      <Tag>Tag</Tag>
+    </div>
   ),
 }
 
