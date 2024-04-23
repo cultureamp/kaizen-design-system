@@ -97,76 +97,18 @@ export const Playground: Story = {
   },
 }
 
-// export const WithBadge: Story = {
-//   render: args => {
-//     const [badgeCount, setBadgeCount] = React.useState(1)
-//     return (
-//       <TitleBlockZen
-//         {...args}
-//         primaryAction={{
-//           label: "Click Me",
-//           icon: <ArrowForwardIcon role="presentation" />,
-//           iconPosition: "end",
-//           href: "#",
-//           onClick: () => setBadgeCount(b => b + 1),
-//           badge: {
-//             text: String(badgeCount),
-//             animateChange: true,
-//           },
-//         }}
-//         defaultAction={{
-//           label: "Default link",
-//           onClick: () => setBadgeCount(b => b + 1),
-//           href: "#",
-//         }}
-//       />
-//     )
-//   },
-// }
-
-// export const WithAvatarProps: Story = {
-//   args: {
-//     avatar: {
-//       avatarSrc: assetUrl("site/empty-state.png"),
-//       fullName: "Blanca Wheeler",
-//     },
-//   },
-// }
-
-// export const WithDefaultTag: Story = {
-//   args: {
-//     surveyStatus: { text: "Due July 8, 2030", status: "default" },
-//   },
-// }
-
-// export const WithMenuButton: Story = {
-//   args: {
-//     primaryAction: {
-//       label: "Menu button",
-//       menuItems: [
-//         {
-//           action: "#",
-//           label: "Item 1",
-//         },
-//         {
-//           action: () => alert("Item 2 clicked"),
-//           label: "Item 2",
-//         },
-//         {
-//           action: "#",
-//           label: "Item 3",
-//         },
-//       ],
-//     },
-//   },
-// }
-
-// export const Subtitle: Story = {
-//   args: {
-//     subtitle: (
-//       <Text variant="body">
-//         This is a <a href="/">link</a>
-//       </Text>
-//     ),
-//   },
-// }
+export const TabFocusState: Story = {
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: "shown",
+      },
+    },
+    pseudo: {
+      focus: [
+        '#focus-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
+      ],
+    },
+  },
+  render: args => <TitleBlockZen {...args} id="focus-example" />,
+}

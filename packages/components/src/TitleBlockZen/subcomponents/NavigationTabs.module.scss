@@ -37,44 +37,6 @@
     text-decoration: none;
   }
 
-  &:focus {
-    outline: none;
-    color: $color-white;
-
-    // white inset ring
-    // &::after {
-    //   $focus-ring-offset: calc((-2 * #{$border-focus-ring-border-width}));
-    //   content: "";
-    //   position: absolute;
-    //   background: transparent;
-    //   border-color: $color-white;
-    //   border-radius: 2px;
-    //   border-width: $border-focus-ring-border-width;
-    //   border-style: $border-focus-ring-border-style;
-    //   inset: $focus-ring-offset;
-    //   // height: 100%;
-    //   // width: 100%;
-    //   // left: 50%;
-    //   // top: 50%;
-    //   // transform: translate(-50%, -50%);
-    // }
-    &::after {
-      $focus-ring-offset: calc((-2 * #{$border-focus-ring-border-width}));
-
-      content: "";
-      position: absolute;
-      background: transparent;
-      border-color: $color-blue-200;
-      border-radius: 2px;
-      border-width: $border-focus-ring-border-width;
-      border-style: $border-focus-ring-border-style;
-      // 0 to sit flush with the base
-      // inset: $focus-ring-offset $focus-ring-offset 0 $focus-ring-offset;
-      inset: $focus-ring-offset $focus-ring-offset
-        $border-focus-ring-border-width $focus-ring-offset;
-    }
-  }
-
   @include title-block-under-1366 {
     font-family: $typography-heading-5-font-family;
     font-weight: $typography-heading-5-font-weight;
@@ -97,13 +59,16 @@
     margin: 0;
   }
 
-  &.active {
+  $active-tab-marker-height: 5px;
+
+  &.active,
+  &:focus {
     color: $color-white;
 
     &::before {
       content: "";
       display: block;
-      height: 5px;
+      height: $active-tab-marker-height;
       position: absolute;
       top: 0;
       left: 0;
@@ -117,6 +82,34 @@
         bottom: 0;
         border-radius: $border-solid-border-radius $border-solid-border-radius 0
           0;
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    &::before {
+      background-color: $color-blue-200;
+    }
+
+    &::after {
+      $focus-ring-offset: calc((-1 * #{$border-focus-ring-border-width}));
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-200;
+      border-radius: 0 0 $border-focus-ring-border-radius
+        $border-focus-ring-border-radius;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      inset: 0 $focus-ring-offset $active-tab-marker-height $focus-ring-offset;
+
+      @include title-block-medium-and-small {
+        border-radius: $border-focus-ring-border-radius
+          $border-focus-ring-border-radius 0 0;
+        inset: $active-tab-marker-height $focus-ring-offset 0 $focus-ring-offset;
       }
     }
   }
