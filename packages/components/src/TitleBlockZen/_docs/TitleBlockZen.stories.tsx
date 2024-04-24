@@ -108,9 +108,11 @@ export const StickerSheetDefault: Story = {
     pseudo: {
       hover: [
         '#tab-hover-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
+        '#Breadcrumbs-hover-example [class^="TitleBlockZen-TitleBlockZen-module__breadcrumb"]',
       ],
       focus: [
         '#tab-focus-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
+        '#Breadcrumbs-focus-example [class^="TitleBlockZen-TitleBlockZen-module__breadcrumb"]',
       ],
     },
   },
@@ -121,6 +123,12 @@ export const StickerSheetDefault: Story = {
       </StickerSheet.Row>
       <StickerSheet.Row rowTitle="Tab focus">
         <TitleBlockZen {...args} id="tab-focus-example" />
+      </StickerSheet.Row>
+      <StickerSheet.Row rowTitle="Breadcrumbs hover">
+        <TitleBlockZen {...args} id="Breadcrumbs-hover-example" />
+      </StickerSheet.Row>
+      <StickerSheet.Row rowTitle="Breadcrumbs focus">
+        <TitleBlockZen {...args} id="Breadcrumbs-focus-example" />
       </StickerSheet.Row>
     </StickerSheet>
   ),
