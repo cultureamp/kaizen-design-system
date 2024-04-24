@@ -36,7 +36,7 @@ Takes a `ReactNode`. This should be the text that is displayed inside the Tag.
 
 ### `color`
 
-Determines the color of the background, text, and icon.
+Determines the color of the background, text, and icon. This can be used to convey status and give meaning to the `Tag`. Find more guidance on color usage [here](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857902/Color).
 
 <Canvas of={TagStories.Color} />
 
@@ -52,3 +52,12 @@ in LTR, and on the right of `children` in RTL. For a list of icons, see [Icons](
 Allows classnames to be attached to the outermost element of Tag.
 
 <Canvas of={TagStories.ClassNameOverride} />
+
+#### variant
+
+`variant` has been dropped as a catch all way to supply context and mean to `Tag`. Instead, `color` and `icon` should be used to capture sentiment, validation and status.
+
+### Migrating to future Tag
+
+See our [full guide](?path=/docs/components-tag-future-tag-migration-guide--docs) here to migrate to the future release of `Tag`.
+
