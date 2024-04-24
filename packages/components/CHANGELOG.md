@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.42.6
+
+### Patch Changes
+
+- [#4647](https://github.com/cultureamp/kaizen-design-system/pull/4647) [`0976f590106c4199ea98d289a64e7ebc1576903a`](https://github.com/cultureamp/kaizen-design-system/commit/0976f590106c4199ea98d289a64e7ebc1576903a) - Adds focus ring styles to TitleBlockZen's NavigationTabs to resolve a11y contrast issues
+
+- [#4649](https://github.com/cultureamp/kaizen-design-system/pull/4649) [`7c82c80f596dbfa3d78edb3e33c70f2916e1ca54`](https://github.com/cultureamp/kaizen-design-system/commit/7c82c80f596dbfa3d78edb3e33c70f2916e1ca54) - Add focus styles to TitleBlockZen Breadcrumb link
+
 ## 1.42.5
 
 ### Patch Changes
