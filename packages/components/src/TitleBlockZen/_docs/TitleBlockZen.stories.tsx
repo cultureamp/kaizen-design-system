@@ -2,6 +2,7 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { AddIcon, StarOnIcon } from "~components/Icon"
+import { StickerSheet } from "~storybook/components/StickerSheet"
 import { NavigationTab, TitleBlockZen } from "../index"
 
 const SECONDARY_ACTIONS = [
@@ -97,7 +98,7 @@ export const Playground: Story = {
   },
 }
 
-export const TabFocusState: Story = {
+export const StickerSheetDefault: Story = {
   parameters: {
     docs: {
       canvas: {
@@ -105,10 +106,22 @@ export const TabFocusState: Story = {
       },
     },
     pseudo: {
+      hover: [
+        '#tab-hover-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
+      ],
       focus: [
-        '#focus-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
+        '#tab-focus-example [class^="TitleBlockZen-TitleBlockZen-module__navigationTabsList"] li:nth-child(2) a',
       ],
     },
   },
-  render: args => <TitleBlockZen {...args} id="focus-example" />,
+  render: args => (
+    <StickerSheet>
+      <StickerSheet.Row rowTitle="Tab hover">
+        <TitleBlockZen {...args} id="tab-hover-example" />
+      </StickerSheet.Row>
+      <StickerSheet.Row rowTitle="Tab focus">
+        <TitleBlockZen {...args} id="tab-focus-example" />
+      </StickerSheet.Row>
+    </StickerSheet>
+  ),
 }
