@@ -29,6 +29,14 @@ $dt-color-radio-border-color-focus-reversed: $color-blue-300;
   &.reversed {
     background: $color-white;
   }
+
+  @media (forced-colors: active) {
+      // High contrast mode with remove the background color so we have to use border to create the selected icon state.
+      // Transparent is used so the user defined colors for borders will be used here
+      border: $icon-offset solid transparent;
+      width: 0;
+      height: 0;
+  }
 }
 
 .box {
