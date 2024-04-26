@@ -115,11 +115,11 @@
   }
 
   @media (forced-colors: active) {
-    &.active, &:focus {
-
+    &.active,
+    &:focus {
       &::before {
         background: transparent;
-        // instead of height we're using the border to create a active tab mark to make it friendlier for Windows High Contrast Mode. 
+        // instead of height we're using the border to create a active tab mark to make it friendlier for Windows High Contrast Mode.
         border: $active-tab-marker-height solid transparent;
         height: 0;
       }
