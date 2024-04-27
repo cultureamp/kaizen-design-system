@@ -494,7 +494,7 @@ importers:
         specifier: ^6.6.4
         version: 6.6.4(react@18.2.0)(typescript@5.4.4)
       rollup:
-        specifier: ^4.16.4
+        specifier: ^4.17.0
         version: 4.17.2
       rollup-plugin-dts:
         specifier: ^6.1.0
