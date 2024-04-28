@@ -109,7 +109,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/lodash.debounce": "^4.0.9",
-    "@types/react-dom": "^18.2.23",
+    "@types/react-dom": "^18.3.0",
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^9.0.8",
     "agadoo": "^3.0.0",
@@ -133,7 +133,7 @@
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.6",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-intl": "^6.6.4"
   }
 }
