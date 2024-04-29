@@ -2,5 +2,8 @@
   "extends": [
     "./tsconfig.dist.json",
     "@kaizen/package-bundler/shared.types.json"
-  ]
+  ],
+  "compilerOptions": {
+    "declarationDir": "dist/types"
+  }
 }

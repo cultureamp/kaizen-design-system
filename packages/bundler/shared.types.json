@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "dist/types",
     "emitDeclarationOnly": true,
     "plugins": [
       { "transform": "typescript-transform-paths", "afterDeclarations": true }

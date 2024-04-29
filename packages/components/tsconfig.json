@@ -1,6 +1,7 @@
 {
   "extends": ["../../tsconfig.json", "@kaizen/package-bundler/shared.json"],
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "~storybook/*": ["../../storybook/*"],
       "~types/*": ["./src/types/*"],
