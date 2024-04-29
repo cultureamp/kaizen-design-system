@@ -35,6 +35,16 @@ export const LinkModal = ({
     onSubmit(href)
   }
 
+  /** * This covers the scenario for pasting directly after a link modal is opened */
+  const interceptKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    const modifierDown = e.ctrlKey || e.metaKey
+    const vKey = e.code === "KeyV"
+
+    if (modifierDown && vKey) {
+      inputRef.current?.focus()
+    }
+  }
+
   return (
     <InputEditModal
       submitLabel={defaultHref ? "Save" : "Add"}
@@ -44,6 +54,7 @@ export const LinkModal = ({
       onSubmit={handleSubmit}
       onDismiss={onDismiss}
       onAfterLeave={onAfterLeave}
+      onKeyDown={e => interceptKeyDown(e)}
     >
       <TextField
         id="href"
