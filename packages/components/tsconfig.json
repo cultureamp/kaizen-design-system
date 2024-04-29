@@ -1,9 +1,6 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": ["../../tsconfig.json", "@kaizen/package-bundler/shared.json"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
     "paths": {
       "~storybook/*": ["../../storybook/*"],
       "~types/*": ["./src/types/*"],
