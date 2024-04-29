@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.42.7
+
+### Patch Changes
+
+- [#4651](https://github.com/cultureamp/kaizen-design-system/pull/4651) [`367930c888aa30b18c4db93a9f26b62b3e17e1b8`](https://github.com/cultureamp/kaizen-design-system/commit/367930c888aa30b18c4db93a9f26b62b3e17e1b8) - Fix the TitleBlockZen Windows High Contrast Mode Bug and obscured the active NavigationTab
+
+- [#4650](https://github.com/cultureamp/kaizen-design-system/pull/4650) [`e5a802c78da6be18f143f87eefa2fe9d2e7e8a13`](https://github.com/cultureamp/kaizen-design-system/commit/e5a802c78da6be18f143f87eefa2fe9d2e7e8a13) - Adds forced-colors @media query to show selected Radio state
+
 ## 1.42.6
 
 ### Patch Changes
