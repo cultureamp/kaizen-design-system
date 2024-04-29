@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es2019"],
+    "module": "esnext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "allowJs": false,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "target": "ESNext"
+  },
+  "include": ["src/*"],
+  "exclude": ["node_modules"]
+}
