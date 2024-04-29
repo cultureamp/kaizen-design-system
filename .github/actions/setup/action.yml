@@ -40,5 +40,10 @@ runs:
         npm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
         pnpm install --frozen-lockfile
 
+    - name: Install Playwright
+      shell: bash
+      run: |
+        npx playwright install
+
     - name: Setup turborepo cache
       uses: dtinth/setup-github-actions-caching-for-turbo@v1
