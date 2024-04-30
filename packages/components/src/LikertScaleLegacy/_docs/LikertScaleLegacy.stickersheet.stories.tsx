@@ -43,7 +43,7 @@ const scale: Scale = [
 ]
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed , colorSchema}) => (
+  render: ({ isReversed, colorSchema }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Not rated">
@@ -131,7 +131,7 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerBlueSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: "Sticker Sheet (Blue)",
-  args: {colorSchema: "blue"}
+  args: { colorSchema: "blue" },
 }
 
 export const StickerSheetClassicalReversed: StickerSheetStory = {

@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { FieldMessage } from "~components/FieldMessage"
 import { CheckIcon } from "~components/Icon"
 import { Text } from "~components/Text"
-import {ScaleValue, Scale, ScaleItem, ColorSchema} from "./types"
+import { ScaleValue, Scale, ScaleItem, ColorSchema } from "./types"
 import determineSelectionFromKeyPress from "./utils/determineSelectionFromKeyPress"
 import styles from "./LikertScaleLegacy.module.scss"
 
@@ -158,7 +158,9 @@ export const LikertScaleLegacy = ({
             <div
               className={classnames(
                 styles.likertItem,
-                colorSchema == "blue" ? styles.blueColorSchema : styles.classicalColorSchema,
+                colorSchema == "blue"
+                  ? styles.blueColorSchema
+                  : styles.classicalColorSchema,
                 styles[`likertItem${item.value}`],
                 isSelected && styles.selected,
                 isSuggested && styles.suggested,
