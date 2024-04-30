@@ -14,6 +14,8 @@ export type GenericModalProps = {
   onEscapeKeyup?: (event: KeyboardEvent) => void
   onOutsideModalClick?: (event: React.MouseEvent) => void
   onAfterLeave?: () => void
+  /** Override default focus to the modal title and shift focus to this element after the modal is opened */
+  onOpenFocusTo?: HTMLElement | null
 }
 
 export const GenericModal = ({
@@ -24,6 +26,7 @@ export const GenericModal = ({
   onEscapeKeyup,
   onOutsideModalClick,
   onAfterLeave: propsOnAfterLeave,
+  onOpenFocusTo,
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
   const id = propsId ?? reactId
@@ -50,8 +53,10 @@ export const GenericModal = ({
     }
   }
 
-  const focusAccessibleLabel = (): void => {
-    if (modalLayer) {
+  const focusToElement = (): void => {
+    if (onOpenFocusTo) {
+      onOpenFocusTo.focus()
+    } else {
       const labelElement: HTMLElement | null =
         document.getElementById(labelledByID)
       if (labelElement) {
@@ -61,7 +66,6 @@ export const GenericModal = ({
   }
 
   const a11yWarn = (): void => {
-    if (!modalLayer) return
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
     if (!document.getElementById(labelledByID)) {
@@ -86,8 +90,10 @@ export const GenericModal = ({
 
   const onAfterEnterHandler = (): void => {
     scrollModalToTop()
-    focusAccessibleLabel()
-    a11yWarn()
+    if (modalLayer) {
+      focusToElement()
+      a11yWarn()
+    }
   }
 
   const onBeforeEnterHandler = (): void => {

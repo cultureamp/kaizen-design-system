@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { InputEditModal } from "~components/Modal"
 import { TextField } from "~components/TextField"
 import { ValidationResponse, validateLink } from "../../validation"
@@ -22,6 +22,7 @@ export const LinkModal = ({
   const [validationStatus, setValidationStatus] = useState<ValidationResponse>({
     status: "default",
   })
+  const [inputEl, setInputEl] = useState<HTMLInputElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = (): void => {
@@ -35,15 +36,11 @@ export const LinkModal = ({
     onSubmit(href)
   }
 
-  /** * This covers the scenario for pasting directly after a link modal is opened */
-  const interceptKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
-    const modifierDown = e.ctrlKey || e.metaKey
-    const vKey = e.code === "KeyV"
-
-    if (modifierDown && vKey) {
-      inputRef.current?.focus()
+  useEffect(() => {
+    if (inputRef.current) {
+      setInputEl(inputRef.current)
     }
-  }
+  }, [])
 
   return (
     <InputEditModal
@@ -54,7 +51,7 @@ export const LinkModal = ({
       onSubmit={handleSubmit}
       onDismiss={onDismiss}
       onAfterLeave={onAfterLeave}
-      onKeyDown={e => interceptKeyDown(e)}
+      onOpenFocusTo={inputEl}
     >
       <TextField
         id="href"

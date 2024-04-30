@@ -30,6 +30,7 @@ export type InputEditModalProps = {
   automationId?: string
   children: React.ReactNode
   submitWorking?: { label: string; labelHidden?: boolean }
+  onOpenFocusTo?: HTMLElement | null
 } & Omit<HTMLAttributes<HTMLDivElement>, "onSubmit">
 
 /**
@@ -51,6 +52,7 @@ export const InputEditModal = ({
   children,
   unpadded = false,
   onDismiss: propsOnDismiss,
+  onOpenFocusTo,
   ...props
 }: InputEditModalProps): JSX.Element => {
   const onDismiss = submitWorking ? undefined : propsOnDismiss
@@ -79,6 +81,7 @@ export const InputEditModal = ({
       isOpen={isOpen}
       onEscapeKeyup={onDismiss}
       onAfterLeave={onAfterLeave}
+      onOpenFocusTo={onOpenFocusTo}
     >
       <div className={styles.modal} dir={localeDirection} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>
