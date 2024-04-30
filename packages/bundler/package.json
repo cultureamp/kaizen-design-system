@@ -36,6 +36,10 @@
     "rollup": "^4.13.2"
   },
   "peerDependencies": {
-    "rollup": "^4.13.2"
+    "rollup": "^4.13.2",
+    "babel-plugin-pure-static-props": "^0.2.0",
+    "concat-cli": "^4.0.0",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0"
   }
 }
