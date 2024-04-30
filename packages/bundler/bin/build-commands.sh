@@ -20,8 +20,8 @@ case "$1" in
         ;;
     clean)
         echo -e "${GREEN}Remove existing build output folder...${NC}"
-        echo "rimraf dist"
-        rimraf dist
+        echo "rm -rf dist"
+        rm -rf dist
         ;;
     rollup)
         echo -e "${GREEN}Compile and bundle source code...${NC}"
@@ -39,8 +39,12 @@ case "$1" in
         postcss styles/global.css --output dist/global.css
 
         echo -e "${GREEN}Combine all css output into raw styles...${NC}"
-        echo "concat-cli -f ./dist/*.css ./dist/esm/*.css -o ./dist/raw-styles.css"
-        concat-cli -f ./dist/*.css ./dist/esm/*.css -o ./dist/raw-styles.css
+        echo "concat-cli -f ./dist/*.css -o ./dist/raw-styles.css"
+        concat-cli -f ./dist/*.css -o ./dist/raw-styles.css
+
+        echo -e "${GREEN}Combine all css output into raw styles...${NC}"
+        echo "concat-cli -f ./dist/esm/*.css -o ./dist/raw-styles.css"
+        concat-cli -f ./dist/esm/*.css -o ./dist/raw-styles.css
 
         echo -e "${GREEN}Convert raw styles into styles.css...${NC}"
         echo "postcss dist/raw-styles.css --output dist/styles.css"

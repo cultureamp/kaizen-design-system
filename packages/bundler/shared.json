@@ -1,6 +1,15 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "lib": ["es2019", "dom"],
+    "jsx": "react",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "strict": true
   }
 }
