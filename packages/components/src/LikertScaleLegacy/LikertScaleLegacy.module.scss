@@ -23,11 +23,17 @@ $block-height: 35px;
 $desktop-rater-width: 220px;
 $desktop-rater-height: 63px;
 
-$first: $color-yellow-300;
-$second: $color-yellow-400;
-$third: $color-orange-400;
-$fourth: $color-orange-500;
-$fifth: $color-red-500;
+$classical-first: $color-yellow-300;
+$classical-second: $color-yellow-400;
+$classical-third: $color-orange-400;
+$classical-fourth: $color-orange-500;
+$classical-fifth: $color-red-500;
+
+$blue-first: $color-blue-100;
+$blue-second: $color-blue-200;
+$blue-third: $color-blue-300;
+$blue-fourth: $color-blue-400;
+$blue-fifth: $color-blue-500;
 
 @mixin pop {
   -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
@@ -212,45 +218,87 @@ $fifth: $color-red-500;
     left: 100%;
   }
 
-  &.suggested,
-  &.selected {
+  &.suggested.classicalColorSchema,
+  &.selected.classicalColorSchema {
     .field1 {
-      background-color: $first;
+      background-color: $classical-first;
 
       &::after {
-        background-color: $first;
+        background-color: $classical-first;
       }
     }
 
     .field2 {
-      background-color: $second;
+      background-color: $classical-second;
 
       &::after {
-        background-color: $second;
+        background-color: $classical-second;
       }
     }
 
     .field3 {
-      background-color: $third;
+      background-color: $classical-third;
 
       &::after {
-        background-color: $third;
+        background-color: $classical-third;
       }
     }
 
     .field4 {
-      background-color: $fourth;
+      background-color: $classical-fourth;
 
       &::after {
-        background-color: $fourth;
+        background-color: $classical-fourth;
       }
     }
 
     .field5 {
-      background-color: $fifth;
+      background-color: $classical-fifth;
 
       &::after {
-        background-color: $fifth;
+        background-color: $classical-fifth;
+      }
+    }
+  }
+  &.suggested.blueColorSchema,
+  &.selected.blueColorSchema {
+    .field1 {
+      background-color: $blue-first;
+
+      &::after {
+        background-color: $blue-first;
+      }
+    }
+
+    .field2 {
+      background-color: $blue-second;
+
+      &::after {
+        background-color: $blue-second;
+      }
+    }
+
+    .field3 {
+      background-color: $blue-third;
+
+      &::after {
+        background-color: $blue-third;
+      }
+    }
+
+    .field4 {
+      background-color: $blue-fourth;
+
+      &::after {
+        background-color: $blue-fourth;
+      }
+    }
+
+    .field5 {
+      background-color: $blue-fifth;
+
+      &::after {
+        background-color: $blue-fifth;
       }
     }
   }
