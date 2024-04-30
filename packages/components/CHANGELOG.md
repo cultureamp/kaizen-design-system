@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.43.0
+
+### Minor Changes
+
+- [#4658](https://github.com/cultureamp/kaizen-design-system/pull/4658) [`f34a819b926f17b2e7736f518459af408a94a50a`](https://github.com/cultureamp/kaizen-design-system/commit/f34a819b926f17b2e7736f518459af408a94a50a) - LikertScaleLegacy component now supports a blue colorschema variant
+
 ## 1.42.7
 
 ### Patch Changes
