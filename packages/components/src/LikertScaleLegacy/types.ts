@@ -5,4 +5,6 @@ export type ScaleItem = {
   label: string
 }
 
+export type ColorSchema = "classical" | "blue"
+
 export type Scale = ScaleItem[]
