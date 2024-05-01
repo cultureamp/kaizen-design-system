@@ -312,6 +312,9 @@ importers:
       postcss-cli:
         specifier: ^11.0.0
         version: 11.0.0(postcss@8.4.38)
+      replace-in-file:
+        specifier: ^7.1.0
+        version: 7.1.0
       rollup-plugin-ignore:
         specifier: ^1.0.10
         version: 1.0.10
@@ -321,6 +324,9 @@ importers:
       rollup-plugin-postcss:
         specifier: ^4.0.2
         version: 4.0.2(postcss@8.4.38)
+      style-inject:
+        specifier: ^0.3.0
+        version: 0.3.0
       ts-patch:
         specifier: ^3.1.2
         version: 3.1.2
@@ -542,6 +548,9 @@ importers:
       serialize-query-params:
         specifier: ^2.0.2
         version: 2.0.2
+      style-inject:
+        specifier: ^0.3.0
+        version: 0.3.0
       svgo:
         specifier: ^3.2.0
         version: 3.2.0
@@ -16774,6 +16783,16 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
+  /replace-in-file@7.1.0:
+    resolution: {integrity: sha512-1uZmJ78WtqNYCSuPC9IWbweXkGxPOtk2rKuar8diTw7naVIQZiE3Tm8ACx2PCMXDtVH6N+XxwaRY2qZ2xHPqXw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.2
+      glob: 8.1.0
+      yargs: 17.7.2
+    dev: false
+
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
@@ -17805,7 +17824,6 @@ packages:
 
   /style-inject@0.3.0:
     resolution: {integrity: sha512-IezA2qp+vcdlhJaVm5SOdPPTUu0FCEqfNSli2vRuSIBbu5Nq5UvygTk/VzeCqfLz2Atj3dVII5QBKGZRZ0edzw==}
-    dev: false
 
   /style-loader@3.3.4(webpack@5.91.0):
     resolution: {integrity: sha512-0WqXzrsMTyb8yjZJHDqwmnwRJvhALK9LfRtRc6B4UTWe8AijYLZYZ9thuJTZc2VfQWINADW/j+LiJnfy2RoC1w==}
