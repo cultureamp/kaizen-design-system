@@ -14,8 +14,8 @@ export type GenericModalProps = {
   onEscapeKeyup?: (event: KeyboardEvent) => void
   onOutsideModalClick?: (event: React.MouseEvent) => void
   onAfterLeave?: () => void
-  /** Override default focus to the modal title and shift focus to this element after the modal is opened */
-  onOpenFocusTo?: HTMLElement | null
+  /** A callback that is triggered after the modal is open. This can be used to shift focus to an element within the modal. */
+  onAfterOpen?: () => void
 }
 
 export const GenericModal = ({
@@ -26,7 +26,7 @@ export const GenericModal = ({
   onEscapeKeyup,
   onOutsideModalClick,
   onAfterLeave: propsOnAfterLeave,
-  onOpenFocusTo,
+  onAfterOpen,
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
   const id = propsId ?? reactId
@@ -53,16 +53,16 @@ export const GenericModal = ({
     }
   }
 
-  const focusToElement = (): void => {
-    if (onOpenFocusTo) {
-      onOpenFocusTo.focus()
-    } else {
-      const labelElement: HTMLElement | null =
-        document.getElementById(labelledByID)
-      if (labelElement) {
-        labelElement.focus()
-      }
+  const focusOnAccessibleLabel = (): void => {
+    // Check if focus already exists within the modal
+    if (modalLayer?.contains(document.activeElement)) {
+      return
     }
+
+    const labelElement: HTMLElement | null =
+      document.getElementById(labelledByID)
+
+    labelElement?.focus()
   }
 
   const a11yWarn = (): void => {
@@ -91,7 +91,8 @@ export const GenericModal = ({
   const onAfterEnterHandler = (): void => {
     scrollModalToTop()
     if (modalLayer) {
-      focusToElement()
+      onAfterOpen && onAfterOpen()
+      focusOnAccessibleLabel()
       a11yWarn()
     }
   }

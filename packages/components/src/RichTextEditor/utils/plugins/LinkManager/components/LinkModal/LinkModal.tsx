@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import { InputEditModal } from "~components/Modal"
 import { TextField } from "~components/TextField"
 import { ValidationResponse, validateLink } from "../../validation"
@@ -22,7 +22,6 @@ export const LinkModal = ({
   const [validationStatus, setValidationStatus] = useState<ValidationResponse>({
     status: "default",
   })
-  const [inputEl, setInputEl] = useState<HTMLInputElement | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = (): void => {
@@ -36,12 +35,6 @@ export const LinkModal = ({
     onSubmit(href)
   }
 
-  useEffect(() => {
-    if (inputRef.current) {
-      setInputEl(inputRef.current)
-    }
-  }, [])
-
   return (
     <InputEditModal
       submitLabel={defaultHref ? "Save" : "Add"}
@@ -51,7 +44,7 @@ export const LinkModal = ({
       onSubmit={handleSubmit}
       onDismiss={onDismiss}
       onAfterLeave={onAfterLeave}
-      onOpenFocusTo={inputEl}
+      onAfterOpen={() => inputRef.current?.focus()}
     >
       <TextField
         id="href"
