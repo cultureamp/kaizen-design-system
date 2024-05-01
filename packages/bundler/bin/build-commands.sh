@@ -34,26 +34,9 @@ case "$1" in
         tsc --project tsconfig.types.json
         ;;
     styles)
-        echo -e "${GREEN}Compile global.css...${NC}"
-        echo "postcss styles/global.css --output dist/global.css"
-        postcss styles/global.css --output dist/global.css
-
-        echo -e "${GREEN}Combine all css output into raw styles...${NC}"
-        echo "concat-cli -f ./dist/*.css -o ./dist/raw-styles.css"
-        concat-cli -f ./dist/*.css -o ./dist/raw-styles.css
-
-        echo -e "${GREEN}Combine all css output into raw styles...${NC}"
-        echo "concat-cli -f ./dist/esm/*.css -o ./dist/raw-styles.css"
-        concat-cli -f ./dist/esm/*.css -o ./dist/raw-styles.css
-
-        echo -e "${GREEN}Convert raw styles into styles.css...${NC}"
-        echo "postcss dist/raw-styles.css --output dist/styles.css"
-        postcss dist/raw-styles.css --output dist/styles.css
-        ;;
-    dist:clean)
-        echo -e "${GREEN}Removing temporary CSS artifacts...${NC}"
-        echo "rm ./dist/global.css ./dist/raw-styles.css"
-        rm ./dist/global.css ./dist/raw-styles.css
+        echo -e "${GREEN}Compile CSS...${NC}"
+        echo "postcss dist/esm/index.css --output dist/styles.css"
+        postcss dist/esm/index.css --output dist/styles.css
         ;;
     help)
         echo -e "${GREEN}Usage: $0 {build|clean|rollup|types|styles|dist:clean|help}${NC}"
