@@ -38,6 +38,11 @@ case "$1" in
         echo "postcss dist/esm/index.css --output dist/styles.css"
         postcss dist/esm/index.css --output dist/styles.css
         ;;
+    styles)
+        echo -e "${GREEN}Compile Tailwind...${NC}"
+        echo "postcss src/tailwind.css --output dist/tailwind.css"
+        postcss src/tailwind.css --output dist/tailwind.css
+        ;;
     help)
         echo -e "${GREEN}Usage: $0 {build|clean|rollup|types|styles|dist:clean|help}${NC}"
         exit 1
