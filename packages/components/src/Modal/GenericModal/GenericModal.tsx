@@ -13,9 +13,10 @@ export type GenericModalProps = {
   focusLockDisabled?: boolean
   onEscapeKeyup?: (event: KeyboardEvent) => void
   onOutsideModalClick?: (event: React.MouseEvent) => void
+  /** A callback that is triggered after the modal is opened. */
+  onAfterEnter?: () => void
+  /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
-  /** A callback that is triggered after the modal is open. This can be used to shift focus to an element within the modal. */
-  onAfterOpen?: () => void
 }
 
 export const GenericModal = ({
@@ -25,8 +26,8 @@ export const GenericModal = ({
   focusLockDisabled,
   onEscapeKeyup,
   onOutsideModalClick,
+  onAfterEnter,
   onAfterLeave: propsOnAfterLeave,
-  onAfterOpen,
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
   const id = propsId ?? reactId
@@ -91,7 +92,7 @@ export const GenericModal = ({
   const onAfterEnterHandler = (): void => {
     scrollModalToTop()
     if (modalLayer) {
-      onAfterOpen && onAfterOpen()
+      onAfterEnter?.()
       focusOnAccessibleLabel()
       a11yWarn()
     }
