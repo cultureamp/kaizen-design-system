@@ -11,6 +11,7 @@ case "$1" in
         echo "Running build command..."
         npx package-bundler clean 
         npx package-bundler rollup
+        npx package-bundler purify-styles
         npx package-bundler types
         elapsed_time=$SECONDS
         echo -e "${GREEN}Built in: ${BOLD}${GREEN}$elapsed_time${NC} ${GREEN}seconds${NC}"
@@ -24,6 +25,10 @@ case "$1" in
         echo -e "${GREEN}Compile and bundle source code...${NC}"
         echo "rollup -c"
         rollup -c
+        ;;
+    purify-styles)
+        echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
+        echo "npx --no-install purify-style-inject"
         npx --no-install purify-style-inject
         ;;
     types)
