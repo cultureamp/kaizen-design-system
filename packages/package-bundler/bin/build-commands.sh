@@ -28,8 +28,8 @@ case "$1" in
         ;;
     purify-styles)
         echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-        echo "npx --no-install purify-style-inject"
-        npx --no-install purify-style-inject
+        echo "npx replace-in-file"
+        npx replace-in-file "styleInject(" "/*#__PURE__*/styleInject(" "dist/esm/**/*.module.scss.mjs"
         ;;
     types)
         echo -e "${GREEN}Compile typescript types...${NC}"

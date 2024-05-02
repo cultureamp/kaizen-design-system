@@ -9,7 +9,6 @@
     "prepare": "ts-patch install -s"
   },
   "bin": {
-    "purify-style-inject": "./bin/purify-style-inject.js",
     "package-bundler": "./bin/build-commands.sh"
   },
   "files": [
@@ -44,6 +43,7 @@
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "rollup": "^4.13.2",
-    "style-inject": "^0.3.0"
+    "style-inject": "^0.3.0",
+    "replace-in-file": "^7.1.0"
   }
 }
