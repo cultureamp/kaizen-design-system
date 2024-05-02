@@ -13,6 +13,7 @@
     "package-bundler": "./bin/build-commands.sh"
   },
   "files": [
+    "dist",
     "shared.json",
     "shared.dist.json",
     "shared.types.json"
