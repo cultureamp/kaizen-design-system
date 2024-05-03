@@ -26,7 +26,7 @@ const meta = {
     ...defaultMonthControls,
     ...validationControls,
     ...disabledDaysControls,
-    renderTrigger: renderTriggerControls,
+    ...renderTriggerControls,
     locale: {
       options: ["en-US", "en-AU"],
       control: { type: "radio" },

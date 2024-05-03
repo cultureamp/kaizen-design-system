@@ -35,18 +35,23 @@ const TestBase: Story = {
 
     return (
       <FilterDatePicker
-        id="filter-dp--test"
-        label="Date"
-        locale="en-AU"
         renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
           <FilterButton {...triggerButtonProps} />
         )}
+        id="filter-dp--test"
+        label="Date"
+        locale="en-AU"
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         selectedDate={date}
         onDateChange={setDate}
       />
     )
+  },
+  args: {
+    renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
+      <FilterButton {...triggerButtonProps} />
+    ),
   },
 }
 
