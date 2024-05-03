@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.43.0
+
+### Minor Changes
+
+- [#4658](https://github.com/cultureamp/kaizen-design-system/pull/4658) [`f34a819b926f17b2e7736f518459af408a94a50a`](https://github.com/cultureamp/kaizen-design-system/commit/f34a819b926f17b2e7736f518459af408a94a50a) - LikertScaleLegacy component now supports a blue colorschema variant
+
+## 1.42.7
+
+### Patch Changes
+
+- [#4651](https://github.com/cultureamp/kaizen-design-system/pull/4651) [`367930c888aa30b18c4db93a9f26b62b3e17e1b8`](https://github.com/cultureamp/kaizen-design-system/commit/367930c888aa30b18c4db93a9f26b62b3e17e1b8) - Fix the TitleBlockZen Windows High Contrast Mode Bug and obscured the active NavigationTab
+
+- [#4650](https://github.com/cultureamp/kaizen-design-system/pull/4650) [`e5a802c78da6be18f143f87eefa2fe9d2e7e8a13`](https://github.com/cultureamp/kaizen-design-system/commit/e5a802c78da6be18f143f87eefa2fe9d2e7e8a13) - Adds forced-colors @media query to show selected Radio state
+
+## 1.42.6
+
+### Patch Changes
+
+- [#4647](https://github.com/cultureamp/kaizen-design-system/pull/4647) [`0976f590106c4199ea98d289a64e7ebc1576903a`](https://github.com/cultureamp/kaizen-design-system/commit/0976f590106c4199ea98d289a64e7ebc1576903a) - Adds focus ring styles to TitleBlockZen's NavigationTabs to resolve a11y contrast issues
+
+- [#4649](https://github.com/cultureamp/kaizen-design-system/pull/4649) [`7c82c80f596dbfa3d78edb3e33c70f2916e1ca54`](https://github.com/cultureamp/kaizen-design-system/commit/7c82c80f596dbfa3d78edb3e33c70f2916e1ca54) - Add focus styles to TitleBlockZen Breadcrumb link
+
 ## 1.42.5
 
 ### Patch Changes

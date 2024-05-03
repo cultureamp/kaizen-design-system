@@ -43,7 +43,7 @@ const scale: Scale = [
 ]
 
 const StickerSheetTemplate: StickerSheetStory = {
-  render: ({ isReversed }) => (
+  render: ({ isReversed, colorSchema }) => (
     <StickerSheet isReversed={isReversed}>
       <StickerSheet.Body>
         <StickerSheet.Row rowTitle="Not rated">
@@ -53,6 +53,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedItem={scale[0]}
             onSelect={(): void => undefined}
             reversed={isReversed}
+            colorSchema={colorSchema}
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Strongly disagree">
@@ -62,6 +63,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedItem={scale[1]}
             onSelect={(): void => undefined}
             reversed={isReversed}
+            colorSchema={colorSchema}
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Disagree">
@@ -71,6 +73,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedItem={scale[2]}
             onSelect={(): void => undefined}
             reversed={isReversed}
+            colorSchema={colorSchema}
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Neither agree or disagree">
@@ -80,6 +83,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedItem={scale[3]}
             onSelect={(): void => undefined}
             reversed={isReversed}
+            colorSchema={colorSchema}
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Agree">
@@ -89,6 +93,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedItem={scale[4]}
             onSelect={(): void => undefined}
             reversed={isReversed}
+            colorSchema={colorSchema}
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Strongly agree">
@@ -98,6 +103,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedItem={scale[5]}
             onSelect={(): void => undefined}
             reversed={isReversed}
+            colorSchema={colorSchema}
           />
         </StickerSheet.Row>
         <StickerSheet.Row rowTitle="Validation">
@@ -107,6 +113,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             selectedItem={scale[0]}
             onSelect={(): void => undefined}
             reversed={isReversed}
+            colorSchema={colorSchema}
             validationMessage="Error message here"
             status="error"
           />
@@ -118,16 +125,31 @@ const StickerSheetTemplate: StickerSheetStory = {
 
 export const StickerSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Default)",
+  name: "Sticker Sheet (Default - Classical)",
 }
 
-export const StickerSheetReversed: StickerSheetStory = {
+export const StickerBlueSheetDefault: StickerSheetStory = {
   ...StickerSheetTemplate,
-  name: "Sticker Sheet (Reversed)",
+  name: "Sticker Sheet (Blue)",
+  args: { colorSchema: "blue" },
+}
+
+export const StickerSheetClassicalReversed: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Classical Reversed)",
   parameters: {
     backgrounds: { default: "Purple 700" },
   },
   args: { isReversed: true },
+}
+
+export const StickerSheetBlueReversed: StickerSheetStory = {
+  ...StickerSheetTemplate,
+  name: "Sticker Sheet (Blue Reversed)",
+  parameters: {
+    backgrounds: { default: "Purple 700" },
+  },
+  args: { isReversed: true, colorSchema: "blue" },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
