@@ -1,5 +1,5 @@
 ---
-"@kaizen/components": patch
+"@kaizen/components": minor
 ---
 
-Fix to intercept keydown event for pasting content into the RTE's LinkModal
+Add onAferEnter callback to GenericModal and expose in InputEditModal, ContextModal, ConfirmationModal to allow for focus management after open.
