@@ -11,7 +11,6 @@ case "$1" in
         echo "Running build command..."
         npx package-bundler clean 
         npx package-bundler rollup
-        npx package-bundler purify-styles
         npx package-bundler types
         elapsed_time=$SECONDS
         echo -e "${GREEN}Built in: ${BOLD}${GREEN}$elapsed_time${NC} ${GREEN}seconds${NC}"
@@ -37,11 +36,11 @@ case "$1" in
         tsc --project tsconfig.types.json
         ;;
     help)
-        echo -e "${GREEN}Usage: $0 {build|clean|rollup|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|clean|rollup|purify-styles|types|help}${NC}"
         exit 1
         ;;
     *)
-        echo -e "${GREEN}Usage: $0 {build|clean|rollup|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|clean|rollup|purify-styles|types|help}${NC}"
         exit 1
         ;;
 esac

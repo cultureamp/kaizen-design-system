@@ -26,14 +26,8 @@
     "styles.css"
   ],
   "scripts": {
-    "build": "pnpm package-bundler build",
-    "clean": "pnpm package-bundler clean",
-    "rollup": "pnpm package-bundler rollup",
-    "purify-styles": "pnpm package-bundler purify-styles",
-    "types": "pnpm package-bundler types",
-    "styles": "pnpm styles:global && pnpm package-bundler styles && pnpm styles:combine-styles",
-    "styles:global": "postcss ./styles/global.css --output dist/global.css",
-    "styles:combine-styles": "concat-cli -f ./dist/*.css -o ./dist/styles.css && rm ./dist/global.css",
+    "build": "pnpm package-bundler build && pnpm package-bundler purify-styles && pnpm styles:global",
+    "styles:global": "postcss ./styles/global.css --output dist/styles.css",
     "dist:clean": "pnpm package-bundler dist:clean",
     "help": "pnpm package-bundler help",
     "test": "FORCE_COLOR=1 jest",
