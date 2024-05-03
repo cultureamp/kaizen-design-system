@@ -11,9 +11,9 @@ const meta = {
   title: "Components/Filter Select",
   component: FilterSelect,
   argTypes: {
+    ...renderTriggerControls,
     isOpen: { control: false },
     setIsOpen: { control: false },
-    renderTrigger: renderTriggerControls,
     items: {
       options: ["Single", "Grouped"],
       control: { type: "radio" },

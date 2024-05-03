@@ -1,6 +1,7 @@
 import { action } from "@storybook/addon-actions"
+import { ArgTypes } from "@storybook/react"
 
-export const validationControls = {
+export const validationControls: Partial<ArgTypes> = {
   onValidate: {
     options: ["dateStart", "dateEnd", "dateRange"],
     control: {

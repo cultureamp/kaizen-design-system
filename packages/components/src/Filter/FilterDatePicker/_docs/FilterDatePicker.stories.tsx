@@ -25,7 +25,7 @@ const meta = {
   argTypes: {
     ...defaultMonthControls,
     ...validationControls,
-    disabledDays: disabledDaysControls,
+    ...disabledDaysControls,
     renderTrigger: renderTriggerControls,
     locale: {
       options: ["en-US", "en-AU"],
