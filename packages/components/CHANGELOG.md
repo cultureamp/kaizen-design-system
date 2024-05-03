@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.44.0
+
+### Minor Changes
+
+- [#4660](https://github.com/cultureamp/kaizen-design-system/pull/4660) [`afea659cf94fe3b338b2934627a47d347d020af0`](https://github.com/cultureamp/kaizen-design-system/commit/afea659cf94fe3b338b2934627a47d347d020af0) - Add onAferEnter callback to GenericModal and expose in InputEditModal, ContextModal, ConfirmationModal to allow for focus management after open.
+
 ## 1.43.0
 
 ### Minor Changes
