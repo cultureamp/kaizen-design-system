@@ -1,5 +1,5 @@
 {
-  "extends": ["../../tsconfig.json", "@kaizen/package-bundler/shared.json"],
+  "extends": "@kaizen/package-bundler/shared.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

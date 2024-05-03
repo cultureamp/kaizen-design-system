@@ -135,5 +135,8 @@
     "turbo": "^1.13.0",
     "typescript": "^5.4.3",
     "webpack": "^5.91.0"
+  },
+  "resolutions": {
+    "typescript": "^5.4.3"
   }
 }

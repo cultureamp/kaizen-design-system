@@ -1,15 +1,7 @@
 {
+  "extends": "./packages/package-bundler/shared.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es2019", "dom"],
-    "module": "commonjs",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "strict": true,
     "allowJs": false,
     "noEmit": true,
     "paths": {
