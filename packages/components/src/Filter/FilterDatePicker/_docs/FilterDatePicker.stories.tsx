@@ -31,7 +31,7 @@ const meta = {
       options: ["en-US", "en-AU"],
       control: { type: "radio" },
     },
-    isOpen: { control: "disabled" },
+    isOpen: { control: false },
     selectedDate: {
       options: ["None", "Date"],
       control: {

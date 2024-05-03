@@ -9,11 +9,11 @@ const meta = {
   title: "Components/Filter Base",
   component: Filter,
   argTypes: {
-    children: { control: "disabled" },
-    isOpen: { control: "disabled" },
-    setIsOpen: { control: "disabled" },
-    renderTrigger: { control: "disabled" },
-    onMount: { control: "disabled" },
+    children: { control: false },
+    isOpen: { control: false },
+    setIsOpen: { control: false },
+    renderTrigger: { control: false },
+    onMount: { control: false },
   },
   args: {
     children: <FilterContents>Filter Contents</FilterContents>,
