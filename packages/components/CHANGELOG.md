@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.45.0
+
+### Minor Changes
+
+- [#4662](https://github.com/cultureamp/kaizen-design-system/pull/4662) [`6cf318e6db52f5d1cebe2042fedb5267d3c2b3a5`](https://github.com/cultureamp/kaizen-design-system/commit/6cf318e6db52f5d1cebe2042fedb5267d3c2b3a5) - Expose ref for IconButton
+
 ## 1.44.0
 
 ### Minor Changes
