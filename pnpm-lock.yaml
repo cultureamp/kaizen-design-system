@@ -91,8 +91,13 @@ importers:
         specifier: ^8.0.6
         version: 8.0.10(react-dom@18.2.0)(react@18.2.0)
       '@tanstack/react-query':
+<<<<<<< HEAD
         specifier: ^5.29.0
         version: 5.35.1(react@18.2.0)
+=======
+        specifier: ^5.34.2
+        version: 5.34.2(react@18.2.0)
+>>>>>>> 6698333fa (chore(deps): update dependency @tanstack/react-query to ^5.34.2 (#4627))
       '@testing-library/dom':
         specifier: ^9.3.4
         version: 9.3.4
@@ -2627,7 +2632,11 @@ packages:
       '@cultureamp/frontend-env': 2.1.2
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.5.0(openapi-types@12.1.3)
+<<<<<<< HEAD
       '@tanstack/react-query': 5.28.9(react@18.2.0)
+=======
+      '@tanstack/react-query': 5.34.2(react@18.2.0)
+>>>>>>> 6698333fa (chore(deps): update dependency @tanstack/react-query to ^5.34.2 (#4627))
       chromatic: 10.9.6
       deepmerge: 4.3.1
       fast-glob: 3.3.2
@@ -5834,6 +5843,7 @@ packages:
     resolution: {integrity: sha512-myfUej5naTBWnqOCc/MdVOLVjXUXtIA+NpDrDBKJtLLg2shUjBu3cZmB/85RyitKc55+lUUyl7oRfLOvkr2hsw==}
     dev: true
 
+<<<<<<< HEAD
   /@tanstack/query-core@5.28.9:
     resolution: {integrity: sha512-hNlfCiqZevr3GRVPXS3MhaGW5hjcxvCsIQ4q6ff7EPlvFwYZaS+0d9EIIgofnegDaU2BbCDlyURoYfRl5rmzow==}
     dev: true
@@ -5857,6 +5867,18 @@ packages:
       react: ^18.0.0
     dependencies:
       '@tanstack/query-core': 5.35.1
+=======
+  /@tanstack/query-core@5.34.2:
+    resolution: {integrity: sha512-FM1UXldYcoMiWmVbpewV14EVpnr/ETBbdF84tmCktx29e2bXBFhGtAfyDHUD4X1FehaV5tC9GkXZUMZRQV3lcA==}
+    dev: true
+
+  /@tanstack/react-query@5.34.2(react@18.2.0):
+    resolution: {integrity: sha512-5L9W9XQ/lRcyhlVN0xrOkPZE9PJxZWw7BdJR244j3G7sxMfSreZWvxx13DJt08M5DWn9B5VstpKgqpIIQOIJKA==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.34.2
+>>>>>>> 6698333fa (chore(deps): update dependency @tanstack/react-query to ^5.34.2 (#4627))
       react: 18.2.0
     dev: true
 
