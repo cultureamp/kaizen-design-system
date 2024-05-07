@@ -9,7 +9,8 @@
     "declaration": true,
     "target": "es5",
     "module": "CommonJS",
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["**/*.spec.ts"]
