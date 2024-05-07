@@ -1,6 +1,7 @@
+import { ArgTypes } from "@storybook/react"
 import { DayOfWeek } from "~components/Calendar"
 
-export const weekStartsOnControls = {
+export const weekStartsOnControls: Partial<ArgTypes> = {
   weekStartsOn: {
     options: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     control: {

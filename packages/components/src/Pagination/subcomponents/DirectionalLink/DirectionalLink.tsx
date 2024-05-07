@@ -24,18 +24,19 @@ const iconMap = {
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082092975/Pagination Guidance} |
  * {@link https://cultureamp.design/?path=/story/components-buttons-directionallink--docs Storybook}
  */
-export const DirectionalLink = (props: DirectionalLinkProps): JSX.Element => (
+export const DirectionalLink = ({
+  reversed = false,
+  disabled = false,
+  ...otherProps
+}: DirectionalLinkProps): JSX.Element => (
   <GenericButton
-    {...props}
+    reversed={reversed}
+    disabled={disabled}
+    {...otherProps}
     iconButton
     directionalLink
-    icon={iconMap[props.direction]}
+    icon={iconMap[otherProps.direction]}
   />
 )
-
-DirectionalLink.defaultProps = {
-  reversed: false,
-  disabled: false,
-}
 
 DirectionalLink.displayName = "DirectionalLink"

@@ -31,7 +31,7 @@ const meta = {
     ),
   },
   argTypes: {
-    children: { control: "disabled" },
+    children: { control: false },
   },
 } satisfies Meta<typeof Skirt>
 

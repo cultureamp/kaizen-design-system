@@ -8,8 +8,8 @@ const meta = {
   title: "Pages/Workflow/Components/Footer",
   component: Workflow.Footer,
   argTypes: {
-    nextAction: WorkflowControls.nextAction,
-    previousAction: WorkflowControls.previousAction,
+    ...WorkflowControls.nextAction,
+    ...WorkflowControls.previousAction,
   },
   args: {
     stepName: "Preview",

@@ -20,7 +20,7 @@ const meta = {
     ...disabledDayMatchersControls,
     ...weekStartsOnControls,
     buttonRef: {
-      control: "disabled",
+      control: false,
     },
     selectedDay: {
       options: ["None", "Today", "May2022"],
