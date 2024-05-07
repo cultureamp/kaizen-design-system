@@ -12,7 +12,7 @@
     }
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../../jest.setup.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "moduleTypes": {

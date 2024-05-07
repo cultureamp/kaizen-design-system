@@ -14,14 +14,17 @@ export type PaginationLinkProps = GenericProps & {
  */
 export const PaginationLink = ({
   pageNumber,
+  reversed = false,
+  isActive = false,
   ...restProps
 }: PaginationLinkProps): JSX.Element => (
-  <GenericButton {...restProps} paginationLink label={`${pageNumber}`} />
+  <GenericButton
+    {...restProps}
+    paginationLink
+    reversed={reversed}
+    isActive={isActive}
+    label={`${pageNumber}`}
+  />
 )
-
-PaginationLink.defaultProps = {
-  reversed: false,
-  isActive: false,
-}
 
 PaginationLink.displayName = "PaginationLink"

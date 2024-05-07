@@ -75,9 +75,25 @@ export type RenderProps = GenericButtonProps & {
 
 export type ButtonRef = { focus: () => void }
 
-export type GenericButtonProps = GenericProps &
-  ButtonFormAttributes &
-  (WorkingProps | WorkingUndefinedProps) & {
+export type SharedButtonProps = {
+  label: string
+  primary?: boolean
+  destructive?: boolean
+  secondary?: boolean
+  /** @default "regular" */
+  size?: "small" | "regular"
+  badge?: ButtonBadgeProps
+  type?: "submit" | "reset" | "button"
+  fullWidth?: boolean
+  iconPosition?: "start" | "end"
+  icon?: JSX.Element
+  disabled?: boolean
+}
+
+export type WorkingButtonProps = WorkingProps | WorkingUndefinedProps
+
+export type BaseButtonProps = GenericProps &
+  ButtonFormAttributes & {
     label: string
     primary?: boolean
     destructive?: boolean
@@ -92,6 +108,8 @@ export type GenericButtonProps = GenericProps &
     disabled?: boolean
   }
 
+export type GenericButtonProps = BaseButtonProps & WorkingButtonProps
+
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
 const getCustomProps = (props: Record<string, any>): Record<string, string> => {
@@ -103,13 +121,36 @@ const getCustomProps = (props: Record<string, any>): Record<string, string> => {
 }
 
 export const GenericButton = forwardRef(
-  (props: RenderProps, ref: Ref<ButtonRef | undefined>) => {
+  (
+    {
+      iconPosition = "start",
+      iconButton = false,
+      primary = false,
+      secondary = false,
+      newTabAndIUnderstandTheAccessibilityImplications = false,
+      disableTabFocusAndIUnderstandTheAccessibilityImplications = false,
+      type = "button",
+      ...otherProps
+    }: RenderProps,
+    ref: Ref<ButtonRef | undefined>
+  ) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     useImperativeHandle(ref, () => ({
       focus: (): void => {
         buttonRef.current?.focus()
       },
     }))
+
+    const props = {
+      iconPosition,
+      iconButton,
+      primary,
+      secondary,
+      newTabAndIUnderstandTheAccessibilityImplications,
+      disableTabFocusAndIUnderstandTheAccessibilityImplications,
+      type,
+      ...otherProps,
+    }
 
     const determineButtonRenderer = (): JSX.Element => {
       if (props.component) {
@@ -136,16 +177,6 @@ export const GenericButton = forwardRef(
     )
   }
 )
-
-GenericButton.defaultProps = {
-  iconPosition: "start",
-  iconButton: false,
-  primary: false,
-  secondary: false,
-  newTabAndIUnderstandTheAccessibilityImplications: false,
-  disableTabFocusAndIUnderstandTheAccessibilityImplications: false,
-  type: "button",
-}
 
 GenericButton.displayName = "GenericButton"
 
