@@ -1,4 +1,5 @@
 {
+  "extends": "@kaizen/package-bundler/shared.json",
   "compilerOptions": {
     "declaration": false,
     "noEmit": false,
