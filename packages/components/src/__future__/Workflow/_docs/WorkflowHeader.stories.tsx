@@ -9,7 +9,7 @@ const meta = {
   title: "Pages/Workflow/Future/Components/Header",
   component: Workflow.Header,
   argTypes: {
-    headerActions: WorkflowControls.headerActions,
+    ...WorkflowControls.headerActions,
   },
   args: {
     workflowName: "Create a self-reflection cycle",

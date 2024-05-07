@@ -1,5 +1,5 @@
-import React from "react"
-import { renderHook, act } from "@testing-library/react-hooks"
+import React, { act } from "react"
+import { renderHook } from "@testing-library/react-hooks"
 import { LabelledMessage } from "~components/LabelledMessage"
 import { useStartDateValidation } from "./useStartDateValidation"
 

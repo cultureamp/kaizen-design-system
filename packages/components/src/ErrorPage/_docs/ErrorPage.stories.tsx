@@ -15,7 +15,7 @@ export const Playground: StoryObj<typeof meta> = {
   },
   argTypes: {
     code: {
-      options: statusCodes,
+      options: [...statusCodes],
       control: { type: "select" },
     },
   },

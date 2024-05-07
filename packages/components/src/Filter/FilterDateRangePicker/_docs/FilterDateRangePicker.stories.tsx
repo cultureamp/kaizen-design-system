@@ -25,14 +25,14 @@ const meta = {
   component: FilterDateRangePicker,
   argTypes: {
     classNameOverride: {
-      control: "disabled",
+      control: false,
       description:
         "Add extra classnames to the component. (This doesn't work - to be fixed)",
     },
     ...defaultMonthControls,
     ...validationControls,
+    ...renderTriggerControls,
     disabledDays: disabledDaysControls,
-    renderTrigger: renderTriggerControls,
     locale: {
       options: ["en-US", "en-AU"],
       control: { type: "radio" },
@@ -43,7 +43,7 @@ const meta = {
     inputEndDateProps: {
       table: { type: { summary: 'Omit<DateInputProps, "id">' } },
     },
-    isOpen: { control: "disabled" },
+    isOpen: { control: false },
     selectedRange: {
       options: ["None", "Partial Range", "Complete Range"],
       control: {

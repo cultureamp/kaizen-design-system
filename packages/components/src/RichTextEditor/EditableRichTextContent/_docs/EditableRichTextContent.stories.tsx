@@ -19,7 +19,7 @@ const meta = {
     onClick: fn(),
   },
   argTypes: {
-    content: { control: "disabled" },
+    content: { control: false },
     onClick: { action: "onClick" },
   },
 } satisfies Meta<typeof EditableRichTextContent>
