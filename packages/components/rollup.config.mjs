@@ -2,7 +2,7 @@ import { rollupConfig, presetUiLibrary } from "@kaizen/package-bundler";
 
 export default rollupConfig({
   input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
-  preset: presetUiLibrary,
+  plugins: presetUiLibrary,
   alias: {
     entries: [
       { find: "~types", replacement: "src/types" },
