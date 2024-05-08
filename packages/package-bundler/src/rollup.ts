@@ -1,4 +1,4 @@
-import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
+import { RollupAliasOptions } from "@rollup/plugin-alias"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
@@ -19,12 +19,7 @@ export const rollupConfig = (
   // Shared config
   const sharedConfig = {
     input: config.input,
-    plugins: [
-      ...config.plugins,
-      // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
-      alias(config.alias),
-      ...presetDefault,
-    ],
+    plugins: [...config.plugins, ...presetDefault({ alias: config.alias })],
   }
 
   // CommonJS
