@@ -87,12 +87,12 @@ export const RichTextEditor = ({
   status = "default",
   ...restProps
 }: RichTextEditorProps): JSX.Element => {
-  const reactId = useId()
+  const generatedId = useId()
   const [schema] = useState<ProseMirrorModel.Schema>(
     createSchemaFromControls(controls)
   )
 
-  const [editorId] = useState<string>(id || reactId)
+  const editorId = id || generatedId
   const labelId = labelledBy || `${editorId}-rte-label`
   const validationMessageAria = validationMessage
     ? `${editorId}-rte-validation-message`
