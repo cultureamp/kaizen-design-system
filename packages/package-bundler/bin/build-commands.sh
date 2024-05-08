@@ -9,7 +9,7 @@ SECONDS=0
 case "$1" in
     build)
         echo "Running build command..."
-        npx package-bundler clean 
+        npx package-bundler clean
         npx package-bundler rollup
         npx package-bundler types
         elapsed_time=$SECONDS
@@ -27,8 +27,7 @@ case "$1" in
         ;;
     purify-styles)
         echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-        echo "npx replace-in-file"
-        npx replace-in-file "styleInject(" "/*#__PURE__*/styleInject(" "dist/esm/**/*.module.scss.mjs"
+        npx --no-install markStyleInjectAsPure
         ;;
     types)
         echo -e "${GREEN}Compile typescript types...${NC}"

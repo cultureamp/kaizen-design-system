@@ -45,7 +45,7 @@
       "outputs": ["dist/**"]
     },
     "@kaizen/package-bundler#build": {
-      "inputs": ["src/**", "tsconfig.json"],
+      "inputs": ["bin/*", "src/**", "tsconfig*.json"],
       "outputs": ["dist/**"]
     }
   }
