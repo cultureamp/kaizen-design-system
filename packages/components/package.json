@@ -103,7 +103,6 @@
     "@types/uuid": "^9.0.8",
     "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.19",
-    "babel-plugin-pure-static-props": "^0.2.0",
     "query-string": "^9.0.0",
     "react-intl": "^6.6.4",
     "replace-in-file": "^7.1.0",
