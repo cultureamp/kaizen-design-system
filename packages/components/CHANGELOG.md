@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.45.2
+
+### Patch Changes
+
+- [#4665](https://github.com/cultureamp/kaizen-design-system/pull/4665) [`0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6`](https://github.com/cultureamp/kaizen-design-system/commit/0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6) - fixed duplicate id on RTE, added optional id to RTE
+
 ## 1.45.1
 
 ### Patch Changes
