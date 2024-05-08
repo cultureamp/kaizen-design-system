@@ -25,13 +25,13 @@ const meta = {
   argTypes: {
     ...defaultMonthControls,
     ...validationControls,
-    disabledDays: disabledDaysControls,
-    renderTrigger: renderTriggerControls,
+    ...disabledDaysControls,
+    ...renderTriggerControls,
     locale: {
       options: ["en-US", "en-AU"],
       control: { type: "radio" },
     },
-    isOpen: { control: "disabled" },
+    isOpen: { control: false },
     selectedDate: {
       options: ["None", "Date"],
       control: {

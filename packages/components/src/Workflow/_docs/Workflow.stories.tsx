@@ -29,7 +29,7 @@ const MockContent = (): JSX.Element => (
 const meta = {
   title: "Pages/Workflow",
   component: Workflow,
-  argTypes: WorkflowControls,
+  argTypes: { ...WorkflowControls },
   args: {
     workflowName: "Create a self-reflection cycle",
     stepName: "Settings",

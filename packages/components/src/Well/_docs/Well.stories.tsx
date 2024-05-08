@@ -19,7 +19,7 @@ const meta = {
     ),
   },
   argTypes: {
-    children: { control: "disable" },
+    children: { control: false },
   },
 } satisfies Meta<typeof Well>
 

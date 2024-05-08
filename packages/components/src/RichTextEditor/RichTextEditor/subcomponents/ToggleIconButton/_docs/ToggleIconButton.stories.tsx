@@ -11,7 +11,7 @@ const meta = {
     label: "Bold",
   },
   argTypes: {
-    icon: { control: "disable" },
+    icon: { control: false },
   },
 } satisfies Meta<typeof ToggleIconButton>
 

@@ -1,4 +1,6 @@
-export const defaultMonthControls = {
+import { ArgTypes } from "@storybook/react"
+
+export const defaultMonthControls: Partial<ArgTypes> = {
   defaultMonth: {
     options: ["Default", "May2022"],
     control: {

@@ -24,9 +24,9 @@ const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
   argTypes: {
-    filters: { control: "disabled" },
-    values: { control: "disabled" },
-    onValuesChange: { control: "disabled" },
+    filters: { control: false },
+    values: { control: false },
+    onValuesChange: { control: false },
   },
   args: {
     filters: [], // Defined in stories
