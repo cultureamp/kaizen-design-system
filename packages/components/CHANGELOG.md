@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.45.1
+
+### Patch Changes
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - stylelint-config-standard-scss dep update to 13.1.0
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - Update react monorepo deps and fix Storybook ArgType ts errors
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - sass dep update to 1.76.0
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - playwright-monorepo dep-update
+
 ## 1.45.0
 
 ### Minor Changes
