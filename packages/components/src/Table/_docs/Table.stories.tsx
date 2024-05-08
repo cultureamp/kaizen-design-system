@@ -1,8 +1,9 @@
 import React from "react"
+import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { IconButton } from "~components/Button"
+import { Checkbox } from "~components/Checkbox"
 import { Divider } from "~components/Divider"
-import { ChevronUpIcon, EffectivenessIcon } from "~components/Icon"
+import { EffectivenessIcon } from "~components/Icon"
 import { Text } from "~components/Text"
 import {
   TableCard,
@@ -21,48 +22,33 @@ import {
 export type TableStoryProps = {
   container?: TableContainerProps
   row?: TableRowProps
-  rowCell?: TableRowCellProps
-  headerRowCell: Partial<TableHeaderRowCellProps>
+  rowCells: TableRowCellProps[]
+  headerRowCells: TableHeaderRowCellProps[]
   card: TableCardProps
 }
+
+// <TableRowCell width={3 / 12} {...rowCell}>
+// <Text tag="div" variant="body">
+//   Today
+// </Text>
+// </TableRowCell>
 
 const Table = ({
   container,
   row,
-  rowCell,
-  headerRowCell,
+  rowCells,
+  headerRowCells,
   card,
 }: TableStoryProps): JSX.Element => {
   const { expanded, ...restCardProps } = card
-  const { checkable, ...restHeaderRowCellProps } = headerRowCell
 
   return (
     <TableContainer {...container}>
       <TableHeader>
         <TableRow>
-          <TableHeaderRowCell
-            labelText="Resource name"
-            width={3 / 12}
-            checkable={checkable}
-            sorting="descending"
-            {...restHeaderRowCellProps}
-          />
-          <TableHeaderRowCell
-            labelText="Supplementary information"
-            width={3 / 12}
-            sorting="ascending"
-            {...restHeaderRowCellProps}
-          />
-          <TableHeaderRowCell
-            labelText="Date"
-            width={3 / 12}
-            {...restHeaderRowCellProps}
-          />
-          <TableHeaderRowCell
-            labelText="Price"
-            width={3 / 12}
-            {...restHeaderRowCellProps}
-          />
+          {headerRowCells.map((headerRowCellProps, index) => (
+            <TableHeaderRowCell key={index} {...headerRowCellProps} />
+          ))}
         </TableRow>
       </TableHeader>
       <TableCard
@@ -71,34 +57,13 @@ const Table = ({
         onClick={expanded ? (): void => undefined : undefined}
       >
         <TableRow {...row}>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Resource
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Supplementary
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Today
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body" classNameOverride="mr-24">
-              100
-            </Text>
-            {expanded && (
-              <TableRowCell width={3 / 12} {...rowCell}>
-                <IconButton
-                  label="Expand"
-                  icon={<ChevronUpIcon role="presentation" />}
-                />
-              </TableRowCell>
-            )}
-          </TableRowCell>
+          {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
+            <TableRowCell {...otherProps} key={rowCellIndex}>
+              <Text tag="div" variant="body">
+                {children}
+              </Text>
+            </TableRowCell>
+          ))}
         </TableRow>
         {expanded && (
           <>
@@ -111,26 +76,13 @@ const Table = ({
       </TableCard>
       <TableCard {...restCardProps}>
         <TableRow {...row}>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Resource
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Supplementary
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Today
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              100
-            </Text>
-          </TableRowCell>
+          {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
+            <TableRowCell {...otherProps} key={rowCellIndex}>
+              <Text tag="div" variant="body">
+                {children}
+              </Text>
+            </TableRowCell>
+          ))}
         </TableRow>
       </TableCard>
     </TableContainer>
@@ -142,6 +94,9 @@ const meta = {
   component: Table,
   parameters: {
     chromatic: { disable: false },
+    docs: {
+      source: { type: "dynamic" },
+    },
     a11y: {
       config: {
         rules: [
@@ -171,7 +126,42 @@ const meta = {
   },
   args: {
     card: { expanded: false },
-    headerRowCell: { checkable: false },
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Supplementary information",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
+    rowCells: [
+      {
+        width: 3 / 12,
+        children: "Resource",
+      },
+      {
+        width: 3 / 12,
+        children: "Supplementary",
+      },
+      {
+        width: 3 / 12,
+        children: "Today",
+      },
+      {
+        width: 3 / 12,
+        children: "100",
+      },
+    ],
   },
   decorators: [
     Story => (
@@ -195,6 +185,39 @@ export const Playground: Story = {
   },
 }
 
+export const Sorting: Story = {
+  render: Table,
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  args: {
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        sorting: "ascending",
+        onClick: action("Sort Resource name"),
+        width: 3 / 12,
+      },
+      {
+        labelText: "Supplementary information",
+        sorting: "descending",
+        onClick: action("Sort Supplementary information"),
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
+  },
+}
+
 export const Data: Story = {
   render: Table,
   args: { container: { variant: "data" } },
@@ -207,7 +230,31 @@ export const Data: Story = {
 
 export const Reversed: Story = {
   render: Table,
-  args: { headerRowCell: { reversed: true } },
+  args: {
+    card: { expanded: false },
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        width: 3 / 12,
+        reversed: true,
+      },
+      {
+        labelText: "Resource name",
+        width: 3 / 12,
+        reversed: true,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+        reversed: true,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+        reversed: true,
+      },
+    ],
+  },
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -234,7 +281,52 @@ export const Compact: Story = {
 
 export const CheckboxVariant: Story = {
   render: Table,
-  args: { headerRowCell: { checkable: true } },
+  args: {
+    headerRowCells: [
+      {
+        checkable: true,
+        onCheck: action("onCheck header-1"),
+        checkboxLabel: "Select all Employees",
+        labelText: "Employee",
+        width: 5 / 12,
+      },
+      {
+        labelText: "Job title",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 2 / 12,
+      },
+      {
+        labelText: "Score",
+        width: 2 / 12,
+      },
+    ],
+    rowCells: [
+      {
+        width: 5 / 12,
+        children: (
+          <span className="flex gap-12">
+            <Checkbox aria-label="Employee x" />
+            <span>Employee name</span>
+          </span>
+        ),
+      },
+      {
+        width: 3 / 12,
+        children: "Engineer",
+      },
+      {
+        width: 2 / 12,
+        children: "Today",
+      },
+      {
+        width: 2 / 12,
+        children: "100",
+      },
+    ],
+  },
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -255,9 +347,27 @@ export const LinkVariant: Story = {
 export const IconVariant: Story = {
   render: Table,
   args: {
-    headerRowCell: {
-      icon: <EffectivenessIcon role="presentation" />,
-    },
+    headerRowCells: [
+      {
+        icon: <EffectivenessIcon role="presentation" />,
+        labelText: "Resource name",
+        width: 3 / 12,
+      },
+      {
+        icon: <EffectivenessIcon role="presentation" />,
+        labelText: "Resource name",
+        width: 3 / 12,
+        sorting: "ascending",
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -284,11 +394,28 @@ export const Expandable: Story = {
 export const HeaderAlignmentAndWrapping: Story = {
   render: Table,
   args: {
-    headerRowCell: {
-      labelText: "Right header align with wrapping",
-      wrapping: "wrap",
-      align: "end",
-    },
+    headerRowCells: [
+      {
+        labelText: "Header align start with wrapping",
+        wrapping: "wrap",
+        align: "start",
+      },
+      {
+        labelText: "Default alignment",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Header center",
+        align: "center",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Header align with end with wrapping",
+        wrapping: "wrap",
+        align: "end",
+        width: 3 / 12,
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -300,9 +427,26 @@ export const HeaderAlignmentAndWrapping: Story = {
 export const Tooltip: Story = {
   render: Table,
   args: {
-    headerRowCell: {
-      tooltipInfo: "This is a tooltip",
-    },
+    card: { expanded: false },
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        tooltipInfo: "This is a resource",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Supplementary information",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
   },
   parameters: {
     docs: {
