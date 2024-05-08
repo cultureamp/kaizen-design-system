@@ -2,7 +2,7 @@ import resolve from "@rollup/plugin-node-resolve"
 import { RollupOptions } from "rollup"
 import postcss from "rollup-plugin-postcss"
 
-export const rollupOptionsUiLibrary = {
+export const presetUiLibrary = {
   plugins: [
     // This is needed to ensure that css is compiled correctly.
     // Without this there is an alphabetised order in the dist CSS for subcomponents.

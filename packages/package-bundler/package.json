@@ -11,7 +11,7 @@
   "bin": {
     "package-bundler": "./bin/build-commands.sh",
     "addTailwindStylesImport": "./dist/presets/ui-library/bin/addTailwindStylesImport.js",
-    "markStyleInjectAsPure": "./dist/presets/ui-library/bin/markStyleInjectAsPure.js"
+    "mark-style-inject-as-pure": "./dist/presets/ui-library/bin/markStyleInjectAsPure.js"
   },
   "files": [
     "dist",

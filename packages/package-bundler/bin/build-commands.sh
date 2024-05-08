@@ -27,7 +27,7 @@ case "$1" in
         ;;
     purify-styles)
         echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-        npx --no-install markStyleInjectAsPure
+        npx --no-install mark-style-inject-as-pure
         ;;
     inject-tailwind)
         echo -e "${GREEN}Inject Tailwind${NC}"

@@ -5,37 +5,34 @@ import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
-import { rollupOptionsUiLibrary } from "./presets/ui-library/index.js"
+import { presetUiLibrary } from "./presets/index.js"
 
-type Presets = "ui-library"
+// type Presets = "ui-library"
 
-const getPreset = (preset: Presets): RollupOptions => {
-  switch (preset) {
-    case "ui-library":
-      return rollupOptionsUiLibrary
-  }
-}
+// const getPreset = (preset: Presets): RollupOptions => {
+//   switch (preset) {
+//     case "ui-library":
+//       return rollupOptionsUiLibrary
+//   }
+// }
 
 type Config = {
   input: RollupOptions["input"]
-  preset: Presets
+  preset: { plugins: InputPluginOption }
   alias?: RollupAliasOptions
 }
 
 export const rollupConfig = (
   config: Config = {
     input: { index: "./src/index.ts" },
-    preset: "ui-library",
+    preset: presetUiLibrary,
   }
 ): RollupOptions[] => {
-  const preset = getPreset(config.preset)
-
   // Shared config
   const sharedConfig = {
-    ...preset,
     input: config.input,
     plugins: [
-      ...(preset.plugins as InputPluginOption[]),
+      ...(config.preset.plugins as InputPluginOption[]),
       nodeExternals({
         devDeps: true,
       }),
