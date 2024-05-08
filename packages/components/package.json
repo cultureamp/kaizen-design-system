@@ -23,11 +23,15 @@
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
   "sideEffects": [
-    "styles.css"
+    "styles.css",
+    "tailwind.css"
   ],
   "scripts": {
-    "build": "pnpm package-bundler build && pnpm package-bundler purify-styles && pnpm styles:global",
+    "build": "pnpm package-bundler build && pnpm package-bundler purify-styles && pnpm styles:global && pnpm build:tailwind",
     "styles:global": "postcss ./styles/global.css --output dist/styles.css",
+    "build:styles:tailwind": "postcss styles/tailwind.css --output dist/tailwind.css",
+    "build:inject-tailwind": "pnpm package-bundler inject-tailwind",
+    "build:tailwind": "pnpm build:styles:tailwind && pnpm build:inject-tailwind",
     "dist:clean": "pnpm package-bundler dist:clean",
     "help": "pnpm package-bundler help",
     "test": "FORCE_COLOR=1 jest",

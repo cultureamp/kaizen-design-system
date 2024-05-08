@@ -29,6 +29,10 @@ case "$1" in
         echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
         npx --no-install markStyleInjectAsPure
         ;;
+    inject-tailwind)
+        echo -e "${GREEN}Inject Tailwind${NC}"
+        npx --no-install addTailwindStylesImport
+        ;;
     types)
         echo -e "${GREEN}Compile typescript types...${NC}"
         echo "tsc --project tsconfig.types.json"

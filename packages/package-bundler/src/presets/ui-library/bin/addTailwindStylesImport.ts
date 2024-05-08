@@ -1,15 +1,34 @@
 import fs from "fs"
 import path from "path"
+import util from "util"
 
-const DIST_STYLES_PATH = path.resolve(__dirname, "../dist/tailwind.css")
+const readFileAsync = util.promisify(fs.readFile)
 
-const addGlobalStylesImport = async (dirOrFile: string): Promise<void> => {
+const getPackageName = async (): Promise<string | null> => {
+  // Assuming the package.json file is in the root directory of the consuming repo
+  const packageJsonPath = path.resolve(process.cwd(), "package.json")
+
+  try {
+    const data = await readFileAsync(packageJsonPath, "utf8")
+    const packageJson = JSON.parse(data)
+    return packageJson.name
+  } catch (error) {
+    // eslint-disable-next-line
+    console.error("Error reading package.json:", error)
+    return null
+  }
+}
+
+const addGlobalStylesImport = async (
+  stylesPath: string,
+  dirOrFile: string
+): Promise<void> => {
   if (fs.statSync(dirOrFile).isDirectory()) {
     const dirContent = await fs.promises.readdir(dirOrFile)
 
     dirContent.forEach(content => {
       const contentPath = path.join(dirOrFile, content)
-      addGlobalStylesImport(contentPath)
+      addGlobalStylesImport(stylesPath, contentPath)
     })
     return
   }
@@ -23,7 +42,6 @@ const addGlobalStylesImport = async (dirOrFile: string): Promise<void> => {
       return
     }
 
-    const stylesPath = path.relative(path.dirname(filePath), DIST_STYLES_PATH)
     const fileContent = fs.readFileSync(filePath).toString()
 
     const isESM = dirOrFile.includes("dist/esm")
@@ -52,7 +70,9 @@ const DIST_DIRS = ["dist/cjs", "dist/esm"]
 DIST_DIRS.forEach(dir => {
   ;(async () => {
     try {
-      addGlobalStylesImport(dir)
+      const packageName = await getPackageName()
+      const distStylesPath = `${packageName}/dist/tailwind.css`
+      addGlobalStylesImport(distStylesPath, dir)
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error("Directory not found", e)
