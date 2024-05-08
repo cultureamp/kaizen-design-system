@@ -1,27 +1,41 @@
 import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
-import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
-import { RollupOptions } from "rollup"
+import { InputPluginOption, RollupOptions } from "rollup"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
-import postcss from "rollup-plugin-postcss"
+import { rollupOptionsUiLibrary } from "./presets/ui-library/index.js"
+
+type Presets = "ui-library"
+
+const getPreset = (preset: Presets): RollupOptions => {
+  switch (preset) {
+    case "ui-library":
+      return rollupOptionsUiLibrary
+  }
+}
 
 type Config = {
   input: RollupOptions["input"]
+  preset: Presets
   alias?: RollupAliasOptions
 }
 
 export const rollupConfig = (
   config: Config = {
     input: { index: "./src/index.ts" },
+    preset: "ui-library",
   }
 ): RollupOptions[] => {
+  const preset = getPreset(config.preset)
+
   // Shared config
   const sharedConfig = {
+    ...preset,
     input: config.input,
     plugins: [
+      ...(preset.plugins as InputPluginOption[]),
       nodeExternals({
         devDeps: true,
       }),
@@ -39,19 +53,6 @@ export const rollupConfig = (
           },
         ],
       }),
-      resolve({
-        preferBuiltins: true,
-        extensions: [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          // This is needed to ensure that css is compiled correctly.
-          // Without this there is an alphabetised order in the dist CSS for subcomponents.
-          // This can cause styles being overwritten by primitives, ie: BaseButton overwriting DropdownButton
-          // https://cultureamp.slack.com/archives/C02NUQ27G56/p1713157055178419
-        ],
-      }),
       // These libraries aren't used in KAIO, and require polyfills to be set up
       // in consuming repos. Ignoring them here removes the need for extra setup in
       // consuming repos.
@@ -63,18 +64,11 @@ export const rollupConfig = (
           "babel-plugin-pure-static-props",
         ],
       }),
-      postcss({
-        modules: true,
-        extract: false,
-        inject: cssVariableName =>
-          `import styleInject from "style-inject";\nstyleInject(${cssVariableName});`,
-        extensions: [".scss", ".css"],
-      }),
     ],
   }
 
   // CommonJS
-  const cjsConfig: RollupOptions = {
+  const cjsConfig = {
     ...sharedConfig,
     plugins: [
       ...sharedConfig.plugins,
@@ -94,10 +88,10 @@ export const rollupConfig = (
       entryFileNames: "[name].cjs",
       interop: "auto",
     },
-  }
+  } satisfies RollupOptions
 
   // ESModules
-  const esmConfig: RollupOptions = {
+  const esmConfig = {
     ...sharedConfig,
     plugins: [
       ...sharedConfig.plugins,
@@ -109,7 +103,7 @@ export const rollupConfig = (
       preserveModules: true,
       entryFileNames: "[name].mjs",
     },
-  }
+  } satisfies RollupOptions
 
   return [cjsConfig, esmConfig]
 }

@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "lib": ["es2019"],
     "module": "esnext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -10,10 +11,9 @@
     "noImplicitReturns": true,
     "strict": true,
     "allowJs": false,
-    "moduleResolution": "node",
     "outDir": "dist",
     "target": "ESNext"
   },
-  "include": ["src/*", "bin/**.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

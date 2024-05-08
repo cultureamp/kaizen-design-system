@@ -1,5 +1,5 @@
 {
-  "extends": ["./tsconfig.json", "@kaizen/package-bundler/shared.dist.json"],
+  "extends": ["./tsconfig.json", "@kaizen/package-bundler/tsconfig.dist.json"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",
