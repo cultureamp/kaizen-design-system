@@ -42,7 +42,6 @@
   },
   "peerDependencies": {
     "babel-plugin-pure-static-props": "^0.2.0",
-    "concat-cli": "^4.0.0",
     "postcss": "^8.4.38",
     "postcss-preset-env": "^9.3.0",
     "rollup": "^4.13.2",
