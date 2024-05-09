@@ -27,12 +27,8 @@
     "tailwind.css"
   ],
   "scripts": {
-    "tmp:purify-styles": "pnpm package-bundler purify-styles",
-    "build": "pnpm package-bundler build && pnpm package-bundler purify-styles && pnpm styles:global && pnpm build:tailwind",
+    "build": "pnpm package-bundler build-ui-library && pnpm styles:global",
     "styles:global": "postcss ./styles/global.css --output dist/styles.css",
-    "build:styles:tailwind": "postcss styles/tailwind.css --output dist/tailwind.css",
-    "build:inject-tailwind": "pnpm package-bundler inject-tailwind",
-    "build:tailwind": "pnpm build:styles:tailwind && pnpm build:inject-tailwind",
     "dist:clean": "pnpm package-bundler dist:clean",
     "help": "pnpm package-bundler help",
     "test": "FORCE_COLOR=1 jest",

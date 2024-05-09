@@ -4,14 +4,15 @@
   "description": "Bundles shared UI component libraries",
   "main": "dist/index.js",
   "type": "module",
-  "scripts": {
-    "build": "rm -rf dist && tsc --build",
-    "prepare": "ts-patch install -s"
-  },
   "bin": {
     "package-bundler": "./bin/build-commands.sh",
     "addTailwindStylesImport": "./bin/addTailwindStylesImport.sh",
+    "buildTailwind": "./bin/buildTailwind.sh",
     "markStyleInjectAsPure": "./bin/markStyleInjectAsPure.sh"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc --build",
+    "prepare": "ts-patch install -s"
   },
   "files": [
     "dist",
