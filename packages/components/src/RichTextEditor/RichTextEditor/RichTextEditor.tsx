@@ -30,6 +30,7 @@ import { buildKeymap } from "./utils/keymap"
 import styles from "./RichTextEditor.module.scss"
 
 type BaseRichTextEditorProps = {
+  id?: string
   onChange: (content: ProseMirrorState.EditorState) => void
   defaultValue: EditorContentArray
   controls?: ToolbarItems[]
@@ -70,6 +71,7 @@ export type RichTextEditorProps = BaseRichTextEditorProps &
  * {@link https://cultureamp.design/?path=/docs/components-richtexteditor--docs Storybook}
  */
 export const RichTextEditor = ({
+  id,
   onChange,
   defaultValue,
   labelText,
@@ -85,12 +87,13 @@ export const RichTextEditor = ({
   status = "default",
   ...restProps
 }: RichTextEditorProps): JSX.Element => {
-  const reactId = useId()
+  const generatedId = useId()
   const [schema] = useState<ProseMirrorModel.Schema>(
     createSchemaFromControls(controls)
   )
-  const [labelId] = useState<string>(labelledBy || reactId)
-  const [editorId] = useState<string>(reactId)
+
+  const editorId = id || generatedId
+  const labelId = labelledBy || `${editorId}-rte-label`
   const validationMessageAria = validationMessage
     ? `${editorId}-rte-validation-message`
     : ""
