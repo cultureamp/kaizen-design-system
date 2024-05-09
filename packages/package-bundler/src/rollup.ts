@@ -1,32 +1,36 @@
-import { RollupAliasOptions } from "@rollup/plugin-alias"
+import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
-import { presetDefault, presetUiLibrary } from "./presets/index.js"
+import { pluginsDefault } from "./presets/index.js"
 
 type Config = {
   input: RollupOptions["input"]
-  plugins: InputPluginOption[]
+  plugins?: InputPluginOption[]
   alias?: RollupAliasOptions
 }
 
 export const rollupConfig = (
   config: Config = {
     input: { index: "./src/index.ts" },
-    plugins: presetUiLibrary,
+    plugins: pluginsDefault,
   }
 ): RollupOptions[] => {
   // Shared config
-  const sharedConfig = {
+  const userConfig = {
     input: config.input,
-    plugins: [...config.plugins, ...presetDefault({ alias: config.alias })],
+    plugins: [
+      // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
+      alias(config.alias),
+      ...((config?.plugins as InputPluginOption[]) || pluginsDefault),
+    ],
   }
 
   // CommonJS
   const cjsConfig = {
-    ...sharedConfig,
+    ...userConfig,
     plugins: [
-      ...sharedConfig.plugins,
+      ...userConfig.plugins,
       typescript({
         tsconfig: "./tsconfig.dist.json",
         compilerOptions: {
@@ -47,9 +51,9 @@ export const rollupConfig = (
 
   // ESModules
   const esmConfig = {
-    ...sharedConfig,
+    ...userConfig,
     plugins: [
-      ...sharedConfig.plugins,
+      ...userConfig.plugins,
       typescript({ tsconfig: "./tsconfig.dist.json" }),
     ],
     output: {

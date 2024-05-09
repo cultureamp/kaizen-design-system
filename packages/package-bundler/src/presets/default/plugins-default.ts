@@ -1,19 +1,13 @@
-import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
+import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel"
 import { InputPluginOption } from "rollup"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 
-type Config = {
-  alias: RollupAliasOptions | undefined
-}
-
-export const presetDefault = (config: Config): InputPluginOption[] => [
+export const pluginsDefault = [
   nodeExternals({
     devDeps: true,
   }),
-  // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
-  alias(config.alias),
   // This call to alias plugin will be additional to the above alias plugin call
   alias({
     entries: [
@@ -37,4 +31,4 @@ export const presetDefault = (config: Config): InputPluginOption[] => [
       "babel-plugin-pure-static-props",
     ],
   }),
-]
+] satisfies InputPluginOption[]
