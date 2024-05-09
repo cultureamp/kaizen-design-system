@@ -27,11 +27,11 @@ case "$1" in
         ;;
     purify-styles)
         echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-        npx --no markStyleInjectAsPure
+        npx --no -c markStyleInjectAsPure
         ;;
     inject-tailwind)
         echo -e "${GREEN}Inject Tailwind${NC}"
-        npx --no addTailwindStylesImport
+        npx --no -c addTailwindStylesImport
         ;;
     types)
         echo -e "${GREEN}Compile typescript types...${NC}"
