@@ -13,7 +13,7 @@ type Config = {
 export const rollupConfig = (
   config: Config = {
     input: { index: "./src/index.ts" },
-    plugins: pluginsDefault,
+    plugins: pluginsDefault as InputPluginOption[],
   }
 ): RollupOptions[] => {
   // Shared config

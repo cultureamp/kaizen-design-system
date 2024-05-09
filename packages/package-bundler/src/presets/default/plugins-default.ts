@@ -1,7 +1,7 @@
 import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel"
 import { InputPluginOption } from "rollup"
-import ignore from "rollup-plugin-ignore"
+// import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
 
 export const pluginsDefault = [
@@ -23,22 +23,22 @@ export const pluginsDefault = [
   // These libraries aren't used in UI Library packages, and require polyfills to be set up
   // in consuming repos. Ignoring them here removes the need for extra setup in
   // consuming repos.
-  ignore([
-    "crypto",
-    "fs",
-    "http",
-    "https",
-    "module",
-    "net",
-    "os",
-    "path",
-    "stream",
-    "tls",
-    "tty",
-    "v8",
-    "worker_threads",
-    "zlib",
-  ]),
+  // ignore([
+  //   "crypto",
+  //   "fs",
+  //   "http",
+  //   "https",
+  //   "module",
+  //   "net",
+  //   "os",
+  //   "path",
+  //   "stream",
+  //   "tls",
+  //   "tty",
+  //   "v8",
+  //   "worker_threads",
+  //   "zlib",
+  // ]),
   babel({ babelHelpers: "bundled" }),
   getBabelOutputPlugin({
     plugins: [

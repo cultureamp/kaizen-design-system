@@ -1,5 +1,4 @@
 import resolve from "@rollup/plugin-node-resolve"
-import { InputPluginOption } from "rollup"
 import postcss from "rollup-plugin-postcss"
 import { pluginsDefault } from "../default/index.js"
 
@@ -20,4 +19,4 @@ export const pluginsUiLibrary = [
     extensions: [".scss", ".css"],
   }),
   ...pluginsDefault,
-] satisfies InputPluginOption[]
+]
