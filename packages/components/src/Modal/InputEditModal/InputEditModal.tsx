@@ -19,6 +19,9 @@ export type InputEditModalProps = {
   onSubmit: () => void
   onSecondaryAction?: () => void
   onDismiss: () => void
+  /** A callback that is triggered after the modal is opened. */
+  onAfterEnter?: () => void
+  /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
   localeDirection?: "rtl" | "ltr"
   submitLabel?: string
@@ -51,6 +54,7 @@ export const InputEditModal = ({
   children,
   unpadded = false,
   onDismiss: propsOnDismiss,
+  onAfterEnter,
   ...props
 }: InputEditModalProps): JSX.Element => {
   const onDismiss = submitWorking ? undefined : propsOnDismiss
@@ -79,6 +83,7 @@ export const InputEditModal = ({
       isOpen={isOpen}
       onEscapeKeyup={onDismiss}
       onAfterLeave={onAfterLeave}
+      onAfterEnter={onAfterEnter}
     >
       <div className={styles.modal} dir={localeDirection} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>

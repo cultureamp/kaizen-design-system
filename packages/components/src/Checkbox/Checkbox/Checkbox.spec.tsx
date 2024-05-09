@@ -23,7 +23,7 @@ describe("<Checkbox />", () => {
 
     await user.click(checkbox)
     await waitFor(() => {
-      expect(defaultProps.onCheck).toBeCalledTimes(1)
+      expect(defaultProps.onCheck).toHaveBeenCalledTimes(1)
     })
   })
 })

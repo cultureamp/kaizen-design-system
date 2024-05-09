@@ -1,5 +1,35 @@
 # Change Log
 
+## 1.45.2
+
+### Patch Changes
+
+- [#4665](https://github.com/cultureamp/kaizen-design-system/pull/4665) [`0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6`](https://github.com/cultureamp/kaizen-design-system/commit/0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6) - fixed duplicate id on RTE, added optional id to RTE
+
+## 1.45.1
+
+### Patch Changes
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - stylelint-config-standard-scss dep update to 13.1.0
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - Update react monorepo deps and fix Storybook ArgType ts errors
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - sass dep update to 1.76.0
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - playwright-monorepo dep-update
+
+## 1.45.0
+
+### Minor Changes
+
+- [#4662](https://github.com/cultureamp/kaizen-design-system/pull/4662) [`6cf318e6db52f5d1cebe2042fedb5267d3c2b3a5`](https://github.com/cultureamp/kaizen-design-system/commit/6cf318e6db52f5d1cebe2042fedb5267d3c2b3a5) - Expose ref for IconButton
+
+## 1.44.0
+
+### Minor Changes
+
+- [#4660](https://github.com/cultureamp/kaizen-design-system/pull/4660) [`afea659cf94fe3b338b2934627a47d347d020af0`](https://github.com/cultureamp/kaizen-design-system/commit/afea659cf94fe3b338b2934627a47d347d020af0) - Add onAferEnter callback to GenericModal and expose in InputEditModal, ContextModal, ConfirmationModal to allow for focus management after open.
+
 ## 1.43.0
 
 ### Minor Changes

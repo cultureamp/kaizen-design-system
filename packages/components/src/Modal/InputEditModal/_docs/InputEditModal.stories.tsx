@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
@@ -100,4 +100,66 @@ export const Unpadded: Story = {
   ...InputModalTemplate,
   args: { unpadded: true },
   ...chromaticModalSettings,
+}
+
+export const OnAfterEnter: Story = {
+  ...chromaticModalSettings,
+  args: {
+    title: "Create new link",
+    submitLabel: "Add link",
+  },
+  render: args => {
+    const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
+    const inputRef = useRef<HTMLInputElement>(null)
+    const handleOpen = (): void => setIsOpen(true)
+    const handleClose = (): void => setIsOpen(false)
+
+    return (
+      <>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={handleOpen}
+        >
+          Create a link
+        </button>
+        <InputEditModal
+          {...args}
+          isOpen={isOpen}
+          onSubmit={handleClose}
+          onDismiss={handleClose}
+          onAfterEnter={() => inputRef.current?.focus()}
+        >
+          <form>
+            <TextField inputRef={inputRef} labelText="Link URL" />
+          </form>
+        </InputEditModal>
+      </>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+        // The label of the button and the input it is focused to may provide enough context.
+        <button
+          onClick={handleOpen}
+        >
+          Create a link
+        </button>
+        <InputEditModal
+          {...args}
+          isOpen={isOpen}
+          onSubmit={handleClose}
+          onDismiss={handleClose}
+          onAfterEnter={() => inputRef.current?.focus()}
+        >
+          <form>
+            <TextField inputRef={inputRef} labelText="Link URL" />
+          </form>
+        </InputEditModal>
+        `,
+      },
+    },
+  },
 }

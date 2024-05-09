@@ -13,6 +13,9 @@ export type GenericModalProps = {
   focusLockDisabled?: boolean
   onEscapeKeyup?: (event: KeyboardEvent) => void
   onOutsideModalClick?: (event: React.MouseEvent) => void
+  /** A callback that is triggered after the modal is opened. */
+  onAfterEnter?: () => void
+  /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
 }
 
@@ -23,6 +26,7 @@ export const GenericModal = ({
   focusLockDisabled,
   onEscapeKeyup,
   onOutsideModalClick,
+  onAfterEnter,
   onAfterLeave: propsOnAfterLeave,
 }: GenericModalProps): JSX.Element => {
   const reactId = useId()
@@ -50,18 +54,19 @@ export const GenericModal = ({
     }
   }
 
-  const focusAccessibleLabel = (): void => {
-    if (modalLayer) {
-      const labelElement: HTMLElement | null =
-        document.getElementById(labelledByID)
-      if (labelElement) {
-        labelElement.focus()
-      }
+  const focusOnAccessibleLabel = (): void => {
+    // Check if focus already exists within the modal
+    if (modalLayer?.contains(document.activeElement)) {
+      return
     }
+
+    const labelElement: HTMLElement | null =
+      document.getElementById(labelledByID)
+
+    labelElement?.focus()
   }
 
   const a11yWarn = (): void => {
-    if (!modalLayer) return
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
     if (!document.getElementById(labelledByID)) {
@@ -86,8 +91,11 @@ export const GenericModal = ({
 
   const onAfterEnterHandler = (): void => {
     scrollModalToTop()
-    focusAccessibleLabel()
-    a11yWarn()
+    if (modalLayer) {
+      onAfterEnter?.()
+      focusOnAccessibleLabel()
+      a11yWarn()
+    }
   }
 
   const onBeforeEnterHandler = (): void => {

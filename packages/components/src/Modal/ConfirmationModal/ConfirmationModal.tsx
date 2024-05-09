@@ -39,6 +39,9 @@ export type ConfirmationModalProps = {
   title: string
   onConfirm?: () => void
   onDismiss: () => void
+  /** A callback that is triggered after the modal is opened. */
+  onAfterEnter?: () => void
+  /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
   confirmLabel?: string
   dismissLabel?: string
@@ -99,6 +102,7 @@ export const ConfirmationModal = ({
   title,
   onConfirm,
   onAfterLeave,
+  onAfterEnter,
   confirmLabel = "Confirm",
   dismissLabel = "Cancel",
   confirmWorking,
@@ -134,6 +138,7 @@ export const ConfirmationModal = ({
       onEscapeKeyup={onDismiss}
       onOutsideModalClick={onDismiss}
       onAfterLeave={onAfterLeave}
+      onAfterEnter={onAfterEnter}
     >
       <div className={styles.modal} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>
