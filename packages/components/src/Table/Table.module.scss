@@ -185,6 +185,28 @@ $row-height-data-variant: 48px;
     will-change: box-shadow, border-color, margin, padding, width;
   }
 
+  &:focus-visible {
+    outline: none;
+    position: relative;
+    &::after {
+      // This offset provide enough gap on on reverse for contrast ratios
+      $focus-ring-offset: calc(#{$border-focus-ring-border-width} + 2px);
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% + #{$focus-ring-offset});
+      height: calc(100% + #{$focus-ring-offset});
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-500;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-radius: inherit;
+    }
+  }
+
   &.well {
     margin-top: $spacing-sm;
   }
