@@ -188,6 +188,7 @@ $row-height-data-variant: 48px;
   &:focus-visible {
     outline: none;
     position: relative;
+
     &::after {
       // This offset provide enough gap on on reverse for contrast ratios
       $focus-ring-offset: calc(#{$border-focus-ring-border-width} + 2px);
