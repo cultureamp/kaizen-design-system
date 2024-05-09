@@ -27,7 +27,7 @@ A table displays rows of data, including all data in a set, making it efficient 
 
 ### Variant
 
-Controls the spacing in each cell within the table. Options available are `compact`, `default` and `data`
+Controls the spacing in each cell within the table. Options available are `compact`, `default` and `data`.
 
 #### Compact
 <Canvas of={TableStories.Data} />
@@ -75,6 +75,9 @@ You can read more about the Tooltip component and accessibility limitation [here
 <Canvas of={TableStories.LinkVariant} />
 
 ### Expandable
+
+The `expandable` prop introduces known accessibility issues with nesting interactive elements as children of a `button` or `anchor` tag. We recommend avoiding this pattern if possible, or creating a tier 3 component that adheres to correct WCAG hierarchy.
+
 <Canvas of={TableStories.Expandable} />
 
 
