@@ -10,8 +10,8 @@
   },
   "bin": {
     "package-bundler": "./bin/build-commands.sh",
-    "addTailwindStylesImport": "./dist/presets/ui-library/bin/addTailwindStylesImport.js",
-    "markStyleInjectAsPure": "./dist/presets/ui-library/bin/markStyleInjectAsPure.js"
+    "addTailwindStylesImport": "./bin/addTailwindStylesImport.sh",
+    "markStyleInjectAsPure": "./bin/markStyleInjectAsPure.sh"
   },
   "files": [
     "dist",
