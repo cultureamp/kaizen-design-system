@@ -32,19 +32,19 @@
     "babel-plugin-pure-static-props": "^0.2.0",
     "replace-in-file": "^7.1.0",
     "rollup-plugin-ignore": "^1.0.10",
-    "rollup-plugin-node-externals": "^7.1.1",
+    "rollup-plugin-node-externals": "^7.1.2",
     "rollup-plugin-postcss": "^4.0.2",
     "ts-patch": "^3.1.2",
     "typescript-transform-paths": "^3.4.7"
   },
   "devDependencies": {
-    "rollup": "^4.13.2",
+    "rollup": "^4.17.2",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "postcss": "^8.4.38",
-    "postcss-preset-env": "^9.3.0",
-    "rollup": "^4.13.2",
+    "postcss-preset-env": "^9.5.11",
+    "rollup": "^4.17.2",
     "style-inject": "^0.3.0"
   }
 }
