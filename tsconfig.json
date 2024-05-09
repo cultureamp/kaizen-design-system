@@ -19,15 +19,9 @@
       "~components/*": ["packages/components/src/*"],
       "~design-tokens/*": ["packages/design-tokens/src/*"]
     },
-    "types": [
-      "@testing-library/jest-dom"
-    ]
+    "types": ["@testing-library/jest-dom"]
   },
   "files": ["./types.d.ts"],
-  "include": [
-    "packages/**/*",
-    "storybook/**/*",
-    "docs/**/*.tsx"
-  ],
+  "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx"],
   "exclude": ["**/node_modules"]
 }

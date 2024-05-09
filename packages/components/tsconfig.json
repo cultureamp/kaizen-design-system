@@ -10,11 +10,9 @@
       "~utils/*": ["./src/utils/*"],
       "~components/*": ["./src/*"]
     },
-    "types": [
-      "@testing-library/jest-dom"
-    ]
+    "types": ["@testing-library/jest-dom"]
   },
-  "files": ["types.d.ts" ],
+  "files": ["types.d.ts"],
   "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "ts-node": {
