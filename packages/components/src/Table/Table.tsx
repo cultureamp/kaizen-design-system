@@ -13,6 +13,7 @@ import styles from "./Table.module.scss"
 
 export type TableContainerProps = {
   children?: React.ReactNode
+  /** @default "compact" */
   variant?: "compact" | "default" | "data"
 }
 /**
@@ -135,6 +136,7 @@ export const TableHeaderRowCell = ({
 }: TableHeaderRowCellProps): JSX.Element => {
   const sorting = sortingRaw
   const [isHovered, setIsHovered] = React.useState(false)
+
   const updateHoverState = (hoverState: boolean): void => {
     if (sortingArrowsOnHover && hoverState != isHovered)
       setIsHovered(hoverState)
@@ -151,7 +153,11 @@ export const TableHeaderRowCell = ({
     <div className={styles.headerRowCellLabelAndIcons}>
       {icon && (
         <span className={styles.headerRowCellIcon}>
-          {cloneElement(icon, { title: labelText, role: "img" })}
+          {cloneElement(icon, {
+            title: labelText,
+            ["aria-label"]: labelText, // title is unreliable so this is a sensible fallback for tables with icons as headers without aria-labels
+            role: "img",
+          })}
         </span>
       )}
       {checkable && (
