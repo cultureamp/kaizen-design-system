@@ -27,6 +27,7 @@
     "tailwind.css"
   ],
   "scripts": {
+    "tmp:purify-styles": "pnpm package-bundler purify-styles",
     "build": "pnpm package-bundler build && pnpm package-bundler purify-styles && pnpm styles:global && pnpm build:tailwind",
     "styles:global": "postcss ./styles/global.css --output dist/styles.css",
     "build:styles:tailwind": "postcss styles/tailwind.css --output dist/tailwind.css",

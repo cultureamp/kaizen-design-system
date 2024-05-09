@@ -1,12 +1,16 @@
 import fs from "fs"
 import path from "path"
 import util from "util"
+import { getArgs } from "./getArgs.js"
+
+const args = getArgs()
 
 const readFileAsync = util.promisify(fs.readFile)
 
 const getPackageName = async (): Promise<string | null> => {
   // Assuming the package.json file is in the root directory of the consuming repo
-  const packageJsonPath = path.resolve(process.cwd(), "package.json")
+  // const packageJsonPath = path.resolve(process.cwd(), "package.json")
+  const packageJsonPath = path.resolve(args.packagePath, "package.json")
 
   try {
     const data = await readFileAsync(packageJsonPath, "utf8")
@@ -72,7 +76,7 @@ DIST_DIRS.forEach(dir => {
     try {
       const packageName = await getPackageName()
       const distStylesPath = `${packageName}/dist/tailwind.css`
-      addGlobalStylesImport(distStylesPath, dir)
+      addGlobalStylesImport(distStylesPath, `${args.packagePath}/${dir}`)
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error("Directory not found", e)
