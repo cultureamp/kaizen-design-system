@@ -23,34 +23,56 @@ A table displays rows of data, including all data in a set, making it efficient 
 
 <Canvas of={TableStories.Playground} />
 
-## API
+## TableContainer API
 
-### Compact tables
-<Canvas of={TableStories.Compact} />
+### Variant
 
-### Data tables
+Controls the spacing in each cell within the table. Options available are `compact`, `default` and `data`
+
+#### Compact
 <Canvas of={TableStories.Data} />
 
-#### Sorting headers
+#### Default
+<Canvas of={TableStories.Default} />
+
+#### Data
+<Canvas of={TableStories.Data} />
+
+## TableHeaderRowCell API
+
+### Sorting
 <Canvas of={TableStories.Sorting} />
 
-### Checkbox header
+### Checkbox
+
+To ensure there appropriate context for users of assistive technologies, when using a `checkable` `TableHeaderRowCell`, we advise in the `checkboxLabel`. This will be passed to the a checkbox aria-label and be announce to screen reader users when focused.
+
 <Canvas of={TableStories.CheckboxVariant} />
 
-### Icon headers
+### Icon
+
+When using providing `icon` to `TableHeaderRowCell` the `labelText` will be passed to the `aria-label` of the SVG.
+
 <Canvas of={TableStories.IconVariant} />
 
-### Align and wrapping headers
+### Align and wrapping
 <Canvas of={TableStories.HeaderAlignmentAndWrapping} />
 
-### Tooltip headers
+### Tooltips
+
+While Tooltip content can be passed to any table header via the `tooltipInfo` prop, it is strong advised to avoid this if the header is not an interactive element as the tooltip content will be unreadable to keyboard users or those that use assistive technologies.
+
 <Canvas of={TableStories.Tooltip} />
+
+You can read more about the Tooltip component and accessibility limitation [here](https://cultureamp.design/?path=/docs/components-tooltip--docs#screen-reader-accessibility).
 
 ### Reversed
 <Canvas of={TableStories.Reversed} />
 
-### Link TableCards
+## TableCard API
+
+### Link
 <Canvas of={TableStories.LinkVariant} />
 
-### Expandable TableCards
+### Expandable
 <Canvas of={TableStories.Expandable} />

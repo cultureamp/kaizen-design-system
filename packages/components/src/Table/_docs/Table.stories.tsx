@@ -27,12 +27,6 @@ export type TableStoryProps = {
   card: TableCardProps
 }
 
-// <TableRowCell width={3 / 12} {...rowCell}>
-// <Text tag="div" variant="body">
-//   Today
-// </Text>
-// </TableRowCell>
-
 const Table = ({
   container,
   row,
@@ -235,11 +229,13 @@ export const Reversed: Story = {
     headerRowCells: [
       {
         labelText: "Resource name",
+        sorting: "ascending",
+        onClick: action("Sort Resource name by ascending"),
         width: 3 / 12,
         reversed: true,
       },
       {
-        labelText: "Resource name",
+        labelText: "Supplementary information",
         width: 3 / 12,
         reversed: true,
       },
@@ -272,6 +268,16 @@ export const Reversed: Story = {
 export const Compact: Story = {
   render: Table,
   args: { container: { variant: "compact" } },
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+}
+
+export const Default: Story = {
+  render: Table,
+  args: { container: { variant: "default" } },
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -355,9 +361,8 @@ export const IconVariant: Story = {
       },
       {
         icon: <EffectivenessIcon role="presentation" />,
-        labelText: "Resource name",
+        labelText: "Supplementary information",
         width: 3 / 12,
-        sorting: "ascending",
       },
       {
         labelText: "Date",
@@ -431,7 +436,9 @@ export const Tooltip: Story = {
     headerRowCells: [
       {
         labelText: "Resource name",
-        tooltipInfo: "This is a resource",
+        tooltipInfo: "Sort this by ascending",
+        sorting: "ascending",
+        onClick: action("Sort Resource name by ascending"),
         width: 3 / 12,
       },
       {
