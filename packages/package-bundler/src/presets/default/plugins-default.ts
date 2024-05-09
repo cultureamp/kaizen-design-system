@@ -20,10 +20,25 @@ export const pluginsDefault = [
       },
     ],
   }),
-  // These libraries aren't used in KAIO, and require polyfills to be set up
+  // These libraries aren't used in UI Library packages, and require polyfills to be set up
   // in consuming repos. Ignoring them here removes the need for extra setup in
   // consuming repos.
-  ignore(["stream", "http", "https", "zlib"]),
+  ignore([
+    "crypto",
+    "fs",
+    "http",
+    "https",
+    "module",
+    "net",
+    "os",
+    "path",
+    "stream",
+    "tls",
+    "tty",
+    "v8",
+    "worker_threads",
+    "zlib",
+  ]),
   babel({ babelHelpers: "bundled" }),
   getBabelOutputPlugin({
     plugins: [
