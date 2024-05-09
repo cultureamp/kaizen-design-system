@@ -1,1 +1,1 @@
-export * from "./rollup.js"
+export * from "./plugins-ui-library.js"
