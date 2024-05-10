@@ -24,7 +24,7 @@ export type TableStoryProps = {
   row?: TableRowProps
   rowCells: TableRowCellProps[]
   headerRowCells: TableHeaderRowCellProps[]
-  card: TableCardProps
+  tableCards: TableCardProps[]
 }
 
 const Table = ({
@@ -32,24 +32,18 @@ const Table = ({
   row,
   rowCells,
   headerRowCells,
-  card,
-}: TableStoryProps): JSX.Element => {
-  const { expanded, ...restCardProps } = card
-
-  return (
-    <TableContainer {...container}>
-      <TableHeader>
-        <TableRow>
-          {headerRowCells.map((headerRowCellProps, index) => (
-            <TableHeaderRowCell key={index} {...headerRowCellProps} />
-          ))}
-        </TableRow>
-      </TableHeader>
-      <TableCard
-        {...restCardProps}
-        expanded={expanded}
-        onClick={expanded ? (): void => undefined : undefined}
-      >
+  tableCards,
+}: TableStoryProps): JSX.Element => (
+  <TableContainer {...container}>
+    <TableHeader>
+      <TableRow>
+        {headerRowCells.map((headerRowCellProps, index) => (
+          <TableHeaderRowCell key={index} {...headerRowCellProps} />
+        ))}
+      </TableRow>
+    </TableHeader>
+    {tableCards.map((tableCardProps, index) => (
+      <TableCard {...tableCardProps} key={index}>
         <TableRow {...row}>
           {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
             <TableRowCell {...otherProps} key={rowCellIndex}>
@@ -59,7 +53,7 @@ const Table = ({
             </TableRowCell>
           ))}
         </TableRow>
-        {expanded && (
+        {tableCardProps.expanded && (
           <>
             <Divider variant="content" />
             <Text tag="div" variant="body" classNameOverride="p-16">
@@ -68,20 +62,9 @@ const Table = ({
           </>
         )}
       </TableCard>
-      <TableCard {...restCardProps}>
-        <TableRow {...row}>
-          {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
-            <TableRowCell {...otherProps} key={rowCellIndex}>
-              <Text tag="div" variant="body">
-                {children}
-              </Text>
-            </TableRowCell>
-          ))}
-        </TableRow>
-      </TableCard>
-    </TableContainer>
-  )
-}
+    ))}
+  </TableContainer>
+)
 
 const meta = {
   title: "Components/Table",
@@ -114,7 +97,14 @@ const meta = {
     },
   },
   args: {
-    card: { expanded: false },
+    tableCards: [
+      {
+        expanded: false,
+      },
+      {
+        expanded: false,
+      },
+    ],
     headerRowCells: [
       {
         labelText: "Resource name",
@@ -220,7 +210,6 @@ export const Data: Story = {
 export const Reversed: Story = {
   render: Table,
   args: {
-    card: { expanded: false },
     headerRowCells: [
       {
         labelText: "Resource name",
@@ -337,7 +326,7 @@ export const CheckboxVariant: Story = {
 
 export const LinkVariant: Story = {
   render: Table,
-  args: { card: { href: "#?foo=bar" } },
+  args: { tableCards: [{ href: "#?foo=bar" }, { href: "#?bar=foo" }] },
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -379,10 +368,16 @@ export const IconVariant: Story = {
 export const Expandable: Story = {
   render: Table,
   args: {
-    card: {
-      expanded: true,
-      expandedStyle: "popout",
-    },
+    tableCards: [
+      {
+        expanded: true,
+        expandedStyle: "popout",
+        onClick: action("Set expanded to false"),
+      },
+      {
+        expanded: false,
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -427,7 +422,6 @@ export const HeaderAlignmentAndWrapping: Story = {
 export const Tooltip: Story = {
   render: Table,
   args: {
-    card: { expanded: false },
     headerRowCells: [
       {
         labelText: "Resource name",
