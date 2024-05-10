@@ -31,6 +31,7 @@ $row-height-data-variant: 48px;
   margin: 0;
   padding: 0;
   transition: none; // override Murmur global styles :(
+  outline: none;
 }
 
 .container {
@@ -76,11 +77,11 @@ $row-height-data-variant: 48px;
 .headerRowCell .headerRowCellTooltip {
   display: flex;
   align-items: stretch;
+  max-width: 100%;
 }
 
-// overflow has to be set at this level as well as on the heading for some reason ¯\_(ツ)_/¯
-.headerRowCell.headerRowCellNoWrap .headerRowCellTooltip {
-  overflow: hidden;
+.headerRowCell.headerRowCellNoWrap .headerRowCellContent {
+  max-width: 100%;
 }
 
 .headerRowCellButton {
@@ -95,16 +96,17 @@ $row-height-data-variant: 48px;
 
   &:focus-visible {
     outline: none;
+    position: relative;
 
     &::after {
-      // This offset provide enough gap on on reverse for contrast ratios
-      $focus-ring-offset: calc(#{$border-focus-ring-border-width} + 6px);
+      // This offset provide enough gap on reverse for contrast ratios
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: calc(100% - #{$border-focus-ring-border-width});
-      height: calc(100% - #{$focus-ring-offset});
+      width: calc(100% + #{$focus-ring-offset});
+      height: calc(100% + #{$focus-ring-offset});
       content: "";
       position: absolute;
       background: transparent;
