@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.45.3
+
+### Patch Changes
+
+- [#4669](https://github.com/cultureamp/kaizen-design-system/pull/4669) [`680397ec239831396417bae85e3e8b907d9bf502`](https://github.com/cultureamp/kaizen-design-system/commit/680397ec239831396417bae85e3e8b907d9bf502) - fix tsConfig jest-dom types
+
+## 1.45.2
+
+### Patch Changes
+
+- [#4665](https://github.com/cultureamp/kaizen-design-system/pull/4665) [`0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6`](https://github.com/cultureamp/kaizen-design-system/commit/0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6) - fixed duplicate id on RTE, added optional id to RTE
+
 ## 1.45.1
 
 ### Patch Changes
