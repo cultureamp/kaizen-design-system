@@ -44,7 +44,7 @@ case "$1" in
         ;;
     inject-tailwind)
         echo -e "${GREEN}Inject Tailwind${NC}"
-        npx --no -c buildTailwind
+        # npx --no -c buildTailwind
         npx --no -c addTailwindStylesImport
         ;;
     help)

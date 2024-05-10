@@ -75,7 +75,7 @@ DIST_DIRS.forEach(dir => {
   ;(async () => {
     try {
       const packageName = await getPackageName()
-      const distStylesPath = `${packageName}/dist/tailwind.css`
+      const distStylesPath = `${packageName}/dist/tailwind.css.js`
       addGlobalStylesImport(distStylesPath, `${args.packagePath}/${dir}`)
     } catch (e) {
       // eslint-disable-next-line no-console
