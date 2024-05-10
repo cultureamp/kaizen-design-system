@@ -27,48 +27,44 @@ export type TableStoryProps = {
   tableCards: TableCardProps[]
 }
 
-const Table = ({
-  container,
-  row,
-  rowCells,
-  headerRowCells,
-  tableCards,
-}: TableStoryProps): JSX.Element => (
-  <TableContainer {...container}>
-    <TableHeader>
-      <TableRow>
-        {headerRowCells.map((headerRowCellProps, index) => (
-          <TableHeaderRowCell key={index} {...headerRowCellProps} />
-        ))}
-      </TableRow>
-    </TableHeader>
-    {tableCards.map((tableCardProps, index) => (
-      <TableCard {...tableCardProps} key={index}>
-        <TableRow {...row}>
-          {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
-            <TableRowCell {...otherProps} key={rowCellIndex}>
-              <Text tag="div" variant="body">
-                {children}
-              </Text>
-            </TableRowCell>
+const TableTemplate: StoryObj<TableStoryProps> = {
+  render: ({ container, headerRowCells, tableCards, row, rowCells }) => (
+    <TableContainer {...container}>
+      <TableHeader>
+        <TableRow>
+          {headerRowCells.map((headerRowCellProps, index) => (
+            <TableHeaderRowCell key={index} {...headerRowCellProps} />
           ))}
         </TableRow>
-        {tableCardProps.expanded && (
-          <>
-            <Divider variant="content" />
-            <Text tag="div" variant="body" classNameOverride="p-16">
-              Overall progress
-            </Text>
-          </>
-        )}
-      </TableCard>
-    ))}
-  </TableContainer>
-)
+      </TableHeader>
+      {tableCards.map((tableCardProps, index) => (
+        <TableCard {...tableCardProps} key={index}>
+          <TableRow {...row}>
+            {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
+              <TableRowCell {...otherProps} key={rowCellIndex}>
+                <Text tag="div" variant="body">
+                  {children}
+                </Text>
+              </TableRowCell>
+            ))}
+          </TableRow>
+          {tableCardProps.expanded && (
+            <>
+              <Divider variant="content" />
+              <Text tag="div" variant="body" classNameOverride="p-16">
+                Overall progress
+              </Text>
+            </>
+          )}
+        </TableCard>
+      ))}
+    </TableContainer>
+  ),
+}
 
-const meta = {
+export default {
+  ...TableTemplate,
   title: "Components/Table",
-  component: Table,
   parameters: {
     chromatic: { disable: false },
     docs: {
@@ -149,14 +145,10 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Table>
+} satisfies Meta<TableStoryProps>
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Playground: Story = {
-  render: Table,
+export const Playground: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -164,8 +156,8 @@ export const Playground: Story = {
   },
 }
 
-export const Sorting: Story = {
-  render: Table,
+export const Sorting: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -197,8 +189,8 @@ export const Sorting: Story = {
   },
 }
 
-export const Data: Story = {
-  render: Table,
+export const Data: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: { container: { variant: "data" } },
   parameters: {
     docs: {
@@ -207,8 +199,8 @@ export const Data: Story = {
   },
 }
 
-export const Reversed: Story = {
-  render: Table,
+export const Reversed: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
     headerRowCells: [
       {
@@ -249,8 +241,8 @@ export const Reversed: Story = {
   ],
 }
 
-export const Compact: Story = {
-  render: Table,
+export const Compact: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: { container: { variant: "compact" } },
   parameters: {
     docs: {
@@ -259,8 +251,8 @@ export const Compact: Story = {
   },
 }
 
-export const Default: Story = {
-  render: Table,
+export const Default: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: { container: { variant: "default" } },
   parameters: {
     docs: {
@@ -269,8 +261,8 @@ export const Default: Story = {
   },
 }
 
-export const CheckboxVariant: Story = {
-  render: Table,
+export const CheckboxVariant: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
     headerRowCells: [
       {
@@ -324,8 +316,8 @@ export const CheckboxVariant: Story = {
   },
 }
 
-export const LinkVariant: Story = {
-  render: Table,
+export const LinkVariant: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: { tableCards: [{ href: "#?foo=bar" }, { href: "#?bar=foo" }] },
   parameters: {
     docs: {
@@ -334,8 +326,8 @@ export const LinkVariant: Story = {
   },
 }
 
-export const IconVariant: Story = {
-  render: Table,
+export const IconVariant: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
     headerRowCells: [
       {
@@ -365,8 +357,8 @@ export const IconVariant: Story = {
   },
 }
 
-export const Expandable: Story = {
-  render: Table,
+export const Expandable: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
     tableCards: [
       {
@@ -386,8 +378,8 @@ export const Expandable: Story = {
   },
 }
 
-export const HeaderAlignmentAndWrapping: Story = {
-  render: Table,
+export const HeaderAlignmentAndWrapping: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
     headerRowCells: [
       {
@@ -419,8 +411,8 @@ export const HeaderAlignmentAndWrapping: Story = {
   },
 }
 
-export const Tooltip: Story = {
-  render: Table,
+export const Tooltip: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
     headerRowCells: [
       {
