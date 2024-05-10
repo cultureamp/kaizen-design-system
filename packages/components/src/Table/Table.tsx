@@ -57,7 +57,6 @@ export type TableHeaderRowProps = {
 const ratioToPercent = (width?: number): string | number | undefined =>
   width != null ? `${width * 100}%` : width
 
-//
 export type TableHeaderRowCellCheckboxProps = {
   checkable?: boolean
   checkedStatus?: CheckedStatus
@@ -127,7 +126,6 @@ export const TableHeaderRowCell = ({
   tooltipInfo,
   isTooltipIconHidden = false,
   tooltipPortalSelector,
-
   sortingArrowsOnHover,
   classNameOverride,
   // There aren't any other props in the type definition, so I'm unsure why we
