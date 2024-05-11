@@ -211,7 +211,7 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0
       playwright:
-        specifier: ^1.43.1
+        specifier: ^1.44.0
         version: 1.44.0
       plop:
         specifier: ^4.0.1
@@ -12462,7 +12462,7 @@ packages:
       jest-process-manager: 0.4.0
       jest-runner: 29.7.0
       nyc: 15.1.0
-      playwright-core: 1.43.0
+      playwright-core: 1.44.0
       rimraf: 3.0.2
       uuid: 8.3.2
     transitivePeerDependencies:
@@ -15122,12 +15122,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       find-up: 5.0.0
-    dev: true
-
-  /playwright-core@1.43.0:
-    resolution: {integrity: sha512-iWFjyBUH97+pUFiyTqSLd8cDMMOS0r2ZYz2qEsPjH8/bX++sbIJT35MSwKnp1r/OQBAqC5XO99xFbJ9XClhf4w==}
-    engines: {node: '>=16'}
-    hasBin: true
     dev: true
 
   /playwright-core@1.44.0:
