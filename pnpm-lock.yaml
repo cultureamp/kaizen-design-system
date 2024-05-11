@@ -88,7 +88,7 @@ importers:
         specifier: ^0.17.0
         version: 0.17.0(@types/node@20.11.17)
       '@storybook/theming':
-        specifier: ^8.0.6
+        specifier: ^8.0.10
         version: 8.0.10(react-dom@18.3.1)(react@18.3.1)
       '@tanstack/react-query':
         specifier: ^5.34.2
