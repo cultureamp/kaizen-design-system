@@ -71,7 +71,7 @@
     "@storybook/test": "^8.0.10",
     "@storybook/test-runner": "^0.18.0",
     "@storybook/theming": "^8.0.10",
-    "@tanstack/react-query": "^5.35.5",
+    "@tanstack/react-query": "^5.36.0",
     "@testing-library/dom": "^10.1.0",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
