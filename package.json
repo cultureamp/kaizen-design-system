@@ -124,7 +124,7 @@
     "raw-loader": "^4.0.2",
     "react-test-renderer": "^18.3.1",
     "rimraf": "^5.0.7",
-    "sass-loader": "^14.1.1",
+    "sass-loader": "^14.2.1",
     "storybook": "^8.0.10",
     "storybook-addon-pseudo-states": "^2.2.1",
     "style-loader": "^3.3.4",

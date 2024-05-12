@@ -250,8 +250,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7
       sass-loader:
-        specifier: ^14.1.1
-        version: 14.1.1(node-sass@9.0.0)(webpack@5.91.0)
+        specifier: ^14.2.1
+        version: 14.2.1(node-sass@9.0.0)(webpack@5.91.0)
       storybook:
         specifier: ^8.0.10
         version: 8.0.10(react-dom@18.3.1)(react@18.3.1)
@@ -17165,8 +17165,8 @@ packages:
       yargs: 17.7.2
     dev: true
 
-  /sass-loader@14.1.1(node-sass@9.0.0)(webpack@5.91.0):
-    resolution: {integrity: sha512-QX8AasDg75monlybel38BZ49JP5Z+uSKfKwF2rO7S74BywaRmGQMUBw9dtkS+ekyM/QnP+NOrRYq8ABMZ9G8jw==}
+  /sass-loader@14.2.1(node-sass@9.0.0)(webpack@5.91.0):
+    resolution: {integrity: sha512-G0VcnMYU18a4N7VoNDegg2OuMjYtxnqzQWARVWCIVSZwJeiL9kg8QMsuIZOplsJgTzZLF6jGxI3AClj8I9nRdQ==}
     engines: {node: '>= 18.12.0'}
     peerDependencies:
       '@rspack/core': 0.x || 1.x
