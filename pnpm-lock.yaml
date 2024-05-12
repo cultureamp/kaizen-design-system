@@ -247,8 +247,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       rimraf:
-        specifier: ^5.0.6
-        version: 5.0.6
+        specifier: ^5.0.7
+        version: 5.0.7
       sass-loader:
         specifier: ^14.1.1
         version: 14.1.1(node-sass@9.0.0)(webpack@5.91.0)
@@ -10389,7 +10389,7 @@ packages:
     dependencies:
       flatted: 3.2.9
       keyv: 4.5.4
-      rimraf: 5.0.6
+      rimraf: 5.0.7
     dev: true
 
   /flatted@3.2.9:
@@ -16988,9 +16988,9 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rimraf@5.0.6:
-    resolution: {integrity: sha512-X72SgyOf+1lFnGM6gYcmZ4+jMOwuT4E4SajKQzUIlI7EoR5eFHMhS/wf8Ll0mN+w2bxcIVldrJQ6xT7HFQywjg==}
-    engines: {node: '>=14'}
+  /rimraf@5.0.7:
+    resolution: {integrity: sha512-nV6YcJo5wbLW77m+8KjH8aB/7/rxQy9SZ0HY5shnwULfS+9nmTtVXAJET5NdZmCzA4fPI/Hm1wo/Po/4mopOdg==}
+    engines: {node: '>=14.18'}
     hasBin: true
     dependencies:
       glob: 10.3.10
