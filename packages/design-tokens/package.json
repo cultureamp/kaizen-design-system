@@ -21,7 +21,6 @@
   "private": false,
   "license": "MIT",
   "sideEffects": false,
-  "type": "module",
   "scripts": {
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
