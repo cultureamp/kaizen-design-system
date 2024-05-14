@@ -426,6 +426,9 @@ importers:
       resize-observer-polyfill:
         specifier: ^1.5.1
         version: 1.5.1
+      style-inject:
+        specifier: ^0.3.0
+        version: 0.3.0
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -487,9 +490,6 @@ importers:
       serialize-query-params:
         specifier: ^2.0.2
         version: 2.0.2
-      style-inject:
-        specifier: ^0.3.0
-        version: 0.3.0
       svgo:
         specifier: ^3.2.0
         version: 3.2.0
