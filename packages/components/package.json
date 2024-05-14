@@ -24,7 +24,7 @@
   "types": "dist/types/index.d.ts",
   "sideEffects": [
     "styles.css",
-    "tailwind.css.js"
+    "tailwind.css.*"
   ],
   "scripts": {
     "build": "pnpm package-bundler build-ui-library && pnpm styles:global",
