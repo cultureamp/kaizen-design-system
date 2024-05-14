@@ -61,3 +61,74 @@ Again, try to keep the contents of your children as simple as possible, ideally 
 
 When your direct child is not semantic, you will get a console warning like this:
 `<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info.`
+
+
+### Tooltips, Kaizen components and common pitfalls
+
+While technically any Kaizen component can be wrapped by a `Tooltip`, as called out previously, only those with accessible roles will be readable to assistive technologies.
+
+We've created some guidance below with the most common cases for `Tooltip` and how to ensure the additional context is read to the user.
+
+#### Button and IconButton
+
+<Canvas of={TooltipStories.ButtonsWithTooltip} />
+
+While Kaizen buttons are compatible with `Tooltip`, caution is advised when using the custom `component` render prop.
+
+```JSX
+  <Tooltip text="Contact customer support.">
+    <Button
+      {...buttonProps}
+      component={() => (
+        // The most immediate child is a `div`, which has no `role`.
+        <div>
+          <button type="button">
+            Help
+          </button>
+        </div>
+      )}
+    />
+  </Tooltip>
+```
+
+In the example above, the `div` in now the direct descendant of `Tooltip`, therefore will no longer be accessible to assistive technologies.
+
+
+#### ButtonGroup
+
+The `Tooltip` component must wrap the children of `ButtonGroup` to be accessible to screen readers.
+
+<Canvas of={TooltipStories.ButtonGroupWithTooltip} />
+
+
+#### Table headers and tooltips
+
+While the composable `Tooltip` is not exposed in the Kaizen `Table`, it is important to call out that the `tooltipInfo` prop in `TableHeaderRowCell` must also have an `onClick` or `href` to be announced to assistive technologies.
+
+<Canvas of={TooltipStories.TableHeadersWithTooltips} />
+
+
+#### Tags
+
+If the original [Tag]("/?path=/docs/components-tag--docs") is wrapped by a `Tooltip` component, its children will not accessible to screen readers as it's direct descendant is a `div`.
+
+```JSX
+<Tooltip text="Tooltip label">
+  {/*
+    The Tag has no semantic role and is not interactive, so neither keyboard
+    nor assistive technologies will be able to read the tooltip Tooltip label".
+  */}
+  <Tag>ad veniam sapiente</Tag>
+</Tooltip>
+```
+
+While tooltips should be avoided for non-interactive and non-semantic elements, like the default Tag, the [future Tag]("/?path=/docs/components-tag-future--docs") offers a composable solution for those needing to add more context to Tags with interactive states.
+
+<Canvas of={TooltipStories.TagWithTooltip} />
+
+
+- Interact-able Tags
+- FilterButtonBase
+- ToggleIconButton
+
+

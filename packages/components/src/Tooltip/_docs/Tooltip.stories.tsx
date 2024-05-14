@@ -1,9 +1,22 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/Button"
-import { InformationIcon } from "~components/Icon"
-import { Tag } from "~components/Tag"
+import { Button, IconButton } from "~components/Button"
+import { ButtonGroup } from "~components/ButtonGroup"
+import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
+import {
+  InformationIcon,
+  RemoveLinkIcon,
+  QuestionIcon,
+  VisibleIcon,
+} from "~components/Icon"
+import {
+  TableContainer,
+  TableHeader,
+  TableHeaderRowCell,
+  TableRow,
+} from "~components/Table"
 import { Text } from "~components/Text"
+import { Tag } from "~components/__future__"
 import { Tooltip } from "../index"
 
 const meta = {
@@ -11,7 +24,15 @@ const meta = {
   component: Tooltip,
   args: {
     text: "Example tooltip text.",
+    animationDuration: 0,
   },
+  decorators: [
+    Story => (
+      <div className="flex mt-[50px] justify-center gap-12">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Tooltip>
 
 export default meta
@@ -31,19 +52,6 @@ export const Playground: Story = {
       <Button label="Hover or focus me" />
     </Tooltip>
   ),
-  decorators: [
-    Story => (
-      <div
-        style={{
-          marginTop: "100px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
 }
 
 export const OverflowScroll: Story = {
@@ -140,6 +148,110 @@ export const OverflowScroll: Story = {
           </div>
         </div>
       </div>
+    </>
+  ),
+}
+
+export const ButtonsWithTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: args => (
+    <>
+      <Tooltip {...args} text="Contact customer support.">
+        <Button label="Help" icon={<QuestionIcon role="presentation" />} />
+      </Tooltip>
+      <Tooltip {...args} text="Remove the link from current selection.">
+        <IconButton
+          label="Remove link"
+          icon={<RemoveLinkIcon role="presentation" />}
+        />
+      </Tooltip>
+    </>
+  ),
+}
+
+export const ButtonGroupWithTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: args => (
+    <>
+      <ButtonGroup>
+        <Tooltip {...args} text="Sort by first" animationDuration={0}>
+          <FilterButtonBase>First</FilterButtonBase>
+        </Tooltip>
+        <Tooltip {...args} text="Sort by last" animationDuration={0}>
+          <FilterButtonBase>Last</FilterButtonBase>
+        </Tooltip>
+      </ButtonGroup>
+    </>
+  ),
+}
+
+export const TableHeadersWithTooltips: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <TableContainer>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderRowCell
+              labelText="Resource name"
+              sorting="descending"
+              width={3 / 12}
+              onClick={(): void => undefined}
+              tooltipInfo="Sort column by descending"
+            />
+            <TableHeaderRowCell
+              labelText="Supplementary information"
+              width={3 / 12}
+              onClick={(): void => undefined}
+              sorting="ascending"
+              tooltipInfo="Sort column by ascending"
+            />
+            <TableHeaderRowCell labelText="Date" width={3 / 12} />
+            <TableHeaderRowCell labelText="Price" width={3 / 12} />
+          </TableRow>
+        </TableHeader>
+      </TableContainer>
+    </>
+  ),
+}
+
+export const TagWithTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <Tag>
+        <span className="max-w-[50px] overflow-hidden truncate">
+          John Jonson Johnington the Third
+        </span>
+        <Tooltip
+          text="Reveal full name John Jonson Johnington the Third"
+          animationDuration={0}
+        >
+          <button
+            className="max-h-[26px] m-0"
+            type="button"
+            aria-label="Reveal full name"
+          >
+            <VisibleIcon role="presentation" />
+          </button>
+        </Tooltip>
+      </Tag>
     </>
   ),
 }
