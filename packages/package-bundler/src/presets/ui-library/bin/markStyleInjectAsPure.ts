@@ -4,7 +4,10 @@ import { getArgs } from "./getArgs.js"
 const args = getArgs()
 
 const options = {
-  files: `${args.packagePath}/dist/esm/**/*.module.scss.mjs`,
+  files: [
+    `${args.packagePath}/dist/esm/**/*.module.scss.mjs`,
+    `${args.packagePath}/dist/esm/tailwind.css.mjs`,
+  ],
   from: "styleInject(",
   to: "/*#__PURE__*/styleInject(",
 }

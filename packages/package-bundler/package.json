@@ -7,7 +7,6 @@
   "bin": {
     "package-bundler": "./bin/build-commands.sh",
     "addTailwindStylesImport": "./bin/addTailwindStylesImport.sh",
-    "buildTailwind": "./bin/buildTailwind.sh",
     "markStyleInjectAsPure": "./bin/markStyleInjectAsPure.sh"
   },
   "scripts": {

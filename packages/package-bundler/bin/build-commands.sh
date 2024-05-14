@@ -7,19 +7,20 @@ NC='\033[0m' # No Color
 SECONDS=0
 
 case "$1" in
-    build-ui-library)
-        echo "Running build-ui-library command..."
-        npx package-bundler build
-        npx package-bundler purify-styles
-        npx package-bundler inject-tailwind
-        elapsed_time=$SECONDS
-        echo -e "${GREEN}Built in: ${BOLD}${GREEN}$elapsed_time${NC} ${GREEN}seconds${NC}"
-        ;;
     build)
         echo "Running build command..."
         npx package-bundler clean
         npx package-bundler rollup
         npx package-bundler types
+        elapsed_time=$SECONDS
+        echo -e "${GREEN}Built in: ${BOLD}${GREEN}$elapsed_time${NC} ${GREEN}seconds${NC}"
+        ;;
+    build-ui-library)
+        echo "Running build-ui-library command..."
+        npx package-bundler build
+        npx --no -c addTailwindStylesImport
+        echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
+        npx --no -c markStyleInjectAsPure
         elapsed_time=$SECONDS
         echo -e "${GREEN}Built in: ${BOLD}${GREEN}$elapsed_time${NC} ${GREEN}seconds${NC}"
         ;;
@@ -38,21 +39,12 @@ case "$1" in
         echo "tsc --project tsconfig.types.json"
         tsc --project tsconfig.types.json
         ;;
-    purify-styles)
-        echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-        npx --no -c markStyleInjectAsPure
-        ;;
-    inject-tailwind)
-        echo -e "${GREEN}Inject Tailwind${NC}"
-        # npx --no -c buildTailwind
-        npx --no -c addTailwindStylesImport
-        ;;
     help)
-        echo -e "${GREEN}Usage: $0 {build|clean|rollup|purify-styles|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|build-ui-library|clean|rollup|types|help}${NC}"
         exit 1
         ;;
     *)
-        echo -e "${GREEN}Usage: $0 {build|clean|rollup|purify-styles|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|build-ui-library|clean|rollup|types|help}${NC}"
         exit 1
         ;;
 esac

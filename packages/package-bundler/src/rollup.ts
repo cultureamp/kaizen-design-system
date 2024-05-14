@@ -1,8 +1,11 @@
+import fs from "fs"
+import path from "path"
 import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
 import { pluginsDefault } from "./presets/index.js"
+import { rollupTailwindConfig } from "./presets/ui-library/rollup-tailwind.js"
 
 type Config = {
   input: RollupOptions["input"]
@@ -64,5 +67,11 @@ export const rollupConfig = (
     },
   } satisfies RollupOptions
 
-  return [cjsConfig, esmConfig]
+  const hasTailwind = fs.existsSync(
+    path.resolve(process.cwd(), "./tailwind.config.js")
+  )
+
+  return hasTailwind
+    ? [cjsConfig, esmConfig, ...rollupTailwindConfig()]
+    : [cjsConfig, esmConfig]
 }
