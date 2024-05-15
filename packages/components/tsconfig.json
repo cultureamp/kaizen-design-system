@@ -7,9 +7,10 @@
       "~types/*": ["./src/types/*"],
       "~utils/*": ["./src/utils/*"],
       "~components/*": ["./src/*"]
-    }
+    },
+    "types": ["@testing-library/jest-dom"]
   },
   "files": ["types.d.ts"],
-  "include": ["src/**/*", "../../jest.setup.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
