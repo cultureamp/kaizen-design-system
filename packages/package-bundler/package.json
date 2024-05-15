@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/package-bundler",
   "version": "1.0.0",
-  "description": "Bundles shared UI component libraries",
+  "description": "Bundles libraries",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
