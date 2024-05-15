@@ -8,7 +8,7 @@ import { pluginsDefault } from "./presets/index.js"
 import { rollupTailwindConfig } from "./presets/ui-library/rollup-tailwind.js"
 
 type Config = {
-  input: RollupOptions["input"]
+  input?: RollupOptions["input"]
   plugins?: InputPluginOption[]
   alias?: RollupAliasOptions
 }

@@ -1,7 +1,6 @@
-import { rollupConfig, pluginsUiLibrary } from "@kaizen/package-bundler";
+import { pluginsUiLibrary, rollupConfig } from "@kaizen/package-bundler";
 
-export default [
-  ...rollupConfig({
+export default rollupConfig({
     input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
     plugins: pluginsUiLibrary,
     alias: {
@@ -11,5 +10,4 @@ export default [
         { find: "~components", replacement: "src" },
       ],
     },
-  }),
-]
+  })
