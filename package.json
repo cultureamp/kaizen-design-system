@@ -25,7 +25,7 @@
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "lint": "pnpm lint:ts && pnpm lint:md && pnpm lint:format && pnpm lint:styles",
     "eslint-config": "pnpm eslint -c .eslintrc.js --max-warnings=0",
-    "lint:ts": "pnpm eslint-config '**/*.{ts,tsx}'",
+    "lint:ts": "pnpm eslint-config '**/*.{ts,tsx,mjs,js}'",
     "lint:md": "pnpm eslint-config '**/*.{md,mdx}'",
     "lint:format": "pnpm prettier --check '**/*'",
     "lint:styles": "pnpm stylelint '**/*.scss'",
