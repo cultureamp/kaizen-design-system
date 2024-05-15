@@ -2,10 +2,9 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button, IconButton } from "~components/Button"
 import { ButtonGroup } from "~components/ButtonGroup"
-import { CheckboxField, Checkbox } from "~components/Checkbox"
+import { CheckboxField } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
 import { InformationIcon, RemoveLinkIcon, QuestionIcon } from "~components/Icon"
-import { Label } from "~components/Label"
 import {
   TableContainer,
   TableHeader,
@@ -13,7 +12,6 @@ import {
   TableRow,
 } from "~components/Table"
 import { Text } from "~components/Text"
-import { TextField } from "~components/TextField"
 import { Tag } from "~components/__future__"
 import { Tooltip } from "../index"
 
