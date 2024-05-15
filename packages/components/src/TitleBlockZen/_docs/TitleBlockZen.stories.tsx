@@ -119,16 +119,24 @@ export const StickerSheetDefault: Story = {
   render: args => (
     <StickerSheet>
       <StickerSheet.Row rowTitle="Tab hover">
-        <TitleBlockZen {...args} id="tab-hover-example" />
+        <div className="px-12 bg-purple-600">
+          <TitleBlockZen {...args} id="tab-hover-example" />
+        </div>
       </StickerSheet.Row>
       <StickerSheet.Row rowTitle="Tab focus">
-        <TitleBlockZen {...args} id="tab-focus-example" />
+        <div className="px-12 bg-purple-600">
+          <TitleBlockZen {...args} id="tab-focus-example" />
+        </div>
       </StickerSheet.Row>
       <StickerSheet.Row rowTitle="Breadcrumbs hover">
-        <TitleBlockZen {...args} id="Breadcrumbs-hover-example" />
+        <div className="px-12 bg-purple-600">
+          <TitleBlockZen {...args} id="Breadcrumbs-hover-example" />
+        </div>
       </StickerSheet.Row>
       <StickerSheet.Row rowTitle="Breadcrumbs focus">
-        <TitleBlockZen {...args} id="Breadcrumbs-focus-example" />
+        <div className="px-12 bg-purple-600">
+          <TitleBlockZen {...args} id="Breadcrumbs-focus-example" />
+        </div>
       </StickerSheet.Row>
     </StickerSheet>
   ),
