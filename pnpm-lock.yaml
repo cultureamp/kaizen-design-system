@@ -569,7 +569,7 @@ importers:
         specifier: ^8.4.38
         version: 8.4.38
       postcss-preset-env:
-        specifier: ^9.5.11
+        specifier: ^9.3.0
         version: 9.5.11(postcss@8.4.38)
       replace-in-file:
         specifier: ^7.1.0
