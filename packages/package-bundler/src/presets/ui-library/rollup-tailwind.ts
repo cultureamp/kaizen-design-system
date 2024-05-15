@@ -25,7 +25,7 @@ export const rollupTailwindConfig = (): RollupOptions[] => {
       dir: "dist/cjs",
       format: "commonjs",
       entryFileNames: "tailwind.css.cjs",
-      exports: "named"
+      exports: "named",
     },
   } satisfies RollupOptions
 
