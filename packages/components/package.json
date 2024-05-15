@@ -29,7 +29,6 @@
   "scripts": {
     "build": "pnpm package-bundler build-ui-library && pnpm styles:global",
     "styles:global": "postcss ./styles/global.css --output dist/styles.css",
-    "dist:clean": "pnpm package-bundler dist:clean",
     "help": "pnpm package-bundler help",
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
