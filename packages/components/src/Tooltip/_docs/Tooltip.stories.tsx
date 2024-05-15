@@ -2,13 +2,10 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button, IconButton } from "~components/Button"
 import { ButtonGroup } from "~components/ButtonGroup"
+import { CheckboxField, Checkbox } from "~components/Checkbox"
 import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
-import {
-  InformationIcon,
-  RemoveLinkIcon,
-  QuestionIcon,
-  VisibleIcon,
-} from "~components/Icon"
+import { InformationIcon, RemoveLinkIcon, QuestionIcon } from "~components/Icon"
+import { Label } from "~components/Label"
 import {
   TableContainer,
   TableHeader,
@@ -16,6 +13,7 @@ import {
   TableRow,
 } from "~components/Table"
 import { Text } from "~components/Text"
+import { TextField } from "~components/TextField"
 import { Tag } from "~components/__future__"
 import { Tooltip } from "../index"
 
@@ -24,7 +22,6 @@ const meta = {
   component: Tooltip,
   args: {
     text: "Example tooltip text.",
-    animationDuration: 0,
   },
   decorators: [
     Story => (
@@ -182,10 +179,10 @@ export const ButtonGroupWithTooltip: Story = {
   render: args => (
     <>
       <ButtonGroup>
-        <Tooltip {...args} text="Sort by first" animationDuration={0}>
+        <Tooltip {...args} text="Sort by first">
           <FilterButtonBase>First</FilterButtonBase>
         </Tooltip>
-        <Tooltip {...args} text="Sort by last" animationDuration={0}>
+        <Tooltip {...args} text="Sort by last">
           <FilterButtonBase>Last</FilterButtonBase>
         </Tooltip>
       </ButtonGroup>
@@ -205,18 +202,18 @@ export const TableHeadersWithTooltips: Story = {
         <TableHeader>
           <TableRow>
             <TableHeaderRowCell
-              labelText="Resource name"
+              labelText="Resources"
               sorting="descending"
               width={3 / 12}
               onClick={(): void => undefined}
-              tooltipInfo="Sort column by descending"
+              tooltipInfo="Sort Resources by descending"
             />
             <TableHeaderRowCell
-              labelText="Supplementary information"
+              labelText="Supplementary"
               width={3 / 12}
               onClick={(): void => undefined}
               sorting="ascending"
-              tooltipInfo="Sort column by ascending"
+              tooltipInfo="Sort Supplementary by ascending"
             />
             <TableHeaderRowCell labelText="Date" width={3 / 12} />
             <TableHeaderRowCell labelText="Price" width={3 / 12} />
@@ -227,6 +224,19 @@ export const TableHeadersWithTooltips: Story = {
   ),
 }
 
+export const TagWithHoverOnlyTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <Tooltip text="John Jonson Johnington the Third">
+      <Tag>John Jonson Jo...</Tag>
+    </Tooltip>
+  ),
+}
+
 export const TagWithTooltip: Story = {
   parameters: {
     docs: {
@@ -234,24 +244,64 @@ export const TagWithTooltip: Story = {
     },
   },
   render: () => (
+    <Tag>
+      <Tooltip text="Visit John Jonson's profile">
+        <a className="text-inherit font no-underline" href="#John">
+          John Jonson
+        </a>
+      </Tooltip>
+    </Tag>
+  ),
+}
+
+export const TagWithCheckboxField: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
     <>
-      <Tag>
-        <span className="max-w-[50px] overflow-hidden truncate">
-          John Jonson Johnington the Third
+      <Tooltip text="Select all users">
+        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
+      </Tooltip>
+    </>
+  ),
+}
+
+export const CheckboxFieldTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <Tooltip text="Select all users">
+        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
+      </Tooltip>
+    </>
+  ),
+}
+
+export const CheckboxFieldWithDescriptionTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <Tooltip text="Select all users">
+        <CheckboxField
+          labelText="Users"
+          id="sb-checkbox-tooltip--id"
+          aria-describedby="sb-checkbox-description--id"
+        />
+        <span id="sb-checkbox-description--id" className="sr-only">
+          Select all users
         </span>
-        <Tooltip
-          text="Reveal full name John Jonson Johnington the Third"
-          animationDuration={0}
-        >
-          <button
-            className="max-h-[26px] m-0"
-            type="button"
-            aria-label="Reveal full name"
-          >
-            <VisibleIcon role="presentation" />
-          </button>
-        </Tooltip>
-      </Tag>
+      </Tooltip>
     </>
   ),
 }

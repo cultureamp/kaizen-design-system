@@ -63,7 +63,7 @@ When your direct child is not semantic, you will get a console warning like this
 `<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info.`
 
 
-### Tooltips, Kaizen components and common pitfalls
+### Tooltips, Kaizen components and avoiding common pitfalls
 
 While technically any Kaizen component can be wrapped by a `Tooltip`, as called out previously, only those with accessible roles will be readable to assistive technologies.
 
@@ -93,13 +93,11 @@ While Kaizen buttons are compatible with `Tooltip`, caution is advised when usin
 
 In the example above, the `div` in now the direct descendant of `Tooltip`, therefore will no longer be accessible to assistive technologies.
 
-
 #### ButtonGroup
 
 The `Tooltip` component must wrap the children of `ButtonGroup` to be accessible to screen readers.
 
 <Canvas of={TooltipStories.ButtonGroupWithTooltip} />
-
 
 #### Table headers and tooltips
 
@@ -107,28 +105,29 @@ While the composable `Tooltip` is not exposed in the Kaizen `Table`, it is impor
 
 <Canvas of={TooltipStories.TableHeadersWithTooltips} />
 
+Without either of these, the `Tooltip` content will not be readable to keyboard users or assistive technologies.
 
 #### Tags
 
-If the original [Tag]("/?path=/docs/components-tag--docs") is wrapped by a `Tooltip` component, its children will not accessible to screen readers as it's direct descendant is a `div`.
+Seen in the example below simple `Tag`s with plain text as `children` will not accessible to keyboard users or assistive technologies as it's direct descendant is a `div` with no semantic `role`.
 
-```JSX
-<Tooltip text="Tooltip label">
-  {/*
-    The Tag has no semantic role and is not interactive, so neither keyboard
-    nor assistive technologies will be able to read the tooltip Tooltip label".
-  */}
-  <Tag>ad veniam sapiente</Tag>
-</Tooltip>
-```
+<Canvas of={TooltipStories.TagWithHoverOnlyTooltip}  />
 
-While tooltips should be avoided for non-interactive and non-semantic elements, like the default Tag, the [future Tag]("/?path=/docs/components-tag-future--docs") offers a composable solution for those needing to add more context to Tags with interactive states.
+While `Tooltip` should be avoided if there are no interactive states within the `Tag`, internal elements like buttons or links can be wrapped in a `Tooltip` component to add necessary context.
 
 <Canvas of={TooltipStories.TagWithTooltip} />
 
+The [future Tag](?path=/docs/components-tag-future--docs#overview) offers a composable solution for those needing to add more context to Tags with interactive states.
 
-- Interact-able Tags
-- FilterButtonBase
-- ToggleIconButton
+#### Form components and tooltips
 
+While a `Tooltip` can seem like a natural pairing when space is a commodity, form elements still require a concise label that is _ideally_ visible (See MDN's guide on [Tooltip best practices](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#best_practices)).
+
+<Canvas of={TooltipStories.CheckboxFieldTooltip} />
+
+In the example above, the `Tooltip` content `"Select all users"` is accessible to screen readers via keyboard navigation, however will not be announced when the input receives focus. This a limitation of `CheckboxField` and form components where the immediate `children` of `Tooltip` is a wrapper.
+
+<Canvas of={TooltipStories.CheckboxFieldWithDescriptionTooltip} />
+
+In these instances, `aria-describedby` can be leveraged to provide a description to the input.
 
