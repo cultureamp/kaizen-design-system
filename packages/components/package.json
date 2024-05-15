@@ -93,7 +93,6 @@
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "devDependencies": {
-    "rollup-plugin-postcss": "^4.0.2",
     "@babel/plugin-transform-react-pure-annotations": "^7.24.1",
     "@cultureamp/frontend-apis": "^9.5.0",
     "@cultureamp/i18n-react-intl": "^2.5.6",
