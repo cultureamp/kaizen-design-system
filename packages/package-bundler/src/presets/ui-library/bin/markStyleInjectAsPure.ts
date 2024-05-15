@@ -12,4 +12,4 @@ const options = {
   to: "/*#__PURE__*/styleInject(",
 }
 
-replace(options)
+replace.sync(options)
