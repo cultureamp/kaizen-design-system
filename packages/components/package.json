@@ -41,7 +41,6 @@
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.3",
     "@kaizen/hosted-assets": "workspace:*",
-    "@kaizen/package-bundler": "workspace:*",
     "@popperjs/core": "^2.11.8",
     "@reach/tabs": "^0.18.0",
     "@react-aria/button": "^3.9.4",

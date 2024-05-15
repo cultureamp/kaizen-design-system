@@ -297,9 +297,6 @@ importers:
       '@kaizen/hosted-assets':
         specifier: workspace:*
         version: link:../hosted-assets
-      '@kaizen/package-bundler':
-        specifier: workspace:*
-        version: link:../package-bundler
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -451,6 +448,9 @@ importers:
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
+      '@kaizen/package-bundler':
+        specifier: workspace:*
+        version: link:../package-bundler
       '@kaizen/tailwind':
         specifier: workspace:*
         version: link:../tailwind
