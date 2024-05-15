@@ -20,10 +20,6 @@ $row-height-data-variant: 48px;
   &:focus {
     text-decoration: none;
   }
-
-  &.headerRowCellButtonReversed {
-    color: $color-white;
-  }
 }
 
 // Special Table-only button reset
@@ -35,6 +31,7 @@ $row-height-data-variant: 48px;
   margin: 0;
   padding: 0;
   transition: none; // override Murmur global styles :(
+  outline: none;
 }
 
 .container {
@@ -80,19 +77,55 @@ $row-height-data-variant: 48px;
 .headerRowCell .headerRowCellTooltip {
   display: flex;
   align-items: stretch;
+  max-width: 100%;
 }
 
-// overflow has to be set at this level as well as on the heading for some reason ¯\_(ツ)_/¯
-.headerRowCell.headerRowCellNoWrap .headerRowCellTooltip {
-  overflow: hidden;
+.headerRowCell.headerRowCellNoWrap .headerRowCellContent {
+  max-width: 100%;
 }
 
 .headerRowCellButton {
   @include button-reset;
   @include anchor-reset;
+
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  // Ensures that the 100% doesn't go outside of the `headerRowCell` width
+  box-sizing: border-box;
+
+  &:focus-visible {
+    outline: none;
+    position: relative;
+
+    &::after {
+      // This offset provide enough gap on reverse for contrast ratios
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% + #{$focus-ring-offset});
+      height: calc(100% + #{$focus-ring-offset});
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-500;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-radius: $border-focus-ring-border-radius;
+    }
+  }
 }
 
-.headerRowCellButton,
+.headerRowCellButtonReversed {
+  color: $color-white;
+
+  &:focus-visible::after {
+    border-color: $color-blue-100;
+  }
+}
+
 .headerRowCellNoButton {
   display: flex;
   align-items: stretch;
@@ -119,6 +152,10 @@ $row-height-data-variant: 48px;
 
   .headerRowCellActive & {
     color: $color-purple-800;
+  }
+
+  .headerRowCellButtonReversed & {
+    color: $color-white;
   }
 }
 
@@ -152,6 +189,29 @@ $row-height-data-variant: 48px;
 
   &:hover {
     will-change: box-shadow, border-color, margin, padding, width;
+  }
+
+  &:focus-visible {
+    outline: none;
+    position: relative;
+
+    &::after {
+      // This offset provide enough gap on on reverse for contrast ratios
+      $focus-ring-offset: calc(#{$border-focus-ring-border-width} + 2px);
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% + #{$focus-ring-offset});
+      height: calc(100% + #{$focus-ring-offset});
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-500;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-radius: inherit;
+    }
   }
 
   &.well {
