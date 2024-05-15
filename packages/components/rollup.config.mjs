@@ -1,8 +1,8 @@
-import { pluginsUiLibrary, rollupConfig } from "@kaizen/package-bundler";
+import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler";
 
 export default rollupConfig({
     input: { index: "./src/index.ts", future: "./src/__future__/index.ts" },
-    plugins: pluginsUiLibrary,
+    plugins: pluginsSharedUi,
     alias: {
       entries: [
         { find: "~types", replacement: "src/types" },

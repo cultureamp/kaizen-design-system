@@ -15,8 +15,8 @@ case "$1" in
         elapsed_time=$SECONDS
         echo -e "${GREEN}Built in: ${BOLD}${GREEN}$elapsed_time${NC} ${GREEN}seconds${NC}"
         ;;
-    build-ui-library)
-        echo "Running build-ui-library command..."
+    build-shared-ui)
+        echo "Running build-shared-ui command..."
         npx package-bundler build
         npx --no -c addTailwindStylesImport
         echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
@@ -40,11 +40,11 @@ case "$1" in
         tsc --project tsconfig.types.json
         ;;
     help)
-        echo -e "${GREEN}Usage: $0 {build|build-ui-library|clean|rollup|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|build-shared-ui|clean|rollup|types|help}${NC}"
         exit 1
         ;;
     *)
-        echo -e "${GREEN}Usage: $0 {build|build-ui-library|clean|rollup|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|build-shared-ui|clean|rollup|types|help}${NC}"
         exit 1
         ;;
 esac

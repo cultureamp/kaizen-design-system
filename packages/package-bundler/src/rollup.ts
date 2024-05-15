@@ -5,7 +5,7 @@ import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
 import { pluginsDefault } from "./presets/index.js"
-import { rollupTailwindConfig } from "./presets/ui-library/rollup-tailwind.js"
+import { rollupTailwindConfig } from "./presets/shared-ui/rollup-tailwind.js"
 
 type Config = {
   input?: RollupOptions["input"]

@@ -27,7 +27,7 @@
     "tailwind.css.*"
   ],
   "scripts": {
-    "build": "pnpm package-bundler build-ui-library && pnpm styles:global",
+    "build": "pnpm package-bundler build-shared-ui && pnpm styles:global",
     "styles:global": "postcss ./styles/global.css --output dist/styles.css",
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",

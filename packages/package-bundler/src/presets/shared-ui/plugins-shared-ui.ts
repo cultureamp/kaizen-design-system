@@ -2,7 +2,7 @@ import resolve from "@rollup/plugin-node-resolve"
 import postcss from "rollup-plugin-postcss"
 import { pluginsDefault } from "../default/index.js"
 
-export const pluginsUiLibrary = [
+export const pluginsSharedUi = [
   // This is needed to ensure that css is compiled correctly.
   // Without this there is an alphabetised order in the dist CSS for subcomponents.
   // This can cause styles being overwritten by primitives, ie: BaseButton overwriting DropdownButton
