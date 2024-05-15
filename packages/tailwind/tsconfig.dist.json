@@ -1,8 +1,11 @@
 {
-  "extends": "../../tsconfig.dist.json",
   "include": ["src/**/*.ts"],
   "exclude": ["**/*.spec.ts"],
   "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "noEmit": false,
+    "sourceMap": true,
     "noImplicitAny": true,
     "rootDir": "src",
     "outDir": "dist",

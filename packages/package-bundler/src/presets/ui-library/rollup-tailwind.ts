@@ -24,9 +24,8 @@ export const rollupTailwindConfig = (): RollupOptions[] => {
     output: {
       dir: "dist/cjs",
       format: "commonjs",
-      // preserveModules: true,
       entryFileNames: "tailwind.css.cjs",
-      // interop: "auto",
+      exports: "named"
     },
   } satisfies RollupOptions
 
@@ -36,7 +35,6 @@ export const rollupTailwindConfig = (): RollupOptions[] => {
     output: {
       dir: "dist/esm",
       format: "esm",
-      // preserveModules: true,
       entryFileNames: "tailwind.css.mjs",
     },
   } satisfies RollupOptions
