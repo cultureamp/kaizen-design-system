@@ -36,8 +36,8 @@ case "$1" in
         ;;
     types)
         echo -e "${GREEN}Compile typescript types...${NC}"
-        echo "tsc --project tsconfig.types.json"
-        tsc --project tsconfig.types.json
+        echo "tsc --project tsconfig.types.json --declarationDir dist/types"
+        tsc --project tsconfig.types.json --declarationDir dist/types
         ;;
     help)
         echo -e "${GREEN}Usage: $0 {build|build-shared-ui|clean|rollup|types|help}${NC}"
