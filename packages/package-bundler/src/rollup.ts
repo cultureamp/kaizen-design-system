@@ -23,7 +23,6 @@ export const rollupConfig = (
   const userConfig = {
     input: config.input,
     plugins: [
-      // Has to be the same as packages/components/tsconfig.json -> compilerOptions -> paths
       alias(config.alias),
       ...((config?.plugins as InputPluginOption[]) || pluginsDefault),
     ],
