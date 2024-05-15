@@ -1,17 +1,15 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "allowJs": false,
-    "declaration": true,
-    "declarationMap": true,
-    "noEmit": false,
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "rootDir": "src",
-    "outDir": "dist",
     "target": "es5",
     "module": "CommonJS",
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "noUncheckedIndexedAccess": true,
-    "esModuleInterop": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["**/*.spec.ts"]
