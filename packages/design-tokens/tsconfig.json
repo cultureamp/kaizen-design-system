@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es2019", "dom"],
     "module": "commonjs",
     "jsx": "react",
     "esModuleInterop": true,

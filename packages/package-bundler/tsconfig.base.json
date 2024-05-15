@@ -6,7 +6,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "lib": ["es2019", "dom"],
     "jsx": "react",
     "noImplicitAny": true,
     "noImplicitReturns": true,
