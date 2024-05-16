@@ -1,14 +1,19 @@
 import React, { HTMLAttributes, useState } from "react"
-import { Options } from "@popperjs/core"
+import {
+  autoUpdate,
+  offset,
+  useFloating,
+  UseFloatingOptions,
+  size,
+} from "@floating-ui/react-dom"
 import classnames from "classnames"
-import { usePopper } from "react-popper"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./CalendarPopover.module.scss"
 
 export type CalendarPopoverProps = {
   children: React.ReactNode
   referenceElement: HTMLElement | null
-  popperOptions?: Partial<Options>
+  floatingOptions?: Partial<UseFloatingOptions>
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 /**
@@ -18,37 +23,40 @@ export type CalendarPopoverProps = {
 export const CalendarPopover = ({
   children,
   referenceElement,
-  popperOptions,
+  floatingOptions,
   classNameOverride,
   ...restProps
 }: CalendarPopoverProps): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+  const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(
     null
   )
 
-  const { styles: popperStyles, attributes: popperAttributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 15],
-          },
+  const { floatingStyles } = useFloating({
+    placement: "bottom-start",
+    elements: {
+      reference: referenceElement,
+      floating: floatingElement,
+    },
+    strategy: "fixed",
+    middleware: [
+      size({
+        apply({ availableHeight, elements }) {
+          Object.assign(elements.floating.style, {
+            maxHeight: `${Math.max(availableHeight - 20, 110)}px`,
+          })
         },
-      ],
-      placement: "bottom-start",
-      strategy: "fixed",
-      ...popperOptions,
-    }
-  )
+      }),
+      offset(15),
+    ],
+    whileElementsMounted: autoUpdate,
+    ...floatingOptions,
+  })
 
   return (
     <div
-      ref={setPopperElement}
-      style={popperStyles?.popper}
-      {...popperAttributes?.popper}
+      ref={setFloatingElement}
+      style={floatingStyles}
+      // {...popperAttributes?.popper}
       className={classnames(styles.calendarPopover, classNameOverride)}
       role="dialog"
       aria-modal="true"

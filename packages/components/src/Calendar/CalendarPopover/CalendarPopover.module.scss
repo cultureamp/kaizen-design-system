@@ -8,5 +8,7 @@
   z-index: 1010;
   box-shadow: $shadow-large-box-shadow;
   border-radius: $border-borderless-border-radius;
-  padding: $spacing-md;
+  padding: $spacing-24;
+  box-sizing: border-box;
+  overflow: auto;
 }
