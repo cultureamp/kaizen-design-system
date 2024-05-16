@@ -41,11 +41,11 @@ case "$1" in
         echo -e "${GREEN}Built in: ${BOLD}${GREEN}$elapsed_time${NC} ${GREEN}seconds${NC}"
         ;;
     help)
-        echo -e "${GREEN}Usage: $0 {build|build-shared-ui|clean|rollup|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|build-shared-ui}${NC}"
         exit 1
         ;;
     *)
-        echo -e "${GREEN}Usage: $0 {build|build-shared-ui|clean|rollup|types|help}${NC}"
+        echo -e "${GREEN}Usage: $0 {build|build-shared-ui}${NC}"
         exit 1
         ;;
 esac
