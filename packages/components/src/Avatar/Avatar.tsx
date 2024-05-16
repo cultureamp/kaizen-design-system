@@ -153,7 +153,9 @@ export const Avatar = ({
         isCompany && styles.company,
         isPersonal && styles.personal,
         isOtherUser && styles.otherUser,
-        (avatarState === "loading" || avatarState === "error") && styles.loading
+        (avatarState === "loading" || avatarState === "error") &&
+          styles.loading,
+        "!kz-bg-red-400"
       )}
       {...restProps}
     >
