@@ -21,7 +21,7 @@ bundle() {
 compile_types() {
     echo -e "${GREEN}Compile typescript types...${NC}"
     tsc --project tsconfig.types.json --declarationDir dist/types
-    echo -e "${GREEN}------{NC}"
+    echo -e "${GREEN}------${NC}"
 }
 
 inject_tailwind_imports() {
