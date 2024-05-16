@@ -47,7 +47,8 @@
     "postcss": "^8.4.38",
     "postcss-preset-env": "^9.3.0",
     "rollup": "^4.17.2",
-    "style-inject": "^0.3.0"
+    "style-inject": "^0.3.0",
+    "tslib": "^2.6.2"
   },
   "peerDependenciesMeta": {
     "style-inject": {

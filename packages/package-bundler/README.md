@@ -27,6 +27,7 @@ pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup
 - `postcss`
 - `postcss-preset-env`
 - `rollup`
+- `tslib` (peerDep of `rollup`)
 - If using Tailwind:
   - `tailwind`
 
