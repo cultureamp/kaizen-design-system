@@ -46,7 +46,8 @@
     },
     "@kaizen/package-bundler#build": {
       "inputs": ["bin/*", "src/**", "tsconfig*.json"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": false
     }
   }
 }
