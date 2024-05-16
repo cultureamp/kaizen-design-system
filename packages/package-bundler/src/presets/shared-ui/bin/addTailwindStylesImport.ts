@@ -72,16 +72,11 @@ const run = (): void => {
 
   const DIST_DIRS = ["dist/cjs", "dist/esm"]
 
-  DIST_DIRS.forEach(dir => {
-    ;(async () => {
-      try {
-        addGlobalStylesImport(`${args.packagePath}/${dir}`)
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.error("Directory not found", e)
-      }
-    })()
-  })
+  DIST_DIRS.forEach(dir =>
+    addGlobalStylesImport(`${args.packagePath}/${dir}`).catch(e =>
+      console.error("Directory not found", e)
+    )
+  )
 }
 
 run()
