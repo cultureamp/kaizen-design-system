@@ -5,11 +5,11 @@
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "package-bundler": "./bin/build-commands.sh",
-    "prepare": "ts-patch install -s"
+    "package-bundler": "./bin/build-commands.sh"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc --build"
+    "build": "rm -rf dist && tsc --build",
+    "prepare": "ts-patch install -s"
   },
   "files": [
     "dist",
