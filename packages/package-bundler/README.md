@@ -13,10 +13,28 @@ pnpm add -D @kaizen/package-bundler
 For shared UI packages (CSS modules and/or Tailwind).
 Styles will be automatically injected when consumed.
 
-### Dependencies
+### `package.json`
+
+Add the following to your `package.json`:
+```json
+"main": "dist/cjs/index.cjs",
+"module": "dist/esm/index.mjs",
+"types": "dist/types/index.d.ts",
+"files": [
+  "dist"
+],
+"sideEffects": [
+  "tailwind.css.*" // If using Tailwind
+],
+"scripts": {
+  "build": "pnpm package-bundler build-shared-ui",
+}
+```
+
+#### Dependencies
 
 ```sh
-pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup
+pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup tslib
 ```
 
 `dependencies`:
@@ -42,19 +60,28 @@ pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup
   - `tailwind.config.js`
   - `src/tailwind.css`
 
-### `package.json`
-```json
-"main": "dist/cjs/index.cjs",
-"module": "dist/esm/index.mjs",
-"types": "dist/types/index.d.ts",
-"files": [
-  "dist"
-],
-"sideEffects": [
-  "tailwind.css.*" // If using Tailwind
-],
-"scripts": {
-  "build": "pnpm package-bundler build-shared-ui",
+### PostCSS
+
+In `postcss.config.js`:
+```js
+module.exports = {
+  plugins: {
+    "postcss-import": {},
+    cssnano: {},
+  },
+}
+```
+
+If using Tailwind:
+```js
+module.exports = {
+  plugins: {
+    "postcss-import": {},
+    "tailwindcss/nesting": "postcss-nesting",
+    tailwindcss: {},
+    autoprefixer: {},
+    cssnano: {},
+  },
 }
 ```
 
@@ -106,6 +133,19 @@ Required files:
 - `src/tailwind.css`
 
 Follow the [set up guide](../../docs/Systems/Tailwind/getting-started.mdx).
+
+As we use PostCSS, ensure your `postcss.config.js` has the following plugins installed:
+```js
+module.exports = {
+  plugins: {
+    "postcss-import": {},
+    "tailwindcss/nesting": "postcss-nesting",
+    tailwindcss: {},
+    autoprefixer: {},
+    cssnano: {},
+  },
+}
+```
 
 If you are creating a UI library to share with others, ensure you set a unique prefix to avoid clashes with other libraries.
 
