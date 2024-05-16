@@ -23,11 +23,14 @@ const meta = {
   },
   decorators: [
     Story => (
-      <div className="flex mt-[50px] justify-center gap-12">
+      <div className="flex mt-[60px] gap-12">
         <Story />
       </div>
     ),
   ],
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta<typeof Tooltip>
 
 export default meta

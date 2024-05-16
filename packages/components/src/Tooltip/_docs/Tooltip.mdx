@@ -65,7 +65,7 @@ When your direct child is not semantic, you will get a console warning like this
 
 ### Tooltips, Kaizen components and avoiding common pitfalls
 
-While technically any Kaizen component can be wrapped by a `Tooltip`, as called out previously, only those with accessible roles will be readable to assistive technologies.
+While technically any Kaizen component can be wrapped by a `Tooltip`, as called out previously, only those with [accessible roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) like `button`, `link` or `heading`, will be readable to assistive technologies.
 
 We've created some guidance below with the most common cases for `Tooltip` and how to ensure the additional context is read to the user.
 
@@ -117,7 +117,7 @@ While `Tooltip` should be avoided if there are no interactive states within the 
 
 <Canvas of={TooltipStories.TagWithTooltip} />
 
-The [future Tag](?path=/docs/components-tag-future--docs#overview) offers a composable solution for those needing to add more context to Tags with interactive states.
+The [future Tag](?path=/docs/components-tag-future--docs#overview) offers a composable solution for those needing to add more context to an interactive `Tag`.
 
 #### Form components and tooltips
 
