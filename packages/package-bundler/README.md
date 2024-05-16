@@ -2,17 +2,16 @@
 
 Bundle packages as CJS and ESM with types.
 
-## build-shared-ui
-
-For shared UI packages (CSS modules and/or Tailwind).
-
-### Setup
-
 ```sh
 pnpm add -D @kaizen/package-bundler
 ```
 
-#### Dependencies
+## build-shared-ui
+
+For shared UI packages (CSS modules and/or Tailwind).
+Styles will be automatically injected when consumed.
+
+### Dependencies
 
 ```sh
 pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup
@@ -29,7 +28,7 @@ pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup
 - If using Tailwind:
   - `tailwind`
 
-#### Required files
+### Required files
 
 - `postcss.config.js`
 - `rollup.config.(mjs|ts)`
@@ -40,7 +39,7 @@ pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup
   - `tailwind.config.js`
   - `src/tailwind.css`
 
-#### `package.json`
+### `package.json`
 ```json
 "main": "dist/cjs/index.cjs",
 "module": "dist/esm/index.mjs",
@@ -56,7 +55,7 @@ pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup
 }
 ```
 
-#### Rollup
+### Rollup
 
 In `rollup.config.(mjs|ts)`:
 ```ts
@@ -69,7 +68,7 @@ export default rollupConfig({
 })
 ```
 
-#### tsconfig
+### tsconfig
 ```json
 // tsconfig.json
 {
@@ -93,7 +92,35 @@ export default rollupConfig({
 }
 ```
 
-#### Alias
+### Tailwind
+
+```sh
+pnpm add -D tailwind @kaizen/tailwind
+```
+
+Required files:
+- `tailwind.config.js`
+- `src/tailwind.css`
+
+Follow the [set up guide](../../docs/Systems/Tailwind/getting-started.mdx).
+
+If you are creating a UI library to share with others, ensure you set a unique prefix to avoid clashes with other libraries.
+
+```js
+// tailwind.config.js
+module.exports = {
+  prefix: "{uniquePrefix}-"
+}
+```
+
+You will also need to add the compiled Tailwind stylesheet to `sideEffects` in your `package.json` to ensure it is not tree-shaken:
+```json
+"sideEffects": [
+  "tailwind.css.*"
+]
+```
+
+### Alias
 
 If you are using aliases, ensure you have them listed in your `tsconfig.json` (the `tsconfig.dist` and `tsconfig.types` should extend this) and in `rollup.config`.
 
@@ -124,9 +151,3 @@ export default rollupConfig({
   },
 })
 ```
-
-#### Tailwind
-
-Follow the [set up guide](../../docs/Systems/Tailwind/getting-started.mdx).
-
-If you are creating a UI library to share with others, ensure you set a unique prefix to avoid clashes with other libraries.
