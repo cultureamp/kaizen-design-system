@@ -1,6 +1,8 @@
 # @kaizen/package-bundler
 
-Bundle packages as CJS and ESM with types.
+Bundle packages as CJS and ESM with TypeScript types.
+
+ESM code is tree-shakeable.
 
 ```sh
 pnpm add -D @kaizen/package-bundler
