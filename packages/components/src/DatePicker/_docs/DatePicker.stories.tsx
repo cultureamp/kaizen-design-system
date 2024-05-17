@@ -249,3 +249,22 @@ export const Validation: Story = {
 export const DisabledDays: Story = {
   parameters: { controls: { include: /^disabled/ } },
 }
+
+export const Zoom: Story = {
+  name: "At 400% window size",
+  parameters: {
+    controls: { disable: true },
+    viewport: {
+      viewports: {
+        ViewportAt400: {
+          name: "Viewport at 400%",
+          styles: {
+            width: "320px",
+            height: "350px",
+          },
+        },
+      },
+      defaultViewport: "ViewportAt400",
+    },
+  },
+}
