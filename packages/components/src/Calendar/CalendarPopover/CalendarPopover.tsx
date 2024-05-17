@@ -5,6 +5,7 @@ import {
   useFloating,
   UseFloatingOptions,
   size,
+  autoPlacement,
 } from "@floating-ui/react-dom"
 import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
@@ -40,13 +41,20 @@ export const CalendarPopover = ({
     strategy: "fixed",
     middleware: [
       size({
-        apply({ availableHeight, elements }) {
+        apply({ availableHeight, availableWidth, elements }) {
           Object.assign(elements.floating.style, {
-            maxHeight: `${Math.max(availableHeight - 20, 110)}px`,
+            // 155 is enough of a minimum to cut off half of the second row of dates.
+            // This indicates to users that there is more content that is scrollable
+            maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
+            maxWidth: `${Math.max(availableWidth, 330)}px`,
           })
         },
       }),
       offset(15),
+      autoPlacement({
+        crossAxis: false,
+        allowedPlacements: ["bottom-start", "bottom"],
+      }),
     ],
     whileElementsMounted: autoUpdate,
     ...floatingOptions,
@@ -56,7 +64,6 @@ export const CalendarPopover = ({
     <div
       ref={setFloatingElement}
       style={floatingStyles}
-      // {...popperAttributes?.popper}
       className={classnames(styles.calendarPopover, classNameOverride)}
       role="dialog"
       aria-modal="true"

@@ -1,4 +1,5 @@
 import React from "react"
+import { offset } from "@floating-ui/react-dom"
 import { Meta } from "@storybook/react"
 import {
   StickerSheet,
@@ -42,14 +43,11 @@ const CalendarPopoverExample = ({
       />
       <CalendarPopover
         referenceElement={referenceElement}
-        popperOptions={{
-          modifiers: [
-            {
-              name: "offset",
-              options: {
-                offset: [24, 0],
-              },
-            },
+        floatingOptions={{
+          middleware: [
+            offset({
+              crossAxis: 24,
+            }),
           ],
           placement: "top-start",
         }}
