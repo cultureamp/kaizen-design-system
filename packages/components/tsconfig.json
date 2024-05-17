@@ -1,9 +1,7 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@kaizen/package-bundler/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
     "paths": {
       "~storybook/*": ["../../storybook/*"],
       "~types/*": ["./src/types/*"],
@@ -14,10 +12,5 @@
   },
   "files": ["types.d.ts"],
   "include": ["src/**/*"],
-  "exclude": ["node_modules"],
-  "ts-node": {
-    "moduleTypes": {
-      "src/Icon/bin/**/*": "cjs"
-    }
-  }
+  "exclude": ["node_modules"]
 }
