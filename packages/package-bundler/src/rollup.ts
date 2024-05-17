@@ -3,8 +3,68 @@ import path from "path"
 import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
+import postcss from "rollup-plugin-postcss"
 import { pluginsDefault } from "./presets/index.js"
 import { rollupTailwindConfig } from "./presets/shared-ui/rollup-tailwind.js"
+
+
+const styleInjectCjs = `
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+`
+
+const styleInjectMjs = `
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+`
 
 type Config = {
   input?: RollupOptions["input"]
@@ -32,6 +92,13 @@ export const rollupConfig = (
     ...userConfig,
     plugins: [
       ...userConfig.plugins,
+      postcss({
+        modules: true,
+        extract: false,
+        inject: cssVariableName =>
+          `${styleInjectCjs}\n\nstyleInject(${cssVariableName});`,
+        extensions: [".scss", ".css"],
+      }),
       typescript({
         tsconfig: "./tsconfig.dist.json",
         compilerOptions: {
@@ -54,6 +121,13 @@ export const rollupConfig = (
     ...userConfig,
     plugins: [
       ...userConfig.plugins,
+      postcss({
+        modules: true,
+        extract: false,
+        inject: cssVariableName =>
+          `${styleInjectMjs}\n\nstyleInject(${cssVariableName});`,
+        extensions: [".scss", ".css"],
+      }),
       typescript({ tsconfig: "./tsconfig.dist.json" }),
     ],
     output: {

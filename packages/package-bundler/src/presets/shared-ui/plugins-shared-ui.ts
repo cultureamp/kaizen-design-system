@@ -1,5 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve"
-import postcss from "rollup-plugin-postcss"
+// import postcss from "rollup-plugin-postcss"
 import { pluginsDefault } from "../default/index.js"
 
 export const pluginsSharedUi = [
@@ -11,12 +11,12 @@ export const pluginsSharedUi = [
     preferBuiltins: true,
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   }),
-  postcss({
-    modules: true,
-    extract: false,
-    inject: cssVariableName =>
-      `import styleInject from "style-inject";\nstyleInject(${cssVariableName});`,
-    extensions: [".scss", ".css"],
-  }),
+  // postcss({
+  //   modules: true,
+  //   extract: false,
+  //   inject: cssVariableName =>
+  //     `import styleInject from "style-inject";\nstyleInject(${cssVariableName});`,
+  //   extensions: [".scss", ".css"],
+  // }),
   ...pluginsDefault,
 ]
