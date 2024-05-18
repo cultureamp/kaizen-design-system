@@ -1,9 +1,18 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Button } from "~components/Button"
-import { InformationIcon } from "~components/Icon"
-import { Tag } from "~components/Tag"
+import { Button, IconButton } from "~components/Button"
+import { ButtonGroup } from "~components/ButtonGroup"
+import { CheckboxField } from "~components/Checkbox"
+import { FilterButtonBase } from "~components/Filter/FilterButton/subcomponents/FilterButtonBase"
+import { InformationIcon, RemoveLinkIcon, QuestionIcon } from "~components/Icon"
+import {
+  TableContainer,
+  TableHeader,
+  TableHeaderRowCell,
+  TableRow,
+} from "~components/Table"
 import { Text } from "~components/Text"
+import { Tag } from "~components/__future__"
 import { Tooltip } from "../index"
 
 const meta = {
@@ -11,6 +20,16 @@ const meta = {
   component: Tooltip,
   args: {
     text: "Example tooltip text.",
+  },
+  decorators: [
+    Story => (
+      <div className="flex mt-[60px] gap-12">
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: "centered",
   },
 } satisfies Meta<typeof Tooltip>
 
@@ -31,19 +50,6 @@ export const Playground: Story = {
       <Button label="Hover or focus me" />
     </Tooltip>
   ),
-  decorators: [
-    Story => (
-      <div
-        style={{
-          marginTop: "100px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
 }
 
 export const OverflowScroll: Story = {
@@ -140,6 +146,163 @@ export const OverflowScroll: Story = {
           </div>
         </div>
       </div>
+    </>
+  ),
+}
+
+export const ButtonsWithTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: args => (
+    <>
+      <Tooltip {...args} text="Contact customer support.">
+        <Button label="Help" icon={<QuestionIcon role="presentation" />} />
+      </Tooltip>
+      <Tooltip {...args} text="Remove the link from current selection.">
+        <IconButton
+          label="Remove link"
+          icon={<RemoveLinkIcon role="presentation" />}
+        />
+      </Tooltip>
+    </>
+  ),
+}
+
+export const ButtonGroupWithTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: args => (
+    <>
+      <ButtonGroup>
+        <Tooltip {...args} text="Sort by first">
+          <FilterButtonBase>First</FilterButtonBase>
+        </Tooltip>
+        <Tooltip {...args} text="Sort by last">
+          <FilterButtonBase>Last</FilterButtonBase>
+        </Tooltip>
+      </ButtonGroup>
+    </>
+  ),
+}
+
+export const TableHeadersWithTooltips: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <TableContainer>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderRowCell
+              labelText="Resources"
+              sorting="descending"
+              width={3 / 12}
+              onClick={(): void => undefined}
+              tooltipInfo="Sort Resources by descending"
+            />
+            <TableHeaderRowCell
+              labelText="Supplementary"
+              width={3 / 12}
+              onClick={(): void => undefined}
+              sorting="ascending"
+              tooltipInfo="Sort Supplementary by ascending"
+            />
+            <TableHeaderRowCell labelText="Date" width={3 / 12} />
+            <TableHeaderRowCell labelText="Price" width={3 / 12} />
+          </TableRow>
+        </TableHeader>
+      </TableContainer>
+    </>
+  ),
+}
+
+export const TagWithHoverOnlyTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <Tooltip text="John Jonson Johnington the Third">
+      <Tag>John Jonson Jo...</Tag>
+    </Tooltip>
+  ),
+}
+
+export const TagWithTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <Tag>
+      <Tooltip text="Visit John Jonson's profile">
+        <a className="text-inherit font no-underline" href="#John">
+          John Jonson
+        </a>
+      </Tooltip>
+    </Tag>
+  ),
+}
+
+export const TagWithCheckboxField: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <Tooltip text="Select all users">
+        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
+      </Tooltip>
+    </>
+  ),
+}
+
+export const CheckboxFieldTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <Tooltip text="Select all users">
+        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
+      </Tooltip>
+    </>
+  ),
+}
+
+export const CheckboxFieldWithDescriptionTooltip: Story = {
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  render: () => (
+    <>
+      <Tooltip text="Select all users">
+        <CheckboxField
+          labelText="Users"
+          id="sb-checkbox-tooltip--id"
+          aria-describedby="sb-checkbox-description--id"
+        />
+        <span id="sb-checkbox-description--id" className="sr-only">
+          Select all users
+        </span>
+      </Tooltip>
     </>
   ),
 }

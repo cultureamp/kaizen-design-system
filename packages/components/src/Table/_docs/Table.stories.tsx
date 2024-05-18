@@ -1,8 +1,9 @@
 import React from "react"
+import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
-import { IconButton } from "~components/Button"
+import { Checkbox } from "~components/Checkbox"
 import { Divider } from "~components/Divider"
-import { ChevronUpIcon, EffectivenessIcon } from "~components/Icon"
+import { EffectivenessIcon } from "~components/Icon"
 import { Text } from "~components/Text"
 import {
   TableCard,
@@ -21,127 +22,54 @@ import {
 export type TableStoryProps = {
   container?: TableContainerProps
   row?: TableRowProps
-  rowCell?: TableRowCellProps
-  headerRowCell: Partial<TableHeaderRowCellProps>
-  card: TableCardProps
+  rowCells: TableRowCellProps[]
+  headerRowCells: TableHeaderRowCellProps[]
+  tableCards: TableCardProps[]
 }
 
-const Table = ({
-  container,
-  row,
-  rowCell,
-  headerRowCell,
-  card,
-}: TableStoryProps): JSX.Element => {
-  const { expanded, ...restCardProps } = card
-  const { checkable, ...restHeaderRowCellProps } = headerRowCell
-
-  return (
+const TableTemplate: StoryObj<TableStoryProps> = {
+  render: ({ container, headerRowCells, tableCards, row, rowCells }) => (
     <TableContainer {...container}>
       <TableHeader>
         <TableRow>
-          <TableHeaderRowCell
-            labelText="Resource name"
-            width={3 / 12}
-            checkable={checkable}
-            sorting="descending"
-            {...restHeaderRowCellProps}
-          />
-          <TableHeaderRowCell
-            labelText="Supplementary information"
-            width={3 / 12}
-            sorting="ascending"
-            {...restHeaderRowCellProps}
-          />
-          <TableHeaderRowCell
-            labelText="Date"
-            width={3 / 12}
-            {...restHeaderRowCellProps}
-          />
-          <TableHeaderRowCell
-            labelText="Price"
-            width={3 / 12}
-            {...restHeaderRowCellProps}
-          />
+          {headerRowCells.map((headerRowCellProps, index) => (
+            <TableHeaderRowCell key={index} {...headerRowCellProps} />
+          ))}
         </TableRow>
       </TableHeader>
-      <TableCard
-        {...restCardProps}
-        expanded={expanded}
-        onClick={expanded ? (): void => undefined : undefined}
-      >
-        <TableRow {...row}>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Resource
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Supplementary
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Today
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body" classNameOverride="mr-24">
-              100
-            </Text>
-            {expanded && (
-              <TableRowCell width={3 / 12} {...rowCell}>
-                <IconButton
-                  label="Expand"
-                  icon={<ChevronUpIcon role="presentation" />}
-                />
+      {tableCards.map((tableCardProps, index) => (
+        <TableCard {...tableCardProps} key={index}>
+          <TableRow {...row}>
+            {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
+              <TableRowCell {...otherProps} key={rowCellIndex}>
+                <Text tag="div" variant="body">
+                  {children}
+                </Text>
               </TableRowCell>
-            )}
-          </TableRowCell>
-        </TableRow>
-        {expanded && (
-          <>
-            <Divider variant="content" />
-            <Text tag="div" variant="body" classNameOverride="p-16">
-              Overall progress
-            </Text>
-          </>
-        )}
-      </TableCard>
-      <TableCard {...restCardProps}>
-        <TableRow {...row}>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Resource
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Supplementary
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              Today
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={3 / 12} {...rowCell}>
-            <Text tag="div" variant="body">
-              100
-            </Text>
-          </TableRowCell>
-        </TableRow>
-      </TableCard>
+            ))}
+          </TableRow>
+          {tableCardProps.expanded && (
+            <>
+              <Divider variant="content" />
+              <Text tag="div" variant="body" classNameOverride="p-16">
+                Overall progress
+              </Text>
+            </>
+          )}
+        </TableCard>
+      ))}
     </TableContainer>
-  )
+  ),
 }
 
-const meta = {
+export default {
+  ...TableTemplate,
   title: "Components/Table",
-  component: Table,
   parameters: {
     chromatic: { disable: false },
+    docs: {
+      source: { type: "dynamic" },
+    },
     a11y: {
       config: {
         rules: [
@@ -160,18 +88,55 @@ const meta = {
             id: "aria-required-parent",
             enabled: false,
           },
-          {
-            // Fixing this in a rebuild
-            id: "label",
-            enabled: false,
-          },
         ],
       },
     },
   },
   args: {
-    card: { expanded: false },
-    headerRowCell: { checkable: false },
+    tableCards: [
+      {
+        expanded: false,
+      },
+      {
+        expanded: false,
+      },
+    ],
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Supplementary information",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
+    rowCells: [
+      {
+        width: 3 / 12,
+        children: "Resource",
+      },
+      {
+        width: 3 / 12,
+        children: "Supplementary",
+      },
+      {
+        width: 3 / 12,
+        children: "Today",
+      },
+      {
+        width: 3 / 12,
+        children: "100",
+      },
+    ],
   },
   decorators: [
     Story => (
@@ -180,14 +145,10 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Table>
+} satisfies Meta<TableStoryProps>
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Playground: Story = {
-  render: Table,
+export const Playground: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -195,8 +156,41 @@ export const Playground: Story = {
   },
 }
 
-export const Data: Story = {
-  render: Table,
+export const Sorting: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
+    },
+  },
+  args: {
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        sorting: "ascending",
+        onClick: action("Sort Resource name"),
+        width: 3 / 12,
+      },
+      {
+        labelText: "Supplementary information",
+        sorting: "descending",
+        onClick: action("Sort Supplementary information"),
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
+  },
+}
+
+export const Data: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: { container: { variant: "data" } },
   parameters: {
     docs: {
@@ -205,9 +199,34 @@ export const Data: Story = {
   },
 }
 
-export const Reversed: Story = {
-  render: Table,
-  args: { headerRowCell: { reversed: true } },
+export const Reversed: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
+  args: {
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        sorting: "ascending",
+        onClick: action("Sort Resource name by ascending"),
+        width: 3 / 12,
+        reversed: true,
+      },
+      {
+        labelText: "Supplementary information",
+        width: 3 / 12,
+        reversed: true,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+        reversed: true,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+        reversed: true,
+      },
+    ],
+  },
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -222,8 +241,8 @@ export const Reversed: Story = {
   ],
 }
 
-export const Compact: Story = {
-  render: Table,
+export const Compact: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: { container: { variant: "compact" } },
   parameters: {
     docs: {
@@ -232,9 +251,9 @@ export const Compact: Story = {
   },
 }
 
-export const CheckboxVariant: Story = {
-  render: Table,
-  args: { headerRowCell: { checkable: true } },
+export const Default: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
+  args: { container: { variant: "default" } },
   parameters: {
     docs: {
       source: { type: "dynamic" },
@@ -242,22 +261,53 @@ export const CheckboxVariant: Story = {
   },
 }
 
-export const LinkVariant: Story = {
-  render: Table,
-  args: { card: { href: "#?foo=bar" } },
-  parameters: {
-    docs: {
-      source: { type: "dynamic" },
-    },
-  },
-}
-
-export const IconVariant: Story = {
-  render: Table,
+export const CheckboxVariant: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
-    headerRowCell: {
-      icon: <EffectivenessIcon role="presentation" />,
-    },
+    headerRowCells: [
+      {
+        checkable: true,
+        onCheck: action("onCheck header-1"),
+        checkboxLabel: "Select all Employees",
+        labelText: "Employee",
+        width: 5 / 12,
+      },
+      {
+        labelText: "Job title",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 2 / 12,
+      },
+      {
+        labelText: "Score",
+        width: 2 / 12,
+      },
+    ],
+    rowCells: [
+      {
+        width: 5 / 12,
+        children: (
+          <span className="flex gap-12">
+            <Checkbox aria-label="Employee x" />
+            <span>Employee name</span>
+          </span>
+        ),
+      },
+      {
+        width: 3 / 12,
+        children: "Engineer",
+      },
+      {
+        width: 2 / 12,
+        children: "Today",
+      },
+      {
+        width: 2 / 12,
+        children: "100",
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -266,13 +316,39 @@ export const IconVariant: Story = {
   },
 }
 
-export const Expandable: Story = {
-  render: Table,
-  args: {
-    card: {
-      expanded: true,
-      expandedStyle: "popout",
+export const LinkVariant: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
+  args: { tableCards: [{ href: "#?foo=bar" }, { href: "#?bar=foo" }] },
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
     },
+  },
+}
+
+export const IconVariant: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
+  args: {
+    headerRowCells: [
+      {
+        icon: <EffectivenessIcon role="presentation" />,
+        labelText: "Resource name",
+        width: 3 / 12,
+      },
+      {
+        icon: <EffectivenessIcon role="presentation" />,
+        labelText: "Supplementary information",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -281,14 +357,19 @@ export const Expandable: Story = {
   },
 }
 
-export const HeaderAlignmentAndWrapping: Story = {
-  render: Table,
+export const Expandable: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
-    headerRowCell: {
-      labelText: "Right header align with wrapping",
-      wrapping: "wrap",
-      align: "end",
-    },
+    tableCards: [
+      {
+        expanded: true,
+        expandedStyle: "popout",
+        onClick: action("Set expanded to false"),
+      },
+      {
+        expanded: false,
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -297,12 +378,63 @@ export const HeaderAlignmentAndWrapping: Story = {
   },
 }
 
-export const Tooltip: Story = {
-  render: Table,
+export const HeaderAlignmentAndWrapping: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
   args: {
-    headerRowCell: {
-      tooltipInfo: "This is a tooltip",
+    headerRowCells: [
+      {
+        labelText: "Header align start with wrapping",
+        wrapping: "wrap",
+        align: "start",
+      },
+      {
+        labelText: "Default alignment",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Header center",
+        align: "center",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Header align with end with wrapping",
+        wrapping: "wrap",
+        align: "end",
+        width: 3 / 12,
+      },
+    ],
+  },
+  parameters: {
+    docs: {
+      source: { type: "dynamic" },
     },
+  },
+}
+
+export const Tooltip: StoryObj<TableStoryProps> = {
+  ...TableTemplate,
+  args: {
+    headerRowCells: [
+      {
+        labelText: "Resource name",
+        tooltipInfo: "Sort this by ascending",
+        sorting: "ascending",
+        onClick: action("Sort Resource name by ascending"),
+        width: 3 / 12,
+      },
+      {
+        labelText: "Supplementary information",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Date",
+        width: 3 / 12,
+      },
+      {
+        labelText: "Price",
+        width: 3 / 12,
+      },
+    ],
   },
   parameters: {
     docs: {

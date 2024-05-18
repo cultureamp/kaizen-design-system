@@ -13,6 +13,7 @@ import styles from "./Table.module.scss"
 
 export type TableContainerProps = {
   children?: React.ReactNode
+  /** @default "compact" */
   variant?: "compact" | "default" | "data"
 }
 /**
@@ -56,6 +57,14 @@ export type TableHeaderRowProps = {
 const ratioToPercent = (width?: number): string | number | undefined =>
   width != null ? `${width * 100}%` : width
 
+export type TableHeaderRowCellCheckboxProps = {
+  checkable?: boolean
+  checkedStatus?: CheckedStatus
+  /** This will be passed into the aria-label for the checkbox to provide context to the user */
+  checkboxLabel?: string
+  onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+}
+
 /**
  * @param width value between 1 and 0, to be calculated as a percentage
  * @param flex CSS flex shorthand as a string. Be sure to specify the flex grow,
@@ -71,9 +80,6 @@ export type TableHeaderRowCellProps = {
   flex?: string
   href?: string
   icon?: ReactElement
-  checkable?: boolean
-  checkedStatus?: CheckedStatus
-  onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   reversed?: boolean
   /**
    * Shows an up or down arrow, to show that the column is sorted.
@@ -82,13 +88,19 @@ export type TableHeaderRowCellProps = {
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
   tooltipInfo?: string
+  /** If set, this will hide the tooltip exclamation icon. Useful in situations where
+   the table header does not have enough space. This should be done with caution as tooltips
+   should have a visual indicator to users */
   isTooltipIconHidden?: boolean
   /**
    * Specify where the tooltip should be rendered.
    */
   tooltipPortalSelector?: string | undefined
+  /** If set, this will show the arrow in the direction provided
+  when the header cell is hovered over. */
   sortingArrowsOnHover?: "ascending" | "descending" | undefined
-} & OverrideClassName<HTMLAttributes<HTMLElement>>
+} & TableHeaderRowCellCheckboxProps &
+  OverrideClassName<HTMLAttributes<HTMLElement>>
 
 export const TableHeaderRowCell = ({
   labelText,
@@ -99,6 +111,7 @@ export const TableHeaderRowCell = ({
   icon,
   checkable,
   checkedStatus,
+  checkboxLabel,
   onCheck,
   reversed,
   sorting: sortingRaw,
@@ -111,13 +124,8 @@ export const TableHeaderRowCell = ({
   wrapping = "nowrap",
   align = "start",
   tooltipInfo,
-  // If set, this will hide the tooltip exclamation icon. Useful in situations where
-  // the table header does not have enough space. However, we should always show a
-  // tooltip icon as the default based on design system tooltip guidelines.
   isTooltipIconHidden = false,
   tooltipPortalSelector,
-  // If set, this will show the arrow in the direction provided
-  // when the header cell is hovered over.
   sortingArrowsOnHover,
   classNameOverride,
   // There aren't any other props in the type definition, so I'm unsure why we
@@ -143,12 +151,20 @@ export const TableHeaderRowCell = ({
     <div className={styles.headerRowCellLabelAndIcons}>
       {icon && (
         <span className={styles.headerRowCellIcon}>
-          {cloneElement(icon, { title: labelText, role: "img" })}
+          {cloneElement(icon, {
+            title: labelText,
+            ["aria-label"]: labelText, // title is unreliable so this is a sensible fallback for tables with icons as headers without aria-labels
+            role: "img",
+          })}
         </span>
       )}
       {checkable && (
         <div className={styles.headerRowCellCheckbox}>
-          <Checkbox checkedStatus={checkedStatus} onCheck={onCheck} />
+          <Checkbox
+            checkedStatus={checkedStatus}
+            onCheck={onCheck}
+            aria-label={checkboxLabel}
+          />
         </div>
       )}
       {tooltipInfo != null && !isTooltipIconHidden ? (
