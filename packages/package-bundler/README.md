@@ -34,12 +34,8 @@ Add the following to your `package.json`:
 #### Dependencies
 
 ```sh
-pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup tslib
+pnpm add -D postcss postcss-preset-env rollup tslib
 ```
-
-`dependencies`:
-- `style-inject`
-  - This is used in the dist, thus required by the consumer
 
 `devDependencies`:
 - `postcss`
