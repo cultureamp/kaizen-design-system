@@ -80,7 +80,6 @@
     "react-select": "^5.8.0",
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
-    "style-inject": "^0.3.0",
     "use-debounce": "^10.0.0",
     "uuid": "^9.0.1"
   },
@@ -99,6 +98,7 @@
     "@types/uuid": "^9.0.8",
     "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.19",
+    "concat-cli": "^4.0.0",
     "query-string": "^9.0.0",
     "react-intl": "^6.6.6",
     "rollup": "^4.17.2",
