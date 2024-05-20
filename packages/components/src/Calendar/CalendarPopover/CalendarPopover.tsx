@@ -46,14 +46,13 @@ export const CalendarPopover = ({
             // 155 is enough of a minimum to cut off half of the second row of dates.
             // This indicates to users that there is more content that is scrollable
             maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
-            maxWidth: `${Math.max(availableWidth, 330)}px`,
+            maxWidth: `${availableWidth}px`,
           })
         },
       }),
       offset(15),
       autoPlacement({
-        crossAxis: false,
-        allowedPlacements: ["bottom-start", "bottom"],
+        allowedPlacements: ["bottom-start", "bottom", "top-start", "top"],
       }),
     ],
     whileElementsMounted: autoUpdate,
