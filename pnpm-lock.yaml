@@ -509,8 +509,8 @@ importers:
         specifier: ^4.0.2
         version: 4.0.2(postcss@8.4.38)(ts-node@10.9.2)
       sass:
-        specifier: ^1.76.0
-        version: 1.77.0
+        specifier: ^1.77.2
+        version: 1.77.2
       serialize-query-params:
         specifier: ^2.0.2
         version: 2.0.2
@@ -17226,8 +17226,8 @@ packages:
       webpack: 5.91.0(@swc/core@1.4.1)(esbuild@0.18.20)
     dev: true
 
-  /sass@1.77.0:
-    resolution: {integrity: sha512-eGj4HNfXqBWtSnvItNkn7B6icqH14i3CiCGbzMKs3BAPTq62pp9NBYsBgyN4cA+qssqo9r26lW4JSvlaUUWbgw==}
+  /sass@1.77.2:
+    resolution: {integrity: sha512-eb4GZt1C3avsX3heBNlrc7I09nyT00IUuo4eFhAbeXWU2fvA7oXI53SxODVAA+zgZCk9aunAZgO+losjR3fAwA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
