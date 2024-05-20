@@ -32,8 +32,10 @@ compile_types() {
 
 consolidate_styles() {
     echo -e "${GREEN}Consolidate styles...${NC}"
-    mv ./dist/esm/styles.css ./dist/styles.css
-    rm ./dist/cjs/styles.css
+    # mv ./dist/esm/styles.css ./dist/styles.css
+    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/consolidateStyles.js --packagePath="$PWD"
+    # concat-cli -f dist/tailwind.css dist/esm/styles.css -o dist/styles.css
+    # rm ./dist/cjs/styles.css ./dist/esm/styles.css
     echo -e "${GREEN}------${NC}"
 }
 

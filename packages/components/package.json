@@ -26,7 +26,7 @@
     "styles.css"
   ],
   "scripts": {
-    "build": "pnpm package-bundler build-shared-ui && pnpm build:global-styles",
+    "build": "pnpm package-bundler build-shared-ui",
     "build:combine-styles": "concat-cli -f ./dist/global.css ./dist/styles.css -o ./dist/styles.css && rm ./dist/global.css",
     "build:global-styles": "postcss ./styles/global.css --output dist/global.css && pnpm build:combine-styles",
     "test": "FORCE_COLOR=1 jest",
@@ -100,7 +100,6 @@
     "@types/uuid": "^9.0.8",
     "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.19",
-    "concat-cli": "^4.0.0",
     "query-string": "^9.0.0",
     "react-intl": "^6.6.6",
     "rollup": "^4.17.2",

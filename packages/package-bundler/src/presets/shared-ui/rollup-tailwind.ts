@@ -1,43 +1,21 @@
-import commonjs from "@rollup/plugin-commonjs"
 import { RollupOptions } from "rollup"
 import postcss from "rollup-plugin-postcss"
 
 export const rollupTailwindConfig = (): RollupOptions[] => {
-  const sharedConfig = {
+  const config = {
     input: "./src/tailwind.css",
     plugins: [
       postcss({
         modules: false,
-        extract: false,
-        inject: cssVariableName =>
-          `import styleInject from "style-inject";\n\nstyleInject(${cssVariableName});`,
+        inject: false,
+        extract: "tailwind.css",
         extensions: [".css"],
       }),
     ],
-    external: ["style-inject"],
+    output: {
+      dir: "dist",
+    },
   }
 
-  // CommonJS
-  const cjsConfig = {
-    ...sharedConfig,
-    plugins: [...sharedConfig.plugins, commonjs()],
-    output: {
-      dir: "dist/cjs",
-      format: "commonjs",
-      entryFileNames: "tailwind.css.cjs",
-      exports: "named",
-    },
-  } satisfies RollupOptions
-
-  // ESModules
-  const esmConfig = {
-    ...sharedConfig,
-    output: {
-      dir: "dist/esm",
-      format: "esm",
-      entryFileNames: "tailwind.css.mjs",
-    },
-  } satisfies RollupOptions
-
-  return [cjsConfig, esmConfig]
+  return [config]
 }
