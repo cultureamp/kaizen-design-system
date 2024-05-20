@@ -24,21 +24,16 @@ compile_types() {
     echo -e "${GREEN}------${NC}"
 }
 
-add_ui_build_tools() {
-    echo -e "${GREEN}Adding UI build tools..."
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/addBuildTools.js --packagePath="$PWD"
-    echo -e "${GREEN}------${NC}"
-}
+# inject_tailwind_imports() {
+#     echo -e "${GREEN}Running Tailwind Styles Import command..."
+#     npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/injectTailwindImports.js --packagePath="$PWD"
+#     echo -e "${GREEN}------${NC}"
+# }
 
-inject_tailwind_imports() {
-    echo -e "${GREEN}Running Tailwind Styles Import command..."
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/injectTailwindImports.js --packagePath="$PWD"
-    echo -e "${GREEN}------${NC}"
-}
-
-ui_post_build() {
-    echo -e "${GREEN}Post build...${NC}"
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/postBuild.js --packagePath="$PWD"
+consolidate_styles() {
+    echo -e "${GREEN}Consolidate styles...${NC}"
+    mv ./dist/esm/styles.css ./dist/styles.css
+    rm ./dist/cjs/styles.css
     echo -e "${GREEN}------${NC}"
 }
 
@@ -63,8 +58,8 @@ case "$1" in
         clean
         add_ui_build_tools
         build
-        inject_tailwind_imports
-        ui_post_build
+        # inject_tailwind_imports
+        consolidate_styles
         elapsed_time
         ;;
     help)
