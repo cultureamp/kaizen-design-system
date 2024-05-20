@@ -13,9 +13,7 @@ export const pluginsSharedUi = [
   }),
   postcss({
     modules: true,
-    extract: false,
-    inject: cssVariableName =>
-      `import styleInject from "style-inject";\nstyleInject(${cssVariableName});`,
+    extract: "styles.css",
     extensions: [".scss", ".css"],
   }),
   ...pluginsDefault,

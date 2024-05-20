@@ -24,15 +24,16 @@ compile_types() {
     echo -e "${GREEN}------${NC}"
 }
 
-inject_tailwind_imports() {
-    echo -e "${GREEN}Running Tailwind Styles Import command..."
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/injectTailwindImports.js --packagePath="$PWD"
-    echo -e "${GREEN}------${NC}"
-}
+# inject_tailwind_imports() {
+#     echo -e "${GREEN}Running Tailwind Styles Import command..."
+#     npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/injectTailwindImports.js --packagePath="$PWD"
+#     echo -e "${GREEN}------${NC}"
+# }
 
-apply_pure_to_style_inject() {
-    echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/applyPureToStyleInject.js --packagePath="$PWD"
+consolidate_styles() {
+    echo -e "${GREEN}Consolidate styles...${NC}"
+    mv ./dist/esm/styles.css ./dist/styles.css
+    rm ./dist/cjs/styles.css
     echo -e "${GREEN}------${NC}"
 }
 
@@ -55,8 +56,8 @@ case "$1" in
     build-shared-ui)
         echo "Running build-shared-ui command..."
         build
-        inject_tailwind_imports
-        apply_pure_to_style_inject
+        # inject_tailwind_imports
+        consolidate_styles
         elapsed_time
         ;;
     help)
