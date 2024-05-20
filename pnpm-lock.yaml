@@ -91,8 +91,8 @@ importers:
         specifier: ^8.1.1
         version: 8.1.1(react-dom@18.3.1)(react@18.3.1)
       '@tanstack/react-query':
-        specifier: ^5.36.2
-        version: 5.36.2(react@18.3.1)
+        specifier: ^5.37.1
+        version: 5.37.1(react@18.3.1)
       '@testing-library/dom':
         specifier: ^10.1.0
         version: 10.1.0
@@ -286,8 +286,8 @@ importers:
   packages/components:
     dependencies:
       '@floating-ui/react-dom':
-        specifier: ^2.0.8
-        version: 2.0.8(react-dom@16.14.0)(react@18.3.1)
+        specifier: ^2.0.9
+        version: 2.0.9(react-dom@16.14.0)(react@18.3.1)
       '@headlessui/react':
         specifier: <=1.5.0
         version: 1.5.0(react-dom@16.14.0)(react@18.3.1)
@@ -400,14 +400,14 @@ importers:
         specifier: ^3.2.3
         version: 3.2.3(react-dom@16.14.0)(react@18.3.1)
       react-day-picker:
-        specifier: ^8.10.0
-        version: 8.10.0(date-fns@3.6.0)(react@18.3.1)
+        specifier: ^8.10.1
+        version: 8.10.1(date-fns@3.6.0)(react@18.3.1)
       react-focus-lock:
         specifier: ^2.11.2
         version: 2.11.2(@types/react@18.3.2)(react@18.3.1)
       react-focus-on:
-        specifier: ^3.9.2
-        version: 3.9.2(@types/react@18.3.2)(react@18.3.1)
+        specifier: ^3.9.3
+        version: 3.9.3(@types/react@18.3.2)(react@18.3.1)
       react-media:
         specifier: ^1.10.0
         version: 1.10.0(react@18.3.1)
@@ -491,8 +491,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0
       react-intl:
-        specifier: ^6.6.6
-        version: 6.6.6(react@18.3.1)(typescript@5.4.5)
+        specifier: ^6.6.8
+        version: 6.6.8(react@18.3.1)(typescript@5.4.5)
       rollup:
         specifier: ^4.17.2
         version: 4.17.2
@@ -509,8 +509,8 @@ importers:
         specifier: ^4.0.2
         version: 4.0.2(postcss@8.4.38)(ts-node@10.9.2)
       sass:
-        specifier: ^1.76.0
-        version: 1.77.0
+        specifier: ^1.77.2
+        version: 1.77.2
       serialize-query-params:
         specifier: ^2.0.2
         version: 2.0.2
@@ -3014,7 +3014,7 @@ packages:
       '@cultureamp/frontend-env': 2.1.2
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.5.0(openapi-types@12.1.3)
-      '@tanstack/react-query': 5.36.2(react@18.3.1)
+      '@tanstack/react-query': 5.37.1(react@18.3.1)
       chromatic: 10.9.6
       deepmerge: 4.3.1
       fast-glob: 3.3.2
@@ -3072,7 +3072,7 @@ packages:
       json-stable-stringify: 1.1.1
       limiter-es6-compat: 2.1.2
       react: 18.3.1
-      react-intl: 6.6.6(react@18.3.1)(typescript@5.4.5)
+      react-intl: 6.6.8(react@18.3.1)(typescript@5.4.5)
       smartling-api-sdk-nodejs: 2.9.1
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -3456,8 +3456,8 @@ packages:
       '@floating-ui/utils': 0.2.1
     dev: false
 
-  /@floating-ui/react-dom@2.0.8(react-dom@16.14.0)(react@18.3.1):
-    resolution: {integrity: sha512-HOdqOt3R3OGeTKidaLvJKcgg75S6tibQ3Tif4eyd91QnIJWr0NLvoXFpJA/j8HqkFSL68GDca9AuyWEHlhyClw==}
+  /@floating-ui/react-dom@2.0.9(react-dom@16.14.0)(react@18.3.1):
+    resolution: {integrity: sha512-q0umO0+LQK4+p6aGyvzASqKbKOJcAHJ7ycE9CuUvfx3s9zTHWmGJTPOIlM/hmSBfUfg/XfY5YhLBLR/LHwShQQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -3522,6 +3522,13 @@ packages:
       '@formatjs/intl-localematcher': 0.5.4
       tslib: 2.6.2
 
+  /@formatjs/ecma402-abstract@2.0.0:
+    resolution: {integrity: sha512-rRqXOqdFmk7RYvj4khklyqzcfQl9vEL/usogncBHRZfZBDOwMGuSRNFl02fu5KGHXdbinju+YXyuR+Nk8xlr/g==}
+    dependencies:
+      '@formatjs/intl-localematcher': 0.5.4
+      tslib: 2.6.2
+    dev: true
+
   /@formatjs/fast-memoize@2.2.0:
     resolution: {integrity: sha512-hnk/nY8FyrL5YxwP9e4r9dqeM6cAbo8PeU9UjyXojZMNvVad2Z06FAVHyR3Ecw6fza+0GH7vdJgiKIVXTMbSBA==}
     dependencies:
@@ -3534,24 +3541,39 @@ packages:
       '@formatjs/icu-skeleton-parser': 1.8.0
       tslib: 2.6.2
 
+  /@formatjs/icu-messageformat-parser@2.7.8:
+    resolution: {integrity: sha512-nBZJYmhpcSX0WeJ5SDYUkZ42AgR3xiyhNCsQweFx3cz/ULJjym8bHAzWKvG5e2+1XO98dBYC0fWeeAECAVSwLA==}
+    dependencies:
+      '@formatjs/ecma402-abstract': 2.0.0
+      '@formatjs/icu-skeleton-parser': 1.8.2
+      tslib: 2.6.2
+    dev: true
+
   /@formatjs/icu-skeleton-parser@1.8.0:
     resolution: {integrity: sha512-QWLAYvM0n8hv7Nq5BEs4LKIjevpVpbGLAJgOaYzg9wABEoX1j0JO1q2/jVkO6CVlq0dbsxZCngS5aXbysYueqA==}
     dependencies:
       '@formatjs/ecma402-abstract': 1.18.2
       tslib: 2.6.2
 
-  /@formatjs/intl-displaynames@6.6.6:
-    resolution: {integrity: sha512-Dg5URSjx0uzF8VZXtHb6KYZ6LFEEhCbAbKoYChYHEOnMFTw/ZU3jIo/NrujzQD2EfKPgQzIq73LOUvW6Z/LpFA==}
+  /@formatjs/icu-skeleton-parser@1.8.2:
+    resolution: {integrity: sha512-k4ERKgw7aKGWJZgTarIcNEmvyTVD9FYh0mTrrBMHZ1b8hUu6iOJ4SzsZlo3UNAvHYa+PnvntIwRPt1/vy4nA9Q==}
     dependencies:
-      '@formatjs/ecma402-abstract': 1.18.2
+      '@formatjs/ecma402-abstract': 2.0.0
+      tslib: 2.6.2
+    dev: true
+
+  /@formatjs/intl-displaynames@6.6.8:
+    resolution: {integrity: sha512-Lgx6n5KxN16B3Pb05z3NLEBQkGoXnGjkTBNCZI+Cn17YjHJ3fhCeEJJUqRlIZmJdmaXQhjcQVDp6WIiNeRYT5g==}
+    dependencies:
+      '@formatjs/ecma402-abstract': 2.0.0
       '@formatjs/intl-localematcher': 0.5.4
       tslib: 2.6.2
     dev: true
 
-  /@formatjs/intl-listformat@7.5.5:
-    resolution: {integrity: sha512-XoI52qrU6aBGJC9KJddqnacuBbPlb/bXFN+lIFVFhQ1RnFHpzuFrlFdjD9am2O7ZSYsyqzYRpkVcXeT1GHkwDQ==}
+  /@formatjs/intl-listformat@7.5.7:
+    resolution: {integrity: sha512-MG2TSChQJQT9f7Rlv+eXwUFiG24mKSzmF144PLb8m8OixyXqn4+YWU+5wZracZGCgVTVmx8viCf7IH3QXoiB2g==}
     dependencies:
-      '@formatjs/ecma402-abstract': 1.18.2
+      '@formatjs/ecma402-abstract': 2.0.0
       '@formatjs/intl-localematcher': 0.5.4
       tslib: 2.6.2
     dev: true
@@ -3561,20 +3583,20 @@ packages:
     dependencies:
       tslib: 2.6.2
 
-  /@formatjs/intl@2.10.2(typescript@5.4.5):
-    resolution: {integrity: sha512-raPGWr3JRv3neXV78SqPFrGC05fIbhhNzVghHNxFde27ls2KkXiMhtP7HBybjGpikVSjjhdhaZto+4p1vmm9bQ==}
+  /@formatjs/intl@2.10.4(typescript@5.4.5):
+    resolution: {integrity: sha512-56483O+HVcL0c7VucAS2tyH020mt9XTozZO67cwtGg0a7KWDukS/FzW3OnvaHmTHDuYsoPIzO+ZHVfU6fT/bJw==}
     peerDependencies:
       typescript: ^4.7 || 5
     peerDependenciesMeta:
       typescript:
         optional: true
     dependencies:
-      '@formatjs/ecma402-abstract': 1.18.2
+      '@formatjs/ecma402-abstract': 2.0.0
       '@formatjs/fast-memoize': 2.2.0
-      '@formatjs/icu-messageformat-parser': 2.7.6
-      '@formatjs/intl-displaynames': 6.6.6
-      '@formatjs/intl-listformat': 7.5.5
-      intl-messageformat: 10.5.12
+      '@formatjs/icu-messageformat-parser': 2.7.8
+      '@formatjs/intl-displaynames': 6.6.8
+      '@formatjs/intl-listformat': 7.5.7
+      intl-messageformat: 10.5.14
       tslib: 2.6.2
       typescript: 5.4.5
     dev: true
@@ -6526,8 +6548,8 @@ packages:
     resolution: {integrity: sha512-BteWYEPUcucEu3NBcDAgKuI4U25R9aPrHSP6YSf2NvaD2pSlIQTdqOfLRsxH9WdRYg7k0Uom35Uacb6nvbIMJg==}
     dev: true
 
-  /@tanstack/react-query@5.36.2(react@18.3.1):
-    resolution: {integrity: sha512-bHNa+5dead+j6SA8WVlEOPxcGfteVFgdyFTCFcxBgjnPf0fFpHUc7aNZBCnvmPXqy/BeQa9zTuU9ectb7i8ZXA==}
+  /@tanstack/react-query@5.37.1(react@18.3.1):
+    resolution: {integrity: sha512-EhtBNA8GL3XFeSx6VYUjXQ96n44xe3JGKZCzBINrCYlxbZP6UwBafv7ti4eSRWc2Fy+fybQre0w17gR6lMzULA==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
@@ -11234,6 +11256,13 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /focus-lock@1.3.5:
+    resolution: {integrity: sha512-QFaHbhv9WPUeLYBDe/PAuLKJ4Dd9OPvKs9xZBr3yLXnUrDNaVXKu2baDBXe3naPY30hgHYSsf2JW4jzas2mDEQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
   /follow-redirects@1.15.5:
     resolution: {integrity: sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==}
     engines: {node: '>=4.0'}
@@ -12269,12 +12298,12 @@ packages:
       '@formatjs/icu-messageformat-parser': 2.7.6
       tslib: 2.6.2
 
-  /intl-messageformat@10.5.12:
-    resolution: {integrity: sha512-izl0uxhy/melhw8gP2r8pGiVieviZmM4v5Oqx3c1/R7g9cwER2smmGfSjcIsp8Y3Q53bfciL/gkxacJRx/dUvg==}
+  /intl-messageformat@10.5.14:
+    resolution: {integrity: sha512-IjC6sI0X7YRjjyVH9aUgdftcmZK7WXdHeil4KwbjDnRWjnVitKpAx3rr6t6di1joFp5188VqKcobOPA6mCLG/w==}
     dependencies:
-      '@formatjs/ecma402-abstract': 1.18.2
+      '@formatjs/ecma402-abstract': 2.0.0
       '@formatjs/fast-memoize': 2.2.0
-      '@formatjs/icu-messageformat-parser': 2.7.6
+      '@formatjs/icu-messageformat-parser': 2.7.8
       tslib: 2.6.2
     dev: true
 
@@ -17117,8 +17146,8 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: true
 
-  /react-day-picker@8.10.0(date-fns@3.6.0)(react@18.3.1):
-    resolution: {integrity: sha512-mz+qeyrOM7++1NCb1ARXmkjMkzWVh2GL9YiPbRjKe0zHccvekk4HE+0MPOZOrosn8r8zTHIIeOUXTmXRqmkRmg==}
+  /react-day-picker@8.10.1(date-fns@3.6.0)(react@18.3.1):
+    resolution: {integrity: sha512-TMx7fNbhLk15eqcMt+7Z7S2KF7mfTId/XJDjKE8f+IUcFn0l08/kI4FiYTL/0yuOLmEcbR4Fwe3GJf/NiiMnPA==}
     peerDependencies:
       date-fns: ^2.28.0 || ^3.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -17220,8 +17249,27 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.3.2)(react@18.3.1)
     dev: false
 
-  /react-focus-on@3.9.2(@types/react@18.3.2)(react@18.3.1):
-    resolution: {integrity: sha512-3UZ9PjA+pe8ZK3B+rz7zcgJUIRJVzJEddYe6R5WVUAsSXW8awHw9nXJqK0UU5MenGEUh/tMUBWMqN633+d2eCA==}
+  /react-focus-lock@2.12.1(@types/react@18.3.2)(react@18.3.1):
+    resolution: {integrity: sha512-lfp8Dve4yJagkHiFrC1bGtib3mF2ktqwPJw4/WGcgPW+pJ/AVQA5X2vI7xgp13FcxFEpYBBHpXai/N2DBNC0Jw==}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.23.9
+      '@types/react': 18.3.2
+      focus-lock: 1.3.5
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-clientside-effect: 1.2.6(react@18.3.1)
+      use-callback-ref: 1.3.2(@types/react@18.3.2)(react@18.3.1)
+      use-sidecar: 1.1.2(@types/react@18.3.2)(react@18.3.1)
+    dev: false
+
+  /react-focus-on@3.9.3(@types/react@18.3.2)(react@18.3.1):
+    resolution: {integrity: sha512-GSLz54TvP6OUlsvnlgHJu80nHOAO2ikRTtDt/aP8GZu3DPPAbwHFdliveBwUfPnyKLUKutFMCJUkH55vuo4uKQ==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -17233,11 +17281,10 @@ packages:
       '@types/react': 18.3.2
       aria-hidden: 1.2.3
       react: 18.3.1
-      react-focus-lock: 2.11.2(@types/react@18.3.2)(react@18.3.1)
+      react-focus-lock: 2.12.1(@types/react@18.3.2)(react@18.3.1)
       react-remove-scroll: 2.5.7(@types/react@18.3.2)(react@18.3.1)
       react-style-singleton: 2.2.1(@types/react@18.3.2)(react@18.3.1)
       tslib: 2.6.2
-      use-callback-ref: 1.3.1(@types/react@18.3.2)(react@18.3.1)
       use-sidecar: 1.1.2(@types/react@18.3.2)(react@18.3.1)
     dev: false
 
@@ -17247,8 +17294,8 @@ packages:
       highlight.js: 10.7.3
     dev: false
 
-  /react-intl@6.6.6(react@18.3.1)(typescript@5.4.5):
-    resolution: {integrity: sha512-dKXQNUrhZTlCp8uelYW8PHiM4saNKyLmHCfsJYWK0N/kZ/Ien35wjPHB8x9yQcTJbeN/hBOmb4x16iKUrdL9MA==}
+  /react-intl@6.6.8(react@18.3.1)(typescript@5.4.5):
+    resolution: {integrity: sha512-M0pkhzcgV31h++2901BiRXWl69hp2zPyLxRrSwRjd1ErXbNoubz/f4M6DrRTd4OiSUrT4ajRQzrmtS5plG4FtA==}
     peerDependencies:
       react: ^16.6.0 || 17 || 18
       typescript: ^4.7 || 5
@@ -17256,15 +17303,15 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@formatjs/ecma402-abstract': 1.18.2
-      '@formatjs/icu-messageformat-parser': 2.7.6
-      '@formatjs/intl': 2.10.2(typescript@5.4.5)
-      '@formatjs/intl-displaynames': 6.6.6
-      '@formatjs/intl-listformat': 7.5.5
+      '@formatjs/ecma402-abstract': 2.0.0
+      '@formatjs/icu-messageformat-parser': 2.7.8
+      '@formatjs/intl': 2.10.4(typescript@5.4.5)
+      '@formatjs/intl-displaynames': 6.6.8
+      '@formatjs/intl-listformat': 7.5.7
       '@types/hoist-non-react-statics': 3.3.5
       '@types/react': 18.3.2
       hoist-non-react-statics: 3.3.2
-      intl-messageformat: 10.5.12
+      intl-messageformat: 10.5.14
       react: 18.3.1
       tslib: 2.6.2
       typescript: 5.4.5
@@ -18038,8 +18085,8 @@ packages:
       webpack: 5.91.0(@swc/core@1.4.1)(esbuild@0.18.20)
     dev: true
 
-  /sass@1.77.0:
-    resolution: {integrity: sha512-eGj4HNfXqBWtSnvItNkn7B6icqH14i3CiCGbzMKs3BAPTq62pp9NBYsBgyN4cA+qssqo9r26lW4JSvlaUUWbgw==}
+  /sass@1.77.2:
+    resolution: {integrity: sha512-eb4GZt1C3avsX3heBNlrc7I09nyT00IUuo4eFhAbeXWU2fvA7oXI53SxODVAA+zgZCk9aunAZgO+losjR3fAwA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -20018,6 +20065,21 @@ packages:
       '@types/react': 18.3.2
       react: 18.3.1
       tslib: 2.6.2
+
+  /use-callback-ref@1.3.2(@types/react@18.3.2)(react@18.3.1):
+    resolution: {integrity: sha512-elOQwe6Q8gqZgDA8mrh44qRTQqpIHDcZ3hXTLjBe1i4ph8XpNJnO+aQf3NaG+lriLopI4HMx9VjQLfPQ6vhnoA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.3.2
+      react: 18.3.1
+      tslib: 2.6.2
+    dev: false
 
   /use-debounce@10.0.0(react@18.3.1):
     resolution: {integrity: sha512-XRjvlvCB46bah9IBXVnq/ACP2lxqXyZj0D9hj4K5OzNroMDpTEBg8Anuh1/UfRTRs7pLhQ+RiNxxwZu9+MVl1A==}
