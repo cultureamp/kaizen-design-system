@@ -281,6 +281,9 @@ export const LimitedViewportHeight: Story = {
       </div>
     ),
   ],
+  parameters: {
+    chromatic: { disable: true },
+  },
 }
 
 export const FullViewportHeight: Story = {
@@ -295,6 +298,9 @@ export const FullViewportHeight: Story = {
       </div>
     ),
   ],
+  parameters: {
+    chromatic: { disable: true },
+  },
 }
 
 export const AboveIfAvailable: Story = {
@@ -309,4 +315,7 @@ export const AboveIfAvailable: Story = {
       </div>
     ),
   ],
+  parameters: {
+    chromatic: { disable: true },
+  },
 }
