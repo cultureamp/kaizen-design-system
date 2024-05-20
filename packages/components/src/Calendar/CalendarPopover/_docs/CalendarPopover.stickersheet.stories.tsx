@@ -1,5 +1,5 @@
 import React from "react"
-import { offset, size } from "@floating-ui/react-dom"
+import { offset } from "@floating-ui/react-dom"
 import { Meta } from "@storybook/react"
 import { Text } from "~components/Text"
 import {
