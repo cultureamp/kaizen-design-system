@@ -250,7 +250,7 @@ export const DisabledDays: Story = {
   parameters: { controls: { include: /^disabled/ } },
 }
 
-export const Zoom: Story = {
+export const LimitedWindowWidth: Story = {
   name: "At 400% window size",
   parameters: {
     controls: { disable: true },
@@ -267,4 +267,46 @@ export const Zoom: Story = {
       defaultViewport: "ViewportAt400",
     },
   },
+}
+
+export const LimitedViewportHeight: Story = {
+  name: "Limited viewport height",
+  args: {
+    labelText: "Calendar with reduced space below",
+  },
+  decorators: [
+    Story => (
+      <div className="mb-[150px]">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const FullViewportHeight: Story = {
+  name: "Full viewport height",
+  args: {
+    labelText: "Calendar with full space below",
+  },
+  decorators: [
+    Story => (
+      <div className="mb-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const AboveIfAvailable: Story = {
+  name: "Full viewport height",
+  args: {
+    labelText: "Calendar with space above",
+  },
+  decorators: [
+    Story => (
+      <div className="mt-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
 }

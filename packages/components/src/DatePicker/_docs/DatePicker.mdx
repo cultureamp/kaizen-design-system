@@ -70,3 +70,17 @@ There are multiple props to disable days within the Calendar.
 
 <Canvas of={DatePickerStories.DisabledDays} />
 <Controls of={DatePickerStories.DisabledDays} />
+
+### Responsive behaviour
+
+To ensure calendar content is accessibility across multiple viewports and satisfy the [content reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html) spec in WCAG guidelines, the `DatePicker`'s popover will scroll when not enough space is available. The main case for this is to assist users on 400% zoom and ensure content is not visually lost below the fold.
+
+<Canvas of={DatePickerStories.LimitedViewportHeight} />
+
+This is determined by the [size](https://floating-ui.com/docs/size) middleware from the `floatingUI` library, which calculates and sets the available height and width based on the viewport and available whitespace.
+
+<Canvas of={DatePickerStories.FullViewportHeight} />
+
+The `DatePicker`'s popover will also re-adjust its position to the top if there is not enough space available below.
+
+<Canvas of={DatePickerStories.AboveIfAvailable} />
