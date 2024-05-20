@@ -23,8 +23,7 @@
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
   "sideEffects": [
-    "styles.css",
-    "tailwind.css.*"
+    "styles.css"
   ],
   "scripts": {
     "build": "pnpm package-bundler build-shared-ui && pnpm build:global-styles",

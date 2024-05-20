@@ -11,7 +11,7 @@ pnpm add -D @kaizen/package-bundler
 ## build-shared-ui
 
 For shared UI packages (CSS modules and/or Tailwind).
-Styles will be automatically injected when consumed.
+All styles will be combined into a single stylesheet in the dist (`{PACKAGE_NAME}/dist/styles.css`), to be imported by the consumer.
 
 ### `package.json`
 
@@ -24,6 +24,7 @@ Add the following to your `package.json`:
   "dist"
 ],
 "sideEffects": [
+  "styles.css",
   "tailwind.css.*" // If using Tailwind
 ],
 "scripts": {
@@ -34,14 +35,9 @@ Add the following to your `package.json`:
 #### Dependencies
 
 ```sh
-pnpm add style-inject && pnpm add -D postcss postcss-preset-env rollup tslib
+pnpm add -D postcss postcss-preset-env rollup tslib
 ```
 
-`dependencies`:
-- `style-inject`
-  - This is used in the dist, thus required by the consumer
-
-`devDependencies`:
 - `postcss`
 - `postcss-preset-env`
 - `rollup`
