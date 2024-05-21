@@ -2,7 +2,7 @@ import path from "path"
 import postcss from "rollup-plugin-postcss"
 import { pluginsDefault } from "../default/index.js"
 
-// This file is added by bin/addBuildTools
+// This file is added by bin/addBuildTools and removed in bin/postBuild
 const styleInjectPath = path.resolve("src/__build-tools/styleInject.js")
 
 export const pluginsSharedUi = [
