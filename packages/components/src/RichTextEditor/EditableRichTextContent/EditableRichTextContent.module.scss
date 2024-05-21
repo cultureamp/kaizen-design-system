@@ -4,23 +4,30 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 
 .editableContainer :global(.ProseMirror) {
-  padding: $spacing-sm;
+  padding: $spacing-12;
   position: relative;
   border-radius: $border-solid-border-radius;
   border: $border-focus-ring-border-width $border-focus-ring-border-style
-    transparent;
+    $color-gray-500;
   transition:
     background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
   background-color: $color-gray-200;
 }
 
-.editableContainer:hover :global(.ProseMirror) {
-  background-color: $color-gray-200;
-  border-color: $color-blue-500;
-}
-
+.editableContainer:hover :global(.ProseMirror),
 .editableContainer .hiddenButton:focus-within + * > :global(.ProseMirror) {
-  border: $border-focus-ring-border-width $border-focus-ring-border-style
-    $color-blue-500;
+  &::before {
+    $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
+    pointer-events: none;
+
+    content: "";
+    position: absolute;
+    background: transparent;
+    border: $border-focus-ring-border-width $border-focus-ring-border-style
+      $color-blue-500;
+    border-radius: 10px;
+    inset: calc(-1 * #{$focus-ring-offset});
+    z-index: 1;
+  }
 }
