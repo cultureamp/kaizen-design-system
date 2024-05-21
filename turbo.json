@@ -15,11 +15,6 @@
       "dependsOn": ["^build"],
       "inputs": ["dist/**"]
     },
-    "prepublishOnly": {
-      "dependsOn": ["^prepublishOnly"],
-      "inputs": ["packages/**"],
-      "outputs": ["dist/**"]
-    },
     "clean": {
       "cache": false
     },
