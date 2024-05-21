@@ -150,42 +150,54 @@ export const StickerSheetResponsive: StickerSheetStory = {
   render: () => (
     <>
       <Text variant="intro-lede" classNameOverride="mb-12 ">
-        Container has less height than CalendarPopover
+        CalendarSingle scaled to availableHeight
       </Text>
       <div className="h-[250px] p-12 bg-purple-100 relative overflow-hidden">
         <ResponsivePopoverExample>
           <CalendarSingle selected={new Date("2022-02-19")} />
         </ResponsivePopoverExample>
       </div>
-      <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
-        Container has less height than minimum CalendarPopover height
+      <Text variant="intro-lede" classNameOverride="mb-12 ">
+        CalendarRange scaled to availableHeight
       </Text>
-      <div className="h-[125px] p-12 bg-purple-200 relative overflow-auto">
+      <div className="h-[250px] p-12 bg-purple-100 relative overflow-hidden">
+        <ResponsivePopoverExample>
+          <CalendarRange
+            selected={{
+              from: new Date("2022-02-19"),
+              to: new Date("2022-03-04"),
+            }}
+            hasDivider
+          />
+        </ResponsivePopoverExample>
+      </div>
+      <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
+        CalendarSingle scaled to availableWidth
+      </Text>
+      <div className="h-[400px] w-[275px] p-12 bg-blue-100 relative overflow-hidden">
         <ResponsivePopoverExample>
           <CalendarSingle selected={new Date("2022-03-19")} />
         </ResponsivePopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
-        Container has less width than CalendarPopover
+        CalendarRange scaled to availableWidth
       </Text>
-      <div className="h-[450px] w-[275px] p-12 bg-blue-100 relative overflow-hidden">
+      <div className="h-[400px] w-[275px] p-12 bg-blue-100 relative overflow-hidden">
         <ResponsivePopoverExample>
-          <CalendarSingle selected={new Date("2022-03-19")} />
-        </ResponsivePopoverExample>
-      </div>
-      <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
-        Container has less width and height than CalendarPopover
-      </Text>
-      <div className="h-[275px] w-[275px] p-12 bg-blue-200 relative overflow-hidden mb-12">
-        <ResponsivePopoverExample>
-          <CalendarSingle selected={new Date("2022-03-19")} />
+          <CalendarRange
+            selected={{
+              from: new Date("2022-02-19"),
+              to: new Date("2022-03-04"),
+            }}
+            hasDivider
+          />
         </ResponsivePopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
         CalendarPopover will position in upper page content if lower content
         space is unavailable
       </Text>
-      <div className="w-full overflow-hidden mb-12 p-12  bg-orange-100 relative">
+      <div className="w-full mb-12 p-12 bg-orange-100 relative overflow-auto">
         <div className="h-[375px]  p-12 bg-blue-100 ">Upper page content</div>
         <ResponsivePopoverExample>
           <CalendarSingle selected={new Date("2022-03-19")} />
