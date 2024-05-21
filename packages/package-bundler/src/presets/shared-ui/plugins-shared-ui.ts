@@ -1,6 +1,10 @@
+import path from "path"
 import resolve from "@rollup/plugin-node-resolve"
 import postcss from "rollup-plugin-postcss"
 import { pluginsDefault } from "../default/index.js"
+
+// This file is added by bin/addBuildTools
+const styleInjectPath = path.resolve("src/__build-tools/styleInject.js")
 
 export const pluginsSharedUi = [
   // This is needed to ensure that css is compiled correctly.
@@ -15,7 +19,7 @@ export const pluginsSharedUi = [
     modules: true,
     extract: false,
     inject: cssVariableName =>
-      `import styleInject from "style-inject";\nstyleInject(${cssVariableName});`,
+      `import { styleInject } from "${styleInjectPath}";\nstyleInject(${cssVariableName});`,
     extensions: [".scss", ".css"],
   }),
   ...pluginsDefault,

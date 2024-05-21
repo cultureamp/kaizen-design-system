@@ -25,7 +25,7 @@ export const rollupConfig = (
       alias(config.alias),
       ...((config?.plugins as InputPluginOption[]) || pluginsDefault),
     ],
-  }
+  } satisfies RollupOptions
 
   // CommonJS
   const cjsConfig = {
