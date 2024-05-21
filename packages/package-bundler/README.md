@@ -10,8 +10,9 @@ pnpm add -D @kaizen/package-bundler
 
 ## build-shared-ui
 
-For shared UI packages (CSS modules and/or Tailwind).
-Styles will be automatically injected when consumed.
+For shared UI packages, CSS modules and/or Tailwind will be included in the dist along side the components JS.
+
+_Note: styles are injected into the JS of components, so there's no need for consumers to manually import CSS files, it all comes with the component._
 
 ### `package.json`
 
