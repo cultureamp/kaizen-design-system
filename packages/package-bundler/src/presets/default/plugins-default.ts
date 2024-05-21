@@ -11,7 +11,14 @@ export const pluginsDefault = [
     devDeps: true,
   }),
   // https://rollupjs.org/tools/#rollup-plugin-node-resolve
-  resolve(),
+  // This is needed to ensure that css is compiled correctly.
+  // Without this there is an alphabetised order in the dist CSS for subcomponents.
+  // This can cause styles being overwritten by primitives, ie: BaseButton overwriting DropdownButton
+  // https://cultureamp.slack.com/archives/C02NUQ27G56/p1713157055178419
+  resolve({
+    preferBuiltins: true,
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
+  }),
   // This call to alias plugin will be additional to the above alias plugin call
   alias({
     entries: [
