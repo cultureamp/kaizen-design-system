@@ -35,8 +35,8 @@
     "changeset": "changeset",
     "plop": "plop",
     "pkg:aio": "pnpm -F @kaizen/components",
-    "ci:version": "pnpm turbo prepublishOnly && pnpm changeset version",
-    "ci:publish": "pnpm turbo prepublishOnly && pnpm changeset publish",
+    "ci:version": "pnpm turbo build && pnpm changeset version",
+    "ci:publish": "pnpm turbo build && pnpm changeset publish",
     "update-icons": "pnpm pkg:aio update-icons",
     "i18n:extract": "pnpm pkg:aio i18n:extract",
     "i18n:extract:remove-obsolete": "pnpm pkg:aio i18n:extract --deleteObsoleteTranslations"

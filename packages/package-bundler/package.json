@@ -9,7 +9,6 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc --build",
-    "prepublishOnly": "tsc --build",
     "prepare": "ts-patch install -s"
   },
   "files": [
