@@ -1,5 +1,4 @@
 import path from "path"
-import commonjs from "@rollup/plugin-commonjs"
 import { RollupOptions } from "rollup"
 import postcss from "rollup-plugin-postcss"
 
@@ -18,12 +17,11 @@ export const rollupTailwindConfig = (): RollupOptions[] => {
         extensions: [".css"],
       }),
     ],
-  }
+  } satisfies RollupOptions
 
   // CommonJS
   const cjsConfig = {
     ...sharedConfig,
-    plugins: [...sharedConfig.plugins, commonjs()],
     output: {
       dir: "dist/cjs",
       format: "commonjs",
