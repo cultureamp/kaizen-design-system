@@ -25,7 +25,7 @@
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
     "build": "pnpm clean && pnpm prepublishOnly",
-    "build:json": "pnpm ts-node --files ./bin/buildCssVarTokens.ts",
+    "build:json": "tsx ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
@@ -40,7 +40,7 @@
     "postcss": "^8.4.38",
     "prettier": "*",
     "react-map-interaction": "^2.1.0",
-    "ts-node": "^10.9.2"
+    "tsx": "^4.10.2"
   },
   "dependencies": {
     "@types/color-string": "^1.5.5",

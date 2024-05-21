@@ -1,15 +1,6 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "module": "esnext",
-    "moduleResolution": "node",
-    "declaration": false,
-    "noEmit": false,
-    "plugins": [
-      // Transform paths in output .js files
-      { "transform": "typescript-transform-paths" }
-    ]
-  },
+  "extends": ["./tsconfig.json", "@kaizen/package-bundler/tsconfig.dist.json"],
+  "include": ["src/**/*"],
   "exclude": [
     "node_modules",
     "**/*.spec.ts",

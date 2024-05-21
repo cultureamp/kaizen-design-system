@@ -1,12 +1,6 @@
 {
-  "extends": "./tsconfig.dist.json",
-  "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "dist/types",
-    "emitDeclarationOnly": true,
-    "plugins": [
-      // Transform paths in output .d.ts files (Include this line if you output declarations files)
-      { "transform": "typescript-transform-paths", "afterDeclarations": true }
-    ]
-  }
+  "extends": [
+    "./tsconfig.dist.json",
+    "@kaizen/package-bundler/tsconfig.types.json"
+  ]
 }
