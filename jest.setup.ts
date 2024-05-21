@@ -8,7 +8,6 @@ const CONSOLE_FAIL_TYPES = ["error", "warn"] as const
 // Throw errors when a `console.error` or `console.warn` happens
 // by overriding the functions
 CONSOLE_FAIL_TYPES.forEach(type => {
-  // eslint-disable-next-line no-console
   console[type] = message => {
     throw new Error(
       `Failing due to console.${type} while running test!\n\n${message}`

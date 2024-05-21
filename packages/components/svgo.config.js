@@ -1,4 +1,3 @@
-const path = require("path")
 const { recurse, removeRootSVGElement } = require("./svgoUtils")
 
 module.exports = {
