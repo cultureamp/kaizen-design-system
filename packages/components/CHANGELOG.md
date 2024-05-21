@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.47.0
+
+### Minor Changes
+
+- [#4656](https://github.com/cultureamp/kaizen-design-system/pull/4656) [`c3baac698e421c46d08afd41161d07511022e46e`](https://github.com/cultureamp/kaizen-design-system/commit/c3baac698e421c46d08afd41161d07511022e46e) - Update build to use `@kaizen/package-bundler`.
+
 ## 1.46.0
 
 ### Minor Changes
