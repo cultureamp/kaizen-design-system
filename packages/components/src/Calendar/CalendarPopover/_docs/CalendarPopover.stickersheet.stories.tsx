@@ -1,5 +1,5 @@
 import React from "react"
-import { offset } from "@floating-ui/react-dom"
+import { offset, size, autoPlacement } from "@floating-ui/react-dom"
 import { Meta } from "@storybook/react"
 import { Text } from "~components/Text"
 import {
@@ -126,7 +126,7 @@ const ResponsivePopoverExample = ({
     React.useState<HTMLDivElement | null>(null)
 
   return (
-    <>
+    <div className=" relative">
       {/* This is the anchor */}
       <div className="bg-orange-300 inline-flex" ref={setReferenceElement}>
         Reference element
@@ -136,12 +136,26 @@ const ResponsivePopoverExample = ({
         floatingOptions={{
           strategy: "absolute",
           placement: "bottom-start",
+          middleware: [
+            offset(15),
+            size({
+              apply({ availableHeight, availableWidth, elements }) {
+                Object.assign(elements.floating.style, {
+                  maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
+                  maxWidth: `${availableWidth}px`,
+                })
+              },
+            }),
+            autoPlacement({
+              allowedPlacements: ["bottom-start"],
+            }),
+          ],
         }}
         {...otherProps}
       >
         {children}
       </CalendarPopover>
-    </>
+    </div>
   )
 }
 
@@ -152,7 +166,7 @@ export const StickerSheetResponsive: StickerSheetStory = {
       <Text variant="intro-lede" classNameOverride="mb-12 ">
         CalendarSingle scaled to availableHeight
       </Text>
-      <div className="h-[250px] p-12 bg-purple-100 relative overflow-hidden">
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden">
         <ResponsivePopoverExample>
           <CalendarSingle selected={new Date("2022-02-19")} />
         </ResponsivePopoverExample>
@@ -160,7 +174,7 @@ export const StickerSheetResponsive: StickerSheetStory = {
       <Text variant="intro-lede" classNameOverride="mb-12 ">
         CalendarRange scaled to availableHeight
       </Text>
-      <div className="h-[250px] p-12 bg-purple-100 relative overflow-hidden">
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden">
         <ResponsivePopoverExample>
           <CalendarRange
             selected={{
@@ -174,15 +188,15 @@ export const StickerSheetResponsive: StickerSheetStory = {
       <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
         CalendarSingle scaled to availableWidth
       </Text>
-      <div className="h-[400px] w-[275px] p-12 bg-blue-100 relative overflow-hidden">
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden w-[250px]">
         <ResponsivePopoverExample>
           <CalendarSingle selected={new Date("2022-03-19")} />
         </ResponsivePopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
-        CalendarRange scaled to availableWidth
+        CalendarRanger scaled to availableWidth
       </Text>
-      <div className="h-[400px] w-[275px] p-12 bg-blue-100 relative overflow-hidden">
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden w-[250px]">
         <ResponsivePopoverExample>
           <CalendarRange
             selected={{
@@ -192,19 +206,6 @@ export const StickerSheetResponsive: StickerSheetStory = {
             hasDivider
           />
         </ResponsivePopoverExample>
-      </div>
-      <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
-        CalendarPopover will position in upper page content if lower content
-        space is unavailable
-      </Text>
-      <div className="w-full mb-12 p-12 bg-orange-100 relative overflow-auto">
-        <div className="h-[375px]  p-12 bg-blue-100 ">Upper page content</div>
-        <ResponsivePopoverExample>
-          <CalendarSingle selected={new Date("2022-03-19")} />
-        </ResponsivePopoverExample>
-        <div className="h-[100px] p-12 bg-yellow-100 relative">
-          Lower page content
-        </div>
       </div>
     </>
   ),
