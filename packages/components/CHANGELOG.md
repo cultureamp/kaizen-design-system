@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.47.1
+
+### Patch Changes
+
+- [#4698](https://github.com/cultureamp/kaizen-design-system/pull/4698) [`2e42b84f8412b6d0f19a8d78c3c4d085d02e43ae`](https://github.com/cultureamp/kaizen-design-system/commit/2e42b84f8412b6d0f19a8d78c3c4d085d02e43ae) - Fix bundling
+
 ## 1.47.0
 
 ### Minor Changes
