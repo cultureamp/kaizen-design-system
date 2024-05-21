@@ -44,7 +44,7 @@
     "i18n:extract": "pnpm i18n-extract"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.0.8",
+    "@floating-ui/react-dom": "^2.0.9",
     "@headlessui/react": "<=1.5.0",
     "@internationalized/date": "^3.5.3",
     "@kaizen/hosted-assets": "workspace:*",
@@ -81,9 +81,9 @@
     "prosemirror-utils": "^1.2.1-0",
     "prosemirror-view": "^1.33.3",
     "react-animate-height": "^3.2.3",
-    "react-day-picker": "^8.10.0",
+    "react-day-picker": "^8.10.1",
     "react-focus-lock": "^2.11.2",
-    "react-focus-on": "^3.9.2",
+    "react-focus-on": "^3.9.3",
     "react-media": "^1.10.0",
     "react-popper": "^2.3.0",
     "react-select": "^5.8.0",
@@ -116,13 +116,13 @@
     "babel-plugin-pure-static-props": "^0.2.0",
     "concat-cli": "^4.0.0",
     "query-string": "^9.0.0",
-    "react-intl": "^6.6.6",
+    "react-intl": "^6.6.8",
     "rollup": "^4.17.2",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-node-externals": "^7.1.2",
     "rollup-plugin-postcss": "^4.0.2",
-    "sass": "^1.76.0",
+    "sass": "^1.77.2",
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
     "ts-jest": "^29.1.2",
@@ -133,6 +133,6 @@
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.6",
     "react": "^18.3.1",
-    "react-intl": "^6.6.6"
+    "react-intl": "^6.6.8"
   }
 }
