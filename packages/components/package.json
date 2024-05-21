@@ -26,8 +26,10 @@
     "styles.css"
   ],
   "scripts": {
-    "build": "pnpm package-bundler build-shared-ui && pnpm build:global-styles",
+    "prepublishOnly": "pnpm package-bundler build-shared-ui && pnpm build:global-styles",
+    "build": "pnpm clean && pnpm prepublishOnly",
     "build:global-styles": "postcss ./styles/global.css --output dist/styles.css",
+    "clean": "rm -rf dist",
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
     "test:treeshake": "agadoo ./dist/esm/index.mjs",
