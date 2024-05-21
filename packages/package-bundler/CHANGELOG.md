@@ -1,5 +1,14 @@
 # @kaizen/package-bundler
 
+## 1.0.1
+
+### Patch Changes
+
+- [#4696](https://github.com/cultureamp/kaizen-design-system/pull/4696) [`0169a7521ede7464626dc90c258ce662fac7998e`](https://github.com/cultureamp/kaizen-design-system/commit/0169a7521ede7464626dc90c258ce662fac7998e) - Update fs.rmdirSync to fs.rmSync
+
+- [#4696](https://github.com/cultureamp/kaizen-design-system/pull/4696) [`0169a7521ede7464626dc90c258ce662fac7998e`](https://github.com/cultureamp/kaizen-design-system/commit/0169a7521ede7464626dc90c258ce662fac7998e) - - Fix version number from v2 to v1
+  - Fix missing bundle in KAIO and `package-bundler`
+
 ## 1.0.0
 
 ### Major Changes
