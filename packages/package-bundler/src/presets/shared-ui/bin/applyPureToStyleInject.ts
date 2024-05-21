@@ -8,7 +8,7 @@ const options = {
     `${args.packagePath}/dist/esm/**/*.scss.mjs`,
     `${args.packagePath}/dist/esm/**/*.css.mjs`,
   ],
-  from: "styleInject(",
+  from: new RegExp(/(?<!function\s)styleInject\(/),
   to: "/*#__PURE__*/styleInject(",
 }
 
