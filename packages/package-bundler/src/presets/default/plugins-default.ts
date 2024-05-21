@@ -43,8 +43,6 @@ export const pluginsDefault = [
     "worker_threads",
     "zlib",
   ]),
-  // https://rollupjs.org/tools/#rollup-plugin-commonjs
-  commonjs(),
   babel({ babelHelpers: "bundled" }),
   getBabelOutputPlugin({
     plugins: [
@@ -52,4 +50,6 @@ export const pluginsDefault = [
       "babel-plugin-pure-static-props",
     ],
   }),
+  // https://rollupjs.org/tools/#rollup-plugin-commonjs
+  commonjs(),
 ] satisfies InputPluginOption[]
