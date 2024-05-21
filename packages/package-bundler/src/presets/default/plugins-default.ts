@@ -1,5 +1,7 @@
 import alias from "@rollup/plugin-alias"
 import { babel, getBabelOutputPlugin } from "@rollup/plugin-babel"
+import commonjs from "@rollup/plugin-commonjs"
+import resolve from "@rollup/plugin-node-resolve"
 import { InputPluginOption } from "rollup"
 import ignore from "rollup-plugin-ignore"
 import nodeExternals from "rollup-plugin-node-externals"
@@ -8,6 +10,8 @@ export const pluginsDefault = [
   nodeExternals({
     devDeps: true,
   }),
+  // https://rollupjs.org/tools/#rollup-plugin-node-resolve
+  resolve(),
   // This call to alias plugin will be additional to the above alias plugin call
   alias({
     entries: [
@@ -39,6 +43,8 @@ export const pluginsDefault = [
     "worker_threads",
     "zlib",
   ]),
+  // https://rollupjs.org/tools/#rollup-plugin-commonjs
+  commonjs(),
   babel({ babelHelpers: "bundled" }),
   getBabelOutputPlugin({
     plugins: [

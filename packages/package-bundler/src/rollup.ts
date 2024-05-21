@@ -1,7 +1,6 @@
 import fs from "fs"
 import path from "path"
 import alias, { RollupAliasOptions } from "@rollup/plugin-alias"
-import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import { InputPluginOption, RollupOptions } from "rollup"
 import { pluginsDefault } from "./presets/index.js"
@@ -40,7 +39,6 @@ export const rollupConfig = (
           allowSyntheticDefaultImports: true,
         },
       }),
-      commonjs(),
     ],
     output: {
       dir: "dist/cjs",
