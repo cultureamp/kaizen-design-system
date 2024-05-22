@@ -24,7 +24,8 @@
         "@kaizen/package-bundler#build"
       ],
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": false
     },
     "@kaizen/components#test:treeshake": {
       "dependsOn": ["@kaizen/components#build"],
@@ -41,7 +42,8 @@
     },
     "@kaizen/package-bundler#build": {
       "inputs": ["bin/*", "src/**", "tsconfig*.json"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "cache": false
     }
   }
 }

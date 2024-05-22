@@ -24,7 +24,7 @@
   "scripts": {
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
-    "build": "pnpm clean && pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts",
+    "build": "pnpm clean && pnpm prepublishOnly",
     "build:json": "tsx ./bin/buildCssVarTokens.ts",
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",

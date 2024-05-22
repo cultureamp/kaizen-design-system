@@ -18,7 +18,8 @@
     "_index.scss"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc --project tsconfig.dist.json",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
+    "build": "pnpm clean && pnpm prepublishOnly",
     "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'"
   }
 }

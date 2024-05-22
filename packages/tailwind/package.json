@@ -1,9 +1,11 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.2.7",
+  "version": "1.2.6",
   "description": "Kaizen Tailwind presets",
   "scripts": {
-    "build": "pnpm clean && tsc --project tsconfig.dist.json",
+    "build": "pnpm clean && pnpm prepublishOnly",
+    "build:ts": "tsc --project tsconfig.dist.json",
+    "prepublishOnly": "tsc --project tsconfig.dist.json",
     "clean": "rimraf -g '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {

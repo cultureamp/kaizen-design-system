@@ -4,7 +4,7 @@ import { getArgs } from "./getArgs.js"
 
 const args = getArgs()
 
-const injectTailwindImports = async (dirOrFile: string): Promise<void> => {
+const addGlobalStylesImport = async (dirOrFile: string): Promise<void> => {
   const DIST_STYLES_PATH_CJS = path.resolve(
     args.packagePath,
     "./dist/cjs/tailwind.css.cjs"
@@ -19,7 +19,7 @@ const injectTailwindImports = async (dirOrFile: string): Promise<void> => {
 
     dirContent.forEach(content => {
       const contentPath = path.join(dirOrFile, content)
-      injectTailwindImports(contentPath)
+      addGlobalStylesImport(contentPath)
     })
     return
   }
@@ -73,7 +73,7 @@ const run = (): void => {
   const DIST_DIRS = ["dist/cjs", "dist/esm"]
 
   DIST_DIRS.forEach(dir =>
-    injectTailwindImports(`${args.packagePath}/${dir}`).catch(e =>
+    addGlobalStylesImport(`${args.packagePath}/${dir}`).catch(e =>
       console.error("Directory not found", e)
     )
   )

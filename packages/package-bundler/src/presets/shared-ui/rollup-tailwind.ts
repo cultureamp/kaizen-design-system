@@ -2,7 +2,7 @@ import path from "path"
 import { RollupOptions } from "rollup"
 import postcss from "rollup-plugin-postcss"
 
-// This file is added by bin/addBuildTools and removed in bin/postBuild
+// This file is added by bin/addBuildTools
 const styleInjectPath = path.resolve("src/__build-tools/styleInject.js")
 
 export const rollupTailwindConfig = (): RollupOptions[] => {

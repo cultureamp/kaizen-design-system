@@ -11,14 +11,7 @@ export const pluginsDefault = [
     devDeps: true,
   }),
   // https://rollupjs.org/tools/#rollup-plugin-node-resolve
-  // This is needed to ensure that css is compiled correctly.
-  // Without this there is an alphabetised order in the dist CSS for subcomponents.
-  // This can cause styles being overwritten by primitives, ie: BaseButton overwriting DropdownButton
-  // https://cultureamp.slack.com/archives/C02NUQ27G56/p1713157055178419
-  resolve({
-    preferBuiltins: true,
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
-  }),
+  resolve(),
   // This call to alias plugin will be additional to the above alias plugin call
   alias({
     entries: [
@@ -50,6 +43,8 @@ export const pluginsDefault = [
     "worker_threads",
     "zlib",
   ]),
+  // https://rollupjs.org/tools/#rollup-plugin-commonjs
+  commonjs(),
   babel({ babelHelpers: "bundled" }),
   getBabelOutputPlugin({
     plugins: [
@@ -57,6 +52,4 @@ export const pluginsDefault = [
       "babel-plugin-pure-static-props",
     ],
   }),
-  // https://rollupjs.org/tools/#rollup-plugin-commonjs
-  commonjs(),
 ] satisfies InputPluginOption[]
