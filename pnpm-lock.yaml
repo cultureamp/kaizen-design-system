@@ -18728,7 +18728,7 @@ packages:
     peerDependencies:
       webpack: ^5.27.0
     dependencies:
-      webpack: 5.91.0(@swc/core@1.4.1)(esbuild@0.18.20)
+      webpack: 5.91.0(@swc/core@1.4.1)(esbuild@0.20.2)
     dev: true
 
   /stylehacks@5.1.1(postcss@8.4.38):
