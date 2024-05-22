@@ -23,5 +23,9 @@
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx"],
-  "exclude": ["**/node_modules"]
+  "exclude": [
+    "**/node_modules",
+    "packages/components/**/*",
+    "packages/package-bundler/**/*",
+  ]
 }
