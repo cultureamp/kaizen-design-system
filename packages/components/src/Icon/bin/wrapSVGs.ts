@@ -61,6 +61,8 @@ fs.readdirSync(outputDir).forEach((file: string) => {
   filesToExportFromIndex.push(path.parse(file).name)
 })
 
+filesToExportFromIndex.push("types")
+
 const importStatements = filesToExportFromIndex.map(
   fileName => `export * from "./${fileName}";`
 )

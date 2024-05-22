@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const OpenWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
@@ -10,7 +11,7 @@ export const OpenWhiteIcon = (props: IconProps): JSX.Element => {
       <g fill="none" fillRule="evenodd">
         <path
           fill="currentColor"
-          d="M15.361 2.636c.9 0 1.636.737 1.636 1.637v13.09c0 .9-.737 1.637-1.636 1.637H4.636c-.9 0-1.637-.736-1.637-1.636V4.273c0-.9.737-1.637 1.637-1.637h3.056A2.464 2.464 0 0 1 10 1c1.063 0 1.964.687 2.307 1.636h3.054Zm-4.543.819A.821.821 0 0 0 10 2.636a.82.82 0 0 0-.818.819c0 .45.368.818.818.818.45 0 .818-.368.818-.818Z"
+          d="M15.361 2.636c.9 0 1.636.737 1.636 1.637v13.09c0 .9-.737 1.637-1.636 1.637H4.636c-.9 0-1.637-.736-1.637-1.636V4.273c0-.9.737-1.637 1.637-1.637h3.056A2.464 2.464 0 0 1 10 1c1.063 0 1.964.687 2.307 1.636zm-4.543.819A.821.821 0 0 0 10 2.636a.82.82 0 0 0-.818.819c0 .45.368.818.818.818.45 0 .818-.368.818-.818"
         />
         <path
           fill="#FFF"

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import Highlight from "react-highlight"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
 import {
@@ -24,13 +25,13 @@ const meta = {
   argTypes: {
     ...defaultMonthControls,
     ...validationControls,
-    disabledDays: disabledDaysControls,
-    renderTrigger: renderTriggerControls,
+    ...disabledDaysControls,
+    ...renderTriggerControls,
     locale: {
       options: ["en-US", "en-AU"],
       control: { type: "radio" },
     },
-    isOpen: { control: "disabled" },
+    isOpen: { control: false },
     selectedDate: {
       options: ["None", "Date"],
       control: {
@@ -56,6 +57,8 @@ const meta = {
     ),
     isOpen: false,
     selectedDate: undefined,
+    setIsOpen: fn(),
+    onDateChange: fn(),
   },
 } satisfies Meta<typeof FilterDatePicker>
 

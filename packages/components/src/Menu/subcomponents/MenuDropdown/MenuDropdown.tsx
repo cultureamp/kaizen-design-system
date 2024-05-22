@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react"
 import classnames from "classnames"
+import { FocusOn } from "react-focus-on"
 import { usePopper } from "react-popper"
 import styles from "./MenuDropdown.module.scss"
 
@@ -106,22 +107,30 @@ export const MenuDropdown = ({
   }, [autoHide, handleDocumentClickForAutoHide])
 
   return (
-    // Disabling these because we don't want this to be keyboard focusable.
-    // Esc keypress should be used instead for the same behaviour (hasn't been implemented here yet)
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <div
-      id={id}
-      ref={setPopperElement}
-      {...attributes.popper}
-      style={popperStyles.popper}
-      className={classnames(
-        styles.menuContainer,
-        width == "default" && styles.defaultWidth
-      )}
-      onClick={handleRootClick}
+    <FocusOn
+      enabled={!!referenceElement}
+      scrollLock={false}
+      noIsolation
+      shards={referenceElement ? [referenceElement] : undefined}
+      onEscapeKey={hideMenuDropdown}
     >
-      {children}
-    </div>
+      {/* eslint-disable-next-line
+      jsx-a11y/click-events-have-key-events,
+      jsx-a11y/no-static-element-interactions */}
+      <div
+        id={id}
+        ref={setPopperElement}
+        {...attributes.popper}
+        style={popperStyles.popper}
+        className={classnames(
+          styles.menuContainer,
+          width == "default" && styles.defaultWidth
+        )}
+        onClick={handleRootClick}
+      >
+        {children}
+      </div>
+    </FocusOn>
   )
 }
 

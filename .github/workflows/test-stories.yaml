@@ -26,14 +26,21 @@ env:
   ARTIFACT_NAME: artifact--storybook-build
 
 jobs:
-  build-storybook:
+  run-check:
+    name: Check if we should run Storybook tests
     if: github.head_ref != 'changeset-release/main' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+      - run: echo "Run the Storybook tests"
+
+  build-storybook:
+    needs: run-check
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: yarn storybook:build --webpack-stats-json
+      - run: pnpm storybook:build:test
       - name: Upload Storybook build as artifact
         uses: actions/upload-artifact@v3
         with:
@@ -47,15 +54,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm dlx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
       - name: Storybook tests (1/3)
-        run: yarn test:storybook --shard 1/3
+        run: pnpm test:storybook --shard 1/3
 
   storybook-tests-2:
     name: "test-storybook"
@@ -63,15 +70,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm dlx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
       - name: Storybook tests (2/3)
-        run: yarn test:storybook --shard 2/3
+        run: pnpm test:storybook --shard 2/3
 
   storybook-tests-3:
     name: "test-storybook"
@@ -79,32 +86,30 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: pnpm dlx playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
       - name: Storybook tests (3/3)
-        run: yarn test:storybook --shard 3/3
+        run: pnpm test:storybook --shard 3/3
 
   chromatic:
-    needs: build-storybook
+    needs: run-check
     runs-on: ubuntu-latest
     outputs:
       storybookUrl: ${{ steps.publishChromatic.outputs.storybookUrl }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Download Storybook build artifact
-        id: download
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ env.ARTIFACT_NAME }}
-          path: "./storybook/public"
+      - uses: ./.github/actions/setup
+      - name: Build Storybook for Chromatic
+        # We want both stories and docs for the branch preview
+        run: pnpm storybook:build --webpack-stats-json
       - id: publishChromatic
         name: Publish to Chromatic
         uses: chromaui/action@v1
@@ -126,7 +131,7 @@ jobs:
     env:
       COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ env.COMMIT_SHA }}
       - name: Get commit message

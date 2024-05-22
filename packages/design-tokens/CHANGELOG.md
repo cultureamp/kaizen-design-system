@@ -1,5 +1,41 @@
 # Change Log
 
+## 10.4.0
+
+### Minor Changes
+
+- [#4656](https://github.com/cultureamp/kaizen-design-system/pull/4656) [`c3baac698e421c46d08afd41161d07511022e46e`](https://github.com/cultureamp/kaizen-design-system/commit/c3baac698e421c46d08afd41161d07511022e46e) - Update build to use `tsx` instead of `ts-node`.
+
+## 10.3.20
+
+### Patch Changes
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update postcss dep
+
+## 10.3.19
+
+### Patch Changes
+
+- [#4571](https://github.com/cultureamp/kaizen-design-system/pull/4571) [`f653e18f48ec81663a67261aee215ded8e003fc4`](https://github.com/cultureamp/kaizen-design-system/commit/f653e18f48ec81663a67261aee215ded8e003fc4) - Update token values to align with Figma tokens.
+
+## 10.3.18
+
+### Patch Changes
+
+- [#4515](https://github.com/cultureamp/kaizen-design-system/pull/4515) [`346e0648357221b08e4989bfd808b285bacfd4d0`](https://github.com/cultureamp/kaizen-design-system/commit/346e0648357221b08e4989bfd808b285bacfd4d0) - Update dependencies
+
+## 10.3.17
+
+### Patch Changes
+
+- [#4384](https://github.com/cultureamp/kaizen-design-system/pull/4384) [`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0) - Dep updates:
+
+  - @cultureamp/i18n-react-intl from 2.1.3 to 2.1.5
+  - svgo from 3.0.4 to 3.1.0
+  - ts-patch from 3.0.2 to 3.1.1
+
+  * a bunch of dev deps
+
 ## 10.3.16
 
 ### Patch Changes

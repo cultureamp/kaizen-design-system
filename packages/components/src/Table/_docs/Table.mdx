@@ -1,5 +1,5 @@
 import { Canvas, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as TableStories from "./Table.stories"
 
 <Meta of={TableStories} />
@@ -13,11 +13,8 @@ import * as TableStories from "./Table.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/components"'
+<KAIOInstallation
+  exportNames={["TableCard", "TableContainer", "TableHeader", "TableHeaderRow", "TableHeaderRowCell", "TableRow", "TableRowCell"]}
 />
 
 ## Overview
@@ -26,32 +23,61 @@ A table displays rows of data, including all data in a set, making it efficient 
 
 <Canvas of={TableStories.Playground} />
 
-## API
+## TableContainer API
 
-### Data
+### Variant
+
+Controls the spacing in each cell within the table. Options available are `compact`, `default` and `data`.
+
+#### Compact
 <Canvas of={TableStories.Data} />
 
-### Compact
-<Canvas of={TableStories.Compact} />
+#### Default
+<Canvas of={TableStories.Default} />
 
-### LinkVariant
-<Canvas of={TableStories.LinkVariant} />
+#### Data
+<Canvas of={TableStories.Data} />
 
-### CheckboxVariant
+## TableHeaderRowCell API
+
+### Sorting
+<Canvas of={TableStories.Sorting} />
+
+### Checkbox
+
+To ensure there appropriate context for users of assistive technologies, when using a `checkable` `TableHeaderRowCell`, we advise in the `checkboxLabel`. This will be passed to the a checkbox aria-label and be announce to screen reader users when focused.
+
 <Canvas of={TableStories.CheckboxVariant} />
 
-### IconVariant
+### Icon
+
+When using providing `icon` to `TableHeaderRowCell` the `labelText` will be passed to the `aria-label` of the SVG.
+
 <Canvas of={TableStories.IconVariant} />
 
-### Expandable
-<Canvas of={TableStories.Expandable} />
-
-### HeaderAlignmentAndWrapping
+### Align and wrapping
 <Canvas of={TableStories.HeaderAlignmentAndWrapping} />
 
-### Tooltip
+### Tooltips
+
+While Tooltip content can be passed to any table header via the `tooltipInfo` prop, it is strong advised to avoid this if the header is not an interactive element as the tooltip content will be unreadable to keyboard users or those that use assistive technologies.
+
 <Canvas of={TableStories.Tooltip} />
+
+You can read more about the Tooltip component and accessibility limitation [here](https://cultureamp.design/?path=/docs/components-tooltip--docs#screen-reader-accessibility).
 
 ### Reversed
 <Canvas of={TableStories.Reversed} />
+
+## TableCard API
+
+### Link
+<Canvas of={TableStories.LinkVariant} />
+
+### Expandable
+
+The `expandable` prop introduces known accessibility issues with nesting interactive elements as children of a `button` or `anchor` tag. We recommend avoiding this pattern if possible, or creating a tier 3 component that adheres to correct WCAG hierarchy.
+
+<Canvas of={TableStories.Expandable} />
+
 

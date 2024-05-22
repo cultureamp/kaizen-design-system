@@ -2,14 +2,15 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const HamburgerIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
   const svgContent = (
     <>
       <defs>
-        <path id={uniqueId} d="M2 16h16v-2H2v2Zm0-5h16V9H2v2Zm0-7v2h16V4H2Z" />
+        <path id={uniqueId} d="M2 16h16v-2H2zm0-5h16V9H2zm0-7v2h16V4z" />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />
     </>

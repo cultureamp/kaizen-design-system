@@ -1,5 +1,5 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as CollapsibleStories from "./Collapsible.stories"
 
 <Meta of={CollapsibleStories} />
@@ -13,12 +13,7 @@ import * as CollapsibleStories from "./Collapsible.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Collapsible } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Collapsible" />
 
 ## Overview
 

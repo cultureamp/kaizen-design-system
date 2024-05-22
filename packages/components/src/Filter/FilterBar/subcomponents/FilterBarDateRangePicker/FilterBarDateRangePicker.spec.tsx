@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import {
   FilterAttributes,
@@ -134,9 +134,8 @@ describe("<FilterBarDateRangePicker />", () => {
       expect(getByText("May 2022")).toBeVisible()
     })
 
-    const targetDay = getByRole("button", {
-      name: "23rd June (Thursday)",
-    })
+    const targetMonth = screen.getByRole("grid", { name: "June 2022" })
+    const targetDay = within(targetMonth).getByRole("gridcell", { name: "23" })
     await user.click(targetDay)
     await user.click(document.body) // Exit the focus lock
 
@@ -169,10 +168,10 @@ describe("<FilterBarDateRangePicker />", () => {
       expect(getByText("May 2022")).toBeVisible()
     })
 
-    const targetDay = getByRole("button", {
-      name: "23rd June (Thursday)",
-    })
+    const targetMonth = screen.getByRole("grid", { name: "June 2022" })
+    const targetDay = within(targetMonth).getByRole("gridcell", { name: "23" })
     await user.click(targetDay)
+
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith({
         from: new Date("2022-05-01"),

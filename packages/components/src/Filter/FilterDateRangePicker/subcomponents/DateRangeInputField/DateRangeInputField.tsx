@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from "react"
 import classnames from "classnames"
+import type { Locale } from "date-fns"
 import {
   DateInput,
   DateInputDescription,

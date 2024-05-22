@@ -51,6 +51,9 @@ export const VideoPlayer = ({
   const videoRef = useRef<HTMLVideoElement>(null)
   const [prefersReducedMotion, setPrefersReducedMotion] =
     React.useState<boolean>(true)
+  const [isWebmCompatible, setIsWebmCompatible] = React.useState<boolean>(false)
+  const [windowIsAvailable, setWindowIsAvailable] =
+    React.useState<boolean>(false)
 
   useEffect(() => {
     /**
@@ -149,14 +152,24 @@ export const VideoPlayer = ({
     }
   }, [videoRef])
 
+  useEffect(() => {
+    // SSR does not have a window, which is required for canPlayWebm.
+    if (window !== undefined) setWindowIsAvailable(true)
+  }, [])
+
+  useEffect(() => {
+    if (windowIsAvailable) setIsWebmCompatible(canPlayWebm())
+  }, [windowIsAvailable])
+
   const pausePlay = usePausePlay(videoRef)
 
   return (
     <figure
-      className={classnames(styles.figure, {
-        [`${styles[aspectRatio!]} ${styles.aspectRatioWrapper}`]:
-          Boolean(aspectRatio),
-      })}
+      className={classnames(
+        styles.figure,
+        aspectRatio && styles[aspectRatio],
+        aspectRatio && styles.aspectRatioWrapper
+      )}
     >
       <video
         muted={true}
@@ -172,12 +185,7 @@ export const VideoPlayer = ({
         playsInline={true}
         tabIndex={-1}
       >
-        {/**
-         * This seems counter-intuitive, but webm support is codec specific.
-         * Only offer webm if we are positive the browser supports it.
-         * Reference: https://bugs.webkit.org/show_bug.cgi?id=216652#c1
-         */}
-        {canPlayWebm() && (
+        {isWebmCompatible && (
           <source src={assetUrl(`${source}.webm`)} type="video/webm" />
         )}
         <source src={assetUrl(`${source}.mp4`)} type="video/mp4" />

@@ -22,6 +22,7 @@ export type MenuItemProps = {
    */
   isActive?: boolean
   "data-testid"?: string
+  id?: string
 }
 
 export const MenuItem = ({
@@ -34,6 +35,7 @@ export const MenuItem = ({
   target,
   isActive,
   "data-testid": dataTestId,
+  id,
 }: MenuItemProps): JSX.Element => {
   const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>
   const iconNode = icon && <span className={styles.menuItem__Icon}>{icon}</span>
@@ -49,6 +51,7 @@ export const MenuItem = ({
     return (
       <li className={styles.menuListItem}>
         <button
+          id={id}
           type="button"
           disabled={true}
           className={className}
@@ -65,6 +68,7 @@ export const MenuItem = ({
     return (
       <li className={styles.menuListItem}>
         <a
+          id={id}
           href={href}
           className={className}
           target={target}
@@ -83,6 +87,7 @@ export const MenuItem = ({
   return (
     <li className={styles.menuListItem}>
       <button
+        id={id}
         type="button"
         onClick={onClick}
         className={className}

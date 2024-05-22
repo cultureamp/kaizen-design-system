@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const FlagOffWhiteIcon = (props: IconProps): JSX.Element => {
   const svgContent = (

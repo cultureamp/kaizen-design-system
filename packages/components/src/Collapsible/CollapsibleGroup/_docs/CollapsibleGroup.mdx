@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as CollapsibleGroupStories from "./CollapsibleGroup.stories"
 
 <Meta of={CollapsibleGroupStories} />
@@ -12,12 +12,8 @@ import * as CollapsibleGroupStories from "./CollapsibleGroup.stories"
   designGuidelines="https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082094383/Collapsible"
   className="!mb-8"
 />
-<KaioNotification />
 
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { CollapsibleGroup } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="CollapsibleGroup" />
 
 ## Overview
 

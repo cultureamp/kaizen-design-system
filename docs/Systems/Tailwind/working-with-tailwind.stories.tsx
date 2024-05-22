@@ -8,7 +8,7 @@ import {
   CustomUnattributedSurvey,
 } from "~components/Illustration"
 import { Skirt } from "~components/Skirt"
-import { CardContent } from "./components/CardContent"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 
 export default {
   title: "Systems/Tailwind/Working with Tailwind",
@@ -67,13 +67,13 @@ export const TailwindExampleClassNameOverrideMargin: StoryFn = () => (
   <div className="flex justify-center">
     {/* Adds margin-right: 24px */}
     <Card classNameOverride="mr-24">
-      <CardContent
+      <TailwindStoryTemplate.CardContent
         title="Card 1"
         illustration={<CustomSurvey alt="custom-survey" />}
       />
     </Card>
     <Card>
-      <CardContent
+      <TailwindStoryTemplate.CardContent
         title="Card 2"
         illustration={
           <CustomUnattributedSurvey alt="custom-unattributed-survey" />

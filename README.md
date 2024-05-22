@@ -35,13 +35,13 @@ To learn more, see the designer section of the [Contributing guidelines](./CONTR
 ## Getting started
 
 ### Setup
-Set up access to private Culture Amp packages on your laptop. You will need to update `~.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://github.com/cultureamp/node-packages/blob/master/how-to-setup-a-project-to-use-private-cultureamp-packages.md).
+Set up access to private Culture Amp packages on your laptop. You will need to update `~/.npmrc` with a Github token linked to your account. Refer to the [instructions here](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/2776629375/Working+with+our+private+GitHub+package+registry).
 
 ### Installation
 To begin developing the design system locally, run the following from the repository root:
 
 ```
-yarn install
+pnpm install
 ```
 
 We use [Storybook](https://github.com/storybooks/storybook) to provide a local development environment for [React](https://reactjs.org/) components. All Kaizen Design System components have accompanying stories in Storybook.
@@ -49,16 +49,14 @@ We use [Storybook](https://github.com/storybooks/storybook) to provide a local d
 To run Storybook locally, run the following from the repository root:
 
 ```
-yarn storybook
+pnpm storybook
 ```
 
-(Having trouble running Storybook? Try running `yarn reset`, which includes `yarn clean` and `yarn install --force`!)
+(Having trouble running Storybook? Try running `pnpm reset`, which includes `pnpm clean` and `pnpm install --force`!)
 
 ## Branch previews
 
-While the main site is located at <https://cultureamp.design>, all branches in this repository are automatically deployed to a public URL at <https://dev.cultureamp.design/>(branch-name). This deployment is a Storybook build for that branch.
-
-For example, pushing the branch `louis/more-glitter` would make its documentation and Storybook build available at `dev.cultureamp.design/louis/more-glitter`.
+While the main site is located at <https://cultureamp.design>, all branches in this repository are uploaded to Chromatic. Your branch will be updated with a comment containing a link when the upload has completed.
 
 ## Package scripts
 
@@ -66,16 +64,16 @@ It's dangerous to go alone! Take these:
 
 Command | Summary
 :- | :-
-`yarn storybook` | Develop components locally using Storybook
-`STORIES=path/to/package yarn storybook` | Develop just one package at a time using Storybook (builds faster!)
-`yarn commit` | Use commitizen to help you write your conventional commits
-`yarn compile` | Run all typechecks
-`yarn lint` | Run all linters
-`yarn lint:fix` | Run all linters, fixing violations
-`yarn plop` | Add a new component/subcomponent
-`yarn test:storybook` | Run tests on all Storybook stories
-`yarn test` | Run all [Jest](https://jestjs.io/) tests
-`yarn reset` | Reinstall all dependencies
+`pnpm storybook` | Develop components locally using Storybook
+`STORIES=path/to/package pnpm storybook` | Develop just one package at a time using Storybook (builds faster!)
+`pnpm compile` | Run all typechecks
+`pnpm lint` | Run all linters
+`pnpm lint:fix` | Run all linters, fixing violations
+`pnpm plop` | Add a new component/subcomponent
+`pnpm test` | Run all [Jest](https://jestjs.io/) tests
+`pnpm test:storybook` | Run tests on all Storybook stories
+`pnpm test:treeshake` | Build the packages and test if they are tree-shakeable
+`pnpm reset` | Reinstall all dependencies
 
 ## Bugs and discussions
 

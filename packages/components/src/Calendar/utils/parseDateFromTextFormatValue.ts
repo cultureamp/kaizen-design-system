@@ -1,4 +1,4 @@
-import { parse } from "date-fns"
+import { Locale, parse } from "date-fns"
 import { DateFormat } from "../enums"
 
 export const parseDateFromTextFormatValue = (

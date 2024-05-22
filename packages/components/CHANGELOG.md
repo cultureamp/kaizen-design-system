@@ -1,5 +1,349 @@
 # Change Log
 
+## 1.47.2
+
+### Patch Changes
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update dependency react-day-picker to ^8.10.1
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update dependency @floating-ui/react-dom to ^2.0.9
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - Update react-focus-lock dep
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update dependency react-focus-on to ^3.9.3
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update Prosemirror deps
+
+## 1.47.1
+
+### Patch Changes
+
+- [#4698](https://github.com/cultureamp/kaizen-design-system/pull/4698) [`2e42b84f8412b6d0f19a8d78c3c4d085d02e43ae`](https://github.com/cultureamp/kaizen-design-system/commit/2e42b84f8412b6d0f19a8d78c3c4d085d02e43ae) - Fix bundling
+
+## 1.47.0
+
+### Minor Changes
+
+- [#4656](https://github.com/cultureamp/kaizen-design-system/pull/4656) [`c3baac698e421c46d08afd41161d07511022e46e`](https://github.com/cultureamp/kaizen-design-system/commit/c3baac698e421c46d08afd41161d07511022e46e) - Update build to use `@kaizen/package-bundler`.
+
+## 1.46.0
+
+### Minor Changes
+
+- [#4668](https://github.com/cultureamp/kaizen-design-system/pull/4668) [`2772ecd07758f7ea1492fba1a7235199e2603c58`](https://github.com/cultureamp/kaizen-design-system/commit/2772ecd07758f7ea1492fba1a7235199e2603c58) - Accessibility uplift of Table component
+
+  - Add default focus ring widths and colors to interactive variants of the TableHeaderRowCell and interactive table cards
+  - Add a checkboxLabel prop as a mean to resolving the unlinked checkbox label in the checkable variant of the TableHeaderRowCell
+  - Update the TableHeaderRowCell to pass labelText in the an aria-label for the icon variant
+  - Update the documentation with some clearer guidance on the APIs and sub components
+  - Add guidance on usage of tooltip on non-interactive headers
+
+## 1.45.3
+
+### Patch Changes
+
+- [#4669](https://github.com/cultureamp/kaizen-design-system/pull/4669) [`680397ec239831396417bae85e3e8b907d9bf502`](https://github.com/cultureamp/kaizen-design-system/commit/680397ec239831396417bae85e3e8b907d9bf502) - fix tsConfig jest-dom types
+
+## 1.45.2
+
+### Patch Changes
+
+- [#4665](https://github.com/cultureamp/kaizen-design-system/pull/4665) [`0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6`](https://github.com/cultureamp/kaizen-design-system/commit/0adb13322e1ef9d48f45d7dcc61c1d4fc67dedb6) - fixed duplicate id on RTE, added optional id to RTE
+
+## 1.45.1
+
+### Patch Changes
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - stylelint-config-standard-scss dep update to 13.1.0
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - Update react monorepo deps and fix Storybook ArgType ts errors
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - sass dep update to 1.76.0
+
+- [#4606](https://github.com/cultureamp/kaizen-design-system/pull/4606) [`ff3e6df25963cb9953bbab2fd622ab3df285b3e8`](https://github.com/cultureamp/kaizen-design-system/commit/ff3e6df25963cb9953bbab2fd622ab3df285b3e8) - playwright-monorepo dep-update
+
+## 1.45.0
+
+### Minor Changes
+
+- [#4662](https://github.com/cultureamp/kaizen-design-system/pull/4662) [`6cf318e6db52f5d1cebe2042fedb5267d3c2b3a5`](https://github.com/cultureamp/kaizen-design-system/commit/6cf318e6db52f5d1cebe2042fedb5267d3c2b3a5) - Expose ref for IconButton
+
+## 1.44.0
+
+### Minor Changes
+
+- [#4660](https://github.com/cultureamp/kaizen-design-system/pull/4660) [`afea659cf94fe3b338b2934627a47d347d020af0`](https://github.com/cultureamp/kaizen-design-system/commit/afea659cf94fe3b338b2934627a47d347d020af0) - Add onAferEnter callback to GenericModal and expose in InputEditModal, ContextModal, ConfirmationModal to allow for focus management after open.
+
+## 1.43.0
+
+### Minor Changes
+
+- [#4658](https://github.com/cultureamp/kaizen-design-system/pull/4658) [`f34a819b926f17b2e7736f518459af408a94a50a`](https://github.com/cultureamp/kaizen-design-system/commit/f34a819b926f17b2e7736f518459af408a94a50a) - LikertScaleLegacy component now supports a blue colorschema variant
+
+## 1.42.7
+
+### Patch Changes
+
+- [#4651](https://github.com/cultureamp/kaizen-design-system/pull/4651) [`367930c888aa30b18c4db93a9f26b62b3e17e1b8`](https://github.com/cultureamp/kaizen-design-system/commit/367930c888aa30b18c4db93a9f26b62b3e17e1b8) - Fix the TitleBlockZen Windows High Contrast Mode Bug and obscured the active NavigationTab
+
+- [#4650](https://github.com/cultureamp/kaizen-design-system/pull/4650) [`e5a802c78da6be18f143f87eefa2fe9d2e7e8a13`](https://github.com/cultureamp/kaizen-design-system/commit/e5a802c78da6be18f143f87eefa2fe9d2e7e8a13) - Adds forced-colors @media query to show selected Radio state
+
+## 1.42.6
+
+### Patch Changes
+
+- [#4647](https://github.com/cultureamp/kaizen-design-system/pull/4647) [`0976f590106c4199ea98d289a64e7ebc1576903a`](https://github.com/cultureamp/kaizen-design-system/commit/0976f590106c4199ea98d289a64e7ebc1576903a) - Adds focus ring styles to TitleBlockZen's NavigationTabs to resolve a11y contrast issues
+
+- [#4649](https://github.com/cultureamp/kaizen-design-system/pull/4649) [`7c82c80f596dbfa3d78edb3e33c70f2916e1ca54`](https://github.com/cultureamp/kaizen-design-system/commit/7c82c80f596dbfa3d78edb3e33c70f2916e1ca54) - Add focus styles to TitleBlockZen Breadcrumb link
+
+## 1.42.5
+
+### Patch Changes
+
+- [#4639](https://github.com/cultureamp/kaizen-design-system/pull/4639) [`b62ece94654b54a8216fb6d61875ccb782f57bf8`](https://github.com/cultureamp/kaizen-design-system/commit/b62ece94654b54a8216fb6d61875ccb782f57bf8) - Update rollup config to re-add node resolver
+
+## 1.42.4
+
+### Patch Changes
+
+- [#4616](https://github.com/cultureamp/kaizen-design-system/pull/4616) [`ce9261d27431c05eeb09c96220f342ee16753e43`](https://github.com/cultureamp/kaizen-design-system/commit/ce9261d27431c05eeb09c96220f342ee16753e43) - Menu component now has built in focus lock. Most notably this has added:
+
+  - Esc press to close the menu
+  - Focus will now go back to the menu button when the menu closes. This works even if the menu action opens a modal first, as long as the modal is mounted to the DOM before the action is pressed.
+
+  Any instances where focus is manually being put back onto the menu after a modal close or similar can now be removed (unless you're conditionally rendering the modal as mentioned above).
+
+## 1.42.3
+
+### Patch Changes
+
+- [#4618](https://github.com/cultureamp/kaizen-design-system/pull/4618) [`4f45c95934bb0040179b4ff21f0775c0ffa452a2`](https://github.com/cultureamp/kaizen-design-system/commit/4f45c95934bb0040179b4ff21f0775c0ffa452a2) - Fix CJS bundling and moved type declarations into dist/types.
+
+## 1.42.2
+
+### Patch Changes
+
+- [#4615](https://github.com/cultureamp/kaizen-design-system/pull/4615) [`5251108870170850e3988ecd903425734befc74f`](https://github.com/cultureamp/kaizen-design-system/commit/5251108870170850e3988ecd903425734befc74f) - Update the VideoPlayer render to wrap the window logic in a useEffect
+
+## 1.42.1
+
+### Patch Changes
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update Prosemirror deps
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - update devDep for @babel/plugin-transform-react-pure-annotations
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update date-fns dep
+
+- [#4603](https://github.com/cultureamp/kaizen-design-system/pull/4603) [`254075b590c3b9ae6a367ca116cd261fc4f697d4`](https://github.com/cultureamp/kaizen-design-system/commit/254075b590c3b9ae6a367ca116cd261fc4f697d4) - Fix VideoPlayer video source for browsers without webm support.
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - update i18n-react-intl and frontend-apis deps to latest patch release
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - Update autoprefixer patch release
+
+- [#4583](https://github.com/cultureamp/kaizen-design-system/pull/4583) [`07fa623062a4e1ebc3a2fde64df030bdf74ef724`](https://github.com/cultureamp/kaizen-design-system/commit/07fa623062a4e1ebc3a2fde64df030bdf74ef724) - chore(deps): update postcss dep
+
+## 1.42.0
+
+### Minor Changes
+
+- [#4504](https://github.com/cultureamp/kaizen-design-system/pull/4504) [`3c5773061c2b2f66e599a2ff7ba7ab116dac1b1b`](https://github.com/cultureamp/kaizen-design-system/commit/3c5773061c2b2f66e599a2ff7ba7ab116dac1b1b) - Add new Heading variant `composable-header-title`
+
+### Patch Changes
+
+- [#4581](https://github.com/cultureamp/kaizen-design-system/pull/4581) [`2c5966e280f34d0ff6346ecd9f89d4b3624608a1`](https://github.com/cultureamp/kaizen-design-system/commit/2c5966e280f34d0ff6346ecd9f89d4b3624608a1) - chore: Update translations
+
+- [#4592](https://github.com/cultureamp/kaizen-design-system/pull/4592) [`783271e4a3ba3d4c535f9c7dd2f726d90d3efbd5`](https://github.com/cultureamp/kaizen-design-system/commit/783271e4a3ba3d4c535f9c7dd2f726d90d3efbd5) - Fix type for `onSubmit` in `InputEditModalProps`
+
+## 1.41.1
+
+### Patch Changes
+
+- [#4563](https://github.com/cultureamp/kaizen-design-system/pull/4563) [`9b2935c1be4c2d569ed439bab194472bb8ee0b21`](https://github.com/cultureamp/kaizen-design-system/commit/9b2935c1be4c2d569ed439bab194472bb8ee0b21) - Update cultureamp/i18n
+
+- [#4580](https://github.com/cultureamp/kaizen-design-system/pull/4580) [`5797f7bc7d1ac146eb295d4e5f4402e935d57c76`](https://github.com/cultureamp/kaizen-design-system/commit/5797f7bc7d1ac146eb295d4e5f4402e935d57c76) - Improve the SplitButton dropdown accessible label (from "Open menu" to "Additional actions")
+
+  Also adds internationalisation to the label
+
+- [#4563](https://github.com/cultureamp/kaizen-design-system/pull/4563) [`9b2935c1be4c2d569ed439bab194472bb8ee0b21`](https://github.com/cultureamp/kaizen-design-system/commit/9b2935c1be4c2d569ed439bab194472bb8ee0b21) - Update date-fns to 3.5
+
+- [#4579](https://github.com/cultureamp/kaizen-design-system/pull/4579) [`d9e6eaa00be7b19e8c093149fcbaebe7937ddaf3`](https://github.com/cultureamp/kaizen-design-system/commit/d9e6eaa00be7b19e8c093149fcbaebe7937ddaf3) - Fix workflow logo a11y
+
+- [#4563](https://github.com/cultureamp/kaizen-design-system/pull/4563) [`9b2935c1be4c2d569ed439bab194472bb8ee0b21`](https://github.com/cultureamp/kaizen-design-system/commit/9b2935c1be4c2d569ed439bab194472bb8ee0b21) - Update sass dependency to 1.72.x
+
+## 1.41.0
+
+### Minor Changes
+
+- [#4561](https://github.com/cultureamp/kaizen-design-system/pull/4561) [`0b85a5e5a9d4d609179274df12cdd0fdd52b3965`](https://github.com/cultureamp/kaizen-design-system/commit/0b85a5e5a9d4d609179274df12cdd0fdd52b3965) - Add new ThumbsUp and ThumbsDown icon set
+  - adds new icon set with on and off state
+  - adds deprecated doc block on old icon set
+
+### Patch Changes
+
+- [#4570](https://github.com/cultureamp/kaizen-design-system/pull/4570) [`c6718306b97f5408d7d2e4ac05320addc3d14909`](https://github.com/cultureamp/kaizen-design-system/commit/c6718306b97f5408d7d2e4ac05320addc3d14909) - Export useMediaQueries hook
+
+- [#4551](https://github.com/cultureamp/kaizen-design-system/pull/4551) [`4a140c6d9e704f3587cdeb392c492b1d936e4b5f`](https://github.com/cultureamp/kaizen-design-system/commit/4a140c6d9e704f3587cdeb392c492b1d936e4b5f) - Update dependency autoprefixer to ^10.4.18
+
+## 1.40.6
+
+### Patch Changes
+
+- [#4543](https://github.com/cultureamp/kaizen-design-system/pull/4543) [`5434d009325c6588b9be968144fdeb27c37b08f9`](https://github.com/cultureamp/kaizen-design-system/commit/5434d009325c6588b9be968144fdeb27c37b08f9) - Update react-focus-on and react-focus-lock dependencies
+
+- [#4557](https://github.com/cultureamp/kaizen-design-system/pull/4557) [`28f6611df11902522df2068de1b89afcf6763bcb`](https://github.com/cultureamp/kaizen-design-system/commit/28f6611df11902522df2068de1b89afcf6763bcb) - Remove tailwind from kaizen CSS bundle
+
+  - Replaced Tailwind CSS in Kaizen components
+    - This includes: Slider, Workflow's subcomponents, GenericTile, MultiActionTile
+  - Remove tailwind directives from kaizen global.css and compile CSS
+
+## 1.40.5
+
+### Patch Changes
+
+- [#4549](https://github.com/cultureamp/kaizen-design-system/pull/4549) [`f6cfb6ad27da23cc35d99eae0a44321d853316f3`](https://github.com/cultureamp/kaizen-design-system/commit/f6cfb6ad27da23cc35d99eae0a44321d853316f3) - Update cultureamp i18n dependencies
+
+- [#4555](https://github.com/cultureamp/kaizen-design-system/pull/4555) [`1d81ac7ce9b4228beb6d4e40b0a86673607f5146`](https://github.com/cultureamp/kaizen-design-system/commit/1d81ac7ce9b4228beb6d4e40b0a86673607f5146) - Update error page Greek translations
+
+## 1.40.4
+
+### Patch Changes
+
+- [#4529](https://github.com/cultureamp/kaizen-design-system/pull/4529) [`a701b14050051c325218b21177d54311e3a2fd87`](https://github.com/cultureamp/kaizen-design-system/commit/a701b14050051c325218b21177d54311e3a2fd87) - Update peer dependency @cultureamp/i18n-react-intl to ^2.5.1
+
+- [#4529](https://github.com/cultureamp/kaizen-design-system/pull/4529) [`a701b14050051c325218b21177d54311e3a2fd87`](https://github.com/cultureamp/kaizen-design-system/commit/a701b14050051c325218b21177d54311e3a2fd87) - Update react-spectrum dependencies.
+
+- [#4529](https://github.com/cultureamp/kaizen-design-system/pull/4529) [`a701b14050051c325218b21177d54311e3a2fd87`](https://github.com/cultureamp/kaizen-design-system/commit/a701b14050051c325218b21177d54311e3a2fd87) - Update prosemirror dependencies.
+
+## 1.40.3
+
+### Patch Changes
+
+- [#4525](https://github.com/cultureamp/kaizen-design-system/pull/4525) [`9c586b4275db828a4597f66a9f584e6878a8ebc6`](https://github.com/cultureamp/kaizen-design-system/commit/9c586b4275db828a4597f66a9f584e6878a8ebc6) - Bug fix for modals: ensure clean up runs when the modal is unmounted.
+
+  This bug created unscrollable pages if the modal was removed from the DOM before its `onAfterLeave` callback was able to run.
+
+- [#4522](https://github.com/cultureamp/kaizen-design-system/pull/4522) [`bf22ff21983a0f05e495271431ba4fe76e15b631`](https://github.com/cultureamp/kaizen-design-system/commit/bf22ff21983a0f05e495271431ba4fe76e15b631) - Update @react-aria package dependencies
+
+## 1.40.2
+
+### Patch Changes
+
+- [#4518](https://github.com/cultureamp/kaizen-design-system/pull/4518) [`7577a6a8aefb4a41a1197d09e0f947950ec117df`](https://github.com/cultureamp/kaizen-design-system/commit/7577a6a8aefb4a41a1197d09e0f947950ec117df) - Upgrade rollup-plugin-node-externals to v7
+
+## 1.40.1
+
+### Patch Changes
+
+- [#4515](https://github.com/cultureamp/kaizen-design-system/pull/4515) [`346e0648357221b08e4989bfd808b285bacfd4d0`](https://github.com/cultureamp/kaizen-design-system/commit/346e0648357221b08e4989bfd808b285bacfd4d0) - Update dependencies
+
+- [#4516](https://github.com/cultureamp/kaizen-design-system/pull/4516) [`f963e0a877ae846cc61e9a972a399ec2d22bc5c0`](https://github.com/cultureamp/kaizen-design-system/commit/f963e0a877ae846cc61e9a972a399ec2d22bc5c0) - Updated translations
+
+## 1.40.0
+
+### Minor Changes
+
+- [#4482](https://github.com/cultureamp/kaizen-design-system/pull/4482) [`166a0e370c3ae0ab647afb034a23cecb8f7c6ca9`](https://github.com/cultureamp/kaizen-design-system/commit/166a0e370c3ae0ab647afb034a23cecb8f7c6ca9) - Simplify error page messages for internationalisation.
+
+### Patch Changes
+
+- [#4506](https://github.com/cultureamp/kaizen-design-system/pull/4506) [`f84bc4c4bed82d60400a5faac18ea846c0bf47e0`](https://github.com/cultureamp/kaizen-design-system/commit/f84bc4c4bed82d60400a5faac18ea846c0bf47e0) - Updated translations
+
+- [#4512](https://github.com/cultureamp/kaizen-design-system/pull/4512) [`4c3d7f3c8b6a562e752ffd0fbe819fd8d66154b5`](https://github.com/cultureamp/kaizen-design-system/commit/4c3d7f3c8b6a562e752ffd0fbe819fd8d66154b5) - Updated translations
+
+## 1.39.2
+
+### Patch Changes
+
+- [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Add accessible name to dialog for Filter components
+
+- [#4449](https://github.com/cultureamp/kaizen-design-system/pull/4449) [`add4a7588af5d309f2355b587b812c81b6dc88ce`](https://github.com/cultureamp/kaizen-design-system/commit/add4a7588af5d309f2355b587b812c81b6dc88ce) - Update dependencies
+
+  - "date-fns": "^3.0.6"
+  - "react-day-picker": "^8.10.0"
+    - Note: We are aware that the update includes broken a11y behaviour from the library (https://github.com/gpbl/react-day-picker/issues/1688), but we have opted to prevent lagging behind version updates instead
+
+## 1.39.1
+
+### Patch Changes
+
+- [#4461](https://github.com/cultureamp/kaizen-design-system/pull/4461) [`513e2a1572894c064cb82b5e046024ffaa30e85e`](https://github.com/cultureamp/kaizen-design-system/commit/513e2a1572894c064cb82b5e046024ffaa30e85e) - Update dependency @floating-ui/react-dom to ^2.0.5
+
+- [#4460](https://github.com/cultureamp/kaizen-design-system/pull/4460) [`47b451a8079aa7393b33aa9049052764b9c0030d`](https://github.com/cultureamp/kaizen-design-system/commit/47b451a8079aa7393b33aa9049052764b9c0030d) - Update peerDep @cultureamp/i18n-react-intl to ^2.1.10
+
+- [#4467](https://github.com/cultureamp/kaizen-design-system/pull/4467) [`4504646e1935bc913030c8783f97ea4c3c4bb0de`](https://github.com/cultureamp/kaizen-design-system/commit/4504646e1935bc913030c8783f97ea4c3c4bb0de) - Update dependencies
+
+  Dependencies:
+
+  - "prosemirror-model": "^1.19.4"
+  - "prosemirror-view": "^1.32.7"
+
+  Peer dependencies:
+
+  - "react-intl": "^6.6.0"
+
+## 1.39.0
+
+### Minor Changes
+
+- [#4478](https://github.com/cultureamp/kaizen-design-system/pull/4478) [`bb1045fd89fc0426c434ae6487547294d8a64593`](https://github.com/cultureamp/kaizen-design-system/commit/bb1045fd89fc0426c434ae6487547294d8a64593) - Expose IconProps
+
+## 1.38.6
+
+### Patch Changes
+
+- [#4471](https://github.com/cultureamp/kaizen-design-system/pull/4471) [`af8329e55eb27763d042608c0f353ea622a1ade8`](https://github.com/cultureamp/kaizen-design-system/commit/af8329e55eb27763d042608c0f353ea622a1ade8) - <TitleBlockZen /> - Allow mobile actions menu to auto hide when user clicks a menu item
+
+- [#4469](https://github.com/cultureamp/kaizen-design-system/pull/4469) [`aebd4d30a1d8aa96d9377eedc4952152b2777d70`](https://github.com/cultureamp/kaizen-design-system/commit/aebd4d30a1d8aa96d9377eedc4952152b2777d70) - `<MenuItem>`: accept id in props and pass it to child button/link
+  `<TitleBlockZen>`
+  - Add constant ids for TitleBlockZen's secondary menu and other actions menu in mobile view
+  - accept id in props to be assigned to the root div
+
+## 1.38.5
+
+### Patch Changes
+
+- [#4468](https://github.com/cultureamp/kaizen-design-system/pull/4468) [`2051d584a4d5b3aaa174c47b45100d2087860c79`](https://github.com/cultureamp/kaizen-design-system/commit/2051d584a4d5b3aaa174c47b45100d2087860c79) - TimeField: added conditional aria-describeby to fix accessibility
+
+- [#4427](https://github.com/cultureamp/kaizen-design-system/pull/4427) [`e43e041bf2699ee7c8fa67a546e828862cf41904`](https://github.com/cultureamp/kaizen-design-system/commit/e43e041bf2699ee7c8fa67a546e828862cf41904) - Dep updates:
+
+  - classnames to 2.5.1
+
+  Peer dep updates:
+
+  - @cultureamp/i18n-react-intl to 2.1.8
+  - tailwindcss to 3.4.0 (@kaizen/tailwind package)
+
+- [#4447](https://github.com/cultureamp/kaizen-design-system/pull/4447) [`6acfa8758f1c850895bbf3b05ba2569030772b01`](https://github.com/cultureamp/kaizen-design-system/commit/6acfa8758f1c850895bbf3b05ba2569030772b01) - Bump react-spectrum packages
+
+## 1.38.4
+
+### Patch Changes
+
+- [#4384](https://github.com/cultureamp/kaizen-design-system/pull/4384) [`234569cc02592834f92711c74c251096c032ffe0`](https://github.com/cultureamp/kaizen-design-system/commit/234569cc02592834f92711c74c251096c032ffe0) - Dep updates:
+
+  - @cultureamp/i18n-react-intl from 2.1.3 to 2.1.5
+  - svgo from 3.0.4 to 3.1.0
+  - ts-patch from 3.0.2 to 3.1.1
+
+  * a bunch of dev deps
+
+- [#4426](https://github.com/cultureamp/kaizen-design-system/pull/4426) [`e3a6b029b7b70a356cb383db615968d8a73ecaf9`](https://github.com/cultureamp/kaizen-design-system/commit/e3a6b029b7b70a356cb383db615968d8a73ecaf9) - Address ToggleSwitch bug - CheckIcon now hidden when toggle set to false.
+
+## 1.38.3
+
+### Patch Changes
+
+- [#4418](https://github.com/cultureamp/kaizen-design-system/pull/4418) [`2c77ddbeb`](https://github.com/cultureamp/kaizen-design-system/commit/2c77ddbebbfb67635955e1d320ac490f4480454e) - Remove required action prop on TitleBlockZen menu items that does nothing
+
+## 1.38.2
+
+### Patch Changes
+
+- [#4414](https://github.com/cultureamp/kaizen-design-system/pull/4414) [`9a18c2c81`](https://github.com/cultureamp/kaizen-design-system/commit/9a18c2c8191cbf25c5525e61b1d55bcdaec76f68) - TabList now uses classNameOverride correctly
+
+- [#4415](https://github.com/cultureamp/kaizen-design-system/pull/4415) [`423c46919`](https://github.com/cultureamp/kaizen-design-system/commit/423c469199b28c1567825fecb31d1d33f8fa520d) - Fix SSR support for video player
+
 ## 1.38.1
 
 ### Patch Changes

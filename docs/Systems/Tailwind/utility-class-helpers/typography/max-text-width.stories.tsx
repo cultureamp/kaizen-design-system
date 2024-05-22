@@ -1,12 +1,12 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "max-w-"
 const classEntries = Object.entries(
-  kaizenTailwindTheme?.extend.maxWidth || []
+  kaizenTailwindTheme.extend.maxWidth || []
 ).map(([suffix, cssPropertyArr]) => ({
   utilityClassName: `${prefix}${suffix}`,
   cssProperty: cssPropertyArr as string,
@@ -39,7 +39,7 @@ const getFontClass = (utilityClass: string): string =>
 export const MaxTextWidth: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="max-width"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (

@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const VisibleIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const VisibleIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M9.831 3.75c-4.09 0-7.583 2.544-8.998 6.135 1.415 3.591 4.908 6.135 8.998 6.135 4.09 0 7.583-2.544 8.998-6.135-1.415-3.591-4.908-6.135-8.998-6.135Zm0 10.225a4.091 4.091 0 0 1-4.09-4.09 4.091 4.091 0 0 1 4.09-4.09 4.091 4.091 0 0 1 4.09 4.09 4.091 4.091 0 0 1-4.09 4.09Zm0-6.544a2.45 2.45 0 0 0-2.454 2.454 2.45 2.45 0 0 0 2.454 2.454 2.45 2.45 0 0 0 2.454-2.454 2.45 2.45 0 0 0-2.454-2.454Z"
+          d="M9.831 3.75c-4.09 0-7.583 2.544-8.998 6.135 1.415 3.591 4.908 6.135 8.998 6.135 4.09 0 7.583-2.544 8.998-6.135-1.415-3.591-4.908-6.135-8.998-6.135m0 10.225a4.091 4.091 0 0 1-4.09-4.09 4.091 4.091 0 0 1 4.09-4.09 4.091 4.091 0 0 1 4.09 4.09 4.091 4.091 0 0 1-4.09 4.09m0-6.544a2.45 2.45 0 0 0-2.454 2.454 2.45 2.45 0 0 0 2.454 2.454 2.45 2.45 0 0 0 2.454-2.454 2.45 2.45 0 0 0-2.454-2.454"
         />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />

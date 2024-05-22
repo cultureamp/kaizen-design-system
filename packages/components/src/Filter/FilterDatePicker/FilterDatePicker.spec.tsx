@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { FilterButton } from "~components/Filter/FilterButton"
 import { FilterDatePicker, FilterDatePickerProps } from "."
@@ -75,10 +75,8 @@ describe("<FilterDatePicker />", () => {
       expect(dialog).toBeInTheDocument()
     })
 
-    const targetDay = screen.getByRole("button", {
-      name: "2nd May (Monday)",
-    })
-
+    const targetMonth = screen.getByRole("grid", { name: "May 2022" })
+    const targetDay = within(targetMonth).getByRole("gridcell", { name: "2" })
     await user.click(targetDay)
 
     await waitFor(() => {

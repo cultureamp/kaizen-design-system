@@ -18,7 +18,8 @@
       "~utils/*": ["packages/components/src/utils/*"],
       "~components/*": ["packages/components/src/*"],
       "~design-tokens/*": ["packages/design-tokens/src/*"]
-    }
+    },
+    "types": ["@testing-library/jest-dom"]
   },
   "files": ["./types.d.ts"],
   "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx"],

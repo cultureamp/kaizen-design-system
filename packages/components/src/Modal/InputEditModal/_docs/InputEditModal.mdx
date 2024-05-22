@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as InputEditModalStories from "./InputEditModal.stories"
 
 <Meta of={InputEditModalStories} />
@@ -13,12 +13,7 @@ import * as InputEditModalStories from "./InputEditModal.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { InputEditModal } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="InputEditModal" />
 
 ## Overview
 
@@ -44,3 +39,14 @@ When your modal is preforming a destructive action eg. delete customer data.
 ### Unpadded
 
 <Canvas of={InputEditModalStories.Unpadded} />
+
+## onAfterEnter and shifting focus
+
+It is an important accessibility consideration that any time we shift focus on the page, no important content is skipped that may provide context to assistive technologies. This is why the default behaviour for our modals is to shift focus to the accessible title.
+
+There are instances, such as single input modals, where shifting focus may not impact the users context. In these instances, we can leverage the `onAfterEnter` callback to shift focus to an input.
+
+<Canvas of={InputEditModalStories.OnAfterEnter} sourceState="shown" />
+
+As both the button and input label have clear intent and the focus does not skip past crucial content, this should provide enough context for an end user.
+

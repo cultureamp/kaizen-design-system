@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as TooltipStories from "./Tooltip.stories"
 
 <Meta of={TooltipStories} />
@@ -13,12 +13,7 @@ import * as TooltipStories from "./Tooltip.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Tooltip } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="Tooltip" />
 
 ## Overview
 
@@ -66,3 +61,73 @@ Again, try to keep the contents of your children as simple as possible, ideally 
 
 When your direct child is not semantic, you will get a console warning like this:
 `<Tooltip /> is not directly wrapping a semantic element, screen reader users will not be able to access the tooltip info.`
+
+
+### Tooltips, Kaizen components and avoiding common pitfalls
+
+While technically any Kaizen component can be wrapped by a `Tooltip`, as called out previously, only those with [accessible roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) like `button`, `link` or `heading`, will be readable to assistive technologies.
+
+We've created some guidance below with the most common cases for `Tooltip` and how to ensure the additional context is read to the user.
+
+#### Button and IconButton
+
+<Canvas of={TooltipStories.ButtonsWithTooltip} />
+
+While Kaizen buttons are compatible with `Tooltip`, caution is advised when using the custom `component` render prop.
+
+```JSX
+  <Tooltip text="Contact customer support.">
+    <Button
+      {...buttonProps}
+      component={() => (
+        // The most immediate child is a `div`, which has no `role`.
+        <div>
+          <button type="button">
+            Help
+          </button>
+        </div>
+      )}
+    />
+  </Tooltip>
+```
+
+In the example above, the `div` in now the direct descendant of `Tooltip`, therefore will no longer be accessible to assistive technologies.
+
+#### ButtonGroup
+
+The `Tooltip` component must wrap the children of `ButtonGroup` to be accessible to screen readers.
+
+<Canvas of={TooltipStories.ButtonGroupWithTooltip} />
+
+#### Table headers and tooltips
+
+While the composable `Tooltip` is not exposed in the Kaizen `Table`, it is important to call out that the `tooltipInfo` prop in `TableHeaderRowCell` must also have an `onClick` or `href` to be announced to assistive technologies.
+
+<Canvas of={TooltipStories.TableHeadersWithTooltips} />
+
+Without either of these, the `Tooltip` content will not be readable to keyboard users or assistive technologies.
+
+#### Tags
+
+Seen in the example below simple `Tag`s with plain text as `children` will not accessible to keyboard users or assistive technologies as it's direct descendant is a `div` with no semantic `role`.
+
+<Canvas of={TooltipStories.TagWithHoverOnlyTooltip}  />
+
+While `Tooltip` should be avoided if there are no interactive states within the `Tag`, internal elements like buttons or links can be wrapped in a `Tooltip` component to add necessary context.
+
+<Canvas of={TooltipStories.TagWithTooltip} />
+
+The [future Tag](?path=/docs/components-tag-future--docs#overview) offers a composable solution for those needing to add more context to an interactive `Tag`.
+
+#### Form components and tooltips
+
+While a `Tooltip` can seem like a natural pairing when space is a commodity, form elements still require a concise label that is _ideally_ visible (See MDN's guide on [Tooltip best practices](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role#best_practices)).
+
+<Canvas of={TooltipStories.CheckboxFieldTooltip} />
+
+In the example above, the `Tooltip` content `"Select all users"` is accessible to screen readers via keyboard navigation, however will not be announced when the input receives focus. This a limitation of `CheckboxField` and form components where the immediate `children` of `Tooltip` is a wrapper.
+
+<Canvas of={TooltipStories.CheckboxFieldWithDescriptionTooltip} />
+
+In these instances, `aria-describedby` can be leveraged to provide a description to the input.
+

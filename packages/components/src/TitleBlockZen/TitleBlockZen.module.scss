@@ -269,7 +269,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: none;
-    margin: ($ca-grid / 5) 0;
+    margin: calc(#{$ca-grid} / 5) 0;
   }
 }
 
@@ -289,7 +289,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 .sectionTitleContainer {
   display: flex;
   align-items: center;
-  padding: ($ca-grid * 3/4) 0;
+  padding: calc(#{$ca-grid} * 3 / 4) 0;
 }
 
 .sectionTitleInner {
@@ -331,7 +331,7 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
 .sectionTitleDescription {
   .sectionTitle + & {
-    margin-top: $ca-grid / 4;
+    margin-top: calc(#{$ca-grid} / 4);
   }
 
   color: $color-white;
@@ -548,6 +548,25 @@ $tab-container-height-medium-and-small-collapsed: 0;
 
   &:hover .breadcrumbTextLink {
     text-decoration: underline;
+  }
+
+  &:focus {
+    outline: none;
+
+    &::after {
+      $focus-ring-offset: calc(
+        (-2 * #{$border-focus-ring-border-width}) - #{$border-focus-ring-border-width}
+      );
+
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-color: $color-blue-200;
+      border-radius: 50%;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      inset: $focus-ring-offset;
+    }
   }
 
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {

@@ -2,14 +2,15 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const DeltaPositiveIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path
         fill="currentColor"
-        d="M6.775 4H16v9.225h-2.05V7.5L5.45 16 4 14.55l8.5-8.5H6.775V4z"
+        d="M6.775 4H16v9.225h-2.05V7.5L5.45 16 4 14.55l8.5-8.5H6.775z"
         fillRule="evenodd"
         clipRule="evenodd"
       />

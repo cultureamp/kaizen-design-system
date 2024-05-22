@@ -32,6 +32,9 @@ export type ContextModalProps = Readonly<
     title: string
     onConfirm?: () => void
     onDismiss: () => void
+    /** A callback that is triggered after the modal is opened. */
+    onAfterEnter?: () => void
+    /** A callback that is triggered after the modal is closed. */
     onAfterLeave?: () => void
     confirmLabel?: string
     confirmWorking?: { label: string; labelHidden?: boolean }
@@ -59,6 +62,7 @@ export const ContextModal = ({
   onConfirm,
   onDismiss: propsOnDismiss,
   onAfterLeave,
+  onAfterEnter,
   confirmLabel = "Confirm",
   confirmWorking,
   renderBackground,
@@ -100,6 +104,7 @@ export const ContextModal = ({
       onEscapeKeyup={onDismiss}
       onOutsideModalClick={onDismiss}
       onAfterLeave={onAfterLeave}
+      onAfterEnter={onAfterEnter}
     >
       <div className={styles.modal} data-modal {...props}>
         {renderBackground && renderBackground()}

@@ -7,6 +7,7 @@ const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
 
 export type HeadingVariants =
   | "display-0"
+  | "composable-header-title"
   | "heading-1"
   | "heading-2"
   | "heading-3"
@@ -84,6 +85,7 @@ Heading.displayName = "Heading"
 const translateHeadingLevelToTag = (headingLevel: HeadingVariants): string => {
   switch (headingLevel) {
     case "display-0":
+    case "composable-header-title":
     case "heading-1":
       return "h1"
     case "heading-2":

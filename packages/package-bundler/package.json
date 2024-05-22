@@ -1,0 +1,53 @@
+{
+  "name": "@kaizen/package-bundler",
+  "version": "1.0.0",
+  "description": "Bundles libraries",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "package-bundler": "./bin/build-commands.sh"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc --build",
+    "prepare": "ts-patch install -s"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "tsconfig.base.json",
+    "tsconfig.dist.json",
+    "tsconfig.types.json"
+  ],
+  "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
+  "homepage": "https://cultureamp.design",
+  "license": "MIT",
+  "dependencies": {
+    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "babel-plugin-pure-static-props": "^0.2.0",
+    "replace-in-file": "^7.1.0",
+    "rollup-plugin-ignore": "^1.0.10",
+    "rollup-plugin-node-externals": "^7.1.2",
+    "rollup-plugin-postcss": "^4.0.2",
+    "ts-patch": "^3.1.2",
+    "typescript-transform-paths": "^3.4.7"
+  },
+  "dependenciesComments": {
+    "ts-patch": "Required for typescript-transform-paths"
+  },
+  "devDependencies": {
+    "rollup": "^4.17.2"
+  },
+  "devDependenciesComments": {
+    "typescript": "Installed in root"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.38",
+    "postcss-preset-env": "^9.3.0",
+    "rollup": "^4.17.2",
+    "tslib": "^2.6.2"
+  }
+}

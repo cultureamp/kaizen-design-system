@@ -1,5 +1,6 @@
 import React, { useId } from "react"
 import classnames from "classnames"
+import type { Locale } from "date-fns"
 import { enAU } from "date-fns/locale"
 import {
   DateInputDescription,

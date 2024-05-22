@@ -1,0 +1,172 @@
+import { Canvas, Meta } from "@storybook/blocks"
+import * as LegacyTagStories from "../../../../Tag/_docs/Tag.stories"
+import * as TagMigrationStories from "./Tag-migration-guide.stories"
+
+<Meta of={TagMigrationStories} />
+
+# Future Tag migration guide
+
+A brief guide on how and why to migrate from Kaizen's current `Tag` to the `future` release.
+
+## Why the change?
+
+Tag was rebuilt to allow for greater composability as the number of cases for a distinct Tags could not be solved through the use of `variant` without impacting the developer experience for existing users. The flexibility of `Tag` content as `children` also addresses several accessibility issues that the original could not solve intuitively.
+
+## Component and API changes at a glance
+
+There were a number key changes between current and future `Tag` to achieve the flexibility we were aiming to provide, we've listed these below but also go into further detail in the [migration examples](/docs/components-tag-future-migration-guide--migrationguide#migration-examples).
+
+- `variant` prop has been removed
+  - This has been superseded by a combination of the `color` and `icon` prop
+- `inline` prop and the default `margin` on all Tags has been removed.
+  - This can be directly controlled through `classNameOverride` or a `flex-gap` on the container.
+- `size` has been removed and all tags are the same size.
+- `truncationWidth` has been removed as child content.
+- `dismissible` prop has been removed.
+  - A `DismissibleTag` component is now available in its place.
+- `Avatar` and all child content must now be composed by the consumer.
+  - This offers a greater degree of flexibility to ensure that the right accessible context can be provided to the end user.
+
+
+## Migration examples
+
+The following are example of migrating from previously available props to the composable solution.
+
+### Status
+
+With the `variant` prop there are four values associated with statuses:  `statusLive`, `statusDraft`, `statusClosed`, `statusAction`.
+
+For the most part these can all be replaced with the use of the `color` prop, with exception to the `live` status.
+
+#### Before
+
+<Canvas of={LegacyTagStories.Status} />
+
+
+#### After
+
+<Canvas of={TagMigrationStories.StatusMigration} sourceState="shown"/>
+
+While the `LiveIcon` is exported from `@kaizen/components` the current `Tag` uses an animated implementation, which is not exported directly from Kaizen. As an interim solution, you can use the following Story's code snippet to create a `LiveIconComponent`. This can then be passed into the future `Tag` as `Children`.
+
+<Canvas of={TagMigrationStories.LiveIconComponentStory} sourceState="hidden"/>
+
+### Validation
+
+Following the same pattern as status, `validationPositive`, `validationInformative`, `validationNegative`, `validationCautionary` can all be replace with the `color` and `icon` prop.
+
+Note: because the icons convey meaning, they should have an accessible label that provides context to the `Tag`. A contextual `aria-label` and role of `img` addresses one of the [accessibility issues](https://github.com/cultureamp/kaizen-discourse/issues/102) with the current `Tag`.
+
+#### Before
+
+<Canvas of={LegacyTagStories.Validation} />
+
+#### After
+
+<Canvas of={TagMigrationStories.ValidationMigration} sourceState="shown"/>
+
+
+Note: When using the `icon` prop, the icon's color will be determined by the `color` value that has been set. This is to ensure that an accessible contrast ratio is achieved.
+
+Any Icons added as a child of future `Tag` will need to set their own colors and ensure the right contrast ratio is achieved.
+
+### Sentiment
+
+While migration of any `Tag` using, `sentimentPositive`, `sentimentNeutral` or `sentimentNegative` is relatively straight forward using the `color` prop, `sentimentNone` does not align to any Kaizen's [semantic colors](https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064857902/Color).
+
+#### Before
+
+<Canvas of={LegacyTagStories.Sentiments} />
+
+#### After
+
+<Canvas of={TagMigrationStories.SentimentsMigration} sourceState="shown"/>
+
+If required, you could use `classNameOverride` to implement the same UI. It is important that any override of the default styles still meets minimum contrast ratios to ensure the component is accessible.
+
+<Canvas of={TagMigrationStories.SentimentNone} />
+
+This is also a good time to stop and check if this change is necessary. If there is an opportunity remove older styles that are no longer available, this can help to reduce inconsistencies across the platform. As always, check in with your designer to see if any new option can be used in its place.
+
+
+### Dismissible
+
+The `dismissible` prop is no longer available in the future `Tag` component. We have split the dismissible functionality into the [RemovableTag](/docs/components-tag-future-removabletag--docs).
+
+This increases the hit box for the dismiss button and makes the `ariaLabel` in the `removeButtonProps` a required prop. This offers a more accessible experience for user and address one of the standing [accessibility issues](https://github.com/cultureamp/kaizen-discourse/issues/101) with the legacy `Tag`.
+
+#### Before
+
+<Canvas of={LegacyTagStories.Dismissible} />
+
+#### After
+
+<Canvas of={TagMigrationStories.DismissibleMigration} sourceState="shown"/>
+
+Remember that when handling dismiss (or any destructive action), a user's focus should not be lost on the page.
+
+
+### Avatars
+
+Avatars are no longer provided directly to the `Tag` as a prop. Instead they will be passed in as children.
+
+#### Before
+
+<Canvas of={LegacyTagStories.ProfileWithAvatarProps} />
+
+#### After
+
+<Canvas of={TagMigrationStories.AvatarMigration} sourceState="shown"/>
+
+
+Note: The use of `ps-4` (or `padding-inline-start`) in the `classNameOverride` is to override the default spacing at start of the `Tag`. This will ensure the Avatar can contour the border radius of the `Tag`.
+
+#### Dismissible Avatars
+
+Following a similar pattern to the above, you can use the `RemovableTag` with an `Avatar` and plain text as its `children` to achieve a dismissible version.
+
+<Canvas of={TagMigrationStories.AvatarRemovableMigration} />
+
+### Inline
+
+Originally the `Tag` was built with the assumption that it would always required spacing at the end. This necessitated the need for the `inline` prop to remove the margin from end when it was not required.
+
+In future `Tag` this has been removed so consumers can now control spacing with CSS properties like `gap` or `margin-inline`.
+
+#### Before
+
+<Canvas of={LegacyTagStories.Inline} />
+
+#### After
+
+<Canvas of={TagMigrationStories.InlineMigration} sourceState="shown"/>
+
+To simplify this example we have avoided DOM elements such as `ul` and `li`. In production, lists should be used if you are rendering a group of `Tag`s.
+
+
+### truncationWidth
+
+While the current Tag controls truncation via the `truncationWidth` prop, which set a `max-width` of inner text via inline styles, we have chosen not to adopt this in the future `Tag` as it presents a risk of violating accessibility standards. While truncation can still be achieved in future `Tag` via Tailwind or DOM manipulation, it is important to call out out this as a accessibility concern.
+
+#### Before
+
+<Canvas of={LegacyTagStories.Truncate} />
+
+Where truncation often fails WCAG's success criteria is in [1.4.4](https://www.w3.org/WAI/WCAG21/Techniques/failures/F69) or [1.3.1](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html). The crux of the issue is that removing content with an ellipsis may lead to a loss of context for visual users. While `aria` labels can support those that use assistive technologies, they are not enough to resolve this issue for sighted users.
+
+The recommendation from WCAG is that any truncated content comes with the functionality to visually revealing its full content. This can be accessible either via focus or some form of activation - like an `onClick` to reveal. Based on this, our recommendation is to avoid truncation unless necessary.
+
+### Size
+
+The two sizes for tag have been remove in favour of a default size in between `medium` and `small`. The `small` specifically was removed due to the reduced hit radius for the dismissible button and poor compatibility with avatars and icon.
+
+`classNameOverride` can be leveraged to add padding and modify properties but should be done with caution to reduce inconsistencies in the platform and reduce the risk of accessibility violations.
+
+
+#### Before
+
+<Canvas of={LegacyTagStories.Sizes} />
+
+#### After
+
+<Canvas of={TagMigrationStories.SizesMigration} sourceState="shown"/>

@@ -24,12 +24,17 @@ export const TabList = (props: TabListProps): JSX.Element => {
     "aria-label": ariaLabel,
     noPadding = false,
     children,
+    classNameOverride,
     ...restProps
   } = props
   return (
     <ReachTabList
       aria-label={ariaLabel}
-      className={classnames(styles.tabList, noPadding && styles.noPadding)}
+      className={classnames(
+        styles.tabList,
+        classNameOverride,
+        noPadding && styles.noPadding
+      )}
       {...restProps}
     >
       {children}

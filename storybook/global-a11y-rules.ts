@@ -19,4 +19,10 @@ export const globalA11yRules = [
     id: "color-contrast",
     selector: ":not([data-sb-a11y-color-contrast-disable])",
   },
+  {
+    // Incorrect accessibility from react-day-picker
+    // https://github.com/gpbl/react-day-picker/issues/1688
+    id: "aria-allowed-role",
+    selector: ':not(button[name="day"][role="gridcell"])',
+  },
 ]

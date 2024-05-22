@@ -9,7 +9,7 @@ const meta = {
     content: dummyContent,
   },
   argTypes: {
-    content: { control: "disable" },
+    content: { control: false },
   },
 } satisfies Meta<typeof RichTextContent>
 

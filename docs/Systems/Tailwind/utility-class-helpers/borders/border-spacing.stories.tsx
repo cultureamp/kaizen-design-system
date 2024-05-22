@@ -1,12 +1,12 @@
 import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "border-spacing-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.spacing || []).map(
+  Object.entries(kaizenTailwindTheme.spacing || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -30,7 +30,7 @@ export default {
 export const BorderSpacing: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="border-spacing"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (

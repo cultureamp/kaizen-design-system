@@ -3,10 +3,6 @@ import classnames from "classnames"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./SVG.module.scss"
 
-type BaseSVGProps = {
-  inheritSize?: boolean
-} & OverrideClassName<SVGAttributes<SVGElement>>
-
 type MeaningfulIcon = {
   role: "img"
   "aria-label": string
@@ -17,8 +13,12 @@ type DecorativeIcon = {
   "aria-label"?: never
 }
 
-export type IconProps = BaseSVGProps & (MeaningfulIcon | DecorativeIcon)
-export type SVGProps = IconProps & {
+export type BaseSVGProps = {
+  inheritSize?: boolean
+} & OverrideClassName<SVGAttributes<SVGElement>> &
+  (MeaningfulIcon | DecorativeIcon)
+
+export type SVGProps = BaseSVGProps & {
   children: ReactNode
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { render, waitFor } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import {
   FilterAttributes,
@@ -113,53 +113,48 @@ describe("<FilterBarDatePicker />", () => {
   })
 
   it("updates the selected value in the trigger button when selecting a date", async () => {
-    const { getByRole } = render(
+    render(
       <FilterBarDatePickerWrapper
         defaultValues={{ drank: new Date("2023-06-06") }}
       />
     )
-    const triggerButton = getByRole("button", {
+    const triggerButton = screen.getByRole("button", {
       name: "Drank : 6 Jun 2023",
     })
 
     await user.click(triggerButton)
 
     await waitFor(() => {
-      const dialog = getByRole("dialog")
+      const dialog = screen.getByRole("dialog")
       expect(dialog).toBeInTheDocument()
     })
 
-    await user.click(
-      getByRole("button", {
-        name: "7th June (Wednesday)",
-      })
-    )
+    const targetMonth = screen.getByRole("grid", { name: "June 2023" })
+    const targetDay = within(targetMonth).getByRole("gridcell", { name: "7" })
+
+    await user.click(targetDay)
 
     await waitFor(() => {
       expect(
-        getByRole("button", { name: "Drank : 7 Jun 2023" })
+        screen.getByRole("button", { name: "Drank : 7 Jun 2023" })
       ).toBeInTheDocument()
     })
   })
 
   it("allows calling additional functions on selection change", async () => {
-    const onChange = jest.fn<void, [Date | undefined]>()
-    const { getByRole } = render(
-      <FilterBarDatePickerWrapper onDateChange={onChange} />
-    )
-    const triggerButton = getByRole("button", { name: "Drank" })
+    const onChange = jest.fn()
+    render(<FilterBarDatePickerWrapper onDateChange={onChange} />)
 
+    const triggerButton = screen.getByRole("button", { name: "Drank" })
     await user.click(triggerButton)
+
     await waitFor(() => {
-      const dialog = getByRole("dialog")
-      expect(dialog).toBeInTheDocument()
+      expect(screen.getByRole("dialog")).toBeInTheDocument()
     })
 
-    await user.click(
-      getByRole("button", {
-        name: "7th June (Wednesday)",
-      })
-    )
+    const targetMonth = screen.getByRole("grid", { name: "June 2023" })
+    const targetDay = within(targetMonth).getByRole("gridcell", { name: "7" })
+    await user.click(targetDay)
 
     await waitFor(() => {
       expect(onChange.mock.calls).toEqual([[new Date("2023-06-07")]])

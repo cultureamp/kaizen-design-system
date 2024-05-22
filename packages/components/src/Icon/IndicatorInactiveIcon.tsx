@@ -1,5 +1,6 @@
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 // formally named "empty"
 export const IndicatorInactiveIcon = (props: IconProps): JSX.Element => (

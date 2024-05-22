@@ -1,39 +1,50 @@
-import React, { useState } from "react"
-import { Decorator, Meta, StoryObj } from "@storybook/react"
+import React, { useRef, useState } from "react"
+import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { ModalAccessibleDescription } from "~components/Modal"
 import { Text } from "~components/Text"
 import { TextField } from "~components/TextField"
-import { InputEditModal, InputEditModalProps } from "../index"
+import { chromaticModalSettings } from "../../_docs/controls"
+import { InputEditModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()
 
-// Add additional height to the stories when running in Chromatic only.
-// Modals have fixed position and would be cropped from snapshot tests.
-// Setting height to 100vh ensures we capture as much content of the
-// modal, as it's height responds to the content within it.
-const HeightDecorator: Decorator<InputEditModalProps> = Story => {
-  if (IS_CHROMATIC) {
-    return (
-      <div style={{ minHeight: "100vh" }}>
-        <Story />
-      </div>
-    )
-  }
+const ExampleForm = (): JSX.Element => (
+  <>
+    <ModalAccessibleDescription>
+      <Text variant="body">
+        Instructive text to drive user selection goes here.
+      </Text>
+    </ModalAccessibleDescription>
+    <form>
+      <TextField labelText="Opinion" />
+    </form>
+  </>
+)
 
-  return <Story />
-}
-
-const chromaticModalSettings = {
-  parameters: {
-    chromatic: {
-      disable: false,
-      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
-      pauseAnimationAtEnd: true,
+const meta = {
+  title: "Components/Modals/Input Edit Modal",
+  component: InputEditModal,
+  args: {
+    isOpen: false,
+    title: "Your input is valuable",
+    mood: "positive",
+    children: <ExampleForm />,
+    submitLabel: "Submit label",
+    onSubmit: fn(),
+    onDismiss: fn(),
+  },
+  argTypes: {
+    children: {
+      control: false,
     },
   },
-  decorators: [HeightDecorator],
-}
+} satisfies Meta<typeof InputEditModal>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 const InputModalTemplate: Story = {
   render: args => {
@@ -62,40 +73,6 @@ const InputModalTemplate: Story = {
   },
 }
 
-const ExampleForm = (): JSX.Element => (
-  <>
-    <ModalAccessibleDescription>
-      <Text variant="body">
-        Instructive text to drive user selection goes here.
-      </Text>
-    </ModalAccessibleDescription>
-    <form>
-      <TextField labelText="Opinion" />
-    </form>
-  </>
-)
-
-const meta = {
-  title: "Components/Modals/Input Edit Modal",
-  component: InputEditModal,
-  args: {
-    isOpen: false,
-    title: "Your input is valuable",
-    mood: "positive",
-    children: <ExampleForm />,
-    submitLabel: "Submit label",
-  },
-  argTypes: {
-    children: {
-      control: false,
-    },
-  },
-} satisfies Meta<typeof InputEditModal>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
-
 export const Playground: Story = {
   ...InputModalTemplate,
   parameters: {
@@ -123,4 +100,66 @@ export const Unpadded: Story = {
   ...InputModalTemplate,
   args: { unpadded: true },
   ...chromaticModalSettings,
+}
+
+export const OnAfterEnter: Story = {
+  ...chromaticModalSettings,
+  args: {
+    title: "Create new link",
+    submitLabel: "Add link",
+  },
+  render: args => {
+    const [isOpen, setIsOpen] = useState(IS_CHROMATIC)
+    const inputRef = useRef<HTMLInputElement>(null)
+    const handleOpen = (): void => setIsOpen(true)
+    const handleClose = (): void => setIsOpen(false)
+
+    return (
+      <>
+        <button
+          type="button"
+          className="border border-gray-500"
+          onClick={handleOpen}
+        >
+          Create a link
+        </button>
+        <InputEditModal
+          {...args}
+          isOpen={isOpen}
+          onSubmit={handleClose}
+          onDismiss={handleClose}
+          onAfterEnter={() => inputRef.current?.focus()}
+        >
+          <form>
+            <TextField inputRef={inputRef} labelText="Link URL" />
+          </form>
+        </InputEditModal>
+      </>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+        // The label of the button and the input it is focused to may provide enough context.
+        <button
+          onClick={handleOpen}
+        >
+          Create a link
+        </button>
+        <InputEditModal
+          {...args}
+          isOpen={isOpen}
+          onSubmit={handleClose}
+          onDismiss={handleClose}
+          onAfterEnter={() => inputRef.current?.focus()}
+        >
+          <form>
+            <TextField inputRef={inputRef} labelText="Link URL" />
+          </form>
+        </InputEditModal>
+        `,
+      },
+    },
+  },
 }

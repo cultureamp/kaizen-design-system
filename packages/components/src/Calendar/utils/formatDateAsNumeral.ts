@@ -1,4 +1,4 @@
-import { format } from "date-fns"
+import { Locale, format } from "date-fns"
 import { DateFormat } from "../enums"
 import { isInvalidDate } from "./isInvalidDate"
 

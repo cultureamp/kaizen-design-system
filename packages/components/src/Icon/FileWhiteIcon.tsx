@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const FileWhiteIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const FileWhiteIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M11.613 2H5.598c-.884 0-1.592.716-1.592 1.6l-.008 12.8c0 .884.708 1.6 1.592 1.6h8.812a1.6 1.6 0 0 0 1.6-1.6V6.657L11.613 2Z"
+          d="M11.613 2H5.598c-.884 0-1.592.716-1.592 1.6l-.008 12.8c0 .884.708 1.6 1.592 1.6h8.812a1.6 1.6 0 0 0 1.6-1.6V6.657z"
         />
       </defs>
       <g fill="none" fillRule="evenodd">

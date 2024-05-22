@@ -29,7 +29,7 @@ const FilterBarButtonWrapper = (
         {Object.values(filters).map(({ id, name }) => (
           <FilterBarButton
             key={id}
-            id={id}
+            filterId={id}
             label={name}
             isRemovable={false}
             {...props}

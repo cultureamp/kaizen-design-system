@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const FeedbackClassifyIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const FeedbackClassifyIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M16.387 2c.872 0 1.57.698 1.613 1.57v9.59c0 .916-.74 1.614-1.613 1.614H5.183L2 18V3.613C2 2.698 2.698 2 3.57 2h12.817Zm-4.141 9.94-.306-2.616 1.745-1.831-2.486-.349-1.22-2.571-1.22 2.571-2.486.349 1.744 1.831-.306 2.66 2.223-1.44 2.312 1.396Z"
+          d="M16.387 2c.872 0 1.57.698 1.613 1.57v9.59c0 .916-.74 1.614-1.613 1.614H5.183L2 18V3.613C2 2.698 2.698 2 3.57 2zm-4.141 9.94-.306-2.616 1.745-1.831-2.486-.349-1.22-2.571-1.22 2.571-2.486.349 1.744 1.831-.306 2.66 2.223-1.44z"
         />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />

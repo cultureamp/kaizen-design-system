@@ -9,8 +9,8 @@ const DropdownButtonWrapper = (
 describe("<DropdownButton />", () => {
   it("renders icon with default aria-label", () => {
     render(<DropdownButtonWrapper />)
-    const button = screen.getByRole("button", { name: "Open menu" })
-    expect(button.getAttribute("aria-label")).toBe("Open menu")
+    const button = screen.getByRole("button", { name: "Additional actions" })
+    expect(button.getAttribute("aria-label")).toBe("Additional actions")
     expect(button.firstChild?.nodeName).toEqual("svg")
   })
 

@@ -1,14 +1,6 @@
 import path from "path"
 import type { Configuration } from "webpack"
-import {
-  excludeExternalModules,
-  babel,
-  svgs,
-  svgIcons,
-  removeSvgFromTest,
-  tailwind,
-  styles,
-} from "./webpack/rules"
+import { excludeExternalModules, tailwind, styles } from "./webpack/rules"
 
 export default ({ config }: { config: Configuration }): Configuration => {
   if (
@@ -20,14 +12,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
     throw new Error(`Storybook started with unexpected config:\n${config}`)
   }
 
-  // Storybook's base config applies file-loader to svgs
-  config.module.rules = config.module.rules.map(removeSvgFromTest)
-
-  config.module.rules.push(
-    ...[babel, styles, tailwind].map(excludeExternalModules),
-    svgs,
-    svgIcons
-  )
+  config.module.rules.push(...[styles, tailwind].map(excludeExternalModules))
 
   config.resolve.extensions.push(".ts", ".tsx")
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import queryString from "query-string"
 import Highlight from "react-highlight"
 import {
@@ -23,13 +24,14 @@ const meta = {
   title: "Components/Filter Bar",
   component: FilterBar,
   argTypes: {
-    filters: { control: "disabled" },
-    values: { control: "disabled" },
-    onValuesChange: { control: "disabled" },
+    filters: { control: false },
+    values: { control: false },
+    onValuesChange: { control: false },
   },
   args: {
     filters: [], // Defined in stories
     values: {}, // Defined in stories
+    onValuesChange: fn(),
   },
 } satisfies Meta<typeof FilterBar>
 

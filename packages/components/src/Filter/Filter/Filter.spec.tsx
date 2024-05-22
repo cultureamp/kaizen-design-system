@@ -25,13 +25,15 @@ const FilterWrapper = (customProps?: Partial<FilterProps>): JSX.Element => {
 describe("<Filter />", () => {
   it("does not show content initially", () => {
     render(<FilterWrapper />)
-    expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole("dialog", { name: "Label" })
+    ).not.toBeInTheDocument()
   })
 
   it("shows content when isOpen is true", async () => {
     render(<FilterWrapper isOpen />)
     await waitFor(() => {
-      expect(screen.getByRole("dialog")).toBeVisible()
+      expect(screen.getByRole("dialog", { name: "Label" })).toBeVisible()
       expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })
@@ -41,7 +43,7 @@ describe("<Filter />", () => {
     const filterButton = screen.getByRole("button", { name: "Label" })
     await user.click(filterButton)
     await waitFor(() => {
-      expect(screen.getByRole("dialog")).toBeVisible()
+      expect(screen.getByRole("dialog", { name: "Label" })).toBeVisible()
       expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })
@@ -54,7 +56,7 @@ describe("<Filter />", () => {
     await user.keyboard("{Enter}")
 
     await waitFor(() => {
-      expect(screen.getByRole("dialog")).toBeVisible()
+      expect(screen.getByRole("dialog", { name: "Label" })).toBeVisible()
       expect(screen.getByText("Filter Contents")).toBeVisible()
     })
   })

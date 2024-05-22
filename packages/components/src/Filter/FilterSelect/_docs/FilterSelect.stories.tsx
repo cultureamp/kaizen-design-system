@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { renderTriggerControls } from "~components/Filter/_docs/controls/renderTriggerControls"
 import { FilterButton } from "../../FilterButton"
 import { FilterSelect } from "../FilterSelect"
@@ -10,9 +11,9 @@ const meta = {
   title: "Components/Filter Select",
   component: FilterSelect,
   argTypes: {
-    isOpen: { control: "disabled" },
-    setIsOpen: { control: "disabled" },
-    renderTrigger: renderTriggerControls,
+    ...renderTriggerControls,
+    isOpen: { control: false },
+    setIsOpen: { control: false },
     items: {
       options: ["Single", "Grouped"],
       control: { type: "radio" },
@@ -29,6 +30,7 @@ const meta = {
     renderTrigger: (triggerProps): JSX.Element => (
       <FilterButton {...triggerProps} />
     ),
+    setIsOpen: fn(),
   },
   parameters: {
     actions: {

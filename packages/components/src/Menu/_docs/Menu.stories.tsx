@@ -37,8 +37,8 @@ const meta = {
     ),
   },
   argTypes: {
-    children: { control: "disabled" },
-    button: { control: "disabled" },
+    children: { control: false },
+    button: { control: false },
   },
 } satisfies Meta<typeof Menu>
 

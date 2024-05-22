@@ -19,6 +19,9 @@ export type InputEditModalProps = {
   onSubmit: () => void
   onSecondaryAction?: () => void
   onDismiss: () => void
+  /** A callback that is triggered after the modal is opened. */
+  onAfterEnter?: () => void
+  /** A callback that is triggered after the modal is closed. */
   onAfterLeave?: () => void
   localeDirection?: "rtl" | "ltr"
   submitLabel?: string
@@ -30,7 +33,7 @@ export type InputEditModalProps = {
   automationId?: string
   children: React.ReactNode
   submitWorking?: { label: string; labelHidden?: boolean }
-} & HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, "onSubmit">
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3082093114/Modal#Input-Edit-Modal Guidance} |
@@ -51,6 +54,7 @@ export const InputEditModal = ({
   children,
   unpadded = false,
   onDismiss: propsOnDismiss,
+  onAfterEnter,
   ...props
 }: InputEditModalProps): JSX.Element => {
   const onDismiss = submitWorking ? undefined : propsOnDismiss
@@ -79,6 +83,7 @@ export const InputEditModal = ({
       isOpen={isOpen}
       onEscapeKeyup={onDismiss}
       onAfterLeave={onAfterLeave}
+      onAfterEnter={onAfterEnter}
     >
       <div className={styles.modal} dir={localeDirection} data-modal {...props}>
         <ModalHeader onDismiss={onDismiss}>

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { FilterButton, FilterButtonRemovable } from "~components/Filter"
 import { Filter, FilterContents } from "../index"
 
@@ -8,11 +9,11 @@ const meta = {
   title: "Components/Filter Base",
   component: Filter,
   argTypes: {
-    children: { control: "disabled" },
-    isOpen: { control: "disabled" },
-    setIsOpen: { control: "disabled" },
-    renderTrigger: { control: "disabled" },
-    onMount: { control: "disabled" },
+    children: { control: false },
+    isOpen: { control: false },
+    setIsOpen: { control: false },
+    renderTrigger: { control: false },
+    onMount: { control: false },
   },
   args: {
     children: <FilterContents>Filter Contents</FilterContents>,
@@ -20,6 +21,7 @@ const meta = {
       <FilterButton label="Label" {...triggerProps} />
     ),
     isOpen: false,
+    setIsOpen: fn(),
   },
 } satisfies Meta<typeof Filter>
 

@@ -2,14 +2,15 @@
 // Changes to this file will be overwritten
 
 import React from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const ItalicsIcon = (props: IconProps): JSX.Element => {
   const svgContent = (
     <>
       <path
         fill="currentColor"
-        d="M5 16v-1.749h2.79l3.464-8.502h-2.71V4H16v1.749h-2.79L9.745 14.25h2.71V16H5Z"
+        d="M5 16v-1.749h2.79l3.464-8.502h-2.71V4H16v1.749h-2.79L9.745 14.25h2.71V16z"
       />
     </>
   )

@@ -1,6 +1,7 @@
+import { ArgTypes } from "@storybook/react"
 import { DayOfWeek } from "~components/Calendar"
 
-export const disabledDayMatchersControls = {
+export const disabledDayMatchersControls: Partial<ArgTypes> = {
   disabledDates: {
     options: ["None", "Today", "May2022"],
     control: {

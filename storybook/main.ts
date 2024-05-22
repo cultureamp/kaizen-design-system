@@ -1,6 +1,9 @@
 import fs from "fs"
-import path from "path"
-import { StorybookConfig } from "@storybook/react-webpack5"
+import path, { dirname, join } from "path"
+import type { StorybookConfig } from "@storybook/react-webpack5"
+
+const getAbsolutePath = (value: string): string =>
+  dirname(require.resolve(join(value, "package.json")))
 
 /**
  * Use `STORIES=path/to/package` environment variable to load all `*.stories.tsx` stories in that folder.
@@ -23,17 +26,18 @@ const getStoryPathsFromEnv = (): string[] | false => {
 }
 
 const defaultStoryPaths = [
-  "../(docs|draft-packages|packages)/**/*.mdx",
-  "../(docs|draft-packages|packages)/**/*.stories.tsx",
+  "../{docs,packages}/**/*.mdx",
+  "../{docs,packages}/**/*.stories.tsx",
 ]
 
 const config = {
   stories: getStoryPathsFromEnv() || defaultStoryPaths,
   addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "@storybook/addon-interactions",
-    "storybook-addon-pseudo-states",
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-interactions"),
+    getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
+    getAbsolutePath("storybook-addon-pseudo-states"),
   ],
   staticDirs: [
     {
@@ -46,6 +50,7 @@ const config = {
     options: {},
   },
   typescript: {
+    check: false,
     reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       skipChildrenPropWithoutDoc: false,
@@ -59,4 +64,5 @@ const config = {
     },
   },
 } satisfies StorybookConfig
+
 export default config

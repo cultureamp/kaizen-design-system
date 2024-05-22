@@ -1,3 +1,9 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+
 .actions {
   display: flex;
+}
+
+.secondaryAction {
+  margin-inline-end: $spacing-8;
 }

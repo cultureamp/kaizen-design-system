@@ -1,5 +1,6 @@
 import { Canvas, Controls , Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { InlineNotification } from "~components/Notification"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as TagStories from "./Tag.stories"
 
 <Meta of={TagStories} />
@@ -13,12 +14,13 @@ import * as TagStories from "./Tag.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
 
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Tag } from "@kaizen/components"'
-/>
+<InlineNotification type="cautionary" persistent>
+  {`This version of the Tag will soon be deprecated and will be removed in the next major release.
+  Import Tag from "@kaizen/components/future" for the latest version and veiw our migration guide in the Future folder` }
+</InlineNotification>
+
+<KAIOInstallation exportNames="Tag" />
 
 ## Overview
 
@@ -64,7 +66,7 @@ An Avatar can be added in two ways, either by importing the `<Avatar />` compone
 <Canvas of={TagStories.ProfileWithAvatarProps} />
 
 ### Dismissable
-<Canvas of={TagStories.Dismissable} />
+<Canvas of={TagStories.Dismissible} />
 
 ### TruncateWidth
 A pixel width which sets a limit for when the text starts to truncate.

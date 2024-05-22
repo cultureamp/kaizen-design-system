@@ -2,12 +2,12 @@ import React from "react"
 import { Meta, StoryFn } from "@storybook/react"
 import classnames from "classnames"
 import { kaizenTailwindTheme } from "@kaizen/tailwind"
-import { UtilityClassTemplate } from "../../components/UtilityClassTemplate"
+import { TailwindStoryTemplate } from "~storybook/components/TailwindStoryTemplate"
 import { utilityDescription } from "../../helpers/utilityDescription"
 
 const prefix = "border-"
 const classEntries: Array<{ utilityClassName: string; cssProperty: string }> =
-  Object.entries(kaizenTailwindTheme?.borderWidth || []).map(
+  Object.entries(kaizenTailwindTheme.borderWidth || []).map(
     ([suffix, cssProperty]) => ({
       utilityClassName: `${prefix}${suffix}`,
       cssProperty,
@@ -31,7 +31,7 @@ export default {
 export const BorderWidth: StoryFn<{ isReversed: boolean }> = ({
   isReversed,
 }) => (
-  <UtilityClassTemplate
+  <TailwindStoryTemplate
     compiledCssPropertyName="border-width"
     classKeyValues={classEntries}
     renderExampleComponent={(utilityClass): React.ReactElement => (

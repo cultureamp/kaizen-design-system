@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import { expect } from "@storybook/jest"
 import { StoryObj } from "@storybook/react"
-import { userEvent, within } from "@storybook/testing-library"
+import { expect, userEvent, within } from "@storybook/test"
 import {
   FilterButton,
   FilterButtonProps,
@@ -36,18 +35,23 @@ const TestBase: Story = {
 
     return (
       <FilterDatePicker
-        id="filter-dp--test"
-        label="Date"
-        locale="en-AU"
         renderTrigger={(triggerButtonProps: FilterButtonProps): JSX.Element => (
           <FilterButton {...triggerButtonProps} />
         )}
+        id="filter-dp--test"
+        label="Date"
+        locale="en-AU"
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         selectedDate={date}
         onDateChange={setDate}
       />
     )
+  },
+  args: {
+    renderTrigger: (triggerButtonProps: FilterButtonProps): JSX.Element => (
+      <FilterButton {...triggerButtonProps} />
+    ),
   },
 }
 
@@ -61,7 +65,7 @@ export const SubmitInputViaEnterKey: Story = {
     })
 
     await step("Type value and press Enter key", async () => {
-      const inputDate = getByLabelText("Date")
+      const inputDate = getByLabelText("Date", { selector: "input" })
       await userEvent.click(inputDate)
       await userEvent.type(inputDate, "03/05/2022")
       await userEvent.keyboard("{Enter}")

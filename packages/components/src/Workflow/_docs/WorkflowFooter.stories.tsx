@@ -1,35 +1,15 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "~components/Button"
-import { ComponentDocsTemplate } from "~storybook/components/DocsContainer"
 import { Workflow } from "../"
 import { WorkflowControls } from "./controls"
 
 const meta = {
-  tags: ["autodocs"],
   title: "Pages/Workflow/Components/Footer",
   component: Workflow.Footer,
-  parameters: {
-    docs: {
-      sourceState: "shown",
-      container: ComponentDocsTemplate,
-    },
-    installation: [
-      "yarn add @kaizen/components",
-      "import { Workflow } from `@kaizen/components`",
-    ],
-    resourceLinks: {
-      sourceCode:
-        "https://github.com/cultureamp/kaizen-design-system/tree/main/packages/workflow/",
-      figma:
-        "https://www.figma.com/file/IJTy1JpS4Xyop5cQwroRje/%F0%9F%9B%A0%EF%B8%8F-Self-reflection%3A-Build-Handoff?node-id=188%3A62005&t=x4zyx07E2G3BmKGw-1",
-      designGuidelines:
-        "https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3064989884/Documentation",
-    },
-  },
   argTypes: {
-    nextAction: WorkflowControls.nextAction,
-    previousAction: WorkflowControls.previousAction,
+    ...WorkflowControls.nextAction,
+    ...WorkflowControls.previousAction,
   },
   args: {
     stepName: "Preview",

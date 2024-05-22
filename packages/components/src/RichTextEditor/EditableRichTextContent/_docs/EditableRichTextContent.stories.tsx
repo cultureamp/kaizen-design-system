@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import { Button } from "~components/Button"
 import {
   EditorContentArray,
@@ -15,9 +16,10 @@ const meta = {
   args: {
     content: dummyContent,
     labelText: "Editable rich text content",
+    onClick: fn(),
   },
   argTypes: {
-    content: { control: "disabled" },
+    content: { control: false },
     onClick: { action: "onClick" },
   },
 } satisfies Meta<typeof EditableRichTextContent>

@@ -47,7 +47,7 @@ const meta = {
     ),
   },
   argTypes: {
-    children: { control: "disable" },
+    children: { control: false },
   },
   decorators: [
     Story => (

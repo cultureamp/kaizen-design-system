@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import { render, screen, waitFor, within } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { DatePicker } from "./DatePicker"
 import { ValidationResponse } from "./types"
@@ -166,9 +166,8 @@ describe("<DatePicker /> - Focus element", () => {
         expect(screen.queryByRole("dialog")).toBeVisible()
       })
 
-      const dateToSelect = screen.getByRole("button", {
-        name: "6th March (Sunday)",
-      })
+      const month = screen.getByRole("grid", { name: "March 2022" })
+      const dateToSelect = within(month).getByRole("gridcell", { name: "6" })
       await user.click(dateToSelect)
 
       const input = screen.getByLabelText("Input label")
@@ -193,9 +192,8 @@ describe("<DatePicker /> - Focus element", () => {
         expect(screen.queryByRole("dialog")).toBeVisible()
       })
 
-      const selectedDate = screen.getByRole("button", {
-        name: "1st March (Tuesday)",
-      })
+      const month = screen.getByRole("grid", { name: "March 2022" })
+      const selectedDate = within(month).getByRole("gridcell", { name: "1" })
       expect(selectedDate).toHaveFocus()
     })
 
@@ -233,9 +231,8 @@ describe("<DatePicker /> - Focus element", () => {
         expect(screen.getByRole("dialog")).toBeVisible()
       })
 
-      const selectedDate = screen.getByRole("button", {
-        name: "1st March (Tuesday)",
-      })
+      const month = screen.getByRole("grid", { name: "March 2022" })
+      const selectedDate = within(month).getByRole("gridcell", { name: "1" })
       expect(selectedDate).toHaveFocus()
     })
 
@@ -278,9 +275,8 @@ describe("<DatePicker /> - Focus element", () => {
         expect(screen.getByRole("dialog")).toBeVisible()
       })
 
-      const selectedDate = screen.getByRole("button", {
-        name: "1st March (Tuesday)",
-      })
+      const month = screen.getByRole("grid", { name: "March 2022" })
+      const selectedDate = within(month).getByRole("gridcell", { name: "1" })
       expect(selectedDate).toHaveFocus()
     })
 
@@ -418,9 +414,9 @@ describe("<DatePicker /> - Validation", () => {
       await waitFor(() => {
         expect(screen.queryByRole("dialog")).toBeVisible()
       })
-      const dateToSelect = screen.getByRole("button", {
-        name: "6th March (Sunday)",
-      })
+
+      const month = screen.getByRole("grid", { name: "March 2022" })
+      const dateToSelect = within(month).getByRole("gridcell", { name: "6" })
       await user.click(dateToSelect)
       await waitFor(() => {
         expect(onValidate).toBeCalledTimes(1)

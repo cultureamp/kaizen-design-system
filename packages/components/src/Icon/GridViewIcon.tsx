@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const GridViewIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const GridViewIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M6.008 15.016v-4h-4v4h4Zm5.986 0v-4h-4v4h4Zm5.991 0v-4h-4v4h4ZM6.008 9V5h-4v4h4Zm5.986 0V5h-4v4h4Zm1.991 0h4V5h-4v4Z"
+          d="M6.008 15.016v-4h-4v4zm5.986 0v-4h-4v4zm5.991 0v-4h-4v4zM6.008 9V5h-4v4zm5.986 0V5h-4v4zm1.991 0h4V5h-4z"
         />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="evenodd" />

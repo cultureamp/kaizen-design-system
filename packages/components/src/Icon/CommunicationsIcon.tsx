@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const CommunicationsIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const CommunicationsIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M17.2 5.2h-1.6v7.2H5.2V14c0 .44.36.8.8.8h8.8L18 18V6c0-.44-.36-.8-.8-.8ZM14 10V2.8c0-.44-.36-.8-.8-.8H2.8c-.44 0-.8.36-.8.8V14l3.2-3.2h8c.44 0 .8-.36.8-.8Z"
+          d="M17.2 5.2h-1.6v7.2H5.2V14c0 .44.36.8.8.8h8.8L18 18V6c0-.44-.36-.8-.8-.8M14 10V2.8c0-.44-.36-.8-.8-.8H2.8c-.44 0-.8.36-.8.8V14l3.2-3.2h8c.44 0 .8-.36.8-.8"
         />
       </defs>
       <use fill="currentColor" href={`#${uniqueId}`} fillRule="nonzero" />

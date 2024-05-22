@@ -196,7 +196,7 @@ export const Error: Story = {
     illustration: <BrandMomentError {...illustrationProps} />,
     header: <FakeNavBar />,
     text: {
-      title: "Missing pages are one of life's mysteries",
+      title: "Page not found",
     },
     body: (
       <>

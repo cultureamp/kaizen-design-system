@@ -1,37 +1,39 @@
 import React, { useState } from "react"
-import { Decorator, Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react"
+import { fn } from "@storybook/test"
 import isChromatic from "chromatic"
 import { Text } from "~components/Text"
-import { ConfirmationModal, ConfirmationModalProps } from "../index"
+import { chromaticModalSettings } from "../../_docs/controls"
+import { ConfirmationModal } from "../index"
 
 const IS_CHROMATIC = isChromatic()
 
-// Add additional height to the stories when running in Chromatic only.
-// Modals have fixed position and would be cropped from snapshot tests.
-// Setting height to 100vh ensures we capture as much content of the
-// modal, as it's height responds to the content within it.
-const HeightDecorator: Decorator<ConfirmationModalProps> = Story => {
-  if (IS_CHROMATIC) {
-    return (
-      <div style={{ minHeight: "100vh" }}>
-        <Story />
-      </div>
-    )
-  }
-
-  return <Story />
-}
-
-const chromaticModalSettings = {
-  parameters: {
-    chromatic: {
-      disable: false,
-      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
-      pauseAnimationAtEnd: true,
+const meta = {
+  title: "Components/Modals/Confirmation Modal",
+  component: ConfirmationModal,
+  args: {
+    isOpen: false,
+    title: "Confirmation modal title",
+    mood: "cautionary",
+    children: (
+      <Text variant="body">
+        Confirmation modals contain smaller pieces of content and can provide
+        additional information to aide the user.
+      </Text>
+    ),
+    onConfirm: fn(),
+    onDismiss: fn(),
+  },
+  argTypes: {
+    children: {
+      control: false,
     },
   },
-  decorators: [HeightDecorator],
-}
+} satisfies Meta<typeof ConfirmationModal>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 const ConfirmationModalTemplate: Story = {
   render: args => {
@@ -60,31 +62,6 @@ const ConfirmationModalTemplate: Story = {
   },
   ...chromaticModalSettings,
 }
-
-const meta = {
-  title: "Components/Modals/Confirmation Modal",
-  component: ConfirmationModal,
-  args: {
-    isOpen: false,
-    title: "Confirmation modal title",
-    mood: "cautionary",
-    children: (
-      <Text variant="body">
-        Confirmation modals contain smaller pieces of content and can provide
-        additional information to aide the user.
-      </Text>
-    ),
-  },
-  argTypes: {
-    children: {
-      control: false,
-    },
-  },
-} satisfies Meta<typeof ConfirmationModal>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
 
 export const Playground: Story = {
   ...ConfirmationModalTemplate,

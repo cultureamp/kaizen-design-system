@@ -1,11 +1,11 @@
 import { ArgTypes, Canvas, Meta } from "@storybook/blocks"
 import { InlineNotification } from "~components/Notification"
-import { Installation, KaioNotification, ResourceLinks } from "~storybook/components"
+import { KAIOInstallation, ResourceLinks } from "~storybook/components"
 import * as Workflow from "./Workflow.stories"
 import * as WorkflowFooter from "./WorkflowFooter.stories"
 import * as WorkflowHeader from "./WorkflowHeader.stories"
 
-<Meta title="Pages/Workflow/Legacy" />
+<Meta of={Workflow} />
 
 # Workflow
 
@@ -14,18 +14,12 @@ import * as WorkflowHeader from "./WorkflowHeader.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
-
 <InlineNotification type="negative" persistent>
   {`This version of the Workflow is deprecated and will be removed in the next major release.
   Import from "@kaizen/components/future" for the latest version.`}
 </InlineNotification>
 
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { Workflow } from "@kaizen/components"'
-/>
-
+<KAIOInstallation exportNames="Workflow" />
 
 ## Overview
 

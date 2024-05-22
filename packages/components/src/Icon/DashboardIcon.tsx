@@ -2,7 +2,8 @@
 // Changes to this file will be overwritten
 
 import React, { useId } from "react"
-import { SVG, IconProps } from "~components/Icon/subcomponents/SVG"
+import { SVG } from "~components/Icon/subcomponents/SVG"
+import type { IconProps } from "~components/Icon/types"
 
 export const DashboardIcon = (props: IconProps): JSX.Element => {
   const uniqueId = useId()
@@ -11,7 +12,7 @@ export const DashboardIcon = (props: IconProps): JSX.Element => {
       <defs>
         <path
           id={uniqueId}
-          d="M10.889 7.333H18V2h-7.111v5.333ZM2 10.89h7.111V2H2v8.889ZM10.889 18H18V9.111h-7.111V18ZM2 18h7.111v-5.333H2V18Z"
+          d="M10.889 7.333H18V2h-7.111zM2 10.89h7.111V2H2zM10.889 18H18V9.111h-7.111zM2 18h7.111v-5.333H2z"
         />
       </defs>
       <use

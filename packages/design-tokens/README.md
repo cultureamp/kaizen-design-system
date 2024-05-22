@@ -23,7 +23,7 @@ These values are supplied by the ThemeManager.
 ## Installation
 
 ```sh
-yarn add @kaizen/design-tokens
+pnpm add @kaizen/design-tokens
 ```
 
 ## Usage

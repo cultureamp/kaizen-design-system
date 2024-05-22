@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from "@storybook/blocks"
-import { ResourceLinks, KaioNotification, Installation } from "~storybook/components"
+import { ResourceLinks, KAIOInstallation } from "~storybook/components"
 import * as MultiSelectStories from "./MultiSelect.stories"
 
 <Meta of={MultiSelectStories} />
@@ -12,12 +12,7 @@ import * as MultiSelectStories from "./MultiSelect.stories"
   className="!mb-8"
 />
 
-<KaioNotification />
-
-<Installation
-  installCommand="yarn add @kaizen/components"
-  importStatement='import { MultiSelect } from "@kaizen/components"'
-/>
+<KAIOInstallation exportNames="MultiSelect" />
 
 ## Overview
 

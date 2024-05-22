@@ -11,6 +11,10 @@
   margin-bottom: $spacing-sm;
 }
 
+.label {
+  margin-bottom: $spacing-4;
+}
+
 @media (min-width: $layout-breakpoints-medium) {
   .labelInline {
     &.wrapper {
