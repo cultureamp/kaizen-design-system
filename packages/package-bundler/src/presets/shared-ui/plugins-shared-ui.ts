@@ -1,11 +1,32 @@
-import fs from "fs"
-import { dirname } from "path"
-import { fileURLToPath } from "url"
 import postcss from "rollup-plugin-postcss"
 import { pluginsDefault } from "../default/index.js"
 
-const dir = dirname(fileURLToPath(import.meta.url))
-const styleInjectFn = fs.readFileSync(`${dir}/utils/styleInject.js`, "utf8")
+// We can't refer to another file as CI has trouble properly resolving
+// From https://github.com/egoist/style-inject
+const styleInjectFn = `
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+  if (typeof document === 'undefined') { return; }
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+`
 
 export const pluginsSharedUi = [
   ...pluginsDefault,
