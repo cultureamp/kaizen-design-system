@@ -147,3 +147,33 @@ export const IncreaseIndent: Story = {
     })
   },
 }
+
+export const CreateALink: Story = {
+  ...TestBase,
+  name: "Create a link",
+  play: async context => {
+    const { canvasElement, step } = context
+    const { getByRole, getByText } = within(canvasElement)
+    const editor = getByRole("textbox")
+    await step("Focus on editor", async () => {
+      await userEvent.click(editor)
+      expect(editor).toHaveFocus()
+    })
+
+    await step("Input text and select the first word", async () => {
+      await userEvent.keyboard("Link me")
+      await userEvent.pointer([
+        {
+          target: getByText("Link me"),
+          offset: 0,
+          keys: "[MouseLeft>]",
+        },
+        { offset: 4 },
+      ])
+    })
+
+    await step("click the link button", async () => {
+      await userEvent.click(getByRole("button", { name: "Link" }))
+    })
+  },
+}
