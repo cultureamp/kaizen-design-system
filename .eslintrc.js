@@ -343,5 +343,11 @@ module.exports = {
         "no-duplicate-imports": "off",
       },
     },
+    {
+      files: ["**/bin/**", "jest.setup.ts"],
+      rules: {
+        "no-console": "off",
+      },
+    },
   ],
 }

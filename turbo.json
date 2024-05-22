@@ -15,16 +15,14 @@
       "dependsOn": ["^build"],
       "inputs": ["dist/**"]
     },
-    "prepublishOnly": {
-      "dependsOn": ["^prepublishOnly"],
-      "inputs": ["packages/**"],
-      "outputs": ["dist/**"]
-    },
     "clean": {
       "cache": false
     },
     "@kaizen/components#build": {
-      "dependsOn": ["@kaizen/design-tokens#build"],
+      "dependsOn": [
+        "@kaizen/design-tokens#build",
+        "@kaizen/package-bundler#build"
+      ],
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
     },
@@ -39,6 +37,10 @@
     },
     "@kaizen/design-tokens#build": {
       "inputs": ["css/**", "less/**", "sass/**", "src/**", "tokens/**"],
+      "outputs": ["dist/**"]
+    },
+    "@kaizen/package-bundler#build": {
+      "inputs": ["bin/*", "src/**", "tsconfig*.json"],
       "outputs": ["dist/**"]
     }
   }

@@ -25,7 +25,7 @@
     "jest:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
     "lint": "pnpm lint:ts && pnpm lint:md && pnpm lint:format && pnpm lint:styles",
     "eslint-config": "pnpm eslint -c .eslintrc.js --max-warnings=0",
-    "lint:ts": "pnpm eslint-config '**/*.{ts,tsx}'",
+    "lint:ts": "pnpm eslint-config '**/*.{ts,tsx,mjs,js}'",
     "lint:md": "pnpm eslint-config '**/*.{md,mdx}'",
     "lint:format": "pnpm prettier --check '**/*'",
     "lint:styles": "pnpm stylelint '**/*.scss'",
@@ -35,8 +35,8 @@
     "changeset": "changeset",
     "plop": "plop",
     "pkg:aio": "pnpm -F @kaizen/components",
-    "ci:version": "pnpm turbo prepublishOnly && pnpm changeset version",
-    "ci:publish": "pnpm turbo prepublishOnly && pnpm changeset publish",
+    "ci:version": "pnpm turbo build && pnpm changeset version",
+    "ci:publish": "pnpm turbo build && pnpm changeset publish",
     "update-icons": "pnpm pkg:aio update-icons",
     "i18n:extract": "pnpm pkg:aio i18n:extract",
     "i18n:extract:remove-obsolete": "pnpm pkg:aio i18n:extract --deleteObsoleteTranslations"
@@ -132,8 +132,12 @@
     "stylelint-config-standard-scss": "^13.1.0",
     "tailwindcss": "^3.4.3",
     "ts-jest": "^29.1.2",
-    "turbo": "^1.13.3",
+    "ts-node": "^10.9.2",
+    "turbo": "^1.13.2",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0"
+  },
+  "devDependenciesComments": {
+    "ts-node": "Required for jest"
   }
 }
