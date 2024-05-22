@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc --build",
     "prepare": "ts-patch install -s",
-    "lint:ts": "tsc"
+    "lint:ts": "tsc --noEmit"
   },
   "files": [
     "dist",
