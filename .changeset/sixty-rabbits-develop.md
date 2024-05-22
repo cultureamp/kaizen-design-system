@@ -1,5 +1,5 @@
 ---
-@kaizen/components: patch
+"@kaizen/components": patch
 ---
 
 Update react-focus-lock dep
