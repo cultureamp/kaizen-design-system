@@ -29,7 +29,8 @@
     "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "prepublishOnly": "pnpm build:json && pnpm build:less && pnpm build:sass && pnpm build:ts"
   },
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.9",
