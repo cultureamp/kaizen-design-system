@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.47.2
+
+### Patch Changes
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update dependency react-day-picker to ^8.10.1
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update dependency @floating-ui/react-dom to ^2.0.9
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - Update react-focus-lock dep
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update dependency react-focus-on to ^3.9.3
+
+- [#4671](https://github.com/cultureamp/kaizen-design-system/pull/4671) [`ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4`](https://github.com/cultureamp/kaizen-design-system/commit/ddc9f3a15c4fc5f5c712f65cc4a458b16cb502f4) - update Prosemirror deps
+
 ## 1.47.1
 
 ### Patch Changes
