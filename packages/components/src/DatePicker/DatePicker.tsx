@@ -1,5 +1,4 @@
 import React, { RefObject, useEffect, useId, useRef, useState } from "react"
-import { UseFloatingOptions } from "@floating-ui/react-dom"
 import { DayClickEventHandler } from "react-day-picker"
 import { FocusOn } from "react-focus-on"
 import {
@@ -74,10 +73,6 @@ export type DatePickerProps = {
    * A descriptive message for the 'status' states.
    */
   validationMessage?: DateInputFieldProps["validationMessage"] | undefined
-  /**
-   * Configure the floatingUI options that controls the CalendarPopover
-   */
-  floatingOptions?: Partial<UseFloatingOptions>
 } & DisabledDayMatchers &
   Omit<DateInputFieldProps, OmittedDateInputFieldProps>
 
@@ -107,7 +102,6 @@ export const DatePicker = ({
   onButtonClick,
   onDayChange,
   onValidate,
-  floatingOptions,
   ...restDateInputFieldProps
 }: DatePickerProps): JSX.Element => {
   const reactId = useId()
@@ -311,10 +305,7 @@ export const DatePicker = ({
       </div>
 
       {isOpen && (
-        <CalendarPopover
-          referenceElement={containerRef.current}
-          floatingOptions={floatingOptions}
-        >
+        <CalendarPopover referenceElement={containerRef.current}>
           <CalendarSingle
             id={calendarId}
             selected={selectedDay}
