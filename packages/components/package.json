@@ -81,6 +81,7 @@
     "react-select": "^5.8.0",
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
+    "tslib": "^2.6.2",
     "use-debounce": "^10.0.0",
     "uuid": "^9.0.1"
   },
@@ -106,7 +107,6 @@
     "serialize-query-params": "^2.0.2",
     "svgo": "^3.3.2",
     "ts-jest": "^29.1.2",
-    "tslib": "^2.6.2",
     "tsx": "^4.10.2"
   },
   "devDependenciesComments": {
