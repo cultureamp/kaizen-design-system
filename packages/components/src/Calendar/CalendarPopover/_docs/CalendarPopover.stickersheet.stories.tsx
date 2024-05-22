@@ -13,7 +13,7 @@ import { CalendarPopover, CalendarPopoverProps } from "../index"
 export default {
   title: "Components/Date controls/Calendars/CalendarPopover",
   parameters: {
-    chromatic: { disable: false },
+    chromatic: { disable: false, delay: 2000 },
     controls: { disable: true },
     a11y: {
       config: {
@@ -32,25 +32,47 @@ export default {
 const CalendarPopoverExample = ({
   children,
   rowHeight = 300,
-}: Partial<CalendarPopoverProps & { rowHeight: number }>): JSX.Element => {
+  /** this is here as a convenient way to test overlap */
+  strategy = "fixed",
+}: Partial<
+  CalendarPopoverProps & {
+    rowHeight: number
+    /** this is here as a convenient way to test overlap */
+    strategy?: "absolute" | "fixed"
+  }
+>): JSX.Element => {
   const [referenceElement, setReferenceElement] =
     React.useState<HTMLDivElement | null>(null)
 
   return (
     <>
       <div
+        className="bg-orange-300 inline-block"
         ref={setReferenceElement}
-        style={{ paddingBottom: "24px", marginTop: `${rowHeight}px` }}
-      />
+        style={{ marginBottom: `${rowHeight}px` }}
+      >
+        Reference element
+      </div>
       <CalendarPopover
         referenceElement={referenceElement}
         floatingOptions={{
+          strategy,
           middleware: [
-            offset({
-              crossAxis: 24,
+            offset(15),
+            size({
+              apply({ availableHeight, availableWidth, elements }) {
+                Object.assign(elements.floating.style, {
+                  maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
+                  maxWidth: `${availableWidth}px`,
+                })
+              },
+            }),
+            autoPlacement({
+              // This needs to be here for testing purposes as the default behaviour
+              // will cause overlapping calendars in the table
+              allowedPlacements: ["bottom-start"],
             }),
           ],
-          placement: "top-start",
         }}
       >
         {children}
@@ -72,13 +94,13 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
 
         <StickerSheet.Row rowTitle="CalendarSingle">
-          <CalendarPopoverExample>
+          <CalendarPopoverExample rowHeight={350}>
             <CalendarSingle selected={new Date("2022-02-19")} />
           </CalendarPopoverExample>
         </StickerSheet.Row>
 
         <StickerSheet.Row rowTitle="CalendarRange">
-          <CalendarPopoverExample>
+          <CalendarPopoverExample rowHeight={350}>
             <CalendarRange
               selected={{
                 from: new Date("2022-02-19"),
@@ -89,7 +111,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
 
         <StickerSheet.Row rowTitle="CalendarRange with divider">
-          <CalendarPopoverExample>
+          <CalendarPopoverExample rowHeight={350}>
             <CalendarRange
               selected={{
                 from: new Date("2022-02-19"),
@@ -118,47 +140,6 @@ export const StickerSheetRTL: StickerSheetStory = {
   },
 }
 
-const ResponsivePopoverExample = ({
-  children,
-  ...otherProps
-}: Partial<CalendarPopoverProps>): JSX.Element => {
-  const [referenceElement, setReferenceElement] =
-    React.useState<HTMLDivElement | null>(null)
-
-  return (
-    <div className=" relative">
-      {/* This is the anchor */}
-      <div className="bg-orange-300 inline-flex" ref={setReferenceElement}>
-        Reference element
-      </div>
-      <CalendarPopover
-        referenceElement={referenceElement}
-        floatingOptions={{
-          strategy: "absolute",
-          placement: "bottom-start",
-          middleware: [
-            offset(15),
-            size({
-              apply({ availableHeight, availableWidth, elements }) {
-                Object.assign(elements.floating.style, {
-                  maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
-                  maxWidth: `${availableWidth}px`,
-                })
-              },
-            }),
-            autoPlacement({
-              allowedPlacements: ["bottom-start"],
-            }),
-          ],
-        }}
-        {...otherProps}
-      >
-        {children}
-      </CalendarPopover>
-    </div>
-  )
-}
-
 export const StickerSheetResponsive: StickerSheetStory = {
   name: "Sticker Sheet (Responsive)",
   render: () => (
@@ -166,16 +147,16 @@ export const StickerSheetResponsive: StickerSheetStory = {
       <Text variant="intro-lede" classNameOverride="mb-12 ">
         CalendarSingle scaled to availableHeight
       </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden">
-        <ResponsivePopoverExample>
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative">
+        <CalendarPopoverExample strategy="absolute">
           <CalendarSingle selected={new Date("2022-02-19")} />
-        </ResponsivePopoverExample>
+        </CalendarPopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 ">
         CalendarRange scaled to availableHeight
       </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden">
-        <ResponsivePopoverExample>
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative">
+        <CalendarPopoverExample strategy="absolute">
           <CalendarRange
             selected={{
               from: new Date("2022-02-19"),
@@ -183,21 +164,21 @@ export const StickerSheetResponsive: StickerSheetStory = {
             }}
             hasDivider
           />
-        </ResponsivePopoverExample>
+        </CalendarPopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
         CalendarSingle scaled to availableWidth
       </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden w-[250px]">
-        <ResponsivePopoverExample>
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative w-[250px]">
+        <CalendarPopoverExample strategy="absolute">
           <CalendarSingle selected={new Date("2022-03-19")} />
-        </ResponsivePopoverExample>
+        </CalendarPopoverExample>
       </div>
       <Text variant="intro-lede" classNameOverride="mb-12 mt-24">
         CalendarRanger scaled to availableWidth
       </Text>
-      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden w-[250px]">
-        <ResponsivePopoverExample>
+      <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative w-[250px]">
+        <CalendarPopoverExample strategy="absolute">
           <CalendarRange
             selected={{
               from: new Date("2022-02-19"),
@@ -205,7 +186,7 @@ export const StickerSheetResponsive: StickerSheetStory = {
             }}
             hasDivider
           />
-        </ResponsivePopoverExample>
+        </CalendarPopoverExample>
       </div>
     </>
   ),
