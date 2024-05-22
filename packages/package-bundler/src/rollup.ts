@@ -46,6 +46,7 @@ export const rollupConfig = (
       preserveModules: true,
       entryFileNames: "[name].cjs",
       interop: "auto",
+      exports: "named",
     },
   } satisfies RollupOptions
 
