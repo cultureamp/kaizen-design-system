@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "package-bundler": "./bin/build-commands.sh"
+    "package-bundler": "./bin/build-commands.sh",
+    "check-treeshake": "./dist/check-treeshake/cli.js"
   },
   "scripts": {
     "build": "rm -rf dist && tsc --build",
