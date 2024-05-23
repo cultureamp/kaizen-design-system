@@ -35,7 +35,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      # Disable testing tree-shaking as it gives a false positive for styleInject
-      # and we can't mark it as #__PURE__ because it causes build issues
-      # - run: pnpm build && pnpm test:treeshake
       - run: pnpm build
