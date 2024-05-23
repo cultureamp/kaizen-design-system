@@ -13,7 +13,9 @@ import { CalendarPopover, CalendarPopoverProps } from "../index"
 export default {
   title: "Components/Date controls/Calendars/CalendarPopover",
   parameters: {
-    chromatic: { disable: false, delay: 2000 },
+    chromatic: {
+      disable: false,
+    },
     controls: { disable: true },
     a11y: {
       config: {
@@ -25,6 +27,18 @@ export default {
           },
         ],
       },
+    },
+    viewport: {
+      viewports: {
+        ViewportFull: {
+          name: "Viewport full size",
+          styles: {
+            width: "1024px",
+            height: "1500px",
+          },
+        },
+      },
+      defaultViewport: "ViewportFull",
     },
   },
 } satisfies Meta
@@ -113,6 +127,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <StickerSheet.Row rowTitle="CalendarRange with divider">
           <CalendarPopoverExample rowHeight={350}>
             <CalendarRange
+              data-testid="sb-final-calendar"
               selected={{
                 from: new Date("2022-02-19"),
                 to: new Date("2022-03-04"),
@@ -180,6 +195,7 @@ export const StickerSheetResponsive: StickerSheetStory = {
       <div className="h-[250px] p-12 bg-purple-100 overflow-hidden relative w-[250px]">
         <CalendarPopoverExample strategy="absolute">
           <CalendarRange
+            data-testid="sb-final-calendar"
             selected={{
               from: new Date("2022-02-19"),
               to: new Date("2022-03-04"),
