@@ -146,7 +146,12 @@ export const DateRangePicker = ({
   return (
     <div>
       <div ref={containerRef} className={classNameOverride}>
-        <Label disabled={isDisabled} htmlFor={id} labelText={labelText} />
+        <Label
+          id={`${id}-input-label`}
+          disabled={isDisabled}
+          htmlFor={id}
+          labelText={labelText}
+        />
         <button
           type="button"
           id={id}
@@ -178,7 +183,10 @@ export const DateRangePicker = ({
           onEscapeKey={handleOpenClose}
           enabled={isOpen}
         >
-          <CalendarPopover referenceElement={containerRef.current}>
+          <CalendarPopover
+            referenceElement={containerRef.current}
+            aria-labelledby={`${id}-input-label`}
+          >
             <LegacyCalendarRange
               selectedRange={selectedDateRange}
               defaultMonth={defaultMonth}

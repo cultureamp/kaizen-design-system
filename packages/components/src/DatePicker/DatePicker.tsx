@@ -305,7 +305,10 @@ export const DatePicker = ({
       </div>
 
       {isOpen && (
-        <CalendarPopover referenceElement={containerRef.current}>
+        <CalendarPopover
+          referenceElement={containerRef.current}
+          aria-labelledby={`${id}-input-label`}
+        >
           <CalendarSingle
             id={calendarId}
             selected={selectedDay}
