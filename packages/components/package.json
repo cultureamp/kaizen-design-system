@@ -31,7 +31,6 @@
     "clean": "rm -rf dist",
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
-    "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "update-icons": "./src/Icon/bin/update-icons.sh",
     "i18n:extract": "pnpm i18n-extract"
   },
@@ -97,7 +96,6 @@
     "@types/react-dom": "^18.3.0",
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^9.0.8",
-    "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.19",
     "query-string": "^9.0.0",
     "react-intl": "^6.6.8",

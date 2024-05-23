@@ -72,7 +72,6 @@ Command | Summary
 `pnpm plop` | Add a new component/subcomponent
 `pnpm test` | Run all [Jest](https://jestjs.io/) tests
 `pnpm test:storybook` | Run tests on all Storybook stories
-`pnpm test:treeshake` | Build the packages and test if they are tree-shakeable
 `pnpm reset` | Reinstall all dependencies
 
 ## Bugs and discussions
