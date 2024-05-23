@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { action } from "@storybook/addon-actions"
 import { Meta, StoryObj } from "@storybook/react"
+import { userEvent, within, expect } from "@storybook/test"
 import Highlight from "react-highlight"
 import { Button } from "~components/Button"
 import { defaultMonthControls } from "~components/Calendar/_docs/controls/defaultMonthControls"
@@ -267,12 +268,64 @@ export const LimitedWindowWidth: Story = {
       defaultViewport: "ViewportAt400",
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+  },
+}
+
+export const AboveIfAvailable: Story = {
+  name: "Limited viewport autoplacement above",
+  args: {
+    labelText: "Calendar with space above",
+  },
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportAutoPlace: {
+          name: "Limited vertical space",
+          styles: {
+            width: "1024px",
+            height: "500px",
+          },
+        },
+      },
+      defaultViewport: "LimitedViewportAutoPlace",
+    },
+  },
+  decorators: [
+    Story => (
+      <div className="mt-[350px]">
+        <Story />
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
+  },
 }
 
 export const LimitedViewportHeight: Story = {
   name: "Limited viewport height",
   args: {
     labelText: "Calendar with reduced space below",
+  },
+  parameters: {
+    viewport: {
+      viewports: {
+        LimitedViewportHeight: {
+          name: "Limited vertical space",
+          styles: {
+            width: "1024px",
+            height: "300px",
+          },
+        },
+      },
+      defaultViewport: "LimitedViewportHeight",
+    },
   },
   decorators: [
     Story => (
@@ -281,8 +334,10 @@ export const LimitedViewportHeight: Story = {
       </div>
     ),
   ],
-  parameters: {
-    chromatic: { disable: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
   },
 }
 
@@ -298,24 +353,9 @@ export const FullViewportHeight: Story = {
       </div>
     ),
   ],
-  parameters: {
-    chromatic: { disable: true },
-  },
-}
-
-export const AboveIfAvailable: Story = {
-  name: "Full viewport height",
-  args: {
-    labelText: "Calendar with space above",
-  },
-  decorators: [
-    Story => (
-      <div className="mt-[350px]">
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    chromatic: { disable: true },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.click(canvas.getByRole("button", { name: "Choose date" }))
+    await expect(canvas.getByRole("dialog")).toBeInTheDocument()
   },
 }
