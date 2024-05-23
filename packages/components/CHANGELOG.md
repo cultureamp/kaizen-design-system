@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.47.3
+
+### Patch Changes
+
+- [#4705](https://github.com/cultureamp/kaizen-design-system/pull/4705) [`c8e6004e0b252a65e07badffa05e255a98b87be8`](https://github.com/cultureamp/kaizen-design-system/commit/c8e6004e0b252a65e07badffa05e255a98b87be8) - Fix style injection by removing PURE comment.
+
+  Builds in Storybook and Next fail when the comment exists.
+
 ## 1.47.2
 
 ### Patch Changes
