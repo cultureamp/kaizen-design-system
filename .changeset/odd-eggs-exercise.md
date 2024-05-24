@@ -2,4 +2,4 @@
 "@kaizen/components": patch
 ---
 
-Migrate CalanderPopover and DatePicker to floatingUI
+Migrate DatePicker and DateRangePicker to floatingUI
