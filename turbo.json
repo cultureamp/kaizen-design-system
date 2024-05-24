@@ -9,6 +9,7 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
+    "lint:ts": {},
     "test": {},
     "test:ci": {},
     "clean": {

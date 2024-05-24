@@ -10,7 +10,10 @@
     "noImplicitReturns": true,
     "strict": true,
     "allowJs": false,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "~storybook/*": ["../../storybook/*"],
+    },
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "**/*.spec.ts"]
