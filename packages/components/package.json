@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "1.47.2",
+  "version": "1.47.3",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -31,7 +31,6 @@
     "clean": "rm -rf dist",
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
-    "test:treeshake": "agadoo ./dist/esm/index.mjs",
     "update-icons": "./src/Icon/bin/update-icons.sh",
     "i18n:extract": "pnpm i18n-extract"
   },
@@ -88,7 +87,6 @@
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-pure-annotations": "^7.24.1",
     "@cultureamp/frontend-apis": "^9.5.0",
     "@cultureamp/i18n-react-intl": "^2.5.6",
     "@kaizen/design-tokens": "workspace:*",
@@ -97,7 +95,6 @@
     "@types/react-dom": "^18.3.0",
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^9.0.8",
-    "agadoo": "^3.0.0",
     "autoprefixer": "^10.4.19",
     "query-string": "^9.0.0",
     "react-intl": "^6.6.8",

@@ -36,12 +36,6 @@ inject_tailwind_imports() {
     echo -e "${GREEN}------${NC}"
 }
 
-apply_pure_to_style_inject() {
-    echo -e "${GREEN}Purify style inject for treeshaking...${NC}"
-    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/applyPureToStyleInject.js --packagePath="$PWD"
-    echo -e "${GREEN}------${NC}"
-}
-
 ui_post_build() {
     echo -e "${GREEN}Post build...${NC}"
     npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/postBuild.js --packagePath="$PWD"
@@ -70,7 +64,6 @@ case "$1" in
         add_ui_build_tools
         build
         inject_tailwind_imports
-        apply_pure_to_style_inject
         ui_post_build
         elapsed_time
         ;;

@@ -11,10 +11,6 @@
     },
     "test": {},
     "test:ci": {},
-    "test:treeshake": {
-      "dependsOn": ["^build"],
-      "inputs": ["dist/**"]
-    },
     "clean": {
       "cache": false
     },
@@ -25,10 +21,6 @@
       ],
       "inputs": ["src/**", "rollup.config.mjs", "tsconfig*.json"],
       "outputs": ["dist/**"]
-    },
-    "@kaizen/components#test:treeshake": {
-      "dependsOn": ["@kaizen/components#build"],
-      "inputs": ["dist/**"]
     },
     "@kaizen/tailwind#build": {
       "dependsOn": ["@kaizen/design-tokens#build"],
