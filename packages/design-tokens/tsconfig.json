@@ -14,7 +14,7 @@
     "paths": {
       "~storybook/*": ["../../storybook/*"],
       "~types/*": ["../components/src/types/*"],
-      "~components/*": ["../components/src/*"],
+      "~components/*": ["../components/src/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
