@@ -9,7 +9,9 @@
       "inputs": ["packages/**"],
       "outputs": ["dist/**"]
     },
-    "lint:ts": {},
+    "lint:ts": {
+      "cache": false
+    },
     "test": {},
     "test:ci": {},
     "clean": {
