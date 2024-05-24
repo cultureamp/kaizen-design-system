@@ -49,7 +49,7 @@ pnpm add -D postcss postcss-preset-env rollup tslib
 ### Required files
 
 - `postcss.config.js`
-- `rollup.config.(mjs|ts)`
+- `rollup.config.mjs`
 - `tsconfig.json`
 - `tsconfig.dist.json`
 - `tsconfig.types.json`
@@ -84,7 +84,7 @@ module.exports = {
 
 ### Rollup
 
-In `rollup.config.(mjs|ts)`:
+In `rollup.config.mjs`:
 ```ts
 import { pluginsSharedUi, rollupConfig } from "@kaizen/package-bundler";
 
@@ -182,7 +182,7 @@ Example:
 ```
 
 ```ts
-// rollup.config.(mjs|ts)
+// rollup.config.mjs
 export default rollupConfig({
   alias: {
     entries: [
