@@ -12,7 +12,9 @@
     "allowJs": false,
     "noEmit": true,
     "paths": {
-      "~storybook/*": ["../../storybook/*"]
+      "~storybook/*": ["../../storybook/*"],
+      "~types/*": ["../components/src/types/*"],
+      "~components/*": ["../components/src/*"],
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
