@@ -1,14 +1,20 @@
 import React, { HTMLAttributes, useState } from "react"
-import { Options } from "@popperjs/core"
+import {
+  autoUpdate,
+  offset,
+  useFloating,
+  UseFloatingOptions,
+  size,
+  autoPlacement,
+} from "@floating-ui/react-dom"
 import classnames from "classnames"
-import { usePopper } from "react-popper"
 import { OverrideClassName } from "~types/OverrideClassName"
 import styles from "./CalendarPopover.module.scss"
 
 export type CalendarPopoverProps = {
   children: React.ReactNode
   referenceElement: HTMLElement | null
-  popperOptions?: Partial<Options>
+  floatingOptions?: Partial<UseFloatingOptions>
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 /**
@@ -18,37 +24,45 @@ export type CalendarPopoverProps = {
 export const CalendarPopover = ({
   children,
   referenceElement,
-  popperOptions,
+  floatingOptions,
   classNameOverride,
   ...restProps
 }: CalendarPopoverProps): JSX.Element => {
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+  const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>(
     null
   )
 
-  const { styles: popperStyles, attributes: popperAttributes } = usePopper(
-    referenceElement,
-    popperElement,
-    {
-      modifiers: [
-        {
-          name: "offset",
-          options: {
-            offset: [0, 15],
-          },
+  const { floatingStyles } = useFloating({
+    placement: "bottom-start",
+    elements: {
+      reference: referenceElement,
+      floating: floatingElement,
+    },
+    strategy: "fixed",
+    middleware: [
+      size({
+        apply({ availableHeight, availableWidth, elements }) {
+          Object.assign(elements.floating.style, {
+            // 155 is enough of a minimum to cut off half of the second row of dates.
+            // This indicates to users that there is more content that is scrollable
+            maxHeight: `${Math.max(availableHeight - 25, 155)}px`,
+            maxWidth: `${availableWidth}px`,
+          })
         },
-      ],
-      placement: "bottom-start",
-      strategy: "fixed",
-      ...popperOptions,
-    }
-  )
+      }),
+      offset(15),
+      autoPlacement({
+        allowedPlacements: ["bottom-start", "bottom", "top-start", "top"],
+      }),
+    ],
+    whileElementsMounted: autoUpdate,
+    ...floatingOptions,
+  })
 
   return (
     <div
-      ref={setPopperElement}
-      style={popperStyles?.popper}
-      {...popperAttributes?.popper}
+      ref={setFloatingElement}
+      style={floatingStyles}
       className={classnames(styles.calendarPopover, classNameOverride)}
       role="dialog"
       aria-modal="true"
