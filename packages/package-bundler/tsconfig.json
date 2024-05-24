@@ -12,7 +12,7 @@
     "allowJs": false,
     "outDir": "dist",
     "declaration": true,
-    "target": "ESNext",
+    "target": "ESNext"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

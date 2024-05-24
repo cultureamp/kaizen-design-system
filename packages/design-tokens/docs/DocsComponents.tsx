@@ -4,7 +4,14 @@ import React from "react"
 import { Unstyled } from "@storybook/blocks"
 import { toCustomMediaQueriesArray } from "object-to-css-variables"
 import Highlight from "react-highlight"
-import { Card, Tab, TabList, TabPanel, TabPanels, Tabs } from "../../components"
+import {
+  Card,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from "../../components/src"
 import { tokens } from "../src/js"
 import { makeCssVariableDefinitionsMap } from "../src/lib/makeCssVariableDefinitionsMap"
 import animationSass from "!!raw-loader!../sass/animation.scss"

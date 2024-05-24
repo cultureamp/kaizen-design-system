@@ -12,8 +12,8 @@
     "allowJs": false,
     "noEmit": true,
     "paths": {
-      "~storybook/*": ["../../storybook/*"],
-    },
+      "~storybook/*": ["../../storybook/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "**/*.spec.ts"]
