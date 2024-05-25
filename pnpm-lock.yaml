@@ -36,8 +36,8 @@ importers:
         specifier: ^0.15.0
         version: 0.15.0
       tocbot:
-        specifier: ^4.27.20
-        version: 4.27.20
+        specifier: ^4.28.2
+        version: 4.28.2
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.3
@@ -5560,7 +5560,7 @@ packages:
       react-colorful: 5.6.1(react-dom@18.3.1)(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
       telejson: 7.2.0
-      tocbot: 4.27.20
+      tocbot: 4.28.2
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
     transitivePeerDependencies:
@@ -19038,8 +19038,8 @@ packages:
     dependencies:
       is-number: 7.0.0
 
-  /tocbot@4.27.20:
-    resolution: {integrity: sha512-6M78FT20+FA5edtx7KowLvhG3gbZ6GRcEkL/0b2TcPbn6Ba+1ayI3SEVxe25zjkWGs0jd04InImaO81Hd8Hukw==}
+  /tocbot@4.28.2:
+    resolution: {integrity: sha512-/MaSa9xI6mIo84IxqqliSCtPlH0oy7sLcY9s26qPMyH/2CxtZ2vNAXYlIdEQ7kjAkCQnc0rbLygf//F5c663oQ==}
 
   /toidentifier@1.0.1:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
