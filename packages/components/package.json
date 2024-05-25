@@ -88,7 +88,7 @@
   },
   "devDependencies": {
     "@cultureamp/frontend-apis": "^9.5.0",
-    "@cultureamp/i18n-react-intl": "^2.5.6",
+    "@cultureamp/i18n-react-intl": "^2.5.7",
     "@kaizen/design-tokens": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
     "@types/lodash.debounce": "^4.0.9",
@@ -112,7 +112,7 @@
     "postcss-preset-env": "Installed in root"
   },
   "peerDependencies": {
-    "@cultureamp/i18n-react-intl": "^2.5.6",
+    "@cultureamp/i18n-react-intl": "^2.5.7",
     "react": "^18.3.1",
     "react-intl": "^6.6.8"
   }
