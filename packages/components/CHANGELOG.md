@@ -1,5 +1,19 @@
 # Change Log
 
+## 1.47.4
+
+### Patch Changes
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update `react-aria` dependencies
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - update dependency @floating-ui/react-dom to ^2.1.0
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update dependency `use-debounce`
+
+- [#4683](https://github.com/cultureamp/kaizen-design-system/pull/4683) [`871ac443f985998c359e2237a86c5d925a27ba91`](https://github.com/cultureamp/kaizen-design-system/commit/871ac443f985998c359e2237a86c5d925a27ba91) - Migrate DatePicker and DateRangePicker to floatingUI
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update dependency `@internationalized/date`
+
 ## 1.47.3
 
 ### Patch Changes
