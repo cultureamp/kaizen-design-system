@@ -59,11 +59,6 @@ const StickerSheetTemplate: StickerSheetStory = {
               <Checkbox
                 {...defaultProps}
                 checkedStatus={checkedStatus}
-                data-sb-pseudo-styles="active"
-              />
-              <Checkbox
-                {...defaultProps}
-                checkedStatus={checkedStatus}
                 data-sb-pseudo-styles="focus"
               />
               <Checkbox
