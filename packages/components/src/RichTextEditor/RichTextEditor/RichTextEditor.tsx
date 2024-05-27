@@ -159,8 +159,13 @@ export const RichTextEditor = ({
 
   return (
     <>
-      {!labelledBy && labelText && <Label id={labelId} labelText={labelText} />}
-      {/* TODO: add a bit of margin here once we have a classNameOverride on Label */}
+      {!labelledBy && labelText && (
+        <Label
+          classNameOverride={styles.editorLabel}
+          id={labelId}
+          labelText={labelText}
+        />
+      )}
       <div className={classnames(styles.editorWrapper, styles[status])}>
         {controls && (
           <Toolbar
