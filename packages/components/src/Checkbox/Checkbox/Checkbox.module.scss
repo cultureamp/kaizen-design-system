@@ -18,6 +18,10 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   margin: 0;
 }
 
+.checkbox:disabled {
+  pointer-events: none;
+}
+
 .icon {
   height: $checkbox-size;
   width: $checkbox-size;
@@ -49,6 +53,10 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
   background-color: white;
   border-color: $dt-color-form-border-color;
 
+  .checkbox:hover + & {
+    border-color: $dt-color-form-border-color-hover;
+  }
+
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
     background: $dt-color-checkbox-background-color-checked;
@@ -66,12 +74,8 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
     border-color: $dt-color-form-border-color-hover;
   }
 
-  .checkbox:not([disabled]):hover + & {
-    border-color: $dt-color-form-border-color-hover;
-  }
-
-  .checkbox:checked:not([disabled]):hover + &,
-  .checkbox:indeterminate:not([disabled]):hover + & {
+  .checkbox:checked:hover + &,
+  .checkbox:indeterminate:hover + & {
     background: $dt-color-form-border-color-hover;
     border-color: $dt-color-form-border-color-hover;
   }
@@ -108,12 +112,8 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
     background: rgba($color-white-rgb, 0.65);
   }
 
+  .checkbox:not([checked]):hover + &,
   .checkbox:not([checked]):focus + & {
-    border-color: $color-white;
-    background: rgba($color-white-rgb, 0.1);
-  }
-
-  .checkbox:not([checked], [disabled]):hover + & {
     border-color: $color-white;
     background: rgba($color-white-rgb, 0.1);
   }
@@ -124,8 +124,8 @@ $dt-color-checkbox-background-color-checked: $color-gray-500;
     border-color: $color-white;
   }
 
-  .checkbox:indeterminate:not([disabled]):hover + &,
-  .checkbox:checked:not([disabled]):hover + & {
+  .checkbox:indeterminate:hover + &,
+  .checkbox:checked:hover + & {
     background: $color-white;
     border-color: $color-white;
   }
