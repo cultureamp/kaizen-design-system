@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es2019", "dom"],
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "jsx": "react",
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -22,6 +22,6 @@
     "types": ["@testing-library/jest-dom"]
   },
   "files": ["./types.d.ts"],
-  "include": ["packages/**/*", "storybook/**/*", "docs/**/*.tsx"],
+  "include": ["storybook/**/*", "docs/**/*.tsx"],
   "exclude": ["**/node_modules"]
 }
