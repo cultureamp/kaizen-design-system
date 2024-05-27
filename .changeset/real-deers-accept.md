@@ -10,5 +10,5 @@ Refactored styles of the following components to satisfy linting:
 - Checkbox
 - ExpertAdviceCollapsible
 - Label
-- RichTextEditor & ToggleIconButton
+- ToggleIconButton (RTE subcomponent)
 - TimeSegment
