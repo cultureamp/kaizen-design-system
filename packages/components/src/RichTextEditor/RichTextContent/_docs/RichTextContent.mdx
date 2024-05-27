@@ -15,7 +15,7 @@ import * as RichTextContentStories from "./RichTextContent.stories"
 
 ## Overview
 
-To render your rich text content data structure to use read-only text.
+To render your rich text content data structure as read-only text.
 
 <Canvas of={RichTextContentStories.Playground} />
 <Controls of={RichTextContentStories.Playground} />
@@ -23,6 +23,9 @@ To render your rich text content data structure to use read-only text.
 
 ## Usage
 
-Below is guidance on how to render the read-only state of the RichTextEditor.
+A common use case of `RichTextContent` is to display user generated output in a read-only state.
 
 <Canvas of={RichTextContentStories.ReadOnly} />
+
+This should not be used toggling between active and inactive states, such as editing and saving content. Instead we recommend using the [EditableRichTextContent](/docs/components-richtexteditor-editablerichtextcontent--docs) pattern, which more clearly indicates interactivity to the user.
+
