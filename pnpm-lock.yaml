@@ -289,7 +289,7 @@ importers:
   packages/components:
     dependencies:
       '@floating-ui/react-dom':
-        specifier: ^2.0.9
+        specifier: ^2.1.0
         version: 2.1.0(react-dom@16.14.0)(react@18.3.1)
       '@headlessui/react':
         specifier: <=1.5.0
@@ -3285,12 +3285,6 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
-  /@floating-ui/core@1.5.2:
-    resolution: {integrity: sha512-Ii3MrfY/GAIN3OhXNzpCKaLxHQfJF9qvwq/kEJYdqDxeIHa01K8sldugal6TmeeXl+WMvhv9cnVzUTaFFJF09A==}
-    dependencies:
-      '@floating-ui/utils': 0.1.6
-    dev: false
-
   /@floating-ui/core@1.6.0:
     resolution: {integrity: sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==}
     dependencies:
@@ -3300,7 +3294,7 @@ packages:
   /@floating-ui/dom@1.5.3:
     resolution: {integrity: sha512-ClAbQnEqJAKCJOEbbLo5IUlZHkNszqhuxS4fHAVxRPXPya6Ysf2G8KypnYcOTpx6I8xcgF9bbHb6g/2KpbV8qA==}
     dependencies:
-      '@floating-ui/core': 1.5.2
+      '@floating-ui/core': 1.6.0
       '@floating-ui/utils': 0.1.6
     dev: false
 
