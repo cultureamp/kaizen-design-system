@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.4.1
+
+### Patch Changes
+
+- [#4719](https://github.com/cultureamp/kaizen-design-system/pull/4719) [`ced88e55a0ef483e63eb93525a4212bd97af68ff`](https://github.com/cultureamp/kaizen-design-system/commit/ced88e55a0ef483e63eb93525a4212bd97af68ff) - Update dep `tsx`
+
 ## 10.4.0
 
 ### Minor Changes
