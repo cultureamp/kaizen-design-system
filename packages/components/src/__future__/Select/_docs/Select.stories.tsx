@@ -190,3 +190,26 @@ export const PortalContainer: Story = {
   },
   parameters: { docs: { source: { type: "code" } } },
 }
+
+export const ResponsiveJank: Story = {
+  render: args => {
+    const portalContainerId = "id--portal-container"
+    return (
+      <>
+        <div className="flex flex-col  gap-24 bg-gray-200 p-12  h-[1500px] relative">
+          <div className="mb-[1200px]">Top</div>
+          <div className="bg-purple-100 relative" id={portalContainerId}>
+            <Select
+              {...args}
+              label="Default"
+              id="id--select-default"
+              portalContainerId={portalContainerId}
+            />
+          </div>
+          <div className="mt-[1200px]">Below</div>
+        </div>
+      </>
+    )
+  },
+  parameters: { docs: { source: { type: "code" } } },
+}
