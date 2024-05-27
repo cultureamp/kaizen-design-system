@@ -26,18 +26,6 @@ $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
       }
     }
 
-    &.firstChild {
-      @extend %firstChildBorders;
-
-      &:focus-visible {
-        &::after {
-          @extend %firstChildBorders;
-
-          inset-inline-end: $focus-ring-offset-inner;
-        }
-      }
-    }
-
     &:not(.firstChild) {
       border-inline-start: 1px solid $color-blue-300;
     }
@@ -46,6 +34,18 @@ $focus-ring-offset-inner: calc(-1 * #{$focus-ring-offset});
       &:focus-visible {
         &::after {
           inset-inline: $focus-ring-offset-inner $focus-ring-offset-inner;
+        }
+      }
+    }
+
+    &.firstChild {
+      @extend %firstChildBorders;
+
+      &:focus-visible {
+        &::after {
+          @extend %firstChildBorders;
+
+          inset-inline-end: $focus-ring-offset-inner;
         }
       }
     }
