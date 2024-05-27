@@ -8,6 +8,7 @@ Refactored styles of the following components to satisfy linting:
 - AvatarGroup
 - ButtonGroup
 - Checkbox
+- CheckboxField
 - ExpertAdviceCollapsible
 - Label
 - ToggleIconButton (RTE subcomponent)

@@ -3,12 +3,6 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "../../../styles/utils/form-variables";
 
-// -----------------------------------------------
-// Checkbox Field
-// -----------------------------------------------
-///////////////////////////////////////////////////
-// LAYOUT
-///////////////////////////////////////////////////
 .container {
   position: relative;
   margin-bottom: $spacing-xs;
@@ -42,5 +36,11 @@
       font-weight: $typography-paragraph-bold-font-weight;
       position: static;
     }
+  }
+}
+
+.label {
+  &:disabled {
+    pointer-events: none;
   }
 }
