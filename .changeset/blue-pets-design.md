@@ -2,4 +2,4 @@
 "@kaizen/components": patch
 ---
 
-Update EditableRichTextContent border and interaction styles
+Update EditableRichTextContent & RichTextEditor border, label spacing and interaction styles
