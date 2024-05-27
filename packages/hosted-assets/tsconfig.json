@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "commonjs",
+    "jsx": "react",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
@@ -10,10 +10,8 @@
     "noImplicitReturns": true,
     "strict": true,
     "allowJs": false,
-    "outDir": "dist",
-    "declaration": true,
-    "target": "ESNext"
+    "noEmit": true
   },
-  "include": ["src/**/*"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
