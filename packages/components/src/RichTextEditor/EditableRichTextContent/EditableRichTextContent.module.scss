@@ -27,8 +27,8 @@
 .editableContainer .hiddenButton:focus-within + * > :global(.ProseMirror) {
   &::before {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
-    pointer-events: none;
 
+    pointer-events: none;
     content: "";
     position: absolute;
     background: transparent;

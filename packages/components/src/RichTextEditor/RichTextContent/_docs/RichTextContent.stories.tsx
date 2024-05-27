@@ -1,4 +1,6 @@
+import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
+import { Label } from "~components/Label"
 import { RichTextContent } from "../index"
 import dummyContent from "./dummyContent.json"
 
@@ -21,4 +23,23 @@ export const Playground: Story = {
   parameters: {
     chromatic: { disable: false },
   },
+}
+
+export const ReadOnly: Story = {
+  parameters: {
+    chromatic: { disable: false },
+  },
+  render: args => (
+    <>
+      <Label classNameOverride="block mb-6" id="sb--rich-text-content-label">
+        Read only state
+      </Label>
+      <div className="p-12 bg-gray-200 rounded-default">
+        <RichTextContent
+          aria-labelledby="sb--rich-text-content-label"
+          {...args}
+        />
+      </div>
+    </>
+  ),
 }
