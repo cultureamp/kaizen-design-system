@@ -8,14 +8,14 @@ import {
   RichTextEditorProps,
 } from "../../index"
 import { EditableRichTextContent } from "../index"
-import dummyContent from "./dummyContent.json"
+import defaultContent from "./defaultContent.json"
 
 const meta = {
   title: "Components/RichTextEditor/EditableRichTextContent",
   component: EditableRichTextContent,
   args: {
-    content: dummyContent,
-    labelText: "Editable rich text content",
+    content: [],
+    labelText: "Label",
     onClick: fn(),
   },
   argTypes: {
@@ -32,7 +32,7 @@ const EditableRichTextContentTemplate: Story = {
   render: props => {
     const [editMode, setEditMode] = useState<boolean>(false)
     const [readRteData, setReadRTEData] = useState<EditorContentArray>(
-      props.content || dummyContent
+      props.content
     )
     const [editRteData, setEditRTEData] = useState<EditorContentArray>([])
 
@@ -80,6 +80,9 @@ const EditableRichTextContentTemplate: Story = {
         labelText={props.labelText}
       />
     )
+  },
+  args: {
+    content: defaultContent,
   },
 }
 
