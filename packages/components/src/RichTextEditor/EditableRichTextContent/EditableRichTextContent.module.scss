@@ -2,6 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
 
 .editorLabel {
   margin-bottom: $spacing-6;
@@ -9,15 +10,15 @@
 }
 
 .editableContainer :global(.ProseMirror) {
-  padding: $spacing-12;
+  padding: calc($spacing-12 - $border-solid-border-width);
   position: relative;
   border-radius: $border-solid-border-radius;
-  border: $border-focus-ring-border-width $border-focus-ring-border-style
-    $color-gray-500;
+  border: $border-solid-border-width $border-solid-border-style $color-gray-500;
   transition:
     background-color $animation-duration-immediate,
     border-color $animation-duration-immediate;
   background-color: $color-white;
+  min-height: $typography-paragraph-body-line-height;
 }
 
 .editableContainer:hover :global(.ProseMirror) {
@@ -25,6 +26,8 @@
 }
 
 .editableContainer .hiddenButton:focus-within + * > :global(.ProseMirror) {
+  background-color: $color-gray-200;
+
   &::before {
     $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 

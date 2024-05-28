@@ -16,7 +16,7 @@
     border-color $animation-duration-immediate;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     border-color: $color-gray-600;
     background: $color-gray-200;
   }
