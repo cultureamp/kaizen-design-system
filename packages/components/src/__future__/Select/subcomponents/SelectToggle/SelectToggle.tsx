@@ -13,6 +13,9 @@ export type SelectToggleProps = {
   /** Props for the element representing the selected value. */
   valueProps: DOMAttributes<FocusableElement>
   isOpen?: boolean
+  /**
+   * @deprecated For accessibility reasons, placeholders are deprecated
+   */
   placeholder?: string
   /** Updates the styling of the validation. */
   status?: "error" | "caution"
