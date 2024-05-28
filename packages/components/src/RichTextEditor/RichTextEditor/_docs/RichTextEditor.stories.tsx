@@ -84,6 +84,29 @@ export const Controls: Story = {
   },
 }
 
+export const ControlsWithoutBold: Story = {
+  args: {
+    controls: [
+      { name: "italic", group: "inline" },
+      { name: "underline", group: "inline" },
+      { name: "orderedList", group: "list" },
+      { name: "bulletList", group: "list" },
+      { name: "link", group: "link" },
+    ],
+    defaultValue: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "This user text cannot be bolded",
+          },
+        ],
+      },
+    ],
+  },
+}
+
 export const DefaultValue: Story = {
   args: {
     defaultValue: [
