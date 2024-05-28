@@ -12,14 +12,7 @@ $label-start-margin: $spacing-xs;
   color: $dt-color-form-text-color;
   visibility: visible;
   width: 100%;
-  text-align: left; // fallback for IE and Edge
   text-align: start;
-
-  &[dir="rtl"],
-  [dir="rtl"] & {
-    text-align: right; // fallback for IE and Edge
-    text-align: start;
-  }
 }
 
 .reversed {
@@ -87,25 +80,11 @@ $label-start-margin: $spacing-xs;
   // apply padding when label is inline with form control
   .prependedLabel {
     order: -1; // place label before the control
-    margin-right: $label-start-margin;
-    margin-left: 0;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      margin-right: 0;
-      margin-left: $label-start-margin;
-    }
+    margin-inline-end: $label-start-margin;
   }
 
   .appendedLabel {
-    margin-right: 0;
-    margin-left: $label-start-margin;
-
-    &[dir="rtl"],
-    [dir="rtl"] & {
-      margin-right: $label-start-margin;
-      margin-left: 0;
-    }
+    margin-inline-start: $label-start-margin;
   }
 }
 

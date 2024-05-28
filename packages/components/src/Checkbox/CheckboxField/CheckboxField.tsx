@@ -51,6 +51,7 @@ export const CheckboxField = ({
         reversed={reversed}
         labelType="checkbox"
         disabled={disabled}
+        classNameOverride={styles.label}
       >
         <Checkbox
           id={`${id}-field-checkbox`}
