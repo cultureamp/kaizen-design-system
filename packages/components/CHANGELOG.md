@@ -1,5 +1,44 @@
 # Change Log
 
+## 1.47.6
+
+### Patch Changes
+
+- [#4717](https://github.com/cultureamp/kaizen-design-system/pull/4717) [`66728604c40cfae29e049989aa5251f71a9bd161`](https://github.com/cultureamp/kaizen-design-system/commit/66728604c40cfae29e049989aa5251f71a9bd161) - Updated dependency `stylelint`.
+
+  Refactored styles of the following components to satisfy linting:
+
+  - AvatarGroup
+  - ButtonGroup
+  - Checkbox
+  - CheckboxField
+  - ExpertAdviceCollapsible
+  - Label
+  - ToggleIconButton (RTE subcomponent)
+  - TimeSegment
+
+## 1.47.5
+
+### Patch Changes
+
+- [#4719](https://github.com/cultureamp/kaizen-design-system/pull/4719) [`ced88e55a0ef483e63eb93525a4212bd97af68ff`](https://github.com/cultureamp/kaizen-design-system/commit/ced88e55a0ef483e63eb93525a4212bd97af68ff) - Update dep `tsx`
+
+- [#4724](https://github.com/cultureamp/kaizen-design-system/pull/4724) [`253dd28c271844fbc89027cd0f678ffcafe69021`](https://github.com/cultureamp/kaizen-design-system/commit/253dd28c271844fbc89027cd0f678ffcafe69021) - Fix FilterMultiselect not opening the Menu when accessing it with a keyboard after it had previously being opened.
+
+## 1.47.4
+
+### Patch Changes
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update `react-aria` dependencies
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - update dependency @floating-ui/react-dom to ^2.1.0
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update dependency `use-debounce`
+
+- [#4683](https://github.com/cultureamp/kaizen-design-system/pull/4683) [`871ac443f985998c359e2237a86c5d925a27ba91`](https://github.com/cultureamp/kaizen-design-system/commit/871ac443f985998c359e2237a86c5d925a27ba91) - Migrate DatePicker and DateRangePicker to floatingUI
+
+- [#4709](https://github.com/cultureamp/kaizen-design-system/pull/4709) [`18cf2df4684317750440356d5cc3f2383f8fd148`](https://github.com/cultureamp/kaizen-design-system/commit/18cf2df4684317750440356d5cc3f2383f8fd148) - Update dependency `@internationalized/date`
+
 ## 1.47.3
 
 ### Patch Changes

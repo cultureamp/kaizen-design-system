@@ -8,20 +8,17 @@
   box-shadow: none;
   color: $color-purple-800;
 
-  > div {
-    &:first-of-type {
-      background-color: $color-purple-100;
-      border-radius: $border-borderless-border-radius;
-
-      &:hover {
-        background-color: $color-purple-100;
-      }
-    }
+  &:hover {
+    border-color: $color-purple-500;
   }
 }
 
-.expertAdviceContainer:hover {
-  border-color: $color-purple-500;
+// Override Collapsible header
+.expertAdviceContainer > div {
+  &:first-of-type {
+    background-color: $color-purple-100;
+    border-radius: $border-borderless-border-radius;
+  }
 }
 
 .expertAdviceHeader {

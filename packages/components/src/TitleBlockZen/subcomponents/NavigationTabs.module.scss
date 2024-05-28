@@ -104,7 +104,7 @@
         $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
-      inset: 0 $focus-ring-offset $active-tab-marker-height $focus-ring-offset;
+      inset: 0 $focus-ring-offset $active-tab-marker-height;
 
       @include title-block-medium-and-small {
         border-radius: $border-focus-ring-border-radius
