@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.47.6
+
+### Patch Changes
+
+- [#4717](https://github.com/cultureamp/kaizen-design-system/pull/4717) [`66728604c40cfae29e049989aa5251f71a9bd161`](https://github.com/cultureamp/kaizen-design-system/commit/66728604c40cfae29e049989aa5251f71a9bd161) - Updated dependency `stylelint`.
+
+  Refactored styles of the following components to satisfy linting:
+
+  - AvatarGroup
+  - ButtonGroup
+  - Checkbox
+  - CheckboxField
+  - ExpertAdviceCollapsible
+  - Label
+  - ToggleIconButton (RTE subcomponent)
+  - TimeSegment
+
 ## 1.47.5
 
 ### Patch Changes
