@@ -71,6 +71,10 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
    * Creates a portal for the Popover to the matching element id
    */
   portalContainerId?: string
+  /**
+   * @deprecated For accessibility reasons, placeholders are deprecated
+   */
+  placeholder?: string
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
 
 /**
