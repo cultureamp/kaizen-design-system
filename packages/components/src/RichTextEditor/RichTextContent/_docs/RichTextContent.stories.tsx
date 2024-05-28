@@ -1,6 +1,6 @@
 import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import { Label } from "~components/Label"
+import { Text } from "~components/Text"
 import { RichTextContent } from "../index"
 import dummyContent from "./dummyContent.json"
 
@@ -8,7 +8,17 @@ const meta = {
   title: "Components/RichTextEditor/RichTextContent",
   component: RichTextContent,
   args: {
-    content: dummyContent,
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "User text goes here",
+          },
+        ],
+      },
+    ],
   },
   argTypes: {
     content: { control: false },
@@ -29,16 +39,19 @@ export const ReadOnly: Story = {
   parameters: {
     chromatic: { disable: false },
   },
+
   render: args => (
     <>
-      <Label classNameOverride="block mb-6" id="sb--rich-text-content-label">
+      {/* Note that since RichTextContent is not content editable, it is essentially just a div. This is why we haven't used the Label component */}
+      <Text
+        variant="small"
+        tag="div"
+        classNameOverride="block mb-6 leading-paragraph font-weight-heading"
+      >
         Read only state
-      </Label>
+      </Text>
       <div className="p-12 bg-gray-200 rounded-default">
-        <RichTextContent
-          aria-labelledby="sb--rich-text-content-label"
-          {...args}
-        />
+        <RichTextContent {...args} />
       </div>
     </>
   ),
