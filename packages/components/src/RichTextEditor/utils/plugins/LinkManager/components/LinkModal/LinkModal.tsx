@@ -46,7 +46,6 @@ export const LinkModal = ({
       onDismiss={onDismiss}
       onAfterLeave={onAfterLeave}
       onAfterEnter={() => inputRef.current?.focus()}
-      data-testid="modal-test"
     >
       <TextField
         id="href"
