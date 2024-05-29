@@ -32,11 +32,11 @@ A text area with additional capabilities for users to format the input text.
 
 <Canvas of={RichTextEditorStories.Controls} />
 
-As the schema is defined by the `controls` passed to it, removing an item will remove its functionality from the `RichTextEditor`.
+As the schema is defined by the `controls`, removing an item will remove its functionality from the `RichTextEditor`.
 
 <Canvas of={RichTextEditorStories.ControlsWithoutBold} />
 
-Whereas with all controls, the Kaizen `RichTextEditor` can create and render formatted text, lists, and links.
+With all controls, the Kaizen `RichTextEditor` can create and render formatted text, lists, and links.
 
 <Canvas of={RichTextEditorStories.AllAvailableContent} />
 
@@ -47,7 +47,9 @@ The `defaultValue` is the initial content of the `RichTextEditor`. It accepts an
 
 <Canvas of={RichTextEditorStories.DefaultValue} />
 
-As mentioned in the previous section, the data passed to the `defaultValue` must be able to map to the `controls` provided, i.e: if your `defaultValue` contains bolded text, you must pass bold into your `controls`.
+As mentioned in the previous section, the data (`EditorContentArray`) that is passed to the `defaultValue` must be able to map to the `controls` provided.
+
+For example: if your `defaultValue` contains bolded text, you must pass bold into your `controls`.
 
 ```
 <RichTextEditor
@@ -66,11 +68,11 @@ When content is passed to the `defaultValue` that does not match to the `RichTex
 
 <Canvas of={RichTextEditorStories.MalformedContent} />
 
-This will also throw if you have passed in an `EditorContentArray` that does match to the components `controls`.
+This will also throw if you have passed in an `EditorContentArray` that contains data that cannot map to the `controls` provided to the component.
 
 <Canvas of={RichTextEditorStories.IncorrectDataForControls}/>
 
-The `dataError` React Node and `onDataError` callback also allows you to handle these edge cases, while the entire page from breaking.
+The `dataError` React Node and `onDataError` callback also allows you to handle these edge cases without breaking the page.
 
 ### Rows
 
