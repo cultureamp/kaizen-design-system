@@ -2,7 +2,6 @@ import React from "react"
 import { Meta, StoryObj } from "@storybook/react"
 import { Text } from "~components/Text"
 import { RichTextContent } from "../index"
-import dummyContent from "./dummyContent.json"
 
 const meta = {
   title: "Components/RichTextEditor/RichTextContent",
@@ -39,7 +38,19 @@ export const ReadOnly: Story = {
   parameters: {
     chromatic: { disable: false },
   },
-
+  args: {
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            type: "text",
+            text: "User text goes here",
+          },
+        ],
+      },
+    ],
+  },
   render: args => (
     <>
       {/* Note that since RichTextContent is not content editable, it is essentially just a div. This is why we haven't used the Label component */}

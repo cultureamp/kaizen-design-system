@@ -4,8 +4,47 @@
     "content": [
       {
         "type": "text",
+        "text": "User text goes here"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      {
+        "type": "text",
         "marks": [{ "type": "strong" }],
-        "text": "Some notes I'd like to share in bold text:"
+        "text": "bold"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      {
+        "type": "text",
+        "marks": [{ "type": "em" }],
+        "text": "underline"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "content": [
+      {
+        "type": "text",
+        "text": "link",
+        "marks": [
+          {
+            "type": "link",
+            "attrs": {
+              "href": "https://cultureamp.design",
+              "_metadata": null,
+              "target": "_blank",
+              "rel": "noreferrer"
+            }
+          }
+        ]
       }
     ]
   },
@@ -18,22 +57,7 @@
           {
             "type": "paragraph",
             "content": [
-              { "type": "text", "text": "Note 1 " },
-              {
-                "type": "text",
-                "marks": [
-                  {
-                    "type": "link",
-                    "attrs": {
-                      "href": "https://cultureamp.design",
-                      "_metadata": null,
-                      "target": "_blank",
-                      "rel": "noreferrer"
-                    }
-                  }
-                ],
-                "text": "with link"
-              }
+              { "type": "text", "text": "Bullet list" }
             ]
           },
           {
@@ -74,27 +98,12 @@
           {
             "type": "paragraph",
             "content": [
-              { "type": "text", "text": "Another really " },
-              {
-                "type": "text",
-                "marks": [{ "type": "underline" }],
-                "text": "important note"
-              },
-              { "type": "text", "text": " " },
-              {
-                "type": "text",
-                "marks": [{ "type": "em" }],
-                "text": "(that I'd like to emphasise)"
-              }
+              { "type": "text", "text": "List item" }
             ]
           }
         ]
       }
     ]
-  },
-  {
-    "type": "paragraph",
-    "content": [{ "type": "text", "text": "Additionally:" }]
   },
   {
     "type": "orderedList",
@@ -105,7 +114,7 @@
         "content": [
           {
             "type": "paragraph",
-            "content": [{ "type": "text", "text": "Point one" }]
+            "content": [{ "type": "text", "text": "Numbered list" }]
           },
           {
             "type": "orderedList",
@@ -149,7 +158,7 @@
         "content": [
           {
             "type": "paragraph",
-            "content": [{ "type": "text", "text": "Point two" }]
+            "content": [{ "type": "text", "text": "List item" }]
           }
         ]
       }
