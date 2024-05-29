@@ -23,15 +23,15 @@
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
   "sideEffects": [
-    "styles.css",
-    "tailwind.css.*"
+    "styles.css"
   ],
   "scripts": {
     "clean": "rm -rf dist",
     "lint:ts": "tsc --noEmit",
-    "build": "pnpm package-bundler build-shared-ui && pnpm build:global-styles",
+    "build": "pnpm package-bundler build-shared-ui && pnpm build:styles",
+    "build:global-styles": "postcss ./styles/global.css --output dist/global.css",
     "build:combine-styles": "concat-cli -f ./dist/global.css ./dist/styles.css -o ./dist/styles.css && rm ./dist/global.css",
-    "build:global-styles": "postcss ./styles/global.css --output dist/global.css && pnpm build:combine-styles",
+    "build:styles": "pnpm build:global-styles && pnpm build:combine-styles",
     "test": "FORCE_COLOR=1 jest",
     "test:ci": "pnpm test -- --ci",
     "update-icons": "./src/Icon/bin/update-icons.sh",
@@ -93,8 +93,8 @@
     "@cultureamp/frontend-apis": "^9.5.0",
     "@cultureamp/i18n-react-intl": "^2.5.7",
     "@kaizen/design-tokens": "workspace:*",
-    "@kaizen/tailwind": "workspace:*",
     "@kaizen/package-bundler": "workspace:*",
+    "@kaizen/tailwind": "workspace:*",
     "@types/lodash.debounce": "^4.0.9",
     "@types/react-dom": "^18.3.0",
     "@types/react-textfit": "^1.1.4",

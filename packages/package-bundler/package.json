@@ -30,6 +30,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "babel-plugin-pure-static-props": "^0.2.0",
+    "concat-cli": "^4.0.0",
     "rollup-plugin-ignore": "^1.0.10",
     "rollup-plugin-node-externals": "^7.1.2",
     "rollup-plugin-postcss": "^4.0.2",

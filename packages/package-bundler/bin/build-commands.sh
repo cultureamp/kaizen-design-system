@@ -24,16 +24,9 @@ compile_types() {
     echo -e "${GREEN}------${NC}"
 }
 
-# inject_tailwind_imports() {
-#     echo -e "${GREEN}Running Tailwind Styles Import command..."
-#     npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/injectTailwindImports.js --packagePath="$PWD"
-#     echo -e "${GREEN}------${NC}"
-# }
-
 consolidate_styles() {
     echo -e "${GREEN}Consolidate styles...${NC}"
-    mv ./dist/esm/styles.css ./dist/styles.css
-    rm ./dist/cjs/styles.css
+    npm explore @kaizen/package-bundler -- node ./dist/presets/shared-ui/bin/consolidateStyles.js --packagePath="$PWD"
     echo -e "${GREEN}------${NC}"
 }
 
@@ -42,6 +35,7 @@ elapsed_time() {
 }
 
 build() {
+    clean
     bundle
     compile_types
 }
@@ -49,16 +43,12 @@ build() {
 case "$1" in
     build)
         echo "Running build command..."
-        clean
         build
         elapsed_time
         ;;
     build-shared-ui)
         echo "Running build-shared-ui command..."
-        clean
-        add_ui_build_tools
         build
-        # inject_tailwind_imports
         consolidate_styles
         elapsed_time
         ;;
