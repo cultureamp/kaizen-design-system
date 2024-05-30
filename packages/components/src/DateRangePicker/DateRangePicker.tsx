@@ -15,6 +15,7 @@ import {
 } from "~components/Calendar/LegacyCalendarRange"
 import { DateStartIcon } from "~components/Icon"
 import { Label } from "~components/Label"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import styles from "./DateRangePicker.module.scss"
 
 export type DateRangePickerProps = {
@@ -185,8 +186,11 @@ export const DateRangePicker = ({
         >
           <CalendarPopover
             referenceElement={containerRef.current}
-            aria-labelledby={`${id}-input-label`}
+            aria-labelledby={`${id}-calendar-label ${id}-input-label`}
           >
+            <VisuallyHidden id={`${id}-calendar-label`}>
+              Choose dates for:
+            </VisuallyHidden>
             <LegacyCalendarRange
               selectedRange={selectedDateRange}
               defaultMonth={defaultMonth}

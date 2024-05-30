@@ -16,6 +16,7 @@ import {
   setFocusInCalendar,
 } from "~components/Calendar"
 import { CalendarPopover } from "~components/Calendar/CalendarPopover"
+import { VisuallyHidden } from "~components/VisuallyHidden"
 import {
   DateInputField,
   DateInputFieldProps,
@@ -307,18 +308,23 @@ export const DatePicker = ({
       {isOpen && (
         <CalendarPopover
           referenceElement={containerRef.current}
-          aria-labelledby={`${id}-input-label`}
+          aria-labelledby={`${id}-calendar-label ${id}-input-label`}
         >
-          <CalendarSingle
-            id={calendarId}
-            selected={selectedDay}
-            defaultMonth={defaultMonth}
-            weekStartsOn={weekStartsOn}
-            disabled={disabledDays}
-            locale={locale}
-            onDayClick={handleCalendarDayChange}
-            onMount={handleCalendarMount}
-          />
+          <>
+            <VisuallyHidden id={`${id}-calendar-label`}>
+              Choose date for:
+            </VisuallyHidden>
+            <CalendarSingle
+              id={calendarId}
+              selected={selectedDay}
+              defaultMonth={defaultMonth}
+              weekStartsOn={weekStartsOn}
+              disabled={disabledDays}
+              locale={locale}
+              onDayClick={handleCalendarDayChange}
+              onMount={handleCalendarMount}
+            />
+          </>
         </CalendarPopover>
       )}
     </FocusOn>
