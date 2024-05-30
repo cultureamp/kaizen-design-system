@@ -42,11 +42,11 @@ export const Inline: Story = {
         <input
           className="ms-6 border border-gray-500"
           type="text"
-          id="id--field-2"
+          id="id--field-1"
         />
       </FieldGroup>
       <FieldGroup inline>
-        <Label htmlFor="id--field-1">Username</Label>
+        <Label htmlFor="id--field-2">Username</Label>
         <input
           className="ms-6 border border-gray-500"
           type="text"
@@ -65,11 +65,11 @@ export const Default: Story = {
         <input
           className="ms-6 border border-gray-500"
           type="text"
-          id="id--field-2"
+          id="id--field-1"
         />
       </FieldGroup>
       <FieldGroup>
-        <Label htmlFor="id--field-1">Username</Label>
+        <Label htmlFor="id--field-2">Username</Label>
         <input
           className="ms-6 border border-gray-500"
           type="text"
