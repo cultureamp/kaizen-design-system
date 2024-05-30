@@ -96,7 +96,7 @@ export const Select = <Option extends SelectOption = SelectOption>({
   classNameOverride,
   selectedKey,
   description,
-  placeholder,
+  placeholder = "",
   isDisabled,
   portalContainerId,
   ...restProps
