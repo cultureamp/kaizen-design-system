@@ -7,11 +7,6 @@ export type SearchInputProps = {
   label?: string
   id?: string
   isLoading?: boolean
-  /**
-   * @deprecated Use of placeholder text goes against our a11y standards.
-   * Use the `label` prop to provide a concise name
-   */
-  placeholder?: string
 }
 
 export const SearchInput = ({
@@ -36,6 +31,7 @@ export const SearchInput = ({
         id={inputId}
         aria-label={label ?? "Filter options by search query"}
         secondary
+        placeholder="Search…"
         value={searchQuery}
         onChange={handleChange}
         onClear={handleClear}
