@@ -189,7 +189,7 @@ export const DateRangePicker = ({
             aria-labelledby={`${id}-calendar-label ${id}-input-label`}
           >
             <VisuallyHidden id={`${id}-calendar-label`}>
-              Choose dates for:
+              Select dates from calendar for:
             </VisuallyHidden>
             <LegacyCalendarRange
               selectedRange={selectedDateRange}

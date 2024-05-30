@@ -312,7 +312,7 @@ export const DatePicker = ({
         >
           <>
             <VisuallyHidden id={`${id}-calendar-label`}>
-              Choose date for:
+              Select date from calendar for:
             </VisuallyHidden>
             <CalendarSingle
               id={calendarId}
