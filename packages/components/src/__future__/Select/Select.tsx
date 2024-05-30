@@ -72,7 +72,8 @@ export type SelectProps<Option extends SelectOption = SelectOption> = {
    */
   portalContainerId?: string
   /**
-   * @deprecated For accessibility reasons, placeholders are deprecated
+   * @deprecated Use of placeholder text goes against our a11y standards.
+   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
    */
   placeholder?: string
 } & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
