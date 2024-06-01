@@ -79,7 +79,7 @@
     "@types/color-string": "^1.5.5",
     "@types/jest": "^29.5.12",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.13.0",
     "@types/postcss-flexbugs-fixes": "^5.0.3",
     "@types/postcss-import": "^14.0.3",
     "@types/react": "^18.3.3",
