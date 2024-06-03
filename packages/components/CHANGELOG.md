@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.48.0
+
+### Minor Changes
+
+- [#4728](https://github.com/cultureamp/kaizen-design-system/pull/4728) [`d1ae4eb748b2f8a2ebd76aae10efb694632575c2`](https://github.com/cultureamp/kaizen-design-system/commit/d1ae4eb748b2f8a2ebd76aae10efb694632575c2) - Remove style injection
+
 ## 1.47.6
 
 ### Patch Changes
