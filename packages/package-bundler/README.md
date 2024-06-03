@@ -10,9 +10,9 @@ pnpm add -D @kaizen/package-bundler
 
 ## build-shared-ui
 
-For shared UI packages, CSS modules and/or Tailwind will be included in the dist along side the components JS.
+For shared UI packages. CSS modules and/or Tailwind will be included in the dist in a single stylesheet (`{PACKAGE_NAME}/dist/styles.css`) to be imported by the consumer.
 
-_Note: styles are injected into the JS of components, so there's no need for consumers to manually import CSS files, it all comes with the component._
+_Note: If your package extends another shared UI package, you will need to list the other package as a peerDependency and have the end consumer import both stylesheets._
 
 ### `package.json`
 
@@ -25,7 +25,7 @@ Add the following to your `package.json`:
   "dist"
 ],
 "sideEffects": [
-  "tailwind.css.*" // If using Tailwind
+  "styles.css"
 ],
 "scripts": {
   "build": "pnpm package-bundler build-shared-ui",
@@ -151,13 +151,6 @@ If you are creating a UI library to share with others, ensure you set a unique p
 module.exports = {
   prefix: "{uniquePrefix}-"
 }
-```
-
-You will also need to add the compiled Tailwind stylesheet to `sideEffects` in your `package.json` to ensure it is not tree-shaken:
-```json
-"sideEffects": [
-  "tailwind.css.*"
-]
 ```
 
 ### Alias
