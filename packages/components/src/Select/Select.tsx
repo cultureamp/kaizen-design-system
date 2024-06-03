@@ -35,6 +35,11 @@ export type SelectProps = {
    * @default false
    */
   fullWidth?: boolean
+  /**
+   * @deprecated Use of placeholder text goes against our a11y standards.
+   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
+   */
+  placeholder?: string
 } & ReactSelectProps<any, boolean>
 
 /**
@@ -53,6 +58,7 @@ export const Select = React.forwardRef<any, SelectProps>(
       fullWidth: propsFullWidth,
       className: propsClassName,
       isDisabled,
+      placeholder,
       ...props
     },
     ref
@@ -92,6 +98,7 @@ export const Select = React.forwardRef<any, SelectProps>(
           {...props}
           ref={ref}
           aria-labelledby={labelId}
+          placeholder={placeholder || ""}
           components={{
             Control,
             Placeholder,
@@ -126,12 +133,13 @@ interface AsyncProps
 
 export const AsyncSelect = React.forwardRef(
   (
-    { className: propsClassName, ...props }: AsyncProps,
+    { className: propsClassName, placeholder, ...props }: AsyncProps,
     ref: React.Ref<any>
   ) => (
     <Async
       {...props}
       ref={ref}
+      placeholder={placeholder || ""}
       components={{
         Control,
         Placeholder,
