@@ -473,7 +473,7 @@ importers:
         specifier: ^4.18.0
         version: 4.18.0
       sass:
-        specifier: ^1.77.2
+        specifier: ^1.77.4
         version: 1.77.4
       serialize-query-params:
         specifier: ^2.0.2
