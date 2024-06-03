@@ -42,24 +42,16 @@ Whether or not you are already familiar with Tailwind, you'll want to take a loo
 For the convenience of your app, we've compiled all the necessary styles for our components into a single stylesheet to make it easy to set and forget.
 
 This includes:
+- CSS variables (design tokens)
 - [Normalize.css](https://github.com/necolas/normalize.css)
+- Font assets
 - reset.css
 - Component styles
 
-You can import this stylesheet in either CSS or JS as long as it sits as the first and only of its kind.
+Add this stylesheet at the top of your global styles imports of your app.
 
-### CSS
-We've especially accounted for Tailwind, so if you opt for CSS, it is recommended you include it at the top of your `tailwind.css`
-```css
-// tailwind.css
-@import "@kaizen/components/dist/styles.css";
+Note: If you are using Storybook, you will also need to add it in your `preview.ts`.
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-### JS
 ```js
 import "@kaizen/components/dist/styles.css"
 import "tailwind.css"
