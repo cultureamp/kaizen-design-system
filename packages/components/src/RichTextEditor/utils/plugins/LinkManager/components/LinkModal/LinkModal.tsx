@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { InputEditModal } from "~components/Modal"
 import { TextField } from "~components/TextField"
 import { ValidationResponse, validateLink } from "../../validation"
+import styles from "./LinkModal.module.scss"
 
 type LinkModalProps = {
   onSubmit: (href: string) => void
@@ -51,8 +52,15 @@ export const LinkModal = ({
         type="text"
         defaultValue={href ?? ""}
         labelText="Link URL"
+        description="Must start with http:// or https://"
         inputRef={inputRef}
-        validationMessage={validationStatus.message}
+        validationMessage={
+          validationStatus?.message && (
+            <div className={styles.validationErrorMessage}>
+              {validationStatus.message}
+            </div>
+          )
+        }
         status={validationStatus.status}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setHref(e.target.value)
