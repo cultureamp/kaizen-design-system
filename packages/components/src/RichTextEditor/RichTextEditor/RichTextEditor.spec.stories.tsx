@@ -147,3 +147,51 @@ export const IncreaseIndent: Story = {
     })
   },
 }
+
+export const CreateALink: Story = {
+  ...TestBase,
+  name: "Create a link",
+  play: async context => {
+    const { canvasElement, step } = context
+    const { getByRole, getByText } = within(canvasElement)
+    const editor = getByRole("textbox")
+    await step("Focus on editor", async () => {
+      await userEvent.click(editor)
+      expect(editor).toHaveFocus()
+    })
+
+    await step("Input text and select the first word", async () => {
+      await userEvent.keyboard("Link me")
+      await userEvent.pointer([
+        {
+          target: getByText("Link me"),
+          offset: 0,
+          keys: "[MouseLeft>]",
+        },
+        { offset: 4 },
+      ])
+    })
+
+    await step("click the link button", async () => {
+      await userEvent.click(getByRole("button", { name: "Link" }))
+    })
+
+    // wait for the transition to end and focus to shift
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    await step("Enter text", async () => {
+      await userEvent.keyboard("https://www.google.com")
+    })
+
+    await new Promise(resolve => setTimeout(resolve, 500))
+
+    await step("Tab and save", async () => {
+      await userEvent.keyboard("{Tab}{Enter}")
+    })
+
+    await step("Link exists in the RTE", async () => {
+      const link = getByRole("link", { name: "Link" })
+      expect(link).toBeInTheDocument()
+    })
+  },
+}

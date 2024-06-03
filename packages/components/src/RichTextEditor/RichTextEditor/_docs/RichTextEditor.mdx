@@ -1,5 +1,7 @@
 import { Canvas, Controls, DocsStory, Meta } from "@storybook/blocks"
 import { ResourceLinks, KAIOInstallation } from "~storybook/components"
+import * as EditableRichTextContentStories from "../../EditableRichTextContent/_docs/EditableRichTextContent.stories"
+import * as RichTextContentStories from "../../RichTextContent/_docs/RichTextContent.stories"
 import * as RichTextEditorStories from "./RichTextEditor.stories"
 
 <Meta of={RichTextEditorStories} />
@@ -24,21 +26,78 @@ A text area with additional capabilities for users to format the input text.
 
 ## API
 
-<DocsStory of={RichTextEditorStories.Controls} />
+### Controls
 
-### Default Value
-Note: In order to provide the RichTextEditor with a default value that contains rich text you must also apply the corresponding controls.
-eg. if your default text contains Bold text, you must add the Bold control
+`controls` accepts an array of `ToolbarItems` that are used to create the `RichTextEditor` schema and build out its core functionality. It also offers the ability to group the items in the toolbar.
+
+<Canvas of={RichTextEditorStories.Controls} />
+
+As the schema is defined by the `controls`, removing an item will remove its functionality from the `RichTextEditor`.
+
+<Canvas of={RichTextEditorStories.ControlsWithoutBold} />
+
+With all controls, the Kaizen `RichTextEditor` can create and render formatted text, lists, and links.
+
+<Canvas of={RichTextEditorStories.AllAvailableContent} />
+
+
+### The EditorContentArray and defaultValue
+
+The `defaultValue` is the initial content of the `RichTextEditor`. It accepts an array of objects in the [ProseMirror's rich text format](https://cultureamp.atlassian.net/wiki/spaces/TV/pages/3380543671/ProseMirror+rich+formatted+text+data+format).
 
 <Canvas of={RichTextEditorStories.DefaultValue} />
 
-#### Malformed Content
-If your default value does not conform correctly, the RTE will throw an error.
+As mentioned in the previous section, the data (`EditorContentArray`) that is passed to the `defaultValue` must be able to map to the `controls` provided.
+
+For example: if your `defaultValue` contains bolded text, you must pass bold into your `controls`.
+
+```
+<RichTextEditor
+  labelText="Rich text"
+  defaultValue={rteData}
+  onChange={handleOnChange}
+  controls: [
+    { name: "bold", group: "inline" },
+    {/* other controls */}
+  ]
+/>
+```
+
+### Data errors and onDataError
+When content is passed to the `defaultValue` that does not match to the `RichTextEditor`'s [schema](https://github.com/cultureamp/kaizen-design-system/blob/main/packages/components/src/RichTextEditor/RichTextEditor/schema.ts), the component will throw and render a generic error.
 
 <Canvas of={RichTextEditorStories.MalformedContent} />
 
-<DocsStory of={RichTextEditorStories.Rows} />
+This will also throw if you have passed in an `EditorContentArray` that contains data that cannot map to the `controls` provided to the component.
+
+<Canvas of={RichTextEditorStories.IncorrectDataForControls}/>
+
+The `dataError` React Node and `onDataError` callback also allows you to handle these edge cases without breaking the page.
+
+### Rows
+
+Sets the minimum height for the editable area of the RichTextEditor.
+
+<Canvas of={RichTextEditorStories.Rows} />
 
 <DocsStory of={RichTextEditorStories.Description} />
 
 <DocsStory of={RichTextEditorStories.Validation} />
+
+
+### Inactive states and read-only text
+
+In addition to the `RichTextEditor`, there are two additional Kaizen components that support rendering data in the RTE format.
+
+#### EditableRichTextContent
+
+For rendering editable content that can toggle between an active and inactive state we recommend the [EditableRichTextContent](/docs/components-richtexteditor-editablerichtextcontent--docs).
+
+<Canvas of={EditableRichTextContentStories.UsageExample} />
+
+#### RichTextContent
+
+For rendering content as read-only text we recommend using the [RichTextContent](/docs/components-richtexteditor-richtextcontent--docs).
+
+<Canvas of={RichTextContentStories.Playground} />
+
